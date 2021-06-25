@@ -6,4 +6,5 @@ type Icon struct {
 	FigmaID string
 	Size    int
 	Hash    string
+	// TODO: Add json struct types
 }
