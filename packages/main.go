@@ -27,9 +27,8 @@ func main() {
 
 	// Fill an array with all the icons from our Figma doc
 	icons := figma.FindIconsInDoc()
-	count := 0
 
-	for _, i := range icons {
+	for count, i := range icons {
 		// TODO: Diff icons on disk and Figma to see which ones we should update
 
 		// For each icon, request an export from Figma
@@ -42,9 +41,6 @@ func main() {
 			// If the export is successful, asynchronously download the given URL
 			go core.DownloadFile(url, fmt.Sprintf("./%s/%s.svg", iconPath, i.Name))
 		}
-
-		// Increment our total count
-		count++
 
 		// Sleep for 45 seconds every X requests so we don't hit Figma's rate limiting
 		if count%requestsPerMinute == 0 {
