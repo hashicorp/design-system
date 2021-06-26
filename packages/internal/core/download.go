@@ -10,7 +10,7 @@ import (
 )
 
 // Downloads an image from a given `URL` and creates a file at a given `filename`
-func DownloadFile(URL, fileName string) error {
+func DownloadToFile(URL, fileName string) error {
 	log.Println(fmt.Sprintf("Downloading %s", URL))
 
 	response, err := http.Get(URL)
