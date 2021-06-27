@@ -13,8 +13,6 @@ jobs:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: ./flight
 
-      - uses: ericcornelissen/svgo-action@v1
-
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
