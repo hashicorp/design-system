@@ -5,9 +5,14 @@ import (
 	"flight/internal/figma"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/joho/godotenv"
+)
+
+var (
+	flightVersion = "development"
 )
 
 const (
@@ -17,13 +22,15 @@ const (
 )
 
 func main() {
-	log.Println("Taking flight...")
+	log.Println(fmt.Sprintf("Taking flight (%s)", flightVersion))
+
+	// Create the icon distribution folder if it doesn't exist already
+	if _, err := os.Stat(fmt.Sprintf("./%s", iconPath)); os.IsNotExist(err) {
+		os.Mkdir(fmt.Sprintf("./%s", iconPath), 0755)
+	}
 
 	// Load a .env file, for local development
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	godotenv.Load()
 
 	// Fill an array with all the icons from our Figma doc
 	icons, err := figma.FindIconsInDoc()
@@ -47,7 +54,7 @@ func main() {
 		}
 
 		// Sleep for 45 seconds every X requests so we don't hit Figma's rate limiting
-		if count%requestsPerMinute == 0 {
+		if count%requestsPerMinute == 0 && count != 0 {
 			log.Println(fmt.Sprintf("Waiting for %d seconds...", waitPeriod))
 			time.Sleep(waitPeriod * time.Second)
 		}
