@@ -1,0 +1,22 @@
+name: Build Flight iconset
+on:
+  workflow_dispatch:
+
+jobs:
+  pull_iconset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run flight
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+        run: ./flight
+
+      - uses: ericcornelissen/svgo-action@v1
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Auto-commit of new icons'
+          add: '*.svg'
