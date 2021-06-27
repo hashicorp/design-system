@@ -26,7 +26,11 @@ func main() {
 	}
 
 	// Fill an array with all the icons from our Figma doc
-	icons := figma.FindIconsInDoc()
+	icons, err := figma.FindIconsInDoc()
+
+	if err != nil {
+		log.Fatal("Error getting icons from Figma document")
+	}
 
 	for count, i := range icons {
 		// TODO: Diff icons on disk and Figma to see which ones we should update

@@ -18,7 +18,7 @@ var (
 	header     req.Header = nil
 )
 
-func FindIconsInDoc() []core.Icon {
+func FindIconsInDoc() ([]core.Icon, error) {
 	log.Println("Querying Figma file")
 
 	var icons []core.Icon
@@ -45,7 +45,7 @@ func FindIconsInDoc() []core.Icon {
 	}
 
 	if r.Response().StatusCode != 200 {
-		panic("Can't connect to Figma. Check your API token.")
+		return nil, errors.New("could not find icons in figma document")
 	}
 
 	// Parse the json response into jsonquery which allows xpath-like node searching
@@ -65,7 +65,7 @@ func FindIconsInDoc() []core.Icon {
 		icons = append(icons, i)
 	}
 
-	return icons
+	return icons, nil
 }
 
 // Given an Icon, returns a URL to view it online
