@@ -39,7 +39,7 @@ func main() {
 		url, err := figma.ExportIconToURL(i)
 
 		if err != nil {
-			// If something goes wrong while exporting with Figma, log the error and continue...
+			// If something goes wrong while exporting with Figma, log the error and exit
 			log.Fatal(err)
 		} else {
 			// If the export is successful, asynchronously download the URL Figma has given us

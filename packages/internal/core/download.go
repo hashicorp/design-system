@@ -27,12 +27,17 @@ func DownloadToFile(URL, fileName string) error {
 
 	file, err := os.Create(fileName)
 	if err != nil {
+		log.Fatal("Could not create file on disk. Check folder permissions")
 		return err
 	}
+
+	log.Println(fmt.Sprintf("Created file at %s", fileName))
+
 	defer file.Close()
 
 	_, err = io.Copy(file, response.Body)
 	if err != nil {
+		log.Fatal("Could not copy icon from memory to disk")
 		return err
 	}
 

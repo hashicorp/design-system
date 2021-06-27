@@ -18,6 +18,7 @@ var (
 	header     req.Header = nil
 )
 
+// Finds all nodes that represent icons in a given Figma document
 func FindIconsInDoc() ([]core.Icon, error) {
 	log.Println("Querying Figma file")
 
