@@ -39,18 +39,21 @@ func main() {
 		log.Fatal("Error getting icons from Figma document")
 	}
 
-	for count, i := range icons {
+	for count, icon := range icons {
 		// TODO: Diff icons on disk and Figma to see which ones we should update
 
+		println("Fingerprint:")
+		println(icon.Fingeprint)
+
 		// For each icon, request an export from Figma
-		url, err := figma.ExportIconToURL(i)
+		url, err := figma.ExportIconToURL(icon)
 
 		if err != nil {
 			// If something goes wrong while exporting with Figma, log the error and exit
 			log.Fatal(err)
 		} else {
 			// If the export is successful, asynchronously download the URL Figma has given us
-			go core.DownloadToFile(url, fmt.Sprintf("./%s/%s.svg", iconPath, i.Name))
+			go core.DownloadToFile(url, fmt.Sprintf("./%s/%s.svg", iconPath, icon.Name))
 		}
 
 		// Sleep for 45 seconds every X requests so we don't hit Figma's rate limiting
