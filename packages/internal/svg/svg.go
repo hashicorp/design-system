@@ -35,8 +35,8 @@ type path struct {
 }
 
 func CreateSvgFromIcon(icon core.Icon, fileName string) error {
-	viewbox := "0 0 " + strconv.Itoa(icon.Size) + " " + strconv.Itoa(icon.Size)
-	offset := "translate(" + icon.RelativeOffset.X + ", " + icon.RelativeOffset.Y + ")"
+	viewbox := fmt.Sprintf("0 0 %d %d", icon.Size, icon.Size)
+	offset := fmt.Sprintf("translate(%s, %s)", icon.RelativeOffset.X, icon.RelativeOffset.Y)
 
 	svg := svg{
 		Viewbox:   viewbox,
