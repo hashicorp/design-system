@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	documentId            = "TLnoT5AYQfy3tZ0H68BgOr"
+	documentId            = "TLnoT5AYQfy3tZ0H68BgOr" // TODO: Make configurable by environment
 	header     req.Header = nil
 )
 
@@ -35,7 +35,8 @@ func FindIconsInDoc() ([]core.Icon, error) {
 
 	// We need a reasonable depth returned from our Figma document
 	param := req.Param{
-		"depth": "10",
+		"depth":    "10",
+		"geometry": "paths",
 	}
 
 	// Call the API
@@ -57,12 +58,27 @@ func FindIconsInDoc() ([]core.Icon, error) {
 	}
 
 	// Look for our icons...
-	for _, n := range jsonquery.Find(doc, "//*[type='COMPONENT_SET']/children/*/id") {
-		iconSize := strings.Split(n.Parent.SelectElement("name").InnerText(), "=")
-		iconName := n.Parent.Parent.Parent.SelectElement("name").InnerText()
+	for _, n := range jsonquery.Find(doc, "//*[type='COMPONENT_SET']/children/*") {
+		// Find the size of the size
+		iconSize := strings.Split(n.SelectElement("name").InnerText(), "=")
+
+		// Find the name from the parent element
+		iconName := n.Parent.Parent.SelectElement("name").InnerText()
+
+		// Comebine size and name to get our icon name
 		iconFilename := iconName + "-" + iconSize[1]
 
-		i := core.Icon{Name: iconFilename, FigmaID: n.InnerText()}
+		// Get the fill geomtery (path) so we can diff it for changes
+
+		// TODO: Use fill geometry to actually create SVGs??!!
+
+		// Create new icon object
+		i := core.Icon{
+			Name:       iconFilename,
+			FigmaID:    n.InnerText(),
+			Fingeprint: core.MD5("1"),
+		}
+
 		icons = append(icons, i)
 	}
 
