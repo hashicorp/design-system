@@ -15,9 +15,7 @@ var (
 )
 
 const (
-	iconPath          = "dist" // The folder to export `.svg`s to
-	requestsPerMinute = 17     // Amount of requests to Figma to allow per minute
-	waitPeriod        = 45     // Wait period in seconds between batch requests
+	iconPath = "dist" // The folder to export `.svg`s to
 )
 
 func main() {
