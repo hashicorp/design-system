@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/antchfx/jsonquery"
 	"github.com/imroc/req"
-	"github.com/tidwall/gjson"
 )
 
 var (
@@ -35,7 +35,7 @@ func FindIconsInDoc() ([]core.Icon, error) {
 
 	// We need a reasonable depth returned from our Figma document
 	param := req.Param{
-		"depth":    "10",
+		"depth":    "12",
 		"geometry": "paths",
 	}
 
@@ -61,6 +61,7 @@ func FindIconsInDoc() ([]core.Icon, error) {
 	for _, n := range jsonquery.Find(doc, "//*[type='COMPONENT_SET']/children/*") {
 		// Find the size of the size
 		iconSize := strings.Split(n.SelectElement("name").InnerText(), "=")
+		iconSizeToInt, _ := strconv.Atoi(iconSize[1])
 
 		// Find the name from the parent element
 		iconName := n.Parent.Parent.SelectElement("name").InnerText()
@@ -68,15 +69,28 @@ func FindIconsInDoc() ([]core.Icon, error) {
 		// Comebine size and name to get our icon name
 		iconFilename := iconName + "-" + iconSize[1]
 
-		// Get the fill geomtery (path) so we can diff it for changes
+		// Get the vector paths and add them to our icon struct
+		var paths []core.Path
 
-		// TODO: Use fill geometry to actually create SVGs??!!
+		for _, n := range n.SelectElement("children").FirstChild.SelectElement("fillGeometry").ChildNodes() {
+			path := core.Path{Data: n.SelectElement("path").InnerText()}
+			path.Rule = n.SelectElement("windingRule").InnerText()
+			paths = append(paths, path)
+		}
+
+		// Get relative offset from viewbox
+		var relativeOffset core.Coordinate
+		relativeOffset.X = n.SelectElement("children").FirstChild.SelectElement("relativeTransform").FirstChild.LastChild.InnerText()
+		relativeOffset.Y = n.SelectElement("children").FirstChild.SelectElement("relativeTransform").LastChild.LastChild.InnerText()
 
 		// Create new icon object
 		i := core.Icon{
-			Name:       iconFilename,
-			FigmaID:    n.InnerText(),
-			Fingeprint: core.MD5("1"),
+			Name:           iconFilename,
+			Size:           iconSizeToInt,
+			FigmaID:        n.InnerText(),
+			Fingeprint:     core.MD5("1"),
+			Paths:          paths,
+			RelativeOffset: relativeOffset,
 		}
 
 		icons = append(icons, i)
@@ -86,25 +100,25 @@ func FindIconsInDoc() ([]core.Icon, error) {
 }
 
 // Given an Icon, returns a URL to view it online
-func ExportIconToURL(icon core.Icon) (string, error) {
-	url := fmt.Sprintf("https://api.figma.com/v1/images/%s", documentId)
+// func ExportIconToURL(icon core.Icon) (string, error) {
+// 	url := fmt.Sprintf("https://api.figma.com/v1/images/%s", documentId)
 
-	param := req.Param{
-		"ids":    icon.FigmaID,
-		"format": "svg",
-		"scale":  "1",
-	}
+// 	param := req.Param{
+// 		"ids":    icon.FigmaID,
+// 		"format": "svg",
+// 		"scale":  "1",
+// 	}
 
-	r, err := req.Get(url, header, param)
+// 	r, err := req.Get(url, header, param)
 
-	if err != nil {
-		log.Fatal(err)
-		return "", errors.New("could not get export icon")
-	}
+// 	if err != nil {
+// 		log.Fatal(err)
+// 		return "", errors.New("could not get export icon")
+// 	}
 
-	log.Println(fmt.Sprintf("Exporting %s", icon.Name))
+// 	log.Println(fmt.Sprintf("Exporting %s", icon.Name))
 
-	value := gjson.Get(r.String(), fmt.Sprintf("images.%s", icon.FigmaID))
+// 	value := gjson.Get(r.String(), fmt.Sprintf("images.%s", icon.FigmaID))
 
-	return value.String(), nil
-}
+// 	return value.String(), nil
+// }
