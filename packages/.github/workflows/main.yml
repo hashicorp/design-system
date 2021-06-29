@@ -16,5 +16,5 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
-          message: 'Auto-commit of new icons'
-          add: '*.svg'
+          message: 'Auto-commit of icon updates'
+          add: '*'
