@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flight/internal/core"
 	"flight/internal/figma"
 	"flight/internal/svg"
 	"fmt"
@@ -40,4 +41,7 @@ func main() {
 		// Create the svg from the icon and write to disk
 		svg.CreateSvgFromIcon(icon, fmt.Sprintf("./%s/%s.svg", iconPath, icon.Name))
 	}
+
+	// Create the catalog file
+	core.CreateCatalogFile(icons, fmt.Sprintf("./%s/_catalog.json", iconPath))
 }
