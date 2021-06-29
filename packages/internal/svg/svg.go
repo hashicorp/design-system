@@ -34,6 +34,7 @@ type path struct {
 	FillRule string   `xml:"fill-rule,attr"`
 }
 
+// Creates a .svg file on disk from an `Icon`
 func CreateSvgFromIcon(icon core.Icon, fileName string) error {
 	viewbox := fmt.Sprintf("0 0 %d %d", icon.Size, icon.Size)
 	offset := fmt.Sprintf("translate(%s, %s)", icon.RelativeOffset.X, icon.RelativeOffset.Y)
@@ -58,8 +59,8 @@ func CreateSvgFromIcon(icon core.Icon, fileName string) error {
 	return nil
 }
 
+// Output the marshalled struct to a file
 func writeSvgToFile(svg svg, fileName string) error {
-	// Output the marshalled struct
 	file, _ := xml.MarshalIndent(svg, "", " ")
 	err := ioutil.WriteFile(fileName, file, 0644)
 
