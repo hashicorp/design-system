@@ -78,7 +78,7 @@ func FindIconsInDoc() ([]core.Icon, error) {
 			paths = append(paths, path)
 		}
 
-		// Get relative offset from viewbox
+		// Get relative offset from viewBox
 		var relativeOffset core.Coordinate
 		relativeOffset.X = n.SelectElement("children").FirstChild.SelectElement("relativeTransform").FirstChild.LastChild.InnerText()
 		relativeOffset.Y = n.SelectElement("children").FirstChild.SelectElement("relativeTransform").LastChild.LastChild.InnerText()
