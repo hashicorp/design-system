@@ -17,7 +17,7 @@ flight-build runs entirely on GitHub actions. Triggering the `build_iconset` act
 flight-build requires Go to be installed locally but has no other dependants.
 
 ```bash
-gh clone almonk/flight
+git clone <this-repository>
 go run .
 ```
 
