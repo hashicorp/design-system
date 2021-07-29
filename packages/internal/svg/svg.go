@@ -15,7 +15,7 @@ const (
 )
 
 type svg struct {
-	Viewbox   string `xml:"viewbox,attr"`
+	Viewbox   string `xml:"viewBox,attr"`
 	Width     string `xml:"width,attr"`
 	Height    string `xml:"height,attr"`
 	Fill      string `xml:"fill,attr"`
@@ -36,11 +36,11 @@ type path struct {
 
 // Creates a .svg file on disk from an `Icon`
 func CreateSvgFromIcon(icon core.Icon, fileName string) error {
-	viewbox := fmt.Sprintf("0 0 %d %d", icon.Size, icon.Size)
+	viewBox := fmt.Sprintf("0 0 %d %d", icon.Size, icon.Size)
 	offset := fmt.Sprintf("translate(%s, %s)", icon.RelativeOffset.X, icon.RelativeOffset.Y)
 
 	svg := svg{
-		Viewbox:   viewbox,
+		Viewbox:   viewBox,
 		Width:     strconv.Itoa(icon.Size),
 		Height:    strconv.Itoa(icon.Size),
 		Fill:      "black",
