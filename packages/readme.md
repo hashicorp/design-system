@@ -1,6 +1,6 @@
 # flight-build
 
-### A prototypical pipeline for building the Flight iconset into a repository that can be consumed by other tooling
+A prototypical pipeline for building the Flight iconset into a repository that can be consumed by other tooling
 
 ---
 
@@ -18,6 +18,30 @@ flight-build requires Go to be installed locally but has no other dependants.
 
 ```bash
 git clone <this-repository>
+go run .
+```
+
+### Local Development
+
+To run locally, follow these 3 steps.
+
+First, clone this repository:
+
+```bash
+git clone <this-repository>
+```
+
+Next, add a `.env` file to the root of the directory, to which you will add your Figma Personal Access Token:
+
+`FIGMA_TOKEN=###`
+
+Where `###` is your personal access token. To receive your personal access token, go into Figma > Account > Personal access tokens and create one for yourself.
+
+The `.env` file is ignored by git, and should not be committed to the repository.
+
+Finally, run the build command:
+
+```bash
 go run .
 ```
 
