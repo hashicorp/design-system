@@ -11,7 +11,7 @@ jobs:
       - name: Run flight
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-        run: ./flight
+        run: ./export-go/flight
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
