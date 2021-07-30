@@ -1,0 +1,22 @@
+name: Compile Flight binary
+on:
+  workflow_dispatch:
+
+jobs:
+  compile_flight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16.5' # The Go version to download (if necessary) and use.
+
+      - name: Compile Flight
+        run: go build -ldflags "-X 'main.flightVersion=$(date -u '+%Y%m%d.%H%M%S')'"
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Auto-commit of new binary'
+          add: './flight'
