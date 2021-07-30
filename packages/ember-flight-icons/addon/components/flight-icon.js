@@ -42,7 +42,6 @@ export default class FlightIconComponent extends Component {
   // get the contents if the iconFileName
   // strip it down to only the `<g>` element (and its children)
   // return it as an object that can be placed into the template for rendering
-  get iconFileContents() {
-    return this.iconFileName.html();
-  }
+
+  // idea: convert .svg to .hbs? make it a sub component and dynamically render it to the template based on `iconName`?
 }
