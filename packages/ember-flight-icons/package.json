@@ -1,13 +1,13 @@
 {
   "name": "ember-flight-icons",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "The Ember addon for the HashiCorp icon set",
   "keywords": [
     "ember-addon"
   ],
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "Melanie Sumner <melanie@hashicorp.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -43,6 +43,7 @@
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
+    "ember-composable-helpers": "^4.5.0",
     "ember-disable-prototype-extensions": "^1.1.3",
     "ember-export-application-global": "^2.0.1",
     "ember-load-initializers": "^2.1.2",
@@ -52,7 +53,8 @@
     "ember-resolver": "^8.0.2",
     "ember-source": "~3.27.2",
     "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^3.4.2",
+    "ember-template-lint": "^3.5.1",
+    "ember-truth-helpers": "^3.0.0",
     "ember-try": "^1.4.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
