@@ -1,4 +1,4 @@
-<svg viewBox="0 0 24 24" width="24" height="24" fill="black" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
  <g transform="translate(1, 1)">
   <path d="M0 1.25C0 0.559644 0.559644 0 1.25 0L4.75 0C5.44036 0 6 0.559644 6 1.25L6 4.75C6 5.44036 5.44036 6 4.75 6L1.25 6C0.559644 6 0 5.44036 0 4.75L0 1.25Z" fill-rule="EVENODD"></path>
   <path d="M8 1.25C8 0.559644 8.55964 0 9.25 0L12.75 0C13.4404 0 14 0.559644 14 1.25L14 4.75C14 5.44036 13.4404 6 12.75 6L9.25 6C8.55964 6 8 5.44036 8 4.75L8 1.25Z" fill-rule="EVENODD"></path>
