@@ -1,5 +1,5 @@
 <svg viewBox="0 0 24 24" width="24" height="24" fill="black" xmlns="http://www.w3.org/2000/svg">
- <g transform="translate(2.25, 2.25)">
-  <path d="M2.75 0C1.23122 0 0 1.23122 0 2.75L0 16.75C0 18.2688 1.23122 19.5 2.75 19.5L16.75 19.5C18.2688 19.5 19.5 18.2688 19.5 16.75L19.5 2.75C19.5 1.23122 18.2688 0 16.75 0L2.75 0Z" fill-rule="NONZERO"></path>
+ <g transform="translate(2, 2)">
+  <path d="M0 2.75C0 1.23122 1.23122 0 2.75 0L17.25 0C18.7688 0 20 1.23122 20 2.75L20 17.25C20 18.7688 18.7688 20 17.25 20L2.75 20C1.23122 20 0 18.7688 0 17.25L0 2.75Z" fill-rule="EVENODD"></path>
  </g>
 </svg>
