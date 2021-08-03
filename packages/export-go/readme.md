@@ -17,7 +17,8 @@ flight-build runs entirely on GitHub actions. Triggering the `build_iconset` act
 flight-build requires Go to be installed locally but has no other dependants.
 
 ```bash
-git clone <this-repository>
+git clone https://github.com/hashicorp/flight
+cd export-go
 go run .
 ```
 
@@ -28,10 +29,10 @@ To run locally, follow these 3 steps.
 First, clone this repository:
 
 ```bash
-git clone <this-repository>
+git clone https://github.com/hashicorp/flight
 ```
 
-Next, add a `.env` file to the root of the directory, to which you will add your Figma Personal Access Token:
+Next, add a `.env` file to the root of the `export-go` directory, to which you will add your Figma Personal Access Token:
 
 `FIGMA_TOKEN=###`
 
