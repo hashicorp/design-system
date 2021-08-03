@@ -61,10 +61,15 @@ func FindIconsInDoc() ([]core.Icon, error) {
 	for _, n := range jsonquery.Find(doc, "//*[type='COMPONENT_SET']/children/*") {
 		// Find the size of the size
 		iconSize := strings.Split(n.SelectElement("name").InnerText(), "=")
-		iconSizeToInt, _ := strconv.Atoi(iconSize[1])
+		iconSizeToInt, err := strconv.Atoi(iconSize[1])
 
 		// Find the name from the parent element
 		iconName := n.Parent.Parent.SelectElement("name").InnerText()
+
+		if err != nil {
+			log.Fatalln(fmt.Sprintf("Problem parsing node %s", iconName))
+			log.Fatalln("Check the Figma document for missing variants or extraneous nodes")
+		}
 
 		// Comebine size and name to get our icon name
 		iconFilename := iconName + "-" + iconSize[1]
