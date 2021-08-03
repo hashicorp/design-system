@@ -5,13 +5,16 @@ on:
 jobs:
   build_iconset:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: export-go
     steps:
       - uses: actions/checkout@v2
 
       - name: Run flight
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-        run: ./export-go/flight
+        run: ./flight
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
