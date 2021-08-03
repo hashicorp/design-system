@@ -1,0 +1,76 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Walkthrough",
+  "steps": [
+    {
+      "file": "export-go/main.go",
+      "description": "This is our entrypoint, like every Go program.",
+      "line": 1
+    },
+    {
+      "file": "export-go/main.go",
+      "description": "We start by loading the local environment and if any `.env` file exists, load that too",
+      "line": 31
+    },
+    {
+      "file": "export-go/main.go",
+      "description": "Next, we want to find all the icons in our Figma doc. `FindIconsInDoc()` does exactly that. Let's see how it works...",
+      "line": 34
+    },
+    {
+      "file": "export-go/internal/figma/figma.go",
+      "description": "We query the Figma API which returns a giant JSON representation of the Flight Icons file",
+      "line": 34
+    },
+    {
+      "file": "export-go/internal/figma/figma.go",
+      "description": "We tell Figma that we want it to export `paths`. We'll create SVGs from these paths later on.",
+      "line": 39
+    },
+    {
+      "file": "export-go/internal/figma/figma.go",
+      "description": "If everything went well with the request, we can start parsing the JSON response.",
+      "line": 61
+    },
+    {
+      "file": "export-go/internal/figma/figma.go",
+      "description": "After finding lots of scraps of info from the JSON, we can construct an `Icon` type from it. This will contain the name of the icon, the Figma ID of the node it relates to and an array of paths that make up vector data.",
+      "line": 87
+    },
+    {
+      "file": "export-go/internal/figma/figma.go",
+      "description": "At the end of the function we return an array of these `Icon`s",
+      "line": 99
+    },
+    {
+      "file": "export-go/main.go",
+      "description": "Now we have all the icons, we need to create SVGs from them!",
+      "line": 40
+    },
+    {
+      "file": "export-go/internal/svg/svg.go",
+      "description": "Our `svg` type represents an SVG file that we can export to disk. It has familiar attributes from the w3c spec.",
+      "line": 42
+    },
+    {
+      "file": "export-go/internal/svg/svg.go",
+      "description": "This is where the icons actually get 'drawn' as `<svg><path>`s",
+      "line": 52
+    },
+    {
+      "file": "export-go/internal/svg/svg.go",
+      "description": "Write our icon to disk",
+      "line": 57
+    },
+    {
+      "file": "export-go/main.go",
+      "description": "Finally, we create a catalogue file of all the icons we just created. This is simply a list of all the icons that eixst, their name and other info. Useful for understanding whats in the icon library by other software",
+      "line": 46
+    },
+    {
+      "file": "export-go/internal/core/catalog.go",
+      "description": "We use the neat power of JSON marshalling to quickly create a file from all the icons in memory and write it to disk",
+      "line": 19
+    }
+  ]
+}
