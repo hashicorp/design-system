@@ -43,7 +43,7 @@ func CreateSvgFromIcon(icon core.Icon, fileName string) error {
 		Viewbox:   viewBox,
 		Width:     strconv.Itoa(icon.Size),
 		Height:    strconv.Itoa(icon.Size),
-		Fill:      "black",
+		Fill:      "currentColor",
 		Namespace: schema,
 		Group:     group{Translate: offset},
 	}
