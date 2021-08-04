@@ -1,0 +1,1 @@
+export { default } from 'ember-flight-icons/components/flight-icon/x-square-fill-small';

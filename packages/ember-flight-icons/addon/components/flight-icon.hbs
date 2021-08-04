@@ -1,31 +1,13 @@
-{{#if @iconName}}
-  {{#if (eq @iconSize 'small')}}
-    <svg 
-      id={{this.iconId}}
-      class="icon icon-{{@iconName}}"
-      aria-hidden={{@isAriaHidden}}
-      viewBox="0 0 {{this.iconSizeNumber}} {{this.iconSizeNumber}}"
-      width={{this.iconSizeNumber}} 
-      height={{this.iconSizeNumber}}
-      fill={{this.iconFill}} 
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <FlightIcon::ActivitySmall />
-    </svg>
-  {{else if (eq @iconSize 'large')}}
-    <svg 
-      id={{this.iconId}}
-      class="icon icon-{{@iconName}}"
-      aria-hidden={{@isAriaHidden}}
-      viewBox="0 0 24 24" 
-      width="24" 
-      height="24" 
-      fill={{this.iconFill}} 
-      xmlns="http://www.w3.org/2000/svg">
-      <FlightIcon::ActivityLarge />
-    </svg>
-  {{/if}}
-
-{{else}}
-  <p>Oops! An <kbd>iconName</kbd> must be specified.</p>
-{{/if}}
+<svg 
+  aria-hidden="true"
+  class="flight-icon icon-{{@name}} {{if this.display "display-inline"}}"
+  data-test-icon
+  fill={{this.fillColor}} 
+  height="{{this.sizeNum}}"
+  id={{this.iconId}}
+  viewBox="0 0 {{this.sizeNum}} {{this.sizeNum}}"
+  width="{{this.sizeNum}}" 
+  xmlns="http://www.w3.org/2000/svg"
+>
+  {{component (concat 'flight-icon/' @name '-' this.size )}}
+</svg>

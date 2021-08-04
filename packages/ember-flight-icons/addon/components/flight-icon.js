@@ -2,46 +2,70 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
 export default class FlightIconComponent extends Component {
+  /**
+   * Sets the fillColor for the SVG
+   *
+   * @param fillColor {string}
+   * @default 'currentColor'
+   */
+  get fillColor() {
+    return this.args.fillColor ?? 'currentColor';
+  }
+
+  /**
+   * Generates a unique ID for the SVG
+   *
+   * @param iconId
+   */
   iconId = 'icon-' + guidFor(this);
-  iconName = null;
-  iconSize = 'small';
-  iconFill = 'black';
-  iconSizeNumber = this.getIconSizeNumber(this);
 
-  isAriaHidden = 'true';
-  isFocusable = false;
+  /**
+   * Indicates which icon should be used
+   *
+   * @param iconName {undefined|string}
+   * @default null
+   */
+  get name() {
+    return this.args.name ?? null;
+  }
 
-  getIconSizeNumber() {
-    const iconSizeMap = {
+  /**
+   * Determines the icon's `display` property
+   *
+   * @param display
+   * @returns the value of `isInlineBlock` if set
+   * @default true
+   */
+  get display() {
+    return this.args.isInlineBlock ?? true;
+  }
+
+  /**
+   * Gets the icon's size (small or large)
+   *
+   * @param size
+   * @returns the value of `size` if set
+   * @default `large`
+   */
+  get size() {
+    return this.args.size ?? 'large';
+  }
+
+  get sizeNum() {
+    const sizeMap = {
       small: 16,
       large: 24,
     };
 
-    let defaultIconSize = 'small';
-    let iconSizeNumber;
+    let defaultSize = 'large';
+    let sizeNum;
 
-    if (this.args.iconSize && iconSizeMap[this.args.iconSize]) {
-      iconSizeNumber = iconSizeMap[this.args.iconSize];
+    if (this.args.size && sizeMap[this.args.size]) {
+      sizeNum = sizeMap[this.args.size];
     } else {
-      iconSizeNumber = iconSizeMap[defaultIconSize];
+      sizeNum = sizeMap[defaultSize];
     }
 
-    return iconSizeNumber;
+    return sizeNum;
   }
-
-  get iconFileName() {
-    let pathRoot = `/ember-flight-icons/icons/`;
-    let fileName = `${this.args.iconName}`;
-
-    let iconPath = `${pathRoot}-${this.iconSizeNumber}.svg`;
-
-    console.log(iconPath);
-    return iconPath;
-  }
-
-  // get the contents if the iconFileName
-  // strip it down to only the `<g>` element (and its children)
-  // return it as an object that can be placed into the template for rendering
-
-  // idea: convert .svg to .hbs? make it a sub component and dynamically render it to the template based on `iconName`?
 }

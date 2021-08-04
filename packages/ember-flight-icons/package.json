@@ -5,7 +5,7 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/hashicorp/ember-flight-icons",
   "license": "MIT",
   "author": "Melanie Sumner <melanie@hashicorp.com>",
   "directories": {

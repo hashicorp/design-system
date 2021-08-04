@@ -1,10 +1,15 @@
-{{page-title "Flight"}}
+{{page-title "Flight Icons: An Ember Addon"}}
 
-<h1 id="title">Icon Experiments</h1>
+<h1 id="title">Flight Icons: An Ember Addon</h1>
 
-
-{{!-- <FlightIcon /> --}}
-
-<FlightIcon @iconName="activity" @iconSize="large" />
-
-<FlightIcon @iconName="zap" @iconSize="small" />
+<section>
+  <h2>Example:</h2>
+<ul>
+  <li>
+    This should be a large "activity" icon: <FlightIcon @name="activity" />
+  </li>
+  <li>This should be a small "activity" icon: <FlightIcon @name="activity" @size="small" /></li>
+  <li>This should be a small "zap" icon: <FlightIcon @name="zap" @size="small" @isInlineBlock={{false}} /></li>
+  <li>This should be a red large "activity" icon: <FlightIcon @name="activity" @fillColor="red" /></li>
+</ul>
+</section>
