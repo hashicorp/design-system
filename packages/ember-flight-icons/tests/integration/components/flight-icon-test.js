@@ -35,7 +35,7 @@ module('Integration | Component | flight-icon', function (hooks) {
   });
   // the component should render the 16x16 icon if size is set
   test('it renders the 16x16 icon when option is set', async function (assert) {
-    await render(hbs`<FlightIcon @name="activity" @size="small" />`);
+    await render(hbs`<FlightIcon @name="activity" @size="16" />`);
     assert.dom('svg.flight-icon.icon-activity.display-inline').hasStyle({
       height: '16px',
       width: '16px',

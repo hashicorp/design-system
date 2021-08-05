@@ -6,8 +6,9 @@ An Ember addon for the Flight Icons. Currently in development.
 Goals:
 
 * accessible
-* positive developer experience (easy to use the first time, and easy to remember what you did when you come back in six months and re-visit the code)
-* sensible defaults (evaluated current icon use and set defaults based on what the data told us)
+* easy to use
+* easy to maintain
+* sensible defaults
 
 Compatibility
 ------------------------------------------------------------------------------
@@ -51,7 +52,10 @@ Icons are set to `fill="currentColor"` by default. To change this, set the desir
 <FlightIcon @name="activity" @fillColor="red" />
 ```
 
-For accessibility best practice, `aria-hidden` is set to `false` on the component.
+Accessibility
+------------------------------------------------------------------------------
+
+Accessibility support for SVGs is inconsistent across browsers and assistive technology. Currently, best practice is to set the `aria-hidden` attribute to `false` on the SVG itself.
 This means that the `<FlightIcon>` component will need to be used _in context_.
 The icons themselves are for presentation purposes only and should never be used on their own.
 
@@ -71,7 +75,6 @@ Contributing
 ------------------------------------------------------------------------------
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
-
 
 License
 ------------------------------------------------------------------------------

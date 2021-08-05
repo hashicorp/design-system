@@ -45,27 +45,9 @@ export default class FlightIconComponent extends Component {
    *
    * @param size
    * @returns the value of `size` if set
-   * @default `large`
+   * @default `24`
    */
   get size() {
-    return this.args.size ?? 'large';
-  }
-
-  get sizeNum() {
-    const sizeMap = {
-      small: 16,
-      large: 24,
-    };
-
-    let defaultSize = 'large';
-    let sizeNum;
-
-    if (this.args.size && sizeMap[this.args.size]) {
-      sizeNum = sizeMap[this.args.size];
-    } else {
-      sizeNum = sizeMap[defaultSize];
-    }
-
-    return sizeNum;
+    return this.args.size ?? '24';
   }
 }

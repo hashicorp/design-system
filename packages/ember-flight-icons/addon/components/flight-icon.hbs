@@ -3,11 +3,11 @@
   class="flight-icon icon-{{@name}} {{if this.display "display-inline"}}"
   data-test-icon
   fill={{this.fillColor}} 
-  height="{{this.sizeNum}}"
+  height="{{this.size}}"
   id={{this.iconId}}
-  viewBox="0 0 {{this.sizeNum}} {{this.sizeNum}}"
-  width="{{this.sizeNum}}" 
+  viewBox="0 0 {{this.size}} {{this.size}}"
+  width="{{this.size}}" 
   xmlns="http://www.w3.org/2000/svg"
 >
-  {{component (concat 'flight-icon/' @name '-' this.size )}}
+  <use href='{{this.baseURL}}/ember-flight-icons/icons/sprite.svg#{{@name}}-{{this.size}}'></use>
 </svg>

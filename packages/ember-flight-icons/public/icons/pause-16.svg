@@ -1,0 +1,6 @@
+<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(4.5, 3)">
+  <path d="M0.75 0C1.16421 0 1.5 0.335786 1.5 0.75L1.5 9.25C1.5 9.66421 1.16421 10 0.75 10C0.335786 10 0 9.66421 0 9.25L0 0.75C0 0.335786 0.335786 0 0.75 0Z" fill-rule="EVENODD"></path>
+  <path d="M6.25 0C6.66421 0 7 0.335786 7 0.75L7 9.25C7 9.66421 6.66421 10 6.25 10C5.83579 10 5.5 9.66421 5.5 9.25L5.5 0.75C5.5 0.335786 5.83579 0 6.25 0Z" fill-rule="EVENODD"></path>
+ </g>
+</svg>
