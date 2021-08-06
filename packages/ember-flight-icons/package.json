@@ -6,7 +6,7 @@
     "ember-addon"
   ],
   "repository": "https://github.com/hashicorp/ember-flight-icons",
-  "license": "MIT",
+  "license": "MPL-2.0",
   "author": "Melanie Sumner <melanie@hashicorp.com>",
   "directories": {
     "doc": "doc",
