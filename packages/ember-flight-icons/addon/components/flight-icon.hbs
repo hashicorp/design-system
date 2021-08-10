@@ -2,12 +2,12 @@
   aria-hidden="true"
   class="flight-icon icon-{{@name}} {{if this.display "display-inline"}}"
   data-test-icon
-  fill={{this.fillColor}} 
-  height="{{this.size}}"
+  fill={{@fillColor}} 
+  height="{{@size}}"
   id={{this.iconId}}
-  viewBox="0 0 {{this.size}} {{this.size}}"
-  width="{{this.size}}" 
+  viewBox="0 0 {{@size}} {{@size}}"
+  width="{{@size}}" 
   xmlns="http://www.w3.org/2000/svg"
 >
-  <use href='./ember-flight-icons/icons/sprite.svg#{{@name}}-{{this.size}}'></use>
+  <use href='./ember-flight-icons/icons/sprite.svg#{{@name}}-{{@size}}'></use>
 </svg>
