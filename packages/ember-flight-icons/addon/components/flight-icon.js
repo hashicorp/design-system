@@ -1,7 +1,13 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import { getOwner } from '@ember/application';
 
 export default class FlightIconComponent extends Component {
+  get contextRootURL() {
+    const config = getOwner(this).resolveRegistration('config:environment');
+    return config.rootURL || '/';
+  }
+
   /**
    * Sets the fillColor for the SVG
    *
