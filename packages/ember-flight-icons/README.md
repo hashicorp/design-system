@@ -27,16 +27,16 @@ ember install @hashicorp/ember-flight-icons
 
 ### Required usage
 
-The `name` must be specified.
+The `name` and `size` must be specified. Set the icon size by the number. Right now, we support a `viewBox` square size of 16 or 24.
 
 ```hbs
-<FlightIcon @name="activity" />
+<FlightIcon @name="activity" @size="16" />
 ```
 
-The `size` must be specified. Set the icon size by the number, e.g. 16 or 24.
+or:
 
 ```hbs
-<FlightIcon @name="zap" @size="16" />
+<FlightIcon @name="zap" @size="24" />
 ```
 
 ### Optional usage
@@ -44,7 +44,7 @@ The `size` must be specified. Set the icon size by the number, e.g. 16 or 24.
 Icons are set to `display: inline-block` by default. To remove this, set `isInlineBlock` to `false`:
 
 ```hbs
-<FlightIcon @name="archive" @isInlineBlock={{false}} />
+<FlightIcon @name="archive" @size="16 @isInlineBlock={{false}} />
 ```
 
 Icons are set to `fill="currentColor"` by default. To change this, set the desired color:
@@ -63,12 +63,12 @@ Example:
 
 ```hbs
 <button aria-label="Check Activity">
-  <FlightIcon @name="activity" />
+  <FlightIcon @name="activity" @size="16 />
 </button>
 ```
 
 ```hbs
-<h2><FlightIcon @name="activity" />Activity Report</h2>
+<h2><FlightIcon @name="activity" @size="16 />Activity Report</h2>
 ```
 
 ## Contributing
