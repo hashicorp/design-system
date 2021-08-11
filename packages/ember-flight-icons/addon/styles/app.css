@@ -1,4 +1,4 @@
-.display-inline {
+.flight-icon.display-inline {
   display: inline-block;
   /* or should this be inline-flex? */
 }
