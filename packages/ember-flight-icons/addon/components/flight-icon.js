@@ -9,13 +9,13 @@ export default class FlightIconComponent extends Component {
   }
 
   /**
-   * Sets the fillColor for the SVG
+   * Sets the color for the SVG
    *
-   * @param fillColor {string}
+   * @param color {string}
    * @default 'currentColor'
    */
-  get fillColor() {
-    return this.args.fillColor ?? 'currentColor';
+  get color() {
+    return this.args.color ?? 'currentColor';
   }
 
   /**
