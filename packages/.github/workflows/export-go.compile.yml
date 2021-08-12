@@ -16,8 +16,9 @@ jobs:
         working-directory: ./export-go
         run: go build -ldflags "-X 'main.flightVersion=$(date -u '+%Y%m%d.%H%M%S')'"
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
+      - name: Open a PR
+        uses: peter-evans/create-pull-request@v3
         with:
-          message: 'Auto-commit of new binary'
-          add: './export-go/flight'
+          commit-message: 'new flight-export binary'
+          title: 'New flight-export binary'
+          body: ''

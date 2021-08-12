@@ -16,8 +16,9 @@ jobs:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: ./flight
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
+      - name: Open a PR
+        uses: peter-evans/create-pull-request@v3
         with:
-          message: 'Auto-commit of icon updates'
-          add: '*'
+          commit-message: 'updated export of flight icons'
+          title: 'Updated export of icons from Figma'
+          body: ''
