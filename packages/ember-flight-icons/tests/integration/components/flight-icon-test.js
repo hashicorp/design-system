@@ -46,6 +46,6 @@ module('Integration | Component | flight-icon', function (hooks) {
     await render(hbs`<FlightIcon @name="activity" @isInlineBlock={{false}} />`);
     assert.dom('svg.flight-icon').doesNotHaveClass('display-inline');
   });
-  // the component should have `fillColor` set to `currentColor` by default
-  // there should be an error if an icon name is not provided
+  // TODO: the component should have `color` set to `currentColor` by default
+  // TODO: there should be an error if an icon name is not provided
 });
