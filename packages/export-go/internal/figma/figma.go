@@ -14,8 +14,7 @@ import (
 )
 
 var (
-	documentId            = "TLnoT5AYQfy3tZ0H68BgOr" // TODO: Make configurable by environment
-	header     req.Header = nil
+	header req.Header = nil
 )
 
 // Finds all nodes that represent icons in a given Figma document
@@ -31,7 +30,7 @@ func FindIconsInDoc() ([]core.Icon, error) {
 	}
 
 	// Create the URL to call
-	url := fmt.Sprintf("https://api.figma.com/v1/files/%s", documentId)
+	url := fmt.Sprintf("https://api.figma.com/v1/files/%s", os.Getenv("FLIGHT_FILE_ID"))
 
 	// We need a reasonable depth returned from our Figma document
 	param := req.Param{

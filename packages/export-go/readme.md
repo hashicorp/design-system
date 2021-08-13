@@ -32,11 +32,14 @@ First, clone this repository:
 git clone https://github.com/hashicorp/flight
 ```
 
-Next, add a `.env` file to the root of the `export-go` directory, to which you will add your Figma Personal Access Token:
+Next, add a `.env` file to the root of the `export-go` directory, to which you will add two variables:
 
 `FIGMA_TOKEN=###`
+`FLIGHT_FILE_ID=###`
 
-Where `###` is your personal access token. To receive your personal access token, go into Figma > Account > Personal access tokens and create one for yourself.
+Where `###` for `FIGMA_TOKEN` is your personal access token. To receive your personal access token, go into Figma > Account > Personal access tokens and create one for yourself.
+
+`###` for `FLIGHT_FILE_ID` is the file id for the icon file in Figma. To find this open the file for Flight in Figma and look for the file id in the URL: `https://www.figma.com/file/<file-id>/`.
 
 The `.env` file is ignored by git, and should not be committed to the repository.
 

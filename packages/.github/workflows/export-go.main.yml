@@ -14,6 +14,7 @@ jobs:
       - name: Run flight
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FLIGHT_FILE_ID: ${{ secrets.FLIGHT_FILE_ID }}
         run: ./flight
 
       - name: Commit changes
