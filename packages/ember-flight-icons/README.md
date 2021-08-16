@@ -38,7 +38,7 @@ The `name` must be specified. A default icon size of 24 will be provided.
 Icons are set to a `viewBox` square size of 16 by default. Right, now, we support a `viewBox` square size of 16 or 24. Pass in `size` to use the larger 24.
 
 ```hbs
-<FlightIcon @name="activity" @size="24" />
+<FlightIcon @name="activity" @size="16" />
 ```
 
 Icons are set to `display: inline-block` by default. To remove this, set `isInlineBlock` to `false`:
