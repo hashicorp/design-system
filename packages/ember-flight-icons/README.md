@@ -27,7 +27,7 @@ ember install @hashicorp/ember-flight-icons
 
 ### Required usage
 
-The `name` must be specified. A default icon size of 16 will be provided.
+The `name` must be specified. A default icon size of 24 will be provided.
 
 ```hbs
 <FlightIcon @name="activity" />
