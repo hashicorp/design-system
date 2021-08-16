@@ -50,7 +50,7 @@ Icons are set to `display: inline-block` by default. To remove this, set `isInli
 Icons are set to `fill="currentColor"` by default. To change this, set the desired color:
 
 ```hbs
-<FlightIcon @name="activity" @size="24" @color="red" />
+<FlightIcon @name="activity" @color="red" />
 ```
 
 ### Note
