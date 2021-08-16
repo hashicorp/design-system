@@ -1,5 +1,5 @@
 {
-  "name": "ember-flight-icons",
+  "name": "@hashicorp/ember-flight-icons",
   "version": "0.0.0",
   "description": "The Ember addon for the HashiCorp icon set",
   "keywords": [

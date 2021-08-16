@@ -1,1 +1,1 @@
-export { default } from 'ember-flight-icons/components/flight-icon';
+export { default } from '@hashicorp/ember-flight-icons/components/flight-icon';

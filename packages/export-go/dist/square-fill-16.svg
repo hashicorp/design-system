@@ -1,5 +1,5 @@
 <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
  <g transform="translate(1, 1)">
-  <path d="M0 2.25C0 1.00736 1.00736 0 2.25 0L11.75 0C12.9926 0 14 1.00736 14 2.25L14 11.75C14 12.9926 12.9926 14 11.75 14L2.25 14C1.00736 14 0 12.9926 0 11.75L0 2.25Z" fill-rule="EVENODD"></path>
+  <path d="M2.25 0C1.00736 0 0 1.00736 0 2.25L0 11.75C0 12.9926 1.00736 14 2.25 14L11.75 14C12.9926 14 14 12.9926 14 11.75L14 2.25C14 1.00736 12.9926 0 11.75 0L2.25 0Z" fill-rule="NONZERO"></path>
  </g>
 </svg>
