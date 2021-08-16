@@ -9,8 +9,11 @@ body {
 }
 
 ul.ds-ul-inline {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-rows: repeat(5, 150px);
+  gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: 150px 150px;
   list-style: none;
   padding: 0;
   margin: 0;
