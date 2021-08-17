@@ -35,7 +35,13 @@ The `name` must be specified. A default icon size of 24 will be provided.
 
 ### Optional usage
 
-Icons are set to a `viewBox` square size of 24 by default. Right, now, we support a `viewBox` square size of 16 or 24. Pass in `size` to use the smaller 16 size.
+Icons are set to a `viewBox` square size of 24 by default. 
+
+```hbs
+<FlightIcon @name="activity" />
+```
+
+Right, now, we support a `viewBox` square size of 24 or 16. If you need your icon to be smaller than 24, pass in `size`. 
 
 ```hbs
 <FlightIcon @name="activity" @size="16" />
