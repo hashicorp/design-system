@@ -1,37 +1,31 @@
 {{page-title 'Flight Icons: An Ember Addon'}}
-<h1 id="title">
+<h1 id="title" class="ds-h1">
   Flight Icons: An Ember Addon
 </h1>
 <section>
-  <h2>
-    Example:
+  <h2 id="how-to-use" class="ds-h2">
+    How To Use
   </h2>
-  <ul>
-    <li>
-      This should be a large "activity" icon:
-      <FlightIcon @name="activity" />
-    </li>
-    <li>
-      This should be a small "activity" icon:
-      <FlightIcon @name="activity" @size="16" />
-    </li>
-    <li>
-      This should be a small "zap" icon:
-      <FlightIcon @name="zap" @size="16" @isInlineBlock={{false}} />
-    </li>
-    <li>
-      This should be a red large "activity" icon:
-      <FlightIcon @name="activity" @color="red" />
-    </li>
-    <li>
-        This should be a large "database" icon with the fill color set to Terraform purple in hex (#7B42BC):
-        <FlightIcon @name="database" @color="#7B42BC" />
-      </li>
-  </ul>
+  <h3 class="ds-h3">Minimal use</h3>
+    <p>Minimal use: define icon <kbd class="ds-kbd">@name</kbd></p>
+    <pre><code class="ds-code">&lt;FlightIcon @name="activity" /></code></pre>
+  
+  <h3 class="ds-h3">Size</h3> 
+  <p>If a smaller icon is desired, set the <kbd class="ds-kbd">@size</kbd>. 
+  Note: only 24 (default) and 16 are currently supported.</p>
+  <pre><code class="ds-code">&lt;FlightIcon @name="activity" @size="16" /></code></pre>
+  
+  <h3 class="ds-h3">Display as block</h3>  
+  <p>To display the icon as a block, set <kbd class="ds-kbd">@isInlineBlock</kbd></p>
+  <pre><code class="ds-code">&lt;FlightIcon @name="zap" @isInlineBlock={{false}} /></code></pre>
+  <h3 class="ds-h3">Color</h3>  
+  <p>To change the fill (color) of the icon, pass a value to <kbd class="ds-kbd">@color</kbd>.</p> 
+  <pre><code class="ds-code">&lt;FlightIcon @name="activity" @color="red" /></code></pre>
+    
 </section>
 <section>
-  <h2>These are the available icons:</h2>
-  <ul class="ds-ul-inline">
+  <h2>Available Icons</h2>
+  <ul class="ds-ul-grid">
     <li>
       <FlightIcon @name="activity" />
       <br>activity
@@ -144,7 +138,1624 @@
       <FlightIcon @name="battery-charging" />
       <br>battery-charging
     </li>
+    <li>
+      <FlightIcon @name="beaker" />
+      <br>beaker
+    </li>
+    <li>
+      <FlightIcon @name="bell-active-fill" />
+      <br>bell-active-fill
+    </li>
+    <li>
+      <FlightIcon @name="bell-active" />
+      <br>bell-active
+    </li>
+    <li>
+      <FlightIcon @name="bell-off" />
+      <br>bell-off
+    </li>
+    <li>
+      <FlightIcon @name="book" />
+      <br>book
+    </li>
+    <li>
+      <FlightIcon @name="book-download" />
+      <br>book-download
+    </li>
+    <li>
+      <FlightIcon @name="book-open" />
+      <br>book-open
+    </li>
+    <li>
+      <FlightIcon @name="bookmark" />
+      <br>bookmark
+    </li>
+    <li>
+      <FlightIcon @name="bookmark-fill" />
+      <br>bookmark-fill
+    </li>
+    <li>
+      <FlightIcon @name="bookmark-add" />
+      <br>bookmark-add
+    </li>
+    <li>
+      <FlightIcon @name="bookmark-add-fill" />
+      <br>bookmark-add-fill
+    </li>
+    <li>
+      <FlightIcon @name="bookmark-remove" />
+      <br>bookmark-remove
+    </li>
+    <li>
+      <FlightIcon @name="bookmark-remove-fill" />
+      <br>bookmark-remove-fill
+    </li>
+    <li>
+      <FlightIcon @name="bottom" />
+      <br>bottom
+    </li>
+    <li>
+      <FlightIcon @name="box" />
+      <br>box
+    </li>
+    <li>
+      <FlightIcon @name="briefcase" />
+      <br>briefcase
+    </li>
+    <li>
+      <FlightIcon @name="bug" />
+      <br>bug
+    </li>
+    <li>
+      <FlightIcon @name="build" />
+      <br>build
+    </li>
+    <li>
+      <FlightIcon @name="calendar" />
+      <br>calendar
+    </li>
+    <li>
+      <FlightIcon @name="camera" />
+      <br>camera
+    </li>
+    <li>
+      <FlightIcon @name="camera-off" />
+      <br>camera-off
+    </li>
+    <li>
+      <FlightIcon @name="caret" />
+      <br>caret
+    </li>
+    <li>
+      <FlightIcon @name="cast" />
+      <br>cast
+    </li>
+    <li>
+      <FlightIcon @name="certificate" />
+      <br>certificate
+    </li>
+    <li>
+      <FlightIcon @name="change" />
+      <br>change
+    </li>
+    <li>
+      <FlightIcon @name="change-circle" />
+      <br>change-circle
+    </li>
+    <li>
+      <FlightIcon @name="change-square" />
+      <br>change-square
+    </li>
+    <li>
+      <FlightIcon @name="check" />
+      <br>check
+    </li>
+    <li>
+      <FlightIcon @name="check-circle" />
+      <br>check-circle
+    </li>
+    <li>
+      <FlightIcon @name="check-circle-fill" />
+      <br>check-circle-fill
+    </li>
+    <li>
+      <FlightIcon @name="check-diamond" />
+      <br>check-diamond
+    </li>
+    <li>
+      <FlightIcon @name="check-diamond-fill" />
+      <br>check-diamond-fill
+    </li>
 
+    <li>
+      <FlightIcon @name="check-square" />
+      <br>check-square
+    </li>
+
+    <li>
+      <FlightIcon @name="check-square-fill" />
+      <br>check-square-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="chevron-down" />
+      <br>chevron-down
+    </li>
+
+    <li>
+      <FlightIcon @name="chevron-left" />
+      <br>chevron-left
+    </li>
+
+    <li>
+      <FlightIcon @name="chevron-right" />
+      <br>chevron-right
+    </li>
+
+    <li>
+      <FlightIcon @name="chevron-up" />
+      <br>chevron-up
+    </li>
+
+    <li>
+      <FlightIcon @name="chevrons-down" />
+      <br>chevrons-down
+    </li>
+
+    <li>
+      <FlightIcon @name="chevrons-left" />
+      <br>chevrons-left
+    </li>
+
+    <li>
+      <FlightIcon @name="chevrons-right" />
+      <br>chevrons-right
+    </li>
+
+    <li>
+      <FlightIcon @name="chevrons-up" />
+      <br>chevrons-up
+    </li>
+
+    <li>
+      <FlightIcon @name="circle" />
+      <br>circle
+    </li>
+
+    <li>
+      <FlightIcon @name="circle-fill" />
+      <br>circle-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="clipboard" />
+      <br>clipboard
+    </li>
+
+    <li>
+      <FlightIcon @name="clipboard-checked" />
+      <br>clipboard-checked
+    </li>
+
+    <li>
+      <FlightIcon @name="clipboard-copy" />
+      <br>clipboard-copy
+    </li>
+
+    <li>
+      <FlightIcon @name="clock" />
+      <br>clock
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud" />
+      <br>cloud
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-check" />
+      <br>cloud-check
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-download" />
+      <br>cloud-download
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-lightning" />
+      <br>cloud-lightning
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-lock" />
+      <br>cloud-lock
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-off" />
+      <br>cloud-off
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-upload" />
+      <br>cloud-upload
+    </li>
+
+    <li>
+      <FlightIcon @name="cloud-x" />
+      <br>cloud-x
+    </li>
+
+    <li>
+      <FlightIcon @name="code" />
+      <br>code
+    </li>
+
+    <li>
+      <FlightIcon @name="collections" />
+      <br>collections
+    </li>
+
+    <li>
+      <FlightIcon @name="command" />
+      <br>command
+    </li>
+
+    <li>
+      <FlightIcon @name="compass" />
+      <br>compass
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-down-left" />
+      <br>corner-down-left
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-down-right" />
+      <br>corner-down-right
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-left-down" />
+      <br>corner-left-down
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-left-up" />
+      <br>corner-left-up
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-right-down" />
+      <br>corner-right-down
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-right-up" />
+      <br>corner-right-up
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-up-left" />
+      <br>corner-up-left
+    </li>
+
+    <li>
+      <FlightIcon @name="corner-up-right" />
+      <br>corner-up-right
+    </li>
+
+    <li>
+      <FlightIcon @name="cpu" />
+      <br>cpu
+    </li>
+
+    <li>
+      <FlightIcon @name="credit-card" />
+      <br>credit-card
+    </li>
+
+    <li>
+      <FlightIcon @name="crop" />
+      <br>crop
+    </li>
+
+    <li>
+      <FlightIcon @name="crosshair" />
+      <br>crosshair
+    </li>
+
+    <li>
+      <FlightIcon @name="database" />
+      <br>database
+    </li>
+
+    <li>
+      <FlightIcon @name="delay" />
+      <br>delay
+    </li>
+
+    <li>
+      <FlightIcon @name="delete" />
+      <br>delete
+    </li>
+
+    <li>
+      <FlightIcon @name="diamond" />
+      <br>diamond
+    </li>
+
+    <li>
+      <FlightIcon @name="diamond-fill" />
+      <br>diamond-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="disc" />
+      <br>disc
+    </li>
+
+    <li>
+      <FlightIcon @name="discussion-circle" />
+      <br>discussion-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="discussion-square" />
+      <br>discussion-square
+    </li>
+
+    <li>
+      <FlightIcon @name="dollar-sign" />
+      <br>dollar-sign
+    </li>
+
+    <li>
+      <FlightIcon @name="download" />
+      <br>download
+    </li>
+
+    <li>
+      <FlightIcon @name="droplet" />
+      <br>droplet
+    </li>
+
+    <li>
+      <FlightIcon @name="duplicate" />
+      <br>duplicate
+    </li>
+
+    <li>
+      <FlightIcon @name="edit" />
+      <br>edit
+    </li>
+
+    <li>
+      <FlightIcon @name="entry-point" />
+      <br>entry-point
+    </li>
+
+    <li>
+      <FlightIcon @name="exit-point" />
+      <br>exit-point
+    </li>
+
+    <li>
+      <FlightIcon @name="external-link" />
+      <br>external-link
+    </li>
+
+    <li>
+      <FlightIcon @name="event" />
+      <br>event
+    </li>
+
+    <li>
+      <FlightIcon @name="eye" />
+      <br>eye
+    </li>
+
+    <li>
+      <FlightIcon @name="eye-off" />
+      <br>eye-off
+    </li>
+
+    <li>
+      <FlightIcon @name="fast-forward" />
+      <br>fast-forward
+    </li>
+
+    <li>
+      <FlightIcon @name="file" />
+      <br>file
+    </li>
+
+    <li>
+      <FlightIcon @name="file-check" />
+      <br>file-check
+    </li>
+
+    <li>
+      <FlightIcon @name="file-change" />
+      <br>file-change
+    </li>
+
+    <li>
+      <FlightIcon @name="file-diff" />
+      <br>file-diff
+    </li>
+
+    <li>
+      <FlightIcon @name="file-minus" />
+      <br>file-minus
+    </li>
+
+    <li>
+      <FlightIcon @name="file-plus" />
+      <br>file-plus
+    </li>
+
+    <li>
+      <FlightIcon @name="file-source" />
+      <br>file-source
+    </li>
+
+    <li>
+      <FlightIcon @name="file-text" />
+      <br>file-text
+    </li>
+
+    <li>
+      <FlightIcon @name="file-x" />
+      <br>file-x
+    </li>
+
+    <li>
+      <FlightIcon @name="files" />
+      <br>files
+    </li>
+
+    <li>
+      <FlightIcon @name="film" />
+      <br>film
+    </li>
+
+    <li>
+      <FlightIcon @name="filter" />
+      <br>filter
+    </li>
+
+    <li>
+      <FlightIcon @name="flag" />
+      <br>flag
+    </li>
+
+    <li>
+      <FlightIcon @name="folder" />
+      <br>folder
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-fill" />
+      <br>folder-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-minus" />
+      <br>folder-minus
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-minus-fill" />
+      <br>folder-minus-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-plus" />
+      <br>folder-plus
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-plus-fill" />
+      <br>folder-plus-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-star" />
+      <br>folder-star
+    </li>
+
+    <li>
+      <FlightIcon @name="folder-users" />
+      <br>folder-users
+    </li>
+
+    <li>
+      <FlightIcon @name="frown" />
+      <br>frown
+    </li>
+
+    <li>
+      <FlightIcon @name="gateway" />
+      <br>gateway
+    </li>
+
+    <li>
+      <FlightIcon @name="gift" />
+      <br>gift
+    </li>
+
+    <li>
+      <FlightIcon @name="git-branch" />
+      <br>git-branch
+    </li>
+
+    <li>
+      <FlightIcon @name="git-commit" />
+      <br>git-commit
+    </li>
+
+    <li>
+      <FlightIcon @name="git-merge" />
+      <br>git-merge
+    </li>
+
+    <li>
+      <FlightIcon @name="git-pull-request" />
+      <br>git-pull-request
+    </li>
+
+    <li>
+      <FlightIcon @name="git-repo" />
+      <br>git-repo
+    </li>
+
+    <li>
+      <FlightIcon @name="globe" />
+      <br>globe
+    </li>
+
+    <li>
+      <FlightIcon @name="globe-private" />
+      <br>globe-private
+    </li>
+
+    <li>
+      <FlightIcon @name="grid" />
+      <br>grid
+    </li>
+
+    <li>
+      <FlightIcon @name="grid-alt" />
+      <br>grid-alt
+    </li>
+
+    <li>
+      <FlightIcon @name="hammer" />
+      <br>hammer
+    </li>
+
+    <li>
+      <FlightIcon @name="hard-drive" />
+      <br>hard-drive
+    </li>
+
+    <li>
+      <FlightIcon @name="hash" />
+      <br>hash
+    </li>
+
+    <li>
+      <FlightIcon @name="headphones" />
+      <br>headphones
+    </li>
+
+    <li>
+      <FlightIcon @name="heart" />
+      <br>heart
+    </li>
+
+    <li>
+      <FlightIcon @name="heart-fill" />
+      <br>heart-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="heart-off" />
+      <br>heart-off
+    </li>
+
+    <li>
+      <FlightIcon @name="help" />
+      <br>help
+    </li>
+
+    <li>
+      <FlightIcon @name="history" />
+      <br>history
+    </li>
+
+    <li>
+      <FlightIcon @name="home" />
+      <br>home
+    </li>
+
+    <li>
+      <FlightIcon @name="hourglass" />
+      <br>hourglass
+    </li>
+
+    <li>
+      <FlightIcon @name="identity-user" />
+      <br>identity-user
+    </li>
+
+    <li>
+      <FlightIcon @name="identity-service" />
+      <br>identity-service
+    </li>
+
+    <li>
+      <FlightIcon @name="image" />
+      <br>image
+    </li>
+
+    <li>
+      <FlightIcon @name="inbox" />
+      <br>inbox
+    </li>
+
+    <li>
+      <FlightIcon @name="info" />
+      <br>info
+    </li>
+
+    <li>
+      <FlightIcon @name="key" />
+      <br>key
+    </li>
+
+    <li>
+      <FlightIcon @name="jump-link" />
+      <br>jump-link
+    </li>
+
+    <li>
+      <FlightIcon @name="key-values" />
+      <br>key-values
+    </li>
+
+    <li>
+      <FlightIcon @name="labyrinth" />
+      <br>labyrinth
+    </li>
+
+    <li>
+      <FlightIcon @name="layers" />
+      <br>layers
+    </li>
+
+    <li>
+      <FlightIcon @name="layout" />
+      <br>layout
+    </li>
+
+    <li>
+      <FlightIcon @name="learn" />
+      <br>learn
+    </li>
+
+    <li>
+      <FlightIcon @name="life-buoy" />
+      <br>life-buoy
+    </li>
+
+    <li>
+      <FlightIcon @name="line-chart" />
+      <br>line-chart
+    </li>
+
+    <li>
+      <FlightIcon @name="line-chart-up" />
+      <br>line-chart-up
+    </li>
+
+    <li>
+      <FlightIcon @name="link" />
+      <br>link
+    </li>
+
+    <li>
+      <FlightIcon @name="list" />
+      <br>list
+    </li>
+
+    <li>
+      <FlightIcon @name="lock" />
+      <br>lock
+    </li>
+
+    <li>
+      <FlightIcon @name="lock-disabled" />
+      <br>lock-disabled
+    </li>
+
+    <li>
+      <FlightIcon @name="lock-fill" />
+      <br>lock-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="mail" />
+      <br>mail
+    </li>
+
+    <li>
+      <FlightIcon @name="mail-open" />
+      <br>mail-open
+    </li>
+
+    <li>
+      <FlightIcon @name="map" />
+      <br>map
+    </li>
+
+    <li>
+      <FlightIcon @name="map-pin" />
+      <br>map-pin
+    </li>
+
+    <li>
+      <FlightIcon @name="maximize" />
+      <br>maximize
+    </li>
+
+    <li>
+      <FlightIcon @name="maximize-alt" />
+      <br>maximize-alt
+    </li>
+
+    <li>
+      <FlightIcon @name="meh" />
+      <br>meh
+    </li>
+
+    <li>
+      <FlightIcon @name="menu" />
+      <br>menu
+    </li>
+
+    <li>
+      <FlightIcon @name="mesh" />
+      <br>mesh
+    </li>
+
+    <li>
+      <FlightIcon @name="message-circle" />
+      <br>message-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="message-circle-fill" />
+      <br>message-circle-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="message-square" />
+      <br>message-square
+    </li>
+
+    <li>
+      <FlightIcon @name="message-square-fill" />
+      <br>message-square-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="mic" />
+      <br>mic
+    </li>
+
+    <li>
+      <FlightIcon @name="mic-off" />
+      <br>mic-off
+    </li>
+
+    <li>
+      <FlightIcon @name="migrate" />
+      <br>migrate
+    </li>
+
+    <li>
+      <FlightIcon @name="minimize" />
+      <br>minimize
+    </li>
+
+    <li>
+      <FlightIcon @name="minimize-alt" />
+      <br>minimize-alt
+    </li>
+
+    <li>
+      <FlightIcon @name="minus" />
+      <br>minus
+    </li>
+
+    <li>
+      <FlightIcon @name="minus-circle" />
+      <br>minus-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="minus-square" />
+      <br>minus-square
+    </li>
+
+    <li>
+      <FlightIcon @name="minus-plus" />
+      <br>minus-plus
+    </li>
+
+    <li>
+      <FlightIcon @name="minus-plus-circle" />
+      <br>minus-plus-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="minus-plus-square" />
+      <br>minus-plus-square
+    </li>
+
+    <li>
+      <FlightIcon @name="module" />
+      <br>module
+    </li>
+
+    <li>
+      <FlightIcon @name="monitor" />
+      <br>monitor
+    </li>
+
+    <li>
+      <FlightIcon @name="moon" />
+      <br>moon
+    </li>
+
+    <li>
+      <FlightIcon @name="more-horizontal" />
+      <br>more-horizontal
+    </li>
+
+    <li>
+      <FlightIcon @name="more-vertical" />
+      <br>more-vertical
+    </li>
+
+    <li>
+      <FlightIcon @name="mouse-pointer" />
+      <br>mouse-pointer
+    </li>
+
+    <li>
+      <FlightIcon @name="move" />
+      <br>move
+    </li>
+
+    <li>
+      <FlightIcon @name="music" />
+      <br>music
+    </li>
+
+    <li>
+      <FlightIcon @name="navigation" />
+      <br>navigation
+    </li>
+
+    <li>
+      <FlightIcon @name="navigation-alt" />
+      <br>navigation-alt
+    </li>
+
+    <li>
+      <FlightIcon @name="network" />
+      <br>network
+    </li>
+
+    <li>
+      <FlightIcon @name="network-alt" />
+      <br>network-alt
+    </li>
+
+    <li>
+      <FlightIcon @name="newspaper" />
+      <br>newspaper
+    </li>
+
+    <li>
+      <FlightIcon @name="node" />
+      <br>node
+    </li>
+
+    <li>
+      <FlightIcon @name="octagon" />
+      <br>octagon
+    </li>
+
+    <li>
+      <FlightIcon @name="org" />
+      <br>org
+    </li>
+
+    <li>
+      <FlightIcon @name="outline" />
+      <br>outline
+    </li>
+
+    <li>
+      <FlightIcon @name="package" />
+      <br>package
+    </li>
+
+    <li>
+      <FlightIcon @name="paperclip" />
+      <br>paperclip
+    </li>
+
+    <li>
+      <FlightIcon @name="path" />
+      <br>path
+    </li>
+
+    <li>
+      <FlightIcon @name="pause" />
+      <br>pause
+    </li>
+
+    <li>
+      <FlightIcon @name="pause-circle" />
+      <br>pause-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="pen-tool" />
+      <br>pen-tool
+    </li>
+
+    <li>
+      <FlightIcon @name="pencil-tool" />
+      <br>pencil-tool
+    </li>
+
+    <li>
+      <FlightIcon @name="phone" />
+      <br>phone
+    </li>
+
+    <li>
+      <FlightIcon @name="phone-call" />
+      <br>phone-call
+    </li>
+
+    <li>
+      <FlightIcon @name="phone-off" />
+      <br>phone-off
+    </li>
+
+    <li>
+      <FlightIcon @name="pie-chart" />
+      <br>pie-chart
+    </li>
+
+    <li>
+      <FlightIcon @name="pin" />
+      <br>pin
+    </li>
+
+    <li>
+      <FlightIcon @name="play" />
+      <br>play
+    </li>
+
+    <li>
+      <FlightIcon @name="play-circle" />
+      <br>play-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="plus" />
+      <br>plus
+    </li>
+
+    <li>
+      <FlightIcon @name="plus-circle" />
+      <br>plus-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="plus-square" />
+      <br>plus-square
+    </li>
+
+    <li>
+      <FlightIcon @name="power" />
+      <br>power
+    </li>
+
+    <li>
+      <FlightIcon @name="printer" />
+      <br>printer
+    </li>
+
+    <li>
+      <FlightIcon @name="provider" />
+      <br>provider
+    </li>
+
+    <li>
+      <FlightIcon @name="queue" />
+      <br>queue
+    </li>
+
+    <li>
+      <FlightIcon @name="radio" />
+      <br>radio
+    </li>
+
+    <li>
+      <FlightIcon @name="refresh-alert" />
+      <br>refresh-alert
+    </li>
+
+    <li>
+      <FlightIcon @name="refresh-cw" />
+      <br>refresh-cw
+    </li>
+
+    <li>
+      <FlightIcon @name="refresh-ccw" />
+      <br>refresh-ccw
+    </li>
+
+    <li>
+      <FlightIcon @name="repeat" />
+      <br>repeat
+    </li>
+
+    <li>
+      <FlightIcon @name="replication-direct" />
+      <br>replication-direct
+    </li>
+
+    <li>
+      <FlightIcon @name="replication-perf" />
+      <br>replication-perf
+    </li>
+
+    <li>
+      <FlightIcon @name="rewind" />
+      <br>rewind
+    </li>
+
+    <li>
+      <FlightIcon @name="rocket" />
+      <br>rocket
+    </li>
+
+    <li>
+      <FlightIcon @name="rotate-cw" />
+      <br>rotate-cw
+    </li>
+
+    <li>
+      <FlightIcon @name="rotate-ccw" />
+      <br>rotate-ccw
+    </li>
+
+    <li>
+      <FlightIcon @name="rss" />
+      <br>rss
+    </li>
+
+    <li>
+      <FlightIcon @name="save" />
+      <br>save
+    </li>
+
+    <li>
+      <FlightIcon @name="scissors" />
+      <br>scissors
+    </li>
+
+    <li>
+      <FlightIcon @name="search" />
+      <br>search
+    </li>
+
+    <li>
+      <FlightIcon @name="send" />
+      <br>send
+    </li>
+
+    <li>
+      <FlightIcon @name="server" />
+      <br>server
+    </li>
+
+    <li>
+      <FlightIcon @name="serverless" />
+      <br>serverless
+    </li>
+
+    <li>
+      <FlightIcon @name="server-cluster" />
+      <br>server-cluster
+    </li>
+
+    <li>
+      <FlightIcon @name="settings" />
+      <br>settings
+    </li>
+
+    <li>
+      <FlightIcon @name="share" />
+      <br>share
+    </li>
+
+    <li>
+      <FlightIcon @name="shield" />
+      <br>shield
+    </li>
+
+    <li>
+      <FlightIcon @name="shield-alert" />
+      <br>hield-alert
+    </li>
+
+    <li>
+      <FlightIcon @name="shield-check" />
+      <br>shield-check
+    </li>
+
+    <li>
+      <FlightIcon @name="shield-off" />
+      <br>shield-off
+    </li>
+
+    <li>
+      <FlightIcon @name="shield-x" />
+      <br>shield-x
+    </li>
+
+    <li>
+      <FlightIcon @name="shopping-bag" />
+      <br>shopping-bag
+    </li>
+
+    <li>
+      <FlightIcon @name="shopping-cart" />
+      <br>shopping-cart
+    </li>
+
+    <li>
+      <FlightIcon @name="shuffle" />
+      <br>shuffle
+    </li>
+
+    <li>
+      <FlightIcon @name="sidebar" />
+      <br>sidebar
+    </li>
+
+    <li>
+      <FlightIcon @name="sidebar-hide" />
+      <br>sidebar-hide
+    </li>
+
+    <li>
+      <FlightIcon @name="sidebar-show" />
+      <br>sidebar-show
+    </li>
+
+    <li>
+      <FlightIcon @name="sign-in" />
+      <br>sign-in
+    </li>
+
+    <li>
+      <FlightIcon @name="sign-out" />
+      <br>sign-out
+    </li>
+
+    <li>
+      <FlightIcon @name="skip" />
+      <br>skip
+    </li>
+
+    <li>
+      <FlightIcon @name="skip-forward" />
+      <br>skip-forward
+    </li>
+
+    <li>
+      <FlightIcon @name="skip-back" />
+      <br>skip-back
+    </li>
+
+    <li>
+      <FlightIcon @name="slash" />
+      <br>slash
+    </li>
+
+    <li>
+      <FlightIcon @name="slash-square" />
+      <br>slash-square
+    </li>
+
+    <li>
+      <FlightIcon @name="sliders" />
+      <br>sliders
+    </li>
+
+    <li>
+      <FlightIcon @name="smartphone" />
+      <br>smartphone
+    </li>
+
+    <li>
+      <FlightIcon @name="smile" />
+      <br>smile
+    </li>
+
+    <li>
+      <FlightIcon @name="socket" />
+      <br>socket
+    </li>
+
+    <li>
+      <FlightIcon @name="sort-asc" />
+      <br>sort-asc
+    </li>
+
+    <li>
+      <FlightIcon @name="sort-desc" />
+      <br>sort-desc
+    </li>
+
+    <li>
+      <FlightIcon @name="speaker" />
+      <br>speaker
+    </li>
+
+    <li>
+      <FlightIcon @name="square" />
+      <br>square
+    </li>
+
+    <li>
+      <FlightIcon @name="square-fill" />
+      <br>square-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="star" />
+      <br>star
+    </li>
+
+    <li>
+      <FlightIcon @name="star-circle" />
+      <br>star-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="star-fill" />
+      <br>star-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="star-off" />
+      <br>star-off
+    </li>
+
+    <li>
+      <FlightIcon @name="stop-circle" />
+      <br>stop-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="sun" />
+      <br>sun
+    </li>
+
+    <li>
+      <FlightIcon @name="swap-horizontal" />
+      <br>swap-horizontal
+    </li>
+
+    <li>
+      <FlightIcon @name="swap-vertical" />
+      <br>swap-vertical
+    </li>
+
+    <li>
+      <FlightIcon @name="switcher" />
+      <br>switcher
+    </li>
+
+    <li>
+      <FlightIcon @name="tablet" />
+      <br>tablet
+    </li>
+
+    <li>
+      <FlightIcon @name="tag" />
+      <br>tag
+    </li>
+
+    <li>
+      <FlightIcon @name="target" />
+      <br>target
+    </li>
+
+    <li>
+      <FlightIcon @name="terminal" />
+      <br>terminal
+    </li>
+
+    <li>
+      <FlightIcon @name="terminal-screen" />
+      <br>terminal-screen
+    </li>
+
+    <li>
+      <FlightIcon @name="thumbs-up" />
+      <br>thumbs-up
+    </li>
+
+    <li>
+      <FlightIcon @name="thumbs-down" />
+      <br>thumbs-down
+    </li>
+
+    <li>
+      <FlightIcon @name="toggle-left" />
+      <br>toggle-left
+    </li>
+
+    <li>
+      <FlightIcon @name="toggle-right" />
+      <br>toggle-right
+    </li>
+
+    <li>
+      <FlightIcon @name="token" />
+      <br>token
+    </li>
+
+    <li>
+      <FlightIcon @name="tools" />
+      <br>tools
+    </li>
+
+    <li>
+      <FlightIcon @name="top" />
+      <br>top
+    </li>
+
+    <li>
+      <FlightIcon @name="trash" />
+      <br>trash
+    </li>
+
+    <li>
+      <FlightIcon @name="trend-down" />
+      <br>trend-down
+    </li>
+
+    <li>
+      <FlightIcon @name="trend-up" />
+      <br>trend-up
+    </li>
+
+    <li>
+      <FlightIcon @name="triangle" />
+      <br>triangle
+    </li>
+
+    <li>
+      <FlightIcon @name="triangle-fill" />
+      <br>triangle-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="truck" />
+      <br>truck
+    </li>
+
+    <li>
+      <FlightIcon @name="tv" />
+      <br>tv
+    </li>
+
+    <li>
+      <FlightIcon @name="type" />
+      <br>type
+    </li>
+
+    <li>
+      <FlightIcon @name="unfold-open" />
+      <br>unfold-open
+    </li>
+
+    <li>
+      <FlightIcon @name="unfold-close" />
+      <br>unfold-close
+    </li>
+
+    <li>
+      <FlightIcon @name="unlock" />
+      <br>unlock
+    </li>
+
+    <li>
+      <FlightIcon @name="upload" />
+      <br>upload
+    </li>
+
+    <li>
+      <FlightIcon @name="user" />
+      <br>user
+    </li>
+
+    <li>
+      <FlightIcon @name="user-check" />
+      <br>user-check
+    </li>
+
+    <li>
+      <FlightIcon @name="user-circle" />
+      <br>user-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="user-circle-fill" />
+      <br>user-circle-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="user-minus" />
+      <br>user-plus
+    </li>
+
+    <li>
+      <FlightIcon @name="user-plus" />
+      <br>
+    </li>
+
+    <li>
+      <FlightIcon @name="user-x" />
+      <br>user-x
+    </li>
+
+    <li>
+      <FlightIcon @name="users" />
+      <br>users
+    </li>
+
+    <li>
+      <FlightIcon @name="vault" />
+      <br>vault
+    </li>
+
+    <li>
+      <FlightIcon @name="verified" />
+      <br>verified
+    </li>
+
+    <li>
+      <FlightIcon @name="video" />
+      <br>video
+    </li>
+
+    <li>
+      <FlightIcon @name="video-off" />
+      <br>video-off
+    </li>
+
+    <li>
+      <FlightIcon @name="volume" />
+      <br>volume
+    </li>
+
+    <li>
+      <FlightIcon @name="volume-1" />
+      <br>volume-1
+    </li>
+
+    <li>
+      <FlightIcon @name="volume-2" />
+      <br>volume-2
+    </li>
+
+    <li>
+      <FlightIcon @name="volume-x" />
+      <br>volume-x
+    </li>
+
+    <li>
+      <FlightIcon @name="wall" />
+      <br>wall
+    </li>
+
+    <li>
+      <FlightIcon @name="watch" />
+      <br>watch
+    </li>
+
+    <li>
+      <FlightIcon @name="webhook" />
+      <br>webhook
+    </li>
+
+    <li>
+      <FlightIcon @name="wifi" />
+      <br>wifi
+    </li>
+
+    <li>
+      <FlightIcon @name="wifi-off" />
+      <br>wifi-off
+    </li>
+
+    <li>
+      <FlightIcon @name="wrench" />
+      <br>wrench
+    </li>
+
+    <li>
+      <FlightIcon @name="x" />
+      <br>x
+    </li>
+
+    <li>
+      <FlightIcon @name="x-circle" />
+      <br>x-circle
+    </li>
+
+    <li>
+      <FlightIcon @name="x-circle-fill" />
+      <br>x-circle-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="x-square" />
+      <br>x-square
+    </li>
+
+    <li>
+      <FlightIcon @name="x-square-fill" />
+      <br>x-square-fill
+    </li>
+
+    <li>
+      <FlightIcon @name="zap" />
+      <br>zap
+    </li>
+
+    <li>
+      <FlightIcon @name="zap-off" />
+      <br>zap-off
+    </li>
+
+    <li>
+      <FlightIcon @name="zoom-in" />
+      <br>zoom-in
+    </li>
+
+    <li>
+      <FlightIcon @name="zoom-out" />
+      <br>zoom-out
+    </li>
   </ul>
   
 </section>

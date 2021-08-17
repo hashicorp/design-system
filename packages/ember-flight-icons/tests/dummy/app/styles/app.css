@@ -8,23 +8,32 @@ body {
   line-height: 1.2;
 }
 
-ul.ds-ul-inline {
+ul.ds-ul-grid {
   display: grid;
-  grid-template-rows: repeat(5, 150px);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
-  grid-auto-flow: column;
-  grid-auto-columns: 150px 150px;
+  grid-auto-flow: dense;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-ul.ds-ul-inline li {
+ul.ds-ul-grid li {
+  border: 1px solid black;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  border: 1px solid black;
   padding: 0.25em;
 }
-ul.ds-ul-inline li svg {
+ul.ds-ul-grid li svg {
   width: 100%;
+}
+
+kbd.ds-kbd {
+  background-color: lightgray;
+  font-weight: bold;
+  padding: 0 2px;
+}
+code.ds-code {
+  background-color: aliceblue;
+  padding: 6px;
 }
