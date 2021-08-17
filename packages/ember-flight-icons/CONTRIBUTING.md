@@ -40,13 +40,23 @@ If necessary, run a `yarn unlink`.
 * In your external repo, e.g. https://github.com/hashicorp/design-system-playground-fastboot, run `yarn link "@hashicorp/ember-flight-icons"`
 * In your external repo, manually add the path to the `package.json`. For example:
 
-```
+```json
 "devDependencies": {
-  ...
   "@hashicorp/ember-flight-icons": "link:~/your-path-here/flight/ember-flight-icons",
-  ...
 }
 ```
 
 * Run `yarn` or `yarn install`
 * You may need to copy code such as https://github.com/hashicorp/flight/blob/main/ember-flight-icons/tests/dummy/app/templates/application.hbs into the external app's `application.hbs` to see the results.
+* If you want to test local changes to `ember-flight-icons`, add `isDevelopingAddon` to `ember-flight-icons/index.js`. The file will look something like the following:
+
+```js
+'use strict';
+
+module.exports = {
+  name: require('./package').name,
+  isDevelopingAddon() {
+    return true;
+  },
+};
+```
