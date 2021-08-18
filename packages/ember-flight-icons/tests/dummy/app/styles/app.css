@@ -5,21 +5,24 @@ html {
   font-size: 18px;
 }
 body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   font-size: 1rem;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 8fr 0.5fr;
   line-height: 1.2;
   margin: 0;
   min-height: 100vh;
   padding: 0;
 }
+h1.ds-h1 {
+  padding: 0 0.5em;
+}
+main.ds-main {
+  padding: 0 1em 1em 1em;
+}
 
 ul.ds-ul-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
   gap: 10px;
   grid-auto-flow: dense;
   list-style: none;
@@ -27,11 +30,13 @@ ul.ds-ul-grid {
   margin: 0;
 }
 ul.ds-ul-grid li {
+  align-items: center;
   border: 1px solid black;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  gap: 1ch;
   justify-content: center;
-  padding: 0.25em;
+  padding: 0.5em 0.15em 0.15em;
 }
 ul.ds-ul-grid li svg {
   width: 100%;
@@ -53,5 +58,6 @@ footer.ds-footer {
 }
 
 footer.ds-footer p.ds-p a.ds-a {
+  padding: 0.5em;
   color: var(--brand-link-on-dark);
 }
