@@ -33,7 +33,8 @@ h2.ds-h2 {
 
 ul.ds-ul-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  font-family: var(--font-body);
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
   gap: 10px;
   grid-auto-flow: dense;
   list-style: none;
@@ -45,10 +46,13 @@ ul.ds-ul-grid li.ds-li {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  font-size: 0.9em;
+  font-size: 0.85em;
   gap: 1ch;
   justify-content: center;
   padding: 0.5em 0.15em 0.15em;
+}
+ul.ds-ul-grid li.ds-li:hover {
+  background-color: aliceblue;
 }
 ul.ds-ul-grid li.ds-li svg.flight-icon {
   width: 100%;
