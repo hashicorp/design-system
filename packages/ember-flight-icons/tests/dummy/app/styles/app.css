@@ -1,23 +1,34 @@
 @import "./root.css";
+@import "./modern-normalize.css";
 
 html {
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
 }
 body {
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.2;
   margin: 0;
   min-height: 100vh;
   padding: 0;
 }
+header.ds-header {
+  background-color: var(--code-dark);
+  color: var(--code-light);
+}
 h1.ds-h1 {
+  font-family: var(--font-display);
+  line-height: 1;
   padding: 0 0.5em;
 }
 main.ds-main {
   padding: 0 1em 1em 1em;
+}
+h2.ds-h2 {
+  font-family: var(--font-display);
+  line-height: 1;
 }
 
 ul.ds-ul-grid {
@@ -29,29 +40,20 @@ ul.ds-ul-grid {
   padding: 0;
   margin: 0;
 }
-ul.ds-ul-grid li {
+ul.ds-ul-grid li.ds-li {
   align-items: center;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+  font-size: 0.9em;
   gap: 1ch;
   justify-content: center;
   padding: 0.5em 0.15em 0.15em;
 }
-ul.ds-ul-grid li svg {
+ul.ds-ul-grid li.ds-li svg.flight-icon {
   width: 100%;
 }
 
-kbd.ds-kbd {
-  background-color: var(--gray-1);
-  font-weight: bold;
-  padding: 0 2px;
-}
-code.ds-code {
-  background-color: var(--code-dark);
-  color: var(--code-light);
-  padding: 6px;
-}
 
 footer.ds-footer {
   background-color: var(--black);
