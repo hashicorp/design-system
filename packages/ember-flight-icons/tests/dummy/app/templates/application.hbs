@@ -10,7 +10,6 @@
     <h2 class="ds-h2">Available Icons</h2>
       <ul class="ds-ul-grid">
         {{#each @model as |meta|}}
-        {{log meta}}
           <li class="ds-li">
             <FlightIcon @name={{substring meta.Name}} @size={{if (eq meta.Size 16) "16"}}/>
             <br/>{{meta.Name}}
