@@ -9,8 +9,6 @@ export default class ApplicationRoute extends Route {
   }
 
   async model() {
-    // console.log('here', this.contextRootURL)
-
     const response = await fetch(
       `${this.contextRootURL}@hashicorp/ember-flight-icons/icons/_catalog.json`
     );

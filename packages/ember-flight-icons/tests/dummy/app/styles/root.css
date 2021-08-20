@@ -3,7 +3,7 @@
   font-family: gilmer-web;
   font-style: normal;
   font-weight: 400;
-  src: local("Gilmer Regular"),url(/public/assets/fonts/gilmer-400-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-400-normal.woff) format("woff")
+  src: local("Gilmer Regular"),url(/assets/fonts/gilmer-400-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-400-normal.woff) format("woff")
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-family: gilmer-web;
   font-style: normal;
   font-weight: 500;
-  src: local("Gilmer Medium"),url(/public/assets/fonts/gilmer-500-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-500-normal.woff) format("woff")
+  src: local("Gilmer Medium"),url(/assets/fonts/gilmer-500-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-500-normal.woff) format("woff")
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-family: gilmer-web;
   font-style: normal;
   font-weight: 700;
-  src: local("Gilmer Bold"),url(/public/assets/fonts/gilmer-700-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-700-normal.woff) format("woff")
+  src: local("Gilmer Bold"),url(/assets/fonts/gilmer-700-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-700-normal.woff) format("woff")
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   font-family: metro-web;
   font-style: normal;
   font-weight: 400;
-  src: local("Metro Sans Regular"),url(/public/assets/fonts/metro-400-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-400-normal.woff) format("woff")
+  src: local("Metro Sans Regular"),url(/assets/fonts/metro-400-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-400-normal.woff) format("woff")
 }
 
 @font-face {
@@ -35,7 +35,7 @@
   font-family: metro-web;
   font-style: normal;
   font-weight: 600;
-  src: local("Metro Sans Semi-Bold"),url(/public/assets/fonts/metro-600-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-600-normal.woff) format("woff")
+  src: local("Metro Sans Semi-Bold"),url(/assets/fonts/metro-600-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-600-normal.woff) format("woff")
 }
 
 @font-face {
@@ -43,7 +43,7 @@
   font-family: metro-web;
   font-style: normal;
   font-weight: 700;
-  src: local("Metro Sans Bold"),url(/public/assets/fonts/metro-700-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-700-normal.woff) format("woff")
+  src: local("Metro Sans Bold"),url(/assets/fonts/metro-700-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-700-normal.woff) format("woff")
 }
 
 
