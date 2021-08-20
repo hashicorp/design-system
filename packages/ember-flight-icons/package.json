@@ -1,13 +1,35 @@
 {
   "name": "@hashicorp/ember-flight-icons",
   "version": "0.0.0",
-  "description": "The Ember addon for the HashiCorp icon set",
+  "description": "The Ember addon for the HashiCorp Flight SVG icon set",
   "keywords": [
-    "ember-addon"
+    "ember-addon", "hashicorp", "icon", "svg", "flight"
   ],
-  "repository": "https://github.com/hashicorp/ember-flight-icons",
+  "repository": "https://github.com/hashicorp/flight/ember-flight-icons",
   "license": "MPL-2.0",
-  "author": "Melanie Sumner <melanie@hashicorp.com>",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "contributors": [
+    {
+      "name": "Melanie Sumner",
+      "email": "msumner@hashicorp.com"
+    },
+    {
+      "name": "Brian Runnells",
+      "email": "brunnells@hashicorp.com"
+    },
+    {
+      "name": "Hector Simpson",
+      "email": "hector@hashicorp.com"
+    },
+    {
+      "name": "Heather Larsen",
+      "email": "hlarsen@hashicorp.com"
+    },
+    {
+      "name": "Amy Lam",
+      "email": "alam@hashicorp.com"
+    }
+  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
