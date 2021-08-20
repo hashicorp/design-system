@@ -1,15 +1,24 @@
-{{page-title "Flight Icons: An Ember Addon"}}
+{{page-title 'Flight Icons'}}
+<header class="ds-header">
+  <h1 id="title" class="ds-h1">
+    Flight Icons
+  </h1>
+</header>
+<main class="ds-main">
+  <section class="ds-section">
+    <p class="ds-p">See the <a class="ds-a" href="https://github.com/hashicorp/flight/blob/main/ember-flight-icons/README.md">README</a> for usage instructions.</p>
+    <h2 class="ds-h2">Available Icons</h2>
+      <ul class="ds-ul-grid">
+        {{#each @model as |meta|}}
+          <li class="ds-li">
+            <FlightIcon @name={{substring meta.Name}} @size={{if (eq meta.Size 16) "16"}}/>
+            <br/>{{meta.Name}}
+          </li>
+        {{/each}}
+      </ul>
 
-<h1 id="title">Flight Icons: An Ember Addon</h1>
-
-<section>
-  <h2>Example:</h2>
-<ul>
-  <li>
-    This should be a large "activity" icon: <FlightIcon @name="activity" />
-  </li>
-  <li>This should be a small "activity" icon: <FlightIcon @name="activity" @size="16" /></li>
-  <li>This should be a small "zap" icon: <FlightIcon @name="zap" @size="16" @isInlineBlock={{false}} /></li>
-  <li>This should be a red large "activity" icon: <FlightIcon @name="activity" @color="red" /></li>
-</ul>
-</section>
+  </section>
+</main>
+<footer class="ds-footer">
+  <p class="ds-p"><a class="ds-a" href="https://github.com/hashicorp/flight">View On GitHub</a></p>
+</footer>

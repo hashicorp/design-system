@@ -1,0 +1,168 @@
+@font-face {
+  font-display: swap;
+  font-family: gilmer-web;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Gilmer Regular"),url(/assets/fonts/gilmer-400-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-400-normal.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: gilmer-web;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Gilmer Medium"),url(/assets/fonts/gilmer-500-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-500-normal.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: gilmer-web;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Gilmer Bold"),url(/assets/fonts/gilmer-700-normal.woff2) format("woff2"),url(/public/assets/fonts/gilmer-700-normal.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: metro-web;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Metro Sans Regular"),url(/assets/fonts/metro-400-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-400-normal.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: metro-web;
+  font-style: normal;
+  font-weight: 600;
+  src: local("Metro Sans Semi-Bold"),url(/assets/fonts/metro-600-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-600-normal.woff) format("woff")
+}
+
+@font-face {
+  font-display: swap;
+  font-family: metro-web;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Metro Sans Bold"),url(/assets/fonts/metro-700-normal.woff2) format("woff2"),url(/public/assets/fonts/metro-700-normal.woff) format("woff")
+}
+
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --gray-6: #f2f2f3;
+  --gray-5: #dbdbdc;
+  --gray-4: #bfbfc0;
+  --gray-3: #727274;
+  --gray-2: #343536;
+  --gray-1: #1d1e1f;
+  --brand: #2e71e5;
+  --brand-secondary: #f2f2f3;
+  --brand-logomark: #000;
+  --brand-accent: #f2f2f3;
+  --brand-link: #2264d6;
+  --brand-link-on-dark: #4294ff;
+  --brand-text-on-primary: var(--white);
+  --brand-gradient: linear-gradient(50.7deg,#63d0ff,#844fba);
+  --boundary: #ec585d;
+  --boundary-logomark: #f24c53;
+  --boundary-secondary: #ffecec;
+  --boundary-link: #d3353f;
+  --boundary-link-on-dark: #ff6068;
+  --boundary-text-on-primary: var(--white);
+  --boundary-accent: #fff4d4;
+  --boundary-gradient: linear-gradient(50.7deg,var(--boundary-accent) 0%,var(--boundary) 100%);
+  --consul: #dc477d;
+  --consul-logomark: #e84580;
+  --consul-secondary: #ffe9f1;
+  --consul-link: #ca3066;
+  --consul-link-on-dark: #f85c94;
+  --consul-text-on-primary: var(--white);
+  --consul-accent: #d1ebff;
+  --consul-gradient: linear-gradient(50.7deg,var(--consul-accent) 0%,var(--consul) 100%);
+  --nomad: #60dea9;
+  --nomad-logomark: #06d092;
+  --nomad-secondary: #d3fdeb;
+  --nomad-link: #008661;
+  --nomad-link-on-dark: #60dea9;
+  --nomad-text-on-primary: var(--black);
+  --nomad-accent: #f1fdcd;
+  --nomad-gradient: linear-gradient(50.7deg,var(--nomad-accent) 0%,var(--nomad) 100%);
+  --packer: #63d0ff;
+  --packer-logomark: #02a8ef;
+  --packer-secondary: #d4f2ff;
+  --packer-link: #007db4;
+  --packer-link-on-dark: #63d0ff;
+  --packer-text-on-primary: var(--black);
+  --packer-accent: #cefcf2;
+  --packer-gradient: linear-gradient(50.7deg,var(--packer-accent) 0%,var(--packer) 100%);
+  --terraform: #844fba;
+  --terraform-logomark: #7b42bc;
+  --terraform-secondary: #f4ecff;
+  --terraform-link: #8040c9;
+  --terraform-link-on-dark: #ac72f0;
+  --terraform-text-on-primary: var(--white);
+  --terraform-accent: #d1ebff;
+  --terraform-gradient: linear-gradient(50.7deg,var(--terraform-accent) 0%,var(--terraform) 100%);
+  --vagrant: #2e71e5;
+  --vagrant-logomark: #1868f2;
+  --vagrant-secondary: #d6ebff;
+  --vagrant-link: #2264d6;
+  --vagrant-link-on-dark: #4294ff;
+  --vagrant-text-on-primary: var(--white);
+  --vagrant-accent: #d2f8fe;
+  --vagrant-gradient: linear-gradient(50.7deg,var(--vagrant-accent) 0%,var(--vagrant) 100%);
+  --vault: #ffec6e;
+  --vault-logomark: #00000;
+  --vault-secondary: #fff9cf;
+  --vault-link: #9c6d03;
+  --vault-link-on-dark: #ffec6e;
+  --vault-text-on-primary: var(--black);
+  --vault-accent: #f2f2f3;
+  --vault-gradient: linear-gradient(50.7deg,var(--vault-accent) 0%,var(--vault) 100%);
+  --waypoint: #62d4dc;
+  --waypoint-logomark: #14c6cb;
+  --waypoint-secondary: #d7f8fa;
+  --waypoint-link: #008196;
+  --waypoint-link-on-dark: #62d4dc;
+  --waypoint-text-on-primary: var(--black);
+  --waypoint-accent: #d3fddb;
+  --waypoint-gradient: linear-gradient(50.7deg,var(--waypoint-accent) 0%,var(--waypoint) 100%);
+  --info-l2: #eff5ff;
+  --info-l1: #d0e0ff;
+  --info: #1f69ff;
+  --info-d1: #0d44cc;
+  --warning-l2: #fcf6ea;
+  --warning-l1: #f9eacd;
+  --warning: #eaaa32;
+  --warning-d1: #975b06;
+  --danger-l2: #fcf0f2;
+  --danger-l1: #ffd4d6;
+  --danger: #f25054;
+  --danger-d1: #ba2226;
+  --success-l2: #ebfdf7;
+  --success-l1: #c1f1e0;
+  --success: #00bc7f;
+  --success-d1: #007854;
+  --visited: #5c4ee5;
+  --visited-d1: #4c40bc;
+  --code-dark: #252937;
+  --code-light: #efeff0;
+  --code-light-transparent: rgba(29,30,35,0.07);
+  --code-comments: #75715e;
+  --code-strings: #e6db74;
+  --code-numbers: #ae81ff;
+  --code-operators: #f92672;
+  --code-properties: #a6e22e;
+  --code-control: #66d9ef;
+  --font-size-default: 16px;
+  --font-weight-light: 300;
+  --font-weight-book: var(--font-weight-light);
+  --font-weight-reg: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-display: "gilmer-web","Gilmer",Geneva,Tahoma,Helvetica,Verdana,sans-serif;
+  --font-body: "metro-web","Metro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  --font-monospace: "dejavu-sans-mono-web",monospace
+}

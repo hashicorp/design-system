@@ -1,3 +1,6 @@
 .flight-icon.display-inline {
   display: inline-block;
 }
+.flight-icon {
+  display: block;
+}

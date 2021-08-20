@@ -1,14 +1,69 @@
+@import "./root.css";
+@import "./modern-normalize.css";
 
 html {
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
-  line-height: 1.5;
 }
 body {
-  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  line-height: 1.2;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+header.ds-header {
+  background-color: var(--code-dark);
+  color: var(--code-light);
+}
+h1.ds-h1 {
+  font-family: var(--font-display);
+  line-height: 1;
+  padding: 0 0.5em;
+}
+main.ds-main {
+  padding: 0 1em 1em 1em;
+}
+h2.ds-h2 {
+  font-family: var(--font-display);
+  line-height: 1;
 }
 
-/* svg {
+ul.ds-ul-grid {
+  display: grid;
+  font-family: var(--font-body);
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 10px;
+  grid-auto-flow: dense;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.ds-ul-grid li.ds-li {
+  align-items: center;
   border: 1px solid black;
-  box-sizing: border-box;
-} */
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85em;
+  gap: 1ch;
+  justify-content: center;
+  padding: 0.5em 0.15em 0.15em;
+}
+ul.ds-ul-grid li.ds-li:hover {
+  background-color: aliceblue;
+}
+ul.ds-ul-grid li.ds-li svg.flight-icon {
+  width: 100%;
+}
+
+
+footer.ds-footer {
+  background-color: var(--black);
+}
+
+footer.ds-footer p.ds-p a.ds-a {
+  padding: 0.5em;
+  color: var(--brand-link-on-dark);
+}
