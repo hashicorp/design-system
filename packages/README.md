@@ -11,7 +11,7 @@ To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite
 
 ## How to consume the Ember addon
 
-Please see [ember-flight-icons/README](ember-flight-icons/README.md). Note: npm addon to be created.
+Please see [ember-flight-icons/README](ember-flight-icons/README.md).
 
 ## How to consume just the SVGs in your Ember or React app
 
