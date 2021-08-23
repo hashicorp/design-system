@@ -41,6 +41,7 @@ module.exports = async function () {
       },
       {
         name: 'ember-canary',
+        allowedToFail: true,
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
@@ -76,7 +77,7 @@ module.exports = async function () {
         },
       },
       embroiderSafe(),
-      embroiderOptimized(),
+      embroiderOptimized({ allowedToFail: true }),
     ],
   };
 };
