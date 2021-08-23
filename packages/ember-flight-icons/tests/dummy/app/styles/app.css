@@ -24,22 +24,54 @@ h1.ds-h1 {
   padding: 0 0.5em;
 }
 main.ds-main {
+  flex: 1 0 auto;
   padding: 0 1em 1em 1em;
 }
+p.ds-p {
+  font-family: var(--font-body);
+  font-size: 1em;
+  line-height: 1.2;
+}
 h2.ds-h2 {
+  border-bottom: 1px solid var(--gray-4);
   font-family: var(--font-display);
   line-height: 1;
+  padding-bottom: 2px;
+}
+
+.ds-form-group-inline {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1em;
+}
+.ds-form-group-inline label.ds-input-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--code-dark);
+}
+.ds-form-group-inline input.ds-input {
+  border: 1px solid var(--gray-2);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1em;
+  line-height: 2;
+  min-width:100%;
+  padding: 0 0.25em;
+}
+.ds-form-group-inline input.ds-input:focus {
+  border: 1px solid var(--brand);
 }
 
 ul.ds-ul-grid {
   display: grid;
   font-family: var(--font-body);
-  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
   gap: 10px;
   grid-auto-flow: dense;
+  grid-auto-rows: 125px;
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 ul.ds-ul-grid li.ds-li {
   align-items: center;
@@ -60,10 +92,25 @@ ul.ds-ul-grid li.ds-li svg.flight-icon {
 
 
 footer.ds-footer {
-  background-color: var(--black);
+  background-color: var(--code-dark);
+  color: var(--code-light);
+  flex-shrink: 0;
 }
 
 footer.ds-footer p.ds-p a.ds-a {
-  padding: 0.5em;
   color: var(--brand-link-on-dark);
+  padding: 0.5em;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* test classes */
+.ds-text-red {
+  color: var(--danger-d1);
+}
+
+.ds-font-size-large {
+  font-size: 5em;
 }

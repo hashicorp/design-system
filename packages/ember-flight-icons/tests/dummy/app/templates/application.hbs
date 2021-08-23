@@ -5,20 +5,51 @@
   </h1>
 </header>
 <main class="ds-main">
+  <p class="ds-p">
+    See the
+    <a
+      class="ds-a"
+      href="https://github.com/hashicorp/flight/blob/main/ember-flight-icons/README.md"
+    >
+      README
+    </a>
+    for usage instructions. 
+  </p>
   <section class="ds-section">
-    <p class="ds-p">See the <a class="ds-a" href="https://github.com/hashicorp/flight/blob/main/ember-flight-icons/README.md">README</a> for usage instructions.</p>
-    <h2 class="ds-h2">Available Icons</h2>
-      <ul class="ds-ul-grid">
-        {{#each @model as |meta|}}
-          <li class="ds-li">
-            <FlightIcon @name={{substring meta.Name}} @size={{if (eq meta.Size 16) "16"}}/>
-            <br/>{{meta.Name}}
-          </li>
-        {{/each}}
-      </ul>
-
+    <h2 class="ds-h2">
+      Available Icon List
+    </h2>
+    <div class="ds-form-group-inline">
+      <label class="ds-input-label" for="ds-input-search">
+        Search to live-filter results:
+      </label>
+      <input
+        value={{this.search}}
+        placeholder="e.g. arrow"
+        autofocus={{false}}
+        class="ds-input"
+        id="ds-input-search search-field"
+        {{on 'input' this.debouncedUpdate}}
+      />
+    </div>
+    <ul class="ds-ul-grid">
+      {{#each @model as |meta|}}
+        <li class="ds-li {{if meta.isHidden 'd-none'}}">
+          <FlightIcon
+            @name={{Onlyname meta.name}}
+            @size={{if (eq meta.size 16) '16'}}
+            class="demo-icon"
+          />
+          {{meta.name}}
+        </li>
+      {{/each}}
+    </ul>
   </section>
 </main>
 <footer class="ds-footer">
-  <p class="ds-p"><a class="ds-a" href="https://github.com/hashicorp/flight">View On GitHub</a></p>
+  <p class="ds-p">
+    <a class="ds-a" href="https://github.com/hashicorp/flight">
+      View On GitHub
+    </a>
+  </p>
 </footer>

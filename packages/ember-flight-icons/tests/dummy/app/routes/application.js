@@ -16,8 +16,8 @@ export default class ApplicationRoute extends Route {
 
     return json.map(({ Name, Size }) => {
       return {
-        Name,
-        Size,
+        name: `${Name}`,
+        size: `${Size}`,
         searchable: `${Name}`,
       };
     });

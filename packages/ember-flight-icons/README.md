@@ -37,13 +37,13 @@ The `name` must be specified. A default icon size of 24 will be provided.
 
 ### Optional usage
 
-Icons are set to a `viewBox` square size of 24 by default. 
+Icons are set to a `viewBox` square size of 24 by default.
 
 ```hbs
 <FlightIcon @name="activity" />
 ```
 
-Currently, we support a `viewBox` square size of 24 or 16. If you need your icon to be smaller than 24, pass in `size`. 
+Currently, we support a `viewBox` square size of 24 or 16. If you need your icon to be smaller than 24, pass in `size`.
 
 ```hbs
 <FlightIcon @name="activity" @size="16" />
@@ -58,7 +58,22 @@ Icons are set to `display: inline-block` by default. To remove this, set `isInli
 Icons are set to `fill="currentColor"` by default. To change this, set the desired color:
 
 ```hbs
+<!-- Preferred method to ensure consistency: using a :root variable -->
+<FlightIcon @name="alert-circle" @color="var(--danger-d1)" />
+```
+
+```hbs
+<FlightIcon @name="alert-circle" @color="rgb(186, 34, 38)" />
+```
+
+```hbs
 <FlightIcon @name="activity" @color="red" />
+```
+
+Additional CSS classes can be appended to the component. Note: a class name that tries to set a color or size for the icon will be ignored by the component.
+
+```hbs
+<FlightIcon @name="meh" class="demo" />
 ```
 
 ### Note
