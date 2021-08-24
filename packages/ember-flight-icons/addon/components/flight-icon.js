@@ -55,13 +55,13 @@ export default class FlightIconComponent extends Component {
   }
 
   /**
-   * Gets the icon's size (small or large)
+   * Gets the icon's size (16 or 24)
    *
    * @param size
    * @returns the value of `size` if set
-   * @default `24`
+   * @default `16`
    */
   get size() {
-    return this.args.size ?? '24';
+    return this.args.size ?? '16';
   }
 }
