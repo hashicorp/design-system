@@ -28,6 +28,10 @@
     {
       "name": "Amy Lam",
       "email": "alam@hashicorp.com"
+    },
+    {
+      "name": "Cristiano Rastelli",
+      "email": "cristiano.rastelli@hashicorp.com"
     }
   ],
   "directories": {
