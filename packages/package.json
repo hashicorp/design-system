@@ -1,0 +1,37 @@
+{
+  "name": "@hashicorp/flight-icons",
+  "version": "0.0.4-beta",
+  "description": "Flight: HashiCorp SVG icon set",
+  "keywords": [
+    "hashicorp", "icon", "svg", "flight"
+  ],
+  "repository": "https://github.com/hashicorp/flight",
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "contributors": [
+    {
+      "name": "Melanie Sumner",
+      "email": "melanie@hashicorp.com"
+    },
+    {
+      "name": "Brian Runnells",
+      "email": "brunnells@hashicorp.com"
+    },
+    {
+      "name": "Hector Simpson",
+      "email": "hector@hashicorp.com"
+    },
+    {
+      "name": "Heather Larsen",
+      "email": "hlarsen@hashicorp.com"
+    },
+    {
+      "name": "Amy Lam",
+      "email": "alam@hashicorp.com"
+    },
+    {
+      "name": "Cristiano Rastelli",
+      "email": "cristiano.rastelli@hashicorp.com"
+    }
+  ]
+}  
