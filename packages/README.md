@@ -15,4 +15,6 @@ Please see [ember-flight-icons/README](ember-flight-icons/README.md).
 
 ## How to consume just the SVGs in your Ember or React app
 
-Use [npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons), which is currently in beta.
+[![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
+
+🚨 Note: npm addon is currently in beta and not intended for production use yet. 
