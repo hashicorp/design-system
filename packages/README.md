@@ -26,6 +26,28 @@ cd ember-flight-icons/public/icons
 npx spritesh
 ```
 
+## How to make the `@hashicorp/flight-icons` npm package
+
+```bash
+mv package.json ember-flight-icons/public/icons 
+```
+
+```bash
+cd ember-flight-icons/public/icons && npm pack
+```
+
+Will generate a tarball e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`. Be sure to use your filename in the command below.
+
+```bash
+mv package.json hashicorp-flight-icons-0.0.4-beta.tgz ../../..
+```
+
+After merge to main, run:
+
+```bash
+npm publish
+```
+
 ## How to consume the Ember addon
 
 Please see [ember-flight-icons/README](ember-flight-icons/README.md).
