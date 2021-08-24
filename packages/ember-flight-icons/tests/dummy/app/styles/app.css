@@ -96,7 +96,7 @@ ul.ds-ul-grid li.ds-li:hover {
   background-color: var(--info-l2);
   box-shadow: 0 0 0 1px var(--info-l1);
 }
-ul.ds-ul-grid li.ds-li .ds-icon-frame {
+ul.ds-ul-grid li.ds-li .icon-frame {
   padding: 6px;
   margin-top: auto;
   display: flex;
@@ -104,7 +104,7 @@ ul.ds-ul-grid li.ds-li .ds-icon-frame {
   border-radius: 2px;
   box-shadow: 0 0 0 1px var(--gray-5);
 }
-ul.ds-ul-grid li.ds-li:hover .ds-icon-frame {
+ul.ds-ul-grid li.ds-li:hover .icon-frame {
   color: var(--brand-link);
   box-shadow: 0 0 0 1px var(--info-l1);
 }
