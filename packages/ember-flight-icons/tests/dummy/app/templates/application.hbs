@@ -10,10 +10,8 @@
     <a
       class="ds-a"
       href="https://github.com/hashicorp/flight/blob/main/ember-flight-icons/README.md"
-    >
-      README
-    </a>
-    for usage instructions. 
+    >README</a>
+    for usage instructions.
   </p>
   <section class="ds-section">
     <h2 class="ds-h2">
@@ -35,12 +33,14 @@
     <ul class="ds-ul-grid">
       {{#each @model as |meta|}}
         <li class="ds-li {{if meta.isHidden 'd-none'}}">
-          <FlightIcon
-            @name={{Onlyname meta.name}}
-            @size={{if (eq meta.size 24) '24'}}
-            class="demo-icon"
-          />
-          {{meta.name}}
+          <div class="ds-icon-frame">
+            <FlightIcon
+              @name={{Onlyname meta.name}}
+              @size={{if (eq meta.size '24') '24'}}
+              class="demo-icon"
+            />
+          </div>
+          <p>{{meta.name}}</p>
         </li>
       {{/each}}
     </ul>
