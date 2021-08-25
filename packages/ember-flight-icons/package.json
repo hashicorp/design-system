@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/ember-flight-icons",
-  "version": "0.0.0",
+  "version": "0.0.1-beta",
   "description": "The Ember addon for the HashiCorp Flight SVG icon set",
   "keywords": [
     "ember-addon", "hashicorp", "icon", "svg", "flight"
@@ -28,6 +28,10 @@
     {
       "name": "Amy Lam",
       "email": "alam@hashicorp.com"
+    },
+    {
+      "name": "Cristiano Rastelli",
+      "email": "cristiano.rastelli@hashicorp.com"
     }
   ],
   "directories": {
