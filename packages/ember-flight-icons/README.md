@@ -19,7 +19,7 @@ Goals:
 
 ## Installation
 
-This package has not yet been published. Once it has, you can install it like any other Ember addon:
+Install this addon like any other Ember addon:
 
 ```bash
 ember install @hashicorp/ember-flight-icons
