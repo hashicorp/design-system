@@ -39,7 +39,7 @@ cd ember-flight-icons/public/icons && npm pack
 Will generate a tarball e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`. Be sure to use your filename in the command below.
 
 ```bash
-mv package.json hashicorp-flight-icons-0.0.4-beta.tgz ../../..
+mv package.json hashicorp-flight-icons-0.0.4-beta.tgz ../../../flight-icons
 ```
 
 After merge to main, run:
@@ -47,6 +47,8 @@ After merge to main, run:
 ```bash
 npm publish
 ```
+
+***
 
 ## How to consume the Ember addon
 
