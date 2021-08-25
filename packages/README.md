@@ -4,10 +4,27 @@
 
 ## Development instructions
 
-To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
+1. For export-go, the Figma export tool, see [export-go/README](export-go/README.md).
 
-- `cd ember-flight-icons/public/icons` so that the `sprite.svg` file will be created in the right directory
-- `npx spritesh`
+1. On every new Figma export, we need to manually copy the icons to the `ember-flight-icons/public/icons/` directory right now.
+
+```bash
+rm ember-flight-icons/public/icons/*
+```
+
+```bash
+cp export-go/dist/* ember-flight-icons/public/icons/
+```
+
+1. To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
+
+```bash
+cd ember-flight-icons/public/icons
+```
+
+```bash
+npx spritesh
+```
 
 ## How to consume the Ember addon
 
@@ -17,4 +34,4 @@ Please see [ember-flight-icons/README](ember-flight-icons/README.md).
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
 
-🚨 Note: npm addon is currently in beta and not intended for production use yet. 
+🚨 Note: npm addon is currently in beta and not intended for production use yet.
