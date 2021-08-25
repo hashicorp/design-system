@@ -60,6 +60,21 @@ module('Integration | Component | flight-icon', function (hooks) {
       fill: 'rgb(186, 34, 38)',
     });
   });
-  // TODO: the component should have `color` set to `currentColor` by default
+  // the component should have `color` set to `currentColor` (black) by default
+  test('the fill should be set to black by default', async function (assert) {
+    await render(hbs`<FlightIcon @name="meh" />`);
+    assert.dom(`svg.flight-icon`).hasStyle({
+      fill: 'rgb(0, 0, 0)',
+    });
+  });
+  // currentColor should change per inheritance rules
+  test('The fill color should be able to be inherited from parent', async function (assert) {
+    await render(
+      hbs`<div style="color:blue;"><FlightIcon @name="meh" /></div>`
+    );
+    assert.dom(`svg.flight-icon`).hasStyle({
+      fill: 'rgb(0, 0, 255)',
+    });
+  });
   // TODO: there should be an error if an icon name is not provided
 });
