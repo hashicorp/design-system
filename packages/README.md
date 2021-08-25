@@ -20,7 +20,7 @@ Please see [ember-flight-icons/README](ember-flight-icons/README.md).
 
 This addon can be used in React or Ember apps.
 
-## Development instructions
+## Development instructions for `@hashicorp/ember-flight-icons` and `@hashicorp/flight-icons`
 
 ### `export-go` instructions
 
@@ -48,7 +48,7 @@ cd ember-flight-icons/public/icons
 npx spritesh
 ```
 
-### How to make the `@hashicorp/ember-flight-icons` npm package
+## How to make the `@hashicorp/ember-flight-icons` npm package
 
 ```bash
 cd ember-flight-icons && npm pack
@@ -62,7 +62,7 @@ After merge to main, run:
 npm publish
 ```
 
-### How to make the `@hashicorp/flight-icons` npm package
+## How to make the `@hashicorp/flight-icons` npm package
 
 ```bash
 mv package.json ember-flight-icons/public/icons 
