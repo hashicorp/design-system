@@ -56,16 +56,18 @@ cd ember-flight-icons && npm pack
 
 Will generate a tarball e.g. `hashicorp-ember-flight-icons-0.0.1-beta.tgz`.
 
-After merge to main, run:
+After merge to main, from `ember-flight-icons/` directory, run:
 
 ```bash
 npm publish
 ```
 
+You will need 2FA on your npm account to publish.
+
 ## How to make the `@hashicorp/flight-icons` npm package
 
 ```bash
-mv package.json ember-flight-icons/public/icons 
+mv flight-icons/package.json ember-flight-icons/public/icons 
 ```
 
 ```bash
@@ -78,8 +80,10 @@ Will generate a tarball e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`. Be sure to
 mv package.json hashicorp-flight-icons-0.0.4-beta.tgz ../../../flight-icons
 ```
 
-After merge to main, run:
+After merge to main, from `flight-icons/` directory,run:
 
 ```bash
 npm publish
 ```
+
+You will need 2FA on your npm account to publish.
