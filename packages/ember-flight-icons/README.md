@@ -105,3 +105,7 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE.md).
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning.
