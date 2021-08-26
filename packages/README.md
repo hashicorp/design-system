@@ -66,24 +66,40 @@ You will need 2FA on your npm account to publish.
 
 ## How to make the `@hashicorp/flight-icons` npm package
 
-```bash
+- Temporarily move files to `ember-flight-icons/public/icons` directory.
+
+ ```bash
 mv flight-icons/package.json ember-flight-icons/public/icons 
 ```
 
-```bash
-cd ember-flight-icons/public/icons && npm pack
-```
-
-Will generate a tarball e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`. Be sure to use your filename in the command below.
+- Move to that directory.
 
 ```bash
-mv package.json hashicorp-flight-icons-0.0.4-beta.tgz ../../../flight-icons
+cd ember-flight-icons/public/icons
 ```
 
-After merge to main, from `flight-icons/` directory,run:
+- Bump the version number for the `package.json` with name `@hashicorp/flight-icons`.
+
+- Generate the npm tarball. Will generate a npm tarball file e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`.
+
+```bash
+npm pack
+```
+
+- You will need 2FA on your npm account to publish. From the `ember-flight-icons/public/icons` directory, run:
 
 ```bash
 npm publish
 ```
 
-You will need 2FA on your npm account to publish.
+- After publish, move the files to the `flight-icons/` directory and make a PR for GitHub version control.
+
+🚧 Note: This is a temporary workaround.
+
+From the `ember-flight-icons/public/icons` directory, use the tarball name e.g. `hashicorp-flight-icons-0.0.4-beta.tgz` and run:
+
+```bash
+mv package.json <your-tarball-name> ../../../flight-icons
+```
+
+- Then, make a PR to `main` to commit two files in `flight-icons/`, the `package.json` and the `.tgz`.
