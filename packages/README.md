@@ -51,10 +51,8 @@ npx spritesh
 ## How to make the `@hashicorp/ember-flight-icons` npm package
 
 ```bash
-cd ember-flight-icons && npm pack
+cd ember-flight-icons
 ```
-
-Will generate a tarball e.g. `hashicorp-ember-flight-icons-0.0.1-beta.tgz`.
 
 After merge to main, from `ember-flight-icons/` directory, run:
 
@@ -80,12 +78,6 @@ cd ember-flight-icons/public/icons
 
 - Bump the version number for the `package.json` with name `@hashicorp/flight-icons`.
 
-- Generate the npm tarball. Will generate a npm tarball file e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`.
-
-```bash
-npm pack
-```
-
 - You will need 2FA on your npm account to publish. From the `ember-flight-icons/public/icons` directory, run:
 
 ```bash
@@ -96,10 +88,10 @@ npm publish
 
 🚧 Note: This is a temporary workaround.
 
-From the `ember-flight-icons/public/icons` directory, use the tarball name e.g. `hashicorp-flight-icons-0.0.4-beta.tgz` and run:
+From the `ember-flight-icons/public/icons` directory
 
 ```bash
-mv package.json <your-tarball-name> ../../../flight-icons
+mv package.json ../../../flight-icons
 ```
 
 - Then, make a PR to `main` to commit two files in `flight-icons/`, the `package.json` and the `.tgz`.
