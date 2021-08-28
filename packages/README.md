@@ -26,14 +26,14 @@ This addon can be used in React or Ember apps.
 
 1. For export-go, the Figma export tool, see [export-go/README](export-go/README.md).
 
-1. On every new Figma export, we need to manually copy the icons to the `ember-flight-icons/public/icons/` directory right now.
+1. On every new Figma export, we need to manually copy the icons to the `flight-icons/` directory right now.
 
 ```bash
-rm ember-flight-icons/public/icons/*
+rm flight-icons/*
 ```
 
 ```bash
-cp export-go/dist/* ember-flight-icons/public/icons/
+cp export-go/dist/* flight-icons/
 ```
 
 ### sprite instructions
@@ -41,12 +41,19 @@ cp export-go/dist/* ember-flight-icons/public/icons/
 1. To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
 
 ```bash
-cd ember-flight-icons/public/icons
+cd flight-icons
 ```
 
 ```bash
 npx spritesh
 ```
+
+The `spitesh` command will great a `sprite.svg`. Copy this file to ember-flight-icons/
+
+```bash
+cd .. && cp flight-icons/sprite.svg ember-flight-icons/public/ && cp flight-icons/_catalog.json ember-flight-icons/public/
+```
+
 
 ## How to make the `@hashicorp/ember-flight-icons` npm package
 
