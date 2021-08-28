@@ -1,3 +1,6 @@
 .env
 .DS_Store
 node_modules/
+
+# Output of `npm pack`, which is an (optional) test for `npm publish`
+*.tgz
