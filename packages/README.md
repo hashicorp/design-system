@@ -29,7 +29,7 @@ This addon can be used in React or Ember apps.
 1. On every new Figma export, we need to manually copy the icons to the `flight-icons/icons` directory right now.
 
 ```bash
-rm flight-icons/*
+rm flight-icons/icons/*
 ```
 
 ```bash
