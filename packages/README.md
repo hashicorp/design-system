@@ -26,7 +26,7 @@ This addon can be used in React or Ember apps.
 
 1. For export-go, the Figma export tool, see [export-go/README](export-go/README.md).
 
-1. On every new Figma export, we need to manually copy the icons to the `flight-icons/` directory right now.
+1. On every new Figma export, we need to manually copy the icons to the `flight-icons/icons` directory right now.
 
 ```bash
 rm flight-icons/*
