@@ -41,7 +41,7 @@ cp export-go/dist/* flight-icons/icons
 1. To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
 
 ```bash
-cd flight-icons
+cd flight-icons/icons
 ```
 
 ```bash
