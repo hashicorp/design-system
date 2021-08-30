@@ -51,7 +51,7 @@ npx spritesh
 The `spitesh` command will great a `sprite.svg`. Copy this file to ember-flight-icons/
 
 ```bash
-cd .. && cp flight-icons/sprite.svg ember-flight-icons/public/ && cp flight-icons/_catalog.json ember-flight-icons/public/
+cd .. && cp flight-icons/icons/sprite.svg ember-flight-icons/public/ && cp flight-icons/icons/_catalog.json ember-flight-icons/public/
 ```
 
 
