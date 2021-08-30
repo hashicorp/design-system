@@ -3,48 +3,10 @@
   <h1 id="title" class="ds-h1">
     Flight Icons
   </h1>
+  <DummyNav />
 </header>
 <main class="ds-main">
-  <p class="ds-p">
-    See the
-    <a
-      class="ds-a"
-      href="https://github.com/hashicorp/flight/blob/main/ember-flight-icons/README.md"
-    >README</a>
-    for usage instructions.
-  </p>
-  <section class="ds-section">
-    <h2 class="ds-h2">
-      Available Icon List
-    </h2>
-    <div class="ds-form-group-inline">
-      <label class="ds-input-label" for="ds-input-search">
-        Search to live-filter results:
-      </label>
-      <input
-        value={{this.search}}
-        placeholder="e.g. arrow"
-        autofocus={{false}}
-        class="ds-input"
-        id="ds-input-search search-field"
-        {{on 'input' this.debouncedUpdate}}
-      />
-    </div>
-    <ul class="ds-ul-grid">
-      {{#each @model as |meta|}}
-        <li class="ds-li {{if meta.isHidden 'd-none'}}">
-          <div class="ds-icon-frame">
-            <FlightIcon
-              @name={{Onlyname meta.name}}
-              @size={{if (eq meta.size '24') '24'}}
-              class="demo-icon"
-            />
-          </div>
-          <p>{{meta.name}}</p>
-        </li>
-      {{/each}}
-    </ul>
-  </section>
+  {{outlet}}
 </main>
 <footer class="ds-footer">
   <p class="ds-p">
