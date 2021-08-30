@@ -26,14 +26,14 @@ This addon can be used in React or Ember apps.
 
 1. For export-go, the Figma export tool, see [export-go/README](export-go/README.md).
 
-1. On every new Figma export, we need to manually copy the icons to the `ember-flight-icons/public/icons/` directory right now.
+1. On every new Figma export, we need to manually copy the icons to the `flight-icons/icons` directory right now.
 
 ```bash
-rm ember-flight-icons/public/icons/*
+rm flight-icons/icons/*
 ```
 
 ```bash
-cp export-go/dist/* ember-flight-icons/public/icons/
+cp export-go/dist/* flight-icons/icons
 ```
 
 ### sprite instructions
@@ -41,20 +41,25 @@ cp export-go/dist/* ember-flight-icons/public/icons/
 1. To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
 
 ```bash
-cd ember-flight-icons/public/icons
+cd flight-icons/icons
 ```
 
 ```bash
 npx spritesh
 ```
 
+The `spitesh` command will great a `sprite.svg`. Copy this file to ember-flight-icons/
+
+```bash
+cd .. && cp flight-icons/icons/sprite.svg ember-flight-icons/public/ && cp flight-icons/icons/_catalog.json ember-flight-icons/public/
+```
+
+
 ## How to make the `@hashicorp/ember-flight-icons` npm package
 
 ```bash
-cd ember-flight-icons && npm pack
+cd ember-flight-icons
 ```
-
-Will generate a tarball e.g. `hashicorp-ember-flight-icons-0.0.1-beta.tgz`.
 
 After merge to main, from `ember-flight-icons/` directory, run:
 
@@ -80,12 +85,6 @@ cd ember-flight-icons/public/icons
 
 - Bump the version number for the `package.json` with name `@hashicorp/flight-icons`.
 
-- Generate the npm tarball. Will generate a npm tarball file e.g. `hashicorp-flight-icons-0.0.4-beta.tgz`.
-
-```bash
-npm pack
-```
-
 - You will need 2FA on your npm account to publish. From the `ember-flight-icons/public/icons` directory, run:
 
 ```bash
@@ -96,10 +95,10 @@ npm publish
 
 🚧 Note: This is a temporary workaround.
 
-From the `ember-flight-icons/public/icons` directory, use the tarball name e.g. `hashicorp-flight-icons-0.0.4-beta.tgz` and run:
+From the `ember-flight-icons/public/icons` directory
 
 ```bash
-mv package.json <your-tarball-name> ../../../flight-icons
+mv package.json ../../../flight-icons
 ```
 
 - Then, make a PR to `main` to commit two files in `flight-icons/`, the `package.json` and the `.tgz`.
