@@ -33,7 +33,7 @@ rm flight-icons/icons/*
 ```
 
 ```bash
-cp export-go/dist/* flight-icons/
+cp export-go/dist/* flight-icons/icons
 ```
 
 ### sprite instructions
