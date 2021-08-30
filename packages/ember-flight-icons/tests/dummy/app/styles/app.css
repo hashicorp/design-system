@@ -27,6 +27,38 @@ h1.ds-h1 {
   line-height: 1;
   padding: 0 0.5em;
 }
+header.ds-header nav.ds-nav {
+  display: flex;
+  flex-flow: row wrap;
+}
+header.ds-header nav.ds-nav ul.ds-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li {
+  display: flex;
+  flex-flow: row wrap;
+}
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a {
+  align-items: stretch;
+  border: 2px solid transparent;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:focus {
+  border-color: white;
+  border-style: dashed;
+}
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:hover {
+  border-color: white;
+}
+
+
 main.ds-main {
   flex: 1 0 auto;
   padding: 0 1em 1em 1em;
