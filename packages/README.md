@@ -2,6 +2,14 @@
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
+## Website
+
+You can view and search the list of available icons at this URL:
+
+https://flight-staging.vercel.app/
+
+_Notice: we have built this micro-website as quick reference for designers and developers; later will likely be embedded in a fully fledged "design system" website._
+
 ## Consumer instructions
 
 ### How to consume the Ember addon
