@@ -57,7 +57,7 @@ You will need 2FA on your npm account to publish.
 ### @hashicorp/flight-icons
 
 ```bash
-cd flight-icons/icons
+cd flight-icons
 ```
 
 - Bump the version number for the `flight-icons/package.json`.

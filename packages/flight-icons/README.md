@@ -10,6 +10,10 @@ An addon for the icons from `flight`, which can be used in React or Ember apps. 
 yarn add @hashicorp/flight-icons --dev
 ```
 
+## Usage
+
+Icons are namespaced e.g. for `arrow-right-16.svg` you would call `@hashicorp/flight-icons/icons/arrow-right-16.svg`.
+
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE.md).
