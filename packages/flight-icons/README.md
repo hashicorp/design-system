@@ -1,4 +1,4 @@
-# ember-flight-icons
+# flight-icons
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
 
