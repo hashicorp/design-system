@@ -1,8 +1,8 @@
-# ember-flight-icons
+# flight-icons
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
 
-An addon for the icons from `flight`, which can be used in React or Ember apps. Currently in development.
+A package for the icons from `flight`, which can be used in React or Ember apps. Currently in development.
 
 ## Installation
 
