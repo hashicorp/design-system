@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/ember-flight-icons",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "The Ember addon for the HashiCorp Flight SVG icon set",
   "keywords": [
     "ember-addon", "hashicorp", "icon", "svg", "flight"
