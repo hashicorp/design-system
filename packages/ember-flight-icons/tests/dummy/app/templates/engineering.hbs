@@ -1,10 +1,87 @@
 {{page-title "Engineering"}}
-<h2 class="ds-h2">For Engineers</h2>
-<p class="ds-p">
-    See the
-    <a
-      class="ds-a"
-      href="https://github.com/hashicorp/flight/blob/main/ember-flight-icons/README.md"
-    >README</a>
-    for usage instructions.
-  </p>
+<h2 class="ds-h2">Consumer instructions</h2>
+<p>There are multiple ways to use these icons in your codebase.</p>
+
+<div class="ds-info">
+<p class="ds-p">🚨 Note: All of the flight-icon npm packages are currently in beta and any production usage should be discussed with the Design Systems team first.</p>
+</div>
+
+<h3 class="ds-h3" id="ember-flight-icons"><a href="#ember-flight-icons">&sect;</a> Use in Ember Apps</h3>
+<h4 class="ds-h4">Installation</h4>
+<p class="ds-p">To install, run
+<code class="ds-code">yarn add @hashicorp/ember-flight-icons</code>
+</p>
+
+<h4 class="ds-h4" id="understanding"><a href="#understanding">&sect;</a> Understanding the component</h4>
+
+<p class="ds-p">The component comes with the following defaults:
+<ul class="ds-ul">
+  <li class="ds-li">fill (set to currentColor)</li>
+  <li class="ds-li">a unique, automatically generated id</li>
+  <li class="ds-li">aria-hidden (set to true)</li>
+  <li class="ds-li">default size of 16x16 (px)</li>
+  <li class="ds-li">CSS class (flight-icon & icon-NAME)</li>
+  <li class="ds-li">data-test-icon attribute (for test purposes)</li>
+</ul>
+</p>
+
+<p class="ds-p">This makes the base, required invocation quite terse- <kbd class="ds-kbd">@name</kbd> is the only property that requires specification.
+
+<br>So this invocation:
+<pre><code class="ds-code">&lt;FlightIcon @name="alert-circle" /></code></pre>
+Renders to this:
+<pre><code class="ds-code">
+&lt;svg 
+  aria-hidden="true" 
+  class="flight-icon icon-alert-circle display-inline" 
+  data-test-icon
+  fill="currentColor" 
+  height="16" 
+  id="icon-ember115" 
+  viewBox="0 0 16 16" 
+  width="16" 
+  xmlns="http://www.w3.org/2000/svg">
+    &lt;use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16">&lt;/use>
+&lt;/svg>
+</code>
+</pre>
+</p>
+<p class="ds-p">The <kbd class="ds-kbd">`use`</kbd> element will then render the correct svg to the shadow dom.</p>
+
+<h4 class="ds-h4" id="customizable"><a href="#customizable">&sect;</a> Customizable properties</h4>
+<p class="ds-p">The following properties are customizable:
+  <ul class="ds-ul">
+    <li class="ds-li">fill</li>
+    <li class="ds-li">height/width/viewBox (at this time, only 16 (default) and 24 are supported)</li>
+    <li class="ds-li">additional CSS classes</li>
+  </ul>
+</p>
+<h5 class="ds-h5">Examples</h5>
+<p class="ds-p" id="example-fill">
+  <strong>Fill:</strong> To customize the fill attribute, set the <kbd class="ds-kbd">`@color`</kbd> value (multiple supported ways):
+  <pre><code class="ds-code">
+  &lt;FlightIcon @name="zap" @color="var(--brand)" /> <FlightIcon @name="zap" @color="var(--brand)" />
+
+  &lt;FlightIcon @name="zap" @color="rebeccapurple" /> <FlightIcon @name="zap" @color="rebeccapurple" />
+
+  &lt;FlightIcon @name="zap" @color="rgb(46, 113, 229)" /> <FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
+  </code></pre>
+</p>
+<p class="ds-p" id="example-size">
+  <strong>Size:</strong> To use the 24x24 (px) icon size, set the <kbd class="ds-kbd">`@size`</kbd> value:
+  <pre><code class="ds-code">&lt;FlightIcon @name="zap" @size="24" /> <FlightIcon @name="zap" @size="24" /></code></pre>
+</p>
+<p class="ds-p" id="example-styles">
+  <strong>CSS Classes:</strong> To append additional classes to the component, add <kbd class="ds-kbd">`class`</kbd> with value(s):
+  <pre><code class="ds-code">&lt;FlightIcon @name="triangle-fill" class="ds-rotate-90" /> <FlightIcon @name="triangle-fill" class="ds-rotate-90" /></code></pre>
+</p>
+<hr/>
+
+<h3 class="ds-h3" id="use-other"><a href="#use-other">&sect;</a> Using the flight-icon package in other ways</h3>
+<p class="ds-h3">
+  It is also possible to install the flight-icon package itself. 
+  To do so, run:
+<pre><code class="ds-code">yarn install @hashicorp/flight-icons</code></pre>
+This will allow icons to be imported and used as desired. Note that the icons are namespaced:
+<pre><code class="ds-code">@hashicorp/flight-icons/icons/arrow-right-16.svg</code></pre>
+</p>

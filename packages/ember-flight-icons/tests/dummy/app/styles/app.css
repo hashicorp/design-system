@@ -67,6 +67,7 @@ p.ds-p {
   font-family: var(--font-body);
   font-size: 1em;
   line-height: 1.2;
+  margin: 0.25vh auto;
 }
 h2.ds-h2 {
   border-bottom: 1px solid var(--gray-5);
@@ -74,6 +75,18 @@ h2.ds-h2 {
   line-height: 1;
   padding-bottom: 0.75em;
 }
+h2.ds-h2,
+h3.ds-h3,
+h4.ds-h4,
+h5.ds-h5 {
+  font-family: var(--font-display);
+}
+
+h5.ds-h5 {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 
 .ds-form-group-inline {
   display: flex;
@@ -81,9 +94,9 @@ h2.ds-h2 {
   margin-bottom: 1.5em;
 }
 .ds-form-group-inline label.ds-input-label {
+  color: var(--code-dark);
   font-family: var(--font-body);
   font-weight: var(--font-weight-semi-bold);
-  color: var(--code-dark);
   margin-bottom: 0.75em;
 }
 .ds-form-group-inline input.ds-input {
@@ -152,23 +165,48 @@ ul.ds-ul-grid li.ds-li p {
 footer.ds-footer {
   background-color: var(--brand);
   color: white;
+  display: flex;
+  flex-flow: row wrap;
   flex-shrink: 0;
+  justify-content: flex-start;
+  min-height: 50px;
 }
 
 footer.ds-footer p.ds-p a.ds-a {
+  align-items: stretch;
   color: white;
+  display: flex;
+  justify-content: center;
   padding: 0.5em 1em;
 }
+
 
 .d-none {
   display: none !important;
 }
 
-/* test classes */
-.ds-text-red {
-  color: var(--danger-d1);
+.ds-code {
+  background-color: var(--gray-7);
+  border: 1px solid var(--gray-5);
+  border-radius: 4px;
+  display: block;
+  font-size: 0.9em;
+  margin: 0.25vh auto 1vh;
+  padding: 0.75em;
+}
+.ds-kbd {
+  color: rebeccapurple;
+  font-size: 0.9em;
+  font-weight: var(--font-weight-bold);
 }
 
-.ds-font-size-large {
-  font-size: 5em;
+.ds-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.ds-info {
+  background-color: var(--info-l2);
+  border: 1px solid var(--brand);
+  border-radius: 4px;
+  padding: 0.75em;
 }
