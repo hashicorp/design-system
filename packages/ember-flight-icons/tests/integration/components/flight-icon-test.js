@@ -9,7 +9,7 @@ module('Integration | Component | flight-icon', function (hooks) {
   test('it renders the icon', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);
     assert
-      .dom('svg.flight-icon.icon-activity.display-inline')
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
       .matchesSelector('svg');
   });
   test('it should have a class name that is the same as the component name', async function (assert) {
@@ -19,22 +19,26 @@ module('Integration | Component | flight-icon', function (hooks) {
   test('it has aria-hidden set to true', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);
     assert
-      .dom('svg.flight-icon.icon-activity.display-inline')
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
       .hasAttribute('aria-hidden');
   });
   test('it renders the 16x16 icon by default', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);
-    assert.dom('svg.flight-icon.icon-activity.display-inline').hasStyle({
-      height: '16px',
-      width: '16px',
-    });
+    assert
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
+      .hasStyle({
+        height: '16px',
+        width: '16px',
+      });
   });
   test('it renders the 24x24 icon when option is set', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" @size="24" />`);
-    assert.dom('svg.flight-icon.icon-activity.display-inline').hasStyle({
-      height: '24px',
-      width: '24px',
-    });
+    assert
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
+      .hasStyle({
+        height: '24px',
+        width: '24px',
+      });
   });
   test('it does not have the display-inline class if the option is set to false', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" @isInlineBlock={{false}} />`);

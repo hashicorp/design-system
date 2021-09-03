@@ -1,13 +1,13 @@
 <svg 
-  class="flight-icon icon-{{@name}} {{if this.display "display-inline"}}"
+  class="flight-icon flight-icon-{{@name}} {{if this.display "flight-icon-display-inline"}}"
   ...attributes
   aria-hidden="true"
   data-test-icon
   fill="{{this.color}}"
-  height="{{this.size}}"
   id={{this.iconId}}
+  width="{{this.size}}"
+  height="{{this.size}}"
   viewBox="0 0 {{this.size}} {{this.size}}"
-  width="{{this.size}}" 
   xmlns="http://www.w3.org/2000/svg"
 >
   <use href='{{this.contextRootURL}}@hashicorp/ember-flight-icons/icons/sprite.svg#{{@name}}-{{this.size}}'></use>
