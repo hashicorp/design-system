@@ -1,6 +1,6 @@
-{{page-title "Engineering"}}
+{{page-title "Engineering Guidelines"}}
 <h2 class="ds-h2">Consumer instructions</h2>
-<p>There are multiple ways to use these icons in your codebase.</p>
+<p>There are multiple ways to use these icons in your codebase. The <a href="#use-other">package itself can be consumed</a> for direct import, or it can be installed as an <a href="#ember-flight-icons">Ember addon</a> for the convenience of using a component with strong defaults.</p>
 
 <div class="ds-info">
 <p class="ds-p">🚨 Note: All of the flight-icon npm packages are currently in beta and any production usage should be discussed with the Design Systems team first.</p>
@@ -16,21 +16,22 @@
 
 <p class="ds-p">The component comes with the following defaults:
 <ul class="ds-ul">
-  <li class="ds-li">fill (set to currentColor)</li>
-  <li class="ds-li">a unique, automatically generated id</li>
-  <li class="ds-li">aria-hidden (set to true)</li>
-  <li class="ds-li">default size of 16x16 (px)</li>
-  <li class="ds-li">CSS class (flight-icon & icon-NAME)</li>
-  <li class="ds-li">data-test-icon attribute (for test purposes)</li>
+  <li class="ds-li"><kbd class="ds-kbd">fill</kbd> attribute: set to currentColor</li>
+  <li class="ds-li"><kbd class="ds-kbd">id</kbd> attribute: a unique, automatically generated id</li>
+  <li class="ds-li"><kbd class="ds-kbd">aria-hidden</kbd> attribute: set to true</li>
+  <li class="ds-li"><kbd class="ds-kbd">height</kbd> and <kbd class="ds-kbd">width</kbd>: default size of 16x16 (px)</li>
+  <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
+  <li class="ds-li">CSS display: set to <kbd class="ds-kbd">display:inline-block</kbd></li>
+  <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd> attribute: for the author's testing convenience</li>
 </ul>
 </p>
 
 <p class="ds-p">This makes the base, required invocation quite terse- <kbd class="ds-kbd">@name</kbd> is the only property that requires specification.
 
 <br>So this invocation:
-<pre><code class="ds-code">&lt;FlightIcon @name="alert-circle" /></code></pre>
+<pre class="ds-pre"><code class="ds-code">&lt;FlightIcon @name="alert-circle" /></code></pre>
 Renders to this:
-<pre><code class="ds-code">
+<pre class="ds-pre"><code class="ds-code">
 &lt;svg 
   aria-hidden="true" 
   class="flight-icon icon-alert-circle display-inline" 
@@ -46,7 +47,7 @@ Renders to this:
 </code>
 </pre>
 </p>
-<p class="ds-p">The <kbd class="ds-kbd">`use`</kbd> element will then render the correct svg to the shadow dom.</p>
+<p class="ds-p">The <kbd class="ds-kbd">`&lt;use>`</kbd> element will then render the correct svg to the shadow dom.</p>
 
 <h4 class="ds-h4" id="customizable"><a href="#customizable">&sect;</a> Customizable properties</h4>
 <p class="ds-p">The following properties are customizable:
@@ -58,22 +59,24 @@ Renders to this:
 </p>
 <h5 class="ds-h5">Examples</h5>
 <p class="ds-p" id="example-fill">
-  <strong>Fill:</strong> To customize the fill attribute, set the <kbd class="ds-kbd">`@color`</kbd> value (multiple supported ways):
-  <pre><code class="ds-code">
-  &lt;FlightIcon @name="zap" @color="var(--brand)" /> <FlightIcon @name="zap" @color="var(--brand)" />
+  <strong><a href="#example-fill">&sect;</a>Fill:</strong> To customize the fill attribute, set the <kbd class="ds-kbd">`@color`</kbd> value (multiple supported ways):
+  <pre class="ds-pre"><code class="ds-code">&lt;!-- Preferred method to ensure consistency: using a :root variable -->
 
-  &lt;FlightIcon @name="zap" @color="rebeccapurple" /> <FlightIcon @name="zap" @color="rebeccapurple" />
-
-  &lt;FlightIcon @name="zap" @color="rgb(46, 113, 229)" /> <FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
-  </code></pre>
+&lt;FlightIcon @name="zap" @color="var(--brand)" /></code></pre>
+<pre class="ds-pre"><code class="ds-code">&lt;FlightIcon @name="zap" @color="rebeccapurple" /></code></pre>
+<pre class="ds-pre"><code class="ds-code">&lt;FlightIcon @name="zap" @color="rgb(46, 113, 229)" /></code></pre>
 </p>
 <p class="ds-p" id="example-size">
-  <strong>Size:</strong> To use the 24x24 (px) icon size, set the <kbd class="ds-kbd">`@size`</kbd> value:
-  <pre><code class="ds-code">&lt;FlightIcon @name="zap" @size="24" /> <FlightIcon @name="zap" @size="24" /></code></pre>
+  <strong><a href="#example-size">&sect;</a>Size:</strong> To use the 24x24 (px) icon size, set the <kbd class="ds-kbd">`@size`</kbd> value:
+  <pre class="ds-pre"><code class="ds-code">&lt;FlightIcon @name="zap" @size="24" /></code></pre>
 </p>
 <p class="ds-p" id="example-styles">
-  <strong>CSS Classes:</strong> To append additional classes to the component, add <kbd class="ds-kbd">`class`</kbd> with value(s):
-  <pre><code class="ds-code">&lt;FlightIcon @name="triangle-fill" class="ds-rotate-90" /> <FlightIcon @name="triangle-fill" class="ds-rotate-90" /></code></pre>
+  <strong><a href="#example-styles">&sect;</a>CSS Classes:</strong> To append additional classes to the component, add <kbd class="ds-kbd">`class`</kbd> with value(s):
+  <pre class="ds-pre"><code class="ds-code">&lt;FlightIcon @name="triangle-fill" class="ds-rotate-90" /></code></pre>
+</p>
+<p class="ds-p" id="example-display">
+  <strong><a href="#example-display">&sect;</a>CSS Display:</strong> To change the default display of <i>inline-block</i> to <i>block</i>, set <kbd class="ds-kbd">`@isInlineBlock`</kbd> to false:
+  <pre class="ds-pre"><code class="ds-code">&lt;FlightIcon @name="triangle-fill" @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; /></code></pre>
 </p>
 <hr/>
 
@@ -81,7 +84,14 @@ Renders to this:
 <p class="ds-h3">
   It is also possible to install the flight-icon package itself. 
   To do so, run:
-<pre><code class="ds-code">yarn install @hashicorp/flight-icons</code></pre>
+<pre class="ds-pre"><code class="ds-code">yarn install @hashicorp/flight-icons</code></pre>
 This will allow icons to be imported and used as desired. Note that the icons are namespaced:
-<pre><code class="ds-code">@hashicorp/flight-icons/icons/arrow-right-16.svg</code></pre>
+<pre class="ds-pre"><code class="ds-code">@hashicorp/flight-icons/icons/arrow-right-16.svg</code></pre>
+</p>
+<p class="ds-p">
+  Authors should also follow the following guidelines: 
+  <ul class="ds-ul">
+    <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without a design consult.</li>
+    <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
+  </ul>
 </p>

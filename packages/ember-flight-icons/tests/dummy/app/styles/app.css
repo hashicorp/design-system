@@ -185,6 +185,9 @@ footer.ds-footer p.ds-p a.ds-a {
   display: none !important;
 }
 
+pre.ds-pre {
+  margin: 0.5em auto 1.5em auto;
+}
 .ds-code {
   background-color: var(--gray-7);
   border: 1px solid var(--gray-5);
