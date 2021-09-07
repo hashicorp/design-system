@@ -36,11 +36,11 @@ Renders to this:
   aria-hidden="true" 
   class="flight-icon icon-alert-circle display-inline" 
   data-test-icon
-  fill="currentColor" 
-  height="16" 
-  id="icon-ember115" 
-  viewBox="0 0 16 16" 
-  width="16" 
+  fill="currentColor"  
+  id="icon-ember115"
+  width="16"
+  height="16"
+  viewBox="0 0 16 16"
   xmlns="http://www.w3.org/2000/svg">
     &lt;use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16">&lt;/use>
 &lt;/svg>
@@ -89,9 +89,25 @@ This will allow icons to be imported and used as desired. Note that the icons ar
 <pre class="ds-pre"><code class="ds-code">@hashicorp/flight-icons/icons/arrow-right-16.svg</code></pre>
 </p>
 <p class="ds-p">
-  Authors should also follow the following guidelines: 
+  Authors should also follow the following guidelines:
   <ul class="ds-ul">
     <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without a design consult.</li>
     <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
   </ul>
 </p>
+
+<h3 class="ds-h3" id="accessibility"><a href="#accessibility">&sect;</a> Accessibility</h3>
+
+<p class="ds-p">
+Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best practice is to set the <kbd class="ds-kbd">`aria-hidden`</kbd> attribute to `false` on the SVG itself.
+This means that the icon (both the singular icon and the icon component) will need to be used <em class="ds-em">in context</em>.
+The icons themselves are for presentation purposes only and should never be used on their own.
+</p>
+
+<h4 class="ds-h4">Example</h4>
+
+<pre class="ds-pre"><code class="ds-code">&lt;button aria-label="Check Activity">
+  &lt;FlightIcon @name="activity" />
+&lt;/button></code></pre>
+
+<pre class="ds-pre"><code class="ds-code">&lt;h2>Activity Report &lt;FlightIcon @name="activity" />&lt;/h2></code></pre>
