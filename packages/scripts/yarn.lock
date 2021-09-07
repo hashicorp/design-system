@@ -223,6 +223,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
   integrity sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==
 
+"@types/node@12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.2.tgz#3452a24edf9fea138b48fad4a0a028a683da1e40"
+  integrity sha512-5tabW/i+9mhrfEOUcLDu2xBPsHJ+X5Orqy9FKpale3SjDA17j5AEpYq5vfy3oAeAHGcvANRCO3NV3d2D6q3NiA==
+
 "@types/node@^16.7.13":
   version "16.7.13"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.13.tgz#86fae356b03b5a12f2506c6cf6cd9287b205973f"
@@ -916,6 +921,14 @@ fastq@^1.6.0:
   integrity sha512-VNX0QkHK3RsXVKr9KrlUv/FoTa0NdbYoHHl7uXHv2rzyHSlxjdNAKug2twd9luJxpcyNeAgf5iPPMutJO67Dfg==
   dependencies:
     reusify "^1.0.4"
+
+figma-api@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/figma-api/-/figma-api-1.6.2.tgz#75761db54533dbf21b8d2a76a1f2093418c08b0f"
+  integrity sha512-OCHX9xb6UW/y3dtxzW4c88rtDzhJY6EQgPIgoQ5VGk2byccpkYszF8SyUInJuc1FKnBDht/jEKGa45+en7H5ow==
+  dependencies:
+    "@types/node" "12.0.2"
+    axios "^0.21.1"
 
 figma-js@~1.14.0:
   version "1.14.0"

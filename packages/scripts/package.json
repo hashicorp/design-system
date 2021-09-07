@@ -26,6 +26,7 @@
     "@figma-export/output-components-as-svg": "^3.3.1",
     "@figma-export/transform-svg-with-svgo": "^3.3.1",
     "@figma-export/types": "^3.3.1",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "figma-api": "^1.6.2"
   }
 }
