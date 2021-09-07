@@ -1,6 +1,8 @@
-import dotenv from 'dotenv'
+const VERBOSE = false; // verbose logging for development
+global.verbose = VERBOSE;
 
-import chalk from 'chalk';
+import dotenv from 'dotenv';
+
 import * as FigmaExport from '@figma-export/types';
 import * as figmaExport from '@figma-export/core';
 import { requirePackages } from '@figma-export/cli/dist/utils';
@@ -8,8 +10,13 @@ import { StringTransformer, ComponentOutputter } from '@figma-export/types';
 import transformSvgWithSvgo from '@figma-export/transform-svg-with-svgo';
 import outputComponentsAsSvg from '@figma-export/output-components-as-svg';
 
+import del from 'del';
+import chalk from 'chalk';
+
 // read the environment variables from the ".env" file
 dotenv.config();
+
+const outputFolder = './temp-output';
 
 (async () => {
     try {
@@ -33,9 +40,14 @@ dotenv.config();
 
 async function sync() {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log('TODO!!');
 
-    // These may come from a .figmaexportrc.ts file, see https://github.com/marcomontalbano/figma-export/blob/master/.figmaexportrc.example.ts
+    // remove existing output folder
+    if (VERBOSE) {
+        console.log('Removing "sync" output folder');
+    }
+    del.sync(outputFolder, { force: true });
+
+    // these variables may come from a .figmaexportrc.ts file, see https://github.com/marcomontalbano/figma-export/blob/master/.figmaexportrc.example.ts
     const transformer: StringTransformer[] = [
         transformSvgWithSvgo({
             plugins: [
@@ -44,18 +56,27 @@ async function sync() {
             ]
         })
     ];
-    const outputFolder = './temp-output';
     const outputter: ComponentOutputter[] = [
         outputComponentsAsSvg({
-            output: outputFolder
+            output: outputFolder,
+            // IMPORTANT: this is used to change icon's name (otherwise variants with the same props/values will override one another)
+            getBasename: (options: FigmaExport.ComponentOutputterParamOption): string => {
+                // the variants' name looks like this: "Size=16, Style=Color" and we want to sanitize it
+                const variantProperties = options.basename.split(', ')
+                return `ID=${options.id}__${variantProperties.join('__')}.svg`;
+            },
+            // by default figma-export adds the "page" name to the path (so creating an extra folder, but we prefer to have all the icons saved directly in the output folder
+            getDirname: (): string => '',
         })
     ];
 
     // TODO move to a standalone function and file
-    figmaExport.components({
+    await figmaExport.components({
         // TODO this should not be in the .env variable, is just a configuration ID that should be checked in
         // @ts-ignore
-        fileId: process.env.FLIGHT_FILE_ID,
+        // fileId: process.env.FLIGHT_FILE_ID,
+        // TODO this is the test file https://www.figma.com/file/2u60imwCVJvSpH0io1O068/Flight-Icons-FOR-TESTING
+        fileId: '2u60imwCVJvSpH0io1O068',
         // TODO! this may be a problem with overriding names of component variants
         concurrency: 30,
         // @ts-ignore
