@@ -13,5 +13,5 @@ export const config: ConfigData = {
         page: 'Export',
         frame: 'Flight Icons',
     },
-    outputFolder: './temp-output',
+    outputFolder: '../src/flight-icons-exported',
 };
