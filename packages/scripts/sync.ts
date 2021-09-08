@@ -2,6 +2,7 @@ const VERBOSE = false; // verbose logging for development
 global.verbose = VERBOSE;
 
 import dotenv from 'dotenv';
+import fs from 'fs-extra';
 import del from 'del';
 import chalk from 'chalk';
 
@@ -15,7 +16,7 @@ import isEqual from 'lodash/isEqual';
 import { AssetCoreData } from './@types/AssetsMetadata';
 import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
 import { getAssetFileName } from './sync-parts/getAssetFileName';
-import { generateAssetsCatalog } from './generateAssetsCatalog';
+import { getAssetsCatalog } from './sync-parts/getAssetsCatalog';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -88,7 +89,11 @@ async function sync() {
         const assetsExportedIDs = figmaExportPageNode[0].components.map((component) => component.id);
         const assetsExpectedIDs = Object.keys(assetsMetadata);
         if (isEqual(assetsExportedIDs.sort(), assetsExpectedIDs.sort())) {
-            generateAssetsCatalog({ config, assetsMetadata, figmaExportPageNode });
+            // get the assets "catalog" (will be used by multiple consumers)
+            const assetsCatalog = getAssetsCatalog({ config, assetsMetadata, figmaExportPageNode });
+            // and save it as JSON file
+            fs.writeJsonSync(`${config.outputFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
+
         } else {
             console.log(chalk.red(`WARNING:\nThe number of assets retrieved (${assetsExportedIDs.length}) and the number of assets expected (${assetsExpectedIDs.length}) are different. Please check why, this is unexpected.`));
         }
