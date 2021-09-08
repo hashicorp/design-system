@@ -29,8 +29,6 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
             // check that the component is inside the expected page/frame
             if (
                 component_set.containing_frame &&
-                // TODO! update the figma-api package!
-                // @ts-ignore
                 component_set.containing_frame.pageName === config.figmaFile.page &&
                 component_set.containing_frame.name === config.figmaFile.frame
             ) {
@@ -50,8 +48,6 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
             // check that the component is inside the expected page/frame
             if (
                 component.containing_frame &&
-                // TODO! update the figma-api package! - see https://forum.figma.com/t/missing-containingstategroup-parameter-in-documentation-for-frameinfo/2558
-                // @ts-ignore
                 component.containing_frame.pageName === config.figmaFile.page &&
                 component.containing_frame.name === config.figmaFile.frame
             ) {
@@ -61,11 +57,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     iconName: '',
                     description: '',
                 }
-                // TODO! update the figma-api package! - see https://forum.figma.com/t/missing-containingstategroup-parameter-in-documentation-for-frameinfo/2558
-                // @ts-ignore
                 if (component.containing_frame.containingStateGroup) {
-                    // TODO! update the figma-api package! - see https://forum.figma.com/t/missing-containingstategroup-parameter-in-documentation-for-frameinfo/2558
-                    // @ts-ignore
                     const parentComponentSet = componentSetData[component.containing_frame.containingStateGroup.nodeId]
                     if (parentComponentSet) {
                         assetsMetadata[component.node_id].iconName = parentComponentSet.name;

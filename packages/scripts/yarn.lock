@@ -934,10 +934,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-figma-api@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/figma-api/-/figma-api-1.6.2.tgz#75761db54533dbf21b8d2a76a1f2093418c08b0f"
-  integrity sha512-OCHX9xb6UW/y3dtxzW4c88rtDzhJY6EQgPIgoQ5VGk2byccpkYszF8SyUInJuc1FKnBDht/jEKGa45+en7H5ow==
+figma-api@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/figma-api/-/figma-api-1.7.0.tgz#f6077272a60c1eb779519b62de2bed8d513bc292"
+  integrity sha512-AJ3GkM4IBroKTahpmDBOyAq3Str9qB6npivTx7Yzo36sMOrJPxr5soj8rNDqAZtMtrfnUx0chxVSqT0JgofFrw==
   dependencies:
     "@types/node" "12.0.2"
     axios "^0.21.1"
