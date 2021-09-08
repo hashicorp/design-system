@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-undef
 module.exports = {
-  purge: [],
+  mode: 'jit',
+  purge: ['**/*.hbs'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},

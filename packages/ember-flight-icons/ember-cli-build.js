@@ -7,6 +7,8 @@ module.exports = function (defaults) {
     // Add options here
     postcssOptions: {
       compile: {
+        enabled: true,
+        cacheInclude: [/.*\.hbs$/, /.*\.css$/, /.*\.html/],
         plugins: [
           {
             module: require('postcss-import'),
