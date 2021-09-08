@@ -16,6 +16,7 @@ import isEqual from 'lodash/isEqual';
 import { AssetCoreData } from './@types/AssetsMetadata';
 import { AssetCatalogItem, AssetsCatalog } from './@types/AssetsCatalog';
 import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
+import { getAssetFileName } from './sync-parts/getAssetFileName';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -44,7 +45,6 @@ import { config } from './config';
 })();
 
 async function sync() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
 
     // remove existing output folder
     if (VERBOSE) {
@@ -52,19 +52,27 @@ async function sync() {
     }
     del.sync(config.outputFolder, { force: true });
 
+    // let's retrieve the assets metadata via REST api
+    const assetsMetadata = await getAssetsMetadata();
+    if (VERBOSE) {
+        console.log('\nRetrieved assetsMetadata:\n', JSON.stringify(assetsMetadata));
+    }
+
     // we removed the SVGO transformer, we will do it later in the "build" part with other parameters
     const transformer: StringTransformer[] = [];
     const outputter: ComponentOutputter[] = [
         outputComponentsAsSvg({
-            output: `${config.outputFolder}/assets`,
-            // IMPORTANT: this is used to change icon's name (otherwise variants with the same props/values will override one another)
+            output: config.outputFolder,
+            // IMPORTANT: when exported by Figma by default the variants' name looks like this: "Size=16, Style=Color"
+            // and we want to sanitize it (otherwise variants with the same props/values will override one another)
+            // so this is used to change icon's name to a "standard" format that will be used across the entire script
             getBasename: (options: FigmaExport.ComponentOutputterParamOption): string => {
-                // the variants' name looks like this: "Size=16, Style=Color" and we want to sanitize it
-                const sanitizedFileName = getTemporaryFileName({ componentId: options.id, variantName: options.basename });
-                return `${sanitizedFileName}.svg`
+                const assetCoreData: AssetCoreData = assetsMetadata[options.id];
+                return `${getAssetFileName(assetCoreData)}.svg`
             },
-            // by default figma-export adds the "page" name to the path (so creating an extra folder, but we prefer to have all the icons saved directly in the output folder
-            getDirname: (): string => '',
+            // by default figma-export adds the "page" name to the path (so creating an extra folder)
+            // but we prefer to have all the icons saved under the "SVG" format (so we're open in the future to have other formats too)
+            getDirname: (): string => 'svg',
         })
     ];
 
@@ -75,63 +83,37 @@ async function sync() {
         token: process.env.FIGMA_TOKEN || 'MISSING-TOKEN-ADD-IT-TO-ENV-FILE',
         onlyFromPages: [config.figmaFile.page],
         transformers: requirePackages<FigmaExport.StringTransformer>(transformer),
-        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: `${config.outputFolder}/assets` }),
+        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: config.outputFolder }),
     }).then(async (figmaExportPageNode) => {
-
-        // let's retrieve the assets metadata via REST api
-        const assetsMetadata = await getAssetsMetadata();
-
-        // initialize the catalog file
-        const assetsCatalog: AssetsCatalog = {
-            lastRunTimeISO: new Date().toISOString(),
-            lastRunFigma: config.figmaFile,
-            assets: []
-        };
 
         const assetsExportedIDs = figmaExportPageNode[0].components.map((component) => component.id);
         const assetsExpectedIDs = Object.keys(assetsMetadata);
         if (isEqual(assetsExportedIDs.sort(), assetsExpectedIDs.sort())) {
+
+            // TODO move to a standalone function and file
+            // initialize the catalog file
+            const assetsCatalog: AssetsCatalog = {
+                lastRunTimeISO: new Date().toISOString(),
+                lastRunFigma: config.figmaFile,
+                assets: []
+            };
+
+            // TODO change to "assetsMetadata" loop
             figmaExportPageNode[0].components.forEach(component => {
 
-                const assetMetadata: AssetCoreData = assetsMetadata[component.id];
-
-                // rename the exported file
-                const expectedFileName = getTemporaryFileName({ componentId: component.id, variantName: component.name });
-                const expectedFilePath = `${config.outputFolder}/assets/${expectedFileName}.svg`;
-                if (fs.existsSync(expectedFilePath)) {
-
-                    const renamedFileNameParts = [];
-                    renamedFileNameParts.push(assetMetadata.iconName);
-                    if (assetMetadata.variantProps) {
-                        if (assetMetadata.variantProps.style) {
-                            // we don't add the "mono" style to the asset filename, it's considered the default
-                            if (assetMetadata.variantProps.style !== 'mono') {
-                                renamedFileNameParts.push(assetMetadata.variantProps.style);
-                            }
-                        }
-                        if (assetMetadata.variantProps.size) {
-                            renamedFileNameParts.push(assetMetadata.variantProps.size);
-                        }
-                    }
-                    const renamedFileName = `${renamedFileNameParts.join('-')}.svg`;
-                    const renamedFilePath = `${config.outputFolder}/assets/${renamedFileName}`;
-                    fs.renameSync(expectedFilePath, renamedFilePath);
-
-                } else {
-                    console.log(chalk.red(`WARNING:\nExpected to rename the asset file "${expectedFileName}" but the file is missing. Please check why, this is unexpected.`));
-                }
+                const assetCoreData: AssetCoreData = assetsMetadata[component.id];
 
                 // add the asset and its relevant data to the catalog and save it as JSON file
                 const assetCatalogItemData: AssetCatalogItem = {
                     id: component.id,
-                    name: assetMetadata.iconName,
-                    description: assetMetadata.description,
-                    size: assetMetadata.variantProps?.size || '',
+                    fileName: getAssetFileName(assetCoreData),
+                    iconName: assetCoreData.iconName,
+                    description: assetCoreData.description,
+                    size: assetCoreData.variantProps?.size || '',
                     width: component.absoluteBoundingBox.width,
                     height: component.absoluteBoundingBox.width,
                 };
                 assetsCatalog.assets.push(assetCatalogItemData);
-                // we use JSON.stringify to prettify the output (alternatively, we can use Prettier for more complex needs)
                 fs.writeJsonSync(`${config.outputFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
 
             });
@@ -139,17 +121,7 @@ async function sync() {
             console.log(chalk.red(`WARNING:\nThe number of assets retrieved (${assetsExportedIDs.length}) and the number of assets expected (${assetsExpectedIDs.length}) are different. Please check why, this is unexpected.`));
         }
 
-        // DEBUG
-        // console.log('figmaExportPageNode', JSON.stringify(figmaExportPageNode));
-        // console.log('assetsMetadata', JSON.stringify(assetsMetadata));
-        // console.log('assetsCatalog', JSON.stringify(assetsCatalog));
-
     }).catch((err: Error) => {
         console.error(err);
     });
-}
-
-const getTemporaryFileName = ({ componentId, variantName }: { componentId: string; variantName: string }) => {
-    const variantProperties = variantName.split(', ')
-    return `ID=${componentId}__${variantProperties.join('__')}`;
 }
