@@ -1,8 +1,10 @@
 @import "./root.css";
 @import "./modern-normalize.css";
 
- /* uncomment this line to actually make tailwind classes work */
- /* @tailwind base; */
+ /* uncomment theses lines to actually make tailwind classes work */
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
 
 html {
   font-family: var(--font-body);
