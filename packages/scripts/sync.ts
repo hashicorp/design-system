@@ -1,7 +1,7 @@
 const VERBOSE = false; // verbose logging for development
 global.verbose = VERBOSE;
 
-import fs from 'fs';
+import fs from 'fs-extra';
 import del from 'del';
 import chalk from 'chalk';
 import dotenv from 'dotenv';
@@ -10,15 +10,18 @@ import * as FigmaExport from '@figma-export/types';
 import * as figmaExport from '@figma-export/core';
 import { requirePackages } from '@figma-export/cli/dist/utils';
 import { StringTransformer, ComponentOutputter } from '@figma-export/types';
-import transformSvgWithSvgo from '@figma-export/transform-svg-with-svgo';
 import outputComponentsAsSvg from '@figma-export/output-components-as-svg';
+import isEqual from 'lodash/isEqual';
 
-import * as Figma from 'figma-api';
+import { AssetCoreData } from './@types/AssetsMetadata';
+import { AssetCatalogItem, AssetsCatalog } from './@types/AssetsCatalog';
+import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
 
 // read the environment variables from the ".env" file
 dotenv.config();
 
-const outputFolder = './temp-output';
+// read our custom config
+import { config } from './config';
 
 (async () => {
     try {
@@ -47,20 +50,13 @@ async function sync() {
     if (VERBOSE) {
         console.log('Removing "sync" output folder');
     }
-    del.sync(outputFolder, { force: true });
+    del.sync(config.outputFolder, { force: true });
 
-    // these variables may come from a .figmaexportrc.ts file, see https://github.com/marcomontalbano/figma-export/blob/master/.figmaexportrc.example.ts
-    const transformer: StringTransformer[] = [
-        transformSvgWithSvgo({
-            plugins: [
-                { removeViewBox: false },
-                { removeDimensions: true }
-            ]
-        })
-    ];
+    // we removed the SVGO transformer, we will do it later in the "build" part with other parameters
+    const transformer: StringTransformer[] = [];
     const outputter: ComponentOutputter[] = [
         outputComponentsAsSvg({
-            output: outputFolder,
+            output: `${config.outputFolder}/assets`,
             // IMPORTANT: this is used to change icon's name (otherwise variants with the same props/values will override one another)
             getBasename: (options: FigmaExport.ComponentOutputterParamOption): string => {
                 // the variants' name looks like this: "Size=16, Style=Color" and we want to sanitize it
@@ -74,92 +70,86 @@ async function sync() {
 
     // TODO move to a standalone function and file
     await figmaExport.components({
-        // TODO this should not be in the .env variable, is just a configuration ID that should be checked in
-        // @ts-ignore
-        // fileId: process.env.FLIGHT_FILE_ID,
-        // TODO this is the test file https://www.figma.com/file/2u60imwCVJvSpH0io1O068/Flight-Icons-FOR-TESTING
-        fileId: '2u60imwCVJvSpH0io1O068',
-        // TODO! this may be a problem with overriding names of component variants
+        fileId: config.figmaFile.id,
         concurrency: 30,
-        // @ts-ignore
-        token: process.env.FIGMA_TOKEN,
-        // TODO
-        onlyFromPages: ['Export'],
+        token: process.env.FIGMA_TOKEN || 'MISSING-TOKEN-ADD-IT-TO-ENV-FILE',
+        onlyFromPages: [config.figmaFile.page],
         transformers: requirePackages<FigmaExport.StringTransformer>(transformer),
-        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: outputFolder }),
-    }).then(() => {
-        console.log('done');
+        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: `${config.outputFolder}/assets` }),
+    }).then(async (figmaExportPageNode) => {
+
+        // let's retrieve the assets metadata via REST api
+        const assetsMetadata = await getAssetsMetadata();
+
+        // initialize the catalog file
+        const assetsCatalog: AssetsCatalog = {
+            lastRunTimeISO: new Date().toISOString(),
+            lastRunFigma: config.figmaFile,
+            assets: []
+        };
+
+        const assetsExportedIDs = figmaExportPageNode[0].components.map((component) => component.id);
+        const assetsExpectedIDs = Object.keys(assetsMetadata);
+        if (isEqual(assetsExportedIDs.sort(), assetsExpectedIDs.sort())) {
+            figmaExportPageNode[0].components.forEach(component => {
+
+                const assetMetadata: AssetCoreData = assetsMetadata[component.id];
+
+                // rename the exported file
+                const expectedFileName = getTemporaryFileName({ componentId: component.id, variantName: component.name });
+                const expectedFilePath = `${config.outputFolder}/assets/${expectedFileName}.svg`;
+                if (fs.existsSync(expectedFilePath)) {
+
+                    const renamedFileNameParts = [];
+                    renamedFileNameParts.push(assetMetadata.iconName);
+                    if (assetMetadata.variantProps) {
+                        if (assetMetadata.variantProps.style) {
+                            // we don't add the "mono" style to the asset filename, it's considered the default
+                            if (assetMetadata.variantProps.style !== 'mono') {
+                                renamedFileNameParts.push(assetMetadata.variantProps.style);
+                            }
+                        }
+                        if (assetMetadata.variantProps.size) {
+                            renamedFileNameParts.push(assetMetadata.variantProps.size);
+                        }
+                    }
+                    const renamedFileName = `${renamedFileNameParts.join('-')}.svg`;
+                    const renamedFilePath = `${config.outputFolder}/assets/${renamedFileName}`;
+                    fs.renameSync(expectedFilePath, renamedFilePath);
+
+                } else {
+                    console.log(chalk.red(`WARNING:\nExpected to rename the asset file "${expectedFileName}" but the file is missing. Please check why, this is unexpected.`));
+                }
+
+                // add the asset and its relevant data to the catalog and save it as JSON file
+                const assetCatalogItemData: AssetCatalogItem = {
+                    id: component.id,
+                    name: assetMetadata.iconName,
+                    description: assetMetadata.description,
+                    size: assetMetadata.variantProps?.size || '',
+                    width: component.absoluteBoundingBox.width,
+                    height: component.absoluteBoundingBox.width,
+                };
+                assetsCatalog.assets.push(assetCatalogItemData);
+                // we use JSON.stringify to prettify the output (alternatively, we can use Prettier for more complex needs)
+                fs.writeJsonSync(`${config.outputFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
+
+            });
+        } else {
+            console.log(chalk.red(`WARNING:\nThe number of assets retrieved (${assetsExportedIDs.length}) and the number of assets expected (${assetsExpectedIDs.length}) are different. Please check why, this is unexpected.`));
+        }
+
+        // DEBUG
+        // console.log('figmaExportPageNode', JSON.stringify(figmaExportPageNode));
+        // console.log('assetsMetadata', JSON.stringify(assetsMetadata));
+        // console.log('assetsCatalog', JSON.stringify(assetsCatalog));
+
     }).catch((err: Error) => {
         console.error(err);
     });
-
-    // TODO temporary code to test the feasibility
-    const api = new Figma.Api({
-        // @ts-ignore
-        personalAccessToken: process.env.FIGMA_TOKEN,
-    });
-
-    // TODO! update the fileID once the test is done!
-    const fileComponentSetsResponse = await api.getFileComponentSets('2u60imwCVJvSpH0io1O068');
-    // const fileComponents = fileComponentsResponse.meta?.components;
-    // console.log(`fileComponents[${fileComponents?.length || 0}]`, JSON.stringify(fileComponents));
-
-    // TODO define proper type here
-    const componentSetData = {};
-    if (fileComponentSetsResponse.meta && fileComponentSetsResponse.meta.component_sets) {
-        fileComponentSetsResponse.meta.component_sets.forEach(component_set => {
-            // @ts-ignore
-            componentSetData[component_set.name] = {
-                node_id: component_set.node_id,
-                description: component_set.description,
-            }
-        });
-    } else {
-        // TODO add a message to inform the user that something went wrong
-    }
-
-    // TODO! update the fileID once the test is done!
-    const fileComponentsResponse = await api.getFileComponents('2u60imwCVJvSpH0io1O068');
-    if (fileComponentsResponse.meta && fileComponentsResponse.meta.components) {
-        fileComponentsResponse.meta.components.forEach(component => {
-            // TODO! add a check that the component is in the frame(s) we declared in the config and has a type of "component" and a parent that is a component_set
-            // console.log('COMPONENT', JSON.stringify(component));
-            const expectedFileName = getTemporaryFileName({ componentId: component.node_id, variantName: component.name });
-            const expectedFilePath = `${outputFolder}/${expectedFileName}.svg`;
-            if (fs.existsSync(expectedFilePath)) {
-                // @ts-ignore
-                let renamedFileName = component.containing_frame?.containingStateGroup?.name;
-                const variantProperties: { Size?: string; Style?: string; } = {};
-                component.name.split(', ').forEach(partial => {
-                    // here we assume
-                    const match = partial.match(/(.*)=(.*)/)
-                    if (match) {
-                        // @ts-ignore
-                        variantProperties[match[1]] = match[2];
-                    }
-                });
-                if (variantProperties.Size) {
-                    renamedFileName += `-${variantProperties.Size}`;
-                }
-                // TODO discuss with Hector about this name (plus, use lowercase values)
-                if (variantProperties.Style && variantProperties.Style.toLowerCase() !== 'mono') {
-                    renamedFileName += `-${variantProperties.Style.toLowerCase()}`;
-                }
-                const renamedFilePath = `${outputFolder}/${renamedFileName}.svg`;
-                fs.renameSync(expectedFilePath, renamedFilePath);
-            } else {
-                // TODO better message here!
-                console.log(`file not found: ${expectedFileName}`);
-            }
-        });
-     } else {
-        // TODO add a message to inform the user that something went wrong
-        // TODO2 also, we could check that the files exported and the components expected have the same number?
-    }
 }
 
 const getTemporaryFileName = ({ componentId, variantName }: { componentId: string; variantName: string }) => {
-
     const variantProperties = variantName.split(', ')
     return `ID=${componentId}__${variantProperties.join('__')}`;
 }
