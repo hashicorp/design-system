@@ -1,10 +1,9 @@
 const VERBOSE = false; // verbose logging for development
 global.verbose = VERBOSE;
 
-import fs from 'fs-extra';
+import dotenv from 'dotenv';
 import del from 'del';
 import chalk from 'chalk';
-import dotenv from 'dotenv';
 
 import * as FigmaExport from '@figma-export/types';
 import * as figmaExport from '@figma-export/core';
@@ -14,9 +13,9 @@ import outputComponentsAsSvg from '@figma-export/output-components-as-svg';
 import isEqual from 'lodash/isEqual';
 
 import { AssetCoreData } from './@types/AssetsMetadata';
-import { AssetCatalogItem, AssetsCatalog } from './@types/AssetsCatalog';
 import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
 import { getAssetFileName } from './sync-parts/getAssetFileName';
+import { generateAssetsCatalog } from './generateAssetsCatalog';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -89,34 +88,7 @@ async function sync() {
         const assetsExportedIDs = figmaExportPageNode[0].components.map((component) => component.id);
         const assetsExpectedIDs = Object.keys(assetsMetadata);
         if (isEqual(assetsExportedIDs.sort(), assetsExpectedIDs.sort())) {
-
-            // TODO move to a standalone function and file
-            // initialize the catalog file
-            const assetsCatalog: AssetsCatalog = {
-                lastRunTimeISO: new Date().toISOString(),
-                lastRunFigma: config.figmaFile,
-                assets: []
-            };
-
-            // TODO change to "assetsMetadata" loop
-            figmaExportPageNode[0].components.forEach(component => {
-
-                const assetCoreData: AssetCoreData = assetsMetadata[component.id];
-
-                // add the asset and its relevant data to the catalog and save it as JSON file
-                const assetCatalogItemData: AssetCatalogItem = {
-                    id: component.id,
-                    fileName: getAssetFileName(assetCoreData),
-                    iconName: assetCoreData.iconName,
-                    description: assetCoreData.description,
-                    size: assetCoreData.variantProps?.size || '',
-                    width: component.absoluteBoundingBox.width,
-                    height: component.absoluteBoundingBox.width,
-                };
-                assetsCatalog.assets.push(assetCatalogItemData);
-                fs.writeJsonSync(`${config.outputFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
-
-            });
+            generateAssetsCatalog({ config, assetsMetadata, figmaExportPageNode });
         } else {
             console.log(chalk.red(`WARNING:\nThe number of assets retrieved (${assetsExportedIDs.length}) and the number of assets expected (${assetsExpectedIDs.length}) are different. Please check why, this is unexpected.`));
         }
