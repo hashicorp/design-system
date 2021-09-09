@@ -1,6 +1,3 @@
-const VERBOSE = false; // verbose logging for development
-global.verbose = VERBOSE;
-
 import dotenv from 'dotenv';
 import fs from 'fs-extra';
 import del from 'del';
@@ -40,16 +37,11 @@ import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 async function sync() {
 
     // remove existing output folder
-    if (VERBOSE) {
-        console.log('Removing "sync" output folder');
-    }
+    console.log('Removing "sync" output folder');
     del.sync(config.outputFolder, { force: true });
 
     // retrieve the assets metadata via REST api
     const assetsMetadata = await getAssetsMetadata();
-    if (VERBOSE) {
-        console.log('\nRetrieved assetsMetadata:\n', JSON.stringify(assetsMetadata));
-    }
 
     // export the assets from Figma to the filesystem
     const figmaExportPageNode = await exportAssetsToFolder({ config, assetsMetadata });
