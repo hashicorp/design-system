@@ -1,6 +1,11 @@
 @import "./root.css";
 @import "./modern-normalize.css";
 
+ /* uncomment theses lines to actually make tailwind classes work */
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
 html {
   font-family: var(--font-body);
   font-size: 18px;
@@ -20,6 +25,9 @@ a {
 header.ds-header {
   background-color: var(--brand);
   color: var(--white);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 h1.ds-h1 {
   font-family: var(--font-display);
@@ -30,14 +38,17 @@ h1.ds-h1 {
 header.ds-header nav.ds-nav {
   display: flex;
   flex-flow: row wrap;
+  padding: 0 0.5em;
 }
 header.ds-header nav.ds-nav ul.ds-ul {
+  align-items: stretch;
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
 }
 header.ds-header nav.ds-nav ul.ds-ul li.ds-li {
+  align-content: center; 
   display: flex;
   flex-flow: row wrap;
 }
@@ -46,8 +57,10 @@ header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a {
   border: 2px solid transparent;
   color: white;
   display: flex;
+  font-weight: var(--font-weight-bold);
   justify-content: center;
   padding: 0.5em;
+  text-decoration: none;
 }
 
 header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:focus {
@@ -61,8 +74,14 @@ header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:hover {
 
 main.ds-main {
   flex: 1 0 auto;
-  padding: 0 1em 1em 1em;
+  padding: 0 1em 1em;
 }
+@media (min-width: 60em) {
+  main.ds-main {
+    padding: 0 8em 1em;
+  }
+}
+
 p.ds-p {
   font-family: var(--font-body);
   font-size: 1em;
@@ -212,4 +231,9 @@ pre.ds-pre {
   border: 1px solid var(--brand);
   border-radius: 4px;
   padding: 0.75em;
+}
+img.ds-img {
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
