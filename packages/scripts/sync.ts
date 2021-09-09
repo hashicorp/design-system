@@ -16,7 +16,7 @@ import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 
 (async () => {
     try {
-        console.log('\n==========\nFigma sync started...\n==========\n');
+        console.log(`\n==========\n${chalk.cyan('Figma sync started...')}\n==========\n`);
 
         // make sure the user has a ".env" file that contains the required REST API token
         if (!process.env.FIGMA_TOKEN) {
@@ -25,7 +25,7 @@ import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
             await sync();
         }
 
-        console.log('\n==========\nFigma sync completed.\n==========\n');
+        console.log(`\n==========\n${chalk.green('Figma sync completed.')}\n==========\n`);
 
     } catch (err) {
         console.error(err);
@@ -37,13 +37,19 @@ import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 async function sync() {
 
     // remove existing output folder
-    console.log('Removing "sync" output folder');
-    del.sync(config.outputFolder, { force: true });
+    try {
+        console.log('Removing "sync" output folder');
+        del.sync(config.outputFolder, { force: true });
+    } catch (err) {
+        console.error(err);
+    }
 
     // retrieve the assets metadata via REST api
+    console.log('Retrieving assets metadata via REST API');
     const assetsMetadata = await getAssetsMetadata();
 
     // export the assets from Figma to the filesystem
+    console.log('Exporting assets via "figma-export" to SVG files\n');
     const figmaExportPageNode = await exportAssetsToFolder({ config, assetsMetadata });
 
     // check that all the assets have been exported correctly
@@ -54,6 +60,7 @@ async function sync() {
         // get the assets "catalog" (will be used by multiple consumers) and save it as JSON file
         const assetsCatalog = getAssetsCatalog({ config, assetsMetadata, figmaExportPageNode });
         try {
+            console.log('Saving "catalog.json" file');
             fs.writeJsonSync(`${config.outputFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
         } catch (err) {
             console.error(err);
