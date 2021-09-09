@@ -1,10 +1,11 @@
 {
-  "lastRunTimeISO": "2021-09-09T10:27:22.191Z",
+  "lastRunTimeISO": "2021-09-09T12:27:18.779Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
     "frames": [
-      "Flight Icons"
+      "Core",
+      "Services"
     ]
   },
   "assets": [
@@ -6952,6 +6953,690 @@
       "fileName": "zoom-out-16",
       "iconName": "zoom-out",
       "description": "zoom, out, minimize",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:32",
+      "fileName": "apple-color-24",
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:35",
+      "fileName": "apple-color-16",
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:38",
+      "fileName": "apple-24",
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:41",
+      "fileName": "apple-16",
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:47",
+      "fileName": "alibaba-color-24",
+      "iconName": "alibaba",
+      "description": "alibaba, alibaba cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:50",
+      "fileName": "alibaba-color-16",
+      "iconName": "alibaba",
+      "description": "alibaba, alibaba cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:53",
+      "fileName": "alibaba-24",
+      "iconName": "alibaba",
+      "description": "alibaba, alibaba cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:56",
+      "fileName": "alibaba-16",
+      "iconName": "alibaba",
+      "description": "alibaba, alibaba cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:62",
+      "fileName": "aws-color-24",
+      "iconName": "aws",
+      "description": "amazon, aws, amazon web services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:68",
+      "fileName": "aws-color-16",
+      "iconName": "aws",
+      "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:74",
+      "fileName": "aws-24",
+      "iconName": "aws",
+      "description": "amazon, aws, amazon web services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:77",
+      "fileName": "aws-16",
+      "iconName": "aws",
+      "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:83",
+      "fileName": "auth0-color-24",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:86",
+      "fileName": "auth0-color-16",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:89",
+      "fileName": "auth0-24",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:92",
+      "fileName": "auth0-16",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:98",
+      "fileName": "azure-color-24",
+      "iconName": "azure",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:101",
+      "fileName": "azure-color-16",
+      "iconName": "azure",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:104",
+      "fileName": "azure-24",
+      "iconName": "azure",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:107",
+      "fileName": "azure-16",
+      "iconName": "azure",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:113",
+      "fileName": "azure-devops-color-24",
+      "iconName": "azure-devops",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:116",
+      "fileName": "azure-devops-color-16",
+      "iconName": "azure-devops",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:119",
+      "fileName": "azure-devops-24",
+      "iconName": "azure-devops",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:122",
+      "fileName": "azure-devops-16",
+      "iconName": "azure-devops",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:129",
+      "fileName": "bitbucket-color-24",
+      "iconName": "bitbucket",
+      "description": "bitbucket, atlassian",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:135",
+      "fileName": "bitbucket-color-16",
+      "iconName": "bitbucket",
+      "description": "bitbucket, atlassian",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:141",
+      "fileName": "bitbucket-24",
+      "iconName": "bitbucket",
+      "description": "bitbucket, atlassian",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:146",
+      "fileName": "bitbucket-16",
+      "iconName": "bitbucket",
+      "description": "bitbucket, atlassian",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:154",
+      "fileName": "docker-color-24",
+      "iconName": "docker",
+      "description": "docker",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:157",
+      "fileName": "docker-color-16",
+      "iconName": "docker",
+      "description": "docker",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:160",
+      "fileName": "docker-24",
+      "iconName": "docker",
+      "description": "docker",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:163",
+      "fileName": "docker-16",
+      "iconName": "docker",
+      "description": "docker",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:169",
+      "fileName": "f5-color-24",
+      "iconName": "f5",
+      "description": "f5",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:174",
+      "fileName": "f5-color-16",
+      "iconName": "f5",
+      "description": "f5",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:179",
+      "fileName": "f5-24",
+      "iconName": "f5",
+      "description": "f5",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:182",
+      "fileName": "f5-16",
+      "iconName": "f5",
+      "description": "f5",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:188",
+      "fileName": "gcp-color-24",
+      "iconName": "gcp",
+      "description": "google, gcp, google cloud platform",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:194",
+      "fileName": "gcp-color-16",
+      "iconName": "gcp",
+      "description": "google, gcp, google cloud platform",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:200",
+      "fileName": "gcp-24",
+      "iconName": "gcp",
+      "description": "google, gcp, google cloud platform",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:203",
+      "fileName": "gcp-16",
+      "iconName": "gcp",
+      "description": "google, gcp, google cloud platform",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:209",
+      "fileName": "gitlab-color-24",
+      "iconName": "gitlab",
+      "description": "gitlab",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:219",
+      "fileName": "gitlab-color-16",
+      "iconName": "gitlab",
+      "description": "gitlab",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:229",
+      "fileName": "gitlab-24",
+      "iconName": "gitlab",
+      "description": "gitlab",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:232",
+      "fileName": "gitlab-16",
+      "iconName": "gitlab",
+      "description": "gitlab",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:238",
+      "fileName": "github-color-24",
+      "iconName": "github",
+      "description": "github",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:241",
+      "fileName": "github-color-16",
+      "iconName": "github",
+      "description": "github",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:244",
+      "fileName": "github-24",
+      "iconName": "github",
+      "description": "github",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:247",
+      "fileName": "github-16",
+      "iconName": "github",
+      "description": "github",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:254",
+      "fileName": "google-color-24",
+      "iconName": "google",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:260",
+      "fileName": "google-color-16",
+      "iconName": "google",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:266",
+      "fileName": "google-24",
+      "iconName": "google",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:269",
+      "fileName": "google-16",
+      "iconName": "google",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:275",
+      "fileName": "kubernetes-color-24",
+      "iconName": "kubernetes",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:279",
+      "fileName": "kubernetes-color-16",
+      "iconName": "kubernetes",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:283",
+      "fileName": "kubernetes-24",
+      "iconName": "kubernetes",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:286",
+      "fileName": "kubernetes-16",
+      "iconName": "kubernetes",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:292",
+      "fileName": "microsoft-color-24",
+      "iconName": "microsoft",
+      "description": "microsoft, ms, windows",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:298",
+      "fileName": "microsoft-color-16",
+      "iconName": "microsoft",
+      "description": "microsoft, ms, windows",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:304",
+      "fileName": "microsoft-24",
+      "iconName": "microsoft",
+      "description": "microsoft, ms, windows",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:307",
+      "fileName": "microsoft-16",
+      "iconName": "microsoft",
+      "description": "microsoft, ms, windows",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:313",
+      "fileName": "okta-color-24",
+      "iconName": "okta",
+      "description": "okta",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:316",
+      "fileName": "okta-color-16",
+      "iconName": "okta",
+      "description": "okta",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:319",
+      "fileName": "okta-24",
+      "iconName": "okta",
+      "description": "okta",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:322",
+      "fileName": "okta-16",
+      "iconName": "okta",
+      "description": "okta",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:328",
+      "fileName": "oracle-color-24",
+      "iconName": "oracle",
+      "description": "oracle, oracle cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:333",
+      "fileName": "oracle-color-16",
+      "iconName": "oracle",
+      "description": "oracle, oracle cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:338",
+      "fileName": "oracle-24",
+      "iconName": "oracle",
+      "description": "oracle, oracle cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:341",
+      "fileName": "oracle-16",
+      "iconName": "oracle",
+      "description": "oracle, oracle cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:347",
+      "fileName": "slack-color-24",
+      "iconName": "slack",
+      "description": "slack, salesforce",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:361",
+      "fileName": "slack-color-16",
+      "iconName": "slack",
+      "description": "slack, salesforce",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:375",
+      "fileName": "slack-24",
+      "iconName": "slack",
+      "description": "slack, salesforce",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:378",
+      "fileName": "slack-16",
+      "iconName": "slack",
+      "description": "slack, salesforce",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:385",
+      "fileName": "vmware-color-24",
+      "iconName": "vmware",
+      "description": "vmware, vmware cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:388",
+      "fileName": "vmware-color-16",
+      "iconName": "vmware",
+      "description": "vmware, vmware cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:391",
+      "fileName": "vmware-24",
+      "iconName": "vmware",
+      "description": "vmware, vmware cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:394",
+      "fileName": "vmware-16",
+      "iconName": "vmware",
+      "description": "vmware, vmware cloud",
       "size": "16",
       "width": 16,
       "height": 16
