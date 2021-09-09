@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import fs from 'fs-extra';
-import del from 'del';
 import chalk from 'chalk';
 
 import { processAssetsSVG } from './build-parts/processAssetsSVG';
@@ -45,7 +44,7 @@ async function build() {
     }
 
     // read the assets "catalog"
-    const catalog = fs.readJSONSync(`${config.outputFolder}/catalog.json`);
+    const catalog = fs.readJSONSync(`${config.syncOutputFolder}/catalog.json`);
 
     // process the assets
     processAssetsSVG({ config, catalog });
