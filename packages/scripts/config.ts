@@ -10,9 +10,7 @@ export const config: ConfigData = {
         // Notice: this simple configuration is under the assumption thet all the assets will be in the same page and in a single frame (like it now)
         // if later we will discover we need to be more specific (eg. file/page/frame) we will adopt a more structured/explicit configuration format
         page: 'Export',
-        frames: ['Flight Icons'],
-        // TODO use this once Hector renames the frame in Figma
-        // frames: ['Core', 'Services'],
+        frames: ['Core', 'Services'],
     },
     syncOutputFolder: '../src/flight-icons-exported',
 };
