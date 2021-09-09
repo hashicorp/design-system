@@ -1,0 +1,7 @@
+<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(6.5, 2)">
+  <path d="M1.5 0C0.671573 0 0 0.671573 0 1.5C0 2.32843 0.671573 3 1.5 3C2.32843 3 3 2.32843 3 1.5C3 0.671573 2.32843 0 1.5 0Z" fill-rule="NONZERO"></path>
+  <path d="M1.5 4.5C0.671573 4.5 0 5.17157 0 6C0 6.82843 0.671573 7.5 1.5 7.5C2.32843 7.5 3 6.82843 3 6C3 5.17157 2.32843 4.5 1.5 4.5Z" fill-rule="NONZERO"></path>
+  <path d="M1.5 9C0.671573 9 0 9.67157 0 10.5C0 11.3284 0.671573 12 1.5 12C2.32843 12 3 11.3284 3 10.5C3 9.67157 2.32843 9 1.5 9Z" fill-rule="NONZERO"></path>
+ </g>
+</svg>
