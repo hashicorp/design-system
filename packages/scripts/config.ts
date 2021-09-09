@@ -14,5 +14,5 @@ export const config: ConfigData = {
         // TODO use this once Hector renames the frame in Figma
         // frames: ['Core', 'Services'],
     },
-    outputFolder: '../src/flight-icons-exported',
+    syncOutputFolder: '../src/flight-icons-exported',
 };

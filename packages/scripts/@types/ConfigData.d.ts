@@ -5,5 +5,5 @@ export type ConfigData = {
         page: string,
         frames: string[],
     },
-    outputFolder: string,
+    syncOutputFolder: string,
 };
