@@ -5,5 +5,7 @@ export type ConfigData = {
         page: string,
         frames: string[],
     },
+    // TODO rename to "syncOutputFolder"
     outputFolder: string,
+    buildDistFolder: string,
 };

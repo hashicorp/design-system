@@ -7,7 +7,8 @@
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
-    "sync": "ts-node --transpile-only ./sync"
+    "sync": "ts-node --transpile-only ./sync",
+    "build": "ts-node --transpile-only ./build"
   },
   "devDependencies": {
     "@figma-export/cli": "^3.3.1",
