@@ -30,7 +30,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
             if (
                 component_set.containing_frame &&
                 component_set.containing_frame.pageName === config.figmaFile.page &&
-                component_set.containing_frame.name === config.figmaFile.frame
+                config.figmaFile.frames.includes(component_set.containing_frame.name)
             ) {
                 componentSetData[component_set.node_id] = {
                     name: component_set.name,
@@ -49,7 +49,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
             if (
                 component.containing_frame &&
                 component.containing_frame.pageName === config.figmaFile.page &&
-                component.containing_frame.name === config.figmaFile.frame
+                config.figmaFile.frames.includes(component.containing_frame.name)
             ) {
                 assetsMetadata[component.node_id] = {
                     id: component.node_id,

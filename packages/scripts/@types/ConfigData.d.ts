@@ -3,7 +3,7 @@ export type ConfigData = {
     figmaFile: {
         id: string,
         page: string,
-        frame: string,
+        frames: string[],
     },
     outputFolder: string,
 };

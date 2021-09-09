@@ -1,9 +1,11 @@
 {
-  "lastRunTimeISO": "2021-09-09T08:26:46.190Z",
+  "lastRunTimeISO": "2021-09-09T10:27:22.191Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
-    "frame": "Flight Icons"
+    "frames": [
+      "Flight Icons"
+    ]
   },
   "assets": [
     {
