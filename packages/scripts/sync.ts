@@ -6,13 +6,13 @@ import isEqual from 'lodash/isEqual';
 
 import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
 import { getAssetsCatalog } from './sync-parts/getAssetsCatalog';
+import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 
 // read the environment variables from the ".env" file
 dotenv.config();
 
 // read our custom config
 import { config } from './config';
-import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 
 (async () => {
     try {
