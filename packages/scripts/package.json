@@ -10,8 +10,11 @@
     "sync": "ts-node --transpile-only ./sync"
   },
   "devDependencies": {
-    "@figma-export/cli": "^3.3.1",
-    "@figma-export/core": "^3.3.1",
+    "@figma-export/cli": "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/cli.tar.gz",
+    "@figma-export/core": "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/core.tar.gz",
+    "@figma-export/output-components-as-svg": "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/output-components-as-svg.tar.gz",
+    "@figma-export/transform-svg-with-svgo": "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/transform-svg-with-svgo.tar.gz",
+    "@figma-export/types": "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/types.tar.gz",
     "@types/node": "^16.7.13",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
@@ -22,9 +25,6 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@figma-export/output-components-as-svg": "^3.3.1",
-    "@figma-export/transform-svg-with-svgo": "^3.3.1",
-    "@figma-export/types": "^3.3.1",
     "@types/fs-extra": "^9.0.12",
     "@types/lodash": "^4.14.172",
     "dotenv": "^10.0.0",
