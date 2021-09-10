@@ -7,7 +7,7 @@ import svgstore from 'svgstore';
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
 
-export async function generateBundleSVGSprite({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): void {
+export async function generateBundleSVGSprite({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
 
     // TODO add better logging
     console.log('generateBundleSVGStore');

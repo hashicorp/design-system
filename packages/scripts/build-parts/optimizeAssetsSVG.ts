@@ -49,7 +49,8 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
                 await fs.outputFile(tempAssetPath, svgOptimized.data);
 
             } catch (err) {
-                console.error(`Error with SVG optimization for ${asset.fileName}.svg:`, err.message);
+                console.log(`Error with SVG optimization for ${asset.fileName}.svg:`);
+                console.error(err);
             }
 
         } else {
