@@ -14,8 +14,9 @@ export default class IndexRoute extends Route {
     );
     const json = await response.json();
 
-    return json.assets.map(({ fileName, size, description }) => {
+    return json.assets.map(({ iconName, fileName, size, description }) => {
       return {
+        iconName: `${iconName}`,
         name: `${fileName}`,
         size: `${size}`,
         searchable: `${fileName}, ${description}`,
