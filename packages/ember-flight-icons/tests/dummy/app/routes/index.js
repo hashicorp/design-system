@@ -10,15 +10,16 @@ export default class IndexRoute extends Route {
 
   async model() {
     const response = await fetch(
-      `${this.contextRootURL}@hashicorp/ember-flight-icons/icons/_catalog.json`
+      `${this.contextRootURL}@hashicorp/ember-flight-icons/icons/catalog.json`
     );
     const json = await response.json();
 
-    return json.map(({ Name, Size }) => {
+    return json.assets.map(({ iconName, fileName, size, description }) => {
       return {
-        name: `${Name}`,
-        size: `${Size}`,
-        searchable: `${Name}`,
+        iconName: `${iconName}`,
+        name: `${fileName}`,
+        size: `${size}`,
+        searchable: `${fileName}, ${description}`,
       };
     });
   }
