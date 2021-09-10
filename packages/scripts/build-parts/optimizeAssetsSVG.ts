@@ -7,13 +7,11 @@ import chalk from 'chalk';
 import SVGO from 'svgo';
 
 import { ConfigData } from '../@types/ConfigData';
-import { AssetCatalogItem, AssetsCatalog } from '../@types/AssetsCatalog';
+import { AssetsCatalog } from '../@types/AssetsCatalog';
 
 const svgo = new SVGO({
     plugins: [
         { prefixIds: { prefix: 'flight' } },
-        // TODO! discuss these settings with Melanie
-        { removeXMLNS: false }, // we need the assets could be viewed from a file manager
         { removeViewBox: false },
         { sortAttrs: true },
     ]
