@@ -63,7 +63,7 @@ async function build() {
     await generateBundleCSS({ config, catalog });
 
     // generate the bundle for the Ember addon
-    await generateBundleEmberAddon();
+    await generateBundleEmberAddon({ config });
 
     // remove temporary folder
     // notice: comment this if you need to debug the assets initial SVG processing

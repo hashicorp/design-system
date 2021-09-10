@@ -13,5 +13,6 @@ export const config: ConfigData = {
         frames: ['Core', 'Services'],
     },
     syncOutputFolder: '../src/flight-icons-exported',
+    buildSrcFolder: '../src',
     buildDistFolder: '../dist',
 };

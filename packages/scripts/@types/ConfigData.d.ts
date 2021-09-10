@@ -6,5 +6,6 @@ export type ConfigData = {
         frames: string[],
     },
     syncOutputFolder: string,
+    buildSrcFolder: string,
     buildDistFolder: string,
 };
