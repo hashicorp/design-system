@@ -1,0 +1,7 @@
+<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(3, 10)">
+  <path d="M2 0C0.89543 0 0 0.89543 0 2C0 3.10457 0.895431 4 2 4C3.10457 4 4 3.10457 4 2C4 0.895431 3.10457 0 2 0Z" fill-rule="NONZERO"></path>
+  <path d="M9 0C7.89543 0 7 0.89543 7 2C7 3.10457 7.89543 4 9 4C10.1046 4 11 3.10457 11 2C11 0.895431 10.1046 0 9 0Z" fill-rule="NONZERO"></path>
+  <path d="M16 0C14.8954 0 14 0.89543 14 2C14 3.10457 14.8954 4 16 4C17.1046 4 18 3.10457 18 2C18 0.895431 17.1046 0 16 0Z" fill-rule="NONZERO"></path>
+ </g>
+</svg>

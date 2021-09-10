@@ -70,7 +70,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                 component.name.split(', ').forEach(partial => {
                     const match = partial.match(/(.*)=(.*)/)
                     if (match) {
-                        // TODO! discuss with Hector about the "Style" name (plus, use lowercase props names and values)
+                        // we want to make sure all the props key/values for the props are lowercase
                         const propName = match[1].toLowerCase();
                         const propValue = match[2].toLowerCase();
                         variantProperties[propName] = propValue;
