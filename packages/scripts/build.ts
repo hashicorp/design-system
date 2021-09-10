@@ -2,7 +2,11 @@ import dotenv from 'dotenv';
 import fs from 'fs-extra';
 import chalk from 'chalk';
 
-import { processAssetsSVG } from './build-parts/processAssetsSVG';
+import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
+import { generateBundleSVG } from './build-parts/generateBundleSVG';
+import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
+import { generateBundleCSS } from './build-parts/generateBundleCSS';
+import { generateBundleEmberAddon } from './build-parts/generateBundleEmberAddon';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -46,8 +50,20 @@ async function build() {
     // read the assets "catalog"
     const catalog = fs.readJSONSync(`${config.syncOutputFolder}/catalog.json`);
 
-    // process the assets
-    processAssetsSVG({ config, catalog });
+    // pre-process the assets (SVG optimization)
+    await optimizeAssetsSVG({ config, catalog });
+
+    // generate the bundle for the standalone SVGs
+    await generateBundleSVG({ config });
+
+    // generate the bundle for the SVG sprite
+    await generateBundleSVGSprite();
+
+    // generate the bundle for the CSS/SASS files
+    await generateBundleCSS();
+
+    // generate the bundle for the Ember addon
+    await generateBundleEmberAddon();
 
     // remove temporary folder
     // notice: comment this if you need to debug the assets initial SVG processing
