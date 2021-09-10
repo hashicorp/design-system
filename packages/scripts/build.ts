@@ -57,7 +57,7 @@ async function build() {
     await generateBundleSVG({ config });
 
     // generate the bundle for the SVG sprite
-    await generateBundleSVGSprite();
+    await generateBundleSVGSprite({ config, catalog });
 
     // generate the bundle for the CSS/SASS files
     await generateBundleCSS();

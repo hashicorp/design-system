@@ -36,7 +36,7 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
         if (fs.existsSync(srcAssetPath)) {
             // console.log(`Processing asset "${asset.fileName}.svg"`);
 
-            // optimize the SVG and it them to the temp folder
+            // optimize the SVG and add it to the temp folder
             try {
                 let svgSource = await fs.readFile(srcAssetPath, 'utf8');
 
@@ -46,7 +46,7 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
                 // IMPORTANT: the "path" is used by SVGO to extract the icon name and add it as prefix to the IDs
                 const svgOptimized = await svgo.optimize(svgSource, { path: asset.fileName });
 
-                fs.outputFile(tempAssetPath, svgOptimized.data);
+                await fs.outputFile(tempAssetPath, svgOptimized.data);
 
             } catch (err) {
                 console.error(`Error with SVG optimization for ${asset.fileName}.svg:`, err.message);
