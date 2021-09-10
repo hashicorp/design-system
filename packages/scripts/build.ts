@@ -60,7 +60,7 @@ async function build() {
     await generateBundleSVGSprite({ config, catalog });
 
     // generate the bundle for the CSS/SASS files
-    await generateBundleCSS();
+    await generateBundleCSS({ config, catalog });
 
     // generate the bundle for the Ember addon
     await generateBundleEmberAddon();
