@@ -4,37 +4,11 @@
 
 We welcome contributions from external members of the team! We encourage you to float the idea for your PR first, via a GitHub issue or a post in Slack.
 
-## Figma export-go instructions
+## Figma assets pipeline
 
-- For export-go, the Figma export tool, see [export-go/README](export-go/README.md).
+- For the sync/build/release scripts that export the assets from Figma and save them as multiple bundles, see [scripts/README](scripts/README.md).
 
-- After every new Figma export, we need to manually copy the icons to the `flight-icons/icons` directory right now.
-
-```bash
-rm flight-icons/icons/*
-```
-
-```bash
-cp export-go/dist/* flight-icons/icons
-```
-
-## sprite instructions
-
-- To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
-
-```bash
-cd flight-icons/icons
-```
-
-```bash
-npx spritesh
-```
-
-The `spitesh` command will great a `sprite.svg`. Copy this file to ember-flight-icons/
-
-```bash
-cd .. && cp flight-icons/icons/sprite.svg ember-flight-icons/public/icons && cp flight-icons/icons/_catalog.json ember-flight-icons/public/icons
-```
+_Notice: these scripts are still in development._
 
 ## npm instructions
 
