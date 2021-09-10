@@ -16,10 +16,10 @@ export async function generateBundleSVGSprite({ config, catalog } : { config: Co
     const distBundleFolderPath = `${config.buildDistFolder}/flight-icons-svg-sprite`;
 
     // create the destination folder
-    fs.mkdirs(distBundleFolderPath);
+    await fs.mkdirs(distBundleFolderPath);
 
     // copy the assets catalog file
-    fs.copy(`${config.syncOutputFolder}/catalog.json`, `${distBundleFolderPath}/catalog.json`);
+    await fs.copy(`${config.syncOutputFolder}/catalog.json`, `${distBundleFolderPath}/catalog.json`);
 
     // generate the sprite via "svgstore"
     const sprites = svgstore({
