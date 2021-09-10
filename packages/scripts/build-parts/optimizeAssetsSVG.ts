@@ -9,13 +9,19 @@ import SVGO from 'svgo';
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
 
+// Notice: in case in the future you start to see SVGs containing strange "clipPath" attributes
+// is not a problem of SVGO configuration, is Figma adding it to the exported SVGs when the content of a frame/component
+// touches the borders of the bounding box. The solution is to uncheck the "Clip content" flag in the Figma UI for that element.
+// See: https://forum.figma.com/t/setting-an-explicit-svg-viewbox/2504/7
 const svgo = new SVGO({
     plugins: [
-        { prefixIds: { prefix: 'flight' } },
+        // IMPORTANT: this is needed so SVGO will add the icon name (see below) as prefix for the IDs
+        { prefixIds: true },
         { removeViewBox: false },
         { sortAttrs: true },
     ]
 });
+
 
 // if in the future this does more than simply optimize, we can rename it to "preprocessAssetsSVG"
 export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
@@ -28,7 +34,7 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
 
         // check that the asset actually exists in the "src" folder
         if (fs.existsSync(srcAssetPath)) {
-            console.log(`Processing asset "${asset.fileName}.svg"`);
+            // console.log(`Processing asset "${asset.fileName}.svg"`);
 
             // optimize the SVG and it them to the temp folder
             try {
@@ -37,7 +43,8 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
                 // replace #000001 ("dynamic" color in Figma) with "currentColor"
                 svgSource = svgSource.replace(/"#000001"/gi, '"currentColor"');
 
-                const svgOptimized = await svgo.optimize(svgSource);
+                // IMPORTANT: the "path" is used by SVGO to extract the icon name and add it as prefix to the IDs
+                const svgOptimized = await svgo.optimize(svgSource, { path: asset.fileName });
 
                 fs.outputFile(tempAssetPath, svgOptimized.data);
 
