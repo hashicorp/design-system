@@ -15,6 +15,7 @@ export const config: ConfigData = {
     },
     srcFolder: '../src',
     distFolder: '../dist',
+    emberPublicFolder: '../../ember-flight-icons/public',
     // number of files retrieved by figma-export in a batch request
     syncConcurrency: 100,
 };

@@ -7,7 +7,7 @@ import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
 import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
 import { generateBundleCSS } from './build-parts/generateBundleCSS';
-import { generateBundleEmberAddon } from './build-parts/generateBundleEmberAddon';
+import { updateEmberAddon } from './build-parts/updateEmberAddon';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -63,8 +63,8 @@ async function build() {
     // generate the bundle for the CSS/SASS files
     await generateBundleCSS({ config, catalog });
 
-    // generate the bundle for the Ember addon
-    await generateBundleEmberAddon({ config });
+    // update SVGs and catalog.json in the Ember addon
+    await updateEmberAddon({ config });
 
     // remove temporary folder
     // notice: comment this if you need to debug the assets initial SVG processing

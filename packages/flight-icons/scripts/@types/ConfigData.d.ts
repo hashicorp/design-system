@@ -7,5 +7,6 @@ export type ConfigData = {
     },
     srcFolder: string,
     distFolder: string,
+    emberPublicFolder: string,
     syncConcurrency: number,
 };
