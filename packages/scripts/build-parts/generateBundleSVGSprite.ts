@@ -12,7 +12,7 @@ export async function generateBundleSVGSprite({ config, catalog } : { config: Co
     // TODO add better logging
     console.log('generateBundleSVGStore');
 
-    const tempSVGFolderPath = `${config.syncOutputFolder}/svg`;
+    const tempSVGFolderPath = `${config.buildDistFolder}/temp`;
     const distBundleFolderPath = `${config.buildDistFolder}/flight-icons-svg-sprite`;
 
     // create the destination folder

@@ -11,7 +11,6 @@ export async function generateBundleEmberAddon({ config } : { config: ConfigData
     const addonTemplateFolder = `${config.buildSrcFolder}/ember-addon-template`;
     const distBundleFolderPath = `${config.buildDistFolder}/ember-flight-icons`;
     const addonPublicFolder = `${distBundleFolderPath}/public/icons`;
-    // const tempSVGFolderPath = `${config.buildDistFolder}/temp`;
 
     // create the destination folder
     await fs.mkdirs(distBundleFolderPath);
