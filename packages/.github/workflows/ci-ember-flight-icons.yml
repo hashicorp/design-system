@@ -183,11 +183,11 @@ jobs:
           ember-lts-3.24,
           ember-release,
           ember-beta,
-          ember-canary,
+          # ember-canary,
           ember-default-with-jquery,
           ember-classic,
-          embroider-safe,
-          embroider-optimized
+          # embroider-safe,
+          # embroider-optimized
         ]
 
     steps:
