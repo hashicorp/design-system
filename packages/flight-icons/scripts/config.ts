@@ -13,7 +13,7 @@ export const config: ConfigData = {
         page: 'Export',
         frames: ['Core', 'Services'],
     },
-    syncOutputFolder: '../src/flight-icons-exported',
+    syncOutputFolder: '../src',
     // number of files retrieved by figma-export in a batch request
     syncConcurrency: 100,
     buildSrcFolder: '../src',

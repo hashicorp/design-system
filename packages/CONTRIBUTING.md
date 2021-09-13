@@ -15,7 +15,7 @@ _Notice: these scripts are still in development._
 - To generate the sprite file, [sprite.svg](ember-flight-icons/public/icons/sprite.svg), follow the instructions in the README of [edenspiekermann/sprite.sh](https://github.com/edenspiekermann/sprite.sh) e.g.
 
 ```bash
-npx spritesh -i src/flight-icons-exported/svg/ -o ember-flight-icons/public/icons/sprite.svg
+npx spritesh -i src/svg/ -o ember-flight-icons/public/icons/sprite.svg
 ```
 
 ## npm instructions
