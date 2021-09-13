@@ -13,9 +13,8 @@ export const config: ConfigData = {
         page: 'Export',
         frames: ['Core', 'Services'],
     },
-    syncOutputFolder: '../src',
+    srcFolder: '../src',
+    distFolder: '../dist',
     // number of files retrieved by figma-export in a batch request
     syncConcurrency: 100,
-    buildSrcFolder: '../src',
-    buildDistFolder: '../dist',
 };

@@ -5,8 +5,7 @@ export type ConfigData = {
         page: string,
         frames: string[],
     },
-    syncOutputFolder: string,
+    srcFolder: string,
+    distFolder: string,
     syncConcurrency: number,
-    buildSrcFolder: string,
-    buildDistFolder: string,
 };

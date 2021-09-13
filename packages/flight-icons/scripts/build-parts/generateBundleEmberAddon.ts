@@ -8,8 +8,8 @@ export async function generateBundleEmberAddon({ config } : { config: ConfigData
     // TODO add better logging
     console.log('generateBundleEmberAddon');
 
-    const addonTemplateFolder = `${config.buildSrcFolder}/ember-addon-template`;
-    const distBundleFolderPath = `${config.buildDistFolder}/ember-flight-icons`;
+    const addonTemplateFolder = `${config.srcFolder}/ember-addon-template`;
+    const distBundleFolderPath = `${config.distFolder}/ember-flight-icons`;
     const addonPublicFolder = `${distBundleFolderPath}/public/icons`;
 
     // create the destination folder
@@ -17,7 +17,7 @@ export async function generateBundleEmberAddon({ config } : { config: ConfigData
 
     // copy the assets catalog file
     // TODO is this really needed for Ember?
-    await fs.copy(`${config.syncOutputFolder}/catalog.json`, `${distBundleFolderPath}/catalog.json`);
+    await fs.copy(`${config.srcFolder}/catalog.json`, `${distBundleFolderPath}/catalog.json`);
 
     // copy the source/template addon folder to the dist folder
     await fs.copy(addonTemplateFolder, distBundleFolderPath);
@@ -26,7 +26,7 @@ export async function generateBundleEmberAddon({ config } : { config: ConfigData
     await fs.ensureDir(addonPublicFolder);
 
     // copy the previously generated SVG sprite in the dist folder
-    await fs.copy(`${config.buildDistFolder}/flight-icons-svg-sprite/flight-icons-svg-sprite.svg`, `${addonPublicFolder}/sprite.svg`);
+    await fs.copy(`${config.distFolder}/flight-icons-svg-sprite/flight-icons-svg-sprite.svg`, `${addonPublicFolder}/sprite.svg`);
 
     // TODO something else?
 }

@@ -39,7 +39,7 @@ async function sync() {
     // remove existing output folder
     try {
         console.log('Removing "sync" output folder');
-        del.sync(config.syncOutputFolder, { force: true });
+        del.sync(config.srcFolder, { force: true });
     } catch (err) {
         console.error(err);
     }
@@ -61,7 +61,7 @@ async function sync() {
         const assetsCatalog = getAssetsCatalog({ config, assetsMetadata, figmaExportPageNode });
         try {
             console.log('Saving "catalog.json" file');
-            fs.writeJsonSync(`${config.syncOutputFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
+            fs.writeJsonSync(`${config.srcFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
         } catch (err) {
             console.error(err);
         }

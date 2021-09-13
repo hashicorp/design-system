@@ -29,8 +29,8 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
     // IMPORTANT: don't use foreach here, it does async stuff inside!
     for (const asset of catalog.assets) {
 
-        const srcAssetPath = `${config.syncOutputFolder}/svg/${asset.fileName}.svg`;
-        const tempAssetPath = `${config.buildDistFolder}/temp/${asset.fileName}.svg`;
+        const srcAssetPath = `${config.srcFolder}/svg/${asset.fileName}.svg`;
+        const tempAssetPath = `${config.distFolder}/temp/${asset.fileName}.svg`;
 
         // check that the asset actually exists in the "src" folder
         if (fs.existsSync(srcAssetPath)) {
@@ -54,7 +54,7 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
             }
 
         } else {
-            console.error(chalk.red(`ATTENTION:\nCould not find source file "${asset.fileName}.svg" in the folder ${config.syncOutputFolder}/svg/, please check why.\nYou can try to run the "sync" again and see if this fixes the issue.`));
+            console.error(chalk.red(`ATTENTION:\nCould not find source file "${asset.fileName}.svg" in the folder ${config.srcFolder}/svg/, please check why.\nYou can try to run the "sync" again and see if this fixes the issue.`));
         }
     }
 }

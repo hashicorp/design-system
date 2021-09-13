@@ -35,7 +35,7 @@ async function build() {
     // empty the existing dist folder
     try {
         console.log('Emptying "build" dist folder');
-        fs.emptyDirSync(config.buildDistFolder);
+        fs.emptyDirSync(config.distFolder);
     } catch (err) {
         console.error(err);
     }
@@ -43,13 +43,13 @@ async function build() {
     // create temporary folder
     try {
         console.log('Creating "build" temp folder');
-        fs.mkdirsSync(`${config.buildDistFolder}/temp`);
+        fs.mkdirsSync(`${config.distFolder}/temp`);
     } catch (err) {
         console.error(err);
     }
 
     // read the assets "catalog"
-    const catalog = fs.readJSONSync(`${config.syncOutputFolder}/catalog.json`);
+    const catalog = fs.readJSONSync(`${config.srcFolder}/catalog.json`);
 
     // pre-process the assets (SVG optimization)
     await optimizeAssetsSVG({ config, catalog });
@@ -70,7 +70,7 @@ async function build() {
     // notice: comment this if you need to debug the assets initial SVG processing
     try {
         console.log('Removing "build" temp folder');
-        del.sync(`${config.buildDistFolder}/temp`, { force: true });
+        del.sync(`${config.distFolder}/temp`, { force: true });
     } catch (err) {
         console.error(err);
     }
