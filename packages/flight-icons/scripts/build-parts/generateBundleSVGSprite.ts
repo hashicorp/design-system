@@ -24,7 +24,7 @@ export async function generateBundleSVGSprite({ config, catalog } : { config: Co
     // generate the sprite via "svgstore"
     const sprites = svgstore({
         // see https://github.com/svgstore/svgstore#options for details
-        renameDefs: true, // Rename defs content ids to make them inherit files' names so that it would help to avoid defs with same ids in the output file.
+        renameDefs: false, // we already create unique IDs (using the icon name) in the SVGO step
     });
 
     for(const { fileName } of catalog.assets) {
