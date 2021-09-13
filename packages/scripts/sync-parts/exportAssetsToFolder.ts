@@ -34,7 +34,7 @@ export async function exportAssetsToFolder({ config, assetsMetadata } : { config
 
     await figmaExport.components({
         fileId: config.figmaFile.id,
-        concurrency: 30,
+        concurrency: config.syncConcurrency,
         token: process.env.FIGMA_TOKEN || 'MISSING-TOKEN-ADD-IT-TO-ENV-FILE',
         onlyFromPages: [config.figmaFile.page],
         transformers: requirePackages<FigmaExport.StringTransformer>(transformer),
