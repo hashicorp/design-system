@@ -7,8 +7,9 @@ export const config: ConfigData = {
         id: 'TLnoT5AYQfy3tZ0H68BgOr',
         // this is for testing purpose
         // id: '2u60imwCVJvSpH0io1O068',
-        // Notice: this simple configuration is under the assumption thet all the assets will be in the same page and in a single frame (like it now)
-        // if later we will discover we need to be more specific (eg. file/page/frame) we will adopt a more structured/explicit configuration format
+        // Notice: this simple configuration is under the assumption thet all the assets will be in the same page
+        // if later we will discover we need to be more specific (eg. multiple files, multiple pages, etc.)
+        // we will adopt a more explicit, structured configuration format
         page: 'Export',
         frames: ['Core', 'Services'],
     },
