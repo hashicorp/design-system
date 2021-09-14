@@ -1,12 +1,8 @@
 import fs from 'fs-extra';
-import chalk from 'chalk';
 
 import { ConfigData } from '../@types/ConfigData';
 
 export async function updateEmberAddon({ config } : { config: ConfigData }): Promise<void> {
-
-    // TODO add better logging
-    console.log('updateEmberAddon');
 
     const emberPublicIconsFolder = `${config.emberPublicFolder}/icons`;
     // const distBundleFolderPath = `${config.distFolder}/ember-flight-icons`;

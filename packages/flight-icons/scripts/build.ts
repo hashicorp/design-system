@@ -52,18 +52,23 @@ async function build() {
     const catalog = fs.readJSONSync(`${config.srcFolder}/catalog.json`);
 
     // pre-process the assets (SVG optimization)
+    console.log('Optimizing the SVG files');
     await optimizeAssetsSVG({ config, catalog });
 
     // generate the bundle for the standalone SVGs
+    console.log('Generating bundle for standalone SVG files');
     await generateBundleSVG({ config });
 
     // generate the bundle for the SVG sprite
+    console.log('Generating bundle for SVG sprite');
     await generateBundleSVGSprite({ config, catalog });
 
     // generate the bundle for the CSS/SASS files
+    console.log('Generating bundle for CSS/SASS files');
     await generateBundleCSS({ config, catalog });
 
-    // update SVGs and catalog.json in the Ember addon
+    // update SVG sprite and catalog.json in the Ember addon
+    console.log('Updating SVG sprite and catalog.json in the Ember addon');
     await updateEmberAddon({ config });
 
     // remove temporary folder

@@ -29,7 +29,6 @@ export async function exportAssetsToFolder({ config, assetsMetadata } : { config
         })
     ];
 
-    // TODO maybe there is a cleaner way to do this with async/await? (ask help to the team)
     let result: FigmaExport.PageNode[] = [];
 
     await figmaExport.components({

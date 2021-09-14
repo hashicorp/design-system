@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-import chalk from 'chalk';
 
 // @ts-ignore svgstore doesn't have type definitions available
 import svgstore from 'svgstore';
@@ -8,9 +7,6 @@ import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
 
 export async function generateBundleSVGSprite({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
-
-    // TODO add better logging
-    console.log('generateBundleSVGStore');
 
     const tempSVGFolderPath = `${config.distFolder}/temp`;
     const distBundleFolderPath = `${config.distFolder}/flight-icons-svg-sprite`;
@@ -33,6 +29,4 @@ export async function generateBundleSVGSprite({ config, catalog } : { config: Co
 
     // save the sprite in the destination folder
     await fs.writeFile(`${distBundleFolderPath}/flight-icons-svg-sprite.svg`, sprites);
-
-    // TODO something else?
 }
