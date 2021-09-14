@@ -50,62 +50,50 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@figma-export/cli@https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/cli.tar.gz":
-  version "3.3.1"
-  resolved "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/cli.tar.gz#bdd446caae761a07472c8158a54533bb4098f3e9"
+"@figma-export/cli@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@figma-export/cli/-/cli-3.4.0.tgz#9d40fb4a902eb35e6fdef94527bcd370310feb84"
+  integrity sha512-MfC1knTqKyvUt4OnL3bo/HEfhWjSYUHG4jkXMe2DBqquvE+Pi+IhpXJkdNkHp/Rxhc/6IOdtCARy+VH3dJ4duw==
   dependencies:
-    "@figma-export/core" "^3.3.1"
-    "@figma-export/types" "^3.3.1"
+    "@figma-export/core" "^3.4.0"
+    "@figma-export/types" "^3.4.0"
     "@oclif/command" "~1.8.0"
     "@oclif/config" "~1.17.0"
-    "@oclif/errors" "~1.3.4"
-    "@oclif/plugin-help" "~3.2.2"
+    "@oclif/errors" "~1.3.5"
+    "@oclif/plugin-help" "~3.2.3"
     ora "~5.4.1"
 
-"@figma-export/core@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@figma-export/core/-/core-3.3.1.tgz#16e48d9719c60338a1cf6a0f16fb9f2109d1ab89"
-  integrity sha512-RcQVgJLniyumfrvWbK9/nwlie4z9WSeASm1gbLAmMhiSOLJHmAvKhOF+BgpLc4qua6FGFRH5ikyTtfVzWM8Uhw==
+"@figma-export/core@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@figma-export/core/-/core-3.4.0.tgz#50426717ab405607096ebb5effb165d6f59c883a"
+  integrity sha512-Y1P0NvQH6vKtZJHoBI4vp5lQyowSYNyIEJXla7ip59ZfVHyg0/fyn/oFhcuPdbyX31qwDkb04CMVxbzHv/45kg==
   dependencies:
-    "@figma-export/types" "^3.3.1"
-    axios "~0.21.1"
+    "@figma-export/types" "^3.4.0"
+    axios "~0.21.4"
     figma-js "~1.14.0"
     p-limit "^3.1.0"
 
-"@figma-export/core@https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/core.tar.gz":
-  version "3.3.1"
-  resolved "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/core.tar.gz#52499bb601d6cf475120a3c904a7c8ba35df6009"
+"@figma-export/output-components-as-svg@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@figma-export/output-components-as-svg/-/output-components-as-svg-3.4.0.tgz#f94d03bcc70cb0797d0134a84d3335b0b7db5d7b"
+  integrity sha512-2butY4eeMaW29FOukF7SlJl+1m+NbdLvaxhXk5Ie5D4dRHQO3JVPxbiP5NKHcEKiV0MA/KfHoJC43Y3AscotPA==
   dependencies:
-    "@figma-export/types" "^3.3.1"
-    axios "~0.21.1"
-    figma-js "~1.14.0"
-    p-limit "^3.1.0"
-
-"@figma-export/output-components-as-svg@https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/output-components-as-svg.tar.gz":
-  version "3.3.1"
-  resolved "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/output-components-as-svg.tar.gz#95dcc951dc5f8712314718a96756138ddfa0a0aa"
-  dependencies:
-    "@figma-export/types" "^3.3.1"
+    "@figma-export/types" "^3.4.0"
     make-dir "~3.1.0"
 
-"@figma-export/transform-svg-with-svgo@https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/transform-svg-with-svgo.tar.gz":
-  version "3.3.1"
-  resolved "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/transform-svg-with-svgo.tar.gz#b411f47b473693292a927ddc056ebd5e389c5eda"
+"@figma-export/transform-svg-with-svgo@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@figma-export/transform-svg-with-svgo/-/transform-svg-with-svgo-3.4.0.tgz#e8e2314149fab7cd68777fba9f26dff7d2039ed8"
+  integrity sha512-rsD/E1d36MtSVLOZO8HIzly2IE4wzDMUNFEyqSClGXxWwse3/hjaxNzb/bpA2fM2kvj6GtZdl3UqowVkO+jm+g==
   dependencies:
-    "@figma-export/types" "^3.3.1"
-    "@types/svgo" "~1.3.3"
+    "@figma-export/types" "^3.4.0"
+    "@types/svgo" "~1.3.6"
     svgo "~1.3.2"
 
-"@figma-export/types@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@figma-export/types/-/types-3.3.1.tgz#6af08051cde4ddd466e3c33500d2ae19d2fb597e"
-  integrity sha512-ArkgZxCFacJJPjLU+5XajiyPyskVT0bN9Z0LnkDc7x1cFLeq4PY9gMP6MCvAnwJ/drhLMAibAKk9prn4mYcJcw==
-  dependencies:
-    figma-js "~1.14.0"
-
-"@figma-export/types@https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/types.tar.gz":
-  version "3.3.1"
-  resolved "https://github.com/didoo/figma-export/raw/add-components-extras-id-hashicorp/packages/types.tar.gz#f6615347f96b085c49421219d9be0cccc06c7be9"
+"@figma-export/types@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@figma-export/types/-/types-3.4.0.tgz#ea60914390d0efab11e1a87c2d87ec828503930b"
+  integrity sha512-GoH/u2Oje5nwAxAWrBD9d/mCpitZJi6xj5BD2XSjMKYfE0eKTJkHoYviqpk36hIRrwUBnBv+1zd+vWqzBDX36g==
   dependencies:
     figma-js "~1.14.0"
 
@@ -168,7 +156,7 @@
     is-wsl "^2.1.1"
     tslib "^2.0.0"
 
-"@oclif/errors@^1.2.2", "@oclif/errors@^1.3.3", "@oclif/errors@~1.3.4":
+"@oclif/errors@^1.2.2", "@oclif/errors@^1.3.3", "@oclif/errors@~1.3.5":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@oclif/errors/-/errors-1.3.5.tgz#a1e9694dbeccab10fe2fe15acb7113991bed636c"
   integrity sha512-OivucXPH/eLLlOT7FkCMoZXiaVYf8I/w1eTAM1+gKzfhALwWTusxEx7wBmW0uzvkSg/9ovWLycPaBgJbM3LOCQ==
@@ -194,7 +182,7 @@
     chalk "^2.4.2"
     tslib "^1.9.3"
 
-"@oclif/plugin-help@^3", "@oclif/plugin-help@~3.2.2":
+"@oclif/plugin-help@^3", "@oclif/plugin-help@~3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-3.2.3.tgz#cd24010e7eb326782843d3aa6d6b5a4affebb2c3"
   integrity sha512-l2Pd0lbOMq4u/7xsl9hqISFqyR9gWEz/8+05xmrXFr67jXyS6EUCQB+mFBa0wepltrmJu0sAFg9AvA2mLaMMqQ==
@@ -262,7 +250,7 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
   integrity sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==
 
-"@types/svgo@~1.3.3":
+"@types/svgo@~1.3.3", "@types/svgo@~1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@types/svgo/-/svgo-1.3.6.tgz#9db00a7ddf9b26ad2feb6b834bef1818677845e1"
   integrity sha512-AZU7vQcy/4WFEuwnwsNsJnFwupIpbllH1++LXScN6uxT1Z4zPzdrWG97w4/I7eFKFTvfy/bHFStWjdBAg2Vjug==
@@ -435,7 +423,7 @@ astral-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-axios@^0.21.1, axios@~0.21.1:
+axios@^0.21.1, axios@~0.21.4:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
