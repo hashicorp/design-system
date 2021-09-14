@@ -19,9 +19,9 @@ Goals:
 * Ember CLI v3.20 or above
 * Node.js v10 or above
 
-## Installation and Use
+## Installation and Usage
 
-See [https://flight-staging.vercel.app/engineering](https://flight-staging.vercel.app/engineering) for installation and usage instructions.
+See [https://flight-hashicorp.vercel.app/](https://flight-hashicorp.vercel.app/) for installation and usage instructions.
 
 ## Contributing
 

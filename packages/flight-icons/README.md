@@ -4,16 +4,13 @@
 
 A package for the icons from `flight`, which can be used in React or Ember apps. Currently in development.
 
-## Installation
+## Installation and Usage
 
-```bash
-yarn add @hashicorp/flight-icons --dev
-```
+See [https://flight-hashicorp.vercel.app/](https://flight-hashicorp.vercel.app/) for installation and usage instructions.
 
-## Usage
+## Contributing
 
-Icons are namespaced e.g. for `arrow-right-16.svg` you would call `@hashicorp/flight-icons/icons/arrow-right-16.svg`.
-
+See the [Contributing](CONTRIBUTING.md) guide for details.
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE.md).

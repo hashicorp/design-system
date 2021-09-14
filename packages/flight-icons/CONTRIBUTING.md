@@ -1,12 +1,12 @@
-# Flight sync/build/release scripts
+# Flight-Icons "sync/build/release" scripts
 
-A pipeline for building the Flight iconset into a set of packages that can be consumed by other tooling and products.
+A set of Node.js scripts developed to create a single pipeline for building and releasing the Flight iconset as a set of packages in different formats, that can be consumed by other tools and products.
 
 ---
 
 ## Usage
 
-The pipeline can be run manually, on your local machine, or via GitHub actions. 
+The pipeline can be run manually, on your local machine, or via GitHub actions.
 
 There are three distinct steps in the process:
 
@@ -21,13 +21,24 @@ yarn sync
 This action will:
 
 * Retrieve the assets metadata from Figma via REST API
-* Export the assets as `.svg` files into `/src/flight-icons-original/svg`
-* Generate the `catalog.json` file into `/src/flight-icons-original`
+* Export the assets as `.svg` files into `./src/svg`
+* Generate the `catalog.json` file into `./src/`
 
 ### Build
 
+The build step is executed by the `/scripts/build.ts` file. To run this script use the following command in your CLI:
 
-[TODO]
+```bash
+yarn build
+```
+
+This action will:
+
+* Optimize the SVG files
+* Prepare a bundle with standalone SVGs
+* Prepare a bundle with an SVG sprite
+* Prepare a bundle with SVGs embedded in CSS/SCSS as data:image
+* Update the SVG sprite and catalog.json files in the Ember addon folder
 
 ### Release
 
@@ -62,7 +73,7 @@ Then install the project dependencies:
 
 ```bash
 # go to the "scripts" folder
-cd /[your-local-project-path]/scripts
+cd /[your-local-project-path]/flight-icons/scripts
 
 # install node modules
 yarn install
@@ -72,7 +83,7 @@ yarn install
 
 To access the Figma file via REST API is necessary to have [a special authentication token](https://www.figma.com/developers/api#access-tokens). This token is personal, should not be shared or committed to the repo.
 
-To create your personal access token, open Figma and go into *Account > Personal access tokens* and create one for yourself. 
+To create your personal access token, open Figma and go into *Account > Personal access tokens* and create one for yourself.
 
 Next, add a `.env` file in the `scripts` directory, to which you will add the variable:
 
@@ -82,7 +93,7 @@ where `###` is your personal access token. You can use the `.env.template` file 
 
 **IMPORTANT**: the `.env` file is ignored by git, and should not be committed to the repository.
 
-### Build
+### Running the scripts
 
 Finally, you can run the scripts commands via CLI:
 
@@ -91,14 +102,32 @@ Finally, you can run the scripts commands via CLI:
 yarn sync
 
 # build
-[TODO]
+yarn build
 
 # release
 [TODO]
 ```
 
+## Release
+
+_NOTICE: with the recent changes to the project folder structure and sync/build scripts, these instructions are outdated._
+
+```bash
+cd flight-icons
+```
+
+- Bump the version number for the `flight-icons/package.json`.
+
+After the change is merged to `main`, from the `flight-icons/` directory, run:
+
+```bash
+npm publish
+```
+
+You will need 2FA on your npm account to publish.
+
 ## GitHub action
 
-Run the GitHub action `flight_compile` to execute the `sync → build → release` process. 
+Run the GitHub action `flight_compile` to execute the `sync → build → release` process.
 
 All the updated assets and the generated bundles will be automatically committed to this repo, and the packages released to NPM.

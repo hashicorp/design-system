@@ -9,7 +9,7 @@
 
 ## Installation and Usage Instructions
 
-  The micro-site for this project is [https://flight-staging.vercel.app/](https://flight-staging.vercel.app/)
+The micro-site for this project is [https://flight-hashicorp.vercel.app//](https://flight-hashicorp.vercel.app//)
 
 Instructions for installation and use are available, as well as a searchable list of available icons and the documentation for designers and developers.
 
