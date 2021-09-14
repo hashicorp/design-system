@@ -1,0 +1,40 @@
+{
+  "name": "flight-icons-scripts",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "license": "MPL-2.0",
+  "scripts": {
+    "typecheck": "yarn tsc --noEmit",
+    "lint": "yarn eslint --quiet --ext .js,.ts",
+    "sync": "ts-node --transpile-only ./sync",
+    "build": "ts-node --transpile-only ./build"
+  },
+  "devDependencies": {
+    "@figma-export/cli": "^3.4.0",
+    "@figma-export/core": "^3.4.0",
+    "@figma-export/output-components-as-svg": "^3.4.0",
+    "@figma-export/transform-svg-with-svgo": "^3.4.0",
+    "@figma-export/types": "^3.4.0",
+    "@types/fs-extra": "^9.0.12",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.7.13",
+    "@types/svgo": "~1.3.3",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "chalk": "^4.1.2",
+    "del": "^6.0.0",
+    "eslint": "^7.32.0",
+    "svgo": "~1.3.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "figma-api": "^1.7.0",
+    "fs-extra": "^10.0.0",
+    "lodash": "^4.17.21",
+    "mini-svg-data-uri": "^1.3.3",
+    "svgstore": "^3.0.0-2"
+  }
+}
