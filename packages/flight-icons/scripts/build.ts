@@ -6,7 +6,6 @@ import chalk from 'chalk';
 import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
 import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
-import { generateBundleCSS } from './build-parts/generateBundleCSS';
 import { updateEmberAddon } from './build-parts/updateEmberAddon';
 
 // read the environment variables from the ".env" file
@@ -62,10 +61,6 @@ async function build() {
     // generate the bundle for the SVG sprite
     console.log('Generating bundle for SVG sprite');
     await generateBundleSVGSprite({ config, catalog });
-
-    // generate the bundle for the CSS/SASS files
-    console.log('Generating bundle for CSS/SASS files');
-    await generateBundleCSS({ config, catalog });
 
     // update SVG sprite and catalog.json in the Ember addon
     console.log('Updating SVG sprite and catalog.json in the Ember addon');
