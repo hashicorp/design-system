@@ -1,0 +1,58 @@
+<div class="this-is-the-row flex mb-14">
+    <div class="this-is-the-search">
+      <label for="ds-input-search" class="block font-medium text-gray-2">Filter Results</label>
+      <div class="mt-1 relative rounded-md shadow-sm">
+      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <FlightIcon @name="search" @color="var(--gray-3)" />
+      </div>
+        <input 
+        type="text" 
+        name="search" 
+        id="ds-input-search" 
+        class="shadow-sm focus:ring-brand focus:border-brand block w-full pl-10 sm:text-sm border-gray-300 rounded-md" 
+        placeholder="e.g. arrow"
+        autofocus={{false}}
+        value={{this.search}}
+        {{on 'input' this.debouncedUpdate}}
+        >
+      </div>
+    </div>
+    <div class="this-is-the-toggle">
+      <button
+        aria-checked="false"
+        aria-label="Toggle icon size (16 or 24)"
+        class="ds-toggle-button"
+        role="switch"
+        type="button"
+        {{on 'click' this.updateVisibleIconSize}}
+      >
+        <span class="ds-toggle-button-slider">
+          <span 
+          class="ds-toggle-16 {{if (eq this.visibleIconSize '16') "ds-toggle-16-active"}}" 
+          aria-hidden="true">
+            16px
+          </span>
+          <span 
+          class="ds-toggle-24 {{if (eq this.visibleIconSize '24') "ds-toggle-24-active"}}" 
+          aria-hidden="true">
+            24px
+          </span>
+        </span>
+
+      </button>
+    </div>
+  </div>
+  <ul class="ds-ul-grid" data-test-target="icon-grid">
+    {{#each this.icons as |meta|}}
+      <li class="ds-li {{if meta.isHidden 'd-none'}} {{if (not-eq meta.size this.visibleIconSize) 'd-none'}}">
+        <div class="ds-icon-frame">
+          <FlightIcon
+            @name={{meta.iconName}}
+            @size="{{meta.size}}"
+            class="demo-icon"
+          />
+        </div>
+        <p>{{meta.name}}</p>
+      </li>
+    {{/each}}
+  </ul>

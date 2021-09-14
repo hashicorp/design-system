@@ -1,6 +1,8 @@
-import Controller from '@ember/controller';
+import Component from '@glimmer/component';
 import { action, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { getOwner } from '@ember/application';
+import fetch from 'fetch';
 
 const defaultSize = '24';
 
@@ -16,14 +18,23 @@ const checkIsShown = function (searchText, meta) {
   return false;
 };
 
-export default class IndexController extends Controller {
+export default class DsIconGridComponent extends Component {
+  @tracked icons = [];
   @tracked selectedIcon = 'auto-apply';
-  @tracked size = '24';
+  @tracked size = '16';
   @tracked color = 'currentColor';
   @tracked searchText = '';
 
   @tracked search;
   @tracked emptyResults = false;
+
+  @tracked currentIconSize = '16';
+  @tracked visibleIconSize = '16';
+
+  constructor(...args) {
+    super(...args);
+    this.load();
+  }
 
   get iconHbsCode() {
     let iconHbsCode = `<FlightIcon @name="${this.selectedIcon}"`;
@@ -41,6 +52,29 @@ export default class IndexController extends Controller {
     return iconHbsCode;
   }
 
+  get contextRootURL() {
+    const config = getOwner(this).resolveRegistration('config:environment');
+    return config.rootURL || '/';
+  }
+
+  async load() {
+    const response = await fetch(
+      `${this.contextRootURL}@hashicorp/ember-flight-icons/icons/catalog.json`
+    );
+    const json = await response.json();
+
+    this.icons = json.assets.map(
+      ({ iconName, fileName, size, description }) => {
+        return {
+          iconName: `${iconName}`,
+          name: `${fileName}`,
+          size: `${size}`,
+          searchable: `${iconName}, ${description}`,
+        };
+      }
+    );
+  }
+
   @action
   async updateSearchText(value, signal) {
     await new Promise((resolve) => setTimeout(resolve, 190));
@@ -52,13 +86,13 @@ export default class IndexController extends Controller {
     this.search = value;
     const lowcased = value.toLowerCase();
 
-    for (let i = 0; i < this.model.length; i++) {
-      const item = this.model[i];
+    for (let i = 0; i < this.icons.length; i++) {
+      const item = this.icons[i];
 
       set(item, 'isHidden', !checkIsShown(lowcased, item));
     }
 
-    this.emptyResults = this.model.every(({ isHidden }) => isHidden);
+    this.emptyResults = this.icons.every(({ isHidden }) => isHidden);
   }
 
   @action
@@ -75,6 +109,15 @@ export default class IndexController extends Controller {
     const iconWrapper = event.target.closest('.demo-icon');
     if (iconWrapper && iconWrapper.dataset.Name) {
       this.selectedIcon = iconWrapper.dataset.Name;
+    }
+  }
+
+  @action
+  updateVisibleIconSize() {
+    if (this.visibleIconSize === '16') {
+      this.visibleIconSize = '24';
+    } else {
+      this.visibleIconSize = '16';
     }
   }
 }

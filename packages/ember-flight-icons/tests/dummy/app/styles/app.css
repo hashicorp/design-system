@@ -1,16 +1,18 @@
 @import "./root.css";
-@import "./modern-normalize.css";
 
- /* uncomment theses lines to actually make tailwind classes work */
-/* @import "tailwindcss/base";
+@import "tailwindcss/base";
 @import "tailwindcss/components";
-@import "tailwindcss/utilities"; */
+@import "tailwindcss/utilities";
+
+@import "./nav.css";
+@import "./typography.css";
+@import "./footer.css";
 
 html {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: var(--font-size-default);
 }
-body {
+body.ds-body {
   display: flex;
   flex-direction: column;
   font-size: 1em;
@@ -19,9 +21,6 @@ body {
   min-height: 100vh;
   padding: 0;
 }
-a {
-  color: var(--brand-link);
-}
 header.ds-header {
   background-color: var(--brand);
   color: var(--white);
@@ -29,111 +28,15 @@ header.ds-header {
   flex-flow: row wrap;
   justify-content: space-between;
 }
-h1.ds-h1 {
-  font-family: var(--font-display);
-  font-weight: var(--font-weight-medium);
-  line-height: 1;
-  padding: 0 0.5em;
-}
-header.ds-header nav.ds-nav {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 0 0.5em;
-}
-header.ds-header nav.ds-nav ul.ds-ul {
-  align-items: stretch;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-}
-header.ds-header nav.ds-nav ul.ds-ul li.ds-li {
-  align-content: center; 
-  display: flex;
-  flex-flow: row wrap;
-}
-header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a {
-  align-items: stretch;
-  border: 2px solid transparent;
-  color: white;
-  display: flex;
-  font-weight: var(--font-weight-bold);
-  justify-content: center;
-  padding: 0.5em;
-  text-decoration: none;
-}
-
-header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:focus {
-  border-color: white;
-  border-style: dashed;
-}
-header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:hover {
-  border-color: white;
-}
-
 
 main.ds-main {
-  flex: 1 0 auto;
-  padding: 0 1em 1em;
-}
-@media (min-width: 60em) {
-  main.ds-main {
-    padding: 0 8em 1em;
-  }
-}
-
-p.ds-p {
-  font-family: var(--font-body);
-  font-size: 1em;
-  line-height: 1.2;
-  margin: 0.25vh auto;
-}
-h2.ds-h2 {
-  border-bottom: 1px solid var(--gray-5);
-  font-family: var(--font-body);
-  line-height: 1;
-  padding-bottom: 0.75em;
-}
-h2.ds-h2,
-h3.ds-h3,
-h4.ds-h4,
-h5.ds-h5 {
-  font-family: var(--font-display);
-}
-
-h5.ds-h5 {
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-
-.ds-form-group-inline {
-  display: flex;
-  flex-flow: row wrap;
-  margin-bottom: 1.5em;
-}
-.ds-form-group-inline label.ds-input-label {
-  color: var(--code-dark);
-  font-family: var(--font-body);
-  font-weight: var(--font-weight-semi-bold);
-  margin-bottom: 0.75em;
-}
-.ds-form-group-inline input.ds-input {
-  border: 1px solid var(--gray-4);
-  border-radius: 4px;
-  font-family: var(--font-body);
-  font-size: 1em;
-  line-height: 2;
-  min-width:100%;
-  padding: 0 0.25em;
-}
-.ds-form-group-inline input.ds-input:focus {
-  border: 1px solid var(--brand);
-  box-shadow: 0 0 0 3px var(--info-l1);
-  outline: none;
+  margin: 3.5rem auto 0 auto;
+  @apply
+    sm:container;
 }
 
 ul.ds-ul-grid {
+  box-sizing: border-box;
   display: grid;
   font-family: var(--font-body);
   gap: 16px;
@@ -146,94 +49,196 @@ ul.ds-ul-grid {
 }
 ul.ds-ul-grid li.ds-li {
   align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: 0.75em;
-  gap: 1ch;
-  justify-content: center;
-  padding: 0.5em 0.15em 0.15em;
   background: var(--gray-7);
   border-radius: 3px;
   box-shadow: 0 0 0 1px var(--gray-5);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1ch;
+  justify-content: center;
+  padding: 0.5em 0.15em 0.15em;
 }
 ul.ds-ul-grid li.ds-li:hover {
   background-color: var(--info-l2);
   box-shadow: 0 0 0 1px var(--info-l1);
 }
 ul.ds-ul-grid li.ds-li .ds-icon-frame {
-  padding: 6px;
-  margin-top: auto;
-  display: flex;
   background: white;
   border-radius: 2px;
   box-shadow: 0 0 0 1px var(--gray-5);
+  box-sizing: border-box;
+  display: flex;
+  margin-top: auto;
+  padding: 6px;
 }
 ul.ds-ul-grid li.ds-li:hover .ds-icon-frame {
-  color: var(--brand-link);
   box-shadow: 0 0 0 1px var(--info-l1);
+  box-sizing: border-box;
+  color: var(--brand-link);
 }
 ul.ds-ul-grid li.ds-li p {
-  text-align: center;
+  box-sizing: border-box;
+  font-size: 0.75em;
   margin-top: auto;
-  width: 100%;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
 }
-
-footer.ds-footer {
-  background-color: var(--brand);
-  color: white;
-  display: flex;
-  flex-flow: row wrap;
-  flex-shrink: 0;
-  justify-content: flex-start;
-  min-height: 50px;
-}
-
-footer.ds-footer p.ds-p a.ds-a {
-  align-items: stretch;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 0.5em 1em;
-}
-
 
 .d-none {
   display: none !important;
 }
 
-pre.ds-pre {
-  margin: 0.5em auto 1.5em auto;
-}
-.ds-code {
-  background-color: var(--gray-7);
-  border: 1px solid var(--gray-5);
-  border-radius: 4px;
-  display: block;
-  font-size: 0.9em;
-  margin: 0.25vh auto 1vh;
-  padding: 0.75em;
-}
+
 .ds-kbd {
-  color: rebeccapurple;
+  color: #D10070;
   font-size: 0.9em;
   font-weight: var(--font-weight-bold);
-}
-
-.ds-rotate-90 {
-  transform: rotate(90deg);
 }
 
 .ds-info {
   background-color: var(--info-l2);
   border: 1px solid var(--brand);
-  border-radius: 4px;
+  border-left-width: 8px;
+  border-radius: 3px;
   padding: 0.75em;
 }
 img.ds-img {
   display: block;
   height: auto;
   max-width: 100%;
+}
+
+
+/* Once this has been figured out, replace with TW classes */
+.this-is-the-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.this-is-the-search {
+  min-width: 80%;
+}
+.this-is-the-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
+button.ds-toggle-button {
+  background-color: var(--brand);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  height: 2.5rem;
+  width: 8rem;
+  box-sizing: border-box; 
+  @apply
+  inline-flex 
+  border-2 
+  border-transparent 
+  rounded-full 
+  cursor-pointer 
+  transition-colors 
+  ease-in-out 
+  duration-200 
+  focus:outline-none 
+  focus:ring-2 
+  focus:ring-offset-2 
+  focus:ring-brand;
+}
+
+/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
+.ds-toggle-button .ds-toggle-button-slider {
+  display: flex;
+  justify-content:space-evenly;
+  color: var(--brand);
+  height: 2.25rem;
+  width: 8rem;
+  background-color: transparent;
+  box-sizing: border-box; 
+  @apply
+  pointer-events-none  
+  rounded-full 
+  shadow 
+  transform 
+  ring-0;
+}
+
+/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
+.ds-toggle-16 {
+  color: var(--white);
+  width: 50%;
+  box-sizing: border-box; 
+  @apply 
+  ease-in 
+  duration-200 
+  inset-0 
+  flex 
+  items-center 
+  justify-center 
+  transition-opacity
+  rounded-full;
+}
+.ds-toggle-16.ds-toggle-16-active {
+  color: var(--brand);
+  height: 2.25rem;
+  width: 50%;
+  background-color: white;
+  @apply
+  rounded-full;
+}
+/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
+.ds-toggle-24 {
+  background-color: transparent;
+  color: var(--white);
+  min-width: 4rem;
+  box-sizing: border-box; 
+  @apply 
+  rounded-full ease-out duration-100 inset-0 flex items-center justify-center transition-opacity;
+}
+.ds-toggle-24.ds-toggle-24-active {
+  color: var(--brand);
+  height: 2.25rem;
+  width: 4rem;
+  background-color: white;
+  @apply
+  rounded-full;
+}
+
+/* prism overrides for a11y */
+div.code-toolbar > .toolbar {
+  opacity: 1;
+  top: 0;
+  right: 0.5em;
+
+}
+div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .toolbar-item > button, div.code-toolbar > .toolbar > .toolbar-item > span {
+  background-color: white;
+  color: var(--brand);
+  opacity: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.7em;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: #ff3ea6;
+}
+
+.token.punctuation {
+  color: var(--gray-5);
+}
+
+.prose-lg pre.language-markup {
+  @apply mt-0;
+}
+
+
+/* some editing utilities */
+.ds-b-red {
+  border: 1px solid red;
 }

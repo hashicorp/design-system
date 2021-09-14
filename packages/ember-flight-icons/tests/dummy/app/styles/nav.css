@@ -1,0 +1,52 @@
+header.ds-header nav.ds-nav {
+  @apply 
+  flex 
+  h-16
+  justify-start 
+  min-w-full
+  max-w-7xl 
+  mx-auto 
+  md:pr-8
+  md:pl-32
+  sm:px-4 
+  shadow;
+}
+
+header.ds-header nav.ds-nav ul.ds-ul {
+  @apply 
+  flex 
+  flex-1 
+  items-stretch 
+  justify-start;
+}
+
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li {
+  @apply 
+  flex
+  items-stretch;
+}
+
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a {
+  color: var(--white);
+  border-color: var(--brand);
+  @apply 
+  border-b-2
+  flex
+  flex-1
+  font-medium
+  justify-center
+  items-center 
+  pt-1 
+  px-4
+  text-base;
+}
+
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:focus,
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li a.ds-a:hover {
+  border-color: white;
+}
+
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li:first-of-type a.ds-a:focus,
+header.ds-header nav.ds-nav ul.ds-ul li.ds-li:first-of-type a.ds-a:hover {
+  border-color: transparent;
+}

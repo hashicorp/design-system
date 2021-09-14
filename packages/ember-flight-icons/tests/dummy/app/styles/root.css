@@ -156,6 +156,8 @@
   --code-operators: #f92672;
   --code-properties: #a6e22e;
   --code-control: #66d9ef;
+  --font-line-height-default: 1.2;
+  --font-line-height-headings: 1;
   --font-size-default: 16px;
   --font-weight-light: 300;
   --font-weight-book: var(--font-weight-light);

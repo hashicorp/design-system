@@ -65,10 +65,13 @@
     "@embroider/test-setup": "^0.41.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/typography": "^0.4.1",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-auto-import": "^1.11.3",
+    "ember-auto-import": "^2.2.0",
     "ember-cli": "~3.27.0",
+    "ember-cli-clipboard": "^0.15.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-cli-postcss": "^7.0.2",
@@ -81,6 +84,7 @@
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-page-title": "^6.2.2",
+    "ember-prism": "^0.11.0",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
     "ember-source": "~3.26.1",
@@ -100,7 +104,8 @@
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
     "qunit-dom": "^1.6.0",
-    "tailwindcss": "^2.2.11"
+    "tailwindcss": "^2.2.11",
+    "webpack": "^5.52.1"
   },
   "engines": {
     "node": "12.* || >= 14"

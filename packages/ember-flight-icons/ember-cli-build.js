@@ -18,6 +18,11 @@ module.exports = function (defaults) {
         ],
       },
     },
+    'ember-prism': {
+      theme: 'funky',
+      components: ['markup', 'bash'], //needs to be an array, or undefined.
+      plugins: ['line-numbers', 'toolbar', 'copy-to-clipboard', 'autoloader'],
+    },
   });
 
   /*
