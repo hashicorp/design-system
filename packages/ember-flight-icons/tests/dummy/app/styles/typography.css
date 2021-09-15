@@ -1,12 +1,14 @@
 p.ds-p {
-  color: var(--gray-2);
   font-family: var(--font-body);
   margin: 0.25vh auto;
-  @apply text-base;
+  @apply 
+  text-base
+  text-gray-2;
 }
 
 a.ds-a {
-  color: var(--brand-link);
+  @apply
+  text-brand-link;
 }
 
 h1.ds-h1,

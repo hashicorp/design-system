@@ -1,23 +1,28 @@
-<div class="this-is-the-row flex mb-14">
-    <div class="this-is-the-search">
-      <label for="ds-input-search" class="block font-medium text-gray-2">Filter Results</label>
-      <div class="mt-1 relative rounded-md shadow-sm">
-      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <FlightIcon @name="search" @color="var(--gray-3)" />
-      </div>
+<div class="ds-icon-grid flex mb-14">
+    <div class="ds-flex-search">
+      <label for="ds-input-search" class="ds-label">Filter Results</label>
+
+      <div class="ds-input-search-wrapper">
+
+        <div class="ds-input-search-icon-wrapper">
+          <FlightIcon @name="search" @color="var(--gray-3)" />
+        </div>
+
         <input 
         type="text" 
         name="search" 
         id="ds-input-search" 
-        class="shadow-sm focus:ring-brand focus:border-brand block w-full pl-10 sm:text-sm border-gray-300 rounded-md" 
+        class="ds-input-search" 
         placeholder="e.g. arrow"
         autofocus={{false}}
         value={{this.search}}
         {{on 'input' this.debouncedUpdate}}
         >
+        
       </div>
     </div>
-    <div class="this-is-the-toggle">
+
+    <div class="ds-flex-toggle">
       <button
         aria-checked="false"
         aria-label="Toggle icon size (16 or 24)"

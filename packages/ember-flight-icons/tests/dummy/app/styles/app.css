@@ -1,32 +1,55 @@
 @import "./root.css";
 
-@import "tailwindcss/base";
+@import "tailwindcss/base"; /* this includes a flavor of modernizer so we don't need to include it separately */
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "./nav.css";
 @import "./typography.css";
-@import "./footer.css";
+@import "./prism.css";
+
+@import "./components/ds-nav.css";
+@import "./components/ds-footer.css";
+@import "./components/ds-icon-grid.css";
+
+/* goal: consistency.
+ * if we all write this the same way
+ * it will be easier for us to maintain
+ * in the long run.
+ * if you change the approach,
+ * please do it across all of the CSS
+ * and also let everyone know
+ */
+
+ /* how this is currently organized (please update if you change something)
+  * 1. extra specificity: because it's the docs site, we don't want naming collisions
+  *    so there's a little extra specificity
+  * 2. if it makes sense to extract a portion into a separate file, do that
+  * 3. properties within classes are alphabetically sorted 
+  * 4. custom CSS comes first, then Tailwind's `@apply`
+  * 5. variables are stored in ./root
+  */
 
 html {
   font-family: var(--font-body);
   font-size: var(--font-size-default);
 }
 body.ds-body {
-  display: flex;
-  flex-direction: column;
-  font-size: 1em;
   line-height: 1.2;
-  margin: 0;
-  min-height: 100vh;
-  padding: 0;
+  @apply
+  flex
+  flex-col
+  text-base
+  m-0
+  min-h-screen
+  p-0;
 }
 header.ds-header {
-  background-color: var(--brand);
-  color: var(--white);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  @apply
+  bg-brand
+  text-white
+  flex
+  flex-wrap
+  justify-between;
 }
 
 main.ds-main {
@@ -35,210 +58,45 @@ main.ds-main {
     sm:container;
 }
 
-ul.ds-ul-grid {
-  box-sizing: border-box;
-  display: grid;
-  font-family: var(--font-body);
-  gap: 16px;
-  grid-auto-flow: dense;
-  grid-auto-rows: 148px;
-  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-ul.ds-ul-grid li.ds-li {
-  align-items: center;
-  background: var(--gray-7);
-  border-radius: 3px;
-  box-shadow: 0 0 0 1px var(--gray-5);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 1ch;
-  justify-content: center;
-  padding: 0.5em 0.15em 0.15em;
-}
-ul.ds-ul-grid li.ds-li:hover {
-  background-color: var(--info-l2);
-  box-shadow: 0 0 0 1px var(--info-l1);
-}
-ul.ds-ul-grid li.ds-li .ds-icon-frame {
-  background: white;
-  border-radius: 2px;
-  box-shadow: 0 0 0 1px var(--gray-5);
-  box-sizing: border-box;
-  display: flex;
-  margin-top: auto;
-  padding: 6px;
-}
-ul.ds-ul-grid li.ds-li:hover .ds-icon-frame {
-  box-shadow: 0 0 0 1px var(--info-l1);
-  box-sizing: border-box;
-  color: var(--brand-link);
-}
-ul.ds-ul-grid li.ds-li p {
-  box-sizing: border-box;
-  font-size: 0.75em;
-  margin-top: auto;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-}
-
-.d-none {
-  display: none !important;
-}
-
 
 .ds-kbd {
-  color: #D10070;
+  color: #D10070; /* to coordinate with the current prism theme */
   font-size: 0.9em;
-  font-weight: var(--font-weight-bold);
+  @apply
+  font-bold;
+  
 }
 
 .ds-info {
-  background-color: var(--info-l2);
-  border: 1px solid var(--brand);
-  border-left-width: 8px;
-  border-radius: 3px;
-  padding: 0.75em;
+  @apply
+  bg-info-l2
+  border
+  border-brand
+  border-l-8
+  border-solid
+  p-3
+  rounded-md
+  md:max-w-4xl
+  lg:max-w-3xl;
+
 }
 img.ds-img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-
-/* Once this has been figured out, replace with TW classes */
-.this-is-the-row {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-.this-is-the-search {
-  min-width: 80%;
-}
-.this-is-the-toggle {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
-button.ds-toggle-button {
-  background-color: var(--brand);
-  color: var(--white);
-  font-weight: var(--font-weight-bold);
-  height: 2.5rem;
-  width: 8rem;
-  box-sizing: border-box; 
   @apply
-  inline-flex 
-  border-2 
-  border-transparent 
-  rounded-full 
-  cursor-pointer 
-  transition-colors 
-  ease-in-out 
-  duration-200 
-  focus:outline-none 
-  focus:ring-2 
-  focus:ring-offset-2 
-  focus:ring-brand;
+  block
+  h-auto
+  max-w-full;
 }
 
-/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
-.ds-toggle-button .ds-toggle-button-slider {
-  display: flex;
-  justify-content:space-evenly;
-  color: var(--brand);
-  height: 2.25rem;
-  width: 8rem;
-  background-color: transparent;
-  box-sizing: border-box; 
-  @apply
-  pointer-events-none  
-  rounded-full 
-  shadow 
-  transform 
-  ring-0;
-}
-
-/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
-.ds-toggle-16 {
-  color: var(--white);
-  width: 50%;
-  box-sizing: border-box; 
-  @apply 
-  ease-in 
-  duration-200 
-  inset-0 
-  flex 
-  items-center 
-  justify-center 
-  transition-opacity
-  rounded-full;
-}
-.ds-toggle-16.ds-toggle-16-active {
-  color: var(--brand);
-  height: 2.25rem;
-  width: 50%;
-  background-color: white;
-  @apply
-  rounded-full;
-}
-/* TODO remove any unnecessary TW classes, convert current CSS into TW*/
-.ds-toggle-24 {
-  background-color: transparent;
-  color: var(--white);
-  min-width: 4rem;
-  box-sizing: border-box; 
-  @apply 
-  rounded-full ease-out duration-100 inset-0 flex items-center justify-center transition-opacity;
-}
-.ds-toggle-24.ds-toggle-24-active {
-  color: var(--brand);
-  height: 2.25rem;
-  width: 4rem;
-  background-color: white;
-  @apply
-  rounded-full;
-}
-
-/* prism overrides for a11y */
-div.code-toolbar > .toolbar {
-  opacity: 1;
-  top: 0;
-  right: 0.5em;
-
-}
-div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .toolbar-item > button, div.code-toolbar > .toolbar > .toolbar-item > span {
-  background-color: white;
-  color: var(--brand);
-  opacity: 1;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
-  font-size: 0.7em;
-}
-
-.token.atrule, .token.attr-value, .token.keyword {
-  color: #ff3ea6;
-}
-
-.token.punctuation {
-  color: var(--gray-5);
-}
 
 .prose-lg pre.language-markup {
   @apply mt-0;
 }
 
 
-/* some editing utilities */
-.ds-b-red {
-  border: 1px solid red;
+/* if you have other custom utility classes, add them here. */
+@layer utilities {
+  /* this is used in the ds-icon-grid component, but should be replaced with `hidden`. */
+  .d-none {
+    display: none !important;
+  }
 }
