@@ -38,10 +38,7 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
 
             // optimize the SVG and add it to the temp folder
             try {
-                let svgSource = await fs.readFile(srcAssetPath, 'utf8');
-
-                // replace #000001 ("dynamic" color in Figma) with "currentColor"
-                svgSource = svgSource.replace(/"#000001"/gi, '"currentColor"');
+                const svgSource = await fs.readFile(srcAssetPath, 'utf8');
 
                 // IMPORTANT: the "path" is used by SVGO to extract the icon name and add it as prefix to the IDs
                 const svgOptimized = await svgo.optimize(svgSource, { path: asset.fileName });
