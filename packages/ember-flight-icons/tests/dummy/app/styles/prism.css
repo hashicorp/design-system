@@ -1,0 +1,24 @@
+/* prism overrides for a11y */
+div.code-toolbar > .toolbar {
+  opacity: 1;
+  top: 0;
+  right: 0.5em;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .toolbar-item > button, div.code-toolbar > .toolbar > .toolbar-item > span {
+  background-color: white;
+  color: var(--brand);
+  opacity: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.7em;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: #ff3ea6;
+}
+
+.token.punctuation {
+  color: var(--gray-5);
+}

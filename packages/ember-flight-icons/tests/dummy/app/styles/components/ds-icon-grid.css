@@ -1,0 +1,210 @@
+/* Once this has been figured out, replace with TW classes */
+.ds-icon-grid {
+  @apply
+  flex
+  flex-wrap
+  justify-between;
+}
+
+/* search and toggle are in one row; full-with on small viewports */
+
+.ds-flex-search {
+  @apply
+  flex
+  flex-wrap
+  sm:w-full
+  md:w-3/4;
+}
+
+.ds-label {
+  @apply
+  block
+  font-medium
+  text-gray-2
+  w-full;
+}
+
+/* specifically used because there is the search icon "in" the input */
+.ds-input-search-wrapper {
+  @apply 
+  first-letter:mt-1 
+  relative 
+  rounded-md 
+  shadow-sm
+  w-full;
+}
+
+.ds-input-search-icon-wrapper {
+  @apply
+  absolute
+  flex
+  inset-y-0
+  items-center
+  left-0
+  pl-3
+  pointer-events-none;
+}
+
+.ds-input-search {
+  @apply 
+    block
+    border-gray-300
+    focus:border-brand
+    focus:ring-brand
+    pl-10
+    rounded-md
+    shadow-sm
+    sm:text-sm
+    w-full;
+}
+
+
+.ds-flex-toggle {
+  @apply
+  flex
+  justify-center
+  items-end
+  sm:mt-4
+  lg:mt-0;
+}
+
+button.ds-toggle-button {
+  @apply
+  bg-brand
+  border-2 
+  border-transparent 
+  box-border
+  cursor-pointer 
+  duration-200 
+  ease-in-out 
+  focus:outline-none 
+  focus:ring-2 
+  focus:ring-brand
+  focus:ring-offset-2 
+  font-bold
+  h-10
+  inline-flex 
+  rounded-full 
+  text-white
+  transition-colors
+  w-32;
+}
+
+.ds-toggle-button-slider {
+  @apply
+  bg-transparent
+  box-border
+  flex
+  h-9
+  justify-evenly
+  pointer-events-none  
+  ring-0
+  rounded-full 
+  shadow 
+  text-brand
+  transform
+  w-32;
+}
+
+.ds-toggle-16 {
+  @apply 
+  box-border
+  text-white
+  ease-in 
+  duration-200 
+  inset-0 
+  flex 
+  items-center 
+  justify-center 
+  transition-opacity
+  rounded-full
+  w-1/2;
+}
+.ds-toggle-16.ds-toggle-16-active {
+  @apply
+  bg-white 
+  h-9
+  rounded-full
+  text-brand
+  w-1/2;
+}
+
+.ds-toggle-24 {
+  @apply
+  bg-transparent
+  box-border
+  duration-100
+  ease-out
+  flex
+  inset-0
+  items-center
+  justify-center
+  rounded-full
+  text-white
+  transition-opacity
+  w-16
+  ;
+}
+.ds-toggle-24.ds-toggle-24-active {
+  @apply
+  bg-white
+  h-9
+  rounded-full
+  text-brand
+  w-16;
+}
+
+/* Icon Grid */
+ul.ds-ul-grid {
+  box-sizing: border-box;
+  display: grid;
+  font-family: var(--font-body);
+  gap: 16px;
+  grid-auto-flow: dense;
+  grid-auto-rows: 148px;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.ds-ul-grid li.ds-li {
+  align-items: center;
+  background: var(--gray-7);
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px var(--gray-5);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1ch;
+  justify-content: center;
+  padding: 0.5em 0.15em 0.15em;
+}
+ul.ds-ul-grid li.ds-li:hover {
+  background-color: var(--info-l2);
+  box-shadow: 0 0 0 1px var(--info-l1);
+}
+ul.ds-ul-grid li.ds-li .ds-icon-frame {
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--gray-5);
+  box-sizing: border-box;
+  display: flex;
+  margin-top: auto;
+  padding: 6px;
+}
+ul.ds-ul-grid li.ds-li:hover .ds-icon-frame {
+  box-shadow: 0 0 0 1px var(--info-l1);
+  box-sizing: border-box;
+  color: var(--brand-link);
+}
+ul.ds-ul-grid li.ds-li p {
+  box-sizing: border-box;
+  font-size: 0.75em;
+  margin-top: auto;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
