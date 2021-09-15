@@ -56,7 +56,7 @@ async function build() {
 
     // generate the bundle for the standalone SVGs
     console.log('Generating bundle for standalone SVG files');
-    await generateBundleSVG({ config });
+    await generateBundleSVG({ config, catalog });
 
     // generate the bundle for the SVG sprite
     console.log('Generating bundle for SVG sprite');
