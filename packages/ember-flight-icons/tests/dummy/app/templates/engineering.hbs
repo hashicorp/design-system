@@ -27,7 +27,7 @@
     <li class="ds-li"><kbd class="ds-kbd">height</kbd> and <kbd class="ds-kbd">width</kbd>: default size of 16x16 (px)</li>
     <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
     <li class="ds-li">CSS display: set to <kbd class="ds-kbd">display:inline-block</kbd></li>
-    <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd> attribute: for the author's testing convenience</li>
+    <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd> attribute: for the author's testing convenience; set to the value of the auto-generated (unique) id.</li>
   </ol>
   </p>
 
@@ -37,12 +37,12 @@
   </p>
 
   <p>
-  Renders to this:
+  Renders to this (where the ID will be unique each time):
 <CodeBlock @language="markup" id="component-invocation-base-render"
 @code="&lt;svg 
  aria-hidden=&quot;true&quot; 
  class=&quot;flight-icon icon-alert-circle display-inline&quot; 
- data-test-icon
+ data-test-icon=&quot;icon-ember115&quot;
  fill=&quot;currentColor&quot; 
  id=&quot;icon-ember115&quot;
  width=&quot;16&quot;
