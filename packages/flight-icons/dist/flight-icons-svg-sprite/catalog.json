@@ -1,0 +1,7645 @@
+{
+  "lastRunTimeISO": "2021-09-13T22:54:22.791Z",
+  "lastRunFigma": {
+    "id": "TLnoT5AYQfy3tZ0H68BgOr",
+    "page": "Export",
+    "frames": [
+      "Core",
+      "Services"
+    ]
+  },
+  "assets": [
+    {
+      "id": "350:23",
+      "fileName": "activity-24",
+      "iconName": "activity",
+      "description": "activity, pulse, health",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:25",
+      "fileName": "activity-16",
+      "iconName": "activity",
+      "description": "activity, pulse, health",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:31",
+      "fileName": "alert-circle-24",
+      "iconName": "alert-circle",
+      "description": "alert, circle, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:35",
+      "fileName": "alert-circle-16",
+      "iconName": "alert-circle",
+      "description": "alert, circle, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:32",
+      "fileName": "alert-circle-fill-24",
+      "iconName": "alert-circle-fill",
+      "description": "alert, circle, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:37",
+      "fileName": "alert-circle-fill-16",
+      "iconName": "alert-circle-fill",
+      "description": "alert, circle, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:43",
+      "fileName": "alert-triangle-24",
+      "iconName": "alert-triangle",
+      "description": "alert, triangle, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:47",
+      "fileName": "alert-triangle-16",
+      "iconName": "alert-triangle",
+      "description": "alert, triangle, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:46",
+      "fileName": "alert-triangle-fill-24",
+      "iconName": "alert-triangle-fill",
+      "description": "alert, triangle, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:51",
+      "fileName": "alert-triangle-fill-16",
+      "iconName": "alert-triangle-fill",
+      "description": "alert, triangle, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:55",
+      "fileName": "alert-octagon-24",
+      "iconName": "alert-octagon",
+      "description": "alert, octagon, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:59",
+      "fileName": "alert-octagon-16",
+      "iconName": "alert-octagon",
+      "description": "alert, octagon, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:60",
+      "fileName": "alert-octagon-fill-24",
+      "iconName": "alert-octagon-fill",
+      "description": "alert, octagon, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:65",
+      "fileName": "alert-octagon-fill-16",
+      "iconName": "alert-octagon-fill",
+      "description": "alert, octagon, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:67",
+      "fileName": "align-center-24",
+      "iconName": "align-center",
+      "description": "align, text, center",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:72",
+      "fileName": "align-center-16",
+      "iconName": "align-center",
+      "description": "align, text, center",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:81",
+      "fileName": "align-justify-24",
+      "iconName": "align-justify",
+      "description": "align, text, justify",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:86",
+      "fileName": "align-justify-16",
+      "iconName": "align-justify",
+      "description": "align, text, justify",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:95",
+      "fileName": "align-left-24",
+      "iconName": "align-left",
+      "description": "align, text, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:100",
+      "fileName": "align-left-16",
+      "iconName": "align-left",
+      "description": "align, text, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:109",
+      "fileName": "align-right-24",
+      "iconName": "align-right",
+      "description": "align, text, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:114",
+      "fileName": "align-right-16",
+      "iconName": "align-right",
+      "description": "align, text, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:123",
+      "fileName": "archive-24",
+      "iconName": "archive",
+      "description": "archive, box, inbox",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:127",
+      "fileName": "archive-16",
+      "iconName": "archive",
+      "description": "archive, box, inbox",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:136",
+      "fileName": "arrow-down-24",
+      "iconName": "arrow-down",
+      "description": "arrow, direction, down",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:139",
+      "fileName": "arrow-down-16",
+      "iconName": "arrow-down",
+      "description": "arrow, direction, down",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:146",
+      "fileName": "arrow-down-circle-24",
+      "iconName": "arrow-down-circle",
+      "description": "arrow, direction, down, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:150",
+      "fileName": "arrow-down-circle-16",
+      "iconName": "arrow-down-circle",
+      "description": "arrow, direction, down, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:158",
+      "fileName": "arrow-down-left-24",
+      "iconName": "arrow-down-left",
+      "description": "arrow, direction, down, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:161",
+      "fileName": "arrow-down-left-16",
+      "iconName": "arrow-down-left",
+      "description": "arrow, direction, down, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:168",
+      "fileName": "arrow-down-right-24",
+      "iconName": "arrow-down-right",
+      "description": "arrow, direction, down, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:171",
+      "fileName": "arrow-down-right-16",
+      "iconName": "arrow-down-right",
+      "description": "arrow, direction, down, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:178",
+      "fileName": "arrow-left-24",
+      "iconName": "arrow-left",
+      "description": "arrow, direction, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:181",
+      "fileName": "arrow-left-16",
+      "iconName": "arrow-left",
+      "description": "arrow, direction, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:188",
+      "fileName": "arrow-left-circle-24",
+      "iconName": "arrow-left-circle",
+      "description": "arrow, direction, left, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:192",
+      "fileName": "arrow-left-circle-16",
+      "iconName": "arrow-left-circle",
+      "description": "arrow, direction, left, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:200",
+      "fileName": "arrow-right-24",
+      "iconName": "arrow-right",
+      "description": "arrow, direction, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:203",
+      "fileName": "arrow-right-16",
+      "iconName": "arrow-right",
+      "description": "arrow, direction, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:210",
+      "fileName": "arrow-right-circle-24",
+      "iconName": "arrow-right-circle",
+      "description": "arrow, direction, right, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:214",
+      "fileName": "arrow-right-circle-16",
+      "iconName": "arrow-right-circle",
+      "description": "arrow, direction, right, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:222",
+      "fileName": "arrow-up-24",
+      "iconName": "arrow-up",
+      "description": "arrow, direction, up",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:225",
+      "fileName": "arrow-up-16",
+      "iconName": "arrow-up",
+      "description": "arrow, direction, up",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:233",
+      "fileName": "arrow-up-circle-24",
+      "iconName": "arrow-up-circle",
+      "description": "arrow, direction, up, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:237",
+      "fileName": "arrow-up-circle-16",
+      "iconName": "arrow-up-circle",
+      "description": "arrow, direction, up, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:245",
+      "fileName": "arrow-up-left-24",
+      "iconName": "arrow-up-left",
+      "description": "arrow, direction, up, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:248",
+      "fileName": "arrow-up-left-16",
+      "iconName": "arrow-up-left",
+      "description": "arrow, direction, up, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:255",
+      "fileName": "arrow-up-right-24",
+      "iconName": "arrow-up-right",
+      "description": "arrow, direction, up, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:258",
+      "fileName": "arrow-up-right-16",
+      "iconName": "arrow-up-right",
+      "description": "arrow, direction, up, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:265",
+      "fileName": "at-sign-24",
+      "iconName": "at-sign",
+      "description": "at, @, email",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:268",
+      "fileName": "at-sign-16",
+      "iconName": "at-sign",
+      "description": "at, @, email",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:275",
+      "fileName": "award-24",
+      "iconName": "award",
+      "description": "award, medal, badge, achievement",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:278",
+      "fileName": "award-16",
+      "iconName": "award",
+      "description": "award, medal, badge, achievement",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:285",
+      "fileName": "auto-apply-24",
+      "iconName": "auto-apply",
+      "description": "apply, auto",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:294",
+      "fileName": "auto-apply-16",
+      "iconName": "auto-apply",
+      "description": "apply, auto",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:307",
+      "fileName": "bar-chart-24",
+      "iconName": "bar-chart",
+      "description": "chart, graph, usage, signal",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:311",
+      "fileName": "bar-chart-16",
+      "iconName": "bar-chart",
+      "description": "chart, graph, usage, signal",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:319",
+      "fileName": "bar-chart-alt-24",
+      "iconName": "bar-chart-alt",
+      "description": "chart, graph, usage",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:323",
+      "fileName": "bar-chart-alt-16",
+      "iconName": "bar-chart-alt",
+      "description": "chart, graph, usage",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:331",
+      "fileName": "battery-24",
+      "iconName": "battery",
+      "description": "battery, empty",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:334",
+      "fileName": "battery-16",
+      "iconName": "battery",
+      "description": "battery, empty",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:342",
+      "fileName": "battery-charging-24",
+      "iconName": "battery-charging",
+      "description": "battery, charging\n",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:346",
+      "fileName": "battery-charging-16",
+      "iconName": "battery-charging",
+      "description": "battery, charging\n",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:354",
+      "fileName": "beaker-24",
+      "iconName": "beaker",
+      "description": "beaker, lab, experiment",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:358",
+      "fileName": "beaker-16",
+      "iconName": "beaker",
+      "description": "beaker, lab, experiment",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:367",
+      "fileName": "bell-24",
+      "iconName": "bell",
+      "description": "bell, notification",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:370",
+      "fileName": "bell-16",
+      "iconName": "bell",
+      "description": "bell, notification",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:377",
+      "fileName": "bell-active-fill-24",
+      "iconName": "bell-active-fill",
+      "description": "bell, notification",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:383",
+      "fileName": "bell-active-fill-16",
+      "iconName": "bell-active-fill",
+      "description": "bell, notification",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:395",
+      "fileName": "bell-active-24",
+      "iconName": "bell-active",
+      "description": "bell, notification",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:399",
+      "fileName": "bell-active-16",
+      "iconName": "bell-active",
+      "description": "bell, notification",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:409",
+      "fileName": "bell-off-24",
+      "iconName": "bell-off",
+      "description": "bell, notification, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:413",
+      "fileName": "bell-off-16",
+      "iconName": "bell-off",
+      "description": "bell, notification, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:421",
+      "fileName": "bookmark-24",
+      "iconName": "bookmark",
+      "description": "bookmark, save",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:423",
+      "fileName": "bookmark-16",
+      "iconName": "bookmark",
+      "description": "bookmark, save",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:430",
+      "fileName": "bookmark-fill-24",
+      "iconName": "bookmark-fill",
+      "description": "bookmark, bookmarked, saved",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:432",
+      "fileName": "bookmark-fill-16",
+      "iconName": "bookmark-fill",
+      "description": "bookmark, bookmarked, saved",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "546:68",
+      "fileName": "bookmark-add-24",
+      "iconName": "bookmark-add",
+      "description": "bookmark, add, save",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "546:72",
+      "fileName": "bookmark-add-16",
+      "iconName": "bookmark-add",
+      "description": "bookmark, add, save",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "546:50",
+      "fileName": "bookmark-add-fill-24",
+      "iconName": "bookmark-add-fill",
+      "description": "bookmark, add, save",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "546:55",
+      "fileName": "bookmark-add-fill-16",
+      "iconName": "bookmark-add-fill",
+      "description": "bookmark, add, save",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "545:18",
+      "fileName": "bookmark-remove-24",
+      "iconName": "bookmark-remove",
+      "description": "bookmark, minus, remove",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "545:21",
+      "fileName": "bookmark-remove-16",
+      "iconName": "bookmark-remove",
+      "description": "bookmark, minus, remove",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "546:34",
+      "fileName": "bookmark-remove-fill-24",
+      "iconName": "bookmark-remove-fill",
+      "description": "bookmark, minus, remove",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "546:38",
+      "fileName": "bookmark-remove-fill-16",
+      "iconName": "bookmark-remove-fill",
+      "description": "bookmark, minus, remove",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:492",
+      "fileName": "bottom-24",
+      "iconName": "bottom",
+      "description": "bottom, scroll, down",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:496",
+      "fileName": "bottom-16",
+      "iconName": "bottom",
+      "description": "bottom, scroll, down",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:505",
+      "fileName": "box-24",
+      "iconName": "box",
+      "description": "box, package, cube, object",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:509",
+      "fileName": "box-16",
+      "iconName": "box",
+      "description": "box, package, cube, object",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:518",
+      "fileName": "briefcase-24",
+      "iconName": "briefcase",
+      "description": "briefcase, job, work",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:523",
+      "fileName": "briefcase-16",
+      "iconName": "briefcase",
+      "description": "briefcase, job, work",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:533",
+      "fileName": "bug-24",
+      "iconName": "bug",
+      "description": "bug, issue",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:544",
+      "fileName": "bug-16",
+      "iconName": "bug",
+      "description": "bug, issue",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:560",
+      "fileName": "build-24",
+      "iconName": "build",
+      "description": "build, wrench, tool",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:562",
+      "fileName": "build-16",
+      "iconName": "build",
+      "description": "build, wrench, tool",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:569",
+      "fileName": "calendar-24",
+      "iconName": "calendar",
+      "description": "calendar, date",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:574",
+      "fileName": "calendar-16",
+      "iconName": "calendar",
+      "description": "calendar, date",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:584",
+      "fileName": "camera-24",
+      "iconName": "camera",
+      "description": "camera, photo",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:588",
+      "fileName": "camera-16",
+      "iconName": "camera",
+      "description": "camera, photo",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:596",
+      "fileName": "camera-off-24",
+      "iconName": "camera-off",
+      "description": "camera, photo, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:601",
+      "fileName": "camera-off-16",
+      "iconName": "camera-off",
+      "description": "camera, photo, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:609",
+      "fileName": "caret-24",
+      "iconName": "caret",
+      "description": "caret, open, dropdown",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:612",
+      "fileName": "caret-16",
+      "iconName": "caret",
+      "description": "caret, open, dropdown",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:620",
+      "fileName": "cast-24",
+      "iconName": "cast",
+      "description": "cast, stream",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:623",
+      "fileName": "cast-16",
+      "iconName": "cast",
+      "description": "cast, stream",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:630",
+      "fileName": "certificate-24",
+      "iconName": "certificate",
+      "description": "certificate, award, achievement",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:635",
+      "fileName": "certificate-16",
+      "iconName": "certificate",
+      "description": "certificate, award, achievement",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:645",
+      "fileName": "change-24",
+      "iconName": "change",
+      "description": "change, modified",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:647",
+      "fileName": "change-16",
+      "iconName": "change",
+      "description": "change, modified",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:654",
+      "fileName": "change-circle-24",
+      "iconName": "change-circle",
+      "description": "change, modified, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:657",
+      "fileName": "change-circle-16",
+      "iconName": "change-circle",
+      "description": "change, modified, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:665",
+      "fileName": "change-square-24",
+      "iconName": "change-square",
+      "description": "change, modified, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:668",
+      "fileName": "change-square-16",
+      "iconName": "change-square",
+      "description": "change, modified, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:676",
+      "fileName": "check-24",
+      "iconName": "check",
+      "description": "check, tick, success, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:679",
+      "fileName": "check-16",
+      "iconName": "check",
+      "description": "check, tick, success, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:687",
+      "fileName": "check-circle-24",
+      "iconName": "check-circle",
+      "description": "check, tick, success, circle, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:691",
+      "fileName": "check-circle-16",
+      "iconName": "check-circle",
+      "description": "check, tick, success, circle, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:700",
+      "fileName": "check-circle-fill-24",
+      "iconName": "check-circle-fill",
+      "description": "check, tick, success, circle, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:705",
+      "fileName": "check-circle-fill-16",
+      "iconName": "check-circle-fill",
+      "description": "check, tick, success, circle, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:715",
+      "fileName": "check-diamond-24",
+      "iconName": "check-diamond",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:719",
+      "fileName": "check-diamond-16",
+      "iconName": "check-diamond",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:728",
+      "fileName": "check-diamond-fill-24",
+      "iconName": "check-diamond-fill",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:733",
+      "fileName": "check-diamond-fill-16",
+      "iconName": "check-diamond-fill",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:5",
+      "fileName": "check-hexagon-24",
+      "iconName": "check-hexagon",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:9",
+      "fileName": "check-hexagon-16",
+      "iconName": "check-hexagon",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:18",
+      "fileName": "check-hexagon-fill-24",
+      "iconName": "check-hexagon-fill",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:23",
+      "fileName": "check-hexagon-fill-16",
+      "iconName": "check-hexagon-fill",
+      "description": "check, tick, success, diamond, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:743",
+      "fileName": "check-square-24",
+      "iconName": "check-square",
+      "description": "check, tick, success, checkbox, square, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:747",
+      "fileName": "check-square-16",
+      "iconName": "check-square",
+      "description": "check, tick, success, checkbox, square, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:756",
+      "fileName": "check-square-fill-24",
+      "iconName": "check-square-fill",
+      "description": "check, tick, success, checkbox, square, checked, complete, done",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:761",
+      "fileName": "check-square-fill-16",
+      "iconName": "check-square-fill",
+      "description": "check, tick, success, checkbox, square, checked, complete, done",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:771",
+      "fileName": "chevron-down-24",
+      "iconName": "chevron-down",
+      "description": "chevron, down, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:773",
+      "fileName": "chevron-down-16",
+      "iconName": "chevron-down",
+      "description": "chevron, down, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:779",
+      "fileName": "chevron-left-24",
+      "iconName": "chevron-left",
+      "description": "chevron, left, previous, back, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:781",
+      "fileName": "chevron-left-16",
+      "iconName": "chevron-left",
+      "description": "chevron, left, previous, back, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:787",
+      "fileName": "chevron-right-24",
+      "iconName": "chevron-right",
+      "description": "chevron, right, next, forward, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:789",
+      "fileName": "chevron-right-16",
+      "iconName": "chevron-right",
+      "description": "chevron, right, next, forward, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:796",
+      "fileName": "chevron-up-24",
+      "iconName": "chevron-up",
+      "description": "chevron, up, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:798",
+      "fileName": "chevron-up-16",
+      "iconName": "chevron-up",
+      "description": "chevron, up, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:804",
+      "fileName": "chevrons-down-24",
+      "iconName": "chevrons-down",
+      "description": "chevrons, down, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:807",
+      "fileName": "chevrons-down-16",
+      "iconName": "chevrons-down",
+      "description": "chevrons, down, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:814",
+      "fileName": "chevrons-left-24",
+      "iconName": "chevrons-left",
+      "description": "chevrons, left, previous, back, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:817",
+      "fileName": "chevrons-left-16",
+      "iconName": "chevrons-left",
+      "description": "chevrons, left, previous, back, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:824",
+      "fileName": "chevrons-right-24",
+      "iconName": "chevrons-right",
+      "description": "chevrons, right, next, forward, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:827",
+      "fileName": "chevrons-right-16",
+      "iconName": "chevrons-right",
+      "description": "chevrons, right, next, forward, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:834",
+      "fileName": "chevrons-up-24",
+      "iconName": "chevrons-up",
+      "description": "chevrons, up, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:837",
+      "fileName": "chevrons-up-16",
+      "iconName": "chevrons-up",
+      "description": "chevrons, up, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:844",
+      "fileName": "circle-24",
+      "iconName": "circle",
+      "description": "circle, ring, arrow, direction",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:846",
+      "fileName": "circle-16",
+      "iconName": "circle",
+      "description": "circle, ring, arrow, direction",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:852",
+      "fileName": "circle-dot-24",
+      "iconName": "circle-dot",
+      "description": "circle, dot",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:855",
+      "fileName": "circle-dot-16",
+      "iconName": "circle-dot",
+      "description": "circle, dot",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:863",
+      "fileName": "circle-fill-24",
+      "iconName": "circle-fill",
+      "description": "circle, dot",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:865",
+      "fileName": "circle-fill-16",
+      "iconName": "circle-fill",
+      "description": "circle, dot",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "648:228",
+      "fileName": "circle-half-24",
+      "iconName": "circle-half",
+      "description": "circle, dot, half, progress",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "648:231",
+      "fileName": "circle-half-16",
+      "iconName": "circle-half",
+      "description": "circle, dot, half, progress",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:872",
+      "fileName": "clipboard-24",
+      "iconName": "clipboard",
+      "description": "clipboard, copy",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:878",
+      "fileName": "clipboard-16",
+      "iconName": "clipboard",
+      "description": "clipboard, copy",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:889",
+      "fileName": "clipboard-checked-24",
+      "iconName": "clipboard-checked",
+      "description": "clipboard, copy, copied, success",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:895",
+      "fileName": "clipboard-checked-16",
+      "iconName": "clipboard-checked",
+      "description": "clipboard, copy, copied, success",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:907",
+      "fileName": "clipboard-copy-24",
+      "iconName": "clipboard-copy",
+      "description": "clipboard, copy, snippet",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:915",
+      "fileName": "clipboard-copy-16",
+      "iconName": "clipboard-copy",
+      "description": "clipboard, copy, snippet",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:928",
+      "fileName": "clock-24",
+      "iconName": "clock",
+      "description": "clock, time, activity",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:931",
+      "fileName": "clock-16",
+      "iconName": "clock",
+      "description": "clock, time, activity",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:938",
+      "fileName": "cloud-24",
+      "iconName": "cloud",
+      "description": "cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:940",
+      "fileName": "cloud-16",
+      "iconName": "cloud",
+      "description": "cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:946",
+      "fileName": "cloud-check-24",
+      "iconName": "cloud-check",
+      "description": "cloud, check, success",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:950",
+      "fileName": "cloud-check-16",
+      "iconName": "cloud-check",
+      "description": "cloud, check, success",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:959",
+      "fileName": "cloud-download-24",
+      "iconName": "cloud-download",
+      "description": "cloud, download, sync",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:963",
+      "fileName": "cloud-download-16",
+      "iconName": "cloud-download",
+      "description": "cloud, download, sync",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:972",
+      "fileName": "cloud-lightning-24",
+      "iconName": "cloud-lightning",
+      "description": "cloud, lightning",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:975",
+      "fileName": "cloud-lightning-16",
+      "iconName": "cloud-lightning",
+      "description": "cloud, lightning",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:982",
+      "fileName": "cloud-lock-24",
+      "iconName": "cloud-lock",
+      "description": "cloud, lock, secure",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:987",
+      "fileName": "cloud-lock-16",
+      "iconName": "cloud-lock",
+      "description": "cloud, lock, secure",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:997",
+      "fileName": "cloud-off-24",
+      "iconName": "cloud-off",
+      "description": "cloud, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1000",
+      "fileName": "cloud-off-16",
+      "iconName": "cloud-off",
+      "description": "cloud, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1009",
+      "fileName": "cloud-upload-24",
+      "iconName": "cloud-upload",
+      "description": "cloud, upload, sync",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1013",
+      "fileName": "cloud-upload-16",
+      "iconName": "cloud-upload",
+      "description": "cloud, upload, sync",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1022",
+      "fileName": "cloud-x-24",
+      "iconName": "cloud-x",
+      "description": "cloud, fail, delete",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1026",
+      "fileName": "cloud-x-16",
+      "iconName": "cloud-x",
+      "description": "cloud, fail, delete",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1035",
+      "fileName": "code-24",
+      "iconName": "code",
+      "description": "code, snippet",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1039",
+      "fileName": "code-16",
+      "iconName": "code",
+      "description": "code, snippet",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1048",
+      "fileName": "collections-24",
+      "iconName": "collections",
+      "description": "collections, books",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1054",
+      "fileName": "collections-16",
+      "iconName": "collections",
+      "description": "collections, books",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1064",
+      "fileName": "command-24",
+      "iconName": "command",
+      "description": "command, cmd, shortcut",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1070",
+      "fileName": "command-16",
+      "iconName": "command",
+      "description": "command, cmd, shortcut",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1080",
+      "fileName": "compass-24",
+      "iconName": "compass",
+      "description": "compass, navigate, browser",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1083",
+      "fileName": "compass-16",
+      "iconName": "compass",
+      "description": "compass, navigate, browser",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:90",
+      "fileName": "connection-24",
+      "iconName": "connection",
+      "description": "git, vcs, commit",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:94",
+      "fileName": "connection-16",
+      "iconName": "connection",
+      "description": "git, vcs, commit",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:103",
+      "fileName": "connection-gateway-24",
+      "iconName": "connection-gateway",
+      "description": "git, vcs, commit",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:111",
+      "fileName": "connection-gateway-16",
+      "iconName": "connection-gateway",
+      "description": "git, vcs, commit",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1090",
+      "fileName": "corner-down-left-24",
+      "iconName": "corner-down-left",
+      "description": "corner, arrow, down, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1093",
+      "fileName": "corner-down-left-16",
+      "iconName": "corner-down-left",
+      "description": "corner, arrow, down, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1100",
+      "fileName": "corner-down-right-24",
+      "iconName": "corner-down-right",
+      "description": "corner, arrow, down, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1103",
+      "fileName": "corner-down-right-16",
+      "iconName": "corner-down-right",
+      "description": "corner, arrow, down, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1110",
+      "fileName": "corner-left-down-24",
+      "iconName": "corner-left-down",
+      "description": "corner, arrow, down, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1113",
+      "fileName": "corner-left-down-16",
+      "iconName": "corner-left-down",
+      "description": "corner, arrow, down, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1121",
+      "fileName": "corner-left-up-24",
+      "iconName": "corner-left-up",
+      "description": "corner, arrow, up, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1124",
+      "fileName": "corner-left-up-16",
+      "iconName": "corner-left-up",
+      "description": "corner, arrow, up, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1131",
+      "fileName": "corner-right-down-24",
+      "iconName": "corner-right-down",
+      "description": "corner, arrow, down, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1134",
+      "fileName": "corner-right-down-16",
+      "iconName": "corner-right-down",
+      "description": "corner, arrow, down, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1141",
+      "fileName": "corner-right-up-24",
+      "iconName": "corner-right-up",
+      "description": "corner, arrow, up, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1144",
+      "fileName": "corner-right-up-16",
+      "iconName": "corner-right-up",
+      "description": "corner, arrow, up, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1151",
+      "fileName": "corner-up-left-24",
+      "iconName": "corner-up-left",
+      "description": "corner, arrow, up, left",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1154",
+      "fileName": "corner-up-left-16",
+      "iconName": "corner-up-left",
+      "description": "corner, arrow, up, left",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1161",
+      "fileName": "corner-up-right-24",
+      "iconName": "corner-up-right",
+      "description": "corner, arrow, up, right",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1164",
+      "fileName": "corner-up-right-16",
+      "iconName": "corner-up-right",
+      "description": "corner, arrow, up, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1171",
+      "fileName": "cpu-24",
+      "iconName": "cpu",
+      "description": "cpu, memory, chip",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1182",
+      "fileName": "cpu-16",
+      "iconName": "cpu",
+      "description": "cpu, memory, chip",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1197",
+      "fileName": "credit-card-24",
+      "iconName": "credit-card",
+      "description": "credit, card, billing",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1201",
+      "fileName": "credit-card-16",
+      "iconName": "credit-card",
+      "description": "credit, card, billing",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1210",
+      "fileName": "crop-24",
+      "iconName": "crop",
+      "description": "crop, edit",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1213",
+      "fileName": "crop-16",
+      "iconName": "crop",
+      "description": "crop, edit",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1220",
+      "fileName": "crosshair-24",
+      "iconName": "crosshair",
+      "description": "crosshair, target",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1226",
+      "fileName": "crosshair-16",
+      "iconName": "crosshair",
+      "description": "crosshair, target",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "652:34",
+      "fileName": "dashboard-24",
+      "iconName": "dashboard",
+      "description": "grid, dashboard, overview",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "652:38",
+      "fileName": "dashboard-16",
+      "iconName": "dashboard",
+      "description": "grid, dashboard, overview",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1237",
+      "fileName": "database-24",
+      "iconName": "database",
+      "description": "database, data",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1241",
+      "fileName": "database-16",
+      "iconName": "database",
+      "description": "database, data",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1249",
+      "fileName": "delay-24",
+      "iconName": "delay",
+      "description": "delay, time, clock, queue",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1253",
+      "fileName": "delay-16",
+      "iconName": "delay",
+      "description": "delay, time, clock, queue",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1262",
+      "fileName": "delete-24",
+      "iconName": "delete",
+      "description": "delete, backspace",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1266",
+      "fileName": "delete-16",
+      "iconName": "delete",
+      "description": "delete, backspace",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1274",
+      "fileName": "diamond-24",
+      "iconName": "diamond",
+      "description": "diamond, test",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1276",
+      "fileName": "diamond-16",
+      "iconName": "diamond",
+      "description": "diamond, test",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1283",
+      "fileName": "diamond-fill-24",
+      "iconName": "diamond-fill",
+      "description": "diamond, test",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1285",
+      "fileName": "diamond-fill-16",
+      "iconName": "diamond-fill",
+      "description": "diamond, test",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1292",
+      "fileName": "disc-24",
+      "iconName": "disc",
+      "description": "disc, cd",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1295",
+      "fileName": "disc-16",
+      "iconName": "disc",
+      "description": "disc, cd",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1302",
+      "fileName": "discussion-circle-24",
+      "iconName": "discussion-circle",
+      "description": "discussion, comment, conversation",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1305",
+      "fileName": "discussion-circle-16",
+      "iconName": "discussion-circle",
+      "description": "discussion, comment, conversation",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1313",
+      "fileName": "discussion-square-24",
+      "iconName": "discussion-square",
+      "description": "discussion, comment, conversation",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1316",
+      "fileName": "discussion-square-16",
+      "iconName": "discussion-square",
+      "description": "discussion, comment, conversation",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1324",
+      "fileName": "docs-24",
+      "iconName": "docs",
+      "description": "book, docs, learn",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1327",
+      "fileName": "docs-16",
+      "iconName": "docs",
+      "description": "book, docs, learn",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1336",
+      "fileName": "docs-download-24",
+      "iconName": "docs-download",
+      "description": "book, docs, learn, download",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1342",
+      "fileName": "docs-download-16",
+      "iconName": "docs-download",
+      "description": "book, docs, learn, download",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1353",
+      "fileName": "docs-link-24",
+      "iconName": "docs-link",
+      "description": "book, docs, learn, link, arrow",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1358",
+      "fileName": "docs-link-16",
+      "iconName": "docs-link",
+      "description": "book, docs, learn, link, arrow",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1368",
+      "fileName": "dollar-sign-24",
+      "iconName": "dollar-sign",
+      "description": "dollar, money, variable",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1371",
+      "fileName": "dollar-sign-16",
+      "iconName": "dollar-sign",
+      "description": "dollar, money, variable",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "648:245",
+      "fileName": "dot-24",
+      "iconName": "dot",
+      "description": "circle, dot, bullet",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "648:247",
+      "fileName": "dot-16",
+      "iconName": "dot",
+      "description": "circle, dot, bullet",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "648:252",
+      "fileName": "dot-half-24",
+      "iconName": "dot-half",
+      "description": "circle, dot, bullet, half, progress",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "648:255",
+      "fileName": "dot-half-16",
+      "iconName": "dot-half",
+      "description": "circle, dot, bullet, half, progress",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1378",
+      "fileName": "download-24",
+      "iconName": "download",
+      "description": "download",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1382",
+      "fileName": "download-16",
+      "iconName": "download",
+      "description": "download",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1390",
+      "fileName": "droplet-24",
+      "iconName": "droplet",
+      "description": "drop, water",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1392",
+      "fileName": "droplet-16",
+      "iconName": "droplet",
+      "description": "drop, water",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1398",
+      "fileName": "duplicate-24",
+      "iconName": "duplicate",
+      "description": "duplicate, copy, clone",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1401",
+      "fileName": "duplicate-16",
+      "iconName": "duplicate",
+      "description": "duplicate, copy, clone",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1409",
+      "fileName": "edit-24",
+      "iconName": "edit",
+      "description": "edit, pencil",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1413",
+      "fileName": "edit-16",
+      "iconName": "edit",
+      "description": "edit, pencil",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1421",
+      "fileName": "entry-point-24",
+      "iconName": "entry-point",
+      "description": "arrow, circle, enter, entry, service, start",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1425",
+      "fileName": "entry-point-16",
+      "iconName": "entry-point",
+      "description": "arrow, circle, enter, entry, service, start",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1434",
+      "fileName": "exit-point-24",
+      "iconName": "exit-point",
+      "description": "arrow, circle, exit, end, service",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1438",
+      "fileName": "exit-point-16",
+      "iconName": "exit-point",
+      "description": "arrow, circle, exit, end, service",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1448",
+      "fileName": "external-link-24",
+      "iconName": "external-link",
+      "description": "link, external, go",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1452",
+      "fileName": "external-link-16",
+      "iconName": "external-link",
+      "description": "link, external, go",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1460",
+      "fileName": "event-24",
+      "iconName": "event",
+      "description": "event, calendar, date",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1465",
+      "fileName": "event-16",
+      "iconName": "event",
+      "description": "event, calendar, date",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1475",
+      "fileName": "eye-24",
+      "iconName": "eye",
+      "description": "eye, view",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1478",
+      "fileName": "eye-16",
+      "iconName": "eye",
+      "description": "eye, view",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1485",
+      "fileName": "eye-off-24",
+      "iconName": "eye-off",
+      "description": "eye, view, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1489",
+      "fileName": "eye-off-16",
+      "iconName": "eye-off",
+      "description": "eye, view, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1497",
+      "fileName": "fast-forward-24",
+      "iconName": "fast-forward",
+      "description": "fastforward, forward, skip",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1500",
+      "fileName": "fast-forward-16",
+      "iconName": "fast-forward",
+      "description": "fastforward, forward, skip",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1507",
+      "fileName": "file-24",
+      "iconName": "file",
+      "description": "file, document",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1510",
+      "fileName": "file-16",
+      "iconName": "file",
+      "description": "file, document",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1517",
+      "fileName": "file-check-24",
+      "iconName": "file-check",
+      "description": "file, document, success, check",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1523",
+      "fileName": "file-check-16",
+      "iconName": "file-check",
+      "description": "file, document, success, check",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1534",
+      "fileName": "file-change-24",
+      "iconName": "file-change",
+      "description": "file, document, change, modified",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1538",
+      "fileName": "file-change-16",
+      "iconName": "file-change",
+      "description": "file, document, change, modified",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1547",
+      "fileName": "file-diff-24",
+      "iconName": "file-diff",
+      "description": "file, document, diff, change",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1553",
+      "fileName": "file-diff-16",
+      "iconName": "file-diff",
+      "description": "file, document, diff, change",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1565",
+      "fileName": "file-minus-24",
+      "iconName": "file-minus",
+      "description": "file, document, remove, minus",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1569",
+      "fileName": "file-minus-16",
+      "iconName": "file-minus",
+      "description": "file, document, remove, minus",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1577",
+      "fileName": "file-plus-24",
+      "iconName": "file-plus",
+      "description": "file, document, create, add, plus",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1582",
+      "fileName": "file-plus-16",
+      "iconName": "file-plus",
+      "description": "file, document, create, add, plus",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1591",
+      "fileName": "file-source-24",
+      "iconName": "file-source",
+      "description": "file, document, source, code",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1596",
+      "fileName": "file-source-16",
+      "iconName": "file-source",
+      "description": "file, document, source, code",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1606",
+      "fileName": "file-text-24",
+      "iconName": "file-text",
+      "description": "file, document, text",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1612",
+      "fileName": "file-text-16",
+      "iconName": "file-text",
+      "description": "file, document, text",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1622",
+      "fileName": "file-x-24",
+      "iconName": "file-x",
+      "description": "file, document, deleted, removed",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1629",
+      "fileName": "file-x-16",
+      "iconName": "file-x",
+      "description": "file, document, deleted, removed",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1641",
+      "fileName": "files-24",
+      "iconName": "files",
+      "description": "files, documents, group, hosts",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1646",
+      "fileName": "files-16",
+      "iconName": "files",
+      "description": "files, documents, group, hosts",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1655",
+      "fileName": "film-24",
+      "iconName": "film",
+      "description": "film, movie, video",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1664",
+      "fileName": "film-16",
+      "iconName": "film",
+      "description": "film, movie, video",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "548:215",
+      "fileName": "filter-24",
+      "iconName": "filter",
+      "description": "filter",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "548:219",
+      "fileName": "filter-16",
+      "iconName": "filter",
+      "description": "filter",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "548:227",
+      "fileName": "filter-circle-24",
+      "iconName": "filter-circle",
+      "description": "filter, circle, inactive, off",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "548:232",
+      "fileName": "filter-circle-16",
+      "iconName": "filter-circle",
+      "description": "filter, circle, inactive, off",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "548:241",
+      "fileName": "filter-fill-24",
+      "iconName": "filter-fill",
+      "description": "filter, circle, active, on",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "548:247",
+      "fileName": "filter-fill-16",
+      "iconName": "filter-fill",
+      "description": "filter, circle, active, on",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "636:76",
+      "fileName": "fingerprint-24",
+      "iconName": "fingerprint",
+      "description": "",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "636:82",
+      "fileName": "fingerprint-16",
+      "iconName": "fingerprint",
+      "description": "",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1685",
+      "fileName": "flag-24",
+      "iconName": "flag",
+      "description": "flag, mark",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1688",
+      "fileName": "flag-16",
+      "iconName": "flag",
+      "description": "flag, mark",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1696",
+      "fileName": "folder-24",
+      "iconName": "folder",
+      "description": "folder, directory, project",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1699",
+      "fileName": "folder-16",
+      "iconName": "folder",
+      "description": "folder, directory, project",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1707",
+      "fileName": "folder-fill-24",
+      "iconName": "folder-fill",
+      "description": "folder, directory, project",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1711",
+      "fileName": "folder-fill-16",
+      "iconName": "folder-fill",
+      "description": "folder, directory, project",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1720",
+      "fileName": "folder-minus-24",
+      "iconName": "folder-minus",
+      "description": "folder, directory, project, minus, remove",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1724",
+      "fileName": "folder-minus-16",
+      "iconName": "folder-minus",
+      "description": "folder, directory, project, minus, remove",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1732",
+      "fileName": "folder-minus-fill-24",
+      "iconName": "folder-minus-fill",
+      "description": "folder, directory, project, minus, remove",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1738",
+      "fileName": "folder-minus-fill-16",
+      "iconName": "folder-minus-fill",
+      "description": "folder, directory, project, minus, remove",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1747",
+      "fileName": "folder-plus-24",
+      "iconName": "folder-plus",
+      "description": "folder, directory, project, plus, add, create",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1752",
+      "fileName": "folder-plus-16",
+      "iconName": "folder-plus",
+      "description": "folder, directory, project, plus, add, create",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1761",
+      "fileName": "folder-plus-fill-24",
+      "iconName": "folder-plus-fill",
+      "description": "folder, directory, project, plus, add, create",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1766",
+      "fileName": "folder-plus-fill-16",
+      "iconName": "folder-plus-fill",
+      "description": "folder, directory, project, plus, add, create",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1776",
+      "fileName": "folder-star-24",
+      "iconName": "folder-star",
+      "description": "folder, directory, starred, favorite, pinned",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1781",
+      "fileName": "folder-star-16",
+      "iconName": "folder-star",
+      "description": "folder, directory, starred, favorite, pinned",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1789",
+      "fileName": "folder-users-24",
+      "iconName": "folder-users",
+      "description": "folder, directory, project, group, users",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1797",
+      "fileName": "folder-users-16",
+      "iconName": "folder-users",
+      "description": "folder, directory, project, group, users",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1809",
+      "fileName": "frown-24",
+      "iconName": "frown",
+      "description": "emoji, frown, negative, sad",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1814",
+      "fileName": "frown-16",
+      "iconName": "frown",
+      "description": "emoji, frown, negative, sad",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1824",
+      "fileName": "gateway-24",
+      "iconName": "gateway",
+      "description": "gateway, entrance, tunnel",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1828",
+      "fileName": "gateway-16",
+      "iconName": "gateway",
+      "description": "gateway, entrance, tunnel",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "546:99",
+      "fileName": "gift-24",
+      "iconName": "gift",
+      "description": "gift, present",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "546:105",
+      "fileName": "gift-16",
+      "iconName": "gift",
+      "description": "gift, present",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "546:126",
+      "fileName": "git-branch-24",
+      "iconName": "git-branch",
+      "description": "git, vcs, branch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "546:131",
+      "fileName": "git-branch-16",
+      "iconName": "git-branch",
+      "description": "git, vcs, branch",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "547:149",
+      "fileName": "git-commit-24",
+      "iconName": "git-commit",
+      "description": "git, vcs, commit",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "547:153",
+      "fileName": "git-commit-16",
+      "iconName": "git-commit",
+      "description": "git, vcs, commit",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "547:169",
+      "fileName": "git-merge-24",
+      "iconName": "git-merge",
+      "description": "git, vcs, merge",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "547:173",
+      "fileName": "git-merge-16",
+      "iconName": "git-merge",
+      "description": "git, vcs, merge",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "547:188",
+      "fileName": "git-pull-request-24",
+      "iconName": "git-pull-request",
+      "description": "git, vcs, pull, request, pr",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "547:193",
+      "fileName": "git-pull-request-16",
+      "iconName": "git-pull-request",
+      "description": "git, vcs, pull, request, pr",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1905",
+      "fileName": "git-repo-24",
+      "iconName": "git-repo",
+      "description": "git, vcs, repository",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1909",
+      "fileName": "git-repo-16",
+      "iconName": "git-repo",
+      "description": "git, vcs, repository",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1918",
+      "fileName": "globe-24",
+      "iconName": "globe",
+      "description": "globe, world, global",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1922",
+      "fileName": "globe-16",
+      "iconName": "globe",
+      "description": "globe, world, global",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1930",
+      "fileName": "globe-private-24",
+      "iconName": "globe-private",
+      "description": "globe, world, global, private, secure, encrypted",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1935",
+      "fileName": "globe-private-16",
+      "iconName": "globe-private",
+      "description": "globe, world, global, private, secure, encrypted",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1946",
+      "fileName": "grid-24",
+      "iconName": "grid",
+      "description": "grid, format, view, group",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1951",
+      "fileName": "grid-16",
+      "iconName": "grid",
+      "description": "grid, format, view, group",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1960",
+      "fileName": "grid-alt-24",
+      "iconName": "grid-alt",
+      "description": "grid, format, view, group",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1970",
+      "fileName": "grid-alt-16",
+      "iconName": "grid-alt",
+      "description": "grid, format, view, group",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1985",
+      "fileName": "guide-24",
+      "iconName": "guide",
+      "description": "book, library, catalogue, guide",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:1988",
+      "fileName": "guide-16",
+      "iconName": "guide",
+      "description": "book, library, catalogue, guide",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:1996",
+      "fileName": "guide-link-24",
+      "iconName": "guide-link",
+      "description": "book, library, catalogue, guide, link, arrow",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2001",
+      "fileName": "guide-link-16",
+      "iconName": "guide-link",
+      "description": "book, library, catalogue, guide, link, arrow",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2011",
+      "fileName": "hammer-24",
+      "iconName": "hammer",
+      "description": "hammer, build, tool",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2015",
+      "fileName": "hammer-16",
+      "iconName": "hammer",
+      "description": "hammer, build, tool",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2022",
+      "fileName": "hard-drive-24",
+      "iconName": "hard-drive",
+      "description": "hard, drive, disk, storage",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2026",
+      "fileName": "hard-drive-16",
+      "iconName": "hard-drive",
+      "description": "hard, drive, disk, storage",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2034",
+      "fileName": "hash-24",
+      "iconName": "hash",
+      "description": "hash, pound, tag",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2039",
+      "fileName": "hash-16",
+      "iconName": "hash",
+      "description": "hash, pound, tag",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2048",
+      "fileName": "headphones-24",
+      "iconName": "headphones",
+      "description": "headphones, music, sound",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2052",
+      "fileName": "headphones-16",
+      "iconName": "headphones",
+      "description": "headphones, music, sound",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2060",
+      "fileName": "heart-24",
+      "iconName": "heart",
+      "description": "heart, like, love, favorite",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2062",
+      "fileName": "heart-16",
+      "iconName": "heart",
+      "description": "heart, like, love, favorite",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2069",
+      "fileName": "heart-fill-24",
+      "iconName": "heart-fill",
+      "description": "heart, liked, loved, favorited",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2071",
+      "fileName": "heart-fill-16",
+      "iconName": "heart-fill",
+      "description": "heart, liked, loved, favorited",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2078",
+      "fileName": "heart-off-24",
+      "iconName": "heart-off",
+      "description": "heart, like, love, favorite, disabled, off",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2081",
+      "fileName": "heart-off-16",
+      "iconName": "heart-off",
+      "description": "heart, like, love, favorite, disabled, off",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2089",
+      "fileName": "help-24",
+      "iconName": "help",
+      "description": "help, question, support",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2093",
+      "fileName": "help-16",
+      "iconName": "help",
+      "description": "help, question, support",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:52",
+      "fileName": "hexagon-24",
+      "iconName": "hexagon",
+      "description": "diamond, test",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:54",
+      "fileName": "hexagon-16",
+      "iconName": "hexagon",
+      "description": "diamond, test",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:61",
+      "fileName": "hexagon-fill-24",
+      "iconName": "hexagon-fill",
+      "description": "diamond, test",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:63",
+      "fileName": "hexagon-fill-16",
+      "iconName": "hexagon-fill",
+      "description": "diamond, test",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2101",
+      "fileName": "history-24",
+      "iconName": "history",
+      "description": "clock, time, history",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2105",
+      "fileName": "history-16",
+      "iconName": "history",
+      "description": "clock, time, history",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2114",
+      "fileName": "home-24",
+      "iconName": "home",
+      "description": "home, house",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2117",
+      "fileName": "home-16",
+      "iconName": "home",
+      "description": "home, house",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2125",
+      "fileName": "hourglass-24",
+      "iconName": "hourglass",
+      "description": "hourglass, time",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2129",
+      "fileName": "hourglass-16",
+      "iconName": "hourglass",
+      "description": "hourglass, time",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2138",
+      "fileName": "identity-user-24",
+      "iconName": "identity-user",
+      "description": "identity, id, user",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2144",
+      "fileName": "identity-user-16",
+      "iconName": "identity-user",
+      "description": "identity, id, user",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2154",
+      "fileName": "identity-service-24",
+      "iconName": "identity-service",
+      "description": "identity, id, service, globe",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2160",
+      "fileName": "identity-service-16",
+      "iconName": "identity-service",
+      "description": "identity, id, service, globe",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2171",
+      "fileName": "image-24",
+      "iconName": "image",
+      "description": "image, photo, picture",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2175",
+      "fileName": "image-16",
+      "iconName": "image",
+      "description": "image, photo, picture",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2184",
+      "fileName": "inbox-24",
+      "iconName": "inbox",
+      "description": "inbox, tray",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2187",
+      "fileName": "inbox-16",
+      "iconName": "inbox",
+      "description": "inbox, tray",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2194",
+      "fileName": "info-24",
+      "iconName": "info",
+      "description": "info, tip",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2198",
+      "fileName": "info-16",
+      "iconName": "info",
+      "description": "info, tip",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2206",
+      "fileName": "key-24",
+      "iconName": "key",
+      "description": "key, secure, secret",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2209",
+      "fileName": "key-16",
+      "iconName": "key",
+      "description": "key, secure, secret",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2217",
+      "fileName": "jump-link-24",
+      "iconName": "jump-link",
+      "description": "jump, go, link, skip",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2224",
+      "fileName": "jump-link-16",
+      "iconName": "jump-link",
+      "description": "jump, go, link, skip",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2236",
+      "fileName": "key-values-24",
+      "iconName": "key-values",
+      "description": "key, value, store, kv",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2245",
+      "fileName": "key-values-16",
+      "iconName": "key-values",
+      "description": "key, value, store, kv",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2259",
+      "fileName": "labyrinth-24",
+      "iconName": "labyrinth",
+      "description": "labyrinth, maze",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2265",
+      "fileName": "labyrinth-16",
+      "iconName": "labyrinth",
+      "description": "labyrinth, maze",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2276",
+      "fileName": "layers-24",
+      "iconName": "layers",
+      "description": "layers, stack",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2280",
+      "fileName": "layers-16",
+      "iconName": "layers",
+      "description": "layers, stack",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2288",
+      "fileName": "layout-24",
+      "iconName": "layout",
+      "description": "layout, app, window",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2292",
+      "fileName": "layout-16",
+      "iconName": "layout",
+      "description": "layout, app, window",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2300",
+      "fileName": "learn-24",
+      "iconName": "learn",
+      "description": "learn, education",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2303",
+      "fileName": "learn-16",
+      "iconName": "learn",
+      "description": "learn, education",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2312",
+      "fileName": "learn-link-24",
+      "iconName": "learn-link",
+      "description": "learn, education, go, link",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2317",
+      "fileName": "learn-link-16",
+      "iconName": "learn-link",
+      "description": "learn, education, go, link",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2327",
+      "fileName": "line-chart-24",
+      "iconName": "line-chart",
+      "description": "chart, graph, trend",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2334",
+      "fileName": "line-chart-16",
+      "iconName": "line-chart",
+      "description": "chart, graph, trend",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2346",
+      "fileName": "line-chart-up-24",
+      "iconName": "line-chart-up",
+      "description": "chart, graph, trend, up",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2354",
+      "fileName": "line-chart-up-16",
+      "iconName": "line-chart-up",
+      "description": "chart, graph, trend, up",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2367",
+      "fileName": "link-24",
+      "iconName": "link",
+      "description": "link, url",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2370",
+      "fileName": "link-16",
+      "iconName": "link",
+      "description": "link, url",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2377",
+      "fileName": "list-24",
+      "iconName": "list",
+      "description": "list, format, view, group",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2381",
+      "fileName": "list-16",
+      "iconName": "list",
+      "description": "list, format, view, group",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2389",
+      "fileName": "lock-24",
+      "iconName": "lock",
+      "description": "lock, secure",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2393",
+      "fileName": "lock-16",
+      "iconName": "lock",
+      "description": "lock, secure",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2402",
+      "fileName": "lock-fill-24",
+      "iconName": "lock-fill",
+      "description": "lock, secure, locked, secured",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2407",
+      "fileName": "lock-fill-16",
+      "iconName": "lock-fill",
+      "description": "lock, secure, locked, secured",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2417",
+      "fileName": "lock-off-24",
+      "iconName": "lock-off",
+      "description": "lock, secure, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2422",
+      "fileName": "lock-off-16",
+      "iconName": "lock-off",
+      "description": "lock, secure, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2431",
+      "fileName": "mail-24",
+      "iconName": "mail",
+      "description": "mail, email, message",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2435",
+      "fileName": "mail-16",
+      "iconName": "mail",
+      "description": "mail, email, message",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2445",
+      "fileName": "mail-open-24",
+      "iconName": "mail-open",
+      "description": "mail, email, message, opened",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2449",
+      "fileName": "mail-open-16",
+      "iconName": "mail-open",
+      "description": "mail, email, message, opened",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2458",
+      "fileName": "map-24",
+      "iconName": "map",
+      "description": "map, navigate, plan",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2462",
+      "fileName": "map-16",
+      "iconName": "map",
+      "description": "map, navigate, plan",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2470",
+      "fileName": "map-pin-24",
+      "iconName": "map-pin",
+      "description": "map, pin, location",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2473",
+      "fileName": "map-pin-16",
+      "iconName": "map-pin",
+      "description": "map, pin, location",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2480",
+      "fileName": "maximize-24",
+      "iconName": "maximize",
+      "description": "maximize, zoom",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2485",
+      "fileName": "maximize-16",
+      "iconName": "maximize",
+      "description": "maximize, zoom",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2494",
+      "fileName": "maximize-alt-24",
+      "iconName": "maximize-alt",
+      "description": "maximize, zoom",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2496",
+      "fileName": "maximize-alt-16",
+      "iconName": "maximize-alt",
+      "description": "maximize, zoom",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2502",
+      "fileName": "meh-24",
+      "iconName": "meh",
+      "description": "emoji, meh, neutral",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2507",
+      "fileName": "meh-16",
+      "iconName": "meh",
+      "description": "emoji, meh, neutral",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2516",
+      "fileName": "menu-24",
+      "iconName": "menu",
+      "description": "menu, hamburger, navigation",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2520",
+      "fileName": "menu-16",
+      "iconName": "menu",
+      "description": "menu, hamburger, navigation",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2528",
+      "fileName": "mesh-24",
+      "iconName": "mesh",
+      "description": "mesh, network",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2537",
+      "fileName": "mesh-16",
+      "iconName": "mesh",
+      "description": "mesh, network",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2551",
+      "fileName": "message-circle-24",
+      "iconName": "message-circle",
+      "description": "message, chat",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2553",
+      "fileName": "message-circle-16",
+      "iconName": "message-circle",
+      "description": "message, chat",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2560",
+      "fileName": "message-circle-fill-24",
+      "iconName": "message-circle-fill",
+      "description": "message, chat, text",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2565",
+      "fileName": "message-circle-fill-16",
+      "iconName": "message-circle-fill",
+      "description": "message, chat, text",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2574",
+      "fileName": "message-square-24",
+      "iconName": "message-square",
+      "description": "message, chat",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2576",
+      "fileName": "message-square-16",
+      "iconName": "message-square",
+      "description": "message, chat",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2582",
+      "fileName": "message-square-fill-24",
+      "iconName": "message-square-fill",
+      "description": "message, chat, text",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2587",
+      "fileName": "message-square-fill-16",
+      "iconName": "message-square-fill",
+      "description": "message, chat, text",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2596",
+      "fileName": "mic-24",
+      "iconName": "mic",
+      "description": "microphone",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2601",
+      "fileName": "mic-16",
+      "iconName": "mic",
+      "description": "microphone",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2610",
+      "fileName": "mic-off-24",
+      "iconName": "mic-off",
+      "description": "microphone, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2616",
+      "fileName": "mic-off-16",
+      "iconName": "mic-off",
+      "description": "microphone, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2628",
+      "fileName": "migrate-24",
+      "iconName": "migrate",
+      "description": "migrate, migration",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2632",
+      "fileName": "migrate-16",
+      "iconName": "migrate",
+      "description": "migrate, migration",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2641",
+      "fileName": "minimize-24",
+      "iconName": "minimize",
+      "description": "minimize, collapse, close",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2646",
+      "fileName": "minimize-16",
+      "iconName": "minimize",
+      "description": "minimize, collapse, close",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2655",
+      "fileName": "minimize-alt-24",
+      "iconName": "minimize-alt",
+      "description": "minimize",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2657",
+      "fileName": "minimize-alt-16",
+      "iconName": "minimize-alt",
+      "description": "minimize",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2663",
+      "fileName": "minus-24",
+      "iconName": "minus",
+      "description": "minus, remove, delete",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2665",
+      "fileName": "minus-16",
+      "iconName": "minus",
+      "description": "minus, remove, delete",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2672",
+      "fileName": "minus-circle-24",
+      "iconName": "minus-circle",
+      "description": "minus, remove, delete, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2675",
+      "fileName": "minus-circle-16",
+      "iconName": "minus-circle",
+      "description": "minus, remove, delete, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2682",
+      "fileName": "minus-square-24",
+      "iconName": "minus-square",
+      "description": "minus, remove, delete, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2685",
+      "fileName": "minus-square-16",
+      "iconName": "minus-square",
+      "description": "minus, remove, delete, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2692",
+      "fileName": "minus-plus-24",
+      "iconName": "minus-plus",
+      "description": "minus, remove, delete, plus, add, create, change, modify",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2697",
+      "fileName": "minus-plus-16",
+      "iconName": "minus-plus",
+      "description": "minus, remove, delete, plus, add, create, change, modify",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2707",
+      "fileName": "minus-plus-circle-24",
+      "iconName": "minus-plus-circle",
+      "description": "minus, remove, delete, plus, add, create, change, modify, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2713",
+      "fileName": "minus-plus-circle-16",
+      "iconName": "minus-plus-circle",
+      "description": "minus, remove, delete, plus, add, create, change, modify, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2724",
+      "fileName": "minus-plus-square-24",
+      "iconName": "minus-plus-square",
+      "description": "minus, remove, delete, plus, add, create, change, modify, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2730",
+      "fileName": "minus-plus-square-16",
+      "iconName": "minus-plus-square",
+      "description": "minus, remove, delete, plus, add, create, change, modify, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2741",
+      "fileName": "module-24",
+      "iconName": "module",
+      "description": "module",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2744",
+      "fileName": "module-16",
+      "iconName": "module",
+      "description": "module",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2752",
+      "fileName": "monitor-24",
+      "iconName": "monitor",
+      "description": "monitor, display, screen",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2756",
+      "fileName": "monitor-16",
+      "iconName": "monitor",
+      "description": "monitor, display, screen",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2764",
+      "fileName": "moon-24",
+      "iconName": "moon",
+      "description": "moon, night, dark",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2766",
+      "fileName": "moon-16",
+      "iconName": "moon",
+      "description": "moon, night, dark",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2772",
+      "fileName": "more-horizontal-24",
+      "iconName": "more-horizontal",
+      "description": "more, ellipsis",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2776",
+      "fileName": "more-horizontal-16",
+      "iconName": "more-horizontal",
+      "description": "more, ellipsis",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2785",
+      "fileName": "more-vertical-24",
+      "iconName": "more-vertical",
+      "description": "more, actions",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2789",
+      "fileName": "more-vertical-16",
+      "iconName": "more-vertical",
+      "description": "more, actions",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2797",
+      "fileName": "mouse-pointer-24",
+      "iconName": "mouse-pointer",
+      "description": "mouse, pointer, cursor",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2800",
+      "fileName": "mouse-pointer-16",
+      "iconName": "mouse-pointer",
+      "description": "mouse, pointer, cursor",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2807",
+      "fileName": "move-24",
+      "iconName": "move",
+      "description": "move, cursor",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2814",
+      "fileName": "move-16",
+      "iconName": "move",
+      "description": "move, cursor",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2825",
+      "fileName": "music-24",
+      "iconName": "music",
+      "description": "music, audio, sound",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2829",
+      "fileName": "music-16",
+      "iconName": "music",
+      "description": "music, audio, sound",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2837",
+      "fileName": "navigation-24",
+      "iconName": "navigation",
+      "description": "navigation, location",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2839",
+      "fileName": "navigation-16",
+      "iconName": "navigation",
+      "description": "navigation, location",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2845",
+      "fileName": "navigation-alt-24",
+      "iconName": "navigation-alt",
+      "description": "navigation",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2847",
+      "fileName": "navigation-alt-16",
+      "iconName": "navigation-alt",
+      "description": "navigation",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2853",
+      "fileName": "network-24",
+      "iconName": "network",
+      "description": "network, lan, connected",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2858",
+      "fileName": "network-16",
+      "iconName": "network",
+      "description": "network, lan, connected",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2868",
+      "fileName": "network-alt-24",
+      "iconName": "network-alt",
+      "description": "network, lan, connection, ethernet, port",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2874",
+      "fileName": "network-alt-16",
+      "iconName": "network-alt",
+      "description": "network, lan, connection, ethernet, port",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2885",
+      "fileName": "newspaper-24",
+      "iconName": "newspaper",
+      "description": "newspaper, blog, media",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2891",
+      "fileName": "newspaper-16",
+      "iconName": "newspaper",
+      "description": "newspaper, blog, media",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2904",
+      "fileName": "node-24",
+      "iconName": "node",
+      "description": "node, element, point",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2908",
+      "fileName": "node-16",
+      "iconName": "node",
+      "description": "node, element, point",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2917",
+      "fileName": "octagon-24",
+      "iconName": "octagon",
+      "description": "octagon",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2919",
+      "fileName": "octagon-16",
+      "iconName": "octagon",
+      "description": "octagon",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2925",
+      "fileName": "org-24",
+      "iconName": "org",
+      "description": "organization, team, group, company",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2935",
+      "fileName": "org-16",
+      "iconName": "org",
+      "description": "organization, team, group, company",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2950",
+      "fileName": "outline-24",
+      "iconName": "outline",
+      "description": "outline, document",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2960",
+      "fileName": "outline-16",
+      "iconName": "outline",
+      "description": "outline, document",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2973",
+      "fileName": "package-24",
+      "iconName": "package",
+      "description": "package, dependency, box",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2978",
+      "fileName": "package-16",
+      "iconName": "package",
+      "description": "package, dependency, box",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2988",
+      "fileName": "paperclip-24",
+      "iconName": "paperclip",
+      "description": "paperclip, clip, attachment",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:2990",
+      "fileName": "paperclip-16",
+      "iconName": "paperclip",
+      "description": "paperclip, clip, attachment",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:2996",
+      "fileName": "path-24",
+      "iconName": "path",
+      "description": "path, connection, network",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3004",
+      "fileName": "path-16",
+      "iconName": "path",
+      "description": "path, connection, network",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3017",
+      "fileName": "pause-24",
+      "iconName": "pause",
+      "description": "pause",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3020",
+      "fileName": "pause-16",
+      "iconName": "pause",
+      "description": "pause",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3028",
+      "fileName": "pause-circle-24",
+      "iconName": "pause-circle",
+      "description": "pause, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3032",
+      "fileName": "pause-circle-16",
+      "iconName": "pause-circle",
+      "description": "pause, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3041",
+      "fileName": "pen-tool-24",
+      "iconName": "pen-tool",
+      "description": "pen, vector, tool",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3046",
+      "fileName": "pen-tool-16",
+      "iconName": "pen-tool",
+      "description": "pen, vector, tool",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3055",
+      "fileName": "pencil-tool-24",
+      "iconName": "pencil-tool",
+      "description": "edit, pencil, tool",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3058",
+      "fileName": "pencil-tool-16",
+      "iconName": "pencil-tool",
+      "description": "edit, pencil, tool",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3066",
+      "fileName": "phone-24",
+      "iconName": "phone",
+      "description": "phone, telephone",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3068",
+      "fileName": "phone-16",
+      "iconName": "phone",
+      "description": "phone, telephone",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3074",
+      "fileName": "phone-call-24",
+      "iconName": "phone-call",
+      "description": "phone, telephone",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3077",
+      "fileName": "phone-call-16",
+      "iconName": "phone-call",
+      "description": "phone, telephone",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3084",
+      "fileName": "phone-off-24",
+      "iconName": "phone-off",
+      "description": "phone, telephone, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3087",
+      "fileName": "phone-off-16",
+      "iconName": "phone-off",
+      "description": "phone, telephone, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3094",
+      "fileName": "pie-chart-24",
+      "iconName": "pie-chart",
+      "description": "chart, pie, graph",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3097",
+      "fileName": "pie-chart-16",
+      "iconName": "pie-chart",
+      "description": "chart, pie, graph",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3104",
+      "fileName": "pin-24",
+      "iconName": "pin",
+      "description": "pin, pinned",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3106",
+      "fileName": "pin-16",
+      "iconName": "pin",
+      "description": "pin, pinned",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3113",
+      "fileName": "play-24",
+      "iconName": "play",
+      "description": "play, start, run",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3115",
+      "fileName": "play-16",
+      "iconName": "play",
+      "description": "play, start, run",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3121",
+      "fileName": "play-circle-24",
+      "iconName": "play-circle",
+      "description": "play, start, run, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "647:223",
+      "fileName": "play-circle-16",
+      "iconName": "play-circle",
+      "description": "play, start, run, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3133",
+      "fileName": "plus-24",
+      "iconName": "plus",
+      "description": "plus, add, create, new",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3136",
+      "fileName": "plus-16",
+      "iconName": "plus",
+      "description": "plus, add, create, new",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3143",
+      "fileName": "plus-circle-24",
+      "iconName": "plus-circle",
+      "description": "plus, add, create, new, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3147",
+      "fileName": "plus-circle-16",
+      "iconName": "plus-circle",
+      "description": "plus, add, create, new, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3155",
+      "fileName": "plus-square-24",
+      "iconName": "plus-square",
+      "description": "plus, add, create, new, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3159",
+      "fileName": "plus-square-16",
+      "iconName": "plus-square",
+      "description": "plus, add, create, new, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3167",
+      "fileName": "power-24",
+      "iconName": "power",
+      "description": "power, on, off",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3170",
+      "fileName": "power-16",
+      "iconName": "power",
+      "description": "power, on, off",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3177",
+      "fileName": "printer-24",
+      "iconName": "printer",
+      "description": "printer",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3181",
+      "fileName": "printer-16",
+      "iconName": "printer",
+      "description": "printer",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3189",
+      "fileName": "provider-24",
+      "iconName": "provider",
+      "description": "provider, service",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3196",
+      "fileName": "provider-16",
+      "iconName": "provider",
+      "description": "provider, service",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3208",
+      "fileName": "queue-24",
+      "iconName": "queue",
+      "description": "queue",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3213",
+      "fileName": "queue-16",
+      "iconName": "queue",
+      "description": "queue",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3223",
+      "fileName": "radio-24",
+      "iconName": "radio",
+      "description": "radio, sound, signal",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3227",
+      "fileName": "radio-16",
+      "iconName": "radio",
+      "description": "radio, sound, signal",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3235",
+      "fileName": "random-24",
+      "iconName": "random",
+      "description": "random, dice, chance",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3240",
+      "fileName": "random-16",
+      "iconName": "random",
+      "description": "random, dice, chance",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3251",
+      "fileName": "redirect-24",
+      "iconName": "redirect",
+      "description": "redirect, arrow",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3253",
+      "fileName": "redirect-16",
+      "iconName": "redirect",
+      "description": "redirect, arrow",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3260",
+      "fileName": "reload-24",
+      "iconName": "reload",
+      "description": "reload, restart, refresh",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3263",
+      "fileName": "reload-16",
+      "iconName": "reload",
+      "description": "reload, restart, refresh",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3271",
+      "fileName": "repeat-24",
+      "iconName": "repeat",
+      "description": "repeat, redo, process",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3276",
+      "fileName": "repeat-16",
+      "iconName": "repeat",
+      "description": "repeat, redo, process",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3285",
+      "fileName": "replication-direct-24",
+      "iconName": "replication-direct",
+      "description": "replication, duplication",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3289",
+      "fileName": "replication-direct-16",
+      "iconName": "replication-direct",
+      "description": "replication, duplication",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3298",
+      "fileName": "replication-perf-24",
+      "iconName": "replication-perf",
+      "description": "replication, duplication",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3308",
+      "fileName": "replication-perf-16",
+      "iconName": "replication-perf",
+      "description": "replication, duplication",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3323",
+      "fileName": "rewind-24",
+      "iconName": "rewind",
+      "description": "rewind, back, previous",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3326",
+      "fileName": "rewind-16",
+      "iconName": "rewind",
+      "description": "rewind, back, previous",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3333",
+      "fileName": "rocket-24",
+      "iconName": "rocket",
+      "description": "rocket, launch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3342",
+      "fileName": "rocket-16",
+      "iconName": "rocket",
+      "description": "rocket, launch",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3355",
+      "fileName": "rotate-cw-24",
+      "iconName": "rotate-cw",
+      "description": "rotate",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3358",
+      "fileName": "rotate-cw-16",
+      "iconName": "rotate-cw",
+      "description": "rotate",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3366",
+      "fileName": "rotate-ccw-24",
+      "iconName": "rotate-ccw",
+      "description": "rotate",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3369",
+      "fileName": "rotate-ccw-16",
+      "iconName": "rotate-ccw",
+      "description": "rotate",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3378",
+      "fileName": "rss-24",
+      "iconName": "rss",
+      "description": "rss, feed",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3382",
+      "fileName": "rss-16",
+      "iconName": "rss",
+      "description": "rss, feed",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3390",
+      "fileName": "save-24",
+      "iconName": "save",
+      "description": "save, disk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3394",
+      "fileName": "save-16",
+      "iconName": "save",
+      "description": "save, disk",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3402",
+      "fileName": "scissors-24",
+      "iconName": "scissors",
+      "description": "scissors, cut",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3407",
+      "fileName": "scissors-16",
+      "iconName": "scissors",
+      "description": "scissors, cut",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3417",
+      "fileName": "search-24",
+      "iconName": "search",
+      "description": "search, find",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3420",
+      "fileName": "search-16",
+      "iconName": "search",
+      "description": "search, find",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3427",
+      "fileName": "send-24",
+      "iconName": "send",
+      "description": "send, message",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3430",
+      "fileName": "send-16",
+      "iconName": "send",
+      "description": "send, message",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3438",
+      "fileName": "server-24",
+      "iconName": "server",
+      "description": "server, data",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3443",
+      "fileName": "server-16",
+      "iconName": "server",
+      "description": "server, data",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3453",
+      "fileName": "serverless-24",
+      "iconName": "serverless",
+      "description": "serverless, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3458",
+      "fileName": "serverless-16",
+      "iconName": "serverless",
+      "description": "serverless, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3468",
+      "fileName": "server-cluster-24",
+      "iconName": "server-cluster",
+      "description": "server, data, cluster, network",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3476",
+      "fileName": "server-cluster-16",
+      "iconName": "server-cluster",
+      "description": "server, data, cluster, network",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3489",
+      "fileName": "settings-24",
+      "iconName": "settings",
+      "description": "settings, preferences, gear, cog, configuration",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3497",
+      "fileName": "settings-16",
+      "iconName": "settings",
+      "description": "settings, preferences, gear, cog, configuration",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3511",
+      "fileName": "share-24",
+      "iconName": "share",
+      "description": "share",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3515",
+      "fileName": "share-16",
+      "iconName": "share",
+      "description": "share",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3523",
+      "fileName": "shield-24",
+      "iconName": "shield",
+      "description": "shield, secure, protect",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3525",
+      "fileName": "shield-16",
+      "iconName": "shield",
+      "description": "shield, secure, protect",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3531",
+      "fileName": "shield-alert-24",
+      "iconName": "shield-alert",
+      "description": "shield, secure, protect, issue, alert",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3535",
+      "fileName": "shield-alert-16",
+      "iconName": "shield-alert",
+      "description": "shield, secure, protect, issue, alert",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3544",
+      "fileName": "shield-check-24",
+      "iconName": "shield-check",
+      "description": "shield, secure, protect, check, success",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3548",
+      "fileName": "shield-check-16",
+      "iconName": "shield-check",
+      "description": "shield, secure, protect, check, success",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3557",
+      "fileName": "shield-off-24",
+      "iconName": "shield-off",
+      "description": "shield, secure, protect, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3560",
+      "fileName": "shield-off-16",
+      "iconName": "shield-off",
+      "description": "shield, secure, protect, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3567",
+      "fileName": "shield-x-24",
+      "iconName": "shield-x",
+      "description": "shield, secure, protect, error",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3571",
+      "fileName": "shield-x-16",
+      "iconName": "shield-x",
+      "description": "shield, secure, protect, error",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3580",
+      "fileName": "shopping-bag-24",
+      "iconName": "shopping-bag",
+      "description": "shopping, store, basket",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3584",
+      "fileName": "shopping-bag-16",
+      "iconName": "shopping-bag",
+      "description": "shopping, store, basket",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3592",
+      "fileName": "shopping-cart-24",
+      "iconName": "shopping-cart",
+      "description": "shopping, store, basket, cart",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3596",
+      "fileName": "shopping-cart-16",
+      "iconName": "shopping-cart",
+      "description": "shopping, store, basket, cart",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3604",
+      "fileName": "shuffle-24",
+      "iconName": "shuffle",
+      "description": "shuffle, random",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3609",
+      "fileName": "shuffle-16",
+      "iconName": "shuffle",
+      "description": "shuffle, random",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3619",
+      "fileName": "sidebar-24",
+      "iconName": "sidebar",
+      "description": "layout, sidebar",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3622",
+      "fileName": "sidebar-16",
+      "iconName": "sidebar",
+      "description": "layout, sidebar",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3629",
+      "fileName": "sidebar-hide-24",
+      "iconName": "sidebar-hide",
+      "description": "layout, sidebar, hide, collapse",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3633",
+      "fileName": "sidebar-hide-16",
+      "iconName": "sidebar-hide",
+      "description": "layout, sidebar, hide, collapse",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3642",
+      "fileName": "sidebar-show-24",
+      "iconName": "sidebar-show",
+      "description": "layout, sidebar, show, expand",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3646",
+      "fileName": "sidebar-show-16",
+      "iconName": "sidebar-show",
+      "description": "layout, sidebar, show, expand",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3655",
+      "fileName": "sign-in-24",
+      "iconName": "sign-in",
+      "description": "login, signin, enter",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3659",
+      "fileName": "sign-in-16",
+      "iconName": "sign-in",
+      "description": "login, signin, enter",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3667",
+      "fileName": "sign-out-24",
+      "iconName": "sign-out",
+      "description": "logout, signout, leave, exit",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3671",
+      "fileName": "sign-out-16",
+      "iconName": "sign-out",
+      "description": "logout, signout, leave, exit",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3679",
+      "fileName": "skip-24",
+      "iconName": "skip",
+      "description": "skip, deny",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3682",
+      "fileName": "skip-16",
+      "iconName": "skip",
+      "description": "skip, deny",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3689",
+      "fileName": "skip-forward-24",
+      "iconName": "skip-forward",
+      "description": "skip, forward, next",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3692",
+      "fileName": "skip-forward-16",
+      "iconName": "skip-forward",
+      "description": "skip, forward, next",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3699",
+      "fileName": "skip-back-24",
+      "iconName": "skip-back",
+      "description": "skip, previous, back",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3702",
+      "fileName": "skip-back-16",
+      "iconName": "skip-back",
+      "description": "skip, previous, back",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3709",
+      "fileName": "slash-24",
+      "iconName": "slash",
+      "description": "slash",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3711",
+      "fileName": "slash-16",
+      "iconName": "slash",
+      "description": "slash",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3719",
+      "fileName": "slash-square-24",
+      "iconName": "slash-square",
+      "description": "slash, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3722",
+      "fileName": "slash-square-16",
+      "iconName": "slash-square",
+      "description": "slash, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3730",
+      "fileName": "sliders-24",
+      "iconName": "sliders",
+      "description": "sliders, options, preferences, customize",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3740",
+      "fileName": "sliders-16",
+      "iconName": "sliders",
+      "description": "sliders, options, preferences, customize",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3754",
+      "fileName": "smartphone-24",
+      "iconName": "smartphone",
+      "description": "phone, device",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3757",
+      "fileName": "smartphone-16",
+      "iconName": "smartphone",
+      "description": "phone, device",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3764",
+      "fileName": "smile-24",
+      "iconName": "smile",
+      "description": "emoji, smile, positive, happy",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3769",
+      "fileName": "smile-16",
+      "iconName": "smile",
+      "description": "emoji, smile, positive, happy",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3778",
+      "fileName": "socket-24",
+      "iconName": "socket",
+      "description": "socket, port",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3783",
+      "fileName": "socket-16",
+      "iconName": "socket",
+      "description": "socket, port",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3793",
+      "fileName": "sort-asc-24",
+      "iconName": "sort-asc",
+      "description": "sort, ascending, up",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3800",
+      "fileName": "sort-asc-16",
+      "iconName": "sort-asc",
+      "description": "sort, ascending, up",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3812",
+      "fileName": "sort-desc-24",
+      "iconName": "sort-desc",
+      "description": "sort, descending, down",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3819",
+      "fileName": "sort-desc-16",
+      "iconName": "sort-desc",
+      "description": "sort, descending, down",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3831",
+      "fileName": "speaker-24",
+      "iconName": "speaker",
+      "description": "speaker, sound",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3834",
+      "fileName": "speaker-16",
+      "iconName": "speaker",
+      "description": "speaker, sound",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3841",
+      "fileName": "square-24",
+      "iconName": "square",
+      "description": "square, rectangle, box, stop",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3843",
+      "fileName": "square-16",
+      "iconName": "square",
+      "description": "square, rectangle, box, stop",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3850",
+      "fileName": "square-fill-24",
+      "iconName": "square-fill",
+      "description": "square, rectangle, box, stop",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3852",
+      "fileName": "square-fill-16",
+      "iconName": "square-fill",
+      "description": "square, rectangle, box, stop",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3859",
+      "fileName": "star-24",
+      "iconName": "star",
+      "description": "star, favorite",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3861",
+      "fileName": "star-16",
+      "iconName": "star",
+      "description": "star, favorite",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3867",
+      "fileName": "star-circle-24",
+      "iconName": "star-circle",
+      "description": "star, favorite, ring, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3870",
+      "fileName": "star-circle-16",
+      "iconName": "star-circle",
+      "description": "star, favorite, ring, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3878",
+      "fileName": "star-fill-24",
+      "iconName": "star-fill",
+      "description": "star, favorite, starred, favorited",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3880",
+      "fileName": "star-fill-16",
+      "iconName": "star-fill",
+      "description": "star, favorite, starred, favorited",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3887",
+      "fileName": "star-off-24",
+      "iconName": "star-off",
+      "description": "star, favorite, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3890",
+      "fileName": "star-off-16",
+      "iconName": "star-off",
+      "description": "star, favorite, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3898",
+      "fileName": "stop-circle-24",
+      "iconName": "stop-circle",
+      "description": "stop, circle, end",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3901",
+      "fileName": "stop-circle-16",
+      "iconName": "stop-circle",
+      "description": "stop, circle, end",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3909",
+      "fileName": "sun-24",
+      "iconName": "sun",
+      "description": "sun, day, light, bright",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3919",
+      "fileName": "sun-16",
+      "iconName": "sun",
+      "description": "sun, day, light, bright",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3933",
+      "fileName": "support-24",
+      "iconName": "support",
+      "description": "lifebuoy, help, support",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3940",
+      "fileName": "support-16",
+      "iconName": "support",
+      "description": "lifebuoy, help, support",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3952",
+      "fileName": "swap-horizontal-24",
+      "iconName": "swap-horizontal",
+      "description": "swap, switch, horizontal",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3957",
+      "fileName": "swap-horizontal-16",
+      "iconName": "swap-horizontal",
+      "description": "swap, switch, horizontal",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3968",
+      "fileName": "swap-vertical-24",
+      "iconName": "swap-vertical",
+      "description": "swap, switch, vertical",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3973",
+      "fileName": "swap-vertical-16",
+      "iconName": "swap-vertical",
+      "description": "swap, switch, vertical",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:3983",
+      "fileName": "switcher-24",
+      "iconName": "switcher",
+      "description": "switcher, launcher, apps",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:3993",
+      "fileName": "switcher-16",
+      "iconName": "switcher",
+      "description": "switcher, launcher, apps",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4008",
+      "fileName": "sync-24",
+      "iconName": "sync",
+      "description": "refresh, syncing",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4012",
+      "fileName": "sync-16",
+      "iconName": "sync",
+      "description": "refresh, syncing",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4021",
+      "fileName": "sync-alert-24",
+      "iconName": "sync-alert",
+      "description": "refresh, syncing, issue, alert",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4027",
+      "fileName": "sync-alert-16",
+      "iconName": "sync-alert",
+      "description": "refresh, syncing, issue, alert",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4038",
+      "fileName": "sync-reverse-24",
+      "iconName": "sync-reverse",
+      "description": "refresh, syncing, reverse",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4042",
+      "fileName": "sync-reverse-16",
+      "iconName": "sync-reverse",
+      "description": "refresh, syncing, reverse",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4051",
+      "fileName": "tablet-24",
+      "iconName": "tablet",
+      "description": "tablet, device",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4054",
+      "fileName": "tablet-16",
+      "iconName": "tablet",
+      "description": "tablet, device",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4061",
+      "fileName": "tag-24",
+      "iconName": "tag",
+      "description": "tag, label",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4064",
+      "fileName": "tag-16",
+      "iconName": "tag",
+      "description": "tag, label",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4071",
+      "fileName": "target-24",
+      "iconName": "target",
+      "description": "target",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4075",
+      "fileName": "target-16",
+      "iconName": "target",
+      "description": "target",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4083",
+      "fileName": "terminal-24",
+      "iconName": "terminal",
+      "description": "terminal, code, cli",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4086",
+      "fileName": "terminal-16",
+      "iconName": "terminal",
+      "description": "terminal, code, cli",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4094",
+      "fileName": "terminal-screen-24",
+      "iconName": "terminal-screen",
+      "description": "terminal, code, cli, interactive",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4098",
+      "fileName": "terminal-screen-16",
+      "iconName": "terminal-screen",
+      "description": "terminal, code, cli, interactive",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4107",
+      "fileName": "thumbs-up-24",
+      "iconName": "thumbs-up",
+      "description": "thumbs, up, vote, like",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4109",
+      "fileName": "thumbs-up-16",
+      "iconName": "thumbs-up",
+      "description": "thumbs, up, vote, like",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4115",
+      "fileName": "thumbs-down-24",
+      "iconName": "thumbs-down",
+      "description": "thumbs, down, vote, dislike",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4117",
+      "fileName": "thumbs-down-16",
+      "iconName": "thumbs-down",
+      "description": "thumbs, down, vote, dislike",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4123",
+      "fileName": "toggle-left-24",
+      "iconName": "toggle-left",
+      "description": "toggle, switch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4126",
+      "fileName": "toggle-left-16",
+      "iconName": "toggle-left",
+      "description": "toggle, switch",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4133",
+      "fileName": "toggle-right-24",
+      "iconName": "toggle-right",
+      "description": "toggle, switch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4136",
+      "fileName": "toggle-right-16",
+      "iconName": "toggle-right",
+      "description": "toggle, switch",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4143",
+      "fileName": "token-24",
+      "iconName": "token",
+      "description": "tokens",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4147",
+      "fileName": "token-16",
+      "iconName": "token",
+      "description": "tokens",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4156",
+      "fileName": "tools-24",
+      "iconName": "tools",
+      "description": "tools, toolbox",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4161",
+      "fileName": "tools-16",
+      "iconName": "tools",
+      "description": "tools, toolbox",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4171",
+      "fileName": "top-24",
+      "iconName": "top",
+      "description": "top, scroll, up",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4175",
+      "fileName": "top-16",
+      "iconName": "top",
+      "description": "top, scroll, up",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4184",
+      "fileName": "trash-24",
+      "iconName": "trash",
+      "description": "trash, bin, delete",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4189",
+      "fileName": "trash-16",
+      "iconName": "trash",
+      "description": "trash, bin, delete",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4199",
+      "fileName": "trend-down-24",
+      "iconName": "trend-down",
+      "description": "trend, down, negative",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4202",
+      "fileName": "trend-down-16",
+      "iconName": "trend-down",
+      "description": "trend, down, negative",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4209",
+      "fileName": "trend-up-24",
+      "iconName": "trend-up",
+      "description": "trend, up, positive",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4212",
+      "fileName": "trend-up-16",
+      "iconName": "trend-up",
+      "description": "trend, up, positive",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4219",
+      "fileName": "triangle-24",
+      "iconName": "triangle",
+      "description": "triangle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4221",
+      "fileName": "triangle-16",
+      "iconName": "triangle",
+      "description": "triangle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4227",
+      "fileName": "triangle-fill-24",
+      "iconName": "triangle-fill",
+      "description": "triangle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4229",
+      "fileName": "triangle-fill-16",
+      "iconName": "triangle-fill",
+      "description": "triangle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4236",
+      "fileName": "truck-24",
+      "iconName": "truck",
+      "description": "truck, lorry, vehicle, transport, ship",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4240",
+      "fileName": "truck-16",
+      "iconName": "truck",
+      "description": "truck, lorry, vehicle, transport, ship",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4248",
+      "fileName": "tv-24",
+      "iconName": "tv",
+      "description": "tv, video, watch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4251",
+      "fileName": "tv-16",
+      "iconName": "tv",
+      "description": "tv, video, watch",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4258",
+      "fileName": "type-24",
+      "iconName": "type",
+      "description": "type, font, text",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4262",
+      "fileName": "type-16",
+      "iconName": "type",
+      "description": "type, font, text",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4270",
+      "fileName": "unfold-open-24",
+      "iconName": "unfold-open",
+      "description": "unfold, open, expand",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4274",
+      "fileName": "unfold-open-16",
+      "iconName": "unfold-open",
+      "description": "unfold, open, expand",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4283",
+      "fileName": "unfold-close-24",
+      "iconName": "unfold-close",
+      "description": "fold, close, collapse",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4287",
+      "fileName": "unfold-close-16",
+      "iconName": "unfold-close",
+      "description": "fold, close, collapse",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4297",
+      "fileName": "unlock-24",
+      "iconName": "unlock",
+      "description": "lock, unlock, unlocked, unsecure",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4300",
+      "fileName": "unlock-16",
+      "iconName": "unlock",
+      "description": "lock, unlock, unlocked, unsecure",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4307",
+      "fileName": "upload-24",
+      "iconName": "upload",
+      "description": "upload",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4311",
+      "fileName": "upload-16",
+      "iconName": "upload",
+      "description": "upload",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4319",
+      "fileName": "user-24",
+      "iconName": "user",
+      "description": "user, person",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4322",
+      "fileName": "user-16",
+      "iconName": "user",
+      "description": "user, person",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4329",
+      "fileName": "user-check-24",
+      "iconName": "user-check",
+      "description": "user, person, check, success",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4334",
+      "fileName": "user-check-16",
+      "iconName": "user-check",
+      "description": "user, person, check, success",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4343",
+      "fileName": "user-circle-24",
+      "iconName": "user-circle",
+      "description": "user, person, avatar, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4347",
+      "fileName": "user-circle-16",
+      "iconName": "user-circle",
+      "description": "user, person, avatar, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4356",
+      "fileName": "user-circle-fill-24",
+      "iconName": "user-circle-fill",
+      "description": "user, person, avatar, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4361",
+      "fileName": "user-circle-fill-16",
+      "iconName": "user-circle-fill",
+      "description": "user, person, avatar, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4371",
+      "fileName": "user-minus-24",
+      "iconName": "user-minus",
+      "description": "user, person, minus, remove",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4375",
+      "fileName": "user-minus-16",
+      "iconName": "user-minus",
+      "description": "user, person, minus, remove",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4383",
+      "fileName": "user-plus-24",
+      "iconName": "user-plus",
+      "description": "user, person, plus, new, create, add",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4388",
+      "fileName": "user-plus-16",
+      "iconName": "user-plus",
+      "description": "user, person, plus, new, create, add",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4397",
+      "fileName": "user-x-24",
+      "iconName": "user-x",
+      "description": "user, person, delete, remove",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4402",
+      "fileName": "user-x-16",
+      "iconName": "user-x",
+      "description": "user, person, delete, remove",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4412",
+      "fileName": "users-24",
+      "iconName": "users",
+      "description": "users, people, team, group",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4417",
+      "fileName": "users-16",
+      "iconName": "users",
+      "description": "users, people, team, group",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4426",
+      "fileName": "vault-24",
+      "iconName": "vault",
+      "description": "vault, secure",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4439",
+      "fileName": "vault-16",
+      "iconName": "vault",
+      "description": "vault, secure",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4456",
+      "fileName": "verified-24",
+      "iconName": "verified",
+      "description": "verified, badge, authenticated",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4460",
+      "fileName": "verified-16",
+      "iconName": "verified",
+      "description": "verified, badge, authenticated",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4469",
+      "fileName": "video-24",
+      "iconName": "video",
+      "description": "video",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4471",
+      "fileName": "video-16",
+      "iconName": "video",
+      "description": "video",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4477",
+      "fileName": "video-off-24",
+      "iconName": "video-off",
+      "description": "video, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4480",
+      "fileName": "video-off-16",
+      "iconName": "video-off",
+      "description": "video, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4487",
+      "fileName": "volume-24",
+      "iconName": "volume",
+      "description": "volume, low, muted",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4489",
+      "fileName": "volume-16",
+      "iconName": "volume",
+      "description": "volume, low, muted",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4495",
+      "fileName": "volume-down-24",
+      "iconName": "volume-down",
+      "description": "volume, down, low, quiet",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4498",
+      "fileName": "volume-down-16",
+      "iconName": "volume-down",
+      "description": "volume, down, low, quiet",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4505",
+      "fileName": "volume-2-24",
+      "iconName": "volume-2",
+      "description": "volume, up, high, loud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4509",
+      "fileName": "volume-2-16",
+      "iconName": "volume-2",
+      "description": "volume, up, high, loud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4517",
+      "fileName": "volume-x-24",
+      "iconName": "volume-x",
+      "description": "volume, off, disabled, muted",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4521",
+      "fileName": "volume-x-16",
+      "iconName": "volume-x",
+      "description": "volume, off, disabled, muted",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4530",
+      "fileName": "wall-24",
+      "iconName": "wall",
+      "description": "wall, firewall, barrier",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4539",
+      "fileName": "wall-16",
+      "iconName": "wall",
+      "description": "wall, firewall, barrier",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4553",
+      "fileName": "watch-24",
+      "iconName": "watch",
+      "description": "watch, time",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4558",
+      "fileName": "watch-16",
+      "iconName": "watch",
+      "description": "watch, time",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4567",
+      "fileName": "webhook-24",
+      "iconName": "webhook",
+      "description": "webhook, hook",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4572",
+      "fileName": "webhook-16",
+      "iconName": "webhook",
+      "description": "webhook, hook",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4582",
+      "fileName": "wifi-24",
+      "iconName": "wifi",
+      "description": "wifi, internet",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4587",
+      "fileName": "wifi-16",
+      "iconName": "wifi",
+      "description": "wifi, internet",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4596",
+      "fileName": "wifi-off-24",
+      "iconName": "wifi-off",
+      "description": "wifi, internet, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4600",
+      "fileName": "wifi-off-16",
+      "iconName": "wifi-off",
+      "description": "wifi, internet, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4608",
+      "fileName": "wrench-24",
+      "iconName": "wrench",
+      "description": "wrench, tool, adjust",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4610",
+      "fileName": "wrench-16",
+      "iconName": "wrench",
+      "description": "wrench, tool, adjust",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4617",
+      "fileName": "x-24",
+      "iconName": "x",
+      "description": "cross, delete, remove, cancel",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4620",
+      "fileName": "x-16",
+      "iconName": "x",
+      "description": "cross, delete, remove, cancel",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4627",
+      "fileName": "x-circle-24",
+      "iconName": "x-circle",
+      "description": "cross, delete, remove, cancel, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4631",
+      "fileName": "x-circle-16",
+      "iconName": "x-circle",
+      "description": "cross, delete, remove, cancel, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "350:4639",
+      "fileName": "x-circle-fill-24",
+      "iconName": "x-circle-fill",
+      "description": "cross, delete, remove, cancel, circle",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4644",
+      "fileName": "x-circle-fill-16",
+      "iconName": "x-circle-fill",
+      "description": "cross, delete, remove, cancel, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:82",
+      "fileName": "x-diamond-24",
+      "iconName": "x-diamond",
+      "description": "check, tick, success, diamond",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:86",
+      "fileName": "x-diamond-16",
+      "iconName": "x-diamond",
+      "description": "check, tick, success, diamond",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:95",
+      "fileName": "x-diamond-fill-24",
+      "iconName": "x-diamond-fill",
+      "description": "check, tick, success, diamond",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:100",
+      "fileName": "x-diamond-fill-16",
+      "iconName": "x-diamond-fill",
+      "description": "check, tick, success, diamond",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:110",
+      "fileName": "x-hexagon-24",
+      "iconName": "x-hexagon",
+      "description": "check, tick, success, diamond",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:114",
+      "fileName": "x-hexagon-16",
+      "iconName": "x-hexagon",
+      "description": "check, tick, success, diamond",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:123",
+      "fileName": "x-hexagon-fill-24",
+      "iconName": "x-hexagon-fill",
+      "description": "check, tick, success, diamond",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:128",
+      "fileName": "x-hexagon-fill-16",
+      "iconName": "x-hexagon-fill",
+      "description": "check, tick, success, diamond",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "636:101",
+      "fileName": "x-square-24",
+      "iconName": "x-square",
+      "description": "cross, delete, remove, cancel, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "636:105",
+      "fileName": "x-square-16",
+      "iconName": "x-square",
+      "description": "cross, delete, remove, cancel, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "636:112",
+      "fileName": "x-square-fill-24",
+      "iconName": "x-square-fill",
+      "description": "cross, delete, remove, cancel, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "636:117",
+      "fileName": "x-square-fill-16",
+      "iconName": "x-square-fill",
+      "description": "cross, delete, remove, cancel, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "363:246",
+      "fileName": "zap-24",
+      "iconName": "zap",
+      "description": "zap, power, run, automate",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "363:248",
+      "fileName": "zap-16",
+      "iconName": "zap",
+      "description": "zap, power, run, automate",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:228",
+      "fileName": "zap-off-24",
+      "iconName": "zap-off",
+      "description": "zap, power, run, automate, off, disabled",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:230",
+      "fileName": "zap-off-16",
+      "iconName": "zap-off",
+      "description": "zap, power, run, automate, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:236",
+      "fileName": "zoom-in-24",
+      "iconName": "zoom-in",
+      "description": "zoom, in, maximize",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:238",
+      "fileName": "zoom-in-16",
+      "iconName": "zoom-in",
+      "description": "zoom, in, maximize",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "551:244",
+      "fileName": "zoom-out-24",
+      "iconName": "zoom-out",
+      "description": "zoom, out, minimize",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "551:246",
+      "fileName": "zoom-out-16",
+      "iconName": "zoom-out",
+      "description": "zoom, out, minimize",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:38",
+      "fileName": "apple-24",
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:41",
+      "fileName": "apple-16",
+      "iconName": "apple",
+      "description": "apple, macos, ios",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:32",
+      "fileName": "apple-color-24",
+      "iconName": "apple-color",
+      "description": "apple, macos, ios",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:35",
+      "fileName": "apple-color-16",
+      "iconName": "apple-color",
+      "description": "apple, macos, ios",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:53",
+      "fileName": "alibaba-24",
+      "iconName": "alibaba",
+      "description": "alibaba, alibaba cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:56",
+      "fileName": "alibaba-16",
+      "iconName": "alibaba",
+      "description": "alibaba, alibaba cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:47",
+      "fileName": "alibaba-color-24",
+      "iconName": "alibaba-color",
+      "description": "alibaba, alibaba cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:50",
+      "fileName": "alibaba-color-16",
+      "iconName": "alibaba-color",
+      "description": "alibaba, alibaba cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:74",
+      "fileName": "aws-24",
+      "iconName": "aws",
+      "description": "amazon, aws, amazon web services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:77",
+      "fileName": "aws-16",
+      "iconName": "aws",
+      "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:62",
+      "fileName": "aws-color-24",
+      "iconName": "aws-color",
+      "description": "amazon, aws, amazon web services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:68",
+      "fileName": "aws-color-16",
+      "iconName": "aws-color",
+      "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:89",
+      "fileName": "auth0-24",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:92",
+      "fileName": "auth0-16",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:83",
+      "fileName": "auth0-color-24",
+      "iconName": "auth0-color",
+      "description": "auth0",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:86",
+      "fileName": "auth0-color-16",
+      "iconName": "auth0-color",
+      "description": "auth0",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:104",
+      "fileName": "azure-24",
+      "iconName": "azure",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:107",
+      "fileName": "azure-16",
+      "iconName": "azure",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:98",
+      "fileName": "azure-color-24",
+      "iconName": "azure-color",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:101",
+      "fileName": "azure-color-16",
+      "iconName": "azure-color",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:119",
+      "fileName": "azure-devops-24",
+      "iconName": "azure-devops",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:122",
+      "fileName": "azure-devops-16",
+      "iconName": "azure-devops",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:113",
+      "fileName": "azure-devops-color-24",
+      "iconName": "azure-devops-color",
+      "description": "azure, microsoft",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:116",
+      "fileName": "azure-devops-color-16",
+      "iconName": "azure-devops-color",
+      "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:141",
+      "fileName": "bitbucket-24",
+      "iconName": "bitbucket",
+      "description": "bitbucket, atlassian",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:146",
+      "fileName": "bitbucket-16",
+      "iconName": "bitbucket",
+      "description": "bitbucket, atlassian",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:129",
+      "fileName": "bitbucket-color-24",
+      "iconName": "bitbucket-color",
+      "description": "bitbucket, atlassian",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:135",
+      "fileName": "bitbucket-color-16",
+      "iconName": "bitbucket-color",
+      "description": "bitbucket, atlassian",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:160",
+      "fileName": "docker-24",
+      "iconName": "docker",
+      "description": "docker",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:163",
+      "fileName": "docker-16",
+      "iconName": "docker",
+      "description": "docker",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:154",
+      "fileName": "docker-color-24",
+      "iconName": "docker-color",
+      "description": "docker",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:157",
+      "fileName": "docker-color-16",
+      "iconName": "docker-color",
+      "description": "docker",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:179",
+      "fileName": "f5-24",
+      "iconName": "f5",
+      "description": "f5",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:182",
+      "fileName": "f5-16",
+      "iconName": "f5",
+      "description": "f5",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:169",
+      "fileName": "f5-color-24",
+      "iconName": "f5-color",
+      "description": "f5",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:174",
+      "fileName": "f5-color-16",
+      "iconName": "f5-color",
+      "description": "f5",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:200",
+      "fileName": "gcp-24",
+      "iconName": "gcp",
+      "description": "google, gcp, google cloud platform",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:203",
+      "fileName": "gcp-16",
+      "iconName": "gcp",
+      "description": "google, gcp, google cloud platform",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:188",
+      "fileName": "gcp-color-24",
+      "iconName": "gcp-color",
+      "description": "google, gcp, google cloud platform",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:194",
+      "fileName": "gcp-color-16",
+      "iconName": "gcp-color",
+      "description": "google, gcp, google cloud platform",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:229",
+      "fileName": "gitlab-24",
+      "iconName": "gitlab",
+      "description": "gitlab",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:232",
+      "fileName": "gitlab-16",
+      "iconName": "gitlab",
+      "description": "gitlab",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:209",
+      "fileName": "gitlab-color-24",
+      "iconName": "gitlab-color",
+      "description": "gitlab",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:219",
+      "fileName": "gitlab-color-16",
+      "iconName": "gitlab-color",
+      "description": "gitlab",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:244",
+      "fileName": "github-24",
+      "iconName": "github",
+      "description": "github",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:247",
+      "fileName": "github-16",
+      "iconName": "github",
+      "description": "github",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:238",
+      "fileName": "github-color-24",
+      "iconName": "github-color",
+      "description": "github",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:241",
+      "fileName": "github-color-16",
+      "iconName": "github-color",
+      "description": "github",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:266",
+      "fileName": "google-24",
+      "iconName": "google",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:269",
+      "fileName": "google-16",
+      "iconName": "google",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:254",
+      "fileName": "google-color-24",
+      "iconName": "google-color",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:260",
+      "fileName": "google-color-16",
+      "iconName": "google-color",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:283",
+      "fileName": "kubernetes-24",
+      "iconName": "kubernetes",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:286",
+      "fileName": "kubernetes-16",
+      "iconName": "kubernetes",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:275",
+      "fileName": "kubernetes-color-24",
+      "iconName": "kubernetes-color",
+      "description": "kubernetes, k8s",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:279",
+      "fileName": "kubernetes-color-16",
+      "iconName": "kubernetes-color",
+      "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:304",
+      "fileName": "microsoft-24",
+      "iconName": "microsoft",
+      "description": "microsoft, ms, windows",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:307",
+      "fileName": "microsoft-16",
+      "iconName": "microsoft",
+      "description": "microsoft, ms, windows",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:292",
+      "fileName": "microsoft-color-24",
+      "iconName": "microsoft-color",
+      "description": "microsoft, ms, windows",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:298",
+      "fileName": "microsoft-color-16",
+      "iconName": "microsoft-color",
+      "description": "microsoft, ms, windows",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:319",
+      "fileName": "okta-24",
+      "iconName": "okta",
+      "description": "okta",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:322",
+      "fileName": "okta-16",
+      "iconName": "okta",
+      "description": "okta",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:313",
+      "fileName": "okta-color-24",
+      "iconName": "okta-color",
+      "description": "okta",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:316",
+      "fileName": "okta-color-16",
+      "iconName": "okta-color",
+      "description": "okta",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:338",
+      "fileName": "oracle-24",
+      "iconName": "oracle",
+      "description": "oracle, oracle cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:341",
+      "fileName": "oracle-16",
+      "iconName": "oracle",
+      "description": "oracle, oracle cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:328",
+      "fileName": "oracle-color-24",
+      "iconName": "oracle-color",
+      "description": "oracle, oracle cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:333",
+      "fileName": "oracle-color-16",
+      "iconName": "oracle-color",
+      "description": "oracle, oracle cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:375",
+      "fileName": "slack-24",
+      "iconName": "slack",
+      "description": "slack, salesforce",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:378",
+      "fileName": "slack-16",
+      "iconName": "slack",
+      "description": "slack, salesforce",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:347",
+      "fileName": "slack-color-24",
+      "iconName": "slack-color",
+      "description": "slack, salesforce",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:361",
+      "fileName": "slack-color-16",
+      "iconName": "slack-color",
+      "description": "slack, salesforce",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:391",
+      "fileName": "vmware-24",
+      "iconName": "vmware",
+      "description": "vmware, vmware cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:394",
+      "fileName": "vmware-16",
+      "iconName": "vmware",
+      "description": "vmware, vmware cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:385",
+      "fileName": "vmware-color-24",
+      "iconName": "vmware-color",
+      "description": "vmware, vmware cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:388",
+      "fileName": "vmware-color-16",
+      "iconName": "vmware-color",
+      "description": "vmware, vmware cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    }
+  ]
+}
