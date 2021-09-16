@@ -24,13 +24,13 @@
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-## Releasing a new version of the package
+## 🚧 [WIP] Releasing a new npm version of the package
 
 ```bash
 cd ember-flight-icons
 ```
 
-Bump the version number for the `ember-flight/package.json`.
+Bump the version number, per SemVer, for the `ember-flight/package.json`.
 
 After the change is merged to `main`, from the `ember-flight-icons/` directory, run:
 
