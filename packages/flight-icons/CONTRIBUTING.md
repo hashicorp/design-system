@@ -21,8 +21,8 @@ yarn sync
 This action will:
 
 * Retrieve the assets metadata from Figma via REST API
-* Export the assets as `.svg` files into `./src/svg`
-* Generate the `catalog.json` file into `./src/`
+* Export the assets as `.svg` files into `./svg-original/`
+* Generate the `catalog.json` file
 
 ### Build
 
@@ -34,11 +34,23 @@ yarn build
 
 This action will:
 
-* Optimize the SVG files
-* Prepare a bundle with standalone SVGs
-* Prepare a bundle with an SVG sprite
-* Prepare a bundle with SVGs embedded in CSS/SCSS as data:image
-* Update the SVG sprite and catalog.json files in the Ember addon folder
+* Optimize the SVG files and save then in a `temp` folder
+* Process the optimized SVG files and save then in the `svg` folder
+* Update the existing files in the Ember addon folder:
+    * Process the optimized SVG, generate a SVG sprite, and overwrite the existing sprite
+    * Overwrite the catalog.json with the new one
+
+### Release
+
+The release step is executed using a set of NPM scripts defined in the `package.json` file.
+
+This action will:
+
+* ask (interactively) the user which _semver_ version they want to to use
+* update the `package.json` file with that version
+* release the bundle on the [NPM registry](https://www.npmjs.com/)
+
+**IMPORTANT**: if you need to do some tests, use a **local** package registry, not production! (see below)
 
 ### Code check
 
@@ -70,7 +82,7 @@ Then install the project dependencies:
 
 ```bash
 # go to the "scripts" folder
-cd /[your-local-project-path]/flight-icons/scripts
+cd /[your-local-project-path]/flight-icons
 
 # install node modules
 yarn install
@@ -101,25 +113,56 @@ yarn sync
 # build
 yarn build
 
-# release
-[TODO]
+# release - CAREFUL: this will publish the package on NPM! Use a local package registry for testing (see below)
+yarn release
 ```
 
-## 🚧 [WIP] Releasing a new npm version of the package
+## Releasing a new npm version of the package
+
+Whenever there is an update in the Flight icons Figma library (eg. a new icon added) these changes need to be ported also on the code side. This means re-syncing and re-building the `flight-icons` package and then release it to the npm registry.
+
+_Remember: once released a package on the public registry, it's not simple to undo it._
+
+The update process for the icons should happen in a dedicated branch, associated with the GitHub task/issue. Once you have run the `yarn sync` and `yarn build`, check the diff in your git client, and once you're OK with them commit the changes to the branch, push and then ask for a pull request.
+
+Once this request has been approved and the branch merged in `main`, you can publish the package (using directly the `main` branch, no need to create a new PR for this) -- [TODO! to be discussed with the team].
+
+Run the following command:
 
 ```bash
 cd flight-icons
+yarn release
 ```
 
-- Bump the version number, per SemVer, for the `flight-icons/package.json`.
+The `bump` command will interactively ask you which _semver_ version you want to use for the bump: you can move up and down with the keyboard, choose one option, and then hit "enter".
 
-After the change is merged to `main`, from the `flight-icons/` directory, run:
+At this point the script automatically will bump the version in the `package.json` file, and publish the new version of the `flight-icons` package.
 
-```bash
-npm publish
+_Notice: you will need a company-approved account on npm (with 2FA) to publish._
+
+At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done you just published your new package! 🎉
+
+# Using a local NPM registry for testing
+
+To test the release of packages without actually polluting the real/production npm registry, you cansetup a local registry using [Verdaccio](https://verdaccio.org/docs/what-is-verdaccio), an open source solution, very easy to setup and use.
+
+You can follow [the instructions here](https://verdaccio.org/docs/installation) but essentially what you have to:
+
+- install the package: `npm install -g verdaccio` - this will install it globally
+- launch the service: `verdaccio` - this will serve a web frontend to the registry at the URL http://localhost:4873/
+- add a user to the registry: `npm adduser --registry http://localhost:4873` - this will ask you a username/password/email, I suggest to use test/test/test@test.com because is just a local instance; this will also authenticate you with the registry so when you publish yuo don't need to login.
+
+Now you need to add this entry in the `package.json` files of `flight-icons`:
+
+```
+"publishConfig": {
+    "registry": "http://localhost:4873"
+},
 ```
 
-You will need 2FA on your npm account to publish.
+This will make sure the package is published on Verdaccio. Once the package is published, the web frontend accesible at http://localhost:4873/ will show you all the details about the packages (and if needed you can also download the tarballs, to check their content).
+
+_Notice: once you've done testing, you can remove verdaccio via `npm uninstall -g verdaccio` and then remove the files he created using `rm -fr ~/.local/share/verdaccio && rm -fr .config/verdaccio`. You can use the same command to cleanup the entire data storage of Verdaccio and start from scratch (no need to reinstall for this, just cleanup the data)._
 
 ## 🚧 [WIP] GitHub action
 
