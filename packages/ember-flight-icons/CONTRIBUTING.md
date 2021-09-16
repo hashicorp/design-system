@@ -24,21 +24,27 @@
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-## 🚧 [WIP] Releasing a new npm version of the package
+## Releasing a new npm version of the package
+
+To trigger a release, we have defined a special set of NPM scripts commands in the `package.json` file. Use the following command in your CLI:
+
 
 ```bash
-cd ember-flight-icons
+yarn release
 ```
 
-Bump the version number, per SemVer, for the `ember-flight/package.json`.
+_**IMPORTANT**: if you need to do some tests, use a **local** package registry (see [CONTRIBUTING](../flight-icons/CONTRIBUTING.md) in the `flight-icon`), don't test directly in production!_
 
-After the change is merged to `main`, from the `ember-flight-icons/` directory, run:
+This action will:
 
-```bash
-npm publish
-```
+* ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+* update the version in the `package.json` file
+* automatically publish the new version of the `ember-flight-icons` package on the [NPM registry](https://www.npmjs.com/)
 
-You will need 2FA on your npm account to publish.
+_Notice: you will need a company-approved account on npm (with 2FA) to publish._
+
+At this point check on [www.npmjs.com/package/@hashicorp/ember-flight-icons](https://www.npmjs.com/package/@hashicorp/ember-flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done you just published your new package! 🎉
+
 
 ## Testing local changes to the addon
 

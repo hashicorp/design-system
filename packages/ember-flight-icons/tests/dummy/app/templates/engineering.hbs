@@ -15,7 +15,7 @@
   <p>To install, run
   <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
   </p>
-  <p>Note: <kbd class="ds-kbd">ember-test-selectors</kbd> is a dependency added for the author's convenience. 
+  <p>Note: <kbd class="ds-kbd">ember-test-selectors</kbd> is a dependency added for the author's convenience.
   <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember Addon</a> strips out all <kbd class="ds-kbd">data-test-*</kbd> attributes for production builds.</p>
 </div>
 
@@ -41,11 +41,11 @@
   <p>
   Renders to this (where the ID will be unique each time):
 <CodeBlock @language="markup" id="component-invocation-base-render"
-@code="&lt;svg 
- aria-hidden=&quot;true&quot; 
- class=&quot;flight-icon icon-alert-circle display-inline&quot; 
+@code="&lt;svg
+ aria-hidden=&quot;true&quot;
+ class=&quot;flight-icon icon-alert-circle display-inline&quot;
  data-test-icon=&quot;alert-circle&quot;
- fill=&quot;currentColor&quot; 
+ fill=&quot;currentColor&quot;
  id=&quot;icon-ember115&quot;
  width=&quot;16&quot;
  height=&quot;16&quot;
@@ -72,7 +72,7 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h4 class="ds-h4">Examples</h4>
   <p id="example-fill">
-    <strong><a href="#example-fill" class="ds-a" rel="external">&sect;</a>Fill:</strong> To customize the fill attribute, set the <kbd class="ds-kbd">@color</kbd> value (multiple supported ways). 
+    <strong><a href="#example-fill" class="ds-a" rel="external">&sect;</a>Fill:</strong> To customize the fill attribute, set the <kbd class="ds-kbd">@color</kbd> value (multiple supported ways).
     The recommended approach to ensure consistency is to use one of the pre-defined variables:
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;var(--brand)&quot; />" />
   </p>
@@ -99,12 +99,12 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a> Using the flight-icon package in other ways</h2>
   <p>
-    It is also possible to install the flight-icon package itself. 
+    It is also possible to install the flight-icon package itself.
     To do so, run:
   <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
   This will allow icons to be imported and used as desired. Note that the icons are namespaced:
   {{!-- template-lint-disable 'no-potential-path-strings' --}}
-  <CodeBlock @language="bash" @code="@hashicorp/flight-icons/icons/arrow-right-16.svg" />
+  <CodeBlock @language="bash" @code="@hashicorp/flight-icons/svg/arrow-right-16.svg" />
    {{!-- template-lint-enable 'no-potential-path-strings' --}}
   </p>
   <p>

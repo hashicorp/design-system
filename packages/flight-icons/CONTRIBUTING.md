@@ -84,6 +84,8 @@ This action will:
 * Update the existing files in the Ember addon folder:
     * Process the optimized SVG, generate a SVG sprite, and overwrite the existing sprite
     * Overwrite the catalog.json with the new one
+    
+_**Notice**: as mentioned above, this step not only updates the content of the `flight-icons` folder, but also the content of the `ember-flight-icons`. You will see these changes reflected in your git diff status._
 
 ## Release
 
@@ -94,20 +96,20 @@ The release step is executed using a set of NPM scripts defined in the `package.
 yarn release
 ```
 
+_**IMPORTANT**: if you need to do some tests, use a **local** package registry (see below), don't test directly in production!_
+
+
 This action will:
 
-* ask (interactively*) the user which _semver_ version they want to to use
-	* the `bump` command will interactively ask you which semver version you want to use: you can move up and down with the keyboard, choose one option, and then hit "enter".
-* update the `package.json` file with that version
-* release the bundle on the [NPM registry](https://www.npmjs.com/)
-
-The script will automatically bump the version in the `package.json` file, and publish the new version of the `flight-icons` package.
+* ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+* update the version in the `package.json` file
+* automatically publish the new version of the `flight-icons` package on the [NPM registry](https://www.npmjs.com/)
 
 _Notice: you will need a company-approved account on npm (with 2FA) to publish._
 
 At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done you just published your new package! 🎉
 
-**IMPORTANT**: if you need to do some tests, use a **local** package registry, not production! (see below)
+🚨 **DON'T FORGET**: if you're releasing a new version of the `flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons` have also been updated, which means you have to do a release also of that package.
 
 
 ## Local development
