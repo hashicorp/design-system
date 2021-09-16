@@ -54,7 +54,10 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test"
+    "test:ember:percy": "percy exec ember test",
+    "release:bump": "./node_modules/.bin/bump package.json",
+    "release:publish": "yarn publish --new-version $npm_package_version",
+    "release": "yarn release:bump && yarn release:publish"
   },
   "dependencies": {
     "ember-cli-babel": "^7.26.6",
@@ -108,6 +111,7 @@
     "qunit": "^2.15.0",
     "qunit-dom": "^1.6.0",
     "tailwindcss": "^2.2.11",
+    "version-bump-prompt": "^6.1.0",
     "webpack": "^5.52.1"
   },
   "engines": {
