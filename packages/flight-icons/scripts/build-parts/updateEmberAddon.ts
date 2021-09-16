@@ -8,15 +8,14 @@ import { AssetsCatalog } from '../@types/AssetsCatalog';
 
 export async function updateEmberAddon({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
 
-    const tempSVGFolderPath = `${config.distFolder}/temp`;
+    const tempSVGFolderPath = config.tempFolder;
     const emberPublicIconsFolder = `${config.emberPublicFolder}/icons`;
-    // const distBundleFolderPath = `${config.distFolder}/ember-flight-icons`;
 
     // make sure the destination folder exists
     await fs.ensureDir(emberPublicIconsFolder);
 
     // update the assets catalog file in the Ember addon
-    await fs.copy(`${config.srcFolder}/catalog.json`, `${emberPublicIconsFolder}/catalog.json`);
+    await fs.copy(`${config.mainFolder}/catalog.json`, `${emberPublicIconsFolder}/catalog.json`);
 
     // generate the sprite via "svgstore"
     const sprites = svgstore({
