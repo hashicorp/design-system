@@ -2,7 +2,7 @@
   class="flight-icon flight-icon-{{@name}} {{if this.display "flight-icon-display-inline"}}"
   ...attributes
   aria-hidden="true"
-  data-test-icon
+  data-test-icon={{@name}}
   fill="{{this.color}}"
   id={{this.iconId}}
   width="{{this.size}}"
