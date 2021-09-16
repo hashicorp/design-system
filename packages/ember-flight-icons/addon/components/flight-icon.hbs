@@ -1,14 +1,23 @@
 <svg 
   class="flight-icon flight-icon-{{@name}} {{if this.display "flight-icon-display-inline"}}"
   ...attributes
-  aria-hidden="true"
+  aria-hidden="{{if @title "false" "true"}}"
+  aria-labelledby={{this.ariaLabelledby}}
   data-test-icon={{@name}}
   fill="{{this.color}}"
   id={{this.iconId}}
+  role={{this.role}}
   width="{{this.size}}"
   height="{{this.size}}"
   viewBox="0 0 {{this.size}} {{this.size}}"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <use href='{{this.contextRootURL}}@hashicorp/ember-flight-icons/icons/sprite.svg#{{@name}}-{{this.size}}'></use>
+  {{#if @title}}
+    <title id={{this.titleId}}>{{@title}}</title>
+    <g role="presentation">
+      <use href='{{this.contextRootURL}}@hashicorp/ember-flight-icons/icons/sprite.svg#{{@name}}-{{this.size}}'></use>
+    </g>
+  {{else}}
+    <use href='{{this.contextRootURL}}@hashicorp/ember-flight-icons/icons/sprite.svg#{{@name}}-{{this.size}}'></use>
+  {{/if}}
 </svg>

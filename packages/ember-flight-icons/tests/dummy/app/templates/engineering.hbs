@@ -10,6 +10,25 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="accessibility"><a href="#accessibility" class="ds-a" rel="external">&sect;</a> Accessibility</h2>
+  <p>
+  Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best practice is to set the <kbd class="ds-kbd">aria-hidden</kbd> attribute to false on the SVG itself.
+  This means that the icon (both the singular icon and the icon component) will need to be used <em class="ds-em">in context</em>.
+  The icons themselves are for presentation purposes only and should never be used on their own.
+  </p>
+  <p>However: As a <em>temporary</em> bridge while we work to provide the accessible components in the design system, we have provided the ability to add a title element to the Ember component by defining a value for the <kbd class="ds-kbd">@title</kbd> property. 
+    This is a temporary measure and we strongly encourage UI engineering teams to work with their designers and plan to convert any standalone icon use.</p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h3 class="ds-h3">Examples of Correct use</h3>
+  <CodeBlock @language="markup" @code="&lt;button aria-label=&quot;Check Activity&quot;>
+ &lt;FlightIcon @name=&quot;activity&quot; />
+&lt;/button>" />
+  <CodeBlock @language="markup" @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>" />
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="ember-flight-icons"><a href="#ember-flight-icons" class="ds-a" rel="external">&sect;</a> Use in Ember Apps</h2>
   <h3 class="ds-h3">Installation</h3>
   <p>To install, run
@@ -114,21 +133,4 @@
       <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
     </ul>
   </p>
-</div>
-
-<div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="accessibility"><a href="#accessibility" class="ds-a" rel="external">&sect;</a> Accessibility</h2>
-  <p>
-  Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best practice is to set the <kbd class="ds-kbd">aria-hidden</kbd> attribute to false on the SVG itself.
-  This means that the icon (both the singular icon and the icon component) will need to be used <em class="ds-em">in context</em>.
-  The icons themselves are for presentation purposes only and should never be used on their own.
-  </p>
-</div>
-
-<div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3">Examples</h3>
-  <CodeBlock @language="markup" @code="&lt;button aria-label=&quot;Check Activity&quot;>
- &lt;FlightIcon @name=&quot;activity&quot; />
-&lt;/button>" />
-  <CodeBlock @language="markup" @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>" />
 </div>
