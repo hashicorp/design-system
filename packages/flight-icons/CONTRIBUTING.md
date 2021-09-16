@@ -40,11 +40,8 @@ This action will:
 * Prepare a bundle with SVGs embedded in CSS/SCSS as data:image
 * Update the SVG sprite and catalog.json files in the Ember addon folder
 
-### Release
-
-[TODO]
-
 ### Code check
+
 You can also do some important sanity checks to the code via the commands:
 
 ```bash
@@ -108,15 +105,13 @@ yarn build
 [TODO]
 ```
 
-## Release
-
-_NOTICE: with the recent changes to the project folder structure and sync/build scripts, these instructions are outdated._
+## 🚧 [WIP] Releasing a new npm version of the package
 
 ```bash
 cd flight-icons
 ```
 
-- Bump the version number for the `flight-icons/package.json`.
+- Bump the version number, per SemVer, for the `flight-icons/package.json`.
 
 After the change is merged to `main`, from the `flight-icons/` directory, run:
 
@@ -126,7 +121,7 @@ npm publish
 
 You will need 2FA on your npm account to publish.
 
-## GitHub action
+## 🚧 [WIP] GitHub action
 
 Run the GitHub action `flight_compile` to execute the `sync → build → release` process.
 
