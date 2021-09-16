@@ -1,9 +1,12 @@
 {
   "name": "@hashicorp/flight-icons",
-  "version": "0.0.8-beta",
+  "version": "0.0.9-beta",
   "description": "Flight: HashiCorp SVG icon set",
   "keywords": [
-    "hashicorp", "icon", "svg", "flight"
+    "hashicorp",
+    "icon",
+    "svg",
+    "flight"
   ],
   "repository": "https://github.com/hashicorp/flight",
   "license": "MPL-2.0",
