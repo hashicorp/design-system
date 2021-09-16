@@ -9,9 +9,11 @@ module('Acceptance | icon index', function (hooks) {
 
   test('visiting / renders a list of icons', async function (assert) {
     await visit('/');
-    // added this because the icons are not rendering as quickly
-    await waitFor('.flight-icon', { timeout: 1000 });
+
+    // added timeout because the icons are not rendering as quickly
+    await waitFor('.ds-icon-frame > .flight-icon', { timeout: 1000 });
+    assert.dom('[data-test-target="icon-grid"] [data-test-icon]').exists();
+
     await percySnapshot('Icons page');
-    assert.ok(true);
   });
 });
