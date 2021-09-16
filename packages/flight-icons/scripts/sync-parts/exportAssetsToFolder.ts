@@ -15,7 +15,7 @@ export async function exportAssetsToFolder({ config, assetsMetadata } : { config
     const transformer: FigmaExport.StringTransformer[] = [];
     const outputter: FigmaExport.ComponentOutputter[] = [
         outputComponentsAsSvg({
-            output: config.srcFolder,
+            output: config.mainFolder,
             // IMPORTANT: when exported by Figma by default the variants' name looks like this: "Size=16, Style=Color"
             // and we want to sanitize it (otherwise variants with the same props/values will override one another)
             // so this is used to change icon's name to a "standard" format that will be used across the entire script
@@ -25,7 +25,7 @@ export async function exportAssetsToFolder({ config, assetsMetadata } : { config
             },
             // by default figma-export adds the "page" name to the path (so creating an extra folder)
             // but we prefer to have all the icons saved under the "SVG" format (so we're open in the future to have other formats too)
-            getDirname: (): string => 'svg',
+            getDirname: (): string => 'svg-original',
         })
     ];
 
@@ -37,7 +37,7 @@ export async function exportAssetsToFolder({ config, assetsMetadata } : { config
         token: process.env.FIGMA_TOKEN || 'MISSING-TOKEN-ADD-IT-TO-ENV-FILE',
         onlyFromPages: [config.figmaFile.page],
         transformers: requirePackages<FigmaExport.StringTransformer>(transformer),
-        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: config.srcFolder }),
+        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: config.mainFolder }),
     }).then(async (figmaExportPageNode) => {
         result = figmaExportPageNode;
     }).catch((err: Error) => {
