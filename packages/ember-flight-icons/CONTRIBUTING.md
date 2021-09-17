@@ -39,7 +39,7 @@ This action will:
 
 * ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
 * update the version in the `package.json` file
-* automatically publish the new version of the `ember-flight-icons` package on the [NPM registry](https://www.npmjs.com/)
+* automatically publish the new version of the `@hashicorp/ember-flight-icons` package on the [NPM registry](https://www.npmjs.com/)
 
 _Notice: you will need a company-approved account on npm (with 2FA) to publish._
 

@@ -103,13 +103,13 @@ This action will:
 
 * ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
 * update the version in the `package.json` file
-* automatically publish the new version of the `flight-icons` package on the [NPM registry](https://www.npmjs.com/)
+* automatically publish the new version of the `@hashicorp/flight-icons` package on the [NPM registry](https://www.npmjs.com/)
 
 _Notice: you will need a company-approved account on npm (with 2FA) to publish._
 
 At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done you just published your new package! 🎉
 
-🚨 **DON'T FORGET**: if you're releasing a new version of the `flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons` have also been updated, which means you have to do a release also of that package.
+🚨 **DON'T FORGET**: if you're releasing a new version of `@hashicorp/flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons/` have also been updated, which means you have to do a release also of that package.
 
 
 ## Local development
