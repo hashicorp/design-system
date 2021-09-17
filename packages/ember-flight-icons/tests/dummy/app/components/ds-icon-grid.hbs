@@ -32,18 +32,10 @@
       {{on "click" this.updateVisibleIconSize}}
     >
       <span class="ds-toggle-button-slider">
-        <span
-          class="ds-toggle-16
-            {{if (eq this.visibleIconSize "16") "ds-toggle-16-active"}}"
-          aria-hidden="true"
-        >
+        <span class="ds-toggle-16 {{if (eq this.visibleIconSize "16") "ds-toggle-16-active"}}" aria-hidden="true">
           16px
         </span>
-        <span
-          class="ds-toggle-24
-            {{if (eq this.visibleIconSize "24") "ds-toggle-24-active"}}"
-          aria-hidden="true"
-        >
+        <span class="ds-toggle-24 {{if (eq this.visibleIconSize "24") "ds-toggle-24-active"}}" aria-hidden="true">
           24px
         </span>
       </span>
@@ -53,17 +45,9 @@
 </div>
 <ul class="ds-ul-grid" data-test-target="icon-grid">
   {{#each this.icons as |meta|}}
-    <li
-      class="ds-li
-        {{if meta.isHidden "d-none"}}
-        {{if (not-eq meta.size this.visibleIconSize) "d-none"}}"
-    >
+    <li class="ds-li {{if meta.isHidden "d-none"}} {{if (not-eq meta.size this.visibleIconSize) "d-none"}}">
       <div class="ds-icon-frame">
-        <FlightIcon
-          @name={{meta.iconName}}
-          @size="{{meta.size}}"
-          class="demo-icon"
-        />
+        <FlightIcon @name={{meta.iconName}} @size="{{meta.size}}" class="demo-icon" />
       </div>
       <p>{{meta.name}}</p>
     </li>

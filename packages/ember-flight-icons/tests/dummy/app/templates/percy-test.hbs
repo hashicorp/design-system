@@ -33,8 +33,7 @@
 <br />
 
 <div>
-  <p>Icon with unspecified color (currentColor) + parent with custom blue color
-    (to check inheritance)</p>
+  <p>Icon with unspecified color (currentColor) + parent with custom blue color (to check inheritance)</p>
   {{! template-lint-disable no-inline-styles }}
   <a style="color:blue" href="">
     <FlightIcon @name="external-link" />
@@ -43,8 +42,8 @@
 <br />
 
 <div>
-  <p>Icon with custom orange color, specified via prop + parent with !important
-    green color declared (to check overrides not working)</p>
+  <p>Icon with custom orange color, specified via prop + parent with !important green color declared (to check overrides
+    not working)</p>
   {{! template-lint-disable no-inline-styles }}
   <div style="color:green !important">
     <FlightIcon @name="heart-fill" @color="orange" />

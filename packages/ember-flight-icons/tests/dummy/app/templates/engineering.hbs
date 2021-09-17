@@ -10,35 +10,29 @@
 </div>
 
 <div class="ds-info">
-  <p>🚨 Note: All of the flight-icon npm packages are currently in beta and any
-    production usage should be discussed with the Design Systems team first.</p>
+  <p>🚨 Note: All of the flight-icon npm packages are currently in beta and any production usage should be discussed
+    with the Design Systems team first.</p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="accessibility"><a
-      href="#accessibility"
-      class="ds-a"
-      rel="external"
-    >&sect;</a>
+  <h2 class="ds-h2" id="accessibility"><a href="#accessibility" class="ds-a" rel="external">&sect;</a>
     Accessibility</h2>
   <p>
-    Accessibility (a11y) support for SVGs is inconsistent across browsers and
-    assistive technology. Currently, best practice is to set the
+    Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best
+    practice is to set the
     <kbd class="ds-kbd">aria-hidden</kbd>
-    attribute to false on the SVG itself. This means that the icon (both the
-    singular icon and the icon component) will need to be used
-    <em class="ds-em">in context</em>. The icons themselves are for presentation
-    purposes only and should never be used on their own.
+    attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will
+    need to be used
+    <em class="ds-em">in context</em>. The icons themselves are for presentation purposes only and should never be used
+    on their own.
   </p>
   <p>However: As a
     <em>temporary</em>
-    bridge while we work to provide the accessible components in the design
-    system, we have provided the ability to add a title element to the Ember
-    component by defining a value for the
+    bridge while we work to provide the accessible components in the design system, we have provided the ability to add
+    a title element to the Ember component by defining a value for the
     <kbd class="ds-kbd">@title</kbd>
-    property. This is a temporary measure and we strongly encourage UI
-    engineering teams to work with their designers and plan to convert any
-    standalone icon use.
+    property. This is a temporary measure and we strongly encourage UI engineering teams to work with their designers
+    and plan to convert any standalone icon use.
   </p>
 </div>
 
@@ -50,31 +44,20 @@
  &lt;FlightIcon @name=&quot;activity&quot; />
 &lt;/button>"
   />
-  <CodeBlock
-    @language="markup"
-    @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>"
-  />
+  <CodeBlock @language="markup" @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>" />
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="ember-flight-icons"><a
-      href="#ember-flight-icons"
-      class="ds-a"
-      rel="external"
-    >&sect;</a>
+  <h2 class="ds-h2" id="ember-flight-icons"><a href="#ember-flight-icons" class="ds-a" rel="external">&sect;</a>
     Use in Ember Apps</h2>
   <h3 class="ds-h3">Installation</h3>
   <p>To install, run
-    <CodeBlock
-      @code="yarn add @hashicorp/ember-flight-icons"
-      @language="bash"
-    />
+    <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
   </p>
   <p>Note:
     <kbd class="ds-kbd">ember-test-selectors</kbd>
     is a dependency added for the author's convenience.
-    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This
-      Ember Addon</a>
+    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember Addon</a>
     strips out all
     <kbd class="ds-kbd">data-test-*</kbd>
     attributes for production builds.
@@ -82,11 +65,7 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="understanding"><a
-      href="#understanding"
-      class="ds-a"
-      rel="external"
-    >&sect;</a>
+  <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a>
     Understanding the component</h3>
   <p>The component comes with the following defaults:
     <ol>
@@ -99,8 +78,7 @@
       <li class="ds-li"><kbd class="ds-kbd">height</kbd>
         and
         <kbd class="ds-kbd">width</kbd>: default size of 16x16 (px)</li>
-      <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon,
-        flight-icon-NAME, flight-icon-display-inline</li>
+      <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
       <li class="ds-li">CSS display: set to
         <kbd class="ds-kbd">display:inline-block</kbd></li>
       <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd>
@@ -145,11 +123,7 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="customizable"><a
-      href="#customizable"
-      class="ds-a"
-      rel="external"
-    >&sect;</a>
+  <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a>
     Customizable properties</h3>
   <p>The following properties are customizable:
     <ol>
@@ -171,19 +145,13 @@
     </strong>
     To customize the fill attribute, set the
     <kbd class="ds-kbd">@color</kbd>
-    value (multiple supported ways). The recommended approach to ensure
-    consistency is to use one of the pre-defined variables:
-    <CodeBlock
-      @language="markup"
-      @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;var(--brand)&quot; />"
-    />
+    value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined
+    variables:
+    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;var(--brand)&quot; />" />
   </p>
   <p>
     Other accepted values include named colors and color values themselves.
-    <CodeBlock
-      @language="markup"
-      @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rebeccapurple&quot; />"
-    />
+    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rebeccapurple&quot; />" />
     <CodeBlock
       @language="markup"
       @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rgb(46, 113, 229)&quot; />"
@@ -191,22 +159,14 @@
   </p>
 
   <p id="example-size">
-    <strong><a
-        href="#example-size"
-        class="ds-a"
-        rel="external"
-      >&sect;</a>Size:</strong>
+    <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>Size:</strong>
     To use the 24x24 (px) icon size, set the
     <kbd class="ds-kbd">@size</kbd>
     value:
-    <CodeBlock
-      @language="markup"
-      @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />"
-    />
+    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />" />
   </p>
   <p id="example-styles">
-    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>CSS
-      Classes:</strong>
+    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>CSS Classes:</strong>
     To append additional classes to the component, add
     <kbd class="ds-kbd">class</kbd>
     with value(s):
@@ -216,8 +176,7 @@
     />
   </p>
   <p id="example-display">
-    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>CSS
-      Display:</strong>
+    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>CSS Display:</strong>
     To change the default display of
     <i>inline-block</i>
     to
@@ -232,36 +191,23 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="use-other"><a
-      href="#use-other"
-      class="ds-a"
-      rel="external"
-    >&sect;</a>
+  <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
     Using the flight-icon package in other ways</h2>
   <p>
-    It is also possible to install the flight-icon package itself. To do so,
-    run:
+    It is also possible to install the flight-icon package itself. To do so, run:
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
-    This will allow icons to be imported and used as desired. Note that the
-    icons are namespaced:
+    This will allow icons to be imported and used as desired. Note that the icons are namespaced:
     {{! template-lint-disable 'no-potential-path-strings' }}
-    <CodeBlock
-      @language="bash"
-      @code="@hashicorp/flight-icons/icons/arrow-right-16.svg"
-    />
+    <CodeBlock @language="bash" @code="@hashicorp/flight-icons/icons/arrow-right-16.svg" />
     {{! template-lint-enable 'no-potential-path-strings' }}
   </p>
   <p>
     Authors should also follow the following guidelines:
     <ul class="ds-ul">
-      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and
-        should not be used at different sizes without a design consult.</li>
-      <li class="ds-li">The icons do not have a unique id generated; authors
-        should take precautions to avoid
-        <a
-          href="https://www.w3.org/TR/WCAG20-TECHS/F77.html"
-          rel="external"
-        >related accessibility conformance failures</a>.</li>
+      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
+        a design consult.</li>
+      <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
+        <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
     </ul>
   </p>
 </div>
