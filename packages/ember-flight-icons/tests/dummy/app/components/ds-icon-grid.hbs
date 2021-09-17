@@ -8,17 +8,17 @@
           <FlightIcon @name="search" @color="var(--gray-3)" />
         </div>
 
-        <input 
-        type="text" 
-        name="search" 
-        id="ds-input-search" 
-        class="ds-input-search" 
+        <input
+        type="text"
+        name="search"
+        id="ds-input-search"
+        class="ds-input-search"
         placeholder="e.g. arrow"
         autofocus={{false}}
         value={{this.search}}
         {{on 'input' this.debouncedUpdate}}
         >
-        
+
       </div>
     </div>
 
@@ -32,13 +32,13 @@
         {{on 'click' this.updateVisibleIconSize}}
       >
         <span class="ds-toggle-button-slider">
-          <span 
-          class="ds-toggle-16 {{if (eq this.visibleIconSize '16') "ds-toggle-16-active"}}" 
+          <span
+          class="ds-toggle-16 {{if (eq this.visibleIconSize '16') "ds-toggle-16-active"}}"
           aria-hidden="true">
             16px
           </span>
-          <span 
-          class="ds-toggle-24 {{if (eq this.visibleIconSize '24') "ds-toggle-24-active"}}" 
+          <span
+          class="ds-toggle-24 {{if (eq this.visibleIconSize '24') "ds-toggle-24-active"}}"
           aria-hidden="true">
             24px
           </span>
