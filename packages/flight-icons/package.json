@@ -42,9 +42,8 @@
     "lint": "yarn eslint --quiet --ext .js,.ts",
     "sync": "ts-node --transpile-only ./scripts/sync",
     "build": "ts-node --transpile-only ./scripts/build",
-    "release:bump": "./node_modules/.bin/bump package.json",
-    "release:publish": "yarn publish --new-version $npm_package_version",
-    "release": "yarn release:bump && yarn release:publish"
+    "bump": "./node_modules/.bin/bump package.json",
+    "release": "yarn publish --new-version $npm_package_version"
   },
   "devDependencies": {
     "@figma-export/cli": "^3.4.0",
