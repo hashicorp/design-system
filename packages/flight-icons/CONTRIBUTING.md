@@ -12,7 +12,7 @@ Whenever there is an update to the Flight Icons library in Figma (eg. a new icon
 
 _Remember: once released a package on the public registry, you can't revert the changes: the only solution is to deprecate the package (this will hide it from the public, but remains there)._
 
-The update process for the icons should happen in a dedicated branch, associated with the GitHub task/issue. Once you have run the `yarn sync` and `yarn build` (see the instructions below), check the diff in your git client, and once you're OK with them commit the changes to the branch, push and then ask for a pull request.
+The update process for the icons should happen in a dedicated branch, associated with the GitHub task/issue. Once you have run the `yarn sync` and `yarn build` (see the instructions below), check the diff in your git client, and once you're OK with them commit & push the changes to the branch, and then open a pull request in GitHub.
 
 Once this request has been approved and the branch merged in `main`, you can publish the package (using directly the `main` branch, no need to create a new PR for this) using the `release` command (see the instructions below).
 
