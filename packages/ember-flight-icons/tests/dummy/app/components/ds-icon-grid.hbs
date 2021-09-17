@@ -1,14 +1,14 @@
 <div class="ds-icon-grid flex mb-14">
-    <div class="ds-flex-search">
-      <label for="ds-input-search" class="ds-label">Filter Results</label>
+  <div class="ds-flex-search">
+    <label for="ds-input-search" class="ds-label">Filter Results</label>
 
-      <div class="ds-input-search-wrapper">
+    <div class="ds-input-search-wrapper">
 
-        <div class="ds-input-search-icon-wrapper">
-          <FlightIcon @name="search" @color="var(--gray-3)" />
-        </div>
+      <div class="ds-input-search-icon-wrapper">
+        <FlightIcon @name="search" @color="var(--gray-3)" />
+      </div>
 
-        <input
+      <input
         type="text"
         name="search"
         id="ds-input-search"
@@ -16,48 +16,56 @@
         placeholder="e.g. arrow"
         autofocus={{false}}
         value={{this.search}}
-        {{on 'input' this.debouncedUpdate}}
-        >
+        {{on "input" this.debouncedUpdate}}
+      />
 
-      </div>
-    </div>
-
-    <div class="ds-flex-toggle">
-      <button
-        aria-checked="false"
-        aria-label="Toggle icon size (16 or 24)"
-        class="ds-toggle-button"
-        role="switch"
-        type="button"
-        {{on 'click' this.updateVisibleIconSize}}
-      >
-        <span class="ds-toggle-button-slider">
-          <span
-          class="ds-toggle-16 {{if (eq this.visibleIconSize '16') "ds-toggle-16-active"}}"
-          aria-hidden="true">
-            16px
-          </span>
-          <span
-          class="ds-toggle-24 {{if (eq this.visibleIconSize '24') "ds-toggle-24-active"}}"
-          aria-hidden="true">
-            24px
-          </span>
-        </span>
-
-      </button>
     </div>
   </div>
-  <ul class="ds-ul-grid" data-test-target="icon-grid">
-    {{#each this.icons as |meta|}}
-      <li class="ds-li {{if meta.isHidden 'd-none'}} {{if (not-eq meta.size this.visibleIconSize) 'd-none'}}">
-        <div class="ds-icon-frame">
-          <FlightIcon
-            @name={{meta.iconName}}
-            @size="{{meta.size}}"
-            class="demo-icon"
-          />
-        </div>
-        <p>{{meta.name}}</p>
-      </li>
-    {{/each}}
-  </ul>
+
+  <div class="ds-flex-toggle">
+    <button
+      aria-checked="false"
+      aria-label="Toggle icon size (16 or 24)"
+      class="ds-toggle-button"
+      role="switch"
+      type="button"
+      {{on "click" this.updateVisibleIconSize}}
+    >
+      <span class="ds-toggle-button-slider">
+        <span
+          class="ds-toggle-16
+            {{if (eq this.visibleIconSize "16") "ds-toggle-16-active"}}"
+          aria-hidden="true"
+        >
+          16px
+        </span>
+        <span
+          class="ds-toggle-24
+            {{if (eq this.visibleIconSize "24") "ds-toggle-24-active"}}"
+          aria-hidden="true"
+        >
+          24px
+        </span>
+      </span>
+
+    </button>
+  </div>
+</div>
+<ul class="ds-ul-grid" data-test-target="icon-grid">
+  {{#each this.icons as |meta|}}
+    <li
+      class="ds-li
+        {{if meta.isHidden "d-none"}}
+        {{if (not-eq meta.size this.visibleIconSize) "d-none"}}"
+    >
+      <div class="ds-icon-frame">
+        <FlightIcon
+          @name={{meta.iconName}}
+          @size="{{meta.size}}"
+          class="demo-icon"
+        />
+      </div>
+      <p>{{meta.name}}</p>
+    </li>
+  {{/each}}
+</ul>
