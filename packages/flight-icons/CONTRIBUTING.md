@@ -14,8 +14,30 @@ _Remember: once released a package on the public registry, you can't revert the 
 
 The update process for the icons should happen in a dedicated branch, associated with the GitHub task/issue. Once you have run the `yarn sync` and `yarn build` (see the instructions below), check the diff in your git client, and once you're OK with them commit & push the changes to the branch, and then open a pull request in GitHub.
 
-Once this request has been approved and the branch merged in `main`, you can publish the package (using directly the `main` branch, no need to create a new PR for this) using the `release` command (see the instructions below).
+Once this request has been approved and the branch merged in `main`, you bump the _semver_ version via `yarn bump` (see the instructions below), open a new pull request, and once this is approved and merged to master, you can finally and safely release the package to the registry via `yarn release` (see the instructions below).
 
+Please follow the steps in the sections below, which describe with more details the process.
+
+If you need a TLDR; here's the sequence of steps you have to follow:
+
+- `cd /[your-local-project-path]/flight-icons`
+- create custom branch from `main`
+- `yarn sync`
+- `yarn build`
+- commit, push, open PR, wait for approval
+- pull from main
+- `cd /[your-local-project-path]/flight-icons`
+- create new custom branch from `main`
+- `yarn bump`
+- choose _semver_ version
+- commit, push, open PR, wait for approval
+- pull from main
+- `cd /[your-local-project-path]/flight-icons`
+- `yarn release`
+- `cd /[your-local-project-path]/ember-flight-icons`
+- `yarn release`
+- check [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons)
+- profit! 🎉
 
 ## Initial setup
 
@@ -57,7 +79,10 @@ Once you've done the initial setup, there are three distinct steps in the proces
 
 ## Sync
 
-The synchronization step is executed by the `/scripts/sync.ts` file. To run this script launch the following commands in your CLI (while in the `flight-icons` folder):
+The "sync" step exports the assets from Figma and saves them in the project.
+You can find the code that relates to this step in the file `/scripts/sync.ts`.
+
+To run this script launch the following commands in your CLI (while in the `flight-icons` folder):
 
 ```bash
 yarn sync
@@ -71,7 +96,10 @@ This action will:
 
 ## Build
 
-The build step is executed by the `/scripts/build.ts` file. To run this script use the following command in your CLI (while in the `flight-icons` folder):
+The "build" step takes the assets exported from Figma, optimize and process them, and saves the final SVG files in the bundles that will be published as npm packages.
+You can find the code that relates to this step in the file `/scripts/build.ts`.
+
+To run this script use the following command in your CLI (while in the `flight-icons` folder):
 
 ```bash
 yarn build
@@ -84,12 +112,33 @@ This action will:
 * Update the existing files in the Ember addon folder:
     * Process the optimized SVG, generate a SVG sprite, and overwrite the existing sprite
     * Overwrite the catalog.json with the new one
-    
-_**Notice**: as mentioned above, this step not only updates the content of the `flight-icons` folder, but also the content of the `ember-flight-icons`. You will see these changes reflected in your git diff status._
+
+_**Notice**: this step not only updates the content of the `flight-icons` folder, but also the content of the `ember-flight-icons`. You will see these changes reflected in your git diff status._
+
+When this step is done, and you have committed and pushed all the changes, submit a pull request in GitHub. Once approved and merged to the `main` branch, you can move to the next step.
+
+## Bump
+
+The "bump" step increases the version number in the `package.json` file.
+
+Use the following command in your CLI (while in the `flight-icons` folder):
+
+```bash
+yarn bump
+```
+
+This action will:
+
+* ask you which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+* update the version in the `package.json` file
+
+When this step is done, commit and push the changes to the `package.json` file, and submit a new pull request in GitHub. Once also this one has been approved and merged to the `main` branch, you can finally move to the last step, the actual release.
 
 ## Release
 
-The release step is executed using a set of NPM scripts defined in the `package.json` file. Use the following command in your CLI (while in the `flight-icons` folder):
+The "release" step publishes the package on the npm registry (using the version declared in the `package.json` file).
+
+Use the following command in your CLI (while in the `flight-icons` folder):
 
 
 ```bash
@@ -98,19 +147,16 @@ yarn release
 
 _**IMPORTANT**: if you need to do some tests, use a **local** package registry (see below), don't test directly in production!_
 
-
 This action will:
 
 * ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
 * update the version in the `package.json` file
 * automatically publish the new version of the `@hashicorp/flight-icons` package on the [NPM registry](https://www.npmjs.com/)
+  * _Notice: you will need a company-approved account on npm (with 2FA) to publish._
 
-_Notice: you will need a company-approved account on npm (with 2FA) to publish._
+At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done, you just published your new package! 🎉
 
-At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done you just published your new package! 🎉
-
-🚨 **DON'T FORGET**: if you're releasing a new version of `@hashicorp/flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons/` have also been updated, which means you have to do a release also of that package.
-
+🚨 **DON'T FORGET**: if you're releasing a new version of `@hashicorp/flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons/` have also been updated, which means you have to release also that package.
 
 ## Local development
 
@@ -152,6 +198,6 @@ Once you've done testing, you can remove verdaccio via `npm uninstall -g verdacc
 
 ## 🚧 [WIP] GitHub action
 
-Run the GitHub action `flight_compile` to execute the `sync → build → release` process.
+Run the GitHub action `flight_compile` to execute the `sync → build` process.
 
 All the updated assets and the generated bundles will be automatically committed to this repo, and the packages released to NPM.
