@@ -55,9 +55,8 @@
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
-    "release:bump": "./node_modules/.bin/bump package.json",
-    "release:publish": "yarn publish --new-version $npm_package_version",
-    "release": "yarn release:bump && yarn release:publish"
+    "bump": "./node_modules/.bin/bump package.json",
+    "release": "yarn publish --new-version $npm_package_version"
   },
   "dependencies": {
     "ember-cli-babel": "^7.26.6",
