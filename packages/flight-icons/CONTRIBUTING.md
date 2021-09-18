@@ -8,7 +8,7 @@ The pipeline can be run manually, on your local machine, or via GitHub actions.
 
 ## Releasing a new npm version of the package
 
-Whenever there is an update to the Flight Icons library in Figma (eg. a new icon is added), these changes need to be transfered also to the code. This means re-syncing and re-building the `flight-icons` package and then release it to the npm registry.
+Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transfered also to the code. This means re-syncing and re-building the `flight-icons` package and then release it to the npm registry.
 
 _Remember: once released a package on the public registry, you can't revert the changes: the only solution is to deprecate the package (this will hide it from the public, but remains there)._
 
@@ -41,7 +41,6 @@ If you need a TLDR; here's the sequence of steps you have to follow:
 
 ## Initial setup
 
-
 *Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
 
 First of all clone the repository:
@@ -60,7 +59,7 @@ cd /[your-local-project-path]/flight-icons
 yarn install
 ```
 
-#### Figma Token
+### Figma Token
 
 To access the Figma file via REST API is necessary to have [a special authentication token](https://www.figma.com/developers/api#access-tokens). This token is personal, should not be shared or committed to the repo.
 
@@ -73,7 +72,6 @@ Next, add a `.env` file in the `scripts` directory, to which you will add the va
 where `###` is your personal access token. You can use the `.env.template` file you find in the repository as model, if you want.
 
 **IMPORTANT**: the `.env` file is ignored by git, and should not be committed to the repository.
-
 
 Once you've done the initial setup, there are three distinct steps in the process that you can follow.
 
@@ -90,9 +88,9 @@ yarn sync
 
 This action will:
 
-* Retrieve the assets metadata from Figma via REST API
-* Export the assets as `.svg` files into `./svg-original/`
-* Generate the `catalog.json` file
+- Retrieve the assets metadata from Figma via REST API
+- Export the assets as `.svg` files into `./svg-original/`
+- Generate the `catalog.json` file
 
 ## Build
 
@@ -107,11 +105,11 @@ yarn build
 
 This action will:
 
-* Optimize the SVG files and save then in a `temp` folder
-* Process the optimized SVG files and save then in the `svg` folder
-* Update the existing files in the Ember addon folder:
-    * Process the optimized SVG, generate a SVG sprite, and overwrite the existing sprite
-    * Overwrite the catalog.json with the new one
+- Optimize the SVG files and save then in a `temp` folder
+- Process the optimized SVG files and save then in the `svg` folder
+- Update the existing files in the Ember addon folder:
+  - Process the optimized SVG, generate a SVG sprite, and overwrite the existing sprite
+  - Overwrite the catalog.json with the new one
 
 _**Notice**: this step not only updates the content of the `flight-icons` folder, but also the content of the `ember-flight-icons`. You will see these changes reflected in your git diff status._
 
@@ -129,8 +127,8 @@ yarn bump
 
 This action will:
 
-* ask you which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
-* update the version in the `package.json` file
+- ask you which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+- update the version in the `package.json` file
 
 When this step is done, commit and push the changes to the `package.json` file, and submit a new pull request in GitHub. Once also this one has been approved and merged to the `main` branch, you can finally move to the last step, the actual release.
 
@@ -140,7 +138,6 @@ The "release" step publishes the package on the npm registry (using the version 
 
 Use the following command in your CLI (while in the `flight-icons` folder):
 
-
 ```bash
 yarn release
 ```
@@ -149,10 +146,10 @@ _**IMPORTANT**: if you need to do some tests, use a **local** package registry (
 
 This action will:
 
-* ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
-* update the version in the `package.json` file
-* automatically publish the new version of the `@hashicorp/flight-icons` package on the [NPM registry](https://www.npmjs.com/)
-  * _Notice: you will need a company-approved account on npm (with 2FA) to publish._
+- ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+- update the version in the `package.json` file
+- automatically publish the new version of the `@hashicorp/flight-icons` package on the [NPM registry](https://www.npmjs.com/)
+  - _Notice: you will need a company-approved account on npm (with 2FA) to publish._
 
 At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done, you just published your new package! 🎉
 
@@ -181,18 +178,18 @@ To test the release of packages without actually polluting the real/production n
 You can follow [the instructions here](https://verdaccio.org/docs/installation) but essentially what you have to:
 
 - install the package: `npm install -g verdaccio` - this will install it globally
-- launch the service: `verdaccio` - this will serve a web frontend to the registry at the URL http://localhost:4873/
+- launch the service: `verdaccio` - this will serve a web frontend to the registry at the URL [http://localhost:4873/](http://localhost:4873/)
 - add a user to the registry: `npm adduser --registry http://localhost:4873` - this will ask you a username/password/email, I suggest to use test/test/test@test.com because is just a local instance; this will also authenticate you with the registry so when you publish yuo don't need to login.
 
 Now you need to add this entry in the `package.json` files of `flight-icons`:
 
-```
+```json
 "publishConfig": {
     "registry": "http://localhost:4873"
 },
 ```
 
-This will make sure the package is published on Verdaccio. Once the package is published, the web frontend accesible at http://localhost:4873/ will show you all the details about the packages (and if needed you can also download the tarballs, to check their content).
+This will make sure the package is published on Verdaccio. Once the package is published, the web frontend accesible at [http://localhost:4873/](http://localhost:4873/) will show you all the details about the packages (and if needed you can also download the tarballs, to check their content).
 
 Once you've done testing, you can remove verdaccio via `npm uninstall -g verdaccio` and then remove the files he created using `rm -fr ~/.local/share/verdaccio && rm -fr .config/verdaccio`. You can use the same command to cleanup the entire data storage of Verdaccio and start from scratch (no need to reinstall for this, just cleanup the data).
 
