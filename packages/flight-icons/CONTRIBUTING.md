@@ -40,9 +40,9 @@ Make second PR for the `package.json` version bumps in both `flight-icons/` and 
 - Make sure your local `main` branch is up to date.
 - Create new custom branch from `main`.
 - `cd /[your-local-project-path]/flight/flight-icons`
-- Choose _semver_ version as agreed upon on the previous PR. Run `yarn bump` to have tooling automatically update the version for you.
+- Choose _SemVer_ version as agreed upon on the previous PR. Run `yarn bump` to have tooling automatically update the version for you.
 - `cd /[your-local-project-path]/flight/ember-flight-icons`
-- Choose _semver_ version as agreed upon on the previous PR. Run `yarn bump` to have tooling automatically update the version for you.
+- Choose _SemVer_ version as agreed upon on the previous PR. Run `yarn bump` to have tooling automatically update the version for you.
 - Commit, push, open PR, wait for approval.
 
 Finally, publish the packages to npm:
@@ -144,7 +144,7 @@ yarn bump
 
 This action will:
 
-- ask you which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+- ask you which _SemVer_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
 - update the version in the `package.json` file
 
 When this step is done, commit and push the changes to the `package.json` file, and submit a new pull request in GitHub. Once also this one has been approved and merged to the `main` branch, you can finally move to the last step, the actual release.
@@ -163,7 +163,7 @@ _**IMPORTANT**: if you need to do some tests, use a **local** package registry (
 
 This action will:
 
-- ask which _semver_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
+- ask which _SemVer_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
 - update the version in the `package.json` file
 - automatically publish the new version of the `@hashicorp/flight-icons` package on the [NPM registry](https://www.npmjs.com/)
   - _Notice: you will need a company-approved account on npm (with 2FA) to publish._
