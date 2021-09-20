@@ -47,10 +47,10 @@
 
 .ds-input-search {
   @apply 
-    block
     border-gray-300
     focus:border-brand
     focus:ring-brand
+    inline-block
     pl-10
     rounded-md
     shadow-sm
