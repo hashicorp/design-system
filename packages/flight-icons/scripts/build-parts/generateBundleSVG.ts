@@ -17,7 +17,7 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
         let svgSource = await fs.readFile(`${config.tempFolder}/${fileName}.svg`, 'utf8');
         // replace #000001 ("dynamic" color in Figma) with "currentColor"
         svgSource = svgSource.replace(/"#000001"/gi, '"currentColor"');
-        // save the processed SVG file to the "dist" target folder (more correctly, its subfolder)
+        // save the processed SVG files to the `svg/` directory
         await fs.writeFile(`${config.mainFolder}/svg/${fileName}.svg`, svgSource);
     }
 }

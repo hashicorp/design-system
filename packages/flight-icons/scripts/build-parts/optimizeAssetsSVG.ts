@@ -28,13 +28,13 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
 
     // IMPORTANT: don't use foreach here, it does async stuff inside!
     for (const asset of catalog.assets) {
-
+        // Note: `svg-original/` directory is the raw .svg output from Figma, before processing
         const srcAssetPath = `${config.mainFolder}/svg-original/${asset.fileName}.svg`;
         const tempAssetPath = `${config.tempFolder}/${asset.fileName}.svg`;
 
         // check that the asset actually exists in the "src" folder
         if (fs.existsSync(srcAssetPath)) {
-            // console.log(`Processing asset "${asset.fileName}.svg"`);
+            console.log(`Processing asset "${asset.fileName}.svg"`);
 
             // optimize the SVG and add it to the temp folder
             try {
