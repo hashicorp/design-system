@@ -14,9 +14,9 @@
 
   <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Generic</h4>
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="text-sm text-gray-500">
           Glyph with standard outline
           <ul>
             <li>Preferred default style</li>
@@ -30,9 +30,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Filled</h4>
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="text-sm text-gray-500">
           Glyph with a solid fill
           <ul>
             <li>Toggled state or for contrast</li>
@@ -46,9 +46,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Off</h4>
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="text-sm text-gray-500">
           Glyph with a strike-through
           <ul>
             <li>Disabled state</li>
@@ -62,9 +62,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Contained</h4>
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="text-sm text-gray-500">
           Glyph with containing shape, e.g. square, circle, diamond, etc
           <ul>
             <li>For emphasis</li>
@@ -72,9 +72,9 @@
         </p>
       </div>
       <!-- TODO: fix image sizing -->
-      <div class="sm:flex-shrink-0">
+      <div class="sm:flex-shrink">
         <div class="flow-root">
-            <img class="" src="assets/images/icon-types-contained.png" alt="" role="none" />
+            <img class="s:w-64" src="assets/images/icon-types-contained.png" alt="" role="none" />
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@
 
   <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">
           16
         </h4>
@@ -149,17 +149,12 @@
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img
-            class="w-28"
-            src="assets/images/icon-sizes-16.png"
-            alt=""
-            role="none"
-          />
+          <img class="w-28" src="assets/images/icon-sizes-16.png" alt="" role="none" />
         </div>
       </div>
-    </div>
+    </div>    
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">
           24
         </h4>
@@ -172,12 +167,7 @@
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img
-            class="w-28"
-            src="assets/images/icon-sizes-24.png"
-            alt=""
-            role="none"
-          />
+          <img class="w-28" src="assets/images/icon-sizes-24.png" alt="" role="none" />
         </div>
       </div>
     </div>
@@ -204,11 +194,11 @@
     <a href="#size-existing" class="ds-a">§</a> Updating existing interfaces
   </h3>
 
-  <ul class="ds-ul">
-    <li class="ds-li">
+  <ul>
+    <li>
       Where the current icon size is less than or equal to <em>20px</em>, replace icons with <em>16px</em> versions
     </li>
-    <li class="ds-li">
+    <li>
       If the size of icon to be replaced is at least <em>21px</em>, first try to replace it with a <em>24px</em> version
       <p class="text-sm text-gray-500">
         If <em>24px</em> seems too large, consider dropping down to <em>16px</em> and reworking the interface for a better fit
@@ -235,9 +225,9 @@
 
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">In Progress</h4>
-        <p class="mt-2 text-sm text-gray-500">"Building"</p>
+        <p class="text-sm text-gray-500">"Building"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -246,9 +236,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Succeeded</h4>
-        <p class="mt-2 text-sm text-gray-500">"Build passed"</p>
+        <p class="text-sm text-gray-500">"Build passed"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -257,9 +247,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Failed</h4>
-        <p class="mt-2 text-sm text-gray-500">"Build failed"</p>
+        <p class="text-sm text-gray-500">"Build failed"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -268,9 +258,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Skipped</h4>
-        <p class="mt-2 text-sm text-gray-500">"Build skipped"</p>
+        <p class="text-sm text-gray-500">"Build skipped"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -289,9 +279,9 @@
 
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Success</h4>
-        <p class="mt-2 text-sm text-gray-500">"Created user"</p>
+        <p class="text-sm text-gray-500">"Created user"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -300,9 +290,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Error</h4>
-        <p class="mt-2 text-sm text-gray-500">"Couldn't create user"</p>
+        <p class="text-sm text-gray-500">"Couldn't create user"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -311,9 +301,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Warning</h4>
-        <p class="mt-2 text-sm text-gray-500">"User is near limits"</p>
+        <p class="text-sm text-gray-500">"User is near limits"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -322,9 +312,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Informational</h4>
-        <p class="mt-2 text-sm text-gray-500">"User has 5 invites"</p>
+        <p class="text-sm text-gray-500">"User has 5 invites"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -351,9 +341,9 @@
   </h3>
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Create</h4>
-        <p class="mt-2 text-sm text-gray-500">"Create new team"</p>
+        <p class="text-sm text-gray-500">"Create new team"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -362,9 +352,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Edit</h4>
-        <p class="mt-2 text-sm text-gray-500">"Edit this team"</p>
+        <p class="text-sm text-gray-500">"Edit this team"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -373,9 +363,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Delete</h4>
-        <p class="mt-2 text-sm text-gray-500">"Delete this item"</p>
+        <p class="text-sm text-gray-500">"Delete this item"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -385,13 +375,13 @@
     </div>
     <!-- TODO: fix image size -->
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Copy</h4>
-        <p class="mt-2 text-sm text-gray-500">"Copy to clipboard"</p>
+        <p class="text-sm text-gray-500">"Copy to clipboard"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
-          <img class="w-auto" src="assets/images/icon-actions-copy.png" alt="" role="none" />
+          <img class="w-64 lg:w-auto" src="assets/images/icon-actions-copy.png" alt="" role="none" />
         </div>
       </div>
     </div>
@@ -402,9 +392,9 @@
   </h3>
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">        
         <h4 class="text-xl font-medium text-gray-900">Back</h4>
-        <p class="mt-2 text-sm text-gray-500">"Go back"</p>
+        <p class="text-sm text-gray-500">"Go back"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -413,9 +403,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Link</h4>
-        <p class="mt-2 text-sm text-gray-500">"Visit AWS"</p>
+        <p class="text-sm text-gray-500">"Visit AWS"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -424,9 +414,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Close</h4>
-        <p class="mt-2 text-sm text-gray-500">"Dismiss"</p>
+        <p class="text-sm text-gray-500">"Dismiss"</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -441,9 +431,9 @@
   </h3>
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Tutorial Link</h4>
-        <p class="mt-2 text-sm text-gray-500">
+        <p class="text-sm text-gray-500">
           When linking to learn.hashicorp.com
         </p>
       </div>
@@ -454,9 +444,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Doc link</h4>
-        <p class="mt-2 text-sm text-gray-500">When linking to documentation</p>
+        <p class="text-sm text-gray-500">When linking to documentation</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -465,9 +455,9 @@
       </div>
     </div>
     <div class="text-left sm:flex lg:block">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
         <h4 class="text-xl font-medium text-gray-900">Support</h4>
-        <p class="mt-2 text-sm text-gray-500">When referencing HashiCorp support</p>
+        <p class="text-sm text-gray-500">When referencing HashiCorp support</p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -573,7 +563,7 @@
 
   <!-- TODO: need to make this section cleaner; use icons vs images -->
   <h4 class="text-xl font-medium text-gray-900">Dimensions</h4>
-  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
+  <div class="mt-2 mx-auto grid grid-cols-2 gap-y-10 gap-x-8 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
@@ -582,7 +572,7 @@
       </div>
       <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
         <h4 class="text-xl font-medium text-gray-900">24px</h4>
-        <div class="mt-2 text-sm text-gray-500">
+        <div class="text-sm text-gray-500">
           <p class="flex items-center">
             <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" /> 18.5px
           </p>
@@ -602,12 +592,12 @@
       <!-- TODO: align smaller images to bottom -->
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
-          <img class="w-1/2" src="assets/images/icon-dimensions-sq-16.png" alt="" role="none" />
+          <img class="w-1/4 sm:w-1/2 lg:w-1/2" src="assets/images/icon-dimensions-sq-16.png" alt="" role="none" />
         </div>
       </div>
       <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
         <h4 class="text-xl font-medium text-gray-900">16px</h4>
-        <div class="mt-2 text-sm text-gray-500">
+        <div class="text-sm text-gray-500">
           <p class="flex items-center">
             <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" /> 12.5px
           </p>
@@ -631,7 +621,7 @@
       </div>
       <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
         <h4 class="text-xl font-medium text-gray-900">24px</h4>
-        <div class="mt-2 text-sm text-gray-500">
+        <div class="text-sm text-gray-500">
           <p class="flex items-center">
             <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" /> 20.5px
           </p>
@@ -648,12 +638,12 @@
     <div class="text-left sm:flex lg:block">
       <div class="sm:flex-shrink-0">
         <div class="flex-root">
-          <img class="w-1/2" src="assets/images/icon-dimensions-cr-16.png" alt="" role="none" />
+          <img class="w-1/4 sm:w-1/2 lg:w-1/2" src="assets/images/icon-dimensions-cr-16.png" alt="" role="none" />
         </div>
       </div>
       <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
         <h4 class="text-xl font-medium text-gray-900">16px</h4>
-        <div class="mt-2 text-sm text-gray-500">
+        <div class="text-sm text-gray-500">
           <p class="flex items-center">
             <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" /> 14.5px
           </p>
@@ -669,20 +659,20 @@
   </div>
 
   <h4 class="text-xl font-medium text-gray-900">Geometry</h4>
-  <ul class="ds-ul">
-    <li class="ds-li">
+  <ul>
+    <li>
       Stroke weight is always <em>1.5px, center</em> with <em>round joins</em> and <em>round end points</em>
       <p class="text-sm text-gray-500">
         Avoid dropping the stroke weight for detail in smaller sizes, and instead look to reduce the glyph complexity.
       </p>
     </li>
-    <li class="ds-li">
+    <li>
       Corner radius is generally <em>2px @ 24px</em> and <em>1.5px @ 16px</em>
       <p class="text-sm text-gray-500">
         Reduce the corner radius where preserving detail of a shape is important or it can make the glyph clearer.
       </p>
     </li>
-    <li class="ds-li">
+    <li>
       Line length should round to a <em>0.5px</em> value and x and y co-ords should land on <em>0.25px</em> and <em>0.75px</em> values
       <p class="text-sm text-gray-500">
         By using these values alongside the 1.5px stroke, we can align glyph edges to the pixel grid, ensuring crisp icon linework and reducing scenarios where the stroke weight doesn't sit on the whole pixel bounds.
