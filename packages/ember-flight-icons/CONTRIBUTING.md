@@ -54,6 +54,13 @@ In the second step you publish the package on the npm registry:
 
 _**IMPORTANT**: if you need to do some tests, use a **local** package registry (see [CONTRIBUTING](../flight-icons/CONTRIBUTING.md) in the `flight-icon`), don't test directly in production!_
 
+### How to do some manual QA of the new package version
+
+- Bump the `@hashicorp/ember-flight-icons` version in [hashicorp/design-system-playground/blob/main/package.json](https://github.com/hashicorp/design-system-playground/blob/main/package.json)
+- `yarn`
+- `ember s`
+- Confirm you see icon on the homepage in local dev.
+
 ## Testing local changes to the addon
 
 - `cd flight/ember-flight-icons`
