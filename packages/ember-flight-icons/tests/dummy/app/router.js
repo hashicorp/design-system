@@ -9,4 +9,5 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('engineering');
   this.route('design');
+  this.route('percy-test');
 });

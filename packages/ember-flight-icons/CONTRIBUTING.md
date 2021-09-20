@@ -24,21 +24,35 @@
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-## 🚧 [WIP] Releasing a new npm version of the package
+## Releasing a new npm version of the package
 
-```bash
-cd ember-flight-icons
-```
+### SVG icon updates
 
-Bump the version number, per SemVer, for the `ember-flight/package.json`.
+If the SVGs are being updated, you must bump both `@hashicorp/flight-icons` and `@hashicorp/ember-flight-icons`. Please see [flight-icons/CONTRIBUTING](https://github.com/hashicorp/flight/blob/main/flight-icons/CONTRIBUTING.md) for those instructions.
 
-After the change is merged to `main`, from the `ember-flight-icons/` directory, run:
+### Just an update to `ember-flight-icons`, not `flight-icons`
 
-```bash
-npm publish
-```
+The release process is in two steps.
 
-You will need 2FA on your npm account to publish.
+In the first step you need to do a "bump" of the version, which will increase the version number in the `package.json` file:
+
+- Create new custom branch from `main`.
+- `cd /[your-local-project-path]/flight/ember-flight-icons`
+- Run `yarn bump` to have tooling automatically update the version for you. Choose the correct version following SemVer.
+- Commit, push, open PR, wait for approval.
+
+Once the PR has been merged to `main`, you can move to the next step.
+
+In the second step you publish the package on the npm registry:
+
+- Make sure your local `main` branch is up to date.
+- You will need 2FA enabled on npm to publish packages, see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info.
+- `cd /[your-local-project-path]/flight/ember-flight-icons`
+- `yarn release`
+- Check [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) and [www.npmjs.com/package/@hashicorp/ember-flight-icons](https://www.npmjs.com/package/@hashicorp/ember-flight-icons).
+- Profit! 🎉
+
+_**IMPORTANT**: if you need to do some tests, use a **local** package registry (see [CONTRIBUTING](../flight-icons/CONTRIBUTING.md) in the `flight-icon`), don't test directly in production!_
 
 ## Testing local changes to the addon
 
