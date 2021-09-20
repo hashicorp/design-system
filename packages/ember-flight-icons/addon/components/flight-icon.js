@@ -64,4 +64,53 @@ export default class FlightIconComponent extends Component {
   get size() {
     return this.args.size ?? '16';
   }
+
+  /**
+   * Generates a unique ID for the title
+   *
+   * @param titleId
+   */
+  titleId = 'title-' + guidFor(this);
+
+  /**
+   * Gets the icon's title if one is set
+   *
+   * @param title
+   * @returns the value of `title` if set
+   * @default null
+   */
+  get title() {
+    return this.args.title ?? null;
+  }
+
+  /**
+   *
+   * Sets a role if a title exists
+   *
+   * @param role {string}
+   * @returns 'img' or null
+   * @default null
+   */
+  get role() {
+    if (this.args.title) {
+      return 'img';
+    } else {
+      return null;
+    }
+  }
+  /**
+   *
+   * Sets aria-labelledby if a title exists
+   *
+   * @param ariaLabelledby {string}
+   * @returns value of titleId or null
+   * @default null
+   */
+  get ariaLabelledby() {
+    if (this.args.title) {
+      return this.titleId;
+    } else {
+      return null;
+    }
+  }
 }

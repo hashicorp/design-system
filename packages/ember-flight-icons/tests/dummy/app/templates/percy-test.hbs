@@ -1,0 +1,50 @@
+{{page-title "Percy test"}}
+
+<h1 class="ds-h1">Percy test page</h1>
+<h2 class="ds-h2">Note: This route is hidden from nav, for testing only 🤙</h2>
+<br>
+
+<div>
+  <p>Icon with default size (16):</p>
+  <FlightIcon @name="bug"></FlightIcon>
+</div>
+<br>
+
+<div>
+  <p>Icon with larger size (24):</p>
+  <FlightIcon @name="bug" @size="24"></FlightIcon>
+</div>
+<br>
+<hr>
+<br>
+
+<div>
+  <p>Icon with unspecified color (currentColor):</p>
+  <FlightIcon @name="bookmark"></FlightIcon>
+</div>
+<br>
+
+<div>
+  <p>Icon with custom red color, specified via prop:</p>
+  <FlightIcon @name="folder-fill" @color="red"></FlightIcon>
+</div>
+<br>
+<hr>
+<br>
+
+<div>
+  <p>Icon with unspecified color (currentColor) + parent with custom blue color (to check inheritance)</p>
+  {{!-- template-lint-disable no-inline-styles --}}
+  <a style="color:blue" href="">
+    <FlightIcon @name="external-link"></FlightIcon>
+  </a>
+</div>
+<br>
+
+<div>
+  <p>Icon with custom orange color, specified via prop + parent with !important green color declared (to check overrides not working)</p>
+  {{!-- template-lint-disable no-inline-styles --}}
+  <div style="color:green !important">
+    <FlightIcon @name="heart-fill" @color="orange"></FlightIcon>
+  </div>
+</div>

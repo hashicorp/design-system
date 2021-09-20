@@ -20,7 +20,7 @@ module('Integration | Component | flight-icon', function (hooks) {
     await render(hbs`<FlightIcon @name="activity" />`);
     assert
       .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
-      .hasAttribute('aria-hidden');
+      .hasAria('hidden', 'true');
   });
   test('it renders the 16x16 icon by default', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);
@@ -69,6 +69,34 @@ module('Integration | Component | flight-icon', function (hooks) {
     assert.dom(`svg.flight-icon`).hasStyle({
       fill: 'rgb(0, 0, 255)',
     });
+  });
+  test('it renders the title if one is defined', async function (assert) {
+    await render(hbs`<FlightIcon @name="activity" @title="try to avoid" />`);
+    assert.dom('title').containsText('try to avoid');
+  });
+  test('it has aria-hidden set to false if a title is defined', async function (assert) {
+    await render(hbs`<FlightIcon @name="activity" @title="try to avoid" />`);
+    assert
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
+      .hasAria('hidden', 'false');
+  });
+  test('it has aria-labelledby if a title exists', async function (assert) {
+    await render(hbs`<FlightIcon @name="activity" @title="try to avoid" />`);
+    assert
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
+      .hasAttribute('aria-labelledby');
+  });
+  test('it does not have aria-labelledby if a title does not exist', async function (assert) {
+    await render(hbs`<FlightIcon @name="activity"  />`);
+    assert
+      .dom('svg.flight-icon.flight-icon-activity.flight-icon-display-inline')
+      .doesNotHaveAttribute('aria-labelledby');
+  });
+  test('it has a g element with role of presentation if a title exists', async function (assert) {
+    await render(
+      hbs`<FlightIcon @name="activity" @title="computer says no" />`
+    );
+    assert.dom('svg > g').hasAttribute('role');
   });
   // TODO: there should be an error if an icon name is not provided
 });
