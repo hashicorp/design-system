@@ -172,6 +172,15 @@ At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://w
 
 🚨 **DON'T FORGET**: if you're releasing a new version of `@hashicorp/flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons/` have also been updated, which means you have to release also that package.
 
+### How to do some manual QA of the new package version
+
+You may want to test the change in the real-world, with a consuming app, to test for any gotchas that could come up in production.
+
+- Bump the `@hashicorp/flight-icons` version in [hashicorp/boundary-ui/blob/main/addons/rose/package.json](https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/package.json)
+- At root, run `yarn`
+- `cd ui/desktop && yarn start`
+- Confirm you see icons in local dev.
+
 ## Local development
 
 If you need to work on the scripts locally, here some useful information.

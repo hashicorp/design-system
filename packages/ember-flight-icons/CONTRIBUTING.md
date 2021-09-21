@@ -54,6 +54,14 @@ In the second step you publish the package on the npm registry:
 
 _**IMPORTANT**: if you need to do some tests, use a **local** package registry (see [CONTRIBUTING](../flight-icons/CONTRIBUTING.md) in the `flight-icon`), don't test directly in production!_
 
+### How to do some manual QA of the new package version
+
+You may want to test the change in the real-world, with a consuming app, to test for any gotchas that could come up in production.
+
+- Bump the `@hashicorp/ember-flight-icons` version in [this WIP PR in `cloud-ui`](https://github.com/hashicorp/cloud-ui/pull/1322)
+- Run the PR locally
+- Confirm you see icons, such as the external link icon, on the homepage once you're logged in.
+
 ## Testing local changes to the addon
 
 - `cd flight/ember-flight-icons`

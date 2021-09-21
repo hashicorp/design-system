@@ -2,82 +2,139 @@
 <h1 class="ds-h1">Consumer instructions</h1>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <p>There are multiple ways to use these icons in your codebase. The <a href="#use-other" class="ds-a">package itself can be consumed</a> for direct import, or it can be installed as an <a href="#ember-flight-icons" class="ds-a">Ember addon</a> for the convenience of using a component with strong defaults.</p>
+  <p>There are multiple ways to use these icons in your codebase. The
+    <a href="#use-other" class="ds-a">package itself can be consumed</a>
+    for direct import, or it can be installed as an
+    <a href="#ember-flight-icons" class="ds-a">Ember addon</a>
+    for the convenience of using a component with strong defaults.</p>
 </div>
 
 <div class="ds-info">
-  <p>🚨 Note: All of the flight-icon npm packages are currently in beta and any production usage should be discussed with the Design Systems team first.</p>
+  <p>🚨 Note: All of the flight-icon npm packages are currently in beta and any production usage should be discussed
+    with the Design Systems team first.</p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="accessibility"><a href="#accessibility" class="ds-a" rel="external">&sect;</a> Accessibility</h2>
+  <h2 class="ds-h2" id="accessibility"><a href="#accessibility" class="ds-a" rel="external">&sect;</a>
+    Accessibility</h2>
   <p>
-  Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best practice is to set the <kbd class="ds-kbd">aria-hidden</kbd> attribute to false on the SVG itself.
-  This means that the icon (both the singular icon and the icon component) will need to be used <em class="ds-em">in context</em>.
-  The icons themselves are for presentation purposes only and should never be used on their own.
+    Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best
+    practice is to set the
+    <kbd class="ds-kbd">aria-hidden</kbd>
+    attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will
+    need to be used
+    <em class="ds-em">in context</em>. The icons themselves are for presentation purposes only and should never be used
+    on their own.
   </p>
-  <p>However: As a <em>temporary</em> bridge while we work to provide the accessible components in the design system, we have provided the ability to add a title element to the Ember component by defining a value for the <kbd class="ds-kbd">@title</kbd> property.
-    This is a temporary measure and we strongly encourage UI engineering teams to work with their designers and plan to convert any standalone icon use.</p>
+  <p>However: As a
+    <em>temporary</em>
+    bridge while we work to provide the accessible components in the design system, we have provided the ability to add
+    a title element to the Ember component by defining a value for the
+    <kbd class="ds-kbd">@title</kbd>
+    property. This is a temporary measure and we strongly encourage UI engineering teams to work with their designers
+    and plan to convert any standalone icon use.
+  </p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3">Examples of Correct use</h3>
-  <CodeBlock @language="markup" @code="&lt;button aria-label=&quot;Check Activity&quot;>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="&lt;button aria-label=&quot;Check Activity&quot;>
  &lt;FlightIcon @name=&quot;activity&quot; />
-&lt;/button>" />
+&lt;/button>"
+  />
+  {{! prettier-ignore-end }}
+  {{! prettier-ignore-start }}
   <CodeBlock @language="markup" @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>" />
+  {{! prettier-ignore-end }}
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="ember-flight-icons"><a href="#ember-flight-icons" class="ds-a" rel="external">&sect;</a> Use in Ember Apps</h2>
+  <h2 class="ds-h2" id="ember-flight-icons"><a href="#ember-flight-icons" class="ds-a" rel="external">&sect;</a>
+    Use in Ember Apps</h2>
   <h3 class="ds-h3">Installation</h3>
   <p>To install, run
-  <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
+    {{! prettier-ignore-start }}
+    <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
+    {{! prettier-ignore-end }}
   </p>
-  <p>Note: <kbd class="ds-kbd">ember-test-selectors</kbd> is a dependency added for the author's convenience.
-  <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember Addon</a> strips out all <kbd class="ds-kbd">data-test-*</kbd> attributes for production builds.</p>
+  <p>Note:
+    <kbd class="ds-kbd">ember-test-selectors</kbd>
+    is a dependency added for the author's convenience.
+    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember Addon</a>
+    strips out all
+    <kbd class="ds-kbd">data-test-*</kbd>
+    attributes for production builds.
+  </p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a> Understanding the component</h3>
+  <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a>
+    Understanding the component</h3>
   <p>The component comes with the following defaults:
-  <ol>
-    <li class="ds-li"><kbd class="ds-kbd">fill</kbd> attribute: set to currentColor</li>
-    <li class="ds-li"><kbd class="ds-kbd">id</kbd> attribute: a unique, automatically generated id</li>
-    <li class="ds-li"><kbd class="ds-kbd">aria-hidden</kbd> attribute: set to true</li>
-    <li class="ds-li"><kbd class="ds-kbd">height</kbd> and <kbd class="ds-kbd">width</kbd>: default size of 16x16 (px)</li>
-    <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
-    <li class="ds-li">CSS display: set to <kbd class="ds-kbd">display:inline-block</kbd></li>
-    <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd> attribute: for the author's testing convenience; set to the value of the <kbd class="ds-kbd">@name</kbd> property.</li>
-  </ol>
+    <ol>
+      <li class="ds-li"><kbd class="ds-kbd">fill</kbd>
+        attribute: set to currentColor</li>
+      <li class="ds-li"><kbd class="ds-kbd">id</kbd>
+        attribute: a unique, automatically generated id</li>
+      <li class="ds-li"><kbd class="ds-kbd">aria-hidden</kbd>
+        attribute: set to true</li>
+      <li class="ds-li"><kbd class="ds-kbd">height</kbd>
+        and
+        <kbd class="ds-kbd">width</kbd>: default size of 16x16 (px)</li>
+      <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
+      <li class="ds-li">CSS display: set to
+        <kbd class="ds-kbd">display:inline-block</kbd></li>
+      <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd>
+        attribute: for the author's testing convenience; set to the value of the
+        <kbd class="ds-kbd">@name</kbd>
+        property.</li>
+    </ol>
   </p>
 
-  <p>This makes the base, required invocation quite terse- <kbd class="ds-kbd">@name</kbd> is the only property that requires specification.
-  So this invocation:
-  <CodeBlock @language="markup" id="component-invocation-base" @code="&lt;FlightIcon @name=&quot;alert-circle&quot; />" />
+  <p>This makes the base, required invocation quite terse-
+    <kbd class="ds-kbd">@name</kbd>
+    is the only property that requires specification. So this invocation:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      id="component-invocation-base"
+      @code="&lt;FlightIcon @name=&quot;alert-circle&quot; />"
+    />
+    {{! prettier-ignore-end }}
   </p>
 
   <p>
-  Renders to this (where the ID will be unique each time):
-<CodeBlock @language="markup" id="component-invocation-base-render"
-@code="&lt;svg
- aria-hidden=&quot;true&quot;
- class=&quot;flight-icon icon-alert-circle display-inline&quot;
- data-test-icon=&quot;alert-circle&quot;
- fill=&quot;currentColor&quot;
- id=&quot;icon-ember115&quot;
- width=&quot;16&quot;
- height=&quot;16&quot;
- viewBox=&quot;0 0 16 16&quot;
- xmlns=&quot;http://www.w3.org/2000/svg&quot;>
+    Renders to this (where the ID will be unique each time):
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      id="component-invocation-base-render"
+      @code="&lt;svg
+  aria-hidden=&quot;true&quot;
+  class=&quot;flight-icon icon-alert-circle display-inline&quot;
+  data-test-icon=&quot;alert-circle&quot;
+  fill=&quot;currentColor&quot;
+  id=&quot;icon-ember115&quot;
+  width=&quot;16&quot;
+  height=&quot;16&quot;
+  viewBox=&quot;0 0 16 16&quot;
+  xmlns=&quot;http://www.w3.org/2000/svg&quot;>
   &lt;use href=&quot;/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16&quot;>&lt;/use>
-&lt;/svg>" />
+&lt;/svg>"
+    />
+    {{! prettier-ignore-end }}
   </p>
-  <p>The <kbd class="ds-kbd">&lt;use></kbd> element will then render the correct svg to the shadow dom.</p>
+  <p>The
+    <kbd class="ds-kbd">&lt;use></kbd>
+    element will then render the correct svg to the shadow dom.</p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a> Customizable properties</h3>
+  <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a>
+    Customizable properties</h3>
   <p>The following properties are customizable:
     <ol>
       <li>fill (the color)</li>
@@ -91,46 +148,92 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h4 class="ds-h4">Examples</h4>
   <p id="example-fill">
-    <strong><a href="#example-fill" class="ds-a" rel="external">&sect;</a>Fill:</strong> To customize the fill attribute, set the <kbd class="ds-kbd">@color</kbd> value (multiple supported ways).
-    The recommended approach to ensure consistency is to use one of the pre-defined variables:
+    <strong>
+      <a href="#example-fill" class="ds-a" rel="external">&sect;
+      </a>
+      Fill:
+    </strong>
+    To customize the fill attribute, set the
+    <kbd class="ds-kbd">@color</kbd>
+    value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined
+    variables:
+    {{! prettier-ignore-start }}
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;var(--brand)&quot; />" />
+    {{! prettier-ignore-end }}
   </p>
   <p>
     Other accepted values include named colors and color values themselves.
-  <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rebeccapurple&quot; />" />
-  <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rgb(46, 113, 229)&quot; />" />
+    {{! prettier-ignore-start }}
+    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rebeccapurple&quot; />" />
+    {{! prettier-ignore-end }}
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rgb(46, 113, 229)&quot; />"
+    />
+    {{! prettier-ignore-end }}
   </p>
 
   <p id="example-size">
-    <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>Size:</strong> To use the 24x24 (px) icon size, set the <kbd class="ds-kbd">@size</kbd> value:
+    <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>Size:</strong>
+    To use the 24x24 (px) icon size, set the
+    <kbd class="ds-kbd">@size</kbd>
+    value:
+    {{! prettier-ignore-start }}
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />" />
+    {{! prettier-ignore-start }}
   </p>
   <p id="example-styles">
-    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>CSS Classes:</strong> To append additional classes to the component, add <kbd class="ds-kbd">class</kbd> with value(s):
-    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; class=&quot;ds-rotate-90&quot; />" />
+    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>CSS Classes:</strong>
+    To append additional classes to the component, add
+    <kbd class="ds-kbd">class</kbd>
+    with value(s):
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; class=&quot;ds-rotate-90&quot; />"
+    />
+    {{! prettier-ignore-end }}
   </p>
   <p id="example-display">
-    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>CSS Display:</strong> To change the default display of <i>inline-block</i> to <i>block</i>, set <kbd class="ds-kbd">@isInlineBlock</kbd> to false:
-    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; />" />
+    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>CSS Display:</strong>
+    To change the default display of
+    <i>inline-block</i>
+    to
+    <i>block</i>, set
+    <kbd class="ds-kbd">@isInlineBlock</kbd>
+    to false:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; />"
+    />
+    {{! prettier-ignore-end }}
   </p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a> Using the flight-icon package in other ways</h2>
+  <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
+    Using the flight-icon package in other ways</h2>
   <p>
-    It is also possible to install the flight-icon package itself.
-    To do so, run:
-  <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
-  This will allow icons to be imported and used as desired. Note that the icons are namespaced:
-  {{!-- template-lint-disable 'no-potential-path-strings' --}}
-  <CodeBlock @language="bash" @code="@hashicorp/flight-icons/svg/arrow-right-16.svg" />
-   {{!-- template-lint-enable 'no-potential-path-strings' --}}
+    It is also possible to install the flight-icon package itself. To do so, run:
+    {{! prettier-ignore-start }}
+    <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
+    {{! prettier-ignore-end }}
+    This will allow icons to be imported and used as desired. Note that the icons are namespaced:
+    {{! template-lint-disable 'no-potential-path-strings' }}
+    {{! prettier-ignore-start }}
+    <CodeBlock @language="bash" @code="@hashicorp/flight-icons/icons/arrow-right-16.svg" />
+    {{! prettier-ignore-end }}
+    {{! template-lint-enable 'no-potential-path-strings' }}
   </p>
   <p>
     Authors should also follow the following guidelines:
     <ul class="ds-ul">
-      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without a design consult.</li>
-      <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
+      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
+        a design consult.</li>
+      <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
+        <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
     </ul>
   </p>
 </div>
