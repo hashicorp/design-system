@@ -35,7 +35,13 @@ export async function updateEmberAddon({ config, catalog } : { config: ConfigDat
         sprites.add(fileName, svgSource);
     }
 
+    // transform the "sprite" into a string
+    // see https://github.com/svgstore/svgstore#tostringoptions-string
+    let svgSpriteContent = sprites.toString({ inline: true });
+    // add the xmlns attributes that were stripped and extra style to make it invisible in the page
+    svgSpriteContent = svgSpriteContent.replace(/^<svg>/, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 0; height: 0; visibility: hidden; position: absolute;" aria-hidden="true">')
+
     // update the SVG sprite in the Ember addon
-    await fs.writeFile(`${emberPublicIconsFolder}/sprite.svg`, sprites);
+    await fs.writeFile(`${emberPublicIconsFolder}/sprite.svg`, svgSpriteContent);
 
 }
