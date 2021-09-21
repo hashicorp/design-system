@@ -3,13 +3,15 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="icon-types">
-    <a href="#icon-types" class="ds-a">§</a> Icon Types
+    <a href="#icon-types" class="ds-a">§</a> 
+    Icon Types
   </h2>
 
   <p>There are 4 types of icons in Flight: Generic, Filled, Off, Contained</p>
 
   <h3 class="ds-h3" id="available-types">
-    <a href="#available-types" class="ds-a">§</a> Available Types
+    <a href="#available-types" class="ds-a">§</a> 
+    Available Types
   </h3>
 
   <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
@@ -86,31 +88,31 @@
 
   <ul class="ds-ul">
     <li class="ds-li">
-      Use the <em>Generic</em> style icons by default
+      Use the Generic style icons by default
     </li>
     <li class="ds-li">
-      Use the <em>Filled</em> style where contrast against other icons is important
+      Use the Filled style where contrast against other icons is important
       <p class="text-sm text-gray-500">
         For example, when showing 1 failure in a list of 20 otherwise successful builds, use a filled 'failure' icon but keep the remaining checkmarks outline 'success' icons, so the failure stands out more.
       </p>
       <img src="assets/images/icon-types-bp-filled-1.png" alt="" role="none" />
     </li>
     <li class="ds-li">
-      Use the <em>Filled</em> style if indicating the toggled state of an icon
+      Use the Filled style if indicating the toggled state of an icon
       <p class="text-sm text-gray-500">
         For example, if an object can receive a 'favorite' action, it would show the 'generic' outline variant, and then switch to the 'filled' variant once favorited.
       </p>
       <img src="assets/images/icon-types-bp-filled-2.png" alt="" role="none" />
     </li>
     <li class="ds-li">
-      Use the <em>Off</em> style icons to indicate a disabled state
+      Use the Off style icons to indicate a disabled state
       <p class="text-sm text-gray-500">
         For example, in the favoriting example above, if you wanted to 'unfavorite' an object you could swap the 'filled' variant for 'off' on hover to show what the state will become on click.
       </p>
       <img src="assets/images/icon-types-bp-off.png" alt="" role="none" />
     </li>
     <li class="ds-li">
-        Use the <em>Contained</em> style icons for emphasis in hierarchy
+        Use the Contained style icons for emphasis in hierarchy
         <p class="text-sm text-gray-500">
           For example, in a list of objects, an object might have multiple states. A 'contained' icon could be used for the overall state, and additional metadata that has state could use the 'generic' variants.
         </p>
@@ -178,11 +180,11 @@
   </h3>
 
   <ul>
-    <li>Display icons at either <em>16px</em> or <em>24px</em></li>
-    <li>Use <em>16px</em> icons by default in product interfaces</li>
-    <li>Consider using <em>24px</em> icons in product interfaces for empty states</li>
+    <li>Display icons at either 16px or 24px</li>
+    <li>Use 16px icons by default in product interfaces</li>
+    <li>Consider using 24px icons in product interfaces for empty states</li>
     <li>
-      Take care if choosing to display icons at sizes other than <em>16px</em> and <em>24px</em>
+      Take care if choosing to display icons at sizes other than 16px and 24px
       <!-- TODO/ENHANCEMENT: Use a warning notice here -->
       <p class="text-sm text-gray-500">
         There may be cases where 16px and 24px values don't fit a design - Flight icons can be resized in these cases but be aware that the design is not optimized for values other than these.
@@ -196,12 +198,12 @@
 
   <ul>
     <li>
-      Where the current icon size is less than or equal to <em>20px</em>, replace icons with <em>16px</em> versions
+      Where the current icon size is less than or equal to 20px, replace icons with 16px versions
     </li>
     <li>
-      If the size of icon to be replaced is at least <em>21px</em>, first try to replace it with a <em>24px</em> version
+      If the size of icon to be replaced is at least 21px, first try to replace it with a 24px version
       <p class="text-sm text-gray-500">
-        If <em>24px</em> seems too large, consider dropping down to <em>16px</em> and reworking the interface for a better fit
+        If 24px seems too large, consider dropping down to 16px and reworking the interface for a better fit
       </p>
     </li>
   </ul>
@@ -217,7 +219,7 @@
   <p>Icons frequently get used to represent different states within product interfaces. Most commonly as states of an object or states of feedback.</p>
 
   <h3 class="ds-h3" id="states-object">
-    <a href="#states-object" class="ds-a">§</a> States of an <em>object</em>
+    <a href="#states-object" class="ds-a">§</a> States of an object
   </h3>
   <p class="text-sm text-gray-500">
     An object in our interfaces is any object in our API that can return with a state, such as a Build, a Deployment, a Run, a Job, a Cluster or a Network. Objects are typically displayed in lists or as cards and include their state when presented to the user.
@@ -271,7 +273,7 @@
   </div>
 
   <h3 class="ds-h3" id="states-feedback">
-    <a href="#states-feedback" class="ds-a">§</a> States of <em>feedback</em>
+    <a href="#states-feedback" class="ds-a">§</a> States of feedback
   </h3>
   <p class="text-sm text-gray-500">
     Feedback is presented in our interfaces when actions occur in response to user interaction, such as pressing a button to submit a form, or prior to an action taking place, such as displaying a warning, or when presenting more information.
@@ -661,19 +663,19 @@
   <h4 class="ds-h4">Geometry</h4>
   <ul>
     <li>
-      Stroke weight is always <em>1.5px, center</em> with <em>round joins</em> and <em>round end points</em>
+      Stroke weight is always 1.5px, center with round joins and round end points
       <p class="text-sm text-gray-500">
         Avoid dropping the stroke weight for detail in smaller sizes, and instead look to reduce the glyph complexity.
       </p>
     </li>
     <li>
-      Corner radius is generally <em>2px @ 24px</em> and <em>1.5px @ 16px</em>
+      Corner radius is generally 2px @ 24px and 1.5px @ 16px
       <p class="text-sm text-gray-500">
         Reduce the corner radius where preserving detail of a shape is important or it can make the glyph clearer.
       </p>
     </li>
     <li>
-      Line length should round to a <em>0.5px</em> value and x and y co-ords should land on <em>0.25px</em> and <em>0.75px</em> values
+      Line length should round to a 0.5px value and x and y co-ords should land on 0.25px and 0.75px values
       <p class="text-sm text-gray-500">
         By using these values alongside the 1.5px stroke, we can align glyph edges to the pixel grid, ensuring crisp icon linework and reducing scenarios where the stroke weight doesn't sit on the whole pixel bounds.
       </p>
