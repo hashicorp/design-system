@@ -34,7 +34,8 @@ export async function optimizeAssetsSVG({ config, catalog } : { config: ConfigDa
 
         // check that the asset actually exists in the "src" folder
         if (fs.existsSync(srcAssetPath)) {
-            console.log(`Processing asset "${asset.fileName}.svg"`);
+            // Note: Noisy so commented out by default. Feel free to change locally. 
+            // console.log(`Processing asset "${asset.fileName}.svg"`);
 
             // optimize the SVG and add it to the temp folder
             try {
