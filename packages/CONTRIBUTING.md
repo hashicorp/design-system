@@ -6,7 +6,7 @@ We welcome contributions from external members of the team! We encourage you to 
 
 ## @hashicorp/flight-icons
 
-See [flight-icons/CONTRIBUTING](flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build/release" scripts, that export the assets from Figma and save them as multiple bundles in different formats (standalone SVGs, SVG sprite, CSS, etc.).
+See [flight-icons/CONTRIBUTING](flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build/release" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
 _Notice: these scripts are still in development._
 
