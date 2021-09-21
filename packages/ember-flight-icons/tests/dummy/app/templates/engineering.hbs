@@ -38,13 +38,17 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3">Examples of Correct use</h3>
+  {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code="&lt;button aria-label=&quot;Check Activity&quot;>
  &lt;FlightIcon @name=&quot;activity&quot; />
 &lt;/button>"
   />
+  {{! prettier-ignore-end }}
+  {{! prettier-ignore-start }}
   <CodeBlock @language="markup" @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>" />
+  {{! prettier-ignore-end }}
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
@@ -52,7 +56,9 @@
     Use in Ember Apps</h2>
   <h3 class="ds-h3">Installation</h3>
   <p>To install, run
+    {{! prettier-ignore-start }}
     <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
+    {{! prettier-ignore-end }}
   </p>
   <p>Note:
     <kbd class="ds-kbd">ember-test-selectors</kbd>
@@ -91,31 +97,35 @@
   <p>This makes the base, required invocation quite terse-
     <kbd class="ds-kbd">@name</kbd>
     is the only property that requires specification. So this invocation:
+    {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
       id="component-invocation-base"
       @code="&lt;FlightIcon @name=&quot;alert-circle&quot; />"
     />
+    {{! prettier-ignore-end }}
   </p>
 
   <p>
     Renders to this (where the ID will be unique each time):
+    {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
       id="component-invocation-base-render"
       @code="&lt;svg
-      aria-hidden=&quot;true&quot;
-      class=&quot;flight-icon icon-alert-circle display-inline&quot;
-      data-test-icon=&quot;alert-circle&quot;
-      fill=&quot;currentColor&quot;
-      id=&quot;icon-ember115&quot;
-      width=&quot;16&quot;
-      height=&quot;16&quot;
-      viewBox=&quot;0 0 16 16&quot;
-      xmlns=&quot;http://www.w3.org/2000/svg&quot;>
-      &lt;use href=&quot;/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16&quot;>&lt;/use>
-      &lt;/svg>"
+  aria-hidden=&quot;true&quot;
+  class=&quot;flight-icon icon-alert-circle display-inline&quot;
+  data-test-icon=&quot;alert-circle&quot;
+  fill=&quot;currentColor&quot;
+  id=&quot;icon-ember115&quot;
+  width=&quot;16&quot;
+  height=&quot;16&quot;
+  viewBox=&quot;0 0 16 16&quot;
+  xmlns=&quot;http://www.w3.org/2000/svg&quot;>
+  &lt;use href=&quot;/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16&quot;>&lt;/use>
+&lt;/svg>"
     />
+    {{! prettier-ignore-end }}
   </p>
   <p>The
     <kbd class="ds-kbd">&lt;use></kbd>
@@ -147,15 +157,21 @@
     <kbd class="ds-kbd">@color</kbd>
     value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined
     variables:
+    {{! prettier-ignore-start }}
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;var(--brand)&quot; />" />
+    {{! prettier-ignore-end }}
   </p>
   <p>
     Other accepted values include named colors and color values themselves.
+    {{! prettier-ignore-start }}
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rebeccapurple&quot; />" />
+    {{! prettier-ignore-end }}
+    {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
       @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rgb(46, 113, 229)&quot; />"
     />
+    {{! prettier-ignore-end }}
   </p>
 
   <p id="example-size">
@@ -163,17 +179,21 @@
     To use the 24x24 (px) icon size, set the
     <kbd class="ds-kbd">@size</kbd>
     value:
+    {{! prettier-ignore-start }}
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />" />
+    {{! prettier-ignore-start }}
   </p>
   <p id="example-styles">
     <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>CSS Classes:</strong>
     To append additional classes to the component, add
     <kbd class="ds-kbd">class</kbd>
     with value(s):
+    {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
       @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; class=&quot;ds-rotate-90&quot; />"
     />
+    {{! prettier-ignore-end }}
   </p>
   <p id="example-display">
     <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>CSS Display:</strong>
@@ -183,10 +203,12 @@
     <i>block</i>, set
     <kbd class="ds-kbd">@isInlineBlock</kbd>
     to false:
+    {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
       @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; />"
     />
+    {{! prettier-ignore-end }}
   </p>
 </div>
 
@@ -195,10 +217,14 @@
     Using the flight-icon package in other ways</h2>
   <p>
     It is also possible to install the flight-icon package itself. To do so, run:
+    {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
+    {{! prettier-ignore-end }}
     This will allow icons to be imported and used as desired. Note that the icons are namespaced:
     {{! template-lint-disable 'no-potential-path-strings' }}
+    {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="@hashicorp/flight-icons/icons/arrow-right-16.svg" />
+    {{! prettier-ignore-end }}
     {{! template-lint-enable 'no-potential-path-strings' }}
   </p>
   <p>
