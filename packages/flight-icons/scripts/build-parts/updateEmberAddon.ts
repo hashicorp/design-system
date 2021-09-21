@@ -10,6 +10,7 @@ export async function updateEmberAddon({ config, catalog } : { config: ConfigDat
 
     const tempSVGFolderPath = config.tempFolder;
     const emberPublicIconsFolder = `${config.emberPublicFolder}/icons`;
+    const emberAddonComponentsFolder = `${config.emberAddonFolder}/components`;
 
     // make sure the destination folder exists
     await fs.ensureDir(emberPublicIconsFolder);
@@ -39,9 +40,9 @@ export async function updateEmberAddon({ config, catalog } : { config: ConfigDat
     // see https://github.com/svgstore/svgstore#tostringoptions-string
     let svgSpriteContent = sprites.toString({ inline: true });
     // add the xmlns attributes that were stripped and extra style to make it invisible in the page
-    svgSpriteContent = svgSpriteContent.replace(/^<svg>/, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 0; height: 0; visibility: hidden; position: absolute;" aria-hidden="true">')
+    svgSpriteContent = svgSpriteContent.replace(/^<svg>/, '<svg width="0" height="0" class="flight-sprite-container" aria-hidden="true">')
 
-    // update the SVG sprite in the Ember addon
-    await fs.writeFile(`${emberPublicIconsFolder}/sprite.svg`, svgSpriteContent);
+    // update the SVG "module" in the Ember addon
+    await fs.writeFile(`${emberAddonComponentsFolder}/flight-icon-sprite.js`, `module.exports = '${svgSpriteContent}';`);
 
 }

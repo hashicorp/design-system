@@ -8,5 +8,6 @@ export type ConfigData = {
     mainFolder: string,
     tempFolder: string,
     emberPublicFolder: string,
+    emberAddonFolder: string,
     syncConcurrency: number,
 };
