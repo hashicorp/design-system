@@ -174,6 +174,8 @@ At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://w
 
 ### How to do some manual QA of the new package version
 
+You may want to test the change in the real-world, with a consuming app, to test for any gotchas that could come up in production.
+
 - Bump the `@hashicorp/flight-icons` version in [hashicorp/boundary-ui/blob/main/addons/rose/package.json](https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/package.json)
 - At root, run `yarn`
 - `cd ui/desktop && yarn start`

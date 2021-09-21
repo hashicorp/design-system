@@ -56,10 +56,11 @@ _**IMPORTANT**: if you need to do some tests, use a **local** package registry (
 
 ### How to do some manual QA of the new package version
 
-- Bump the `@hashicorp/ember-flight-icons` version in [hashicorp/design-system-playground/blob/main/package.json](https://github.com/hashicorp/design-system-playground/blob/main/package.json)
-- `yarn`
-- `ember s`
-- Confirm you see icon on the homepage in local dev.
+You may want to test the change in the real-world, with a consuming app, to test for any gotchas that could come up in production.
+
+- Bump the `@hashicorp/ember-flight-icons` version in [this WIP PR in `cloud-ui`](https://github.com/hashicorp/cloud-ui/pull/1322)
+- Run the PR locally
+- Confirm you see icons, such as the external link icon, on the homepage once you're logged in.
 
 ## Testing local changes to the addon
 
