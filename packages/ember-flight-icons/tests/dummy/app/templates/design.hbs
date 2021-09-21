@@ -1,336 +1,561 @@
-{{page-title "Design"}}
-<h1 class="ds-h1">
-  For Designers
-</h1>
+{{page-title "Design Guidelines"}}
+<h1 class="ds-h1">Design Guidelines</h1>
+
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2 mb-0" id="guidelines">
-    <a href="#guidelines" class="ds-a">
-      §</a>
-    Guidelines
-  </h2>
-  <ul>
-    <li>
-      Display icons at either `16px` or `24px`
-    </li>
-    <li>
-      Use `16px` icons by default in product interfaces
-    </li>
-    <li>
-      Consider using `24px` icons in product interfaces for empty states
-    </li>
-    <li>
-      Take care if choosing to display icons at sizes other than `16px` and `24px`
-    </li>
-  </ul>
-  <p>
-    There may be cases where 16px and 24px values don't fit a design - Flight icons can be resized in these cases but be
-    aware that the design is not optimized for values other than these.
-  </p>
-</div>
-<div class="ds-info mb-6">
-  <p class="text-base text-black">
-    💡 Tip: Swapping instances, sizes, and colors is easy to do from the right sidebar in Figma
-  </p>
-</div>
-<div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="h3-icon-types">
-    <a class="ds-a" href="#h3-icon-types">
-      §</a>
+  <h2 class="ds-h2" id="icon-types">
+    <a href="#icon-types" class="ds-a">§</a>
     Icon Types
+  </h2>
+
+  <p>There are 4 types of icons in Flight: Generic, Filled, Off, Contained</p>
+
+  <h3 class="ds-h3" id="available-types">
+    <a href="#available-types" class="ds-a">§</a>
+    Available Types
   </h3>
-  <div class="mt-12 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-3">
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Generic
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          Glyph with standard outline; preferred default style.
+
+  <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Generic</h4>
+        <p class="text-sm text-gray-500">
+          Glyph with standard outline
+          <ul>
+            <li>Preferred default style</li>
+          </ul>
         </p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-types-generic.png" alt="" role="none" />
+          <img class="w-64" src="assets/images/icon-types-generic.png" alt="" role="none" />
         </div>
       </div>
     </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Filled
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          Glyph with a solid fill; use to show a toggled state or create contrast.
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Filled</h4>
+        <p class="text-sm text-gray-500">
+          Glyph with a solid fill
+          <ul>
+            <li>Toggled state or for contrast</li>
+          </ul>
         </p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-types-filled.png" alt="" role="none" />
+          <img class="w-64" src="assets/images/icon-types-filled.png" alt="" role="none" />
         </div>
       </div>
     </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-lg font-medium text-gray-900">
-          Off
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          Glyph with a strike-through; used to indicate a disabled state.
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Off</h4>
+        <p class="text-sm text-gray-500">
+          Glyph with a strike-through
+          <ul>
+            <li>Disabled state</li>
+          </ul>
         </p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-types-st.png" alt="" role="none" />
+          <img class="w-28" src="assets/images/icon-types-st.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Contained</h4>
+        <p class="text-sm text-gray-500">
+          Glyph with containing shape, e.g. square, circle, diamond, etc
+          <ul>
+            <li>For emphasis</li>
+          </ul>
+        </p>
+      </div>
+      <!-- TODO: fix image sizing -->
+      <div class="sm:flex-shrink">
+        <div class="flow-root">
+          <img class="s:w-64" src="assets/images/icon-types-contained.png" alt="" role="none" />
         </div>
       </div>
     </div>
   </div>
+
+  <h3 class="ds-h3" id="type-best-practices">
+    <a href="#type-best-practices" class="ds-a">§</a>
+    Best Practices
+  </h3>
+
   <ul class="ds-ul">
     <li class="ds-li">
-      Use the `Generic` style icons by default
+      Use the Generic style icons by default
     </li>
     <li class="ds-li">
-      Use the `Filled` style if indicating the toggled state of an icon
+      Use the Filled style where contrast against other icons is important
+      <p class="text-sm text-gray-500">
+        For example, when showing 1 failure in a list of 20 otherwise successful builds, use a filled 'failure' icon but
+        keep the remaining checkmarks outline 'success' icons, so the failure stands out more.
+      </p>
+      <img src="assets/images/icon-types-bp-filled-1.png" alt="" role="none" />
     </li>
     <li class="ds-li">
-      Use the `Filled` style where contrast against other icons is important
+      Use the Filled style if indicating the toggled state of an icon
+      <p class="text-sm text-gray-500">
+        For example, if an object can receive a 'favorite' action, it would show the 'generic' outline variant, and then
+        switch to the 'filled' variant once favorited.
+      </p>
+      <img src="assets/images/icon-types-bp-filled-2.png" alt="" role="none" />
     </li>
     <li class="ds-li">
-      Use the `Off` style icons to indicate a disabled state
+      Use the Off style icons to indicate a disabled state
+      <p class="text-sm text-gray-500">
+        For example, in the favoriting example above, if you wanted to 'unfavorite' an object you could swap the
+        'filled' variant for 'off' on hover to show what the state will become on click.
+      </p>
+      <img src="assets/images/icon-types-bp-off.png" alt="" role="none" />
+    </li>
+    <li class="ds-li">
+      Use the Contained style icons for emphasis in hierarchy
+      <p class="text-sm text-gray-500">
+        For example, in a list of objects, an object might have multiple states. A 'contained' icon could be used for
+        the overall state, and additional metadata that has state could use the 'generic' variants.
+      </p>
+      <img src="assets/images/icon-types-bp-contained.png" alt="" role="none" />
     </li>
   </ul>
 </div>
+
+<hr />
+
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="h3-icon-sizes">
-    <a class="ds-a" href="#h3-icon-sizes">
-      §</a>
+  <h2 class="ds-h2" id="icon-sizes">
+    <a href="#icon-sizes" class="ds-a">§</a>
     Icon Sizes
+  </h2>
+
+  <p>
+    Flight icons are optimized for two icon sizes: 16px and 24px.
+  </p>
+
+  <h3 class="ds-h3" id="optimized-sizes">
+    <a href="#optimized-sizes" class="ds-a">§</a>
+    Optimized Sizes
   </h3>
-  <div class="mt-12 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-2">
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
+
+  <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">
           16
         </h4>
         <p class="mt-2 text-sm text-gray-500">
-          Standard size; use in product interfaces
+          Standard size
+          <ul>
+            <li>Use in product interfaces</li>
+          </ul>
         </p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-sizes-16.png" alt="" role="none" />
+          <img class="w-28" src="assets/images/icon-sizes-16.png" alt="" role="none" />
         </div>
       </div>
     </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">
           24
         </h4>
         <p class="mt-2 text-sm text-gray-500">
-          Larger size; use in marketing pages
+          Larger size
+          <ul>
+            <li>Use in marketing pages</li>
+          </ul>
         </p>
       </div>
       <div class="sm:flex-shrink-0">
         <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-sizes-24.png" alt="" role="none" />
+          <img class="w-28" src="assets/images/icon-sizes-24.png" alt="" role="none" />
         </div>
       </div>
     </div>
   </div>
-  <ul class="ds-ul">
-    <li class="ds-li">
-      Use the `16px` size in product interfaces
-    </li>
-    <li class="ds-li">
-      Use the `24px` size in marketing pages
+
+  <h3 class="ds-h3" id="size-best-practices">
+    <a href="#size-best-practices" class="ds-a">§</a>
+    Best Practices
+  </h3>
+
+  <ul>
+    <li>Display icons at either 16px or 24px</li>
+    <li>Use 16px icons by default in product interfaces</li>
+    <li>Consider using 24px icons in product interfaces for empty states</li>
+    <li>
+      Take care if choosing to display icons at sizes other than 16px and 24px
+      <!-- TODO/ENHANCEMENT: Use a warning notice here -->
+      <p class="text-sm text-gray-500">
+        There may be cases where 16px and 24px values don't fit a design - Flight icons can be resized in these cases
+        but be aware that the design is not optimized for values other than these.
+      </p>
     </li>
   </ul>
-</div>
-<div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h4 class="ds-h4">
+
+  <h3 class="ds-h3" id="size-existing">
+    <a href="#size-existing" class="ds-a">§</a>
     Updating existing interfaces
-  </h4>
-  <ul class="ds-ul">
-    <li class="ds-li">
-      Where the current icon size is less than or equal to `20px`, replace icons with `16px` versions
+  </h3>
+
+  <ul>
+    <li>
+      Where the current icon size is less than or equal to 20px, replace icons with 16px versions
     </li>
-    <li class="ds-li">
-      If the size of icon to be replaced is at least `21px`, first try to replace it with a `24px` version
-    </li>
-    <li class="ds-li">
-      <i>
+    <li>
+      If the size of icon to be replaced is at least 21px, first try to replace it with a 24px version
+      <p class="text-sm text-gray-500">
         If 24px seems too large, consider dropping down to 16px and reworking the interface for a better fit
-      </i>
+      </p>
     </li>
   </ul>
 </div>
+
+<hr />
+
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="h2-usage">
-    <a class="ds-a" href="#h2-usage">
-      §</a>
+  <h2 class="ds-h2" id="icon-states">
+    <a href="#icon-states" class="ds-a">§</a>
+    States
+  </h2>
+
+  <p>Icons frequently get used to represent different states within product interfaces. Most commonly as states of an
+    object or states of feedback.</p>
+
+  <h3 class="ds-h3" id="states-object">
+    <a href="#states-object" class="ds-a">§</a>
+    States of an object
+  </h3>
+  <p class="text-sm text-gray-500">
+    An object in our interfaces is any object in our API that can return with a state, such as a Build, a Deployment, a
+    Run, a Job, a Cluster or a Network. Objects are typically displayed in lists or as cards and include their state
+    when presented to the user.
+  </p>
+
+  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">In Progress</h4>
+        <p class="text-sm text-gray-500">"Building"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-progress.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Succeeded</h4>
+        <p class="text-sm text-gray-500">"Build passed"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-succeeded.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Failed</h4>
+        <p class="text-sm text-gray-500">"Build failed"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-failed.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Skipped</h4>
+        <p class="text-sm text-gray-500">"Build skipped"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-skipped.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="ds-h3" id="states-feedback">
+    <a href="#states-feedback" class="ds-a">§</a>
+    States of feedback
+  </h3>
+  <p class="text-sm text-gray-500">
+    Feedback is presented in our interfaces when actions occur in response to user interaction, such as pressing a
+    button to submit a form, or prior to an action taking place, such as displaying a warning, or when presenting more
+    information.
+  </p>
+
+  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Success</h4>
+        <p class="text-sm text-gray-500">"Created user"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-success.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Error</h4>
+        <p class="text-sm text-gray-500">"Couldn't create user"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-error.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Warning</h4>
+        <p class="text-sm text-gray-500">"User is near limits"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-warning.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Informational</h4>
+        <p class="text-sm text-gray-500">"User has 5 invites"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-states-informational.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="common-icons">
+    <a href="#common-icons" class="ds-a">§</a>
+    Common Icons
+  </h2>
+
+  <p>
+    Some Flight Icons represent common actions within the product interfaces.
+  </p>
+
+  <h3 class="ds-h3" id="common-editing">
+    <a href="#common-editing" class="ds-a">§</a>
+    Editing actions
+  </h3>
+  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Create</h4>
+        <p class="text-sm text-gray-500">"Create new team"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-actions-create.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Edit</h4>
+        <p class="text-sm text-gray-500">"Edit this team"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-actions-edit.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Delete</h4>
+        <p class="text-sm text-gray-500">"Delete this item"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-actions-delete.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <!-- TODO: fix image size -->
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Copy</h4>
+        <p class="text-sm text-gray-500">"Copy to clipboard"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-64 lg:w-auto" src="assets/images/icon-actions-copy.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="ds-h3" id="common-navigation">
+    <a href="#common-navigation" class="ds-a">§</a>
+    Navigation actions
+  </h3>
+  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Back</h4>
+        <p class="text-sm text-gray-500">"Go back"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-actions-back.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Link</h4>
+        <p class="text-sm text-gray-500">"Visit AWS"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-actions-link.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Close</h4>
+        <p class="text-sm text-gray-500">"Dismiss"</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-actions-close.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="ds-h3" id="common-help">
+    <a href="#common-help" class="ds-a">§</a>
+    Help actions
+  </h3>
+  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Tutorial Link</h4>
+        <p class="text-sm text-gray-500">
+          When linking to learn.hashicorp.com
+        </p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-help-tutorial-link.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Doc link</h4>
+        <p class="text-sm text-gray-500">When linking to documentation</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-help-doc-link.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
+        <h4 class="ds-h4">Support</h4>
+        <p class="text-sm text-gray-500">When referencing HashiCorp support</p>
+      </div>
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-help-support.png" alt="" role="none" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="usage">
+    <a href="#usage" class="ds-a">§</a>
     Usage
   </h2>
-  <ol class="mt-0 text-lg text-gray-800">
-    <li>
-      Open your project file within Figma
-    </li>
-    <li>
-      Navigate to the Assets panel in the left sidebar
-    </li>
-    <li>
-      Click the Team library icon (looks like an open book), and in the popup that appears search for "Flight Icons"
-    </li>
+
+  <p>
+    Whether you're bringing in new icons or replacing existing icons, using Flight in your projects is simple.
+  </p>
+
+  <h3 class="ds-h3" id="new-icons">
+    <a href="#new-icons" class="ds-a">§</a>
+    Bring in new icons
+  </h3>
+
+  <ol>
+    <li>Open your project file within Figma.</li>
+    <li>Navigate to the Assets panel in the left sidebar.</li>
+    <li>Click the Team library icon (looks like an open book), and search for "Flight Icons" in the popup that appears.</li>
     <li>
       Enable the
       <a
         href="https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0"
-        rel="external"
         class="ds-a"
-      >Flight Icons</a>
-      Library clicking on the toggle next to the name
+        rel="external"
+      >Flight Icons Library</a>
+      by clicking on the toggle next to the name.
     </li>
-    <li>
-      Search or scroll to find the icon you want to use and drag it into your file
-    </li>
+    <li>Search or scroll to find the icon you want to use and drag it into your file.</li>
   </ol>
-</div>
-<div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="h3-states">
-    <a class="ds-a" href="#h3-states">
-      §</a>
-    States
+
+  <h3 class="ds-h3" id="existing-icons">
+    <a href="#existing-icons" class="ds-a">§</a>
+    Replacing existing icons
   </h3>
-  <p class="pb-0 mb-0">
-    Some common state icons that get used within the products include:
+
+  <p>🚧 Plugin coming soon</p>
+</div>
+
+<div class="ds-info mt-6 mb-12">
+  <p class="text-base text-black">
+    💡 Tip: Swapping instances, sizes, and colors is easy to do from the right sidebar in Figma.
   </p>
-  <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Success
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          State of an object (e.g., "Build passed")
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-states-success.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Failure
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          State of an object (e.g., "Build failed")
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-states-failure.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Warning
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          State of an action (e.g., "An issue may occur")
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-states-warning.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Error
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          State of an action (e.g., "An issue has occurred")
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-states-error.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+<hr />
+
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3" id="h3-actions">
-    <a class="ds-a" href="#h3-actions">
-      §
-    </a>
-    Actions
-  </h3>
-  <div class="mt-12 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-3">
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Create
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          "Create a new team"
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-actions-create.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-xl font-medium text-gray-900">
-          Edit
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          "Edit this team"
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-actions-edit.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-    <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
-      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-        <h4 class="text-lg font-medium text-gray-900">
-          Destroy
-        </h4>
-        <p class="mt-2 text-sm text-gray-500">
-          "Delete this team"
-        </p>
-      </div>
-      <div class="sm:flex-shrink-0">
-        <div class="flow-root">
-          <img class="w-32 mx-auto" src="assets/images/icon-actions-destroy.png" alt="" role="none" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="h2-contributing">
-    <a class="ds-a" href="#h2-contributing">
-      §</a>
+  <h2 class="ds-h2" id="contributing">
+    <a href="#contributing" class="ds-a">§</a>
     Contributing
   </h2>
+
   <p>
-    If you are a HashiCorp staff member, you are eligible to contribute a new icon via Figma.
+    HashiCorp Designers are welcome and encouraged to contribute to Flight.
   </p>
+
+  <h3 class="ds-h3" id="contribution-workflow">
+    <a href="#contribution-workflow" class="ds-a">§</a>
+    Contribution Workflow
+  </h3>
+
   <ol>
     <li>
       <a
@@ -338,49 +563,197 @@
         class="ds-a"
         rel="external"
       >Open a GitHub issue</a>
-      to kick-off work on adding a new icon
+      to kick-off work on adding a new icon.
+      <p class="text-sm text-gray-500">
+        Outline the use case for a new icon, why an existing icon isn't a good fit if there is one, and include any
+        screenshots or WIP if you've done some initial work on a proposal for the icon.
+      </p>
     </li>
     <li>
-      <ul>
-        <li>If you're ready to develop the new icon, create a new branch within
-          <a
-            href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=205%3A0"
-            class="ds-a"
-            rel="external"
-          >Flight Development</a></li>
-        <li>You can do this from the Main menu (File > Create branch...)</li>
-        <li>Take care to avoid working directly in the default branch!</li>
-      </ul>
-
+      If you're ready to develop the new icon, create a new branch in
+      <a
+        href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=708%3A1151"
+        class="ds-a"
+        rel="external"
+      >✏️ Flight Development</a>.
+      <p class="text-sm text-gray-500">
+        You can do this from the Main menu (File > Create branch...)
+      </p>
+      <p class="text-sm text-gray-500">
+        Take care to avoid working directly in the default branch!
+      </p>
     </li>
     <li>
-      <ul>
-        <li>Use the template component in the `Flight Icons - Dev` frame </li>
-        <li>Keep your work in this frame, but feel free to create as many versions with that template component as you
-          need.</li>
-      </ul>
+      Use the template component in the
+      <a
+        href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=708%3A1151"
+        class="ds-a"
+        rel="external"
+      >Flight Icons - Dev</a>
+      frame.
+      <p class="text-sm text-gray-500">
+        Keep your work in this frame, but feel free to create as many versions with that template component as you need.
+      </p>
     </li>
     <li>
-      <ul>
-        <li> Draw your icon glyph using vectors</li>
-        <li>Be sure to follow the design guide in the Figma file, taking care to follow the conventions around strokes,
-          corner radius and aligning to the grid. Try to preserve the ability to edit the glyph where possible (avoid
-          flattening).
-        </li>
-      </ul>
-
+      Draw your icon glyph using vectors.
+      <p class="text-sm text-gray-500">
+        Be sure to follow the
+        <a
+          href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=314%3A844"
+          class="ds-a"
+          rel="external"
+        >Drawing Icons Guide</a>
+        in Figma, taking care to follow the conventions around strokes, corner radius and aligning to the grid. Try to
+        preserve the ability to edit the glyph where possible (avoid flattening).
+      </p>
     </li>
     <li>
-      <ul>
-        <li>When your icon is ready, post to the original GitHub issue to close the loop</li>
-        <li>The Design Systems team will then add the icon to the grid, productionize it, and publish from the
-          <a
-            href="https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0"
-            rel="external"
-            class="ds-a"
-          >production file</a>.</li>
-      </ul>
-
+      When your icon is ready, post to the original GitHub issue to close the loop.
+      <p class="text-sm text-gray-500">
+        The Design Systems team can then add the icon to the grid, productionize it, and publish from the production
+        file.
+      </p>
     </li>
   </ol>
+
+  <h3 class="ds-h3" id="drawing-icons">
+    <a href="#drawing-icons" class="ds-a">§</a>
+    Drawing Icons
+  </h3>
+
+  <!-- TODO: need to make this section cleaner; use icons vs images -->
+  <h4 class="ds-h4">Dimensions</h4>
+  <div class="mt-2 mx-auto grid grid-cols-2 gap-y-10 gap-x-8 sm:max-w-none sm:grid-cols-2 lg:grid-cols-4">
+    <div class="text-left sm:flex lg:block">
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-dimensions-sq-24.png" alt="" role="none" />
+        </div>
+      </div>
+      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+        <h4 class="ds-h4">24px</h4>
+        <div class="text-sm text-gray-500">
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" />
+            18.5px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-2.png" alt="" role="none" />
+            2.75px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-3.png" alt="" role="none" />
+            2px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-4.png" alt="" role="none" />
+            1.5px
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <!-- TODO: align smaller images to bottom -->
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-1/4 sm:w-1/2 lg:w-1/2" src="assets/images/icon-dimensions-sq-16.png" alt="" role="none" />
+        </div>
+      </div>
+      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+        <h4 class="ds-h4">16px</h4>
+        <div class="text-sm text-gray-500">
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" />
+            12.5px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-2.png" alt="" role="none" />
+            1.75px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-3.png" alt="" role="none" />
+            1.5px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-4.png" alt="" role="none" />
+            1.5px
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="text-left sm:flex lg:block">
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-28" src="assets/images/icon-dimensions-cr-24.png" alt="" role="none" />
+        </div>
+      </div>
+      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+        <h4 class="ds-h4">24px</h4>
+        <div class="text-sm text-gray-500">
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" />
+            20.5px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-2.png" alt="" role="none" />
+            1.75px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-4.png" alt="" role="none" />
+            1.5px
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- TODO: align smaller images to bottom -->
+    <div class="text-left sm:flex lg:block">
+      <div class="sm:flex-shrink-0">
+        <div class="flex-root">
+          <img class="w-1/4 sm:w-1/2 lg:w-1/2" src="assets/images/icon-dimensions-cr-16.png" alt="" role="none" />
+        </div>
+      </div>
+      <div class="mt-3 sm:mt-0 sm:ml-6 lg:mt-2 lg:ml-0">
+        <h4 class="ds-h4">16px</h4>
+        <div class="text-sm text-gray-500">
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-1.png" alt="" role="none" />
+            14.5px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-2.png" alt="" role="none" />
+            0.75px
+          </p>
+          <p class="flex items-center">
+            <img class="!my-0 mr-2 !h-full" src="assets/images/icon-dimensions-helper-4.png" alt="" role="none" />
+            1.5px
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="ds-h4">Geometry</h4>
+  <ul>
+    <li>
+      Stroke weight is always 1.5px, center with round joins and round end points
+      <p class="text-sm text-gray-500">
+        Avoid dropping the stroke weight for detail in smaller sizes, and instead look to reduce the glyph complexity.
+      </p>
+    </li>
+    <li>
+      Corner radius is generally 2px @ 24px and 1.5px @ 16px
+      <p class="text-sm text-gray-500">
+        Reduce the corner radius where preserving detail of a shape is important or it can make the glyph clearer.
+      </p>
+    </li>
+    <li>
+      Line length should round to a 0.5px value and x and y co-ords should land on 0.25px and 0.75px values
+      <p class="text-sm text-gray-500">
+        By using these values alongside the 1.5px stroke, we can align glyph edges to the pixel grid, ensuring crisp
+        icon linework and reducing scenarios where the stroke weight doesn't sit on the whole pixel bounds.
+      </p>
+    </li>
+  </ul>
+
 </div>
