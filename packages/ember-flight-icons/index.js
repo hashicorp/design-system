@@ -1,6 +1,6 @@
 'use strict';
 
-const flightIconSprite = require('./addon/components/flight-icon-sprite');
+const flightIconSprite = require('./public/icons/flight-icon-sprite');
 
 module.exports = {
   name: require('./package').name,

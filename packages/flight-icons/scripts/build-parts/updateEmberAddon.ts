@@ -10,7 +10,6 @@ export async function updateEmberAddon({ config, catalog } : { config: ConfigDat
 
     const tempSVGFolderPath = config.tempFolder;
     const emberPublicIconsFolder = `${config.emberPublicFolder}/icons`;
-    const emberAddonComponentsFolder = `${config.emberAddonFolder}/components`;
 
     // make sure the destination folder exists
     await fs.ensureDir(emberPublicIconsFolder);
@@ -46,6 +45,6 @@ export async function updateEmberAddon({ config, catalog } : { config: ConfigDat
     svgModuleContent += `module.exports = '${svgSpriteContent}';\n`
 
     // update the SVG "module" in the Ember addon
-    await fs.writeFile(`${emberAddonComponentsFolder}/flight-icon-sprite.js`, svgModuleContent);
+    await fs.writeFile(`${emberPublicIconsFolder}/flight-icon-sprite.js`, svgModuleContent);
 
 }
