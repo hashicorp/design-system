@@ -1,5 +1,5 @@
 {{page-title "Engineering Guidelines"}}
-<h1 class="ds-h1">Consumer instructions</h1>
+<h1 class="ds-h1">Consumer Instructions</h1>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <p>There are multiple ways to use these icons in your codebase. The
@@ -37,7 +37,7 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3">Examples of Correct use</h3>
+  <h3 class="ds-h3">Examples of Correct Use</h3>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -72,7 +72,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a>
-    Understanding the component</h3>
+    Understanding the Component</h3>
   <p>The component comes with the following defaults:
     <ol>
       <li class="ds-li"><kbd class="ds-kbd">fill</kbd>
@@ -134,7 +134,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a>
-    Customizable properties</h3>
+    Customizable Properties</h3>
   <p>The following properties are customizable:
     <ol>
       <li>fill (the color)</li>
@@ -214,13 +214,14 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
-    Using the flight-icon package in other ways</h2>
+    Alternative @hashicorp/flight-icons Package</h2>
   <p>
-    It is also possible to install the flight-icon package itself. To do so, run:
+    It is also possible to install @hashicorp/flight-icons instead of @hashicorp/ember-flight-icons. To do so, run:
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
     {{! prettier-ignore-end }}
-    This will allow icons to be imported and used as desired. Note that the icons are namespaced:
+    This will allow icons to be imported and used as desired in isolation, without the wrapping Ember FlightIcon
+    component. Note that the icons are namespaced:
     {{! template-lint-disable 'no-potential-path-strings' }}
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="@hashicorp/flight-icons/icons/arrow-right-16.svg" />
