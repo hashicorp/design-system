@@ -4,3 +4,9 @@
 .flight-icon {
   display: block;
 }
+.flight-sprite-container {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
