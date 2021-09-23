@@ -1,17 +1,17 @@
 {{page-title "Engineering Guidelines"}}
-<h1 class="ds-h1">Consumer instructions</h1>
+<h1 class="ds-h1">Consumer Instructions</h1>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <p>There are multiple ways to use these icons in your codebase. The
-    <a href="#use-other" class="ds-a">package itself can be consumed</a>
-    for direct import, or it can be installed as an
+  <p>There are multiple ways to use these icons in your codebase. The package can be installed as an
     <a href="#ember-flight-icons" class="ds-a">Ember addon</a>
-    for the convenience of using a component with strong defaults.</p>
+    for the convenience of using a component with strong defaults, or
+    <a href="#use-other" class="ds-a">it can be consumed</a>
+    for direct import.</p>
 </div>
 
 <div class="ds-info">
-  <p>🚨 Note: All of the flight-icon npm packages are currently in beta and any production usage should be discussed
-    with the Design Systems team first.</p>
+  <p>🚨 Note: Both flight-icon npm packages are currently in beta and any production usage should be discussed with the
+    Design Systems team first.</p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
@@ -37,7 +37,7 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3">Examples of Correct use</h3>
+  <h3 class="ds-h3">Examples of Correct Use</h3>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -63,7 +63,7 @@
   <p>Note:
     <kbd class="ds-kbd">ember-test-selectors</kbd>
     is a dependency added for the author's convenience.
-    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember Addon</a>
+    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember addon</a>
     strips out all
     <kbd class="ds-kbd">data-test-*</kbd>
     attributes for production builds.
@@ -72,7 +72,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a>
-    Understanding the component</h3>
+    Understanding the Component</h3>
   <p>The component comes with the following defaults:
     <ol>
       <li class="ds-li"><kbd class="ds-kbd">fill</kbd>
@@ -134,7 +134,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a>
-    Customizable properties</h3>
+    Customizable Properties</h3>
   <p>The following properties are customizable:
     <ol>
       <li>fill (the color)</li>
@@ -149,8 +149,7 @@
   <h4 class="ds-h4">Examples</h4>
   <p id="example-fill">
     <strong>
-      <a href="#example-fill" class="ds-a" rel="external">&sect;
-      </a>
+      <a href="#example-fill" class="ds-a" rel="external">&sect;</a>
       Fill:
     </strong>
     To customize the fill attribute, set the
@@ -175,7 +174,8 @@
   </p>
 
   <p id="example-size">
-    <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>Size:</strong>
+    <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>
+      Size:</strong>
     To use the 24x24 (px) icon size, set the
     <kbd class="ds-kbd">@size</kbd>
     value:
@@ -184,7 +184,8 @@
     {{! prettier-ignore-start }}
   </p>
   <p id="example-styles">
-    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>CSS Classes:</strong>
+    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>
+      CSS Classes:</strong>
     To append additional classes to the component, add
     <kbd class="ds-kbd">class</kbd>
     with value(s):
@@ -196,7 +197,8 @@
     {{! prettier-ignore-end }}
   </p>
   <p id="example-display">
-    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>CSS Display:</strong>
+    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>
+      CSS Display:</strong>
     To change the default display of
     <i>inline-block</i>
     to
@@ -214,13 +216,14 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
-    Using the flight-icon package in other ways</h2>
+    Alternative @hashicorp/flight-icons Package</h2>
   <p>
-    It is also possible to install the flight-icon package itself. To do so, run:
+    It is also possible to install @hashicorp/flight-icons instead of @hashicorp/ember-flight-icons. To do so, run:
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
     {{! prettier-ignore-end }}
-    This will allow icons to be imported and used as desired. Note that the icons are namespaced:
+    This will allow icons to be imported and used as desired in isolation, without the wrapping Ember FlightIcon
+    component. Note that the icons are namespaced:
     {{! template-lint-disable 'no-potential-path-strings' }}
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="@hashicorp/flight-icons/icons/arrow-right-16.svg" />
@@ -233,7 +236,8 @@
       <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
         a design consult.</li>
       <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
-        <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external">related accessibility conformance failures</a>.</li>
+        <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external" class="ds-a">related accessibility
+          conformance failures</a>.</li>
     </ul>
   </p>
 </div>
