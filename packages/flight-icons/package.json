@@ -43,7 +43,8 @@
     "sync": "ts-node --transpile-only ./scripts/sync",
     "build": "ts-node --transpile-only ./scripts/build",
     "bump": "./node_modules/.bin/bump package.json",
-    "release": "yarn publish --new-version $npm_package_version"
+    "release": "yarn publish --new-version $npm_package_version",
+    "postrelease": "TAG_VERSION=\"@hashicorp/flight-icons/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION"
   },
   "devDependencies": {
     "@figma-export/cli": "^3.4.0",
