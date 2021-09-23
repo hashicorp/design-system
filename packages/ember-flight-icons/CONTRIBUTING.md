@@ -50,6 +50,7 @@ In the second step you publish the package on the npm registry:
 - `cd /[your-local-project-path]/flight/ember-flight-icons`
 - `yarn release`
 - Check [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) and [www.npmjs.com/package/@hashicorp/ember-flight-icons](https://www.npmjs.com/package/@hashicorp/ember-flight-icons).
+- Please manually QA https://flight-hashicorp.vercel.app/percy-test.
 - Profit! 🎉
 
 _**IMPORTANT**: if you need to do some tests, use a **local** package registry (see [CONTRIBUTING](../flight-icons/CONTRIBUTING.md) in the `flight-icon`), don't test directly in production!_
