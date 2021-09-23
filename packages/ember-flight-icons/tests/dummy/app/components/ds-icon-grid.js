@@ -4,6 +4,9 @@ import { tracked } from '@glimmer/tracking';
 import { getOwner } from '@ember/application';
 import fetch from 'fetch';
 
+// TODO not sure how ember build process JSON files
+import catalog from '@hashicorp/flight-icons/catalog.json';
+
 const defaultSize = '24';
 
 const checkIsShown = function (searchText, meta) {
@@ -58,12 +61,7 @@ export default class DsIconGridComponent extends Component {
   }
 
   async load() {
-    const response = await fetch(
-      `${this.contextRootURL}@hashicorp/ember-flight-icons/icons/catalog.json`
-    );
-    const json = await response.json();
-
-    this.icons = json.assets.map(
+    this.icons = catalog.assets.map(
       ({ iconName, fileName, size, description }) => {
         return {
           iconName: `${iconName}`,
