@@ -6,16 +6,16 @@ import svgstore from 'svgstore';
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
 
-export async function updateEmberAddon({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
+export async function generateBundleSVGSprite({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
 
     const tempSVGFolderPath = config.tempFolder;
-    const emberPublicIconsFolder = `${config.emberPublicFolder}/icons`;
 
-    // make sure the destination folder exists
-    await fs.ensureDir(emberPublicIconsFolder);
-
-    // update the assets catalog file in the Ember addon
-    await fs.copy(`${config.mainFolder}/catalog.json`, `${emberPublicIconsFolder}/catalog.json`);
+    // remove the generated content from the destination folder
+    try {
+        await fs.emptyDir(`${config.mainFolder}/svg-sprite`)
+    } catch (err) {
+        console.error(err);
+    }
 
     // generate the sprite via "svgstore"
     const sprites = svgstore({
@@ -45,6 +45,5 @@ export async function updateEmberAddon({ config, catalog } : { config: ConfigDat
     svgModuleContent += `module.exports = '${svgSpriteContent}';\n`
 
     // update the SVG "module" in the Ember addon
-    await fs.writeFile(`${emberPublicIconsFolder}/flight-icon-sprite.js`, svgModuleContent);
-
+    await fs.writeFile(`${config.mainFolder}/svg-sprite/svg-sprite-module.js`, svgModuleContent);
 }

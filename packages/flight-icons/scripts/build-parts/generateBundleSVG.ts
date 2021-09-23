@@ -5,7 +5,7 @@ import { AssetsCatalog } from '../@types/AssetsCatalog';
 
 export async function generateBundleSVG({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
 
-    // remove the generated content from the "dist" folder
+    // remove the generated content from the destination folder
     try {
         await fs.emptyDir(`${config.mainFolder}/svg`)
     } catch (err) {
