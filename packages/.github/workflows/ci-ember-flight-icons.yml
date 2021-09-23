@@ -122,10 +122,10 @@ jobs:
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
-    - name: Test
-      run: yarn test:ember:percy --launch ${{ matrix.browser }}
-      env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+    # - name: Test
+    #   run: yarn test:ember:percy --launch ${{ matrix.browser }}
+    #   env:
+    #     PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
   floating-dependencies:
     name: Floating Dependencies
@@ -166,10 +166,10 @@ jobs:
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
 
-    - name: Test
-      run: yarn test:ember:percy --launch ${{ matrix.browser }}
-      env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+    # - name: Test
+    #   run: yarn test:ember:percy --launch ${{ matrix.browser }}
+    #   env:
+    #     PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
