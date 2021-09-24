@@ -8,8 +8,6 @@ We welcome contributions from external members of the team! We encourage you to 
 
 See [flight-icons/CONTRIBUTING](flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build/release" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
-_Notice: these scripts are still in development._
-
 ## @hashicorp/ember-flight-icons
 
 See [ember-flight-icons/CONTRIBUTING](ember-flight-icons/CONTRIBUTING.md) guide for details on how to build, test and release the Ember addon.

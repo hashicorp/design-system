@@ -4,7 +4,7 @@
 
 [![CI - Ember Flight Icons](https://github.com/hashicorp/flight/actions/workflows/ci-ember-flight-icons.yml/badge.svg)](https://github.com/hashicorp/flight/actions/workflows/ci-ember-flight-icons.yml)
 
-An Ember addon for the icons from `flight`. Currently in development.
+An Ember addon for the icons from `flight`.
 
 Goals:
 

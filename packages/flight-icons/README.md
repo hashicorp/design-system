@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
 
-A package for the icons from `flight`, which can be used in React or Ember apps. Currently in development.
+A package for the icons from `flight`, which can be used in React or Ember apps.
 
 ## Installation and Usage
 
