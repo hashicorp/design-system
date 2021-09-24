@@ -1,6 +1,6 @@
 'use strict';
 
-const flightIconSprite = require('./public/icons/flight-icon-sprite');
+const flightIconSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-module');
 
 module.exports = {
   name: require('./package').name,

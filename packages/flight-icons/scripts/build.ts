@@ -5,7 +5,7 @@ import chalk from 'chalk';
 
 import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
-import { updateEmberAddon } from './build-parts/updateEmberAddon';
+import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -53,9 +53,9 @@ async function build() {
     console.log('Generating bundle for standalone SVG files');
     await generateBundleSVG({ config, catalog });
 
-    // update SVG sprite and catalog.json in the Ember addon
-    console.log('Updating SVG sprite and catalog.json in the Ember addon');
-    await updateEmberAddon({ config, catalog });
+    // generate the bundle for the SVG sprite module
+    console.log('Generating bundle for SVG sprite module');
+    await generateBundleSVGSprite({ config, catalog });
 
     // remove temporary folder
     // notice: comment this if you need to debug the assets initial SVG processing

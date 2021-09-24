@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/flight-icons",
-  "version": "0.0.10-rc",
+  "version": "0.0.12-rc",
   "description": "Flight: HashiCorp SVG icon set",
   "keywords": [
     "hashicorp",
