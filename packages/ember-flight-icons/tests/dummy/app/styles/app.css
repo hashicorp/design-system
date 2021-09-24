@@ -62,8 +62,14 @@ main.ds-main {
     sm:container;
 }
 
-.ds-kbd {
-  color: #D10070; /* to coordinate with the current prism theme */
+/* override global style from ember-prism */
+.prose code::before, .prose code::after {
+  content: none;
+}
+
+.ds-code {
+  color: #D10070 !important; /* to coordinate with the current prism theme */
+  display: inline-block;
   font-size: 0.9em;
 
   @apply
