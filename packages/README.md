@@ -15,7 +15,11 @@ Instructions for installation and use are available, as well as a searchable lis
 
 ## Contributing
 
-See the [Contributing](CONTRIBUTING.md) guide for details.
+See the [CONTRIBUTING](CONTRIBUTING.md) guide for details.
+
+## Releasing
+
+See the [RELEASE](RELEASE.md) guide for details.
 
 ## License
 

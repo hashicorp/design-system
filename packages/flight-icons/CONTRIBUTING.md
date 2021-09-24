@@ -1,96 +1,43 @@
-# Flight-Icons "sync/build/release" scripts
-
-A set of Node.js scripts developed to create a single pipeline for building and releasing the Flight iconset as a set of packages in different formats, that can be consumed by other tools and products.
-
-The pipeline can be run manually on your local machine.
-
------
-
-## Releasing a new npm version of the package
-
-### Background
-
-Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transfered also to the code. This means re-syncing and re-building the `flight-icons` and `ember-flight-icons` package and then releasing them to the npm registry.
-
-_Remember: Once released a package on the public registry, you can't revert the changes: the only solution is to deprecate the package (this will hide it from the public, but remains there)._
-
-The update process for the icons should happen in a dedicated branch, associated with the GitHub task/issue. Once you have run the `yarn sync` and `yarn build` (see the instructions below), check the diff in your git client, and once you're OK with them commit & push the changes to the branch, and then open a pull request in GitHub.
-
-Once this request has been approved and the branch merged in `main`, you bump the _semver_ version via `yarn bump` (see the instructions below), open a new pull request, and once this is approved and merged to master, you can finally and safely release the package to the registry via `yarn release` (see the instructions below).
-
-Please follow the instructions below, which describe with more details the process.
-
-### Instructions
-
-If you need a TLDR; here's the sequence of steps you have to follow:
-
-Make first PR updating the `catalog.json`, the `sprite.svg`, and potentially some individual .svg icons in both `flight-icons/` and `ember-flight-icons/`:
-
-- `cd /[your-local-project-path]/flight/flight-icons`
-- Create custom branch from `main`.
-- `yarn sync`
-- `yarn build`
-- Commit, push, open PR.
-  - The PR should state what version you will be bumping the `@hashicorp/flight-icons` and `@hashicorp/ember-flight-icons` package to in the PR description.
-  - If it's just an update of icons, it will likely be a minor version e.g. `1.0.1` to `1.1.0`.
-- Once the PR is approved and merged to `main`, continue onto the next step.
-
-Make second PR for the `package.json` version bumps in both `flight-icons/` and `ember-flight-icons/`:
-
-- Make sure your local `main` branch is up to date.
-- Create new custom branch from `main`.
-- `cd /[your-local-project-path]/flight/flight-icons`
-- Choose _SemVer_ version as agreed upon on the previous PR. Run `yarn bump` to have tooling automatically update the version for you.
-- `cd /[your-local-project-path]/flight/ember-flight-icons`
-- Choose _SemVer_ version as agreed upon on the previous PR. Run `yarn bump` to have tooling automatically update the version for you.
-- Commit, push, open PR, wait for approval.
-
-Finally, publish the packages to npm:
-
-- Make sure your local `main` branch is up to date.
-- You will need 2FA enabled on npm to publish packages, see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info.
-- `cd /[your-local-project-path]/flight/flight-icons`
-- `yarn release`
-- `cd /[your-local-project-path]/flight/ember-flight-icons`
-- `yarn release`
-- Check [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) and [www.npmjs.com/package/@hashicorp/ember-flight-icons](https://www.npmjs.com/package/@hashicorp/ember-flight-icons).
-- Profit! 🎉
+# How to contribute
 
 ## Initial setup
 
 *Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
 
-First of all clone the repository:
+* `git clone <repository-url>`
+* `cd flight/flight-icons`
+* `yarn install`
 
-```bash
-git clone https://github.com/hashicorp/flight
-```
+## Linting
 
-Then install the project dependencies:
+* `yarn run lint`
 
-```bash
-# go to the "main" folder
-cd /[your-local-project-path]/flight-icons
+## TypeChecking
 
-# install node modules
-yarn install
-```
+* `yarn typecheck`
 
-### Figma Token
+## Running the scripts
 
-To access the Figma file via REST API is necessary to have [a special authentication token](https://www.figma.com/developers/api#access-tokens). This token is personal, should not be shared or committed to the repo.
+* `yarn sync`
+* `yarn build`
 
-To create your personal access token, open Figma and go into *Account > Personal access tokens* and create one for yourself.
+See below for more details about what these scripts do.
 
-Next, add a `.env` file in the `scripts` directory, to which you will add the variable:
+-----
 
-`FIGMA_TOKEN=###`
+# Updating the icons in `flight-icons`
 
-where `###` is your personal access token. You can use the `.env.template` file you find in the repository as model, if you want.
+Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transfered also to the code. This means updating the `flight-icons` package and then releasing it to the npm registry, so that can be used by other tools and projects.
 
-**IMPORTANT**: the `.env` file is ignored by git, and should not be committed to the repository.
+We have developed a set of custom Node.js scripts, to create a single pipeline for this purpose. The pipeline can be run manually on your local machine.
 
-Once you've done the initial setup, there are three distinct steps in the process that you can follow.
+## Before you run the scripts
+
+* Make sure you have:
+  * done the initial setup of the project (see details above)
+  * added the Figma token to your environment (see details below)
+* Make sure your local `main` branch is up to date
+* Create a custom branch from `main`.
 
 ## Sync
 
@@ -105,13 +52,13 @@ yarn sync
 
 This action will:
 
-- Retrieve the assets metadata from Figma via REST API
-- Export the assets as `.svg` files into `./svg-original/`
-- Generate the `catalog.json` file
+* Retrieve the assets metadata from Figma via REST API
+* Export the assets as `.svg` files into `./svg-original/`
+* Generate the `catalog.json` file
 
 ## Build
 
-The "build" step takes the assets exported from Figma, optimize and process them, and saves the final SVG files in the bundles that will be published as npm packages.
+The "build" step takes the assets exported from Figma, optimize and process them, and saves the final SVG files in the bundles that will be published as npm package.
 You can find the code that relates to this step in the file `/scripts/build.ts`.
 
 To run this script use the following command in your CLI (while in the `flight-icons` folder):
@@ -122,99 +69,34 @@ yarn build
 
 This action will:
 
-- Optimize the SVG files and save then in a `temp` folder
-- Process the optimized SVG files and save then in the `svg` folder
-- Update the existing files in the Ember addon folder:
-  - Process the optimized SVG, generate a SVG sprite, and overwrite the existing sprite
-  - Overwrite the catalog.json with the new one
+* Optimize the SVG files and save then in a `temp` folder
+* Process the optimized SVG files and save then in the `svg` folder as standalone SVG files
+* Process the optimized SVG files and save then in the `svg-sprite` folder as SVG sprite within a JavaScript module
 
-_**Notice**: this step not only updates the content of the `flight-icons` folder, but also the content of the `ember-flight-icons`. You will see these changes reflected in your git diff status._
+## After you have run the scripts
 
-When this step is done, and you have committed and pushed all the changes, submit a pull request in GitHub. Once approved and merged to the `main` branch, you can move to the next step.
+* Check the git diff:
+  * if you see only the `lastRunTimeISO` value changed in the `catalog.json` file it means there are no updated to the icons, so there's no need to commit the changes.
+  * if there were changes to the icons, you will see changes to the `catalog.json` file and to the content of the `svg` and `svg-sprite` folders.
+* Commit and push the changes, then submit a pull request in GitHub.
+* Once approved and merged to the `main` branch, you can proceed to the release phase.
 
-## Bump
+## Releasing a new npm version of the package
 
-The "bump" step increases the version number in the `package.json` file.
+See the [RELEASE](../RELEASE.md) guide for details.
 
-Use the following command in your CLI (while in the `flight-icons` folder):
+### Figma Token
 
-```bash
-yarn bump
-```
+To access the Figma file via REST API is necessary to have [a special authentication token](https://www.figma.com/developers/api#access-tokens). This token is personal, should not be shared or committed to the repo.
 
-This action will:
+To create your personal access token, open Figma and go into *Account > Personal access tokens* and create one for yourself.
 
-- ask you which _SemVer_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
-- update the version in the `package.json` file
+Next, add a `.env` file in the `flight/flight-icons` directory, to which you will add the variable:
 
-When this step is done, commit and push the changes to the `package.json` file, and submit a new pull request in GitHub. Once also this one has been approved and merged to the `main` branch, you can finally move to the last step, the actual release.
+`FIGMA_TOKEN=###`
 
-## Release
+where `###` is your personal access token. You can use the `.env.template` file you find in the repository as model, if you want.
 
-The "release" step publishes the package on the npm registry (using the version declared in the `package.json` file).
+**IMPORTANT**: the `.env` file is ignored by git, and should not be committed to the repository.
 
-Use the following command in your CLI (while in the `flight-icons` folder):
-
-```bash
-yarn release
-```
-
-_**IMPORTANT**: if you need to do some tests, use a **local** package registry (see below), don't test directly in production!_
-
-This action will:
-
-- ask which _SemVer_ version you want to to use (the `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter").
-- update the version in the `package.json` file
-- automatically publish the new version of the `@hashicorp/flight-icons` package on the [NPM registry](https://www.npmjs.com/)
-  - _Notice: you will need a company-approved account on npm (with 2FA) to publish._
-
-At this point check on [www.npmjs.com/package/@hashicorp/flight-icons](https://www.npmjs.com/package/@hashicorp/flight-icons) that the package has been successfully published (under the "versions" tab) and you're good. Well done, you just published your new package! 🎉
-
-🚨 **DON'T FORGET**: if you're releasing a new version of `@hashicorp/flight-icons`, this means that during the `build` step the SVG sprite and the `catalog.json` file in the `ember-flight-icons/` have also been updated, which means you have to release also that package.
-
-### How to do some manual QA of the new package version
-
-You may want to test the change in the real-world, with a consuming app, to test for any gotchas that could come up in production.
-
-- Bump the `@hashicorp/flight-icons` version in [hashicorp/boundary-ui/blob/main/addons/rose/package.json](https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/package.json)
-- At root, run `yarn`
-- `cd ui/desktop && yarn start`
-- Confirm you see icons in local dev.
-
-## Local development
-
-If you need to work on the scripts locally, here some useful information.
-
-### Code check
-
-You can also do some important sanity checks to the code via the commands:
-
-```bash
-# check type safety
-yarn typecheck
-
-# check code syntax
-yarn lint
-```
-
-### Using a local NPM registry for testing
-
-To test the release of packages without actually polluting the real/production npm registry, you cansetup a local registry using [Verdaccio](https://verdaccio.org/docs/what-is-verdaccio), an open source solution, very easy to setup and use.
-
-You can follow [the instructions here](https://verdaccio.org/docs/installation) but essentially what you have to:
-
-- install the package: `npm install -g verdaccio` - this will install it globally
-- launch the service: `verdaccio` - this will serve a web frontend to the registry at the URL [http://localhost:4873/](http://localhost:4873/)
-- add a user to the registry: `npm adduser --registry http://localhost:4873` - this will ask you a username/password/email, I suggest to use test/test/test@test.com because is just a local instance; this will also authenticate you with the registry so when you publish yuo don't need to login.
-
-Now you need to add this entry in the `package.json` files of `flight-icons`:
-
-```json
-"publishConfig": {
-    "registry": "http://localhost:4873"
-},
-```
-
-This will make sure the package is published on Verdaccio. Once the package is published, the web frontend accesible at [http://localhost:4873/](http://localhost:4873/) will show you all the details about the packages (and if needed you can also download the tarballs, to check their content).
-
-Once you've done testing, you can remove verdaccio via `npm uninstall -g verdaccio` and then remove the files he created using `rm -fr ~/.local/share/verdaccio && rm -fr .config/verdaccio`. You can use the same command to cleanup the entire data storage of Verdaccio and start from scratch (no need to reinstall for this, just cleanup the data).
+Once you've done the initial setup, there are distinct steps in the process to follow to update the icons.
