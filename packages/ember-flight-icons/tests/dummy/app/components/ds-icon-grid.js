@@ -2,9 +2,7 @@ import Component from '@glimmer/component';
 import { action, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { getOwner } from '@ember/application';
-import fetch from 'fetch';
 
-// TODO not sure how ember build process JSON files
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
 const defaultSize = '24';
