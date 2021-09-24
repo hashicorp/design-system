@@ -24,7 +24,8 @@
   <p>However: As a
     <em>temporary</em>
     bridge while we work to provide the accessible components in the design system, we have provided the ability to add
-    a title element to the Ember component by defining a value for the <code class="ds-code">@title</code>
+    a title element to the Ember component by defining a value for the
+    <code class="ds-code">@title</code>
     property. This is a temporary measure and we strongly encourage UI engineering teams to work with their designers
     and plan to convert any standalone icon use.
   </p>
@@ -78,7 +79,8 @@
       <li class="ds-li"><code class="ds-code">height</code>
         and
         <code class="ds-code">width</code>: default size of 16x16 (px)</li>
-      <li class="ds-li">(CSS)<code class="ds-code">class</code>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
+      <li class="ds-li">(CSS)
+        <code class="ds-code">class</code>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
       <li class="ds-li">CSS display: set to
         <code class="ds-code">display:inline-block</code></li>
       <li class="ds-li"><code class="ds-code">data-test-icon</code>
@@ -88,7 +90,7 @@
     </ol>
   </p>
 
-  <p>This makes the base, required invocation quite terse-
+  <p>This makes the base, required invocation quite terse &mdash;
     <code class="ds-code">@name</code>
     is the only property that requires specification. So this invocation:
     {{! prettier-ignore-start }}
@@ -212,7 +214,10 @@
   <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
     Alternative @hashicorp/flight-icons Package</h2>
   <p>
-    It is also possible to install @hashicorp/flight-icons instead of @hashicorp/ember-flight-icons. To do so, run:
+    It is also possible to install
+    <code class="ds-code">@hashicorp/flight-icons</code>
+    instead of
+    <code class="ds-code">@hashicorp/ember-flight-icons</code>. To do so, run:
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
     {{! prettier-ignore-end }}
