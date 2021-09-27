@@ -15,7 +15,7 @@
   <p>
     Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best
     practice is to set the
-    <kbd class="ds-kbd">aria-hidden</kbd>
+    <code class="ds-code">aria-hidden</code>
     attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will
     need to be used
     <em class="ds-em">in context</em>. The icons themselves are for presentation purposes only and should never be used
@@ -25,7 +25,7 @@
     <em>temporary</em>
     bridge while we work to provide the accessible components in the design system, we have provided the ability to add
     a title element to the Ember component by defining a value for the
-    <kbd class="ds-kbd">@title</kbd>
+    <code class="ds-code">@title</code>
     property. This is a temporary measure and we strongly encourage UI engineering teams to work with their designers
     and plan to convert any standalone icon use.
   </p>
@@ -56,11 +56,11 @@
     {{! prettier-ignore-end }}
   </p>
   <p>Note:
-    <kbd class="ds-kbd">ember-test-selectors</kbd>
+    <code class="ds-code">ember-test-selectors</code>
     is a dependency added for the author's convenience.
     <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember addon</a>
     strips out all
-    <kbd class="ds-kbd">data-test-*</kbd>
+    <code class="ds-code">data-test-*</code>
     attributes for production builds.
   </p>
 </div>
@@ -70,27 +70,28 @@
     Understanding the Component</h3>
   <p>The component comes with the following defaults:
     <ol>
-      <li class="ds-li"><kbd class="ds-kbd">fill</kbd>
+      <li class="ds-li"><code class="ds-code">fill</code>
         attribute: set to currentColor</li>
-      <li class="ds-li"><kbd class="ds-kbd">id</kbd>
+      <li class="ds-li"><code class="ds-code">id</code>
         attribute: a unique, automatically generated id</li>
-      <li class="ds-li"><kbd class="ds-kbd">aria-hidden</kbd>
+      <li class="ds-li"><code class="ds-code">aria-hidden</code>
         attribute: set to true</li>
-      <li class="ds-li"><kbd class="ds-kbd">height</kbd>
+      <li class="ds-li"><code class="ds-code">height</code>
         and
-        <kbd class="ds-kbd">width</kbd>: default size of 16x16 (px)</li>
-      <li class="ds-li">(CSS)<kbd class="ds-kbd">class</kbd>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
+        <code class="ds-code">width</code>: default size of 16x16 (px)</li>
+      <li class="ds-li">(CSS)
+        <code class="ds-code">class</code>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
       <li class="ds-li">CSS display: set to
-        <kbd class="ds-kbd">display:inline-block</kbd></li>
-      <li class="ds-li"><kbd class="ds-kbd">data-test-icon</kbd>
+        <code class="ds-code">display:inline-block</code></li>
+      <li class="ds-li"><code class="ds-code">data-test-icon</code>
         attribute: for the author's testing convenience; set to the value of the
-        <kbd class="ds-kbd">@name</kbd>
+        <code class="ds-code">@name</code>
         property.</li>
     </ol>
   </p>
 
-  <p>This makes the base, required invocation quite terse-
-    <kbd class="ds-kbd">@name</kbd>
+  <p>This makes the base, required invocation quite terse &mdash;
+    <code class="ds-code">@name</code>
     is the only property that requires specification. So this invocation:
     {{! prettier-ignore-start }}
     <CodeBlock
@@ -123,7 +124,7 @@
     {{! prettier-ignore-end }}
   </p>
   <p>The
-    <kbd class="ds-kbd">&lt;use></kbd>
+    <code class="ds-code">&lt;use></code>
     element will then render the correct svg to the shadow dom.</p>
 </div>
 
@@ -148,7 +149,7 @@
       Fill:
     </strong>
     To customize the fill attribute, set the
-    <kbd class="ds-kbd">@color</kbd>
+    <code class="ds-code">@color</code>
     value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined
     variables:
     {{! prettier-ignore-start }}
@@ -172,7 +173,7 @@
     <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>
       Size:</strong>
     To use the 24x24 (px) icon size, set the
-    <kbd class="ds-kbd">@size</kbd>
+    <code class="ds-code">@size</code>
     value:
     {{! prettier-ignore-start }}
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />" />
@@ -182,7 +183,7 @@
     <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>
       CSS Classes:</strong>
     To append additional classes to the component, add
-    <kbd class="ds-kbd">class</kbd>
+    <code class="ds-code">class</code>
     with value(s):
     {{! prettier-ignore-start }}
     <CodeBlock
@@ -198,7 +199,7 @@
     <i>inline-block</i>
     to
     <i>block</i>, set
-    <kbd class="ds-kbd">@isInlineBlock</kbd>
+    <code class="ds-code">@isInlineBlock</code>
     to false:
     {{! prettier-ignore-start }}
     <CodeBlock
@@ -213,7 +214,10 @@
   <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
     Alternative @hashicorp/flight-icons Package</h2>
   <p>
-    It is also possible to install @hashicorp/flight-icons instead of @hashicorp/ember-flight-icons. To do so, run:
+    It is also possible to install
+    <code class="ds-code">@hashicorp/flight-icons</code>
+    instead of
+    <code class="ds-code">@hashicorp/ember-flight-icons</code>. To do so, run:
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
     {{! prettier-ignore-end }}

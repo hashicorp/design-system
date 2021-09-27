@@ -20,21 +20,23 @@
  * and also let everyone know
  */
 
- /* how this is currently organized (please update if you change something)
-  * 1. extra specificity: because it's the docs site, we don't want naming collisions
-  *    so there's a little extra specificity
-  * 2. if it makes sense to extract a portion into a separate file, do that
-  * 3. properties within classes are alphabetically sorted 
-  * 4. custom CSS comes first, then Tailwind's `@apply`
-  * 5. variables are stored in ./root
-  */
+/* how this is currently organized (please update if you change something)
+* 1. extra specificity: because it's the docs site, we don't want naming collisions
+*    so there's a little extra specificity
+* 2. if it makes sense to extract a portion into a separate file, do that
+* 3. properties within classes are alphabetically sorted 
+* 4. custom CSS comes first, then Tailwind's `@apply`
+* 5. variables are stored in ./root
+*/
 
 html {
   font-family: var(--font-body);
   font-size: var(--font-size-default);
 }
+
 body.ds-body {
   line-height: 1.2;
+
   @apply
   flex
   flex-col
@@ -43,6 +45,7 @@ body.ds-body {
   min-h-screen
   p-0;
 }
+
 header.ds-header {
   @apply
   bg-brand
@@ -54,17 +57,23 @@ header.ds-header {
 
 main.ds-main {
   margin: 3.5rem auto 0 auto;
+
   @apply
     sm:container;
 }
 
+/* override global style from ember-prism */
+.prose code::before, .prose code::after {
+  content: none;
+}
 
-.ds-kbd {
-  color: #D10070; /* to coordinate with the current prism theme */
+.ds-code {
+  color: #D10070 !important; /* to coordinate with the current prism theme */
+  display: inline-block;
   font-size: 0.9em;
+
   @apply
   font-bold;
-  
 }
 
 .ds-info {
@@ -78,8 +87,8 @@ main.ds-main {
   rounded-md
   md:max-w-4xl
   lg:max-w-3xl;
-
 }
+
 img.ds-img {
   @apply
   block
@@ -87,11 +96,9 @@ img.ds-img {
   max-w-full;
 }
 
-
 .prose-lg pre.language-markup {
   @apply mt-0;
 }
-
 
 /* if you have other custom utility classes, add them here. */
 @layer utilities {
