@@ -1,0 +1,16 @@
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "flight-icons/" 
+    versioning-strategy: increase
+    open-pull-requests-limit: 5
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm" 
+    directory: "ember-flight-icons/" 
+    versioning-strategy: increase
+    open-pull-requests-limit: 5
+    schedule:
+      interval: "weekly"
