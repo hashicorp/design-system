@@ -103,7 +103,7 @@
     "ember-try": "^1.4.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-ember": "^10.4.2",
+    "eslint-plugin-ember": "^10.5.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-qunit": "^6.1.1",
