@@ -52,7 +52,7 @@
     "@figma-export/output-components-as-svg": "^3.4.0",
     "@figma-export/transform-svg-with-svgo": "^3.4.0",
     "@figma-export/types": "^3.4.0",
-    "@types/fs-extra": "^9.0.12",
+    "@types/fs-extra": "^9.0.13",
     "@types/lodash": "^4.14.175",
     "@types/node": "^16.10.3",
     "@types/svgo": "~1.3.3",
