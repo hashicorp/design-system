@@ -54,7 +54,7 @@
     "@figma-export/types": "^3.4.0",
     "@types/fs-extra": "^9.0.12",
     "@types/lodash": "^4.14.172",
-    "@types/node": "^16.7.13",
+    "@types/node": "^16.10.3",
     "@types/svgo": "~1.3.3",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
