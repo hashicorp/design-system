@@ -9,6 +9,7 @@ updates:
     schedule:
       interval: "weekly"
     ignore: 
+      dependency-name: "svgo"
       dependency-name: "@types/svgo"
   - package-ecosystem: "npm" 
     directory: "ember-flight-icons/" 
