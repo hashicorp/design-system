@@ -1,0 +1,56 @@
+{
+  "name": "@hashicorp/design-system-tokens",
+  "version": "0.0.1",
+  "description": "HashiCorp Design Tokens",
+  "keywords": [
+    "hashicorp",
+    "design tokens",
+    "tokens",
+    "style dictionary"
+  ],
+  "repository": "https://github.com/hashicorp/design-system-tokens",
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "contributors": [
+    {
+      "name": "Melanie Sumner",
+      "email": "melanie@hashicorp.com"
+    },
+    {
+      "name": "Brian Runnells",
+      "email": "brunnells@hashicorp.com"
+    },
+    {
+      "name": "Hector Simpson",
+      "email": "hector@hashicorp.com"
+    },
+    {
+      "name": "Heather Larsen",
+      "email": "hlarsen@hashicorp.com"
+    },
+    {
+      "name": "Amy Lam",
+      "email": "alam@hashicorp.com"
+    },
+    {
+      "name": "Cristiano Rastelli",
+      "email": "cristiano.rastelli@hashicorp.com"
+    }
+  ],
+  "scripts": {
+    "typecheck": "yarn tsc --noEmit",
+    "lint": "yarn eslint --quiet --ext .js,.ts",
+    "build": "ts-node --transpile-only ./scripts/build"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.7.1",
+    "del": "^5.1.0",
+    "fs-extra": "^7.0.0",
+    "path": "^0.12.7",
+    "style-dictionary": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2"
+  }
+}
