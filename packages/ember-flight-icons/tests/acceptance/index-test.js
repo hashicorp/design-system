@@ -14,13 +14,15 @@ module('Acceptance | icon index and percy-test', function (hooks) {
     await waitFor('.ds-icon-frame > .flight-icon', { timeout: 1000 });
     assert.dom('[data-test-target="icon-grid"] [data-test-icon]').exists();
 
-    await percySnapshot('Icons page', { scope: 'body' });
+    await percySnapshot('Icons page', { scope: '#ember-testing-container' });
   });
 
   test('visiting /percy-test', async function (assert) {
     await visit('/percy-test');
 
-    await percySnapshot('Percy test page', { scope: 'body' });
+    await percySnapshot('Percy test page', {
+      scope: '#ember-testing-container',
+    });
 
     assert.ok(true);
   });

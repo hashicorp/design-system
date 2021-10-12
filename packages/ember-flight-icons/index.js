@@ -6,7 +6,7 @@ module.exports = {
   name: require('./package').name,
 
   contentFor(type) {
-    if (type === 'body-footer') {
+    if (type === 'body-footer' || type === 'test-embed-sprite') {
       return flightIconSprite;
     }
   },
