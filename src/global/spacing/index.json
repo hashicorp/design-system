@@ -1,0 +1,36 @@
+{
+  "spacing": {
+    "0": { 
+      "value": "0",
+      "comment": "0 should be unitless"
+    },
+    "xxs": {
+      "value": "0.25rem",
+      "comment": "4px, 0.25rem"
+    },
+    "xs": {
+      "value": "0.5rem",
+      "comment": "8px, 0.25rem"
+    },
+    "sm": {
+      "value": "0.75rem",
+      "comment": "12px, 0.75rem"
+    },
+    "md": {
+      "value": "1rem",
+      "comment": "16px, 1rem"
+    },
+    "lg": {
+      "value": "1.5rem",
+      "comment": "24px, 1.5rem"
+    },
+    "xl": {
+      "value": "2.25rem",
+      "comment": "36px, 2.25rem"
+    },
+    "xxl": {
+      "value": "3rem",
+      "comment": "48px, 3rem"
+    }
+  }
+}
