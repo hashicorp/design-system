@@ -14,7 +14,7 @@ module('Integration | Component | flight-icon', function (hooks) {
   });
   test('it should have a class name that is the same as the component name', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);
-    assert.dom('svg').hasClass('flight-icon');
+    assert.dom('svg.flight-icon').hasClass('flight-icon-activity');
   });
   test('it has aria-hidden set to true', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);

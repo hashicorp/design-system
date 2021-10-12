@@ -14,13 +14,21 @@ module('Acceptance | icon index and percy-test', function (hooks) {
     await waitFor('.ds-icon-frame > .flight-icon', { timeout: 1000 });
     assert.dom('[data-test-target="icon-grid"] [data-test-icon]').exists();
 
-    await percySnapshot('Icons page');
+    // we explicitly set the scope to make sure @percy/ember considers all the relevant DOM
+    // and includes the SVG sprite injected via `content-for "ember-testing-sprite-embed"`
+    // see thread: https://hashicorp.slack.com/archives/C11JCBJTW/p1633978558343000
+    // see: https://github.com/percy/percy-ember/blob/6e263861a6f58eb3cf44cccfbb0abcd5e95b2ad7/addon-test-support/%40percy/ember/index.js#L37-L38
+    // see: http://thatsabug.com/blog/intro_to_percy/
+    await percySnapshot('Icons page', { scope: '#ember-testing' });
   });
 
   test('visiting /percy-test', async function (assert) {
     await visit('/percy-test');
 
-    await percySnapshot('Percy test page');
+    // see comment above about scoping
+    await percySnapshot('Percy test page', {
+      scope: '#ember-testing',
+    });
 
     assert.ok(true);
   });
