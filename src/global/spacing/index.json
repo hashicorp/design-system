@@ -1,35 +1,38 @@
 {
   "spacing": {
-    "0": { 
-      "value": "0",
-      "comment": "0 should be unitless"
-    },
     "xxs": {
-      "value": "0.25rem",
+      "value": "4",
+      "group": "spacing",
       "comment": "4px, 0.25rem"
     },
     "xs": {
-      "value": "0.5rem",
-      "comment": "8px, 0.25rem"
+      "value": "8",
+      "group": "spacing",
+      "comment": "8px, 0.5rem"
     },
     "sm": {
-      "value": "0.75rem",
+      "value": "12",
+      "group": "spacing",
       "comment": "12px, 0.75rem"
     },
     "md": {
-      "value": "1rem",
+      "value": "16",
+      "group": "spacing",
       "comment": "16px, 1rem"
     },
     "lg": {
-      "value": "1.5rem",
+      "value": "24",
+      "group": "spacing",
       "comment": "24px, 1.5rem"
     },
     "xl": {
-      "value": "2.25rem",
+      "value": "36",
+      "group": "spacing",
       "comment": "36px, 2.25rem"
     },
     "xxl": {
-      "value": "3rem",
+      "value": "48",
+      "group": "spacing",
       "comment": "48px, 3rem"
     }
   }
