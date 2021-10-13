@@ -1,0 +1,64 @@
+{
+  "spacing": {
+    "spacing-01": {
+      "value": "8",
+      "group": "spacing"
+    },
+    "spacing-02": {
+      "value": "12",
+      "group": "spacing"
+    },
+    "spacing-03": {
+      "value": "16",
+      "group": "spacing"
+    },
+    "spacing-04": {
+      "value": "20",
+      "group": "spacing"
+    },
+    "spacing-05": {
+      "value": "24",
+      "group": "spacing"
+    },
+    "spacing-06": {
+      "value": "32",
+      "group": "spacing"
+    },
+    "spacing-07": {
+      "value": "40",
+      "group": "spacing"
+    },
+    "spacing-08": {
+      "value": "48",
+      "group": "spacing"
+    },
+    "spacing-09": {
+      "value": "56",
+      "group": "spacing"
+    },
+    "spacing-10": {
+      "value": "64",
+      "group": "spacing"
+    },
+    "spacing-11": {
+      "value": "72",
+      "group": "spacing"
+    },
+    "spacing-12": {
+      "value": "80",
+      "group": "spacing"
+    },
+    "spacing-13": {
+      "value": "88",
+      "group": "spacing"
+    },
+    "spacing-14": {
+      "value": "96",
+      "group": "spacing"
+    },
+    "spacing-15": {
+      "value": "128",
+      "group": "spacing"
+    }
+  }
+}
