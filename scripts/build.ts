@@ -1,11 +1,12 @@
 import StyleDictionaryPackage from 'style-dictionary';
 import fs from 'fs-extra';
-// import path from 'path';
+import path from 'path';
+
+import { ConfigTargets } from './@types/Config';
 
 // SCRIPT CONFIG
-// TODO use path() here
-const rootFolder = __dirname;
-const distFolder = `${rootFolder}/../dist`;
+
+const distFolder = path.resolve(__dirname, '../dist');
 
 // CUSTOM TRANSFORMS
 
@@ -15,11 +16,13 @@ StyleDictionaryPackage.registerTransform({
     matcher: function(token) {
         return token.group === 'spacing';
     },
-    transformer: function (token) {
+    transformer: function (token, platform) {
         const val = parseFloat(token.value);
+        // CR: for this TS error see PR: https://github.com/amzn/style-dictionary/pull/715
+        // @ts-ignore
+        const baseFont = platform?.basePxFontSize || 16;
+        return `${(token.value / baseFont)}rem`;
         if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
-        // TODO! CRIS: try to understand if we can use 'basePxFontSize' here
-        return `${(token.value / 16)}rem`;
     }
 });
 
@@ -51,11 +54,11 @@ StyleDictionaryPackage.registerTransformGroup({
     name: 'marketing/custom/web',
     transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/px', 'color/css']
 });
-  
+
 
 // DYNAMIC CONFIG
 
-const targets = {
+const targets: ConfigTargets = {
     'products': {
         'source': [
             `src/global/**/*.json`,
@@ -70,13 +73,9 @@ const targets = {
         ],
         'transformGroup': 'marketing/custom/web',
     }
-} as const;
+};
 
-// TODO! Cristiano: fix TS
-// type Targets = Object.keys(sources);
-type Targets  = 'products' | 'marketing';
-
-function getStyleDictionaryConfig({ target }: { target: Targets }) {
+function getStyleDictionaryConfig({ target }: { target: string }) {
     return {
         "source": targets[target].source,
         "platforms": {
@@ -84,8 +83,7 @@ function getStyleDictionaryConfig({ target }: { target: Targets }) {
                 "transformGroup": targets[target].transformGroup,
                 "buildPath": `dist/${target}/css/`,
                 "prefix": "token",
-                // TODO! Cristiano: to check if is useful (and how)
-                // "basePxFontSize": 16,
+                "basePxFontSize": 16,
                 "files": [
                     {
                         "destination": "tokens.css",
@@ -100,19 +98,19 @@ function getStyleDictionaryConfig({ target }: { target: Targets }) {
     };
 }
 
-console.log('Build started...');
-
 // PROCESS THE DESIGN TOKENS
 
+console.log('Build started...');
 console.log('\n==============================================');
 
 // empty the dist folder
+console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
 
 Object.keys(targets).forEach(target => {
     const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig({ target }));
-    
-    console.log(`\nProcessing...`);
+
+    console.log(`\nProcessing target "${target}"...`);
     StyleDictionary.buildPlatform('web/css-variables');
     console.log('\nEnd processing');
 })
