@@ -1,23 +1,23 @@
 /**
  * Do not edit directly
- * Generated on Wed, 13 Oct 2021 14:56:49 GMT
+ * Generated on Wed, 13 Oct 2021 18:34:17 GMT
  */
 
 :root {
+  --token-spacing-09: 56px;
+  --token-spacing-08: 48px;
+  --token-spacing-07: 40px;
+  --token-spacing-06: 32px;
+  --token-spacing-05: 24px;
+  --token-spacing-04: 20px;
+  --token-spacing-03: 16px;
+  --token-spacing-02: 12px;
+  --token-spacing-01: 8px;
+  --token-spacing-15: 128px;
+  --token-spacing-14: 96px;
+  --token-spacing-13: 88px;
+  --token-spacing-12: 80px;
+  --token-spacing-11: 72px;
+  --token-spacing-10: 64px;
   --token-base-border-radius: 10px;
-  --token-spacing-spacing-01: 8px;
-  --token-spacing-spacing-02: 12px;
-  --token-spacing-spacing-03: 16px;
-  --token-spacing-spacing-04: 20px;
-  --token-spacing-spacing-05: 24px;
-  --token-spacing-spacing-06: 32px;
-  --token-spacing-spacing-07: 40px;
-  --token-spacing-spacing-08: 48px;
-  --token-spacing-spacing-09: 56px;
-  --token-spacing-spacing-10: 64px;
-  --token-spacing-spacing-11: 72px;
-  --token-spacing-spacing-12: 80px;
-  --token-spacing-spacing-13: 88px;
-  --token-spacing-spacing-14: 96px;
-  --token-spacing-spacing-15: 128px;
 }
