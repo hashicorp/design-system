@@ -21,8 +21,8 @@ StyleDictionaryPackage.registerTransform({
         // CR: for this TS error see PR: https://github.com/amzn/style-dictionary/pull/715
         // @ts-ignore
         const baseFont = platform?.basePxFontSize || 16;
-        return `${(token.value / baseFont)}rem`;
         if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+        return `${(token.value / baseFont)}rem`;
     }
 });
 
