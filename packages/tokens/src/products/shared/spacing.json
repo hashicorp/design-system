@@ -1,0 +1,39 @@
+{
+  "spacing": {
+    "01": {
+      "value": "4",
+      "group": "spacing",
+      "comment": "4px, 0.25rem"
+    },
+    "02": {
+      "value": "8",
+      "group": "spacing",
+      "comment": "8px, 0.5rem"
+    },
+    "03": {
+      "value": "12",
+      "group": "spacing",
+      "comment": "12px, 0.75rem"
+    },
+    "04": {
+      "value": "16",
+      "group": "spacing",
+      "comment": "16px, 1rem"
+    },
+    "05": {
+      "value": "24",
+      "group": "spacing",
+      "comment": "24px, 1.5rem"
+    },
+    "06": {
+      "value": "36",
+      "group": "spacing",
+      "comment": "36px, 2.25rem"
+    },
+    "07": {
+      "value": "48",
+      "group": "spacing",
+      "comment": "48px, 3rem"
+    }
+  }
+}
