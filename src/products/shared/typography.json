@@ -7,20 +7,19 @@
         "group": "typography"
       },
       "font-size": {
-        "value": "30",
-        "group": "typography"
+        "value": "1.875rem",
+        "group": "typography",
+        "comment": "30px in Figma"
       },
       "line-height": {
-        "value": "36",
-        "group": "typography"
+        "value": "1.2",
+        "group": "typography",
+        "comment": "36px in Figma"
       },
       "font-weight": {
-        "value": "bold",
-        "group": "typography"
-      },
-      "tracking": {
-        "value": "0",
-        "group": "typography"
+        "value": "700",
+        "group": "typography",
+        "comment": "bold in Figma"
       }
     },
     "heading-1": {
@@ -29,20 +28,19 @@
         "group": "typography"
       },
       "font-size": {
-        "value": "24",
-        "group": "typography"
+        "value": "1.5rem",
+        "group": "typography",
+        "comment": "24px in Figma"
       },
       "line-height": {
-        "value": "28",
-        "group": "typography"
+        "value": "1.1666",
+        "group": "typography",
+        "comment": "28px in Figma"
       },
       "font-weight": {
-        "value": "bold",
-        "group": "typography"
-      },
-      "tracking": {
-        "value": "0",
-        "group": "typography"
+        "value": "700",
+        "group": "typography",
+        "comment": "bold in Figma"
       }
     },
     "heading-2": {
@@ -51,20 +49,24 @@
         "group": "typography"
       },
       "font-size": {
-        "value": "18",
-        "group": "typography"
+        "value": "1.125rem",
+        "group": "typography",
+        "comment": "18px in Figma"
       },
       "line-height": {
-        "value": "24",
-        "group": "typography"
+        "value": "1.3333",
+        "group": "typography",
+        "comment": "24px in Figma"
       },
       "font-weight": {
-        "value": "bold",
-        "group": "typography"
+        "value": "700",
+        "group": "typography",
+        "comment": "bold in Figma"
       },
-      "tracking": {
-        "value": "-0.5",
-        "group": "typography"
+      "letter-spacing": {
+        "value": "-0.5px",
+        "group": "typography",
+        "comment": "this is `tracking` in Figma"
       }
     },
     "heading-3": {
@@ -73,20 +75,24 @@
         "group": "typography"
       },
       "font-size": {
-        "value": "16",
-        "group": "typography"
+        "value": "1rem",
+        "group": "typography",
+        "comment": "16px in Figma"
       },
       "line-height": {
-        "value": "20",
-        "group": "typography"
+        "value": "1.25",
+        "group": "typography",
+        "comment": "20px in Figma"
       },
       "font-weight": {
-        "value": "semibold",
-        "group": "typography"
+        "value": "600",
+        "group": "typography",
+        "comment": "semibold in Figma"
       },
-      "tracking": {
-        "value": "-0.5",
-        "group": "typography"
+      "letter-spacing": {
+        "value": "-0.5px",
+        "group": "typography",
+        "comment": "this is `tracking` in Figma"
       }
     },
     "heading-4": {
@@ -95,20 +101,19 @@
         "group": "typography"
       },
       "font-size": {
-        "value": "13",
-        "group": "typography"
+        "value": "0.8125rem",
+        "group": "typography",
+        "comment": "13px in Figma"
       },
       "line-height": {
-        "value": "16",
-        "group": "typography"
+        "value": "1.2",
+        "group": "typography",
+        "comment": "16px in Figma"
       },
       "font-weight": {
-        "value": "medium",
-        "group": "typography"
-      },
-      "tracking": {
-        "value": "0",
-        "group": "typography"
+        "value": "500",
+        "group": "typography",
+        "comment": "medium in Figma"
       }
     }
   },
@@ -118,20 +123,19 @@
       "group": "typography"
     },
     "font-size": {
-      "value": "13",
-      "group": "typography"
+      "value": "0.8125rem",
+      "group": "typography",
+      "comment": "13px in Figma"
     },
     "line-height": {
-      "value": "16",
-      "group": "typography"
+      "value": "1.2",
+      "group": "typography",
+      "comment": "16px in Figma"
     },
     "font-weight": {
-      "value": "regular",
-      "group": "typography"
-    },
-    "tracking": {
-      "value": "0",
-      "group": "typography"
+      "value": "400",
+      "group": "typography",
+      "comment": "regular in Figma"
     }
   }
 
