@@ -1,0 +1,16 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 13 Oct 2021 18:45:01 GMT
+ */
+
+:root {
+  --token-spacing-07: 3rem; /* 48px, 3rem */
+  --token-spacing-06: 2.25rem; /* 36px, 2.25rem */
+  --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
+  --token-spacing-04: 1rem; /* 16px, 1rem */
+  --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
+  --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
+  --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
+  --token-spacing-0-5: 0.125rem; /* 2px, 0.125rem */
+  --token-base-border-radius: 10px;
+}
