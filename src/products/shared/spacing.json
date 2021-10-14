@@ -1,10 +1,5 @@
 {
   "spacing": {
-    "0.5": {
-      "value": "2",
-      "group": "spacing",
-      "comment": "2px, 0.125rem"
-    },
     "01": {
       "value": "4",
       "group": "spacing",
