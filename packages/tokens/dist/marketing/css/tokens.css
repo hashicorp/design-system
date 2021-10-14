@@ -1,25 +1,25 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Oct 2021 15:26:00 GMT
+ * Generated on Thu, 14 Oct 2021 16:25:57 GMT
  */
 
 :root {
-  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
-  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
-  --token-base-border-radius: 10px; /* this is a sample value in global */
-  --token-spacing-10: 64px;
-  --token-spacing-11: 72px;
-  --token-spacing-12: 80px;
-  --token-spacing-13: 88px;
-  --token-spacing-14: 96px;
-  --token-spacing-15: 128px;
-  --token-spacing-01: 8px; /* 8px, 0.5rem */
-  --token-spacing-02: 12px;
-  --token-spacing-03: 16px;
-  --token-spacing-04: 20px;
-  --token-spacing-05: 24px;
-  --token-spacing-06: 32px;
-  --token-spacing-07: 40px;
-  --token-spacing-08: 48px;
   --token-spacing-09: 56px;
+  --token-spacing-08: 48px;
+  --token-spacing-07: 40px;
+  --token-spacing-06: 32px;
+  --token-spacing-05: 24px;
+  --token-spacing-04: 20px;
+  --token-spacing-03: 16px;
+  --token-spacing-02: 12px;
+  --token-spacing-01: 8px; /* 8px, 0.5rem */
+  --token-spacing-15: 128px;
+  --token-spacing-14: 96px;
+  --token-spacing-13: 88px;
+  --token-spacing-12: 80px;
+  --token-spacing-11: 72px;
+  --token-spacing-10: 64px;
+  --token-base-border-radius: 10px; /* this is a sample value in global */
+  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
+  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
 }
