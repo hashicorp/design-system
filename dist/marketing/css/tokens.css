@@ -1,23 +1,25 @@
 /**
  * Do not edit directly
- * Generated on Wed, 13 Oct 2021 18:45:01 GMT
+ * Generated on Mon, 18 Oct 2021 13:17:10 GMT
  */
 
 :root {
-  --token-spacing-09: 56px;
-  --token-spacing-08: 48px;
-  --token-spacing-07: 40px;
-  --token-spacing-06: 32px;
-  --token-spacing-05: 24px;
-  --token-spacing-04: 20px;
-  --token-spacing-03: 16px;
-  --token-spacing-02: 12px;
-  --token-spacing-01: 8px;
-  --token-spacing-15: 128px;
-  --token-spacing-14: 96px;
-  --token-spacing-13: 88px;
-  --token-spacing-12: 80px;
-  --token-spacing-11: 72px;
+  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
+  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
+  --token-base-border-radius: 10px; /* this is a sample value in global */
   --token-spacing-10: 64px;
-  --token-base-border-radius: 10px;
+  --token-spacing-11: 72px;
+  --token-spacing-12: 80px;
+  --token-spacing-13: 88px;
+  --token-spacing-14: 96px;
+  --token-spacing-15: 128px;
+  --token-spacing-01: 8px;
+  --token-spacing-02: 12px;
+  --token-spacing-03: 16px;
+  --token-spacing-04: 20px;
+  --token-spacing-05: 24px;
+  --token-spacing-06: 32px;
+  --token-spacing-07: 40px;
+  --token-spacing-08: 48px;
+  --token-spacing-09: 56px;
 }

@@ -19,8 +19,22 @@ StyleDictionaryPackage.registerTransform({
     transformer: function (token, platform) {
         const val = parseFloat(token.value);
         const baseFont = platform?.basePxFontSize || 16;
-        return `${(token.value / baseFont)}rem`;
         if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+        return `${(token.value / baseFont)}rem`;
+    }
+});
+
+StyleDictionaryPackage.registerTransform({
+    name: 'typography/pxToRem',
+    type: 'value',
+    matcher: function(token) {
+        return token.group === 'typography';
+    },
+    transformer: function (token, platform) {
+        const val = parseFloat(token.value);
+        const baseFont = platform?.basePxFontSize || 16;
+        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+        return `${(token.value / baseFont)}rem`;
     }
 });
 
@@ -43,14 +57,14 @@ StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/pxToRem', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'color/css', 'typography/pxToRem']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/px"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'marketing/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/px', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
 });
 
 
@@ -85,11 +99,7 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                 "files": [
                     {
                         "destination": "tokens.css",
-                        "format": "css/variables",
-                        "options": {
-                            "outputReferences": true
-                        }
-                    }
+                        "format": "css/variables"                    }
                 ]
             }
         }
