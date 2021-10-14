@@ -1,9 +1,13 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Oct 2021 14:44:07 GMT
+ * Generated on Thu, 14 Oct 2021 15:07:51 GMT
  */
 
 :root {
+  --token-code-tracking: 0;
+  --token-code-font-weight: regular;
+  --token-code-line-height: 16;
+  --token-code-font-size: 13;
   --token-spacing-07: 3rem; /* 48px, 3rem */
   --token-spacing-06: 2.25rem; /* 36px, 2.25rem */
   --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
@@ -11,19 +15,33 @@
   --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
   --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
   --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
-  --token-size-font-xl-rem: 1.5rem;
-  --token-size-font-xl-px: 24px;
-  --token-size-font-lg-rem: 1.125rem;
-  --token-size-font-lg-px: 18px;
-  --token-size-font-md-rem: 1rem;
-  --token-size-font-md-px: 16px;
-  --token-size-font-sm-rem: 0.875rem;
-  --token-size-font-sm-px: 14px;
-  --token-size-font-xs-rem: 0.8125rem;
-  --token-size-font-xs-px: 13px;
   --token-base-border-radius: 10px; /* this is a sample value in global */
-  --token-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
-  --token-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
-  --token-size-font-base-rem: var(--token-size-font-md-rem);
-  --token-size-font-base-px: var(--token-size-font-md-px);
+  --token-typography-heading-4-tracking: 0;
+  --token-typography-heading-4-font-weight: medium;
+  --token-typography-heading-4-line-height: 16;
+  --token-typography-heading-4-font-size: 13;
+  --token-typography-heading-3-tracking: -0.5;
+  --token-typography-heading-3-font-weight: semibold;
+  --token-typography-heading-3-line-height: 20;
+  --token-typography-heading-3-font-size: 16;
+  --token-typography-heading-2-tracking: -0.5;
+  --token-typography-heading-2-font-weight: bold;
+  --token-typography-heading-2-line-height: 24;
+  --token-typography-heading-2-font-size: 18;
+  --token-typography-heading-1-tracking: 0;
+  --token-typography-heading-1-font-weight: bold;
+  --token-typography-heading-1-line-height: 28;
+  --token-typography-heading-1-font-size: 24;
+  --token-typography-heading-0-tracking: 0;
+  --token-typography-heading-0-font-weight: bold;
+  --token-typography-heading-0-line-height: 36;
+  --token-typography-heading-0-font-size: 30;
+  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
+  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
+  --token-code-font-family: var(--token-typography-font-family-monospace);
+  --token-typography-heading-4-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-3-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-2-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-1-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-0-font-family: var(--token-typography-font-family-base);
 }

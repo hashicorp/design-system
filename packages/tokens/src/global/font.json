@@ -1,6 +1,6 @@
 {
-  "font": {
-    "family": {
+  "typography": {
+    "font-family": {
       "base": {
         "value": "-apple-system, 'Segoe UI', 'Ubuntu', sans-serif",
         "comment": "sans-serif font stack; covers mac/windows/linux"
