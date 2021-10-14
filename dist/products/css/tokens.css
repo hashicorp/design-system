@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Oct 2021 14:39:38 GMT
+ * Generated on Thu, 14 Oct 2021 14:44:07 GMT
  */
 
 :root {
@@ -11,15 +11,15 @@
   --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
   --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
   --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
-  --token-size-font-xl-rem: 1.5px;
+  --token-size-font-xl-rem: 1.5rem;
   --token-size-font-xl-px: 24px;
-  --token-size-font-lg-rem: 1.125px;
+  --token-size-font-lg-rem: 1.125rem;
   --token-size-font-lg-px: 18px;
-  --token-size-font-md-rem: 1px;
+  --token-size-font-md-rem: 1rem;
   --token-size-font-md-px: 16px;
-  --token-size-font-sm-rem: 0.875px;
+  --token-size-font-sm-rem: 0.875rem;
   --token-size-font-sm-px: 14px;
-  --token-size-font-xs-rem: 0.8125px;
+  --token-size-font-xs-rem: 0.8125rem;
   --token-size-font-xs-px: 13px;
   --token-base-border-radius: 10px; /* this is a sample value in global */
   --token-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
