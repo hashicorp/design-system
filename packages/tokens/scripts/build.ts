@@ -45,14 +45,14 @@ StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/pxToRem', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/px"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'marketing/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/px', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
 });
 
 
