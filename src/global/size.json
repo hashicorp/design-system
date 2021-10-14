@@ -1,0 +1,31 @@
+{
+  "size": {
+    "font": {
+      "xs": { 
+        "px": { "value": "13px" },
+        "rem": { "value": "0.8125rem" }
+      },
+      "sm": {
+        "px": { "value": "14px" },
+        "rem": { "value": "0.875rem" }
+      },
+      "md": {
+        "px": { "value": "16px" },
+        "rem": { "value": "1rem" }
+      },
+      "lg" : {
+        "px": { "value": "18px" },
+        "rem": { "value": "1.125rem" }
+      },
+      "xl":  {
+        "px": { "value": "24px" },
+        "rem": { "value": "1.5rem" }
+      },
+      "base": { 
+        "px": { "value": "{size.font.md.px.value}" },
+        "rem": { "value": "{size.font.md.rem.value}" }
+      }
+
+    }
+  }
+}
