@@ -88,9 +88,6 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                     {
                         "destination": "tokens.css",
                         "format": "css/variables",
-                        "options": {
-                            "outputReferences": true
-                        }
                     }
                 ]
             }
