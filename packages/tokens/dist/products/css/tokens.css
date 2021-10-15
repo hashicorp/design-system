@@ -1,71 +1,71 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Oct 2021 18:43:48 GMT
+ * Generated on Fri, 15 Oct 2021 12:26:07 GMT
  */
 
 :root {
-  --token-interface-small-link-font-weight: 500; /* medium in Figma */
-  --token-interface-small-link-line-height: 1.23; /* 16px in Figma */
-  --token-interface-small-link-font-size: 0.8125rem; /* 13px in Figma */
-  --token-interface-small-font-weight: 400; /* regular in Figma */
-  --token-interface-small-line-height: 1.23; /* 16px in Figma */
-  --token-interface-small-font-size: 0.8125rem; /* 13px in Figma */
-  --token-interface-tag-font-weight: 500; /* medium in Figma */
-  --token-interface-tag-line-height: 1.23; /* 16px in Figma */
-  --token-interface-tag-font-size: 0.8125rem; /* 13px in Figma */
-  --token-interface-base-link-font-weight: 500; /* medium in Figma */
-  --token-interface-base-link-line-height: 1.285; /* 18px in Figma */
-  --token-interface-base-link-font-size: 0.875; /* 14px in Figma */
-  --token-interface-base-font-weight: 400; /* regular in Figma */
-  --token-interface-base-line-height: 1.285; /* 18px in Figma */
-  --token-interface-base-font-size: 0.875; /* 14px in Figma */
-  --token-interface-control-font-weight: 500; /* medium in Figma */
-  --token-interface-control-line-height: 1.285; /* 18px in Figma */
-  --token-interface-control-font-size: 0.875; /* 14px in Figma */
-  --token-interface-label-font-weight: 600; /* semibold in Figma */
-  --token-interface-label-line-height: 1.285; /* 18px in Figma */
-  --token-interface-label-font-size: 0.875rem; /* 14px in Figma */
+  --token-base-border-radius: 10px; /* this is a sample value in global */
+  --token-code-font-family: var(--token-typography-font-family-monospace);
+  --token-code-font-size: 0.8125rem; /* 13px in Figma */
   --token-code-font-weight: 400; /* regular in Figma */
   --token-code-line-height: 1.2; /* 16px in Figma */
-  --token-code-font-size: 0.8125rem; /* 13px in Figma */
-  --token-spacing-07: 3rem; /* 48px, 3rem */
-  --token-spacing-06: 2.25rem; /* 36px, 2.25rem */
-  --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
-  --token-spacing-04: 1rem; /* 16px, 1rem */
-  --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
-  --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
+  --token-interface-base-font-family: var(--token-typography-font-family-base);
+  --token-interface-base-font-size: 0.875rem; /* 14px in Figma */
+  --token-interface-base-font-weight: 400; /* regular in Figma */
+  --token-interface-base-line-height: 1.285; /* 18px in Figma */
+  --token-interface-base-link-font-family: var(--token-interface-base-font-family);
+  --token-interface-base-link-font-size: var(--token-interface-base-font-size); /* 14px in Figma */
+  --token-interface-base-link-font-weight: 500; /* medium in Figma */
+  --token-interface-base-link-line-height: var(--token-interface-base-line-height); /* 18px in Figma */
+  --token-interface-control-font-family: var(--token-typography-font-family-base);
+  --token-interface-control-font-size: 0.875rem; /* 14px in Figma */
+  --token-interface-control-font-weight: 500; /* medium in Figma */
+  --token-interface-control-line-height: 1.285; /* 18px in Figma */
+  --token-interface-label-font-family: var(--token-typography-font-family-base);
+  --token-interface-label-font-size: 0.875rem; /* 14px in Figma */
+  --token-interface-label-font-weight: 600; /* semibold in Figma */
+  --token-interface-label-line-height: 1.285; /* 18px in Figma */
+  --token-interface-small-font-family: var(--token-typography-font-family-base);
+  --token-interface-small-font-size: 0.8125rem; /* 13px in Figma */
+  --token-interface-small-font-weight: 400; /* regular in Figma */
+  --token-interface-small-line-height: 1.23; /* 16px in Figma */
+  --token-interface-small-link-font-family: var(--token-interface-small-font-family);
+  --token-interface-small-link-font-size: var(--token-interface-small-font-size); /* 13px in Figma */
+  --token-interface-small-link-font-weight: 500; /* medium in Figma */
+  --token-interface-small-link-line-height: var(--token-interface-small-line-height); /* 16px in Figma */
+  --token-interface-tag-font-family: var(--token-typography-font-family-base);
+  --token-interface-tag-font-size: 0.8125rem; /* 13px in Figma */
+  --token-interface-tag-font-weight: 500; /* medium in Figma */
+  --token-interface-tag-line-height: 1.23; /* 16px in Figma */
   --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
-  --token-base-border-radius: 10px; /* this is a sample value in global */
-  --token-typography-heading-4-font-weight: 500; /* medium in Figma */
-  --token-typography-heading-4-line-height: 1.2; /* 16px in Figma */
-  --token-typography-heading-4-font-size: 0.8125rem; /* 13px in Figma */
-  --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` in Figma */
-  --token-typography-heading-3-font-weight: 600; /* semibold in Figma */
-  --token-typography-heading-3-line-height: 1.25; /* 20px in Figma */
-  --token-typography-heading-3-font-size: 1rem; /* 16px in Figma */
-  --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` in Figma */
-  --token-typography-heading-2-font-weight: 700; /* bold in Figma */
-  --token-typography-heading-2-line-height: 1.3333; /* 24px in Figma */
-  --token-typography-heading-2-font-size: 1.125rem; /* 18px in Figma */
-  --token-typography-heading-1-font-weight: 700; /* bold in Figma */
-  --token-typography-heading-1-line-height: 1.1666; /* 28px in Figma */
-  --token-typography-heading-1-font-size: 1.5rem; /* 24px in Figma */
+  --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
+  --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
+  --token-spacing-04: 1rem; /* 16px, 1rem */
+  --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
+  --token-spacing-06: 2.25rem; /* 36px, 2.25rem */
+  --token-spacing-07: 3rem; /* 48px, 3rem */
+  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
+  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
+  --token-typography-heading-0-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-0-font-size: 1.875rem; /* 30px in Figma */
   --token-typography-heading-0-font-weight: 700; /* bold in Figma */
   --token-typography-heading-0-line-height: 1.2; /* 36px in Figma */
-  --token-typography-heading-0-font-size: 1.875rem; /* 30px in Figma */
-  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
-  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
-  --token-interface-small-link-font-family: var(--token-typography-font-family-base);
-  --token-interface-small-font-family: var(--token-typography-font-family-base);
-  --token-interface-tag-font-family: var(--token-typography-font-family-base);
-  --token-interface-base-link-font-family: var(--token-typography-font-family-base);
-  --token-interface-base-font-family: var(--token-typography-font-family-base);
-  --token-interface-control-font-family: var(--token-typography-font-family-base);
-  --token-interface-label-font-family: var(--token-typography-font-family-base);
-  --token-code-font-family: var(--token-typography-font-family-monospace);
-  --token-typography-heading-4-font-family: var(--token-typography-font-family-base);
-  --token-typography-heading-3-font-family: var(--token-typography-font-family-base);
-  --token-typography-heading-2-font-family: var(--token-typography-font-family-base);
   --token-typography-heading-1-font-family: var(--token-typography-font-family-base);
-  --token-typography-heading-0-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-1-font-size: 1.5rem; /* 24px in Figma */
+  --token-typography-heading-1-font-weight: 700; /* bold in Figma */
+  --token-typography-heading-1-line-height: 1.1666; /* 28px in Figma */
+  --token-typography-heading-2-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-2-font-size: 1.125rem; /* 18px in Figma */
+  --token-typography-heading-2-font-weight: 700; /* bold in Figma */
+  --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` in Figma */
+  --token-typography-heading-2-line-height: 1.3333; /* 24px in Figma */
+  --token-typography-heading-3-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-3-font-size: 1rem; /* 16px in Figma */
+  --token-typography-heading-3-font-weight: 600; /* semibold in Figma */
+  --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` in Figma */
+  --token-typography-heading-3-line-height: 1.25; /* 20px in Figma */
+  --token-typography-heading-4-font-family: var(--token-typography-font-family-base);
+  --token-typography-heading-4-font-size: 0.8125rem; /* 13px in Figma */
+  --token-typography-heading-4-font-weight: 500; /* medium in Figma */
+  --token-typography-heading-4-line-height: 1.2; /* 16px in Figma */
 }
