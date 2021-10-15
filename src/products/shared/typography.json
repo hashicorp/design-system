@@ -117,27 +117,6 @@
       }
     }
   },
-  "code": {
-    "font-family": {
-      "value": "{typography.font-family.monospace.value}",
-      "group": "typography"
-    },
-    "font-size": {
-      "value": "0.8125rem",
-      "group": "typography",
-      "comment": "13px in Figma"
-    },
-    "line-height": {
-      "value": "1.2",
-      "group": "typography",
-      "comment": "16px in Figma"
-    },
-    "font-weight": {
-      "value": "400",
-      "group": "typography",
-      "comment": "regular in Figma"
-    }
-  },
   "interface-label": {
     "font-family": {
       "value": "{typography.font-family.base.value}",
@@ -165,7 +144,7 @@
       "group": "typography"
     },
     "font-size": {
-      "value": "0.875",
+      "value": "0.875rem",
       "group": "typography",
       "comment": "14px in Figma"
     },
@@ -186,7 +165,7 @@
       "group": "typography"
     },
     "font-size": {
-      "value": "0.875",
+      "value": "0.875rem",
       "group": "typography",
       "comment": "14px in Figma"
     },
@@ -203,16 +182,16 @@
   },
   "interface-base-link": {
     "font-family": {
-      "value": "{typography.font-family.base.value}",
+      "value": "{interface-base.font-family.value}",
       "group": "typography"
     },
     "font-size": {
-      "value": "0.875",
+      "value": "{interface-base.font-size.value}",
       "group": "typography",
       "comment": "14px in Figma"
     },
     "line-height": {
-      "value": "1.285",
+      "value": "{interface-base.line-height.value}",
       "group": "typography",
       "comment": "18px in Figma"
     },
@@ -266,7 +245,28 @@
   },
   "interface-small-link": {
     "font-family": {
-      "value": "{typography.font-family.base.value}",
+      "value": "{interface-small.font-family.value}",
+      "group": "typography"
+    },
+    "font-size": {
+      "value": "{interface-small.font-size.value}",
+      "group": "typography",
+      "comment": "13px in Figma"
+    },
+    "line-height": {
+      "value": "{interface-small.line-height.value}",
+      "group": "typography",
+      "comment": "16px in Figma"
+    },
+    "font-weight": {
+      "value": "500",
+      "group": "typography",
+      "comment": "medium in Figma"
+    }
+  },
+  "code": {
+    "font-family": {
+      "value": "{typography.font-family.monospace.value}",
       "group": "typography"
     },
     "font-size": {
@@ -275,14 +275,14 @@
       "comment": "13px in Figma"
     },
     "line-height": {
-      "value": "1.23",
+      "value": "1.2",
       "group": "typography",
       "comment": "16px in Figma"
     },
     "font-weight": {
-      "value": "500",
+      "value": "400",
       "group": "typography",
-      "comment": "medium in Figma"
+      "comment": "regular in Figma"
     }
   }
 
