@@ -38,16 +38,6 @@ StyleDictionaryPackage.registerTransform({
 });
 // TODO transform to use the correct font/weight combination
 
-// Register a filter so we can exclude things from our build,
-// but still use them as token values
-StyleDictionaryPackage.registerFilter({
-    name: 'isFont',
-    matcher: function(token) {
-      return token.attributes.category === 'font';
-    }
-  })
-
-
 StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
@@ -95,9 +85,8 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                     {
                         "destination": "tokens.css",
                         "format": "css/variables",
-                        // this should exclude products/shared/font.json file
-                        "filter": function(token, isFont) {
-                            if (token.attributes.category === isFont) {
+                        "filter": function(token) {
+                            if (token.attributes.category === 'font') {
                                 return false;
                             } else {
                                 return true;
