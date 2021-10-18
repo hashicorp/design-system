@@ -15,7 +15,7 @@
         "comment": "36px"
       },
       "font-weight": {
-        "value": "{font.sans.heading.macOS.weight.bold.value}",
+        "value": "bold",
         "comment": "700/bold"
       }
     },
@@ -33,7 +33,7 @@
         "comment": "28px"
       },
       "font-weight": {
-        "value": "{font.sans.heading.macOS.weight.bold.value}",
+        "value": "bold",
         "comment": "700/bold"
       }
     },
@@ -50,7 +50,7 @@
         "comment": "24px"
       },
       "font-weight": {
-        "value": "{font.sans.heading.macOS.weight.bold.value}",
+        "value": "bold",
         "comment": "700/bold"
       },
       "letter-spacing": {
@@ -72,7 +72,7 @@
         "comment": "20px"
       },
       "font-weight": {
-        "value": "{font.sans.heading.macOS.weight.semibold.value}",
+        "value": "semibold",
         "comment": "600/semibold"
       },
       "letter-spacing": {
@@ -94,7 +94,7 @@
         "comment": "16px"
       },
       "font-weight": {
-        "value": "{font.sans.heading.macOS.weight.medium.value}",
+        "value": "medium",
         "comment": "500/medium"
       }
     },
@@ -113,7 +113,7 @@
         "comment": "24px/1.5"
       },
       "font-weight": {
-        "value": "{font.sans.base.macOS.weight.regular.value}",
+        "value": "regular",
         "comment": "500/regular"
       }
     },
@@ -132,7 +132,7 @@
         "comment": "18px"
       },
       "font-weight": {
-        "value": "{font.sans.base.macOS.weight.regular.value}",
+        "value": "regular",
         "comment": "400/regular"
       }
     },
@@ -151,7 +151,7 @@
         "comment": "16px"
       },
       "font-weight": {
-        "value": "{font.sans.base.macOS.weight.regular.value}",
+        "value": "regular",
         "comment": "400/regular"
       }
     },
@@ -170,7 +170,7 @@
         "comment": "18px"
       },
       "font-weight": {
-        "value": "{font.sans.base.macOS.weight.semibold.value}",
+        "value": "semibold",
         "comment": "600/semibold"
       }
     },
@@ -189,7 +189,7 @@
         "comment": "18px"
       },
       "font-weight": {
-        "value": "{font.sans.base.macOS.weight.medium.value}",
+        "value": "medium",
         "comment": "500/medium"
       }
     },
@@ -208,7 +208,7 @@
         "comment": "16px"
       },
       "font-weight": {
-        "value": "{font.sans.base.macOS.weight.medium.value}",
+        "value": "medium",
         "comment": "500/medium"
       }
     },
@@ -227,8 +227,8 @@
         "comment": "16px"
       },
       "font-weight": {
-        "value": "{font.monospace.macOS.weight.regular.value}",
-        "comment": "400/regular, dynamic OS value?"
+        "value": "regular",
+        "comment": "400/regular"
       }
     }
   }
