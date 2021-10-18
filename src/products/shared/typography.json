@@ -3,7 +3,7 @@
   "typography": {
     "heading-0": {
       "font-family": {
-        "value": "{typography.font-family.base.value}"
+        "value": "{font.heading-stack.value}"
       },
       "font-size": {
         "value": "30",
@@ -12,16 +12,16 @@
       },
       "line-height": {
         "value": "1.2",
-        "comment": "36px in Figma"
+        "comment": "36px"
       },
       "font-weight": {
-        "value": "bold",
+        "value": "{font.sans.heading.macOS.weight.bold.value}",
         "comment": "700/bold"
       }
     },
     "heading-1": {
       "font-family": {
-        "value": "{typography.font-family.base.value}"
+        "value": "{font.heading-stack.value}"
       },
       "font-size": {
         "value": "24",
@@ -30,16 +30,16 @@
       },
       "line-height": {
         "value": "1.1666",
-        "comment": "28px in Figma"
+        "comment": "28px"
       },
       "font-weight": {
-        "value": "bold",
+        "value": "{font.sans.heading.macOS.weight.bold.value}",
         "comment": "700/bold"
       }
     },
     "heading-2": {
       "font-family": {
-        "value": "{typography.font-family.base.value}"
+        "value": "{font.heading-stack.value}"
       },
       "font-size": {
         "value": "18",
@@ -47,20 +47,20 @@
       },
       "line-height": {
         "value": "1.3333",
-        "comment": "24px in Figma"
+        "comment": "24px"
       },
       "font-weight": {
-        "value": "bold",
+        "value": "{font.sans.heading.macOS.weight.bold.value}",
         "comment": "700/bold"
       },
       "letter-spacing": {
         "value": "-0.5px",
-        "comment": "this is `tracking` in Figma"
+        "comment": "this is `tracking`"
       }
     },
     "heading-3": {
       "font-family": {
-        "value": "{typography.font-family.base.value}"
+        "value": "{font.heading-stack.value}"
       },
       "font-size": {
         "value": "16",
@@ -69,20 +69,20 @@
       },
       "line-height": {
         "value": "1.25",
-        "comment": "20px in Figma"
+        "comment": "20px"
       },
       "font-weight": {
-        "value": "semibold",
+        "value": "{font.sans.heading.macOS.weight.semibold.value}",
         "comment": "600/semibold"
       },
       "letter-spacing": {
         "value": "-0.5px",
-        "comment": "this is `tracking` in Figma"
+        "comment": "this is `tracking`"
       }
     },
     "heading-4": {
       "font-family": {
-        "value": "{typography.font-family.base.value}"
+        "value": "{font.heading-stack.value}"
       },
       "font-size": {
         "value": "13",
@@ -91,16 +91,16 @@
       },
       "line-height": {
         "value": "1.2",
-        "comment": "16px in Figma"
+        "comment": "16px"
       },
       "font-weight": {
-        "value": "500",
-        "comment": "medium in Figma"
+        "value": "{font.sans.heading.macOS.weight.medium.value}",
+        "comment": "500/medium"
       }
     },
     "large": {
       "font-family": {
-        "value": "{typography.font-family.base.value}",
+        "value": "{font.base-stack.value}",
         "group": "typography"
       },
       "font-size": {
@@ -113,13 +113,13 @@
         "comment": "24px/1.5"
       },
       "font-weight": {
-        "value": "regular",
-        "comment": "500/regular in Figma"
+        "value": "{font.sans.base.macOS.weight.regular.value}",
+        "comment": "500/regular"
       }
     },
     "base": {
       "font-family": {
-        "value": "{typography.font-family.base.value}",
+        "value": "{font.base-stack.value}",
         "group": "typography"
       },
       "font-size": {
@@ -129,16 +129,16 @@
       },
       "line-height": {
         "value": "1.285",
-        "comment": "18px in Figma"
+        "comment": "18px"
       },
       "font-weight": {
-        "value": "regular",
-        "comment": "400/regular in Figma"
+        "value": "{font.sans.base.macOS.weight.regular.value}",
+        "comment": "400/regular"
       }
     },
     "small": {
       "font-family": {
-        "value": "{typography.font-family.base.value}",
+        "value": "{font.base-stack.value}",
         "group": "typography"
       },
       "font-size": {
@@ -148,16 +148,16 @@
       },
       "line-height": {
         "value": "1.23",
-        "comment": "16px in Figma"
+        "comment": "16px"
       },
       "font-weight": {
-        "value": "regular",
+        "value": "{font.sans.base.macOS.weight.regular.value}",
         "comment": "400/regular"
       }
     },
     "label": {
       "font-family": {
-        "value": "{typography.font-family.base.value}",
+        "value": "{font.base-stack.value}",
         "group": "typography"
       },
       "font-size": {
@@ -167,16 +167,16 @@
       },
       "line-height": {
         "value": "1.285",        
-        "comment": "18px in Figma"
+        "comment": "18px"
       },
       "font-weight": {
-        "value": "semibold",
-        "comment": "600/semibold in Figma"
+        "value": "{font.sans.base.macOS.weight.semibold.value}",
+        "comment": "600/semibold"
       }
     },
     "control": {
       "font-family": {
-        "value": "{typography.font-family.base.value}",
+        "value": "{font.base-stack.value}",
         "group": "typography"
       },
       "font-size": {
@@ -186,49 +186,49 @@
       },
       "line-height": {
         "value": "1.285",
-        "comment": "18px in Figma"
+        "comment": "18px"
       },
       "font-weight": {
-        "value": "medium",
-        "comment": "500/medium in Figma"
+        "value": "{font.sans.base.macOS.weight.medium.value}",
+        "comment": "500/medium"
       }
     },
     "tag": {
       "font-family": {
-        "value": "{typography.font-family.base.value}",
+        "value": "{font.base-stack.value}",
         "group": "typography"
       },
       "font-size": {
         "value": "13",
         "group": "typography",
-        "comment": "13px/0.8125rem in Figma"
+        "comment": "13px/0.8125rem"
       },
       "line-height": {
         "value": "1.23",
-        "comment": "16px in Figma"
+        "comment": "16px"
       },
       "font-weight": {
-        "value": "medium",
-        "comment": "500/medium in Figma"
+        "value": "{font.sans.base.macOS.weight.medium.value}",
+        "comment": "500/medium"
       }
     },
     "code": {
       "font-family": {
-        "value": "{typography.font-family.monospace.value}",
+        "value": "{font.monospace-stack.value}",
         "group": "typography"
       },
       "font-size": {
         "value": "13",
         "group": "typography",
-        "comment": "13px/0.8125rem in Figma"
+        "comment": "13px/0.8125rem"
       },
       "line-height": {
         "value": "1.2",
-        "comment": "16px in Figma"
+        "comment": "16px"
       },
       "font-weight": {
-        "value": "regular",
-        "comment": "400/regular"
+        "value": "{font.monospace.macOS.weight.regular.value}",
+        "comment": "400/regular, dynamic OS value?"
       }
     }
   }

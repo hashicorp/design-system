@@ -23,7 +23,6 @@ StyleDictionaryPackage.registerTransform({
         return `${(token.value / baseFont)}rem`;
     }
 });
-
 // copy of SD "size/px" but using the "group" for matching
 StyleDictionaryPackage.registerTransform({
     name: 'spacing/px',
@@ -37,6 +36,8 @@ StyleDictionaryPackage.registerTransform({
         return `${token.value}px`;
     }
 });
+// TODO transform to use the correct font/weight combination
+// TODO filter out the font.json values as tokens (they can be used as values for other tokens though)
 
 
 StyleDictionaryPackage.registerTransformGroup({
@@ -85,7 +86,8 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                 "files": [
                     {
                         "destination": "tokens.css",
-                        "format": "css/variables"                    }
+                        "format": "css/variables"
+                    }
                 ]
             }
         }
