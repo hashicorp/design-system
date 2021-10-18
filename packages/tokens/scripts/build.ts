@@ -37,7 +37,15 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 // TODO transform to use the correct font/weight combination
-// TODO filter out the font.json values as tokens (they can be used as values for other tokens though)
+
+// Register a filter so we can exclude things from our build,
+// but still use them as token values
+StyleDictionaryPackage.registerFilter({
+    name: 'isFont',
+    matcher: function(token) {
+      return token.attributes.category === 'font';
+    }
+  })
 
 
 StyleDictionaryPackage.registerTransformGroup({
@@ -86,7 +94,15 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                 "files": [
                     {
                         "destination": "tokens.css",
-                        "format": "css/variables"
+                        "format": "css/variables",
+                        // this should exclude products/shared/font.json file
+                        "filter": function(token, isFont) {
+                            if (token.attributes.category === isFont) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        },
                     }
                 ]
             }
