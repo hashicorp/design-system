@@ -11,24 +11,10 @@ const distFolder = path.resolve(__dirname, '../dist');
 // CUSTOM TRANSFORMS
 
 StyleDictionaryPackage.registerTransform({
-    name: 'spacing/pxToRem',
+    name: 'unitless/pxToRem',
     type: 'value',
     matcher: function(token) {
-        return token.group === 'spacing';
-    },
-    transformer: function (token, platform) {
-        const val = parseFloat(token.value);
-        const baseFont = platform?.basePxFontSize || 16;
-        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
-        return `${(token.value / baseFont)}rem`;
-    }
-});
-
-StyleDictionaryPackage.registerTransform({
-    name: 'typography/pxToRem',
-    type: 'value',
-    matcher: function(token) {
-        return token.group === 'typography';
+        return token.group === 'spacing' || token.group === 'typography';
     },
     transformer: function (token, platform) {
         const val = parseFloat(token.value);
@@ -57,7 +43,7 @@ StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'color/css', 'typography/pxToRem']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'unitless/pxToRem', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
