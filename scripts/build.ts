@@ -38,6 +38,25 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 
+// copy of SD "size/px" but using the "group" for matching
+StyleDictionaryPackage.registerTransform({
+    name: 'elevation/color',
+    type: 'value',
+    matcher: function(token) {
+        return token.category === 'elevation' && token.type === 'color';
+    },
+    transformer: function (token) {
+        if (token?.alpha) {
+            const alpha = parseFloat(token.alpha);
+            if (isNaN(alpha) || alpha < 0 || alpha > 1) throw `Invalid alpha: '${token.name}: ${token.alpha}' is not a valid alpha value (should be in the format 0.x).\n`;
+            const hex = `${token.value}|${token.alpha}`;
+            return hex;
+        } else {
+            return token.value;
+        }
+    }
+});
+
 
 StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
