@@ -22,7 +22,7 @@
                     "value": "#7b89a3",
                     "alpha": "0.15",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -46,7 +46,7 @@
                     "value": "#656A76",
                     "alpha": "0.30",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         },
@@ -72,7 +72,7 @@
                     "value": "#7b89a3",
                     "alpha": "0.05",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "shadow-02": {
@@ -96,7 +96,7 @@
                     "value": "#7b89a3",
                     "alpha": "0.05",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -120,7 +120,7 @@
                     "value": "#656A76",
                     "alpha": "0.15",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         },
@@ -146,7 +146,7 @@
                     "value": "#656A76",
                     "alpha": "0.10",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "shadow-02": {
@@ -170,7 +170,7 @@
                     "value": "#656A76",
                     "alpha": "0.20",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -194,7 +194,7 @@
                     "value": "#656A76",
                     "alpha": "0.15",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         },
@@ -220,7 +220,7 @@
                     "value": "#656A76",
                     "alpha": "0.15",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "shadow-02": {
@@ -244,7 +244,7 @@
                     "value": "#656A76",
                     "alpha": "0.20",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -268,7 +268,7 @@
                     "value": "#656A76",
                     "alpha": "0.25",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         },
@@ -294,7 +294,7 @@
                     "value": "#656A76",
                     "alpha": "0.05",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "shadow-02": {
@@ -318,7 +318,7 @@
                     "value": "#656A76",
                     "alpha": "0.10",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -342,7 +342,7 @@
                     "value": "#656A76",
                     "alpha": "0.05",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         },
@@ -368,7 +368,7 @@
                     "value": "#656A76",
                     "alpha": "0.10",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "shadow-02": {
@@ -392,7 +392,7 @@
                     "value": "#656A76",
                     "alpha": "0.20",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -416,7 +416,7 @@
                     "value": "#656A76",
                     "alpha": "0.20",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         },
@@ -442,7 +442,7 @@
                     "value": "#3B3D45",
                     "alpha": "0.50",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "shadow-02": {
@@ -466,7 +466,7 @@
                     "value": "#3B3D45",
                     "alpha": "0.60",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             },
             "edge": {
@@ -487,10 +487,10 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "#3B3D45",
                     "alpha": "0.40",
                     "type": "color",
-                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                    "__notice": "The hex value will soon replaced with a reference to a color design token"
                 }
             }
         }
