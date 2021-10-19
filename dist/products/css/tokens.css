@@ -1,65 +1,65 @@
 /**
  * Do not edit directly
- * Generated on Fri, 15 Oct 2021 13:32:21 GMT
+ * Generated on Tue, 19 Oct 2021 13:04:31 GMT
  */
 
 :root {
   --token-base-border-radius: 10px; /* this is a sample value in global */
-  --token-elevation-high-shadow-01-blur: 18;
-  --token-elevation-high-shadow-01-color: #7B89A3;
-  --token-elevation-high-shadow-01-spread: 0;
-  --token-elevation-high-shadow-01-x: 0;
-  --token-elevation-high-shadow-01-y: 10;
-  --token-elevation-high-shadow-02-blur: 3;
-  --token-elevation-high-shadow-02-color: #7B89A3;
-  --token-elevation-high-shadow-02-spread: 0;
-  --token-elevation-high-shadow-02-x: 0;
-  --token-elevation-high-shadow-02-y: 2;
-  --token-elevation-higher-shadow-01-blur: 28;
-  --token-elevation-higher-shadow-01-color: #7B89A3;
-  --token-elevation-higher-shadow-01-spread: 0;
-  --token-elevation-higher-shadow-01-x: 0;
-  --token-elevation-higher-shadow-01-y: 18;
-  --token-elevation-higher-shadow-02-blur: 3;
-  --token-elevation-higher-shadow-02-color: #7B89A3;
-  --token-elevation-higher-shadow-02-spread: 0;
-  --token-elevation-higher-shadow-02-x: 0;
-  --token-elevation-higher-shadow-02-y: 2;
-  --token-elevation-inset-shadow-01-blur: 2;
-  --token-elevation-inset-shadow-01-color: #7B89A3;
-  --token-elevation-inset-shadow-01-spread: 1;
   --token-elevation-inset-shadow-01-x: 0;
   --token-elevation-inset-shadow-01-y: 2;
-  --token-elevation-low-shadow-01-blur: 10;
-  --token-elevation-low-shadow-01-color: #7B89A3;
-  --token-elevation-low-shadow-01-spread: -10;
+  --token-elevation-inset-shadow-01-blur: 2;
+  --token-elevation-inset-shadow-01-spread: 1;
+  --token-elevation-inset-shadow-01-color: #7B89A3;
   --token-elevation-low-shadow-01-x: 0;
   --token-elevation-low-shadow-01-y: 9;
-  --token-elevation-low-shadow-02-blur: 3;
-  --token-elevation-low-shadow-02-color: #7B89A3;
-  --token-elevation-low-shadow-02-spread: 0;
+  --token-elevation-low-shadow-01-blur: 10;
+  --token-elevation-low-shadow-01-spread: -10;
+  --token-elevation-low-shadow-01-color: #7B89A3;
   --token-elevation-low-shadow-02-x: 0;
   --token-elevation-low-shadow-02-y: 2;
-  --token-elevation-mid-shadow-01-blur: 8;
-  --token-elevation-mid-shadow-01-color: #7B89A3;
-  --token-elevation-mid-shadow-01-spread: 0;
+  --token-elevation-low-shadow-02-blur: 3;
+  --token-elevation-low-shadow-02-spread: 0;
+  --token-elevation-low-shadow-02-color: #7B89A3;
   --token-elevation-mid-shadow-01-x: 0;
   --token-elevation-mid-shadow-01-y: 6;
-  --token-elevation-mid-shadow-02-blur: 3;
-  --token-elevation-mid-shadow-02-color: #7B89A3;
-  --token-elevation-mid-shadow-02-spread: 0;
+  --token-elevation-mid-shadow-01-blur: 8;
+  --token-elevation-mid-shadow-01-spread: 0;
+  --token-elevation-mid-shadow-01-color: #7B89A3;
   --token-elevation-mid-shadow-02-x: 0;
   --token-elevation-mid-shadow-02-y: 2;
-  --token-elevation-overlay-shadow-01-blur: 24;
-  --token-elevation-overlay-shadow-01-color: #7B89A3;
-  --token-elevation-overlay-shadow-01-spread: 0;
+  --token-elevation-mid-shadow-02-blur: 3;
+  --token-elevation-mid-shadow-02-spread: 0;
+  --token-elevation-mid-shadow-02-color: #7B89A3;
+  --token-elevation-high-shadow-01-x: 0;
+  --token-elevation-high-shadow-01-y: 10;
+  --token-elevation-high-shadow-01-blur: 18;
+  --token-elevation-high-shadow-01-spread: 0;
+  --token-elevation-high-shadow-01-color: #7B89A3;
+  --token-elevation-high-shadow-02-x: 0;
+  --token-elevation-high-shadow-02-y: 2;
+  --token-elevation-high-shadow-02-blur: 3;
+  --token-elevation-high-shadow-02-spread: 0;
+  --token-elevation-high-shadow-02-color: #7B89A3;
+  --token-elevation-higher-shadow-01-x: 0;
+  --token-elevation-higher-shadow-01-y: 18;
+  --token-elevation-higher-shadow-01-blur: 28;
+  --token-elevation-higher-shadow-01-spread: 0;
+  --token-elevation-higher-shadow-01-color: #7B89A3;
+  --token-elevation-higher-shadow-02-x: 0;
+  --token-elevation-higher-shadow-02-y: 2;
+  --token-elevation-higher-shadow-02-blur: 3;
+  --token-elevation-higher-shadow-02-spread: 0;
+  --token-elevation-higher-shadow-02-color: #7B89A3;
   --token-elevation-overlay-shadow-01-x: 0;
   --token-elevation-overlay-shadow-01-y: 12;
-  --token-elevation-overlay-shadow-02-blur: 3;
-  --token-elevation-overlay-shadow-02-color: #2C3748;
-  --token-elevation-overlay-shadow-02-spread: 0;
+  --token-elevation-overlay-shadow-01-blur: 24;
+  --token-elevation-overlay-shadow-01-spread: 0;
+  --token-elevation-overlay-shadow-01-color: #7B89A3;
   --token-elevation-overlay-shadow-02-x: 0;
   --token-elevation-overlay-shadow-02-y: 2;
+  --token-elevation-overlay-shadow-02-blur: 3;
+  --token-elevation-overlay-shadow-02-spread: 0;
+  --token-elevation-overlay-shadow-02-color: #2C3748;
   --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
   --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
   --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
@@ -67,60 +67,4 @@
   --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
   --token-spacing-06: 2.25rem; /* 36px, 2.25rem */
   --token-spacing-07: 3rem; /* 48px, 3rem */
-  --token-typography-code-font-family: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace;
-  --token-typography-code-font-size: 0.8125rem; /* 13px in Figma */
-  --token-typography-code-font-weight: 400; /* regular in Figma */
-  --token-typography-code-line-height: 1.2; /* 16px in Figma */
-  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
-  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
-  --token-typography-heading-0-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-heading-0-font-size: 1.875rem; /* 30px in Figma */
-  --token-typography-heading-0-font-weight: 700; /* bold in Figma */
-  --token-typography-heading-0-line-height: 1.2; /* 36px in Figma */
-  --token-typography-heading-1-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-heading-1-font-size: 1.5rem; /* 24px in Figma */
-  --token-typography-heading-1-font-weight: 700; /* bold in Figma */
-  --token-typography-heading-1-line-height: 1.1666; /* 28px in Figma */
-  --token-typography-heading-2-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-heading-2-font-size: 1.125rem; /* 18px in Figma */
-  --token-typography-heading-2-font-weight: 700; /* bold in Figma */
-  --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` in Figma */
-  --token-typography-heading-2-line-height: 1.3333; /* 24px in Figma */
-  --token-typography-heading-3-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-heading-3-font-size: 1rem; /* 16px in Figma */
-  --token-typography-heading-3-font-weight: 600; /* semibold in Figma */
-  --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` in Figma */
-  --token-typography-heading-3-line-height: 1.25; /* 20px in Figma */
-  --token-typography-heading-4-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-heading-4-font-size: 0.8125rem; /* 13px in Figma */
-  --token-typography-heading-4-font-weight: 500; /* medium in Figma */
-  --token-typography-heading-4-line-height: 1.2; /* 16px in Figma */
-  --token-typography-interface-base-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-base-font-size: 0.875rem; /* 14px in Figma */
-  --token-typography-interface-base-font-weight: 400; /* regular in Figma */
-  --token-typography-interface-base-line-height: 1.285; /* 18px in Figma */
-  --token-typography-interface-base-link-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-base-link-font-size: 0.875rem; /* 14px in Figma */
-  --token-typography-interface-base-link-font-weight: 500; /* medium in Figma */
-  --token-typography-interface-base-link-line-height: 1.285; /* 18px in Figma */
-  --token-typography-interface-control-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-control-font-size: 0.875rem; /* 14px in Figma */
-  --token-typography-interface-control-font-weight: 500; /* medium in Figma */
-  --token-typography-interface-control-line-height: 1.285; /* 18px in Figma */
-  --token-typography-interface-label-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-label-font-size: 0.875rem; /* 14px in Figma */
-  --token-typography-interface-label-font-weight: 600; /* semibold in Figma */
-  --token-typography-interface-label-line-height: 1.285; /* 18px in Figma */
-  --token-typography-interface-small-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-small-font-size: 0.8125rem; /* 13px in Figma */
-  --token-typography-interface-small-font-weight: 400; /* regular in Figma */
-  --token-typography-interface-small-line-height: 1.23; /* 16px in Figma */
-  --token-typography-interface-small-link-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-small-link-font-size: 0.8125rem; /* 13px in Figma */
-  --token-typography-interface-small-link-font-weight: 500; /* medium in Figma */
-  --token-typography-interface-small-link-line-height: 1.23; /* 16px in Figma */
-  --token-typography-interface-tag-font-family: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-  --token-typography-interface-tag-font-size: 0.8125rem; /* 13px in Figma */
-  --token-typography-interface-tag-font-weight: 500; /* medium in Figma */
-  --token-typography-interface-tag-line-height: 1.23; /* 16px in Figma */
 }
