@@ -1,8 +1,9 @@
 {
     "typography": {
+
         "heading-0": {
             "font-family": {
-                "value": "{font.heading-stack.value}"
+                "value": "{font-stack.heading.value}"
             },
             "font-size": {
                 "value": "30",
@@ -20,7 +21,7 @@
         },
         "heading-1": {
             "font-family": {
-                "value": "{font.heading-stack.value}"
+                "value": "{font-stack.heading.value}"
             },
             "font-size": {
                 "value": "24",
@@ -38,7 +39,7 @@
         },
         "heading-2": {
             "font-family": {
-                "value": "{font.heading-stack.value}"
+                "value": "{font-stack.heading.value}"
             },
             "font-size": {
                 "value": "18",
@@ -59,7 +60,7 @@
         },
         "heading-3": {
             "font-family": {
-                "value": "{font.heading-stack.value}"
+                "value": "{font-stack.heading.value}"
             },
             "font-size": {
                 "value": "16",
@@ -81,7 +82,7 @@
         },
         "heading-4": {
             "font-family": {
-                "value": "{font.heading-stack.value}"
+                "value": "{font-stack.heading.value}"
             },
             "font-size": {
                 "value": "13",
@@ -89,7 +90,7 @@
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
-                "value": "1.2",
+                "value": "1.23",
                 "comment": "16px"
             },
             "font-weight": {
@@ -99,7 +100,7 @@
         },
         "large": {
             "font-family": {
-                "value": "{font.base-stack.value}",
+                "value": "{font-stack.base.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -118,7 +119,7 @@
         },
         "base": {
             "font-family": {
-                "value": "{font.base-stack.value}",
+                "value": "{font-stack.base.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -137,7 +138,7 @@
         },
         "small": {
             "font-family": {
-                "value": "{font.base-stack.value}",
+                "value": "{font-stack.base.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -156,7 +157,7 @@
         },
         "label": {
             "font-family": {
-                "value": "{font.base-stack.value}",
+                "value": "{font-stack.base.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -175,7 +176,7 @@
         },
         "control": {
             "font-family": {
-                "value": "{font.base-stack.value}",
+                "value": "{font-stack.base.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -194,7 +195,7 @@
         },
         "tag": {
             "font-family": {
-                "value": "{font.base-stack.value}",
+                "value": "{font-stack.base.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -213,7 +214,7 @@
         },
         "code": {
             "font-family": {
-                "value": "{font.monospace-stack.value}",
+                "value": "{font-stack.code.value}",
                 "group": "typography"
             },
             "font-size": {
@@ -222,7 +223,7 @@
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
-                "value": "1.2",
+                "value": "1.23",
                 "comment": "16px"
             },
             "font-weight": {

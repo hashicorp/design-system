@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 18 Oct 2021 18:04:44 GMT
+ * Generated on Tue, 19 Oct 2021 14:55:33 GMT
  */
 
 :root {
@@ -32,7 +32,7 @@
   --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` */
   --token-typography-heading-4-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-heading-4-font-size: 0.8125rem; /* 13px/0.8125rem */
-  --token-typography-heading-4-line-height: 1.2; /* 16px */
+  --token-typography-heading-4-line-height: 1.23; /* 16px */
   --token-typography-heading-4-font-weight: medium; /* 500/medium */
   --token-typography-large-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-large-font-size: 1rem; /* 16px/1rem */
@@ -60,6 +60,6 @@
   --token-typography-tag-font-weight: medium; /* 500/medium */
   --token-typography-code-font-family: SF Mono, Consolas, Ubuntu Mono, monospace;
   --token-typography-code-font-size: 0.8125rem; /* 13px/0.8125rem */
-  --token-typography-code-line-height: 1.2; /* 16px */
+  --token-typography-code-line-height: 1.23; /* 16px */
   --token-typography-code-font-weight: regular; /* 400/regular */
 }

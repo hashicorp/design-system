@@ -1,4 +1,4 @@
-import StyleDictionaryPackage from 'style-dictionary';
+import StyleDictionaryPackage, { DesignToken }  from 'style-dictionary';
 import fs from 'fs-extra';
 import path from 'path';
 
@@ -85,12 +85,8 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                     {
                         "destination": "tokens.css",
                         "format": "css/variables",
-                        "filter": function(token) {
-                            if (token.attributes.category === 'font') {
-                                return false;
-                            } else {
-                                return true;
-                            }
+                        "filter": function(token: DesignToken) {
+                            return !token.private;
                         },
                     }
                 ]

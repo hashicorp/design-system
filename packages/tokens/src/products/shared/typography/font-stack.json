@@ -1,0 +1,80 @@
+{
+    "font-stack": {
+        "sans": {
+            "heading": {
+                "macOS": {
+                    "name": {
+                        "value": "-apple-system, SF Pro Display",
+                        "private": "true"
+                    }
+                },
+                "windows": {
+                    "name": {
+                        "value": "Segoe UI Display",
+                        "private": "true"
+                    }
+                },
+                "linux": {
+                    "name": {
+                        "value": "Ubuntu",
+                        "private": "true"
+                    }
+                }
+            },
+            "base": {
+                "macOS": {
+                    "name": {
+                        "value": "-apple-system, SF Pro Text",
+                        "private": "true"
+                    }
+                },
+                "windows": {
+                    "name": {
+                        "value": "Segoe UI Text",
+                        "private": "true"
+                    }
+                },
+                "linux": {
+                    "name": {
+                        "value": "Ubuntu",
+                        "private": "true"
+                    }
+                }
+            }
+        },
+        "monospace": {
+            "code": {
+                "macOS": {
+                    "name": {
+                        "value": "SF Mono",
+                        "private": "true"
+                    }
+                },
+                "windows": {
+                    "name": {
+                        "value": "Consolas",
+                        "private": "true"
+                    }
+                },
+                "linux": {
+                    "name": {
+                        "value": "Ubuntu Mono",
+                        "private": "true"
+                    }
+                }
+            }
+        },
+        "heading": {
+            "value": "{font-stack.sans.heading.macOS.name.value}, {font-stack.sans.heading.windows.name.value}, {font-stack.sans.heading.linux.name.value}, sans-serif",
+            "private": "true"
+        },
+        "base": {
+            "value": "{font-stack.sans.base.macOS.name.value}, {font-stack.sans.base.windows.name.value}, {font-stack.sans.base.linux.name.value}, sans-serif",
+            "private": "true"
+        },
+        "code": {
+            "value": "{font-stack.monospace.code.macOS.name.value}, {font-stack.monospace.code.windows.name.value}, {font-stack.monospace.code.linux.name.value}, monospace",
+            "private": "true"
+        }
+    }
+}
