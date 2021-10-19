@@ -1,11 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Fri, 15 Oct 2021 13:32:21 GMT
+ * Generated on Tue, 19 Oct 2021 13:04:31 GMT
  */
 
 :root {
-  --token-typography-font-family-base: -apple-system, 'Segoe UI', 'Ubuntu', sans-serif; /* sans-serif font stack; covers mac/windows/linux */
-  --token-typography-font-family-monospace: ui-monospace, 'Menlo', 'Consolas', 'Ubuntu', monospace; /* monospace font stack; covers mac/windows/linux */
   --token-base-border-radius: 10px; /* this is a sample value in global */
   --token-spacing-10: 64px;
   --token-spacing-11: 72px;
