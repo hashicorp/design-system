@@ -10,19 +10,33 @@ const distFolder = path.resolve(__dirname, '../dist');
 
 // CUSTOM TRANSFORMS
 
+// TODO! CR: fix TS definitions
+// @ts-ignore
+const transformPxToRem = (token, platform) => {
+    const val = parseFloat(token.value);
+    const baseFont = platform?.basePxFontSize || 16;
+    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+    return `${(token.value / baseFont)}rem`;
+}
+
 StyleDictionaryPackage.registerTransform({
-    name: 'unitless/pxToRem',
+    name: 'spacing/pxToRem',
     type: 'value',
     matcher: function(token) {
-        return token.group === 'spacing' || token.group === 'typography';
+        return token.group === 'spacing';
     },
-    transformer: function (token, platform) {
-        const val = parseFloat(token.value);
-        const baseFont = platform?.basePxFontSize || 16;
-        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
-        return `${(token.value / baseFont)}rem`;
-    }
+    transformer: transformPxToRem
 });
+
+StyleDictionaryPackage.registerTransform({
+    name: 'typography/pxToRem',
+    type: 'value',
+    matcher: function(token) {
+        return token.type === 'size' && token.group === 'typography';
+    },
+    transformer: transformPxToRem
+});
+
 // copy of SD "size/px" but using the "group" for matching
 StyleDictionaryPackage.registerTransform({
     name: 'spacing/px',
@@ -42,7 +56,7 @@ StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'unitless/pxToRem', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({

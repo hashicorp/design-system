@@ -7,6 +7,7 @@
             },
             "font-size": {
                 "value": "30",
+                "type": "size",
                 "group": "typography",
                 "comment": "30px/1.875rem"
             },
@@ -25,6 +26,7 @@
             },
             "font-size": {
                 "value": "24",
+                "type": "size",
                 "group": "typography",
                 "comment": "24px/1.5rem"
             },
@@ -43,6 +45,8 @@
             },
             "font-size": {
                 "value": "18",
+                "type": "size",
+                "group": "typography",
                 "comment": "18px/1.125rem"
             },
             "line-height": {
@@ -63,7 +67,7 @@
                 "value": "{font-stack.heading.value}"
             },
             "font-size": {
-                "value": "16",
+                "type": "size",
                 "group": "typography",
                 "comment": "16px/1rem"
             },
@@ -86,6 +90,7 @@
             },
             "font-size": {
                 "value": "13",
+                "type": "size",
                 "group": "typography",
                 "comment": "13px/0.8125rem"
             },
@@ -105,6 +110,7 @@
             },
             "font-size": {
                 "value": "16",
+                "type": "size",
                 "group": "typography",
                 "comment": "16px/1rem"
             },
@@ -124,6 +130,7 @@
             },
             "font-size": {
                 "value": "14",
+                "type": "size",
                 "group": "typography",
                 "comment": "14px/0.875rem"
             },
@@ -143,6 +150,7 @@
             },
             "font-size": {
                 "value": "13",
+                "type": "size",
                 "group": "typography",
                 "comment": "13px/0.8125rem"
             },
@@ -162,6 +170,7 @@
             },
             "font-size": {
                 "value": "14",
+                "type": "size",
                 "group": "typography",
                 "comment": "14px/0.875rem"
             },
@@ -181,6 +190,7 @@
             },
             "font-size": {
                 "value": "14",
+                "type": "size",
                 "group": "typography",
                 "comment": "14px/0.875rem"
             },
@@ -200,6 +210,7 @@
             },
             "font-size": {
                 "value": "13",
+                "type": "size",
                 "group": "typography",
                 "comment": "13px/0.8125rem"
             },
@@ -219,6 +230,7 @@
             },
             "font-size": {
                 "value": "13",
+                "type": "size",
                 "group": "typography",
                 "comment": "13px/0.8125rem"
             },
