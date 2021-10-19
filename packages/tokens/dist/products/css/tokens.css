@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 19 Oct 2021 14:55:33 GMT
+ * Generated on Tue, 19 Oct 2021 15:22:07 GMT
  */
 
 :root {
@@ -15,51 +15,50 @@
   --token-typography-heading-0-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-heading-0-font-size: 1.875rem; /* 30px/1.875rem */
   --token-typography-heading-0-line-height: 1.2; /* 36px */
-  --token-typography-heading-0-font-weight: bold; /* 700/bold */
+  --token-typography-heading-0-font-weight: 700; /* bold */
   --token-typography-heading-1-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-heading-1-font-size: 1.5rem; /* 24px/1.5rem */
   --token-typography-heading-1-line-height: 1.1666; /* 28px */
-  --token-typography-heading-1-font-weight: bold; /* 700/bold */
+  --token-typography-heading-1-font-weight: 700; /* bold */
   --token-typography-heading-2-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
-  --token-typography-heading-2-font-size: 18; /* 18px/1.125rem */
+  --token-typography-heading-2-font-size: 1.125rem; /* 18px/1.125rem */
   --token-typography-heading-2-line-height: 1.3333; /* 24px */
-  --token-typography-heading-2-font-weight: bold; /* 700/bold */
+  --token-typography-heading-2-font-weight: 700; /* bold */
   --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` */
   --token-typography-heading-3-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
-  --token-typography-heading-3-font-size: 1rem; /* 16px/1rem */
   --token-typography-heading-3-line-height: 1.25; /* 20px */
-  --token-typography-heading-3-font-weight: semibold; /* 600/semibold */
+  --token-typography-heading-3-font-weight: 600; /* semibold */
   --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` */
   --token-typography-heading-4-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-heading-4-font-size: 0.8125rem; /* 13px/0.8125rem */
   --token-typography-heading-4-line-height: 1.23; /* 16px */
-  --token-typography-heading-4-font-weight: medium; /* 500/medium */
+  --token-typography-heading-4-font-weight: 500; /* medium */
   --token-typography-large-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-large-font-size: 1rem; /* 16px/1rem */
   --token-typography-large-line-height: 1.5; /* 24px/1.5 */
-  --token-typography-large-font-weight: regular; /* 500/regular */
+  --token-typography-large-font-weight: 400; /* regular */
   --token-typography-base-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-base-font-size: 0.875rem; /* 14px/0.875rem */
   --token-typography-base-line-height: 1.285; /* 18px */
-  --token-typography-base-font-weight: regular; /* 400/regular */
+  --token-typography-base-font-weight: 400; /* regular */
   --token-typography-small-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-small-font-size: 0.8125rem; /* 13px/0.8125rem */
   --token-typography-small-line-height: 1.23; /* 16px */
-  --token-typography-small-font-weight: regular; /* 400/regular */
+  --token-typography-small-font-weight: 400; /* regular */
   --token-typography-label-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-label-font-size: 0.875rem; /* 14px/0.875rem */
   --token-typography-label-line-height: 1.285; /* 18px */
-  --token-typography-label-font-weight: semibold; /* 600/semibold */
+  --token-typography-label-font-weight: 600; /* semibold */
   --token-typography-control-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-control-font-size: 0.875rem; /* 14px/0.875rem */
   --token-typography-control-line-height: 1.285; /* 18px */
-  --token-typography-control-font-weight: medium; /* 500/medium */
+  --token-typography-control-font-weight: 500; /* medium */
   --token-typography-tag-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-tag-font-size: 0.8125rem; /* 13px/0.8125rem */
   --token-typography-tag-line-height: 1.23; /* 16px */
-  --token-typography-tag-font-weight: medium; /* 500/medium */
+  --token-typography-tag-font-weight: 500; /* medium */
   --token-typography-code-font-family: SF Mono, Consolas, Ubuntu Mono, monospace;
   --token-typography-code-font-size: 0.8125rem; /* 13px/0.8125rem */
   --token-typography-code-line-height: 1.23; /* 16px */
-  --token-typography-code-font-weight: regular; /* 400/regular */
+  --token-typography-code-font-weight: 400; /* regular */
 }
