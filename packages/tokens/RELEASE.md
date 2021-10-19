@@ -45,11 +45,11 @@ You need to communicate to the product teams that are consuming the design token
 
 To test the release of packages without actually polluting the real/production npm registry, you can setup a local private registry using [Verdaccio](https://verdaccio.org/docs/what-is-verdaccio), an open source solution, very easy to setup and use.
 
-You can follow [the instructions here](https://verdaccio.org/docs/installation) but essentially what you have to:
+You can follow [the instructions here](https://verdaccio.org/docs/installation), but essentially here is what you have to:
 
 * install the package: `npm install -g verdaccio` - this will install it globally
 * launch the service: `verdaccio` - this will serve a web frontend to the registry at the URL [http://localhost:4873/](http://localhost:4873/)
-* add a user to the registry: `npm adduser --registry http://localhost:4873` - this will ask you a username/password/email, I suggest to use test/test/test@test.com because is just a local instance; this will also authenticate you with the registry so you don't need to login when you publish.
+* add a user to the registry: `npm adduser --registry http://localhost:4873` - this will ask you for a username/password/email, I suggest you use test/test/test@test.com because is only a local instance. This will also authenticate you with the registry so you don't need to login when you publish.
 
 Now you need to add this entry in the `package.json` file of the bundle you want to publish on your local registry:
 
@@ -59,6 +59,11 @@ Now you need to add this entry in the `package.json` file of the bundle you want
 },
 ```
 
-This will make sure the package is published on Verdaccio. Once the package is published, the web page accessible at [http://localhost:4873/](http://localhost:4873/) will show you all the details about the packages (if needed you can also download the tarballs, to check their content).
+This will make sure the package is published on Verdaccio. Once the package is published, the web page will be available at at [http://localhost:4873/](http://localhost:4873/). It will show you all the packages' details, and if needed you can download the tarballs to check their content.
 
-Once you've done testing, you can remove verdaccio via `npm uninstall -g verdaccio` and then remove the files he created using `rm -fr ~/.local/share/verdaccio && rm -fr .config/verdaccio`. You can use the same command to cleanup the entire data storage of Verdaccio and start from scratch (no need to reinstall for this, just cleanup the data).
+Once you've completed testing the package locally:
+
+1. remove verdaccio via `npm uninstall -g verdaccio`  
+2. remove the files it created with `rm -fr ~/.local/share/verdaccio && rm -fr .config/verdaccio`
+
+This same command can be used to cleanup the entire data storage of Verdaccio and start from scratch (no need to reinstall, only cleanup the data).
