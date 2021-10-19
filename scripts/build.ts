@@ -1,8 +1,11 @@
 import StyleDictionaryPackage from 'style-dictionary';
+import tinycolor from 'tinycolor2';
+
 import fs from 'fs-extra';
 import path from 'path';
 
 import { ConfigTargets } from './@types/Config';
+import { DesignToken } from 'style-dictionary/types/DesignToken';
 
 // SCRIPT CONFIG
 
@@ -38,22 +41,20 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 
-// copy of SD "size/px" but using the "group" for matching
+// https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
 StyleDictionaryPackage.registerTransform({
-    name: 'elevation/color',
+    name: 'color/with-alpha',
     type: 'value',
-    matcher: function(token) {
-        return token.category === 'elevation' && token.type === 'color';
+    matcher: function(token: DesignToken) {
+        return token.type === 'color' && token.alpha;
     },
     transformer: function (token) {
-        if (token?.alpha) {
-            const alpha = parseFloat(token.alpha);
-            if (isNaN(alpha) || alpha < 0 || alpha > 1) throw `Invalid alpha: '${token.name}: ${token.alpha}' is not a valid alpha value (should be in the format 0.x).\n`;
-            const hex = `${token.value}|${token.alpha}`;
-            return hex;
-        } else {
-            return token.value;
-        }
+        // console.log(JSON.stringify(token, null, 2))
+        const color = tinycolor(token.value);
+        if (!color.isValid) throw `Invalid Color: '${token.name}: ${token.value}' is not a valid color.\n`;
+        const alpha = parseFloat(token.alpha);
+        if (!(alpha > 0 && alpha < 1)) throw `Invalid Alpha: '${token.name}: ${token.value}' is not a valid alpha value (should be in the format 0.x).\n`;
+        return color.setAlpha(alpha).toHex8String();
     }
 });
 
@@ -62,14 +63,14 @@ StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'color/with-alpha', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/px"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'marketing/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/with-alpha', 'color/css']
 });
 
 
