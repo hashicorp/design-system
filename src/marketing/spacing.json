@@ -2,8 +2,7 @@
   "spacing": {
     "01": {
       "value": "8",
-      "group": "spacing",
-      "comment": "8px, 0.5rem"
+      "group": "spacing"
     },
     "02": {
       "value": "12",
