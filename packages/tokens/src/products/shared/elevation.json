@@ -1,215 +1,498 @@
 {
-  "elevation": {
-    "inset": {
-      "shadow": {
-        "01": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "2"
-          },
-          "blur": {
-            "value": "2"
-          },
-          "spread": {
-            "value": "1"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
-        }
-      }
-    },
-    "low": {
-      "shadow": {
-        "01": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "9"
-          },
-          "blur": {
-            "value": "10"
-          },
-          "spread": {
-            "value": "-10"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
+    "elevation": {
+        "inset": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#7b89a3",
+                    "alpha": "0.15",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.30",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
         },
-        "02": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "2"
-          },
-          "blur": {
-            "value": "3"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
-        }
-      }
-    },
-    "mid": {
-      "shadow": {
-        "01": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "6"
-          },
-          "blur": {
-            "value": "8"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
+        "lower": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#7b89a3",
+                    "alpha": "0.05",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#7b89a3",
+                    "alpha": "0.05",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.15",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
         },
-        "02": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "2"
-          },
-          "blur": {
-            "value": "3"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
-        }
-      }
-    },
-    "high": {
-      "shadow": {
-        "01": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "10"
-          },
-          "blur": {
-            "value": "18"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
+        "low": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.10",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "8",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "-10",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.20",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.15",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
         },
-        "02": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "2"
-          },
-          "blur": {
-            "value": "3"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
-        }
-      }
-    },
-    "higher": {
-      "shadow": {
-        "01": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "18"
-          },
-          "blur": {
-            "value": "28"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
+        "mid": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.15",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "-10",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.20",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.25",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
         },
-        "02": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "2"
-          },
-          "blur": {
-            "value": "3"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
-        }
-      }
-    },
-    "overlay": {
-      "shadow": {
-        "01": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "12"
-          },
-          "blur": {
-            "value": "24"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#7B89A3"
-          }
+        "high": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.05",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "8",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "20",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.10",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.05",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
         },
-        "02": {
-          "x": {
-            "value": "0"
-          },
-          "y": {
-            "value": "2"
-          },
-          "blur": {
-            "value": "3"
-          },
-          "spread": {
-            "value": "0"
-          },
-          "color": {
-            "value": "#2C3748"
-          }
+        "higher": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.10",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "12",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "28",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.20",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.20",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
+        },
+        "overlay": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#3B3D45",
+                    "alpha": "0.50",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "12",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "24",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#3B3D45",
+                    "alpha": "0.60",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token + alpha value"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "#656A76",
+                    "alpha": "0.40",
+                    "type": "color",
+                    "comment": "Note: the hex value will soon replaced with a reference to a color design token"
+                }
+            }
         }
-      }
     }
-  }
 }
