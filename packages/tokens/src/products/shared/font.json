@@ -1,96 +1,174 @@
 {
-  "font": {
-    "sans": {
-      "heading": {
-        "macOS": {
-          "name": { "value": "-apple-system, SF Pro Display" },
-          "weight": {
-            "regular": { "value": "400" },
-            "medium": { "value": "500" },
-            "semibold": { "value": "600" },
-            "bold": { "value": "700" }
-          }
+    "font": {
+        "sans": {
+            "heading": {
+                "macOS": {
+                    "name": {
+                        "value": "-apple-system, SF Pro Display"
+                    },
+                    "weight": {
+                        "regular": {
+                            "value": "400"
+                        },
+                        "medium": {
+                            "value": "500"
+                        },
+                        "semibold": {
+                            "value": "600"
+                        },
+                        "bold": {
+                            "value": "700"
+                        }
+                    }
+                },
+                "windows": {
+                    "name": {
+                        "value": "Segoe UI Display"
+                    },
+                    "weight": {
+                        "regular": {
+                            "value": "400"
+                        },
+                        "semibold": {
+                            "value": "600"
+                        },
+                        "bold": {
+                            "value": "700"
+                        }
+                    }
+                },
+                "linux": {
+                    "name": {
+                        "value": "Ubuntu"
+                    },
+                    "weight": {
+                        "regular": {
+                            "value": "400"
+                        },
+                        "medium": {
+                            "value": "500"
+                        },
+                        "bold": {
+                            "value": "700"
+                        }
+                    }
+                }
+            },
+            "base": {
+                "macOS": {
+                    "name": {
+                        "value": "-apple-system, SF Pro Text"
+                    },
+                    "weight": {
+                        "regular": {
+                            "value": "400"
+                        },
+                        "medium": {
+                            "value": "500"
+                        },
+                        "semibold": {
+                            "value": "600"
+                        },
+                        "bold": {
+                            "value": "700"
+                        }
+                    }
+                },
+                "windows": {
+                    "name": {
+                        "value": "Segoe UI Text"
+                    },
+                    "weight": {
+                        "regular": {
+                            "value": "400"
+                        },
+                        "semibold": {
+                            "value": "600"
+                        },
+                        "bold": {
+                            "value": "700"
+                        }
+                    }
+                },
+                "linux": {
+                    "name": {
+                        "value": "Ubuntu"
+                    },
+                    "weight": {
+                        "regular": {
+                            "value": "400"
+                        },
+                        "medium": {
+                            "value": "500"
+                        },
+                        "bold": {
+                            "value": "700"
+                        }
+                    }
+                }
+            }
         },
-        "windows": {
-          "name": { "value": "Segoe UI Display" },
-          "weight": {
-            "regular": { "value": "400" },
-            "semibold": { "value": "600" },
-            "bold": { "value": "700" }
-          }
+        "monospace": {
+            "macOS": {
+                "name": {
+                    "value": "SF Mono"
+                },
+                "weight": {
+                    "regular": {
+                        "value": "400"
+                    },
+                    "medium": {
+                        "value": "500"
+                    },
+                    "semibold": {
+                        "value": "600"
+                    },
+                    "bold": {
+                        "value": "700"
+                    }
+                }
+            },
+            "windows": {
+                "name": {
+                    "value": "Consolas"
+                },
+                "weight": {
+                    "regular": {
+                        "value": "400"
+                    },
+                    "semibold": {
+                        "value": "600"
+                    },
+                    "bold": {
+                        "value": "700"
+                    }
+                }
+            },
+            "linux": {
+                "name": {
+                    "value": "Ubuntu Mono"
+                },
+                "weight": {
+                    "regular": {
+                        "value": "400"
+                    },
+                    "medium": {
+                        "value": "500"
+                    },
+                    "bold": {
+                        "value": "700"
+                    }
+                }
+            }
         },
-        "linux": {
-          "name": { "value": "Ubuntu" },
-          "weight": {
-            "regular": { "value": "400" },
-            "medium": { "value": "500" },
-            "bold": { "value": "700" }
-          }
-        }
-      },
-      "base": {
-        "macOS": {
-          "name": { "value": "-apple-system, SF Pro Text" },
-          "weight": {
-            "regular": { "value": "400" },
-            "medium": { "value": "500" },
-            "semibold": { "value": "600" },
-            "bold": { "value": "700" }
-          }
+        "heading-stack": {
+            "value": "{font.sans.heading.macOS.name.value}, {font.sans.heading.windows.name.value}, {font.sans.heading.linux.name.value}, sans-serif"
         },
-        "windows": {
-          "name": { "value": "Segoe UI Text" },
-          "weight": {
-            "regular": { "value": "400" },
-            "semibold": { "value": "600" },
-            "bold": { "value": "700" }
-          }
+        "base-stack": {
+            "value": "{font.sans.base.macOS.name.value}, {font.sans.base.windows.name.value}, {font.sans.base.linux.name.value}, sans-serif"
         },
-        "linux": {
-          "name": { "value": "Ubuntu" },
-          "weight": {
-            "regular": { "value": "400" },
-            "medium": { "value": "500" },
-            "bold": { "value": "700" }
-          }
+        "monospace-stack": {
+            "value": "{font.monospace.macOS.name.value}, {font.monospace.windows.name.value}, {font.monospace.linux.name.value}, monospace"
         }
-      }
-    },
-    "monospace": {
-      "macOS": {
-        "name": { "value": "SF Mono" },
-        "weight": {
-          "regular": { "value": "400" },
-          "medium": { "value": "500" },
-          "semibold": { "value": "600" },
-          "bold": { "value": "700" }
-        }
-      },
-      "windows": {
-        "name": { "value": "Consolas" },
-        "weight": {
-          "regular": { "value": "400" },
-          "semibold": { "value": "600" },
-          "bold": { "value": "700" }
-        }
-      },
-      "linux": {
-        "name": { "value": "Ubuntu Mono" },
-        "weight": {
-          "regular": { "value": "400" },
-          "medium": { "value": "500" },
-          "bold": { "value": "700" }
-        }
-      }
-    },
-    "heading-stack": {
-      "value": "{font.sans.heading.macOS.name.value}, {font.sans.heading.windows.name.value}, {font.sans.heading.linux.name.value}, sans-serif"
-    },
-    "base-stack": {
-      "value": "{font.sans.base.macOS.name.value}, {font.sans.base.windows.name.value}, {font.sans.base.linux.name.value}, sans-serif"
-    },
-    "monospace-stack": {
-      "value": "{font.monospace.macOS.name.value}, {font.monospace.windows.name.value}, {font.monospace.linux.name.value}, monospace"
     }
-  }
 }
