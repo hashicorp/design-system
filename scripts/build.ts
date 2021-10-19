@@ -10,6 +10,20 @@ const distFolder = path.resolve(__dirname, '../dist');
 
 // CUSTOM TRANSFORMS
 
+// copy of SD "size/px" but using the "group" for matching
+StyleDictionaryPackage.registerTransform({
+    name: 'spacing/px',
+    type: 'value',
+    matcher: function(token) {
+        return token.group === 'spacing';
+    },
+    transformer: function (token) {
+        const val = parseFloat(token.value);
+        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px' \n`;
+        return `${token.value}px`;
+    }
+});
+
 // TODO! CR: fix TS definitions
 // @ts-ignore
 const transformPxToRem = (token, platform) => {
@@ -32,31 +46,43 @@ StyleDictionaryPackage.registerTransform({
     name: 'typography/pxToRem',
     type: 'value',
     matcher: function(token) {
-        return token.type === 'size' && token.group === 'typography';
+        return token?.attributes?.category === 'typography' && token.type === 'size';
     },
     transformer: transformPxToRem
 });
 
-// copy of SD "size/px" but using the "group" for matching
 StyleDictionaryPackage.registerTransform({
-    name: 'spacing/px',
+    name: 'typography/weight',
     type: 'value',
     matcher: function(token) {
-        return token.group === 'spacing';
+        return token?.attributes?.category === 'typography' && token?.type === 'weight';
     },
-    transformer: function (token) {
-        const val = parseFloat(token.value);
-        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px' \n`;
-        return `${token.value}px`;
+    transformer: (token: DesignToken) => {
+        const weight = token.value;
+        switch (weight) {
+            case 'bold':
+                return '700';
+            case 'semibold':
+                return '600';
+            case 'medium':
+                return '500';
+            case 'regular':
+                return '400';
+            default:
+                return '400';
+        }
+        // const baseFont = platform?.basePxFontSize || 16;
+        // if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+        // return `${(token.value / baseFont)}rem`;
     }
 });
-// TODO transform to use the correct font/weight combination
+
 
 StyleDictionaryPackage.registerTransformGroup({
     // copy of the SD "web" transform customized to support "spacing/pxToRem"
     // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
     name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({

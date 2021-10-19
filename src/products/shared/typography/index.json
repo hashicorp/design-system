@@ -1,6 +1,5 @@
 {
     "typography": {
-
         "heading-0": {
             "font-family": {
                 "value": "{font-stack.heading.value}"
@@ -8,7 +7,6 @@
             "font-size": {
                 "value": "30",
                 "type": "size",
-                "group": "typography",
                 "comment": "30px/1.875rem"
             },
             "line-height": {
@@ -17,7 +15,8 @@
             },
             "font-weight": {
                 "value": "bold",
-                "comment": "700/bold"
+                "type": "weight",
+                "comment": "bold"
             }
         },
         "heading-1": {
@@ -27,7 +26,6 @@
             "font-size": {
                 "value": "24",
                 "type": "size",
-                "group": "typography",
                 "comment": "24px/1.5rem"
             },
             "line-height": {
@@ -36,7 +34,8 @@
             },
             "font-weight": {
                 "value": "bold",
-                "comment": "700/bold"
+                "type": "weight",
+                "comment": "bold"
             }
         },
         "heading-2": {
@@ -46,7 +45,6 @@
             "font-size": {
                 "value": "18",
                 "type": "size",
-                "group": "typography",
                 "comment": "18px/1.125rem"
             },
             "line-height": {
@@ -55,7 +53,8 @@
             },
             "font-weight": {
                 "value": "bold",
-                "comment": "700/bold"
+                "type": "weight",
+                "comment": "bold"
             },
             "letter-spacing": {
                 "value": "-0.5px",
@@ -68,7 +67,6 @@
             },
             "font-size": {
                 "type": "size",
-                "group": "typography",
                 "comment": "16px/1rem"
             },
             "line-height": {
@@ -77,7 +75,8 @@
             },
             "font-weight": {
                 "value": "semibold",
-                "comment": "600/semibold"
+                "type": "weight",
+                "comment": "semibold"
             },
             "letter-spacing": {
                 "value": "-0.5px",
@@ -91,7 +90,6 @@
             "font-size": {
                 "value": "13",
                 "type": "size",
-                "group": "typography",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
@@ -100,7 +98,8 @@
             },
             "font-weight": {
                 "value": "medium",
-                "comment": "500/medium"
+                "type": "weight",
+                "comment": "medium"
             }
         },
         "large": {
@@ -111,7 +110,6 @@
             "font-size": {
                 "value": "16",
                 "type": "size",
-                "group": "typography",
                 "comment": "16px/1rem"
             },
             "line-height": {
@@ -120,7 +118,8 @@
             },
             "font-weight": {
                 "value": "regular",
-                "comment": "500/regular"
+                "type": "weight",
+                "comment": "regular"
             }
         },
         "base": {
@@ -131,7 +130,6 @@
             "font-size": {
                 "value": "14",
                 "type": "size",
-                "group": "typography",
                 "comment": "14px/0.875rem"
             },
             "line-height": {
@@ -140,7 +138,8 @@
             },
             "font-weight": {
                 "value": "regular",
-                "comment": "400/regular"
+                "type": "weight",
+                "comment": "regular"
             }
         },
         "small": {
@@ -151,7 +150,6 @@
             "font-size": {
                 "value": "13",
                 "type": "size",
-                "group": "typography",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
@@ -160,7 +158,8 @@
             },
             "font-weight": {
                 "value": "regular",
-                "comment": "400/regular"
+                "type": "weight",
+                "comment": "regular"
             }
         },
         "label": {
@@ -171,7 +170,6 @@
             "font-size": {
                 "value": "14",
                 "type": "size",
-                "group": "typography",
                 "comment": "14px/0.875rem"
             },
             "line-height": {
@@ -180,7 +178,8 @@
             },
             "font-weight": {
                 "value": "semibold",
-                "comment": "600/semibold"
+                "type": "weight",
+                "comment": "semibold"
             }
         },
         "control": {
@@ -191,7 +190,6 @@
             "font-size": {
                 "value": "14",
                 "type": "size",
-                "group": "typography",
                 "comment": "14px/0.875rem"
             },
             "line-height": {
@@ -200,7 +198,8 @@
             },
             "font-weight": {
                 "value": "medium",
-                "comment": "500/medium"
+                "type": "weight",
+                "comment": "medium"
             }
         },
         "tag": {
@@ -211,7 +210,6 @@
             "font-size": {
                 "value": "13",
                 "type": "size",
-                "group": "typography",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
@@ -220,7 +218,8 @@
             },
             "font-weight": {
                 "value": "medium",
-                "comment": "500/medium"
+                "type": "weight",
+                "comment": "medium"
             }
         },
         "code": {
@@ -231,7 +230,6 @@
             "font-size": {
                 "value": "13",
                 "type": "size",
-                "group": "typography",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
@@ -240,7 +238,8 @@
             },
             "font-weight": {
                 "value": "regular",
-                "comment": "400/regular"
+                "type": "weight",
+                "comment": "regular"
             }
         }
     }
