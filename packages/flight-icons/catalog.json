@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2021-10-05T15:51:24.042Z",
+  "lastRunTimeISO": "2021-10-18T19:04:57.115Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -7102,6 +7102,42 @@
       "height": 16
     },
     {
+      "id": "879:121",
+      "fileName": "amazon-eks-24",
+      "iconName": "amazon-eks",
+      "description": "amazon, aws, eks, kubenetes",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "879:127",
+      "fileName": "amazon-eks-16",
+      "iconName": "amazon-eks",
+      "description": "amazon, aws, eks, kubenetes",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "879:136",
+      "fileName": "amazon-eks-color-24",
+      "iconName": "amazon-eks-color",
+      "description": "amazon, aws, eks, kubenetes",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "879:141",
+      "fileName": "amazon-eks-color-16",
+      "iconName": "amazon-eks-color",
+      "description": "amazon, aws, eks, kubenetes",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:74",
       "fileName": "aws-24",
       "iconName": "aws",
@@ -7133,6 +7169,42 @@
       "fileName": "aws-color-16",
       "iconName": "aws-color",
       "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "879:67",
+      "fileName": "aws-ec2-24",
+      "iconName": "aws-ec2",
+      "description": "amazon, aws, ec2",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "879:81",
+      "fileName": "aws-ec2-16",
+      "iconName": "aws-ec2",
+      "description": "amazon, aws, ec2",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "879:98",
+      "fileName": "aws-ec2-color-24",
+      "iconName": "aws-ec2-color",
+      "description": "amazon, aws, ec2",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "879:108",
+      "fileName": "aws-ec2-color-16",
+      "iconName": "aws-ec2-color",
+      "description": "amazon, aws, ec2",
       "size": "16",
       "width": 16,
       "height": 16
