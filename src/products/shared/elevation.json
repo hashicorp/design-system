@@ -1,0 +1,498 @@
+{
+    "elevation": {
+        "color": {
+            "subtle": {
+                "value": "#7b89a3",
+                "__notice": "The hex value will soon replaced with a reference to a color design token",
+                "type": "color",
+                "private": true
+            },
+            "base": {
+                "value": "#656A76",
+                "__notice": "The hex value will soon replaced with a reference to a color design token",
+                "type": "color",
+                "private": true
+            },
+            "strong": {
+                "value": "#3B3D45",
+                "__notice": "The hex value will soon replaced with a reference to a color design token",
+                "type": "color",
+                "private": true
+            }
+        },
+        "inset": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.subtle.value}",
+                    "alpha": "0.15",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.30",
+                    "type": "color"
+                }
+            }
+        },
+        "lower": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.subtle.value}",
+                    "alpha": "0.05",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.subtle.value}",
+                    "alpha": "0.05",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.15",
+                    "type": "color"
+                }
+            }
+        },
+        "low": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.10",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "8",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "-10",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.20",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.15",
+                    "type": "color"
+                }
+            }
+        },
+        "mid": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.15",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "-10",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.20",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.25",
+                    "type": "color"
+                }
+            }
+        },
+        "high": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.05",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "8",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "20",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.10",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.05",
+                    "type": "color"
+                }
+            }
+        },
+        "higher": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.10",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "12",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "28",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.20",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.20",
+                    "type": "color"
+                }
+            }
+        },
+        "overlay": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.strong.value}",
+                    "alpha": "0.50",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "12",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "24",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.strong.value}",
+                    "alpha": "0.60",
+                    "type": "color"
+                }
+            },
+            "edge": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.strong.value}",
+                    "alpha": "0.40",
+                    "type": "color"
+                }
+            }
+        }
+    }
+}

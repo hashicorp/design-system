@@ -1,4 +1,6 @@
 import StyleDictionaryPackage, { DesignToken, Transform }  from 'style-dictionary';
+import tinycolor from 'tinycolor2';
+
 import fs from 'fs-extra';
 import path from 'path';
 
@@ -13,7 +15,7 @@ const distFolder = path.resolve(__dirname, '../dist');
 const transformPxToRem: Transform['transformer'] = (token, platform) => {
     const val = parseFloat(token.value);
     const baseFont = platform?.basePxFontSize || 16;
-    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem'.\n`;
     return `${(token.value / baseFont)}rem`;
 }
 
@@ -25,7 +27,7 @@ StyleDictionaryPackage.registerTransform({
     },
     transformer: function (token) {
         const val = parseFloat(token.value);
-        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px' \n`;
+        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
         return `${token.value}px`;
     }
 });
@@ -71,10 +73,26 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 
+// https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
+StyleDictionaryPackage.registerTransform({
+    name: 'color/with-alpha',
+    type: 'value',
+    transitive: true, // see: https://amzn.github.io/style-dictionary/#/transforms?id=transitive-transforms
+    matcher: function(token: DesignToken) {
+        return token.type === 'color' && token.alpha;
+    },
+    transformer: function (token) {
+        const color = tinycolor(token.value);
+        if (!color.isValid) throw `Invalid Color: '${token.name}: ${token.value}' is not a valid color.\n`;
+        const alpha = parseFloat(token.alpha);
+        if (!(alpha > 0 && alpha < 1)) throw `Invalid Alpha: '${token.name}: ${token.value}' is not a valid alpha value (should be in the format 0.x).\n`;
+        return color.setAlpha(alpha).toHex8String();
+    }
+});
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
