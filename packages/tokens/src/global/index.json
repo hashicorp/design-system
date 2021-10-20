@@ -2,8 +2,7 @@
     "base": {
         "border": {
             "radius": {
-                "value": "10px",
-                "comment": "this is a sample value in global"
+                "value": "10px"
             }
         }
     }
