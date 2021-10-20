@@ -28,6 +28,9 @@ jobs:
       - name: Build icons
         run: yarn build
 
+      - name: Bump version
+        run: yarn bump -- minor
+
       - name: Open a PR
         uses: peter-evans/create-pull-request@v3
         with:

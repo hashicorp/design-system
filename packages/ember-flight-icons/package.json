@@ -55,7 +55,7 @@
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
-    "bump": "./node_modules/.bin/bump package.json",
+    "bump": "./node_modules/.bin/bump",
     "release": "yarn publish --new-version $npm_package_version",
     "postrelease": "TAG_VERSION=\"@hashicorp/ember-flight-icons/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION"
   },
