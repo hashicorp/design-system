@@ -1,0 +1,299 @@
+{
+    "typography": {
+        "font-stack": {
+            "sans": {
+                "display": {
+                    "macOS": {
+                        "value": "-apple-system, SF Pro Display",
+                        "private": "true"
+                    },
+                    "windows": {
+                        "value": "Segoe UI Display",
+                        "private": "true"
+                    },
+                    "linux": {
+                        "value": "Ubuntu",
+                        "private": "true"
+                    }
+                },
+                "text": {
+                    "macOS": {
+                        "value": "-apple-system, SF Pro Text",
+                        "private": "true"
+                    },
+                    "windows": {
+                        "value": "Segoe UI Text",
+                        "private": "true"
+                    },
+                    "linux": {
+                        "value": "Ubuntu",
+                        "private": "true"
+                    }
+                }
+            },
+            "monospace": {
+                "code": {
+                    "macOS": {
+                        "value": "SF Mono",
+                        "private": "true"
+                    },
+                    "windows": {
+                        "value": "Consolas",
+                        "private": "true"
+                    },
+                    "linux": {
+                        "value": "Ubuntu Mono",
+                        "private": "true"
+                    }
+                }
+            },
+            "heading": {
+                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif",
+                "private": "true"
+            },
+            "base": {
+                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif",
+                "private": "true"
+            },
+            "code": {
+                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace",
+                "private": "true"
+            }
+        },
+        "heading-0": {
+            "font-family": {
+                "value": "{typography.font-stack.heading.value}"
+            },
+            "font-size": {
+                "value": "30",
+                "type": "size",
+                "comment": "30px/1.875rem"
+            },
+            "line-height": {
+                "value": "1.2",
+                "comment": "36px"
+            },
+            "font-weight": {
+                "value": "bold",
+                "type": "weight",
+                "comment": "bold"
+            }
+        },
+        "heading-1": {
+            "font-family": {
+                "value": "{typography.font-stack.heading.value}"
+            },
+            "font-size": {
+                "value": "24",
+                "type": "size",
+                "comment": "24px/1.5rem"
+            },
+            "line-height": {
+                "value": "1.1666",
+                "comment": "28px"
+            },
+            "font-weight": {
+                "value": "bold",
+                "type": "weight",
+                "comment": "bold"
+            }
+        },
+        "heading-2": {
+            "font-family": {
+                "value": "{typography.font-stack.heading.value}"
+            },
+            "font-size": {
+                "value": "18",
+                "type": "size",
+                "comment": "18px/1.125rem"
+            },
+            "line-height": {
+                "value": "1.3333",
+                "comment": "24px"
+            },
+            "font-weight": {
+                "value": "bold",
+                "type": "weight",
+                "comment": "bold"
+            },
+            "letter-spacing": {
+                "value": "-0.5px",
+                "comment": "this is `tracking`"
+            }
+        },
+        "heading-3": {
+            "font-family": {
+                "value": "{typography.font-stack.heading.value}"
+            },
+            "font-size": {
+                "type": "size",
+                "comment": "16px/1rem"
+            },
+            "line-height": {
+                "value": "1.25",
+                "comment": "20px"
+            },
+            "font-weight": {
+                "value": "semibold",
+                "type": "weight",
+                "comment": "semibold"
+            },
+            "letter-spacing": {
+                "value": "-0.5px",
+                "comment": "this is `tracking`"
+            }
+        },
+        "heading-4": {
+            "font-family": {
+                "value": "{typography.font-stack.heading.value}"
+            },
+            "font-size": {
+                "value": "13",
+                "type": "size",
+                "comment": "13px/0.8125rem"
+            },
+            "line-height": {
+                "value": "1.23",
+                "comment": "16px"
+            },
+            "font-weight": {
+                "value": "medium",
+                "type": "weight",
+                "comment": "medium"
+            }
+        },
+        "large": {
+            "font-family": {
+                "value": "{typography.font-stack.base.value}"
+            },
+            "font-size": {
+                "value": "16",
+                "type": "size",
+                "comment": "16px/1rem"
+            },
+            "line-height": {
+                "value": "1.5",
+                "comment": "24px/1.5"
+            },
+            "font-weight": {
+                "value": "regular",
+                "type": "weight",
+                "comment": "regular"
+            }
+        },
+        "base": {
+            "font-family": {
+                "value": "{typography.font-stack.base.value}"
+            },
+            "font-size": {
+                "value": "14",
+                "type": "size",
+                "comment": "14px/0.875rem"
+            },
+            "line-height": {
+                "value": "1.285",
+                "comment": "18px"
+            },
+            "font-weight": {
+                "value": "regular",
+                "type": "weight",
+                "comment": "regular"
+            }
+        },
+        "small": {
+            "font-family": {
+                "value": "{typography.font-stack.base.value}"
+            },
+            "font-size": {
+                "value": "13",
+                "type": "size",
+                "comment": "13px/0.8125rem"
+            },
+            "line-height": {
+                "value": "1.23",
+                "comment": "16px"
+            },
+            "font-weight": {
+                "value": "regular",
+                "type": "weight",
+                "comment": "regular"
+            }
+        },
+        "label": {
+            "font-family": {
+                "value": "{typography.font-stack.base.value}"
+            },
+            "font-size": {
+                "value": "14",
+                "type": "size",
+                "comment": "14px/0.875rem"
+            },
+            "line-height": {
+                "value": "1.285",
+                "comment": "18px"
+            },
+            "font-weight": {
+                "value": "semibold",
+                "type": "weight",
+                "comment": "semibold"
+            }
+        },
+        "control": {
+            "font-family": {
+                "value": "{typography.font-stack.base.value}"
+            },
+            "font-size": {
+                "value": "14",
+                "type": "size",
+                "comment": "14px/0.875rem"
+            },
+            "line-height": {
+                "value": "1.285",
+                "comment": "18px"
+            },
+            "font-weight": {
+                "value": "medium",
+                "type": "weight",
+                "comment": "medium"
+            }
+        },
+        "tag": {
+            "font-family": {
+                "value": "{typography.font-stack.base.value}"
+            },
+            "font-size": {
+                "value": "13",
+                "type": "size",
+                "comment": "13px/0.8125rem"
+            },
+            "line-height": {
+                "value": "1.23",
+                "comment": "16px"
+            },
+            "font-weight": {
+                "value": "medium",
+                "type": "weight",
+                "comment": "medium"
+            }
+        },
+        "code": {
+            "font-family": {
+                "value": "{typography.font-stack.code.value}"
+            },
+            "font-size": {
+                "value": "13",
+                "type": "size",
+                "comment": "13px/0.8125rem"
+            },
+            "line-height": {
+                "value": "1.23",
+                "comment": "16px"
+            },
+            "font-weight": {
+                "value": "regular",
+                "type": "weight",
+                "comment": "regular"
+            }
+        }
+    }
+}
