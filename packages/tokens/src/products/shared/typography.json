@@ -1,8 +1,68 @@
 {
     "typography": {
+        "font-stack": {
+            "sans": {
+                "display": {
+                    "macOS": {
+                        "value": "-apple-system, SF Pro Display",
+                        "private": "true"
+                    },
+                    "windows": {
+                        "value": "Segoe UI Display",
+                        "private": "true"
+                    },
+                    "linux": {
+                        "value": "Ubuntu",
+                        "private": "true"
+                    }
+                },
+                "text": {
+                    "macOS": {
+                        "value": "-apple-system, SF Pro Text",
+                        "private": "true"
+                    },
+                    "windows": {
+                        "value": "Segoe UI Text",
+                        "private": "true"
+                    },
+                    "linux": {
+                        "value": "Ubuntu",
+                        "private": "true"
+                    }
+                }
+            },
+            "monospace": {
+                "code": {
+                    "macOS": {
+                        "value": "SF Mono",
+                        "private": "true"
+                    },
+                    "windows": {
+                        "value": "Consolas",
+                        "private": "true"
+                    },
+                    "linux": {
+                        "value": "Ubuntu Mono",
+                        "private": "true"
+                    }
+                }
+            },
+            "heading": {
+                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif",
+                "private": "true"
+            },
+            "base": {
+                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif",
+                "private": "true"
+            },
+            "code": {
+                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace",
+                "private": "true"
+            }
+        },
         "heading-0": {
             "font-family": {
-                "value": "{font-stack.heading.value}"
+                "value": "{typography.font-stack.heading.value}"
             },
             "font-size": {
                 "value": "30",
@@ -21,7 +81,7 @@
         },
         "heading-1": {
             "font-family": {
-                "value": "{font-stack.heading.value}"
+                "value": "{typography.font-stack.heading.value}"
             },
             "font-size": {
                 "value": "24",
@@ -40,7 +100,7 @@
         },
         "heading-2": {
             "font-family": {
-                "value": "{font-stack.heading.value}"
+                "value": "{typography.font-stack.heading.value}"
             },
             "font-size": {
                 "value": "18",
@@ -63,7 +123,7 @@
         },
         "heading-3": {
             "font-family": {
-                "value": "{font-stack.heading.value}"
+                "value": "{typography.font-stack.heading.value}"
             },
             "font-size": {
                 "type": "size",
@@ -85,7 +145,7 @@
         },
         "heading-4": {
             "font-family": {
-                "value": "{font-stack.heading.value}"
+                "value": "{typography.font-stack.heading.value}"
             },
             "font-size": {
                 "value": "13",
@@ -104,8 +164,7 @@
         },
         "large": {
             "font-family": {
-                "value": "{font-stack.base.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.base.value}"
             },
             "font-size": {
                 "value": "16",
@@ -124,8 +183,7 @@
         },
         "base": {
             "font-family": {
-                "value": "{font-stack.base.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.base.value}"
             },
             "font-size": {
                 "value": "14",
@@ -144,8 +202,7 @@
         },
         "small": {
             "font-family": {
-                "value": "{font-stack.base.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.base.value}"
             },
             "font-size": {
                 "value": "13",
@@ -164,8 +221,7 @@
         },
         "label": {
             "font-family": {
-                "value": "{font-stack.base.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.base.value}"
             },
             "font-size": {
                 "value": "14",
@@ -184,8 +240,7 @@
         },
         "control": {
             "font-family": {
-                "value": "{font-stack.base.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.base.value}"
             },
             "font-size": {
                 "value": "14",
@@ -204,8 +259,7 @@
         },
         "tag": {
             "font-family": {
-                "value": "{font-stack.base.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.base.value}"
             },
             "font-size": {
                 "value": "13",
@@ -224,8 +278,7 @@
         },
         "code": {
             "font-family": {
-                "value": "{font-stack.code.value}",
-                "group": "typography"
+                "value": "{typography.font-stack.code.value}"
             },
             "font-size": {
                 "value": "13",
