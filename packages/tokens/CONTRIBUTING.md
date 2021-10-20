@@ -68,4 +68,4 @@ This action will:
 
 ## Releasing a new npm version of the package
 
-See the [RELEASE](../RELEASE.md) guide for details.
+See the [RELEASE](RELEASE.md) guide for details.
