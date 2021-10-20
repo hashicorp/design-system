@@ -1,4 +1,4 @@
-import StyleDictionaryPackage, { DesignToken }  from 'style-dictionary';
+import StyleDictionaryPackage, { DesignToken, Transform }  from 'style-dictionary';
 import fs from 'fs-extra';
 import path from 'path';
 
@@ -10,7 +10,13 @@ const distFolder = path.resolve(__dirname, '../dist');
 
 // CUSTOM TRANSFORMS
 
-// copy of SD "size/px" but using the "group" for matching
+const transformPxToRem: Transform['transformer'] = (token, platform) => {
+    const val = parseFloat(token.value);
+    const baseFont = platform?.basePxFontSize || 16;
+    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+    return `${(token.value / baseFont)}rem`;
+}
+
 StyleDictionaryPackage.registerTransform({
     name: 'spacing/px',
     type: 'value',
@@ -23,15 +29,6 @@ StyleDictionaryPackage.registerTransform({
         return `${token.value}px`;
     }
 });
-
-// TODO! CR: fix TS definitions
-// @ts-ignore
-const transformPxToRem = (token, platform) => {
-    const val = parseFloat(token.value);
-    const baseFont = platform?.basePxFontSize || 16;
-    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
-    return `${(token.value / baseFont)}rem`;
-}
 
 StyleDictionaryPackage.registerTransform({
     name: 'spacing/pxToRem',
@@ -55,7 +52,7 @@ StyleDictionaryPackage.registerTransform({
     name: 'typography/weight',
     type: 'value',
     matcher: function(token) {
-        return token?.attributes?.category === 'typography' && token?.type === 'weight';
+        return token?.attributes?.category === 'typography' && token.type === 'weight';
     },
     transformer: (token: DesignToken) => {
         const weight = token.value;
@@ -71,24 +68,17 @@ StyleDictionaryPackage.registerTransform({
             default:
                 return '400';
         }
-        // const baseFont = platform?.basePxFontSize || 16;
-        // if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
-        // return `${(token.value / baseFont)}rem`;
     }
 });
 
 
 StyleDictionaryPackage.registerTransformGroup({
-    // copy of the SD "web" transform customized to support "spacing/pxToRem"
-    // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
-    name: 'products/custom/web',
+    name: 'products/web',
     transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
-    // copy of the SD "web" transform customized to support "spacing/px"
-    // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
-    name: 'marketing/custom/web',
+    name: 'marketing/web',
     transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
 });
 
@@ -101,14 +91,14 @@ const targets: ConfigTargets = {
             `src/global/**/*.json`,
             `src/products/shared/**/*.json`
         ],
-        'transformGroup': 'products/custom/web',
+        'transformGroup': 'products/web',
     },
     'marketing': {
         'source': [
             `src/global/**/*.json`,
             `src/marketing/**/*.json`
         ],
-        'transformGroup': 'marketing/custom/web',
+        'transformGroup': 'marketing/web',
     }
 };
 
