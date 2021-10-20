@@ -1,4 +1,4 @@
-import StyleDictionaryPackage from 'style-dictionary';
+import StyleDictionaryPackage, { DesignToken, Transform }  from 'style-dictionary';
 import fs from 'fs-extra';
 import path from 'path';
 
@@ -10,21 +10,13 @@ const distFolder = path.resolve(__dirname, '../dist');
 
 // CUSTOM TRANSFORMS
 
-StyleDictionaryPackage.registerTransform({
-    name: 'spacing/pxToRem',
-    type: 'value',
-    matcher: function(token) {
-        return token.group === 'spacing';
-    },
-    transformer: function (token, platform) {
-        const val = parseFloat(token.value);
-        const baseFont = platform?.basePxFontSize || 16;
-        return `${(token.value / baseFont)}rem`;
-        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
-    }
-});
+const transformPxToRem: Transform['transformer'] = (token, platform) => {
+    const val = parseFloat(token.value);
+    const baseFont = platform?.basePxFontSize || 16;
+    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem' \n`;
+    return `${(token.value / baseFont)}rem`;
+}
 
-// copy of SD "size/px" but using the "group" for matching
 StyleDictionaryPackage.registerTransform({
     name: 'spacing/px',
     type: 'value',
@@ -38,19 +30,56 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 
+StyleDictionaryPackage.registerTransform({
+    name: 'spacing/pxToRem',
+    type: 'value',
+    matcher: function(token) {
+        return token.group === 'spacing';
+    },
+    transformer: transformPxToRem
+});
+
+StyleDictionaryPackage.registerTransform({
+    name: 'typography/pxToRem',
+    type: 'value',
+    matcher: function(token) {
+        return token?.attributes?.category === 'typography' && token.type === 'size';
+    },
+    transformer: transformPxToRem
+});
+
+StyleDictionaryPackage.registerTransform({
+    name: 'typography/weight',
+    type: 'value',
+    matcher: function(token) {
+        return token?.attributes?.category === 'typography' && token.type === 'weight';
+    },
+    transformer: (token: DesignToken) => {
+        const weight = token.value;
+        switch (weight) {
+            case 'bold':
+                return '700';
+            case 'semibold':
+                return '600';
+            case 'medium':
+                return '500';
+            case 'regular':
+                return '400';
+            default:
+                return '400';
+        }
+    }
+});
+
 
 StyleDictionaryPackage.registerTransformGroup({
-    // copy of the SD "web" transform customized to support "spacing/pxToRem"
-    // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
-    name: 'products/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/pxToRem', 'color/css']
+    name: 'products/web',
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'color/css']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
-    // copy of the SD "web" transform customized to support "spacing/px"
-    // see: https://github.com/amzn/style-dictionary/blob/1fe585f196211200b3de671a941aae9b87e1163b/lib/common/transformGroups.js#L30-L34
-    name: 'marketing/custom/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'size/px', 'spacing/px', 'color/css']
+    name: 'marketing/web',
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
 });
 
 
@@ -62,14 +91,14 @@ const targets: ConfigTargets = {
             `src/global/**/*.json`,
             `src/products/shared/**/*.json`
         ],
-        'transformGroup': 'products/custom/web',
+        'transformGroup': 'products/web',
     },
     'marketing': {
         'source': [
             `src/global/**/*.json`,
             `src/marketing/**/*.json`
         ],
-        'transformGroup': 'marketing/custom/web',
+        'transformGroup': 'marketing/web',
     }
 };
 
@@ -86,9 +115,9 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                     {
                         "destination": "tokens.css",
                         "format": "css/variables",
-                        "options": {
-                            "outputReferences": true
-                        }
+                        "filter": function(token: DesignToken) {
+                            return !token.private;
+                        },
                     }
                 ]
             }
