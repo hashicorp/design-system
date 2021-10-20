@@ -1,5 +1,25 @@
 {
     "elevation": {
+        "color": {
+            "subtle": {
+                "value": "#7b89a3",
+                "__notice": "The hex value will soon replaced with a reference to a color design token",
+                "type": "color",
+                "private": true
+            },
+            "base": {
+                "value": "#656A76",
+                "__notice": "The hex value will soon replaced with a reference to a color design token",
+                "type": "color",
+                "private": true
+            },
+            "strong": {
+                "value": "#3B3D45",
+                "__notice": "The hex value will soon replaced with a reference to a color design token",
+                "type": "color",
+                "private": true
+            }
+        },
         "inset": {
             "shadow-01": {
                 "x": {
@@ -19,10 +39,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#7b89a3",
+                    "value": "{elevation.color.subtle.value}",
                     "alpha": "0.15",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -43,10 +62,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.30",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         },
@@ -69,10 +87,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#7b89a3",
+                    "value": "{elevation.color.subtle.value}",
                     "alpha": "0.05",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "shadow-02": {
@@ -93,10 +110,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#7b89a3",
+                    "value": "{elevation.color.subtle.value}",
                     "alpha": "0.05",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -117,10 +133,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.15",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         },
@@ -143,10 +158,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.10",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "shadow-02": {
@@ -167,10 +181,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.20",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -191,10 +204,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.15",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         },
@@ -217,10 +229,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.15",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "shadow-02": {
@@ -241,10 +252,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.20",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -265,10 +275,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.25",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         },
@@ -291,10 +300,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.05",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "shadow-02": {
@@ -315,10 +323,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.10",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -339,10 +346,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.05",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         },
@@ -365,10 +371,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.10",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "shadow-02": {
@@ -389,10 +394,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.20",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -413,10 +417,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#656A76",
+                    "value": "{elevation.color.base.value}",
                     "alpha": "0.20",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         },
@@ -439,10 +442,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#3B3D45",
+                    "value": "{elevation.color.strong.value}",
                     "alpha": "0.50",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "shadow-02": {
@@ -463,10 +465,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#3B3D45",
+                    "value": "{elevation.color.strong.value}",
                     "alpha": "0.60",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             },
             "edge": {
@@ -487,10 +488,9 @@
                     "type": "size"
                 },
                 "color": {
-                    "value": "#3B3D45",
+                    "value": "{elevation.color.strong.value}",
                     "alpha": "0.40",
-                    "type": "color",
-                    "__notice": "The hex value will soon replaced with a reference to a color design token"
+                    "type": "color"
                 }
             }
         }
