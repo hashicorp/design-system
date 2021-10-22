@@ -374,7 +374,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Highlight/Foreground (Text, Icons)/On White",
+        "name": "Highlight/Foreground/Primary",
         "description": "",
         "paints": [
             {
@@ -391,7 +391,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Highlight/Foreground (Text, Icons)/On Faint",
+        "name": "Highlight/Foreground/On Faint",
         "description": "",
         "paints": [
             {
@@ -425,7 +425,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Highlight/Background/Secondary",
+        "name": "Highlight/Background/Hover",
         "description": "",
         "paints": [
             {
@@ -442,7 +442,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Highlight/Background/Dark",
+        "name": "Highlight/Background/Active",
         "description": "",
         "paints": [
             {
@@ -476,7 +476,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Highlight/Border/Primary (Outline only)",
+        "name": "Highlight/Border/Primary",
         "description": "",
         "paints": [
             {
@@ -510,7 +510,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Highlight/Border/On Secondary",
+        "name": "Highlight/Border/On Hover",
         "description": "",
         "paints": [
             {
@@ -544,7 +544,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Success/Foreground (Text, Icons)/On White",
+        "name": "Success/Foreground/Primary",
         "description": "",
         "paints": [
             {
@@ -561,7 +561,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Success/Foreground (Text, Icons)/On Faint",
+        "name": "Success/Foreground/On Faint",
         "description": "",
         "paints": [
             {
@@ -595,7 +595,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Success/Background/Secondary",
+        "name": "Success/Background/Hover",
         "description": "",
         "paints": [
             {
@@ -612,7 +612,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Success/Background/Dark",
+        "name": "Success/Background/Active",
         "description": "",
         "paints": [
             {
@@ -646,7 +646,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Success/Border/Primary (Outline only)",
+        "name": "Success/Border/Primary",
         "description": "",
         "paints": [
             {
@@ -680,7 +680,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Success/Border/On Secondary",
+        "name": "Success/Border/On Hover",
         "description": "",
         "paints": [
             {
@@ -714,7 +714,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Warning/Foreground (Text, Icons)/On White",
+        "name": "Warning/Foreground/Primary",
         "description": "",
         "paints": [
             {
@@ -731,7 +731,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Warning/Foreground (Text, Icons)/On Faint",
+        "name": "Warning/Foreground/On Faint",
         "description": "",
         "paints": [
             {
@@ -765,7 +765,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Warning/Background/Secondary",
+        "name": "Warning/Background/Hover",
         "description": "",
         "paints": [
             {
@@ -782,7 +782,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Warning/Background/Dark",
+        "name": "Warning/Background/Active",
         "description": "",
         "paints": [
             {
@@ -816,7 +816,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Warning/Border/Primary (Outline only)",
+        "name": "Warning/Border/Primary",
         "description": "",
         "paints": [
             {
@@ -850,7 +850,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Warning/Border/On Secondary",
+        "name": "Warning/Border/On Hover",
         "description": "",
         "paints": [
             {
@@ -884,7 +884,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Critical/Foreground (Text, Icons)/On White",
+        "name": "Critical/Foreground/Primary",
         "description": "",
         "paints": [
             {
@@ -901,7 +901,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Critical/Foreground (Text, Icons)/On Faint",
+        "name": "Critical/Foreground/On Faint",
         "description": "",
         "paints": [
             {
@@ -935,7 +935,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Critical/Background/Secondary",
+        "name": "Critical/Background/Hover",
         "description": "",
         "paints": [
             {
@@ -952,7 +952,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Critical/Background/Dark",
+        "name": "Critical/Background/Active",
         "description": "",
         "paints": [
             {
@@ -986,7 +986,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Critical/Border/Primary (Outline only)",
+        "name": "Critical/Border/Primary",
         "description": "",
         "paints": [
             {
@@ -1020,7 +1020,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "Critical/Border/On Secondary",
+        "name": "Critical/Border/On Hover",
         "description": "",
         "paints": [
             {
@@ -1054,7 +1054,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N700",
+        "name": "Palette/Neutral/Neutral 700",
         "description": "",
         "paints": [
             {
@@ -1071,7 +1071,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N600",
+        "name": "Palette/Neutral/Neutral 600",
         "description": "",
         "paints": [
             {
@@ -1088,7 +1088,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N500",
+        "name": "Palette/Neutral/Neutral 500",
         "description": "",
         "paints": [
             {
@@ -1105,7 +1105,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N400",
+        "name": "Palette/Neutral/Neutral 400",
         "description": "",
         "paints": [
             {
@@ -1122,7 +1122,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N300",
+        "name": "Palette/Neutral/Neutral 300",
         "description": "",
         "paints": [
             {
@@ -1139,7 +1139,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N200",
+        "name": "Palette/Neutral/Neutral 200",
         "description": "",
         "paints": [
             {
@@ -1156,7 +1156,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N100",
+        "name": "Palette/Neutral/Neutral 100",
         "description": "",
         "paints": [
             {
@@ -1173,7 +1173,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N50",
+        "name": "Palette/Neutral/Neutral 50",
         "description": "",
         "paints": [
             {
@@ -1190,7 +1190,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Neutral/N0",
+        "name": "Palette/Neutral/Neutral 0",
         "description": "",
         "paints": [
             {
@@ -1207,7 +1207,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Alpha/A200",
+        "name": "Palette/Alpha/Alpha 300",
         "description": "",
         "paints": [
             {
@@ -1224,7 +1224,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Alpha/A100",
+        "name": "Palette/Alpha/Alpha 200",
         "description": "",
         "paints": [
             {
@@ -1241,7 +1241,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Alpha/A50",
+        "name": "Palette/Alpha/Alpha 100",
         "description": "",
         "paints": [
             {
@@ -1258,41 +1258,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Blue/Primary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.12000006437301636,
-                    "g": 0.4133335053920746,
-                    "b": 0.9999999403953552
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Blue/Secondary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.0480000376701355,
-                    "g": 0.3374190330505371,
-                    "b": 0.9119999408721924
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Blue/Dark",
+        "name": "Palette/Blue/Blue 400",
         "description": "",
         "paints": [
             {
@@ -1309,7 +1275,41 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Blue/Dim",
+        "name": "Palette/Blue/Blue 300",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.0480000376701355,
+                    "g": 0.3374190330505371,
+                    "b": 0.9119999408721924
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Blue/Blue 200",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.12000006437301636,
+                    "g": 0.4133335053920746,
+                    "b": 0.9999999403953552
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Blue/Blue 100",
         "description": "",
         "paints": [
             {
@@ -1326,7 +1326,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Blue/Faint",
+        "name": "Palette/Blue/Blue 50",
         "description": "",
         "paints": [
             {
@@ -1343,41 +1343,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Purple/Primary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.6553340554237366,
-                    "g": 0.21666669845581055,
-                    "b": 1
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Purple/Secondary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.5686274766921997,
-                    "g": 0.10980392247438431,
-                    "b": 0.929411768913269
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Purple/Dark",
+        "name": "Palette/Purple/Purple 400",
         "description": "",
         "paints": [
             {
@@ -1394,7 +1360,41 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Purple/Dim",
+        "name": "Palette/Purple/Purple 300",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.5686274766921997,
+                    "g": 0.10980392247438431,
+                    "b": 0.929411768913269
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Purple/Purple 200",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.6553340554237366,
+                    "g": 0.21666669845581055,
+                    "b": 1
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Purple/Purple 100",
         "description": "",
         "paints": [
             {
@@ -1411,7 +1411,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Purple/Faint",
+        "name": "Palette/Purple/Purple 50",
         "description": "",
         "paints": [
             {
@@ -1428,41 +1428,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Green/Primary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0,
-                    "g": 0.5400000214576721,
-                    "b": 0.13499997556209564
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Green/Secondary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0,
-                    "g": 0.47058823704719543,
-                    "b": 0.11764705926179886
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Green/Dark",
+        "name": "Palette/Green/Green 400",
         "description": "",
         "paints": [
             {
@@ -1479,7 +1445,41 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Green/Dim",
+        "name": "Palette/Green/Green 300",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0,
+                    "g": 0.47058823704719543,
+                    "b": 0.11764705926179886
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Green/Green 200",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0,
+                    "g": 0.5400000214576721,
+                    "b": 0.13499997556209564
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Green/Green 100",
         "description": "",
         "paints": [
             {
@@ -1496,7 +1496,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Green/Faint",
+        "name": "Palette/Green/Green 50",
         "description": "",
         "paints": [
             {
@@ -1513,41 +1513,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Amber/Primary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.7333333492279053,
-                    "g": 0.351999968290329,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Amber/Secondary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.6196078658103943,
-                    "g": 0.29411765933036804,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Amber/Dark",
+        "name": "Palette/Amber/Amber 400",
         "description": "",
         "paints": [
             {
@@ -1564,7 +1530,41 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Amber/Dim",
+        "name": "Palette/Amber/Amber 300",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.6196078658103943,
+                    "g": 0.29411765933036804,
+                    "b": 0
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Amber/Amber 200",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.7333333492279053,
+                    "g": 0.351999968290329,
+                    "b": 0
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Amber/Amber 100",
         "description": "",
         "paints": [
             {
@@ -1581,7 +1581,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Amber/Faint",
+        "name": "Palette/Amber/Amber 50",
         "description": "",
         "paints": [
             {
@@ -1598,41 +1598,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Red/Primary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.925000011920929,
-                    "g": 0,
-                    "b": 0.02455803006887436
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Red/Secondary",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.7529411911964417,
-                    "g": 0,
-                    "b": 0.019607843831181526
-                }
-            }
-        ]
-    },
-    {
-        "name": "All/Red/Dark",
+        "name": "Palette/Red/Red 400",
         "description": "",
         "paints": [
             {
@@ -1649,7 +1615,41 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Red/Dim",
+        "name": "Palette/Red/Red 300",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.7529411911964417,
+                    "g": 0,
+                    "b": 0.019607843831181526
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Red/Red 200",
+        "description": "",
+        "paints": [
+            {
+                "type": "SOLID",
+                "visible": true,
+                "opacity": 1,
+                "blendMode": "NORMAL",
+                "color": {
+                    "r": 0.925000011920929,
+                    "g": 0,
+                    "b": 0.02455803006887436
+                }
+            }
+        ]
+    },
+    {
+        "name": "Palette/Red/Red 100",
         "description": "",
         "paints": [
             {
@@ -1666,7 +1666,7 @@ const stylesList = [
         ]
     },
     {
-        "name": "All/Red/Faint",
+        "name": "Palette/Red/Red 50",
         "description": "",
         "paints": [
             {
@@ -1975,941 +1975,6 @@ const stylesList = [
                         0.5
                     ]
                 ]
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 11",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9784490466117859,
-                    "g": 0.9792653322219849,
-                    "b": 0.9815509915351868
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 10",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.946122407913208,
-                    "g": 0.9481632113456726,
-                    "b": 0.9538775682449341
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 09",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.8706938624382019,
-                    "g": 0.8755918145179749,
-                    "b": 0.8893061280250549
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 08",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.7629387378692627,
-                    "g": 0.7719183564186096,
-                    "b": 0.7970612049102783
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 07",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.6551836729049683,
-                    "g": 0.6682448983192444,
-                    "b": 0.7048163414001465
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 06",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.547428548336029,
-                    "g": 0.5645714402198792,
-                    "b": 0.6125714182853699
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 05",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.39665308594703674,
-                    "g": 0.41420409083366394,
-                    "b": 0.463346928358078
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 04",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.31363266706466675,
-                    "g": 0.3275102376937866,
-                    "b": 0.3663673400878906
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 03",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.23061224818229675,
-                    "g": 0.24081632494926453,
-                    "b": 0.26938775181770325
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 02",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.13836735486984253,
-                    "g": 0.1444898098707199,
-                    "b": 0.16163265705108643
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Gray 01",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.046052634716033936,
-                    "g": 0.04868421331048012,
-                    "b": 0.053947366774082184
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 11",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9998000264167786,
-                    "g": 0.9602000117301941,
-                    "b": 0.9602000117301941
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 10",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 1,
-                    "g": 0.9199999570846558,
-                    "b": 0.9199999570846558
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 09",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 1,
-                    "g": 0.8274509906768799,
-                    "b": 0.8274509906768799
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 08",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9882352948188782,
-                    "g": 0.6117647290229797,
-                    "b": 0.6117647290229797
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 07",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9810975790023804,
-                    "g": 0.39890241622924805,
-                    "b": 0.39890262484550476
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 06",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9490196108818054,
-                    "g": 0.062745101749897,
-                    "b": 0.08627451211214066
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 05",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.8540277481079102,
-                    "g": 0.01263892650604248,
-                    "b": 0.012639227323234081
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 04",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.7768594622612,
-                    "g": 0.023140549659729004,
-                    "b": 0.023140819743275642
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 03",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.5826446413993835,
-                    "g": 0.017355382442474365,
-                    "b": 0.01735558547079563
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 02",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.3884297311306,
-                    "g": 0.011570274829864502,
-                    "b": 0.011570409871637821
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Red 01",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.1458333283662796,
-                    "g": 0,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 11",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9999999403953552,
-                    "g": 0.9794901013374329,
-                    "b": 0.9416667819023132
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 10",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9999999403953552,
-                    "g": 0.9472602605819702,
-                    "b": 0.8500000834465027
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 09",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9999999403953552,
-                    "g": 0.8828005790710449,
-                    "b": 0.6666666865348816
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 08",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9954861402511597,
-                    "g": 0.8463010787963867,
-                    "b": 0.5711805820465088
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 07",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.984913170337677,
-                    "g": 0.7640533447265625,
-                    "b": 0.35675352811813354
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 06",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 1,
-                    "g": 0.6980392336845398,
-                    "b": 0.1411764770746231
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 05",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.6800000071525574,
-                    "g": 0.3263999819755554,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 04",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.5799999833106995,
-                    "g": 0.2783999741077423,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 03",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.47999998927116394,
-                    "g": 0.2303999662399292,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 02",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.3400000035762787,
-                    "g": 0.16319997608661652,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Amber 01",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.1599999964237213,
-                    "g": 0.07679998874664307,
-                    "b": 0
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 11",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9531999826431274,
-                    "g": 0.9868000745773315,
-                    "b": 0.9682447910308838
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 10",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.921999990940094,
-                    "g": 0.9779999852180481,
-                    "b": 0.9470745921134949
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 09",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.7660000920295715,
-                    "g": 0.9339999556541443,
-                    "b": 0.8412238955497742
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 08",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.531999945640564,
-                    "g": 0.8680000305175781,
-                    "b": 0.6824476718902588
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 07",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.2200000286102295,
-                    "g": 0.7799999713897705,
-                    "b": 0.47074615955352783
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 06",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.07920002937316895,
-                    "g": 0.6407999992370605,
-                    "b": 0.3306625783443451
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 05",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.0031771063804626465,
-                    "g": 0.5051562190055847,
-                    "b": 0.2290675789117813
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 04",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.009428590536117554,
-                    "g": 0.43057140707969666,
-                    "b": 0.19799992442131042
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 03",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.007285714149475098,
-                    "g": 0.3327142894268036,
-                    "b": 0.15299993753433228
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 02",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.004285722970962524,
-                    "g": 0.19571428000926971,
-                    "b": 0.0899999663233757
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Green 01",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.0025714337825775146,
-                    "g": 0.11742856353521347,
-                    "b": 0.05399997532367706
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 11 (98)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9648000597953796,
-                    "g": 0.9759414196014404,
-                    "b": 0.995199978351593
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 10 (96)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.9295998811721802,
-                    "g": 0.9518826603889465,
-                    "b": 0.9904000759124756
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 09 (90)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.8239999413490295,
-                    "g": 0.8797067403793335,
-                    "b": 0.9760000109672546
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 08 (80)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.6480000615119934,
-                    "g": 0.7594135999679565,
-                    "b": 0.9519999623298645
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 07 (70)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.4719999432563782,
-                    "g": 0.63912034034729,
-                    "b": 0.9280000329017639
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 06 (57)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.24320006370544434,
-                    "g": 0.4827392101287842,
-                    "b": 0.8967999219894409
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 05 (50)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.12000000476837158,
-                    "g": 0.3985339403152466,
-                    "b": 0.8799999952316284
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 04 (43)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.10559999942779541,
-                    "g": 0.35070961713790894,
-                    "b": 0.774399995803833
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 03 (30)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.07200002670288086,
-                    "g": 0.23912037909030914,
-                    "b": 0.527999997138977
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 02 (20)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.04800000786781311,
-                    "g": 0.16000011563301086,
-                    "b": 0.35199999809265137
-                }
-            }
-        ]
-    },
-    {
-        "name": "Old/Blue 01 (10)",
-        "description": "",
-        "paints": [
-            {
-                "type": "SOLID",
-                "visible": true,
-                "opacity": 1,
-                "blendMode": "NORMAL",
-                "color": {
-                    "r": 0.024000003933906555,
-                    "g": 0.07970678806304932,
-                    "b": 0.17599999904632568
-                }
             }
         ]
     }
