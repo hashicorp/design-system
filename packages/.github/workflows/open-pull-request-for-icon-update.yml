@@ -22,7 +22,8 @@ jobs:
 
       - name: Sync icons
         env:
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          # this is Brian's personal access token
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }} 
         run: yarn sync
 
       - name: Build icons
