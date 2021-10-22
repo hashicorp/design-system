@@ -295,9 +295,7 @@ if (allFillNodes.length > 0) {
         if (libraryStyleKey) {
             console.log(`Found ${node.name} with style ${node.fillStyleId} / ${nodeStyleName}`);
             const importedFillStyleFigmaObject = await figma.importStyleByKeyAsync(libraryStyleKey);
-            // debuggingLog('importedFillStyleFigmaObject', importedFillStyleFigmaObject);
             if (importedFillStyleFigmaObject) {
-                // debuggingLog(`Replacing "text" style ${currentTextStyleKey} with ${clonedTextStyleKey}`);
                 node.fillStyleId = importedFillStyleFigmaObject.id;
             }
         } else {
@@ -329,9 +327,7 @@ if (allStrokeNodes.length > 0) {
         if (libraryStyleKey) {
             console.log(`Found ${node.name} with style ${node.strokeStyleId} / ${nodeStyleName}`);
             const importedStrokeStyleFigmaObject = await figma.importStyleByKeyAsync(libraryStyleKey);
-            // debuggingLog('importedStrokeStyleFigmaObject', importedStrokeStyleFigmaObject);
             if (importedStrokeStyleFigmaObject) {
-                // debuggingLog(`Replacing "text" style ${currentTextStyleKey} with ${clonedTextStyleKey}`);
                 node.strokeStyleId = importedStrokeStyleFigmaObject.id;
             }
         } else {
