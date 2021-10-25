@@ -4,7 +4,7 @@ var paletteSD = {};
 var paletteMapping = {};
 var colorSD = {};
 
-var rgbToHex2 = (r, g, b) => '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+var rgbToHex = (r, g, b) => '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 
 var getObjectColorHEX = (colorRGB, category) => {
     // Figma stores the "paints" styles in fractional format [0-1]
@@ -14,7 +14,7 @@ var getObjectColorHEX = (colorRGB, category) => {
     const g = Math.round(colorRGB.g * 255);
     const b = Math.round(colorRGB.b * 255);
     return {
-        value: rgbToHex2(r,g,b),
+        value: rgbToHex(r,g,b),
         type: 'color',
         group: category,
     };
