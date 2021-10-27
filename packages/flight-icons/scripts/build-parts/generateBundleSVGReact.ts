@@ -58,6 +58,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
                 prettier: false,
                 ref: true,
                 titleProp: true,
+                svgProps: { 'aria-hidden': '{!title}' },
                 replaceAttrValues: { '#000001': '{color}' },
                 // plugins: [
                 //     '@svgr/plugin-jsx',

@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
-    "lint": "yarn eslint --quiet --ext .js,.ts",
+    "lint": "yarn eslint --quiet --ext .js,.ts,.tsx",
     "sync": "ts-node --transpile-only ./scripts/sync",
     "build": "ts-node --transpile-only ./scripts/build",
     "bump": "./node_modules/.bin/bump",

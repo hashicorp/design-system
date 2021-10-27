@@ -10,6 +10,7 @@ export const IconGitPullRequest24 = forwardRef<SVGSVGElement, IconProps>(
                 height={24}
                 fill="none"
                 viewBox="0 0 24 24"
+                aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
                 {...props}
