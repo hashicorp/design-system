@@ -49,6 +49,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
             // CONFIG
             // for all the options see: https://github.com/gregberge/svgr/blob/main/packages/core/src/index.d.ts
             // for the "outDir" option see: https://github.com/gregberge/svgr/issues/532 (essentially, it's only for CLI)
+            // for the "plugins" option: we don't need to use it, SVGO has already been run on the source "temp" files, and prettier will be run by us before saving the files
             {
                 icon: false,
                 dimensions: true,
@@ -60,87 +61,14 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
                 titleProp: true,
                 svgProps: { 'aria-hidden': '{!title}' },
                 replaceAttrValues: { '#000001': '{color}' },
-                // plugins: [
-                //     '@svgr/plugin-jsx',
-                //     '@svgr/plugin-prettier'
-                // ],
-                // to use a custom template:
-                // see: - https://react-svgr.com/docs/custom-templates/
-                //      - https://github.com/gregberge/svgr/issues/363
-                //      - https://github.com/gregberge/svgr/issues/530
+                // we're using a custom template here so that we just convert the SVG to JSX
                 // @ts-ignore
                 template: ({ template }, opts, { jsx }) => template.ast`${jsx}`,
-                // template: ({ template }, opts, { imports, interfaces, componentName, props, jsx, exports }) => {
-                //     const typescriptTemplate = template.smart({
-                //         plugins: ['jsx', 'typescript'],
-                //     });
-                //     return typescriptTemplate.ast`
-                //         ${imports}
-                //         ${interfaces}
-                //         function ${componentName}(${props}) {
-                //             return ${jsx};
-                //         }
-                //         ${exports}
-                //     `
-                // },
-                // template: ({ template }, opts, { imports, interfaces, componentName, props, jsx, exports }) => {
-                //     const typescriptTemplate = template.smart({
-                //         plugins: ['jsx', 'typescript'],
-                //     });
-                //     console.log(JSON.stringify(props, null, 2));
-                //     // props.ref = 'forwardedRef';
-                //     return typescriptTemplate.ast`
-                //         ${imports}
-                //         ${interfaces}
-                //         function ${componentName}(${props}) {
-                //             return ${jsx};
-                //         }
-                //         ${exports}
-                //     `
-                // },
-                // template: ({ template }, opts, { jsx }) => {
-                //     const typescriptTemplate = template.smart({
-                //         plugins: ['jsx', 'typescript'],
-                //     });
-                //     return typescriptTemplate.ast`
-                //         import { forwardRef } from 'react';
-                //         import type { IconProps } from './types';
-                //         export const ${componentName} = forwardRef<SVGSVGElement, IconProps>(
-                //             ({ color = 'currentColor', ...props }, forwardedRef) => {
-                //                 return (${jsx});
-                //             )
-                //         });
-                //     `
-                // },
-                // template: ({ template }, opts, { jsx }) => {
-                //     const typescriptTemplate = template.smart({
-                //         plugins: ['jsx', 'typescript'],
-                //     });
-                //     return typescriptTemplate.ast`
-                //         import { forwardRef } from 'react';
-                //         import type { IconProps } from './types';
-                //         export const ${componentName} = forwardRef<SVGSVGElement, IconProps>(
-                //             ({ color = 'currentColor', ...props }, forwardedRef) => {
-                //                 return (${jsx});
-                //             )
-                //         });
-                //     `;
-                // },
-                // template: ({ template }, opts, { jsx }) => {
-                //     const typescriptTemplate = template.smart({
-                //         plugins: ['jsx', 'typescript'],
-                //     });
-                //     const svgComponent = '<SvgComponent svgRef={ref} {...props} />';
-                //     return typescriptTemplate.ast`
-                //         import { forwardRef } from 'react'
-                //         import { IconProps } from './types'
-                //         const SvgComponent = ({ svgRef, ...props }: IconProps) => ${jsx};
-
-                //         export const ${componentName} = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
-                //         (props, ref) => ${svgComponent}
-                //         );
-                //     `;
-                // },
+                // for more information about using custom templates in svgr (it's not easy, it uses babel AST):
+                // - https://react-svgr.com/docs/custom-templates/
+                // - https://github.com/gregberge/svgr/issues/363
+                // - https://github.com/gregberge/svgr/issues/530)
+                // - have a look at this commit, where we had done a few tests: 59120837b54b2666d8ef2e68c01a24c04e5a0600
             },
             // STATE
             {
@@ -153,12 +81,6 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
 
         const componentSource = getComponentSource({ componentName, svgReact});
         const fileContent = prettier.format(componentSource, prettierConfig);
-
-        // use these to debug
-        // if (fileName === 'amazon-eks-color-24') {
-        // if (fileName === 'dot-16') {
-        //     await console.log(fileContent);
-        // }
 
         await fs.writeFile(`${config.mainFolder}/svg-react/${fileName}.tsx`, fileContent);
     }
