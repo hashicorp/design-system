@@ -96,12 +96,18 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
     // generate a "types.ts" file
     const typesContent = prettier.format(`
         import { SVGAttributes } from 'react';
-        export interface IconProps extends SVGAttributes<SVGElement> {
-            children?: never,
-            color?: string,
-            title?: string,
-            titleId?: string,
+
+        interface BaseIconProps extends SVGAttributes<SVGElement> {
+            children?: never
+            color?: string
         }
+
+        interface IconPropsWithTitle extends BaseIconProps {
+            title: string
+            titleId: string
+        }
+
+        export type IconProps = BaseIconProps & IconPropsWithTitle
     `, prettierConfig);
 
     await fs.writeFile(`${config.mainFolder}/svg-react/types.ts`, typesContent);

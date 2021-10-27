@@ -1,7 +1,13 @@
 import { SVGAttributes } from 'react';
-export interface IconProps extends SVGAttributes<SVGElement> {
+
+interface BaseIconProps extends SVGAttributes<SVGElement> {
     children?: never;
     color?: string;
-    title?: string;
-    titleId?: string;
 }
+
+interface IconPropsWithTitle extends BaseIconProps {
+    title: string;
+    titleId: string;
+}
+
+export type IconProps = BaseIconProps & IconPropsWithTitle;
