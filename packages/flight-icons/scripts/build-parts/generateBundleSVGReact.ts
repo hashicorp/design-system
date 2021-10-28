@@ -18,7 +18,8 @@ const getComponentSource = ({ componentName, svgReact }: { componentName: string
         import { forwardRef } from 'react';
         import { IconProps } from './types';
 
-        export const ${componentName} = forwardRef<SVGSVGElement, IconProps>(({ color = 'currentColor', title, titleId, ...props }, svgRef) => {
+        export const ${componentName} = forwardRef<SVGSVGElement, IconProps>(({ color = 'currentColor', title, ...props }, svgRef) => {
+            const titleId = title ? 'title-' + Math.random().toString(36).substr(2, 9) : undefined;
             return (
                 ${svgReact}
             );
@@ -96,18 +97,11 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
     // generate a "types.ts" file
     const typesContent = prettier.format(`
         import { SVGAttributes } from 'react';
-
-        interface BaseIconProps extends SVGAttributes<SVGElement> {
-            children?: never
-            color?: string
+        export interface IconProps extends SVGAttributes<SVGElement> {
+            children?: never,
+            color?: string,
+            title?: string,
         }
-
-        interface IconPropsWithTitle extends BaseIconProps {
-            title: string
-            titleId: string
-        }
-
-        export type IconProps = BaseIconProps & IconPropsWithTitle
     `, prettierConfig);
 
     await fs.writeFile(`${config.mainFolder}/svg-react/types.ts`, typesContent);

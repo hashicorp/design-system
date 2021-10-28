@@ -2,7 +2,10 @@ import { forwardRef } from 'react';
 import { IconProps } from './types';
 
 export const IconTwitterColor24 = forwardRef<SVGSVGElement, IconProps>(
-    ({ color = 'currentColor', title, titleId, ...props }, svgRef) => {
+    ({ color = 'currentColor', title, ...props }, svgRef) => {
+        const titleId = title
+            ? 'title-' + Math.random().toString(36).substr(2, 9)
+            : undefined;
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
