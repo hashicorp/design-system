@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 21 Oct 2021 20:55:29 GMT
+ * Generated on Wed, 27 Oct 2021 17:10:37 GMT
  */
 
 :root {
@@ -102,37 +102,22 @@
   --token-elevation-inset-shadow-01-y: 1;
   --token-elevation-inset-shadow-01-blur: 2;
   --token-elevation-inset-shadow-01-spread: 1;
-  --token-elevation-inset-shadow-01-color: #7b89a326;
+  --token-elevation-inset-shadow-01-color: #656a761a;
   --token-elevation-inset-edge-x: 0;
   --token-elevation-inset-edge-y: 0;
   --token-elevation-inset-edge-blur: 0;
   --token-elevation-inset-edge-spread: 1;
   --token-elevation-inset-edge-color: #656a764d;
-  --token-elevation-lower-shadow-01-x: 0;
-  --token-elevation-lower-shadow-01-y: 1;
-  --token-elevation-lower-shadow-01-blur: 1;
-  --token-elevation-lower-shadow-01-spread: 0;
-  --token-elevation-lower-shadow-01-color: #7b89a30d;
-  --token-elevation-lower-shadow-02-x: 0;
-  --token-elevation-lower-shadow-02-y: 2;
-  --token-elevation-lower-shadow-02-blur: 2;
-  --token-elevation-lower-shadow-02-spread: 0;
-  --token-elevation-lower-shadow-02-color: #7b89a30d;
-  --token-elevation-lower-edge-x: 0;
-  --token-elevation-lower-edge-y: 0;
-  --token-elevation-lower-edge-blur: 0;
-  --token-elevation-lower-edge-spread: 1;
-  --token-elevation-lower-edge-color: #656a7626;
   --token-elevation-low-shadow-01-x: 0;
-  --token-elevation-low-shadow-01-y: 2;
-  --token-elevation-low-shadow-01-blur: 3;
+  --token-elevation-low-shadow-01-y: 1;
+  --token-elevation-low-shadow-01-blur: 1;
   --token-elevation-low-shadow-01-spread: 0;
-  --token-elevation-low-shadow-01-color: #656a761a;
+  --token-elevation-low-shadow-01-color: #656a760d;
   --token-elevation-low-shadow-02-x: 0;
-  --token-elevation-low-shadow-02-y: 8;
-  --token-elevation-low-shadow-02-blur: 16;
-  --token-elevation-low-shadow-02-spread: -10;
-  --token-elevation-low-shadow-02-color: #656a7633;
+  --token-elevation-low-shadow-02-y: 2;
+  --token-elevation-low-shadow-02-blur: 2;
+  --token-elevation-low-shadow-02-spread: 0;
+  --token-elevation-low-shadow-02-color: #656a760d;
   --token-elevation-low-edge-x: 0;
   --token-elevation-low-edge-y: 0;
   --token-elevation-low-edge-blur: 0;
@@ -142,9 +127,9 @@
   --token-elevation-mid-shadow-01-y: 2;
   --token-elevation-mid-shadow-01-blur: 3;
   --token-elevation-mid-shadow-01-spread: 0;
-  --token-elevation-mid-shadow-01-color: #656a7626;
+  --token-elevation-mid-shadow-01-color: #656a761a;
   --token-elevation-mid-shadow-02-x: 0;
-  --token-elevation-mid-shadow-02-y: 16;
+  --token-elevation-mid-shadow-02-y: 8;
   --token-elevation-mid-shadow-02-blur: 16;
   --token-elevation-mid-shadow-02-spread: -10;
   --token-elevation-mid-shadow-02-color: #656a7633;
@@ -152,22 +137,22 @@
   --token-elevation-mid-edge-y: 0;
   --token-elevation-mid-edge-blur: 0;
   --token-elevation-mid-edge-spread: 1;
-  --token-elevation-mid-edge-color: #656a7640;
+  --token-elevation-mid-edge-color: #656a7626;
   --token-elevation-high-shadow-01-x: 0;
-  --token-elevation-high-shadow-01-y: 1;
+  --token-elevation-high-shadow-01-y: 2;
   --token-elevation-high-shadow-01-blur: 3;
   --token-elevation-high-shadow-01-spread: 0;
-  --token-elevation-high-shadow-01-color: #656a760d;
+  --token-elevation-high-shadow-01-color: #656a7626;
   --token-elevation-high-shadow-02-x: 0;
-  --token-elevation-high-shadow-02-y: 8;
-  --token-elevation-high-shadow-02-blur: 20;
-  --token-elevation-high-shadow-02-spread: 0;
-  --token-elevation-high-shadow-02-color: #656a761a;
+  --token-elevation-high-shadow-02-y: 16;
+  --token-elevation-high-shadow-02-blur: 16;
+  --token-elevation-high-shadow-02-spread: -10;
+  --token-elevation-high-shadow-02-color: #656a7633;
   --token-elevation-high-edge-x: 0;
   --token-elevation-high-edge-y: 0;
   --token-elevation-high-edge-blur: 0;
   --token-elevation-high-edge-spread: 1;
-  --token-elevation-high-edge-color: #656a760d;
+  --token-elevation-high-edge-color: #656a7640;
   --token-elevation-higher-shadow-01-x: 0;
   --token-elevation-higher-shadow-01-y: 2;
   --token-elevation-higher-shadow-01-blur: 3;
@@ -177,7 +162,7 @@
   --token-elevation-higher-shadow-02-y: 12;
   --token-elevation-higher-shadow-02-blur: 28;
   --token-elevation-higher-shadow-02-spread: 0;
-  --token-elevation-higher-shadow-02-color: #656a7633;
+  --token-elevation-higher-shadow-02-color: #656a7640;
   --token-elevation-higher-edge-x: 0;
   --token-elevation-higher-edge-y: 0;
   --token-elevation-higher-edge-blur: 0;
