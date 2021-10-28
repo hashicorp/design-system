@@ -15,11 +15,11 @@ const getComponentName = (fileName: string) => {
 
 const getComponentSource = ({ componentName, svgReact }: { componentName: string; svgReact: any }) => {
     return `
-        import { forwardRef } from 'react';
+        import { forwardRef, useMemo } from 'react';
         import { IconProps } from './types';
 
         export const ${componentName} = forwardRef<SVGSVGElement, IconProps>(({ color = 'currentColor', title, ...props }, svgRef) => {
-            const titleId = title ? 'title-' + Math.random().toString(36).substr(2, 9) : undefined;
+            const titleId = useMemo(() => title ? 'title-' + Math.random().toString(36).substr(2, 9) : undefined, [title]);
             return (
                 ${svgReact}
             );
