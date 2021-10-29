@@ -1,11 +1,15 @@
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
 export const IconArrowUpCircle16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
-        const titleId = title
-            ? 'title-' + Math.random().toString(36).substr(2, 9)
-            : undefined;
+        const titleId = useMemo(
+            () =>
+                title
+                    ? 'title-' + Math.random().toString(36).substr(2, 9)
+                    : undefined,
+            [title]
+        );
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
