@@ -1,0 +1,28 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+
+export const IconSwitcher16 = forwardRef<SVGSVGElement, IconProps>(
+    ({ color = 'currentColor', title, ...props }, svgRef) => {
+        const titleId = title
+            ? 'title-' + Math.random().toString(36).substr(2, 9)
+            : undefined;
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={16}
+                height={16}
+                fill="none"
+                viewBox="0 0 16 16"
+                aria-hidden={!title}
+                ref={svgRef}
+                aria-labelledby={titleId}
+                {...props}
+            >
+                {title ? <title id={titleId}>{title}</title> : null}
+                <g fill={color}>
+                    <path d="M.75 0A.75.75 0 000 .75v2.5c0 .414.336.75.75.75h2.5A.75.75 0 004 3.25V.75A.75.75 0 003.25 0H.75zM6.75 0A.75.75 0 006 .75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75V.75A.75.75 0 009.25 0h-2.5zM12.75 0a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75V.75a.75.75 0 00-.75-.75h-2.5zM.75 6a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5A.75.75 0 004 9.25v-2.5A.75.75 0 003.25 6H.75zM6.75 6a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75v-2.5A.75.75 0 009.25 6h-2.5zM12.75 6a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75v-2.5a.75.75 0 00-.75-.75h-2.5zM.75 12a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75v-2.5a.75.75 0 00-.75-.75H.75zM6.75 12a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75v-2.5a.75.75 0 00-.75-.75h-2.5zM12.75 12a.75.75 0 00-.75.75v2.5c0 .414.336.75.75.75h2.5a.75.75 0 00.75-.75v-2.5a.75.75 0 00-.75-.75h-2.5z" />
+                </g>
+            </svg>
+        );
+    }
+);
