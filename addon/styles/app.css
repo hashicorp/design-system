@@ -1,0 +1,4 @@
+/* This is in the addon's app folder because we want it to integrate with the app's CSS, not be added on at the end */
+@import "./root.css";
+
+@import "./components/badge.css";
