@@ -1,0 +1,119 @@
+/* Badge Component
+ * 
+ * classes are sorted the same way the API is sorted in the component's JS file
+ * properties within each class are sorted alphabetically
+ *
+ */
+.hds-badge {
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-family: var(--token-typography-tag-font-family);
+  width: fit-content;
+}
+
+/* badge color and variant combinations*/
+.hds-badge.error.filled {
+  background-color: var(--token-color-critical-background-faint);
+  color: var(--token-color-critical-foreground-on-faint);
+}
+.hds-badge.error.inverted {
+  background-color: var(--token-color-critical-background-primary);
+  border-color: var(--token-color-critical-border-primary);
+  color: var(--token-color-critical-foreground-primary);
+}
+.hds-badge.error.outlined {
+  background-color: transparent;
+  border-color: var(--token-color-critical-border-primary);
+  color: var(--token-color-critical-foreground-primary);
+}
+
+.hds-badge.highlight.filled {
+  background-color: var(--token-color-highlight-background-primary);
+  color: var(--token-color-highlight-foreground-primary);
+}
+.hds-badge.highlight.inverted {
+  background-color: var(--token-color-highlight-background-primary);
+  color: var(--token-color-highlight-foreground-primary);
+}
+.hds-badge.highlight.outlined {
+  background-color: transparent;
+  border-color: var(--token-color-highlight-border-primary);
+  color: var(--token-color-highlight-foreground-primary);
+}
+
+.hds-badge.neutral.filled {
+  background-color: var(--token-color-neutral-background-light);
+  color: var(--token-color-neutral-foreground-primary);
+}
+.hds-badge.neutral.inverted {
+  background-color: var(--token-color-neutral-background-primary);
+  color: var(--token-color-neutral-foreground-primary);
+}
+.hds-badge.neutral.outlined {
+  background-color: transparent;
+  border-color: var(--token-color-neutral-border-primary);
+  color: var(--token-color-neutral-foreground-primary);
+}
+
+.hds-badge.neutral-high-contrast.filled {
+  background-color: var(--token-color-neutral-high-contrast-background-primary);
+  color: var(--token-color-neutral-high-contrast-foreground-primary);
+}
+.hds-badge.neutral-high-contrast.inverted {
+  background-color: var(--token-color-neutral-high-contrast-background-primary);
+  color: var(--token-color-neutral-high-contrast-foreground-primary);
+}
+.hds-badge.neutral-high-contrast.outlined {
+  background-color: transparent;
+  border-color: var(--token-color-neutral-high-contrast-border-primary);
+  color: var(--token-color-neutral-high-contrast-foreground-primary);
+}
+
+.hds-badge.success.filled {
+  background-color: var(--token-color-success-background-primary);
+  color: var(--token-color-success-foreground-primary);
+}
+.hds-badge.success.inverted {
+  background-color: var(--token-color-success-background-primary);
+  color: var(--token-color-success-foreground-primary);
+}
+.hds-badge.success.outlined {
+  background-color: transparent;
+  border-color: var(--token-color-success-border-primary);
+  color: var(--token-color-success-foreground-primary);
+}
+
+.hds-badge.warning.filled {
+  background-color: var(--token-color-warning-background-primary);
+  color: var(--token-color-warning-foreground-primary);
+}
+.hds-badge.warning.inverted {
+  background-color: var(--token-color-warning-background-primary);
+  color: var(--token-color-warning-foreground-primary);
+}
+.hds-badge.warning.outlined {
+  background-color: transparent;
+  border-color: var(--token-color-warning-border-primary);
+  color: var(--token-color-warning-foreground-primary);
+}
+
+/* badge size */
+.hds-badge.large {
+  font-size: 1.125rem;
+  line-height: 1;
+  padding: 0.5rem;
+}
+.hds-badge.medium {
+  font-size: var(--token-typography-small-font-size);
+  line-height: 1;
+  padding: 0.25rem;
+}
+.hds-badge.small {
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0.125rem;
+}
+
+/* badge hasIcon */
+.hds-badge.has-icon {}

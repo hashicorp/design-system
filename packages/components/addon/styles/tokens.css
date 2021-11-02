@@ -1,0 +1,242 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 27 Oct 2021 17:10:37 GMT
+ */
+
+ :root {
+  --token-base-border-radius: 10px; /* this is a sample value in global */
+  --token-color-neutral-neutral-700: #0c0c0e;
+  --token-color-neutral-neutral-600: #3b3d45;
+  --token-color-neutral-neutral-500: #656a76;
+  --token-color-neutral-neutral-400: #8c909c;
+  --token-color-neutral-neutral-300: #c2c5cb;
+  --token-color-neutral-neutral-200: #dedfe3;
+  --token-color-neutral-neutral-100: #f1f2f3;
+  --token-color-neutral-neutral-50: #fafafa;
+  --token-color-neutral-neutral-0: #ffffff;
+  --token-color-action-foreground-primary: #1f69ff;
+  --token-color-action-foreground-on-faint: #0c56e9;
+  --token-color-action-background-primary: #1f69ff;
+  --token-color-action-background-hover: #0c56e9;
+  --token-color-action-background-active: #0046d1;
+  --token-color-action-background-faint: #f2f8ff;
+  --token-color-action-border-primary: #1f69ff;
+  --token-color-action-border-on-primary: #0c56e9;
+  --token-color-action-border-on-hover: #0046d1;
+  --token-color-action-border-on-faint: #cce3fe;
+  --token-color-highlight-foreground-primary: #a737ff;
+  --token-color-highlight-foreground-on-faint: #911ced;
+  --token-color-highlight-background-primary: #a737ff;
+  --token-color-highlight-background-hover: #911ced;
+  --token-color-highlight-background-active: #7b00db;
+  --token-color-highlight-background-faint: #f9f2ff;
+  --token-color-highlight-border-primary: #a737ff;
+  --token-color-highlight-border-on-primary: #911ced;
+  --token-color-highlight-border-on-hover: #7b00db;
+  --token-color-highlight-border-on-faint: #ead2fe;
+  --token-color-success-foreground-primary: #008a22;
+  --token-color-success-foreground-on-faint: #00781e;
+  --token-color-success-background-primary: #008a22;
+  --token-color-success-background-hover: #00781e;
+  --token-color-success-background-active: #006619;
+  --token-color-success-background-faint: #f2fbf6;
+  --token-color-success-border-primary: #008a22;
+  --token-color-success-border-on-primary: #00781e;
+  --token-color-success-border-on-hover: #006619;
+  --token-color-success-border-on-faint: #cceeda;
+  --token-color-warning-foreground-primary: #bb5a00;
+  --token-color-warning-foreground-on-faint: #9e4b00;
+  --token-color-warning-background-primary: #bb5a00;
+  --token-color-warning-background-hover: #9e4b00;
+  --token-color-warning-background-active: #803d00;
+  --token-color-warning-background-faint: #fff9e8;
+  --token-color-warning-border-primary: #bb5a00;
+  --token-color-warning-border-on-primary: #9e4b00;
+  --token-color-warning-border-on-hover: #803d00;
+  --token-color-warning-border-on-faint: #fbeabf;
+  --token-color-critical-foreground-primary: #ec0006;
+  --token-color-critical-foreground-on-faint: #c00005;
+  --token-color-critical-background-primary: #ec0006;
+  --token-color-critical-background-hover: #c00005;
+  --token-color-critical-background-active: #940004;
+  --token-color-critical-background-faint: #fff5f5;
+  --token-color-critical-border-primary: #ec0006;
+  --token-color-critical-border-on-primary: #c00005;
+  --token-color-critical-border-on-hover: #940004;
+  --token-color-critical-border-on-faint: #fbd4d4;
+  --token-color-palette-neutral-700: #0c0c0e;
+  --token-color-palette-neutral-600: #3b3d45;
+  --token-color-palette-neutral-500: #656a76;
+  --token-color-palette-neutral-400: #8c909c;
+  --token-color-palette-neutral-300: #c2c5cb;
+  --token-color-palette-neutral-200: #dedfe3;
+  --token-color-palette-neutral-100: #f1f2f3;
+  --token-color-palette-neutral-50: #fafafa;
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-palette-blue-400: #0046d1;
+  --token-color-palette-blue-300: #0c56e9;
+  --token-color-palette-blue-200: #1f69ff;
+  --token-color-palette-blue-100: #cce3fe;
+  --token-color-palette-blue-50: #f2f8ff;
+  --token-color-palette-purple-400: #7b00db;
+  --token-color-palette-purple-300: #911ced;
+  --token-color-palette-purple-200: #a737ff;
+  --token-color-palette-purple-100: #ead2fe;
+  --token-color-palette-purple-50: #f9f2ff;
+  --token-color-palette-green-400: #006619;
+  --token-color-palette-green-300: #00781e;
+  --token-color-palette-green-200: #008a22;
+  --token-color-palette-green-100: #cceeda;
+  --token-color-palette-green-50: #f2fbf6;
+  --token-color-palette-amber-400: #803d00;
+  --token-color-palette-amber-300: #9e4b00;
+  --token-color-palette-amber-200: #bb5a00;
+  --token-color-palette-amber-100: #fbeabf;
+  --token-color-palette-amber-50: #fff9e8;
+  --token-color-palette-red-400: #940004;
+  --token-color-palette-red-300: #c00005;
+  --token-color-palette-red-200: #ec0006;
+  --token-color-palette-red-100: #fbd4d4;
+  --token-color-palette-red-50: #fff5f5;
+  --token-elevation-inset-shadow-01-x: 0;
+  --token-elevation-inset-shadow-01-y: 1;
+  --token-elevation-inset-shadow-01-blur: 2;
+  --token-elevation-inset-shadow-01-spread: 1;
+  --token-elevation-inset-shadow-01-color: #656a761a;
+  --token-elevation-inset-edge-x: 0;
+  --token-elevation-inset-edge-y: 0;
+  --token-elevation-inset-edge-blur: 0;
+  --token-elevation-inset-edge-spread: 1;
+  --token-elevation-inset-edge-color: #656a764d;
+  --token-elevation-low-shadow-01-x: 0;
+  --token-elevation-low-shadow-01-y: 1;
+  --token-elevation-low-shadow-01-blur: 1;
+  --token-elevation-low-shadow-01-spread: 0;
+  --token-elevation-low-shadow-01-color: #656a760d;
+  --token-elevation-low-shadow-02-x: 0;
+  --token-elevation-low-shadow-02-y: 2;
+  --token-elevation-low-shadow-02-blur: 2;
+  --token-elevation-low-shadow-02-spread: 0;
+  --token-elevation-low-shadow-02-color: #656a760d;
+  --token-elevation-low-edge-x: 0;
+  --token-elevation-low-edge-y: 0;
+  --token-elevation-low-edge-blur: 0;
+  --token-elevation-low-edge-spread: 1;
+  --token-elevation-low-edge-color: #656a7626;
+  --token-elevation-mid-shadow-01-x: 0;
+  --token-elevation-mid-shadow-01-y: 2;
+  --token-elevation-mid-shadow-01-blur: 3;
+  --token-elevation-mid-shadow-01-spread: 0;
+  --token-elevation-mid-shadow-01-color: #656a761a;
+  --token-elevation-mid-shadow-02-x: 0;
+  --token-elevation-mid-shadow-02-y: 8;
+  --token-elevation-mid-shadow-02-blur: 16;
+  --token-elevation-mid-shadow-02-spread: -10;
+  --token-elevation-mid-shadow-02-color: #656a7633;
+  --token-elevation-mid-edge-x: 0;
+  --token-elevation-mid-edge-y: 0;
+  --token-elevation-mid-edge-blur: 0;
+  --token-elevation-mid-edge-spread: 1;
+  --token-elevation-mid-edge-color: #656a7626;
+  --token-elevation-high-shadow-01-x: 0;
+  --token-elevation-high-shadow-01-y: 2;
+  --token-elevation-high-shadow-01-blur: 3;
+  --token-elevation-high-shadow-01-spread: 0;
+  --token-elevation-high-shadow-01-color: #656a7626;
+  --token-elevation-high-shadow-02-x: 0;
+  --token-elevation-high-shadow-02-y: 16;
+  --token-elevation-high-shadow-02-blur: 16;
+  --token-elevation-high-shadow-02-spread: -10;
+  --token-elevation-high-shadow-02-color: #656a7633;
+  --token-elevation-high-edge-x: 0;
+  --token-elevation-high-edge-y: 0;
+  --token-elevation-high-edge-blur: 0;
+  --token-elevation-high-edge-spread: 1;
+  --token-elevation-high-edge-color: #656a7640;
+  --token-elevation-higher-shadow-01-x: 0;
+  --token-elevation-higher-shadow-01-y: 2;
+  --token-elevation-higher-shadow-01-blur: 3;
+  --token-elevation-higher-shadow-01-spread: 0;
+  --token-elevation-higher-shadow-01-color: #656a761a;
+  --token-elevation-higher-shadow-02-x: 0;
+  --token-elevation-higher-shadow-02-y: 12;
+  --token-elevation-higher-shadow-02-blur: 28;
+  --token-elevation-higher-shadow-02-spread: 0;
+  --token-elevation-higher-shadow-02-color: #656a7640;
+  --token-elevation-higher-edge-x: 0;
+  --token-elevation-higher-edge-y: 0;
+  --token-elevation-higher-edge-blur: 0;
+  --token-elevation-higher-edge-spread: 1;
+  --token-elevation-higher-edge-color: #656a7633;
+  --token-elevation-overlay-shadow-01-x: 0;
+  --token-elevation-overlay-shadow-01-y: 2;
+  --token-elevation-overlay-shadow-01-blur: 3;
+  --token-elevation-overlay-shadow-01-spread: 0;
+  --token-elevation-overlay-shadow-01-color: #3b3d4580;
+  --token-elevation-overlay-shadow-02-x: 0;
+  --token-elevation-overlay-shadow-02-y: 12;
+  --token-elevation-overlay-shadow-02-blur: 24;
+  --token-elevation-overlay-shadow-02-spread: 0;
+  --token-elevation-overlay-shadow-02-color: #3b3d4599;
+  --token-elevation-overlay-edge-x: 0;
+  --token-elevation-overlay-edge-y: 0;
+  --token-elevation-overlay-edge-blur: 0;
+  --token-elevation-overlay-edge-spread: 1;
+  --token-elevation-overlay-edge-color: #3b3d4566;
+  --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
+  --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
+  --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
+  --token-spacing-04: 1rem; /* 16px, 1rem */
+  --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
+  --token-spacing-06: 2.25rem; /* 36px, 2.25rem */
+  --token-spacing-07: 3rem; /* 48px, 3rem */
+  --token-typography-heading-0-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-heading-0-font-size: 1.875rem; /* 30px/1.875rem */
+  --token-typography-heading-0-line-height: 1.2; /* 36px */
+  --token-typography-heading-0-font-weight: 700; /* bold */
+  --token-typography-heading-1-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-heading-1-font-size: 1.5rem; /* 24px/1.5rem */
+  --token-typography-heading-1-line-height: 1.1666; /* 28px */
+  --token-typography-heading-1-font-weight: 700; /* bold */
+  --token-typography-heading-2-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-heading-2-font-size: 1.125rem; /* 18px/1.125rem */
+  --token-typography-heading-2-line-height: 1.3333; /* 24px */
+  --token-typography-heading-2-font-weight: 700; /* bold */
+  --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` */
+  --token-typography-heading-3-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-heading-3-line-height: 1.25; /* 20px */
+  --token-typography-heading-3-font-weight: 600; /* semibold */
+  --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` */
+  --token-typography-heading-4-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-heading-4-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-heading-4-line-height: 1.23; /* 16px */
+  --token-typography-heading-4-font-weight: 500; /* medium */
+  --token-typography-large-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-large-font-size: 1rem; /* 16px/1rem */
+  --token-typography-large-line-height: 1.5; /* 24px/1.5 */
+  --token-typography-large-font-weight: 400; /* regular */
+  --token-typography-base-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-base-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-base-line-height: 1.285; /* 18px */
+  --token-typography-base-font-weight: 400; /* regular */
+  --token-typography-small-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-small-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-small-line-height: 1.23; /* 16px */
+  --token-typography-small-font-weight: 400; /* regular */
+  --token-typography-label-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-label-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-label-line-height: 1.285; /* 18px */
+  --token-typography-label-font-weight: 600; /* semibold */
+  --token-typography-control-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-control-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-control-line-height: 1.285; /* 18px */
+  --token-typography-control-font-weight: 500; /* medium */
+  --token-typography-tag-font-family: -apple-system, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-tag-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-tag-line-height: 1.23; /* 16px */
+  --token-typography-tag-font-weight: 500; /* medium */
+  --token-typography-code-font-family: SF Mono, Consolas, Ubuntu Mono, monospace;
+  --token-typography-code-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-code-line-height: 1.23; /* 16px */
+  --token-typography-code-font-weight: 400; /* regular */
+}
