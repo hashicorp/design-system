@@ -1,5 +1,5 @@
 /* Badge Component
- * 
+ *
  * classes are sorted the same way the API is sorted in the component's JS file
  * properties within each class are sorted alphabetically
  *
@@ -13,16 +13,16 @@
 }
 
 /* badge color and variant combinations*/
-.hds-badge.error.filled {
+.hds-badge.hds-badge--color-critical.hds-badge--type-filled {
   background-color: var(--token-color-critical-background-faint);
   color: var(--token-color-critical-foreground-on-faint);
 }
-.hds-badge.error.inverted {
+.hds-badge.hds-badge--color-critical.hds-badge--type-inverted {
   background-color: var(--token-color-critical-background-primary);
   border-color: var(--token-color-critical-border-primary);
   color: var(--token-color-critical-foreground-primary);
 }
-.hds-badge.error.outlined {
+.hds-badge.hds-badge--color-critical.hds-badge--type-outlined {
   background-color: transparent;
   border-color: var(--token-color-critical-border-primary);
   color: var(--token-color-critical-foreground-primary);
@@ -99,17 +99,17 @@
 }
 
 /* badge size */
-.hds-badge.large {
+.hds-badge.hds-badge--size-large {
   font-size: 1.125rem;
   line-height: 1;
   padding: 0.5rem;
 }
-.hds-badge.medium {
+.hds-badge.hds-badge--size-medium {
   font-size: var(--token-typography-small-font-size);
   line-height: 1;
   padding: 0.25rem;
 }
-.hds-badge.small {
+.hds-badge.hds-badge--size-small {
   font-size: 0.8rem;
   line-height: 1;
   padding: 0.125rem;
