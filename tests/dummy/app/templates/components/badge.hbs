@@ -1,2 +1,20 @@
 {{page-title "Badge"}}
-{{outlet}}
+
+<h3>Badge</h3>
+<ul class="ds-ul">
+{{#each this.TYPES as |type|}}
+    <li>
+    <Hds::Badge
+        @text="success badge"
+        @color="success"
+        @variant="outlined"
+    />
+    </li>
+    <li>
+    <Hds::Badge
+        @text="error badge"
+        @color="error"
+    />
+    </li>
+{{/each}}
+</ul>
