@@ -1,9 +1,0 @@
-/* Dummy app styles
-make sure to namespace so they don't collide */
-
-.ds-ul {
-  list-style: none;
-}
-.ds-ul li {
-  padding: 0.75rem;
-}

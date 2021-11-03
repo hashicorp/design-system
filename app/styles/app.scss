@@ -1,1 +1,11 @@
-// not sure why this file is needed. without this `ember s` crashes with error: Build Error (SassCompiler) - File not found: /app/styles/app.scss
+// Dummy app styles - make sure to namespace so they don't collide
+
+.dummy-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 0.25rem 0;
+    }
+}
