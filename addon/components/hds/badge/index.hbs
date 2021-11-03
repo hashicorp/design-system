@@ -1,5 +1,11 @@
 <div
   class="hds-badge {{this.typeClass}} {{this.colorClass}} {{this.sizeClass}}" ...attributes
 >
-  {{@text}}
+  {{#if @icon}}
+    <FlightIcon @name={{this.iconName}} />
+    {{@icon}}
+  {{/if}}
+  {{#if @text}}
+    {{@text}}
+  {{/if}}
 </div>
