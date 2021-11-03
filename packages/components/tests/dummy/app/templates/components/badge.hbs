@@ -6,14 +6,28 @@
     <ul class="dummy-ul">
         {{#each @model.SIZES as |size|}}
             {{#each @model.TYPES as |type|}}
+                {{!-- TODO! TEMPORARY --}}
                 <li>
+                    <code>{{concat type " / " color " / " size }}</code>
+                    <Hds::Badge
+                        @icon='activity'
+                        @text='Lorem ipsum'
+                        @size={{size}}
+                        @type={{type}}
+                        @color={{color}}
+                    />
                     <Hds::Badge
                         @text='Lorem ipsum'
                         @size={{size}}
                         @type={{type}}
                         @color={{color}}
                     />
-                    <code>{{concat type " / " color " / " size }}</code>
+                    <Hds::Badge
+                        @icon='activity'
+                        @size={{size}}
+                        @type={{type}}
+                        @color={{color}}
+                    />
                 </li>
             {{/each}}
         {{/each}}

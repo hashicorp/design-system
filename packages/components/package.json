@@ -5,7 +5,7 @@
   "keywords": [
     "hashicorp",
     "design system",
-    "components", 
+    "components",
     "ember-addon"
   ],
   "repository": "https://github.com/hashicorp/design-system-components",
@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@hashicorp/design-system-tokens": "^0.0.3",
+    "@hashicorp/ember-flight-icons": "^1.1.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-sass": "^10.0.1"
