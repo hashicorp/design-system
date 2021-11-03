@@ -4,7 +4,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Sets the color scheme for the badge
-   * Accepted colors: neutral, highlight, success, warning, error
+   * Accepted colors: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
    * @param color
    * @type {string}
@@ -27,7 +27,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Checks to see if there is an icon
-   * 
+   *
    * @param hasIcon
    * @type {boolean}
    * @default false
@@ -54,16 +54,45 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Sets the variant of badge
+   * Sets the type of badge
    * Accepted values: filled, inverted, outlined
    *
-   * @param variant
+   * @param type
    * @type {string}
    * @default 'filled'
    */
-   get variant() {
-    return this.args.variant ?? 'filled'
+   get type() {
+    return this.args.type ?? 'filled'
   }
 
+  /**
+   * Get a class to apply to the badge based on the color argument.
+   * @method Badge#colorClass
+   * @return {string} The css class to apply to the Badge.
+   */
+   get colorClass() {
+    // TODO! use Cloud UI's approach with `config.js` constants
+    return `hds-badge--color-${this.color}`;
+  }
+
+  /**
+   * Get a class to apply to the badge based on the type argument.
+   * @method Badge#typeClass
+   * @return {string} The css class to apply to the Badge.
+   */
+  get typeClass() {
+    // TODO! use Cloud UI's approach with `config.js` constants
+    return `hds-badge--type-${this.type}`;
+  }
+
+  /**
+   * Get a class to apply to the badge based on the size argument.
+   * @method Badge#sizeClass
+   * @return {string} The css class to apply to the Badge.
+   */
+  get sizeClass() {
+    // TODO! use Cloud UI's approach with `config.js` constants
+    return `hds-badge--size-${this.size}`;
+  }
 
 }
