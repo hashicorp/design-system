@@ -8,11 +8,12 @@
             {{#each @model.TYPES as |type|}}
                 <li>
                     <Hds::Badge
-                        @text={{concat type " / " color " / " size }}
+                        @text='Lorem ipsum'
                         @size={{size}}
                         @type={{type}}
                         @color={{color}}
                     />
+                    <code>{{concat type " / " color " / " size }}</code>
                 </li>
             {{/each}}
         {{/each}}
