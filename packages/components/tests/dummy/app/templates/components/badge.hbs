@@ -1,20 +1,20 @@
 {{page-title "Badge"}}
 
 <h1>Badge</h1>
-<ul class="ds-ul">
-    {{#each @model.COLORS as |color|}}
-    <h2>{{color}}</h2>
-    {{#each @model.SIZES as |size|}}
-    {{#each @model.TYPES as |type|}}
-        <li>
-            <Hds::Badge
-                @text="TODO"
-                @color={{color}}
-                @variant={{type}}
-                @size={{size}}
-            />
-        </li>
-    {{/each}}
-    {{/each}}
-    {{/each}}
-</ul>
+{{#each @model.COLORS as |color|}}
+<h2>{{color}}</h2>
+    <ul class="dummy-ul">
+        {{#each @model.SIZES as |size|}}
+            {{#each @model.TYPES as |type|}}
+                <li>
+                    <Hds::Badge
+                        @text={{concat type " / " color " / " size }}
+                        @size={{size}}
+                        @type={{type}}
+                        @color={{color}}
+                    />
+                </li>
+            {{/each}}
+        {{/each}}
+    </ul>
+{{/each}}

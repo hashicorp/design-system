@@ -4,116 +4,126 @@
  * properties within each class are sorted alphabetically
  *
  */
+
+ $hds-badge-types: ( 'flat','inverted','outlined' );
+ $hds-badge-colors-accents: ( 'highlight', 'success', 'warning', 'critical' );
+ $hds-badge-sizes: ( 'small', 'medium', 'large' );
+
+ $hds-badge-border-width: 1px;
+
+
 .hds-badge {
+  align-items: center;
   border-radius: 4px;
-  border: 1px solid transparent;
+  border: $hds-badge-border-width solid transparent;
   box-sizing: border-box;
+  display: flex;
   font-family: var(--token-typography-tag-font-family);
   width: fit-content;
 }
 
-/* badge color and variant combinations*/
-.hds-badge.hds-badge--color-critical.hds-badge--type-filled {
-  background-color: var(--token-color-critical-background-faint);
-  color: var(--token-color-critical-foreground-on-faint);
-}
-.hds-badge.hds-badge--color-critical.hds-badge--type-inverted {
-  background-color: var(--token-color-critical-background-primary);
-  border-color: var(--token-color-critical-border-primary);
-  color: var(--token-color-critical-foreground-primary);
-}
-.hds-badge.hds-badge--color-critical.hds-badge--type-outlined {
-  background-color: transparent;
-  border-color: var(--token-color-critical-border-primary);
-  color: var(--token-color-critical-foreground-primary);
+
+// SIZE
+
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "font-size": 0.8125rem,
+    "line-height": 1,
+    "height": 1.25rem,
+    "horizontal-padding": 0.375rem,
+  ),
+  "medium": (
+    "font-size": 0.8125rem,
+    "line-height": 1,
+    "height": 1.5rem,
+    "horizontal-padding": 0.5rem,
+  ),
+  "large": (
+    "font-size": 1rem,
+    "line-height": 1,
+    "height": 2rem,
+    "horizontal-padding": 0.5rem,
+  )
+);
+
+@each $size in $hds-badge-sizes {
+  .hds-badge--size-#{$size} {
+    font-size: map-get($size-props, $size, "font-size");
+    line-height: map-get($size-props, $size, "line-height");
+    // TODO: this may become min-height later if we decide to go with multi-line support
+    height: map-get($size-props, $size, "height");
+    // TODO: add comment explaining why 0.2rem of vertical padding
+    padding: 0.2rem map-get($size-props, $size, "horizontal-padding");
+
+    &.hds-badge--type-outlined {
+      $padding-outlined: calc(map-get($size-props, $size, "horizontal-padding") - $hds-badge-border-width);
+      padding-right: $padding-outlined;
+      padding-left: $padding-outlined;
+    }
+  }
 }
 
-.hds-badge.highlight.filled {
-  background-color: var(--token-color-highlight-background-primary);
-  color: var(--token-color-highlight-foreground-primary);
-}
-.hds-badge.highlight.inverted {
-  background-color: var(--token-color-highlight-background-primary);
-  color: var(--token-color-highlight-foreground-primary);
-}
-.hds-badge.highlight.outlined {
-  background-color: transparent;
-  border-color: var(--token-color-highlight-border-primary);
-  color: var(--token-color-highlight-foreground-primary);
+
+// COLOR + TYPE COMBINATIONS
+
+.hds-badge--color-neutral {
+  &.hds-badge--type-filled {
+    background-color: var(--token-color-neutral-neutral-100);
+    color: var(--token-color-neutral-neutral-600);
+  }
+
+  &.hds-badge--type-inverted {
+    background-color: var(--token-color-neutral-neutral-500);
+    color: var(--token-color-neutral-neutral-0);
+  }
+
+  &.hds-badge--type-outlined {
+    background-color: transparent;
+    border-color: inherit;
+    color: var(--token-color-neutral-neutral-500);;
+  }
 }
 
-.hds-badge.neutral.filled {
-  background-color: var(--token-color-neutral-background-light);
-  color: var(--token-color-neutral-foreground-primary);
-}
-.hds-badge.neutral.inverted {
-  background-color: var(--token-color-neutral-background-primary);
-  color: var(--token-color-neutral-foreground-primary);
-}
-.hds-badge.neutral.outlined {
-  background-color: transparent;
-  border-color: var(--token-color-neutral-border-primary);
-  color: var(--token-color-neutral-foreground-primary);
+.hds-badge--color-neutral-dark-mode {
+  &.hds-badge--type-filled {
+    background-color: var(--token-color-neutral-neutral-500);
+    color: var(--token-color-neutral-neutral-0);
+  }
+
+  &.hds-badge--type-inverted {
+    background-color: var(--token-color-neutral-neutral-600);
+    color: var(--token-color-neutral-neutral-50);
+  }
+
+  &.hds-badge--type-outlined {
+    background-color: transparent;
+    border-color: inherit;
+    color: var(--token-color-neutral-neutral-0);;
+  }
 }
 
-.hds-badge.neutral-high-contrast.filled {
-  background-color: var(--token-color-neutral-high-contrast-background-primary);
-  color: var(--token-color-neutral-high-contrast-foreground-primary);
-}
-.hds-badge.neutral-high-contrast.inverted {
-  background-color: var(--token-color-neutral-high-contrast-background-primary);
-  color: var(--token-color-neutral-high-contrast-foreground-primary);
-}
-.hds-badge.neutral-high-contrast.outlined {
-  background-color: transparent;
-  border-color: var(--token-color-neutral-high-contrast-border-primary);
-  color: var(--token-color-neutral-high-contrast-foreground-primary);
+@each $color in $hds-badge-colors-accents {
+  .hds-badge--color-#{$color} {
+    &.hds-badge--type-filled {
+      background-color: var(--token-color-#{$color}-background-faint);
+      color: var(--token-color-#{$color}-foreground-on-faint);
+    }
+
+    &.hds-badge--type-inverted {
+      background-color: var(--token-color-#{$color}-background-primary);
+      color: var(--token-color-neutral-neutral-0);
+    }
+
+    &.hds-badge--type-outlined {
+      background-color: transparent;
+      border-color: inherit;
+      color: var(--token-color-#{$color}-background-primary);
+    }
+  }
 }
 
-.hds-badge.success.filled {
-  background-color: var(--token-color-success-background-primary);
-  color: var(--token-color-success-foreground-primary);
-}
-.hds-badge.success.inverted {
-  background-color: var(--token-color-success-background-primary);
-  color: var(--token-color-success-foreground-primary);
-}
-.hds-badge.success.outlined {
-  background-color: transparent;
-  border-color: var(--token-color-success-border-primary);
-  color: var(--token-color-success-foreground-primary);
-}
 
-.hds-badge.warning.filled {
-  background-color: var(--token-color-warning-background-primary);
-  color: var(--token-color-warning-foreground-primary);
-}
-.hds-badge.warning.inverted {
-  background-color: var(--token-color-warning-background-primary);
-  color: var(--token-color-warning-foreground-primary);
-}
-.hds-badge.warning.outlined {
-  background-color: transparent;
-  border-color: var(--token-color-warning-border-primary);
-  color: var(--token-color-warning-foreground-primary);
-}
-
-/* badge size */
-.hds-badge.hds-badge--size-large {
-  font-size: 1.125rem;
-  line-height: 1;
-  padding: 0.5rem;
-}
-.hds-badge.hds-badge--size-medium {
-  font-size: var(--token-typography-small-font-size);
-  line-height: 1;
-  padding: 0.25rem;
-}
-.hds-badge.hds-badge--size-small {
-  font-size: 0.8rem;
-  line-height: 1;
-  padding: 0.125rem;
-}
 
 /* badge hasIcon */
 .hds-badge.has-icon {}
