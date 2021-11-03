@@ -72,7 +72,6 @@ export default class HdsBadgeIndexComponent extends Component {
    * @return {string} The css class to apply to the Badge.
    */
   get typeClass() {
-    // TODO! use Cloud UI's approach with `config.js` constants
     return `hds-badge--type-${this.type}`;
   }
 
@@ -105,7 +104,6 @@ export default class HdsBadgeIndexComponent extends Component {
    * @return {string} The css class to apply to the Badge.
    */
   get colorClass() {
-    // TODO! use Cloud UI's approach with `config.js` constants
     return `hds-badge--color-${this.color}`;
   }
 
