@@ -1,4 +1,13 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+import {
+  DEFAULT_SIZE,
+  DEFAULT_COLOR,
+  DEFAULT_TYPE,
+  SIZES,
+  TYPES,
+  COLORS,
+} from './consts';
 
 export default class HdsBadgeIndexComponent extends Component {
 
@@ -10,8 +19,19 @@ export default class HdsBadgeIndexComponent extends Component {
    * @type {string}
    * @default 'medium'
    */
-   get size() {
-    return this.args.size ?? 'medium'
+  get size() {
+    let { size = DEFAULT_SIZE } = this.args;
+
+    if (size) {
+      assert(
+        `@size for ${this.toString()} must be one of the following: ${SIZES.join(
+          ', '
+        )}, received: ${size}`,
+        SIZES.includes(size)
+      );
+    }
+
+    return size;
   }
 
   /**
@@ -19,8 +39,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @method Badge#sizeClass
    * @return {string} The css class to apply to the Badge.
    */
-   get sizeClass() {
-    // TODO! use Cloud UI's approach with `config.js` constants
+  get sizeClass() {
     return `hds-badge--size-${this.size}`;
   }
 
@@ -32,8 +51,19 @@ export default class HdsBadgeIndexComponent extends Component {
    * @type {string}
    * @default 'filled'
    */
-   get type() {
-    return this.args.type ?? 'filled'
+  get type() {
+    let { type = DEFAULT_TYPE } = this.args;
+
+    if (type) {
+      assert(
+        `@type for ${this.toString()} must be one of the following: ${TYPES.join(
+          ', '
+        )}, received: ${type}`,
+        TYPES.includes(type)
+      );
+    }
+
+    return type;
   }
 
   /**
@@ -41,7 +71,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @method Badge#typeClass
    * @return {string} The css class to apply to the Badge.
    */
-   get typeClass() {
+  get typeClass() {
     // TODO! use Cloud UI's approach with `config.js` constants
     return `hds-badge--type-${this.type}`;
   }
@@ -54,8 +84,19 @@ export default class HdsBadgeIndexComponent extends Component {
    * @type {string}
    * @default 'neutral'
    */
-   get color() {
-    return this.args.color ?? 'neutral'
+  get color() {
+    let { color = DEFAULT_COLOR } = this.args;
+
+    if (color) {
+      assert(
+        `@color for ${this.toString()} must be one of the following: ${COLORS.join(
+          ', '
+        )}, received: ${color}`,
+        COLORS.includes(color)
+      );
+    }
+
+    return color;
   }
 
   /**
@@ -63,7 +104,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @method Badge#colorClass
    * @return {string} The css class to apply to the Badge.
    */
-   get colorClass() {
+  get colorClass() {
     // TODO! use Cloud UI's approach with `config.js` constants
     return `hds-badge--color-${this.color}`;
   }
@@ -75,7 +116,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @type {string|null}
    * @default null
    */
-   get icon() {
+  get icon() {
     return this.args.icon ?? null
   }
 
