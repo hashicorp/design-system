@@ -1,16 +1,21 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import {
-  DEFAULT_SIZE,
-  DEFAULT_COLOR,
-  DEFAULT_TYPE,
-  SIZES,
-  TYPES,
-  COLORS,
-} from './consts';
+
+const DEFAULT_SIZE = 'medium';
+const DEFAULT_COLOR = 'neutral';
+const DEFAULT_TYPE = 'filled';
+const SIZES = ['small', 'medium', 'large'];
+const TYPES = ['filled', 'inverted', 'outlined'];
+const COLORS = [
+  'neutral',
+  'neutral-dark-mode',
+  'highlight',
+  'success',
+  'warning',
+  'critical',
+];
 
 export default class HdsBadgeIndexComponent extends Component {
-
   /**
    * Sets the size for the badge
    * Accepted sizes: small, medium, large
@@ -115,7 +120,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @default null
    */
   get icon() {
-    return this.args.icon ?? null
+    return this.args.icon ?? null;
   }
 
   /**
@@ -136,8 +141,8 @@ export default class HdsBadgeIndexComponent extends Component {
    */
   // TODO! ask Melanie why we need this, if the @icon check already works
   // get hasIcon() {
-    //   return !!this.args.icon;
-    // }
+  //   return !!this.args.icon;
+  // }
 
   /**
    * Checks to see if there is a text
