@@ -1,35 +1,37 @@
 {{page-title "Badge"}}
 
-<h1>Badge</h1>
+<h2>Badge</h2>
 {{#each @model.COLORS as |color|}}
-<h2>{{color}}</h2>
-    <ul class="dummy-ul">
+    <h3 class="dummy-h3">Color: {{color}}</h3>
+    <div class="dummy-grid">
         {{#each @model.SIZES as |size|}}
             {{#each @model.TYPES as |type|}}
                 {{!-- TODO! TEMPORARY --}}
-                <li>
+                <div class="dummy-grid-card">
+                    
                     <code>{{concat type " / " color " / " size }}</code>
                     <Hds::Badge
-                        @icon='activity'
-                        @text='Lorem ipsum'
+                        @icon="activity"
+                        @text="Lorem ipsum"
                         @size={{size}}
                         @type={{type}}
                         @color={{color}}
                     />
                     <Hds::Badge
-                        @text='Lorem ipsum'
+                        @text="Lorem ipsum"
                         @size={{size}}
                         @type={{type}}
                         @color={{color}}
                     />
                     <Hds::Badge
-                        @icon='activity'
+                        @icon="activity"
+                        @srOnlyText="Lorem Ipsum"
                         @size={{size}}
                         @type={{type}}
                         @color={{color}}
                     />
-                </li>
+                </div>
             {{/each}}
         {{/each}}
-    </ul>
+    </div>
 {{/each}}
