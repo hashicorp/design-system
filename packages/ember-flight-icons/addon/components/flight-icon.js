@@ -49,7 +49,8 @@ export default class FlightIconComponent extends Component {
    * @return {string} The css class to apply to the SVG.
    */
   get displayClass() {
-    if (this.args.isInlineBlock && !this.args.stretched) {
+    const isInlineBlock = this.args.isInlineBlock ?? true;
+    if (isInlineBlock && !this.args.stretched) {
       return 'flight-icon-display-inline';
     } else {
       return null;
