@@ -138,6 +138,21 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                         },
                     }
                 ]
+            },
+            "docs/json": {
+                "transformGroup": targets[target].transformGroup,
+                "buildPath": `dist/${target}/json/`,
+                "prefix": "token",
+                "basePxFontSize": 16,
+                "files": [
+                    {
+                        "destination": "tokens.json",
+                        "format": "json",
+                        "filter": function(token: DesignToken) {
+                            return !token.private;
+                        },
+                    }
+                ]
             }
         }
     };
@@ -157,6 +172,7 @@ Object.keys(targets).forEach(target => {
 
     console.log(`\nProcessing target "${target}"...`);
     StyleDictionary.buildPlatform('web/css-variables');
+    StyleDictionary.buildPlatform('docs/json');
     console.log('\nEnd processing');
 })
 
