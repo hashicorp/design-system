@@ -5,7 +5,7 @@
   "keywords": [
     "hashicorp",
     "design system",
-    "components", 
+    "components",
     "ember-addon"
   ],
   "repository": "https://github.com/hashicorp/design-system-components",
@@ -66,7 +66,7 @@
     "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-auto-import": "^1.11.3",
+    "ember-auto-import": "^2.2.3",
     "ember-cli": "~3.27.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-inject-live-reload": "^2.0.2",
@@ -93,7 +93,8 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
-    "qunit-dom": "^1.6.0"
+    "qunit-dom": "^1.6.0",
+    "webpack": "^5.61.0"
   },
   "engines": {
     "node": "10.* || >= 12"
