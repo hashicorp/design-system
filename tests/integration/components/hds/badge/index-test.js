@@ -90,4 +90,19 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     );
     assert.dom('div#test-badge').hasClass('hds-badge--type-outlined');
   });
+  test('if an icon is declared the flight icon should render in the component', async function (assert) {
+    await render(
+      hbs`<Hds::Badge @text="text renders" id="test-badge" @icon="activity" />`
+    );
+    assert.dom(this.element.querySelector('.flight-icon')).exists();
+  });
+  test('if an icon exists and text does not exist, srOnlyText should exist', async function (assert) {
+    await render(
+      hbs`<Hds::Badge @srOnlyText="meaningful text for icon only badge" id="test-badge" @icon="activity" />`
+    );
+    assert.equal(
+      this.element.querySelector('.sr-only').textContent.trim(),
+      'meaningful text for icon only badge'
+    );
+  });
 });

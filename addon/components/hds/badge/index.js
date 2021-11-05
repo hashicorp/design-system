@@ -124,15 +124,6 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Get the icon name
-   * @method Badge#iconName
-   * @return {string} The correct name of the icon asset
-   */
-  get iconName() {
-    return `${this.icon}-16`;
-  }
-
-  /**
    * Checks to see if there is an icon
    *
    * @param hasIcon
