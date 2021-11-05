@@ -160,7 +160,7 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
             },
             "docs/json": {
                 "transformGroup": targets[target].transformGroup,
-                "buildPath": `dist/${target}/json/`,
+                "buildPath": `dist/docs/${target}/`,
                 "prefix": "token",
                 "basePxFontSize": 16,
                 "files": [
