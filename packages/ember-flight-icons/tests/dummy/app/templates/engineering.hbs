@@ -79,6 +79,8 @@
       <li class="ds-li"><code class="ds-code">height</code>
         and
         <code class="ds-code">width</code>: default size of 16x16 (px)</li>
+      <li class="ds-li"><code class="ds-code">stretched</code>: if the SVG should have 100% width/height (stretch to
+        fill the parent) - defaults to "false"</li>
       <li class="ds-li">(CSS)
         <code class="ds-code">class</code>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
       <li class="ds-li">CSS display: set to
@@ -135,6 +137,7 @@
     <ol>
       <li>fill (the color)</li>
       <li>size (at this time, only 16 (default) and 24 are supported)</li>
+      <li>stretched (true/false)</li>
       <li>display (inline-block or block)</li>
       <li>additional CSS classes</li>
     </ol>
@@ -179,6 +182,21 @@
     <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />" />
     {{! prettier-ignore-start }}
   </p>
+
+  <p id="example-stretch">
+    <strong><a href="#example-stretch" class="ds-a" rel="external">&sect;</a>
+      Stretched:</strong>
+    To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the
+    <code class="ds-code">@stretched</code>
+    attribute:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; @stretched=&quot;true&quot; />"
+    />
+    {{! prettier-ignore-start }}
+  </p>
+
   <p id="example-styles">
     <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>
       CSS Classes:</strong>

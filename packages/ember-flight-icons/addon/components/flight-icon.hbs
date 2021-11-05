@@ -1,5 +1,5 @@
 <svg
-  class="flight-icon flight-icon-{{@name}} {{if this.display "flight-icon-display-inline"}}"
+  class="flight-icon flight-icon-{{@name}} {{this.displayClass}}"
   ...attributes
   aria-hidden="{{if @title "false" "true"}}"
   aria-labelledby={{this.ariaLabelledby}}
@@ -7,8 +7,8 @@
   fill="{{this.color}}"
   id={{this.iconId}}
   role={{this.role}}
-  width="{{this.size}}"
-  height="{{this.size}}"
+  width="{{this.svgSize.width}}"
+  height="{{this.svgSize.height}}"
   viewBox="0 0 {{this.size}} {{this.size}}"
   xmlns="http://www.w3.org/2000/svg"
 >

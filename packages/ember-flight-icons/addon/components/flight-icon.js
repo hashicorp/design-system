@@ -44,14 +44,17 @@ export default class FlightIconComponent extends Component {
   }
 
   /**
-   * Determines the icon's `display` property
-   *
-   * @param display
-   * @returns the value of `isInlineBlock` if set
-   * @default true
+   * Get a class to apply to the icon based on the display argument.
+   * @method FlightIcon#displayClass
+   * @return {string} The css class to apply to the SVG.
    */
-  get display() {
-    return this.args.isInlineBlock ?? true;
+  get displayClass() {
+    const isInlineBlock = this.args.isInlineBlock ?? true;
+    if (isInlineBlock && !this.args.stretched) {
+      return 'flight-icon-display-inline';
+    } else {
+      return null;
+    }
   }
 
   /**
@@ -63,6 +66,18 @@ export default class FlightIconComponent extends Component {
    */
   get size() {
     return this.args.size ?? '16';
+  }
+
+  /**
+   * Get the SVG width/height depending if the icon is stretched or not
+   * @method FlightIcon#svgSize
+   * @return {object} The width/height to apply to the SVG.
+   */
+  get svgSize() {
+    return {
+      width: this.args.stretched ? '100%' : this.size,
+      height: this.args.stretched ? '100%' : this.height,
+    };
   }
 
   /**
