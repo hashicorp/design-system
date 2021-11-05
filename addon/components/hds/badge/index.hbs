@@ -1,12 +1,8 @@
-<div
-  class="hds-badge {{this.typeClass}} {{this.colorClass}} {{this.sizeClass}}" ...attributes
->
+<div class="hds-badge {{this.colorClass}} {{this.typeClass}} {{this.sizeClass}}" ...attributes >
   {{#if @icon}}
     <div class="hds-badge__icon">
       {{!-- placeholder while we wait for https://github.com/hashicorp/flight/pull/328 --}}
-      {{!-- <div title="placeholder" style="width: 100%; height: 100%; display: block; background: #F0F;"></div> --}}
-      <div class="placeholder-icon" aria-hidden="true"></div>
-      {{!-- <FlightIcon @name={{this.iconName}} @size="16" stretched="true" /> --}}
+      <FlightIcon @name={{this.icon}} @size="16" />
     </div>
   {{/if}}
   {{#if @text}}
