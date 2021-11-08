@@ -1,16 +1,35 @@
 {{page-title "Badge"}}
 
-<h2>Badge</h2>
-<p>Default Badge: <Hds::Badge @text="only declare text" /></p>
+<h2 class="dummy-h2">Badge</h2>
+
+<h3 class="dummy-h3">Content</h3>
+<div class="dummy-badge-base-sample">
+    <Hds::Badge @text="only text" />
+    <Hds::Badge @icon="activity" @text="text + icon" />
+    <Hds::Badge @icon="activity" @srOnlyText="only icon" />
+</div>
+
+<h3 class="dummy-h3">Size</h3>
+<div class="dummy-badge-base-sample">
+    <Hds::Badge @icon="activity" @text="small" @size="small" />
+    <Hds::Badge @icon="activity" @text="medium" @size="medium" />
+    <Hds::Badge @icon="activity" @text="large" @size="large" />
+</div>
+
+<h3 class="dummy-h3">Type</h3>
+<div class="dummy-badge-base-sample">
+    <Hds::Badge @icon="activity" @text="filled" @type="filled" />
+    <Hds::Badge @icon="activity" @text="inverted" @type="inverted" />
+    <Hds::Badge @icon="activity" @text="outlined" @type="outlined" />
+</div>
+
+<h3 class="dummy-h3">Color:</h3>
 {{#each @model.COLORS as |color|}}
-    <h3 class="dummy-h3">Color: {{color}}</h3>
-    <div class="dummy-grid">
+    <p class="dummy-h6">{{color}}</p>
+    <div class="dummy-badge-color-grid">
         {{#each @model.SIZES as |size|}}
             {{#each @model.TYPES as |type|}}
-                {{!-- TODO! TEMPORARY --}}
-                <div class="dummy-grid-card">
-                    
-                    <code>{{concat type " / " color " / " size }}</code>
+                <div class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}} dummy-badge-base-sample--color-{{color}}">
                     <Hds::Badge
                         @icon="activity"
                         @text="Lorem ipsum"
