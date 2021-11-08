@@ -122,28 +122,4 @@ export default class HdsBadgeIndexComponent extends Component {
   get icon() {
     return this.args.icon ?? null;
   }
-
-  /**
-   * Checks to see if there is an icon
-   *
-   * @param hasIcon
-   * @type {boolean}
-   * @default false
-   */
-  // TODO! ask Melanie why we need this, if the @icon check already works
-  // get hasIcon() {
-  //   return !!this.args.icon;
-  // }
-
-  /**
-   * Checks to see if there is a text
-   *
-   * @param hasText
-   * @type {boolean}
-   * @default false
-   */
-  // TODO! ask Melanie why we need this, if the @text check already works
-  // get hasText() {
-  //   return !!this.args.text;
-  // }
 }
