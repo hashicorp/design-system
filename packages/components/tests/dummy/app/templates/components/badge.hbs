@@ -8,16 +8,13 @@
     <Hds::Badge @text="only text" />
     <Hds::Badge @icon="activity" @text="text + icon" />
     <Hds::Badge @icon="activity" @srOnlyText="only icon" />
+    <div class="dummy-badge-max-width-container">
+        <Hds::Badge @icon="activity" @text="This is a very long text that should go on two lines" />
+    </div>
 </div>
 <div class="dummy-badge-base-sample">
-    <div class="dummy-badge-max-width-container">
-        <Hds::Badge @text="This is a very long text that should be trimmed" />
-    </div>
-    <div class="dummy-badge-max-width-container">
-        <Hds::Badge @icon="activity" @text="This is a very long text that should be trimmed" />
-    </div>
+    <p>This is a paragraph: <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
 </div>
-<p>This is a paragraph: <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
 
 <h3 class="dummy-h3">Size</h3>
 <div class="dummy-badge-base-sample">
