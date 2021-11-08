@@ -99,7 +99,7 @@ $size-props: (
 
   &.hds-badge--type-outlined {
     background-color: transparent;
-    border-color: inherit;
+    border-color: currentColor;
     color: var(--token-color-neutral-neutral-500);;
   }
 }
@@ -117,7 +117,7 @@ $size-props: (
 
   &.hds-badge--type-outlined {
     background-color: transparent;
-    border-color: inherit;
+    border-color: currentColor;
     color: var(--token-color-neutral-neutral-0);;
   }
 }
@@ -136,20 +136,8 @@ $size-props: (
 
     &.hds-badge--type-outlined {
       background-color: transparent;
-      border-color: inherit;
+      border-color: currentColor;
       color: var(--token-color-#{$color}-background-primary);
     }
   }
-}
-
-
-// temporary
-.placeholder-icon {
-  --b:1px; 
-  --c:#0000 90deg,rgb(255, 0, 247) 0;
-  aspect-ratio:1/1;
-  background:
-    conic-gradient(from 90deg at var(--b) var(--b),var(--c)) 
-    calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
-    calc(50%  + var(--b))   calc(50%  + var(--b));
 }
