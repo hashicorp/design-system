@@ -16,5 +16,11 @@ A clear and concise description of what the problem is. Ex. I can't use X icon b
 **Describe alternatives you've considered.**
 A clear and concise description of any alternatives you've considered.
 
+**Screenshots**
+Add screenshots of the icon in context, if possible.
+
+**Figma**
+Add links to the relevant Figma files where this icon is used, if possible.
+
 **Additional context**
-Add any other context, screenshots, or WIP for the icon here.
+Add any other relevant context.
