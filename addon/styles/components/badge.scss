@@ -29,10 +29,6 @@
 .hds-badge__text {
   flex: 1 0 0;
   font-family: var(--token-typography-tag-font-family);
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 
@@ -42,6 +38,7 @@
 $size-props: (
   "small": (
     "height": 1.25rem,
+    "vertical-padding": 0.125rem,
     "horizontal-padding": 0.375rem,
     "gap": 0.25rem,
     "icon-size": 0.75rem,
@@ -50,6 +47,7 @@ $size-props: (
   ),
   "medium": (
     "height": 1.5rem,
+    "vertical-padding": 0.25rem,
     "horizontal-padding": 0.5rem,
     "gap": 0.25rem,
     "icon-size": 1rem,
@@ -58,6 +56,7 @@ $size-props: (
   ),
   "large": (
     "height": 2rem,
+    "vertical-padding": 0.25rem,
     "horizontal-padding": 0.5rem,
     "gap": 0.375rem,
     "icon-size": 1rem,
@@ -68,10 +67,8 @@ $size-props: (
 
 @each $size in $hds-badge-sizes {
   .hds-badge--size-#{$size} {
-    // this may become min-height later if we decide to go with multi-line support
-    height: map-get($size-props, $size, "height");
-    // remember to apply a small vertical padding (eg. 0.2rem) in case we need to support multi-line text
-    padding: 0 map-get($size-props, $size, "horizontal-padding");
+    min-height: map-get($size-props, $size, "height");
+    padding: calc(map-get($size-props, $size, "vertical-padding") - $hds-badge-border-width) calc(map-get($size-props, $size, "horizontal-padding") - $hds-badge-border-width);
 
     .hds-badge__icon {
       width: map-get($size-props, $size, "icon-size");
@@ -85,12 +82,6 @@ $size-props: (
 
     .hds-badge__icon + .hds-badge__text {
       margin-inline-start: map-get($size-props, $size, "gap");
-    }
-
-    &.hds-badge--type-outlined {
-      $padding-outlined: calc(map-get($size-props, $size, "horizontal-padding") - $hds-badge-border-width);
-      padding-right: $padding-outlined;
-      padding-left: $padding-outlined;
     }
   }
 }
