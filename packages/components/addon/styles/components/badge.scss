@@ -59,11 +59,10 @@ $size-props: (
 
 @each $size in $hds-badge-sizes {
   .hds-badge--size-#{$size} {
-    gap: map-get($size-props, $size, "gap");
-    // TODO: this may become min-height later if we decide to go with multi-line support
+    // this may become min-height later if we decide to go with multi-line support
     height: map-get($size-props, $size, "height");
-    // TODO: add comment explaining why 0.2rem of vertical padding
-    padding: 0.2rem map-get($size-props, $size, "horizontal-padding");
+    // remember to apply a small vertical padding (eg. 0.2rem) in case we need to support multi-line text
+    padding: 0 map-get($size-props, $size, "horizontal-padding");
 
     .hds-badge__icon {
       width: map-get($size-props, $size, "icon-size");
@@ -73,6 +72,10 @@ $size-props: (
     .hds-badge__text {
       font-size: map-get($size-props, $size, "font-size");
       line-height: map-get($size-props, $size, "line-height");
+    }
+
+    .hds-badge__icon + .hds-badge__text {
+      margin-inline-start: map-get($size-props, $size, "gap");
     }
 
     &.hds-badge--type-outlined {

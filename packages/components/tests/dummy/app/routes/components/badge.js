@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 
 export default class ComponentsBadgeRoute extends Route {
   model() {
-    // TODO! likely these come from the component `_config.js` file
+    // TODO! these should come from the component file
     const SIZES = ['small', 'medium', 'large'];
     const TYPES = ['filled', 'inverted', 'outlined'];
     const COLORS = [
