@@ -3,6 +3,7 @@ import tinycolor from 'tinycolor2';
 
 import fs from 'fs-extra';
 import path from 'path';
+import { cloneDeep } from 'lodash';
 
 import { ConfigTargets } from './@types/Config';
 
@@ -100,6 +101,24 @@ StyleDictionaryPackage.registerTransformGroup({
     transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
 });
 
+StyleDictionaryPackage.registerFormat({
+    name: 'docs/json',
+    formatter: function (dictionary: any) {
+        // console.log(dictionary.allProperties);
+        // Notice: this object shape is used also in the documentation so any updates
+        // to this format should be reflected in the corresponding type definition.
+        const output: {}[] = [];
+        dictionary.allProperties.forEach((token: any) => {
+            // we remove the "filePath" prop from the token because the orginal file path is irrelevant for us
+            // (plus its value is an absolute path, so it causes useless diffs in git)
+            const outputToken = cloneDeep(token);
+            delete outputToken.filePath;
+            delete outputToken.isSource;
+            output.push(outputToken);
+        });
+        return JSON.stringify(output, null, 2);
+    },
+});
 
 // DYNAMIC CONFIG
 
@@ -141,13 +160,13 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
             },
             "docs/json": {
                 "transformGroup": targets[target].transformGroup,
-                "buildPath": `dist/${target}/json/`,
+                "buildPath": `dist/docs/${target}/`,
                 "prefix": "token",
                 "basePxFontSize": 16,
                 "files": [
                     {
                         "destination": "tokens.json",
-                        "format": "json",
+                        "format": "docs/json",
                         "filter": function(token: DesignToken) {
                             return !token.private;
                         },
