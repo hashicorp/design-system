@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HashiCorp Design System Components",
   "keywords": [
     "hashicorp",
@@ -9,6 +9,9 @@
     "ember-addon"
   ],
   "repository": "https://github.com/hashicorp/design-system-components",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "contributors": [
