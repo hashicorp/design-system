@@ -68,7 +68,7 @@ $size-props: (
 @each $size in $hds-badge-sizes {
   .hds-badge--size-#{$size} {
     min-height: map-get($size-props, $size, "height");
-    padding: calc(map-get($size-props, $size, "padding-vertical") - $hds-badge-border-width) calc(map-get($size-props, $size, "padding-horizontal") - $hds-badge-border-width);
+    padding: calc(#{map-get($size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map-get($size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
 
     .hds-badge__icon {
       height: map-get($size-props, $size, "icon-size");
