@@ -1,0 +1,6 @@
+@use "./typography";
+@use "./components/badge";
+
+body.dummy-app {
+    padding: 2rem;
+}

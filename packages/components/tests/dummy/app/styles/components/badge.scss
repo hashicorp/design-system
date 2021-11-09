@@ -1,0 +1,29 @@
+// BADGE
+
+.dummy-badge-color-grid {
+    display: inline-grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dummy-badge-base-sample {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    min-width: fit-content;
+    padding: 0.125rem;
+
+}
+
+.dummy-badge-base-sample--type-outlined.dummy-badge-base-sample--color-neutral-dark-mode {
+    background: #aaa;
+}
+
+.dummy-badge-max-width-container {
+    width: 200px;
+}
