@@ -9,9 +9,6 @@
     "ember-addon"
   ],
   "repository": "https://github.com/hashicorp/design-system-components",
-  "publishConfig": {
-    "registry": "http://localhost:4873"
-  },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "contributors": [
