@@ -18,7 +18,13 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install design-system-components
+yarn add @hashicorp/design-system-components
+```
+
+Then add this line to the top of your app's style file (`app.scss` or similar):
+
+```
+@import '@hashicorp/design-system-components';
 ```
 
 Contributing
