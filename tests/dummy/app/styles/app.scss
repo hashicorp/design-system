@@ -1,5 +1,7 @@
-@use "./typography";
-@use "./components/badge";
+@import '@hashicorp/design-system-components';
+
+@import "./_typography";
+@import "./components/db-badge";
 
 body.dummy-app {
     padding: 2rem;
