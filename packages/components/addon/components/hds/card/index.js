@@ -36,4 +36,13 @@ export default class HdsCardIndexComponent extends Component {
   get elevationClass() {
     return `hds-card--elevation-${this.elevation}`;
   }
+
+  /**
+   * Get a class to apply to the card based on the elevation argument.
+   * @method Card#elevationClass
+   * @return {string} The css class to apply to the Card.
+   */
+  get outlinedClass() {
+    return this.args.outlined ? `hds-card--outlined` : undefined;
+  }
 }
