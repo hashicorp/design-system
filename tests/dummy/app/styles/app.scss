@@ -1,8 +1,9 @@
 @import '@hashicorp/design-system-components';
 
 @import "./_typography";
-@import "./components/db-badge";
-@import "./components/db-card";
+@import "./pages/db-badge";
+@import "./pages/db-card";
+@import "./components/dummy-placeholder.scss";
 
 body.dummy-app {
     padding: 2rem;

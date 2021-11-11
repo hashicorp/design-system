@@ -1,0 +1,22 @@
+.dummy-placeholder {
+    align-items: center;
+    // diagonal lines
+    // background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5 0H6L0 6V5L5 0Z' fill='%2300000033'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 5V6H5L6 5Z' fill='%2300000033'/%3E%3C/svg%3E");
+    // texture
+    background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3H2V4H1V3ZM3 1H4V2H3V1Z' fill='%2300000033'/%3E%3C/svg%3E");
+    display: flex;
+    justify-content: center;
+}
+
+
+.dummy-placeholder__text {
+    // background-color: rgba(255, 255, 255, 0.8);
+    color: #999;
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0px 0px 5px #fff;
+    padding: 4px;
+}
