@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 11 Nov 2021 11:22:06 GMT
+ * Generated on Thu, 11 Nov 2021 14:43:46 GMT
  */
 
 :root {
@@ -103,10 +103,7 @@
   --token-elevation-inset-shadow-01-blur: 2px;
   --token-elevation-inset-shadow-01-spread: 1px;
   --token-elevation-inset-shadow-01-color: #656a761a;
-  --token-elevation-inset-edge-x: 0px;
-  --token-elevation-inset-edge-y: 0px;
-  --token-elevation-inset-edge-blur: 0px;
-  --token-elevation-inset-edge-spread: 1px;
+  --token-elevation-inset-edge-width: 1px;
   --token-elevation-inset-edge-color: #656a764d;
   --token-elevation-low-shadow-01-x: 0px;
   --token-elevation-low-shadow-01-y: 1px;
@@ -118,10 +115,7 @@
   --token-elevation-low-shadow-02-blur: 2px;
   --token-elevation-low-shadow-02-spread: 0px;
   --token-elevation-low-shadow-02-color: #656a760d;
-  --token-elevation-low-edge-x: 0px;
-  --token-elevation-low-edge-y: 0px;
-  --token-elevation-low-edge-blur: 0px;
-  --token-elevation-low-edge-spread: 1px;
+  --token-elevation-low-edge-width: 1px;
   --token-elevation-low-edge-color: #656a7626;
   --token-elevation-mid-shadow-01-x: 0px;
   --token-elevation-mid-shadow-01-y: 2px;
@@ -133,10 +127,7 @@
   --token-elevation-mid-shadow-02-blur: 16px;
   --token-elevation-mid-shadow-02-spread: -10px;
   --token-elevation-mid-shadow-02-color: #656a7633;
-  --token-elevation-mid-edge-x: 0px;
-  --token-elevation-mid-edge-y: 0px;
-  --token-elevation-mid-edge-blur: 0px;
-  --token-elevation-mid-edge-spread: 1px;
+  --token-elevation-mid-edge-width: 1px;
   --token-elevation-mid-edge-color: #656a7626;
   --token-elevation-high-shadow-01-x: 0px;
   --token-elevation-high-shadow-01-y: 2px;
@@ -148,10 +139,7 @@
   --token-elevation-high-shadow-02-blur: 16px;
   --token-elevation-high-shadow-02-spread: -10px;
   --token-elevation-high-shadow-02-color: #656a7633;
-  --token-elevation-high-edge-x: 0px;
-  --token-elevation-high-edge-y: 0px;
-  --token-elevation-high-edge-blur: 0px;
-  --token-elevation-high-edge-spread: 1px;
+  --token-elevation-high-edge-width: 1px;
   --token-elevation-high-edge-color: #656a7640;
   --token-elevation-higher-shadow-01-x: 0px;
   --token-elevation-higher-shadow-01-y: 2px;
@@ -163,10 +151,7 @@
   --token-elevation-higher-shadow-02-blur: 28px;
   --token-elevation-higher-shadow-02-spread: 0px;
   --token-elevation-higher-shadow-02-color: #656a7640;
-  --token-elevation-higher-edge-x: 0px;
-  --token-elevation-higher-edge-y: 0px;
-  --token-elevation-higher-edge-blur: 0px;
-  --token-elevation-higher-edge-spread: 1px;
+  --token-elevation-higher-edge-width: 1px;
   --token-elevation-higher-edge-color: #656a7633;
   --token-elevation-overlay-shadow-01-x: 0px;
   --token-elevation-overlay-shadow-01-y: 2px;
@@ -178,10 +163,7 @@
   --token-elevation-overlay-shadow-02-blur: 24px;
   --token-elevation-overlay-shadow-02-spread: 0px;
   --token-elevation-overlay-shadow-02-color: #3b3d4599;
-  --token-elevation-overlay-edge-x: 0px;
-  --token-elevation-overlay-edge-y: 0px;
-  --token-elevation-overlay-edge-blur: 0px;
-  --token-elevation-overlay-edge-spread: 1px;
+  --token-elevation-overlay-edge-width: 1px;
   --token-elevation-overlay-edge-color: #3b3d4566;
   --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
   --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
