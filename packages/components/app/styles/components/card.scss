@@ -50,3 +50,13 @@ $hds-card-border-radius: 6px;
     }
   }
 }
+
+// OVERFLOW
+
+.hds-card--overflow-hidden {
+  overflow: hidden;
+}
+
+.hds-card--overflow-visible {
+  overflow: visible;
+}
