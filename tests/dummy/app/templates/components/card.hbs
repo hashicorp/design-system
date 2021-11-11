@@ -26,3 +26,17 @@
         </Hds::Card>
     {{/each}}
 </div>
+
+<h3 class="dummy-h3">Outlined:</h3>
+<div class="dummy-card-base-sample dummy-card-base-sample--with-background">
+    {{#each @model.ELEVATIONS as |elevation|}}
+        <Hds::Card @elevation={{elevation}} @outlined={{true}}>
+            <DummyPlaceholder
+                @text={{elevation}}
+                @width="200"
+                @height="200"
+                @background="transparent"
+            />
+        </Hds::Card>
+    {{/each}}
+</div>

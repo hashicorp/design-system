@@ -39,9 +39,9 @@ $hds-card-edge-width: 1px;
   .hds-card--elevation-#{$elevation} {
     @include getElevation($elevation);
 
-    // // EGDE (border)
-    // &.hds-card--outlined {
-    //   outline: $hds-card-edge-width solid var(--token-elevation-#{$elevation}-edge-color);
-    // }
+    // EGDE (border)
+    &.hds-card--outlined {
+      outline: $hds-card-edge-width solid var(--token-elevation-#{$elevation}-edge-color);
+    }
   }
 }
