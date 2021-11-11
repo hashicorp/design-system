@@ -1,0 +1,47 @@
+/* Card Component
+ *
+ * classes are sorted the same way as the Figma properties
+ * properties within each class are sorted alphabetically
+ *
+ */
+
+ @mixin getElevation($elevation) {
+  @if ($elevation != 'base') {
+    box-shadow:
+        var(--token-elevation-#{$elevation}-shadow-01-x)
+        var(--token-elevation-#{$elevation}-shadow-01-y)
+        var(--token-elevation-#{$elevation}-shadow-01-blur)
+        var(--token-elevation-#{$elevation}-shadow-01-spread)
+        var(--token-elevation-#{$elevation}-shadow-01-color),
+        var(--token-elevation-#{$elevation}-shadow-02-x)
+        var(--token-elevation-#{$elevation}-shadow-02-y)
+        var(--token-elevation-#{$elevation}-shadow-02-blur)
+        var(--token-elevation-#{$elevation}-shadow-02-spread)
+        var(--token-elevation-#{$elevation}-shadow-02-color)
+    ;
+  }
+}
+
+$hds-card-elevations: ( 'base', 'low', 'mid', 'high', 'higher' );
+
+$hds-card-border-radius: 6px;
+$hds-card-edge-width: 1px;
+
+.hds-card {
+  position: relative;
+  background-color: #fff;
+  border-radius: $hds-card-border-radius;
+}
+
+// ELEVATION (shadow)
+
+@each $elevation in $hds-card-elevations {
+  .hds-card--elevation-#{$elevation} {
+    @include getElevation($elevation);
+
+    // // EGDE (border)
+    // &.hds-card--outlined {
+    //   outline: $hds-card-edge-width solid var(--token-elevation-#{$elevation}-edge-color);
+    // }
+  }
+}

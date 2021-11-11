@@ -1,0 +1,19 @@
+{{page-title "Card"}}
+
+<h2 class="dummy-h2">Card</h2>
+
+<h3 class="dummy-h3">Container</h3>
+<div class="dummy-card-base-sample">
+    <Hds::Card>
+        <div class="dummy-placeholder">Hello World</div>
+    </Hds::Card>
+</div>
+
+<h3 class="dummy-h3">Elevation:</h3>
+<div class="dummy-card-base-sample">
+    {{#each @model.ELEVATIONS as |elevation|}}
+        <Hds::Card @elevation={{elevation}}>
+            <div class="dummy-placeholder">Hello World</div>
+        </Hds::Card>
+    {{/each}}
+</div>
