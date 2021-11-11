@@ -34,6 +34,19 @@ StyleDictionaryPackage.registerTransform({
 });
 
 StyleDictionaryPackage.registerTransform({
+    name: 'elevation/px',
+    type: 'value',
+    matcher: function(token) {
+        return token?.attributes?.category === 'elevation' && token.type === 'size';
+    },
+    transformer: function (token) {
+        const val = parseFloat(token.value);
+        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
+        return `${token.value}px`;
+    }
+});
+
+StyleDictionaryPackage.registerTransform({
     name: 'spacing/pxToRem',
     type: 'value',
     matcher: function(token) {
@@ -93,7 +106,7 @@ StyleDictionaryPackage.registerTransform({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'elevation/px', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
