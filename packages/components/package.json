@@ -55,7 +55,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "@hashicorp/design-system-tokens": "^0.0.3",
+    "@hashicorp/design-system-tokens": "^0.0.6",
     "@hashicorp/ember-flight-icons": "^1.2.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
