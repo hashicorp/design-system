@@ -22,10 +22,15 @@
   }
 }
 
+@mixin getEdge($elevation) {
+  @if ($elevation != 'base') {
+    outline: var(--token-elevation-#{$elevation}-edge-width) solid var(--token-elevation-#{$elevation}-edge-color);
+  }
+}
+
 $hds-card-elevations: ( 'base', 'low', 'mid', 'high', 'higher' );
 
 $hds-card-border-radius: 6px;
-$hds-card-edge-width: 1px;
 
 .hds-card {
   position: relative;
@@ -41,7 +46,7 @@ $hds-card-edge-width: 1px;
 
     // EGDE (border)
     &.hds-card--outlined {
-      outline: $hds-card-edge-width solid var(--token-elevation-#{$elevation}-edge-color);
+      @include getEdge($elevation);
     }
   }
 }
