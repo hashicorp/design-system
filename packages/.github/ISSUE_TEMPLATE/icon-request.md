@@ -2,8 +2,8 @@
 name: Icon Request
 about: Suggest an icon for Flight
 title: 'Flight Icon Request: [icon-name]'
-labels: enhancement, triage
-assignees: ''
+labels: enhancement, Icon Request, triage
+assignees: dizzyup, heatherlarsen
 
 ---
 
