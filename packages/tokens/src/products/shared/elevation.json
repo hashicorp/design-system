@@ -37,19 +37,7 @@
                 }
             },
             "edge": {
-                "x": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "y": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "blur": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "spread": {
+                "width": {
                     "value": "1",
                     "type": "size"
                 },
@@ -108,19 +96,7 @@
                 }
             },
             "edge": {
-                "x": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "y": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "blur": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "spread": {
+                "width": {
                     "value": "1",
                     "type": "size"
                 },
@@ -179,19 +155,7 @@
                 }
             },
             "edge": {
-                "x": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "y": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "blur": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "spread": {
+                "width": {
                     "value": "1",
                     "type": "size"
                 },
@@ -250,19 +214,7 @@
                 }
             },
             "edge": {
-                "x": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "y": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "blur": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "spread": {
+                "width": {
                     "value": "1",
                     "type": "size"
                 },
@@ -321,19 +273,7 @@
                 }
             },
             "edge": {
-                "x": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "y": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "blur": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "spread": {
+                "width": {
                     "value": "1",
                     "type": "size"
                 },
@@ -392,19 +332,7 @@
                 }
             },
             "edge": {
-                "x": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "y": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "blur": {
-                    "value": "0",
-                    "type": "size"
-                },
-                "spread": {
+                "width": {
                     "value": "1",
                     "type": "size"
                 },
