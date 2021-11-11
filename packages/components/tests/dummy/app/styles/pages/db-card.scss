@@ -1,0 +1,16 @@
+// CARD
+
+.dummy-card-base-sample {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    min-width: fit-content;
+}
+
+.dummy-card-base-sample--with-background {
+    background-color: #FAFAFA;
+    padding: 2rem;
+}
