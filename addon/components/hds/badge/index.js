@@ -18,7 +18,7 @@ const COLORS = [
 export default class HdsBadgeIndexComponent extends Component {
   /**
    * Sets the size for the badge
-   * Accepted sizes: small, medium, large
+   * Accepted values: small, medium, large
    *
    * @param size
    * @type {string}
@@ -82,7 +82,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Sets the color scheme for the badge
-   * Accepted colors: neutral, neutral-dark-mode, highlight, success, warning, critical
+   * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
    * @param color
    * @type {string}

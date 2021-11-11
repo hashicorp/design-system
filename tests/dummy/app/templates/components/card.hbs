@@ -40,3 +40,23 @@
         </Hds::Card>
     {{/each}}
 </div>
+
+<h3 class="dummy-h3">Overflow:</h3>
+<div class="dummy-card-base-sample">
+    <Hds::Card @elevation="mid" @outlined={{true}}>
+        <DummyPlaceholder
+            @text="hidden (default)"
+            @width="200"
+            @height="200"
+            @background="#e1f5fe"
+        />
+    </Hds::Card>
+    <Hds::Card @elevation="mid" @outlined={{true}} @overflow="visible">
+        <DummyPlaceholder
+            @text="visible"
+            @width="200"
+            @height="200"
+            @background="#e1f5fe"
+        />
+    </Hds::Card>
+</div>
