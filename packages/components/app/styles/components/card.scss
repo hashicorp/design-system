@@ -29,6 +29,7 @@
 }
 
 $hds-card-elevations: ( 'base', 'low', 'mid', 'high', 'higher' );
+$hds-card-backgrounds: ( 'neutral-0', 'neutral-50' );
 
 $hds-card-border-radius: 6px;
 
@@ -48,6 +49,14 @@ $hds-card-border-radius: 6px;
     &.hds-card--outlined {
       @include getEdge($elevation);
     }
+  }
+}
+
+// BACKGROUND
+
+@each $background-color in $hds-card-backgrounds {
+  .hds-card--background-#{$background-color} {
+    background-color: var(--token-color-neutral-#{$background-color});
   }
 }
 

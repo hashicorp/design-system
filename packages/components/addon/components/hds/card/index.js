@@ -2,13 +2,15 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 const DEFAULT_ELEVATION = 'base';
+const DEFAULT_BACKGROUND = 'neutral-0';
 const DEFAULT_OVERFLOW = 'hidden';
 const ELEVATIONS = ['base', 'low', 'mid', 'high', 'higher'];
+const BACKGROUNDS = ['neutral-0', 'neutral-50'];
 const OVERFLOWS = ['hidden', 'visible'];
 
 export default class HdsCardIndexComponent extends Component {
   /**
-   * Sets the elevation for the card
+   * Sets the elevation for the component
    * Accepted values: base, low, mid, high, higher
    *
    * @param elevation
@@ -31,18 +33,50 @@ export default class HdsCardIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the card based on the elevation argument.
+   * Get a class to apply to the component based on the elevation argument.
    * @method Card#elevationClass
-   * @return {string} The css class to apply to the Card.
+   * @return {string} The css class to apply to the component.
    */
   get elevationClass() {
     return `hds-card--elevation-${this.elevation}`;
   }
 
   /**
-   * Get a class to apply to the card based on the elevation argument.
+   * Sets the background for the component
+   * Accepted values: neutral-0, neutral-50
+   *
+   * @param background
+   * @type {string}
+   * @default 'base'
+   */
+  get background() {
+    let { background = DEFAULT_BACKGROUND } = this.args;
+
+    if (background) {
+      assert(
+        `@background for ${this.toString()} must be one of the following: ${BACKGROUNDS.join(
+          ', '
+        )}, received: ${background}`,
+        BACKGROUNDS.includes(background)
+      );
+    }
+
+    return background;
+  }
+
+  /**
+   * Get a class to apply to the component based on the background argument.
+   * @method Card#backgroundClass
+   * @return {string} The css class to apply to the component.
+   */
+  get backgroundClass() {
+    return `hds-card--background-${this.background}`;
+  }
+
+  /**
+   * Get a class to apply to the component based on the elevation argument.
    * @method Card#elevationClass
-   * @return {string} The css class to apply to the Card.
+   * @return {string} The css class to apply to the component.
    */
   get outlinedClass() {
     return this.args.outlined ? `hds-card--outlined` : undefined;
@@ -72,9 +106,9 @@ export default class HdsCardIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the card based on the overflow argument.
+   * Get a class to apply to the component based on the overflow argument.
    * @method Card#overflowClass
-   * @return {string} The css class to apply to the Card.
+   * @return {string} The css class to apply to the component.
    */
   get overflowClass() {
     return `hds-card--overflow-${this.overflow}`;
