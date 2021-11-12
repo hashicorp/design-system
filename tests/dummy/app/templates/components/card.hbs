@@ -41,6 +41,20 @@
     {{/each}}
 </div>
 
+<h3 class="dummy-h3">Background:</h3>
+<div class="dummy-card-base-sample dummy-card-base-sample--with-background">
+    {{#each @model.BACKGROUNDS as |background|}}
+        <Hds::Card @elevation="low" @outlined={{true}} @background={{background}}>
+            <DummyPlaceholder
+                @text={{background}}
+                @width="200"
+                @height="200"
+                @background="transparent"
+            />
+        </Hds::Card>
+    {{/each}}
+</div>
+
 <h3 class="dummy-h3">Overflow:</h3>
 <div class="dummy-card-base-sample">
     <Hds::Card @elevation="mid" @outlined={{true}}>
