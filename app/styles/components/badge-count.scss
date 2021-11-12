@@ -1,0 +1,99 @@
+/* BadgeCount Component
+ *
+ * classes are sorted the same way as the Figma properties
+ * properties within each class are sorted alphabetically
+ *
+ */
+
+@use 'sass:math';
+
+$hds-badge-count-types: ( 'flat','inverted','outlined' );
+$hds-badge-count-sizes: ( 'small', 'medium', 'large' );
+
+$hds-badge-count-border-width: 1px;
+
+
+.hds-badge-count {
+  align-items: center;
+  border: $hds-badge-count-border-width solid transparent;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-family: var(--token-typography-tag-font-family);
+  max-width: 100%;
+}
+
+// SIZE
+
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "font-size": 0.8125rem, // 13px
+    "height": 1.25rem,
+    "line-height": 1.23077, // 16px
+    "padding-vertical": 0.125rem,
+    "padding-horizontal": 0.5rem,
+  ),
+  "medium": (
+    "font-size": 0.8125rem, // 13px
+    "height": 1.5rem,
+    "line-height": 1.23077, // 16px
+    "padding-vertical": 0.25rem,
+    "padding-horizontal": 0.75rem,
+  ),
+  "large": (
+    "font-size": 1rem, // 16px
+    "height": 2rem,
+    "line-height": 1.5, // 24px
+    "padding-vertical": 0.25rem,
+    "padding-horizontal": 0.875rem,
+  )
+);
+
+@each $size in $hds-badge-count-sizes {
+  .hds-badge-count--size-#{$size} {
+    border-radius: math.div(map-get($size-props, $size, "height"), 2);
+    font-size: map-get($size-props, $size, "font-size");
+    line-height: map-get($size-props, $size, "line-height");
+    min-height: map-get($size-props, $size, "height");
+    padding: calc(#{map-get($size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map-get($size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
+  }
+}
+
+
+// COLOR + TYPE COMBINATIONS
+
+.hds-badge-count--color-neutral {
+  &.hds-badge-count--type-filled {
+    background-color: var(--token-color-neutral-neutral-100);
+    color: var(--token-color-neutral-neutral-600);
+  }
+
+  &.hds-badge-count--type-inverted {
+    background-color: var(--token-color-neutral-neutral-500);
+    color: var(--token-color-neutral-neutral-0);
+  }
+
+  &.hds-badge-count--type-outlined {
+    background-color: transparent;
+    border-color: currentColor;
+    color: var(--token-color-neutral-neutral-500);;
+  }
+}
+
+.hds-badge-count--color-neutral-dark-mode {
+  &.hds-badge-count--type-filled {
+    background-color: var(--token-color-neutral-neutral-500);
+    color: var(--token-color-neutral-neutral-0);
+  }
+
+  &.hds-badge-count--type-inverted {
+    background-color: var(--token-color-neutral-neutral-600);
+    color: var(--token-color-neutral-neutral-50);
+  }
+
+  &.hds-badge-count--type-outlined {
+    background-color: transparent;
+    border-color: currentColor;
+    color: var(--token-color-neutral-neutral-0);;
+  }
+}
