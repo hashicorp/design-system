@@ -17,24 +17,24 @@
 
 <h3 class="dummy-h3">Size</h3>
 <div class="dummy-badge-base-sample">
-    {{#each @model.SIZES as |size|}}
+    {{#each @model.BADGE_SIZES as |size|}}
         <Hds::Badge @icon="activity" @text={{size}} @size={{size}} />
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Type</h3>
 <div class="dummy-badge-base-sample">
-    {{#each @model.TYPES as |type|}}
+    {{#each @model.BADGE_TYPES as |type|}}
         <Hds::Badge @icon="activity" @text={{type}} @type={{type}} />
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Color:</h3>
-{{#each @model.COLORS as |color|}}
+{{#each @model.BADGE_COLORS as |color|}}
     <p class="dummy-h6">{{color}}</p>
     <div class="dummy-badge-color-grid">
-        {{#each @model.SIZES as |size|}}
-            {{#each @model.TYPES as |type|}}
+        {{#each @model.BADGE_SIZES as |size|}}
+            {{#each @model.BADGE_TYPES as |type|}}
                 <div class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}} dummy-badge-base-sample--color-{{color}}">
                     <Hds::Badge
                         @icon="activity"
@@ -80,24 +80,24 @@
 
 <h3 class="dummy-h3">Size</h3>
 <div class="dummy-badge-base-sample">
-    {{#each @model.SIZES as |size|}}
+    {{#each @model.BADGE_COUNT_SIZES as |size|}}
         <Hds::BadgeCount @text={{size}} @size={{size}} />
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Type</h3>
 <div class="dummy-badge-base-sample">
-    {{#each @model.TYPES as |type|}}
+    {{#each @model.BADGE_COUNT_TYPES as |type|}}
         <Hds::BadgeCount @text={{type}} @type={{type}} />
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Color:</h3>
-{{#each @model.COLORS as |color|}}
+{{#each @model.BADGE_COUNT_COLORS as |color|}}
     <p class="dummy-h6">{{color}}</p>
     <div class="dummy-badge-color-grid">
-        {{#each @model.SIZES as |size|}}
-            {{#each @model.TYPES as |type|}}
+        {{#each @model.BADGE_COUNT_SIZES as |size|}}
+            {{#each @model.BADGE_COUNT_TYPES as |type|}}
                 <div class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}} dummy-badge-base-sample--color-{{color}}">
                     <Hds::BadgeCount
                         @text="3"
