@@ -2,8 +2,8 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 const DEFAULT_SIZE = 'medium';
-const DEFAULT_COLOR = 'neutral';
 const DEFAULT_TYPE = 'filled';
+const DEFAULT_COLOR = 'neutral';
 const SIZES = ['small', 'medium', 'large'];
 const TYPES = ['filled', 'inverted', 'outlined'];
 const COLORS = [
@@ -17,7 +17,7 @@ const COLORS = [
 
 export default class HdsBadgeIndexComponent extends Component {
   /**
-   * Sets the size for the badge
+   * Sets the size for the component
    * Accepted sizes: small, medium, large
    *
    * @param size
@@ -40,16 +40,16 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the badge based on the size argument.
+   * Get a class to apply to the component based on the size argument.
    * @method Badge#sizeClass
-   * @return {string} The css class to apply to the Badge.
+   * @return {string} The css class to apply to the component.
    */
   get sizeClass() {
     return `hds-badge--size-${this.size}`;
   }
 
   /**
-   * Sets the type of badge
+   * Sets the type of the component
    * Accepted values: filled, inverted, outlined
    *
    * @param type
@@ -72,16 +72,16 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the badge based on the type argument.
+   * Get a class to apply to the component based on the type argument.
    * @method Badge#typeClass
-   * @return {string} The css class to apply to the Badge.
+   * @return {string} The css class to apply to the component.
    */
   get typeClass() {
     return `hds-badge--type-${this.type}`;
   }
 
   /**
-   * Sets the color scheme for the badge
+   * Sets the color scheme for the component
    * Accepted colors: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
    * @param color
@@ -104,9 +104,9 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the badge based on the color argument.
+   * Get a class to apply to the component based on the color argument.
    * @method Badge#colorClass
-   * @return {string} The css class to apply to the Badge.
+   * @return {string} The css class to apply to the component.
    */
   get colorClass() {
     return `hds-badge--color-${this.color}`;
