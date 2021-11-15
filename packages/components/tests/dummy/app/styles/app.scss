@@ -15,3 +15,17 @@ body.dummy-app {
     color: #E4E4E4;
     padding: 1rem 2rem 1rem 1rem;
 }
+
+.dummy-design-guidelines {
+    p {
+        color: #666;
+
+        a { color: inherit; }
+    }
+
+    img {
+        max-width: 800px;
+        height: auto;
+        width: 100%;
+    }
+}
