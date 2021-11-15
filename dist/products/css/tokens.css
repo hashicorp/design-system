@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 11 Nov 2021 14:43:46 GMT
+ * Generated on Mon, 15 Nov 2021 20:05:16 GMT
  */
 
 :root {
@@ -186,6 +186,7 @@
   --token-typography-heading-2-font-weight: 700; /* bold */
   --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` */
   --token-typography-heading-3-font-family: -apple-system, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-heading-3-font-size: 1rem; /* 16px/1rem */
   --token-typography-heading-3-line-height: 1.25; /* 20px */
   --token-typography-heading-3-font-weight: 600; /* semibold */
   --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` */
