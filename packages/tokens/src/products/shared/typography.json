@@ -126,6 +126,7 @@
                 "value": "{typography.font-stack.heading.value}"
             },
             "font-size": {
+                "value": "16",
                 "type": "size",
                 "comment": "16px/1rem"
             },
