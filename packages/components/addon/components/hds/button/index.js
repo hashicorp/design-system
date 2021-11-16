@@ -14,8 +14,8 @@ export default class HdsButtonIndexComponent extends Component {
   /**
    * @param text
    * @type {string}
-   * @default null
    * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`
+   * @todo throw an error if no text is defined
    */
   get text() {
     return this.args.text;
@@ -26,6 +26,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default medium
    * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   * @todo throw an error if a size other than the acceptable values are used
    */
   get size() {
     return this.args.size ?? 'medium';
@@ -46,6 +47,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default primary
    * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, `destructive`, and `ghost`
+   * @todo throw an error if the allowed values are not used
    */
   get color() {
     return this.args.type ?? 'primary';
@@ -76,6 +78,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default before
    * @description Allows the user to set the position of the icon before or after the text; allowed values are `before` or `after`
+   * @todo make sure that an icon is also defined
    */
   get iconPos() {
     return this.args.iconPos ?? 'before';
@@ -86,6 +89,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default button
    * @description The value for the button's `type` attribute. Acceptable values are `button`, `submit`, and `reset`
+   * @todo throw an error if the allowed values are not used
    */
   get type() {
     return this.args.type ?? 'button';
