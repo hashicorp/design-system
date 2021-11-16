@@ -10,17 +10,8 @@ module('Integration | Component | hds/button/index', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Hds::Button::Index />`);
+    await render(hbs`<Hds::Button @text="click me" />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Hds::Button::Index>
-        template block text
-      </Hds::Button::Index>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('click me');
   });
 });
