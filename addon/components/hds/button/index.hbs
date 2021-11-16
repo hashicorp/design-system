@@ -1,4 +1,8 @@
-<button class="hds-button {{this.sizeClass}} {{this.colorClass}}" {{if this.isIconOnly "aria-label=@text"}} type={{this.type}}>
+<button 
+  class="hds-button {{this.sizeClass}} {{this.colorClass}}" 
+  aria-label={{if this.isIconOnly @text null}} 
+  type={{this.type}}
+>
   {{#if this.isIconOnly}}
     <FlightIcon />
   {{else}}
