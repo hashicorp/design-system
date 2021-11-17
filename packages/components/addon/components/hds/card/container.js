@@ -38,7 +38,7 @@ export default class HdsCardContainerComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get levelClass() {
-    return `hds-card-container--level-${this.level}`;
+    return `hds-card__container--level-${this.level}`;
   }
 
   /**
@@ -70,7 +70,7 @@ export default class HdsCardContainerComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get backgroundClass() {
-    return `hds-card-container--background-${this.background}`;
+    return `hds-card__container--background-${this.background}`;
   }
 
   /**
@@ -79,7 +79,7 @@ export default class HdsCardContainerComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get borderClass() {
-    return this.args.hasBorder ? `hds-card-container--has-border` : undefined;
+    return this.args.hasBorder ? `hds-card__container--has-border` : undefined;
   }
 
   /**
@@ -111,6 +111,6 @@ export default class HdsCardContainerComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get overflowClass() {
-    return `hds-card-container--overflow-${this.overflow}`;
+    return `hds-card__container--overflow-${this.overflow}`;
   }
 }
