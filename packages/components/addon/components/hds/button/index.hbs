@@ -2,17 +2,18 @@
   class="hds-button {{this.sizeClass}} {{this.colorClass}}" 
   aria-label={{if this.isIconOnly @text null}} 
   type={{this.type}}
+  ...attributes
 >
   {{#if this.isIconOnly}}
-    <FlightIcon />
+    <FlightIcon @name={{this.icon}} />
   {{else}}
-    {{#if this.hasIcon}}
-      {{#if (eq this.iconPos "left")}}
-        <FlightIcon />
+    {{#if this.icon}}
+      {{#if (eq this.iconPos "leading")}}
+        <FlightIcon @name={{this.icon}} />
         {{@text}}
       {{else}}
         {{@text}}
-        <FlightIcon />
+        <FlightIcon @name={{this.icon}} />
       {{/if}}
     {{/if}}
     {{@text}}

@@ -76,12 +76,12 @@ export default class HdsButtonIndexComponent extends Component {
   /**
    * @param iconPos
    * @type {string}
-   * @default before
-   * @description Allows the user to set the position of the icon before or after the text; allowed values are `before` or `after`
+   * @default leading
+   * @description Allows the user to set the position of the icon before or after the text; allowed values are `leading` or `trailing`
    * @todo make sure that an icon is also defined
    */
   get iconPos() {
-    return this.args.iconPos ?? 'before';
+    return this.args.iconPos ?? 'leading';
   }
 
   /**
