@@ -9,7 +9,7 @@
   {{else}}
     {{#if this.icon}}
       {{#if (eq this.iconPos "leading")}}
-        <FlightIcon @name={{this.icon}} />
+        <FlightIcon @name={{this.icon}} @size={{if (eq this.size "large") "24" null}} />
         {{@text}}
       {{else}}
         {{@text}}
