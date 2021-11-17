@@ -1,9 +1,8 @@
-/* Card Component > Container
- *
- * classes are sorted the same way as the Figma properties
- * properties within each class are sorted alphabetically
- *
- */
+// CARD COMPONENT > CONTAINER
+//
+// properties within each class are sorted alphabetically
+//
+//
 
  @mixin getElevation($level) {
   @if ($level != 'base') {
@@ -28,9 +27,9 @@ $hds-card-container-backgrounds: ( 'neutral-0', 'neutral-50' );
 $hds-card-container-border-radius: 6px;
 
 .hds-card__container {
-  position: relative;
   background-color: #fff;
   border-radius: $hds-card-container-border-radius;
+  position: relative;
 }
 
 // LEVEL (elevation's shadow) + BORDER

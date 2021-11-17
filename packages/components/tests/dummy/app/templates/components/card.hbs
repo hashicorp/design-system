@@ -16,7 +16,7 @@
 
 <h3 class="dummy-h3">Levels:</h3>
 <div class="dummy-card-base-sample">
-    {{#each @model.LEVELS as |level|}}
+    {{#each @model.CONTAINER_LEVELS as |level|}}
         <Hds::Card::Container @level={{level}}>
             <DummyPlaceholder
                 @text={{level}}
@@ -30,7 +30,7 @@
 
 <h3 class="dummy-h3">Border:</h3>
 <div class="dummy-card-base-sample">
-    {{#each @model.LEVELS as |level|}}
+    {{#each @model.CONTAINER_LEVELS as |level|}}
         <Hds::Card::Container @level={{level}} @hasBorder={{true}}>
             <DummyPlaceholder
                 @text={{level}}
@@ -44,7 +44,7 @@
 
 <h3 class="dummy-h3">Background:</h3>
 <div class="dummy-card-base-sample">
-    {{#each @model.BACKGROUNDS as |background|}}
+    {{#each @model.CONTAINER_BACKGROUNDS as |background|}}
         <Hds::Card::Container @level="mid" @hasBorder={{true}} @background={{background}}>
             <DummyPlaceholder
                 @text={{background}}
