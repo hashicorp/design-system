@@ -9,16 +9,17 @@
             @text="Content"
             @width="200"
             @height="200"
+            @background="transparent"
         />
     </Hds::CardContainer>
 </div>
 
-<h3 class="dummy-h3">Elevation:</h3>
-<div class="dummy-card-base-sample dummy-card-base-sample--with-background">
-    {{#each @model.ELEVATIONS as |elevation|}}
-        <Hds::CardContainer @elevation={{elevation}}>
+<h3 class="dummy-h3">Levels:</h3>
+<div class="dummy-card-base-sample">
+    {{#each @model.LEVELS as |level|}}
+        <Hds::CardContainer @level={{level}}>
             <DummyPlaceholder
-                @text={{elevation}}
+                @text={{level}}
                 @width="200"
                 @height="200"
                 @background="transparent"
@@ -27,12 +28,12 @@
     {{/each}}
 </div>
 
-<h3 class="dummy-h3">Outlined:</h3>
-<div class="dummy-card-base-sample dummy-card-base-sample--with-background">
-    {{#each @model.ELEVATIONS as |elevation|}}
-        <Hds::CardContainer @elevation={{elevation}} @outlined={{true}}>
+<h3 class="dummy-h3">Border:</h3>
+<div class="dummy-card-base-sample">
+    {{#each @model.LEVELS as |level|}}
+        <Hds::CardContainer @level={{level}} @hasBorder={{true}}>
             <DummyPlaceholder
-                @text={{elevation}}
+                @text={{level}}
                 @width="200"
                 @height="200"
                 @background="transparent"
@@ -42,9 +43,9 @@
 </div>
 
 <h3 class="dummy-h3">Background:</h3>
-<div class="dummy-card-base-sample dummy-card-base-sample--with-background">
+<div class="dummy-card-base-sample">
     {{#each @model.BACKGROUNDS as |background|}}
-        <Hds::CardContainer @elevation="low" @outlined={{true}} @background={{background}}>
+        <Hds::CardContainer @level="mid" @hasBorder={{true}} @background={{background}}>
             <DummyPlaceholder
                 @text={{background}}
                 @width="200"
@@ -57,20 +58,26 @@
 
 <h3 class="dummy-h3">Overflow:</h3>
 <div class="dummy-card-base-sample">
-    <Hds::CardContainer @elevation="mid" @outlined={{true}}>
-        <DummyPlaceholder
-            @text="hidden (default)"
-            @width="200"
-            @height="200"
-            @background="#e1f5fe"
-        />
+    <Hds::CardContainer @level="mid" @hasBorder={{true}}>
+        <div class="dummy-card-overflow__wrapper-relative">
+            <DummyPlaceholder
+                @text="hidden (default)"
+                @width="200"
+                @height="200"
+                @background="#e1f5fe"
+            />
+            <div class="dummy-card-overflow__content-absolute" />
+        </div>
     </Hds::CardContainer>
-    <Hds::CardContainer @elevation="mid" @outlined={{true}} @overflow="visible">
-        <DummyPlaceholder
-            @text="visible"
-            @width="200"
-            @height="200"
-            @background="#e1f5fe"
-        />
+    <Hds::CardContainer @level="mid" @hasBorder={{true}} @overflow="visible">
+        <div class="dummy-card-overflow__wrapper-relative">
+            <DummyPlaceholder
+                @text="visible"
+                @width="200"
+                @height="200"
+                @background="#e1f5fe"
+            />
+            <div class="dummy-card-overflow__content-absolute" />
+        </div>
     </Hds::CardContainer>
 </div>

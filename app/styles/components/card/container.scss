@@ -5,30 +5,24 @@
  *
  */
 
- @mixin getElevation($elevation) {
-  @if ($elevation != 'base') {
+ @mixin getElevation($level) {
+  @if ($level != 'base') {
     box-shadow:
-        var(--token-elevation-#{$elevation}-shadow-01-x)
-        var(--token-elevation-#{$elevation}-shadow-01-y)
-        var(--token-elevation-#{$elevation}-shadow-01-blur)
-        var(--token-elevation-#{$elevation}-shadow-01-spread)
-        var(--token-elevation-#{$elevation}-shadow-01-color),
-        var(--token-elevation-#{$elevation}-shadow-02-x)
-        var(--token-elevation-#{$elevation}-shadow-02-y)
-        var(--token-elevation-#{$elevation}-shadow-02-blur)
-        var(--token-elevation-#{$elevation}-shadow-02-spread)
-        var(--token-elevation-#{$elevation}-shadow-02-color)
+        var(--token-elevation-#{$level}-shadow-01-x)
+        var(--token-elevation-#{$level}-shadow-01-y)
+        var(--token-elevation-#{$level}-shadow-01-blur)
+        var(--token-elevation-#{$level}-shadow-01-spread)
+        var(--token-elevation-#{$level}-shadow-01-color),
+        var(--token-elevation-#{$level}-shadow-02-x)
+        var(--token-elevation-#{$level}-shadow-02-y)
+        var(--token-elevation-#{$level}-shadow-02-blur)
+        var(--token-elevation-#{$level}-shadow-02-spread)
+        var(--token-elevation-#{$level}-shadow-02-color)
     ;
   }
 }
 
-@mixin getEdge($elevation) {
-  @if ($elevation != 'base') {
-    outline: var(--token-elevation-#{$elevation}-edge-width) solid var(--token-elevation-#{$elevation}-edge-color);
-  }
-}
-
-$hds-card-container-elevations: ( 'base', 'low', 'mid', 'high', 'higher' );
+$hds-card-container-levels: ( 'base', 'mid', 'high' );
 $hds-card-container-backgrounds: ( 'neutral-0', 'neutral-50' );
 
 $hds-card-container-border-radius: 6px;
@@ -39,15 +33,14 @@ $hds-card-container-border-radius: 6px;
   border-radius: $hds-card-container-border-radius;
 }
 
-// ELEVATION (shadow)
+// LEVEL (elevation's shadow) + BORDER
 
-@each $elevation in $hds-card-container-elevations {
-  .hds-card-container--elevation-#{$elevation} {
-    @include getElevation($elevation);
+@each $level in $hds-card-container-levels {
+  .hds-card-container--level-#{$level} {
+    @include getElevation($level);
 
-    // EGDE (border)
-    &.hds-card-container--outlined {
-      @include getEdge($elevation);
+    &.hds-card-container--has-border {
+      outline: var(--token-elevation-#{$level}-border-width) solid var(--token-elevation-#{$level}-border-color);
     }
   }
 }
