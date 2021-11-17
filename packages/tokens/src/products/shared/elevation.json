@@ -36,7 +36,7 @@
                     "type": "color"
                 }
             },
-            "edge": {
+            "border": {
                 "width": {
                     "value": "1",
                     "type": "size"
@@ -95,7 +95,7 @@
                     "type": "color"
                 }
             },
-            "edge": {
+            "border": {
                 "width": {
                     "value": "1",
                     "type": "size"
@@ -154,7 +154,7 @@
                     "type": "color"
                 }
             },
-            "edge": {
+            "border": {
                 "width": {
                     "value": "1",
                     "type": "size"
@@ -213,7 +213,7 @@
                     "type": "color"
                 }
             },
-            "edge": {
+            "border": {
                 "width": {
                     "value": "1",
                     "type": "size"
@@ -272,7 +272,7 @@
                     "type": "color"
                 }
             },
-            "edge": {
+            "border": {
                 "width": {
                     "value": "1",
                     "type": "size"
@@ -331,7 +331,7 @@
                     "type": "color"
                 }
             },
-            "edge": {
+            "border": {
                 "width": {
                     "value": "1",
                     "type": "size"
