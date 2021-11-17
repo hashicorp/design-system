@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 15 Nov 2021 20:05:16 GMT
+ * Generated on Wed, 17 Nov 2021 09:38:30 GMT
  */
 
 :root {
@@ -103,8 +103,8 @@
   --token-elevation-inset-shadow-01-blur: 2px;
   --token-elevation-inset-shadow-01-spread: 1px;
   --token-elevation-inset-shadow-01-color: #656a761a;
-  --token-elevation-inset-edge-width: 1px;
-  --token-elevation-inset-edge-color: #656a764d;
+  --token-elevation-inset-border-width: 1px;
+  --token-elevation-inset-border-color: #656a764d;
   --token-elevation-low-shadow-01-x: 0px;
   --token-elevation-low-shadow-01-y: 1px;
   --token-elevation-low-shadow-01-blur: 1px;
@@ -115,8 +115,8 @@
   --token-elevation-low-shadow-02-blur: 2px;
   --token-elevation-low-shadow-02-spread: 0px;
   --token-elevation-low-shadow-02-color: #656a760d;
-  --token-elevation-low-edge-width: 1px;
-  --token-elevation-low-edge-color: #656a7626;
+  --token-elevation-low-border-width: 1px;
+  --token-elevation-low-border-color: #656a7626;
   --token-elevation-mid-shadow-01-x: 0px;
   --token-elevation-mid-shadow-01-y: 2px;
   --token-elevation-mid-shadow-01-blur: 3px;
@@ -127,8 +127,8 @@
   --token-elevation-mid-shadow-02-blur: 16px;
   --token-elevation-mid-shadow-02-spread: -10px;
   --token-elevation-mid-shadow-02-color: #656a7633;
-  --token-elevation-mid-edge-width: 1px;
-  --token-elevation-mid-edge-color: #656a7626;
+  --token-elevation-mid-border-width: 1px;
+  --token-elevation-mid-border-color: #656a7626;
   --token-elevation-high-shadow-01-x: 0px;
   --token-elevation-high-shadow-01-y: 2px;
   --token-elevation-high-shadow-01-blur: 3px;
@@ -139,8 +139,8 @@
   --token-elevation-high-shadow-02-blur: 16px;
   --token-elevation-high-shadow-02-spread: -10px;
   --token-elevation-high-shadow-02-color: #656a7633;
-  --token-elevation-high-edge-width: 1px;
-  --token-elevation-high-edge-color: #656a7640;
+  --token-elevation-high-border-width: 1px;
+  --token-elevation-high-border-color: #656a7640;
   --token-elevation-higher-shadow-01-x: 0px;
   --token-elevation-higher-shadow-01-y: 2px;
   --token-elevation-higher-shadow-01-blur: 3px;
@@ -151,8 +151,8 @@
   --token-elevation-higher-shadow-02-blur: 28px;
   --token-elevation-higher-shadow-02-spread: 0px;
   --token-elevation-higher-shadow-02-color: #656a7640;
-  --token-elevation-higher-edge-width: 1px;
-  --token-elevation-higher-edge-color: #656a7633;
+  --token-elevation-higher-border-width: 1px;
+  --token-elevation-higher-border-color: #656a7633;
   --token-elevation-overlay-shadow-01-x: 0px;
   --token-elevation-overlay-shadow-01-y: 2px;
   --token-elevation-overlay-shadow-01-blur: 3px;
@@ -163,8 +163,8 @@
   --token-elevation-overlay-shadow-02-blur: 24px;
   --token-elevation-overlay-shadow-02-spread: 0px;
   --token-elevation-overlay-shadow-02-color: #3b3d4599;
-  --token-elevation-overlay-edge-width: 1px;
-  --token-elevation-overlay-edge-color: #3b3d4566;
+  --token-elevation-overlay-border-width: 1px;
+  --token-elevation-overlay-border-color: #3b3d4566;
   --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
   --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
   --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
