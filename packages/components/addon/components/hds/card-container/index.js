@@ -1,44 +1,44 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-const DEFAULT_ELEVATION = 'base';
+const DEFAULT_LEVEL = 'base';
 const DEFAULT_BACKGROUND = 'neutral-0';
 const DEFAULT_OVERFLOW = 'hidden';
-const ELEVATIONS = ['base', 'low', 'mid', 'high', 'higher'];
+const LEVELS = ['base', 'mid', 'high'];
 const BACKGROUNDS = ['neutral-0', 'neutral-50'];
 const OVERFLOWS = ['hidden', 'visible'];
 
 export default class HdsCardContainerIndexComponent extends Component {
   /**
-   * Sets the elevation for the component
-   * Accepted values: base, low, mid, high, higher
+   * Sets the "elevation" level for the component
+   * Accepted values: base, mid, high
    *
-   * @param elevation
+   * @param level
    * @type {string}
    * @default 'base'
    */
-  get elevation() {
-    let { elevation = DEFAULT_ELEVATION } = this.args;
+  get level() {
+    let { level = DEFAULT_LEVEL } = this.args;
 
-    if (elevation) {
+    if (level) {
       assert(
-        `@elevation for ${this.toString()} must be one of the following: ${ELEVATIONS.join(
+        `@level for ${this.toString()} must be one of the following: ${LEVELS.join(
           ', '
-        )}, received: ${elevation}`,
-        ELEVATIONS.includes(elevation)
+        )}, received: ${level}`,
+        LEVELS.includes(level)
       );
     }
 
-    return elevation;
+    return level;
   }
 
   /**
-   * Get a class to apply to the component based on the elevation argument.
-   * @method Card#elevationClass
+   * Get a class to apply to the component based on the level argument.
+   * @method Card#levelClass
    * @return {string} The css class to apply to the component.
    */
-  get elevationClass() {
-    return `hds-card-container--elevation-${this.elevation}`;
+  get levelClass() {
+    return `hds-card-container--level-${this.level}`;
   }
 
   /**
@@ -74,16 +74,16 @@ export default class HdsCardContainerIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the elevation argument.
-   * @method Card#elevationClass
+   * Get a class to apply to the component based on the hasBorder argument.
+   * @method Card#hasBorderClass
    * @return {string} The css class to apply to the component.
    */
-  get outlinedClass() {
-    return this.args.outlined ? `hds-card-container--outlined` : undefined;
+  get borderClass() {
+    return this.args.hasBorder ? `hds-card-container--has-border` : undefined;
   }
 
   /**
-   * Sets the elevation for the card
+   * Sets the level for the card
    * Accepted values: visible, hidden
    *
    * @param overflow
