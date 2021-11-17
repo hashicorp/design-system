@@ -5,7 +5,7 @@
   ...attributes
 >
   {{#if this.isIconOnly}}
-    <FlightIcon @name={{this.icon}} />
+    <FlightIcon @name={{this.icon}} @size={{if (eq this.size "large") "24" null}} />
   {{else}}
     {{#if this.icon}}
       {{#if (eq this.iconPos "leading")}}
@@ -13,7 +13,7 @@
         {{@text}}
       {{else}}
         {{@text}}
-        <FlightIcon @name={{this.icon}} />
+        <FlightIcon @name={{this.icon}} @size={{if (eq this.size "large") "24" null}} />
       {{/if}}
     {{else}}
       {{@text}}
