@@ -1,7 +1,7 @@
 @use "tokens";
 
 @use "../components/badge";
-@use "../components/card";
+@use "../components/card/index";
 
 .sr-only {
 	border: 0 !important;
