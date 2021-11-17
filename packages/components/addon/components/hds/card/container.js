@@ -8,7 +8,7 @@ const LEVELS = ['base', 'mid', 'high'];
 const BACKGROUNDS = ['neutral-0', 'neutral-50'];
 const OVERFLOWS = ['hidden', 'visible'];
 
-export default class HdsCardContainerIndexComponent extends Component {
+export default class HdsCardContainerComponent extends Component {
   /**
    * Sets the "elevation" level for the component
    * Accepted values: base, mid, high

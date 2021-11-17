@@ -4,61 +4,61 @@
 
 <h3 class="dummy-h3">Container</h3>
 <div class="dummy-card-base-sample">
-    <Hds::CardContainer>
+    <Hds::Card::Container>
         <DummyPlaceholder
             @text="Content"
             @width="200"
             @height="200"
             @background="transparent"
         />
-    </Hds::CardContainer>
+    </Hds::Card::Container>
 </div>
 
 <h3 class="dummy-h3">Levels:</h3>
 <div class="dummy-card-base-sample">
     {{#each @model.LEVELS as |level|}}
-        <Hds::CardContainer @level={{level}}>
+        <Hds::Card::Container @level={{level}}>
             <DummyPlaceholder
                 @text={{level}}
                 @width="200"
                 @height="200"
                 @background="transparent"
             />
-        </Hds::CardContainer>
+        </Hds::Card::Container>
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Border:</h3>
 <div class="dummy-card-base-sample">
     {{#each @model.LEVELS as |level|}}
-        <Hds::CardContainer @level={{level}} @hasBorder={{true}}>
+        <Hds::Card::Container @level={{level}} @hasBorder={{true}}>
             <DummyPlaceholder
                 @text={{level}}
                 @width="200"
                 @height="200"
                 @background="transparent"
             />
-        </Hds::CardContainer>
+        </Hds::Card::Container>
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Background:</h3>
 <div class="dummy-card-base-sample">
     {{#each @model.BACKGROUNDS as |background|}}
-        <Hds::CardContainer @level="mid" @hasBorder={{true}} @background={{background}}>
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} @background={{background}}>
             <DummyPlaceholder
                 @text={{background}}
                 @width="200"
                 @height="200"
                 @background="transparent"
             />
-        </Hds::CardContainer>
+        </Hds::Card::Container>
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Overflow:</h3>
 <div class="dummy-card-base-sample">
-    <Hds::CardContainer @level="mid" @hasBorder={{true}}>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}}>
         <div class="dummy-card-overflow__wrapper-relative">
             <DummyPlaceholder
                 @text="hidden (default)"
@@ -68,8 +68,8 @@
             />
             <div class="dummy-card-overflow__content-absolute" />
         </div>
-    </Hds::CardContainer>
-    <Hds::CardContainer @level="mid" @hasBorder={{true}} @overflow="visible">
+    </Hds::Card::Container>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} @overflow="visible">
         <div class="dummy-card-overflow__wrapper-relative">
             <DummyPlaceholder
                 @text="visible"
@@ -79,5 +79,5 @@
             />
             <div class="dummy-card-overflow__content-absolute" />
         </div>
-    </Hds::CardContainer>
+    </Hds::Card::Container>
 </div>
