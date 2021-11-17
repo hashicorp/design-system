@@ -50,7 +50,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @todo throw an error if the allowed values are not used
    */
   get color() {
-    return this.args.type ?? 'primary';
+    return this.args.color ?? 'primary';
   }
 
   /**
