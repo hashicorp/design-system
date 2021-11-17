@@ -19,7 +19,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('div#test-card-container')
       .hasClass('hds-card__container--level-base');
   });
-  test('it should have the right level class if the @level prop is declared', async function (assert) {
+  test('it should have the right level class based on the @level prop', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @level="mid" />`
     );
@@ -33,7 +33,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('div#test-card-container')
       .hasClass('hds-card__container--background-neutral-0');
   });
-  test('it should have the right background class if the @background prop is declared', async function (assert) {
+  test('it should have the right background class based on the @background prop', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @background="neutral-50" />`
     );
