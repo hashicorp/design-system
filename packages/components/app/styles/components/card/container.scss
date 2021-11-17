@@ -1,4 +1,4 @@
-/* Card Component
+/* Card Component > Container
  *
  * classes are sorted the same way as the Figma properties
  * properties within each class are sorted alphabetically
@@ -28,25 +28,25 @@
   }
 }
 
-$hds-card-elevations: ( 'base', 'low', 'mid', 'high', 'higher' );
-$hds-card-backgrounds: ( 'neutral-0', 'neutral-50' );
+$hds-card-container-elevations: ( 'base', 'low', 'mid', 'high', 'higher' );
+$hds-card-container-backgrounds: ( 'neutral-0', 'neutral-50' );
 
-$hds-card-border-radius: 6px;
+$hds-card-container-border-radius: 6px;
 
-.hds-card {
+.hds-card-container {
   position: relative;
   background-color: #fff;
-  border-radius: $hds-card-border-radius;
+  border-radius: $hds-card-container-border-radius;
 }
 
 // ELEVATION (shadow)
 
-@each $elevation in $hds-card-elevations {
-  .hds-card--elevation-#{$elevation} {
+@each $elevation in $hds-card-container-elevations {
+  .hds-card-container--elevation-#{$elevation} {
     @include getElevation($elevation);
 
     // EGDE (border)
-    &.hds-card--outlined {
+    &.hds-card-container--outlined {
       @include getEdge($elevation);
     }
   }
@@ -54,18 +54,18 @@ $hds-card-border-radius: 6px;
 
 // BACKGROUND
 
-@each $background-color in $hds-card-backgrounds {
-  .hds-card--background-#{$background-color} {
+@each $background-color in $hds-card-container-backgrounds {
+  .hds-card-container--background-#{$background-color} {
     background-color: var(--token-color-neutral-#{$background-color});
   }
 }
 
 // OVERFLOW
 
-.hds-card--overflow-hidden {
+.hds-card-container--overflow-hidden {
   overflow: hidden;
 }
 
-.hds-card--overflow-visible {
+.hds-card-container--overflow-visible {
   overflow: visible;
 }

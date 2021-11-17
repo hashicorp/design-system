@@ -8,7 +8,7 @@ const ELEVATIONS = ['base', 'low', 'mid', 'high', 'higher'];
 const BACKGROUNDS = ['neutral-0', 'neutral-50'];
 const OVERFLOWS = ['hidden', 'visible'];
 
-export default class HdsCardIndexComponent extends Component {
+export default class HdsCardContainerIndexComponent extends Component {
   /**
    * Sets the elevation for the component
    * Accepted values: base, low, mid, high, higher
@@ -38,7 +38,7 @@ export default class HdsCardIndexComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get elevationClass() {
-    return `hds-card--elevation-${this.elevation}`;
+    return `hds-card-container--elevation-${this.elevation}`;
   }
 
   /**
@@ -70,7 +70,7 @@ export default class HdsCardIndexComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get backgroundClass() {
-    return `hds-card--background-${this.background}`;
+    return `hds-card-container--background-${this.background}`;
   }
 
   /**
@@ -79,7 +79,7 @@ export default class HdsCardIndexComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get outlinedClass() {
-    return this.args.outlined ? `hds-card--outlined` : undefined;
+    return this.args.outlined ? `hds-card-container--outlined` : undefined;
   }
 
   /**
@@ -111,6 +111,6 @@ export default class HdsCardIndexComponent extends Component {
    * @return {string} The css class to apply to the component.
    */
   get overflowClass() {
-    return `hds-card--overflow-${this.overflow}`;
+    return `hds-card-container--overflow-${this.overflow}`;
   }
 }

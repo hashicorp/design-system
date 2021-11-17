@@ -4,73 +4,73 @@
 
 <h3 class="dummy-h3">Container</h3>
 <div class="dummy-card-base-sample">
-    <Hds::Card>
+    <Hds::CardContainer>
         <DummyPlaceholder
             @text="Content"
             @width="200"
             @height="200"
         />
-    </Hds::Card>
+    </Hds::CardContainer>
 </div>
 
 <h3 class="dummy-h3">Elevation:</h3>
 <div class="dummy-card-base-sample dummy-card-base-sample--with-background">
     {{#each @model.ELEVATIONS as |elevation|}}
-        <Hds::Card @elevation={{elevation}}>
+        <Hds::CardContainer @elevation={{elevation}}>
             <DummyPlaceholder
                 @text={{elevation}}
                 @width="200"
                 @height="200"
                 @background="transparent"
             />
-        </Hds::Card>
+        </Hds::CardContainer>
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Outlined:</h3>
 <div class="dummy-card-base-sample dummy-card-base-sample--with-background">
     {{#each @model.ELEVATIONS as |elevation|}}
-        <Hds::Card @elevation={{elevation}} @outlined={{true}}>
+        <Hds::CardContainer @elevation={{elevation}} @outlined={{true}}>
             <DummyPlaceholder
                 @text={{elevation}}
                 @width="200"
                 @height="200"
                 @background="transparent"
             />
-        </Hds::Card>
+        </Hds::CardContainer>
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Background:</h3>
 <div class="dummy-card-base-sample dummy-card-base-sample--with-background">
     {{#each @model.BACKGROUNDS as |background|}}
-        <Hds::Card @elevation="low" @outlined={{true}} @background={{background}}>
+        <Hds::CardContainer @elevation="low" @outlined={{true}} @background={{background}}>
             <DummyPlaceholder
                 @text={{background}}
                 @width="200"
                 @height="200"
                 @background="transparent"
             />
-        </Hds::Card>
+        </Hds::CardContainer>
     {{/each}}
 </div>
 
 <h3 class="dummy-h3">Overflow:</h3>
 <div class="dummy-card-base-sample">
-    <Hds::Card @elevation="mid" @outlined={{true}}>
+    <Hds::CardContainer @elevation="mid" @outlined={{true}}>
         <DummyPlaceholder
             @text="hidden (default)"
             @width="200"
             @height="200"
             @background="#e1f5fe"
         />
-    </Hds::Card>
-    <Hds::Card @elevation="mid" @outlined={{true}} @overflow="visible">
+    </Hds::CardContainer>
+    <Hds::CardContainer @elevation="mid" @outlined={{true}} @overflow="visible">
         <DummyPlaceholder
             @text="visible"
             @width="200"
             @height="200"
             @background="#e1f5fe"
         />
-    </Hds::Card>
+    </Hds::CardContainer>
 </div>
