@@ -85,6 +85,20 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
+   * @param iconSize
+   * @type {string}
+   * @default null
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
+  get iconSize() {
+    if (this.args.size === 'large') {
+      return '24';
+    } else {
+      return null;
+    }
+  }
+
+  /**
    * @param type
    * @type {string}
    * @default button

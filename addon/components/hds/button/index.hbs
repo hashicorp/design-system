@@ -1,19 +1,19 @@
 <button 
-  class="hds-button {{this.sizeClass}} {{this.colorClass}}" 
+  class="hds-button {{this.sizeClass}} {{this.colorClass}}"
+  ...attributes
   aria-label={{if this.isIconOnly @text null}} 
   type={{this.type}}
-  ...attributes
 >
   {{#if this.isIconOnly}}
-    <FlightIcon @name={{this.icon}} @size={{if (eq this.size "large") "24" null}} />
+    <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
   {{else}}
     {{#if this.icon}}
       {{#if (eq this.iconPos "leading")}}
-        <FlightIcon @name={{this.icon}} @size={{if (eq this.size "large") "24" null}} />
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
         {{@text}}
       {{else}}
         {{@text}}
-        <FlightIcon @name={{this.icon}} @size={{if (eq this.size "large") "24" null}} />
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
       {{/if}}
     {{else}}
       {{@text}}
