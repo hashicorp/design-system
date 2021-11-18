@@ -44,9 +44,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
   });
   test('it should render the right CSS type class if @type prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Badge @text="text renders" id="test-badge" @type="filled" />`
+      hbs`<Hds::Badge @text="text renders" id="test-badge" @type="inverted" />`
     );
-    assert.dom('div#test-badge').hasClass('hds-badge--type-filled');
+    assert.dom('div#test-badge').hasClass('hds-badge--type-inverted');
   });
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
