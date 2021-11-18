@@ -1,21 +1,19 @@
 import Route from '@ember/routing/route';
 
+import {
+  SIZES as BADGE_SIZES,
+  TYPES as BADGE_TYPES,
+  COLORS as BADGE_COLORS,
+} from '@hashicorp/design-system-components/components/hds/badge/consts';
+
+import {
+  SIZES as BADGE_COUNT_SIZES,
+  TYPES as BADGE_COUNT_TYPES,
+  COLORS as BADGE_COUNT_COLORS,
+} from '@hashicorp/design-system-components/components/hds/badge-count/consts';
+
 export default class ComponentsBadgeRoute extends Route {
   model() {
-    // TODO! these should come from the components' files
-    const BADGE_SIZES = ['small', 'medium', 'large'];
-    const BADGE_TYPES = ['filled', 'inverted', 'outlined'];
-    const BADGE_COLORS = [
-      'neutral',
-      'neutral-dark-mode',
-      'highlight',
-      'success',
-      'warning',
-      'critical',
-    ];
-    const BADGE_COUNT_SIZES = ['small', 'medium', 'large'];
-    const BADGE_COUNT_TYPES = ['filled', 'inverted', 'outlined'];
-    const BADGE_COUNT_COLORS = ['neutral', 'neutral-dark-mode'];
     return {
       BADGE_SIZES,
       BADGE_TYPES,

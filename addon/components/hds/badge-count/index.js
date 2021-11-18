@@ -1,13 +1,14 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-const DEFAULT_SIZE = 'medium';
-const DEFAULT_TYPE = 'filled';
-const DEFAULT_COLOR = 'neutral';
-const SIZES = ['small', 'medium', 'large'];
-const TYPES = ['filled', 'inverted', 'outlined'];
-const COLORS = ['neutral', 'neutral-dark-mode'];
-
+import {
+  DEFAULT_SIZE,
+  DEFAULT_COLOR,
+  DEFAULT_TYPE,
+  SIZES,
+  TYPES,
+  COLORS,
+} from './consts';
 export default class HdsBadgeCountIndexComponent extends Component {
   /**
    * Sets the size for the component
