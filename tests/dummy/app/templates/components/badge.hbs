@@ -3,7 +3,6 @@
 <h2 class="dummy-h2">Badge</h2>
 
 <h3 class="dummy-h3">Content</h3>
-
 <div class="dummy-badge-base-sample">
     <Hds::Badge @text="only text" />
     <Hds::Badge @icon="activity" @text="text + icon" />
@@ -18,24 +17,24 @@
 
 <h3 class="dummy-h3">Size</h3>
 <div class="dummy-badge-base-sample">
-    <Hds::Badge @icon="activity" @text="small" @size="small" />
-    <Hds::Badge @icon="activity" @text="medium" @size="medium" />
-    <Hds::Badge @icon="activity" @text="large" @size="large" />
+    {{#each @model.BADGE_SIZES as |size|}}
+        <Hds::Badge @icon="activity" @text={{size}} @size={{size}} />
+    {{/each}}
 </div>
 
 <h3 class="dummy-h3">Type</h3>
 <div class="dummy-badge-base-sample">
-    <Hds::Badge @icon="activity" @text="filled" @type="filled" />
-    <Hds::Badge @icon="activity" @text="inverted" @type="inverted" />
-    <Hds::Badge @icon="activity" @text="outlined" @type="outlined" />
+    {{#each @model.BADGE_TYPES as |type|}}
+        <Hds::Badge @icon="activity" @text={{type}} @type={{type}} />
+    {{/each}}
 </div>
 
 <h3 class="dummy-h3">Color:</h3>
-{{#each @model.COLORS as |color|}}
+{{#each @model.BADGE_COLORS as |color|}}
     <p class="dummy-h6">{{color}}</p>
     <div class="dummy-badge-color-grid">
-        {{#each @model.SIZES as |size|}}
-            {{#each @model.TYPES as |type|}}
+        {{#each @model.BADGE_SIZES as |size|}}
+            {{#each @model.BADGE_TYPES as |type|}}
                 <div class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}} dummy-badge-base-sample--color-{{color}}">
                     <Hds::Badge
                         @icon="activity"
@@ -53,6 +52,55 @@
                     <Hds::Badge
                         @icon="activity"
                         @srOnlyText="Lorem Ipsum"
+                        @size={{size}}
+                        @type={{type}}
+                        @color={{color}}
+                    />
+                </div>
+            {{/each}}
+        {{/each}}
+    </div>
+{{/each}}
+
+
+{{!-- ###################### --}}
+
+
+<h2 class="dummy-h2">BadgeCount</h2>
+
+<h3 class="dummy-h3">Content</h3>
+<div class="dummy-badge-base-sample">
+    <Hds::BadgeCount @text="3" />
+    <Hds::BadgeCount @text="99+" />
+    <Hds::BadgeCount @text="v1.2.3" />
+</div>
+<div class="dummy-badge-base-sample">
+    <p>This is a paragraph: <Hds::BadgeCount @text="3" /></p>
+</div>
+
+<h3 class="dummy-h3">Size</h3>
+<div class="dummy-badge-base-sample">
+    {{#each @model.BADGE_COUNT_SIZES as |size|}}
+        <Hds::BadgeCount @text={{size}} @size={{size}} />
+    {{/each}}
+</div>
+
+<h3 class="dummy-h3">Type</h3>
+<div class="dummy-badge-base-sample">
+    {{#each @model.BADGE_COUNT_TYPES as |type|}}
+        <Hds::BadgeCount @text={{type}} @type={{type}} />
+    {{/each}}
+</div>
+
+<h3 class="dummy-h3">Color:</h3>
+{{#each @model.BADGE_COUNT_COLORS as |color|}}
+    <p class="dummy-h6">{{color}}</p>
+    <div class="dummy-badge-color-grid">
+        {{#each @model.BADGE_COUNT_SIZES as |size|}}
+            {{#each @model.BADGE_COUNT_TYPES as |type|}}
+                <div class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}} dummy-badge-base-sample--color-{{color}}">
+                    <Hds::BadgeCount
+                        @text="3"
                         @size={{size}}
                         @type={{type}}
                         @color={{color}}
