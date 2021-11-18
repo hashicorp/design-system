@@ -4,20 +4,47 @@
 //
 //
 
- @mixin getElevation($level) {
+ @mixin getElevationStyle($level, $has-border: false) {
+  $drop-shadow: false;
+  $border-shadow: false;
+
+  // here we define the "drop-shadow" values
+  // notice: he "base" level doesn't have a "drop shadow" effect applied (no elevation)
   @if ($level != 'base') {
-    box-shadow:
-        var(--token-elevation-#{$level}-shadow-01-x)
-        var(--token-elevation-#{$level}-shadow-01-y)
-        var(--token-elevation-#{$level}-shadow-01-blur)
-        var(--token-elevation-#{$level}-shadow-01-spread)
-        var(--token-elevation-#{$level}-shadow-01-color),
-        var(--token-elevation-#{$level}-shadow-02-x)
-        var(--token-elevation-#{$level}-shadow-02-y)
-        var(--token-elevation-#{$level}-shadow-02-blur)
-        var(--token-elevation-#{$level}-shadow-02-spread)
-        var(--token-elevation-#{$level}-shadow-02-color)
+    $drop-shadow:
+      var(--token-elevation-#{$level}-shadow-01-x)
+      var(--token-elevation-#{$level}-shadow-01-y)
+      var(--token-elevation-#{$level}-shadow-01-blur)
+      var(--token-elevation-#{$level}-shadow-01-spread)
+      var(--token-elevation-#{$level}-shadow-01-color),
+      var(--token-elevation-#{$level}-shadow-02-x)
+      var(--token-elevation-#{$level}-shadow-02-y)
+      var(--token-elevation-#{$level}-shadow-02-blur)
+      var(--token-elevation-#{$level}-shadow-02-spread)
+      var(--token-elevation-#{$level}-shadow-02-color)
     ;
+  }
+
+  // here we define the "border-shadow" values
+  // notice: we create a border via a shadow, so we have zero values for x/y/blur
+  @if ($has-border) {
+    $border-shadow:
+      0
+      0
+      0
+      var(--token-elevation-#{$level}-border-width)
+      var(--token-elevation-#{$level}-border-color);
+  }
+
+  // here we join the two effects in a single box-shadow (depending on the different cases)
+  @if ($drop-shadow and not $border-shadow) {
+    box-shadow: $drop-shadow;
+  } @else if($border-shadow and not $drop-shadow) {
+    box-shadow: $border-shadow;
+  } @else {
+    // notice: we put the "border-shadow" first because the final rendering in the browser looks better
+    // see: https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow - "The z-ordering of multiple box shadows is the same as multiple text shadows (the first specified shadow is on top)."
+    box-shadow: $border-shadow, $drop-shadow;
   }
 }
 
@@ -32,14 +59,14 @@ $hds-card-container-border-radius: 6px;
   position: relative;
 }
 
-// LEVEL (elevation's shadow) + BORDER
+// LEVEL (elevation as "drop" + "border" shadow effects)
 
 @each $level in $hds-card-container-levels {
   .hds-card__container--level-#{$level} {
-    @include getElevation($level);
+    @include getElevationStyle($level);
 
     &.hds-card__container--has-border {
-      outline: var(--token-elevation-#{$level}-border-width) solid var(--token-elevation-#{$level}-border-color);
+      @include getElevationStyle($level, true);
     }
   }
 }
