@@ -1,8 +1,35 @@
 @import '@hashicorp/design-system-components';
 
 @import "./_typography";
+@import "./components/dummy-component-props";
 @import "./components/db-badge";
 
 body.dummy-app {
     padding: 2rem;
+}
+
+// TODO! replace with proper syntax highlighting (use the same as in the Flight website)
+.dummy-code-snippet {
+    width: fit-content;
+    background-color: #333;
+    color: #E4E4E4;
+    padding: 1rem 2rem 1rem 1rem;
+}
+
+.dummy-design-guidelines {
+    p {
+        color: #666;
+
+        a { color: inherit; }
+    }
+
+    img {
+        max-width: 800px;
+        height: auto;
+        width: 100%;
+    }
+}
+
+.dummy-divider {
+    margin: 4rem 0;
 }
