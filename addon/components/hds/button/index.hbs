@@ -5,18 +5,30 @@
   type={{this.type}}
 >
   {{#if this.isIconOnly}}
-    <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+    <div class="hds-button__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+    </div>
   {{else}}
     {{#if this.icon}}
       {{#if (eq this.iconPos "leading")}}
-        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
-        {{@text}}
+        <div class="hds-button__icon">
+          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+        </div>
+        <div class="hds-button__text">
+          {{@text}}
+        </div> 
       {{else}}
-        {{@text}}
-        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+        <div class="hds-button__text">
+          {{@text}}
+        </div>
+        <div class="hds-button__icon">
+          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+        </div>
       {{/if}}
     {{else}}
-      {{@text}}
+      <div class="hds-button__text">
+          {{@text}}
+      </div>
     {{/if}}
   {{/if}}
 
