@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-const DEFAULT_SIZE = 'medium';
-const DEFAULT_TYPE = 'filled';
-const DEFAULT_COLOR = 'neutral';
-const SIZES = ['small', 'medium', 'large'];
-const TYPES = ['filled', 'inverted', 'outlined'];
-const COLORS = [
+export const DEFAULT_SIZE = 'medium';
+export const DEFAULT_TYPE = 'filled';
+export const DEFAULT_COLOR = 'neutral';
+export const SIZES = ['small', 'medium', 'large'];
+export const TYPES = ['filled', 'inverted', 'outlined'];
+export const COLORS = [
   'neutral',
   'neutral-dark-mode',
   'highlight',
