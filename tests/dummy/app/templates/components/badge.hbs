@@ -109,7 +109,7 @@
 
 <h3 class="dummy-h3">How to use</h3>
 <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
-{{!-- TODO: TODO! replace with proper syntax highlighting (use the same as in the Flight website) --}}
+{{!-- TODO! replace with proper syntax highlighting (use the same as in the Flight website) --}}
 <pre class="dummy-code-snippet">
 &lt;Hds::Badge
     @text="success badge"
@@ -126,10 +126,13 @@
 
 {{!-- ###################### --}}
 
+<hr class="dummy-divider" />
 
 <h2 class="dummy-h2">BadgeCount</h2>
 
-<h3 class="dummy-h3">Content</h3>
+<h3 class="dummy-h3">Showcase</h3>
+
+<h4 class="dummy-h4">Content</h4>
 <div class="dummy-badge-base-sample">
     <Hds::BadgeCount @text="3" />
     <Hds::BadgeCount @text="99+" />
@@ -139,21 +142,21 @@
     <p>This is a paragraph: <Hds::BadgeCount @text="3" /></p>
 </div>
 
-<h3 class="dummy-h3">Size</h3>
+<h4 class="dummy-h4">Size</h4>
 <div class="dummy-badge-base-sample">
     {{#each @model.BADGE_COUNT_SIZES as |size|}}
         <Hds::BadgeCount @text={{size}} @size={{size}} />
     {{/each}}
 </div>
 
-<h3 class="dummy-h3">Type</h3>
+<h4 class="dummy-h4">Type</h4>
 <div class="dummy-badge-base-sample">
     {{#each @model.BADGE_COUNT_TYPES as |type|}}
         <Hds::BadgeCount @text={{type}} @type={{type}} />
     {{/each}}
 </div>
 
-<h3 class="dummy-h3">Color:</h3>
+<h4 class="dummy-h4">Color:</h4>
 {{#each @model.BADGE_COUNT_COLORS as |color|}}
     <p class="dummy-h6">{{color}}</p>
     <div class="dummy-badge-color-grid">
@@ -171,3 +174,55 @@
         {{/each}}
     </div>
 {{/each}}
+
+<h3 class="dummy-h3">Component API</h3>
+<p class="dummy-paragraph">Here is the API for the component:</p>
+<dl class="dummy-component-props">
+    <dt>size <code>enum</code></dt>
+    <dd>
+        <p>Acceptable values:</p>
+        <ol>
+            <li class="default">small</li>
+            <li>medium</li>
+            <li>large</li>
+        </ol>
+    </dd>
+    <dt>type <code>enum</code></dt>
+    <dd>
+        <p>Acceptable values:</p>
+        <ol>
+            <li class="default">filled</li>
+            <li>inverted</li>
+            <li>outlined</li>
+        </ol>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+        <p>Acceptable values:</p>
+        <ol>
+            <li class="default">neutral</li>
+            <li>neutral-dark-mode</li>
+        </ol>
+    </dd>
+    <dt>text <code>string</code></dt>
+    <dd>
+        <p>The text value that should go in the badge counter.</p>
+    </dd>
+</dl>
+
+<h3 class="dummy-h3">How to use</h3>
+<p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+{{!-- TODO! replace with proper syntax highlighting (use the same as in the Flight website) --}}
+<pre class="dummy-code-snippet">
+&lt;Hds::BadgeCount
+    @text="3"
+    @size="large"
+    @type="inverted"
+/&gt;
+</pre>
+
+<h3 class="dummy-h3">Design guidelines</h3>
+<div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8">Figma UI Kit</a></p>
+    <img class="dummy-figma-docs" src="/assets/images/badge-count-design-usage.png" alt="" role="none" />
+</div>
