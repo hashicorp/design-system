@@ -294,6 +294,55 @@
                 }
             }
         },
+        "vault": {
+            "brand": {
+                "value": "{color.palette.vault-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.vault-300.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.vault-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.vault-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.vault-100.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.vault-200.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "#fffdf2",
+                        "type": "color",
+                        "group": "branding",
+                        "comment": "this is the 'vault-50' value at 25% opacity on white"
+                    },
+                    "stop": {
+                        "value": "{color.palette.vault-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
         "waypoint": {
             "brand": {
                 "value": "{color.palette.waypoint-brand.value}",
