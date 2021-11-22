@@ -1,0 +1,347 @@
+{
+    "color": {
+        "boundary": {
+            "brand": {
+                "value": "{color.palette.boundary-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.boundary-400.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.boundary-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.boundary-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.boundary-300.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.boundary-400.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.boundary-50.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.boundary-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
+        "consul": {
+            "brand": {
+                "value": "{color.palette.consul-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.consul-400.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.consul-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.consul-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.consul-100.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.consul-200.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.consul-300.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.consul-400.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
+        "nomad": {
+            "brand": {
+                "value": "{color.palette.nomad-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.nomad-300.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.nomad-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.nomad-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.nomad-100.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.nomad-200.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.nomad-50.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.nomad-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
+        "packer": {
+            "brand": {
+                "value": "{color.palette.packer-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.packer-300.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.packer-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.packer-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.packer-100.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.packer-200.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.packer-50.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.packer-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
+        "terraform": {
+            "brand": {
+                "value": "{color.palette.terraform-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.terraform-400.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.terraform-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.terraform-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.terraform-300.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.terraform-400.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.terraform-50.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.terraform-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
+        "vagrant": {
+            "brand": {
+                "value": "{color.palette.vagrant-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.vagrant-300.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.vagrant-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.vagrant-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.vagrant-100.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.vagrant-200.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.vagrant-50.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.vagrant-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        },
+        "waypoint": {
+            "brand": {
+                "value": "{color.palette.waypoint-brand.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "foreground": {
+                "value": "{color.palette.waypoint-300.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "background": {
+                "value": "{color.palette.waypoint-50.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "border": {
+                "value": "{color.palette.waypoint-100.value}",
+                "type": "color",
+                "group": "branding"
+            },
+            "gradient": {
+                "primary": {
+                    "start": {
+                        "value": "{color.palette.waypoint-100.value}",
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.waypoint-200.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                },
+                "faint": {
+                    "start": {
+                        "value": "{color.palette.waypoint-50.value}",
+                        "alpha": 0.25,
+                        "type": "color",
+                        "group": "branding"
+                    },
+                    "stop": {
+                        "value": "{color.palette.waypoint-50.value}",
+                        "type": "color",
+                        "group": "branding"
+                    }
+                }
+            }
+        }
+    }
+}
