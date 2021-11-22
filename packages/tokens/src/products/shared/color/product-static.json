@@ -1,0 +1,326 @@
+{
+    "color": {
+        "palette": {
+            "boundary-brand": {
+                "value": "#f24c53",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-600": {
+                "value": "#b21e23",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-500": {
+                "value": "#cf2d32",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-400": {
+                "value": "#db363b",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-300": {
+                "value": "#f97076",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-200": {
+                "value": "#ff9da2",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-100": {
+                "value": "#fbd7d8",
+                "type": "color",
+                "group": "palette"
+            },
+            "boundary-50": {
+                "value": "#ffecec",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-brand": {
+                "value": "#e03875",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-600": {
+                "value": "#b10743",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-500": {
+                "value": "#d01c5b",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-400": {
+                "value": "#da306e",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-300": {
+                "value": "#ff99be",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-200": {
+                "value": "#ffbbd4",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-100": {
+                "value": "#ffcede",
+                "type": "color",
+                "group": "palette"
+            },
+            "consul-50": {
+                "value": "#ffe9f1",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-brand": {
+                "value": "#06d092",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-600": {
+                "value": "#007756",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-500": {
+                "value": "#008661",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-400": {
+                "value": "#22a870",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-300": {
+                "value": "#4cd099",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-200": {
+                "value": "#60dea9",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-100": {
+                "value": "#bff3dd",
+                "type": "color",
+                "group": "palette"
+            },
+            "nomad-50": {
+                "value": "#d3fdeb",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-brand": {
+                "value": "#02a8ef",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-600": {
+                "value": "#0071a1",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-500": {
+                "value": "#007eb4",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-400": {
+                "value": "#1d9ed7",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-300": {
+                "value": "#3cc1fb",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-200": {
+                "value": "#63d0ff",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-100": {
+                "value": "#b4e4ff",
+                "type": "color",
+                "group": "palette"
+            },
+            "packer-50": {
+                "value": "#d4f2ff",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-brand": {
+                "value": "#7b42bc",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-600": {
+                "value": "#5f219e",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-500": {
+                "value": "#773cb4",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-400": {
+                "value": "#844fba",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-300": {
+                "value": "#bb8deb",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-200": {
+                "value": "#d8b7fc",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-100": {
+                "value": "#ebdbfc",
+                "type": "color",
+                "group": "palette"
+            },
+            "terraform-50": {
+                "value": "#f4ecff",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-brand": {
+                "value": "#1868f2",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-600": {
+                "value": "#064abe",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-500": {
+                "value": "#1c61d8",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-400": {
+                "value": "#2e71e5",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-300": {
+                "value": "#639cff",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-200": {
+                "value": "#7dadff",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-100": {
+                "value": "#c7dbfc",
+                "type": "color",
+                "group": "palette"
+            },
+            "vagrant-50": {
+                "value": "#d6ebff",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-brand": {
+                "value": "#ffdd04",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-600": {
+                "value": "#8b6400",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-500": {
+                "value": "#9a6f00",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-400": {
+                "value": "#bb8e1a",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-300": {
+                "value": "#f5d712",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-200": {
+                "value": "#ffe543",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-100": {
+                "value": "#feec7b",
+                "type": "color",
+                "group": "palette"
+            },
+            "vault-50": {
+                "value": "#fff9cf",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-brand": {
+                "value": "#14c6cb",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-600": {
+                "value": "#007487",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-500": {
+                "value": "#008196",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-400": {
+                "value": "#22a4ac",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-300": {
+                "value": "#4fc9d1",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-200": {
+                "value": "#62d4dc",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-100": {
+                "value": "#cbf1f3",
+                "type": "color",
+                "group": "palette"
+            },
+            "waypoint-50": {
+                "value": "#e0fcff",
+                "type": "color",
+                "group": "palette"
+            }
+        }
+    }
+}
