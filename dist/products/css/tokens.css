@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 22 Nov 2021 15:26:39 GMT
+ * Generated on Mon, 22 Nov 2021 15:29:09 GMT
  */
 
 :root {
@@ -134,26 +134,31 @@
   --token-color-palette-neutral-100: #f1f2f3;
   --token-color-palette-neutral-50: #fafafa;
   --token-color-palette-neutral-0: #ffffff;
+  --token-color-palette-blue-500: #1c345f;
   --token-color-palette-blue-400: #0046d1;
   --token-color-palette-blue-300: #0c56e9;
   --token-color-palette-blue-200: #1f69ff;
   --token-color-palette-blue-100: #cce3fe;
   --token-color-palette-blue-50: #f2f8ff;
+  --token-color-palette-purple-500: #42215b;
   --token-color-palette-purple-400: #7b00db;
   --token-color-palette-purple-300: #911ced;
   --token-color-palette-purple-200: #a737ff;
   --token-color-palette-purple-100: #ead2fe;
   --token-color-palette-purple-50: #f9f2ff;
+  --token-color-palette-green-500: #054220;
   --token-color-palette-green-400: #006619;
   --token-color-palette-green-300: #00781e;
   --token-color-palette-green-200: #008a22;
   --token-color-palette-green-100: #cceeda;
   --token-color-palette-green-50: #f2fbf6;
+  --token-color-palette-amber-500: #542800;
   --token-color-palette-amber-400: #803d00;
   --token-color-palette-amber-300: #9e4b00;
   --token-color-palette-amber-200: #bb5a00;
   --token-color-palette-amber-100: #fbeabf;
   --token-color-palette-amber-50: #fff9e8;
+  --token-color-palette-red-500: #51130a;
   --token-color-palette-red-400: #940004;
   --token-color-palette-red-300: #c00005;
   --token-color-palette-red-200: #e52228;
@@ -170,6 +175,7 @@
   --token-color-neutral-border-strong: #3b3d4566;
   --token-color-action-foreground-primary: #1f69ff;
   --token-color-action-foreground-on-faint: #0c56e9;
+  --token-color-action-foreground-high-contrast: #1c345f;
   --token-color-action-background-primary: #1f69ff;
   --token-color-action-background-hover: #0c56e9;
   --token-color-action-background-active: #0046d1;
@@ -180,6 +186,7 @@
   --token-color-action-border-on-faint: #cce3fe;
   --token-color-highlight-foreground-primary: #a737ff;
   --token-color-highlight-foreground-on-faint: #911ced;
+  --token-color-highlight-foreground-high-contrast: #42215b;
   --token-color-highlight-background-primary: #a737ff;
   --token-color-highlight-background-hover: #911ced;
   --token-color-highlight-background-active: #7b00db;
@@ -190,6 +197,7 @@
   --token-color-highlight-border-on-faint: #ead2fe;
   --token-color-success-foreground-primary: #008a22;
   --token-color-success-foreground-on-faint: #00781e;
+  --token-color-success-foreground-high-contrast: #054220;
   --token-color-success-background-primary: #008a22;
   --token-color-success-background-hover: #00781e;
   --token-color-success-background-active: #006619;
@@ -200,6 +208,7 @@
   --token-color-success-border-on-faint: #cceeda;
   --token-color-warning-foreground-primary: #bb5a00;
   --token-color-warning-foreground-on-faint: #9e4b00;
+  --token-color-warning-foreground-high-contrast: #542800;
   --token-color-warning-background-primary: #bb5a00;
   --token-color-warning-background-hover: #9e4b00;
   --token-color-warning-background-active: #803d00;
@@ -210,6 +219,7 @@
   --token-color-warning-border-on-faint: #fbeabf;
   --token-color-critical-foreground-primary: #e52228;
   --token-color-critical-foreground-on-faint: #c00005;
+  --token-color-critical-foreground-high-contrast: #51130a;
   --token-color-critical-background-primary: #e52228;
   --token-color-critical-background-hover: #c00005;
   --token-color-critical-background-active: #940004;
