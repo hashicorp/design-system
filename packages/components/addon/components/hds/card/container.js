@@ -22,7 +22,7 @@ export default class HdsCardContainerComponent extends Component {
 
     if (level) {
       assert(
-        `@level for "HdsCardContainerComponent" must be one of the following: ${LEVELS.join(
+        `@level for "Hds::CardContainer" must be one of the following: ${LEVELS.join(
           ', '
         )}, received: ${level}`,
         LEVELS.includes(level)
@@ -54,7 +54,7 @@ export default class HdsCardContainerComponent extends Component {
 
     if (background) {
       assert(
-        `@background for HdsCardContainerComponent must be one of the following: ${BACKGROUNDS.join(
+        `@background for "Hds::CardContainer" must be one of the following: ${BACKGROUNDS.join(
           ', '
         )}, received: ${background}`,
         BACKGROUNDS.includes(background)
@@ -95,7 +95,7 @@ export default class HdsCardContainerComponent extends Component {
 
     if (overflow) {
       assert(
-        `@overflow for HdsCardContainerComponent must be one of the following: ${OVERFLOWS.join(
+        `@overflow for "Hds::CardContainer" must be one of the following: ${OVERFLOWS.join(
           ', '
         )}, received: ${overflow}`,
         OVERFLOWS.includes(overflow)
