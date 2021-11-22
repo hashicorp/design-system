@@ -91,37 +91,37 @@ $size-props: (
 
 .hds-badge--color-neutral {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-neutral-neutral-100);
-    color: var(--token-color-neutral-neutral-600);
+    background-color: var(--token-color-palette-neutral-100);
+    color: var(--token-color-palette-neutral-600);
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-neutral-neutral-500);
-    color: var(--token-color-neutral-neutral-0);
+    background-color: var(--token-color-palette-neutral-500);
+    color: var(--token-color-palette-neutral-0);
   }
 
   &.hds-badge--type-outlined {
     background-color: transparent;
     border-color: currentColor;
-    color: var(--token-color-neutral-neutral-500);;
+    color: var(--token-color-palette-neutral-500);;
   }
 }
 
 .hds-badge--color-neutral-dark-mode {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-neutral-neutral-500);
-    color: var(--token-color-neutral-neutral-0);
+    background-color: var(--token-color-palette-neutral-500);
+    color: var(--token-color-palette-neutral-0);
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-neutral-neutral-50);
-    color: var(--token-color-neutral-neutral-600);
+    background-color: var(--token-color-palette-neutral-50);
+    color: var(--token-color-palette-neutral-600);
   }
 
   &.hds-badge--type-outlined {
     background-color: transparent;
     border-color: currentColor;
-    color: var(--token-color-neutral-neutral-0);;
+    color: var(--token-color-palette-neutral-0);;
   }
 }
 
@@ -134,7 +134,7 @@ $size-props: (
 
     &.hds-badge--type-inverted {
       background-color: var(--token-color-#{$color}-background-primary);
-      color: var(--token-color-neutral-neutral-0);
+      color: var(--token-color-palette-neutral-0);
     }
 
     &.hds-badge--type-outlined {
