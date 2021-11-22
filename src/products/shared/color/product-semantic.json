@@ -36,10 +36,10 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.boundary-50.value}",
-                        "alpha": 0.25,
+                        "value": "#fffafa",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'boundary-50' value at 25% opacity on white"
                     },
                     "stop": {
                         "value": "{color.palette.boundary-50.value}",
@@ -85,13 +85,13 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.consul-300.value}",
-                        "alpha": 0.25,
+                        "value": "#fff9fb",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'consul-50' value at 25% opacity on white"
                     },
                     "stop": {
-                        "value": "{color.palette.consul-400.value}",
+                        "value": "{color.palette.consul-50.value}",
                         "type": "color",
                         "group": "branding"
                     }
@@ -134,10 +134,10 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.nomad-50.value}",
-                        "alpha": 0.25,
+                        "value": "#f3fff9",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'nomad-50' value at 25% opacity on white"
                     },
                     "stop": {
                         "value": "{color.palette.nomad-50.value}",
@@ -183,10 +183,10 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.packer-50.value}",
-                        "alpha": 0.25,
+                        "value": "#F3FCFF",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'packer-50' value at 25% opacity on white"
                     },
                     "stop": {
                         "value": "{color.palette.packer-50.value}",
@@ -232,10 +232,10 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.terraform-50.value}",
-                        "alpha": 0.25,
+                        "value": "#fcfaff",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'terraform-50' value at 25% opacity on white"
                     },
                     "stop": {
                         "value": "{color.palette.terraform-50.value}",
@@ -281,10 +281,10 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.vagrant-50.value}",
-                        "alpha": 0.25,
+                        "value": "#f4faff",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'vagrant-50' value at 25% opacity on white"
                     },
                     "stop": {
                         "value": "{color.palette.vagrant-50.value}",
@@ -330,10 +330,10 @@
                 },
                 "faint": {
                     "start": {
-                        "value": "{color.palette.waypoint-50.value}",
-                        "alpha": 0.25,
+                        "value": "#f6feff",
                         "type": "color",
-                        "group": "branding"
+                        "group": "branding",
+                        "comment": "this is the 'waypoint-50' value at 25% opacity on white"
                     },
                     "stop": {
                         "value": "{color.palette.waypoint-50.value}",
