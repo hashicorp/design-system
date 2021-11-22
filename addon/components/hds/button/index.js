@@ -1,4 +1,12 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+
+const DEFAULT_SIZE = 'medium';
+const DEFAULT_COLOR = 'primary';
+const DEFAULT_TYPE = 'button';
+const SIZES = ['small', 'medium', 'large'];
+const TYPES = ['button', 'submit', 'reset'];
+const COLORS = ['primary', 'secondary', 'critical', 'ghost'];
 
 export default class HdsButtonIndexComponent extends Component {
   /**
@@ -15,9 +23,13 @@ export default class HdsButtonIndexComponent extends Component {
    * @param text
    * @type {string}
    * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`
-   * @todo throw an error if no text is defined
    */
   get text() {
+    let text = '';
+
+    if (text) {
+      assert(`@text must not be an empty string`);
+    }
     return this.args.text;
   }
 
@@ -26,10 +38,20 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default medium
    * @description The size of the button; acceptable values are `small`, `medium`, and `large`
-   * @todo throw an error if a size other than the acceptable values are used
    */
   get size() {
-    return this.args.size ?? 'medium';
+    let { size = DEFAULT_SIZE } = this.args;
+
+    if (size) {
+      assert(
+        `@size for ${this.toString()} must be one of the following: ${SIZES.join(
+          ', '
+        )}, received: ${size}`,
+        SIZES.includes(size)
+      );
+    }
+
+    return size;
   }
 
   /**
@@ -47,10 +69,20 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default primary
    * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, `destructive`, and `ghost`
-   * @todo throw an error if the allowed values are not used
    */
   get color() {
-    return this.args.color ?? 'primary';
+    let { color = DEFAULT_COLOR } = this.args;
+
+    if (color) {
+      assert(
+        `@color for ${this.toString()} must be one of the following: ${COLORS.join(
+          ', '
+        )}, received: ${color}`,
+        COLORS.includes(color)
+      );
+    }
+
+    return color;
   }
 
   /**
@@ -78,7 +110,6 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default leading
    * @description Allows the user to set the position of the icon before or after the text; allowed values are `leading` or `trailing`
-   * @todo make sure that an icon is also defined
    */
   get iconPos() {
     return this.args.iconPos ?? 'leading';
@@ -103,9 +134,19 @@ export default class HdsButtonIndexComponent extends Component {
    * @type {string}
    * @default button
    * @description The value for the button's `type` attribute. Acceptable values are `button`, `submit`, and `reset`
-   * @todo throw an error if the allowed values are not used
    */
   get type() {
-    return this.args.type ?? 'button';
+    let { type = DEFAULT_TYPE } = this.args;
+
+    if (type) {
+      assert(
+        `@type for ${this.toString()} must be one of the following: ${TYPES.join(
+          ', '
+        )}, received: ${type}`,
+        TYPES.includes(type)
+      );
+    }
+
+    return type;
   }
 }
