@@ -2,14 +2,15 @@
 
 .dummy-component-props {
     font-family: monaco, Consolas, "Lucida Console", monospace;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.2;
+    max-width: 64rem;
 
     dt {
         color: #1F69FF;
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 700;
-        margin: 1.25rem 0 0.25rem 0;
+        margin: 1.25rem 0 0.5rem 0;
 
         code {
             color: #999;
@@ -18,9 +19,8 @@
     }
 
     dd {
-        align-items: flex-start;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 0.5rem;
         margin: 0;
         padding: 0;
