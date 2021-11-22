@@ -58,6 +58,11 @@
                     "value": "{color.palette.blue-300.value}",
                     "type": "color",
                     "group": "action"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.blue-500.value}",
+                    "type": "color",
+                    "group": "action"
                 }
             },
             "background": {
@@ -116,6 +121,11 @@
                     "value": "{color.palette.purple-300.value}",
                     "type": "color",
                     "group": "highlight"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.purple-500.value}",
+                    "type": "color",
+                    "group": "action"
                 }
             },
             "background": {
@@ -174,6 +184,11 @@
                     "value": "{color.palette.green-300.value}",
                     "type": "color",
                     "group": "success"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.green-500.value}",
+                    "type": "color",
+                    "group": "action"
                 }
             },
             "background": {
@@ -232,6 +247,11 @@
                     "value": "{color.palette.amber-300.value}",
                     "type": "color",
                     "group": "warning"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.amber-500.value}",
+                    "type": "color",
+                    "group": "action"
                 }
             },
             "background": {
@@ -290,6 +310,11 @@
                     "value": "{color.palette.red-300.value}",
                     "type": "color",
                     "group": "critical"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.red-500.value}",
+                    "type": "color",
+                    "group": "action"
                 }
             },
             "background": {
