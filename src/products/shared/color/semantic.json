@@ -1,50 +1,59 @@
 {
     "color": {
         "neutral": {
-            "neutral-700": {
-                "value": "{color.palette.neutral-700.value}",
-                "type": "color",
-                "group": "neutral"
+            "foreground": {
+                "primary": {
+                    "value": "{color.palette.neutral-700.value}",
+                    "type": "color",
+                    "group": "action"
+                },
+                "secondary": {
+                    "value": "{color.palette.neutral-600.value}",
+                    "type": "color",
+                    "group": "action"
+                },
+                "faint": {
+                    "value": "{color.palette.neutral-500.value}",
+                    "type": "color",
+                    "group": "action"
+                }
             },
-            "neutral-600": {
-                "value": "{color.palette.neutral-600.value}",
-                "type": "color",
-                "group": "neutral"
+            "background": {
+                "primary": {
+                    "value": "{color.palette.neutral-0.value}",
+                    "type": "color",
+                    "group": "action"
+                },
+                "secondary": {
+                    "value": "{color.palette.neutral-50.value}",
+                    "type": "color",
+                    "group": "action"
+                },
+                "base": {
+                    "value": "{color.palette.neutral-0.value}",
+                    "type": "color",
+                    "group": "action"
+                }
             },
-            "neutral-500": {
-                "value": "{color.palette.neutral-500.value}",
-                "type": "color",
-                "group": "neutral"
-            },
-            "neutral-400": {
-                "value": "{color.palette.neutral-400.value}",
-                "type": "color",
-                "group": "neutral"
-            },
-            "neutral-300": {
-                "value": "{color.palette.neutral-300.value}",
-                "type": "color",
-                "group": "neutral"
-            },
-            "neutral-200": {
-                "value": "{color.palette.neutral-200.value}",
-                "type": "color",
-                "group": "neutral"
-            },
-            "neutral-100": {
-                "value": "{color.palette.neutral-100.value}",
-                "type": "color",
-                "group": "neutral"
-            },
-            "neutral-50": {
-                "value": "{color.palette.neutral-50.value}",
-                "type": "color",
-                "group": "neutral"
-            },
-            "neutral-0": {
-                "value": "{color.palette.neutral-0.value}",
-                "type": "color",
-                "group": "neutral"
+            "border": {
+                "primary": {
+                    "value": "{color.palette.neutral-500.value}",
+                    "alpha": "0.2",
+                    "type": "color",
+                    "group": "action"
+                },
+                "subtle": {
+                    "value": "{color.palette.neutral-500.value}",
+                    "alpha": "0.1",
+                    "type": "color",
+                    "group": "action"
+                },
+                "strong": {
+                    "value": "{color.palette.neutral-600.value}",
+                    "alpha": "0.4",
+                    "type": "color",
+                    "group": "action"
+                }
             }
         },
         "action": {
