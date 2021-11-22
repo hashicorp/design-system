@@ -1,10 +1,66 @@
 /**
  * Do not edit directly
- * Generated on Mon, 22 Nov 2021 15:16:49 GMT
+ * Generated on Mon, 22 Nov 2021 15:26:39 GMT
  */
 
 :root {
   --token-base-border-radius: 10px; /* this is a sample value in global */
+  --token-color-boundary-brand: #f24c53;
+  --token-color-boundary-foreground: #db363b;
+  --token-color-boundary-background: #ffecec;
+  --token-color-boundary-border: #fbd7d8;
+  --token-color-boundary-gradient-primary-start: #f97076;
+  --token-color-boundary-gradient-primary-stop: #db363b;
+  --token-color-boundary-gradient-faint-start: #ffecec40;
+  --token-color-boundary-gradient-faint-stop: #ffecec;
+  --token-color-consul-brand: #e03875;
+  --token-color-consul-foreground: #da306e;
+  --token-color-consul-background: #ffe9f1;
+  --token-color-consul-border: #ffcede;
+  --token-color-consul-gradient-primary-start: #ffcede;
+  --token-color-consul-gradient-primary-stop: #ffbbd4;
+  --token-color-consul-gradient-faint-start: #ff99be40;
+  --token-color-consul-gradient-faint-stop: #da306e;
+  --token-color-nomad-brand: #06d092;
+  --token-color-nomad-foreground: #4cd099;
+  --token-color-nomad-background: #d3fdeb;
+  --token-color-nomad-border: #bff3dd;
+  --token-color-nomad-gradient-primary-start: #bff3dd;
+  --token-color-nomad-gradient-primary-stop: #60dea9;
+  --token-color-nomad-gradient-faint-start: #d3fdeb40;
+  --token-color-nomad-gradient-faint-stop: #d3fdeb;
+  --token-color-packer-brand: #02a8ef;
+  --token-color-packer-foreground: #3cc1fb;
+  --token-color-packer-background: #d4f2ff;
+  --token-color-packer-border: #b4e4ff;
+  --token-color-packer-gradient-primary-start: #b4e4ff;
+  --token-color-packer-gradient-primary-stop: #63d0ff;
+  --token-color-packer-gradient-faint-start: #d4f2ff40;
+  --token-color-packer-gradient-faint-stop: #d4f2ff;
+  --token-color-terraform-brand: #7b42bc;
+  --token-color-terraform-foreground: #844fba;
+  --token-color-terraform-background: #f4ecff;
+  --token-color-terraform-border: #ebdbfc;
+  --token-color-terraform-gradient-primary-start: #bb8deb;
+  --token-color-terraform-gradient-primary-stop: #844fba;
+  --token-color-terraform-gradient-faint-start: #f4ecff40;
+  --token-color-terraform-gradient-faint-stop: #f4ecff;
+  --token-color-vagrant-brand: #1868f2;
+  --token-color-vagrant-foreground: #639cff;
+  --token-color-vagrant-background: #d6ebff;
+  --token-color-vagrant-border: #c7dbfc;
+  --token-color-vagrant-gradient-primary-start: #c7dbfc;
+  --token-color-vagrant-gradient-primary-stop: #7dadff;
+  --token-color-vagrant-gradient-faint-start: #d6ebff40;
+  --token-color-vagrant-gradient-faint-stop: #d6ebff;
+  --token-color-waypoint-brand: #14c6cb;
+  --token-color-waypoint-foreground: #4fc9d1;
+  --token-color-waypoint-background: #e0fcff;
+  --token-color-waypoint-border: #cbf1f3;
+  --token-color-waypoint-gradient-primary-start: #cbf1f3;
+  --token-color-waypoint-gradient-primary-stop: #62d4dc;
+  --token-color-waypoint-gradient-faint-start: #e0fcff40;
+  --token-color-waypoint-gradient-faint-stop: #e0fcff;
   --token-color-palette-boundary-brand: #f24c53;
   --token-color-palette-boundary-600: #b21e23;
   --token-color-palette-boundary-500: #cf2d32;
