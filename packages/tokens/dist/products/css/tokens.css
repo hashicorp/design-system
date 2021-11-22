@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 18 Nov 2021 17:13:19 GMT
+ * Generated on Mon, 22 Nov 2021 11:53:31 GMT
  */
 
 :root {
@@ -54,13 +54,13 @@
   --token-color-warning-border-on-primary: #9e4b00;
   --token-color-warning-border-on-hover: #803d00;
   --token-color-warning-border-on-faint: #fbeabf;
-  --token-color-critical-foreground-primary: #ec0006;
+  --token-color-critical-foreground-primary: #e52228;
   --token-color-critical-foreground-on-faint: #c00005;
-  --token-color-critical-background-primary: #ec0006;
+  --token-color-critical-background-primary: #e52228;
   --token-color-critical-background-hover: #c00005;
   --token-color-critical-background-active: #940004;
   --token-color-critical-background-faint: #fff5f5;
-  --token-color-critical-border-primary: #ec0006;
+  --token-color-critical-border-primary: #e52228;
   --token-color-critical-border-on-primary: #c00005;
   --token-color-critical-border-on-hover: #940004;
   --token-color-critical-border-on-faint: #fbd4d4;
@@ -95,7 +95,7 @@
   --token-color-palette-amber-50: #fff9e8;
   --token-color-palette-red-400: #940004;
   --token-color-palette-red-300: #c00005;
-  --token-color-palette-red-200: #ec0006;
+  --token-color-palette-red-200: #e52228;
   --token-color-palette-red-100: #fbd4d4;
   --token-color-palette-red-50: #fff5f5;
   --token-elevation-inset-shadow-01-x: 0px;
