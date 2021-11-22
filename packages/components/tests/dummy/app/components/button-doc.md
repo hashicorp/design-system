@@ -38,11 +38,11 @@ Renders to:
 If you would like to create an icon-only button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `button` element.
 
 ```hbs
-<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @isIconOnly=true />
+<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />
 ```
 
 Renders to:
-<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @isIconOnly=true />
+<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />
 
 ### Color
 
@@ -82,6 +82,28 @@ This is the native button attribute, `type`. There are three possible values: bu
 ```hbs
 <Hds::Button @text="Submit" @type="submit" />
 ```
+
+### Disabled Buttons
+
+This is the native button attribute, `disabled`. To use this attribute, set `@isDisabled` to `true`. The default is null, which means that the attribute will not render at all in the DOM.
+
+```hbs
+<Hds::Button @text="Copy to Clipboard" @isDisabled=true />
+```
+
+Renders to:
+<Hds::Button @text="Copy to Clipboard" @isDisabled=true />
+
+### Full-width Buttons
+
+This allows indication that a button should take up the full-width of the parent container. It is set to false by default.
+
+```hbs
+<Hds::Button @text="Copy to Clipboard" @isFullWidth={{true}} />
+```
+
+Renders to:
+<Hds::Button @text="Copy to Clipboard" @isFullWidth={{true}} />
 
 ### Actions
 

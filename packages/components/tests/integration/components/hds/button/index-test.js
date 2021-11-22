@@ -30,8 +30,20 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly=true />`
+      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />`
     );
     assert.dom('button').hasAria('label', 'copy to clipboard');
+  });
+  test('it should add the `disabled` attribute to the button if `@isDisabled` is set to true', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @isDisabled=true />`
+    );
+    assert.dom('button').hasAttribute('disabled');
+  });
+  test('it should add a CSS class to support full-width button size if `isFullWidth` is set to true', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @isFullWidth={{true}} />`
+    );
+    assert.dom('button').hasClass('hds-button__width-full');
   });
 });
