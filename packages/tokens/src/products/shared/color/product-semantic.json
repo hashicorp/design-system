@@ -73,12 +73,12 @@
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.consul-100.value}",
+                        "value": "{color.palette.consul-300.value}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.consul-200.value}",
+                        "value": "{color.palette.consul-400.value}",
                         "type": "color",
                         "group": "branding"
                     }
