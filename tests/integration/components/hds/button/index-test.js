@@ -44,6 +44,6 @@ module('Integration | Component | hds/button/index', function (hooks) {
     await render(
       hbs`<Hds::Button @text="copy to clipboard" @isFullWidth={{true}} />`
     );
-    assert.dom('button').hasClass('hds-button__width-full');
+    assert.dom('button').hasClass('hds-button--width-full');
   });
 });
