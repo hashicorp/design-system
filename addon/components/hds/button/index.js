@@ -6,7 +6,7 @@ const DEFAULT_COLOR = 'primary';
 const DEFAULT_TYPE = 'button';
 const SIZES = ['small', 'medium', 'large'];
 const TYPES = ['button', 'submit', 'reset'];
-const COLORS = ['primary', 'secondary', 'critical', 'ghost'];
+const COLORS = ['primary', 'secondary', 'destructive', 'ghost'];
 
 export default class HdsButtonIndexComponent extends Component {
   /**
@@ -148,5 +148,25 @@ export default class HdsButtonIndexComponent extends Component {
     }
 
     return type;
+  }
+
+  /**
+   * @param isFullWidth
+   * @type {boolean}
+   * @default false
+   * @description Indicates that a button should take up the full width of the parent container. The default is false.
+   */
+  get isFullWidth() {
+    return this.args.isFullWidth ?? false;
+  }
+
+  /**
+   * @param isDisabled
+   * @type {boolean}
+   * @default null
+   * @description Sets the native HTML attribute `disabled` on the button element. Default is null (doesn't render the attribute).
+   */
+  get isDisabled() {
+    return this.args.isDisabled ?? null;
   }
 }

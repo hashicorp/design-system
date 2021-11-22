@@ -1,8 +1,9 @@
 <button 
-  class="hds-button {{this.sizeClass}} {{this.colorClass}}"
+  class="hds-button {{this.sizeClass}} {{this.colorClass}} {{if this.isFullWidth "hds-button__width-full"}}"
   ...attributes
   aria-label={{if this.isIconOnly @text null}} 
   type={{this.type}}
+  disabled={{if this.isDisabled "disabled" null}}
 >
   {{#if this.isIconOnly}}
     <div class="hds-button__icon">
