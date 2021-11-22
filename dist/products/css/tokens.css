@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 22 Nov 2021 19:12:38 GMT
+ * Generated on Mon, 22 Nov 2021 20:06:37 GMT
  */
 
 :root {
@@ -43,70 +43,6 @@
   --token-color-palette-neutral-100: #f1f2f3;
   --token-color-palette-neutral-50: #fafafa;
   --token-color-palette-neutral-0: #ffffff;
-  --token-color-palette-boundary-brand: #f24c53;
-  --token-color-palette-boundary-600: #b21e23;
-  --token-color-palette-boundary-500: #cf2d32;
-  --token-color-palette-boundary-400: #db363b;
-  --token-color-palette-boundary-300: #f97076;
-  --token-color-palette-boundary-200: #ff9da2;
-  --token-color-palette-boundary-100: #fbd7d8;
-  --token-color-palette-boundary-50: #ffecec;
-  --token-color-palette-consul-brand: #e03875;
-  --token-color-palette-consul-600: #b10743;
-  --token-color-palette-consul-500: #d01c5b;
-  --token-color-palette-consul-400: #da306e;
-  --token-color-palette-consul-300: #ff99be;
-  --token-color-palette-consul-200: #ffbbd4;
-  --token-color-palette-consul-100: #ffcede;
-  --token-color-palette-consul-50: #ffe9f1;
-  --token-color-palette-nomad-brand: #06d092;
-  --token-color-palette-nomad-600: #007756;
-  --token-color-palette-nomad-500: #008661;
-  --token-color-palette-nomad-400: #22a870;
-  --token-color-palette-nomad-300: #4cd099;
-  --token-color-palette-nomad-200: #60dea9;
-  --token-color-palette-nomad-100: #bff3dd;
-  --token-color-palette-nomad-50: #d3fdeb;
-  --token-color-palette-packer-brand: #02a8ef;
-  --token-color-palette-packer-600: #0071a1;
-  --token-color-palette-packer-500: #007eb4;
-  --token-color-palette-packer-400: #1d9ed7;
-  --token-color-palette-packer-300: #3cc1fb;
-  --token-color-palette-packer-200: #63d0ff;
-  --token-color-palette-packer-100: #b4e4ff;
-  --token-color-palette-packer-50: #d4f2ff;
-  --token-color-palette-terraform-brand: #7b42bc;
-  --token-color-palette-terraform-600: #5f219e;
-  --token-color-palette-terraform-500: #773cb4;
-  --token-color-palette-terraform-400: #844fba;
-  --token-color-palette-terraform-300: #bb8deb;
-  --token-color-palette-terraform-200: #d8b7fc;
-  --token-color-palette-terraform-100: #ebdbfc;
-  --token-color-palette-terraform-50: #f4ecff;
-  --token-color-palette-vagrant-brand: #1868f2;
-  --token-color-palette-vagrant-600: #064abe;
-  --token-color-palette-vagrant-500: #1c61d8;
-  --token-color-palette-vagrant-400: #2e71e5;
-  --token-color-palette-vagrant-300: #639cff;
-  --token-color-palette-vagrant-200: #7dadff;
-  --token-color-palette-vagrant-100: #c7dbfc;
-  --token-color-palette-vagrant-50: #d6ebff;
-  --token-color-palette-vault-brand: #ffdd04;
-  --token-color-palette-vault-600: #8b6400;
-  --token-color-palette-vault-500: #9a6f00;
-  --token-color-palette-vault-400: #bb8e1a;
-  --token-color-palette-vault-300: #f5d712;
-  --token-color-palette-vault-200: #ffe543;
-  --token-color-palette-vault-100: #feec7b;
-  --token-color-palette-vault-50: #fff9cf;
-  --token-color-palette-waypoint-brand: #14c6cb;
-  --token-color-palette-waypoint-600: #007487;
-  --token-color-palette-waypoint-500: #008196;
-  --token-color-palette-waypoint-400: #22a4ac;
-  --token-color-palette-waypoint-300: #4fc9d1;
-  --token-color-palette-waypoint-200: #62d4dc;
-  --token-color-palette-waypoint-100: #cbf1f3;
-  --token-color-palette-waypoint-50: #e0fcff;
   --token-color-action-foreground-primary: #1f69ff;
   --token-color-action-foreground-on-faint: #0c56e9;
   --token-color-action-foreground-high-contrast: #1c345f;
