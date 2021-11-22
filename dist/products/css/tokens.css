@@ -1,19 +1,19 @@
 /**
  * Do not edit directly
- * Generated on Mon, 22 Nov 2021 12:01:33 GMT
+ * Generated on Mon, 22 Nov 2021 14:10:44 GMT
  */
 
 :root {
   --token-base-border-radius: 10px; /* this is a sample value in global */
-  --token-color-neutral-neutral-700: #0c0c0e;
-  --token-color-neutral-neutral-600: #3b3d45;
-  --token-color-neutral-neutral-500: #656a76;
-  --token-color-neutral-neutral-400: #8c909c;
-  --token-color-neutral-neutral-300: #c2c5cb;
-  --token-color-neutral-neutral-200: #dedfe3;
-  --token-color-neutral-neutral-100: #f1f2f3;
-  --token-color-neutral-neutral-50: #fafafa;
-  --token-color-neutral-neutral-0: #ffffff;
+  --token-color-neutral-foreground-primary: #0c0c0e;
+  --token-color-neutral-foreground-secondary: #3b3d45;
+  --token-color-neutral-foreground-faint: #656a76;
+  --token-color-neutral-background-primary: #ffffff;
+  --token-color-neutral-background-secondary: #fafafa;
+  --token-color-neutral-background-base: #ffffff;
+  --token-color-neutral-border-primary: #656a7633;
+  --token-color-neutral-border-subtle: #656a761a;
+  --token-color-neutral-border-strong: #3b3d4566;
   --token-color-action-foreground-primary: #1f69ff;
   --token-color-action-foreground-on-faint: #0c56e9;
   --token-color-action-foreground-high-contrast: #1c345f;
@@ -58,14 +58,14 @@
   --token-color-warning-border-on-primary: #9e4b00;
   --token-color-warning-border-on-hover: #803d00;
   --token-color-warning-border-on-faint: #fbeabf;
-  --token-color-critical-foreground-primary: #ec0006;
+  --token-color-critical-foreground-primary: #e52228;
   --token-color-critical-foreground-on-faint: #c00005;
   --token-color-critical-foreground-high-contrast: #51130a;
-  --token-color-critical-background-primary: #ec0006;
+  --token-color-critical-background-primary: #e52228;
   --token-color-critical-background-hover: #c00005;
   --token-color-critical-background-active: #940004;
   --token-color-critical-background-faint: #fff5f5;
-  --token-color-critical-border-primary: #ec0006;
+  --token-color-critical-border-primary: #e52228;
   --token-color-critical-border-on-primary: #c00005;
   --token-color-critical-border-on-hover: #940004;
   --token-color-critical-border-on-faint: #fbd4d4;
@@ -105,7 +105,7 @@
   --token-color-palette-red-500: #51130a;
   --token-color-palette-red-400: #940004;
   --token-color-palette-red-300: #c00005;
-  --token-color-palette-red-200: #ec0006;
+  --token-color-palette-red-200: #e52228;
   --token-color-palette-red-100: #fbd4d4;
   --token-color-palette-red-50: #fff5f5;
   --token-elevation-inset-shadow-01-x: 0px;
