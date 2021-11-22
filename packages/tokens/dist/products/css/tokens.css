@@ -1,19 +1,19 @@
 /**
  * Do not edit directly
- * Generated on Thu, 18 Nov 2021 17:13:19 GMT
+ * Generated on Mon, 22 Nov 2021 12:23:08 GMT
  */
 
 :root {
   --token-base-border-radius: 10px; /* this is a sample value in global */
-  --token-color-neutral-neutral-700: #0c0c0e;
-  --token-color-neutral-neutral-600: #3b3d45;
-  --token-color-neutral-neutral-500: #656a76;
-  --token-color-neutral-neutral-400: #8c909c;
-  --token-color-neutral-neutral-300: #c2c5cb;
-  --token-color-neutral-neutral-200: #dedfe3;
-  --token-color-neutral-neutral-100: #f1f2f3;
-  --token-color-neutral-neutral-50: #fafafa;
-  --token-color-neutral-neutral-0: #ffffff;
+  --token-color-neutral-foreground-primary: #0c0c0e;
+  --token-color-neutral-foreground-secondary: #3b3d45;
+  --token-color-neutral-foreground-faint: #656a76;
+  --token-color-neutral-background-primary: #ffffff;
+  --token-color-neutral-background-secondary: #fafafa;
+  --token-color-neutral-background-base: #ffffff;
+  --token-color-neutral-border-primary: #656a7633;
+  --token-color-neutral-border-subtle: #656a761a;
+  --token-color-neutral-border-strong: #3b3d4566;
   --token-color-action-foreground-primary: #1f69ff;
   --token-color-action-foreground-on-faint: #0c56e9;
   --token-color-action-background-primary: #1f69ff;
