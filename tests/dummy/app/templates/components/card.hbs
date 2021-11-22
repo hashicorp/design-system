@@ -1,0 +1,134 @@
+{{page-title "Card"}}
+
+<h2 class="dummy-h2">Card Container</h2>
+
+<h3 class="dummy-h3">Showcase</h3>
+
+<h4 class="dummy-h4">Levels:</h4>
+<div class="dummy-card-base-sample">
+    {{#each @model.CONTAINER_LEVELS as |level|}}
+        <Hds::Card::Container @level={{level}}>
+            <DummyPlaceholder
+                @text={{level}}
+                @width="200"
+                @height="200"
+                @background="transparent"
+            />
+        </Hds::Card::Container>
+    {{/each}}
+</div>
+
+<h4 class="dummy-h4">Border:</h4>
+<div class="dummy-card-base-sample">
+    {{#each @model.CONTAINER_LEVELS as |level|}}
+        <Hds::Card::Container @level={{level}} @hasBorder={{true}}>
+            <DummyPlaceholder
+                @text={{level}}
+                @width="200"
+                @height="200"
+                @background="transparent"
+            />
+        </Hds::Card::Container>
+    {{/each}}
+</div>
+
+<h4 class="dummy-h4">Background:</h4>
+<div class="dummy-card-base-sample">
+    {{#each @model.CONTAINER_BACKGROUNDS as |background|}}
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} @background={{background}}>
+            <DummyPlaceholder
+                @text={{background}}
+                @width="200"
+                @height="200"
+                @background="transparent"
+            />
+        </Hds::Card::Container>
+    {{/each}}
+</div>
+
+<h4 class="dummy-h4">Overflow:</h4>
+<div class="dummy-card-base-sample">
+    <Hds::Card::Container @level="mid" @hasBorder={{true}}>
+        <div class="dummy-card-overflow__wrapper-relative">
+            <DummyPlaceholder
+                @text="hidden (default)"
+                @width="200"
+                @height="200"
+                @background="#e1f5fe"
+            />
+            <div class="dummy-card-overflow__content-absolute" />
+        </div>
+    </Hds::Card::Container>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} @overflow="visible">
+        <div class="dummy-card-overflow__wrapper-relative">
+            <DummyPlaceholder
+                @text="visible"
+                @width="200"
+                @height="200"
+                @background="#e1f5fe"
+            />
+            <div class="dummy-card-overflow__content-absolute" />
+        </div>
+    </Hds::Card::Container>
+</div>
+
+<h3 class="dummy-h3">Component API</h3>
+<p class="dummy-paragraph">Here is the API for the component:</p>
+<dl class="dummy-component-props">
+    <dt>level <code>enum</code></dt>
+    <dd>
+        <p>This controls the level of elevation ("shadow" visual effect). Acceptable values:</p>
+        <ol>
+            <li class="default">base</li>
+            <li>mid</li>
+            <li>hight</li>
+        </ol>
+        <p><em>Notice: <code>low</code> and <code>higher</code> are not correct values for this component (by design).</em></p>
+    </dd>
+    <dt>background <code>enum</code></dt>
+    <dd>
+        <p>This controls the background color. Acceptable values:</p>
+        <ol>
+            <li class="default">neutral-0</li>
+            <li>neutral-50</li>
+        </ol>
+        <p><em>Notice: later we may decide/need to add more colors, but for now we have found only these two use cases.</em></p>
+    </dd>
+    <dt>hasBorder <code>bool</code></dt>
+    <dd>
+        <p>This controls if the card has a visual "edge", an external border (technically is an extra 1px shadow on top of the other drop shadows).</p>
+        <p><em>Notice: the color of the border is pre-defined. If you need a custom border you have to wrap your content in an element and assign the border to it (in that case, remember to inherit the border radius).</em></p>
+    </dd>
+    <dt>overflow <code>enum</code></dt>
+    <dd>
+        <p>This controls if the main wrapper (who has a border-radius applied) has overflow = visible or hidden. We expect that this is needed in case part of the content (eg. a tooltip) needs to go beyond the bounding box of the card itself. Acceptable values:</p>
+        <ol>
+            <li class="default">hidden</li>
+            <li>visible</li>
+        </ol>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+        <p><code>...attributes</code> is supported on this component.</p>
+    </dd>
+</dl>
+
+<h3 class="dummy-h3">How to use</h3>
+<p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+{{!-- TODO! replace with proper syntax highlighting (use the same as in the Flight website) --}}
+<pre class="dummy-code-snippet">
+&lt;Hds::Card::Container
+    @level="mid"
+    @hasBorder="true"
+/&gt;
+    [your content here]
+&lt;/Hds::Card::Container/&gt;
+</pre>
+
+<h3 class="dummy-h3">Design guidelines</h3>
+<div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">In Progress</p>
+</div>
+
+<h3 class="dummy-h3">Accessibility</h3>
+<p class="dummy-paragraph"><strong>Important:</strong> by default the <em>Card Container</em> component has <code>@overflow="hidden"</code> applied to it. This means you may need to handle the case in which text is truncated, to make it accessible (even though, this is a very unlikely situation).</p>

@@ -18,7 +18,7 @@ export const COLORS = [
 export default class HdsBadgeIndexComponent extends Component {
   /**
    * Sets the size for the component
-   * Accepted sizes: small, medium, large
+   * Accepted values: small, medium, large
    *
    * @param size
    * @type {string}
@@ -29,7 +29,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
     if (size) {
       assert(
-        `@size for ${this.toString()} must be one of the following: ${SIZES.join(
+        `@size for "Hds::Badge" must be one of the following: ${SIZES.join(
           ', '
         )}, received: ${size}`,
         SIZES.includes(size)
@@ -61,7 +61,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
     if (type) {
       assert(
-        `@type for ${this.toString()} must be one of the following: ${TYPES.join(
+        `@type for "Hds::Badge" must be one of the following: ${TYPES.join(
           ', '
         )}, received: ${type}`,
         TYPES.includes(type)
@@ -82,7 +82,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Sets the color scheme for the component
-   * Accepted colors: neutral, neutral-dark-mode, highlight, success, warning, critical
+   * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
    * @param color
    * @type {string}
@@ -93,7 +93,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
     if (color) {
       assert(
-        `@color for ${this.toString()} must be one of the following: ${COLORS.join(
+        `@color for "Hds::Badge" must be one of the following: ${COLORS.join(
           ', '
         )}, received: ${color}`,
         COLORS.includes(color)

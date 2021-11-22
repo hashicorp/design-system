@@ -22,7 +22,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
 
     if (size) {
       assert(
-        `@size for ${this.toString()} must be one of the following: ${SIZES.join(
+        `@size for "Hds::BadgeCount" must be one of the following: ${SIZES.join(
           ', '
         )}, received: ${size}`,
         SIZES.includes(size)
@@ -54,7 +54,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
 
     if (type) {
       assert(
-        `@type for ${this.toString()} must be one of the following: ${TYPES.join(
+        `@type for "Hds::BadgeCount" must be one of the following: ${TYPES.join(
           ', '
         )}, received: ${type}`,
         TYPES.includes(type)
@@ -86,7 +86,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
 
     if (color) {
       assert(
-        `@color for ${this.toString()} must be one of the following: ${COLORS.join(
+        `@color for "Hds::BadgeCount" must be one of the following: ${COLORS.join(
           ', '
         )}, received: ${color}`,
         COLORS.includes(color)
