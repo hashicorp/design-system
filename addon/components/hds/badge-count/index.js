@@ -6,19 +6,12 @@ export const DEFAULT_TYPE = 'filled';
 export const DEFAULT_COLOR = 'neutral';
 export const SIZES = ['small', 'medium', 'large'];
 export const TYPES = ['filled', 'inverted', 'outlined'];
-export const COLORS = [
-  'neutral',
-  'neutral-dark-mode',
-  'highlight',
-  'success',
-  'warning',
-  'critical',
-];
+export const COLORS = ['neutral', 'neutral-dark-mode'];
 
-export default class HdsBadgeIndexComponent extends Component {
+export default class HdsBadgeCountIndexComponent extends Component {
   /**
    * Sets the size for the component
-   * Accepted values: small, medium, large
+   * Accepted sizes: small, medium, large
    *
    * @param size
    * @type {string}
@@ -29,7 +22,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
     if (size) {
       assert(
-        `@size for "Hds::Badge" must be one of the following: ${SIZES.join(
+        `@size for "Hds::BadgeCount" must be one of the following: ${SIZES.join(
           ', '
         )}, received: ${size}`,
         SIZES.includes(size)
@@ -41,11 +34,11 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Get a class to apply to the component based on the size argument.
-   * @method Badge#sizeClass
+   * @method BadgeCount#sizeClass
    * @return {string} The css class to apply to the component.
    */
   get sizeClass() {
-    return `hds-badge--size-${this.size}`;
+    return `hds-badge-count--size-${this.size}`;
   }
 
   /**
@@ -61,7 +54,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
     if (type) {
       assert(
-        `@type for "Hds::Badge" must be one of the following: ${TYPES.join(
+        `@type for "Hds::BadgeCount" must be one of the following: ${TYPES.join(
           ', '
         )}, received: ${type}`,
         TYPES.includes(type)
@@ -73,16 +66,16 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Get a class to apply to the component based on the type argument.
-   * @method Badge#typeClass
+   * @method BadgeCount#typeClass
    * @return {string} The css class to apply to the component.
    */
   get typeClass() {
-    return `hds-badge--type-${this.type}`;
+    return `hds-badge-count--type-${this.type}`;
   }
 
   /**
    * Sets the color scheme for the component
-   * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
+   * Accepted colors: neutral, neutral-dark-mode
    *
    * @param color
    * @type {string}
@@ -93,7 +86,7 @@ export default class HdsBadgeIndexComponent extends Component {
 
     if (color) {
       assert(
-        `@color for "Hds::Badge" must be one of the following: ${COLORS.join(
+        `@color for "Hds::BadgeCount" must be one of the following: ${COLORS.join(
           ', '
         )}, received: ${color}`,
         COLORS.includes(color)
@@ -105,21 +98,10 @@ export default class HdsBadgeIndexComponent extends Component {
 
   /**
    * Get a class to apply to the component based on the color argument.
-   * @method Badge#colorClass
+   * @method BadgeCount#colorClass
    * @return {string} The css class to apply to the component.
    */
   get colorClass() {
-    return `hds-badge--color-${this.color}`;
-  }
-
-  /**
-   * Sets the icon name if there is one
-   *
-   * @param icon
-   * @type {string|null}
-   * @default null
-   */
-  get icon() {
-    return this.args.icon ?? null;
+    return `hds-badge-count--color-${this.color}`;
   }
 }
