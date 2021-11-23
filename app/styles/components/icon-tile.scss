@@ -1,0 +1,78 @@
+/* IconTile Component
+ *
+ * classes are sorted the same way as the Figma properties
+ * properties within each class are sorted alphabetically
+ *
+ */
+
+ $hds-icon-tile-sizes: ( 'small', 'medium', 'large' );
+ $hds-icon-tile-types: ( 'object','resource','logo' );
+ $hds-icon-tile-colors-products: ( 'boundary', 'consul', 'nomad', 'packer', 'terraform', 'vagrant', 'vault', 'waypoint' );
+
+ $hds-icon-tile-border-width: 1px;
+
+
+.hds-icon-tile {
+  border-radius: 4px;
+  border: $hds-icon-tile-border-width solid transparent;
+  box-sizing: border-box;
+  display: flex;
+  box-shadow: 0 1 1 0 var(--token-color-palette-neutral-500);
+}
+
+.hds-icon-tile__icon,
+.hds-icon-tile__logo {
+  display: flex;
+  margin: auto;
+}
+
+// SIZE
+
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "size": 1.75rem,
+    "border-radius": 5px,
+    "icon-size": 1rem,
+    "logo-size": 1.25rem,
+  ),
+  "medium": (
+    "size": 2.5rem,
+    "border-radius": 6px,
+    "icon-size": 1.5rem,
+    "logo-size": 2rem,
+  ),
+  "large": (
+    "size": 3rem,
+    "border-radius": 6px,
+    "icon-size": 1.5rem,
+    "logo-size": 2.25rem,
+  )
+);
+
+@each $size in $hds-icon-tile-sizes {
+  .hds-icon-tile--size-#{$size} {
+    width: map-get($size-props, $size, "size");
+    height: map-get($size-props, $size, "size");
+    border-radius: map-get($size-props, $size, "border-radius");
+
+    .hds-icon-tile__icon {
+      height: map-get($size-props, $size, "icon-size");
+      width: map-get($size-props, $size, "icon-size");
+    }
+
+    .hds-icon-tile__logo {
+      height: map-get($size-props, $size, "logo-size");
+      width: map-get($size-props, $size, "logo-size");
+    }
+  }
+}
+
+
+// COLOR
+
+.hds-icon-tile--color-neutral {
+    background-color: var(--token-color-neutral-background-secondary);
+    border-color: var(--token-color-palette-neutral-200);
+    color: var(--token-color-neutral-foreground-faint);
+}

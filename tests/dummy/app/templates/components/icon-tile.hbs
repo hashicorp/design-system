@@ -1,0 +1,15 @@
+{{page-title "IconTile"}}
+
+<h2 class="dummy-h2">IconTile</h2>
+
+<h3 class="dummy-h3">Showcase</h3>
+
+<h4 class="dummy-h4">Size</h4>
+<div class="dummy-icon-tile-base-sample">
+    {{#each @model.SIZES as |size|}}
+        <Hds::IconTile @icon="activity" @size={{size}} />
+    {{/each}}
+    {{#each @model.SIZES as |size|}}
+        <Hds::IconTile @logo="boundary" @size={{size}} />
+    {{/each}}
+</div>

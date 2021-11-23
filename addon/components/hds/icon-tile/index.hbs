@@ -1,0 +1,41 @@
+<div class="hds-icon-tile {{this.sizeClass}} {{this.colorClass}}" ...attributes>
+  {{#if @icon}}
+    <div class="hds-icon-tile__icon">
+      {{!-- TODO! icon's @size depends on tile's size!! --}}
+      <FlightIcon @name={{this.icon}} @size="16" @stretched="true" />
+    </div>
+  {{/if}}
+  {{#if @logo}}
+      <div class="hds-icon-tile__logo">
+        <svg width="100%" height="100%" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {{!-- TODO! this will be replaced later with something else (TBD how we deliver these logos as design system) --}}
+          {{#if (eq this.logo 'boundary')}}
+            <path d="M44.83 125.83V117.56H62.01V112.45H53.68V104.13H93.01L74.74 72.49L93.01 40.84H52.7V84.73H31V19.15H105.67L118.13 40.73L99.8 72.49L118.5 104.89L106.41 125.83H44.83Z" fill="currentColor"/>
+            <path d="M48.1696 104.13H39.8496V112.45H48.1696V104.13Z" fill="currentColor"/>
+            <path d="M39.32 117.5H31V125.82H39.32V117.5Z" fill="currentColor"/>
+          {{/if}}
+          {{#if (eq this.logo 'consul')}}
+            {{!-- consul --}}
+          {{/if}}
+          {{#if (eq this.logo 'nomad')}}
+            {{!-- nomad --}}
+          {{/if}}
+          {{#if (eq this.logo 'packer')}}
+            {{!-- packer --}}
+          {{/if}}
+          {{#if (eq this.logo 'terraform')}}
+            {{!-- terraform --}}
+          {{/if}}
+          {{#if (eq this.logo 'vagrant')}}
+            {{!-- vagrant --}}
+          {{/if}}
+          {{#if (eq this.logo 'vault')}}
+            {{!-- vault --}}
+          {{/if}}
+          {{#if (eq this.logo 'waypoint')}}
+            {{!-- waypoint --}}
+          {{/if}}
+        </svg>
+      </div>
+  {{/if}}
+</div>
