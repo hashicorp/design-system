@@ -108,18 +108,18 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     color: var(--token-color-palette-neutral-400);
     cursor: not-allowed;
   }
-  &:focus,
-  &.is-focus {
-    background-color: var(--token-color-action-background-primary);
-    border-color: var(--token-color-action-border-focus);
-    color: var(--token-color-palette-neutral-0);
-  }
   &:hover,
   &.is-hover {
     background-color: var(--token-color-action-background-hover);
     border-color: var(--token-color-action-border-hover);
     color: var(--token-color-palette-neutral-0);
     cursor: pointer;
+  }
+  &:focus,
+  &.is-focus {
+    background-color: var(--token-color-action-background-primary);
+    border-color: var(--token-color-action-border-focus);
+    color: var(--token-color-palette-neutral-0);
   }
   &:active,
   &.is-active {
@@ -149,18 +149,18 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     color: var(--token-color-palette-neutral-400);
     cursor: not-allowed;
   }
-  &:focus,
-  &.is-focus {
-    background-color: var(--token-color-palette-neutral-50);
-    border-color: var(--token-color-action-border-on-primary);
-    color: var(--token-color-palette-neutral-600);
-  }
   &:hover,
   &.is-hover {
     background-color: var(--token-color-palette-neutral-0);
     border-color: $alpha-300;
     color: var(--token-color-palette-neutral-600);
     cursor: pointer;
+  }
+  &:focus,
+  &.is-focus {
+    background-color: var(--token-color-palette-neutral-50);
+    border-color: var(--token-color-action-border-on-primary);
+    color: var(--token-color-palette-neutral-600);
   }
   &:active, 
   &.is-active {
@@ -190,6 +190,13 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     color: var(--token-color-palette-neutral-400);
     cursor: not-allowed;
   }
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-critical-background-hover);
+    border-color: var(--token-color-critical-border-on-hover);
+    color: var(--token-color-palette-neutral-0);
+    cursor: pointer;
+  }
   &:focus,
   &.is-focus {
     background-color: var(--token-color-palette-neutral-50);
@@ -198,13 +205,6 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     &::before {
       border-color: #DD7578;
     }
-  }
-  &:hover,
-  &.is-hover {
-    background-color: var(--token-color-critical-background-hover);
-    border-color: var(--token-color-critical-border-on-hover);
-    color: var(--token-color-palette-neutral-0);
-    cursor: pointer;
   }
   &:active,
   &.is-active {
