@@ -5,7 +5,7 @@ export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_TYPE = 'button';
 export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'destructive', 'ghost'];
+export const COLORS = ['primary', 'secondary', 'destructive'];
 export const TYPES = ['button', 'submit', 'reset'];
 
 export default class HdsButtonIndexComponent extends Component {
