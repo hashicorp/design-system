@@ -70,6 +70,11 @@ $alpha-300: rgba(59, 61, 69, 0.4);
   height: 1rem;
   line-height: var(--token-typography-small-line-height);
   padding: 0.625rem 1rem;
+  
+  & .hds-button__icon {
+    height: 12px;
+    width: 12px;
+  }
 }
 .hds-button--size-medium {
   font-size: 0.875rem;
