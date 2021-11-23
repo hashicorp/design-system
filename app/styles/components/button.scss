@@ -85,7 +85,7 @@ $alpha-300: rgba(59, 61, 69, 0.4);
 }
 
 // COLORS & STATES
-// Note: the pseuo-selector order needs to stay the way it is or else it won't render correctly
+// Note: the order of the pseuo-selectors need to stay the way they are or else they won't render correctly
 
 .hds-button--color-primary {
   background-color: var(--token-color-action-background-primary);
@@ -138,8 +138,8 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     cursor: not-allowed;
   }
   &:focus {
-    background-color: var(--token-color-action-background-secondary);
-    border-color: var(--token-color-action-border-focus);
+    background-color: var(--token-color-neutral-neutral-50);
+    border-color: var(--token-color-action-border-on-primary);
     color: var(--token-color-neutral-neutral-600);
   }
   &:hover {
@@ -153,6 +153,45 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     border-color: $alpha-300;
     box-shadow: none;
     color: var(--token-color-neutral-neutral-600);
+    &::before {
+      border-color: transparent;
+    }
+  }
+}
+
+.hds-button--color-destructive {
+  background-color: var(--token-color-neutral-neutral-50);
+  border-color: $alpha-300;
+  color: var(--token-color-critical-foreground-on-faint);
+
+  &:disabled,
+  &[disabled],
+  &[disabled]:hover {
+    background-color: $alpha-200;
+    border-color: rgba(101, 106, 118, 0.2);
+    box-shadow: none;
+    color: var(--token-color-neutral-neutral-400);
+    cursor: not-allowed;
+  }
+  &:focus {
+    background-color: var(--token-color-neutral-neutral-50);
+    border-color: var(--token-color-critical-border-on-primary);
+    color: var(--token-color-critical-foreground-on-faint);
+    &::before {
+      border-color: #DD7578;
+    }
+  }
+  &:hover {
+    background-color: var(--token-color-critical-background-hover);
+    border-color: var(--token-color-critical-border-on-hover);
+    color: var(--token-color-neutral-neutral-0);
+    cursor: pointer;
+  }
+  &:active {
+    background-color: var(--token-color-critical-background-active);
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--token-color-neutral-neutral-0);
     &::before {
       border-color: transparent;
     }
