@@ -2,10 +2,10 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_LEVEL = 'base';
-export const DEFAULT_BACKGROUND = 'neutral-0';
+export const DEFAULT_BACKGROUND = 'neutral-primary';
 export const DEFAULT_OVERFLOW = 'hidden';
 export const LEVELS = ['base', 'mid', 'high'];
-export const BACKGROUNDS = ['neutral-0', 'neutral-50'];
+export const BACKGROUNDS = ['neutral-primary', 'neutral-secondary'];
 export const OVERFLOWS = ['hidden', 'visible'];
 
 export default class HdsCardContainerComponent extends Component {
@@ -43,7 +43,7 @@ export default class HdsCardContainerComponent extends Component {
 
   /**
    * Sets the background for the component
-   * Accepted values: neutral-0, neutral-50
+   * Accepted values: neutral-primary, neutral-secondary
    *
    * @param background
    * @type {string}

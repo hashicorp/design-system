@@ -56,7 +56,6 @@
 }
 
 $hds-card-container-levels: ( 'base', 'mid', 'high' );
-$hds-card-container-backgrounds: ( 'neutral-0', 'neutral-50' );
 
 $hds-card-container-border-radius: 6px;
 
@@ -78,13 +77,17 @@ $hds-card-container-border-radius: 6px;
   }
 }
 
+
 // BACKGROUND
 
-@each $background-color in $hds-card-container-backgrounds {
-  .hds-card__container--background-#{$background-color} {
-    background-color: var(--token-color-neutral-#{$background-color});
-  }
+.hds-card__container--background-neutral-primary {
+  background-color: var(--token-color-neutral-background-primary);
 }
+
+.hds-card__container--background-neutral-secondary {
+  background-color: var(--token-color-neutral-background-secondary);
+}
+
 
 // OVERFLOW
 
