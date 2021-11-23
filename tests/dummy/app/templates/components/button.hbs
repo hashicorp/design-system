@@ -37,14 +37,15 @@
     {{#each @model.COLORS as |color|}}
         {{#each @model.SIZES as |size|}}
             {{#each @model.STATES as |state|}}
-            <div>
-                <small>{{size}} {{state}}</small>: <br/>
+            <div class="dummy-text-small">
+                <small>{{size}}/{{color}}/{{state}}</small>: <br/>
                 <Hds::Button @icon="plus" @text={{state}} @size={{size}} @color={{color}} class="is-{{state}}" />
             </div>
             {{/each}}
         {{/each}}
         {{#each @model.STATES as |state|}}
-            <div>
+            <div class="dummy-text-small">
+                 <small>Full-width {{color}}/{{state}}</small>: <br/>
                 <Hds::Button @icon="plus" @text={{state}} @color={{color}} @isFullWidth={{true}} class="is-{{state}}" />
             </div>
         {{/each}}
