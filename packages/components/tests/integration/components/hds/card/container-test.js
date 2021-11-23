@@ -31,15 +31,15 @@ module('Integration | Component | hds/card/container', function (hooks) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert
       .dom('div#test-card-container')
-      .hasClass('hds-card__container--background-neutral-0');
+      .hasClass('hds-card__container--background-neutral-primary');
   });
   test('it should have the right background class based on the @background prop', async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @background="neutral-50" />`
+      hbs`<Hds::Card::Container id="test-card-container" @background="neutral-secondary" />`
     );
     assert
       .dom('div#test-card-container')
-      .hasClass('hds-card__container--background-neutral-50');
+      .hasClass('hds-card__container--background-neutral-secondary');
   });
   test('it should have a border if the @hasBorder prop is true', async function (assert) {
     await render(
