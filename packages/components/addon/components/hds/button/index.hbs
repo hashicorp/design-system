@@ -7,13 +7,13 @@
 >
   {{#if this.isIconOnly}}
     <div class="hds-button__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{else}}
     {{#if this.icon}}
       {{#if (eq this.iconPos "leading")}}
         <div class="hds-button__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
         </div>
         <div class="hds-button__text">
           {{this.text}}
@@ -23,7 +23,7 @@
           {{this.text}}
         </div>
         <div class="hds-button__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
+          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
         </div>
       {{/if}}
     {{else}}
