@@ -10,16 +10,6 @@ export const TYPES = ['button', 'submit', 'reset'];
 
 export default class HdsButtonIndexComponent extends Component {
   /**
-   * @param isIconOnly
-   * @type {boolean}
-   * @default false
-   * @description Indicates if the button will only contain an icon; ensures a11y
-   */
-  get isIconOnly() {
-    return this.args.isIconOnly ?? false;
-  }
-
-  /**
    * @param text
    * @type {string}
    * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
@@ -99,10 +89,23 @@ export default class HdsButtonIndexComponent extends Component {
    * @param icon
    * @type {string}
    * @default null
-   * @description The name of the icon to be used
+   * @description The name of the icon to be used.
    */
   get icon() {
     return this.args.icon ?? null;
+  }
+
+  /**
+   * @param isIconOnly
+   * @type {boolean}
+   * @default false
+   * @description Indicates if the button will only contain an icon; component will also ensure that accessible text is still applied to the component.
+   */
+  get isIconOnly() {
+    if (this.icon) {
+      return this.args.isIconOnly ?? false;
+    }
+    return false;
   }
 
   /**

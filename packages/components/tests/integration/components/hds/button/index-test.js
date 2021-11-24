@@ -38,6 +38,15 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('button').hasAria('label', 'copy to clipboard');
   });
+  test('it should ignore isIconOnly if icon is not defined', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @isIconOnly={{true}} />`
+    );
+    assert
+      .dom('button')
+      .hasText('copy to clipboard')
+      .doesNotHaveAria('label', 'copy to clipboard');
+  });
   test('it should add the `disabled` attribute to the button if `@isDisabled` is set to true', async function (assert) {
     await render(
       hbs`<Hds::Button @text="copy to clipboard" @isDisabled=true />`
