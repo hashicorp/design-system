@@ -111,7 +111,7 @@ StyleDictionaryPackage.registerTransformGroup({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerFormat({
