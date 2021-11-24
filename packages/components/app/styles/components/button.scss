@@ -58,7 +58,8 @@ $alpha-300: rgba(59, 61, 69, 0.4);
 }
 
 .hds-button__icon, .hds-button__text {
-  display: flex;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 
@@ -72,7 +73,7 @@ $alpha-300: rgba(59, 61, 69, 0.4);
   padding: 0.625rem 1rem;
   
   & .hds-button__icon {
-    height: 12px;
+    height: 12px; // Temporary
     width: 12px;
   }
 }
