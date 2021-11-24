@@ -97,17 +97,6 @@ $alpha-300: rgba(59, 61, 69, 0.4);
   border-color: var(--token-color-action-border-on-primary);
   color: var(--token-color-palette-neutral-0);
 
-  &:disabled,
-  &.is-disabled,
-  &[disabled],
-  &[disabled]:hover,
-  &.is-disabled:hover {
-    background-color: rgba(250, 250, 250, 0.6);
-    border-color: var(--token-color-palette-neutral-400);
-    box-shadow: none;
-    color: var(--token-color-palette-neutral-400);
-    cursor: not-allowed;
-  }
   &:hover,
   &.is-hover {
     background-color: var(--token-color-action-background-hover);
@@ -131,6 +120,21 @@ $alpha-300: rgba(59, 61, 69, 0.4);
       border-color: transparent;
     }
   }
+  &[disabled],
+  &.is-disabled,
+  &[disabled]:hover,
+  &.is-disabled:hover,
+  &[disabled]:focus,
+  &.is-disabled:focus {
+    background-color: rgba(250, 250, 250, 0.6);
+    border-color: var(--token-color-palette-neutral-400);
+    box-shadow: none;
+    color: var(--token-color-palette-neutral-400);
+    cursor: not-allowed;
+    &::before {
+      border-color: transparent;
+    }
+  }
 }
 
 .hds-button--color-secondary {
@@ -138,17 +142,6 @@ $alpha-300: rgba(59, 61, 69, 0.4);
   border-color: rgba(59, 61, 69, 0.4);
   color: var(--token-color-palette-neutral-600);
 
-  &:disabled,
-  &.is-disabled,
-  &[disabled],
-  &[disabled]:hover,
-  &.is-disabled:hover {
-    background-color: $alpha-200;
-    border-color: rgba(101, 106, 118, 0.2);
-    box-shadow: none;
-    color: var(--token-color-palette-neutral-400);
-    cursor: not-allowed;
-  }
   &:hover,
   &.is-hover {
     background-color: var(--token-color-palette-neutral-0);
@@ -172,6 +165,21 @@ $alpha-300: rgba(59, 61, 69, 0.4);
       border-color: transparent;
     }
   }
+  &[disabled],
+  &.is-disabled,
+  &[disabled]:hover,
+  &.is-disabled:hover,
+  &[disabled]:focus,
+  &.is-disabled:focus {
+    background-color: $alpha-200;
+    border-color: rgba(101, 106, 118, 0.2);
+    box-shadow: none;
+    color: var(--token-color-palette-neutral-400);
+    cursor: not-allowed;
+    &::before {
+      border-color: transparent;
+    }
+  }
 }
 
 .hds-button--color-destructive {
@@ -179,17 +187,6 @@ $alpha-300: rgba(59, 61, 69, 0.4);
   border-color: $alpha-300;
   color: var(--token-color-critical-foreground-on-faint);
 
-  &:disabled,
-  &.is-disabled,
-  &[disabled],
-  &[disabled]:hover,
-  &.is-disabled:hover {
-    background-color: $alpha-200;
-    border-color: rgba(101, 106, 118, 0.2);
-    box-shadow: none;
-    color: var(--token-color-palette-neutral-400);
-    cursor: not-allowed;
-  }
   &:hover,
   &.is-hover {
     background-color: var(--token-color-critical-background-hover);
@@ -212,6 +209,21 @@ $alpha-300: rgba(59, 61, 69, 0.4);
     border-color: transparent;
     box-shadow: none;
     color: var(--token-color-palette-neutral-0);
+    &::before {
+      border-color: transparent;
+    }
+  }
+  &[disabled],
+  &.is-disabled,
+  &[disabled]:hover,
+  &.is-disabled:hover,
+  &[disabled]:focus,
+  &.is-disabled:focus {
+    background-color: $alpha-200;
+    border-color: rgba(101, 106, 118, 0.2);
+    box-shadow: none;
+    color: var(--token-color-palette-neutral-400);
+    cursor: not-allowed;
     &::before {
       border-color: transparent;
     }
