@@ -71,13 +71,13 @@ $border-radius: 5px;
     &::before {
       border-radius: $border-radius + 3px;
       border: 3px solid transparent;
-      bottom: -5px;
+      bottom: -4px;
       box-sizing: border-box;
       content: '';
-      left: -5px;
+      left: -4px;
       position: absolute;
-      right: -5px;
-      top: -5px;
+      right: -4px;
+      top: -4px;
     }
   }
 }
@@ -147,6 +147,10 @@ $border-radius: 5px;
     color: var(--token-color-palette-neutral-0);
     &::before {
       border-color: var(--token-color-action-background-primary);
+      bottom: -5px;
+      left: -5px;
+      right: -5px;
+      top: -5px;
     }
   }
   &:hover,
