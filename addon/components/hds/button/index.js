@@ -161,6 +161,20 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
+   * @param widthClass
+   * @type {string|null}
+   * @default null
+   * @description Determines if the full-width class should be applied to the component. This is set automatically based on the value of `isFullWidth`.
+   */
+  get widthClass() {
+    if (this.isFullWidth === true) {
+      return 'hds-button--width-full';
+    } else {
+      return null;
+    }
+  }
+
+  /**
    * @param isDisabled
    * @type {boolean}
    * @default null
