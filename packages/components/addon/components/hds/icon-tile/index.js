@@ -4,8 +4,7 @@ import { assert } from '@ember/debug';
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
 export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = [
-  'neutral',
+export const PRODUCTS = [
   'boundary',
   'consul',
   'nomad',
@@ -15,16 +14,7 @@ export const COLORS = [
   'vault',
   'waypoint',
 ];
-export const LOGOS = [
-  'boundary',
-  'consul',
-  'nomad',
-  'packer',
-  'terraform',
-  'vagrant',
-  'vault',
-  'waypoint',
-];
+export const COLORS = ['neutral', ...PRODUCTS];
 
 export default class HdsIconTileIndexComponent extends Component {
   /**
@@ -38,14 +28,12 @@ export default class HdsIconTileIndexComponent extends Component {
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
 
-    if (size) {
-      assert(
-        `@size for "Hds::IconTile" must be one of the following: ${SIZES.join(
-          ', '
-        )}, received: ${size}`,
-        SIZES.includes(size)
-      );
-    }
+    assert(
+      `@size for "Hds::IconTile" must be one of the following: ${SIZES.join(
+        ', '
+      )}, received: ${size}`,
+      SIZES.includes(size)
+    );
 
     return size;
   }
@@ -61,7 +49,7 @@ export default class HdsIconTileIndexComponent extends Component {
 
   /**
    * Sets the color scheme for the component
-   * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
+   * Accepted values: see THE COLORS LIST
    *
    * @param color
    * @type {string}
@@ -70,14 +58,18 @@ export default class HdsIconTileIndexComponent extends Component {
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
 
-    if (color) {
-      assert(
-        `@color for "Hds::IconTile" must be one of the following: ${COLORS.join(
-          ', '
-        )}, received: ${color}`,
-        COLORS.includes(color)
-      );
+    // if it's a "logo" then we overwrite any @color parameter passed
+    // and just use the product "brand" color
+    if (this.logo) {
+      color = this.logo;
     }
+
+    assert(
+      `@color for "Hds::IconTile" must be one of the following: ${COLORS.join(
+        ', '
+      )}, received: ${color}`,
+      COLORS.includes(color)
+    );
 
     return color;
   }
@@ -92,7 +84,7 @@ export default class HdsIconTileIndexComponent extends Component {
   }
 
   /**
-   * Sets the icon name (one of the )
+   * Sets the icon name (one of the FlightIcons)
    *
    * @param icon
    * @type {string|null}
@@ -103,13 +95,60 @@ export default class HdsIconTileIndexComponent extends Component {
   }
 
   /**
+   * @param iconSize
+   * @type {string}
+   * @default 16
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
+  get iconSize() {
+    if (this.args.size === 'small') {
+      return '16';
+    } else {
+      return '24';
+    }
+  }
+
+  /**
    * Sets the logo name if there is one
    *
-   * @param icon
+   * @param logo
    * @type {string|null}
    * @default null
    */
   get logo() {
     return this.args.logo ?? null;
+  }
+
+  /**
+   * We need to differentiate between a logo and an icon
+   * @method IconTile#entity
+   * @return {string} The kind of entity we're dealing with ("logo" or "icon")
+   */
+  get entity() {
+    let entity;
+
+    if (this.args.logo && this.args.icon) {
+      assert(
+        `you can't pass both @logo and @icon properties to the "Hds::IconTile" component`,
+        true
+      );
+    }
+    if (this.args.logo) {
+      entity = 'logo';
+    }
+    if (this.args.icon) {
+      entity = 'icon';
+    }
+
+    return entity;
+  }
+
+  /**
+   * Get a class to apply to the component based on the its entity.
+   * @method IconTile#entityClass
+   * @return {string} The css class to apply to the component.
+   */
+  get entityClass() {
+    return `hds-icon-tile--${this.entity}`;
   }
 }
