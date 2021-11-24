@@ -64,68 +64,70 @@
     </div>
 {{/each}}
 
-<h3 class="dummy-h3">Component API</h3>
-<p class="dummy-paragraph">Here is the API for the component:</p>
-<dl class="dummy-component-props">
-    <dt>size <code>enum</code></dt>
-    <dd>
-        <p>Acceptable values:</p>
-        <ol>
-            <li class="default">small</li>
-            <li>medium</li>
-            <li>large</li>
-        </ol>
-    </dd>
-    <dt>type <code>enum</code></dt>
-    <dd>
-        <p>Acceptable values:</p>
-        <ol>
-            <li class="default">filled</li>
-            <li>inverted</li>
-            <li>outlined</li>
-        </ol>
-    </dd>
-    <dt>color <code>enum</code></dt>
-    <dd>
-        <p>Acceptable values:</p>
-        <ol>
-            <li class="default">neutral</li>
-            <li>neutral-dark-mode</li>
-            <li>highlight</li>
-            <li>error</li>
-            <li>success</li>
-            <li>warning</li>
-        </ol>
-    </dd>
-    <dt>icon <code>string</code></dt>
-    <dd>
-        <p>Any Flight icon name.</p>
-    </dd>
-    <dt>text <code>string</code></dt>
-    <dd>
-        <p>The text value that should go in the badge.</p>
-    </dd>
-    <dt>...attributes</dt>
-    <dd>
-        <p><code>...attributes</code> is supported on this component.</p>
-    </dd>
-</dl>
+<div class="hide-in-percy">
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
+      <dt>size <code>enum</code></dt>
+      <dd>
+          <p>Acceptable values:</p>
+          <ol>
+              <li class="default">small</li>
+              <li>medium</li>
+              <li>large</li>
+          </ol>
+      </dd>
+      <dt>type <code>enum</code></dt>
+      <dd>
+          <p>Acceptable values:</p>
+          <ol>
+              <li class="default">filled</li>
+              <li>inverted</li>
+              <li>outlined</li>
+          </ol>
+      </dd>
+      <dt>color <code>enum</code></dt>
+      <dd>
+          <p>Acceptable values:</p>
+          <ol>
+              <li class="default">neutral</li>
+              <li>neutral-dark-mode</li>
+              <li>highlight</li>
+              <li>error</li>
+              <li>success</li>
+              <li>warning</li>
+          </ol>
+      </dd>
+      <dt>icon <code>string</code></dt>
+      <dd>
+          <p>Any Flight icon name.</p>
+      </dd>
+      <dt>text <code>string</code></dt>
+      <dd>
+          <p>The text value that should go in the badge.</p>
+      </dd>
+      <dt>...attributes</dt>
+      <dd>
+          <p><code>...attributes</code> is supported on this component.</p>
+      </dd>
+  </dl>
 
-<h3 class="dummy-h3">How to use</h3>
-<p class="dummy-paragraph">Invocation of the component would look something like this:</p>
-{{!-- TODO! replace with proper syntax highlighting (use the same as in the Flight website) --}}
-<pre class="dummy-code-snippet">
-&lt;Hds::Badge
-    @text="success badge"
-    @color="success"
-    @type="outlined"
-/&gt;
-</pre>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{!-- TODO! replace with proper syntax highlighting (use the same as in the Flight website) --}}
+  <pre class="dummy-code-snippet">
+  &lt;Hds::Badge
+      @text="success badge"
+      @color="success"
+      @type="outlined"
+  /&gt;
+  </pre>
 
-<h3 class="dummy-h3">Design guidelines</h3>
-<div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8">Figma UI Kit</a></p>
-    <img class="dummy-figma-docs" src="/assets/images/badge-design-usage.png" alt="" role="none" />
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <div class="dummy-design-guidelines">
+      <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8">Figma UI Kit</a></p>
+      <img class="dummy-figma-docs" src="/assets/images/badge-design-usage.png" alt="" role="none" />
+  </div>
 </div>
 
 {{!-- ###################### --}}
@@ -179,6 +181,7 @@
     </div>
 {{/each}}
 
+<div class="hide-in-percy">
 <h3 class="dummy-h3">Component API</h3>
 <p class="dummy-paragraph">Here is the API for the component:</p>
 <dl class="dummy-component-props">
@@ -233,4 +236,5 @@
 <div class="dummy-design-guidelines">
     <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8">Figma UI Kit</a></p>
     <img class="dummy-figma-docs" src="/assets/images/badge-count-design-usage.png" alt="" role="none" />
+</div>
 </div>
