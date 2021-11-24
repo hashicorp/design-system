@@ -76,7 +76,7 @@ export default class FlightIconComponent extends Component {
   get svgSize() {
     return {
       width: this.args.stretched ? '100%' : this.size,
-      height: this.args.stretched ? '100%' : this.height,
+      height: this.args.stretched ? '100%' : this.size,
     };
   }
 
