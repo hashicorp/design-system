@@ -1,7 +1,7 @@
 <button 
   class="hds-button {{this.sizeClass}} {{this.colorClass}} {{if this.isFullWidth "hds-button--width-full"}}"
   ...attributes
-  aria-label={{if this.isIconOnly @text null}} 
+  aria-label={{if this.isIconOnly this.text null}} 
   type={{this.type}}
   disabled={{if this.isDisabled "disabled" null}}
 >
@@ -16,11 +16,11 @@
           <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
         </div>
         <div class="hds-button__text">
-          {{@text}}
+          {{this.text}}
         </div> 
       {{else}}
         <div class="hds-button__text">
-          {{@text}}
+          {{this.text}}
         </div>
         <div class="hds-button__icon">
           <FlightIcon @name={{this.icon}} @size={{this.iconSize}} />
@@ -28,7 +28,7 @@
       {{/if}}
     {{else}}
       <div class="hds-button__text">
-          {{@text}}
+          {{this.text}}
       </div>
     {{/if}}
   {{/if}}

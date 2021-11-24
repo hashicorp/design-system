@@ -22,13 +22,13 @@ export default class HdsButtonIndexComponent extends Component {
   /**
    * @param text
    * @type {string}
-   * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`
+   * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
    */
   get text() {
-    let text = '';
+    let { text = '' } = this.args;
 
-    if (text) {
-      assert(`@text must not be an empty string`);
+    if (text === '') {
+      assert('Button `@text` must have a valid value');
     }
     return this.args.text;
   }
@@ -44,9 +44,9 @@ export default class HdsButtonIndexComponent extends Component {
 
     if (size) {
       assert(
-        `@size for ${this.toString()} must be one of the following: ${SIZES.join(
+        `Button @size must be one of the following: ${SIZES.join(
           ', '
-        )}, received: ${size}`,
+        )}; received: ${size}`,
         SIZES.includes(size)
       );
     }
@@ -68,16 +68,16 @@ export default class HdsButtonIndexComponent extends Component {
    * @param color
    * @type {string}
    * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, `destructive`, and `ghost`
+   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `destructive`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
 
     if (color) {
       assert(
-        `@color for ${this.toString()} must be one of the following: ${COLORS.join(
+        `Button @color must be one of the following: ${COLORS.join(
           ', '
-        )}, received: ${color}`,
+        )}; received: ${color}`,
         COLORS.includes(color)
       );
     }
@@ -109,7 +109,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @param iconPos
    * @type {string}
    * @default leading
-   * @description Allows the user to set the position of the icon before or after the text; allowed values are `leading` or `trailing`
+   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPos() {
     return this.args.iconPos ?? 'leading';
@@ -118,14 +118,14 @@ export default class HdsButtonIndexComponent extends Component {
   /**
    * @param iconSize
    * @type {string}
-   * @default null
+   * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
   get iconSize() {
     if (this.args.size === 'large') {
       return '24';
     } else {
-      return null;
+      return '16';
     }
   }
 
@@ -140,9 +140,9 @@ export default class HdsButtonIndexComponent extends Component {
 
     if (type) {
       assert(
-        `@type for ${this.toString()} must be one of the following: ${TYPES.join(
+        `Button @type must be one of the following: ${TYPES.join(
           ', '
-        )}, received: ${type}`,
+        )}; received: ${type}`,
         TYPES.includes(type)
       );
     }
