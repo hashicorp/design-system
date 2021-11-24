@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
 
 import {
-  SIZES as SIZES,
-  COLORS as COLORS,
-  LOGOS as LOGOS,
+  SIZES,
+  COLORS,
+  PRODUCTS,
 } from '@hashicorp/design-system-components/components/hds/icon-tile';
 
 export default class ComponentsIconTileRoute extends Route {
@@ -11,7 +11,7 @@ export default class ComponentsIconTileRoute extends Route {
     return {
       SIZES,
       COLORS,
-      LOGOS,
+      PRODUCTS,
     };
   }
 }
