@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 22 Nov 2021 20:06:37 GMT
+ * Generated on Wed, 24 Nov 2021 10:38:24 GMT
  */
 
 :root {
@@ -43,6 +43,9 @@
   --token-color-palette-neutral-100: #f1f2f3;
   --token-color-palette-neutral-50: #fafafa;
   --token-color-palette-neutral-0: #ffffff;
+  --token-color-palette-alpha-300: #3b3d4566;
+  --token-color-palette-alpha-200: #656a7633;
+  --token-color-palette-alpha-100: #656a761a;
   --token-color-action-foreground-primary: #1f69ff;
   --token-color-action-foreground-on-faint: #0c56e9;
   --token-color-action-foreground-high-contrast: #1c345f;
