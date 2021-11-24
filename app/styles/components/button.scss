@@ -22,22 +22,23 @@ $border-radius: 5px;
   @include tempElevation();
 
   align-items: center;
-  border: 1px solid transparent;
+  border: 1px solid transparent; // We need this to be transparent for a11y
   border-radius: $border-radius;
-  box-sizing: border-box;
+  box-sizing: border-box; // TODO abstract this for everything?
   display: flex;
+  font-family: var(--token-typography-base-font-family);
   justify-content: center;
-  outline-color: transparent;
+  outline-color: transparent; // We need this to be transparent for a11y
   max-width: 100%;
   position: relative;
-  width: 100%;
+  width: 100%; // full-width on small viewports
 
   @media screen and (min-width: 48rem) { // TODO what are our breakpoints?
     width: auto;
-    max-width: fit-content;
+    max-width: fit-content; // TODO this is breaking full-width buttons RN
   }
 
-  // TODO are we able to simplify this, or does it need to stay this precise because of the way we are doing focus?
+  // This covers all of the browsers and focus scenarios (due to the custom focus design).
   &:disabled,
   &[disabled],
   &.is-disabled,
@@ -63,6 +64,11 @@ $border-radius: 5px;
 
   &.hds-button--width-full {
     width: 100%;
+    max-width: 100%;
+
+    .hds-button__text {
+      flex: 0 auto;
+    }
   }
 
   &.is-focus,
@@ -147,10 +153,10 @@ $border-radius: 5px;
     color: var(--token-color-palette-neutral-0);
     &::before {
       border-color: var(--token-color-action-background-primary);
-      bottom: -5px;
-      left: -5px;
-      right: -5px;
-      top: -5px;
+      bottom: -6px;
+      left: -6px;
+      right: -6px;
+      top: -6px;
     }
   }
   &:hover,
