@@ -19,13 +19,27 @@
   box-shadow: 0px 1px 1px rgba(#656A76, 0.05);
   box-sizing: border-box;
   display: flex;
-  box-shadow: 0 1 1 0 var(--token-color-palette-neutral-500);
+  position: relative;
 }
 
 .hds-icon-tile__icon,
 .hds-icon-tile__logo {
   display: flex;
   margin: auto;
+}
+
+.hds-icon-tile__extra {
+  background-color: var(--token-color-neutral-background-primary);
+  border: 1px solid var(--token-color-palette-alpha-200);
+  box-sizing: content-box; // the border is outside
+  display: flex;
+  position: absolute;
+}
+
+.hds-icon-tile__extra-icon {
+  display: flex;
+  margin: auto;
+  color: var(--token-color-neutral-foreground-primary);
 }
 
 // SIZE
@@ -37,18 +51,33 @@ $size-props: (
     "border-radius": 5px,
     "icon-size": 1rem,
     "logo-size": 1.25rem,
+    'extra-size': 1.125rem,
+    'extra-border-radius': 5px,
+    'extra-bottom': -4px,
+    'extra-right': -4px,
+    'extra-icon-size': 0.75rem,
   ),
   "medium": (
-    "size": 2.5rem,
-    "border-radius": 6px,
-    "icon-size": 1.5rem,
-    "logo-size": 2rem,
+      "size": 2.5rem,
+      "border-radius": 6px,
+      "icon-size": 1.5rem,
+      "logo-size": 2rem,
+      'extra-size': 1.5rem,
+      'extra-border-radius': 6px,
+      'extra-bottom': -6px,
+      'extra-right': -6px,
+        'extra-icon-size': 1rem,
   ),
   "large": (
     "size": 3rem,
     "border-radius": 6px,
     "icon-size": 1.5rem,
     "logo-size": 2.25rem,
+    'extra-size': 1.5rem,
+    'extra-border-radius': 6px,
+    'extra-bottom': -6px,
+    'extra-right': -6px,
+    'extra-icon-size': 1rem,
   )
 );
 
@@ -66,6 +95,19 @@ $size-props: (
     .hds-icon-tile__logo {
       height: map-get($size-props, $size, "logo-size");
       width: map-get($size-props, $size, "logo-size");
+    }
+
+    .hds-icon-tile__extra {
+      border-radius: map-get($size-props, $size, "extra-border-radius");
+      bottom: map-get($size-props, $size, "extra-bottom");
+      height: map-get($size-props, $size, "extra-size");
+      right: map-get($size-props, $size, "extra-right");
+      width: map-get($size-props, $size, "extra-size");
+    }
+
+    .hds-icon-tile__extra-icon {
+      height: map-get($size-props, $size, "extra-icon-size");
+      width: map-get($size-props, $size, "extra-icon-size");
     }
   }
 }

@@ -18,7 +18,7 @@
         <p class="dummy-paragraph">with icon</p>
         <div class="dummy-icon-tile-base-sample">
             {{#each @model.SIZES as |size|}}
-                <Hds::IconTile @icon="activity" @size={{size}} />
+                <Hds::IconTile @icon="dashboard" @size={{size}} />
             {{/each}}
         </div>
     </li>
@@ -38,7 +38,27 @@
 {{#each @model.COLORS as |color|}}
     <div class="dummy-icon-tile-base-sample">
         {{#each @model.SIZES as |size|}}
-            <Hds::IconTile @icon="activity" @size={{size}} @color={{color}} />
+            <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
         {{/each}}
     </div>
 {{/each}}
+
+<h4 class="dummy-h4">Secondary icon</h4>
+<ul class="dummy-icon-tile-side-by-side">
+    <li>
+        <p class="dummy-paragraph">with logo</p>
+        <div class="dummy-icon-tile-base-sample">
+            {{#each @model.SIZES as |size|}}
+                <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
+            {{/each}}
+        </div>
+    </li>
+    <li>
+        <p class="dummy-paragraph">with icon</p>
+        <div class="dummy-icon-tile-base-sample">
+            {{#each @model.SIZES as |size|}}
+                <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
+            {{/each}}
+        </div>
+    </li>
+</ul>

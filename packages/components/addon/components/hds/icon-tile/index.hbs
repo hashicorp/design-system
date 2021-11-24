@@ -49,4 +49,11 @@
         </svg>
       </div>
   {{/if}}
+  {{#if this.iconSecondary}}
+    <div class="hds-icon-tile__extra">
+      <div class="hds-icon-tile__extra-icon">
+        <FlightIcon @name={{this.iconSecondary}} @size="16" @stretched="true" />
+      </div>
+    </div>
+  {{/if}}
 </div>

@@ -151,4 +151,15 @@ export default class HdsIconTileIndexComponent extends Component {
   get entityClass() {
     return `hds-icon-tile--${this.entity}`;
   }
+
+  /**
+   * Sets the "secondary" icon name (one of the FlightIcons)
+   *
+   * @param iconSecondary
+   * @type {string|null}
+   * @default null
+   */
+  get iconSecondary() {
+    return this.args.iconSecondary ?? null;
+  }
 }
