@@ -104,12 +104,12 @@ $border-radius: 5px;
   .hds-button__icon {
     height: 0.75rem; // 12px
     width: 0.75rem; // 12px
-
-  
   }
 }
+
 .hds-button--size-medium {
-  font-size: 0.875rem;
+  font-size: 0.875rem; // 14px
+  line-height: 1rem; // 16px
   min-height: 2.25rem; //36px
   padding: 0.625rem 1rem;
 
@@ -118,9 +118,11 @@ $border-radius: 5px;
     width: 1rem;
   }
 }
+
 .hds-button--size-large {
-  font-size: 1rem;
-  height: 3rem; //48px
+  font-size: 1rem; //16px
+  line-height: 1.5rem; // 24px
+  min-height: 3rem; //48px
   padding: 0.75rem 1.25rem; // 12px 20px
 
   .hds-button__icon {
