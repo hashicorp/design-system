@@ -37,20 +37,17 @@
             },
             "border": {
                 "primary": {
-                    "value": "{color.palette.neutral-500.value}",
-                    "alpha": "0.2",
+                    "value": "{color.palette.alpha-200.value}",
                     "type": "color",
                     "group": "action"
                 },
                 "subtle": {
-                    "value": "{color.palette.neutral-500.value}",
-                    "alpha": "0.1",
+                    "value": "{color.palette.alpha-100.value}",
                     "type": "color",
                     "group": "action"
                 },
                 "strong": {
-                    "value": "{color.palette.neutral-600.value}",
-                    "alpha": "0.4",
+                    "value": "{color.palette.alpha-300.value}",
                     "type": "color",
                     "group": "action"
                 }
