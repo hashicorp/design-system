@@ -1,10 +1,14 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/button/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it renders a button with the defined text', async function (assert) {
     await render(hbs`<Hds::Button @text="Copy to Clipboard" />`);
@@ -45,5 +49,31 @@ module('Integration | Component | hds/button/index', function (hooks) {
       hbs`<Hds::Button @text="copy to clipboard" @isFullWidth={{true}} />`
     );
     assert.dom('button').hasClass('hds-button--width-full');
+  });
+
+  test('it should throw an assertion if button `@text` is missing/has no value', async function (assert) {
+    const errorMessage = 'Button `@text` must have a valid value';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Button @icon="clipboard-copy" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  skip('it should throw an assertion if an incorrect value for `@type` is provided', async function (assert) {
+    await render(hbs`<Hds::Button @text="copy to clipboard" @type="foo" />`);
+    assert.throws(function () {
+      throw new Error(
+        'Button @type must be one of the following: button, submit, reset; received: foo'
+      );
+    });
+  });
+  skip('it should throw an assertion if an incorrect value for `@size` is provided', async function (assert) {
+    await render(hbs`<Hds::Button @text="copy to clipboard" @size="tiny" />`);
+    assert.throws(function () {
+      throw new Error('foo');
+    });
   });
 });
