@@ -35,3 +35,7 @@ body.dummy-app {
 .dummy-divider {
     margin: 4rem 0;
 }
+
+@media only percy {
+    header, footer, main section:not([data-test-percy]) { display: none; }
+}
