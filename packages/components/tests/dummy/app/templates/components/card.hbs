@@ -1,92 +1,92 @@
-{{page-title 'Card'}}
+{{page-title "Card"}}
 
-<h2 class='dummy-h2'>Card Container</h2>
+<h2 class="dummy-h2">Card Container</h2>
 
 <section data-test-percy>
-  <h3 class='dummy-h3'>Showcase</h3>
-  <h4 class='dummy-h4'>Level:</h4>
-  <div class='dummy-card-base-sample'>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Level:</h4>
+  <div class="dummy-card-base-sample">
     {{#each @model.CONTAINER_LEVELS as |level|}}
       <Hds::Card::Container @level={{level}}>
         <DummyPlaceholder
           @text={{level}}
-          @width='200'
-          @height='200'
-          @background='transparent'
+          @width="200"
+          @height="200"
+          @background="transparent"
         />
       </Hds::Card::Container>
     {{/each}}
   </div>
 
-  <h4 class='dummy-h4'>Border:</h4>
-  <div class='dummy-card-base-sample'>
+  <h4 class="dummy-h4">Border:</h4>
+  <div class="dummy-card-base-sample">
     {{#each @model.CONTAINER_LEVELS as |level|}}
       <Hds::Card::Container @level={{level}} @hasBorder={{true}}>
         <DummyPlaceholder
           @text={{level}}
-          @width='200'
-          @height='200'
-          @background='transparent'
+          @width="200"
+          @height="200"
+          @background="transparent"
         />
       </Hds::Card::Container>
     {{/each}}
   </div>
 
-  <h4 class='dummy-h4'>Background:</h4>
-  <div class='dummy-card-base-sample'>
+  <h4 class="dummy-h4">Background:</h4>
+  <div class="dummy-card-base-sample">
     {{#each @model.CONTAINER_BACKGROUNDS as |background|}}
       <Hds::Card::Container
-        @level='mid'
+        @level="mid"
         @hasBorder={{true}}
         @background={{background}}
       >
         <DummyPlaceholder
           @text={{background}}
-          @width='200'
-          @height='200'
-          @background='transparent'
+          @width="200"
+          @height="200"
+          @background="transparent"
         />
       </Hds::Card::Container>
     {{/each}}
   </div>
 
-  <h4 class='dummy-h4'>Overflow:</h4>
-  <div class='dummy-card-base-sample'>
-    <Hds::Card::Container @level='mid' @hasBorder={{true}}>
-      <div class='dummy-card-overflow__wrapper-relative'>
+  <h4 class="dummy-h4">Overflow:</h4>
+  <div class="dummy-card-base-sample">
+    <Hds::Card::Container @level="mid" @hasBorder={{true}}>
+      <div class="dummy-card-overflow__wrapper-relative">
         <DummyPlaceholder
-          @text='hidden (default)'
-          @width='200'
-          @height='200'
-          @background='#e1f5fe'
+          @text="hidden (default)"
+          @width="200"
+          @height="200"
+          @background="#e1f5fe"
         />
-        <div class='dummy-card-overflow__content-absolute'></div>
+        <div class="dummy-card-overflow__content-absolute"></div>
       </div>
     </Hds::Card::Container>
-    <Hds::Card::Container @level='mid' @hasBorder={{true}} @overflow='visible'>
-      <div class='dummy-card-overflow__wrapper-relative'>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} @overflow="visible">
+      <div class="dummy-card-overflow__wrapper-relative">
         <DummyPlaceholder
-          @text='visible'
-          @width='200'
-          @height='200'
-          @background='#e1f5fe'
+          @text="visible"
+          @width="200"
+          @height="200"
+          @background="#e1f5fe"
         />
-        <div class='dummy-card-overflow__content-absolute'></div>
+        <div class="dummy-card-overflow__content-absolute"></div>
       </div>
     </Hds::Card::Container>
   </div>
 </section>
 
 <section>
-  <h3 class='dummy-h3'>Component API</h3>
-  <p class='dummy-paragraph'>Here is the API for the component:</p>
-  <dl class='dummy-component-props'>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
     <dt>level <code>enum</code></dt>
     <dd>
       <p>This controls the level of elevation ("shadow" visual effect).
         Acceptable values:</p>
       <ol>
-        <li class='default'>base</li>
+        <li class="default">base</li>
         <li>mid</li>
         <li>high</li>
       </ol>
@@ -100,7 +100,7 @@
     <dd>
       <p>This controls the background color. Acceptable values:</p>
       <ol>
-        <li class='default'>neutral-0</li>
+        <li class="default">neutral-0</li>
         <li>neutral-50</li>
       </ol>
       <p><em>Notice: later we may decide/need to add more colors, but for now we
@@ -122,7 +122,7 @@
         of the content (eg. a tooltip) needs to go beyond the bounding box of
         the card itself. Acceptable values:</p>
       <ol>
-        <li class='default'>hidden</li>
+        <li class="default">hidden</li>
         <li>visible</li>
       </ol>
     </dd>
@@ -134,22 +134,22 @@
 </section>
 
 <section>
-  <h3 class='dummy-h3'>How to use</h3>
-  <p class='dummy-paragraph'>Invocation of the component would look something
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">Invocation of the component would look something
     like this:</p>
   {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
-  <pre class='dummy-code-snippet'>
+  <pre class="dummy-code-snippet">
     &lt;Hds::Card::Container @level="mid" @hasBorder="true" &gt; [your content
     here] &lt;/Hds::Card::Container&gt;
   </pre>
 
-  <div class='dummy-design-guidelines'>
-    <h3 class='dummy-h3'>Design guidelines</h3>
-    <p class='dummy-paragraph'>In Progress</p>
+  <div class="dummy-design-guidelines">
+    <h3 class="dummy-h3">Design guidelines</h3>
+    <p class="dummy-paragraph">In Progress</p>
   </div>
 
-  <p class='dummy-paragraph'><strong>Important:</strong>
-    <h3 class='dummy-h3'>Accessibility</h3>
+  <p class="dummy-paragraph"><strong>Important:</strong>
+    <h3 class="dummy-h3">Accessibility</h3>
     by default the
     <em>Card Container</em>
     component has
