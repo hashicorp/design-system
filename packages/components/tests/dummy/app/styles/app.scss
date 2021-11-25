@@ -35,9 +35,3 @@ body.dummy-app {
 .dummy-divider {
     margin: 4rem 0;
 }
-
-@media only percy {
-  .hide-in-percy {
-    visibility: hidden;
-  }
-}
