@@ -87,7 +87,9 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 
-// https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
+// NOTICE: in case in the future we need more complex transformations, we can use this approach (see the "modify" attribute):
+// https://github.com/amzn/style-dictionary/blob/main/examples/advanced/transitive-transforms/
+//
 StyleDictionaryPackage.registerTransform({
     name: 'color/with-alpha',
     type: 'value',
@@ -100,6 +102,7 @@ StyleDictionaryPackage.registerTransform({
         if (!color.isValid) throw `Invalid Color: '${token.name}: ${token.value}' is not a valid color.\n`;
         const alpha = parseFloat(token.alpha);
         if (!(alpha > 0 && alpha < 1)) throw `Invalid Alpha: '${token.name}: ${token.value}' is not a valid alpha value (should be in the format 0.x).\n`;
+        // https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
         return color.setAlpha(alpha).toHex8String();
     }
 });
