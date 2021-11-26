@@ -24,13 +24,17 @@ module('Integration | Component | flight-icon', function (hooks) {
     await render(hbs`<FlightIcon @name="activity" />`);
     assert
       .dom('svg.flight-icon.flight-icon-activity')
-      .hasStyle({ height: '16px', width: '16px' });
+      .hasStyle({ height: '16px', width: '16px' })
+      .hasAttribute('width', '16')
+      .hasAttribute('height', '16');
   });
   test('it renders the 24x24 icon when option is set', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" @size="24" />`);
     assert
       .dom('svg.flight-icon.flight-icon-activity')
-      .hasStyle({ height: '24px', width: '24px' });
+      .hasStyle({ height: '24px', width: '24px' })
+      .hasAttribute('width', '24')
+      .hasAttribute('height', '24');
   });
   test('it sets the width/height to 100% when the "stretched" option is set to true', async function (assert) {
     await render(
