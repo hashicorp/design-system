@@ -47,11 +47,11 @@
                     }
                 }
             },
-            "heading": {
+            "display": {
                 "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif",
                 "private": "true"
             },
-            "base": {
+            "text": {
                 "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif",
                 "private": "true"
             },
@@ -62,7 +62,7 @@
         },
         "heading-0": {
             "font-family": {
-                "value": "{typography.font-stack.heading.value}"
+                "value": "{typography.font-stack.display.value}"
             },
             "font-size": {
                 "value": "30",
@@ -81,7 +81,7 @@
         },
         "heading-1": {
             "font-family": {
-                "value": "{typography.font-stack.heading.value}"
+                "value": "{typography.font-stack.display.value}"
             },
             "font-size": {
                 "value": "24",
@@ -100,7 +100,7 @@
         },
         "heading-2": {
             "font-family": {
-                "value": "{typography.font-stack.heading.value}"
+                "value": "{typography.font-stack.text.value}"
             },
             "font-size": {
                 "value": "18",
@@ -123,7 +123,7 @@
         },
         "heading-3": {
             "font-family": {
-                "value": "{typography.font-stack.heading.value}"
+                "value": "{typography.font-stack.display.value}"
             },
             "font-size": {
                 "value": "16",
@@ -146,7 +146,7 @@
         },
         "heading-4": {
             "font-family": {
-                "value": "{typography.font-stack.heading.value}"
+                "value": "{typography.font-stack.text.value}"
             },
             "font-size": {
                 "value": "13",
@@ -163,9 +163,47 @@
                 "comment": "medium"
             }
         },
-        "large": {
+        "display-large": {
             "font-family": {
-                "value": "{typography.font-stack.base.value}"
+                "value": "{typography.font-stack.display.value}"
+            },
+            "font-size": {
+                "value": "24",
+                "type": "size",
+                "comment": "24px/1.5rem"
+            },
+            "line-height": {
+                "value": "1.5",
+                "comment": "36px"
+            },
+            "font-weight": {
+                "value": "medium",
+                "type": "weight",
+                "comment": "medium"
+            }
+        },
+        "display-small": {
+            "font-family": {
+                "value": "{typography.font-stack.display.value}"
+            },
+            "font-size": {
+                "value": "18",
+                "type": "size",
+                "comment": "24px/1.125rem"
+            },
+            "line-height": {
+                "value": "1.6875",
+                "comment": "27px"
+            },
+            "font-weight": {
+                "value": "medium",
+                "type": "weight",
+                "comment": "medium"
+            }
+        },
+        "body-large": {
+            "font-family": {
+                "value": "{typography.font-stack.text.value}"
             },
             "font-size": {
                 "value": "16",
@@ -182,9 +220,9 @@
                 "comment": "regular"
             }
         },
-        "base": {
+        "body-base": {
             "font-family": {
-                "value": "{typography.font-stack.base.value}"
+                "value": "{typography.font-stack.text.value}"
             },
             "font-size": {
                 "value": "14",
@@ -201,9 +239,9 @@
                 "comment": "regular"
             }
         },
-        "small": {
+        "body-small": {
             "font-family": {
-                "value": "{typography.font-stack.base.value}"
+                "value": "{typography.font-stack.text.value}"
             },
             "font-size": {
                 "value": "13",
@@ -218,63 +256,6 @@
                 "value": "regular",
                 "type": "weight",
                 "comment": "regular"
-            }
-        },
-        "label": {
-            "font-family": {
-                "value": "{typography.font-stack.base.value}"
-            },
-            "font-size": {
-                "value": "14",
-                "type": "size",
-                "comment": "14px/0.875rem"
-            },
-            "line-height": {
-                "value": "1.285",
-                "comment": "18px"
-            },
-            "font-weight": {
-                "value": "semibold",
-                "type": "weight",
-                "comment": "semibold"
-            }
-        },
-        "control": {
-            "font-family": {
-                "value": "{typography.font-stack.base.value}"
-            },
-            "font-size": {
-                "value": "14",
-                "type": "size",
-                "comment": "14px/0.875rem"
-            },
-            "line-height": {
-                "value": "1.285",
-                "comment": "18px"
-            },
-            "font-weight": {
-                "value": "medium",
-                "type": "weight",
-                "comment": "medium"
-            }
-        },
-        "tag": {
-            "font-family": {
-                "value": "{typography.font-stack.base.value}"
-            },
-            "font-size": {
-                "value": "13",
-                "type": "size",
-                "comment": "13px/0.8125rem"
-            },
-            "line-height": {
-                "value": "1.23",
-                "comment": "16px"
-            },
-            "font-weight": {
-                "value": "medium",
-                "type": "weight",
-                "comment": "medium"
             }
         },
         "code": {
