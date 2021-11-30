@@ -52,6 +52,7 @@ $border-radius: 5px;
     color: var(--token-color-palette-neutral-400);
     cursor: not-allowed;
     outline-color: var(--token-color-palette-alpha-200);
+
     &::before {
       border-color: transparent;
     }
