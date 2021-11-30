@@ -6,6 +6,12 @@
                 "type": "color",
                 "group": "branding"
             },
+            "brand-alt": {
+                "value": "#000",
+                "type": "color",
+                "group": "branding",
+                "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work"
+            },
             "foreground": {
                 "value": "{color.palette.vault-300.value}",
                 "type": "color",
