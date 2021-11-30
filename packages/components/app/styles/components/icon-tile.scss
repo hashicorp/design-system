@@ -10,13 +10,13 @@
  $hds-icon-tile-colors-products: ( 'boundary', 'consul', 'nomad', 'packer', 'terraform', 'vagrant', 'vault', 'waypoint' );
 
  $hds-icon-tile-border-width: 1px;
+ $hds-icon-tile-box-shadow: 0px 1px 1px rgba(#656A76, 0.05);
 
 
 .hds-icon-tile {
   border-radius: 4px;
   border: $hds-icon-tile-border-width solid transparent;
-  // this is not a token, but may be in the future
-  box-shadow: 0px 1px 1px rgba(#656A76, 0.05);
+  box-shadow: $hds-icon-tile-box-shadow;
   box-sizing: border-box;
   display: flex;
   position: relative;
@@ -31,7 +31,10 @@
 .hds-icon-tile__extra {
   background-color: var(--token-color-neutral-background-primary);
   border: 1px solid var(--token-color-palette-alpha-200);
+  bottom: -6px;
+  box-shadow: $hds-icon-tile-box-shadow;
   box-sizing: content-box; // the border is outside
+  right: -6px;
   display: flex;
   position: absolute;
 }
@@ -47,36 +50,30 @@
 // these values later may come from the design tokens
 $size-props: (
   "small": (
-    "size": 1.75rem,
+    "size": 1.75rem, // 28px
     "border-radius": 5px,
     "icon-size": 1rem,
     "logo-size": 1.25rem,
     'extra-size': 1.125rem,
-    'extra-border-radius': 5px,
-    'extra-bottom': -4px,
-    'extra-right': -4px,
+    'extra-border-radius': 4px,
     'extra-icon-size': 0.75rem,
   ),
   "medium": (
-      "size": 2.5rem,
+      "size": 2.5rem, // 40px
       "border-radius": 6px,
       "icon-size": 1.5rem,
-      "logo-size": 2rem,
+      "logo-size": 2.25rem,
       'extra-size': 1.5rem,
-      'extra-border-radius': 6px,
-      'extra-bottom': -6px,
-      'extra-right': -6px,
-        'extra-icon-size': 1rem,
+      'extra-border-radius': 5px,
+      'extra-icon-size': 1rem,
   ),
   "large": (
-    "size": 3rem,
+    "size": 3rem, // 48px
     "border-radius": 6px,
     "icon-size": 1.5rem,
     "logo-size": 2.25rem,
     'extra-size': 1.5rem,
-    'extra-border-radius': 6px,
-    'extra-bottom': -6px,
-    'extra-right': -6px,
+    'extra-border-radius': 5px,
     'extra-icon-size': 1rem,
   )
 );
@@ -99,9 +96,7 @@ $size-props: (
 
     .hds-icon-tile__extra {
       border-radius: map-get($size-props, $size, "extra-border-radius");
-      bottom: map-get($size-props, $size, "extra-bottom");
       height: map-get($size-props, $size, "extra-size");
-      right: map-get($size-props, $size, "extra-right");
       width: map-get($size-props, $size, "extra-size");
     }
 
@@ -132,7 +127,7 @@ $size-props: (
 
   &.hds-icon-tile--color-neutral {
     background-color: var(--token-color-neutral-background-secondary);
-    border-color: var(--token-color-palette-neutral-200);
+    border-color: var(--token-color-neutral-border-primary);
     color: var(--token-color-neutral-foreground-faint);
   }
 
