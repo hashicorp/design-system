@@ -95,6 +95,11 @@
     <dd>
       <p>Use this parameter to show an icon. You can use any Flight icon name.</p>
     </dd>
+    <dt>iconSecondary <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an extra "badge" with icon on top of the tile. You can use any Flight icon name.</p>
+      <p><em>Notice: the color of the secondary icon is predefined and can't be changed.</em></p>
+    </dd>
     <dt>color <code>enum</code></dt>
     <dd>
       <p>Acceptable values:</p>
@@ -124,7 +129,7 @@
     like this:</p>
   {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
   <pre class="dummy-code-snippet">
-    &lt;Hds::IconTile @logo="boundary" @size="medium" /&gt;
+    &lt;Hds::IconTile @logo="boundary" @size="medium" iconSecondary="plus" /&gt;
   </pre>
   <pre class="dummy-code-snippet">
     &lt;Hds::IconTile @icon="dashboard" @size="small" @color="vault" /&gt;
