@@ -1,6 +1,8 @@
 // Button Component Styles
 
-$border-radius: 5px;
+$hds-button-border-radius: 5px;
+$hds-button-border-width: 1px;
+$hds-button-focus-border-width: 3px;
 
 // TODO! generalize with the existing mixin in Card component
 @mixin tempElevation() {
@@ -22,8 +24,8 @@ $border-radius: 5px;
   @include tempElevation();
 
   align-items: center;
-  border: 1px solid transparent; // We need this to be transparent for a11y
-  border-radius: $border-radius;
+  border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y
+  border-radius: $hds-button-border-radius;
   box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
   display: flex;
   font-family: var(--token-typography-body-base-font-family);
@@ -71,15 +73,17 @@ $border-radius: 5px;
   &:focus,
   &:focus-visible {
     &::before {
-      border-radius: $border-radius + 3px;
-      border: 3px solid transparent;
-      bottom: -4px;
+      // the position absolute is computed from the inside of the border, so we have to take in account the border width
+      $shift: $hds-button-border-width + $hds-button-focus-border-width;
+      border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
+      border: $hds-button-focus-border-width solid transparent;
+      bottom: -$shift;
       box-sizing: border-box;
       content: '';
-      left: -4px;
+      left: -$shift;
       position: absolute;
-      right: -4px;
-      top: -4px;
+      right: -$shift;
+      top: -$shift;
     }
   }
 }
@@ -148,11 +152,15 @@ $border-radius: 5px;
     border-color: var(--token-color-action-border-on-primary);
     color: var(--token-color-palette-neutral-0);
     &::before {
+      // the position absolute is computed from the inside of the border, so we have to take in account the border width
+      // plus for the primary button we want to have a 2px gap between the button and the focus
+      $shift: $hds-button-border-width + $hds-button-focus-border-width + 2px;
+      border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
       border-color: var(--token-color-action-background-primary);
-      bottom: -6px;
-      left: -6px;
-      right: -6px;
-      top: -6px;
+      bottom: -$shift;
+      left: -$shift;
+      right: -$shift;
+      top: -$shift;
     }
   }
   &:hover,
