@@ -1,0 +1,35 @@
+<button 
+  class="hds-button {{this.sizeClass}} {{this.colorClass}} {{this.widthClass}}"
+  ...attributes
+  aria-label={{if this.isIconOnly this.text null}} 
+  type={{this.type}}
+  disabled={{if this.isDisabled "disabled" null}}
+>
+  {{#if this.isIconOnly}}
+    <div class="hds-button__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+    </div>
+  {{else}}
+    {{#if this.icon}}
+      {{#if (eq this.iconPos "leading")}}
+        <div class="hds-button__icon">
+          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+        </div>
+        <div class="hds-button__text">
+          {{this.text}}
+        </div> 
+      {{else}}
+        <div class="hds-button__text">
+          {{this.text}}
+        </div>
+        <div class="hds-button__icon">
+          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+        </div>
+      {{/if}}
+    {{else}}
+      <div class="hds-button__text">
+          {{this.text}}
+      </div>
+    {{/if}}
+  {{/if}}
+</button>

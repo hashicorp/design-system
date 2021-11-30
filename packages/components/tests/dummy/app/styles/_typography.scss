@@ -62,3 +62,8 @@
     @include dummyFontSize(1rem);
     line-height: 1.2;
 }
+.dummy-text-small {
+    @include dummyFontFamily();
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
