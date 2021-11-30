@@ -13,6 +13,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/card');
     await percySnapshot('Card');
 
+    await visit('/components/button');
+    await percySnapshot('Buttom');
+
     assert.ok(true);
   });
 });
