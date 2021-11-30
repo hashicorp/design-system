@@ -116,7 +116,18 @@ export default class HdsIconTileIndexComponent extends Component {
    * @default null
    */
   get logo() {
-    return this.args.logo ?? null;
+    let { logo } = this.args;
+
+    if (logo) {
+      assert(
+        `@logo for "Hds::IconTile" must be one of the following: ${PRODUCTS.join(
+          ', '
+        )}, received: ${logo}`,
+        PRODUCTS.includes(logo)
+      );
+    }
+
+    return logo ?? null;
   }
 
   /**
