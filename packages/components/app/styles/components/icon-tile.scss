@@ -119,6 +119,11 @@ $size-props: (
       color: var(--token-color-#{$product}-brand);
     }
   }
+
+  // exception for Vault, where the color of the logo needs to be the "alt" one
+  &.hds-icon-tile--color-vault {
+    color: var(--token-color-vault-brand-alt);
+  }
 }
 
 // ICON - COLOR
@@ -135,7 +140,7 @@ $size-props: (
     &.hds-icon-tile--color-#{$product} {
       background: linear-gradient(315deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
       border-color: var(--token-color-#{$product}-border);
-      color: var(--token-color-palette-#{$product}-500);
+      color: var(--token-color-#{$product}-brand);
     }
   }
 }
