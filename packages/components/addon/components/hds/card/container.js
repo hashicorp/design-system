@@ -20,14 +20,12 @@ export default class HdsCardContainerComponent extends Component {
   get level() {
     let { level = DEFAULT_LEVEL } = this.args;
 
-    if (level) {
-      assert(
-        `@level for "Hds::CardContainer" must be one of the following: ${LEVELS.join(
-          ', '
-        )}, received: ${level}`,
-        LEVELS.includes(level)
-      );
-    }
+    assert(
+      `@level for "Hds::CardContainer" must be one of the following: ${LEVELS.join(
+        ', '
+      )}, received: ${level}`,
+      LEVELS.includes(level)
+    );
 
     return level;
   }
@@ -52,14 +50,12 @@ export default class HdsCardContainerComponent extends Component {
   get background() {
     let { background = DEFAULT_BACKGROUND } = this.args;
 
-    if (background) {
-      assert(
-        `@background for "Hds::CardContainer" must be one of the following: ${BACKGROUNDS.join(
-          ', '
-        )}, received: ${background}`,
-        BACKGROUNDS.includes(background)
-      );
-    }
+    assert(
+      `@background for "Hds::CardContainer" must be one of the following: ${BACKGROUNDS.join(
+        ', '
+      )}, received: ${background}`,
+      BACKGROUNDS.includes(background)
+    );
 
     return background;
   }
@@ -93,14 +89,12 @@ export default class HdsCardContainerComponent extends Component {
   get overflow() {
     let { overflow = DEFAULT_OVERFLOW } = this.args;
 
-    if (overflow) {
-      assert(
-        `@overflow for "Hds::CardContainer" must be one of the following: ${OVERFLOWS.join(
-          ', '
-        )}, received: ${overflow}`,
-        OVERFLOWS.includes(overflow)
-      );
-    }
+    assert(
+      `@overflow for "Hds::CardContainer" must be one of the following: ${OVERFLOWS.join(
+        ', '
+      )}, received: ${overflow}`,
+      OVERFLOWS.includes(overflow)
+    );
 
     return overflow;
   }
