@@ -75,9 +75,9 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('.hds-button__icon').matchesSelector(':first-child');
   });
-  test('if an icon is declared the icon should be in trailing position if @iconPos is set to trailing', async function (assert) {
+  test('if an icon is declared the icon should be in trailing position if @iconPosition is set to trailing', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPos="trailing" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPosition="trailing" id="test-button" />`
     );
     assert.dom('.hds-button__icon').matchesSelector(':last-child');
   });
