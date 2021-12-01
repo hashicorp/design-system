@@ -11,5 +11,6 @@ Router.map(function () {
     this.route('badge');
     this.route('button');
     this.route('card');
+    this.route('icon-tile');
   });
 });
