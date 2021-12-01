@@ -10,7 +10,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(hbs`<Hds::Badge @text="text renders" />`);
     assert.dom(this.element).hasText('text renders');
   });
-  test('it should render a CSS class that matches the button component name', async function (assert) {
+  test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge');
   });
@@ -21,7 +21,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge--color-neutral');
   });
-  test('it should render the right CSS color class if the @color prop is declared', async function (assert) {
+  test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Badge @text="text renders" id="test-badge" @color="highlight" />`
     );
@@ -34,7 +34,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge--size-medium');
   });
-  test('it should render the right CSS size class if the @size prop is declared', async function (assert) {
+  test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Badge @text="text renders" id="test-badge" @size="small" />`
     );
@@ -47,7 +47,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge--type-filled');
   });
-  test('it should render the right CSS type class if @type prop is declared', async function (assert) {
+  test('it should render the correct CSS type class if @type prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Badge @text="text renders" id="test-badge" @type="inverted" />`
     );

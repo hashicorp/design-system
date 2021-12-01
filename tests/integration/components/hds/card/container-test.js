@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/card/container', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it should render a CSS class that matches the button component name', async function (assert) {
+  test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert.dom('#test-card-container').hasClass('hds-card__container');
   });
@@ -19,7 +19,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
 
   // LEVEL
 
-  test('it should have the right level class based on the @level prop', async function (assert) {
+  test('it should have the correct level class based on the @level prop', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @level="mid" />`
     );
@@ -36,7 +36,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('#test-card-container')
       .hasClass('hds-card__container--background-neutral-primary');
   });
-  test('it should have the right background class based on the @background prop', async function (assert) {
+  test('it should have the correct background class based on the @background prop', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @background="neutral-secondary" />`
     );

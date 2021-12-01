@@ -14,7 +14,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
     await render(hbs`<Hds::Button @text="Copy to Clipboard" />`);
     assert.dom(this.element).hasText('Copy to Clipboard');
   });
-  test('it should render a CSS class that matches the button component name', async function (assert) {
+  test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Button @text="Copy to Clipboard" id="test-button" />`
     );
@@ -29,7 +29,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('#test-button').hasClass('hds-button--size-medium');
   });
-  test('it should render the right CSS size class if the @size prop is declared', async function (assert) {
+  test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Button @text="Copy to Clipboard" @size="small" id="test-button" />`
     );
@@ -44,7 +44,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('#test-button').hasClass('hds-button--color-primary');
   });
-  test('it should render the right CSS color class if the @color prop is declared', async function (assert) {
+  test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Button @text="Copy to Clipboard" @color="destructive" id="test-button" />`
     );
@@ -114,7 +114,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('#test-button').hasAttribute('disabled');
   });
-  test('it should have the right CSS class to support full-width button size if @isFullWidth prop is true', async function (assert) {
+  test('it should have the correct CSS class to support full-width button size if @isFullWidth prop is true', async function (assert) {
     await render(
       hbs`<Hds::Button @text="copy to clipboard" @isFullWidth={{true}} id="test-button" />`
     );
