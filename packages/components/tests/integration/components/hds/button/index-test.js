@@ -60,6 +60,18 @@ module('Integration | Component | hds/button/index', function (hooks) {
       )
       .exists();
   });
+  test('if an icon is declared the icon should be in leading position by default', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" id="test-button" />`
+    );
+    assert.dom('.hds-button__icon').matchesSelector(':first-child');
+  });
+  test('if an icon is declared the icon should be in trailing position if @iconPos is set to trailing', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPos="trailing" id="test-button" />`
+    );
+    assert.dom('.hds-button__icon').matchesSelector(':last-child');
+  });
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {
     await render(
       hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`
