@@ -16,6 +16,9 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('#test-card-container')
       .hasClass('hds-card__container--level-base');
   });
+
+  // LEVEL
+
   test('it should have the right level class based on the @level prop', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @level="mid" />`
@@ -24,6 +27,9 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('#test-card-container')
       .hasClass('hds-card__container--level-mid');
   });
+
+  // BACKGROUND
+
   test('it should have the default background if no @background prop is declared', async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert
@@ -38,6 +44,9 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('#test-card-container')
       .hasClass('hds-card__container--background-neutral-secondary');
   });
+
+  // BORDER
+
   test('it should have a border if the @hasBorder prop is true', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @hasBorder={{true}} />`
@@ -46,6 +55,9 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .dom('#test-card-container')
       .hasClass('hds-card__container--has-border');
   });
+
+  // OVERFLOW
+
   test('it should have the overflow hidden if no @overflow prop is declared', async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert
