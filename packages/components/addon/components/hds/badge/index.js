@@ -107,6 +107,22 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
+   * @param text
+   * @type {string}
+   * @description The text of the badge. If `isIconOnly` is set to `true`, the text will be visually hidden but still available to assistive technology. If no text value is defined, an error will be thrown.
+   */
+  get text() {
+    let { text } = this.args;
+
+    assert(
+      '@text for "Hds::Badge" must have a valid value',
+      text !== undefined
+    );
+
+    return text;
+  }
+
+  /**
    * Sets the icon name if there is one
    *
    * @param icon
@@ -115,5 +131,18 @@ export default class HdsBadgeIndexComponent extends Component {
    */
   get icon() {
     return this.args.icon ?? null;
+  }
+
+  /**
+   * @param isIconOnly
+   * @type {boolean}
+   * @default false
+   * @description Indicates if the badge will only contain an icon; component will also ensure that accessible text is still applied to the component.
+   */
+  get isIconOnly() {
+    if (this.icon) {
+      return this.args.isIconOnly ?? false;
+    }
+    return false;
   }
 }

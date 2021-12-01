@@ -64,9 +64,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
       .dom(this.element.querySelector('.flight-icon.flight-icon-activity'))
       .exists();
   });
-  test('if an icon exists and text does not exist, srOnlyText should exist', async function (assert) {
+  test('if isIconOnly is set to true, visible text is hidden but text is still available to assistive technology', async function (assert) {
     await render(
-      hbs`<Hds::Badge @srOnlyText="meaningful text for icon only badge" id="test-badge" @icon="activity" />`
+      hbs`<Hds::Badge @text="meaningful text for icon only badge" @isIconOnly={{true}} id="test-badge" @icon="activity" />`
     );
     assert.equal(
       this.element.querySelector('.sr-only').textContent.trim(),
