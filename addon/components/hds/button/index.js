@@ -15,12 +15,14 @@ export default class HdsButtonIndexComponent extends Component {
    * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
    */
   get text() {
-    let { text = '' } = this.args;
+    let { text } = this.args;
 
-    if (text === '') {
-      assert('Button `@text` must have a valid value');
-    }
-    return this.args.text;
+    assert(
+      '@text for "Hds::Button" must have a valid value',
+      text !== undefined
+    );
+
+    return text;
   }
 
   /**
@@ -32,14 +34,12 @@ export default class HdsButtonIndexComponent extends Component {
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
 
-    if (size) {
-      assert(
-        `Button @size must be one of the following: ${SIZES.join(
-          ', '
-        )}; received: ${size}`,
-        SIZES.includes(size)
-      );
-    }
+    assert(
+      `@size for "Hds::Button" must be one of the following: ${SIZES.join(
+        ', '
+      )}; received: ${size}`,
+      SIZES.includes(size)
+    );
 
     return size;
   }
@@ -63,14 +63,12 @@ export default class HdsButtonIndexComponent extends Component {
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
 
-    if (color) {
-      assert(
-        `Button @color must be one of the following: ${COLORS.join(
-          ', '
-        )}; received: ${color}`,
-        COLORS.includes(color)
-      );
-    }
+    assert(
+      `@color for "Hds::Button" must be one of the following: ${COLORS.join(
+        ', '
+      )}; received: ${color}`,
+      COLORS.includes(color)
+    );
 
     return color;
   }
@@ -141,14 +139,12 @@ export default class HdsButtonIndexComponent extends Component {
   get type() {
     let { type = DEFAULT_TYPE } = this.args;
 
-    if (type) {
-      assert(
-        `Button @type must be one of the following: ${TYPES.join(
-          ', '
-        )}; received: ${type}`,
-        TYPES.includes(type)
-      );
-    }
+    assert(
+      `@type for "Hds::Button" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${type}`,
+      TYPES.includes(type)
+    );
 
     return type;
   }
