@@ -57,7 +57,7 @@
         {{/each}}
         {{#each @model.STATES as |state|}}
             <div>
-                <span class="dummy-text-small">Full-width/{{color}}/{{state}}:</span> <br/>
+                <span class="dummy-text-small">Full-width/{{this.color}}/{{this.state}}:</span> <br/>
                 <Hds::Button @icon="plus" @text={{state}} @color={{color}} @isFullWidth={{true}} class="is-{{state}}" />
             </div>
         {{/each}}
