@@ -14,7 +14,7 @@ module('Acceptance | Percy test', function (hooks) {
     await percySnapshot('Card');
 
     await visit('/components/button');
-    await percySnapshot('Buttom');
+    await percySnapshot('Button');
 
     assert.ok(true);
   });
