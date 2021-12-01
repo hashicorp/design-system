@@ -22,16 +22,16 @@ To add an icon to your button, give the `@icon` a [Flight Icon](https://flight-h
 Renders to:
 <Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" />
 
-### Position Icon
+### Icon Position
 
-By default, if you define an icon, it is placed before the text. If you would like to position the icon after the text, define `@iconPos`:
+By default, if you define an icon, it is placed before the text. If you would like to position the icon after the text, define `@iconPosition`:
 
 ```hbs
-<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPos="trailing" />
+<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
 ```
 
 Renders to:
-<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPos="trailing" />
+<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
 
 ### Icon-only Button
 
