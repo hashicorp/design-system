@@ -105,4 +105,9 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  // TODO move it in the proper position when merged in the other branch refactoring all the tests
+  test('it should have aria-hidden set to true', async function (assert) {
+    await render(hbs`<Hds::IconTile @logo="boundary" id="test-icon-tile" />`);
+    assert.dom('div#test-icon-tile').hasAria('hidden', 'true');
+  });
 });
