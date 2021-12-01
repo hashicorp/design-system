@@ -2,56 +2,58 @@
 
 <h2 class="dummy-h2">Button Component</h2>
 
-<h3 class="dummy-h3">Showcase</h3>
-
-<h4 class="dummy-h4">Content</h4>
-<div class="dummy-button-base-sample">
-    <Hds::Button @text="only text" />
-    <Hds::Button @icon="plus" @iconPos="leading" @text="text + leading icon" />
-    <Hds::Button @icon="arrow-right" @iconPos="trailing" @text="text + trailing icon" />
-    <Hds::Button @icon="plus" @isIconOnly={{true}} @text="icon only" />
-    <div class="dummy-button-max-width-container">
-        <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
+<section data-test-percy>
+    <h3 class="dummy-h3">Showcase</h3>
+    <h4 class="dummy-h4">Content</h4>
+    <div class="dummy-button-base-sample">
+        <Hds::Button @text="only text" />
+        <Hds::Button @icon="plus" @iconPos="leading" @text="text + leading icon" />
+        <Hds::Button @icon="arrow-right" @iconPos="trailing" @text="text + trailing icon" />
+        <Hds::Button @icon="plus" @isIconOnly={{true}} @text="icon only" />
+        <div class="dummy-button-max-width-container">
+            <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
+        </div>
     </div>
-</div>
 
-<h4 class="dummy-h4">Sizes</h4>
-<div class="dummy-button-base-sample">
-    {{#each @model.SIZES as |size|}}
-        <Hds::Button @icon="plus" @text={{size}} @size={{size}} />
-    {{/each}}
-    <div class="dummy-button-full-width-container">
-        <Hds::Button @icon="plus" @text="full-width" @isFullWidth={{true}} />
-    </div>
-</div>
-
-<h4 class="dummy-h4">Colors</h4>
-<div class="dummy-button-base-sample">
-    {{#each @model.COLORS as |color|}}
-        <Hds::Button @icon="plus" @text={{color}} @color={{color}} />
-    {{/each}}
-</div>
-
-<h4 class="dummy-h4">States (in each size)</h4>
-<div class="dummy-button-states-grid">
-    {{#each @model.COLORS as |color|}}
+    <h4 class="dummy-h4">Sizes</h4>
+    <div class="dummy-button-base-sample">
         {{#each @model.SIZES as |size|}}
+            <Hds::Button @icon="plus" @text={{size}} @size={{size}} />
+        {{/each}}
+        <div class="dummy-button-full-width-container">
+            <Hds::Button @icon="plus" @text="full-width" @isFullWidth={{true}} />
+        </div>
+    </div>
+
+    <h4 class="dummy-h4">Colors</h4>
+    <div class="dummy-button-base-sample">
+        {{#each @model.COLORS as |color|}}
+            <Hds::Button @icon="plus" @text={{color}} @color={{color}} />
+        {{/each}}
+    </div>
+
+    <h4 class="dummy-h4">States (in each size)</h4>
+    <div class="dummy-button-states-grid">
+        {{#each @model.COLORS as |color|}}
+            {{#each @model.SIZES as |size|}}
+                {{#each @model.STATES as |state|}}
+                <div>
+                    <span class="dummy-text-small">{{size}}/{{color}}/{{state}}:</span> <br/>
+                    <Hds::Button @icon="plus" @text={{state}} @size={{size}} @color={{color}} class="is-{{state}}" />
+                </div>
+                {{/each}}
+            {{/each}}
             {{#each @model.STATES as |state|}}
-            <div>
-                <span class="dummy-text-small">{{size}}/{{color}}/{{state}}:</span> <br/>
-                <Hds::Button @icon="plus" @text={{state}} @size={{size}} @color={{color}} class="is-{{state}}" />
-            </div>
+                <div>
+                    <span class="dummy-text-small">Full-width/{{color}}/{{state}}:</span> <br/>
+                    <Hds::Button @icon="plus" @text={{state}} @color={{color}} @isFullWidth={{true}} class="is-{{state}}" />
+                </div>
             {{/each}}
         {{/each}}
-        {{#each @model.STATES as |state|}}
-            <div>
-                <span class="dummy-text-small">Full-width/{{color}}/{{state}}:</span> <br/>
-                <Hds::Button @icon="plus" @text={{state}} @color={{color}} @isFullWidth={{true}} class="is-{{state}}" />
-            </div>
-        {{/each}}
-    {{/each}}
-</div>
+    </div>
+</section>
 
-
-<h3 class="dummy-h3">Usage</h3>
-<ButtonDoc />
+<section>
+    <h3 class="dummy-h3">Usage</h3>
+    <ButtonDoc />
+</section>
