@@ -10,7 +10,7 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
     await render(hbs`<Hds::BadgeCount @text="text renders" />`);
     assert.dom(this.element).hasText('text renders');
   });
-  test('it should render a CSS class that matches the button component name', async function (assert) {
+  test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" />`
     );
@@ -25,7 +25,7 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
     );
     assert.dom('#test-badge-count').hasClass('hds-badge-count--color-neutral');
   });
-  test('it should have the right color class based on the @color prop', async function (assert) {
+  test('it should have the correct color class based on the @color prop', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" @color="neutral-dark-mode" />`
     );
@@ -42,7 +42,7 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
     );
     assert.dom('#test-badge-count').hasClass('hds-badge-count--size-medium');
   });
-  test('it should have the right size class based on the @size prop', async function (assert) {
+  test('it should have the correct size class based on the @size prop', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" @size="small" />`
     );
@@ -57,7 +57,7 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
     );
     assert.dom('#test-badge-count').hasClass('hds-badge-count--type-filled');
   });
-  test('it should have the right type class based on the @type prop', async function (assert) {
+  test('it should have the correct type class based on the @type prop', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" @type="inverted" />`
     );
