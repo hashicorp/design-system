@@ -16,6 +16,9 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
     );
     assert.dom('#test-badge-count').hasClass('hds-badge-count');
   });
+
+  // COLOR
+
   test('it should have the default color if no @color prop is declared', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" />`
@@ -30,6 +33,9 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
       .dom('#test-badge-count')
       .hasClass('hds-badge-count--color-neutral-dark-mode');
   });
+
+  // SIZE
+
   test('it should have the medium size if no @size prop is declared', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" />`
@@ -42,6 +48,9 @@ module('Integration | Component | hds/badge-count/index', function (hooks) {
     );
     assert.dom('#test-badge-count').hasClass('hds-badge-count--size-small');
   });
+
+  // TYPE
+
   test('it should have the filled type if no @type prop is declared', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" />`

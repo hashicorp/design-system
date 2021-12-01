@@ -14,6 +14,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge');
   });
+
+  // COLOR
+
   test('it should render the neutral color as the default if no color is declared', async function (assert) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge--color-neutral');
@@ -24,6 +27,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     );
     assert.dom('#test-badge').hasClass('hds-badge--color-highlight');
   });
+
+  // SIZE
+
   test('it should render the medium size if no size is declared', async function (assert) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge--size-medium');
@@ -34,6 +40,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     );
     assert.dom('#test-badge').hasClass('hds-badge--size-small');
   });
+
+  // TYPE
+
   test('it should render the filled type if no type is declared', async function (assert) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge--type-filled');
@@ -44,6 +53,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     );
     assert.dom('#test-badge').hasClass('hds-badge--type-inverted');
   });
+
+  // ICON
+
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Badge @text="text renders" id="test-badge" @icon="activity" />`
