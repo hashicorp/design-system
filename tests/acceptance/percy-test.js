@@ -10,11 +10,14 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/badge');
     await percySnapshot('Badge');
 
+    await visit('/components/button');
+    await percySnapshot('Button');
+
     await visit('/components/card');
     await percySnapshot('Card');
 
-    await visit('/components/button');
-    await percySnapshot('Button');
+    await visit('/components/icon-tile');
+    await percySnapshot('IconTile');
 
     assert.ok(true);
   });
