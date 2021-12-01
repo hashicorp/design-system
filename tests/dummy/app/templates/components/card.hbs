@@ -2,81 +2,6 @@
 
 <h2 class="dummy-h2">Card Container</h2>
 
-<section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
-  <h4 class="dummy-h4">Level:</h4>
-  <div class="dummy-card-base-sample">
-    {{#each @model.CONTAINER_LEVELS as |level|}}
-      <Hds::Card::Container @level={{level}}>
-        <DummyPlaceholder
-          @text={{level}}
-          @width="200"
-          @height="200"
-          @background="transparent"
-        />
-      </Hds::Card::Container>
-    {{/each}}
-  </div>
-
-  <h4 class="dummy-h4">Border:</h4>
-  <div class="dummy-card-base-sample">
-    {{#each @model.CONTAINER_LEVELS as |level|}}
-      <Hds::Card::Container @level={{level}} @hasBorder={{true}}>
-        <DummyPlaceholder
-          @text={{level}}
-          @width="200"
-          @height="200"
-          @background="transparent"
-        />
-      </Hds::Card::Container>
-    {{/each}}
-  </div>
-
-  <h4 class="dummy-h4">Background:</h4>
-  <div class="dummy-card-base-sample">
-    {{#each @model.CONTAINER_BACKGROUNDS as |background|}}
-      <Hds::Card::Container
-        @level="mid"
-        @hasBorder={{true}}
-        @background={{background}}
-      >
-        <DummyPlaceholder
-          @text={{background}}
-          @width="200"
-          @height="200"
-          @background="transparent"
-        />
-      </Hds::Card::Container>
-    {{/each}}
-  </div>
-
-  <h4 class="dummy-h4">Overflow:</h4>
-  <div class="dummy-card-base-sample">
-    <Hds::Card::Container @level="mid" @hasBorder={{true}}>
-      <div class="dummy-card-overflow__wrapper-relative">
-        <DummyPlaceholder
-          @text="hidden (default)"
-          @width="200"
-          @height="200"
-          @background="#e1f5fe"
-        />
-        <div class="dummy-card-overflow__content-absolute"></div>
-      </div>
-    </Hds::Card::Container>
-    <Hds::Card::Container @level="mid" @hasBorder={{true}} @overflow="visible">
-      <div class="dummy-card-overflow__wrapper-relative">
-        <DummyPlaceholder
-          @text="visible"
-          @width="200"
-          @height="200"
-          @background="#e1f5fe"
-        />
-        <div class="dummy-card-overflow__content-absolute"></div>
-      </div>
-    </Hds::Card::Container>
-  </div>
-</section>
-
 <section>
   <h3 class="dummy-h3">Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
@@ -157,4 +82,79 @@
     applied to it. This means you may need to handle the case in which text is
     truncated, to make it accessible (even though, this is a very unlikely
     situation).</p>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Level:</h4>
+  <div class="dummy-card-base-sample">
+    {{#each @model.CONTAINER_LEVELS as |level|}}
+      <Hds::Card::Container @level={{level}}>
+        <DummyPlaceholder
+          @text={{level}}
+          @width="200"
+          @height="200"
+          @background="transparent"
+        />
+      </Hds::Card::Container>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Border:</h4>
+  <div class="dummy-card-base-sample">
+    {{#each @model.CONTAINER_LEVELS as |level|}}
+      <Hds::Card::Container @level={{level}} @hasBorder={{true}}>
+        <DummyPlaceholder
+          @text={{level}}
+          @width="200"
+          @height="200"
+          @background="transparent"
+        />
+      </Hds::Card::Container>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Background:</h4>
+  <div class="dummy-card-base-sample">
+    {{#each @model.CONTAINER_BACKGROUNDS as |background|}}
+      <Hds::Card::Container
+        @level="mid"
+        @hasBorder={{true}}
+        @background={{background}}
+      >
+        <DummyPlaceholder
+          @text={{background}}
+          @width="200"
+          @height="200"
+          @background="transparent"
+        />
+      </Hds::Card::Container>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Overflow:</h4>
+  <div class="dummy-card-base-sample">
+    <Hds::Card::Container @level="mid" @hasBorder={{true}}>
+      <div class="dummy-card-overflow__wrapper-relative">
+        <DummyPlaceholder
+          @text="hidden (default)"
+          @width="200"
+          @height="200"
+          @background="#e1f5fe"
+        />
+        <div class="dummy-card-overflow__content-absolute"></div>
+      </div>
+    </Hds::Card::Container>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} @overflow="visible">
+      <div class="dummy-card-overflow__wrapper-relative">
+        <DummyPlaceholder
+          @text="visible"
+          @width="200"
+          @height="200"
+          @background="#e1f5fe"
+        />
+        <div class="dummy-card-overflow__content-absolute"></div>
+      </div>
+    </Hds::Card::Container>
+  </div>
 </section>

@@ -1,14 +1,16 @@
-<div class="hds-badge {{this.sizeClass}} {{this.typeClass}} {{this.colorClass}}" ...attributes>
+<div 
+  class="hds-badge {{this.sizeClass}} {{this.typeClass}} {{this.colorClass}}"
+  ...attributes>
   {{#if @icon}}
     <div class="hds-badge__icon">
       <FlightIcon @name={{this.icon}} @size="16" @stretched="true" />
     </div>
   {{/if}}
-  {{#if @text}}
-    <div class="hds-badge__text">
-      {{@text}}
-    </div>
+  {{#if this.isIconOnly}}
+    <span class="sr-only">{{this.text}}</span>
   {{else}}
-    <span class="sr-only">{{@srOnlyText}}</span>
+    <div class="hds-badge__text">
+      {{this.text}}
+    </div>  
   {{/if}}
 </div>
