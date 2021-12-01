@@ -44,6 +44,12 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('#test-button').hasClass('hds-button--color-destructive');
   });
+  test('it should not have visible icon if @icon is not declared', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
+    );
+    assert.dom('.hds-button__icon').doesNotExist();
+  });
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" id="test-button" />`
@@ -68,6 +74,12 @@ module('Integration | Component | hds/button/index', function (hooks) {
       .dom('#test-button')
       .hasText('copy to clipboard')
       .doesNotHaveAria('label', 'copy to clipboard');
+  });
+  test('it should not have visible text if isIconOnly is true', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`
+    );
+    assert.dom('.hds-button__text').doesNotExist();
   });
   test('it should add the `disabled` attribute to the button if `@isDisabled` is set to true', async function (assert) {
     await render(
