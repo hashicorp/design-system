@@ -124,7 +124,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
   // ASSERTIONS
 
   test('it should throw an assertion if @text is missing/has no value', async function (assert) {
-    const errorMessage = 'Button `@text` must have a valid value';
+    const errorMessage = '@text for "Hds::Button" must have a valid value';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -136,19 +136,19 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
     const errorMessage =
-      'Button @type must be one of the following: button, submit, reset; received: foo';
+      '@type for "Hds::Button" must be one of the following: button, submit, reset; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Button @icon="clipboard-copy" @type="foo" />`);
+    await render(hbs`<Hds::Button @text="copy to clipboard" @type="foo" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
   });
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
     const errorMessage =
-      'Button @size must be one of the following: small, medium, large; received: tiny';
+      '@size for "Hds::Button" must be one of the following: small, medium, large; received: tiny';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
