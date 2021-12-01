@@ -46,7 +46,7 @@ Renders to:
 
 ### Color
 
-There are four available colors for a button: primary, secondary, and destructive. The default is primary. To use a different color, declare another value for `@color`:
+There are three available colors for a button: primary, secondary, and destructive. The default is primary. To use a different color, declare another value for `@color`:
 
 ```hbs
 <Hds::Button @text="Destructive" @color="destructive" />
@@ -106,12 +106,10 @@ Renders to:
 
 ### Actions
 
-<!-- TODO add more explicit content here to make it as easy as possible -->
-
-You can define the action that should be performed in your route, and add it to the component invocation in your template:
+Define the action in your route or controller, and add it to the component invocation in your template:
 
 ```hbs
-@onSomeEvent={{this.takeSomeAction}}
+<Hds::Button @text="Copy to Clipboard" {{on "click" this.copyToClipboard}} />
 ```
 
 Read the Ember.js guides for more information: [Patterns for Actions](https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/).
