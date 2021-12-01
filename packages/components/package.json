@@ -53,7 +53,11 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test"
+    "test:ember:percy": "percy exec ember test",
+    "bump": "./node_modules/.bin/bump package.json",
+    "release": "yarn publish --new-version $npm_package_version",
+    "postrelease:git-tag": "TAG_VERSION=\"${npm_package_name}/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION",
+    "postrelease": "yarn postrelease:git-tag"
   },
   "dependencies": {
     "@hashicorp/design-system-tokens": "^0.0.13",
@@ -103,6 +107,7 @@
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
     "qunit-dom": "^1.6.0",
+    "version-bump-prompt": "^6.1.0",
     "webpack": "^5.61.0"
   },
   "engines": {
