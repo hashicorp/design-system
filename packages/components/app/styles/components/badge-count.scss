@@ -74,8 +74,8 @@ $size-props: (
 
   &.hds-badge-count--type-outlined {
     background-color: transparent;
-    border-color: currentColor;
-    color: var(--token-color-palette-neutral-500);;
+    border-color: var(--token-color-palette-neutral-500);
+    color: var(--token-color-palette-neutral-600);
   }
 }
 
@@ -92,7 +92,7 @@ $size-props: (
 
   &.hds-badge-count--type-outlined {
     background-color: transparent;
-    border-color: currentColor;
-    color: var(--token-color-palette-neutral-0);;
+    border-color: var(--token-color-palette-neutral-100);
+    color: var(--token-color-palette-neutral-0);
   }
 }
