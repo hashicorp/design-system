@@ -7,7 +7,7 @@
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.waypoint-300.value}",
+                "value": "{color.palette.waypoint-500.value}",
                 "type": "color",
                 "group": "branding"
             },

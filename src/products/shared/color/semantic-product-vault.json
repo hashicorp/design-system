@@ -13,7 +13,7 @@
                 "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work"
             },
             "foreground": {
-                "value": "{color.palette.vault-300.value}",
+                "value": "{color.palette.vault-500.value}",
                 "type": "color",
                 "group": "branding"
             },
