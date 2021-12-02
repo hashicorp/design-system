@@ -4,9 +4,11 @@ import { assert } from '@ember/debug';
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_TYPE = 'button';
+export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
 export const COLORS = ['primary', 'secondary', 'destructive'];
 export const TYPES = ['button', 'submit', 'reset'];
+export const ICONPOSITIONS = ['leading', 'trailing'];
 
 export default class HdsButtonIndexComponent extends Component {
   /**
@@ -113,7 +115,16 @@ export default class HdsButtonIndexComponent extends Component {
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition() {
-    return this.args.iconPosition ?? 'leading';
+    let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+
+    assert(
+      `@iconPosition for "Hds::Button" must be one of the following: ${ICONPOSITIONS.join(
+        ', '
+      )}; received: ${iconPosition}`,
+      ICONPOSITIONS.includes(iconPosition)
+    );
+
+    return iconPosition;
   }
 
   /**
