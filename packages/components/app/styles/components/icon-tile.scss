@@ -140,7 +140,7 @@ $size-props: (
     &.hds-icon-tile--color-#{$product} {
       background: linear-gradient(135deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
       border-color: var(--token-color-#{$product}-border);
-      color: var(--token-color-#{$product}-brand);
+      color: var(--token-color-#{$product}-foreground);
     }
   }
 }
