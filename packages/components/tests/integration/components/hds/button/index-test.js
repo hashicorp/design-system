@@ -158,4 +158,18 @@ module('Integration | Component | hds/button/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  test('it should throw an assertion if an incorrect value for @iconPosition is provided', async function (assert) {
+    const errorMessage =
+      '@iconPosition for "Hds::Button" must be one of the following: leading, trailing; received: after';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Button @icon="clipboard-copy" @text="copy to clipboard" @iconPosition="after" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
 });
