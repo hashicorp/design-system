@@ -7,7 +7,7 @@
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.boundary-400.value}",
+                "value": "{color.palette.boundary-500.value}",
                 "type": "color",
                 "group": "branding"
             },

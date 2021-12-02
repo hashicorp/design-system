@@ -7,7 +7,7 @@
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.vagrant-300.value}",
+                "value": "{color.palette.vagrant-500.value}",
                 "type": "color",
                 "group": "branding"
             },
