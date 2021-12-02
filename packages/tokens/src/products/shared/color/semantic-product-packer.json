@@ -7,7 +7,7 @@
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.packer-300.value}",
+                "value": "{color.palette.packer-500.value}",
                 "type": "color",
                 "group": "branding"
             },

@@ -7,7 +7,7 @@
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.terraform-400.value}",
+                "value": "{color.palette.terraform-500.value}",
                 "type": "color",
                 "group": "branding"
             },
