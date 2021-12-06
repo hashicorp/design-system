@@ -1,0 +1,94 @@
+$hds-link-standalone--border-radius: 5px;
+
+.hds-link-standalone {
+  align-items: center;
+  border-color: transparent;
+  color: var(--token-color-action-foreground-primary);
+  display: flex;
+  font-family: var(--token-typography-body-base-font-family);
+  justify-content: center;
+  outline-color: transparent;
+  position: relative; // TODO why?
+  text-decoration: none;
+  width: fit-content;
+
+  // TODO
+  // once the designers have decided what to do,
+  // probably some of these states can be merged
+  // Also they need to stay in this order: visited, hover, focus, active
+  &:visited {
+    color: var(--token-color-action-foreground-primary);
+  }
+
+  &:hover {
+    color: var(--token-color-action-foreground-primary);
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: var(--token-color-action-foreground-primary);
+    border-color: transparent;
+    text-decoration: underline;
+
+    // TODO! waiting for the designers to spec the focus state
+    &::before {
+      border-radius: $hds-link-standalone--border-radius;
+      border: 3px solid #5990ff; // special color??
+      bottom: -2px;
+      box-sizing: border-box;
+      content: '';
+      left: -8px;
+      position: absolute;
+      right: -8px;
+      top: -2px;
+    }
+  }
+  &:active {
+    color: var(--token-color-action-foreground-primary);
+  }
+}
+
+.hds-link-standalone--size-small {
+  font-size: 0.8125rem; // 13px;
+  line-height: 1;
+  padding: 0 0.25rem; // TODO
+
+  .hds-link-standalone__icon {
+    height: 0.75rem; // 12px
+    width: 0.75rem; // 12px
+  }
+}
+
+.hds-link-standalone--size-medium {
+  font-size: 0.875rem; // 14px
+  line-height: 1rem; // 16px
+  padding: 0.5rem; //TODO
+
+  .hds-link-standalone__icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.hds-link-standalone--size-large {
+  font-size: 1rem; //16px
+  line-height: 1.5rem; // 24px
+  padding: 0.5rem; //TODO
+
+  .hds-link-standalone__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.hds-link-standalone__text {
+  flex: 1 0 0;
+
+  .hds-link-standalone__icon + & {
+    margin-left: var(--token-spacing-02);
+  }
+
+  & + .hds-link-standalone__icon {
+    margin-left: var(--token-spacing-02);
+  }
+}
