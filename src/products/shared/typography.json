@@ -4,7 +4,7 @@
             "sans": {
                 "display": {
                     "macOS": {
-                        "value": "-apple-system, SF Pro Display",
+                        "value": "-apple-system, BlinkMacSystemFont, SF Pro Display",
                         "private": "true"
                     },
                     "windows": {
@@ -18,7 +18,7 @@
                 },
                 "text": {
                     "macOS": {
-                        "value": "-apple-system, SF Pro Text",
+                        "value": "-apple-system, BlinkMacSystemFont, SF Pro Text",
                         "private": "true"
                     },
                     "windows": {
