@@ -9,7 +9,50 @@
 @import "./components/dummy-placeholder.scss";
 
 body.dummy-app {
-    padding: 2rem;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .dummy-app-wrapper {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+
+        .dummy-header {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            background-color: black;
+            color: white;
+
+            h1.dummy-h1 {
+                margin:auto;
+                display: flex;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .dummy-main {
+            padding: 2rem;
+            min-height: 84.75vh;
+        }
+        .dummy-footer {
+            padding: 0 2rem;
+            background-color: black;
+            color: white;
+            .dummy-paragraph {
+                padding: 0;
+                margin: 0;
+                
+                .dummy-link {
+                color: white;
+                display: flex;
+                align-content: center;
+                padding: 1rem;
+                width: fit-content;
+                }
+            }
+        }
+    }
 }
 
 // TODO! replace with proper syntax highlighting (use the same as in the Flight website)
@@ -52,3 +95,4 @@ body.dummy-app {
         display: none;
     }
 }
+ 
