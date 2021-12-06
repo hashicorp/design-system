@@ -1,0 +1,39 @@
+{{#if @route}}
+  <LinkTo 
+    class="hds-link-standalone {{this.sizeClass}}"
+    @route={{@route}}
+    aria-label={{if this.isIconOnly this.text null}}
+    ...attributes
+  >
+    {{#if (eq this.iconPosition "leading")}}
+      <div class="hds-link-standalone__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+      <div class="hds-link-standalone__text">{{this.text}}</div>
+    {{else}}
+      <div class="hds-link-standalone__text">{{this.text}}</div>
+      <div class="hds-link-standalone__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+    {{/if}}
+  </LinkTo>
+{{else}}
+  <a
+    href={{this.linkUrl}}
+    class="hds-link-standalone {{this.sizeClass}}"
+    aria-label={{if this.isIconOnly this.text null}}
+    ...attributes
+  >
+    {{#if (eq this.iconPosition "leading")}}
+      <div class="hds-link-standalone__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+      <div class="hds-link-standalone__text">{{this.text}}</div>
+    {{else}}
+      <div class="hds-link-standalone__text">{{this.text}}</div>
+      <div class="hds-link-standalone__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+    {{/if}}
+  </a>
+{{/if}}
