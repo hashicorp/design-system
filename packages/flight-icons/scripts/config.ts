@@ -11,7 +11,7 @@ export const config: ConfigData = {
         // if later we will discover we need to be more specific (eg. multiple files, multiple pages, etc.)
         // we will adopt a more explicit, structured configuration format
         page: 'Export',
-        frames: ['Core', 'Services'],
+        frames: ['Core', 'Services', 'Products'],
     },
     // notice: these paths are relative to where the npm script is invoked, not this file!
     mainFolder: '.',
