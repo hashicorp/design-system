@@ -47,7 +47,7 @@ export const IconGitlabColor16 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="#E24329"
-                    d="M14.19 6.549H10.58l1.552-4.667a.267.267 0 01.254-.18c.115 0 .218.073.254.18l1.552 4.667z"
+                    d="M14.19 6.549H10.58l1.551-4.667a.267.267 0 01.255-.18c.115 0 .217.073.254.18l1.552 4.667z"
                 />
             </svg>
         );
