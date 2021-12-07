@@ -1,6 +1,6 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="size=16">
-<g id="Union">
+<g id="Path">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.75C0 0.335786 0.335786 0 0.75 0H3.25C3.66421 0 4 0.335786 4 0.75V3.25C4 3.66421 3.66421 4 3.25 4H0.75C0.335786 4 0 3.66421 0 3.25V0.75ZM1.5 1.5V2.5H2.5V1.5H1.5Z" fill="#000001"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0.75C6 0.335786 6.33579 0 6.75 0H9.25C9.66421 0 10 0.335786 10 0.75V3.25C10 3.66421 9.66421 4 9.25 4H6.75C6.33579 4 6 3.66421 6 3.25V0.75ZM7.5 1.5V2.5H8.5V1.5H7.5Z" fill="#000001"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.75 0C12.3358 0 12 0.335786 12 0.75V3.25C12 3.66421 12.3358 4 12.75 4H15.25C15.6642 4 16 3.66421 16 3.25V0.75C16 0.335786 15.6642 0 15.25 0H12.75ZM13.5 2.5V1.5H14.5V2.5H13.5Z" fill="#000001"/>

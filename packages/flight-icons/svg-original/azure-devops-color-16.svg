@@ -1,11 +1,11 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="size=16">
 <g id="Group">
-<path id="Vector" d="M15 3.62173V12.1337L11.5 15L6.075 13.025V14.9826L3.00375 10.9713L11.955 11.6704V4.00625L15 3.62173ZM12.0163 4.04994L6.99373 1V3.00126L2.3825 4.35581L1 6.12986V10.1586L2.9775 11.0325V5.86768L12.0163 4.04994Z" fill="url(#paint0_linear_707:116)"/>
+<path id="Vector" d="M15 3.62173V12.1337L11.5 15L6.075 13.025V14.9826L3.00375 10.9713L11.955 11.6704V4.00625L15 3.62173ZM12.0163 4.04994L6.99373 1V3.00126L2.3825 4.35581L1 6.12986V10.1586L2.9775 11.0325V5.86768L12.0163 4.04994Z" fill="url(#paint0_linear_707_116)"/>
 </g>
 </g>
 <defs>
-<linearGradient id="paint0_linear_707:116" x1="8" y1="14.9563" x2="8" y2="1.02622" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_707_116" x1="8" y1="14.9563" x2="8" y2="1.02622" gradientUnits="userSpaceOnUse">
 <stop stop-color="#0078D4"/>
 <stop offset="0.16" stop-color="#1380DA"/>
 <stop offset="0.53" stop-color="#3C91E5"/>

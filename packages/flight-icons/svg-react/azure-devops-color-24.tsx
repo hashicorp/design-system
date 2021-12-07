@@ -24,12 +24,12 @@ export const IconAzureDevopsColor24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill="url(#azure-devops-color-24__paint0_linear_707:113)"
+                    fill="url(#azure-devops-color-24__paint0_linear_707_113)"
                     d="M21 6.37v10.945L16.5 21l-6.975-2.54v2.518L5.576 15.82l11.509.9V6.864L21 6.371zm-3.836.551L10.706 3v2.573L4.778 7.315 3 9.595v5.18L5.543 15.9v-6.64l11.62-2.338z"
                 />
                 <defs>
                     <linearGradient
-                        id="azure-devops-color-24__paint0_linear_707:113"
+                        id="azure-devops-color-24__paint0_linear_707_113"
                         x1={12}
                         x2={12}
                         y1={20.944}
