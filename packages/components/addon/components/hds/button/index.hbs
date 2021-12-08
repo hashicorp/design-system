@@ -1,7 +1,7 @@
-<button 
+<button
   class="hds-button {{this.sizeClass}} {{this.colorClass}} {{this.widthClass}}"
   ...attributes
-  aria-label={{if this.isIconOnly this.text null}} 
+  aria-label={{if this.isIconOnly this.text null}}
   type={{this.type}}
   disabled={{if this.isDisabled "disabled" null}}
 >
@@ -17,7 +17,7 @@
         </div>
         <div class="hds-button__text">
           {{this.text}}
-        </div> 
+        </div>
       {{else}}
         <div class="hds-button__text">
           {{this.text}}
@@ -28,7 +28,7 @@
       {{/if}}
     {{else}}
       <div class="hds-button__text">
-          {{this.text}}
+        {{this.text}}
       </div>
     {{/if}}
   {{/if}}
