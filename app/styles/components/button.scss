@@ -4,6 +4,8 @@ $hds-button-border-radius: 5px;
 $hds-button-border-width: 1px;
 $hds-button-focus-border-width: 3px;
 
+$hds-button-sizes: ( 'small', 'medium', 'large' );
+
 // TODO! generalize with the existing mixin in Card component
 @mixin tempElevation() {
   box-shadow:
@@ -101,41 +103,45 @@ $hds-button-focus-border-width: 3px;
 
 // SIZE
 
-.hds-button--size-small {
-  font-size: 0.8125rem; // 13px;
-  min-height: 1.75rem;  //28px
-  line-height: 1;
-  padding: 0 1rem;
-  
-  .hds-button__icon {
-    height: 0.75rem; // 12px
-    width: 0.75rem; // 12px
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "font-size": 0.8125rem, // 13px;
+    "line-height": 1,
+    "min-height": 1.75rem,  // 28px
+    "padding": 0 1rem, // 0 16px
+    "icon-size": 0.75rem, // 12px
+  ),
+  "medium": (
+      "font-size": 0.875rem, // 14px
+      "line-height": 1rem,// 16px
+      "min-height": 2.25rem, // 36px
+      "padding": 0.625rem 1rem, // 10px 16px
+      "icon-size": 1rem, // 16px
+  ),
+  "large": (
+      "font-size": 1rem, //16px
+      "line-height": 1.5rem, // 24px
+      "min-height": 3rem, // 48px
+      "padding": 0.75rem 1.25rem, // 12px 20px
+      "icon-size": 1.5rem, // 24px
+  )
+);
+
+@each $size in $hds-button-sizes {
+  .hds-button--size-#{$size} {
+    font-size: map-get($size-props, $size, "font-size");
+    min-height: map-get($size-props, $size, "min-height");
+    line-height: map-get($size-props, $size, "line-height");
+    padding: map-get($size-props, $size, "padding");
+
+    .hds-button__icon {
+      height: map-get($size-props, $size, "icon-size");
+      width: map-get($size-props, $size, "icon-size");
+    }
   }
 }
 
-.hds-button--size-medium {
-  font-size: 0.875rem; // 14px
-  line-height: 1rem; // 16px
-  min-height: 2.25rem; //36px
-  padding: 0.625rem 1rem;
-
-  .hds-button__icon {
-    height: 1rem;
-    width: 1rem;
-  }
-}
-
-.hds-button--size-large {
-  font-size: 1rem; //16px
-  line-height: 1.5rem; // 24px
-  min-height: 3rem; //48px
-  padding: 0.75rem 1.25rem; // 12px 20px
-
-  .hds-button__icon {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-}
 
 // COLORS & STATES
 // Note: the order of the pseuo-selectors need to stay the way they are; it doesn't match the Figma file but it's the correct order for browsers to render the styles correctly.
