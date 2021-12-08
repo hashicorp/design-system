@@ -1,5 +1,7 @@
 @use "tokens";
 
+@use "../mixins/generic-focus-state";
+
 @use "../components/badge";
 @use "../components/badge-count";
 @use "../components/button";

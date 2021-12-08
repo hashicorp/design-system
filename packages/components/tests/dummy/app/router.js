@@ -15,5 +15,6 @@ Router.map(function () {
     this.route('link', function () {
       this.route('standalone');
     });
+    this.route('typography');
   });
 });
