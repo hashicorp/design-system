@@ -79,6 +79,7 @@
     "@percy/ember": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
+    "ember-a11y-refocus": "^2.1.0",
     "ember-auto-import": "^2.2.3",
     "ember-cli": "~3.27.0",
     "ember-cli-dependency-checker": "^3.2.0",
