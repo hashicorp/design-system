@@ -12,5 +12,6 @@ Router.map(function () {
     this.route('button');
     this.route('card');
     this.route('icon-tile');
+    this.route('typography');
   });
 });
