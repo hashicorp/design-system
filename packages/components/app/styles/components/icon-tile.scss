@@ -7,7 +7,7 @@
 
  $hds-icon-tile-sizes: ( 'small', 'medium', 'large' );
  $hds-icon-tile-types: ( 'object','resource','logo' );
- $hds-icon-tile-colors-products: ( 'boundary', 'consul', 'nomad', 'packer', 'terraform', 'vagrant', 'vault', 'waypoint' );
+ $hds-icon-tile-colors-products: ( 'hashicorp', 'boundary', 'consul', 'nomad', 'packer', 'terraform', 'vagrant', 'vault', 'waypoint' );
 
  $hds-icon-tile-border-width: 1px;
  $hds-icon-tile-box-shadow: 0px 1px 1px rgba(#656A76, 0.05);
@@ -115,15 +115,25 @@ $size-props: (
   border-color: var(--token-color-neutral-border-primary);
 
   @each $product in $hds-icon-tile-colors-products {
-    &.hds-icon-tile--color-#{$product} {
-      color: var(--token-color-#{$product}-brand);
+    @if ($product == 'hashicorp') {
+      // exception for HashiCorp (we use pure black here, as company brand color)
+      // notice: at the moment we don't have a token for that, that's why we're using an hex value
+      &.hds-icon-tile--color-hashicorp {
+        color: #000000;
+      }
+    } @else if($product == 'hashicorp') {
+      // exception for Vault, where the color of the logo needs to be the "alt" one
+      &.hds-icon-tile--color-vault {
+        color: var(--token-color-vault-brand-alt);
+      }
+    } @else {
+      &.hds-icon-tile--color-#{$product} {
+        color: var(--token-color-#{$product}-brand);
+      }
     }
+
   }
 
-  // exception for Vault, where the color of the logo needs to be the "alt" one
-  &.hds-icon-tile--color-vault {
-    color: var(--token-color-vault-brand-alt);
-  }
 }
 
 // ICON - COLOR
@@ -137,10 +147,20 @@ $size-props: (
   }
 
   @each $product in $hds-icon-tile-colors-products {
-    &.hds-icon-tile--color-#{$product} {
-      background: linear-gradient(135deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
-      border-color: var(--token-color-#{$product}-border);
-      color: var(--token-color-#{$product}-foreground);
+    @if ($product == 'hashicorp') {
+      // exception for HashiCorp (we use pure black here, as company brand color)
+      // notice: at the moment we don't have a token for that, that's why we're using an hex value
+      &.hds-icon-tile--color-hashicorp {
+        background-color: var(--token-color-neutral-background-secondary);
+        border-color: var(--token-color-neutral-border-primary);
+        color: #000000;
+      }
+    } @else {
+      &.hds-icon-tile--color-#{$product} {
+        background: linear-gradient(135deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
+        border-color: var(--token-color-#{$product}-border);
+        color: var(--token-color-#{$product}-foreground);
+      }
     }
   }
 }
