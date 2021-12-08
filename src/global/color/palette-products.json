@@ -1,6 +1,12 @@
 {
     "color": {
         "palette": {
+            "hashicorp-brand": {
+                "value": "#000000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
             "boundary-brand": {
                 "value": "#f24c53",
                 "type": "color",
@@ -93,6 +99,12 @@
             },
             "consul-50": {
                 "value": "#ffe9f1",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "hcp-brand": {
+                "value": "#000000",
                 "type": "color",
                 "group": "palette",
                 "private": "true"
