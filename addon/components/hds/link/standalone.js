@@ -42,18 +42,6 @@ export default class HdsLinkStandaloneComponent extends Component {
     return this.args.icon ?? null;
   }
 
-  /**
-   * @param isIconOnly
-   * @type {boolean}
-   * @default false
-   * @description Indicates if the link will only contain an icon; component will also ensure that accessible text is still applied to the component.
-   */
-  get isIconOnly() {
-    if (this.icon) {
-      return this.args.isIconOnly ?? false;
-    }
-    return false;
-  }
 
   /**
    * @param iconPosition
