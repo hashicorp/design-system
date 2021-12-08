@@ -93,6 +93,7 @@ export default class HdsIconTileIndexComponent extends Component {
    */
   get icon() {
     if (this.args.logo) {
+      // for the logo version we use the colored versions directly
       return `${this.args.logo}-color`;
     } else if (this.args.icon) {
       return this.args.icon;
