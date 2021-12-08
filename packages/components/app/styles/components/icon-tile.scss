@@ -52,27 +52,27 @@ $size-props: (
   "small": (
     "size": 1.75rem, // 28px
     "border-radius": 5px,
-    "icon-size": 1rem,
-    "logo-size": 1.25rem,
-    'extra-size': 1.125rem,
+    "icon-size": 1rem, // 16px
+    "logo-size": 1.125rem, // 18px
+    'extra-size': 1.125rem, // 18px
     'extra-border-radius': 4px,
     'extra-icon-size': 0.75rem,
   ),
   "medium": (
       "size": 2.5rem, // 40px
       "border-radius": 6px,
-      "icon-size": 1.5rem,
-      "logo-size": 2.25rem,
-      'extra-size': 1.5rem,
+      "icon-size": 1.5rem, // 24px
+      "logo-size": 1.75rem, // 28px
+      'extra-size': 1.5rem, // 24px
       'extra-border-radius': 5px,
       'extra-icon-size': 1rem,
   ),
   "large": (
     "size": 3rem, // 48px
     "border-radius": 6px,
-    "icon-size": 1.5rem,
-    "logo-size": 2.25rem,
-    'extra-size': 1.5rem,
+    "icon-size": 1.5rem, // 24px
+    "logo-size": 2rem, // 32px
+    'extra-size': 1.5rem, // 24px
     'extra-border-radius': 5px,
     'extra-icon-size': 1rem,
   )
