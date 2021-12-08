@@ -125,6 +125,7 @@
     "configPath": "tests/dummy/config"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.js": "eslint --cache --fix",
+    "*.{js,hbs}": "prettier --write"
   }
 }
