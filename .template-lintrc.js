@@ -4,7 +4,6 @@ module.exports = {
   plugins: ['ember-template-lint-plugin-prettier'],
   extends: [
     'recommended',
-    'a11y',
     'ember-template-lint-plugin-prettier:recommended',
   ],
   rules: {
