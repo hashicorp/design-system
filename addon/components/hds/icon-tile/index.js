@@ -7,6 +7,7 @@ export const SIZES = ['small', 'medium', 'large'];
 export const PRODUCTS = [
   'boundary',
   'consul',
+  'hashicorp',
   'nomad',
   'packer',
   'terraform',
