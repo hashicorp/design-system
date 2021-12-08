@@ -111,29 +111,9 @@ $size-props: (
 // LOGO - COLOR
 
 .hds-icon-tile--logo {
+  // notice: we are using colored icons so we don't need to set the "color" property here
   background-color: var(--token-color-neutral-background-primary);
   border-color: var(--token-color-neutral-border-primary);
-
-  @each $product in $hds-icon-tile-colors-products {
-    @if ($product == 'hashicorp') {
-      // exception for HashiCorp (we use pure black here, as company brand color)
-      // notice: at the moment we don't have a token for that, that's why we're using an hex value
-      &.hds-icon-tile--color-hashicorp {
-        color: #000000;
-      }
-    } @else if($product == 'hashicorp') {
-      // exception for Vault, where the color of the logo needs to be the "alt" one
-      &.hds-icon-tile--color-vault {
-        color: var(--token-color-vault-brand-alt);
-      }
-    } @else {
-      &.hds-icon-tile--color-#{$product} {
-        color: var(--token-color-#{$product}-brand);
-      }
-    }
-
-  }
-
 }
 
 // ICON - COLOR

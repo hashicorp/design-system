@@ -92,7 +92,13 @@ export default class HdsIconTileIndexComponent extends Component {
    * @default null
    */
   get icon() {
-    return this.args.icon ?? null;
+    if (this.args.logo) {
+      return `${this.args.logo}-color`;
+    } else if (this.args.icon) {
+      return this.args.icon;
+    } else {
+      return null;
+    }
   }
 
   /**
