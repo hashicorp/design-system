@@ -5,9 +5,9 @@ export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
 export const SIZES = ['small', 'medium', 'large'];
 export const PRODUCTS = [
-  'hashicorp',
   'boundary',
   'consul',
+  'hcp',
   'nomad',
   'packer',
   'terraform',
