@@ -52,7 +52,8 @@
         <li>vault</li>
         <li>waypoint</li>
       </ol>
-      <p><em>Notice: if it's a "logo" then we overwrite any @color parameter passed and just use the product "brand" color.</em></p>
+      <p><em>Notice: if it's a "logo" then we overwrite any @color parameter passed and just use the product "brand"
+          color.</em></p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -63,8 +64,7 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
-  <p class="dummy-paragraph">Invocation of the component would look something
-    like this:</p>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
   <pre class="dummy-code-snippet">
     &lt;Hds::IconTile @logo="boundary" @size="medium" iconSecondary="plus" /&gt;
@@ -83,63 +83,62 @@
 </section>
 
 <section data-test-percy>
-    <h3 class="dummy-h3">Showcase</h3>
-    <h4 class="dummy-h4">Size</h4>
-    <ul class="dummy-icon-tile-side-by-side">
-        <li>
-            <p class="dummy-paragraph">with logo</p>
-            <div class="dummy-icon-tile-base-sample">
-                {{#each @model.SIZES as |size|}}
-                    <Hds::IconTile @logo="boundary" @size={{size}} />
-                {{/each}}
-            </div>
-        </li>
-        <li>
-            <p class="dummy-paragraph">with icon</p>
-            <div class="dummy-icon-tile-base-sample">
-                {{#each @model.SIZES as |size|}}
-                    <Hds::IconTile @icon="dashboard" @size={{size}} />
-                {{/each}}
-            </div>
-        </li>
-    </ul>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Size</h4>
+  <ul class="dummy-icon-tile-side-by-side">
+    <li>
+      <p class="dummy-paragraph">with logo</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @logo="boundary" @size={{size}} />
+        {{/each}}
+      </div>
+    </li>
+    <li>
+      <p class="dummy-paragraph">with icon</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} />
+        {{/each}}
+      </div>
+    </li>
+  </ul>
 
+  <h4 class="dummy-h4">Logo</h4>
+  {{#each @model.PRODUCTS as |product|}}
+    <div class="dummy-icon-tile-base-sample">
+      {{#each @model.SIZES as |size|}}
+        <Hds::IconTile @logo={{product}} @size={{size}} />
+      {{/each}}
+    </div>
+  {{/each}}
 
-    <h4 class="dummy-h4">Logo</h4>
-    {{#each @model.PRODUCTS as |product|}}
-        <div class="dummy-icon-tile-base-sample">
-            {{#each @model.SIZES as |size|}}
-                <Hds::IconTile @logo={{product}} @size={{size}} />
-            {{/each}}
-        </div>
-    {{/each}}
+  <h4 class="dummy-h4">Icon color</h4>
+  {{#each @model.COLORS as |color|}}
+    <div class="dummy-icon-tile-base-sample">
+      {{#each @model.SIZES as |size|}}
+        <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
+      {{/each}}
+    </div>
+  {{/each}}
 
-    <h4 class="dummy-h4">Icon color</h4>
-    {{#each @model.COLORS as |color|}}
-        <div class="dummy-icon-tile-base-sample">
-            {{#each @model.SIZES as |size|}}
-                <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
-            {{/each}}
-        </div>
-    {{/each}}
-
-    <h4 class="dummy-h4">Secondary icon</h4>
-    <ul class="dummy-icon-tile-side-by-side">
-        <li>
-            <p class="dummy-paragraph">with logo</p>
-            <div class="dummy-icon-tile-base-sample">
-                {{#each @model.SIZES as |size|}}
-                    <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
-                {{/each}}
-            </div>
-        </li>
-        <li>
-            <p class="dummy-paragraph">with icon</p>
-            <div class="dummy-icon-tile-base-sample">
-                {{#each @model.SIZES as |size|}}
-                    <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
-                {{/each}}
-            </div>
-        </li>
-    </ul>
+  <h4 class="dummy-h4">Secondary icon</h4>
+  <ul class="dummy-icon-tile-side-by-side">
+    <li>
+      <p class="dummy-paragraph">with logo</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
+        {{/each}}
+      </div>
+    </li>
+    <li>
+      <p class="dummy-paragraph">with icon</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
+        {{/each}}
+      </div>
+    </li>
+  </ul>
 </section>
