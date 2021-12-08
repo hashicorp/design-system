@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconNomadColor24 = forwardRef<SVGSVGElement, IconProps>(
+export const IconHcp16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,20 +13,21 @@ export const IconNomadColor24 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
+                width={16}
+                height={16}
                 fill="none"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <path
-                    fill="#06D092"
-                    d="M12 .5L2 6.25v11.5l10 5.75 10-5.75V6.25L12 .5zm4.456 12.646l-2.664 1.533-3.22-1.745v3.664l-3.026 1.911v-7.661l2.401-1.463 3.331 1.748v-3.74l3.185-1.902-.008 7.655z"
-                />
+                <g fill={color}>
+                    <path d="M6.835.6L1 3.96v8.074l2.192 1.264V5.224l3.643-2.1V.6z" />
+                    <path d="M9.165.6v6.43h-2.33v-2.4L4.642 5.894v8.237l2.193 1.266v-6.41h2.33v2.383l2.192-1.264V1.864L9.165.6z" />
+                    <path d="M15 12.04L9.165 15.4v-2.525l3.642-2.1V2.703L15 3.966v8.073z" />
+                </g>
             </svg>
         );
     }

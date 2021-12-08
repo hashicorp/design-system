@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2021-12-07T15:50:49.601Z",
+  "lastRunTimeISO": "2021-12-08T17:20:30.103Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -500,7 +500,7 @@
       "id": "350:4426",
       "fileName": "bank-vault-24",
       "iconName": "bank-vault",
-      "description": "vault, secure",
+      "description": "vault, secure, safe",
       "size": "24",
       "width": 24,
       "height": 24
@@ -509,7 +509,7 @@
       "id": "350:4439",
       "fileName": "bank-vault-16",
       "iconName": "bank-vault",
-      "description": "vault, secure",
+      "description": "vault, secure, safe",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8222,7 +8222,7 @@
       "id": "1133:193",
       "fileName": "vagrant-24",
       "iconName": "vagrant",
-      "description": "amazon, aws, amazon web services",
+      "description": "vagrant",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8231,7 +8231,7 @@
       "id": "1133:195",
       "fileName": "vagrant-16",
       "iconName": "vagrant",
-      "description": "amazon, aws, amazon web services",
+      "description": "vagrant",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8240,7 +8240,7 @@
       "id": "1133:200",
       "fileName": "vagrant-color-24",
       "iconName": "vagrant-color",
-      "description": "amazon, aws, amazon web services",
+      "description": "vagrant",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8249,7 +8249,7 @@
       "id": "1133:205",
       "fileName": "vagrant-color-16",
       "iconName": "vagrant-color",
-      "description": "amazon, aws, amazon web services",
+      "description": "vagrant",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8258,7 +8258,7 @@
       "id": "1133:214",
       "fileName": "vault-24",
       "iconName": "vault",
-      "description": "amazon, aws, amazon web services",
+      "description": "vault",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8267,7 +8267,7 @@
       "id": "1133:216",
       "fileName": "vault-16",
       "iconName": "vault",
-      "description": "amazon, aws, amazon web services",
+      "description": "vault",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8276,7 +8276,7 @@
       "id": "1133:221",
       "fileName": "vault-color-24",
       "iconName": "vault-color",
-      "description": "amazon, aws, amazon web services",
+      "description": "vault",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8285,7 +8285,7 @@
       "id": "1133:224",
       "fileName": "vault-color-16",
       "iconName": "vault-color",
-      "description": "amazon, aws, amazon web services",
+      "description": "vault",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8358,6 +8358,42 @@
       "fileName": "hashicorp-color-16",
       "iconName": "hashicorp-color",
       "description": "hashicorp, logo, brand",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1163:74",
+      "fileName": "hcp-24",
+      "iconName": "hcp",
+      "description": "hcp, cloud, portal",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1163:76",
+      "fileName": "hcp-16",
+      "iconName": "hcp",
+      "description": "hcp, cloud, portal",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1163:81",
+      "fileName": "hcp-color-24",
+      "iconName": "hcp-color",
+      "description": "hcp, cloud, portal",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1163:86",
+      "fileName": "hcp-color-16",
+      "iconName": "hcp-color",
+      "description": "hcp, cloud, portal",
       "size": "16",
       "width": 16,
       "height": 16

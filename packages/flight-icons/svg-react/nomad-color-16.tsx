@@ -24,7 +24,7 @@ export const IconNomadColor16 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill="#00CA8E"
+                    fill="#06D092"
                     d="M8 0L1 4v8l7 4 7-4V4L8 0zm3.119 8.797L9.254 9.863 7.001 8.65v2.549l-2.118 1.33v-5.33l1.68-1.018 2.332 1.216V4.794l2.23-1.322-.006 5.325z"
                 />
             </svg>

@@ -926,3 +926,7 @@ export { IconHashicorp24 } from './hashicorp-24';
 export { IconHashicorp16 } from './hashicorp-16';
 export { IconHashicorpColor24 } from './hashicorp-color-24';
 export { IconHashicorpColor16 } from './hashicorp-color-16';
+export { IconHcp24 } from './hcp-24';
+export { IconHcp16 } from './hcp-16';
+export { IconHcpColor24 } from './hcp-color-24';
+export { IconHcpColor16 } from './hcp-color-16';
