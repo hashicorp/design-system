@@ -57,7 +57,8 @@
     "bump": "./node_modules/.bin/bump package.json",
     "release": "yarn publish --new-version $npm_package_version",
     "postrelease:git-tag": "TAG_VERSION=\"${npm_package_name}/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION",
-    "postrelease": "yarn postrelease:git-tag"
+    "postrelease": "yarn postrelease:git-tag",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@hashicorp/design-system-tokens": "^0.0.15",
@@ -95,6 +96,7 @@
     "ember-source": "~3.27.2",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.4.2",
+    "ember-template-lint-plugin-prettier": "^3.0.1",
     "ember-truth-helpers": "^3.0.0",
     "ember-try": "^1.4.0",
     "eslint": "^7.27.0",
@@ -103,6 +105,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-qunit": "^6.1.1",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
@@ -119,5 +123,9 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,hbs}": "prettier --write"
   }
 }
