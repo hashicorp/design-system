@@ -2,8 +2,8 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_ICONPOSITION = 'leading';
-export const ICONPOSITIONS = ['leading', 'trailing'];
 export const DEFAULT_SIZE = 'medium';
+export const ICONPOSITIONS = ['leading', 'trailing'];
 export const SIZES = ['small', 'medium', 'large'];
 
 export default class HdsLinkStandaloneComponent extends Component {
