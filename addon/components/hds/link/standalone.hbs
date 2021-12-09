@@ -1,8 +1,6 @@
 {{#if @route}}
   <LinkTo
-    class="hds-link-standalone {{this.sizeClass}}"
-    @route={{@route}}
-    ...attributes
+    class="hds-link-standalone {{this.sizeClass}}" @route={{@route}} ...attributes
   >
     {{#if (eq this.iconPosition "leading")}}
       <div class="hds-link-standalone__icon">
