@@ -10,7 +10,7 @@ export default class HdsLinkStandaloneComponent extends Component {
   /**
    * @param text
    * @type {string}
-   * @description The text of the link or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
+   * @description The text of the link. If no text value is defined an error will be thrown.
    */
   get text() {
     let { text } = this.args;
