@@ -1,7 +1,5 @@
 {{#if @route}}
-  <LinkTo
-    class="hds-link-standalone {{this.sizeClass}}" @route={{@route}} ...attributes
-  >
+  <LinkTo class="hds-link-standalone {{this.sizeClass}}" @route={{@route}} ...attributes>
     {{#if (eq this.iconPosition "leading")}}
       <div class="hds-link-standalone__icon">
         <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
@@ -15,11 +13,7 @@
     {{/if}}
   </LinkTo>
 {{else}}
-  <a
-    href={{this.linkUrl}}
-    class="hds-link-standalone {{this.sizeClass}}"
-    ...attributes
-  >
+  <a href={{this.linkUrl}} class="hds-link-standalone {{this.sizeClass}}" ...attributes>
     {{#if (eq this.iconPosition "leading")}}
       <div class="hds-link-standalone__icon">
         <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
