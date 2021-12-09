@@ -1,6 +1,4 @@
-<div 
-  class="hds-badge {{this.sizeClass}} {{this.typeClass}} {{this.colorClass}}"
-  ...attributes>
+<div class="hds-badge {{this.sizeClass}} {{this.typeClass}} {{this.colorClass}}" ...attributes>
   {{#if @icon}}
     <div class="hds-badge__icon">
       <FlightIcon @name={{this.icon}} @size="16" @stretched="true" />
@@ -11,6 +9,6 @@
   {{else}}
     <div class="hds-badge__text">
       {{this.text}}
-    </div>  
+    </div>
   {{/if}}
 </div>
