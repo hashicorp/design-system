@@ -89,8 +89,10 @@ export default class HdsLinkStandaloneComponent extends Component {
       )}; received: ${size}`,
       SIZES.includes(size)
     );
+
     return size;
   }
+
   /**
    * @param sizeClass
    * @type {string}
@@ -98,5 +100,19 @@ export default class HdsLinkStandaloneComponent extends Component {
    */
   get sizeClass() {
     return `hds-link-standalone--size-${this.size}`;
+  }
+
+  /**
+   * @param iconSize
+   * @type {string}
+   * @default 16
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
+  get iconSize() {
+    if (this.args.size === 'large') {
+      return '24';
+    } else {
+      return '16';
+    }
   }
 }
