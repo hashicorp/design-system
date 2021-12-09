@@ -36,25 +36,35 @@
         <li>warning</li>
       </ol>
     </dd>
-    <dt>icon <code>string</code></dt>
-    <dd>
-      <p>Any Flight icon name.</p>
-    </dd>
     <dt>text <code>string</code></dt>
     <dd>
-      <p>The text value that should go in the badge.</p>
+      <p>The text of the badge or value of the
+        <em>screen-reader only</em>
+        element if
+        <em>isIconOnly</em>
+        is set to
+        <em>true</em>.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
-    <dt>...attributes</dt>
+    <dt>icon <code>string</code></dt>
     <dd>
-      <p><code>...attributes</code> is supported on this component.</p>
+      <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
+    </dd>
+    <dt>isIconOnly <code>boolean</code></dt>
+    <dd>
+      <p>This indicates if the button will only contain an icon.</p>
+      <p><em>Notice: an internal check is in place to ensure that accessible text is still applied to the component.</em></p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code>...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
-  <p class="dummy-paragraph">Invocation of the component would look something
-    like this:</p>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
   <pre class="dummy-code-snippet">
     &lt;Hds::Badge @text="success badge" @color="success" @type="outlined" /&gt;
@@ -65,18 +75,10 @@
   <h3 class="dummy-h3">Design guidelines</h3>
 
   <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8"
-      >Figma UI Kit</a></p>
-    <img
-      class="dummy-figma-docs"
-      src="/assets/images/badge-design-usage.png"
-      alt=""
-      role="none"
-    />
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8">Figma UI Kit</a></p>
+    <img class="dummy-figma-docs" src="/assets/images/badge-design-usage.png" alt="" role="none" />
   </div>
 </section>
-
 
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
@@ -86,10 +88,7 @@
     <Hds::Badge @icon="activity" @text="text + icon" />
     <Hds::Badge @icon="activity" @text="only icon" @isIconOnly={{true}} />
     <div class="dummy-badge-max-width-container">
-      <Hds::Badge
-        @icon="activity"
-        @text="This is a very long text that should go on two lines"
-      />
+      <Hds::Badge @icon="activity" @text="This is a very long text that should go on two lines" />
     </div>
   </div>
   <div class="dummy-badge-base-sample">
@@ -121,19 +120,8 @@
             class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}}
               dummy-badge-base-sample--color-{{color}}"
           >
-            <Hds::Badge
-              @icon="activity"
-              @text="Lorem ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-            />
-            <Hds::Badge
-              @text="Lorem ipsum"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-            />
+            <Hds::Badge @icon="activity" @text="Lorem ipsum" @size={{size}} @type={{type}} @color={{color}} />
+            <Hds::Badge @text="Lorem ipsum" @size={{size}} @type={{type}} @color={{color}} />
             <Hds::Badge
               @icon="activity"
               @text="Lorem Ipsum"
@@ -189,17 +177,16 @@
     <dd>
       <p>The text value that should go in the badge counter.</p>
     </dd>
-    <dt>...attributes</dt>
+    <dt>“splattributes”</dt>
     <dd>
-      <p><code>...attributes</code> is supported on this component.</p>
+      <p><code>...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
-  <p class="dummy-paragraph">Invocation of the component would look something
-    like this:</p>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
   <pre class="dummy-code-snippet">
     &lt;Hds::BadgeCount @text="3" @size="large" @type="inverted" /&gt;
@@ -209,15 +196,8 @@
 <section>
   <h3 class="dummy-h3">Design guidelines</h3>
   <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8"
-      >Figma UI Kit</a></p>
-    <img
-      class="dummy-figma-docs"
-      src="/assets/images/badge-count-design-usage.png"
-      alt=""
-      role="none"
-    />
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A8">Figma UI Kit</a></p>
+    <img class="dummy-figma-docs" src="/assets/images/badge-count-design-usage.png" alt="" role="none" />
   </div>
 </section>
 
@@ -258,12 +238,7 @@
             class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}}
               dummy-badge-base-sample--color-{{color}}"
           >
-            <Hds::BadgeCount
-              @text="3"
-              @size={{size}}
-              @type={{type}}
-              @color={{color}}
-            />
+            <Hds::BadgeCount @text="3" @size={{size}} @type={{type}} @color={{color}} />
           </div>
         {{/each}}
       {{/each}}

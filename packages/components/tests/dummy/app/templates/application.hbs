@@ -1,12 +1,19 @@
 {{page-title "HDS Design System"}}
 <div class="dummy-app-wrapper">
-  <header>
-    <h1 class="dummy-h1">HDS Design System Components</h1>
+  <header class="dummy-header">
+    <NavigationNarrator />
+    <h1 class="dummy-h1">
+      HDS Design System Components
+    </h1>
   </header>
-  <main>
+  <main id="main" class="dummy-main">
     {{outlet}}
   </main>
-  <footer>
-    <p class="dummy-paragraph"><a href="https://github.com/hashicorp/design-system-components" rel="external">GitHub Repo</a></p>
+  <footer class="dummy-footer">
+    <p class="dummy-paragraph">
+      <a class="dummy-link" href="https://github.com/hashicorp/design-system-components" rel="external">
+        GitHub Repo
+      </a>
+    </p>
   </footer>
 </div>
