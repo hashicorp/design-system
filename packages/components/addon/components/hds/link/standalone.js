@@ -24,20 +24,18 @@ export default class HdsLinkStandaloneComponent extends Component {
   }
 
   /**
-   * @param linkUrl
+   * @param to
    * @type {string|null}
    * @description The value for the href attribute.
    */
-  get linkUrl() {
-    let { linkUrl } = this.args;
-    let { route } = this.args; // TODO not sure if I can/should do this?
-
+  get to() {
+    let { route, href } = this.args;
     assert(
-      `Either @linkUrl or @route must be defined for "Hds::Link::Standalone`,
-      linkUrl || route !== undefined
+      'Either href or @route must be defined for "Hds::Link::Standalone',
+      route || href
     );
 
-    return this.args.linkUrl;
+    return route || href;
   }
 
   /**
@@ -47,7 +45,14 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description The name of the icon to be used. An icon name must be defined.
    */
   get icon() {
-    return this.args.icon ?? null;
+    let { icon } = this.args;
+
+    assert(
+      '@icon for "Hds::Link::Standalone" must have a valid value',
+      icon !== undefined
+    );
+
+    return icon;
   }
 
   /**
