@@ -7,6 +7,7 @@ export const SIZES = ['small', 'medium', 'large'];
 export const PRODUCTS = [
   'boundary',
   'consul',
+  'hcp',
   'nomad',
   'packer',
   'terraform',
@@ -91,7 +92,14 @@ export default class HdsIconTileIndexComponent extends Component {
    * @default null
    */
   get icon() {
-    return this.args.icon ?? null;
+    if (this.args.logo) {
+      // for the logo version we use the colored versions directly
+      return `${this.args.logo}-color`;
+    } else if (this.args.icon) {
+      return this.args.icon;
+    } else {
+      return null;
+    }
   }
 
   /**

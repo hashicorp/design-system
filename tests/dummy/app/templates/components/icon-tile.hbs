@@ -19,6 +19,7 @@
     <dd>
       <p>Use this parameter to show a product logo. Acceptable values:</p>
       <ol>
+        <li>hcp</li>
         <li>boundary</li>
         <li>consul</li>
         <li>nomad</li>
@@ -79,7 +80,12 @@
   <h3 class="dummy-h3">Design guidelines</h3>
 
   <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph">TODO</p>
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=1377%3A11992">Figma
+        UI Kit</a></p>
+    <p class="dummy-paragraph"><strong>with logo</strong></p>
+    <img class="dummy-figma-docs" src="/assets/images/icontile-logo-design-usage.png" alt="" role="none" />
+    <p class="dummy-paragraph"><strong>with icon</strong></p>
+    <img class="dummy-figma-docs" src="/assets/images/icontile-icon-design-usage.png" alt="" role="none" />
   </div>
 </section>
 
@@ -116,11 +122,14 @@
 
   <h4 class="dummy-h4">Icon color</h4>
   {{#each @model.COLORS as |color|}}
-    <div class="dummy-icon-tile-base-sample">
-      {{#each @model.SIZES as |size|}}
-        <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
-      {{/each}}
-    </div>
+    {{! As agreed with designers, we prefer to hide the option of icon with "hcp" color }}
+    {{#if (not-eq color "hcp")}}
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
+        {{/each}}
+      </div>
+    {{/if}}
   {{/each}}
 
   <h4 class="dummy-h4">Secondary icon</h4>
