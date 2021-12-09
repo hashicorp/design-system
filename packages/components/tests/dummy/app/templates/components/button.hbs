@@ -3,8 +3,87 @@
 <h2 class="dummy-h2">Button Component</h2>
 
 <section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
+    <dt>size <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>small</li>
+        <li class="default">medium</li>
+        <li>large</li>
+      </ol>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+        <li>destructive</li>
+      </ol>
+    </dd>
+    <dt>text <code>string</code></dt>
+    <dd>
+      <p>The text of the button or value of <em>aria-label</em> if <em>isIconOnly</em> is set to <em>true</em>.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
+    </dd>
+    <dt>icon <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
+    </dd>
+    <dt>iconPosition <code>enum</code></dt>
+    <dd>
+      <p>Positions the icon before or after the text. Acceptable values:</p>
+      <ol>
+        <li class="default">leading</li>
+        <li>trailing</li>
+      </ol>
+    </dd>
+    <dt>isIconOnly <code>boolean</code></dt>
+    <dd>
+      <p>This indicates if the button will only contain an icon.</p>
+      <p><em>Notice: an internal check is in place to ensure that accessible text is still applied to the component.</em></p>
+    </dd>
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>The value for the button's <em>type</em> attribute. Acceptable values:</p>
+      <ol>
+        <li class="default">button</li>
+        <li>submit</li>
+        <li>reset</li>
+      </ol>
+    </dd>
+    <dt>isFullWidth <code>boolean</code></dt>
+    <dd>
+      <p>This indicates that a button should take up the full width of the parent container. The default is false.</p>
+    </dd>
+    <dt>isDisabled <code>boolean</code></dt>
+    <dd>
+      <p>Sets the native HTML attribute
+        <em>disabled</em>
+        on the button element. Default is null (doesn't render the attribute).</p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code>...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
   <h3 class="dummy-h3">Usage</h3>
   <ButtonDoc />
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A9">Figma UI Kit</a></p>
+    <img class="dummy-figma-docs" src="/assets/images/button-design-usage.png" alt="" role="none" />
+  </div>
 </section>
 
 <section data-test-percy>
