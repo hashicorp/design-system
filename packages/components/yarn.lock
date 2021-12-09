@@ -1308,24 +1308,24 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-1.1.0.tgz#d6dbc7574774b238114582410e8fee0dc3532bdf"
   integrity sha512-rR7tJoSwJ2eooOpYGxGGW95sLq6GXUaS1UtWvN7pei6n2/okYvCGld9vsUTvkl2migxbkszsycwtMf/GEc1k1A==
 
-"@hashicorp/design-system-tokens@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-tokens/-/design-system-tokens-0.0.15.tgz#0234c9bd0b339307db08b125f5bb81052715ee9f"
-  integrity sha512-sBL0DYyKiSo8p6vZcO3Y0a6harnS3r1QMeMlxvib58S9xpqaRRkmxORUHU+Y8Ryn7tOLQcWWjJkWHQSSKByIdw==
+"@hashicorp/design-system-tokens@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-tokens/-/design-system-tokens-0.0.16.tgz#e58497db71226927d788caed3dac8052c9821859"
+  integrity sha512-pkR6l0ItM4GJsuAfYrb+sy3Nf7pLuVPZ7VN7lZkhiV/BYmUsFSkOizK8aZ6CFPWj8z0gsFX8Lt5N1lwxfSxqlQ==
 
-"@hashicorp/ember-flight-icons@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-1.2.1.tgz#51432fc617b55714ad63bcaaa5719be1eb88a430"
-  integrity sha512-/H5jyXHCo3eqCNPZjG3PqJ8oNRXXLP6ETwrayXTJv4YZMr4QGyD54ZeFcyBHyXRIAhsT/B1+G9seSYj0PmRDCg==
+"@hashicorp/ember-flight-icons@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-2.0.0.tgz#d4eb9082fe6579c54d481de4f1644f0c3188f37c"
+  integrity sha512-mCOyha0YnZjQcEomm2FKKL74BBvTrVJVjicxh+P5yu+Yo8hmiFOr0PbaoOuLrFOxsHsd33VW6Y5uskcZivR1tQ==
   dependencies:
-    "@hashicorp/flight-icons" "^1.2.0"
+    "@hashicorp/flight-icons" "^2.0.0"
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
 
-"@hashicorp/flight-icons@^1.2.0", "@hashicorp/flight-icons@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-1.3.0.tgz#ac51dc130c34d0fe019a9d9c2acbab543271b018"
-  integrity sha512-m4GkuYocXv54cBc+7sCkD+xorSxGPYovACpk8/A8I9rCFwdkX3WSZM8osT2/ws4IkCfeNYoxB1dz6a2SRhRfDg==
+"@hashicorp/flight-icons@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.0.1.tgz#7e7370f1d45207409dd20ebdce7285370e7d9532"
+  integrity sha512-445WEmL0ysOeVQDe2khCqGbmNm+/Rv5B35Q8FXvc+RuE+r9mNWL0ufe2cVa8Sqqt/VRg0lyTEhArNX9gYCX1Yg==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
