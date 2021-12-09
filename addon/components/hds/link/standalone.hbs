@@ -1,8 +1,7 @@
 {{#if @route}}
-  <LinkTo 
+  <LinkTo
     class="hds-link-standalone {{this.sizeClass}}"
     @route={{@route}}
-    aria-label={{if this.isIconOnly this.text null}}
     ...attributes
   >
     {{#if (eq this.iconPosition "leading")}}
@@ -21,7 +20,6 @@
   <a
     href={{this.linkUrl}}
     class="hds-link-standalone {{this.sizeClass}}"
-    aria-label={{if this.isIconOnly this.text null}}
     ...attributes
   >
     {{#if (eq this.iconPosition "leading")}}
