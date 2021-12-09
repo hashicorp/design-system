@@ -69,6 +69,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
+
     assert(
       `@size for "Hds::Link::Standalone" must be one of the following: ${SIZES.join(
         ', '
