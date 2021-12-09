@@ -121,11 +121,13 @@
 
   <h4 class="dummy-h4">Icon color</h4>
   {{#each @model.COLORS as |color|}}
-    <div class="dummy-icon-tile-base-sample">
-      {{#each @model.SIZES as |size|}}
-        <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
-      {{/each}}
-    </div>
+    {{#if (not-eq color "hcp")}}
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
+        {{/each}}
+      </div>
+    {{/if}}
   {{/each}}
 
   <h4 class="dummy-h4">Secondary icon</h4>
