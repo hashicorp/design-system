@@ -19,6 +19,10 @@ See the [CONTRIBUTING](CONTRIBUTING.md) guide for details.
 
 See the [RELEASE](RELEASE.md) guide for details.
 
+## Migrating from structure-icons
+
+If you are using [structure-icons](https://github.com/hashicorp/structure-icons) in your project there is a 1:1 mapping for almost all icons between structure and Flight that is maintained in [structure-mappings](structure-mappings.json). The file is a series of key-value pairs where the key is the name of the icon in structure-icons and the value is the name of the icon in Flight.
+
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE.md).
