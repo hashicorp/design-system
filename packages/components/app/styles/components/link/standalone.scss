@@ -85,9 +85,6 @@ $size-props: (
       line-height: map-get($size-props, $size, "line-height");
     }
 
-    .hds-link-standalone__icon + .hds-link-standalone__text {
-      margin-inline-start: map-get($size-props, $size, "gap");
-    }
   }
 }
 
