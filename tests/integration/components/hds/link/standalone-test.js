@@ -11,7 +11,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" @linkUrl="/" @icon="film" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @route="index" @icon="film" />`
     );
 
     assert.dom(this.element).hasText('watch video');
