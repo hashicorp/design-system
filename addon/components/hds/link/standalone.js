@@ -26,12 +26,12 @@ export default class HdsLinkStandaloneComponent extends Component {
   /**
    * @param to
    * @type {string|null}
-   * @description The value for the href attribute.
+   * @description Checks to make sure either route or href is defined.
    */
   get to() {
     let { route, href } = this.args;
     assert(
-      'Either href or @route must be defined for "Hds::Link::Standalone',
+      'Either href or @route must be defined for "Hds::Link::Standalone"',
       route || href
     );
 
