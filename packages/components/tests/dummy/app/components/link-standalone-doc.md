@@ -1,12 +1,3 @@
-<h2 class="dummy-h2">Link (Standalone)</h2>
-
-- This is intended for links that are not inline and are used as standalone elements whose destination is a URL.
-- It must always have an [icon](https://flight-hashicorp.vercel.app/).
-- If you define a **@route**, a `<LinkTo>` component will be used.
-- If you define an **href** (HTML attribute), an `<a>` element will be used.
-
-<h3 class="dummy-h3">Usage</h3>
-
 <h4 class="dummy-h4">Basic invocation</h4>
 
 ```hbs
