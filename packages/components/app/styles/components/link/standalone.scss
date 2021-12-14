@@ -17,16 +17,19 @@ $hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
   // once the designers have decided what to do,
   // probably some of these states can be merged
   // Also they need to stay in this order: visited, hover, focus, active
-  &:visited {
+  &:visited,
+  &.is-visited {
     color: var(--token-color-action-foreground-primary);
   }
 
-  &:hover {
+  &:hover,
+  &.is-hover {
     color: var(--token-color-action-foreground-primary);
     text-decoration: underline;
   }
 
-  &:focus {
+  &:focus,
+  &.is-focus {
     color: var(--token-color-action-foreground-primary);
     border-color: transparent;
     text-decoration: underline;
@@ -44,8 +47,8 @@ $hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
       top: -2px;
     }
   }
-
-  &:active {
+  &:active,
+  &.is-active {
     color: var(--token-color-action-foreground-primary);
   }
 }
