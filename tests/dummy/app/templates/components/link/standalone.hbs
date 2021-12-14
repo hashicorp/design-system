@@ -1,3 +1,42 @@
-{{page-title "Standalone"}}
-
+{{page-title "Link (Standalone) Component"}}
 <LinkStandaloneDoc />
+<section data-test-percy>
+  <h3 class="dummy-h3">
+    Showcase
+  </h3>
+  <h4 class="dummy-h4">
+    Content
+  </h4>
+  <div class="dummy-button-base-sample">
+    <Hds::Link::Standalone @icon="plus" @text="text & leading icon" @route="index" />
+    <Hds::Link::Standalone @icon="arrow-right" @text="text & trailing icon" @route="index" @iconPosition="trailing" />
+    <div class="dummy-button-max-width-container">
+      <Hds::Link::Standalone @icon="plus" @text="very long text that might wrap for multiple lines" @route="index" />
+    </div>
+  </div>
+  <h4 class="dummy-h4">
+    Sizes
+  </h4>
+  <Hds::Link::Standalone @icon="plus" @text="small" @route="index" @size="small" />
+  <Hds::Link::Standalone @icon="plus" @text="medium" @route="index" />
+  <Hds::Link::Standalone @icon="plus" @text="large" @route="index" @size="medium" />
+  <h4 class="dummy-h4">
+    States (in each size)
+  </h4>
+  <div class="dummy-button-states-grid">
+    {{#each @model.SIZES as |size|}}
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">
+            {{size}}
+            /
+            {{state}}
+            :
+          </span>
+          <br />
+          <Hds::Link::Standalone @icon="plus" @text={{state}} @size={{size}} class="is-{{state}}" @route="index" />
+        </div>
+      {{/each}}
+    {{/each}}
+  </div>
+</section>
