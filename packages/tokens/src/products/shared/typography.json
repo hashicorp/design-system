@@ -131,8 +131,8 @@
                 "comment": "16px/1rem"
             },
             "line-height": {
-                "value": "1.25",
-                "comment": "20px"
+                "value": "1.5",
+                "comment": "24px"
             },
             "font-weight": {
                 "value": "semibold",
@@ -211,8 +211,8 @@
                 "comment": "16px/1rem"
             },
             "line-height": {
-                "value": "1.375",
-                "comment": "22px"
+                "value": "1.5",
+                "comment": "24px"
             },
             "font-weight": {
                 "value": "regular",

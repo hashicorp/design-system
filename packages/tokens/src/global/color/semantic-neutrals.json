@@ -41,7 +41,7 @@
                     "type": "color",
                     "group": "action"
                 },
-                "subtle": {
+                "faint": {
                     "value": "{color.palette.alpha-100.value}",
                     "type": "color",
                     "group": "action"
