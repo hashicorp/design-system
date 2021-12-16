@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 09 Dec 2021 14:59:36 GMT
+ * Generated on Thu, 16 Dec 2021 10:49:38 GMT
  */
 
 :root {
@@ -108,7 +108,7 @@
   --token-color-neutral-background-secondary: #fafafa;
   --token-color-neutral-background-base: #ffffff;
   --token-color-neutral-border-primary: #656a7633;
-  --token-color-neutral-border-subtle: #656a761a;
+  --token-color-neutral-border-faint: #656a761a;
   --token-color-neutral-border-strong: #3b3d4566;
   --token-color-hashicorp-brand: #000000;
   --token-color-boundary-brand: #f24c53;
@@ -268,7 +268,7 @@
   --token-typography-heading-2-letter-spacing: -0.5px; /* this is `tracking` */
   --token-typography-heading-3-font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-heading-3-font-size: 1rem; /* 16px/1rem */
-  --token-typography-heading-3-line-height: 1.25; /* 20px */
+  --token-typography-heading-3-line-height: 1.5; /* 24px */
   --token-typography-heading-3-font-weight: 600; /* semibold */
   --token-typography-heading-3-letter-spacing: -0.5px; /* this is `tracking` */
   --token-typography-heading-4-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
@@ -285,7 +285,7 @@
   --token-typography-display-small-font-weight: 500; /* medium */
   --token-typography-body-large-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-body-large-font-size: 1rem; /* 16px/1rem */
-  --token-typography-body-large-line-height: 1.375; /* 22px */
+  --token-typography-body-large-line-height: 1.5; /* 24px */
   --token-typography-body-large-font-weight: 400; /* regular */
   --token-typography-body-base-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-body-base-font-size: 0.875rem; /* 14px/0.875rem */
