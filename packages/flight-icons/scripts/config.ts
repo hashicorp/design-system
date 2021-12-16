@@ -16,7 +16,7 @@ export const config: ConfigData = {
     // notice: these paths are relative to where the npm script is invoked, not this file!
     mainFolder: '.',
     tempFolder: './temp',
-    emberPublicFolder: '../ember-flight-icons/public',
+    emberPublicFolder: '../ember-flight-icons/tests/dummy/public',
     // number of files retrieved by figma-export in a batch request
     syncConcurrency: 100,
 };
