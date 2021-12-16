@@ -26,9 +26,9 @@
       "comment": "24px, 1.5rem"
     },
     "06": {
-      "value": "36",
+      "value": "32",
       "group": "spacing",
-      "comment": "36px, 2.25rem"
+      "comment": "32px, 2rem"
     },
     "07": {
       "value": "48",
