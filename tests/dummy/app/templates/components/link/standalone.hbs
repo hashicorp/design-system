@@ -28,16 +28,16 @@
     <li>
       If you define an
       <strong>
-        href
+        @href
       </strong>
-      (HTML attribute), an
+      an
       <code>
         a
       </code>
       element will be used.
     </li>
     <li>
-      If neither an href nor route are defined, an error will be thrown.
+      If neither are defined, an error will be thrown.
     </li>
   </ul>
 </section>
@@ -88,6 +88,33 @@
       </p>
     </dd>
     <dt>
+      @route
+      <code>
+        route name
+      </code>
+    </dt>
+    <dd>
+      The route that is passed to the link
+    </dd>
+    <dt>
+      @model/@models
+      <code>
+        route model(s)
+      </code>
+    </dt>
+    <dd>
+      Use this to explicitly supply a model to the route
+    </dd>
+    <dt>
+      @query
+      <code>
+        query params as key value pairs
+      </code>
+    </dt>
+    <dd>
+      Use this to supply query parameters to the route
+    </dd>
+    <dt>
       icon
       <code>
         string
@@ -129,14 +156,33 @@
       </ol>
     </dd>
     <dt>
-      “splattributes”
+      ...attributes
     </dt>
     <dd>
       <p>
         <code>
           ...attributes
         </code>
-        spreading is supported on this component.
+        syntax is supported on this component. See
+        <a href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/" rel="external">
+          the Ember Guides section on HTML attributes in components
+        </a>
+        if you are unfamiliar with the way Ember supports HTML attributes and/or the
+        <code>
+          ...attributes
+        </code>
+        syntax. Additionally, see
+        <a
+          href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
+          rel="external"
+        >
+          Attribute Ordering
+        </a>
+        to understand how the position of
+        <code>
+          ...attributes
+        </code>
+        matters.
       </p>
     </dd>
   </dl>

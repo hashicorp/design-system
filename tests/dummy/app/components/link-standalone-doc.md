@@ -11,12 +11,12 @@
 <h4 class="dummy-h4">External Link</h4>
 
 ```hbs
-<Hds::Link::Standalone @text="Read Tutorial" @icon="collections" href="/" />
+<Hds::Link::Standalone @text="Read Tutorial" @icon="collections" @href="/" />
 ```
 
 **Renders to:**
 
-<Hds::Link::Standalone @text="Read Tutorial" @icon="collections" href="/" />
+<Hds::Link::Standalone @text="Read Tutorial" @icon="collections" @href="/" />
 
 <h4 class="dummy-h4">Sizes</h4>
 
@@ -55,12 +55,15 @@ If no size is defined, medium is automatically applied.
 
 <h4 class="dummy-h4">Download File</h4>
 
-To indicate that the link is a file to be downloaded, use the `href` attribute and add the `download` attribute when invoking the component:
+To indicate that the link is a file to be downloaded, use the `@href` and add the `download` attribute when invoking the component:
 
 ```hbs
-<Hds::Link::Standalone @text="Download Text File" @icon="download" href="path/to/file/file.txt"  download />
+<Hds::Link::Standalone @text="Download Text File" @icon="download" @href="path/to/file/file.txt"  download />
 ```
 
 **Renders to:**
 
-<Hds::Link::Standalone @text="Download Text File" @icon="download" href="path/to/file/file.txt" download />
+<Hds::Link::Standalone @text="Download Text File" @icon="download" @href="path/to/file/file.txt" download />
+
+<h4 class="dummy-h4">External Links</h4>
+

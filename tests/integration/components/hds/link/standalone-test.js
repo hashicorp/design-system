@@ -21,9 +21,9 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     );
     assert.dom(this.element).hasText('watch video');
   });
-  test('it renders a link(standalone) with the defined text with href defined', async function (assert) {
+  test('it renders a link(standalone) with the defined text with @href defined', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" />`
     );
     assert.dom(this.element).hasText('watch video');
   });
@@ -78,9 +78,9 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-  test('it should throw an assertion if there is no href or @route defined', async function (assert) {
+  test('it should throw an assertion if there is no @href or @route defined', async function (assert) {
     const errorMessage =
-      'Either href or @route must be defined for "Hds::Link::Standalone"';
+      'Either @href or @route must be defined for "Hds::Link::Standalone"';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

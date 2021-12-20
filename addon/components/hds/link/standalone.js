@@ -31,7 +31,7 @@ export default class HdsLinkStandaloneComponent extends Component {
   get to() {
     let { route, href } = this.args;
     assert(
-      'Either href or @route must be defined for "Hds::Link::Standalone"',
+      'Either @href or @route must be defined for "Hds::Link::Standalone"',
       route || href
     );
 
@@ -99,7 +99,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description Determines the CSS class that the standalone link should have, based on the size value; automatically set.
    */
   get sizeClass() {
-    return `hds-link-standalone--size-${this.size}`;
+    return ` hds-link-standalone--size-${this.size}`;
   }
 
   /**
