@@ -115,4 +115,14 @@ export default class HdsLinkStandaloneComponent extends Component {
       return '16';
     }
   }
+
+  // this is a workaround for https://github.com/emberjs/ember.js/issues/19693
+  // don't remove until we drop support for ember 3.27 and 3.28
+  get queryParams() {
+    if (this.args.query) {
+      return this.args.query;
+    } else {
+      return {};
+    }
+  }
 }

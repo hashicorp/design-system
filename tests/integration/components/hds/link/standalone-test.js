@@ -15,6 +15,18 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     );
     assert.dom(this.element).hasText('watch video');
   });
+  test('it renders a link(standalone) with the defined text with @route defined', async function (assert) {
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" @route="index" @icon="film" />`
+    );
+    assert.dom(this.element).hasText('watch video');
+  });
+  test('it renders a link(standalone) with the defined text with href defined', async function (assert) {
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" />`
+    );
+    assert.dom(this.element).hasText('watch video');
+  });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Link::Standalone @text="watch video" @route="index" @icon="film" id="test-link" />`

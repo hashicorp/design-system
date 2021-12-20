@@ -1,5 +1,11 @@
 {{#if @route}}
-  <LinkTo class="hds-link-standalone {{this.sizeClass}}" @route={{this.to}} ...attributes>
+  <LinkTo
+    class="hds-link-standalone {{this.sizeClass}}"
+    @route={{this.to}}
+    @query={{this.queryParams}}
+    @model={{hds-link-to-models @model @models}}
+    ...attributes
+  >
     {{#if (eq this.iconPosition "leading")}}
       <div class="hds-link-standalone__icon">
         <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
