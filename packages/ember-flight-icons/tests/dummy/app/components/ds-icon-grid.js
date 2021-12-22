@@ -5,8 +5,6 @@ import { getOwner } from '@ember/application';
 
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
-const defaultSize = '24';
-
 const checkIsShown = function (searchText, meta) {
   if (searchText === '') {
     return true;
@@ -21,7 +19,6 @@ const checkIsShown = function (searchText, meta) {
 
 export default class DsIconGridComponent extends Component {
   @tracked icons = [];
-  @tracked selectedIcon = 'auto-apply';
   @tracked size = '16';
   @tracked color = 'currentColor';
   @tracked searchText = '';
@@ -35,22 +32,6 @@ export default class DsIconGridComponent extends Component {
   constructor(...args) {
     super(...args);
     this.load();
-  }
-
-  get iconHbsCode() {
-    let iconHbsCode = `<FlightIcon @name="${this.selectedIcon}"`;
-
-    if (this.size !== defaultSize) {
-      iconHbsCode += ` @size=${this.size}`;
-    }
-
-    if (this.color) {
-      iconHbsCode += ` @color="${this.color}"`;
-    }
-
-    iconHbsCode += '/>';
-
-    return iconHbsCode;
   }
 
   get contextRootURL() {
@@ -99,14 +80,6 @@ export default class DsIconGridComponent extends Component {
     }
     this.ctrl = new AbortController();
     this.updateSearchText(event.target.value, this.ctrl.signal);
-  }
-
-  @action
-  updateSelectedItem(event) {
-    const iconWrapper = event.target.closest('.demo-icon');
-    if (iconWrapper && iconWrapper.dataset.Name) {
-      this.selectedIcon = iconWrapper.dataset.Name;
-    }
   }
 
   @action
