@@ -19,7 +19,6 @@ const checkIsShown = function (searchText, meta) {
 
 export default class DsIconGridComponent extends Component {
   @tracked icons = [];
-  @tracked selectedIcon = 'auto-apply';
   @tracked size = '16';
   @tracked color = 'currentColor';
   @tracked searchText = '';
@@ -80,14 +79,6 @@ export default class DsIconGridComponent extends Component {
     }
     this.ctrl = new AbortController();
     this.updateSearchText(event.target.value, this.ctrl.signal);
-  }
-
-  @action
-  updateSelectedItem(event) {
-    const iconWrapper = event.target.closest('.demo-icon');
-    if (iconWrapper && iconWrapper.dataset.Name) {
-      this.selectedIcon = iconWrapper.dataset.Name;
-    }
   }
 
   @action
