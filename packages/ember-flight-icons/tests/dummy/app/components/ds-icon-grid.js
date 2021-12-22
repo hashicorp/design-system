@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { action, set } from '@ember/object';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { getOwner } from '@ember/application';
 
