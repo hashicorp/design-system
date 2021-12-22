@@ -161,8 +161,7 @@ ul.ds-ul-grid {
   font-family: var(--font-body);
   gap: 16px;
   grid-auto-flow: dense;
-  grid-auto-rows: 148px;
-  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   list-style: none;
   margin: 0;
   padding: 0;
@@ -175,36 +174,31 @@ ul.ds-ul-grid li.ds-li {
   box-shadow: 0 0 0 1px var(--gray-5);
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  gap: 1ch;
-  justify-content: center;
-  padding: 0.5em 0.15em 0.15em;
-}
-ul.ds-ul-grid li.ds-li:hover {
-  background-color: var(--info-l2);
-  box-shadow: 0 0 0 1px var(--info-l1);
+  flex-direction: row;
+  gap: 1em;
+  padding: 0.5em 1em;
 }
 ul.ds-ul-grid li.ds-li .ds-icon-frame {
-  background: white;
-  border-radius: 2px;
+  align-items: center;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 3px;
   box-shadow: 0 0 0 1px var(--gray-5);
-  box-sizing: border-box;
   display: flex;
-  margin-top: auto;
-  padding: 6px;
+  justify-content: center;
+  width: 2.25em;
+  height: 2.25em;
 }
-ul.ds-ul-grid li.ds-li:hover .ds-icon-frame {
-  box-shadow: 0 0 0 1px var(--info-l1);
-  box-sizing: border-box;
-  color: var(--brand-link);
+ul.ds-ul-grid li.ds-li .ds-icon-frame svg {
+  outline: 1px dotted #ccc;
 }
-ul.ds-ul-grid li.ds-li p {
-  box-sizing: border-box;
+ul.ds-ul-grid li.ds-li .ds-icon-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 0.5em;
   font-size: 0.75em;
-  margin-top: auto;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
+}
+ul.ds-ul-grid li.ds-li .ds-icon-meta em {
+  color: #666;
+  font-style: normal;
 }

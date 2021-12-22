@@ -49,7 +49,14 @@
       <div class="ds-icon-frame">
         <FlightIcon @name={{meta.iconName}} @size="{{meta.size}}" class="demo-icon" />
       </div>
-      <p>{{meta.name}}</p>
+      <p class="ds-icon-meta">
+        <em>Ember:</em>
+        <span>{{meta.iconName}}</span>
+        <em>React:</em>
+        <span>{{meta.name}}</span>
+        <em>Keywords:</em>
+        <span>{{meta.description}}</span>
+      </p>
     </li>
   {{/each}}
 </ul>
