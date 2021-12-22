@@ -65,6 +65,7 @@ export default class DsIconGridComponent extends Component {
           iconName: `${iconName}`,
           name: `${fileName}`,
           size: `${size}`,
+          description: `${description}`,
           searchable: `${iconName}, ${description}`,
         };
       }
