@@ -16,7 +16,7 @@
         placeholder="e.g. arrow"
         autofocus={{false}}
         value={{this.search}}
-        {{on "input" this.args.onUpdate}}
+        {{on "input" (perform this.args.searchIcons value="target.value")}}
       />
 
     </div>

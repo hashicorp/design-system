@@ -1,6 +1,10 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { isBlank } from '@ember/utils';
+import { restartableTask, timeout } from 'ember-concurrency';
+
+const DEBOUNCE_MS = 250;
 
 export default class IndexController extends Controller {
   queryParams = ['query'];
@@ -14,31 +18,21 @@ export default class IndexController extends Controller {
 
     if (query) {
       return icons.filter((i) => {
-        return i.searchable.indexOf(query) !== -1
+        return i.searchable.indexOf(query) !== -1;
       });
     } else {
       return icons;
     }
   }
 
-  @action
-  async updateSearchText(value, signal) {
-    await new Promise((resolve) => setTimeout(resolve, 190));
-
-    if (signal.aborted) {
+  @restartableTask *searchIcons(query) {
+    if (isBlank(query)) {
       return;
     }
-    this.query = value;
-    return this.filteredIcons();
-  }
 
-  @action
-  debouncedUpdate(event) {
-    debugger
-    if (this.ctrl) {
-      this.ctrl.abort();
-    }
-    this.ctrl = new AbortController();
-    this.updateSearchText(event.target.value, this.ctrl.signal);
+    yield timeout(DEBOUNCE_MS);
+
+    this.query = query;
+    return this.filteredIcons;
   }
 }
