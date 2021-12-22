@@ -4,13 +4,8 @@ import { tracked } from '@glimmer/tracking';
 import { getOwner } from '@ember/application';
 
 export default class DsIconGridComponent extends Component {
-  @tracked icons;
   @tracked size = '16';
   @tracked color = 'currentColor';
-  @tracked searchText = '';
-
-  @tracked search;
-  @tracked searchQuery;
 
   @tracked currentIconSize = '16';
   @tracked visibleIconSize = '16';
