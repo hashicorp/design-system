@@ -15,8 +15,8 @@
         class="ds-input-search"
         placeholder="e.g. arrow"
         autofocus={{false}}
-        value={{this.search}}
-        {{on "input" (perform this.args.searchIcons value="target.value")}}
+        value={{@searchQuery}}
+        {{on "input" (perform @searchIcons value="target.value")}}
       />
 
     </div>
