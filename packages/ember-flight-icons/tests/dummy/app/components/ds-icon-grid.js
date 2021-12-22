@@ -5,8 +5,6 @@ import { getOwner } from '@ember/application';
 
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
-const defaultSize = '24';
-
 const checkIsShown = function (searchText, meta) {
   if (searchText === '') {
     return true;
@@ -35,22 +33,6 @@ export default class DsIconGridComponent extends Component {
   constructor(...args) {
     super(...args);
     this.load();
-  }
-
-  get iconHbsCode() {
-    let iconHbsCode = `<FlightIcon @name="${this.selectedIcon}"`;
-
-    if (this.size !== defaultSize) {
-      iconHbsCode += ` @size=${this.size}`;
-    }
-
-    if (this.color) {
-      iconHbsCode += ` @color="${this.color}"`;
-    }
-
-    iconHbsCode += '/>';
-
-    return iconHbsCode;
   }
 
   get contextRootURL() {
