@@ -4,7 +4,7 @@
   "private": true,
   "description": "Small description for website goes here",
   "repository": "",
-  "license": "MIT",
+  "license": "MPL-2.0",
   "author": "",
   "directories": {
     "doc": "doc",
