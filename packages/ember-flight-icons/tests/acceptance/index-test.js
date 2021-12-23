@@ -4,7 +4,7 @@ import { setupApplicationTest } from 'ember-qunit';
 import waitFor from '@ember/test-helpers/dom/wait-for';
 import percySnapshot from '@percy/ember';
 
-module('Acceptance | icon index and percy-test', function (hooks) {
+module('Acceptance | icon index and Percy tests', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting / renders a list of icons', async function (assert) {
@@ -31,5 +31,11 @@ module('Acceptance | icon index and percy-test', function (hooks) {
     });
 
     assert.ok(true);
+  });
+
+  test('query param functionality', async function (assert) {
+    await visit('/?query=emoji');
+
+    assert.dom('[data-test-icon="meh"]').exists();
   });
 });
