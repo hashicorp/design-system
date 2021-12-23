@@ -5,6 +5,24 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        cacheInclude: [/.*\.hbs$/, /.*\.css$/, /.*\.html/],
+        plugins: [
+          {
+            module: require('postcss-import'),
+          },
+          // eslint-disable-next-line node/no-missing-require
+          require('tailwindcss')('./app/styles/tailwind.config.js'),
+        ],
+      },
+    },
+    'ember-prism': {
+      theme: 'funky',
+      components: ['markup', 'bash'], //needs to be an array, or undefined.
+      plugins: ['line-numbers', 'toolbar', 'copy-to-clipboard', 'autoloader'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
