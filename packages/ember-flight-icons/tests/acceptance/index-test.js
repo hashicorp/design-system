@@ -37,5 +37,6 @@ module('Acceptance | icon index and Percy tests', function (hooks) {
     await visit('/?query=emoji');
 
     assert.dom('[data-test-icon="meh"]').exists();
+    assert.dom('[data-test-icon="activity"]').doesNotExist();
   });
 });
