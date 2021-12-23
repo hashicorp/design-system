@@ -33,10 +33,17 @@ module('Acceptance | icon index and Percy tests', function (hooks) {
     assert.ok(true);
   });
 
-  test('query param functionality', async function (assert) {
+  test('query param functionality with results', async function (assert) {
     await visit('/?query=emoji');
 
     assert.dom('[data-test-icon="meh"]').exists();
+    assert.dom('[data-test-icon="activity"]').doesNotExist();
+  });
+
+  test('query param functionality with no results', async function (assert) {
+    await visit('/?query=wubalubadubdub');
+
+    assert.dom('[data-test-target="empty-icons-search"]').exists();
     assert.dom('[data-test-icon="activity"]').doesNotExist();
   });
 });
