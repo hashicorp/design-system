@@ -1,7 +1,6 @@
 # website
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This Ember application hosts the documentation for the Flight micro-site.
 
 ## Prerequisites
 
@@ -15,8 +14,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd website`
+* `git clone https://github.com/hashicorp/flight` this repository
+* `cd flight/website`
 * `yarn install`
 
 ## Running / Development
@@ -46,7 +45,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+The app is auto-deployed by Vercel each time a change is merged to `main`.
 
 ## Further Reading / Useful Links
 

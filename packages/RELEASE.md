@@ -76,7 +76,7 @@ You may want to test the change in the real-world, with a consuming app, to test
 
 ## Release the Flight Icons micro-website
 
-The [Flight Icons micro-website](https://flight-hashicorp.vercel.app/) uses the `test/dummy` application of the `ember-flight-icon` addon. For this reason there's no actual release process, it gets automatically redeployed every time the PRs are merged in the `main` branch once approved.
+The [Flight Icons micro-website](https://flight-hashicorp.vercel.app/) gets automatically redeployed every time PRs are merged in the `main` branch once approved.
 
 ## Using a local NPM registry for testing
 
