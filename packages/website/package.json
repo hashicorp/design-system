@@ -2,10 +2,10 @@
   "name": "website",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for website goes here",
-  "repository": "",
+  "description": "Flight Icons Mircosite",
+  "repository": "https://github.com/hashicorp/flight/website",
   "license": "MPL-2.0",
-  "author": "",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
