@@ -9,4 +9,11 @@ updates:
       interval: "daily"
     allow: 
       - dependency-name: "@hashicorp/*"
+  - package-ecosystem: "npm" 
+    directory: "website/" 
+    versioning-strategy: increase
+    schedule:
+      interval: "daily"
+    allow: 
+      - dependency-name: "@hashicorp/*"
 
