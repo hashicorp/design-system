@@ -1,30 +1,12 @@
-{{page-title "Link (Standalone) Component"}}
+{{page-title "LinkTo (Standalone) Component"}}
 <h2 class="dummy-h2">
-  Link (Standalone)
+  LinkTo (Standalone)
 </h2>
 <section>
   <ul>
     <li>
-      The
-      <code>
-        Hds::Link::Standalone
-      </code>
-      component handles generation of an HTML anchor element with the following attributes:
-      <ul>
-        <li>
-          <code>
-            [target="_blank"]
-          </code>
-        </li>
-        <li>
-          <code>
-            [rel="noopener noreferrer"]
-          </code>
-        </li>
-      </ul>
-    </li>
-    <li>
-      Additional HTML attributes may be added as necessary to configure markup for specific use cases.
+      This is intended for internal links that are not inline with other text and are used as standalone elements whose
+      destination is a URL (route or query param).
     </li>
     <li>
       It must always have an
@@ -82,15 +64,31 @@
       </p>
     </dd>
     <dt>
-      icon
+      @route
       <code>
-        string
+        route name
       </code>
     </dt>
     <dd>
-      <p>
-        Use this parameter to show an icon. Acceptable value: any Flight icon name.
-      </p>
+      The route that is passed to the link
+    </dd>
+    <dt>
+      @model/@models
+      <code>
+        route model(s)
+      </code>
+    </dt>
+    <dd>
+      Use this to explicitly supply a model to the route
+    </dd>
+    <dt>
+      @query
+      <code>
+        query params as key value pairs
+      </code>
+    </dt>
+    <dd>
+      Use this to supply query parameters to the route
     </dd>
     <dt>
       icon
@@ -158,7 +156,6 @@
   <h3 class="dummy-h3">
     Usage
   </h3>
-  <LinkStandaloneDoc />
 </section>
 <section data-test-percy>
   <h3 class="dummy-h3">
@@ -168,18 +165,18 @@
     Content
   </h4>
   <div class="dummy-button-base-sample">
-    <Hds::Link::Standalone @icon="plus" @text="text & leading icon" @route="index" />
-    <Hds::Link::Standalone @icon="arrow-right" @text="text & trailing icon" @route="index" @iconPosition="trailing" />
+    <Hds::LinkTo::Standalone @icon="plus" @text="text & leading icon" @route="index" />
+    <Hds::LinkTo::Standalone @icon="arrow-right" @text="text & trailing icon" @route="index" @iconPosition="trailing" />
     <div class="dummy-button-max-width-container">
-      <Hds::Link::Standalone @icon="plus" @text="very long text that might wrap for multiple lines" @route="index" />
+      <Hds::LinkTo::Standalone @icon="plus" @text="very long text that might wrap for multiple lines" @route="index" />
     </div>
   </div>
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <Hds::Link::Standalone @icon="plus" @text="small" @route="index" @size="small" />
-  <Hds::Link::Standalone @icon="plus" @text="medium" @route="index" />
-  <Hds::Link::Standalone @icon="plus" @text="large" @route="index" @size="medium" />
+  <Hds::LinkTo::Standalone @icon="plus" @text="small" @route="index" @size="small" />
+  <Hds::LinkTo::Standalone @icon="plus" @text="medium" @route="index" />
+  <Hds::LinkTo::Standalone @icon="plus" @text="large" @route="index" @size="medium" />
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
@@ -194,7 +191,7 @@
             :
           </span>
           <br />
-          <Hds::Link::Standalone @icon="plus" @text={{state}} @size={{size}} class="is-{{state}}" @route="index" />
+          <Hds::LinkTo::Standalone @icon="plus" @text={{state}} @size={{size}} class="is-{{state}}" @route="index" />
         </div>
       {{/each}}
     {{/each}}

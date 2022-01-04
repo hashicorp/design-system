@@ -6,7 +6,7 @@ export const DEFAULT_SIZE = 'medium';
 export const ICONPOSITIONS = ['leading', 'trailing'];
 export const SIZES = ['small', 'medium', 'large'];
 
-export default class HdsLinkStandaloneComponent extends Component {
+export default class HdsLinkToStandaloneComponent extends Component {
   /**
    * @param text
    * @type {string}
@@ -16,11 +16,26 @@ export default class HdsLinkStandaloneComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Link::Standalone" must have a valid value',
+      '@text for "Hds::LinkTo::Standalone" must have a valid value',
       text !== undefined
     );
 
     return text;
+  }
+
+  /**
+   * @param route
+   * @type {string|null}
+   * @description Checks to make sure route is defined.
+   */
+  get route() {
+    let { route } = this.args;
+    assert(
+      '@route must be defined for "Hds::LinkTo::Standalone"',
+      route !== undefined
+    );
+
+    return route;
   }
 
   /**
@@ -33,7 +48,7 @@ export default class HdsLinkStandaloneComponent extends Component {
     let { icon } = this.args;
 
     assert(
-      '@icon for "Hds::Link::Standalone" must have a valid value',
+      '@icon for "Hds::LinkTo::Standalone" must have a valid value',
       icon !== undefined
     );
 
@@ -50,7 +65,7 @@ export default class HdsLinkStandaloneComponent extends Component {
     let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::Link::Standalone" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::LinkTo::Standalone" must be one of the following: ${ICONPOSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
       ICONPOSITIONS.includes(iconPosition)
@@ -69,7 +84,7 @@ export default class HdsLinkStandaloneComponent extends Component {
     let { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Link::Standalone" must be one of the following: ${SIZES.join(
+      `@size for "Hds::LinkTo::Standalone" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
@@ -98,6 +113,16 @@ export default class HdsLinkStandaloneComponent extends Component {
       return '24';
     } else {
       return '16';
+    }
+  }
+
+  // this is a workaround for https://github.com/emberjs/ember.js/issues/19693
+  // don't remove until we drop support for ember 3.27 and 3.28
+  get queryParams() {
+    if (this.args.query) {
+      return this.args.query;
+    } else {
+      return {};
     }
   }
 }
