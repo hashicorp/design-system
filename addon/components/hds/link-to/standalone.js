@@ -2,8 +2,10 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_ICONPOSITION = 'leading';
+export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_SIZE = 'medium';
 export const ICONPOSITIONS = ['leading', 'trailing'];
+export const COLORS = ['primary', 'secondary'];
 export const SIZES = ['small', 'medium', 'large'];
 
 export default class HdsLinkToStandaloneComponent extends Component {
@@ -36,6 +38,36 @@ export default class HdsLinkToStandaloneComponent extends Component {
     );
 
     return route;
+  }
+
+  /**
+   * @param color
+   * @type {string}
+   * @default primary
+   * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
+   */
+  get color() {
+    let { color = DEFAULT_COLOR } = this.args;
+
+    assert(
+      `@color for "Hds::LinkTo::Standalone" must be one of the following: ${COLORS.join(
+        ', '
+      )}; received: ${color}`,
+      COLORS.includes(color)
+    );
+
+    return color;
+  }
+
+  /**
+   * @param colorClass
+   * @type {string}
+   * @default hds-link-standalone--color-primary
+   * @description Determines the CSS class that the link should have, based on the color value; automatically set
+   */
+  get colorClass() {
+    // left this the same as the hds::link::standalone so we didn't have to replicate the CSS
+    return `hds-link-standalone--color-${this.color}`;
   }
 
   /**

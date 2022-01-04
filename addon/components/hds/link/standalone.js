@@ -2,8 +2,10 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_ICONPOSITION = 'leading';
+export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_SIZE = 'medium';
 export const ICONPOSITIONS = ['leading', 'trailing'];
+export const COLORS = ['primary', 'secondary'];
 export const SIZES = ['small', 'medium', 'large'];
 
 export default class HdsLinkStandaloneComponent extends Component {
@@ -21,6 +23,35 @@ export default class HdsLinkStandaloneComponent extends Component {
     );
 
     return text;
+  }
+
+  /**
+   * @param color
+   * @type {string}
+   * @default primary
+   * @description Determines the color of button to be used; acceptable values are `primary` and `secondary`
+   */
+  get color() {
+    let { color = DEFAULT_COLOR } = this.args;
+
+    assert(
+      `@color for "Hds::Link::Standalone" must be one of the following: ${COLORS.join(
+        ', '
+      )}; received: ${color}`,
+      COLORS.includes(color)
+    );
+
+    return color;
+  }
+
+  /**
+   * @param colorClass
+   * @type {string}
+   * @default hds-link-standalone--color-primary
+   * @description Determines the CSS class that the button should have, based on the color value; automatically set
+   */
+  get colorClass() {
+    return `hds-link-standalone--color-${this.color}`;
   }
 
   /**
