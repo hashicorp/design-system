@@ -1,5 +1,12 @@
-{{! template-lint-disable 'link-href-attributes' }}
-<a class="hds-link-standalone {{this.sizeClass}}" target="_blank" rel="noopener noreferrer" ...attributes>
+<LinkTo
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{this.queryParams}}
+  @replace={{@replace}}
+  @route={{this.route}}
+  class="hds-link-standalone {{this.sizeClass}}"
+  ...attributes
+>
   {{#if (eq this.iconPosition "leading")}}
     <div class="hds-link-standalone__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
@@ -15,5 +22,4 @@
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{/if}}
-</a>
-{{! template-lint-enable 'link-href-attributes' }}
+</LinkTo>
