@@ -5,12 +5,36 @@
 <section>
   <ul>
     <li>
-      This is intended for links that are not inline and are used as standalone elements whose destination is a URL.
+      This is intended for internal app links that are not inline and are used as standalone elements whose destination
+      is a URL.
     </li>
     <li>
       It must always have a
       <a href="https://flight-hashicorp.vercel.app/">Flight Icon</a>
       defined.
+    </li>
+    <li>
+      The
+      <code>...attributes</code>
+      syntax is supported on this component. See
+      <a
+        href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/"
+        rel="external"
+      >the Ember Guides section on HTML attributes in components</a>
+      if you are unfamiliar with the way Ember supports HTML attributes and/or the
+      <code>
+        ...attributes
+      </code>
+      syntax. Additionally, see
+      <a
+        href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
+        rel="external"
+      >Attribute Ordering</a>
+      to understand how the position of
+      <code>
+        ...attributes
+      </code>
+      matters.
     </li>
   </ul>
 </section>
@@ -61,7 +85,7 @@
       </p>
     </dd>
     <dt>
-      @route
+      route
       <code>
         route name
       </code>
@@ -70,7 +94,7 @@
       The route that is passed to the link
     </dd>
     <dt>
-      @model/@models
+      model/models
       <code>
         route model(s)
       </code>
@@ -79,7 +103,7 @@
       Use this to explicitly supply a model to the route
     </dd>
     <dt>
-      @query
+      query
       <code>
         query params as key value pairs
       </code>
@@ -98,34 +122,13 @@
         Use this parameter to show an icon. Acceptable value: any Flight icon name.
       </p>
     </dd>
-    <dt>
-      ...attributes
-    </dt>
+    <dt>color <code>enum</code></dt>
     <dd>
-      <p>
-        <code>
-          ...attributes
-        </code>
-        syntax is supported on this component. See
-        <a
-          href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/"
-          rel="external"
-        >the Ember Guides section on HTML attributes in components</a>
-        if you are unfamiliar with the way Ember supports HTML attributes and/or the
-        <code>
-          ...attributes
-        </code>
-        syntax. Additionally, see
-        <a
-          href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
-          rel="external"
-        >Attribute Ordering</a>
-        to understand how the position of
-        <code>
-          ...attributes
-        </code>
-        matters.
-      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
     </dd>
   </dl>
 </section>
@@ -133,6 +136,7 @@
   <h3 class="dummy-h3">
     Usage
   </h3>
+  <LinkToStandaloneDoc />
 </section>
 <section data-test-percy>
   <h3 class="dummy-h3">
@@ -142,34 +146,49 @@
     Content
   </h4>
   <div class="dummy-button-base-sample">
-    <Hds::LinkTo::Standalone @icon="plus" @text="text & leading icon" @route="index" />
-    <Hds::LinkTo::Standalone @icon="arrow-right" @text="text & trailing icon" @route="index" @iconPosition="trailing" />
+    <Hds::LinkTo::Standalone @icon="plus" @text="text & leading icon" @route="components.link-to" />
+    <Hds::LinkTo::Standalone
+      @icon="arrow-right"
+      @text="text & trailing icon"
+      @route="components.link-to"
+      @iconPosition="trailing"
+    />
     <div class="dummy-button-max-width-container">
-      <Hds::LinkTo::Standalone @icon="plus" @text="very long text that might wrap for multiple lines" @route="index" />
+      <Hds::LinkTo::Standalone
+        @icon="plus"
+        @text="very long text that might wrap for multiple lines"
+        @route="components.link-to"
+      />
     </div>
   </div>
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <Hds::LinkTo::Standalone @icon="plus" @text="small" @route="index" @size="small" />
-  <Hds::LinkTo::Standalone @icon="plus" @text="medium" @route="index" />
-  <Hds::LinkTo::Standalone @icon="plus" @text="large" @route="index" @size="medium" />
+  <Hds::LinkTo::Standalone @icon="plus" @text="small" @route="components.link-to" @size="small" />
+  <Hds::LinkTo::Standalone @icon="plus" @text="medium" @route="components.link-to" />
+  <Hds::LinkTo::Standalone @icon="plus" @text="large" @route="components.link-to" @size="medium" />
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
   <div class="dummy-button-states-grid">
-    {{#each @model.SIZES as |size|}}
-      {{#each @model.STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">
-            {{size}}
-            /
-            {{state}}
-            :
-          </span>
-          <br />
-          <Hds::LinkTo::Standalone @icon="plus" @text={{state}} @size={{size}} class="is-{{state}}" @route="index" />
-        </div>
+    {{#each @model.COLORS as |color|}}
+      {{#each @model.SIZES as |size|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">
+              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}
+              :
+            </span>
+            <br />
+            <Hds::LinkTo::Standalone
+              @icon="plus"
+              @text={{capitalize state}}
+              @size={{size}}
+              class="is-{{state}}"
+              @route="components.link-to"
+            />
+          </div>
+        {{/each}}
       {{/each}}
     {{/each}}
   </div>

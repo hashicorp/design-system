@@ -1,56 +1,23 @@
-$hds-link-standalone--border-radius: 5px;
+$hds-link-standalone-border-radius: 5px;
 $hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
+$hds-link-standalone-border-width: 1px;
+$hds-link-standalone-focus-border-width: 3px + $hds-link-standalone-border-width;
+
 
 .hds-link-standalone {
   align-items: center;
-  border-color: transparent;
-  color: var(--token-color-action-foreground-primary);
+  background-color: transparent;
+  border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
+  border-radius: $hds-link-standalone-border-radius;
+  color: var(--token-color-action-foreground-on-faint);
   display: flex;
   font-family: var(--token-typography-body-base-font-family);
   justify-content: center;
   outline-color: transparent;
+  padding: 0.25em; // should be 4px; iconPosition will override it on one side
   position: relative;
   text-decoration: none;
   width: fit-content;
-
-  // TODO
-  // once the designers have decided what to do,
-  // probably some of these states can be merged
-  // Also they need to stay in this order: visited, hover, focus, active
-  &:visited,
-  &.is-visited {
-    color: var(--token-color-action-foreground-primary);
-  }
-
-  &:hover,
-  &.is-hover {
-    color: var(--token-color-action-foreground-primary);
-    text-decoration: underline;
-  }
-
-  &:focus,
-  &.is-focus {
-    color: var(--token-color-action-foreground-primary);
-    border-color: transparent;
-    text-decoration: underline;
-
-    // TODO! waiting for the designers to spec the focus state
-    &::before {
-      border-radius: $hds-link-standalone--border-radius;
-      border: 3px solid #5990ff; // special color??
-      bottom: -2px;
-      box-sizing: border-box;
-      content: '';
-      left: -8px;
-      position: absolute;
-      right: -8px;
-      top: -2px;
-    }
-  }
-  &:active,
-  &.is-active {
-    color: var(--token-color-action-foreground-primary);
-  }
 }
 
 // these values later may come from the design tokens
@@ -91,4 +58,64 @@ $size-props: (
 .hds-link-standalone__text {
   flex: 1 0 0;
   margin-inline-start: 6px;
+}
+
+// COLORS & STATES
+// Note: the order of the pseuo-selectors need to stay the way they are
+
+.hds-link-standalone--color-primary {
+  color: var(--token-color-action-foreground-on-faint);
+
+  &:visited {
+    color: var(--token-color-action-foreground-on-faint);
+  }
+  &:hover,
+  &.is-hover {
+    text-decoration-color: #4E81E8;
+    text-decoration: underline;
+    transition: text-decoration-color 0.25s ease-in;
+  }
+  &:focus,
+  &:focus-visible,
+  &.is-focus {
+    outline: 2px solid transparent;
+    box-shadow: 
+    0 0 0 $hds-link-standalone-border-width var(--token-color-action-border-on-primary), 
+    0 0 0 $hds-link-standalone-focus-border-width #5990FF;
+  }
+  &:active,
+  &.is-active {
+    color: var(--token-color-action-foreground-high-contrast);
+    text-decoration: underline;
+    text-decoration-color: #596987;
+    &::before {
+      border-color: transparent;
+    }
+  }
+}
+
+.hds-link-standalone--color-secondary {
+  background-color: transparent;
+  color: var(--token-color-neutral-foreground-primary);
+
+  &:focus,
+  &:focus-visible,  
+  &.is-focus {
+    outline: 2px solid transparent;
+    box-shadow: 
+    0 0 0 $hds-link-standalone-border-width var(--token-color-action-border-on-primary), 
+    0 0 0 $hds-link-standalone-focus-border-width #5990FF;
+  }
+  &:hover,
+  &.is-hover {
+    text-decoration: underline;
+    text-decoration-color: var(--token-color-neutral-foreground-primary);
+  }
+  &:active, 
+  &.is-active {
+    color: var(--token-color-neutral-foreground-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--token-color-neutral-foreground-primary);
+
+  }
 }

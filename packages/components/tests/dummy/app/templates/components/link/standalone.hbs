@@ -5,23 +5,13 @@
 <section>
   <ul>
     <li>
-      The
+      The component handles generation of an HTML anchor element and automatically adds
       <code>
-        Hds::Link::Standalone
+        target="_blank" rel="noopener noreferrer"
       </code>
-      component handles generation of an HTML anchor element with the following attributes:
-      <ul>
-        <li>
-          <code>
-            [target="_blank"]
-          </code>
-        </li>
-        <li>
-          <code>
-            [rel="noopener noreferrer"]
-          </code>
-        </li>
-      </ul>
+    </li>
+    <li>
+      Manually add the href attribute with the desired value.
     </li>
     <li>
       Additional HTML attributes may be added as necessary to configure markup for specific use cases.
@@ -79,16 +69,13 @@
         </em>
       </p>
     </dd>
-    <dt>
-      icon
-      <code>
-        string
-      </code>
-    </dt>
+    <dt>color <code>enum</code></dt>
     <dd>
-      <p>
-        Use this parameter to show an icon. Acceptable value: any Flight icon name.
-      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
     </dd>
     <dt>
       icon
@@ -120,33 +107,6 @@
         </li>
       </ol>
     </dd>
-    <dt>
-      ...attributes
-    </dt>
-    <dd>
-      <p>
-        <code>
-          ...attributes
-        </code>
-        syntax is supported on this component. See
-        <a href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/" rel="external">
-          the Ember Guides section on HTML attributes in components</a>
-        if you are unfamiliar with the way Ember supports HTML attributes and/or the
-        <code>
-          ...attributes
-        </code>
-        syntax. Additionally, see
-        <a
-          href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
-          rel="external"
-        >Attribute Ordering</a>
-        to understand how the position of
-        <code>
-          ...attributes
-        </code>
-        matters.
-      </p>
-    </dd>
   </dl>
 </section>
 <section>
@@ -163,34 +123,49 @@
     Content
   </h4>
   <div class="dummy-button-base-sample">
-    <Hds::Link::Standalone @icon="plus" @text="text & leading icon" @route="index" />
-    <Hds::Link::Standalone @icon="arrow-right" @text="text & trailing icon" @route="index" @iconPosition="trailing" />
+    <Hds::Link::Standalone @icon="plus" @text="text & leading icon" href="../components/link" />
+    <Hds::Link::Standalone
+      @icon="arrow-right"
+      @text="text & trailing icon"
+      href="../components/link"
+      @iconPosition="trailing"
+    />
     <div class="dummy-button-max-width-container">
-      <Hds::Link::Standalone @icon="plus" @text="very long text that might wrap for multiple lines" @route="index" />
+      <Hds::Link::Standalone
+        @icon="plus"
+        @text="very long text that might wrap for multiple lines"
+        href="../components/link"
+      />
     </div>
   </div>
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <Hds::Link::Standalone @icon="plus" @text="small" @route="index" @size="small" />
-  <Hds::Link::Standalone @icon="plus" @text="medium" @route="index" />
-  <Hds::Link::Standalone @icon="plus" @text="large" @route="index" @size="medium" />
+  <Hds::Link::Standalone @icon="plus" @text="Small" href="../components/link" @size="small" />
+  <Hds::Link::Standalone @icon="plus" @text="Medium" href="../components/link" />
+  <Hds::Link::Standalone @icon="plus" @text="Large" href="../components/link" @size="medium" />
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
   <div class="dummy-button-states-grid">
-    {{#each @model.SIZES as |size|}}
-      {{#each @model.STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">
-            {{size}}
-            /
-            {{state}}
-            :
-          </span>
-          <br />
-          <Hds::Link::Standalone @icon="plus" @text={{state}} @size={{size}} class="is-{{state}}" @route="index" />
-        </div>
+    {{#each @model.COLORS as |color|}}
+      {{#each @model.SIZES as |size|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">
+              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}:
+            </span>
+            <br />
+            <Hds::Link::Standalone
+              @icon="plus"
+              @text={{capitalize state}}
+              @size={{size}}
+              @color={{color}}
+              class="is-{{state}}"
+              href="../components/link"
+            />
+          </div>
+        {{/each}}
       {{/each}}
     {{/each}}
   </div>
