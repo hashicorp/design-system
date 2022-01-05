@@ -57,7 +57,12 @@ $size-props: (
 
 .hds-link-standalone__text {
   flex: 1 0 0;
-  margin-inline-start: 6px;
+  .hds-link-standalone__icon + & {
+    margin-left: 0.375rem;
+  }
+  & +.hds-link-standalone__icon {
+    margin-left: 0.375rem;
+  }
 }
 
 // COLORS & STATES
