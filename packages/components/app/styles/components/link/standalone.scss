@@ -14,7 +14,7 @@ $hds-link-standalone-focus-border-width: 3px + $hds-link-standalone-border-width
   font-family: var(--token-typography-body-base-font-family);
   justify-content: center;
   outline-color: transparent;
-  padding: 0.25em; // should be 4px; iconPosition will override it on one side
+  padding: 0.25rem; // should be 4px; iconPosition will override it on one side
   position: relative;
   text-decoration: none;
   width: fit-content;
