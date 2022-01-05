@@ -17,14 +17,17 @@
     {{content-for "head-footer"}}
     {{content-for "test-head-footer"}}
   </head>
-  <body>
+  <body class="ds-body">
     {{content-for "body"}}
     {{content-for "test-body"}}
 
     <div id="qunit"></div>
     <div id="qunit-fixture">
       <div id="ember-testing-container">
-        <div id="ember-testing"></div>
+        <div id="ember-testing">
+          <!-- this is used to inject the SVG sprite -->
+          {{content-for "ember-testing-sprite-embed"}}
+        </div>
       </div>
     </div>
 
