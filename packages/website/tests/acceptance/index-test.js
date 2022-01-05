@@ -22,17 +22,6 @@ module('Acceptance | icon index and Percy tests', function (hooks) {
     await percySnapshot('Icons page', { scope: '#ember-testing' });
   });
 
-  test('visiting /percy-test', async function (assert) {
-    await visit('/percy-test');
-
-    // see comment above about scoping
-    await percySnapshot('Percy test page', {
-      scope: '#ember-testing',
-    });
-
-    assert.ok(true);
-  });
-
   test('query param functionality with results', async function (assert) {
     await visit('/?query=emoji');
 
