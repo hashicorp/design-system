@@ -6,7 +6,7 @@
 @import "./pages/db-card";
 @import "./pages/db-icon-tile";
 @import "./components/dummy-component-props";
-@import "./components/dummy-placeholder.scss";
+@import "./components/dummy-placeholder";
 
 body.dummy-app {
     padding: 0;
@@ -80,7 +80,6 @@ body.dummy-app {
 .dummy-divider {
     margin: 4rem 0;
 }
-
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".

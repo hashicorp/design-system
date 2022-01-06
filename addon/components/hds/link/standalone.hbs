@@ -1,0 +1,25 @@
+{{! template-lint-disable link-href-attributes }}
+{{! we can disable this linting rule because the developer will add the html attribute themselves }}
+<a
+  class="hds-link-standalone {{this.sizeClass}} {{this.colorClass}}"
+  target="_blank"
+  rel="noopener noreferrer"
+  ...attributes
+>
+  {{#if (eq this.iconPosition "leading")}}
+    <div class="hds-link-standalone__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+    </div>
+    <div class="hds-link-standalone__text">
+      {{this.text}}
+    </div>
+  {{else}}
+    <div class="hds-link-standalone__text">
+      {{this.text}}
+    </div>
+    <div class="hds-link-standalone__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+    </div>
+  {{/if}}
+</a>
+{{! template-lint-enable link-href-attributes }}
