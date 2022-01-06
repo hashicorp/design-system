@@ -1,0 +1,172 @@
+{{page-title "Link (Standalone) Component"}}
+<h2 class="dummy-h2">
+  Link (Standalone)
+</h2>
+<section>
+  <ul>
+    <li>
+      The component handles generation of an HTML anchor element and automatically adds
+      <code>
+        target="_blank" rel="noopener noreferrer"
+      </code>
+    </li>
+    <li>
+      Manually add the href attribute with the desired value.
+    </li>
+    <li>
+      Additional HTML attributes may be added as necessary to configure markup for specific use cases.
+    </li>
+    <li>
+      It must always have a
+      <a href="https://flight-hashicorp.vercel.app/">Flight Icon</a>
+      defined.
+    </li>
+  </ul>
+</section>
+<section>
+  <h3 class="dummy-h3">
+    Component API
+  </h3>
+  <p class="dummy-paragraph">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props">
+    <dt>
+      size
+      <code>
+        enum
+      </code>
+    </dt>
+    <dd>
+      <p>
+        Acceptable values:
+      </p>
+      <ol>
+        <li>
+          small
+        </li>
+        <li class="default">
+          medium
+        </li>
+        <li>
+          large
+        </li>
+      </ol>
+    </dd>
+    <dt>
+      text
+      <code>
+        string
+      </code>
+    </dt>
+    <dd>
+      <p>
+        The text of the link (standalone).
+      </p>
+      <p>
+        <em>
+          If no text value is defined an error will be thrown.
+        </em>
+      </p>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
+    </dd>
+    <dt>
+      icon
+      <code>
+        string
+      </code>
+    </dt>
+    <dd>
+      <p>
+        Use this parameter to show an icon. Acceptable value: any Flight icon name.
+      </p>
+    </dd>
+    <dt>
+      iconPosition
+      <code>
+        enum
+      </code>
+    </dt>
+    <dd>
+      <p>
+        Positions the icon before or after the text. Acceptable values:
+      </p>
+      <ol>
+        <li class="default">
+          leading
+        </li>
+        <li>
+          trailing
+        </li>
+      </ol>
+    </dd>
+  </dl>
+</section>
+<section>
+  <h3 class="dummy-h3">
+    Usage
+  </h3>
+  <LinkStandaloneDoc />
+</section>
+<section data-test-percy>
+  <h3 class="dummy-h3">
+    Showcase
+  </h3>
+  <h4 class="dummy-h4">
+    Content
+  </h4>
+  <div class="dummy-button-base-sample">
+    <Hds::Link::Standalone @icon="plus" @text="text & leading icon" href="../components/link" />
+    <Hds::Link::Standalone
+      @icon="arrow-right"
+      @text="text & trailing icon"
+      href="../components/link"
+      @iconPosition="trailing"
+    />
+    <div class="dummy-button-max-width-container">
+      <Hds::Link::Standalone
+        @icon="plus"
+        @text="very long text that might wrap for multiple lines"
+        href="../components/link"
+      />
+    </div>
+  </div>
+  <h4 class="dummy-h4">
+    Sizes
+  </h4>
+  <Hds::Link::Standalone @icon="plus" @text="Small" href="../components/link" @size="small" />
+  <Hds::Link::Standalone @icon="plus" @text="Medium" href="../components/link" />
+  <Hds::Link::Standalone @icon="plus" @text="Large" href="../components/link" @size="medium" />
+  <h4 class="dummy-h4">
+    States (in each size)
+  </h4>
+  <div class="dummy-button-states-grid">
+    {{#each @model.COLORS as |color|}}
+      {{#each @model.SIZES as |size|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">
+              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}:
+            </span>
+            <br />
+            <Hds::Link::Standalone
+              @icon="plus"
+              @text={{capitalize state}}
+              @size={{size}}
+              @color={{color}}
+              class="is-{{state}}"
+              href="../components/link"
+            />
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/each}}
+  </div>
+</section>

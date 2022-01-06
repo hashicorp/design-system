@@ -1,0 +1,126 @@
+$hds-link-standalone-border-radius: 5px;
+$hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
+$hds-link-standalone-border-width: 1px;
+$hds-link-standalone-focus-border-width: 3px + $hds-link-standalone-border-width;
+
+
+.hds-link-standalone {
+  align-items: center;
+  background-color: transparent;
+  border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
+  border-radius: $hds-link-standalone-border-radius;
+  color: var(--token-color-action-foreground-on-faint);
+  display: flex;
+  font-family: var(--token-typography-body-base-font-family);
+  justify-content: center;
+  outline-color: transparent;
+  padding: 0.25rem; // should be 4px; iconPosition will override it on one side
+  position: relative;
+  text-decoration: none;
+  width: fit-content;
+}
+
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "font-size": 0.8125rem, // 13px;
+    "icon-size": 0.75rem, // 12px
+    "line-height": 0.75,
+  ),
+  "medium": (
+    "font-size": 0.875rem, // 14px
+    "icon-size": 1rem, // 16px
+    "line-height": 1, // 16px
+  ),
+  "large": (
+    "font-size": 1rem, // 16px
+    "icon-size": 1.5rem, // 24px
+    "line-height": 1.5, // 24px
+  )
+);
+
+@each $size in $hds-link-standalone-sizes {
+  .hds-link-standalone--size-#{$size} {
+
+    .hds-link-standalone__icon {
+      height: map-get($size-props, $size, "icon-size");
+      width: map-get($size-props, $size, "icon-size");
+    }
+
+    .hds-link-standalone__text {
+      font-size: map-get($size-props, $size, "font-size");
+      line-height: map-get($size-props, $size, "line-height");
+    }
+
+  }
+}
+
+.hds-link-standalone__text {
+  flex: 1 0 0;
+  .hds-link-standalone__icon + & {
+    margin-left: 0.375rem;
+  }
+  & +.hds-link-standalone__icon {
+    margin-left: 0.375rem;
+  }
+}
+
+// COLORS & STATES
+// Note: the order of the pseuo-selectors need to stay the way they are
+
+.hds-link-standalone--color-primary {
+  color: var(--token-color-action-foreground-on-faint);
+
+  &:visited {
+    color: var(--token-color-action-foreground-on-faint);
+  }
+  &:hover,
+  &.is-hover {
+    text-decoration-color: #4E81E8;
+    text-decoration: underline;
+    transition: text-decoration-color 0.25s ease-in;
+  }
+  &:focus,
+  &:focus-visible,
+  &.is-focus {
+    outline: 2px solid transparent;
+    box-shadow: 
+    0 0 0 $hds-link-standalone-border-width var(--token-color-action-border-on-primary), 
+    0 0 0 $hds-link-standalone-focus-border-width #5990FF;
+  }
+  &:active,
+  &.is-active {
+    color: var(--token-color-action-foreground-high-contrast);
+    text-decoration: underline;
+    text-decoration-color: #596987;
+    &::before {
+      border-color: transparent;
+    }
+  }
+}
+
+.hds-link-standalone--color-secondary {
+  background-color: transparent;
+  color: var(--token-color-neutral-foreground-primary);
+
+  &:focus,
+  &:focus-visible,  
+  &.is-focus {
+    outline: 2px solid transparent;
+    box-shadow: 
+    0 0 0 $hds-link-standalone-border-width var(--token-color-action-border-on-primary), 
+    0 0 0 $hds-link-standalone-focus-border-width #5990FF;
+  }
+  &:hover,
+  &.is-hover {
+    text-decoration: underline;
+    text-decoration-color: var(--token-color-neutral-foreground-primary);
+  }
+  &:active, 
+  &.is-active {
+    color: var(--token-color-neutral-foreground-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--token-color-neutral-foreground-primary);
+
+  }
+}
