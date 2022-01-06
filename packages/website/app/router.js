@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'dummy/config/environment';
+import config from 'website/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -7,5 +7,6 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('percy-test');
+  this.route('engineering');
+  this.route('design');
 });

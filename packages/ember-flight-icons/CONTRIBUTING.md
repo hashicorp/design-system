@@ -4,7 +4,7 @@
 
 *Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
 
-* `git clone <repository-url>`
+* `git clone https://github.com/hashicorp/flight`
 * `cd flight/ember-flight-icons`
 * `yarn install`
 
@@ -20,8 +20,6 @@
 * `ember try:each` – Runs the test suite against multiple Ember versions
 
 ## Running the dummy application
-
-The dummy application is used to run the [Flight Icons micro-website](https://flight-hashicorp.vercel.app/).
 
 * `ember serve`
 * Visit the dummy application at [http://localhost:4200](http://localhost:4200).
