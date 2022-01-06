@@ -31,15 +31,6 @@ export default class HdsBadgeCountIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the size argument.
-   * @method BadgeCount#sizeClass
-   * @return {string} The css class to apply to the component.
-   */
-  get sizeClass() {
-    return `hds-badge-count--size-${this.size}`;
-  }
-
-  /**
    * Sets the type of the component
    * Accepted values: filled, inverted, outlined
    *
@@ -58,15 +49,6 @@ export default class HdsBadgeCountIndexComponent extends Component {
     );
 
     return type;
-  }
-
-  /**
-   * Get a class to apply to the component based on the type argument.
-   * @method BadgeCount#typeClass
-   * @return {string} The css class to apply to the component.
-   */
-  get typeClass() {
-    return `hds-badge-count--type-${this.type}`;
   }
 
   /**
@@ -91,11 +73,22 @@ export default class HdsBadgeCountIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the color argument.
-   * @method BadgeCount#colorClass
-   * @return {string} The css class to apply to the component.
+   * Get the class names to apply to the component.
+   * @method BadgeCount#classNames
+   * @return {string} The "class" attribute to apply to the component.
    */
-  get colorClass() {
-    return `hds-badge-count--color-${this.color}`;
+  get classNames() {
+    let classes = ['hds-badge-count'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-badge-count--size-${this.size}`);
+
+    // add a class based on the @type argument
+    classes.push(`hds-badge-count--type-${this.type}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-badge-count--color-${this.color}`);
+
+    return classes.join(' ');
   }
 }

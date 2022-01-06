@@ -38,15 +38,6 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the size argument.
-   * @method Badge#sizeClass
-   * @return {string} The css class to apply to the component.
-   */
-  get sizeClass() {
-    return `hds-badge--size-${this.size}`;
-  }
-
-  /**
    * Sets the type of the component
    * Accepted values: filled, inverted, outlined
    *
@@ -68,15 +59,6 @@ export default class HdsBadgeIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the type argument.
-   * @method Badge#typeClass
-   * @return {string} The css class to apply to the component.
-   */
-  get typeClass() {
-    return `hds-badge--type-${this.type}`;
-  }
-
-  /**
    * Sets the color scheme for the component
    * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
@@ -95,15 +77,6 @@ export default class HdsBadgeIndexComponent extends Component {
     );
 
     return color;
-  }
-
-  /**
-   * Get a class to apply to the component based on the color argument.
-   * @method Badge#colorClass
-   * @return {string} The css class to apply to the component.
-   */
-  get colorClass() {
-    return `hds-badge--color-${this.color}`;
   }
 
   /**
@@ -144,5 +117,25 @@ export default class HdsBadgeIndexComponent extends Component {
       return this.args.isIconOnly ?? false;
     }
     return false;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method Badge#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-badge'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-badge--size-${this.size}`);
+
+    // add a class based on the @type argument
+    classes.push(`hds-badge--type-${this.type}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-badge--color-${this.color}`);
+
+    return classes.join(' ');
   }
 }

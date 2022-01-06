@@ -31,15 +31,6 @@ export default class HdsCardContainerComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the level argument.
-   * @method Card#levelClass
-   * @return {string} The css class to apply to the component.
-   */
-  get levelClass() {
-    return `hds-card__container--level-${this.level}`;
-  }
-
-  /**
    * Sets the background for the component
    * Accepted values: neutral-primary, neutral-secondary
    *
@@ -58,24 +49,6 @@ export default class HdsCardContainerComponent extends Component {
     );
 
     return background;
-  }
-
-  /**
-   * Get a class to apply to the component based on the background argument.
-   * @method Card#backgroundClass
-   * @return {string} The css class to apply to the component.
-   */
-  get backgroundClass() {
-    return `hds-card__container--background-${this.background}`;
-  }
-
-  /**
-   * Get a class to apply to the component based on the hasBorder argument.
-   * @method Card#hasBorderClass
-   * @return {string} The css class to apply to the component.
-   */
-  get borderClass() {
-    return this.args.hasBorder ? `hds-card__container--has-border` : undefined;
   }
 
   /**
@@ -100,11 +73,27 @@ export default class HdsCardContainerComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the overflow argument.
-   * @method Card#overflowClass
-   * @return {string} The css class to apply to the component.
+   * Get the class names to apply to the component.
+   * @method Card#classNames
+   * @return {string} The "class" attribute to apply to the component.
    */
-  get overflowClass() {
-    return `hds-card__container--overflow-${this.overflow}`;
+  get classNames() {
+    let classes = ['hds-card__container'];
+
+    // add a class based on the @level argument
+    classes.push(`hds-card__container--level-${this.level}`);
+
+    // add a class based on the @background argument
+    classes.push(`hds-card__container--background-${this.background}`);
+
+    // add a class based on the @hasBorder argument
+    if (this.args.hasBorder) {
+      classes.push(`hds-card__container--has-border`);
+    }
+
+    // add a class based on the @overflow argument
+    classes.push(`hds-card__container--overflow-${this.overflow}`);
+
+    return classes.join(' ');
   }
 }
