@@ -29,7 +29,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @param color
    * @type {string}
    * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary` and `secondary`
+   * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -48,7 +48,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @param colorClass
    * @type {string}
    * @default hds-link-standalone--color-primary
-   * @description Determines the CSS class that the button should have, based on the color value; automatically set
+   * @description Determines the CSS class that the link should have, based on the color value; automatically set
    */
   get colorClass() {
     return `hds-link-standalone--color-${this.color}`;
