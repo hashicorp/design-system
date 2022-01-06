@@ -48,4 +48,4 @@ jobs:
       - name: Run Tests
         run: yarn test:ember:percy
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBSITE }}
