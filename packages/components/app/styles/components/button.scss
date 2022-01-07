@@ -55,8 +55,8 @@ $hds-button-focus-border-width: 3px;
   &.is-disabled:focus-visible,
   &:disabled:hover,
   &[disabled]:hover,
-  &.is-disabled:hove {
-      background-color: var(--token-color-palette-neutral-50);
+  &.is-disabled:hover {
+    background-color: var(--token-color-palette-neutral-50);
     border-color: var(--token-color-palette-alpha-200);
     box-shadow: none;
     color: var(--token-color-palette-neutral-400);
