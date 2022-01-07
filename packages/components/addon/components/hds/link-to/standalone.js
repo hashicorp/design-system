@@ -60,17 +60,6 @@ export default class HdsLinkToStandaloneComponent extends Component {
   }
 
   /**
-   * @param colorClass
-   * @type {string}
-   * @default hds-link-standalone--color-primary
-   * @description Determines the CSS class that the link should have, based on the color value; automatically set
-   */
-  get colorClass() {
-    // left this the same as the hds::link::standalone so we didn't have to replicate the CSS
-    return `hds-link-standalone--color-${this.color}`;
-  }
-
-  /**
    * @param icon
    * @type {string|null}
    * @default null
@@ -126,15 +115,6 @@ export default class HdsLinkToStandaloneComponent extends Component {
   }
 
   /**
-   * @param sizeClass
-   * @type {string}
-   * @description Determines the CSS class that the standalone link should have, based on the size value; automatically set.
-   */
-  get sizeClass() {
-    return `hds-link-standalone--size-${this.size}`;
-  }
-
-  /**
    * @param iconSize
    * @type {string}
    * @default 16
@@ -156,5 +136,23 @@ export default class HdsLinkToStandaloneComponent extends Component {
     } else {
       return {};
     }
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method LinkToStandalone#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    // Notice: we've left this class name the same as the hds::link::standalone (we didn't add the "-to") so we didn't have to replicate the CSS
+    let classes = ['hds-link-standalone'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-link-standalone--size-${this.size}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-link-standalone--color-${this.color}`);
+
+    return classes.join(' ');
   }
 }
