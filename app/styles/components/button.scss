@@ -1,10 +1,16 @@
-// Button Component Styles
+//
+// BUTTON COMPONENT
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+$hds-button-sizes: ( 'small', 'medium', 'large' );
 
 $hds-button-border-radius: 5px;
 $hds-button-border-width: 1px;
 $hds-button-focus-border-width: 3px;
 
-$hds-button-sizes: ( 'small', 'medium', 'large' );
 
 // TODO! generalize with the existing mixin in Card component
 @mixin tempElevation() {
@@ -41,16 +47,16 @@ $hds-button-sizes: ( 'small', 'medium', 'large' );
   &:disabled,
   &[disabled],
   &.is-disabled,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.is-disabled:hover,
   &:disabled:focus,
   &[disabled]:focus,
   &.is-disabled:focus,
   &:disabled:focus-visible,
   &[disabled]:focus-visible,
-  &.is-disabled:focus-visible {
-    background-color: var(--token-color-palette-neutral-50);
+  &.is-disabled:focus-visible,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.is-disabled:hove {
+      background-color: var(--token-color-palette-neutral-50);
     border-color: var(--token-color-palette-alpha-200);
     box-shadow: none;
     color: var(--token-color-palette-neutral-400);
@@ -71,9 +77,9 @@ $hds-button-sizes: ( 'small', 'medium', 'large' );
     }
   }
 
-  &.is-focus,
   &:focus,
-  &:focus-visible {
+  &:focus-visible,
+  &.is-focus {
     &::before {
       // the position absolute is computed from the inside of the border, so we have to take in account the border width
       $shift: $hds-button-border-width + $hds-button-focus-border-width;
@@ -92,9 +98,11 @@ $hds-button-sizes: ( 'small', 'medium', 'large' );
 
 .hds-button__text {
   flex: 1 0 0;
+
   .hds-button__icon + & {
     margin-left: 0.375rem;
   }
+
   & +.hds-button__icon {
     margin-left: 0.375rem;
   }
@@ -130,14 +138,17 @@ $size-props: (
 
 @each $size in $hds-button-sizes {
   .hds-button--size-#{$size} {
-    font-size: map-get($size-props, $size, "font-size");
     min-height: map-get($size-props, $size, "min-height");
-    line-height: map-get($size-props, $size, "line-height");
     padding: map-get($size-props, $size, "padding");
 
     .hds-button__icon {
       height: map-get($size-props, $size, "icon-size");
       width: map-get($size-props, $size, "icon-size");
+    }
+
+    .hds-button__icon {
+      font-size: map-get($size-props, $size, "font-size");
+      line-height: map-get($size-props, $size, "line-height");
     }
   }
 }
@@ -211,7 +222,7 @@ $size-props: (
     color: var(--token-color-palette-neutral-600);
     cursor: pointer;
   }
-  &:active, 
+  &:active,
   &.is-active {
     background-color: var(--token-color-palette-neutral-200);
     border-color: var(--token-color-palette-alpha-300);
@@ -246,7 +257,7 @@ $size-props: (
     color: var(--token-color-palette-neutral-0);
     cursor: pointer;
   }
-  
+
   &:active,
   &.is-active {
     background-color: var(--token-color-critical-background-active);
