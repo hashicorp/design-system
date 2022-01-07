@@ -141,9 +141,11 @@
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  {{#each @model.SIZES as |size|}}
-    <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
-  {{/each}}
+  <div class="dummy-button-base-sample">
+    {{#each @model.SIZES as |size|}}
+      <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+    {{/each}}
+  </div>
   <h4 class="dummy-h4">
     States (in each size)
   </h4>

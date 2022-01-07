@@ -81,7 +81,8 @@ $hds-button-focus-border-width: 3px;
   &:focus-visible,
   &.is-focus {
     &::before {
-      // the position absolute is computed from the inside of the border, so we have to take in account the border width
+      // the position absolute of an element is computed from the inside of the border of the container
+      // so we have to take in account the border width of the pseudo-element container itself
       $shift: $hds-button-border-width + $hds-button-focus-border-width;
       border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
       border: $hds-button-focus-border-width solid transparent;
@@ -92,6 +93,7 @@ $hds-button-focus-border-width: 3px;
       position: absolute;
       right: -$shift;
       top: -$shift;
+      z-index: -1;
     }
   }
 }
@@ -169,7 +171,8 @@ $size-props: (
     border-color: var(--token-color-action-border-on-primary);
     color: var(--token-color-palette-neutral-0);
     &::before {
-      // the position absolute is computed from the inside of the border, so we have to take in account the border width
+      // the position absolute of an element is computed from the inside of the border of the container
+      // so we have to take in account the border width of the pseudo-element container itself
       // plus for the primary button we want to have a 2px gap between the button and the focus
       $shift: $hds-button-border-width + $hds-button-focus-border-width + 2px;
       border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
