@@ -11,9 +11,6 @@ $hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
 
 $hds-link-standalone-focus-border-radius: 5px;
 $hds-link-standalone-border-width: 1px;
-// this is how much the focus is visually "shifted" from the bounding box of the
-// notice: you have to take in account also the inset shadow of the focus (see Figma file and also "generic-focus-state" mixin)
-$hds-link-standalone-focus-shift: 4px;
 
 .hds-link-standalone {
   align-items: center;
@@ -29,6 +26,9 @@ $hds-link-standalone-focus-shift: 4px;
   text-decoration-color: transparent;
   width: fit-content;
 
+  // this is how much the focus is visually "shifted" from the bounding box of the
+  // notice: you have to take in account also the inset shadow of the focus (see Figma file and also "generic-focus-state" mixin)
+  $hds-link-standalone-focus-shift: 4px;
   // the position absolute of an element is computed from the inside of the border of the container
   // so we have to take in account the border width of the pseudo-element container itself
   $shift: $hds-link-standalone-focus-shift + $hds-link-standalone-border-width;
