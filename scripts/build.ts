@@ -7,6 +7,8 @@ import { cloneDeep } from 'lodash';
 
 import { ConfigTargets } from './@types/Config';
 
+import { generateCssHelpers } from './build-parts/generateCssHelpers';
+
 // SCRIPT CONFIG
 
 const distFolder = path.resolve(__dirname, '../dist');
@@ -113,6 +115,12 @@ StyleDictionaryPackage.registerFormat({
     },
 });
 
+StyleDictionaryPackage.registerAction({
+    name: 'generate-css-helpers',
+    do: generateCssHelpers,
+    undo: () => {}
+});
+
 // DYNAMIC CONFIG
 
 const targets: ConfigTargets = {
@@ -149,7 +157,8 @@ function getStyleDictionaryConfig({ target }: { target: string }) {
                             return !token.private;
                         },
                     }
-                ]
+                ],
+                'actions': ['generate-css-helpers'],
             },
             "docs/json": {
                 "transformGroup": targets[target].transformGroup,
