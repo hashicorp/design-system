@@ -64,29 +64,6 @@ StyleDictionaryPackage.registerTransform({
     transformer: transformPxToRem
 });
 
-StyleDictionaryPackage.registerTransform({
-    name: 'typography/weight',
-    type: 'value',
-    matcher: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'weight';
-    },
-    transformer: (token: DesignToken) => {
-        const weight = token.value;
-        switch (weight) {
-            case 'bold':
-                return '700';
-            case 'semibold':
-                return '600';
-            case 'medium':
-                return '500';
-            case 'regular':
-                return '400';
-            default:
-                return '400';
-        }
-    }
-});
-
 // NOTICE: in case in the future we need more complex transformations, we can use this approach (see the "modify" attribute):
 // https://github.com/amzn/style-dictionary/blob/main/examples/advanced/transitive-transforms/
 //
@@ -109,7 +86,7 @@ StyleDictionaryPackage.registerTransform({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'typography/weight', 'elevation/px', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'elevation/px', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerTransformGroup({

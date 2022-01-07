@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 16 Dec 2021 12:43:17 GMT
+ * Generated on Fri, 07 Jan 2022 13:05:18 GMT
  */
 
 :root {
@@ -253,6 +253,13 @@
   --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
   --token-spacing-06: 2rem; /* 32px, 2rem */
   --token-spacing-07: 3rem; /* 48px, 3rem */
+  --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-font-stack-code: SF Mono, Consolas, Ubuntu Mono, monospace;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
   --token-typography-heading-0-font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-heading-0-font-size: 1.875rem; /* 30px/1.875rem */
   --token-typography-heading-0-line-height: 1.2666; /* 38px */
