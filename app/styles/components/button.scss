@@ -148,7 +148,7 @@ $size-props: (
       width: map-get($size-props, $size, "icon-size");
     }
 
-    .hds-button__icon {
+    .hds-button__text {
       font-size: map-get($size-props, $size, "font-size");
       line-height: map-get($size-props, $size, "line-height");
     }
