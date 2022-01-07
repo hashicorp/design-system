@@ -141,9 +141,9 @@
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <Hds::Link::Standalone @icon="plus" @text="Small" href="../components/link" @size="small" />
-  <Hds::Link::Standalone @icon="plus" @text="Medium" href="../components/link" />
-  <Hds::Link::Standalone @icon="plus" @text="Large" href="../components/link" @size="medium" />
+  {{#each @model.SIZES as |size|}}
+    <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+  {{/each}}
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
