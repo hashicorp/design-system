@@ -47,16 +47,6 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
-   * @param sizeClass
-   * @type {string}
-   * @default hds-button--size-medium
-   * @description Determines the CSS class that the button should have, based on the size value; automatically set.
-   */
-  get sizeClass() {
-    return `hds-button--size-${this.size}`;
-  }
-
-  /**
    * @param color
    * @type {string}
    * @default primary
@@ -73,16 +63,6 @@ export default class HdsButtonIndexComponent extends Component {
     );
 
     return color;
-  }
-
-  /**
-   * @param colorClass
-   * @type {string}
-   * @default hds-button--color-primary
-   * @description Determines the CSS class that the button should have, based on the color value; automatically set
-   */
-  get colorClass() {
-    return `hds-button--color-${this.color}`;
   }
 
   /**
@@ -171,20 +151,6 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
-   * @param widthClass
-   * @type {string|null}
-   * @default null
-   * @description Determines if the full-width class should be applied to the component. This is set automatically based on the value of `isFullWidth`.
-   */
-  get widthClass() {
-    if (this.isFullWidth === true) {
-      return 'hds-button--width-full';
-    } else {
-      return null;
-    }
-  }
-
-  /**
    * @param isDisabled
    * @type {boolean}
    * @default null
@@ -192,5 +158,28 @@ export default class HdsButtonIndexComponent extends Component {
    */
   get isDisabled() {
     return this.args.isDisabled ?? null;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method Badge#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  // "hds-button {{this.sizeClass}} {{this.colorClass}} {{this.widthClass}}"
+  get classNames() {
+    let classes = ['hds-button'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-button--size-${this.size}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-button--color-${this.color}`);
+
+    // add a class based on the @isFullWidth argument
+    if (this.isFullWidth) {
+      classes.push('hds-button--width-full');
+    }
+
+    return classes.join(' ');
   }
 }
