@@ -40,15 +40,6 @@ export default class HdsIconTileIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the size argument.
-   * @method IconTile#sizeClass
-   * @return {string} The css class to apply to the component.
-   */
-  get sizeClass() {
-    return `hds-icon-tile--size-${this.size}`;
-  }
-
-  /**
    * Sets the color scheme for the component
    * Accepted values: see THE COLORS LIST
    *
@@ -73,15 +64,6 @@ export default class HdsIconTileIndexComponent extends Component {
     );
 
     return color;
-  }
-
-  /**
-   * Get a class to apply to the component based on the color argument.
-   * @method IconTile#colorClass
-   * @return {string} The css class to apply to the component.
-   */
-  get colorClass() {
-    return `hds-icon-tile--color-${this.color}`;
   }
 
   /**
@@ -168,15 +150,6 @@ export default class HdsIconTileIndexComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the component based on the its entity.
-   * @method IconTile#entityClass
-   * @return {string} The css class to apply to the component.
-   */
-  get entityClass() {
-    return `hds-icon-tile--${this.entity}`;
-  }
-
-  /**
    * Sets the "secondary" icon name (one of the FlightIcons)
    *
    * @param iconSecondary
@@ -185,5 +158,26 @@ export default class HdsIconTileIndexComponent extends Component {
    */
   get iconSecondary() {
     return this.args.iconSecondary ?? null;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method IconTile#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  // hds-icon-tile {{this.entityClass}} {{this.sizeClass}} {{this.colorClass}}"
+  get classNames() {
+    let classes = ['hds-icon-tile'];
+
+    // add a class based on its entity argument
+    classes.push(`hds-icon-tile--${this.entity}`);
+
+    // add a class based on the @size argument
+    classes.push(`hds-icon-tile--size-${this.size}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-icon-tile--color-${this.color}`);
+
+    return classes.join(' ');
   }
 }
