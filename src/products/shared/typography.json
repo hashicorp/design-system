@@ -48,16 +48,27 @@
                 }
             },
             "display": {
-                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif",
-                "private": "true"
+                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif"
             },
             "text": {
-                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif",
-                "private": "true"
+                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif"
             },
             "code": {
-                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace",
-                "private": "true"
+                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace"
+            }
+        },
+        "font-weight": {
+            "regular": {
+                "value": "400"
+            },
+            "medium": {
+                "value": "500"
+            },
+            "semibold": {
+                "value": "600"
+            },
+            "bold": {
+                "value": "700"
             }
         },
         "heading-0": {
@@ -74,8 +85,7 @@
                 "comment": "38px"
             },
             "font-weight": {
-                "value": "bold",
-                "type": "weight",
+                "value": "{typography.font-weight.bold.value}",
                 "comment": "bold"
             }
         },
@@ -93,8 +103,7 @@
                 "comment": "32px"
             },
             "font-weight": {
-                "value": "bold",
-                "type": "weight",
+                "value": "{typography.font-weight.bold.value}",
                 "comment": "bold"
             }
         },
@@ -112,8 +121,7 @@
                 "comment": "24px"
             },
             "font-weight": {
-                "value": "bold",
-                "type": "weight",
+                "value": "{typography.font-weight.bold.value}",
                 "comment": "bold"
             },
             "letter-spacing": {
@@ -135,8 +143,7 @@
                 "comment": "24px"
             },
             "font-weight": {
-                "value": "semibold",
-                "type": "weight",
+                "value": "{typography.font-weight.semibold.value}",
                 "comment": "semibold"
             },
             "letter-spacing": {
@@ -158,8 +165,7 @@
                 "comment": "18px"
             },
             "font-weight": {
-                "value": "medium",
-                "type": "weight",
+                "value": "{typography.font-weight.medium.value}",
                 "comment": "medium"
             }
         },
@@ -177,8 +183,7 @@
                 "comment": "32px"
             },
             "font-weight": {
-                "value": "medium",
-                "type": "weight",
+                "value": "{typography.font-weight.medium.value}",
                 "comment": "medium"
             }
         },
@@ -196,8 +201,7 @@
                 "comment": "24px"
             },
             "font-weight": {
-                "value": "medium",
-                "type": "weight",
+                "value": "{typography.font-weight.medium.value}",
                 "comment": "medium"
             }
         },
@@ -215,8 +219,7 @@
                 "comment": "24px"
             },
             "font-weight": {
-                "value": "regular",
-                "type": "weight",
+                "value": "{typography.font-weight.regular.value}",
                 "comment": "regular"
             }
         },
@@ -234,8 +237,7 @@
                 "comment": "20px"
             },
             "font-weight": {
-                "value": "regular",
-                "type": "weight",
+                "value": "{typography.font-weight.regular.value}",
                 "comment": "regular"
             }
         },
@@ -253,8 +255,7 @@
                 "comment": "18px"
             },
             "font-weight": {
-                "value": "regular",
-                "type": "weight",
+                "value": "{typography.font-weight.regular.value}",
                 "comment": "regular"
             }
         },
@@ -272,8 +273,7 @@
                 "comment": "16px"
             },
             "font-weight": {
-                "value": "regular",
-                "type": "weight",
+                "value": "{typography.font-weight.regular.value}",
                 "comment": "regular"
             }
         }
