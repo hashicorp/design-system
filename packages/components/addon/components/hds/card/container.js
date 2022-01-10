@@ -80,16 +80,13 @@ export default class HdsCardContainerComponent extends Component {
   get classNames() {
     let classes = ['hds-card__container'];
 
-    // add a class based on the @level argument
-    classes.push(`hds-card__container--level-${this.level}`);
+    // add an "elevation" class helper based on the @level and @hasBorder arguments
+    classes.push(
+      `hds-${this.args.hasBorder ? 'surface' : 'elevation'}-${this.level}`
+    );
 
     // add a class based on the @background argument
     classes.push(`hds-card__container--background-${this.background}`);
-
-    // add a class based on the @hasBorder argument
-    if (this.args.hasBorder) {
-      classes.push(`hds-card__container--has-border`);
-    }
 
     // add a class based on the @overflow argument
     classes.push(`hds-card__container--overflow-${this.overflow}`);
