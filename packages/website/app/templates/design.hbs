@@ -1,17 +1,17 @@
-{{page-title "Design Guidelines"}}
-<h1 class="ds-h1">Design Guidelines</h1>
+{{page-title "Design guidelines"}}
+<h1 class="ds-h1">Design guidelines</h1>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="icon-types">
     <a href="#icon-types" class="ds-a">§</a>
-    Icon Types
+    Icon types
   </h2>
 
-  <p>There are 4 types of icons in Flight: Generic, Filled, Off, Contained</p>
+  <p>There are 4 types of icons in Flight: Generic, Filled, Off, Contained.</p>
 
   <h3 class="ds-h3" id="available-types">
     <a href="#available-types" class="ds-a">§</a>
-    Available Types
+    Available types
   </h3>
 
   <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
@@ -84,7 +84,7 @@
 
   <h3 class="ds-h3" id="type-best-practices">
     <a href="#type-best-practices" class="ds-a">§</a>
-    Best Practices
+    Best practices
   </h3>
 
   <ul class="ds-ul">
@@ -94,32 +94,32 @@
     <li class="ds-li">
       Use the Filled style where contrast against other icons is important
       <p class="text-sm text-gray-500">
-        For example, when showing 1 failure in a list of 20 otherwise successful builds, use a filled 'failure' icon but
-        keep the remaining checkmarks outline 'success' icons, so the failure stands out more.
+        For example, when showing 1 failure in a list of 20 otherwise successful builds, use a filled "failure" icon but
+        keep the remaining checkmarks outline "success" icons, so the failure stands out more.
       </p>
       <img src="assets/images/icon-types-bp-filled-1.png" alt="" role="none" />
     </li>
     <li class="ds-li">
       Use the Filled style if indicating the toggled state of an icon
       <p class="text-sm text-gray-500">
-        For example, if an object can receive a 'favorite' action, it would show the 'generic' outline variant, and then
-        switch to the 'filled' variant once favorited.
+        For example, if an object can receive a "favorite" action, it would show the "generic" outline variant, and then
+        switch to the "filled" variant once favorited.
       </p>
       <img src="assets/images/icon-types-bp-filled-2.png" alt="" role="none" />
     </li>
     <li class="ds-li">
       Use the Off style icons to indicate a disabled state
       <p class="text-sm text-gray-500">
-        For example, in the favoriting example above, if you wanted to 'unfavorite' an object you could swap the
-        'filled' variant for 'off' on hover to show what the state will become on click.
+        For example, in the favoriting example above, if you wanted to "unfavorite" an object you could swap the
+        "filled" variant for "off" on hover to show what the state will become on click.
       </p>
       <img src="assets/images/icon-types-bp-off.png" alt="" role="none" />
     </li>
     <li class="ds-li">
       Use the Contained style icons for emphasis in hierarchy
       <p class="text-sm text-gray-500">
-        For example, in a list of objects, an object might have multiple states. A 'contained' icon could be used for
-        the overall state, and additional metadata that has state could use the 'generic' variants.
+        For example, in a list of objects, an object might have multiple states. A "contained" icon could be used for
+        the overall state, and additional metadata that has state could use the "generic" variants.
       </p>
       <img src="assets/images/icon-types-bp-contained.png" alt="" role="none" />
     </li>
@@ -131,7 +131,7 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="icon-sizes">
     <a href="#icon-sizes" class="ds-a">§</a>
-    Icon Sizes
+    Icon sizes
   </h2>
 
   <p>
@@ -140,7 +140,7 @@
 
   <h3 class="ds-h3" id="optimized-sizes">
     <a href="#optimized-sizes" class="ds-a">§</a>
-    Optimized Sizes
+    Optimized sizes
   </h3>
 
   <div class="mt-12 mx-auto grid grid-cols-1 gap-y-0 gap-x-8 sm:max-w-none lg:grid-cols-2">
@@ -184,7 +184,7 @@
 
   <h3 class="ds-h3" id="size-best-practices">
     <a href="#size-best-practices" class="ds-a">§</a>
-    Best Practices
+    Best practices
   </h3>
 
   <ul>
@@ -203,7 +203,7 @@
 
   <h3 class="ds-h3" id="size-existing">
     <a href="#size-existing" class="ds-a">§</a>
-    Updating Existing Interfaces
+    Updating existing interfaces
   </h3>
 
   <ul>
@@ -213,7 +213,7 @@
     <li>
       If the size of icon to be replaced is at least 21px, first try to replace it with a 24px version
       <p class="text-sm text-gray-500">
-        If 24px seems too large, consider dropping down to 16px and reworking the interface for a better fit
+        If 24px seems too large, consider dropping down to 16px and reworking the interface for a better fit.
       </p>
     </li>
   </ul>
@@ -232,7 +232,7 @@
 
   <h3 class="ds-h3" id="states-object">
     <a href="#states-object" class="ds-a">§</a>
-    States of an Object
+    States of an object
   </h3>
   <p class="text-sm text-gray-500">
     An object in our interfaces is any object in our API that can return with a state, such as a Build, a Deployment, a
@@ -243,7 +243,7 @@
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
       <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
-        <h4 class="ds-h4">In Progress</h4>
+        <h4 class="ds-h4">In progress</h4>
         <p class="text-sm text-gray-500">"Building"</p>
       </div>
       <div class="sm:flex-shrink-0">
@@ -289,7 +289,7 @@
 
   <h3 class="ds-h3" id="states-feedback">
     <a href="#states-feedback" class="ds-a">§</a>
-    States of Feedback
+    States of feedback
   </h3>
   <p class="text-sm text-gray-500">
     Feedback is presented in our interfaces when actions occur in response to user interaction, such as pressing a
@@ -350,7 +350,7 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="common-icons">
     <a href="#common-icons" class="ds-a">§</a>
-    Common Icons
+    Common icons
   </h2>
 
   <p>
@@ -359,7 +359,7 @@
 
   <h3 class="ds-h3" id="common-editing">
     <a href="#common-editing" class="ds-a">§</a>
-    Editing Actions
+    Editing actions
   </h3>
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
@@ -411,7 +411,7 @@
 
   <h3 class="ds-h3" id="common-navigation">
     <a href="#common-navigation" class="ds-a">§</a>
-    Navigation Actions
+    Navigation actions
   </h3>
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
@@ -451,12 +451,12 @@
 
   <h3 class="ds-h3" id="common-help">
     <a href="#common-help" class="ds-a">§</a>
-    Help Actions
+    Help actions
   </h3>
   <div class="mt-2 mx-auto grid grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-4">
     <div class="text-left sm:flex lg:block">
       <div class="mt-3 sm:flex-auto sm:mt-0 sm:mr-6 lg:mt-6 lg:mr-0">
-        <h4 class="ds-h4">Tutorial Link</h4>
+        <h4 class="ds-h4">Tutorial link</h4>
         <p class="text-sm text-gray-500">
           When linking to learn.hashicorp.com
         </p>
@@ -506,7 +506,7 @@
 
   <h3 class="ds-h3" id="new-icons">
     <a href="#new-icons" class="ds-a">§</a>
-    Bring in New Icons
+    Bring in new icons
   </h3>
 
   <ol>
@@ -518,7 +518,8 @@
       <a
         href="https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0"
         class="ds-a"
-        rel="external"
+        target="_blank"
+        rel="noopener noreferrer"
       >Flight Icons Library</a>
       by clicking on the toggle next to the name.
     </li>
@@ -527,12 +528,16 @@
 
   <h3 class="ds-h3" id="existing-icons">
     <a href="#existing-icons" class="ds-a">§</a>
-    Replacing Existing Icons
+    Replacing existing icons
   </h3>
 
   <p>We maintain
-    <a href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json" rel="external" class="ds-a">a
-      mapping of icon names between Structure and Flight</a>
+    <a
+      href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json"
+      class="ds-a"
+      target="_blank"
+      rel="noopener noreferrer"
+    >a mapping of icon names between Structure and Flight</a>
     that can be referenced to migrate an icon from Structure to Flight</p>
 
   <div class="ds-info mt-6 mb-12">
@@ -565,7 +570,7 @@
 
   <h3 class="ds-h3" id="contribution-workflow">
     <a href="#contribution-workflow" class="ds-a">§</a>
-    Contribution Workflow
+    Contribution workflow
   </h3>
 
   <ol>
@@ -573,7 +578,8 @@
       <a
         href="https://github.com/hashicorp/flight/issues/new?assignees=&labels=enhancement%2C+triage&template=icon-request.md&title=Flight+Icon+Request%3A+%5Bicon-name%5D"
         class="ds-a"
-        rel="external"
+        target="_blank"
+        rel="noopener noreferrer"
       >Open a GitHub issue</a>
       to kick-off work on adding a new icon.
       <p class="text-sm text-gray-500">
@@ -586,7 +592,8 @@
       <a
         href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=708%3A1151"
         class="ds-a"
-        rel="external"
+        target="_blank"
+        rel="noopener noreferrer"
       >✏️ Flight Development</a>.
       <p class="text-sm text-gray-500">
         You can do this from the Main menu (File > Create branch...)
@@ -600,7 +607,8 @@
       <a
         href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=708%3A1151"
         class="ds-a"
-        rel="external"
+        target="_blank"
+        rel="noopener noreferrer"
       >Flight Icons - Dev</a>
       frame.
       <p class="text-sm text-gray-500">
@@ -614,8 +622,9 @@
         <a
           href="https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=314%3A844"
           class="ds-a"
-          rel="external"
-        >Drawing Icons Guide</a>
+          target="_blank"
+          rel="noopener noreferrer"
+        >Drawing icons guide</a>
         in Figma, taking care to follow the conventions around strokes, corner radius and aligning to the grid. Try to
         preserve the ability to edit the glyph where possible (avoid flattening).
       </p>
@@ -631,7 +640,7 @@
 
   <h3 class="ds-h3" id="drawing-icons">
     <a href="#drawing-icons" class="ds-a">§</a>
-    Drawing Icons
+    Drawing icons
   </h3>
 
   {{! TODO: need to make this section cleaner; use icons vs images }}

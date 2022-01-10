@@ -1,5 +1,5 @@
-{{page-title "Engineering Guidelines"}}
-<h1 class="ds-h1">Consumer Instructions</h1>
+{{page-title "Engineering guidelines"}}
+<h1 class="ds-h1">Consumer instructions</h1>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <p>There are multiple ways to use these icons in your codebase. The package can be installed as an
@@ -32,25 +32,32 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h3 class="ds-h3">Examples of Correct Use</h3>
+  <h3 class="ds-h3">Examples of correct use</h3>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
-    @code="&lt;button aria-label=&quot;Check Activity&quot;>
- &lt;FlightIcon @name=&quot;activity&quot; />
-&lt;/button>"
+    @code='
+      <button aria-label="Check activity">
+        <FlightIcon @name="activity" />
+      </button>
+    '
   />
   {{! prettier-ignore-end }}
   {{! prettier-ignore-start }}
-  <CodeBlock @language="markup" @code="&lt;h2>Activity Report &lt;FlightIcon @name=&quot;activity&quot; />&lt;/h2>" />
+  <CodeBlock
+    @language="markup"
+    @code='
+      <h2>Activity report <FlightIcon @name="activity" /></h2>
+    '
+  />
   {{! prettier-ignore-end }}
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="ember-flight-icons"><a href="#ember-flight-icons" class="ds-a" rel="external">&sect;</a>
-    Use in Ember Apps</h2>
+    Use in Ember apps</h2>
   <h3 class="ds-h3">Installation</h3>
-  <p>To install, run
+  <p>To install, run:
     {{! prettier-ignore-start }}
     <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
     {{! prettier-ignore-end }}
@@ -58,7 +65,12 @@
   <p>Note:
     <code class="ds-code">ember-test-selectors</code>
     is a dependency added for the author's convenience.
-    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a">This Ember addon</a>
+    <a
+      href="https://github.com/simplabs/ember-test-selectors"
+      class="ds-a"
+      target="_blank"
+      rel="noopener noreferrer"
+    >This Ember addon</a>
     strips out all
     <code class="ds-code">data-test-*</code>
     attributes for production builds.
@@ -67,7 +79,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a>
-    Understanding the Component</h3>
+    Understanding the component</h3>
   <p>The component comes with the following defaults:
     <ol>
       <li class="ds-li"><code class="ds-code">fill</code>
@@ -99,7 +111,9 @@
     <CodeBlock
       @language="markup"
       id="component-invocation-base"
-      @code="&lt;FlightIcon @name=&quot;alert-circle&quot; />"
+      @code='
+        <FlightIcon @name="alert-circle" />
+      '
     />
     {{! prettier-ignore-end }}
   </p>
@@ -110,18 +124,21 @@
     <CodeBlock
       @language="markup"
       id="component-invocation-base-render"
-      @code="&lt;svg
-  aria-hidden=&quot;true&quot;
-  class=&quot;flight-icon icon-alert-circle display-inline&quot;
-  data-test-icon=&quot;alert-circle&quot;
-  fill=&quot;currentColor&quot;
-  id=&quot;icon-ember115&quot;
-  width=&quot;16&quot;
-  height=&quot;16&quot;
-  viewBox=&quot;0 0 16 16&quot;
-  xmlns=&quot;http://www.w3.org/2000/svg&quot;>
-  &lt;use href=&quot;/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16&quot;>&lt;/use>
-&lt;/svg>"
+      @code='
+      <svg
+        aria-hidden="true"
+        class="flight-icon icon-alert-circle display-inline"
+        data-test-icon="alert-circle"
+        fill="currentColor"
+        id="icon-ember115"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16"></use>
+      </svg>
+    '
     />
     {{! prettier-ignore-end }}
   </p>
@@ -132,7 +149,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a>
-    Customizable Properties</h3>
+    Customizable properties</h3>
   <p>The following properties are customizable:
     <ol>
       <li>fill (the color)</li>
@@ -156,18 +173,30 @@
     value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined
     variables:
     {{! prettier-ignore-start }}
-    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;var(--brand)&quot; />" />
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @color="var(--brand)" />
+      '
+    />
     {{! prettier-ignore-end }}
   </p>
   <p>
     Other accepted values include named colors and color values themselves.
     {{! prettier-ignore-start }}
-    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rebeccapurple&quot; />" />
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @color="rebeccapurple" />
+      '
+    />
     {{! prettier-ignore-end }}
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
-      @code="&lt;FlightIcon @name=&quot;zap&quot; @color=&quot;rgb(46, 113, 229)&quot; />"
+      @code='
+        <FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
+      '
     />
     {{! prettier-ignore-end }}
   </p>
@@ -179,7 +208,12 @@
     <code class="ds-code">@size</code>
     value:
     {{! prettier-ignore-start }}
-    <CodeBlock @language="markup" @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; />" />
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @size="24" />
+      '
+    />
     {{! prettier-ignore-start }}
   </p>
 
@@ -192,27 +226,31 @@
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
-      @code="&lt;FlightIcon @name=&quot;zap&quot; @size=&quot;24&quot; @stretched=&quot;true&quot; />"
+      @code='
+        <FlightIcon @name="zap" @size="24" @stretched=&lbrace;&lbrace;true&rbrace;&rbrace; />
+      '
     />
     {{! prettier-ignore-start }}
   </p>
 
   <p id="example-styles">
     <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>
-      CSS Classes:</strong>
+      CSS classes:</strong>
     To append additional classes to the component, add
     <code class="ds-code">class</code>
     with value(s):
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
-      @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; class=&quot;ds-rotate-90&quot; />"
+      @code='
+        <FlightIcon @name="triangle-fill" class="ds-rotate-90" />
+      '
     />
     {{! prettier-ignore-end }}
   </p>
   <p id="example-display">
     <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>
-      CSS Display:</strong>
+      CSS display:</strong>
     To change the default display of
     <i>inline-block</i>
     to
@@ -222,7 +260,9 @@
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
-      @code="&lt;FlightIcon @name=&quot;triangle-fill&quot; @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; />"
+      @code='
+        <FlightIcon @name="triangle-fill" @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; />
+      '
     />
     {{! prettier-ignore-end }}
   </p>
@@ -230,7 +270,7 @@
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
-    Alternative @hashicorp/flight-icons Package</h2>
+    Alternative @hashicorp/flight-icons package</h2>
   <p>
     It is also possible to install
     <code class="ds-code">@hashicorp/flight-icons</code>
@@ -244,9 +284,12 @@
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="js"
-      @code="const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-16.svg');
-...
-<InlineSvg src={flightArrowRight} />"
+      @code="
+        const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-16.svg');
+
+        // elsewhere in the file
+        <InlineSvg src={flightArrowRight} />
+      "
     />
     {{! prettier-ignore-end }}
     {{! template-lint-enable 'no-potential-path-strings' }}
@@ -258,8 +301,12 @@
       <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
         a design consult.</li>
       <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
-        <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" rel="external" class="ds-a">related accessibility
-          conformance failures</a>.</li>
+        <a
+          href="https://www.w3.org/TR/WCAG20-TECHS/F77.html"
+          class="ds-a"
+          target="_blank"
+          rel="noopener noreferrer"
+        >related accessibility conformance failures</a>.</li>
     </ul>
   </p>
 </div>
@@ -267,17 +314,26 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="size-existing">
     <a href="#migration" class="ds-a">§</a>
-    Updating Existing Interfaces
+    Updating existing interfaces
   </h2>
 
   <ul>
     <li>
       We maintain
-      <a href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json" rel="external" class="ds-a">a
-        mapping of icon names between Structure and Flight</a>
+      <a
+        href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json"
+        class="ds-a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >a mapping of icon names between Structure and Flight</a>
       that can be referenced to migrate an icon from Structure to Flight. It is also possible to write codemods to
-      automate this migration. If you are interested in learning more about this reach out in
-      <a href="https://hashicorp.slack.com/archives/C7KTUHNUS" rel="external" class="ds-a">#team-design-systems</a>.
+      automate this migration. If you are interested in learning more, reach out in
+      <a
+        href="https://hashicorp.slack.com/archives/C7KTUHNUS"
+        class="ds-a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >#team-design-systems</a>.
     </li>
   </ul>
 </div>
