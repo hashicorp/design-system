@@ -14,6 +14,7 @@ $hds-link-standalone-border-width: 1px;
 
 .hds-link-standalone {
   align-items: center;
+  background-color: transparent; // needs to exist for a11y
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
   color: var(--token-color-action-foreground-on-faint);
   display: flex;
