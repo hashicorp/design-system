@@ -180,6 +180,9 @@ export default class HdsButtonIndexComponent extends Component {
       classes.push('hds-button--width-full');
     }
 
+    // the button has a "low" elevation effect applied to it
+    classes.push('hds-elevation-low');
+
     return classes.join(' ');
   }
 }

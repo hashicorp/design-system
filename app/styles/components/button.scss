@@ -6,25 +6,7 @@ $hds-button-focus-border-width: 3px;
 
 $hds-button-sizes: ( 'small', 'medium', 'large' );
 
-// TODO! generalize with the existing mixin in Card component
-@mixin tempElevation() {
-  box-shadow:
-    var(--token-elevation-low-shadow-01-x)
-    var(--token-elevation-low-shadow-01-y)
-    var(--token-elevation-low-shadow-01-blur)
-    var(--token-elevation-low-shadow-01-spread)
-    var(--token-elevation-low-shadow-01-color),
-    var(--token-elevation-low-shadow-02-x)
-    var(--token-elevation-low-shadow-02-y)
-    var(--token-elevation-low-shadow-02-blur)
-    var(--token-elevation-low-shadow-02-spread)
-    var(--token-elevation-low-shadow-02-color)
-  ;
-}
-
 .hds-button {
-  @include tempElevation();
-
   align-items: center;
   border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-button-border-radius;
