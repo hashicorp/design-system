@@ -44,11 +44,11 @@
   />
   {{! prettier-ignore-end }}
   {{! prettier-ignore-start }}
-  <CodeBlock 
-    @language="markup" 
+  <CodeBlock
+    @language="markup"
     @code='
       <h2>Activity report <FlightIcon @name="activity" /></h2>
-    ' 
+    '
   />
   {{! prettier-ignore-end }}
 </div>
@@ -65,7 +65,12 @@
   <p>Note:
     <code class="ds-code">ember-test-selectors</code>
     is a dependency added for the author's convenience.
-    <a href="https://github.com/simplabs/ember-test-selectors" class="ds-a" target="_blank" rel="noopener noreferrer">This Ember addon</a>
+    <a
+      href="https://github.com/simplabs/ember-test-selectors"
+      class="ds-a"
+      target="_blank"
+      rel="noopener noreferrer"
+    >This Ember addon</a>
     strips out all
     <code class="ds-code">data-test-*</code>
     attributes for production builds.
@@ -179,11 +184,11 @@
   <p>
     Other accepted values include named colors and color values themselves.
     {{! prettier-ignore-start }}
-    <CodeBlock 
+    <CodeBlock
       @language="markup"
       @code='
         <FlightIcon @name="zap" @color="rebeccapurple" />
-      ' 
+      '
     />
     {{! prettier-ignore-end }}
     {{! prettier-ignore-start }}
@@ -203,11 +208,11 @@
     <code class="ds-code">@size</code>
     value:
     {{! prettier-ignore-start }}
-    <CodeBlock 
-      @language="markup" 
+    <CodeBlock
+      @language="markup"
       @code='
         <FlightIcon @name="zap" @size="24" />
-      ' 
+      '
     />
     {{! prettier-ignore-start }}
   </p>
@@ -221,7 +226,7 @@
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="markup"
-      @code=' 
+      @code='
         <FlightIcon @name="zap" @size="24" @stretched=&lbrace;&lbrace;true&rbrace;&rbrace; />
       '
     />
@@ -272,10 +277,7 @@
     instead of
     <code class="ds-code">@hashicorp/ember-flight-icons</code>. To do so, run:
     {{! prettier-ignore-start }}
-    <CodeBlock 
-      @language="bash"
-      @code='yarn install @hashicorp/flight-icons' 
-    />
+    <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
     {{! prettier-ignore-end }}
     This will allow single icons to be imported and used directly as SVG files:
     {{! template-lint-disable 'no-potential-path-strings' }}
@@ -284,7 +286,7 @@
       @language="js"
       @code="
         const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-16.svg');
-        
+
         // elsewhere in the file
         <InlineSvg src={flightArrowRight} />
       "
@@ -299,8 +301,12 @@
       <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
         a design consult.</li>
       <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
-        <a href="https://www.w3.org/TR/WCAG20-TECHS/F77.html" class="ds-a" target="_blank" rel="noopener noreferrer">related accessibility
-          conformance failures</a>.</li>
+        <a
+          href="https://www.w3.org/TR/WCAG20-TECHS/F77.html"
+          class="ds-a"
+          target="_blank"
+          rel="noopener noreferrer"
+        >related accessibility conformance failures</a>.</li>
     </ul>
   </p>
 </div>
@@ -314,11 +320,20 @@
   <ul>
     <li>
       We maintain
-      <a href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json" class="ds-a" target="_blank" rel="noopener noreferrer">a
-        mapping of icon names between Structure and Flight</a>
+      <a
+        href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json"
+        class="ds-a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >a mapping of icon names between Structure and Flight</a>
       that can be referenced to migrate an icon from Structure to Flight. It is also possible to write codemods to
       automate this migration. If you are interested in learning more, reach out in
-      <a href="https://hashicorp.slack.com/archives/C7KTUHNUS" class="ds-a" target="_blank" rel="noopener noreferrer">#team-design-systems</a>.
+      <a
+        href="https://hashicorp.slack.com/archives/C7KTUHNUS"
+        class="ds-a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >#team-design-systems</a>.
     </li>
   </ul>
 </div>
