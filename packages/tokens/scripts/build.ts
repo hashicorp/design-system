@@ -23,19 +23,6 @@ const transformPxToRem: Transform['transformer'] = (token, platform) => {
 }
 
 StyleDictionaryPackage.registerTransform({
-    name: 'spacing/px',
-    type: 'value',
-    matcher: function(token) {
-        return token.group === 'spacing';
-    },
-    transformer: function (token) {
-        const val = parseFloat(token.value);
-        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
-        return `${token.value}px`;
-    }
-});
-
-StyleDictionaryPackage.registerTransform({
     name: 'elevation/px',
     type: 'value',
     matcher: function(token) {
@@ -46,15 +33,6 @@ StyleDictionaryPackage.registerTransform({
         if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
         return `${token.value}px`;
     }
-});
-
-StyleDictionaryPackage.registerTransform({
-    name: 'spacing/pxToRem',
-    type: 'value',
-    matcher: function(token) {
-        return token.group === 'spacing';
-    },
-    transformer: transformPxToRem
 });
 
 StyleDictionaryPackage.registerTransform({
@@ -88,12 +66,12 @@ StyleDictionaryPackage.registerTransform({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/pxToRem', 'typography/pxToRem', 'elevation/px', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'typography/pxToRem', 'elevation/px', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'spacing/px', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerFormat({
