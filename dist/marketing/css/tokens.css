@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 16 Dec 2021 10:49:38 GMT
+ * Generated on Mon, 10 Jan 2022 19:56:28 GMT
  */
 
 :root {
@@ -179,19 +179,4 @@
   --token-elevation-overlay-shadow-02-color: #3b3d4599;
   --token-elevation-overlay-border-width: 1;
   --token-elevation-overlay-border-color: #3b3d4566;
-  --token-spacing-10: 64px;
-  --token-spacing-11: 72px;
-  --token-spacing-12: 80px;
-  --token-spacing-13: 88px;
-  --token-spacing-14: 96px;
-  --token-spacing-15: 128px;
-  --token-spacing-01: 8px;
-  --token-spacing-02: 12px;
-  --token-spacing-03: 16px;
-  --token-spacing-04: 20px;
-  --token-spacing-05: 24px;
-  --token-spacing-06: 32px;
-  --token-spacing-07: 40px;
-  --token-spacing-08: 48px;
-  --token-spacing-09: 56px;
 }

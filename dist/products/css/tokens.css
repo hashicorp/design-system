@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 11 Jan 2022 14:26:18 GMT
+ * Generated on Mon, 10 Jan 2022 19:56:28 GMT
  */
 
 :root {
@@ -160,7 +160,7 @@
   --token-color-vagrant-gradient-primary-stop: #7dadff;
   --token-color-vagrant-gradient-faint-start: #f4faff; /* this is the 'vagrant-50' value at 25% opacity on white */
   --token-color-vagrant-gradient-faint-stop: #d6ebff;
-  --token-color-vault-brand: #ffd814;
+  --token-color-vault-brand: #ffdd04;
   --token-color-vault-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-foreground: #9a6f00;
   --token-color-vault-background: #fff9cf;
@@ -246,13 +246,6 @@
   --token-elevation-overlay-shadow-02-color: #3b3d4599;
   --token-elevation-overlay-border-width: 1px;
   --token-elevation-overlay-border-color: #3b3d4566;
-  --token-spacing-01: 0.25rem; /* 4px, 0.25rem */
-  --token-spacing-02: 0.5rem; /* 8px, 0.5rem */
-  --token-spacing-03: 0.75rem; /* 12px, 0.75rem */
-  --token-spacing-04: 1rem; /* 16px, 1rem */
-  --token-spacing-05: 1.5rem; /* 24px, 1.5rem */
-  --token-spacing-06: 2rem; /* 32px, 2rem */
-  --token-spacing-07: 3rem; /* 48px, 3rem */
   --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-font-stack-code: SF Mono, Consolas, Ubuntu Mono, monospace;
