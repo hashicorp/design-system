@@ -11,12 +11,12 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
 
   test('it renders a button with the defined text', async function (assert) {
-    await render(hbs`<Hds::Button @text="Copy to Clipboard" />`);
-    assert.dom(this.element).hasText('Copy to Clipboard');
+    await render(hbs`<Hds::Button @text="Copy to clipboard" />`);
+    assert.dom(this.element).hasText('Copy to clipboard');
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
     );
     assert.dom('#test-button').hasClass('hds-button');
   });
@@ -25,13 +25,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should render the medium size if no size is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
     );
     assert.dom('#test-button').hasClass('hds-button--size-medium');
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" @size="small" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @size="small" id="test-button" />`
     );
     assert.dom('#test-button').hasClass('hds-button--size-small');
   });
@@ -40,13 +40,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should render the primary color as the default if no color is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
     );
     assert.dom('#test-button').hasClass('hds-button--color-primary');
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" @color="destructive" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @color="destructive" id="test-button" />`
     );
     assert.dom('#test-button').hasClass('hds-button--color-destructive');
   });
@@ -61,7 +61,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`
     );
     assert
       .dom(
@@ -71,13 +71,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('if an icon is declared the icon should be in leading position by default', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`
     );
     assert.dom('.hds-button__icon').matchesSelector(':first-child');
   });
   test('if an icon is declared the icon should be in trailing position if @iconPosition is set to trailing', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to Clipboard" @icon="clipboard-copy" @iconPosition="trailing" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" id="test-button" />`
     );
     assert.dom('.hds-button__icon').matchesSelector(':last-child');
   });
