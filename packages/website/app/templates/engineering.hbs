@@ -224,12 +224,14 @@
     <code class="ds-code">@stretched</code>
     attribute:
     {{! prettier-ignore-start }}
+    {{! template-lint-disable no-triple-curlies }}
     <CodeBlock
       @language="markup"
-      @code='
-        <FlightIcon @name="zap" @size="24" @stretched=&lbrace;&lbrace;true&rbrace;&rbrace; />
-      '
+      @code={{{'
+        <FlightIcon @name="zap" @size="24" @stretched={{true}} />
+      '}}}
     />
+    {{! template-lint-enable no-triple-curlies }}
     {{! prettier-ignore-start }}
   </p>
 
@@ -258,12 +260,14 @@
     <code class="ds-code">@isInlineBlock</code>
     to false:
     {{! prettier-ignore-start }}
+    {{! template-lint-disable no-triple-curlies }}
     <CodeBlock
       @language="markup"
-      @code='
-        <FlightIcon @name="triangle-fill" @isInlineBlock=&lbrace;&lbrace;false&rbrace;&rbrace; />
-      '
+      @code={{{'
+        <FlightIcon @name="triangle-fill" @isInlineBlock={{false}} />
+      '}}}
     />
+    {{! template-lint-enable no-triple-curlies }}
     {{! prettier-ignore-end }}
   </p>
 </div>
