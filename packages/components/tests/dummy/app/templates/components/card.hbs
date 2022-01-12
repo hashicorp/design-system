@@ -56,10 +56,14 @@
 <section>
   <h3 class="dummy-h3">How to use</h3>
   <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
-  {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
-  <pre class="dummy-code-snippet">
-    &lt;Hds::Card::Container @level="mid" @hasBorder="true" &gt; [your content here] &lt;/Hds::Card::Container&gt;
-  </pre>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Card::Container @level="mid" @hasBorder="true">[Your content here]</Hds::Card::Container>
+    '
+  />
+  {{! prettier-ignore-end }}
 </section>
 
 <section>

@@ -11,6 +11,9 @@ module.exports = function (defaults) {
         './node_modules/@hashicorp/design-system-tokens/products/css',
       ],
     },
+    'ember-prism': {
+      components: ['markup'],
+    },
   });
 
   /*
