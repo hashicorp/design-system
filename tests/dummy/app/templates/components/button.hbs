@@ -1,6 +1,6 @@
-{{page-title "Button Component"}}
+{{page-title "Button component"}}
 
-<h2 class="dummy-h2">Button Component</h2>
+<h2 class="dummy-h2">Button component</h2>
 
 <section>
   <h3 class="dummy-h3">Component API</h3>
@@ -81,7 +81,11 @@
   <h3 class="dummy-h3">Design guidelines</h3>
 
   <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A9">Figma UI Kit</a></p>
+    <p class="dummy-paragraph"><a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A9"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a></p>
     <img class="dummy-figma-docs" src="/assets/images/button-design-usage.png" alt="" role="none" />
   </div>
 </section>
@@ -90,10 +94,10 @@
   <h3 class="dummy-h3">Showcase</h3>
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-button-base-sample">
-    <Hds::Button @text="only text" />
-    <Hds::Button @icon="plus" @iconPosition="leading" @text="text + leading icon" />
-    <Hds::Button @icon="arrow-right" @iconPosition="trailing" @text="text + trailing icon" />
-    <Hds::Button @icon="plus" @isIconOnly={{true}} @text="icon only" />
+    <Hds::Button @text="Only text" />
+    <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+    <Hds::Button @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" />
+    <Hds::Button @icon="plus" @isIconOnly={{true}} @text="Icon only" />
     <div class="dummy-button-max-width-container">
       <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
     </div>
@@ -102,17 +106,17 @@
   <h4 class="dummy-h4">Sizes</h4>
   <div class="dummy-button-base-sample">
     {{#each @model.SIZES as |size|}}
-      <Hds::Button @icon="plus" @text={{size}} @size={{size}} />
+      <Hds::Button @icon="plus" @text={{capitalize size}} @size={{size}} />
     {{/each}}
     <div class="dummy-button-full-width-container">
-      <Hds::Button @icon="plus" @text="full-width" @isFullWidth={{true}} />
+      <Hds::Button @icon="plus" @text="Full width" @isFullWidth={{true}} />
     </div>
   </div>
 
   <h4 class="dummy-h4">Colors</h4>
   <div class="dummy-button-base-sample">
     {{#each @model.COLORS as |color|}}
-      <Hds::Button @icon="plus" @text={{color}} @color={{color}} />
+      <Hds::Button @icon="plus" @text={{capitalize color}} @color={{color}} />
     {{/each}}
   </div>
 
@@ -122,17 +126,23 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <div>
-            <span class="dummy-text-small">{{size}}/{{color}}/{{state}}:</span>
+            <span class="dummy-text-small">{{capitalize size}}/{{color}}/{{state}}:</span>
             <br />
-            <Hds::Button @icon="plus" @text={{state}} @size={{size}} @color={{color}} class="is-{{state}}" />
+            <Hds::Button @icon="plus" @text={{capitalize state}} @size={{size}} @color={{color}} class="is-{{state}}" />
           </div>
         {{/each}}
       {{/each}}
       {{#each @model.STATES as |state|}}
         <div>
-          <span class="dummy-text-small">Full-width/{{color}}/{{state}}:</span>
+          <span class="dummy-text-small">Full width/{{color}}/{{state}}:</span>
           <br />
-          <Hds::Button @icon="plus" @text={{state}} @color={{color}} @isFullWidth={{true}} class="is-{{state}}" />
+          <Hds::Button
+            @icon="plus"
+            @text={{capitalize state}}
+            @color={{color}}
+            @isFullWidth={{true}}
+            class="is-{{state}}"
+          />
         </div>
       {{/each}}
     {{/each}}
