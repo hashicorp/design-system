@@ -2,29 +2,6 @@ import Controller from '@ember/controller';
 
 export default class TokensController extends Controller {
   get tokensList() {
-    // type Token = {
-    //   value: string;
-    //   type?: string;
-    //   group?: string;
-    //   comment?: string;
-    //   documentation?: {
-    //     comment: string;
-    //   };
-    //   original: {
-    //     value: string;
-    //     type?: string;
-    //     group?: string;
-    //     comment?: string;
-    //   };
-    //   name: string;
-    //   attributes: {
-    //     category: string;
-    //     type?: string;
-    //     item?: string;
-    //   };
-    //   path: string[];
-    // };
-
     const tokensList = {};
 
     this.model.TOKENSJSON.forEach((token) => {
@@ -32,7 +9,22 @@ export default class TokensController extends Controller {
       if (!tokensList[category]) {
         tokensList[category] = [];
       }
-      tokensList[category].push(token);
+
+      tokensList[category].push({
+        name: token.name,
+        value: token.value,
+        original_value: token.original.value,
+        // type: token.type,
+        // group: token.group,
+        comment: token?.documentation?.comment
+          ? token.documentation.comment
+          : false,
+        isAlias:
+          token.original &&
+          token.original.value !== token.value &&
+          token.original.value.includes('{'),
+        isColor: token.value.startsWith('#') || token.value.startsWith('rgb'),
+      });
     });
 
     return tokensList;
