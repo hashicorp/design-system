@@ -29,9 +29,7 @@ See below for more details about what these scripts do.
 
 Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transfered also to the code. This means updating the `flight-icons` package and then releasing it to the npm registry, so that can be used by other tools and projects.
 
-We have developed a set of custom Node.js scripts, to create a single pipeline for this purpose. 
-
-You can run the [Sync & Build Icons action](https://github.com/Dhaulagiri/flight/actions/workflows/open-pull-request-for-icon-update.yml) on the [Actions tab in GitHub](https://github.com/hashicorp/flight/actions) to create a PR with the updated icons automatically (and the version bumped as `minor`), or the pipeline can be run manually on your local machine using these instructions.
+We have developed a set of custom Node.js scripts, to create a single pipeline for this purpose. The pipeline can be run manually on your local machine.
 
 ## Before you run the scripts
 
