@@ -7,6 +7,9 @@ module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Take percy snapshots', async function (assert) {
+    await visit('/foundations/elevation');
+    await percySnapshot('Elevation');
+
     await visit('/components/badge');
     await percySnapshot('Badge');
 
