@@ -191,7 +191,7 @@
                 "comment": "18px"
             }
         },
-        "code": {
+        "code-100": {
             "font-family": {
                 "value": "{typography.font-stack.code.value}"
             },
