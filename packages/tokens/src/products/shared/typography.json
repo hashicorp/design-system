@@ -112,10 +112,6 @@
                 "value": "1.3333",
                 "comment": "24px"
             },
-            "font-weight": {
-                "value": "{typography.font-weight.bold.value}",
-                "comment": "bold"
-            },
             "letter-spacing": {
                 "value": "-0.5px",
                 "comment": "this is `tracking`"
@@ -195,7 +191,7 @@
                 "comment": "18px"
             }
         },
-        "code": {
+        "code-100": {
             "font-family": {
                 "value": "{typography.font-stack.code.value}"
             },
