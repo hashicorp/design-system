@@ -67,13 +67,24 @@
 <section>
   <h3 class="dummy-h3">How to use</h3>
   <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
-  {{! TODO! replace with proper syntax highlighting (use the same as in the Flight website) }}
-  <pre class="dummy-code-snippet">
-    &lt;Hds::IconTile @logo="boundary" @size="medium" iconSecondary="plus" /&gt;
-  </pre>
-  <pre class="dummy-code-snippet">
-    &lt;Hds::IconTile @icon="dashboard" @size="small" @color="vault" /&gt;
-  </pre>
+
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::IconTile @logo="boundary" @size="medium" iconSecondary="plus" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::IconTile @icon="dashboard" @size="small" @color="vault" />
+    '
+  />
+  {{! prettier-ignore-end }}
 </section>
 
 <section>
@@ -82,9 +93,9 @@
   <div class="dummy-design-guidelines">
     <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=1377%3A11992">Figma
         UI Kit</a></p>
-    <p class="dummy-paragraph"><strong>with logo</strong></p>
+    <h4 class="dummy-paragraph"><strong>With logo</strong></h4>
     <img class="dummy-figma-docs" src="/assets/images/icontile-logo-design-usage.png" alt="" role="none" />
-    <p class="dummy-paragraph"><strong>with icon</strong></p>
+    <h4 class="dummy-paragraph"><strong>With icon</strong></h4>
     <img class="dummy-figma-docs" src="/assets/images/icontile-icon-design-usage.png" alt="" role="none" />
   </div>
 </section>
@@ -94,7 +105,7 @@
   <h4 class="dummy-h4">Size</h4>
   <ul class="dummy-icon-tile-side-by-side">
     <li>
-      <p class="dummy-paragraph">with logo</p>
+      <p class="dummy-paragraph">With logo</p>
       <div class="dummy-icon-tile-base-sample">
         {{#each @model.SIZES as |size|}}
           <Hds::IconTile @logo="boundary" @size={{size}} />
@@ -102,7 +113,7 @@
       </div>
     </li>
     <li>
-      <p class="dummy-paragraph">with icon</p>
+      <p class="dummy-paragraph">With icon</p>
       <div class="dummy-icon-tile-base-sample">
         {{#each @model.SIZES as |size|}}
           <Hds::IconTile @icon="dashboard" @size={{size}} />
@@ -135,7 +146,7 @@
   <h4 class="dummy-h4">Secondary icon</h4>
   <ul class="dummy-icon-tile-side-by-side">
     <li>
-      <p class="dummy-paragraph">with logo</p>
+      <p class="dummy-paragraph">With logo</p>
       <div class="dummy-icon-tile-base-sample">
         {{#each @model.SIZES as |size|}}
           <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
@@ -143,7 +154,7 @@
       </div>
     </li>
     <li>
-      <p class="dummy-paragraph">with icon</p>
+      <p class="dummy-paragraph">With icon</p>
       <div class="dummy-icon-tile-base-sample">
         {{#each @model.SIZES as |size|}}
           <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
