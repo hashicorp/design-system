@@ -10,22 +10,24 @@ module('Integration | Component | hds/card/container', function (hooks) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert.dom('#test-card-container').hasClass('hds-card__container');
   });
+
+  // LEVEL + BORDER
+
   test('it should have the base level elevation as the default if no @level prop is declared', async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
-    assert
-      .dom('#test-card-container')
-      .hasClass('hds-card__container--level-base');
+    assert.dom('#test-card-container').hasClass('hds-elevation-base');
   });
-
-  // LEVEL
-
   test('it should have the correct level class based on the @level prop', async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @level="mid" />`
     );
-    assert
-      .dom('#test-card-container')
-      .hasClass('hds-card__container--level-mid');
+    assert.dom('#test-card-container').hasClass('hds-elevation-mid');
+  });
+  test('it should have a "surface" elavation the @hasBorder prop is true', async function (assert) {
+    await render(
+      hbs`<Hds::Card::Container id="test-card-container" @hasBorder={{true}} />`
+    );
+    assert.dom('#test-card-container').hasClass('hds-surface-base');
   });
 
   // BACKGROUND
@@ -43,17 +45,6 @@ module('Integration | Component | hds/card/container', function (hooks) {
     assert
       .dom('#test-card-container')
       .hasClass('hds-card__container--background-neutral-secondary');
-  });
-
-  // BORDER
-
-  test('it should have a border if the @hasBorder prop is true', async function (assert) {
-    await render(
-      hbs`<Hds::Card::Container id="test-card-container" @hasBorder={{true}} />`
-    );
-    assert
-      .dom('#test-card-container')
-      .hasClass('hds-card__container--has-border');
   });
 
   // OVERFLOW
