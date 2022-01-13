@@ -130,6 +130,11 @@ $size-props: (
   &:active,
   &.is-active {
     text-decoration: underline;
+
+    // remove the focus ring on "active + focused" state (by design)
+    &::before {
+      content: none;
+    }
   }
 }
 
