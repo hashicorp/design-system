@@ -7,6 +7,10 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
+  this.route('foundations', function () {
+    this.route('typography');
+    this.route('elevation');
+  });
   this.route('components', function () {
     this.route('badge');
     this.route('button');
@@ -15,8 +19,6 @@ Router.map(function () {
     this.route('link', function () {
       this.route('standalone', { path: '/' });
     });
-    this.route('typography');
-
     this.route('link-to', function () {
       this.route('standalone', { path: '/' });
     });
