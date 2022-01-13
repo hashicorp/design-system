@@ -10,3 +10,33 @@
     <img class="dummy-figma-docs" src="/assets/images/elevation-design-usage.png" alt="" role="none" />
   </div>
 </section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Elevation:</h4>
+  <p class="dummy-paragraph">Standalone shadow effects</p>
+  <div class="dummy-elevation-sample">
+    {{#each @model.ELEVATIONS as |elevation|}}
+      <div>
+        <span class="dummy-text-small">{{elevation}}</span>
+        <br />
+        <div class="hds-elevation-{{elevation}}">
+          <DummyPlaceholder @text={{level}} @width="100" @height="100" @background="transparent" />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <h4 class="dummy-h4">Surface:</h4>
+  <p class="dummy-paragraph">Shadow effects combined with an additional edge</p>
+  <div class="dummy-elevation-sample">
+    {{#each @model.SURFACES as |surface|}}
+      <div>
+        <span class="dummy-text-small">{{surface}}</span>
+        <br />
+        <div class="hds-surface-{{surface}}">
+          <DummyPlaceholder @text={{level}} @width="100" @height="100" @background="transparent" />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
