@@ -1,13 +1,13 @@
 /**
  * Do not edit directly
- * Generated on Thu, 13 Jan 2022 22:47:46 GMT
+ * Generated on Fri, 14 Jan 2022 18:21:55 GMT
  */
 
 :root {
   --token-color-palette-blue-500: #1c345f;
   --token-color-palette-blue-400: #0046d1;
   --token-color-palette-blue-300: #0c56e9;
-  --token-color-palette-blue-200: #1f69ff;
+  --token-color-palette-blue-200: #1060ff;
   --token-color-palette-blue-100: #cce3fe;
   --token-color-palette-blue-50: #f2f8ff;
   --token-color-palette-purple-500: #42215b;
@@ -46,14 +46,14 @@
   --token-color-palette-alpha-300: #3b3d4566;
   --token-color-palette-alpha-200: #656a7633;
   --token-color-palette-alpha-100: #656a761a;
-  --token-color-action-foreground-primary: #1f69ff;
+  --token-color-action-foreground-primary: #1060ff;
   --token-color-action-foreground-on-faint: #0c56e9;
   --token-color-action-foreground-high-contrast: #1c345f;
-  --token-color-action-background-primary: #1f69ff;
+  --token-color-action-background-primary: #1060ff;
   --token-color-action-background-hover: #0c56e9;
   --token-color-action-background-active: #0046d1;
   --token-color-action-background-faint: #f2f8ff;
-  --token-color-action-border-primary: #1f69ff;
+  --token-color-action-border-primary: #1060ff;
   --token-color-action-border-on-primary: #0c56e9;
   --token-color-action-border-on-hover: #0046d1;
   --token-color-action-border-on-faint: #cce3fe;
