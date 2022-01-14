@@ -117,14 +117,16 @@ const targets: ConfigTargets = {
             // `src/devdot/**/*.json`
         ],
         'transformGroup': 'products/web',
-    },
-    'marketing': {
-        'source': [
-            `src/global/**/*.json`,
-            `src/marketing/**/*.json`
-        ],
-        'transformGroup': 'marketing/web',
     }
+    // since for now we're not using the marketing tokens/helpers
+    // we have decided to comment this out to reduce overall noise
+    // 'marketing': {
+    //     'source': [
+    //         `src/global/**/*.json`,
+    //         `src/marketing/**/*.json`
+    //     ],
+    //     'transformGroup': 'marketing/web',
+    // }
 };
 
 function getStyleDictionaryConfig({ target }: { target: string }) {
