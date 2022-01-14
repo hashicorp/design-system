@@ -15,19 +15,20 @@ export function generateElevationHelpers(tokens: TransformedTokens): Helpers {
 
         const levelName = key;
         const levelValues = tokens[key];
+        const isInset = key === 'inset';
 
         let shadows: string[] = [];
         let borders: string[] = [];
         Object.keys(levelValues).forEach((property: string) => {
             switch (property) {
                 case 'shadow-01':
-                    shadows.push(getDropShadow(levelName, 'shadow-01'));
+                    shadows.push(getDropShadow(levelName, 'shadow-01', isInset));
                     break;
                 case 'shadow-02':
-                    shadows.push(getDropShadow(levelName, 'shadow-02'));
+                    shadows.push(getDropShadow(levelName, 'shadow-02', isInset));
                     break;
                 case 'border':
-                    borders.push(`0 0 0 var(--token-elevation-${levelName}-border-width) var(--token-elevation-${levelName}-border-color)`);
+                    borders.push(getBorder(levelName, isInset));
                     break;
             }
         });
@@ -47,12 +48,22 @@ export function generateElevationHelpers(tokens: TransformedTokens): Helpers {
     return [...helpersElevation, ...helpersSurface];
 }
 
-function getDropShadow(level: string, shadow: string) {
+function getDropShadow(level: string, shadow: string, inset?: boolean) {
     return [
+        inset ? `inset` : null,
         `var(--token-elevation-${level}-${shadow}-x)`,
         `var(--token-elevation-${level}-${shadow}-y)`,
         `var(--token-elevation-${level}-${shadow}-blur)`,
         `var(--token-elevation-${level}-${shadow}-spread)`,
         `var(--token-elevation-${level}-${shadow}-color)`,
+    ].join(' ');
+}
+
+function getBorder(level: string, inset?: boolean) {
+    return [
+        inset ? `inset` : null,
+        '0 0 0',
+        `var(--token-elevation-${level}-border-width)`,
+        `var(--token-elevation-${level}-border-color)`,
     ].join(' ');
 }
