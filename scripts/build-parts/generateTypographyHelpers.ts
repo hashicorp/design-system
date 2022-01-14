@@ -40,13 +40,6 @@ export function generateTypographyHelpers(tokens: TransformedTokens): Helpers {
 
             let stylename = key;
 
-            // we decided to not have the 'mono-code' as CSS helpers
-            // see https://github.com/hashicorp/design-system-tokens/pull/65#issuecomment-1012493965
-            console.log(stylename);
-            if (stylename.match(/^code/)) {
-                return;
-            }
-
             // basic font styles
             declarations.push(`font-family: var(--token-typography-${stylename}-font-family);`);
             declarations.push(`font-size: var(--token-typography-${stylename}-font-size);`);
