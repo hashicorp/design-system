@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 13 Jan 2022 21:01:03 GMT
+ * Generated on Fri, 14 Jan 2022 12:44:46 GMT
  */
 
 .hds-font-family-sans-display { font-family: var(--token-typography-font-stack-display); }
@@ -18,3 +18,4 @@
 .hds-typography-body-300 { font-family: var(--token-typography-body-300-font-family); font-size: var(--token-typography-body-300-font-size); line-height: var(--token-typography-body-300-line-height); margin: 0; padding: 0; }
 .hds-typography-body-200 { font-family: var(--token-typography-body-200-font-family); font-size: var(--token-typography-body-200-font-size); line-height: var(--token-typography-body-200-line-height); margin: 0; padding: 0; }
 .hds-typography-body-100 { font-family: var(--token-typography-body-100-font-family); font-size: var(--token-typography-body-100-font-size); line-height: var(--token-typography-body-100-line-height); margin: 0; padding: 0; }
+.hds-typography-code-100 { font-family: var(--token-typography-code-100-font-family); font-size: var(--token-typography-code-100-font-size); line-height: var(--token-typography-code-100-line-height); margin: 0; padding: 0; }
