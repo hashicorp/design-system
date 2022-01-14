@@ -34,27 +34,27 @@
   <h3 class="dummy-h3">CSS custom properties ("variables")</h3>
   <p class="dummy-paragraph">These are the CSS helper classes that you can use.</p>
 
-  <div class="ds-tokens-list">
-    {{#each-in this.tokensList as |category categoryList|}}
-      <h4 class="dummy-h4">{{capitalize category}}</h4>
+  {{#each-in this.tokensList as |category categoryList|}}
+    <h4 class="dummy-h4">{{capitalize category}}</h4>
+    <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
-        <details class="ds-token">
-          <summary class="ds-token__summary">
-            <p class="ds-token__name {{if token.isAlias 'is-alias' ''}}">
+        <details class="dummy-token">
+          <summary class="dummy-token__summary">
+            <p class="dummy-token__name {{if token.isDeprecated 'is-deprecated' ''}}">
               {{token.name}}
               {{#if token.isAlias}}
-                <span class="ds-token__asterisk">*</span>
+                <span class="dummy-token__asterisk">*</span>
               {{/if}}
             </p>
-            <code class="ds-token__value">
+            <code class="dummy-token__value">
               {{#if token.isColor}}
-                <span class="ds-token__color" style="color: {{token.value}}"></span>
+                <span class="dummy-token__color" style="color: {{token.value}}"></span>
               {{/if}}
               {{token.value}}
             </code>
           </summary>
-          <div class="ds-token__details">
-            <table class="ds-token__details-table">
+          <div class="dummy-token__details">
+            <table class="dummy-token__details-table">
               <tr>
                 <th>CSS variable</th>
                 <td>--{{token.name}}</td>
@@ -66,7 +66,7 @@
                 </tr>
                 <tr>
                   <th>Value/Original:</th>
-                  <td>{{token.original.value}}</td>
+                  <td>{{token.original_value}}</td>
                 </tr>
               {{else}}
                 <tr>
@@ -76,12 +76,12 @@
               {{/if}}
             </table>
             {{#if (and token.documentation token.documentation.comment)}}
-              <p class="ds-token__comment">{{token.documentation.comment}}</p>
+              <p class="dummy-token__comment">{{token.documentation.comment}}</p>
             {{/if}}
           </div>
         </details>
       {{/each}}
-    {{/each-in}}
-  </div>
+    </div>
+  {{/each-in}}
 
 </section>
