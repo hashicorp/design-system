@@ -1,11 +1,14 @@
 @import '@hashicorp/design-system-components';
 
 @import "./_typography";
+
 @import "./pages/db-badge";
 @import "./pages/db-button";
 @import "./pages/db-card";
 @import "./pages/db-elevation";
 @import "./pages/db-icon-tile";
+@import "./pages/db-tokens";
+
 @import "./components/dummy-component-props";
 @import "./components/dummy-placeholder";
 
@@ -43,7 +46,7 @@ body.dummy-app {
             .dummy-paragraph {
                 padding: 0;
                 margin: 0;
-                
+
                 .dummy-link {
                 color: white;
                 display: flex;
@@ -87,4 +90,3 @@ body.dummy-app {
         display: none;
     }
 }
- 

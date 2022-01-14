@@ -24,6 +24,7 @@ export default class TokensController extends Controller {
           token.original.value !== token.value &&
           token.original.value.includes('{'),
         isColor: token.value.startsWith('#') || token.value.startsWith('rgb'),
+        isDeprecated: token.deprecated,
       });
     });
 
