@@ -1,6 +1,6 @@
 <details class="dummy-token">
   <summary class="dummy-token__summary">
-    <p class="dummy-token__name {{if this.token.isDeprecated 'is-deprecated' ''}}">
+    <p class="dummy-token__name {{if this.isDeprecated 'is-deprecated' ''}}">
       {{this.token.name}}
       {{#if this.isAlias}}
         <span class="dummy-token__asterisk">*</span>

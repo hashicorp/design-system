@@ -33,6 +33,6 @@ export default class DummyPlaceholderIndexComponent extends Component {
   }
 
   get colorPreviewStyle() {
-    return this.token.isColor ? `color: ${this.token.value}` : undefined;
+    return this.isColor ? `color: ${this.token.value}` : undefined;
   }
 }
