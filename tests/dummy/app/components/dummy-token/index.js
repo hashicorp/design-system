@@ -8,9 +8,7 @@ export default class DummyPlaceholderIndexComponent extends Component {
       value: token.value,
       category: token.attributes.category,
       original_value: token.original.value,
-      comment: token?.documentation?.comment
-        ? token.documentation.comment
-        : false,
+      comment: token?.documentation?.comment ?? token?.comment ?? undefined,
     };
   }
 
