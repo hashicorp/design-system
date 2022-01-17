@@ -59,54 +59,7 @@
     <h4 class="dummy-h4">{{capitalize category}}</h4>
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
-        <details class="dummy-token">
-          <summary class="dummy-token__summary">
-            <p class="dummy-token__name {{if token.isDeprecated 'is-deprecated' ''}}">
-              {{token.name}}
-              {{#if token.isAlias}}
-                <span class="dummy-token__asterisk">*</span>
-              {{/if}}
-            </p>
-            <code class="dummy-token__value">
-              {{#if token.isColor}}
-                {{! template-lint-disable no-inline-styles }}
-                <span class="dummy-token__color" style="color: {{token.value}}"></span>
-              {{/if}}
-              {{token.value}}
-            </code>
-          </summary>
-          <div class="dummy-token__details">
-            <table class="dummy-token__details-table">
-              <tr>
-                <th>CSS variable</th>
-                <td>--{{token.name}}</td>
-                <td>
-                  <CopyButton @clipboardText="var(--{{token.name}})">Copy</CopyButton>
-                </td>
-              </tr>
-              {{#if token.isAlias}}
-                <tr>
-                  <th>Value/Computed:</th>
-                  {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
-                  <td colspan="2">{{token.value}}</td>
-                </tr>
-                <tr>
-                  <th>Value/Original:</th>
-                  <td colspan="2">{{token.original_value}}</td>
-                </tr>
-              {{else}}
-                <tr>
-                  <th>Value:</th>
-                  {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
-                  <td colspan="2">{{token.value}}</td>
-                </tr>
-              {{/if}}
-            </table>
-            {{#if (and token.documentation token.documentation.comment)}}
-              <p class="dummy-token__comment">{{token.documentation.comment}}</p>
-            {{/if}}
-          </div>
-        </details>
+        <DummyToken @token={{token}} />
       {{/each}}
     </div>
   {{else}}
