@@ -57,20 +57,26 @@
               <tr>
                 <th>CSS variable</th>
                 <td>--{{token.name}}</td>
+                <td>
+                  <CopyButton @clipboardText="var(--{{token.name}})">Copy</CopyButton>
+                </td>
               </tr>
               {{#if token.isAlias}}
                 <tr>
                   <th>Value/Computed:</th>
                   <td>{{token.value}}</td>
+                  <td>{{! we don't want developers to use directly HEX values }}</td>
                 </tr>
                 <tr>
                   <th>Value/Original:</th>
                   <td>{{token.original_value}}</td>
+                  <td></td>
                 </tr>
               {{else}}
                 <tr>
                   <th>Value:</th>
                   <td>{{token.value}}</td>
+                  <td>{{! we don't want developers to use directly HEX values }}</td>
                 </tr>
               {{/if}}
             </table>
