@@ -1,3 +1,7 @@
+export { IconLoading24 } from './loading-24';
+export { IconLoading16 } from './loading-16';
+export { IconRunning24 } from './running-24';
+export { IconRunning16 } from './running-16';
 export { IconApple24 } from './apple-24';
 export { IconApple16 } from './apple-16';
 export { IconAppleColor24 } from './apple-color-24';
