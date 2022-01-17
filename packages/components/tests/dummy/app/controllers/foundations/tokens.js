@@ -10,11 +10,13 @@ export default class TokensController extends Controller {
 
   get filteredTokens() {
     let query = this.query;
-    let tokens = this.model.TOKENSLIST;
+    let tokens = this.model.TOKENS_RAW;
 
     if (query) {
       return tokens.filter((token) => {
-        return token.searchable.indexOf(query) !== -1;
+        return (
+          token.name.indexOf(query) !== -1 || token.value.indexOf(query) !== -1
+        );
       });
     } else {
       return tokens;
@@ -25,11 +27,12 @@ export default class TokensController extends Controller {
     const filteredAndGroupedTokens = {};
 
     this.filteredTokens.forEach((token) => {
-      if (!filteredAndGroupedTokens[token.category]) {
-        filteredAndGroupedTokens[token.category] = [];
+      const category = token.attributes.category;
+      if (!filteredAndGroupedTokens[category]) {
+        filteredAndGroupedTokens[category] = [];
       }
 
-      filteredAndGroupedTokens[token.category].push(token);
+      filteredAndGroupedTokens[category].push(token);
     });
 
     return filteredAndGroupedTokens;
