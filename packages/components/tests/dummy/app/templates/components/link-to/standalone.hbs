@@ -1,4 +1,4 @@
-{{page-title "LinkTo (Standalone) Component"}}
+{{page-title "LinkTo (Standalone) component"}}
 <h2 class="dummy-h2">
   LinkTo (Standalone)
 </h2>
@@ -10,7 +10,7 @@
     </li>
     <li>
       It must always have a
-      <a href="https://flight-hashicorp.vercel.app/">Flight Icon</a>
+      <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">Flight Icon</a>
       defined.
     </li>
     <li>
@@ -172,9 +172,11 @@
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <Hds::LinkTo::Standalone @icon="plus" @text="small" @route="components.link-to" @size="small" />
-  <Hds::LinkTo::Standalone @icon="plus" @text="medium" @route="components.link-to" />
-  <Hds::LinkTo::Standalone @icon="plus" @text="large" @route="components.link-to" @size="medium" />
+  <div class="dummy-button-base-sample">
+    {{#each @model.SIZES as |size|}}
+      <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+    {{/each}}
+  </div>
   <h4 class="dummy-h4">
     States (in each size)
   </h4>

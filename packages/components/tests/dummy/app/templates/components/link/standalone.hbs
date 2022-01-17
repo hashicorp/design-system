@@ -6,9 +6,7 @@
   <ul>
     <li>
       The component handles generation of an HTML anchor element and automatically adds
-      <code>
-        target="_blank" rel="noopener noreferrer"
-      </code>
+      <code>target="_blank" rel="noopener noreferrer"</code>.
     </li>
     <li>
       Manually add the href attribute with the desired value.
@@ -123,17 +121,17 @@
     Content
   </h4>
   <div class="dummy-button-base-sample">
-    <Hds::Link::Standalone @icon="plus" @text="text & leading icon" href="../components/link" />
+    <Hds::Link::Standalone @icon="plus" @text="Text & leading icon" href="../components/link" />
     <Hds::Link::Standalone
       @icon="arrow-right"
-      @text="text & trailing icon"
+      @text="Text & trailing icon"
       href="../components/link"
       @iconPosition="trailing"
     />
     <div class="dummy-button-max-width-container">
       <Hds::Link::Standalone
         @icon="plus"
-        @text="very long text that might wrap for multiple lines"
+        @text="Very long text that might wrap for multiple lines"
         href="../components/link"
       />
     </div>
@@ -141,9 +139,11 @@
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <Hds::Link::Standalone @icon="plus" @text="Small" href="../components/link" @size="small" />
-  <Hds::Link::Standalone @icon="plus" @text="Medium" href="../components/link" />
-  <Hds::Link::Standalone @icon="plus" @text="Large" href="../components/link" @size="medium" />
+  <div class="dummy-button-base-sample">
+    {{#each @model.SIZES as |size|}}
+      <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+    {{/each}}
+  </div>
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
