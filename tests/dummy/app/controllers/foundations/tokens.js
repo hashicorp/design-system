@@ -1,33 +1,49 @@
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
+import { restartableTask, timeout } from 'ember-concurrency';
 
+const DEBOUNCE_MS = 250;
 export default class TokensController extends Controller {
-  get tokensList() {
-    const tokensList = {};
+  queryParams = ['query'];
+  @tracked query = null;
+  @tracked model;
 
-    this.model.TOKENSJSON.forEach((token) => {
-      const category = token.attributes.category;
-      if (!tokensList[category]) {
-        tokensList[category] = [];
+  get filteredTokens() {
+    let query = this.query;
+    let tokens = this.model.TOKENSLIST;
+
+    if (query) {
+      return tokens.filter((token) => {
+        return token.searchable.indexOf(query) !== -1;
+      });
+    } else {
+      return tokens;
+    }
+  }
+
+  get filteredAndGroupedTokens() {
+    const filteredAndGroupedTokens = {};
+
+    this.filteredTokens.forEach((token) => {
+      if (!filteredAndGroupedTokens[token.category]) {
+        filteredAndGroupedTokens[token.category] = [];
       }
 
-      tokensList[category].push({
-        name: token.name,
-        value: token.value,
-        original_value: token.original.value,
-        // type: token.type,
-        // group: token.group,
-        comment: token?.documentation?.comment
-          ? token.documentation.comment
-          : false,
-        isAlias:
-          token.original &&
-          token.original.value !== token.value &&
-          token.original.value.includes('{'),
-        isColor: token.value.startsWith('#') || token.value.startsWith('rgb'),
-        isDeprecated: token.deprecated,
-      });
+      filteredAndGroupedTokens[token.category].push(token);
     });
 
-    return tokensList;
+    return filteredAndGroupedTokens;
+  }
+
+  // TODO! triggers an error in the console:
+  // Uncaught Error: Assertion Failed: The first argument passed to the `perform` helper should be a Task object (without quotes); you passed undefined
+  @restartableTask *searchTokens(query) {
+    yield timeout(DEBOUNCE_MS);
+
+    // TODO: WHY DO WE NEED THIS?
+    // see https://github.com/hashicorp/flight/pull/358/files#r774693667
+    this.query = query;
+
+    return this.filteredAndGroupedTokens;
   }
 }
