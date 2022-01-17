@@ -2,12 +2,12 @@
   <summary class="dummy-token__summary">
     <p class="dummy-token__name {{if this.token.isDeprecated 'is-deprecated' ''}}">
       {{this.token.name}}
-      {{#if this.token.isAlias}}
+      {{#if this.isAlias}}
         <span class="dummy-token__asterisk">*</span>
       {{/if}}
     </p>
     <code class="dummy-token__value">
-      {{#if this.token.isColor}}
+      {{#if this.isColor}}
         {{! template-lint-disable no-inline-styles }}
         <span class="dummy-token__color" style={{this.colorPreviewStyle}}></span>
       {{/if}}
@@ -24,7 +24,7 @@
             <CopyButton @clipboardText="var(--{{this.token.name}})">Copy</CopyButton>
           </td>
         </tr>
-        {{#if this.token.isAlias}}
+        {{#if this.isAlias}}
           <tr>
             <th>Value/Computed:</th>
             {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
