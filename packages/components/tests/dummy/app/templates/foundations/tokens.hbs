@@ -27,13 +27,35 @@
       <FlightIcon @name="alert-circle" @color="var(--token-color-success-foreground-primary)" />
     '
   />
+  <p class="dummy-paragraph">For more details on how the design tokens pipeline is implemented, and hwo the design
+    tokens are generated and distribuited, see the repository
+    <a
+      href="https://github.com/hashicorp/design-system-tokens"
+      target="_blank"
+      rel="noopener noreferrer"
+    >@hashicorp/design-system-tokens</a></p>
 </section>
 
 <section>
   <h3 class="dummy-h3">CSS custom properties ("variables")</h3>
   <p class="dummy-paragraph">These are the CSS helper classes that you can use.</p>
 
-  {{#each-in this.tokensList as |category categoryList|}}
+  <div class="dummy-tokens-search">
+    <label for="dummy-tokens-search-input">Filter results</label>
+    <input
+      type="search"
+      name="dummy-tokens-search-input"
+      id="dummy-tokens-search-input"
+      placeholder="e.g. primary or #1f69ff"
+      autofocus={{false}}
+      value={{this.query}}
+      {{on "input" (perform @searchTokens value="target.value")}}
+    />
+    <p class="dummy-tokens-notice">Notice: an asterisk next the token's name means its value internally is referencing
+      another token (it's an "alias").</p>
+  </div>
+
+  {{#each-in this.filteredAndGroupedTokens as |category categoryList|}}
     <h4 class="dummy-h4">{{capitalize category}}</h4>
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
@@ -47,6 +69,7 @@
             </p>
             <code class="dummy-token__value">
               {{#if token.isColor}}
+                {{! template-lint-disable no-inline-styles }}
                 <span class="dummy-token__color" style="color: {{token.value}}"></span>
               {{/if}}
               {{token.value}}
@@ -64,19 +87,18 @@
               {{#if token.isAlias}}
                 <tr>
                   <th>Value/Computed:</th>
-                  <td>{{token.value}}</td>
-                  <td>{{! we don't want developers to use directly HEX values }}</td>
+                  {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
+                  <td colspan="2">{{token.value}}</td>
                 </tr>
                 <tr>
                   <th>Value/Original:</th>
-                  <td>{{token.original_value}}</td>
-                  <td></td>
+                  <td colspan="2">{{token.original_value}}</td>
                 </tr>
               {{else}}
                 <tr>
                   <th>Value:</th>
-                  <td>{{token.value}}</td>
-                  <td>{{! we don't want developers to use directly HEX values }}</td>
+                  {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
+                  <td colspan="2">{{token.value}}</td>
                 </tr>
               {{/if}}
             </table>
@@ -87,6 +109,8 @@
         </details>
       {{/each}}
     </div>
+  {{else}}
+    <p class="dummy-tokens-search-no-results">No tokens found</p>
   {{/each-in}}
 
 </section>
