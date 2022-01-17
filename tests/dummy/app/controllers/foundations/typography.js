@@ -18,4 +18,19 @@ export default class TypographyController extends Controller {
   get styles() {
     return [...DISPLAY_STYLES, ...BODY_STYLES, ...CODE_STYLES];
   }
+  get csshelpers() {
+    const helpers = [];
+    this.families.forEach((family) => {
+      helpers.push(`.hds-font-family-${family}`);
+    });
+    helpers.push('');
+    this.weights.forEach((weight) => {
+      helpers.push(`.hds-font-weight-${weight}`);
+    });
+    helpers.push('');
+    this.styles.forEach((style) => {
+      helpers.push(`.hds-typography-${style}`);
+    });
+    return `${helpers.join('\n')}`;
+  }
 }
