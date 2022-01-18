@@ -3,7 +3,88 @@
 <h2 class="dummy-h2">Typography</h2>
 
 <section>
-  <p>TODO</p>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">There are different ways to apply the typographic definitions to a UI element:</p>
+  <ul>
+    {{! TODO add a link here to the dummy "tokens" page when is merged and available }}
+    <li class="dummy-paragraph">you can use the
+      <strong>typographic design tokens</strong>
+      directly in your CSS definitions</li>
+    <li class="dummy-paragraph">or you can use the <strong>predefined CSS helper classes</strong> in your templates</li>
+  </ul>
+  <p class="dummy-paragraph">Which one to use will depend on the context: since both refer to the same design token
+    values, from the design system perspective there's no difference between the two methods (it's more of a preference
+    for the "consumer" codebase).</p>
+  <p class="dummy-paragraph">There are different CSS helper classes, that can be used for different purposes.</p>
+  <p class="dummy-paragraph">If you want to change
+    <strong>only</strong>
+    the
+    <em>font-family</em>
+    you can use one the "font-family" helpers:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <p class="hds-font-family-sans-text">...</p>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">These helpers are meant to use in very special cases, when the designers used custom
+    typographic styles.</p>
+  <p class="dummy-paragraph"><em>Notice: the "font-family-sans-display" helper is intented for headings and titles,
+      while the "font-family-sans-text" helper is intended for body copy text. The "font-family-mono-code" helper is
+      intended for monospaced text.</em></p>
+
+  <p class="dummy-paragraph">In most of the cases, you will use the <em>typography</em> CSS helpers:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <p class="hds-typography-display-300">...</p>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">These classes will contain, in a single declaration, everything that you need to apply a
+    "standard" style to an element:
+    <em>font-family</em>,
+    <em>font-size</em>,
+    <em>line-height</em>, plus a reset for
+    <em>margin</em>
+    and
+    <em>padding</em>
+    to
+    <code>0px</code>
+    (to match how they behave in Figma).</p>
+
+  <p class="dummy-paragraph">If you want to change the
+    <em>font-weight</em>
+    of an element you can use one the "font-weight" helpers:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <!-- with font-family CSS helpers -->
+      <p class="hds-font-family-sans-text hds-font-weight-medium">...</p>
+
+      <!-- with typographic style CSS helpers -->
+      <p class="hds-typography-display-300 hds-font-weight-semibold">...</p>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><em>Notice: while the
+      <em>font-family/font-weight/typography</em>
+      helpers can be combined together in code, in reality not all the combinations are valid from the design
+      perspective. Please refer to the design documentation to see which styles combinations are allowed.</em></p>
+
+  <h4 class="dummy-h4">Writing guidelines</h4>
+  <p class="dummy-paragraph">HashiCorp has general writing guidelines for copy standards e.g. capitalization and
+    punctuation.
+    <a
+      href="https://docs.google.com/document/d/1ABNkYIp6aLwPYNpuYOFcDFBFCcnH_4ePRaLP-gD_tKE/edit#heading=h.w9d2qpiz1vpb"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Please refer to this document for more details</a>.</p>
+
 </section>
 
 <section>
