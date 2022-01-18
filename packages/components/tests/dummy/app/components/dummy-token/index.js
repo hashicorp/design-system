@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 
 export default class DummyPlaceholderIndexComponent extends Component {
   get token() {
@@ -31,6 +32,6 @@ export default class DummyPlaceholderIndexComponent extends Component {
   }
 
   get colorPreviewStyle() {
-    return this.isColor ? `color: ${this.token.value}` : undefined;
+    return this.isColor ? htmlSafe(`color: ${this.token.value}`) : undefined;
   }
 }
