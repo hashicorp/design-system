@@ -20,7 +20,7 @@ $hds-link-standalone-border-width: 1px;
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
   color: var(--token-color-action-foreground-on-faint);
   display: flex;
-  font-family: var(--token-typography-body-base-font-family);
+  font-family: var(--token-typography-font-stack-text);
   justify-content: center;
   outline-color: transparent;
   position: relative;
