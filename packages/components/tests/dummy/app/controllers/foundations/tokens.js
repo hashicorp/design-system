@@ -38,13 +38,9 @@ export default class TokensController extends Controller {
     return filteredAndGroupedTokens;
   }
 
-  // TODO! triggers an error in the console:
-  // Uncaught Error: Assertion Failed: The first argument passed to the `perform` helper should be a Task object (without quotes); you passed undefined
   @restartableTask *searchTokens(query) {
     yield timeout(DEBOUNCE_MS);
 
-    // TODO: WHY DO WE NEED THIS?
-    // see https://github.com/hashicorp/flight/pull/358/files#r774693667
     this.query = query;
 
     return this.filteredAndGroupedTokens;
