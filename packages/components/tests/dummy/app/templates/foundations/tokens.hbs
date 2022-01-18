@@ -49,7 +49,7 @@
       placeholder="e.g. primary or #1f69ff"
       autofocus={{false}}
       value={{this.query}}
-      {{on "input" (perform @searchTokens value="target.value")}}
+      {{on "input" (perform this.searchTokens value="target.value")}}
     />
     <p class="dummy-tokens-notice">Notice: an asterisk next the token's name means its value internally is referencing
       another token (it's an "alias").</p>
