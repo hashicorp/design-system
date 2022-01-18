@@ -1,36 +1,90 @@
-$hds-link-standalone-border-radius: 5px;
-$hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
-$hds-link-standalone-border-width: 1px;
-$hds-link-standalone-focus-border-width: 3px + $hds-link-standalone-border-width;
+//
+// LINK > STANDALONE COMPONENT
+//
+// properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+//
 
+@use '../../mixins/generic-focus-state.scss' as *;
+
+$hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
+
+$hds-link-standalone-focus-border-radius: 5px;
+$hds-link-standalone-border-width: 1px;
 
 .hds-link-standalone {
   align-items: center;
-  background-color: transparent;
+  background-color: transparent; // needs to exist for a11y
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
-  border-radius: $hds-link-standalone-border-radius;
   color: var(--token-color-action-foreground-on-faint);
   display: flex;
-  font-family: var(--token-typography-body-base-font-family);
+  font-family: var(--token-typography-font-stack-text);
   justify-content: center;
   outline-color: transparent;
-  padding: 0.25rem; // should be 4px; iconPosition will override it on one side
   position: relative;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
   width: fit-content;
+
+  // this is how much the focus is visually "shifted" from the bounding box of the
+  // notice: you have to take in account also the inset shadow of the focus (see Figma file and also "generic-focus-state" mixin)
+  $hds-link-standalone-focus-shift: 4px;
+  // the position absolute of an element is computed from the inside of the border of the container
+  // so we have to take in account the border width of the pseudo-element container itself
+  $shift: $hds-link-standalone-focus-shift + $hds-link-standalone-border-width;
+  // for visual/optical balance we add an extra 2px to the "shift" near the text (opposite the icon)
+  $shift-extra: $shift + 2px;
+
+  // this is used not only for the focus, but also to increase the clickable area
+  &::before {
+    border-radius: $hds-link-standalone-focus-border-radius;
+    bottom: -$shift;
+    box-sizing: border-box;
+    content: '';
+    left: -$shift;
+    position: absolute;
+    right: -$shift;
+    top: -$shift;
+    z-index: -1;
+  }
+
+  &.hds-link-standalone--icon-position-leading::before {
+    right: -$shift-extra;
+  }
+
+  &.hds-link-standalone--icon-position-trailing::before {
+    left: -$shift-extra;
+  }
 }
+
+.hds-link-standalone__text {
+  flex: 1 0 0;
+
+  .hds-link-standalone__icon + & {
+    margin-left: 0.375rem;
+  }
+
+  & +.hds-link-standalone__icon {
+    margin-left: 0.375rem;
+  }
+}
+
+
+// SIZE
 
 // these values later may come from the design tokens
 $size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px;
-    "icon-size": 0.75rem, // 12px
-    "line-height": 0.75,
+    "icon-size": 1rem, // 16px
+    "line-height": 1.231, // ~16px
   ),
   "medium": (
     "font-size": 0.875rem, // 14px
     "icon-size": 1rem, // 16px
-    "line-height": 1, // 16px
+    "line-height": 1.143, // ~16px
   ),
   "large": (
     "font-size": 1rem, // 16px
@@ -51,76 +105,63 @@ $size-props: (
       font-size: map-get($size-props, $size, "font-size");
       line-height: map-get($size-props, $size, "line-height");
     }
-
-  }
-}
-
-.hds-link-standalone__text {
-  flex: 1 0 0;
-  .hds-link-standalone__icon + & {
-    margin-left: 0.375rem;
-  }
-  & +.hds-link-standalone__icon {
-    margin-left: 0.375rem;
   }
 }
 
 // COLORS & STATES
+// The "primary" and "secondary" variants share a lot of styles for the interactive states
 // Note: the order of the pseuo-selectors need to stay the way they are
 
-.hds-link-standalone--color-primary {
-  color: var(--token-color-action-foreground-on-faint);
-
-  &:visited {
-    color: var(--token-color-action-foreground-on-faint);
-  }
-  &:hover,
-  &.is-hover {
-    text-decoration-color: #4E81E8;
-    text-decoration: underline;
-    transition: text-decoration-color 0.25s ease-in;
-  }
+.hds-link-standalone {
   &:focus,
   &:focus-visible,
   &.is-focus {
-    outline: 2px solid transparent;
-    box-shadow: 
-    0 0 0 $hds-link-standalone-border-width var(--token-color-action-border-on-primary), 
-    0 0 0 $hds-link-standalone-focus-border-width #5990FF;
+    &::before {
+      @include hds-generic-focus-state();
+    }
+  }
+  &:hover,
+  &.is-hover {
+    text-decoration: underline;
+    transition: text-decoration-color 0.25s ease-in;
+    // TODO!
+    // discuss with Heather if she wants that we add calculation for text-decoration offset
   }
   &:active,
   &.is-active {
-    color: var(--token-color-action-foreground-high-contrast);
     text-decoration: underline;
-    text-decoration-color: #596987;
+
+    // remove the focus ring on "active + focused" state (by design)
     &::before {
-      border-color: transparent;
+      content: none;
     }
   }
 }
 
-.hds-link-standalone--color-secondary {
-  background-color: transparent;
-  color: var(--token-color-neutral-foreground-primary);
+.hds-link-standalone--color-primary {
+  color: var(--token-color-action-foreground-on-faint);
 
-  &:focus,
-  &:focus-visible,  
-  &.is-focus {
-    outline: 2px solid transparent;
-    box-shadow: 
-    0 0 0 $hds-link-standalone-border-width var(--token-color-action-border-on-primary), 
-    0 0 0 $hds-link-standalone-focus-border-width #5990FF;
-  }
   &:hover,
   &.is-hover {
-    text-decoration: underline;
-    text-decoration-color: var(--token-color-neutral-foreground-primary);
+    text-decoration-color: #4E81E8; // custom color by design
   }
-  &:active, 
+  &:active,
+  &.is-active {
+    color: var(--token-color-action-foreground-high-contrast);
+    text-decoration-color: #596987; // custom color by design
+  }
+}
+
+.hds-link-standalone--color-secondary {
+  color: var(--token-color-neutral-foreground-primary);
+
+  &:hover,
+  &.is-hover {
+    text-decoration-color: #4D4D4F; // custom color by design
+  }
+  &:active,
   &.is-active {
     color: var(--token-color-neutral-foreground-secondary);
-    text-decoration: underline;
-    text-decoration-color: var(--token-color-neutral-foreground-primary);
-
+    text-decoration-color: #6E7075; // custom color by design
   }
 }

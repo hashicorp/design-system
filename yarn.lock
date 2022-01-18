@@ -2115,10 +2115,10 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-1.1.0.tgz#d6dbc7574774b238114582410e8fee0dc3532bdf"
   integrity sha512-rR7tJoSwJ2eooOpYGxGGW95sLq6GXUaS1UtWvN7pei6n2/okYvCGld9vsUTvkl2migxbkszsycwtMf/GEc1k1A==
 
-"@hashicorp/design-system-tokens@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-tokens/-/design-system-tokens-0.1.1.tgz#6be4e323ae07e831313a172175d5e6cd8d08eab1"
-  integrity sha512-ov5fXPVcAaZ9XoeTA1ESQc8XU+1zAuQStsoaZTW9lHVrvR1jN10fB8ss9dRiODC+JRKeAC2K9mMxSlbT1q0JBQ==
+"@hashicorp/design-system-tokens@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-tokens/-/design-system-tokens-0.4.3.tgz#13225750ff96f33f3c23d4c2af0778a5b0cc9451"
+  integrity sha512-bUwDxG1tKbAMygDY7YdbVouPlUxEynDjQtB3Uk5vyF8tBpPZAojAyYPfJJFmt8GLBsss0Y90x54SbMIohp+mrw==
 
 "@hashicorp/ember-flight-icons@^2.0.0":
   version "2.0.0"
