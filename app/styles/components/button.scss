@@ -20,7 +20,7 @@ $hds-button-focus-border-width: 3px;
   border-radius: $hds-button-border-radius;
   box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
   display: flex;
-  font-family: var(--token-typography-body-base-font-family);
+  font-family: var(--token-typography-font-stack-text);
   justify-content: center;
   outline-color: transparent; // We need this to be transparent for a11y
   max-width: fit-content;
