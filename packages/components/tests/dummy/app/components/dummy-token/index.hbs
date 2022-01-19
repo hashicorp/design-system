@@ -21,7 +21,7 @@
           <th>CSS variable</th>
           <td>--{{this.token.name}}</td>
           <td>
-            {{! TODO: add "copy" here  }}
+            <CopyButton @clipboardText="var(--{{this.token.name}})">Copy</CopyButton>
           </td>
         </tr>
         {{#if this.isAlias}}
