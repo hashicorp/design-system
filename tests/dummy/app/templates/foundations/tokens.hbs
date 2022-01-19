@@ -40,22 +40,7 @@
   <h3 class="dummy-h3">CSS custom properties ("variables")</h3>
   <p class="dummy-paragraph">These are the CSS helper classes that you can use.</p>
 
-  <div class="dummy-tokens-search">
-    <label for="dummy-tokens-search-input">Filter results</label>
-    <input
-      type="search"
-      name="dummy-tokens-search-input"
-      id="dummy-tokens-search-input"
-      placeholder="e.g. primary or #1f69ff"
-      autofocus={{false}}
-      value={{this.query}}
-      {{on "input" (perform this.searchTokens value="target.value")}}
-    />
-    <p class="dummy-tokens-notice">Notice: an asterisk next to the token's name means its value internally is referencing
-      another token (it's an "alias").</p>
-  </div>
-
-  {{#each-in this.filteredAndGroupedTokens as |category categoryList|}}
+  {{#each-in this.groupedTokens as |category categoryList|}}
     <h4 class="dummy-h4">{{capitalize category}}</h4>
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
