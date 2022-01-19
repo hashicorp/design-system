@@ -27,13 +27,13 @@
       <FlightIcon @name="alert-circle" @color="var(--token-color-success-foreground-primary)" />
     '
   />
-  <p class="dummy-paragraph">For more details on how the design tokens pipeline is implemented, and hwo the design
-    tokens are generated and distribuited, see the repository
+  <p class="dummy-paragraph">For more details on how the design tokens pipeline is implemented, and how the design
+    tokens are generated and distributed, see the repository
     <a
       href="https://github.com/hashicorp/design-system-tokens"
       target="_blank"
       rel="noopener noreferrer"
-    >@hashicorp/design-system-tokens</a></p>
+    >@hashicorp/design-system-tokens</a>.</p>
 </section>
 
 <section>
@@ -51,7 +51,7 @@
       value={{this.query}}
       {{on "input" (perform this.searchTokens value="target.value")}}
     />
-    <p class="dummy-tokens-notice">Notice: an asterisk next the token's name means its value internally is referencing
+    <p class="dummy-tokens-notice">Notice: an asterisk next to the token's name means its value internally is referencing
       another token (it's an "alias").</p>
   </div>
 
