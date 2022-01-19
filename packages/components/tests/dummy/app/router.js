@@ -24,4 +24,7 @@ Router.map(function () {
       this.route('standalone', { path: '/' });
     });
   });
+  this.route('content', function () {
+    this.route('writing-guidelines');
+  });
 });
