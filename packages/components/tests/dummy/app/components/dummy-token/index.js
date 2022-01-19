@@ -9,6 +9,7 @@ export default class DummyPlaceholderIndexComponent extends Component {
       value: token.value,
       category: token.attributes.category,
       original_value: token.original.value,
+      deprecated: token.deprecated,
       comment: token?.documentation?.comment ?? token?.comment ?? undefined,
     };
   }
@@ -20,14 +21,14 @@ export default class DummyPlaceholderIndexComponent extends Component {
     );
   }
 
+  get isDeprecated() {
+    return this.token.deprecated;
+  }
+
   get isColor() {
     return (
       this.token.value.startsWith('#') || this.token.value.startsWith('rgb')
     );
-  }
-
-  get isDeprecated() {
-    return this.token.deprecated;
   }
 
   get colorPreviewStyle() {
