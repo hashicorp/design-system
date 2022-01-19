@@ -15,9 +15,8 @@ export default class DummyPlaceholderIndexComponent extends Component {
 
   get isAlias() {
     return (
-      this.token.original &&
-      this.token.original.value !== this.token.value &&
-      this.token.original.value.includes('{')
+      this.token.original_value !== this.token.value &&
+      this.token.original_value.includes('{')
     );
   }
 
