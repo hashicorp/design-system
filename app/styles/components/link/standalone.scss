@@ -47,7 +47,6 @@ $hds-link-standalone-border-width: 1px;
     position: absolute;
     right: -$shift;
     top: -$shift;
-    z-index: -1;
   }
 
   &.hds-link-standalone--icon-position-leading::before {
