@@ -8,6 +8,7 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('foundations', function () {
+    this.route('tokens');
     this.route('typography');
     this.route('elevation');
   });
