@@ -3,7 +3,7 @@
     {{if this.isExpanded 'dummy-token--is-expanded' ''}}
     {{if this.isDeprecated 'dummy-token--is-deprecated' ''}}"
 >
-  <button class="dummy-token__summary" {{action "toggle"}}>
+  <button class="dummy-token__summary" type="button" {{on "click" this.toggle}}>
     <span class="dummy-token__name">
       {{this.token.name}}
       {{#if this.isAlias}}
