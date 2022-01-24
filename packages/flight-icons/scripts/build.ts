@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import del from 'del';
 import chalk from 'chalk';
 
-import { preprocessAssetsSVG } from './build-parts/preprocessAssetsSVG';
+import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
 import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
 import { generateBundleSVGReact } from './build-parts/generateBundleSVGReact';
@@ -47,9 +47,9 @@ async function build() {
     // read the assets "catalog"
     const catalog = fs.readJSONSync(`${config.mainFolder}/catalog.json`);
 
-    // pre-process the assets (SVG optimization + animation)
-    console.log('Pre-processing the SVG files (animation, optimization)');
-    await preprocessAssetsSVG({ config, catalog });
+    // pre-process the assets (SVG optimization)
+    console.log('Optimizing the SVG files');
+    await optimizeAssetsSVG({ config, catalog });
 
     // generate the bundle for the standalone SVGs
     console.log('Generating bundle for standalone SVG files');
