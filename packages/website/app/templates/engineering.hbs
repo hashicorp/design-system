@@ -329,11 +329,16 @@
     <CodeBlock
       @language="js"
       @code="
-          // import the SVG file
-          const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg');
+          // import the SVG file (using 'require')
+          const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include');
+          // or import the SVG file (using 'import')
+          import flightArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
 
           // elsewhere in the file
           <InlineSvg src={flightArrowRight} />
+
+          // alternatively you can also use a similar approach
+          <InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
         "
     />
     {{! prettier-ignore-end }}
@@ -355,26 +360,16 @@
     React/SVG</h3>
 
   <p>
-    Single icons can be imported and used directly as SVG files using the
-    <a
-      href="https://react-components.vercel.app/components/inlinesvg"
-      target="_blank"
-      rel="noopener noreferrer"
-    >&lt;InlineSvg&gt;</a>
-    provided by the
-    <a
-      href="https://github.com/hashicorp/react-components"
-      target="_blank"
-      rel="noopener noreferrer"
-    >@hashicorp/react-components</a>
-    library:
+    Single icons can be also imported and used directly as standalone React/SVG components:
     {{! template-lint-disable 'no-potential-path-strings' }}
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="js"
       @code="
-          // import the React file (TypeScript)
-          const FlightArrowRight = require('@hashicorp/flight-icons/svg-react/arrow-right-24');
+          // import the React/TypeScript file (using 'require')
+          const FlightArrowRight = require('@hashicorp/flight-icons/svg-react/arrow-right-24?include');
+          // or import the React/TypeScript file (using 'import')
+          import { FlightArrowRight } from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
 
           // elsewhere in the file
           <FlightArrowRight />
