@@ -15,22 +15,25 @@
         border-bottom: 1px dotted #ccc;
     }
 
-    &[open] {
+    &.dummy-token--is-expanded {
         background-color: #fafafa;
     }
 }
 
-.dummy-token__summary {
+.dummy-token__summary { // it's a button
     align-items: center;
+    appearance: none;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     display: flex;
     flex-direction: row;
+    font-size: inherit;
+    font-family: inherit;
     padding: 10px 30px 10px 10px;
     position: relative;
-
-    [open] & {
-        background-color: #eceff1;
-    }
+    text-align: left;
+    width: 100%;
 
     &::after {
         content: '▲';
@@ -42,19 +45,15 @@
         text-align: center;
         transform: rotate(180deg);
         width: 30px;
+   }
 
-        [open] & {
+   .dummy-token--is-expanded & {
+        background-color: #eceff1;
+
+        &::after {
             transform: none;
         }
     }
-
-    // not working!
-    // // Safari shows a strange extra content on focus
-    // &::-webkit-details-marker,
-    // &::marker {
-    //     display: none !important;
-    //     content: "" !important;
-    // }
 }
 
 .dummy-token__name {
@@ -64,12 +63,11 @@
     min-width: 0;
     padding: 5px 20px 5px 0;
 
-    &.is-deprecated {
+    .dummy-token--is-deprecated & {
         color: #cccccc;
         text-decoration: line-through;
     }
 }
-
 
 .dummy-token__asterisk {
     font-size: 0.8125rem;
@@ -87,6 +85,15 @@
     height: 20px;
     margin-right: 10px;
     width: 20px;
+}
+
+.dummy-token__details {
+    display: none;
+
+    .dummy-token--is-expanded & {
+        display: block;
+
+   }
 }
 
 .dummy-token__details-table {
