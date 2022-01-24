@@ -4,9 +4,9 @@
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <p>There are multiple ways to use these icons in your codebase. The package can be installed as an
     <a href="#ember-flight-icons" class="ds-a">Ember addon</a>
-    for the convenience of using a component with strong defaults, or
-    <a href="#use-other" class="ds-a">it can be consumed</a>
-    for direct import.</p>
+    for the convenience of using a component with strong defaults, or it can be
+    <a href="#use-react" class="ds-a">consumed in React applications</a>
+    via direct import of the SVG file or as standalone React/SVG icon component.</p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
@@ -51,6 +51,21 @@
     '
   />
   {{! prettier-ignore-end }}
+
+  <p>
+    Authors should also follow the following guidelines:
+    <ul class="ds-ul">
+      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
+        a design consult.</li>
+      <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
+        <a
+          href="https://www.w3.org/TR/WCAG20-TECHS/F77.html"
+          class="ds-a"
+          target="_blank"
+          rel="noopener noreferrer"
+        >related accessibility conformance failures</a>.</li>
+    </ul>
+  </p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
@@ -273,46 +288,129 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
-  <h2 class="ds-h2" id="use-other"><a href="#use-other" class="ds-a" rel="external">&sect;</a>
-    Alternative @hashicorp/flight-icons package</h2>
+  <h2 class="ds-h2" id="use-react"><a href="#use-react" class="ds-a" rel="external">&sect;</a>
+    Use in React apps</h2>
   <p>
     It is also possible to install
     <code class="ds-code">@hashicorp/flight-icons</code>
-    instead of
-    <code class="ds-code">@hashicorp/ember-flight-icons</code>. To do so, run:
+    and use the icons in React applications.
+  </p>
+  <p><em>
+      Notice: if you want to have more context you can
+      <a href="https://github.com/hashicorp/flight/pull/325" target="_blank" rel="noopener noreferrer">see the
+        pull-request here</a>
+      where this implementation has been discussed and agreed upon.</em>
+  </p>
+  <h3 class="ds-h3">Installation</h3>
+  <p>To install, run:
     {{! prettier-ignore-start }}
     <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
     {{! prettier-ignore-end }}
-    This will allow single icons to be imported and used directly as SVG files:
+  </p>
+
+  <h3 class="ds-h3" id="react-inline-svg"><a href="#react-inline-svg" class="ds-a" rel="external">&sect;</a>
+    Inline SVG</h3>
+  <p>
+    Single icons can be imported and used directly as SVG files using the
+    <a
+      href="https://react-components.vercel.app/components/inlinesvg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >&lt;InlineSvg&gt;</a>
+    provided by the
+    <a
+      href="https://github.com/hashicorp/react-components"
+      target="_blank"
+      rel="noopener noreferrer"
+    >@hashicorp/react-components</a>
+    library:
     {{! template-lint-disable 'no-potential-path-strings' }}
     {{! prettier-ignore-start }}
     <CodeBlock
       @language="js"
       @code="
-        const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-16.svg');
+          // import the SVG file
+          const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg');
 
-        // elsewhere in the file
-        <InlineSvg src={flightArrowRight} />
-      "
+          // elsewhere in the file
+          <InlineSvg src={flightArrowRight} />
+        "
     />
     {{! prettier-ignore-end }}
     {{! template-lint-enable 'no-potential-path-strings' }}
     <em class="ds-em">Notice: the code above is an example, please update it accordingly to your codebase.</em>
   </p>
-  <p>
-    Authors should also follow the following guidelines:
-    <ul class="ds-ul">
-      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
-        a design consult.</li>
-      <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
-        <a
-          href="https://www.w3.org/TR/WCAG20-TECHS/F77.html"
-          class="ds-a"
-          target="_blank"
-          rel="noopener noreferrer"
-        >related accessibility conformance failures</a>.</li>
-    </ul>
+  <p>Since this is just an SVG asset, there are no
+    <em>props</em>
+    that can be passed to it. You should refer to the
+    <a
+      href="https://react-components.vercel.app/components/inlinesvg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >&lt;InlineSvg&gt;</a>
+    documentation to know how to apply color and size to the SVG icon.
   </p>
+
+  <h3 class="ds-h3" id="react-svg-component"><a href="#react-svg-component" class="ds-a" rel="external">&sect;</a>
+    React/SVG</h3>
+
+  <p>
+    Single icons can be imported and used directly as SVG files using the
+    <a
+      href="https://react-components.vercel.app/components/inlinesvg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >&lt;InlineSvg&gt;</a>
+    provided by the
+    <a
+      href="https://github.com/hashicorp/react-components"
+      target="_blank"
+      rel="noopener noreferrer"
+    >@hashicorp/react-components</a>
+    library:
+    {{! template-lint-disable 'no-potential-path-strings' }}
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="js"
+      @code="
+          // import the React file (TypeScript)
+          const FlightArrowRight = require('@hashicorp/flight-icons/svg-react/arrow-right-24');
+
+          // elsewhere in the file
+          <FlightArrowRight />
+        "
+    />
+    {{! prettier-ignore-end }}
+    {{! template-lint-enable 'no-potential-path-strings' }}
+    <em class="ds-em">Notice: the code above is an example, please update it accordingly to your codebase.</em>
+  </p>
+  <h3 class="ds-h3">Props</h3>
+  <p>The component exposes the following
+    <em>props</em>:
+    <ol>
+      <li><code class="ds-code">color</code>
+        - the color (applied as
+        <em>fill</em>) to the SVG - by default is `currentColor` but any valid HTML/CSS color is accepted</li>
+      <li><code class="ds-code">title</code>
+        - the title of the SVG - by default the icon has an
+        <em>aria-hidden</em>
+        attribute applied to it, because is expected to be used
+        <em>in contex</em>
+        (see
+        <a href="#accessibility">§ Accessibility</a>); if instead you need to use it without text associated to it, you
+        have to pass a
+        <em>title</em>
+        attribute to make it accessible.</li>
+      <li><code class="ds-code">...props</code>
+        - any other
+        <em>prop</em>
+        passed to the component will be applied via spread</li>
+    </ol>
+  </p>
+  <p>The size of the icon is determined by the size of the asset that is imported (each icon is exported in two sizes,
+    <em>16</em>
+    and
+    <em>24</em>). If you need a different size, you have to use CSS to override its intrinsic size.</p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
