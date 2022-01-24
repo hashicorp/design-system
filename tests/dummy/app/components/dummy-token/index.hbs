@@ -1,11 +1,15 @@
-<details class="dummy-token">
-  <summary class="dummy-token__summary">
-    <p class="dummy-token__name {{if this.isDeprecated 'is-deprecated' ''}}">
+<div
+  class="dummy-token
+    {{if this.isExpanded 'dummy-token--is-expanded' ''}}
+    {{if this.isDeprecated 'dummy-token--is-deprecated' ''}}"
+>
+  <button class="dummy-token__summary" type="button" {{on "click" this.toggle}}>
+    <span class="dummy-token__name">
       {{this.token.name}}
       {{#if this.isAlias}}
         <span class="dummy-token__asterisk">*</span>
       {{/if}}
-    </p>
+    </span>
     <code class="dummy-token__value">
       {{#if this.isColor}}
         {{! template-lint-disable no-inline-styles }}
@@ -13,7 +17,7 @@
       {{/if}}
       {{this.token.value}}
     </code>
-  </summary>
+  </button>
   <div class="dummy-token__details">
     <table class="dummy-token__details-table">
       <tbody>
@@ -21,7 +25,7 @@
           <th>CSS variable:</th>
           <td>--{{this.token.name}}</td>
           <td>
-            {{! TODO: add "copy" here  }}
+            <CopyButton @clipboardText="var(--{{this.token.name}})">Copy</CopyButton>
           </td>
         </tr>
         {{#if this.isAlias}}
@@ -50,4 +54,4 @@
       </tbody>
     </table>
   </div>
-</details>
+</div>
