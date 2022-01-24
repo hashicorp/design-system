@@ -330,12 +330,12 @@
       @language="js"
       @code="
           // import the SVG file (using 'require')
-          const flightArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include');
+          const iconArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include');
           // or import the SVG file (using 'import')
-          import flightArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
+          import iconArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
 
           // elsewhere in the file
-          <InlineSvg src={flightArrowRight} />
+          <InlineSvg src={iconArrowRight} />
 
           // alternatively you can also use a similar approach
           <InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
@@ -367,12 +367,12 @@
       @language="js"
       @code="
           // import the React/TypeScript file (using 'require')
-          const FlightArrowRight = require('@hashicorp/flight-icons/svg-react/arrow-right-24?include');
+          const IconArrowRight24 = require('@hashicorp/flight-icons/svg-react/arrow-right-24?include');
           // or import the React/TypeScript file (using 'import')
-          import { FlightArrowRight } from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
+          import { IconArrowRight24 } from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
 
           // elsewhere in the file
-          <FlightArrowRight />
+          <IconArrowRight24 />
         "
     />
     {{! prettier-ignore-end }}
