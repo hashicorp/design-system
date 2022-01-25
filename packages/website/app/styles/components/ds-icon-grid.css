@@ -71,20 +71,20 @@
 button.ds-toggle-button {
   @apply
   bg-brand
-  border-2
-  border-transparent
+  border-2 
+  border-transparent 
   box-border
-  cursor-pointer
-  duration-200
-  ease-in-out
-  focus:outline-none
-  focus:ring-2
+  cursor-pointer 
+  duration-200 
+  ease-in-out 
+  focus:outline-none 
+  focus:ring-2 
   focus:ring-brand
-  focus:ring-offset-2
+  focus:ring-offset-2 
   font-bold
   h-10
-  inline-flex
-  rounded-full
+  inline-flex 
+  rounded-full 
   text-white
   transition-colors
   w-32;
@@ -97,32 +97,32 @@ button.ds-toggle-button {
   flex
   h-9
   justify-evenly
-  pointer-events-none
+  pointer-events-none  
   ring-0
-  rounded-full
-  shadow
+  rounded-full 
+  shadow 
   text-brand
   transform
   w-32;
 }
 
 .ds-toggle-16 {
-  @apply
+  @apply 
   box-border
   text-white
-  ease-in
-  duration-200
-  inset-0
-  flex
-  items-center
-  justify-center
+  ease-in 
+  duration-200 
+  inset-0 
+  flex 
+  items-center 
+  justify-center 
   transition-opacity
   rounded-full
   w-1/2;
 }
 .ds-toggle-16.ds-toggle-16-active {
   @apply
-  bg-white
+  bg-white 
   h-9
   rounded-full
   text-brand
