@@ -47,7 +47,9 @@
   {{#each @icons as |meta|}}
     <li class="ds-li {{if meta.isHidden 'd-none'}} {{if (not-eq meta.size this.visibleIconSize) 'd-none'}}">
       <div class="ds-icon-frame">
-        <FlightIcon @name={{meta.iconName}} @size="{{meta.size}}" class="demo-icon" />
+        <div class="ds-icon-outline">
+          <FlightIcon @name={{meta.iconName}} @size="{{meta.size}}" @isInlineBlock={{false}} class="demo-icon" />
+        </div>
       </div>
       <p class="ds-icon-meta">
         <em>Ember:</em>
