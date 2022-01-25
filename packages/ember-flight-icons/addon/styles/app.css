@@ -1,9 +1,27 @@
-.flight-icon.flight-icon-display-inline {
-  display: inline-block;
-}
 .flight-icon {
   display: block;
 }
+
+.flight-icon-display-inline {
+  display: inline-block;
+}
+
+@keyframes fligh-icon-animation-rotation {
+  to {transform: rotate(360deg);}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  .flight-icon--animation-loading {
+    animation: fligh-icon-animation-rotation .7s linear infinite;
+  }
+
+  .flight-icon--animation-running {
+    animation: fligh-icon-animation-rotation 1s linear infinite;
+  }
+
+}
+
 .flight-sprite-container {
   position: absolute;
   width: 0;
