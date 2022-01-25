@@ -44,20 +44,6 @@ export default class FlightIconComponent extends Component {
   }
 
   /**
-   * Get a class to apply to the icon based on the display argument.
-   * @method FlightIcon#displayClass
-   * @return {string} The css class to apply to the SVG.
-   */
-  get displayClass() {
-    const isInlineBlock = this.args.isInlineBlock ?? true;
-    if (isInlineBlock && !this.args.stretched) {
-      return 'flight-icon-display-inline';
-    } else {
-      return null;
-    }
-  }
-
-  /**
    * Gets the icon's size (16 or 24)
    *
    * @param size
@@ -127,5 +113,31 @@ export default class FlightIconComponent extends Component {
     } else {
       return null;
     }
+  }
+
+  /**
+   * Get the class names to apply to the icon.
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['flight-icon'];
+
+    // add a class based on the @name argument
+    classes.push(`flight-icon-${this.name}`);
+
+    // add a class based on the @isInlineBlock argument
+    const isInlineBlock = this.args.isInlineBlock ?? true;
+    if (isInlineBlock && !this.args.stretched) {
+      classes.push('flight-icon-display-inline');
+    }
+
+    // add an extra class to control the animation (depends on the icon)
+    if (this.name === 'loading') {
+      classes.push('flight-icon--animation-loading');
+    } else if (this.name === 'running') {
+      classes.push('flight-icon--animation-running');
+    }
+
+    return classes.join(' ');
   }
 }
