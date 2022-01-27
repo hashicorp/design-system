@@ -6,20 +6,19 @@
   display: inline-block;
 }
 
-@keyframes fligh-icon-animation-rotation {
+@keyframes hds-flight-icon-animation-rotation {
   to {transform: rotate(360deg);}
 }
 
 @media (prefers-reduced-motion: no-preference) {
 
   .flight-icon--animation-loading {
-    animation: fligh-icon-animation-rotation .7s linear infinite;
+    animation: hds-flight-icon-animation-rotation .7s linear infinite;
   }
 
   .flight-icon--animation-running {
-    animation: fligh-icon-animation-rotation 1s linear infinite;
+    animation: hds-flight-icon-animation-rotation 1s linear infinite;
   }
-
 }
 
 .flight-sprite-container {
