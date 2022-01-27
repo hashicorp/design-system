@@ -6,6 +6,7 @@ import { camelCase, upperFirst } from 'lodash';
 
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
+import { getCssForIconAnimation } from './getCssForIconAnimation';
 
 const prettierConfig = { parser: 'typescript' as const, tabWidth: 4, singleQuote: true };
 
@@ -105,4 +106,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
     `, prettierConfig);
 
     await fs.writeFile(`${config.mainFolder}/svg-react/types.ts`, typesContent);
+
+    // add CSS used to animate "loading" and "running" icons
+    await fs.writeFile(`${config.mainFolder}/svg-react/animation.css`, getCssForIconAnimation());
 }

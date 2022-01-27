@@ -1,0 +1,15 @@
+@keyframes hds-fligh-icon-animation-rotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hds-flight-icon--animation-loading {
+        animation: hds-fligh-icon-animation-rotation 0.7s linear infinite;
+    }
+
+    .hds-flight-icon--animation-running {
+        animation: hds-fligh-icon-animation-rotation 1s linear infinite;
+    }
+}

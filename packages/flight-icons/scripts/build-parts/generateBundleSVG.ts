@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
+import { getCssForIconAnimation } from './getCssForIconAnimation';
 
 export async function generateBundleSVG({ config, catalog } : { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
 
@@ -20,4 +21,7 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
         // save the processed SVG files to the `svg/` directory
         await fs.writeFile(`${config.mainFolder}/svg/${fileName}.svg`, svgSource);
     }
+
+    // add CSS used to animate "loading" and "running" icons
+    await fs.writeFile(`${config.mainFolder}/svg/animation.css`, getCssForIconAnimation());
 }
