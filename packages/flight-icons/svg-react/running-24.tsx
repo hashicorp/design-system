@@ -17,6 +17,7 @@ export const IconRunning24 = forwardRef<SVGSVGElement, IconProps>(
                 height={24}
                 fill="none"
                 viewBox="0 0 24 24"
+                className="hds-flight-icon--animation-running"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
