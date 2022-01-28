@@ -152,7 +152,7 @@
   "random": "random",
   "redirect": "redirect",
   "refresh-alert": "sync-alert",
-  "refresh-default": "refresh",
+  "refresh-default": "reload",
   "remix": "shuffle",
   "ribbon": "award",
   "run": "",
