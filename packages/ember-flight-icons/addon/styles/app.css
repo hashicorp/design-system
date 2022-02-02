@@ -10,14 +10,22 @@
   to {transform: rotate(360deg);}
 }
 
+.flight-icon--animation-loading {
+  animation: hds-flight-icon-animation-rotation 9s linear infinite;
+}
+
+.flight-icon--animation-running {
+  animation: hds-flight-icon-animation-rotation 9s linear infinite;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 
   .flight-icon--animation-loading {
-    animation: hds-flight-icon-animation-rotation .7s linear infinite;
+    animation-duration: .7s;
   }
 
   .flight-icon--animation-running {
-    animation: hds-flight-icon-animation-rotation 1s linear infinite;
+    animation-duration: 1s;
   }
 }
 
