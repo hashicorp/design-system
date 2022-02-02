@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-01-14T18:37:41.019Z",
+  "lastRunTimeISO": "2022-02-02T19:28:02.493Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2244,6 +2244,24 @@
       "height": 16
     },
     {
+      "id": "1484:85",
+      "fileName": "bulb-24",
+      "iconName": "bulb",
+      "description": "bulb, light, idea, smart, insight",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1484:93",
+      "fileName": "bulb-16",
+      "iconName": "bulb",
+      "description": "bulb, light, idea, smart, insight",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:569",
       "fileName": "calendar-24",
       "iconName": "calendar",
@@ -3661,6 +3679,24 @@
       "fileName": "edit-16",
       "iconName": "edit",
       "description": "edit, pencil",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1509:66",
+      "fileName": "enterprise-24",
+      "iconName": "enterprise",
+      "description": "enterprise, business, company",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1509:78",
+      "fileName": "enterprise-16",
+      "iconName": "enterprise",
+      "description": "enterprise, business, company",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8071,6 +8107,24 @@
       "fileName": "wall-16",
       "iconName": "wall",
       "description": "wall, firewall, barrier",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1486:123",
+      "fileName": "wand-24",
+      "iconName": "wand",
+      "description": "wand, magic, enhance, insights",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1486:128",
+      "fileName": "wand-16",
+      "iconName": "wand",
+      "description": "wand, magic, enhance, insights",
       "size": "16",
       "width": 16,
       "height": 16
