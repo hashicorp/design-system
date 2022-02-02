@@ -12,6 +12,42 @@
   },
   "assets": [
     {
+      "id": "1368:168",
+      "fileName": "loading-24",
+      "iconName": "loading",
+      "description": "loading, loader, spinner",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1368:171",
+      "fileName": "loading-16",
+      "iconName": "loading",
+      "description": "loading, loader, spinner",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1368:177",
+      "fileName": "running-24",
+      "iconName": "running",
+      "description": "running, run",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1368:180",
+      "fileName": "running-16",
+      "iconName": "running",
+      "description": "running, run",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:38",
       "fileName": "apple-24",
       "iconName": "apple",

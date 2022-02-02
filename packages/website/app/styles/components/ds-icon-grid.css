@@ -189,7 +189,7 @@ ul.ds-ul-grid li.ds-li .ds-icon-frame {
   width: 2.25em;
   height: 2.25em;
 }
-ul.ds-ul-grid li.ds-li .ds-icon-frame svg {
+ul.ds-ul-grid li.ds-li .ds-icon-outline {
   outline: 1px dotted #ccc;
 }
 ul.ds-ul-grid li.ds-li .ds-icon-meta {

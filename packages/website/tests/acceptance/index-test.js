@@ -11,7 +11,7 @@ module('Acceptance | icon index and Percy tests', function (hooks) {
     await visit('/');
 
     // added timeout because the icons are not rendering as quickly
-    await waitFor('.ds-icon-frame > .flight-icon', { timeout: 1000 });
+    await waitFor('.ds-icon-frame .flight-icon', { timeout: 1000 });
     assert.dom('[data-test-target="icon-grid"] [data-test-icon]').exists();
 
     // we explicitly set the scope to make sure @percy/ember considers all the relevant DOM

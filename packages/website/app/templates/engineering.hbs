@@ -288,6 +288,26 @@
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h4 class="ds-h4">Animated icons</h4>
+  <p>
+    Some of the icons are animated by default (eg. "loading" and "running").<br />To use them just declare them in the
+    same way that you would with any other icon.
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="loading" @size="24" />
+      '
+    />
+    {{! prettier-ignore-end }}
+    Note: a
+    <code class="ds-code">prefers-reduced-motion</code>
+    media query will automatically take care for you of disabling the animation if the user sets this preference in
+    their environment.
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
   <h2 class="ds-h2" id="use-react"><a href="#use-react" class="ds-a" rel="external">&sect;</a>
     Use in React apps</h2>
   <p>
@@ -406,6 +426,42 @@
     <em>16</em>
     and
     <em>24</em>). If you need a different size, you have to use CSS to override its intrinsic size.</p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h4 class="ds-h4">Animated icons</h4>
+  <p>
+    Some of the icons are supposed to be animated (eg. "loading" and "running").<br />
+    To use them first of all you have to import the CSS that controls the icons' animation in your CSS:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="css"
+      @code="
+        /* the path here depends if you're using 'svg-react' or 'svg' icons */
+        @import ~@hashicorp/flight-icons/svg-react/animation.css';
+      "
+    />
+    {{! prettier-ignore-end }}
+    and the just declare them in the same way that you would with any other icon.
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="js"
+      @code="
+        // if you're using the 'svg-react' icons
+        import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
+        <IconLoading16 />
+
+        // if you're using the 'svg' icons
+        import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
+        <InlineSvg src={svgLoading16} />
+      "
+    />
+    {{! prettier-ignore-end }}
+    Note: a
+    <code class="ds-code">prefers-reduced-motion</code>
+    media query will automatically take care for you of disabling the animation if the user sets this preference in
+    their environment.
+  </p>
 </div>
 
 <div class="mt-8 prose prose-lg text-gray-800 pb-6">
