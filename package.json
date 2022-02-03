@@ -61,7 +61,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@hashicorp/design-system-tokens": "^0.4.3",
+    "@hashicorp/design-system-tokens": "^0.4.7",
     "@hashicorp/ember-flight-icons": "^2.0.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
