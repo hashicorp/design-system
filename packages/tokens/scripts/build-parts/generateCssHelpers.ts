@@ -22,7 +22,7 @@ export async function generateCssHelpers(dictionary: Dictionary, config: Platfor
     }
 
     if (dictionary.tokens.elevation) {
-        const helpers = generateElevationHelpers(dictionary.tokens.elevation);
+        const helpers = generateElevationHelpers(dictionary.tokens.elevation, dictionary.tokens.surface);
         const content = `${header}\n${helpers.join('\n')}\n`;
         await fs.writeFile(`${config.buildPath}/helpers/elevation.css`, content);
     }
