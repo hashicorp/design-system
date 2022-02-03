@@ -23,10 +23,10 @@ const transformPxToRem: Transform['transformer'] = (token, platform) => {
 }
 
 StyleDictionaryPackage.registerTransform({
-    name: 'elevation/px',
+    name: 'size/px',
     type: 'value',
     matcher: function(token) {
-        return token?.attributes?.category === 'elevation' && token.type === 'size';
+        return token.type === 'size';
     },
     transformer: function (token) {
         const val = parseFloat(token.value);
@@ -36,10 +36,10 @@ StyleDictionaryPackage.registerTransform({
 });
 
 StyleDictionaryPackage.registerTransform({
-    name: 'typography/pxToRem',
+    name: 'font-size/rem',
     type: 'value',
     matcher: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'size';
+        return token?.attributes?.category === 'typography' && token.type === 'font-size';
     },
     transformer: transformPxToRem
 });
@@ -66,7 +66,7 @@ StyleDictionaryPackage.registerTransform({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'typography/pxToRem', 'elevation/px', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
