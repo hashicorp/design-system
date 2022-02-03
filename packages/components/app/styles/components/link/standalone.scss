@@ -147,12 +147,13 @@ $size-props: (
 
   &:hover,
   &.is-hover {
+    color: var(--token-color-action-background-hover);
     text-decoration-color: #4E81E8; // custom color by design
   }
   &:active,
   &.is-active {
     color: var(--token-color-action-background-active);
-    text-decoration-color: #596987; // custom color by design
+    text-decoration-color: #396ED6; // custom color by design
     &::before {
       background-color: var(--token-color-action-background-faint);
     }
