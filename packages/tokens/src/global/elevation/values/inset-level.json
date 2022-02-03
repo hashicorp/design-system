@@ -1,0 +1,40 @@
+{
+    "elevation": {
+        "inset": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.1",
+                    "type": "color"
+                }
+            },
+            "border": {
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.30",
+                    "type": "color"
+                }
+            }
+        }
+    }
+}

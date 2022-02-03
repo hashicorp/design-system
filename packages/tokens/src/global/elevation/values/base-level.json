@@ -1,0 +1,17 @@
+{
+    "elevation": {
+        "base": {
+            "border": {
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.20",
+                    "type": "color"
+                }
+            }
+        }
+    }
+}
