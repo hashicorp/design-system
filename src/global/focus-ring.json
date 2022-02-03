@@ -29,7 +29,7 @@
                 "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose"
             },
             "box-shadow": {
-                "value": "0 0 0 {focus-ring.internal.spread.value} {focus-ring.external.color.value}",
+                "value": "0 0 0 {focus-ring.external.spread.value} {focus-ring.external.color.value}",
                 "private": true
             }
         },
