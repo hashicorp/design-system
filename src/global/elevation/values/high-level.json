@@ -1,0 +1,63 @@
+{
+    "elevation": {
+        "high": {
+            "shadow-01": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "2",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.15",
+                    "type": "color"
+                }
+            },
+            "shadow-02": {
+                "x": {
+                    "value": "0",
+                    "type": "size"
+                },
+                "y": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "blur": {
+                    "value": "16",
+                    "type": "size"
+                },
+                "spread": {
+                    "value": "-10",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.20",
+                    "type": "color"
+                }
+            },
+            "border": {
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "color": {
+                    "value": "{elevation.color.base.value}",
+                    "alpha": "0.25",
+                    "type": "color"
+                }
+            }
+        }
+    }
+}
