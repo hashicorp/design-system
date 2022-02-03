@@ -4,9 +4,15 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
-  <p class="dummy-paragraph">The suggested way to apply a "focus-ring" style to an UI element is using a specific
+  <p class="dummy-paragraph">The suggested way to apply a "focus-ring" style to an UI element is using the specific
     <strong>design token</strong>
-    in your CSS code as CSS custom property:</p>
+    provided as CSS custom property.</p>
+
+  <h4 class="dummy-h4">Design tokens</h4>
+  <p class="dummy-paragraph">You can use the
+    <code>--token-focus-ring-box-shadow</code>
+    <a href="./tokens">design token</a>
+    directly in your CSS definitions:</p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="css"
@@ -21,14 +27,6 @@
     "
   />
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">We provide also a
-    <strong>CSS helper class</strong>
-    <code>.hds-focus-ring-box-shadow</code>, that is a wrapper of the design token above, but it's unlikely you can use
-    it directly in a template, since this style is connected to the "focused" pseudo-state of an element (more likely it
-    would be used in composition with other classes).</p>
-  <p class="dummy-paragraph">Which one to use will depend on the context where this style is needed and how it's applied
-    (for example, could be applied using a pseudo-element).</p>
-
   <p class="dummy-paragraph"><strong>🚨 IMPORTANT: 🚨</strong></p>
   <ul>
     <li class="dummy-paragraph">the design token as CSS variable can be used
@@ -36,8 +34,26 @@
       with a
       <code>box-shadow</code>
       property</li>
-    <li class="dummy-paragraph">the border radius depends on the UI element to which is applied to, so we leave to the
-      user to apply the right
+    <li class="dummy-paragraph">the border radius depends on the UI element to which is applied to, so it's up to you to
+      apply the right
+      <code>border-radius</code>
+      (tip: consider to use the
+      <code>inherit</code>
+      value).</li>
+  </ul>
+
+  <h4 class="dummy-h4">CSS helper classes</h4>
+  <p class="dummy-paragraph">We provide also a
+    <strong>CSS helper class</strong>
+    <code>.hds-focus-ring-box-shadow</code>, that is a wrapper of the design token above, but it's unlikely you can use
+    it directly in a template, since this style is connected to the "focused" pseudo-state of an element (more likely it
+    would be used in composition with other classes).</p>
+  <p class="dummy-paragraph">Which one to use will depend on the context where this style is needed and how it's applied
+    (for example, could be applied using a pseudo-element).</p>
+  <p class="dummy-paragraph"><strong>🚨 IMPORTANT: 🚨</strong></p>
+  <ul>
+    <li class="dummy-paragraph">the border radius depends on the UI element to which is applied to, so it's up to you to
+      apply the right
       <code>border-radius</code>
       (tip: consider to use the
       <code>inherit</code>
