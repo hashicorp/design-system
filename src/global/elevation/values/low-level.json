@@ -69,6 +69,18 @@
                     "type": "color",
                     "private": true
                 }
+            },
+            "box-shadow-01": {
+                "value": "{elevation.low.shadow-01.x.value} {elevation.low.shadow-01.y.value} {elevation.low.shadow-01.blur.value} {elevation.low.shadow-01.spread.value} {elevation.low.shadow-01.color.value}",
+                "private": true
+            },
+            "box-shadow-02": {
+                "value": "{elevation.low.shadow-02.x.value} {elevation.low.shadow-02.y.value} {elevation.low.shadow-02.blur.value} {elevation.low.shadow-02.spread.value} {elevation.low.shadow-02.color.value}",
+                "private": true
+            },
+            "box-shadow-border": {
+                "value": "inset 0 0 0 {elevation.low.border.width.value} {elevation.low.border.color.value}",
+                "private": true
             }
         }
     }
