@@ -123,8 +123,6 @@ $size-props: (
   &.is-hover {
     text-decoration: underline;
     transition: text-decoration-color 0.25s ease-in;
-    // TODO!
-    // discuss with Heather if she wants that we add calculation for text-decoration offset
   }
   &:active,
   &.is-active {
