@@ -2,8 +2,9 @@ import fs from 'fs-extra';
 
 import { Dictionary, Platform }  from 'style-dictionary';
 
-import { generateElevationHelpers } from './generateElevationHelpers';
 import { generateTypographyHelpers } from './generateTypographyHelpers';
+import { generateElevationHelpers } from './generateElevationHelpers';
+import { generateFocusRingHelpers } from './generateFocusRingHelpers';
 
 export const PREFIX = 'hds';
 
@@ -24,5 +25,11 @@ export async function generateCssHelpers(dictionary: Dictionary, config: Platfor
         const helpers = generateElevationHelpers(dictionary.tokens.elevation);
         const content = `${header}\n${helpers.join('\n')}\n`;
         await fs.writeFile(`${config.buildPath}/helpers/elevation.css`, content);
+    }
+
+    if (dictionary.tokens['focus-ring']) {
+        const helpers = generateFocusRingHelpers(dictionary.tokens['focus-ring']);
+        const content = `${header}\n${helpers.join('\n')}\n`;
+        await fs.writeFile(`${config.buildPath}/helpers/focus-ring.css`, content);
     }
 }
