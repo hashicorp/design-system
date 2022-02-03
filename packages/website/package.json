@@ -28,7 +28,7 @@
     "@ember/test-helpers": "^2.6.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "@hashicorp/ember-flight-icons": "^2.0.0",
+    "@hashicorp/ember-flight-icons": "^2.0.1",
     "@hashicorp/flight-icons": "^2.1.0",
     "@percy/cli": "^1.0.0-beta.68",
     "@percy/ember": "^3.0.0",
