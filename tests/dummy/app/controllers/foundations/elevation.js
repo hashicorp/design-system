@@ -3,15 +3,26 @@ import Controller from '@ember/controller';
 import { ELEVATIONS, SURFACES } from '../../routes/foundations/elevation';
 
 export default class ElevationController extends Controller {
-  get csshelpers() {
-    const helpers = [];
+  get cssVariables() {
+    const cssVariables = [];
     ELEVATIONS.forEach((elevation) => {
-      helpers.push(`.hds-elevation-${elevation}`);
+      cssVariables.push(`--hds-elevation-${elevation}-box-shadow`);
     });
-    helpers.push('');
+    cssVariables.push('');
     SURFACES.forEach((surface) => {
-      helpers.push(`.hds-surface-${surface}`);
+      cssVariables.push(`--hds-surface-${surface}-box-shadow`);
     });
-    return `${helpers.join('\n')}`;
+    return `${cssVariables.join('\n')}`;
+  }
+  get cssHelpers() {
+    const cssHelpers = [];
+    ELEVATIONS.forEach((elevation) => {
+      cssHelpers.push(`.hds-elevation-${elevation}`);
+    });
+    cssHelpers.push('');
+    SURFACES.forEach((surface) => {
+      cssHelpers.push(`.hds-surface-${surface}`);
+    });
+    return `${cssHelpers.join('\n')}`;
   }
 }
