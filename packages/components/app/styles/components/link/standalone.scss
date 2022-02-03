@@ -21,6 +21,7 @@ $hds-link-standalone-border-width: 1px;
   color: var(--token-color-action-foreground-on-faint);
   display: flex;
   font-family: var(--token-typography-font-stack-text);
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   justify-content: center;
   outline-color: transparent;
   position: relative;
@@ -47,6 +48,7 @@ $hds-link-standalone-border-width: 1px;
     position: absolute;
     right: -$shift;
     top: -$shift;
+    z-index: -1;
   }
 
   &.hds-link-standalone--icon-position-leading::before {
@@ -128,15 +130,20 @@ $size-props: (
   &.is-active {
     text-decoration: underline;
 
-    // remove the focus ring on "active + focused" state (by design)
+  }
+  // remove the focus ring on "active + focused" state (by design)
+  &:focus:active,
+  &:focus-visible:active,
+  &.is-focus.is-active {
     &::before {
       content: none;
     }
   }
+
 }
 
 .hds-link-standalone--color-primary {
-  color: var(--token-color-action-foreground-on-faint);
+  color: var(--token-color-action-foreground-primary);
 
   &:hover,
   &.is-hover {
@@ -144,8 +151,11 @@ $size-props: (
   }
   &:active,
   &.is-active {
-    color: var(--token-color-action-foreground-high-contrast);
+    color: var(--token-color-action-background-active);
     text-decoration-color: #596987; // custom color by design
+    &::before {
+      background-color: var(--token-color-action-background-faint);
+    }
   }
 }
 
@@ -160,5 +170,8 @@ $size-props: (
   &.is-active {
     color: var(--token-color-neutral-foreground-secondary);
     text-decoration-color: #6E7075; // custom color by design
+    &::before {
+      background-color: var(--token-color-palette-neutral-200);
+    }
   }
 }
