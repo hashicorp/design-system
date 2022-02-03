@@ -79,7 +79,7 @@
                 "private": true
             },
             "box-shadow-border": {
-                "value": "inset 0 0 0 {elevation.low.border.width.value} {elevation.low.border.color.value}",
+                "value": "0 0 0 {elevation.low.border.width.value} {elevation.low.border.color.value}",
                 "private": true
             }
         }

@@ -15,7 +15,7 @@
                 }
             },
             "box-shadow-border": {
-                "value": "inset 0 0 0 {elevation.base.border.width.value} {elevation.base.border.color.value}",
+                "value": "0 0 0 {elevation.base.border.width.value} {elevation.base.border.color.value}",
                 "private": true
             }
         }
