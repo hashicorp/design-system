@@ -1,7 +1,7 @@
 {
-  "alert-circle-fill": "alert-circle",
+  "alert-circle-fill": "alert-circle-fill",
   "alert-circle-outline": "alert-circle",
-  "alert-triangle": "alert-triangle",
+  "alert-triangle": "alert-triangle-fill",
   "arrow-down": "arrow-down",
   "arrow-left": "arrow-left",
   "arrow-right": "arrow-right",
@@ -155,7 +155,7 @@
   "random": "random",
   "redirect": "redirect",
   "refresh-alert": "sync-alert",
-  "refresh-default": "reload",
+  "refresh-default": "sync",
   "remix": "shuffle",
   "ribbon": "award",
   "run": "",
