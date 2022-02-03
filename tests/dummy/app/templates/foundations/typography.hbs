@@ -4,17 +4,26 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
-  <p class="dummy-paragraph">There are different ways to apply the typographic definitions to a UI element:</p>
-  <ul>
-    {{! TODO add a link here to the dummy "tokens" page when is merged and available }}
-    <li class="dummy-paragraph">you can use the
-      <strong>typographic design tokens</strong>
-      directly in your CSS definitions</li>
-    <li class="dummy-paragraph">or you can use the <strong>predefined CSS helper classes</strong> in your templates</li>
-  </ul>
-  <p class="dummy-paragraph">Which one to use will depend on the context: since both refer to the same design token
-    values, from the design system perspective there's no difference between the two methods (it's more of a preference
-    for the "consumer" codebase).</p>
+  <p class="dummy-paragraph">There suggested way to apply the typographic definitions to a UI element is using the
+    <strong>predefined CSS helper classes</strong>
+    provided.</p>
+
+  <h4 class="dummy-h4">Design tokens</h4>
+  <p class="dummy-paragraph">There are numerous
+    <a href="./tokens">typographic design tokens</a>
+    in our system.</p><p class="dummy-paragraph">Since they are "atomic" definitions that associate a particular
+    typographic property (eg
+    <code>font-size</code>, or
+    <code>line-height</code>, or
+    <code>letter-spacing</code>) to a single value, they are not exactly "typographic" styles.</p><p
+    class="dummy-paragraph"
+  >For this reason we
+    <strong>strongly advise against</strong>
+    using them directly in your CSS, and prefer the CSS helpers provided by the system, to avoid "mix &amp; match" of
+    typographic styles.
+  </p>
+
+  <h4 class="dummy-h4">CSS helper classes</h4>
   <p class="dummy-paragraph">There are different CSS helper classes, that can be used for different purposes.</p>
   <p class="dummy-paragraph">If you want to change
     <strong>only</strong>
@@ -71,28 +80,30 @@
     '
   />
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph"><em>Notice: while the
+  <p class="dummy-paragraph">These are the <strong>CSS helper classes</strong> that you can use:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock @language="css" @code={{this.csshelpers}} />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><strong>🚨 IMPORTANT: 🚨</strong></p>
+  <ul>
+    <li class="dummy-paragraph">while the
       <em>font-family/font-weight/typography</em>
       helpers can be combined together in code, in reality not all the combinations are valid from the design
-      perspective. Please refer to the design documentation to see which styles combinations are allowed.</em></p>
+      perspective: please refer to the design documentation to see which styles combinations are allowed.</li>
+  </ul>
 
-  <h4 class="dummy-h4">Writing guidelines</h4>
+</section>
+
+<section>
+  <h3 class="dummy-h3">Writing guidelines</h3>
   <p class="dummy-paragraph">HashiCorp has general writing guidelines for copy standards e.g. capitalization and
-    punctuation.
+    punctuation.</p>
+  <p class="dummy-paragraph">
     <a
       href="https://docs.google.com/document/d/1ABNkYIp6aLwPYNpuYOFcDFBFCcnH_4ePRaLP-gD_tKE/edit#heading=h.w9d2qpiz1vpb"
       target="_blank"
       rel="noopener noreferrer"
     >Please refer to this document for more details</a>.</p>
-
-</section>
-
-<section>
-  <h3 class="dummy-h3">Helper classes</h3>
-  <p class="dummy-paragraph">These are the CSS helper classes that you can use.</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock @language="css" @code={{this.csshelpers}} />
-  {{! prettier-ignore-end }}
 </section>
 
 <section data-test-percy>
