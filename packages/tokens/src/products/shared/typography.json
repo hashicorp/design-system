@@ -77,7 +77,7 @@
             },
             "font-size": {
                 "value": "30",
-                "type": "size",
+                "type": "font-size",
                 "comment": "30px/1.875rem"
             },
             "line-height": {
@@ -91,7 +91,7 @@
             },
             "font-size": {
                 "value": "24",
-                "type": "size",
+                "type": "font-size",
                 "comment": "24px/1.5rem"
             },
             "line-height": {
@@ -105,7 +105,7 @@
             },
             "font-size": {
                 "value": "18",
-                "type": "size",
+                "type": "font-size",
                 "comment": "18px/1.125rem"
             },
             "line-height": {
@@ -123,7 +123,7 @@
             },
             "font-size": {
                 "value": "16",
-                "type": "size",
+                "type": "font-size",
                 "comment": "16px/1rem"
             },
             "line-height": {
@@ -141,7 +141,7 @@
             },
             "font-size": {
                 "value": "13",
-                "type": "size",
+                "type": "font-size",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
@@ -155,7 +155,7 @@
             },
             "font-size": {
                 "value": "16",
-                "type": "size",
+                "type": "font-size",
                 "comment": "16px/1rem"
             },
             "line-height": {
@@ -169,7 +169,7 @@
             },
             "font-size": {
                 "value": "14",
-                "type": "size",
+                "type": "font-size",
                 "comment": "14px/0.875rem"
             },
             "line-height": {
@@ -183,7 +183,7 @@
             },
             "font-size": {
                 "value": "13",
-                "type": "size",
+                "type": "font-size",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
@@ -197,7 +197,7 @@
             },
             "font-size": {
                 "value": "13",
-                "type": "size",
+                "type": "font-size",
                 "comment": "13px/0.8125rem"
             },
             "line-height": {
