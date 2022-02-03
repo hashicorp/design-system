@@ -1330,10 +1330,10 @@
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
 
-"@hashicorp/flight-icons@^2.0.0", "@hashicorp/flight-icons@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.0.2.tgz#39707309a679aaf83eea8fb978d3a9770a74365e"
-  integrity sha512-KfaviEGC7bnJCsXS3yx6gG4haOuHsxXgozBEmZ6p2IRBhqZtRd3X06lyLoLmS52PzNf8M8gI26y6gli8hozLsw==
+"@hashicorp/flight-icons@^2.0.0", "@hashicorp/flight-icons@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.1.0.tgz#bda6c6942af0432d3342b1b1a2ff7f8da4c10f8a"
+  integrity sha512-4HWwty+LNhMD7O30sBinn7OQo2KTSUEk1qm65hqFitfp2m8sEl8F+7gY4NcTJV9Y1eEe3C7bED5OOnsPVc60ww==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
