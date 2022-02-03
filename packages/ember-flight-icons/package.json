@@ -60,7 +60,7 @@
     "postrelease": "TAG_VERSION=\"@hashicorp/ember-flight-icons/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION"
   },
   "dependencies": {
-    "@hashicorp/flight-icons": "^2.0.2",
+    "@hashicorp/flight-icons": "^2.1.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1"
   },
