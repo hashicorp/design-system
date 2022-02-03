@@ -4,58 +4,70 @@
             "shadow-01": {
                 "x": {
                     "value": "0",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "y": {
                     "value": "2",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "blur": {
                     "value": "3",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "spread": {
                     "value": "0",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "color": {
                     "value": "{elevation.color.base.value}",
                     "alpha": "0.10",
-                    "type": "color"
+                    "type": "color",
+                    "private": true
                 }
             },
             "shadow-02": {
                 "x": {
                     "value": "0",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "y": {
                     "value": "8",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "blur": {
                     "value": "16",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "spread": {
                     "value": "-10",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "color": {
                     "value": "{elevation.color.base.value}",
                     "alpha": "0.20",
-                    "type": "color"
+                    "type": "color",
+                    "private": true
                 }
             },
             "border": {
                 "width": {
                     "value": "1",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "color": {
                     "value": "{elevation.color.base.value}",
                     "alpha": "0.15",
-                    "type": "color"
+                    "type": "color",
+                    "private": true
                 }
             }
         }

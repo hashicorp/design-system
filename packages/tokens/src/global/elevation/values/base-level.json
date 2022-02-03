@@ -4,12 +4,14 @@
             "border": {
                 "width": {
                     "value": "1",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "color": {
                     "value": "{elevation.color.base.value}",
                     "alpha": "0.20",
-                    "type": "color"
+                    "type": "color",
+                    "private": true
                 }
             }
         }

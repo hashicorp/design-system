@@ -4,35 +4,42 @@
             "shadow-01": {
                 "x": {
                     "value": "0",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "y": {
                     "value": "1",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "blur": {
                     "value": "2",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "spread": {
                     "value": "1",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "color": {
                     "value": "{elevation.color.base.value}",
                     "alpha": "0.1",
-                    "type": "color"
+                    "type": "color",
+                    "private": true
                 }
             },
             "border": {
                 "width": {
                     "value": "1",
-                    "type": "size"
+                    "type": "size",
+                    "private": true
                 },
                 "color": {
                     "value": "{elevation.color.base.value}",
                     "alpha": "0.30",
-                    "type": "color"
+                    "type": "color",
+                    "private": true
                 }
             }
         }
