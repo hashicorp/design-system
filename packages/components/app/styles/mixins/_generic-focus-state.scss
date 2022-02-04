@@ -2,3 +2,7 @@
   box-shadow: inset 0px 0px 0px 1px var(--token-color-action-border-on-primary),
     0px 0px 0px 3px #5990ff; // this is a special color used only for the focus style, to pass color contrast for a11y purpose
 }
+
+@mixin hds-remove-focus-state() {
+  box-shadow: none;
+}

@@ -136,7 +136,7 @@ $size-props: (
   &:focus-visible:active,
   &.is-focus.is-active {
     &::before {
-      content: none;
+      @include hds-remove-focus-state();
     }
   }
 
