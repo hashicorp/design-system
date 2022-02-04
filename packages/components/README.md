@@ -27,6 +27,12 @@ Then add this line to the top of your app's style file (`app.scss` or similar):
 @import '@hashicorp/design-system-components';
 ```
 
+Usage
+------------------------------------------------------------------------------
+
+See the dedicated components website: https://design-system-components-hashicorp.vercel.app/
+
+
 Contributing
 ------------------------------------------------------------------------------
 
