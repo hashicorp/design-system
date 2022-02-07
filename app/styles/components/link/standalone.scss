@@ -118,7 +118,6 @@ $size-props: (
 
 .hds-link-standalone {
   &:focus,
-  &:focus-visible,
   &.is-focus {
     &::before {
       @include hds-generic-focus-state();
@@ -126,7 +125,6 @@ $size-props: (
   }
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
-  &:focus-visible:active,
   &.is-focus.is-active {
     &::before {
       @include hds-remove-focus-state();
