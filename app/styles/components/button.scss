@@ -34,9 +34,6 @@ $hds-button-focus-border-width: 3px;
   &:disabled:focus,
   &[disabled]:focus,
   &.is-disabled:focus,
-  &:disabled:focus-visible,
-  &[disabled]:focus-visible,
-  &.is-disabled:focus-visible,
   &:disabled:hover,
   &[disabled]:hover,
   &.is-disabled:hover {
@@ -62,7 +59,6 @@ $hds-button-focus-border-width: 3px;
   }
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
@@ -149,7 +145,6 @@ $size-props: (
   color: var(--token-color-palette-neutral-0);
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     background-color: var(--token-color-action-background-primary);
     border-color: var(--token-color-action-border-on-primary);
@@ -192,7 +187,6 @@ $size-props: (
   color: var(--token-color-palette-neutral-600);
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     background-color: var(--token-color-palette-neutral-50);
     border-color: var(--token-color-action-border-on-primary);
@@ -227,7 +221,6 @@ $size-props: (
   color: var(--token-color-critical-foreground-on-faint);
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     background-color: var(--token-color-palette-neutral-50);
     border-color: var(--token-color-critical-border-on-primary);
