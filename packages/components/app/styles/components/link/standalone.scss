@@ -18,7 +18,6 @@ $hds-link-standalone-border-width: 1px;
   align-items: center;
   background-color: transparent; // needs to exist for a11y
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
-  color: var(--token-color-action-foreground-on-faint);
   display: flex;
   font-family: var(--token-typography-font-stack-text);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
