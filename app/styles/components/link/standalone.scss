@@ -117,7 +117,9 @@ $size-props: (
 // The "primary" and "secondary" variants share a lot of styles for the interactive states
 // Note: the order of the pseuo-selectors need to stay the way they are
 //
-// For an explanation of the ":focus/:focus-visible" states see: https://github.com/hashicorp/design-system-components/issues/161
+// For an explanation of the ":focus/:focus-visible" states see:
+// - https://github.com/hashicorp/design-system-components/issues/161
+// - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
 .hds-link-standalone {
   // default focus for browsers that still rely on ":focus"
