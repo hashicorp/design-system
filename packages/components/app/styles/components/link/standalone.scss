@@ -22,6 +22,7 @@ $hds-link-standalone-border-width: 1px;
   font-family: var(--token-typography-font-stack-text);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   justify-content: center;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
   position: relative;
   // TODO ask @melanie if this is OK, or she prefers to have `text-decoration: none` here
