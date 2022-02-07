@@ -116,10 +116,25 @@ $size-props: (
 // COLORS & STATES
 // The "primary" and "secondary" variants share a lot of styles for the interactive states
 // Note: the order of the pseuo-selectors need to stay the way they are
+//
+// For an explanation of the ":focus/:focus-visible" states see: https://github.com/hashicorp/design-system-components/issues/161
 
 .hds-link-standalone {
+  // default focus for browsers that still rely on ":focus"
   &:focus,
   &.is-focus {
+    &::before {
+      @include hds-generic-focus-state();
+    }
+  }
+  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+  &:focus:not(:focus-visible) {
+    &::before {
+      @include hds-remove-focus-state();
+    }
+  }
+  // set focus for browsers that support ":focus-visible"
+  &:focus-visible {
     &::before {
       @include hds-generic-focus-state();
     }
@@ -131,7 +146,6 @@ $size-props: (
       @include hds-remove-focus-state();
     }
   }
-
 }
 
 .hds-link-standalone--color-primary {
