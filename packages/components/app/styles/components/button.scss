@@ -22,6 +22,7 @@ $hds-button-focus-border-width: 3px;
   display: flex;
   font-family: var(--token-typography-font-stack-text);
   justify-content: center;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   max-width: fit-content;
   position: relative;
@@ -34,9 +35,6 @@ $hds-button-focus-border-width: 3px;
   &:disabled:focus,
   &[disabled]:focus,
   &.is-disabled:focus,
-  &:disabled:focus-visible,
-  &[disabled]:focus-visible,
-  &.is-disabled:focus-visible,
   &:disabled:hover,
   &[disabled]:hover,
   &.is-disabled:hover {
@@ -45,7 +43,6 @@ $hds-button-focus-border-width: 3px;
     box-shadow: none;
     color: var(--token-color-palette-neutral-400);
     cursor: not-allowed;
-    outline-color: var(--token-color-palette-alpha-200);
 
     &::before {
       border-color: transparent;
@@ -62,7 +59,6 @@ $hds-button-focus-border-width: 3px;
   }
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
@@ -149,7 +145,6 @@ $size-props: (
   color: var(--token-color-palette-neutral-0);
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     background-color: var(--token-color-action-background-primary);
     border-color: var(--token-color-action-border-on-primary);
@@ -192,12 +187,10 @@ $size-props: (
   color: var(--token-color-palette-neutral-600);
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     background-color: var(--token-color-palette-neutral-50);
     border-color: var(--token-color-action-border-on-primary);
     color: var(--token-color-palette-neutral-600);
-    outline-color: var(--token-color-action-border-on-primary);
     &::before {
       border-color: #5990FF;
     }
@@ -227,12 +220,10 @@ $size-props: (
   color: var(--token-color-critical-foreground-on-faint);
 
   &:focus,
-  &:focus-visible,
   &.is-focus {
     background-color: var(--token-color-palette-neutral-50);
     border-color: var(--token-color-critical-border-on-primary);
     color: var(--token-color-critical-foreground-on-faint);
-    outline-color: var(--token-color-critical-border-on-primary);
     &::before {
       border-color: #DD7578;
     }
