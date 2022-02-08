@@ -11,6 +11,7 @@ Router.map(function () {
     this.route('tokens');
     this.route('typography');
     this.route('elevation');
+    this.route('focus-ring');
   });
   this.route('components', function () {
     this.route('badge');
