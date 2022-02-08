@@ -24,7 +24,6 @@ $hds-link-standalone-border-width: 1px;
   justify-content: center;
   outline-color: transparent;
   position: relative;
-  // TODO ask @melanie if this is OK, or she prefers to have `text-decoration: none` here
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
   width: fit-content;
