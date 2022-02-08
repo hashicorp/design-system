@@ -22,6 +22,7 @@ $hds-link-standalone-border-width: 1px;
   font-family: var(--token-typography-font-stack-text);
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   justify-content: center;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
   position: relative;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
@@ -114,24 +115,38 @@ $size-props: (
 // COLORS & STATES
 // The "primary" and "secondary" variants share a lot of styles for the interactive states
 // Note: the order of the pseuo-selectors need to stay the way they are
+//
+// For an explanation of the ":focus/:focus-visible" states see:
+// - https://github.com/hashicorp/design-system-components/issues/161
+// - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
 .hds-link-standalone {
+  // default focus for browsers that still rely on ":focus"
   &:focus,
-  &:focus-visible,
   &.is-focus {
+    &::before {
+      @include hds-generic-focus-state();
+    }
+  }
+  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+  &:focus:not(:focus-visible) {
+    &::before {
+      @include hds-remove-focus-state();
+    }
+  }
+  // set focus for browsers that support ":focus-visible"
+  &:focus-visible {
     &::before {
       @include hds-generic-focus-state();
     }
   }
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
-  &:focus-visible:active,
   &.is-focus.is-active {
     &::before {
       @include hds-remove-focus-state();
     }
   }
-
 }
 
 .hds-link-standalone--color-primary {
