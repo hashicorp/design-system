@@ -120,7 +120,7 @@
   <h4 class="dummy-h4">
     Content
   </h4>
-  <div class="dummy-button-base-sample">
+  <div class="dummy-link-base-sample">
     <Hds::Link::Standalone @icon="plus" @text="Text & leading icon" href="../components/link" />
     <Hds::Link::Standalone
       @icon="arrow-right"
@@ -128,7 +128,7 @@
       href="../components/link"
       @iconPosition="trailing"
     />
-    <div class="dummy-button-max-width-container">
+    <div class="dummy-link-max-width-container">
       <Hds::Link::Standalone
         @icon="plus"
         @text="Very long text that might wrap for multiple lines"
@@ -139,7 +139,7 @@
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <div class="dummy-button-base-sample">
+  <div class="dummy-link-base-sample">
     {{#each @model.SIZES as |size|}}
       <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
     {{/each}}
@@ -147,7 +147,7 @@
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
-  <div class="dummy-button-states-grid">
+  <div class="dummy-link-states-grid">
     {{#each @model.COLORS as |color|}}
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
