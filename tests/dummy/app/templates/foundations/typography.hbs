@@ -131,13 +131,20 @@
   {{/each}}
 
   <h4 class="dummy-h4">Styles</h4>
+  <p class="dummy-paragraph"><em>Notice: we are showing only the combinations of
+      <code>font-size</code>
+      ("style") and
+      <code>font-weight</code>
+      that the design system
+      <strong>suggests</strong>
+      to use.</em></p>
   <div class="dummy-typography-sample dummy-typography-sample--style">
-    {{#each this.styles as |style|}}
+    {{#each-in this.stylesCombinations as |style weights|}}
       <h5 class="dummy-h5">{{style}}</h5>
-      {{#each this.weights as |weight|}}
+      {{#each weights as |weight|}}
         <p class="hds-typography-{{style}} hds-font-weight-{{weight}}">The fox jumped over the lazy dog ({{weight}})</p>
       {{/each}}
-    {{/each}}
+    {{/each-in}}
   </div>
 
 </section>

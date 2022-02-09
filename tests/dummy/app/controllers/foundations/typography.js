@@ -6,6 +6,7 @@ import {
   DISPLAY_STYLES,
   BODY_STYLES,
   CODE_STYLES,
+  STYLES_COMBINATIONS,
 } from '../../routes/foundations/typography';
 
 export default class TypographyController extends Controller {
@@ -17,6 +18,9 @@ export default class TypographyController extends Controller {
   }
   get styles() {
     return [...DISPLAY_STYLES, ...BODY_STYLES, ...CODE_STYLES];
+  }
+  get stylesCombinations() {
+    return STYLES_COMBINATIONS;
   }
   get csshelpers() {
     const helpers = [];
