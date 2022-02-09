@@ -7,7 +7,7 @@ import {
 export default class ComponentsLinkToStandaloneRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
-    const STATES = ['default', 'visited', 'focus', 'hover', 'active'];
+    const STATES = ['default', 'hover', 'active', 'focus'];
     return { COLORS, SIZES, STATES };
   }
 }
