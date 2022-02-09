@@ -13,7 +13,7 @@ interface VendoredSelectMenuProps<Value extends string> extends Readonly<React.H
     readonly id: string;
     readonly options: { value: Value; label: string; selected?: boolean }[];
     readonly handleChange: (value: Value) => void;
-    render(...optionData: [any, number, any[]]): React.ReactElement;
+    // render(...optionData: [any, number, any[]]): React.ReactElement;
 }
 
 export function VendoredSelectMenu<Value extends string>({ handleChange, ...passThroughProps }: VendoredSelectMenuProps<Value>) {
