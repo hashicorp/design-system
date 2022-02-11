@@ -1,16 +1,11 @@
-name: CI - Ember Flight Icons
+name: CI
 
-defaults:
-  run:
-    working-directory: ember-flight-icons
 on:
   push:
     branches:
       - main
+      - master
   pull_request: {}
-
-env:
-  NODE_VERSION: '12.x'
 
 concurrency:
    group: ci-${{ github.head_ref || github.ref }}
@@ -26,17 +21,14 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: ember-flight-icons/yarn.lock
+          node-version: 12.x
+          cache: npm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Lint
-        run: yarn run lint
+        run: npm run lint
       - name: Run Tests
-        run: yarn run test:ember:percy
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        run: npm run test:ember
 
   floating:
     name: "Floating Dependencies"
@@ -46,15 +38,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: ember-flight-icons/yarn.lock
+          node-version: 12.x
+          cache: npm
       - name: Install Dependencies
-        run: yarn install --no-lockfile --non-interactive
+        run: npm install --no-shrinkwrap
       - name: Run Tests
-        run: yarn run test:ember:percy
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        run: npm run test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -69,7 +58,7 @@ jobs:
           - ember-lts-3.28
           - ember-release
           - ember-beta
-         # - ember-canary
+          - ember-canary
           - ember-classic
           - embroider-safe
           - embroider-optimized
@@ -79,10 +68,9 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: ember-flight-icons/yarn.lock
+          node-version: 12.x
+          cache: npm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
