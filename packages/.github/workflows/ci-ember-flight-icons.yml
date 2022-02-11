@@ -13,7 +13,7 @@ env:
   NODE_VERSION: '12.x'
 
 concurrency:
-   group: ci-${{ github.head_ref || github.ref }}
+   group: ci-ember-flight-icons-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
 
 jobs:
