@@ -1,0 +1,21 @@
+{
+    "color": {
+        "border": {
+            "primary": {
+                "value": "{color.palette.alpha-200.value}",
+                "type": "color",
+                "group": "action"
+            },
+            "faint": {
+                "value": "{color.palette.alpha-100.value}",
+                "type": "color",
+                "group": "action"
+            },
+            "strong": {
+                "value": "{color.palette.alpha-300.value}",
+                "type": "color",
+                "group": "action"
+            }
+        }
+    }
+}

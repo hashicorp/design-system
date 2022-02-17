@@ -1,0 +1,34 @@
+{
+    "color": {
+        "background": {
+            "primary": {
+                "value": "{color.palette.neutral-0.value}",
+                "type": "color"
+            },
+            "secondary": {
+                "value": "{color.palette.neutral-50.value}",
+                "type": "color"
+            },
+            "action": {
+                "value": "{color.palette.blue-100.value}",
+                "type": "color"
+            },
+            "highlight": {
+                "value": "{color.palette.purple-100.value}",
+                "type": "color"
+            },
+            "success": {
+                "value": "{color.palette.green-100.value}",
+                "type": "color"
+            },
+            "warning": {
+                "value": "{color.palette.amber-100.value}",
+                "type": "color"
+            },
+            "critical": {
+                "value": "{color.palette.red-100.value}",
+                "type": "color"
+            }
+        }
+    }
+}
