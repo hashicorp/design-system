@@ -48,6 +48,14 @@
 
   {{#each-in this.groupedTokens as |category categoryList|}}
     <h4 class="dummy-h4">{{capitalize category}}</h4>
+    {{#if (eq category "color")}}
+      <p class="dummy-paragraph">🚨 IMPORTANT 🚨</p>
+      <p class="dummy-paragraph">
+        Semantic color tokens (ie.
+        <code>--token-color-neutral-foreground-faint</code>) are undergoing improvements, so we do not advise adoption
+        of these at this time. We are actively working to finalize this set and should have an update shortly.
+      </p>
+    {{/if}}
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
         <DummyToken @token={{token}} />
