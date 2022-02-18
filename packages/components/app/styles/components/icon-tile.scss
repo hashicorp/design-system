@@ -29,8 +29,8 @@
 }
 
 .hds-icon-tile__extra {
-  background-color: var(--token-color-neutral-background-primary);
-  border: 1px solid var(--token-color-palette-alpha-200);
+  background-color: var(--token-color-surface-primary);
+  border: 1px solid var(--token-color-border-primary);
   bottom: -6px;
   box-shadow: $hds-icon-tile-box-shadow;
   box-sizing: content-box; // the border is outside
@@ -42,7 +42,7 @@
 .hds-icon-tile__extra-icon {
   display: flex;
   margin: auto;
-  color: var(--token-color-neutral-foreground-primary);
+  color: var(--token-color-foreground-primary);
 }
 
 // SIZE
@@ -112,8 +112,8 @@ $size-props: (
 
 .hds-icon-tile--logo {
   // notice: we are using colored icons so we don't need to set the "color" property here
-  background-color: var(--token-color-neutral-background-primary);
-  border-color: var(--token-color-neutral-border-primary);
+  background-color: var(--token-color-surface-primary);
+  border-color: var(--token-color-border-primary);
 }
 
 // ICON - COLOR
@@ -121,18 +121,17 @@ $size-props: (
 .hds-icon-tile--icon {
 
   &.hds-icon-tile--color-neutral {
-    background-color: var(--token-color-neutral-background-secondary);
-    border-color: var(--token-color-neutral-border-primary);
-    color: var(--token-color-neutral-foreground-faint);
+    background-color: var(--token-color-surface-secondary);
+    border-color: var(--token-color-border-primary);
+    color: var(--token-color-foreground-faint);
   }
 
   @each $product in $hds-icon-tile-colors-products {
     @if ($product == 'hcp') {
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
-      // notice: at the moment we don't have a token for that, that's why we're using an hex value
       &.hds-icon-tile--color-hcp {
-        background-color: var(--token-color-neutral-background-secondary);
-        border-color: var(--token-color-neutral-border-primary);
+        background-color: var(--token-color-surface-secondary);
+        border-color: var(--token-color-border-primary);
         color: var(--token-color-palette-#{$product}-brand);
       }
     } @else {
