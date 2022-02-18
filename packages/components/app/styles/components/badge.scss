@@ -91,56 +91,56 @@ $size-props: (
 
 .hds-badge--color-neutral {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-palette-neutral-100);
-    color: var(--token-color-palette-neutral-600);
+    background-color: var(--token-color-surface-tertiary);
+    color: var(--token-color-foreground-secondary);
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-palette-neutral-500);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-foreground-faint);
+    color: var(--token-color-foreground-high-contrast);
   }
 
   &.hds-badge--type-outlined {
     background-color: transparent;
-    border-color: var(--token-color-palette-neutral-500);
-    color: var(--token-color-palette-neutral-600);
+    border-color: var(--token-color-foreground-faint);
+    color: var(--token-color-foreground-secondary);
   }
 }
 
 .hds-badge--color-neutral-dark-mode {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-palette-neutral-500);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-foreground-faint);
+    color: var(--token-color-foreground-high-contrast);
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-palette-neutral-50);
-    color: var(--token-color-palette-neutral-600);
+    background-color: var(--token-color-background-secondary);
+    color: var(--token-color-foreground-secondary);
   }
 
   &.hds-badge--type-outlined {
     background-color: transparent;
     border-color: var(--token-color-palette-neutral-100);
-    color: var(--token-color-palette-neutral-0);
+    color: var(--token-color-foreground-high-contrast);
   }
 }
 
 @each $color in $hds-badge-colors-accents {
   .hds-badge--color-#{$color} {
     &.hds-badge--type-filled {
-      background-color: var(--token-color-#{$color}-background-faint);
-      color: var(--token-color-#{$color}-foreground-on-faint);
+      background-color: var(--token-color-surface-#{$color});
+      color: var(--token-color-foreground-#{$color}-on-surface);
     }
 
     &.hds-badge--type-inverted {
-      background-color: var(--token-color-#{$color}-background-primary);
+      background-color: var(--token-color-foreground-#{$color});
       color: var(--token-color-palette-neutral-0);
     }
 
     &.hds-badge--type-outlined {
       background-color: transparent;
       border-color: currentColor;
-      color: var(--token-color-#{$color}-background-primary);
+      color: var(--token-color-foreground-#{$color});
     }
   }
 }
