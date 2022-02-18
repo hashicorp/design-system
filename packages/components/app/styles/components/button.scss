@@ -38,10 +38,10 @@ $hds-button-focus-border-width: 3px;
   &:disabled:hover,
   &[disabled]:hover,
   &.is-disabled:hover {
-    background-color: var(--token-color-palette-neutral-50);
-    border-color: var(--token-color-palette-alpha-200);
+    background-color: var(--token-color-surface-secondary);
+    border-color: var(--token-color-border-primary);
     box-shadow: none;
-    color: var(--token-color-palette-neutral-400);
+    color: var(--token-color-foreground-disabled);
     cursor: not-allowed;
 
     &::before {
@@ -140,22 +140,22 @@ $size-props: (
 // Note: the order of the pseuo-selectors need to stay the way they are; it doesn't match the Figma file but it's the correct order for browsers to render the styles correctly.
 
 .hds-button--color-primary {
-  background-color: var(--token-color-action-background-primary);
-  border-color: var(--token-color-action-border-on-primary);
-  color: var(--token-color-palette-neutral-0);
+  background-color: var(--token-color-palette-blue-200);
+  border-color: var(--token-color-palette-blue-300);
+  color: var(--token-color-foreground-high-contrast);
 
   &:focus,
   &.is-focus {
-    background-color: var(--token-color-action-background-primary);
-    border-color: var(--token-color-action-border-on-primary);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-palette-blue-200);
+    border-color: var(--token-color-palette-blue-300);
+    color: var(--token-color-foreground-high-contrast);
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
       // plus for the primary button we want to have a 2px gap between the button and the focus
       $shift: $hds-button-border-width + $hds-button-focus-border-width + 2px;
       border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
-      border-color: var(--token-color-action-background-primary);
+      border-color: var(--token-focus-ring-external-color);
       bottom: -$shift;
       left: -$shift;
       right: -$shift;
@@ -164,17 +164,17 @@ $size-props: (
   }
   &:hover,
   &.is-hover {
-    background-color: var(--token-color-action-background-hover);
-    border-color: var(--token-color-action-border-on-hover);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-palette-blue-300);
+    border-color: var(--token-color-palette-blue-400);
+    color: var(--token-color-foreground-high-contrast);
     cursor: pointer;
   }
   &:active,
   &.is-active {
-    background-color: var(--token-color-action-background-active);
-    border-color: var(--token-color-action-background-active);
+    background-color: var(--token-color-palette-blue-400);
+    border-color: var(--token-color-palette-blue-400);
     box-shadow: none;
-    color: var(--token-color-palette-neutral-0);
+    color: var(--token-color-foreground-high-contrast);
     &::before {
       border-color: transparent;
     }
@@ -182,32 +182,32 @@ $size-props: (
 }
 
 .hds-button--color-secondary {
-  background-color: var(--token-color-palette-neutral-50);
-  border-color: var(--token-color-palette-alpha-300);
-  color: var(--token-color-palette-neutral-600);
+  background-color: var(--token-color-surface-secondary);
+  border-color: var(--token-color-border-strong);
+  color: var(--token-color-foreground-secondary);
 
   &:focus,
   &.is-focus {
-    background-color: var(--token-color-palette-neutral-50);
-    border-color: var(--token-color-action-border-on-primary);
-    color: var(--token-color-palette-neutral-600);
+    background-color: var(--token-color-surface-secondary);
+    border-color: var(--token-focus-ring-internal-color);
+    color: var(--token-color-foreground-secondary);
     &::before {
-      border-color: #5990FF;
+      border-color: var(--token-focus-ring-external-color);
     }
   }
   &:hover,
   &.is-hover {
-    background-color: var(--token-color-palette-neutral-0);
-    border-color: var(--token-color-palette-alpha-300);
-    color: var(--token-color-palette-neutral-600);
+    background-color: var(--token-color-surface-primary);
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-secondary);
     cursor: pointer;
   }
   &:active,
   &.is-active {
-    background-color: var(--token-color-palette-neutral-200);
-    border-color: var(--token-color-palette-alpha-300);
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
     box-shadow: none;
-    color: var(--token-color-palette-neutral-600);
+    color: var(--token-color-foreground-secondary);
     &::before {
       border-color: transparent;
     }
@@ -215,33 +215,33 @@ $size-props: (
 }
 
 .hds-button--color-destructive {
-  background-color: var(--token-color-palette-neutral-50);
-  border-color: var(--token-color-palette-alpha-300);
-  color: var(--token-color-critical-foreground-on-faint);
+  background-color: var(--token-color-background-secondary);
+  border-color: var(--token-color-border-strong);
+  color: var(--token-color-foreground-critical-on-surface);
 
   &:focus,
   &.is-focus {
-    background-color: var(--token-color-palette-neutral-50);
-    border-color: var(--token-color-critical-border-on-primary);
-    color: var(--token-color-critical-foreground-on-faint);
+    background-color: var(--token-color-background-secondary);
+    border-color: var(--token-color-palette-red-300);
+    color: var(--token-color-foreground-critical-on-surface);
     &::before {
       border-color: #DD7578;
     }
   }
   &:hover,
   &.is-hover {
-    background-color: var(--token-color-critical-background-hover);
-    border-color: var(--token-color-critical-border-on-hover);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-palette-red-300);
+    border-color: var(--token-color-palette-red-400);
+    color: var(--token-color-foreground-high-contrast);
     cursor: pointer;
   }
 
   &:active,
   &.is-active {
-    background-color: var(--token-color-critical-background-active);
-    border-color: var(--token-color-critical-background-active);
+    background-color: var(--token-color-palette-red-400);
+    border-color: var(--token-color-palette-red-400);
     box-shadow: none;
-    color: var(--token-color-palette-neutral-0);
+    color: var(--token-color-foreground-high-contrast);
     &::before {
       border-color: transparent;
     }
