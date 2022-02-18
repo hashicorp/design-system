@@ -176,7 +176,7 @@ $size-props: (
 }
 
 .hds-link-standalone--color-secondary {
-  color: var(--token-color-neutral-foreground-primary);
+  color: var(--token-color-foreground-primary);
 
   &:hover,
   &.is-hover {
@@ -187,7 +187,7 @@ $size-props: (
 
   &:active,
   &.is-active {
-    color: var(--token-color-neutral-foreground-secondary);
+    color: var(--token-color-foreground-secondary);
 
     .hds-link-standalone__text {
       text-decoration-color: #6E7075; // custom color by design
