@@ -134,7 +134,7 @@ $size-props: (
 
     &.hds-badge--type-inverted {
       background-color: var(--token-color-foreground-#{$color});
-      color: var(--token-color-palette-neutral-0);
+      color: var(--token-color-foreground-high-contrast);
     }
 
     &.hds-badge--type-outlined {
