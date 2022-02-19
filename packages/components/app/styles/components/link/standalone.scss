@@ -150,11 +150,11 @@ $size-props: (
 }
 
 .hds-link-standalone--color-primary {
-  color: var(--token-color-action-foreground-primary);
+  color: var(--token-color-foreground-action);
 
   &:hover,
   &.is-hover {
-    color: var(--token-color-action-background-hover);
+    color: var(--token-color-foreground-action-hover);
 
     .hds-link-standalone__text {
       text-decoration-color: #4E81E8; // custom color by design
@@ -163,7 +163,7 @@ $size-props: (
 
   &:active,
   &.is-active {
-    color: var(--token-color-action-background-active);
+    color: var(--token-color-foreground-action-active);
 
     .hds-link-standalone__text {
       text-decoration-color: #396ED6; // custom color by design
