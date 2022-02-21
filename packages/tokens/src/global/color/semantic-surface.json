@@ -3,51 +3,63 @@
         "surface": {
             "primary": {
                 "value": "{color.palette.neutral-0.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "secondary": {
                 "value": "{color.palette.neutral-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "tertiary": {
                 "value": "{color.palette.neutral-100.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "interactive-rested": {
                 "value": "{color.palette.neutral-0.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "interactive-hover": {
                 "value": "{color.palette.neutral-100.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "interactive-active": {
                 "value": "{color.palette.neutral-200.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "interactive-disabled": {
                 "value": "{color.palette.neutral-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "action": {
                 "value": "{color.palette.blue-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "highlight": {
                 "value": "{color.palette.purple-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "success": {
                 "value": "{color.palette.green-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "warning": {
                 "value": "{color.palette.amber-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             },
             "critical": {
                 "value": "{color.palette.red-50.value}",
-                "type": "color"
+                "type": "color",
+                "group": "semantic"
             }
         }
     }
