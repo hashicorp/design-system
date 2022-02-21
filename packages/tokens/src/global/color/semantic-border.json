@@ -15,6 +15,26 @@
                 "value": "{color.palette.alpha-300.value}",
                 "type": "color",
                 "group": "action"
+            },
+            "action": {
+                "value": "{color.palette.blue-100.value}",
+                "type": "color"
+            },
+            "highlight": {
+                "value": "{color.palette.purple-100.value}",
+                "type": "color"
+            },
+            "success": {
+                "value": "{color.palette.green-100.value}",
+                "type": "color"
+            },
+            "warning": {
+                "value": "{color.palette.amber-100.value}",
+                "type": "color"
+            },
+            "critical": {
+                "value": "{color.palette.red-100.value}",
+                "type": "color"
             }
         }
     }
