@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 21 Feb 2022 10:16:04 GMT
+ * Generated on Tue, 22 Feb 2022 18:48:52 GMT
  */
 
 :root {
@@ -101,8 +101,6 @@
   --token-color-critical-border-on-primary: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-critical-border-on-hover: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-critical-border-on-faint: #fbd4d4; /* deprecated: replace with 'color-border-critical' */
-  --token-color-background-primary: #ffffff;
-  --token-color-background-secondary: #fafafa;
   --token-color-border-primary: #656a7633;
   --token-color-border-faint: #656a761a;
   --token-color-border-strong: #3b3d4566;
@@ -141,6 +139,8 @@
   --token-color-neutral-border-primary: #656a7633; /* deprecated: replace with 'token-color-border-primary' */
   --token-color-neutral-border-faint: #656a761a; /* deprecated: replace with 'token-color-border-faint' */
   --token-color-neutral-border-strong: #3b3d4566; /* deprecated: replace with 'token-color-border-strong' */
+  --token-color-page-primary: #ffffff;
+  --token-color-page-secondary: #fafafa;
   --token-color-surface-primary: #ffffff;
   --token-color-surface-secondary: #fafafa;
   --token-color-surface-tertiary: #f1f2f3;
