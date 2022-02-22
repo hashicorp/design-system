@@ -14,13 +14,13 @@ export function generateColorHelpers(tokens: TransformedToken[]): Helpers {
 
         const group = token.attributes.type || '';
 
-        if (['foreground', 'background', 'surface', 'border'].includes(group)) {
+        if (['foreground', 'page', 'surface', 'border'].includes(group)) {
             const context = token.path[1];
             const name = token.path[2];
             if (context === 'foreground') {
                 helpers.push(`.${PREFIX}-${context}-${name} { color: var(--${token.name}); }`)
             }
-            if (context === 'background' || context === 'surface') {
+            if (context === 'page' || context === 'surface') {
                 helpers.push(`.${PREFIX}-${context}-${name} { background-color: var(--${token.name}); }`)
             }
             if (context === 'border') {

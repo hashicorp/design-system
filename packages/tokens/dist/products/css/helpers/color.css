@@ -1,10 +1,8 @@
 /**
  * Do not edit directly
- * Generated on Mon, 21 Feb 2022 18:07:50 GMT
+ * Generated on Tue, 22 Feb 2022 18:50:59 GMT
  */
 
-.hds-background-primary { background-color: var(--token-color-background-primary); }
-.hds-background-secondary { background-color: var(--token-color-background-secondary); }
 .hds-border-primary { border: 1px solid var(--token-color-border-primary); }
 .hds-border-faint { border: 1px solid var(--token-color-border-faint); }
 .hds-border-strong { border: 1px solid var(--token-color-border-strong); }
@@ -34,6 +32,8 @@
 .hds-foreground-critical { color: var(--token-color-foreground-critical); }
 .hds-foreground-critical-on-surface { color: var(--token-color-foreground-critical-on-surface); }
 .hds-foreground-critical-high-contrast { color: var(--token-color-foreground-critical-high-contrast); }
+.hds-page-primary { background-color: var(--token-color-page-primary); }
+.hds-page-secondary { background-color: var(--token-color-page-secondary); }
 .hds-surface-primary { background-color: var(--token-color-surface-primary); }
 .hds-surface-secondary { background-color: var(--token-color-surface-secondary); }
 .hds-surface-tertiary { background-color: var(--token-color-surface-tertiary); }
