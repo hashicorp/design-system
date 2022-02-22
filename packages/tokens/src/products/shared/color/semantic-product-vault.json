@@ -17,7 +17,7 @@
                 "type": "color",
                 "group": "branding"
             },
-            "background": {
+            "surface": {
                 "value": "{color.palette.vault-50.value}",
                 "type": "color",
                 "group": "branding"
