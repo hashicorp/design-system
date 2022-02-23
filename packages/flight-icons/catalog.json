@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-02-02T19:28:02.493Z",
+  "lastRunTimeISO": "2022-02-23T19:38:25.779Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -115,6 +115,42 @@
       "fileName": "alibaba-color-16",
       "iconName": "alibaba-color",
       "description": "alibaba, alibaba cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1587:66",
+      "fileName": "amazon-ecs-24",
+      "iconName": "amazon-ecs",
+      "description": "amazon, aws, ecs",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1587:68",
+      "fileName": "amazon-ecs-16",
+      "iconName": "amazon-ecs",
+      "description": "amazon, aws, ecs",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1587:73",
+      "fileName": "amazon-ecs-color-24",
+      "iconName": "amazon-ecs-color",
+      "description": "amazon, aws, ecs",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1587:77",
+      "fileName": "amazon-ecs-color-16",
+      "iconName": "amazon-ecs-color",
+      "description": "amazon, aws, ecs",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6685,6 +6721,24 @@
       "fileName": "settings-16",
       "iconName": "settings",
       "description": "settings, preferences, gear, cog, configuration",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1616:66",
+      "fileName": "service-24",
+      "iconName": "service",
+      "description": "service",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1616:79",
+      "fileName": "service-16",
+      "iconName": "service",
+      "description": "service",
       "size": "16",
       "width": 16,
       "height": 16
