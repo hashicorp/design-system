@@ -6726,6 +6726,24 @@
       "height": 16
     },
     {
+      "id": "1616:66",
+      "fileName": "service-24",
+      "iconName": "service",
+      "description": "service",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1616:79",
+      "fileName": "service-16",
+      "iconName": "service",
+      "description": "service",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:3511",
       "fileName": "share-24",
       "iconName": "share",
