@@ -1,7 +1,7 @@
 <div class="hds-disclosure">
   {{! comment this if you want to view the expanded state for debugging }}
   {{!-- <pre>this.isExpanded = {{this.isExpanded}}</pre> --}}
-  <div class="hds-disclosure__toggle">
+  <div class="hds-disclosure__toggle" id={{this.toggleId}}>
     {{yield (hash onTestItWorks=this.onTestItWorks onToggle=this.onToggle) to="toggle"}}
   </div>
   {{#if this.isExpanded}}
@@ -10,7 +10,13 @@
       {{focus-trap
         isActive=this.isExpanded
         shouldSelfFocus=true
-        focusTrapOptions=(hash clickOutsideDeactivates=true onDeactivate=this.onDeactivate)
+        focusTrapOptions=(hash
+          clickOutsideDeactivates=true
+          onActivate=this.onActivate
+          onPostActivate=this.onPostActivate
+          onDeactivate=this.onDeactivate
+          onPostDeactivate=this.onPostDeactivate
+        )
       }}
     >
       {{yield to="content"}}
