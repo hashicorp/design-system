@@ -1,0 +1,70 @@
+{{page-title "Disclosure"}}
+
+<h2 class="dummy-h2">Disclosure</h2>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+
+  <h4 class="dummy-h4">Variants</h4>
+
+  <p class="dummy-paragraph">test using "as" to call a function defined in the parent component</p>
+  <div class="dummy-disclosure-container">
+    <Hds::ShowHide>
+      <:trigger as |t|>
+        <button type="button" {{on "click" t.onTestItWorks}}>Click me!</button>
+      </:trigger>
+    </Hds::ShowHide>
+  </div>
+
+  <p class="dummy-paragraph">with generic HTML <code>&lt;button&gt;</code> and generic content (placeholder)</p>
+  <div class="dummy-disclosure-container">
+    <Hds::ShowHide>
+      <:trigger as |t|>
+        <button type="button" {{on "click" t.onTrigger}}>Click me</button>
+      </:trigger>
+      <:content>
+        <a href="#">
+          <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
+        </a>
+      </:content>
+    </Hds::ShowHide>
+  </div>
+
+  <p class="dummy-paragraph">with generic HTML
+    <code>&lt;button&gt;</code>
+    and generic list of
+    <code>&lt;a&gt;</code>
+    links</p>
+  <div class="dummy-disclosure-container">
+    <Hds::ShowHide>
+      <:trigger as |t|>
+        <button type="button" {{on "click" t.onTrigger}}>Click me</button>
+      </:trigger>
+      <:content>
+        <ul class="dummy-disclosure-content-list-of-links">
+          <li>
+            <a href="https://google.com">Link #1</a>
+          </li>
+          <li>
+            <a href="https://google.com">Link #2</a>
+          </li>
+        </ul>
+      </:content>
+    </Hds::ShowHide>
+  </div>
+
+  <p class="dummy-paragraph">with <code>&lt;Hds::Button&gt;</code> and generic content (placeholder)</p>
+  <div class="dummy-disclosure-container">
+    <Hds::ShowHide>
+      <:trigger as |t|>
+        <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onTrigger}} />
+      </:trigger>
+      <:content>
+        <a href="#">
+          <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
+        </a>
+      </:content>
+    </Hds::ShowHide>
+  </div>
+
+</section>

@@ -1,0 +1,18 @@
+<div class="hds-disclosure">
+  <pre>this.isExpanded = {{this.isExpanded}}</pre>
+  <div class="hds-disclosure__trigger">
+    {{yield (hash onTestItWorks=this.onTestItWorks onTrigger=this.onTrigger) to="trigger"}}
+  </div>
+  {{#if this.isExpanded}}
+    <div
+      class="hds-disclosure__content"
+      {{focus-trap
+        isActive=this.isExpanded
+        shouldSelfFocus=true
+        focusTrapOptions=(hash clickOutsideDeactivates=true onDeactivate=this.onDeactivate)
+      }}
+    >
+      {{yield to="content"}}
+    </div>
+  {{/if}}
+</div>

@@ -66,6 +66,7 @@
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-sass": "^10.0.1",
+    "ember-named-blocks-polyfill": "^0.2.5",
     "sass": "^1.43.4"
   },
   "devDependencies": {
@@ -91,6 +92,7 @@
     "ember-concurrency": "^2.2.0",
     "ember-disable-prototype-extensions": "^1.1.3",
     "ember-export-application-global": "^2.0.1",
+    "ember-focus-trap": "^1.0.1",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-page-title": "^6.2.2",

@@ -1,0 +1,30 @@
+// DISCLOSURE
+
+.dummy-disclosure-container {
+    min-height: 200px;
+    outline: 1px dotted lightgray;
+    padding: 20px;
+}
+
+
+.dummy-disclosure-content-list-of-links {
+    list-style: none;
+    margin: 4px 0 0 0;
+    padding: 2px;
+    width: fit-content;
+    border: 1px solid #CCC;
+
+    li {
+        margin: 0;
+        padding: 0;
+
+        & + li {
+            border-top: 1px dotted #ccc;
+        }
+    }
+
+    a {
+        display: block;
+        padding: 5px;
+    }
+}
