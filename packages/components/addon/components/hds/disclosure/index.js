@@ -19,8 +19,8 @@ export default class HdsDisclosureComponent extends Component {
   }
 
   @action
-  onTrigger() {
-    console.log('onTrigger');
+  onToggle() {
+    console.log('onToggle');
     this.toggle();
   }
 

@@ -10,18 +10,18 @@
   <p class="dummy-paragraph">test using "as" to call a function defined in the parent component</p>
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
-      <:trigger as |t|>
+      <:toggle as |t|>
         <button type="button" {{on "click" t.onTestItWorks}}>Click me!</button>
-      </:trigger>
+      </:toggle>
     </Hds::Disclosure>
   </div>
 
   <p class="dummy-paragraph">with generic HTML <code>&lt;button&gt;</code> and generic content (placeholder)</p>
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
-      <:trigger as |t|>
-        <button type="button" {{on "click" t.onTrigger}}>Click me</button>
-      </:trigger>
+      <:toggle as |t|>
+        <button type="button" {{on "click" t.onToggle}}>Click me</button>
+      </:toggle>
       <:content>
         <a href="#">
           <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
@@ -37,9 +37,9 @@
     links</p>
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
-      <:trigger as |t|>
-        <button type="button" {{on "click" t.onTrigger}}>Click me</button>
-      </:trigger>
+      <:toggle as |t|>
+        <button type="button" {{on "click" t.onToggle}}>Click me</button>
+      </:toggle>
       <:content>
         <ul class="dummy-disclosure-content-list-of-links">
           <li>
@@ -56,9 +56,9 @@
   <p class="dummy-paragraph">with <code>&lt;Hds::Button&gt;</code> and generic content (placeholder)</p>
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
-      <:trigger as |t|>
-        <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onTrigger}} />
-      </:trigger>
+      <:toggle as |t|>
+        <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onToggle}} />
+      </:toggle>
       <:content>
         <a href="#">
           <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
