@@ -9,16 +9,16 @@
 
   <p class="dummy-paragraph">test using "as" to call a function defined in the parent component</p>
   <div class="dummy-disclosure-container">
-    <Hds::ShowHide>
+    <Hds::Disclosure>
       <:trigger as |t|>
         <button type="button" {{on "click" t.onTestItWorks}}>Click me!</button>
       </:trigger>
-    </Hds::ShowHide>
+    </Hds::Disclosure>
   </div>
 
   <p class="dummy-paragraph">with generic HTML <code>&lt;button&gt;</code> and generic content (placeholder)</p>
   <div class="dummy-disclosure-container">
-    <Hds::ShowHide>
+    <Hds::Disclosure>
       <:trigger as |t|>
         <button type="button" {{on "click" t.onTrigger}}>Click me</button>
       </:trigger>
@@ -27,7 +27,7 @@
           <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
         </a>
       </:content>
-    </Hds::ShowHide>
+    </Hds::Disclosure>
   </div>
 
   <p class="dummy-paragraph">with generic HTML
@@ -36,7 +36,7 @@
     <code>&lt;a&gt;</code>
     links</p>
   <div class="dummy-disclosure-container">
-    <Hds::ShowHide>
+    <Hds::Disclosure>
       <:trigger as |t|>
         <button type="button" {{on "click" t.onTrigger}}>Click me</button>
       </:trigger>
@@ -50,12 +50,12 @@
           </li>
         </ul>
       </:content>
-    </Hds::ShowHide>
+    </Hds::Disclosure>
   </div>
 
   <p class="dummy-paragraph">with <code>&lt;Hds::Button&gt;</code> and generic content (placeholder)</p>
   <div class="dummy-disclosure-container">
-    <Hds::ShowHide>
+    <Hds::Disclosure>
       <:trigger as |t|>
         <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onTrigger}} />
       </:trigger>
@@ -64,7 +64,7 @@
           <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
         </a>
       </:content>
-    </Hds::ShowHide>
+    </Hds::Disclosure>
   </div>
 
 </section>
