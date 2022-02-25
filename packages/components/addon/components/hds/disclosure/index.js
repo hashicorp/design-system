@@ -4,16 +4,16 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 
 export default class HdsDisclosureComponent extends Component {
-  // @tracked isExpanded = true;
-  @tracked isExpanded = this.args.isExpanded;
+  // @tracked isActive = true;
+  @tracked isActive = this.args.isActive;
   @tracked isDeactivating = false;
 
   toggleId = guidFor(this);
 
   @action
   onToggle() {
-    console.log('onToggle', this.isExpanded);
-    this.isExpanded = !this.isExpanded;
+    console.log('onToggle', this.isActive);
+    this.isActive = !this.isActive;
   }
 
   // THESE ARE USED FOR DEBUGGING, WILL BE REMOVED
@@ -26,7 +26,7 @@ export default class HdsDisclosureComponent extends Component {
   onActivate() {
     console.log(
       'onActivate',
-      `isExpanded=${this.isExpanded}`,
+      `isActive=${this.isActive}`,
       `isDeactivating=${this.isDeactivating}`
     );
   }
@@ -35,7 +35,7 @@ export default class HdsDisclosureComponent extends Component {
   onPostActivate() {
     console.log(
       'onPostActivate',
-      `isExpanded=${this.isExpanded}`,
+      `isActive=${this.isActive}`,
       `isDeactivating=${this.isDeactivating}`
     );
   }
@@ -44,10 +44,10 @@ export default class HdsDisclosureComponent extends Component {
   onDeactivate() {
     console.log(
       'onDeactivate',
-      `isExpanded=${this.isExpanded}`,
+      `isActive=${this.isActive}`,
       `isDeactivating=${this.isDeactivating}`
     );
-    this.isExpanded = false;
+    this.isActive = false;
     this.isDeactivating = true;
   }
 
@@ -55,7 +55,7 @@ export default class HdsDisclosureComponent extends Component {
   onPostDeactivate() {
     console.log(
       'onPostDeactivate',
-      `isExpanded=${this.isExpanded}`,
+      `isActive=${this.isActive}`,
       `isDeactivating=${this.isDeactivating}`
     );
   }
