@@ -1,20 +1,18 @@
 // DISCLOSURE
 
 .dummy-disclosure-container {
-    min-height: 200px;
-    outline: 1px dotted lightgray;
+    min-height: 120px;
+    outline: 1px dotted #d3d3d3;
     padding: 20px;
 }
 
 
 .dummy-disclosure-content-list-of-links {
+    border: 1px solid #CCC;
     list-style: none;
     margin: 4px 0 0 0;
-    padding: 2px;
-    // TODO remove it's just for testing
     padding: 10px;
     width: fit-content;
-    border: 1px solid #CCC;
 
     li {
         margin: 0;
@@ -30,3 +28,9 @@
         padding: 5px;
     }
 }
+
+.dummy-disclosure-button-wrapper {
+    outline: 1px dotted #ccc;
+    padding: 20px;
+}
+

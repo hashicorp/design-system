@@ -7,6 +7,20 @@
 
   <h4 class="dummy-h4">Variants</h4>
 
+  <p class="dummy-paragraph">with generic HTML <code>&lt;button&gt;</code> and generic content (placeholder)</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
+      </:toggle>
+      <:content>
+        <a href="#">
+          <DummyPlaceholder @text="some generic content here" @width="200" @height="90" @background="#FAFAFA" />
+        </a>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
   <p class="dummy-paragraph">with generic HTML
     <code>&lt;button&gt;</code>
     and generic list of
@@ -15,25 +29,63 @@
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
       <:toggle as |t|>
-        {{!-- <button type="button" {{on "click" t.onClickToggle}}>Click me</button> --}}
-        <span>
-          <div>
-            <Hds::Button
-              @icon="plus"
-              @iconPosition="leading"
-              @text="Text + leading icon"
-              {{on "click" t.onClickToggle}}
-            />
-          </div>
-        </span>
+        <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
       </:toggle>
       <:content>
         <ul class="dummy-disclosure-content-list-of-links">
           <li>
-            <a href="https://google.com">Link</a>
+            <a href="https://google.com">Link to Google</a>
           </li>
           <li>
-            <a href="https://google.com">Link with some very very very very long text</a>
+            <a href="https://apple.com">Link with a much longer text</a>
+          </li>
+        </ul>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
+  <p class="dummy-paragraph">with
+    <code>&lt;Hds::Button&gt;</code>
+    and generic list of
+    <code>&lt;a&gt;</code>
+    links</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onClickToggle}} />
+      </:toggle>
+      <:content>
+        <ul class="dummy-disclosure-content-list-of-links">
+          <li>
+            <a href="https://google.com">Link to Google</a>
+          </li>
+          <li>
+            <a href="https://apple.com">Link with a much longer text</a>
+          </li>
+        </ul>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
+  <p class="dummy-paragraph">with
+    <code>&lt;Hds::Button&gt;</code>
+    inside a larger container and generic list of
+    <code>&lt;a&gt;</code>
+    links</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <div class="dummy-disclosure-button-wrapper">
+          <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onClickToggle}} />
+        </div>
+      </:toggle>
+      <:content>
+        <ul class="dummy-disclosure-content-list-of-links">
+          <li>
+            <a href="https://google.com">Link to Google</a>
+          </li>
+          <li>
+            <a href="https://apple.com">Link with a much longer text</a>
           </li>
         </ul>
       </:content>
