@@ -1,93 +1,41 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { guidFor } from '@ember/object/internals';
+import { action } from '@ember/object';
 
 export default class HdsDisclosureComponent extends Component {
-  @tracked isActive = this.args.isActive ?? undefined;
-  @tracked isInsideToggleContainer = false;
-  @tracked isDeactivatingWithClickOnTrigger = false;
-  @tracked myTriggerNode;
-  @tracked myEventPath = [];
-
-  toggleId = guidFor(this);
+  @tracked isActive = this.args.isActive;
+  @tracked toggleRef;
+  @tracked isToggleClicked;
 
   @action
   onClickToggle(event) {
-    console.log(
-      'aaa',
-      event.currentTarget,
-      event.target.isSameNode(this.myTriggerNode)
-    );
-    console.log('bbb', this.myEventPath.includes(event.currentTarget));
-    console.warn(
-      'onClickToggle1',
-      `isActive=${this.isActive}`,
-      `isInsideToggleContainer=${this.isInsideToggleContainer}`,
-      `isDeactivatingWithClickOnTrigger=${this.isDeactivatingWithClickOnTrigger}`
-    );
-    // if (
-    //   !this.isActive &&
-    //   !this.isInsideToggleContainer &&
-    //   !this.isDeactivatingWithClickOnTrigger
-    // ) {
-    //   this.isActive = true;
-    // } else {
-    //   this.isActive = false;
-    // }
-    // if (!this.isActive && this.isDeactivatingWithClickOnTrigger) {
-    //   console.log('>>>>> Exception!!');
-    // } else {
-    //   this.isActive = !this.isActive;
-    // }
+    // we store a reference to the DOM node that has the "onClickToggle" event associated with it
+    if (!this.toggleRef) {
+      this.toggleRef = event.currentTarget;
+    }
     this.isActive = !this.isActive;
-    this.isDeactivatingWithClickOnTrigger = false;
-    this.isInsideToggleContainer = false;
-    console.warn(
-      'onClickToggle2',
-      `isActive=${this.isActive}`,
-      `isInsideToggleContainer=${this.isInsideToggleContainer}`,
-      `isDeactivatingWithClickOnTrigger=${this.isDeactivatingWithClickOnTrigger}`
-    );
-    console.log(this.isActive ? '[OPENED]' : '[CLOSED]');
   }
 
   @action
   clickOutsideDeactivates(event) {
-    this.isInsideToggleContainer = event.path.some(
-      (node) => node.id === this.toggleId
-    );
-    console.log(
-      'clickOutsideDeactivates',
-      `isActive=${this.isActive}`,
-      `isInsideToggleContainer=${this.isInsideToggleContainer}`,
-      event,
-      event.target,
-      event.currentTarget
-    );
-    this.myTriggerNode = event.target;
-    this.myEventPath = event.path;
+    // we check if the toggle reference belongs to the tree of parent DOM nodes
+    // of the element that was clicked and triggered the "click outside" event handling
+    this.isToggleClicked = event.path.includes(this.toggleRef);
+    // here we need to return `true` to make sure that the focus trap will be deactivated (and allow the click event to do its thing (i.e. to pass-through to the element that was clicked).
+    // see: https://github.com/focus-trap/focus-trap#createoptions
     return true;
   }
 
   @action
   onDeactivate() {
-    console.log(
-      'onDeactivate1',
-      `isActive=${this.isActive}`,
-      `isInsideToggleContainer=${this.isInsideToggleContainer}`
-    );
-    // this.isActive = false;
-    // this.isInsideToggleContainer = false;
-    if (this.isInsideToggleContainer) {
-      this.isDeactivatingWithClickOnTrigger = true;
-      this.isInsideToggleContainer = false;
+    // on deactivate we hide the content, except for the case when the button has been clicked
+    // the reason is that the "onClickToggle" is called in any case (there's no way to block the event)
+    // so when the user clicks the toggle to close the panel, we let the "onClickToggle" handle the closure
+    // otherwise we would have two changes of status, this and the toggle, and the panel would remain open
+    if (!this.isToggleClicked) {
+      this.isActive = false;
+      // we need to reset this check
+      this.isToggleClicked = false;
     }
-    this.isActive = false;
-    console.log(
-      'onDeactivate2',
-      `isActive=${this.isActive}`,
-      `isInsideToggleContainer=${this.isInsideToggleContainer}`
-    );
   }
 }

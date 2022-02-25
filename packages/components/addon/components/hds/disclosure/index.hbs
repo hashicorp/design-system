@@ -1,9 +1,5 @@
 <div class="hds-disclosure">
-  {{! comment this if you want to view the expanded state for debugging }}
-  <pre>isActive = {{this.isActive}}</pre>
-  <pre>isInsideToggleContainer = {{this.isInsideToggleContainer}}</pre>
-  <pre>isDeactivatingWithClickOnTrigger = {{this.isDeactivatingWithClickOnTrigger}}</pre>
-  <div class="hds-disclosure__toggle" id={{this.toggleId}}>
+  <div class="hds-disclosure__toggle">
     {{yield (hash onClickToggle=this.onClickToggle) to="toggle"}}
   </div>
   {{#if this.isActive}}
