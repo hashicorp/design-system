@@ -7,29 +7,6 @@
 
   <h4 class="dummy-h4">Variants</h4>
 
-  <p class="dummy-paragraph">test using "as" to call a function defined in the parent component</p>
-  <div class="dummy-disclosure-container">
-    <Hds::Disclosure>
-      <:toggle as |t|>
-        <button type="button" {{on "click" t.onTestItWorks}}>Click me!</button>
-      </:toggle>
-    </Hds::Disclosure>
-  </div>
-
-  <p class="dummy-paragraph">with generic HTML <code>&lt;button&gt;</code> and generic content (placeholder)</p>
-  <div class="dummy-disclosure-container">
-    <Hds::Disclosure>
-      <:toggle as |t|>
-        <button type="button" {{on "click" t.onToggle}}>Click me</button>
-      </:toggle>
-      <:content>
-        <a href="#">
-          <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
-        </a>
-      </:content>
-    </Hds::Disclosure>
-  </div>
-
   <p class="dummy-paragraph">with generic HTML
     <code>&lt;button&gt;</code>
     and generic list of
@@ -38,31 +15,27 @@
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
       <:toggle as |t|>
-        <button type="button" {{on "click" t.onToggle}}>Click me</button>
+        {{!-- <button type="button" {{on "click" t.onClickToggle}}>Click me</button> --}}
+        <span>
+          <div>
+            <Hds::Button
+              @icon="plus"
+              @iconPosition="leading"
+              @text="Text + leading icon"
+              {{on "click" t.onClickToggle}}
+            />
+          </div>
+        </span>
       </:toggle>
       <:content>
         <ul class="dummy-disclosure-content-list-of-links">
           <li>
-            <a href="https://google.com">Link #1</a>
+            <a href="https://google.com">Link</a>
           </li>
           <li>
-            <a href="https://google.com">Link #2</a>
+            <a href="https://google.com">Link with some very very very very long text</a>
           </li>
         </ul>
-      </:content>
-    </Hds::Disclosure>
-  </div>
-
-  <p class="dummy-paragraph">with <code>&lt;Hds::Button&gt;</code> and generic content (placeholder)</p>
-  <div class="dummy-disclosure-container">
-    <Hds::Disclosure>
-      <:toggle as |t|>
-        <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onToggle}} />
-      </:toggle>
-      <:content>
-        <a href="#">
-          <DummyPlaceholder @text="some generic content here" @width="200" @height="150" @background="#FAFAFA" />
-        </a>
       </:content>
     </Hds::Disclosure>
   </div>
