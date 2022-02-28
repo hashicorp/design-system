@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsDisclosureComponent extends Component {
-  @tracked isActive = this.args.isActive;
+  @tracked isActive; // notice: if in the future we need to add a "@isActive" prop to control the status from outside (eg to have the Disclosure opened on render) just add  "this.args.isActive" here to initalize the variable
   @tracked toggleRef;
   @tracked isToggleClicked;
 
