@@ -1,7 +1,0 @@
-@mixin hds-generic-focus-state() {
-  box-shadow: var(--token-focus-ring-box-shadow);
-}
-
-@mixin hds-remove-focus-state() {
-  box-shadow: none;
-}
