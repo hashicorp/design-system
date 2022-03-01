@@ -1,0 +1,67 @@
+{{page-title "Percy test"}}
+
+<h1>Percy test page</h1>
+{{! TODO: add an index page with a link to this page so it's easier to find }}
+<h2>Note: This route is hidden from nav, for testing only 🤙</h2>
+<br />
+
+<div>
+  <p>Icon with default size (16):</p>
+  <FlightIcon @name="bug" />
+</div>
+<br />
+
+<div>
+  <p>Icon with larger size (24):</p>
+  <FlightIcon @name="bug" @size="24" />
+</div>
+<br />
+
+<div>
+  <p>Icon with custom sizes (12/32):</p>
+  {{! template-lint-disable no-inline-styles }}
+  <div style="display: flex; gap: 8px;">
+    {{! template-lint-disable no-inline-styles }}
+    <div style="width: 12px; height: 12px;">
+      <FlightIcon @name="bug" @size="16" @stretched="true" />
+    </div>
+    <div style="width: 32px; height: 32px;">
+      <FlightIcon @name="bug" @size="24" @stretched="true" />
+    </div>
+  </div>
+</div>
+<br />
+<hr />
+<br />
+
+<div>
+  <p>Icon with unspecified color (currentColor):</p>
+  <FlightIcon @name="bookmark" />
+</div>
+<br />
+
+<div>
+  <p>Icon with custom red color, specified via prop:</p>
+  <FlightIcon @name="folder-fill" @color="red" />
+</div>
+<br />
+<hr />
+<br />
+
+<div>
+  <p>Icon with unspecified color (currentColor) + parent with custom blue color (to check inheritance)</p>
+  {{! template-lint-disable no-inline-styles }}
+  <a style="color:blue" href="">
+    <FlightIcon @name="external-link" />
+  </a>
+</div>
+<br />
+
+<div>
+  <p>Icon with custom orange color, specified via prop + parent with !important green color declared (to check overrides
+    not working)</p>
+  {{! template-lint-disable no-inline-styles }}
+  <div style="color:green !important">
+    <FlightIcon @name="heart-fill" @color="orange" />
+  </div>
+</div>

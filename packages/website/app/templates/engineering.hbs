@@ -1,0 +1,492 @@
+{{page-title "Engineering guidelines"}}
+<h1 class="ds-h1">Consumer instructions</h1>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <p>There are multiple ways to use these icons in your codebase. The package can be installed as an
+    <a href="#ember-flight-icons" class="ds-a">Ember addon</a>
+    for the convenience of using a component with strong defaults, or it can be
+    <a href="#use-react" class="ds-a">consumed in React applications</a>
+    via direct import of the SVG file or as standalone React/SVG icon component.</p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="accessibility"><a href="#accessibility" class="ds-a" rel="external">&sect;</a>
+    Accessibility</h2>
+  <p>
+    Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best
+    practice is to set the
+    <code class="ds-code">aria-hidden</code>
+    attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will
+    need to be used
+    <em class="ds-em">in context</em>. The icons themselves are for presentation purposes only and should never be used
+    on their own.
+  </p>
+  <p>However: As a
+    <em>temporary</em>
+    bridge while we work to provide the accessible components in the design system, we have provided the ability to add
+    a title element to the Ember component by defining a value for the
+    <code class="ds-code">@title</code>
+    property. This is a temporary measure and we strongly encourage UI engineering teams to work with their designers
+    and plan to convert any standalone icon use.
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h3 class="ds-h3">Examples of correct use</h3>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <button aria-label="Check activity">
+        <FlightIcon @name="activity" />
+      </button>
+    '
+  />
+  {{! prettier-ignore-end }}
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <h2>Activity report <FlightIcon @name="activity" /></h2>
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <p>
+    Authors should also follow the following guidelines:
+    <ul class="ds-ul">
+      <li class="ds-li">The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without
+        a design consult.</li>
+      <li class="ds-li">The icons do not have a unique id generated; authors should take precautions to avoid
+        <a
+          href="https://www.w3.org/TR/WCAG20-TECHS/F77.html"
+          class="ds-a"
+          target="_blank"
+          rel="noopener noreferrer"
+        >related accessibility conformance failures</a>.</li>
+    </ul>
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="ember-flight-icons"><a href="#ember-flight-icons" class="ds-a" rel="external">&sect;</a>
+    Use in Ember apps</h2>
+  <h3 class="ds-h3">Installation</h3>
+  <p>To install, run:
+    {{! prettier-ignore-start }}
+    <CodeBlock @code="yarn add @hashicorp/ember-flight-icons" @language="bash" />
+    {{! prettier-ignore-end }}
+  </p>
+  <p>Note:
+    <code class="ds-code">ember-test-selectors</code>
+    is a dependency added for the author's convenience.
+    <a
+      href="https://github.com/simplabs/ember-test-selectors"
+      class="ds-a"
+      target="_blank"
+      rel="noopener noreferrer"
+    >This Ember addon</a>
+    strips out all
+    <code class="ds-code">data-test-*</code>
+    attributes for production builds.
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h3 class="ds-h3" id="understanding"><a href="#understanding" class="ds-a" rel="external">&sect;</a>
+    Understanding the component</h3>
+  <p>The component comes with the following defaults:
+    <ol>
+      <li class="ds-li"><code class="ds-code">fill</code>
+        attribute: set to currentColor</li>
+      <li class="ds-li"><code class="ds-code">id</code>
+        attribute: a unique, automatically generated id</li>
+      <li class="ds-li"><code class="ds-code">aria-hidden</code>
+        attribute: set to true</li>
+      <li class="ds-li"><code class="ds-code">height</code>
+        and
+        <code class="ds-code">width</code>: default size of 16x16 (px)</li>
+      <li class="ds-li"><code class="ds-code">stretched</code>: if the SVG should have 100% width/height (stretch to
+        fill the parent) - defaults to "false"</li>
+      <li class="ds-li">(CSS)
+        <code class="ds-code">class</code>: flight-icon, flight-icon-NAME, flight-icon-display-inline</li>
+      <li class="ds-li">CSS display: set to
+        <code class="ds-code">display:inline-block</code></li>
+      <li class="ds-li"><code class="ds-code">data-test-icon</code>
+        attribute: for the author's testing convenience; set to the value of the
+        <code class="ds-code">@name</code>
+        property.</li>
+    </ol>
+  </p>
+
+  <p>This makes the base, required invocation quite terse &mdash;
+    <code class="ds-code">@name</code>
+    is the only property that requires specification. So this invocation:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      id="component-invocation-base"
+      @code='
+        <FlightIcon @name="alert-circle" />
+      '
+    />
+    {{! prettier-ignore-end }}
+  </p>
+
+  <p>
+    Renders to this (where the ID will be unique each time):
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      id="component-invocation-base-render"
+      @code='
+      <svg
+        aria-hidden="true"
+        class="flight-icon icon-alert-circle display-inline"
+        data-test-icon="alert-circle"
+        fill="currentColor"
+        id="icon-ember115"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16"></use>
+      </svg>
+    '
+    />
+    {{! prettier-ignore-end }}
+  </p>
+  <p>The
+    <code class="ds-code">&lt;use></code>
+    element will then render the correct svg to the shadow dom.</p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h3 class="ds-h3" id="customizable"><a href="#customizable" class="ds-a" rel="external">&sect;</a>
+    Customizable properties</h3>
+  <p>The following properties are customizable:
+    <ol>
+      <li>fill (the color)</li>
+      <li>size (at this time, only 16 (default) and 24 are supported)</li>
+      <li>stretched (true/false)</li>
+      <li>display (inline-block or block)</li>
+      <li>additional CSS classes</li>
+    </ol>
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h4 class="ds-h4">Examples</h4>
+  <p id="example-fill">
+    <strong>
+      <a href="#example-fill" class="ds-a" rel="external">&sect;</a>
+      Fill:
+    </strong>
+    To customize the fill attribute, set the
+    <code class="ds-code">@color</code>
+    value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined
+    variables:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @color="var(--brand)" />
+      '
+    />
+    {{! prettier-ignore-end }}
+  </p>
+  <p>
+    Other accepted values include named colors and color values themselves.
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @color="rebeccapurple" />
+      '
+    />
+    {{! prettier-ignore-end }}
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
+      '
+    />
+    {{! prettier-ignore-end }}
+  </p>
+
+  <p id="example-size">
+    <strong><a href="#example-size" class="ds-a" rel="external">&sect;</a>
+      Size:</strong>
+    To use the 24x24 (px) icon size, set the
+    <code class="ds-code">@size</code>
+    value:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="zap" @size="24" />
+      '
+    />
+    {{! prettier-ignore-start }}
+  </p>
+
+  <p id="example-stretch">
+    <strong><a href="#example-stretch" class="ds-a" rel="external">&sect;</a>
+      Stretched:</strong>
+    To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the
+    <code class="ds-code">@stretched</code>
+    attribute:
+    {{! prettier-ignore-start }}
+    {{! template-lint-disable no-triple-curlies }}
+    <CodeBlock
+      @language="markup"
+      @code={{{'
+        <FlightIcon @name="zap" @size="24" @stretched={{true}} />
+      '}}}
+    />
+    {{! template-lint-enable no-triple-curlies }}
+    {{! prettier-ignore-start }}
+  </p>
+
+  <p id="example-styles">
+    <strong><a href="#example-styles" class="ds-a" rel="external">&sect;</a>
+      CSS classes:</strong>
+    To append additional classes to the component, add
+    <code class="ds-code">class</code>
+    with value(s):
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="triangle-fill" class="ds-rotate-90" />
+      '
+    />
+    {{! prettier-ignore-end }}
+  </p>
+  <p id="example-display">
+    <strong><a href="#example-display" class="ds-a" rel="external">&sect;</a>
+      CSS display:</strong>
+    To change the default display of
+    <i>inline-block</i>
+    to
+    <i>block</i>, set
+    <code class="ds-code">@isInlineBlock</code>
+    to false:
+    {{! prettier-ignore-start }}
+    {{! template-lint-disable no-triple-curlies }}
+    <CodeBlock
+      @language="markup"
+      @code={{{'
+        <FlightIcon @name="triangle-fill" @isInlineBlock={{false}} />
+      '}}}
+    />
+    {{! template-lint-enable no-triple-curlies }}
+    {{! prettier-ignore-end }}
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h4 class="ds-h4">Animated icons</h4>
+  <p>
+    Some of the icons are animated by default (eg. "loading" and "running").<br />To use them just declare them in the
+    same way that you would with any other icon.
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        <FlightIcon @name="loading" @size="24" />
+      '
+    />
+    {{! prettier-ignore-end }}
+    Note: a
+    <code class="ds-code">prefers-reduced-motion</code>
+    media query will automatically take care for you of disabling the animation if the user sets this preference in
+    their environment.
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="use-react"><a href="#use-react" class="ds-a" rel="external">&sect;</a>
+    Use in React apps</h2>
+  <p>
+    It is also possible to install
+    <code class="ds-code">@hashicorp/flight-icons</code>
+    and use the icons in React applications.
+  </p>
+  <p><em>
+      Notice: if you want to have more context you can
+      <a href="https://github.com/hashicorp/flight/pull/325" target="_blank" rel="noopener noreferrer">see the
+        pull-request here</a>
+      where this implementation has been discussed and agreed upon.</em>
+  </p>
+  <h3 class="ds-h3">Installation</h3>
+  <p>To install, run:
+    {{! prettier-ignore-start }}
+    <CodeBlock @language="bash" @code="yarn install @hashicorp/flight-icons" />
+    {{! prettier-ignore-end }}
+  </p>
+
+  <h3 class="ds-h3" id="react-inline-svg"><a href="#react-inline-svg" class="ds-a" rel="external">&sect;</a>
+    Inline SVG</h3>
+  <p>
+    Single icons can be imported and used directly as SVG files using the
+    <a
+      href="https://react-components.vercel.app/components/inlinesvg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >&lt;InlineSvg&gt;</a>
+    provided by the
+    <a
+      href="https://github.com/hashicorp/react-components"
+      target="_blank"
+      rel="noopener noreferrer"
+    >@hashicorp/react-components</a>
+    library:
+    {{! template-lint-disable 'no-potential-path-strings' }}
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="js"
+      @code="
+          // import the SVG file (using 'require')
+          const iconArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include');
+          // or import the SVG file (using 'import')
+          import iconArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
+
+          // elsewhere in the file
+          <InlineSvg src={iconArrowRight} />
+
+          // alternatively you can also use a similar approach
+          <InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
+        "
+    />
+    {{! prettier-ignore-end }}
+    {{! template-lint-enable 'no-potential-path-strings' }}
+    <em class="ds-em">Notice: the code above is an example, please update it accordingly to your codebase.</em>
+  </p>
+  <p>Since this is just an SVG asset, there are no
+    <em>props</em>
+    that can be passed to it. You should refer to the
+    <a
+      href="https://react-components.vercel.app/components/inlinesvg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >&lt;InlineSvg&gt;</a>
+    documentation to know how to apply color and size to the SVG icon.
+  </p>
+
+  <h3 class="ds-h3" id="react-svg-component"><a href="#react-svg-component" class="ds-a" rel="external">&sect;</a>
+    React/SVG</h3>
+
+  <p>
+    Single icons can be also imported and used directly as standalone React/SVG components:
+    {{! template-lint-disable 'no-potential-path-strings' }}
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="js"
+      @code="
+          // import the React/TypeScript file (using 'require')
+          const { IconArrowRight24 } = require('@hashicorp/flight-icons/svg-react/arrow-right-24');
+          // or import the React/TypeScript file (using 'import')
+          import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-24';
+
+          // elsewhere in the file
+          <IconArrowRight24 />
+        "
+    />
+    {{! prettier-ignore-end }}
+    {{! template-lint-enable 'no-potential-path-strings' }}
+    <em class="ds-em">Notice: the code above is an example, please update it accordingly to your codebase.</em>
+  </p>
+  <h3 class="ds-h3">Props</h3>
+  <p>The component exposes the following
+    <em>props</em>:
+    <ol>
+      <li><code class="ds-code">color</code>
+        - the color (applied as
+        <em>fill</em>) to the SVG - by default is `currentColor` but any valid HTML/CSS color is accepted</li>
+      <li><code class="ds-code">title</code>
+        - the title of the SVG - by default the icon has an
+        <em>aria-hidden</em>
+        attribute applied to it, because is expected to be used
+        <em>in contex</em>
+        (see
+        <a href="#accessibility">§ Accessibility</a>); if instead you need to use it without text associated to it, you
+        have to pass a
+        <em>title</em>
+        attribute to make it accessible.</li>
+      <li><code class="ds-code">...props</code>
+        - any other
+        <em>prop</em>
+        passed to the component will be applied via spread</li>
+    </ol>
+  </p>
+  <p>The size of the icon is determined by the size of the asset that is imported (each icon is exported in two sizes,
+    <em>16</em>
+    and
+    <em>24</em>). If you need a different size, you have to use CSS to override its intrinsic size.</p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h4 class="ds-h4">Animated icons</h4>
+  <p>
+    Some of the icons are supposed to be animated (eg. "loading" and "running").<br />
+    To use them first of all you have to import the CSS that controls the icons' animation in your CSS:
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="css"
+      @code="
+        /* the path here depends if you're using 'svg-react' or 'svg' icons */
+        @import ~@hashicorp/flight-icons/svg-react/animation.css';
+      "
+    />
+    {{! prettier-ignore-end }}
+    and the just declare them in the same way that you would with any other icon.
+    {{! prettier-ignore-start }}
+    <CodeBlock
+      @language="js"
+      @code="
+        // if you're using the 'svg-react' icons
+        import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
+        <IconLoading16 />
+
+        // if you're using the 'svg' icons
+        import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
+        <InlineSvg src={svgLoading16} />
+      "
+    />
+    {{! prettier-ignore-end }}
+    Note: a
+    <code class="ds-code">prefers-reduced-motion</code>
+    media query will automatically take care for you of disabling the animation if the user sets this preference in
+    their environment.
+  </p>
+</div>
+
+<div class="mt-8 prose prose-lg text-gray-800 pb-6">
+  <h2 class="ds-h2" id="size-existing">
+    <a href="#migration" class="ds-a">§</a>
+    Updating existing interfaces
+  </h2>
+
+  <ul>
+    <li>
+      We maintain
+      <a
+        href="https://github.com/hashicorp/flight/blob/main/structure-mappings.json"
+        class="ds-a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >a mapping of icon names between Structure and Flight</a>
+      that can be referenced to migrate an icon from Structure to Flight. It is also possible to write codemods to
+      automate this migration. If you are interested in learning more, reach out in
+      <a
+        href="https://hashicorp.slack.com/archives/C7KTUHNUS"
+        class="ds-a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >#team-design-systems</a>.
+    </li>
+  </ul>
+</div>

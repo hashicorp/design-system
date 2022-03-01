@@ -1,0 +1,68 @@
+<div class="ds-icon-grid flex mb-14">
+  <div class="ds-flex-search">
+    <label for="ds-input-search" class="ds-label">Filter results</label>
+
+    <div class="ds-input-search-wrapper">
+
+      <div class="ds-input-search-icon-wrapper">
+        <FlightIcon @name="search" @color="var(--gray-3)" />
+      </div>
+
+      <input
+        type="text"
+        name="search"
+        id="ds-input-search"
+        class="ds-input-search"
+        placeholder="e.g. arrow"
+        autofocus={{false}}
+        value={{@searchQuery}}
+        {{on "input" (perform @searchIcons value="target.value")}}
+      />
+
+    </div>
+  </div>
+
+  <div class="ds-flex-toggle">
+    <button
+      aria-checked="false"
+      aria-label="Toggle icon size (16 or 24)"
+      class="ds-toggle-button"
+      role="switch"
+      type="button"
+      {{on "click" this.updateVisibleIconSize}}
+    >
+      <span class="ds-toggle-button-slider">
+        <span class="ds-toggle-16 {{if (eq this.visibleIconSize '16') 'ds-toggle-16-active'}}" aria-hidden="true">
+          16px
+        </span>
+        <span class="ds-toggle-24 {{if (eq this.visibleIconSize '24') 'ds-toggle-24-active'}}" aria-hidden="true">
+          24px
+        </span>
+      </span>
+
+    </button>
+  </div>
+</div>
+<ul class="ds-ul-grid" data-test-target="icon-grid">
+  {{#each @icons as |meta|}}
+    <li class="ds-li {{if meta.isHidden 'd-none'}} {{if (not-eq meta.size this.visibleIconSize) 'd-none'}}">
+      <div class="ds-icon-frame">
+        <div class="ds-icon-outline">
+          <FlightIcon @name={{meta.iconName}} @size="{{meta.size}}" @isInlineBlock={{false}} class="demo-icon" />
+        </div>
+      </div>
+      <p class="ds-icon-meta">
+        <em>Ember:</em>
+        <span>{{meta.iconName}}</span>
+        <em>React:</em>
+        <span>{{meta.name}}</span>
+        <em>Keywords:</em>
+        <span>{{meta.description}}</span>
+      </p>
+    </li>
+  {{else}}
+    <div data-test-target="empty-icons-search">
+      No icons found
+    </div>
+  {{/each}}
+</ul>

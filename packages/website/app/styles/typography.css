@@ -1,0 +1,60 @@
+p.ds-p {
+  font-family: var(--font-body);
+  margin: 0.25vh auto;
+  @apply 
+  text-base
+  text-gray-2;
+}
+
+a.ds-a {
+  @apply
+  text-brand-link;
+}
+
+h1.ds-h1,
+.ds-h1,
+h2.ds-h2,
+.ds-h2,
+h3.ds-h3,
+.ds-h3,
+h4.ds-h4,
+.ds-h4,
+h5.ds-h5,
+.ds-h5 {
+  font-family: var(--font-display);
+  line-height: var(--font-line-height-headings);
+}
+
+h1.ds-h1,
+.ds-h1 {
+  @apply 
+  mb-4
+  text-4xl
+  ;
+}
+
+h2.ds-h2,
+.ds-h2 {
+  @apply
+  text-3xl
+  mb-3;
+}
+
+h3.ds-h3,
+.ds-h3 {
+  @apply 
+  text-2xl 
+  font-medium
+  mb-3;
+
+}
+
+h4.ds-h4,
+.ds-h4 {
+  @apply text-xl;
+}
+
+h5.ds-h5,
+.ds-h5 {
+  @apply text-lg;
+}

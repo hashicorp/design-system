@@ -1,0 +1,51 @@
+name: CI - Website
+
+defaults:
+  run:
+    working-directory: website
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+concurrency:
+   group: ci-website-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+          cache: yarn
+          cache-dependency-path: website/yarn.lock
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+          cache: yarn
+          cache-dependency-path: website/yarn.lock
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run Tests
+        run: yarn test:ember:percy
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBSITE }}
