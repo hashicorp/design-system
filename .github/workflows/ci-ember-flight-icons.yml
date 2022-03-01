@@ -2,7 +2,7 @@ name: CI - Ember Flight Icons
 
 defaults:
   run:
-    working-directory: ember-flight-icons
+    working-directory: packages/ember-flight-icons
 on:
   push:
     branches:
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
-          cache-dependency-path: ember-flight-icons/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
@@ -48,7 +48,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
-          cache-dependency-path: ember-flight-icons/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --no-lockfile --non-interactive
       - name: Run Tests
@@ -81,7 +81,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
-          cache-dependency-path: ember-flight-icons/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Run Tests
