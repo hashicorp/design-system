@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 22 Feb 2022 18:48:52 GMT
+ * Generated on Thu, 24 Feb 2022 20:36:19 GMT
  */
 
 :root {
@@ -109,6 +109,10 @@
   --token-color-border-success: #cceeda;
   --token-color-border-warning: #fbeabf;
   --token-color-border-critical: #fbd4d4;
+  --token-color-focus-action-internal: #0c56e9;
+  --token-color-focus-action-external: #5990ff; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-focus-critical-internal: #c00005;
+  --token-color-focus-critical-external: #dd7578; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-foreground-primary: #0c0c0e;
   --token-color-foreground-secondary: #3b3d45;
   --token-color-foreground-faint: #656a76;
@@ -156,7 +160,7 @@
   --token-color-hashicorp-brand: #000000;
   --token-color-boundary-brand: #f24c53;
   --token-color-boundary-foreground: #cf2d32;
-  --token-color-boundary-background: #ffecec;
+  --token-color-boundary-surface: #ffecec;
   --token-color-boundary-border: #fbd7d8;
   --token-color-boundary-gradient-primary-start: #f97076;
   --token-color-boundary-gradient-primary-stop: #db363b;
@@ -164,7 +168,7 @@
   --token-color-boundary-gradient-faint-stop: #ffecec;
   --token-color-consul-brand: #e03875;
   --token-color-consul-foreground: #d01c5b;
-  --token-color-consul-background: #ffe9f1;
+  --token-color-consul-surface: #ffe9f1;
   --token-color-consul-border: #ffcede;
   --token-color-consul-gradient-primary-start: #ff99be;
   --token-color-consul-gradient-primary-stop: #da306e;
@@ -173,7 +177,7 @@
   --token-color-hcp-brand: #000000;
   --token-color-nomad-brand: #06d092;
   --token-color-nomad-foreground: #008661;
-  --token-color-nomad-background: #d3fdeb;
+  --token-color-nomad-surface: #d3fdeb;
   --token-color-nomad-border: #bff3dd;
   --token-color-nomad-gradient-primary-start: #bff3dd;
   --token-color-nomad-gradient-primary-stop: #60dea9;
@@ -181,7 +185,7 @@
   --token-color-nomad-gradient-faint-stop: #d3fdeb;
   --token-color-packer-brand: #02a8ef;
   --token-color-packer-foreground: #007eb4;
-  --token-color-packer-background: #d4f2ff;
+  --token-color-packer-surface: #d4f2ff;
   --token-color-packer-border: #b4e4ff;
   --token-color-packer-gradient-primary-start: #b4e4ff;
   --token-color-packer-gradient-primary-stop: #63d0ff;
@@ -189,7 +193,7 @@
   --token-color-packer-gradient-faint-stop: #d4f2ff;
   --token-color-terraform-brand: #7b42bc;
   --token-color-terraform-foreground: #773cb4;
-  --token-color-terraform-background: #f4ecff;
+  --token-color-terraform-surface: #f4ecff;
   --token-color-terraform-border: #ebdbfc;
   --token-color-terraform-gradient-primary-start: #bb8deb;
   --token-color-terraform-gradient-primary-stop: #844fba;
@@ -197,7 +201,7 @@
   --token-color-terraform-gradient-faint-stop: #f4ecff;
   --token-color-vagrant-brand: #1868f2;
   --token-color-vagrant-foreground: #1c61d8;
-  --token-color-vagrant-background: #d6ebff;
+  --token-color-vagrant-surface: #d6ebff;
   --token-color-vagrant-border: #c7dbfc;
   --token-color-vagrant-gradient-primary-start: #c7dbfc;
   --token-color-vagrant-gradient-primary-stop: #7dadff;
@@ -206,7 +210,7 @@
   --token-color-vault-brand: #ffd814;
   --token-color-vault-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-foreground: #9a6f00;
-  --token-color-vault-background: #fff9cf;
+  --token-color-vault-surface: #fff9cf;
   --token-color-vault-border: #feec7b;
   --token-color-vault-gradient-primary-start: #feec7b;
   --token-color-vault-gradient-primary-stop: #ffe543;
@@ -214,7 +218,7 @@
   --token-color-vault-gradient-faint-stop: #fff9cf;
   --token-color-waypoint-brand: #14c6cb;
   --token-color-waypoint-foreground: #008196;
-  --token-color-waypoint-background: #e0fcff;
+  --token-color-waypoint-surface: #e0fcff;
   --token-color-waypoint-border: #cbf1f3;
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
@@ -233,8 +237,6 @@
   --token-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4566, 0px 2px 3px 0px #3b3d4580, 0px 12px 24px 0px #3b3d4599;
-  --token-focus-ring-internal-color: #0c56e9;
-  --token-focus-ring-external-color: #5990ff; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-focus-ring-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;

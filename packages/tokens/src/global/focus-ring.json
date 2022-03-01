@@ -8,7 +8,8 @@
             },
             "color": {
                 "value": "{color.palette.blue-300.value}",
-                "type": "color"
+                "type": "color",
+                "private": true
             },
             "box-shadow": {
                 "value": "inset 0 0 0 {focus-ring.internal.spread.value} {focus-ring.internal.color.value}",
@@ -22,9 +23,9 @@
                 "private": true
             },
             "color": {
-                "value": "#5990ff",
+                "value": "{color.focus.action.external.value}",
                 "type": "color",
-                "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose"
+                "private": true
             },
             "box-shadow": {
                 "value": "0 0 0 {focus-ring.external.spread.value} {focus-ring.external.color.value}",
