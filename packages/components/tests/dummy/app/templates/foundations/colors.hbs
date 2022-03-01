@@ -1,0 +1,89 @@
+{{page-title "Colors"}}
+
+<h2 class="dummy-h2">Colors</h2>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">TODO</p>
+</section>
+
+<section data-test-percy>
+
+  <h3 class="dummy-h3">Semantic</h3>
+
+  <h4 class="dummy-h4">Foreground</h4>
+  <p class="dummy-paragraph">TODO.</p>
+  <div class="dummy-colors-list">
+    {{#each this.colors.semantic.foreground as |color|}}
+      <DummyColorCard @color={{color}} />
+    {{else}}
+      <p class="dummy-paragraph">No tokens found for "semantic/foreground" colors 🤷‍♀️</p>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Surface</h4>
+  <p class="dummy-paragraph">TODO.</p>
+  <div class="dummy-colors-list">
+    {{#each this.colors.semantic.surface as |color|}}
+      <DummyColorCard @color={{color}} />
+    {{else}}
+      <p class="dummy-paragraph">No tokens found for "semantic/surface" colors 🤷‍♀️</p>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Border</h4>
+  <p class="dummy-paragraph">TODO.</p>
+  <div class="dummy-colors-list">
+    {{#each this.colors.semantic.border as |color|}}
+      <DummyColorCard @color={{color}} />
+    {{else}}
+      <p class="dummy-paragraph">No tokens found for "semantic/border" colors 🤷‍♀️</p>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Focus</h4>
+  <p class="dummy-paragraph">TODO.</p>
+  <div class="dummy-colors-list">
+    {{#each this.colors.semantic.focus as |color|}}
+      <DummyColorCard @color={{color}} />
+    {{else}}
+      <p class="dummy-paragraph">No tokens found for "semantic/focus" colors 🤷‍♀️</p>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Page</h4>
+  <p class="dummy-paragraph">TODO.</p>
+  <div class="dummy-colors-list">
+    {{#each this.colors.semantic.page as |color|}}
+      <DummyColorCard @color={{color}} />
+    {{else}}
+      <p class="dummy-paragraph">No tokens found for "semantic/page" colors 🤷‍♀️</p>
+    {{/each}}
+  </div>
+
+  <h3 class="dummy-h3">Product ("branding")</h3>
+  {{#each-in this.colors.branding as |brand colorsList|}}
+    <h4 class="dummy-h4">{{capitalize brand}}</h4>
+    <div class="dummy-colors-list">
+      {{#each colorsList as |color|}}
+        <DummyColorCard @color={{color}} />
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="dummy-paragraph">No tokens found for "branding" colors 🤷‍♀️</p>
+  {{/each-in}}
+
+  <h3 class="dummy-h3">Palette</h3>
+  <p class="dummy-paragraph">Core Palette colors should be used sparingly and only when the correct semantic mapping
+    isn’t available for the use case.</p>
+  {{#each-in this.colors.palette as |tone colorsList|}}
+    <h4 class="dummy-h4">{{capitalize tone}}</h4>
+    <div class="dummy-colors-list">
+      {{#each colorsList as |color|}}
+        <DummyColorCard @color={{color}} />
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="dummy-paragraph">No tokens found for "palette" colors 🤷‍♀️</p>
+  {{/each-in}}
+</section>
