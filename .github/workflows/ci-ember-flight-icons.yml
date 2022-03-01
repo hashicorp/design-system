@@ -35,7 +35,7 @@ jobs:
         run: yarn run test:ember:percy
         working-directory: packages/ember-flight-icons
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
 
   floating:
     name: "Floating Dependencies"
@@ -54,7 +54,7 @@ jobs:
         run: yarn run test:ember:percy
         working-directory: packages/ember-flight-icons
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
