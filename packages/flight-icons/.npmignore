@@ -1,0 +1,16 @@
+/svg-original/
+/scripts/
+/temp/
+
+/.env*
+/.eslintcache
+/.eslintignore
+/.eslintrc.js
+/.git/
+/.gitignore
+/.prettierignore
+/.prettierrc.js
+/tsconfig.json
+/CONTRIBUTING.md
+/yarn-error.log
+/yarn.lock

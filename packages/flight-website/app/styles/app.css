@@ -1,0 +1,109 @@
+@import "./root.css";
+
+@import "tailwindcss/base"; /* this includes a flavor of modernizer so we don't need to include it separately */
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./typography.css";
+@import "./prism.css";
+
+@import "./components/ds-nav.css";
+@import "./components/ds-footer.css";
+@import "./components/ds-icon-grid.css";
+
+/* goal: consistency.
+ * if we all write this the same way
+ * it will be easier for us to maintain
+ * in the long run.
+ * if you change the approach,
+ * please do it across all of the CSS
+ * and also let everyone know
+ */
+
+/* how this is currently organized (please update if you change something)
+* 1. extra specificity: because it's the docs site, we don't want naming collisions
+*    so there's a little extra specificity
+* 2. if it makes sense to extract a portion into a separate file, do that
+* 3. properties within classes are alphabetically sorted 
+* 4. custom CSS comes first, then Tailwind's `@apply`
+* 5. variables are stored in ./root
+*/
+
+html {
+  font-family: var(--font-body);
+  font-size: var(--font-size-default);
+}
+
+body.ds-body {
+  line-height: 1.2;
+
+  @apply
+  flex
+  flex-col
+  text-base
+  m-0
+  min-h-screen
+  p-0;
+}
+
+header.ds-header {
+  @apply
+  bg-brand
+  text-white
+  flex
+  flex-wrap
+  justify-between;
+}
+
+main.ds-main {
+  margin: 3.5rem auto 0 auto;
+
+  @apply
+    sm:container;
+}
+
+/* override global style from ember-prism */
+.prose code::before, .prose code::after {
+  content: none;
+}
+
+.ds-code {
+  color: #D10070 !important; /* to coordinate with the current prism theme */
+  display: inline-block;
+  font-size: 0.9em;
+
+  @apply
+  font-bold;
+}
+
+.ds-info {
+  @apply
+  bg-info-l2
+  border
+  border-brand
+  border-l-8
+  border-solid
+  p-3
+  rounded-md
+  md:max-w-4xl
+  lg:max-w-3xl;
+}
+
+img.ds-img {
+  @apply
+  block
+  h-auto
+  max-w-full;
+}
+
+.prose-lg pre.language-markup {
+  @apply mt-0;
+}
+
+/* if you have other custom utility classes, add them here. */
+@layer utilities {
+  /* this is used in the ds-icon-grid component, but should be replaced with `hidden`. */
+  .d-none {
+    display: none !important;
+  }
+}

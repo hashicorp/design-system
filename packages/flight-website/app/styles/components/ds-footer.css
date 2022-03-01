@@ -1,0 +1,14 @@
+footer.ds-footer {
+  @apply border-gray-200 
+  border-t-2 
+  flex
+  flex-wrap
+  justify-between
+  px-8
+  py-8
+  md:m-auto 
+  md:max-w-full 
+  md:mt-16
+  md:py-16
+  md:px-16;
+}
