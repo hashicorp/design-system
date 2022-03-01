@@ -2,7 +2,7 @@ name: CI - Flight Website
 
 defaults:
   run:
-    working-directory: packages/website
+    working-directory: packages/flight-website
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
   pull_request: {}
 
 concurrency:
-   group: ci-website-${{ github.head_ref || github.ref }}
+   group: ci-flight-website-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
 
 jobs:
