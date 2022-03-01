@@ -26,6 +26,20 @@ $hds-link-standalone-border-width: 1px;
   width: fit-content;
 }
 
+.hds-link-standalone__text {
+  flex: 1 0 0;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.25s ease-in;
+
+  .hds-link-standalone__icon + & {
+    margin-left: 0.375rem;
+  }
+
+  & +.hds-link-standalone__icon {
+    margin-left: 0.375rem;
+  }
+}
 
 // SIZE
 
