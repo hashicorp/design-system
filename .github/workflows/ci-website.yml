@@ -1,8 +1,5 @@
 name: CI - Flight Website
 
-defaults:
-  run:
-    working-directory: packages/flight-website
 on:
   push:
     branches:
@@ -30,6 +27,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
+        working-directory: packages/flight-website
 
   test:
     name: "Test"
@@ -47,5 +45,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Run Tests
         run: yarn test:ember:percy
+        working-directory: packages/flight-website
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBSITE }}
