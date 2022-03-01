@@ -5,7 +5,7 @@
 //
 
 .hds-disclosure {
-  // TODO should we isolate the Z index here too?
   position: relative;
+  isolation: isolate; // used to create a new stacking contextn (it's likely that the "content" will be absolutely positioned)
   width: fit-content;
 }
