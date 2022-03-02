@@ -1,5 +1,5 @@
-import Application from 'website/app';
-import config from 'website/config/environment';
+import Application from 'flight-website/app';
+import config from 'flight-website/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
