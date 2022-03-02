@@ -1,13 +1,5 @@
 # How to contribute
 
-## Initial setup
-
-*Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
-
-* `git clone <repository-url>`
-* `cd flight/flight-icons`
-* `yarn install`
-
 ## Linting
 
 * `yarn run lint`
@@ -91,7 +83,7 @@ To access the Figma file via REST API is necessary to have [a special authentica
 
 To create your personal access token, open Figma and go into *Account > Personal access tokens* and create one for yourself.
 
-Next, add a `.env` file in the `flight/flight-icons` directory, to which you will add the variable:
+Next, add a `.env` file in the `packages/flight/flight-icons` directory, to which you will add the variable:
 
 `FIGMA_TOKEN=###`
 

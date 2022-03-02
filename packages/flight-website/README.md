@@ -12,12 +12,6 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
-## Installation
-
-* `git clone https://github.com/hashicorp/flight` this repository
-* `cd flight/website`
-* `yarn install`
-
 ## Running / Development
 
 * `ember serve`

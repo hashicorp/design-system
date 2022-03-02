@@ -14,7 +14,7 @@ _Remember: Once released a package on the public registry, you can't revert the 
 
 Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transfered also to the code. This means re-syncing and re-building the `flight-icons` package and once these changes have been approved, release the package to the npm registry.
 
-Please see the instructions in the [flight-icons/CONTRIBUTING](flight-icons/CONTRIBUTING.md) or [ember-flight-icons/CONTRIBUTING](ember-flight-icons/CONTRIBUTING.md) files for more details about how to setup the project and make changes to the code for these packages.
+Please see the instructions in the [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) or [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) files for more details about how to setup the project and make changes to the code for these packages.
 
 ## Bump
 
@@ -22,7 +22,7 @@ The "bump" step increases the _SemVer_ version number in the `package.json` file
 
 * Make sure your local `main` branch is up to date.
 * Create new custom branch from `main`.
-* `cd /flight/flight-icons` or `cd /flight/ember-flight-icons`
+* `cd packages/flight/flight-icons` or `cd packages/flight/ember-flight-icons`
 * Run `yarn bump` and choose the _SemVer_ version as agreed upon on the previous PR.
   * _The `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter": the tool will automatically update the version in the `package.json` file for you._
 * Check the `git diff` for the project, you should see only the `package.json` file changed (with the new version).
@@ -38,7 +38,7 @@ _**IMPORTANT**: if you need to do some tests, use a **local** package registry (
 
 * Make sure your local `main` branch is up to date.
 * You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
-* `cd /flight/flight-icons` or `cd /flight/ember-flight-icons`
+* `cd packages/flight/flight-icons` or `cd packages/flight/ember-flight-icons`
 * `yarn release`
 * Check the git diff, you should not see any change.
 
