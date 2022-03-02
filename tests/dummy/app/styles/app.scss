@@ -1,0 +1,131 @@
+@import '@hashicorp/design-system-components';
+@import 'helpers/typography';
+
+@import "./_typography";
+
+@import "./pages/db-badge";
+@import "./pages/db-button";
+@import "./pages/db-card";
+@import "./pages/db-elevation";
+@import "./pages/db-focus-ring";
+@import "./pages/db-icon-tile";
+@import "./pages/db-link";
+@import "./pages/db-tokens";
+@import "./pages/db-typography";
+
+@import "./components/dummy-component-props";
+@import "./components/dummy-placeholder";
+
+body.dummy-app {
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .dummy-app-wrapper {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+
+        .dummy-header {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            background-color: black;
+            color: white;
+
+            h1.dummy-h1 {
+                margin:auto;
+                display: flex;
+                padding: 0.5rem 1rem;
+            }
+        }
+        .dummy-nav {
+            background-color: #f1f2f3;
+            box-sizing: border-box;
+            display: flex;
+            margin: 0;
+            padding: 0 0 0 0.5rem;
+            width: 100%;
+            ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                li {
+                    padding: 0;
+                    margin: 0;
+                    a {
+                        border: 2px solid transparent;
+                        display: flex;
+                        gap: 0.5rem;
+                        justify-content: space-evenly;
+                        line-height: 1;
+                        min-width: fit-content;
+                        padding: 0.75rem;
+                        &:visited {
+                            color: blue;
+                        }
+                        &:hover {
+                            border: 2px dashed blue;
+                        }
+                    }
+                }
+            }
+        }
+
+        .dummy-main {
+            padding: 2rem;
+            min-height: 84.75vh;
+        }
+        .dummy-footer {
+            padding: 0 2rem;
+            background-color: black;
+            color: white;
+            .dummy-paragraph {
+                padding: 0;
+                margin: 0;
+
+                .dummy-link {
+                color: white;
+                display: flex;
+                align-content: center;
+                padding: 1rem;
+                width: fit-content;
+                }
+            }
+        }
+    }
+}
+
+.dummy-design-guidelines {
+    p {
+        color: #666;
+
+        a { color: inherit; }
+    }
+
+    img {
+        max-width: 800px;
+        height: auto;
+        width: 100%;
+    }
+}
+
+.dummy-divider {
+    margin: 4rem 0;
+}
+
+// Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
+// that we want to exclude from the snapshots using their own "Percy-specific CSS".
+// see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
+// notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
+// so we had to rely on this specific custom media query
+
+@media only percy {
+    header,
+    nav.dummy-nav,
+    footer,
+    main section:not([data-test-percy]) {
+        display: none;
+    }
+}

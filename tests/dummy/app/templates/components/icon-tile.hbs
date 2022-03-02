@@ -1,0 +1,165 @@
+{{page-title "IconTile"}}
+
+<h2 class="dummy-h2">IconTile</h2>
+
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
+    <dt>size <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>small</li>
+        <li class="default">medium</li>
+        <li>large</li>
+      </ol>
+    </dd>
+    <dt>logo <code>enum</code></dt>
+    <dd>
+      <p>Use this parameter to show a product logo. Acceptable values:</p>
+      <ol>
+        <li>hcp</li>
+        <li>boundary</li>
+        <li>consul</li>
+        <li>nomad</li>
+        <li>packer</li>
+        <li>terraform</li>
+        <li>vagrant</li>
+        <li>vault</li>
+        <li>waypoint</li>
+      </ol>
+    </dd>
+    <dt>icon <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
+    </dd>
+    <dt>iconSecondary <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an extra "badge" with icon on top of the tile. Acceptable value: any Flight icon
+        name.</p>
+      <p><em>Notice: the color of the secondary icon is predefined and can't be changed.</em></p>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">neutral</li>
+        <li>boundary</li>
+        <li>consul</li>
+        <li>nomad</li>
+        <li>packer</li>
+        <li>terraform</li>
+        <li>vagrant</li>
+        <li>vault</li>
+        <li>waypoint</li>
+      </ol>
+      <p><em>Notice: if it's a "logo" then we overwrite any @color parameter passed and just use the product "brand"
+          color.</em></p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code>...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::IconTile @logo="boundary" @size="medium" iconSecondary="plus" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::IconTile @icon="dashboard" @size="small" @color="vault" />
+    '
+  />
+  {{! prettier-ignore-end }}
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=1377%3A11992">Figma
+        UI Kit</a></p>
+    <h4 class="dummy-paragraph"><strong>With logo</strong></h4>
+    <img class="dummy-figma-docs" src="/assets/images/icontile-logo-design-usage.png" alt="" role="none" />
+    <h4 class="dummy-paragraph"><strong>With icon</strong></h4>
+    <img class="dummy-figma-docs" src="/assets/images/icontile-icon-design-usage.png" alt="" role="none" />
+  </div>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Size</h4>
+  <ul class="dummy-icon-tile-side-by-side">
+    <li>
+      <p class="dummy-paragraph">With logo</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @logo="boundary" @size={{size}} />
+        {{/each}}
+      </div>
+    </li>
+    <li>
+      <p class="dummy-paragraph">With icon</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} />
+        {{/each}}
+      </div>
+    </li>
+  </ul>
+
+  <h4 class="dummy-h4">Logo</h4>
+  {{#each @model.PRODUCTS as |product|}}
+    <div class="dummy-icon-tile-base-sample">
+      {{#each @model.SIZES as |size|}}
+        <Hds::IconTile @logo={{product}} @size={{size}} />
+      {{/each}}
+    </div>
+  {{/each}}
+
+  <h4 class="dummy-h4">Icon color</h4>
+  {{#each @model.COLORS as |color|}}
+    {{! As agreed with designers, we prefer to hide the option of icon with "hcp" color }}
+    {{#if (not-eq color "hcp")}}
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
+        {{/each}}
+      </div>
+    {{/if}}
+  {{/each}}
+
+  <h4 class="dummy-h4">Secondary icon</h4>
+  <ul class="dummy-icon-tile-side-by-side">
+    <li>
+      <p class="dummy-paragraph">With logo</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
+        {{/each}}
+      </div>
+    </li>
+    <li>
+      <p class="dummy-paragraph">With icon</p>
+      <div class="dummy-icon-tile-base-sample">
+        {{#each @model.SIZES as |size|}}
+          <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
+        {{/each}}
+      </div>
+    </li>
+  </ul>
+</section>
