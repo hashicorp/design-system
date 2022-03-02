@@ -1,10 +1,5 @@
 .env
-.DS_Store
-node_modules/
 flight-icons/temp
 
 # Output of `npm pack`, which is an (optional) test for `npm publish`
 *.tgz
-
-# For Percy command line testing
-snapshots.yml
