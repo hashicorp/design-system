@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'website',
+    modulePrefix: 'flight-website',
     environment,
     rootURL: '/',
     locationType: 'history',
