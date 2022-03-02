@@ -1,6 +1,85 @@
 {{page-title "Disclosure"}}
 
 <h2 class="dummy-h2">Disclosure</h2>
+<p class="dummy-paragraph">🚧
+  <em>Notice: this component is intended for internal use for now. It may be that in the future it will exposed as
+    official component of the design system but not for now. Please if you need to use it speak with the HDS team.</em></p>
+
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
+    <dt>&lt;:toggle&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where to pass the interactive element that works as "toggle" for the disclosure.</p>
+    </dd>
+    <dt>[:toggle].onClickToggle <code>event handler</code></dt>
+    <dd>
+      <p>Function that needs to be called by the interactive element to toggle the visibility of the content.</p>
+    </dd>
+    <dt>&lt;:content&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where to pass the actual content that is shown/hidden upon toggling.</p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code>...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Disclosure>
+        <:toggle>
+          your interactive element here (usually a button)
+        </:toggle>
+        <:content>
+          your content here
+        </:content>
+      </Hds::Disclosure>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">To actually work, you need an interactive element that can trigger a custom event handler
+    provided by the
+    <code>:toggle</code>
+    block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a
+    button (for accessibility reasons).</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Disclosure>
+        <:toggle as |t|>
+          <button type="button" \{{on "click" t.onClickToggle}}>Click me</button>
+        </:toggle>
+        <:content>
+          your content here
+        </:content>
+      </Hds::Disclosure>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">When the content is disclosed, the container can be closed in different way: toggling again
+    the visibility via the button (<code>click</code>
+    or
+    <code>enter/return</code>), clicking outside of the content, or via the
+    <code>esc</code>
+    key.</p>
+  <p class="dummy-paragraph">🚨
+    <em>Notice: the
+      <code>HDS::Disclosure</code>
+      component will trap the focus inside the "content" while it's open (we're using the
+      <a href="https://github.com/focus-trap/focus-trap" target="_blank" rel="noopener noreferrer"><code
+        >focus-trap</code></a>
+      library). At the moment we don't allow non-focusable content (it will trigger an error).</em></p>
+</section>
 
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
