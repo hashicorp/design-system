@@ -1,13 +1,5 @@
 # How To Contribute
 
-## Initial setup
-
-*Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
-
-* `git clone https://github.com/hashicorp/flight`
-* `cd flight/ember-flight-icons`
-* `yarn install`
-
 ## Linting
 
 * `yarn run lint`
@@ -53,7 +45,7 @@ info You can now run `yarn link "@hashicorp/ember-flight-icons"` in the projects
 ```
 
 * Run `yarn` or `yarn install`
-* You may need to copy code such as https://github.com/hashicorp/flight/blob/main/ember-flight-icons/tests/dummy/app/templates/application.hbs into the external app's `application.hbs` to see the results.
+* You may need to copy code such as https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/tests/dummy/app/templates/application.hbs into the external app's `application.hbs` to see the results.
 * If you want to test local changes to `ember-flight-icons`, add `isDevelopingAddon` to `ember-flight-icons/index.js`. The file will look something like the following:
 
 ```js
