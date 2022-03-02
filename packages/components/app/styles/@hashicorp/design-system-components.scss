@@ -1,0 +1,25 @@
+// these are files coming from the 'design-system-tokens' package
+@use "tokens";
+@use "helpers/elevation";
+@use "helpers/focus-ring";
+
+@use "../components/badge";
+@use "../components/badge-count";
+@use "../components/button";
+@use "../components/card";
+@use "../components/icon-tile";
+@use "../components/link/standalone";
+
+.sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+	-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important;  /* 2 */
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;            /* 3 */
+}
