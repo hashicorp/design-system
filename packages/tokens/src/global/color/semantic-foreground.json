@@ -1,11 +1,11 @@
 {
     "color": {
         "foreground": {
-            "primary": {
+            "strong": {
                 "value": "{color.palette.neutral-700.value}",
                 "type": "color"
             },
-            "secondary": {
+            "primary": {
                 "value": "{color.palette.neutral-600.value}",
                 "type": "color"
             },

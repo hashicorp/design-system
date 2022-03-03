@@ -5,15 +5,15 @@
                 "value": "{color.palette.neutral-0.value}",
                 "type": "color"
             },
-            "secondary": {
+            "faint": {
                 "value": "{color.palette.neutral-50.value}",
                 "type": "color"
             },
-            "tertiary": {
+            "strong": {
                 "value": "{color.palette.neutral-100.value}",
                 "type": "color"
             },
-            "interactive-rested": {
+            "interactive": {
                 "value": "{color.palette.neutral-0.value}",
                 "type": "color"
             },
