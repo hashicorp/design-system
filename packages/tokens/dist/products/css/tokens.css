@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 03 Mar 2022 21:42:37 GMT
+ * Generated on Thu, 03 Mar 2022 21:48:38 GMT
  */
 
 :root {
@@ -121,7 +121,6 @@
   --token-color-foreground-action: #1060ff;
   --token-color-foreground-action-hover: #0c56e9;
   --token-color-foreground-action-active: #0046d1;
-  --token-color-foreground-action-visited: #a737ff;
   --token-color-foreground-highlight: #a737ff;
   --token-color-foreground-highlight-on-surface: #911ced;
   --token-color-foreground-highlight-high-contrast: #42215b;

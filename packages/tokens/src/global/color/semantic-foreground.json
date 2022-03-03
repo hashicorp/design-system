@@ -33,10 +33,6 @@
                 "value": "{color.palette.blue-400.value}",
                 "type": "color"
             },
-            "action-visited": {
-                "value": "{color.palette.purple-200.value}",
-                "type": "color"
-            },
             "highlight": {
                 "value": "{color.palette.purple-200.value}",
                 "type": "color"
