@@ -6,6 +6,26 @@ This monorepo uses [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/wo
 
 Note: package folders such as `packages/flight-icons` should not contain a `yarn.lock` file. If one is accidentally created, please remove it and ensure you run `yarn` from the root of the monorepo.
 
+## Changesets
+
+This project uses [changesets](https://github.com/changesets/changesets) to manage how changes will be released. Each change to a package - i.e. every PR - should come with a changeset for each package that has changed.
+
+To create a changeset, run and follow the prompts in your terminal:
+
+```bash
+yarn changeset
+```
+
+See the [changeset docs](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) for more information.
+
+## Releasing
+
+Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR can be merged to `main` and released to npm with the following command:
+
+```bash
+yarn changeset publish
+```
+
 ## Flight Icons
 
 | Package                                                                              | Version                                                                                                                         |
@@ -23,15 +43,11 @@ Instructions for installation and use are available, as well as a searchable lis
 
 #### @hashicorp/flight-icons
 
-See [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build/release" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
+See [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
 #### @hashicorp/ember-flight-icons
 
-See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) guide for details on how to build, test and release the Ember addon.
-
-### Releasing
-
-See the [RELEASE](RELEASE.md) guide for details.
+See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) guide for details on how to build and test the Ember addon.
 
 ## License
 
