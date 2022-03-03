@@ -1,5 +1,11 @@
 # HashiCorp Design System
 
+## Workspaces
+
+This monorepo uses [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) to manage dependencies for all packages. New packages should be added directly to the relavant workspace's `package.json` file and then run `yarn` in the workspace root.
+
+Note: package folders such as `packages/flight-icons` should not contain a `yarn.lock` file. If one is accidentally created, please remove it and ensure you run `yarn` from the root of the monorepo.
+
 ## Flight Icons
 
 | Package                                                                              | Version                                                                                                                         |
