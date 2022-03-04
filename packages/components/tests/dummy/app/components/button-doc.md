@@ -46,17 +46,17 @@ Renders to:
 
 ### Color
 
-There are three available colors for a button: primary, secondary, and destructive. The default is primary. To use a different color, declare another value for `@color`:
+There are three available colors for a button: primary, secondary, and critical. The default is primary. To use a different color, declare another value for `@color`:
 
 ```hbs
-<Hds::Button @text="Destructive" @color="destructive" />
+<Hds::Button @text="Critical" @color="critical" />
 ```
 
 <Hds::Button @text="Primary action" />
 <br/>
 <Hds::Button @text="Secondary action" @color="secondary" />
 <br/>
-<Hds::Button @text="Destructive action" @color="destructive" />
+<Hds::Button @text="Critical action" @color="critical" />
 
 
 ### Size

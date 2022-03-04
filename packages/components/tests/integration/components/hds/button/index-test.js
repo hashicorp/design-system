@@ -46,9 +46,9 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" @color="destructive" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @color="critical" id="test-button" />`
     );
-    assert.dom('#test-button').hasClass('hds-button--color-destructive');
+    assert.dom('#test-button').hasClass('hds-button--color-critical');
   });
 
   // ICON
