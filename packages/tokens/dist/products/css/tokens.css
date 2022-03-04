@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 03 Feb 2022 15:19:35 GMT
+ * Generated on Thu, 03 Mar 2022 21:48:38 GMT
  */
 
 :root {
@@ -46,74 +46,120 @@
   --token-color-palette-alpha-300: #3b3d4566;
   --token-color-palette-alpha-200: #656a7633;
   --token-color-palette-alpha-100: #656a761a;
-  --token-color-action-foreground-primary: #1060ff;
-  --token-color-action-foreground-on-faint: #0c56e9;
-  --token-color-action-foreground-high-contrast: #1c345f;
-  --token-color-action-background-primary: #1060ff;
-  --token-color-action-background-hover: #0c56e9;
-  --token-color-action-background-active: #0046d1;
-  --token-color-action-background-faint: #f2f8ff;
-  --token-color-action-border-primary: #1060ff;
-  --token-color-action-border-on-primary: #0c56e9;
-  --token-color-action-border-on-hover: #0046d1;
-  --token-color-action-border-on-faint: #cce3fe;
-  --token-color-highlight-foreground-primary: #a737ff;
-  --token-color-highlight-foreground-on-faint: #911ced;
-  --token-color-highlight-foreground-high-contrast: #42215b;
-  --token-color-highlight-background-primary: #a737ff;
-  --token-color-highlight-background-hover: #911ced;
-  --token-color-highlight-background-active: #7b00db;
-  --token-color-highlight-background-faint: #f9f2ff;
-  --token-color-highlight-border-primary: #a737ff;
-  --token-color-highlight-border-on-primary: #911ced;
-  --token-color-highlight-border-on-hover: #7b00db;
-  --token-color-highlight-border-on-faint: #ead2fe;
-  --token-color-success-foreground-primary: #008a22;
-  --token-color-success-foreground-on-faint: #00781e;
-  --token-color-success-foreground-high-contrast: #054220;
-  --token-color-success-background-primary: #008a22;
-  --token-color-success-background-hover: #00781e;
-  --token-color-success-background-active: #006619;
-  --token-color-success-background-faint: #f2fbf6;
-  --token-color-success-border-primary: #008a22;
-  --token-color-success-border-on-primary: #00781e;
-  --token-color-success-border-on-hover: #006619;
-  --token-color-success-border-on-faint: #cceeda;
-  --token-color-warning-foreground-primary: #bb5a00;
-  --token-color-warning-foreground-on-faint: #9e4b00;
-  --token-color-warning-foreground-high-contrast: #542800;
-  --token-color-warning-background-primary: #bb5a00;
-  --token-color-warning-background-hover: #9e4b00;
-  --token-color-warning-background-active: #803d00;
-  --token-color-warning-background-faint: #fff9e8;
-  --token-color-warning-border-primary: #bb5a00;
-  --token-color-warning-border-on-primary: #9e4b00;
-  --token-color-warning-border-on-hover: #803d00;
-  --token-color-warning-border-on-faint: #fbeabf;
-  --token-color-critical-foreground-primary: #e52228;
-  --token-color-critical-foreground-on-faint: #c00005;
-  --token-color-critical-foreground-high-contrast: #51130a;
-  --token-color-critical-background-primary: #e52228;
-  --token-color-critical-background-hover: #c00005;
-  --token-color-critical-background-active: #940004;
-  --token-color-critical-background-faint: #fff5f5;
-  --token-color-critical-border-primary: #e52228;
-  --token-color-critical-border-on-primary: #c00005;
-  --token-color-critical-border-on-hover: #940004;
-  --token-color-critical-border-on-faint: #fbd4d4;
-  --token-color-neutral-foreground-primary: #0c0c0e;
-  --token-color-neutral-foreground-secondary: #3b3d45;
-  --token-color-neutral-foreground-faint: #656a76;
-  --token-color-neutral-background-primary: #ffffff;
-  --token-color-neutral-background-secondary: #fafafa;
-  --token-color-neutral-background-base: #ffffff;
-  --token-color-neutral-border-primary: #656a7633;
-  --token-color-neutral-border-faint: #656a761a;
-  --token-color-neutral-border-strong: #3b3d4566;
+  --token-color-action-foreground-primary: #1060ff; /* deprecated: replace with 'color-foreground-action' */
+  --token-color-action-foreground-on-faint: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative' */
+  --token-color-action-foreground-high-contrast: #1c345f; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-primary: #1060ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-hover: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-active: #0046d1; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-faint: #f2f8ff; /* deprecated: replace with 'color-background-action' */
+  --token-color-action-border-primary: #1060ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-border-on-primary: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-border-on-hover: #0046d1; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-border-on-faint: #cce3fe; /* deprecated: replace with 'color-border-action' */
+  --token-color-highlight-foreground-primary: #a737ff; /* deprecated: replace with 'color-foreground-highlight' */
+  --token-color-highlight-foreground-on-faint: #911ced; /* deprecated: replace with 'color-foreground-highlight-on-surface' */
+  --token-color-highlight-foreground-high-contrast: #42215b; /* deprecated: replace with 'color-highlight-high-contrast' */
+  --token-color-highlight-background-primary: #a737ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-background-hover: #911ced; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-background-active: #7b00db; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-background-faint: #f9f2ff; /* deprecated: replace with 'color-background-highlight' */
+  --token-color-highlight-border-primary: #a737ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-border-on-primary: #911ced; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-border-on-hover: #7b00db; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-border-on-faint: #ead2fe; /* deprecated: replace with 'color-border-highlight' */
+  --token-color-success-foreground-primary: #008a22; /* deprecated: replace with 'color-foreground-success' */
+  --token-color-success-foreground-on-faint: #00781e; /* deprecated: replace with 'color-foreground-success-on-surface' */
+  --token-color-success-foreground-high-contrast: #054220; /* deprecated: replace with 'color-foreground-success-high-contrast' */
+  --token-color-success-background-primary: #008a22; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-background-hover: #00781e; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-background-active: #006619; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-background-faint: #f2fbf6; /* deprecated: replace with 'color-background-success' */
+  --token-color-success-border-primary: #008a22; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-border-on-primary: #00781e; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-border-on-hover: #006619; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-border-on-faint: #cceeda; /* deprecated: replace with 'color-border-success' */
+  --token-color-warning-foreground-primary: #bb5a00; /* deprecated: replace with 'color-foreground-warning' */
+  --token-color-warning-foreground-on-faint: #9e4b00; /* deprecated: replace with 'color-foreground-warning-on-surface' */
+  --token-color-warning-foreground-high-contrast: #542800; /* deprecated: replace with 'color-foreground-warning-high-contrast' */
+  --token-color-warning-background-primary: #bb5a00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-background-hover: #9e4b00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-background-active: #803d00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-background-faint: #fff9e8; /* deprecated: replace with 'color-background-warning' */
+  --token-color-warning-border-primary: #bb5a00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-border-on-primary: #9e4b00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-border-on-hover: #803d00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-border-on-faint: #fbeabf; /* deprecated: replace with 'color-border-warning' */
+  --token-color-critical-foreground-primary: #e52228; /* deprecated: replace with 'color-foreground-critical' */
+  --token-color-critical-foreground-on-faint: #c00005; /* deprecated: replace with 'color-foreground-critical-on-surface' */
+  --token-color-critical-foreground-high-contrast: #51130a; /* deprecated: replace with 'color-foreground-critical-high-contrast' */
+  --token-color-critical-background-primary: #e52228; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-background-hover: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-background-active: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-background-faint: #fff5f5; /* deprecated: replace with 'color-background-critical' */
+  --token-color-critical-border-primary: #e52228; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-border-on-primary: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-border-on-hover: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-border-on-faint: #fbd4d4; /* deprecated: replace with 'color-border-critical' */
+  --token-color-border-primary: #656a7633;
+  --token-color-border-faint: #656a761a;
+  --token-color-border-strong: #3b3d4566;
+  --token-color-border-action: #cce3fe;
+  --token-color-border-highlight: #ead2fe;
+  --token-color-border-success: #cceeda;
+  --token-color-border-warning: #fbeabf;
+  --token-color-border-critical: #fbd4d4;
+  --token-color-focus-action-internal: #0c56e9;
+  --token-color-focus-action-external: #5990ff; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-focus-critical-internal: #c00005;
+  --token-color-focus-critical-external: #dd7578; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-foreground-strong: #0c0c0e;
+  --token-color-foreground-primary: #3b3d45;
+  --token-color-foreground-faint: #656a76;
+  --token-color-foreground-high-contrast: #ffffff;
+  --token-color-foreground-disabled: #8c909c;
+  --token-color-foreground-action: #1060ff;
+  --token-color-foreground-action-hover: #0c56e9;
+  --token-color-foreground-action-active: #0046d1;
+  --token-color-foreground-highlight: #a737ff;
+  --token-color-foreground-highlight-on-surface: #911ced;
+  --token-color-foreground-highlight-high-contrast: #42215b;
+  --token-color-foreground-success: #008a22;
+  --token-color-foreground-success-on-surface: #00781e;
+  --token-color-foreground-success-high-contrast: #054220;
+  --token-color-foreground-warning: #bb5a00;
+  --token-color-foreground-warning-on-surface: #9e4b00;
+  --token-color-foreground-warning-high-contrast: #542800;
+  --token-color-foreground-critical: #e52228;
+  --token-color-foreground-critical-on-surface: #c00005;
+  --token-color-foreground-critical-high-contrast: #51130a;
+  --token-color-neutral-foreground-primary: #0c0c0e; /* deprecated: replace with 'token-color-foreground-primary' */
+  --token-color-neutral-foreground-secondary: #3b3d45; /* deprecated: replace with 'token-color-foreground-secondary' */
+  --token-color-neutral-foreground-faint: #656a76; /* deprecated: replace with 'token-color-foreground-faint' */
+  --token-color-neutral-background-primary: #ffffff; /* deprecated: replace with 'token-color-background-primary' */
+  --token-color-neutral-background-secondary: #fafafa; /* deprecated: replace with 'token-color-background-secondary' */
+  --token-color-neutral-background-base: #ffffff; /* deprecated: replace with 'token-color-surface-primary' */
+  --token-color-neutral-border-primary: #656a7633; /* deprecated: replace with 'token-color-border-primary' */
+  --token-color-neutral-border-faint: #656a761a; /* deprecated: replace with 'token-color-border-faint' */
+  --token-color-neutral-border-strong: #3b3d4566; /* deprecated: replace with 'token-color-border-strong' */
+  --token-color-page-primary: #ffffff;
+  --token-color-page-faint: #fafafa;
+  --token-color-surface-primary: #ffffff;
+  --token-color-surface-faint: #fafafa;
+  --token-color-surface-strong: #f1f2f3;
+  --token-color-surface-interactive: #ffffff;
+  --token-color-surface-interactive-hover: #f1f2f3;
+  --token-color-surface-interactive-active: #dedfe3;
+  --token-color-surface-interactive-disabled: #fafafa;
+  --token-color-surface-action: #f2f8ff;
+  --token-color-surface-highlight: #f9f2ff;
+  --token-color-surface-success: #f2fbf6;
+  --token-color-surface-warning: #fff9e8;
+  --token-color-surface-critical: #fff5f5;
   --token-color-hashicorp-brand: #000000;
   --token-color-boundary-brand: #f24c53;
   --token-color-boundary-foreground: #cf2d32;
-  --token-color-boundary-background: #ffecec;
+  --token-color-boundary-surface: #ffecec;
   --token-color-boundary-border: #fbd7d8;
   --token-color-boundary-gradient-primary-start: #f97076;
   --token-color-boundary-gradient-primary-stop: #db363b;
@@ -121,7 +167,7 @@
   --token-color-boundary-gradient-faint-stop: #ffecec;
   --token-color-consul-brand: #e03875;
   --token-color-consul-foreground: #d01c5b;
-  --token-color-consul-background: #ffe9f1;
+  --token-color-consul-surface: #ffe9f1;
   --token-color-consul-border: #ffcede;
   --token-color-consul-gradient-primary-start: #ff99be;
   --token-color-consul-gradient-primary-stop: #da306e;
@@ -130,7 +176,7 @@
   --token-color-hcp-brand: #000000;
   --token-color-nomad-brand: #06d092;
   --token-color-nomad-foreground: #008661;
-  --token-color-nomad-background: #d3fdeb;
+  --token-color-nomad-surface: #d3fdeb;
   --token-color-nomad-border: #bff3dd;
   --token-color-nomad-gradient-primary-start: #bff3dd;
   --token-color-nomad-gradient-primary-stop: #60dea9;
@@ -138,7 +184,7 @@
   --token-color-nomad-gradient-faint-stop: #d3fdeb;
   --token-color-packer-brand: #02a8ef;
   --token-color-packer-foreground: #007eb4;
-  --token-color-packer-background: #d4f2ff;
+  --token-color-packer-surface: #d4f2ff;
   --token-color-packer-border: #b4e4ff;
   --token-color-packer-gradient-primary-start: #b4e4ff;
   --token-color-packer-gradient-primary-stop: #63d0ff;
@@ -146,7 +192,7 @@
   --token-color-packer-gradient-faint-stop: #d4f2ff;
   --token-color-terraform-brand: #7b42bc;
   --token-color-terraform-foreground: #773cb4;
-  --token-color-terraform-background: #f4ecff;
+  --token-color-terraform-surface: #f4ecff;
   --token-color-terraform-border: #ebdbfc;
   --token-color-terraform-gradient-primary-start: #bb8deb;
   --token-color-terraform-gradient-primary-stop: #844fba;
@@ -154,7 +200,7 @@
   --token-color-terraform-gradient-faint-stop: #f4ecff;
   --token-color-vagrant-brand: #1868f2;
   --token-color-vagrant-foreground: #1c61d8;
-  --token-color-vagrant-background: #d6ebff;
+  --token-color-vagrant-surface: #d6ebff;
   --token-color-vagrant-border: #c7dbfc;
   --token-color-vagrant-gradient-primary-start: #c7dbfc;
   --token-color-vagrant-gradient-primary-stop: #7dadff;
@@ -163,7 +209,7 @@
   --token-color-vault-brand: #ffd814;
   --token-color-vault-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-foreground: #9a6f00;
-  --token-color-vault-background: #fff9cf;
+  --token-color-vault-surface: #fff9cf;
   --token-color-vault-border: #feec7b;
   --token-color-vault-gradient-primary-start: #feec7b;
   --token-color-vault-gradient-primary-stop: #ffe543;
@@ -171,7 +217,7 @@
   --token-color-vault-gradient-faint-stop: #fff9cf;
   --token-color-waypoint-brand: #14c6cb;
   --token-color-waypoint-foreground: #008196;
-  --token-color-waypoint-background: #e0fcff;
+  --token-color-waypoint-surface: #e0fcff;
   --token-color-waypoint-border: #cbf1f3;
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
