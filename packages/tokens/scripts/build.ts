@@ -112,9 +112,9 @@ const targets: ConfigTargets = {
     'devdot': {
         'source': [
             `src/global/**/*.json`,
-            `src/products/shared/**/*.json`
+            `src/products/shared/**/*.json`,
             // just uncomment the line below to include overrides for "devdot" tokens
-            // `src/devdot/**/*.json`
+            `src/devdot/**/*.json`
         ],
         'transformGroup': 'products/web',
     }

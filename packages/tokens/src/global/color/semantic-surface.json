@@ -6,17 +6,17 @@
                 "type": "color",
                 "group": "semantic"
             },
-            "secondary": {
+            "faint": {
                 "value": "{color.palette.neutral-50.value}",
                 "type": "color",
                 "group": "semantic"
             },
-            "tertiary": {
+            "strong": {
                 "value": "{color.palette.neutral-100.value}",
                 "type": "color",
                 "group": "semantic"
             },
-            "interactive-rested": {
+            "interactive": {
                 "value": "{color.palette.neutral-0.value}",
                 "type": "color",
                 "group": "semantic"
