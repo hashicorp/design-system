@@ -12,7 +12,7 @@
   <h3 class="dummy-h3">Semantic</h3>
 
   <h4 class="dummy-h4">Foreground</h4>
-  <p class="dummy-paragraph">TODO.</p>
+  <p class="dummy-paragraph">Use for text and icons.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.foreground as |color|}}
       <DummyColorCard @color={{color}} />
@@ -22,7 +22,7 @@
   </div>
 
   <h4 class="dummy-h4">Surface</h4>
-  <p class="dummy-paragraph">TODO.</p>
+  <p class="dummy-paragraph">Use for container and component backgrounds.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.surface as |color|}}
       <DummyColorCard @color={{color}} />
@@ -32,7 +32,8 @@
   </div>
 
   <h4 class="dummy-h4">Border</h4>
-  <p class="dummy-paragraph">TODO.</p>
+  <p class="dummy-paragraph">Use for container and component borders. Neutral values can also be used for horizontal
+    rules.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.border as |color|}}
       <DummyColorCard @color={{color}} />
@@ -42,7 +43,9 @@
   </div>
 
   <h4 class="dummy-h4">Focus</h4>
-  <p class="dummy-paragraph">TODO.</p>
+  <p class="dummy-paragraph">Use to indicate an element is in a focused state. Critical values for critical actions
+    only, Action values for everything else.
+    <em>Notice: they're used internally by the design system to define focus states</em>.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.focus as |color|}}
       <DummyColorCard @color={{color}} />
@@ -52,7 +55,7 @@
   </div>
 
   <h4 class="dummy-h4">Page</h4>
-  <p class="dummy-paragraph">TODO.</p>
+  <p class="dummy-paragraph">Use for page backgrounds.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.page as |color|}}
       <DummyColorCard @color={{color}} />
