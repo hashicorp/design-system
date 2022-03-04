@@ -147,4 +147,39 @@
       {{/each}}
     {{/each}}
   </div>
+
+  <h4 class="dummy-h4">Containers</h4>
+  <div class="dummy-button-containers-list">
+    <div>
+      <span class="dummy-text-small">Parent with <code>display: inline-block</code></span>
+      <br />
+      <div class="dummy-button-containers-list-item__inline-block">
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code>display: inline-flex</code></span>
+      <br />
+      <div class="dummy-button-containers-list-item__inline-flex">
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code>flex-grow: 0</code></span>
+      <br />
+      <div class="dummy-button-containers-list-item__flex">
+        <div class="dummy-button-containers-list-item__flex-grow-0">
+          <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code>max-width: fit-content</code></span>
+      <br />
+      <div class="dummy-button-containers-list-item__max-width-fit-content">
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+      </div>
+    </div>
+  </div>
+
 </section>
