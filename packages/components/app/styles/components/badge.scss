@@ -91,8 +91,8 @@ $size-props: (
 
 .hds-badge--color-neutral {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-surface-tertiary);
-    color: var(--token-color-foreground-secondary);
+    background-color: var(--token-color-surface-strong);
+    color: var(--token-color-foreground-primary);
   }
 
   &.hds-badge--type-inverted {
@@ -103,7 +103,7 @@ $size-props: (
   &.hds-badge--type-outlined {
     background-color: transparent;
     border-color: var(--token-color-foreground-faint);
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-color-foreground-primary);
   }
 }
 
@@ -114,8 +114,8 @@ $size-props: (
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-surface-secondary);
-    color: var(--token-color-foreground-secondary);
+    background-color: var(--token-color-surface-faint);
+    color: var(--token-color-foreground-primary);
   }
 
   &.hds-badge--type-outlined {

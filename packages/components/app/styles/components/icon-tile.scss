@@ -42,7 +42,7 @@
 .hds-icon-tile__extra-icon {
   display: flex;
   margin: auto;
-  color: var(--token-color-foreground-primary);
+  color: var(--token-color-foreground-strong);
 }
 
 // SIZE
@@ -121,7 +121,7 @@ $size-props: (
 .hds-icon-tile--icon {
 
   &.hds-icon-tile--color-neutral {
-    background-color: var(--token-color-surface-secondary);
+    background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
     color: var(--token-color-foreground-faint);
   }
@@ -130,7 +130,7 @@ $size-props: (
     @if ($product == 'hcp') {
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
       &.hds-icon-tile--color-hcp {
-        background-color: var(--token-color-surface-secondary);
+        background-color: var(--token-color-surface-faint);
         border-color: var(--token-color-border-primary);
         color: var(--token-color-palette-#{$product}-brand);
       }

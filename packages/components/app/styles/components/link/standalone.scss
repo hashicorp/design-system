@@ -119,7 +119,7 @@ $size-props: (
 
   &:active,
   &.is-active {
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-color-foreground-primary);
 
     .hds-link-standalone__text {
       text-decoration-color: #6E7075; // custom color by design

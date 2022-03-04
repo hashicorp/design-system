@@ -37,7 +37,7 @@ $hds-button-focus-border-width: 3px;
   &:disabled:hover,
   &[disabled]:hover,
   &.is-disabled:hover {
-    background-color: var(--token-color-surface-secondary);
+    background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
     color: var(--token-color-foreground-disabled);
@@ -181,15 +181,15 @@ $size-props: (
 }
 
 .hds-button--color-secondary {
-  background-color: var(--token-color-surface-secondary);
+  background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-border-strong);
-  color: var(--token-color-foreground-secondary);
+  color: var(--token-color-foreground-primary);
 
   &:focus,
   &.is-focus {
-    background-color: var(--token-color-surface-secondary);
+    background-color: var(--token-color-surface-faint);
     border-color: var(--token-focus-ring-internal-color);
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-color-foreground-primary);
     &::before {
       border-color: var(--token-focus-ring-external-color);
     }
@@ -198,7 +198,7 @@ $size-props: (
   &.is-hover {
     background-color: var(--token-color-surface-primary);
     border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-color-foreground-primary);
     cursor: pointer;
   }
   &:active,
@@ -206,7 +206,7 @@ $size-props: (
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
     box-shadow: none;
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-color-foreground-primary);
     &::before {
       border-color: transparent;
     }

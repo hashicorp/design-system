@@ -63,8 +63,8 @@ $size-props: (
 
 .hds-badge-count--color-neutral {
   &.hds-badge-count--type-filled {
-    background-color: var(--token-color-surface-tertiary);
-    color: var(--token-color-foreground-secondary);
+    background-color: var(--token-color-surface-strong);
+    color: var(--token-color-foreground-primary);
   }
 
   &.hds-badge-count--type-inverted {
@@ -75,7 +75,7 @@ $size-props: (
   &.hds-badge-count--type-outlined {
     background-color: transparent;
     border-color: var(--token-color-foreground-faint);
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-color-foreground-primary);
   }
 }
 
@@ -86,8 +86,8 @@ $size-props: (
   }
 
   &.hds-badge-count--type-inverted {
-    background-color: var(--token-color-surface-secondary);
-    color: var(--token-color-foreground-secondary);
+    background-color: var(--token-color-surface-faint);
+    color: var(--token-color-foreground-primary);
   }
 
   &.hds-badge-count--type-outlined {
