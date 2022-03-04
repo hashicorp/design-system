@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 22 Feb 2022 18:50:59 GMT
+ * Generated on Fri, 04 Mar 2022 17:16:48 GMT
  */
 
 .hds-border-primary { border: 1px solid var(--token-color-border-primary); }
@@ -11,15 +11,14 @@
 .hds-border-success { border: 1px solid var(--token-color-border-success); }
 .hds-border-warning { border: 1px solid var(--token-color-border-warning); }
 .hds-border-critical { border: 1px solid var(--token-color-border-critical); }
+.hds-foreground-strong { color: var(--token-color-foreground-strong); }
 .hds-foreground-primary { color: var(--token-color-foreground-primary); }
-.hds-foreground-secondary { color: var(--token-color-foreground-secondary); }
 .hds-foreground-faint { color: var(--token-color-foreground-faint); }
 .hds-foreground-high-contrast { color: var(--token-color-foreground-high-contrast); }
 .hds-foreground-disabled { color: var(--token-color-foreground-disabled); }
 .hds-foreground-action { color: var(--token-color-foreground-action); }
 .hds-foreground-action-hover { color: var(--token-color-foreground-action-hover); }
 .hds-foreground-action-active { color: var(--token-color-foreground-action-active); }
-.hds-foreground-action-visited { color: var(--token-color-foreground-action-visited); }
 .hds-foreground-highlight { color: var(--token-color-foreground-highlight); }
 .hds-foreground-highlight-on-surface { color: var(--token-color-foreground-highlight-on-surface); }
 .hds-foreground-highlight-high-contrast { color: var(--token-color-foreground-highlight-high-contrast); }
@@ -32,12 +31,13 @@
 .hds-foreground-critical { color: var(--token-color-foreground-critical); }
 .hds-foreground-critical-on-surface { color: var(--token-color-foreground-critical-on-surface); }
 .hds-foreground-critical-high-contrast { color: var(--token-color-foreground-critical-high-contrast); }
+.hds-foreground-action-visited { color: var(--token-color-foreground-action-visited); }
 .hds-page-primary { background-color: var(--token-color-page-primary); }
-.hds-page-secondary { background-color: var(--token-color-page-secondary); }
+.hds-page-faint { background-color: var(--token-color-page-faint); }
 .hds-surface-primary { background-color: var(--token-color-surface-primary); }
-.hds-surface-secondary { background-color: var(--token-color-surface-secondary); }
-.hds-surface-tertiary { background-color: var(--token-color-surface-tertiary); }
-.hds-surface-interactive-rested { background-color: var(--token-color-surface-interactive-rested); }
+.hds-surface-faint { background-color: var(--token-color-surface-faint); }
+.hds-surface-strong { background-color: var(--token-color-surface-strong); }
+.hds-surface-interactive { background-color: var(--token-color-surface-interactive); }
 .hds-surface-interactive-hover { background-color: var(--token-color-surface-interactive-hover); }
 .hds-surface-interactive-active { background-color: var(--token-color-surface-interactive-active); }
 .hds-surface-interactive-disabled { background-color: var(--token-color-surface-interactive-disabled); }
