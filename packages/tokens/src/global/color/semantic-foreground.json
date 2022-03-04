@@ -1,12 +1,12 @@
 {
     "color": {
         "foreground": {
-            "primary": {
+            "strong": {
                 "value": "{color.palette.neutral-700.value}",
                 "type": "color",
                 "group": "semantic"
             },
-            "secondary": {
+            "primary": {
                 "value": "{color.palette.neutral-600.value}",
                 "type": "color",
                 "group": "semantic"
@@ -38,11 +38,6 @@
             },
             "action-active": {
                 "value": "{color.palette.blue-400.value}",
-                "type": "color",
-                "group": "semantic"
-            },
-            "action-visited": {
-                "value": "{color.palette.purple-200.value}",
                 "type": "color",
                 "group": "semantic"
             },

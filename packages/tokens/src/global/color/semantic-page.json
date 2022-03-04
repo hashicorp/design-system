@@ -6,7 +6,7 @@
                 "type": "color",
                 "group": "semantic"
             },
-            "secondary": {
+            "faint": {
                 "value": "{color.palette.neutral-50.value}",
                 "type": "color",
                 "group": "semantic"
