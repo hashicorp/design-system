@@ -31,6 +31,12 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
 
+    await visit('/components/link');
+    await percySnapshot('Link Standalone');
+
+    await visit('/components/link-to');
+    await percySnapshot('LinkTo Standalone');
+
     assert.ok(true);
   });
 });
