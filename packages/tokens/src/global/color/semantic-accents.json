@@ -44,7 +44,7 @@
                     "value": "{color.palette.blue-50.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'color-background-action'"
+                    "comment": "deprecated: replace with 'color-surface-action'"
                 }
             },
             "border": {
@@ -118,7 +118,7 @@
                     "value": "{color.palette.purple-50.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'color-background-highlight'"
+                    "comment": "deprecated: replace with 'color-surface-highlight'"
                 }
             },
             "border": {
@@ -192,7 +192,7 @@
                     "value": "{color.palette.green-50.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'color-background-success'"
+                    "comment": "deprecated: replace with 'color-surface-success'"
                 }
             },
             "border": {
@@ -266,7 +266,7 @@
                     "value": "{color.palette.amber-50.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'color-background-warning'"
+                    "comment": "deprecated: replace with 'color-surface-warning'"
                 }
             },
             "border": {
@@ -340,7 +340,7 @@
                     "value": "{color.palette.red-50.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'color-background-critical'"
+                    "comment": "deprecated: replace with 'color-surface-critical'"
                 }
             },
             "border": {

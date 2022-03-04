@@ -6,13 +6,13 @@
                     "value": "{color.palette.neutral-700.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'token-color-foreground-primary'"
+                    "comment": "deprecated: replace with 'token-color-foreground-strong'"
                 },
                 "secondary": {
                     "value": "{color.palette.neutral-600.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'token-color-foreground-secondary'"
+                    "comment": "deprecated: replace with 'token-color-foreground-primary'"
                 },
                 "faint": {
                     "value": "{color.palette.neutral-500.value}",
@@ -26,13 +26,13 @@
                     "value": "{color.palette.neutral-0.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'token-color-background-primary'"
+                    "comment": "deprecated: replace with 'token-color-surface-primary'"
                 },
                 "secondary": {
                     "value": "{color.palette.neutral-50.value}",
                     "type": "color",
                     "deprecated": true,
-                    "comment": "deprecated: replace with 'token-color-background-secondary'"
+                    "comment": "deprecated: replace with 'token-color-surface-faint'"
                 },
                 "base": {
                     "value": "{color.palette.neutral-0.value}",
