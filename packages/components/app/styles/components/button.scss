@@ -188,7 +188,7 @@ $size-props: (
   &:focus,
   &.is-focus {
     background-color: var(--token-color-surface-faint);
-    border-color: var(--token-focus-ring-internal-color);
+    border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-primary);
     &::before {
       border-color: var(--token-color-focus-action-external);
