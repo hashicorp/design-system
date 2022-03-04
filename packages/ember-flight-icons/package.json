@@ -54,10 +54,7 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test",
-    "bump": "./node_modules/.bin/bump package.json",
-    "release": "yarn publish --new-version $npm_package_version",
-    "postrelease": "TAG_VERSION=\"@hashicorp/ember-flight-icons/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION"
+    "test:ember:percy": "percy exec ember test"
   },
   "dependencies": {
     "@hashicorp/flight-icons": "^2.1.1",
@@ -102,7 +99,6 @@
     "prettier": "^2.5.1",
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
-    "version-bump-prompt": "^6.1.0",
     "webpack": "^5.65.0"
   },
   "peerDependencies": {
