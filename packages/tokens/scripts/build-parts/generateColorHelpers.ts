@@ -33,6 +33,8 @@ export function generateColorHelpers(tokens: TransformedToken[]): Helpers {
         } else if (group === 'palette') {
             // TODO!
             // do we want people to use palette colors directly as CSS helpers?
+        } else if (group === 'focus') {
+            // we don't want to expose them as helpers (they're related to a11y, so we don't want users to mess up with them)
         } else if (['neutral', 'action', 'highlight', 'success', 'warning', 'critical'].includes(group)) {
             // THESE ARE THE OLD COLOR GROUPS, WE SKIP THEM
         } else {
