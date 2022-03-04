@@ -10,7 +10,7 @@
     display: grid;
     grid-row-gap: 0.5rem;
     grid-template-columns: auto auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     justify-content: space-between;
     max-width: 600px;
     padding: 20px;
@@ -28,11 +28,26 @@
     line-height: 1;
 }
 
-.dummy-color-card__token-name {
+.dummy-color-card__css {
     font-size: 0.8rem;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     line-height: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0.5rem 0 0 0;
+        padding: 0;
+    }
+
+    span {
+        @include dummyFontFamily();
+        display: inline-block;
+        opacity: 0.5;
+        width: 85px;
+    }
 }
 
 .dummy-color-card__color-value {

@@ -6,8 +6,12 @@ export default class DummyColorCardIndexComponent extends Component {
     return this.args.color.colorName;
   }
 
-  get tokenName() {
-    return this.args.color.tokenName;
+  get cssVariable() {
+    return this.args.color.cssVariable;
+  }
+
+  get cssHelper() {
+    return this.args.color.cssHelper ?? false;
   }
 
   get colorValue() {

@@ -1,5 +1,16 @@
 <div class="dummy-color-card" style={{this.cardStyle}}>
   <div class="dummy-color-card__color-name">{{this.colorName}}</div>
-  <code class="dummy-color-card__token-name">--{{this.tokenName}}</code>
+  <ul class="dummy-color-card__css">
+    <li>
+      <span>CSS variable: </span>
+      <code>--{{this.cssVariable}}</code>
+    </li>
+    {{#if this.cssHelper}}
+      <li>
+        <span>CSS helper:</span>
+        <code>.{{this.cssHelper}}</code>
+      </li>
+    {{/if}}
+  </ul>
   <code class="dummy-color-card__color-value">{{this.colorValue}}</code>
 </div>

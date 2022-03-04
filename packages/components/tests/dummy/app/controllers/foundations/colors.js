@@ -18,8 +18,8 @@ export default class ColorsController extends Controller {
               colors['palette'][tone] = [];
             }
             colors['palette'][tone].push({
-              tokenName: token.name,
               colorName: token.path[2],
+              cssVariable: token.name,
               value: token.value,
             });
           } else if (token.group === 'semantic') {
@@ -27,19 +27,24 @@ export default class ColorsController extends Controller {
             if (!colors['semantic'][context]) {
               colors['semantic'][context] = [];
             }
-            colors['semantic'][context].push({
-              tokenName: token.name,
+            const tokenObj = {
               colorName: `${token.path[1]}-${token.path[2]}`,
+              cssVariable: token.name,
               value: token.value,
-            });
+            };
+            if (['foreground', 'page', 'surface', 'border'].includes(context)) {
+              const name = token.path[2];
+              tokenObj.cssHelper = `hds-${context}-${name}`;
+            }
+            colors['semantic'][context].push(tokenObj);
           } else if (token.group === 'branding') {
             const brand = token.path[1];
             if (!colors['branding'][brand]) {
               colors['branding'][brand] = [];
             }
             colors['branding'][brand].push({
-              tokenName: token.name,
               colorName: `${token.path[1]}-${token.path[2]}`,
+              cssVariable: token.name,
               value: token.value,
             });
           } else {
