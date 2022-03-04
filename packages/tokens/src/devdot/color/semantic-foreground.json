@@ -4,6 +4,7 @@
             "action-visited": {
                 "value": "{color.palette.purple-200.value}",
                 "type": "color",
+                "group": "semantic",
                 "comment": "This extra color is unique for the DevDot platform (the 'visited' state of a link is not differentiated in the products applications)."
             }
         }
