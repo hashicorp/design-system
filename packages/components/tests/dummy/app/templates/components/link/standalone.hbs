@@ -3,6 +3,7 @@
 <h2 class="dummy-h2">
   Link (Standalone)
 </h2>
+
 <section>
   <ul>
     <li>
@@ -198,7 +199,7 @@
   </h4>
   <div class="dummy-link-base-sample">
     {{#each @model.SIZES as |size|}}
-      <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+      <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
     {{/each}}
   </div>
   <h4 class="dummy-h4">
