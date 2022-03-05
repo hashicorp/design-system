@@ -74,7 +74,195 @@
 
 <section>
   <h3 class="dummy-h3">Usage</h3>
-  <ButtonDoc />
+  <p class="dummy-paragraph">
+    The button component is used to trigger an action or event. They should not be used to route to a URL. This
+    component supports
+    <strong>...attributes</strong>
+    .
+  </p>
+
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">The most basic invocation requires text to be passed:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" />
+
+  <h4 class="dummy-h4">Add an icon</h4>
+  <p class="dummy-paragraph">To add an icon to your button, give the
+    <strong>@icon</strong>
+    a
+    <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
+    name:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
+
+  <h4 class="dummy-h4">Icon position</h4>
+  <p class="dummy-paragraph">By default, if you define an icon, it is placed before the text. If you would like to
+    position the icon after the text, define
+    <strong>@iconPosition</strong>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
+
+  <h4 class="dummy-h4">Icon-only button</h4>
+  <p class="dummy-paragraph">If you would like to create an icon-only button, set
+    <strong>@isIconOnly</strong>
+    to
+    <strong>true</strong>. Note that you still have to define the
+    <strong>@text</strong>
+    value; it will be used as the
+    <strong>aria-label</strong>
+    attribute value on the
+    <strong>button</strong>
+    element.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />
+
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">
+    There are three available colors for a button: primary, secondary, and destructive. The default is primary. To use a
+    different color, declare another value for
+    <strong>@color</strong>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Destructive" @color="destructive" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <Hds::Button @text="Primary action" />
+  <br />
+  <Hds::Button @text="Secondary action" @color="secondary" />
+  <br />
+  <Hds::Button @text="Destructive action" @color="destructive" />
+
+  <h4 class="dummy-h4">Size</h4>
+  <p class="dummy-paragraph">
+    There are three sizes available for buttons: small, medium and large. The default is medium. To use a different
+    size, declare a value for
+    <strong>@size</strong>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Large button" @size="large" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to (with icons):</p>
+  <Hds::Button @text="Small button" @size="small" @icon="clipboard-copy" />
+  <br />
+  <Hds::Button @text="Medium button" @icon="clipboard-copy" />
+  <br />
+  <Hds::Button @text="Large button" @size="large" @icon="clipboard-copy" />
+
+  <h4 class="dummy-h4">Type</h4>
+  <p class="dummy-paragraph">This is the native button attribute,
+    <strong>type</strong>. There are three possible values: button, submit, and reset. If the button is used inside of a
+    form, its type should be submit. The default for the button type is button. To use a different value, declare a
+    different value for
+    <strong>@type</strong>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Submit" @type="submit" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">Disabled buttons</h4>
+  <p class="dummy-paragraph">This is the native button attribute,
+    <strong>disabled</strong>. To use this attribute, set
+    <strong>@isDisabled</strong>
+    to
+    <strong>true</strong>. The default is null, which means that the attribute will not render at all in the DOM.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" @isDisabled=true />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" @isDisabled={{true}} />
+
+  <h4 class="dummy-h4">Full-width buttons</h4>
+  <p class="dummy-paragraph">
+    This allows indication that a button should take up the full-width of the parent container. It is set to false by
+    default.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
+
+  <h4 class="dummy-h4">Actions</h4>
+  <p class="dummy-paragraph">
+    Define the action in your route or controller, and add it to the component invocation in your template:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" &lbrace;&lbrace;on "click" this.copyToClipboard&rbrace;&rbrace; />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Read the Ember.js guides for more information:
+    <a
+      href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Patterns for Actions
+    </a>.
+  </p>
 </section>
 
 <section>
