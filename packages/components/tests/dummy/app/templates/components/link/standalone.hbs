@@ -5,11 +5,22 @@
 </h2>
 
 <section>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">The Link (Standalone) component handles generation of an HTML anchor element (<strong
+    >&lt;a&gt;</strong>) and automatically adds
+    <strong>target="_blank" rel="noopener noreferrer"</strong>
+    .
+  </p>
+  <p class="dummy-paragraph">
+    What do we mean by the name
+    <strong>Link (Standalone)</strong>? It's a link that's used in isolation, meaning it's not inline with adjacent
+    text.
+    <em>Note: Solutions for Link (Inline) are coming soon.</em>
+  </p>
   <ul>
-    <li>
-      The component handles generation of an HTML anchor element and automatically adds
-      <strong>target="_blank" rel="noopener noreferrer"</strong>.
-    </li>
     <li>
       Manually add the
       <strong>href</strong>
@@ -24,6 +35,27 @@
       defined.
     </li>
   </ul>
+
+  <h4 class="dummy-h4">Example of Link (Standalone):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
+    <br />
+    <Hds::Link::Standalone
+      @text="Hey, this link is a Link (Standalone)"
+      href="/"
+      @icon="external-link"
+      @iconPosition="trailing"
+    />
+  </div>
+
+  <h4 class="dummy-h4">Example of Link (Inline):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a
+      <a href="#">Link (Inline)</a>, coming soon to HDS.
+      <a href="#">And another Link (Inline)</a></p>
+  </div>
 </section>
 
 <section>
