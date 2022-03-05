@@ -6,7 +6,7 @@
     "hashicorp",
     "figma"
   ],
-  "repository": "https://github.com/hashicorp/design-system",
+  "repository": "https://github.com/hashicorp/design-system/packages/figma-scripting",
   "private": true,
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>"
