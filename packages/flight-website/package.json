@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Flight Icons Mircosite",
-  "repository": "https://github.com/hashicorp/flight/website",
+  "repository": "https://github.com/hashicorp/design-system/packages/flight-website",
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
