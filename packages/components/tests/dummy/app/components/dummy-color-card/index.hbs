@@ -1,6 +1,7 @@
 <div class="dummy-color-card" style={{this.cardStyle}}>
+  <div class="dummy-color-card__color-preview"></div>
   <div class="dummy-color-card__color-name">{{this.colorName}}</div>
-  <ul class="dummy-color-card__css">
+  <ul class="dummy-color-card__color-vars">
     <li>
       <span>CSS variable: </span>
       <code>--{{this.cssVariable}}</code>
@@ -11,6 +12,9 @@
         <code>.{{this.cssHelper}}</code>
       </li>
     {{/if}}
+    <li>
+      <span>HEX value:</span>
+      <code>{{this.hexValue}}</code>
+    </li>
   </ul>
-  <code class="dummy-color-card__color-value">{{this.colorValue}}</code>
 </div>

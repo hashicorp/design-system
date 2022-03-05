@@ -5,37 +5,39 @@
 }
 
 .dummy-color-card {
-    box-shadow: rgb(0 0 0 / 50%) 0px 0px 1px inset;
-    border-radius: 10px;
-    display: grid;
-    grid-row-gap: 0.5rem;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    justify-content: space-between;
     max-width: 600px;
-    padding: 20px;
+    padding: 20px 20px 20px 160px;
     position: relative;
     width: 100%;
 
     & + & { margin-top: 0.5rem; }
 }
 
+.dummy-color-card__color-preview {
+    box-shadow: rgb(0 0 0 / 50%) 0px 0px 1px inset;
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    width: 140px;
+    background-color: currentColor;
+}
+
 .dummy-color-card__color-name {
     @include dummyFontFamily();
     font-size: 1rem;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
     line-height: 1;
+    color: #000;
 }
 
-.dummy-color-card__css {
+.dummy-color-card__color-vars {
     font-size: 0.8rem;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
     line-height: 1;
     list-style: none;
-    margin: 0;
+    margin: 1rem 0 0 0;
     padding: 0;
+    color: #000;
 
     li {
         margin: 0.5rem 0 0 0;
@@ -49,11 +51,3 @@
         width: 85px;
     }
 }
-
-.dummy-color-card__color-value {
-    font-size: 0.9rem;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    line-height: 1;
-}
-
