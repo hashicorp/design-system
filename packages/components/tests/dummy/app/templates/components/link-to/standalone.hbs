@@ -5,10 +5,27 @@
 </h2>
 
 <section>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">The LinkTo (Standalone) component handles generation of an HTML anchor element (<strong
+    >&lt;a&gt;</strong>) and automatically adds
+    <strong>target="_blank" rel="noopener noreferrer"</strong>
+    .
+  </p>
+  <p class="dummy-paragraph">
+    What do we mean by the name
+    <strong>LinkTo (Standalone)</strong>? It's an internal link that's used in isolation, meaning it's not inline with
+    adjacent text.
+    <em>Note: Solutions for LinkTo (Inline) are coming soon.</em>
+  </p>
+
   <ul>
     <li>
-      This is intended for internal app links that are not inline and are used as standalone elements whose destination
-      is a URL.
+      <strong>LinkTo (Standalone)</strong>
+      is intended for internal app links that are not inline and are used as standalone elements whose destination is a
+      URL.
     </li>
     <li>
       It must always have a
@@ -39,6 +56,27 @@
       matters.
     </li>
   </ul>
+
+  <h4 class="dummy-h4">Example of LinkTo (Standalone):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
+    <br />
+    <Hds::LinkTo::Standalone
+      @text="Hey, this link is a LinkTo (Standalone)"
+      @route="index"
+      @icon="external-link"
+      @iconPosition="trailing"
+    />
+  </div>
+
+  <h4 class="dummy-h4">Example of LinkTo (Inline):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a
+      <LinkTo @route="index">LinkTo (Inline)</LinkTo>, coming soon to HDS.
+      <LinkTo @route="index">And another LinkTo (Inline)</LinkTo></p>
+  </div>
 </section>
 
 <section>
@@ -257,4 +295,21 @@
       {{/each}}
     {{/each}}
   </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3">
+    Design guidelines:
+  </h3>
+  {{! template-lint-disable no-inline-styles }}
+  <iframe
+    title="Figma LinkTo (Standalone) docs"
+    style="border: 1px solid rgba(0, 0, 0, 0.1);"
+    width="100%"
+    height="1000"
+    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnoyY6dUMDYjmySpHcMjhkN%2FHDS-Product---Components-%255BWIP%255D%3Fnode-id%3D2365%253A21590%26scaling%3Dmin-zoom%26page-id%3D1377%253A11991"
+    allowfullscreen
+  >
+  </iframe>
+  {{! template-lint-enable no-inline-styles }}
 </section>
