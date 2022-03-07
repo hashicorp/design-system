@@ -6,7 +6,7 @@ export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_TYPE = 'button';
 export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'destructive'];
+export const COLORS = ['primary', 'secondary', 'critical'];
 export const TYPES = ['button', 'submit', 'reset'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
@@ -50,7 +50,7 @@ export default class HdsButtonIndexComponent extends Component {
    * @param color
    * @type {string}
    * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `destructive`
+   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;

@@ -10,9 +10,9 @@
     @language="css"
     @code="
       .your-selector {
-        color: var(--token-color-highlight-foreground-primary);
-        background: var(--token-color-highlight-background-faint);
-        border: 1px solid var(--token-color-highlight-border-primary);
+        color: var(--token-color-foreground-highlight);
+        background: var(--token-color-background-highlight);
+        border: 1px solid var(--token-color-border-highlight);
         font-family: var(--token-typography-body-base-font-family);
         font-size: var(--token-typography-body-base-font-size);
         line-height: var(--token-typography-body-base-line-height);
@@ -25,7 +25,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <FlightIcon @name="alert-circle" @color="var(--token-color-success-foreground-primary)" />
+      <FlightIcon @name="alert-circle" @color="var(--token-color-foreground-success)" />
     '
   />
   <p class="dummy-paragraph">To use the design tokens as CSS variables you have to import the CSS file
@@ -49,12 +49,17 @@
   {{#each-in this.groupedTokens as |category categoryList|}}
     <h4 class="dummy-h4">{{capitalize category}}</h4>
     {{#if (eq category "color")}}
-      <p class="dummy-paragraph">🚨 IMPORTANT 🚨</p>
-      <p class="dummy-paragraph">
-        Semantic color tokens (ie.
-        <code>--token-color-neutral-foreground-faint</code>) are undergoing improvements, so we do not advise adoption
-        of these at this time. We are actively working to finalize this set and should have an update shortly.
-      </p>
+      <div class="dummy-token__details-colors-notice">
+        <p class="dummy-paragraph">🚨 IMPORTANT 🚨</p>
+        <p class="dummy-paragraph">
+          We have recently updated the "semantic" color tokens (ie.
+          <code>--token-color-success-foreground-primary</code>
+          has been renamed
+          <code>--token-color-foreground-success</code>). The old design tokens are still available but are deprecated
+          (they are grayed out in the list below): check what is the new color token to use as alternative, and if none
+          is available please contact the design system team.
+        </p>
+      </div>
     {{/if}}
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
