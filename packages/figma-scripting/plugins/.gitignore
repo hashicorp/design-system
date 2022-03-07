@@ -1,7 +1,6 @@
 .DS_Store
 .env
 node_modules/
-flight-icons/temp
 yarn.log
 
 # Output of `npm pack`, which is an (optional) test for `npm publish`

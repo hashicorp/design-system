@@ -1,0 +1,13 @@
+{
+  "name": "@hashicorp/figma-scripting",
+  "version": "0.0.0",
+  "description": "Collection of Figma scripts",
+  "keywords": [
+    "hashicorp",
+    "figma"
+  ],
+  "repository": "https://github.com/hashicorp/design-system/packages/figma-scripting",
+  "private": true,
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>"
+}
