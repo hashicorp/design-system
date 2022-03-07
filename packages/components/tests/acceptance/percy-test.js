@@ -10,6 +10,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/foundations/elevation');
     await percySnapshot('Elevation');
 
+    await visit('/foundations/colors');
+    await percySnapshot('Colors');
+
     await visit('/foundations/typography');
     await percySnapshot('Typography');
 
