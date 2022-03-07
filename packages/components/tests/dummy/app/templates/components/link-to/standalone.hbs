@@ -241,14 +241,14 @@
         {{#each @model.STATES as |state|}}
           <div>
             <span class="dummy-text-small">
-              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}
-              :
+              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}:
             </span>
             <br />
             <Hds::LinkTo::Standalone
               @icon="plus"
               @text={{capitalize state}}
               @size={{size}}
+              @color={{color}}
               class="is-{{state}}"
               @route="components.link-to"
             />
