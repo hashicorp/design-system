@@ -28,4 +28,7 @@ Router.map(function () {
   this.route('content', function () {
     this.route('writing-guidelines');
   });
+  this.route('utilities', function () {
+    this.route('disclosure');
+  });
 });

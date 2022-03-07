@@ -1,0 +1,36 @@
+// DISCLOSURE
+
+.dummy-disclosure-container {
+    min-height: 120px;
+    outline: 1px dotted #d3d3d3;
+    padding: 20px;
+}
+
+
+.dummy-disclosure-content-list-of-links {
+    border: 1px solid #CCC;
+    list-style: none;
+    margin: 4px 0 0 0;
+    padding: 10px;
+    width: fit-content;
+
+    li {
+        margin: 0;
+        padding: 0;
+
+        & + li {
+            border-top: 1px dotted #ccc;
+        }
+    }
+
+    a {
+        display: block;
+        padding: 5px;
+    }
+}
+
+.dummy-disclosure-button-wrapper {
+    outline: 1px dotted #ccc;
+    padding: 20px;
+}
+
