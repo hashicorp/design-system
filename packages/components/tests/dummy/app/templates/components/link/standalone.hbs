@@ -1,4 +1,5 @@
 {{page-title "Link (Standalone) Component"}}
+
 <h2 class="dummy-h2">
   Link (Standalone)
 </h2>
@@ -6,21 +7,24 @@
   <ul>
     <li>
       The component handles generation of an HTML anchor element and automatically adds
-      <code>target="_blank" rel="noopener noreferrer"</code>.
+      <strong>target="_blank" rel="noopener noreferrer"</strong>.
     </li>
     <li>
-      Manually add the href attribute with the desired value.
+      Manually add the
+      <strong>href</strong>
+      attribute with the desired value.
     </li>
     <li>
       Additional HTML attributes may be added as necessary to configure markup for specific use cases.
     </li>
     <li>
       It must always have a
-      <a href="https://flight-hashicorp.vercel.app/">Flight Icon</a>
+      <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
       defined.
     </li>
   </ul>
 </section>
+
 <section>
   <h3 class="dummy-h3">
     Component API
@@ -107,12 +111,65 @@
     </dd>
   </dl>
 </section>
+
 <section>
   <h3 class="dummy-h3">
     Usage
   </h3>
-  <LinkStandaloneDoc />
+
+  <h4 class="dummy-h4">Basic invocation</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+
+  <h4 class="dummy-h4">Sizes</h4>
+
+  <p class="dummy-paragraph">
+    There are three sizes: small, medium, and large. If no size is defined, medium is automatically applied.
+  </p>
+  <h5 class="dummy-h5">Small</h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="small" />        '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="small" />
+
+  <h5 class="dummy-h5">Medium</h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" />
+
+  <h5 class="dummy-h5">Large</h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="large" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="large" />
 </section>
+
 <section data-test-percy>
   <h3 class="dummy-h3">
     Showcase

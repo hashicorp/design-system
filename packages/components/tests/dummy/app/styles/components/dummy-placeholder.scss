@@ -17,4 +17,9 @@
     line-height: 1.2;
     text-align: center;
     text-shadow: 0px 0px 5px #fff;
+
+    a > .dummy-placeholder & {
+        text-decoration: underline;
+        text-decoration-color: #CCC;
+    }
 }

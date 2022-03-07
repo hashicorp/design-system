@@ -1,0 +1,17 @@
+<div class="hds-disclosure" ...attributes>
+  <div class="hds-disclosure__toggle">
+    {{yield (hash onClickToggle=this.onClickToggle) to="toggle"}}
+  </div>
+  {{#if this.isActive}}
+    <div
+      class="hds-disclosure__content"
+      {{focus-trap
+        isActive=this.isActive
+        shouldSelfFocus=false
+        focusTrapOptions=(hash clickOutsideDeactivates=this.clickOutsideDeactivates onDeactivate=this.onDeactivate)
+      }}
+    >
+      {{yield to="content"}}
+    </div>
+  {{/if}}
+</div>
