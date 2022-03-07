@@ -213,14 +213,14 @@ $size-props: (
   }
 }
 
-.hds-button--color-destructive {
-  background-color: var(--token-color-background-secondary);
-  border-color: var(--token-color-border-strong);
+.hds-button--color-critical {
+  background-color: var(--token-color-surface-critical);
+  border-color: var(--token-color-foreground-critical-on-surface);
   color: var(--token-color-foreground-critical-on-surface);
 
   &:focus,
   &.is-focus {
-    background-color: var(--token-color-background-secondary);
+    background-color: var(--token-color-surface-critical);
     border-color: var(--token-color-focus-critical-internal);
     color: var(--token-color-foreground-critical-on-surface);
     &::before {

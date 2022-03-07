@@ -21,7 +21,7 @@
       <ol>
         <li class="default">primary</li>
         <li>secondary</li>
-        <li>destructive</li>
+        <li>critical</li>
       </ol>
     </dd>
     <dt>text <code>string</code></dt>
@@ -153,7 +153,7 @@
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
-    There are three available colors for a button: primary, secondary, and destructive. The default is primary. To use a
+    There are three available colors for a button: primary, secondary, and critical. The default is primary. To use a
     different color, declare another value for
     <strong>@color</strong>:
   </p>
@@ -161,7 +161,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Button @text="Destructive" @color="destructive" />
+      <Hds::Button @text="Critical" @color="critical" />
     '
   />
   {{! prettier-ignore-end }}
@@ -169,7 +169,7 @@
   <br />
   <Hds::Button @text="Secondary action" @color="secondary" />
   <br />
-  <Hds::Button @text="Destructive action" @color="destructive" />
+  <Hds::Button @text="Critical action" @color="critical" />
 
   <h4 class="dummy-h4">Size</h4>
   <p class="dummy-paragraph">
