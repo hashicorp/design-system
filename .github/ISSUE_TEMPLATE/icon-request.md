@@ -1,10 +1,9 @@
 ---
-name: Icon Request
+name: Icon request
 about: Suggest an icon for Flight
-title: 'Flight Icon Request: [icon-name]'
-labels: enhancement, Icon Request, triage
+title: 'Flight icon request: [icon-name]'
+labels: enhancement, icon request, triage
 assignees: cveigt
-
 ---
 
 **Outline the use case for the new icon.**
