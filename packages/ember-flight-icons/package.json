@@ -9,7 +9,11 @@
     "svg",
     "flight"
   ],
-  "repository": "https://github.com/hashicorp/design-system/packages/ember-flight-icons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "packages/ember-flight-icons"
+  },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
