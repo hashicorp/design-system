@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 04 Mar 2022 17:12:27 GMT
+ * Generated on Mon, 07 Mar 2022 11:14:41 GMT
  */
 
 :root {
@@ -52,7 +52,7 @@
   --token-color-action-background-primary: #1060ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-action-background-hover: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-action-background-active: #0046d1; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
-  --token-color-action-background-faint: #f2f8ff; /* deprecated: replace with 'color-background-action' */
+  --token-color-action-background-faint: #f2f8ff; /* deprecated: replace with 'color-surface-action' */
   --token-color-action-border-primary: #1060ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-action-border-on-primary: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-action-border-on-hover: #0046d1; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
@@ -63,7 +63,7 @@
   --token-color-highlight-background-primary: #a737ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-highlight-background-hover: #911ced; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-highlight-background-active: #7b00db; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
-  --token-color-highlight-background-faint: #f9f2ff; /* deprecated: replace with 'color-background-highlight' */
+  --token-color-highlight-background-faint: #f9f2ff; /* deprecated: replace with 'color-surface-highlight' */
   --token-color-highlight-border-primary: #a737ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-highlight-border-on-primary: #911ced; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-highlight-border-on-hover: #7b00db; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
@@ -74,7 +74,7 @@
   --token-color-success-background-primary: #008a22; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-success-background-hover: #00781e; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-success-background-active: #006619; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
-  --token-color-success-background-faint: #f2fbf6; /* deprecated: replace with 'color-background-success' */
+  --token-color-success-background-faint: #f2fbf6; /* deprecated: replace with 'color-surface-success' */
   --token-color-success-border-primary: #008a22; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-success-border-on-primary: #00781e; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-success-border-on-hover: #006619; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
@@ -85,7 +85,7 @@
   --token-color-warning-background-primary: #bb5a00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-warning-background-hover: #9e4b00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-warning-background-active: #803d00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
-  --token-color-warning-background-faint: #fff9e8; /* deprecated: replace with 'color-background-warning' */
+  --token-color-warning-background-faint: #fff9e8; /* deprecated: replace with 'color-surface-warning' */
   --token-color-warning-border-primary: #bb5a00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-warning-border-on-primary: #9e4b00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-warning-border-on-hover: #803d00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
@@ -96,7 +96,7 @@
   --token-color-critical-background-primary: #e52228; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-critical-background-hover: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-critical-background-active: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
-  --token-color-critical-background-faint: #fff5f5; /* deprecated: replace with 'color-background-critical' */
+  --token-color-critical-background-faint: #fff5f5; /* deprecated: replace with 'color-surface-critical' */
   --token-color-critical-border-primary: #e52228; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-critical-border-on-primary: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
   --token-color-critical-border-on-hover: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
@@ -133,11 +133,11 @@
   --token-color-foreground-critical: #e52228;
   --token-color-foreground-critical-on-surface: #c00005;
   --token-color-foreground-critical-high-contrast: #51130a;
-  --token-color-neutral-foreground-primary: #0c0c0e; /* deprecated: replace with 'token-color-foreground-primary' */
-  --token-color-neutral-foreground-secondary: #3b3d45; /* deprecated: replace with 'token-color-foreground-secondary' */
+  --token-color-neutral-foreground-primary: #0c0c0e; /* deprecated: replace with 'token-color-foreground-strong' */
+  --token-color-neutral-foreground-secondary: #3b3d45; /* deprecated: replace with 'token-color-foreground-primary' */
   --token-color-neutral-foreground-faint: #656a76; /* deprecated: replace with 'token-color-foreground-faint' */
-  --token-color-neutral-background-primary: #ffffff; /* deprecated: replace with 'token-color-background-primary' */
-  --token-color-neutral-background-secondary: #fafafa; /* deprecated: replace with 'token-color-background-secondary' */
+  --token-color-neutral-background-primary: #ffffff; /* deprecated: replace with 'token-color-surface-primary' */
+  --token-color-neutral-background-secondary: #fafafa; /* deprecated: replace with 'token-color-surface-faint' */
   --token-color-neutral-background-base: #ffffff; /* deprecated: replace with 'token-color-surface-primary' */
   --token-color-neutral-border-primary: #656a7633; /* deprecated: replace with 'token-color-border-primary' */
   --token-color-neutral-border-faint: #656a761a; /* deprecated: replace with 'token-color-border-faint' */
