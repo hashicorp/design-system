@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query';
+import { hdsLinkToQuery } from '@hashicorp/design-system-components/helpers/hds-link-to-query';
 import { setupTest } from 'ember-qunit';
 
 module('Unit | Helper | hds-link-to-query', function (hooks) {
