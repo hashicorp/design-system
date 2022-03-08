@@ -3,26 +3,59 @@
 <h2 class="dummy-h2">
   Link (Standalone)
 </h2>
+
 <section>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">The Link (Standalone) component handles generation of an HTML anchor element (<strong
+    >&lt;a&gt;</strong>) and automatically adds
+    <strong>target="_blank" rel="noopener noreferrer"</strong>
+    .
+  </p>
+  <p class="dummy-paragraph">
+    What do we mean by the name
+    <strong>Link (Standalone)</strong>? It's a link that's used in isolation, meaning it's not inline with adjacent
+    text.
+    <em>Note: Solutions for Link (Inline) are coming soon.</em>
+  </p>
   <ul>
-    <li>
-      The component handles generation of an HTML anchor element and automatically adds
-      <strong>target="_blank" rel="noopener noreferrer"</strong>.
-    </li>
-    <li>
+    <li class="dummy-paragraph">
       Manually add the
       <strong>href</strong>
       attribute with the desired value.
     </li>
-    <li>
+    <li class="dummy-paragraph">
       Additional HTML attributes may be added as necessary to configure markup for specific use cases.
     </li>
-    <li>
+    <li class="dummy-paragraph">
       It must always have a
       <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
       defined.
     </li>
   </ul>
+
+  <h4 class="dummy-h4">Example of Link (Standalone):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
+    <br />
+    <Hds::Link::Standalone
+      @text="Hey, this link is a Link (Standalone)"
+      href="/"
+      @icon="external-link"
+      @iconPosition="trailing"
+    />
+  </div>
+
+  <h4 class="dummy-h4">Example of Link (Inline):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a
+      <a href="#">Link (Inline)</a>, coming soon to HDS.
+      <a href="#">And another Link (Inline)</a></p>
+  </div>
 </section>
 
 <section>
@@ -170,6 +203,22 @@
   <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="large" />
 </section>
 
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components-%5BWIP%5D?node-id=2522%3A8014"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Figma UI Kit
+      </a>
+    </p>
+    <img class="dummy-figma-docs" src="/assets/images/design-guidelines-link-standalone.png" alt="" role="none" />
+  </div>
+</section>
+
 <section data-test-percy>
   <h3 class="dummy-h3">
     Showcase
@@ -198,7 +247,7 @@
   </h4>
   <div class="dummy-link-base-sample">
     {{#each @model.SIZES as |size|}}
-      <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+      <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
     {{/each}}
   </div>
   <h4 class="dummy-h4">

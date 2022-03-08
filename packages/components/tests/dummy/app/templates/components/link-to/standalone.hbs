@@ -5,23 +5,43 @@
 </h2>
 
 <section>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">The LinkTo (Standalone) component handles generation of an
+    <a
+      href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Ember LinkTo</a>, which is an internal link.
+  </p>
+  <p class="dummy-paragraph">
+    What do we mean by the name
+    <strong>LinkTo (Standalone)</strong>? It's a LinkTo that's used in isolation, meaning it's not inline with adjacent
+    text.
+    <em>Note: Solutions for LinkTo (Inline) are coming soon.</em>
+  </p>
+
   <ul>
-    <li>
-      This is intended for internal app links that are not inline and are used as standalone elements whose destination
-      is a URL.
+    <li class="dummy-paragraph">
+      <strong>LinkTo (Standalone)</strong>
+      is intended for internal app links that are not inline and are used as standalone elements whose destination is a
+      URL.
     </li>
-    <li>
+    <li class="dummy-paragraph">
       It must always have a
       <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">Flight icon</a>
       defined.
     </li>
-    <li>
+    <li class="dummy-paragraph">
       The
       <strong>...attributes</strong>
       syntax is supported on this component. See
       <a
         href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/"
-        rel="external"
+        target="_blank"
+        rel="noopener noreferrer"
       >the Ember Guides section on HTML attributes in components</a>
       if you are unfamiliar with the way Ember supports HTML attributes and/or the
       <strong>
@@ -30,7 +50,8 @@
       syntax. Additionally, see
       <a
         href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
-        rel="external"
+        target="_blank"
+        rel="noopener noreferrer"
       >Attribute Ordering</a>
       to understand how the position of
       <strong>
@@ -39,6 +60,27 @@
       matters.
     </li>
   </ul>
+
+  <h4 class="dummy-h4">Example of LinkTo (Standalone):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
+    <br />
+    <Hds::LinkTo::Standalone
+      @text="Hey, this link is a LinkTo (Standalone)"
+      @route="index"
+      @icon="arrow-right"
+      @iconPosition="trailing"
+    />
+  </div>
+
+  <h4 class="dummy-h4">Example of LinkTo (Inline):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a
+      <LinkTo @route="index">LinkTo (Inline)</LinkTo>, coming soon to HDS.
+      <LinkTo @route="index">And another LinkTo (Inline)</LinkTo></p>
+  </div>
 </section>
 
 <section>
@@ -200,7 +242,31 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="large" /></section>
+  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="large" />
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components-%5BWIP%5D?node-id=2522%3A8014"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Figma UI Kit
+      </a>
+    </p>
+    <p>
+      <em>
+        Note: Below image from Figma mentions internal or external, but the LinkTo is only for internal links in
+        Ember.js.
+      </em>
+    </p>
+    <img class="dummy-figma-docs" src="/assets/images/design-guidelines-link-standalone.png" alt="" role="none" />
+  </div>
+</section>
+
 <section data-test-percy>
   <h3 class="dummy-h3">
     Showcase
