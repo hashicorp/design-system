@@ -1,0 +1,39 @@
+{
+    "focus-ring": {
+        "internal": {
+            "spread": {
+                "value": "1",
+                "type": "size",
+                "private": true
+            },
+            "color": {
+                "value": "{color.palette.blue-300.value}",
+                "type": "color",
+                "private": true
+            },
+            "box-shadow": {
+                "value": "inset 0 0 0 {focus-ring.internal.spread.value} {focus-ring.internal.color.value}",
+                "private": true
+            }
+        },
+        "external": {
+            "spread": {
+                "value": "3",
+                "type": "size",
+                "private": true
+            },
+            "color": {
+                "value": "{color.focus.action.external.value}",
+                "type": "color",
+                "private": true
+            },
+            "box-shadow": {
+                "value": "0 0 0 {focus-ring.external.spread.value} {focus-ring.external.color.value}",
+                "private": true
+            }
+        },
+        "box-shadow": {
+            "value": "{focus-ring.internal.box-shadow.value}, {focus-ring.external.box-shadow.value}"
+        }
+    }
+}

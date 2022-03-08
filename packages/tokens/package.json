@@ -1,0 +1,69 @@
+{
+  "name": "@hashicorp/design-system-tokens",
+  "version": "0.5.1",
+  "description": "HashiCorp Design Tokens",
+  "keywords": [
+    "hashicorp",
+    "design tokens",
+    "tokens",
+    "style dictionary"
+  ],
+  "repository": "https://github.com/hashicorp/design-system-tokens",
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "contributors": [
+    {
+      "name": "Melanie Sumner",
+      "email": "melanie@hashicorp.com"
+    },
+    {
+      "name": "Brian Runnells",
+      "email": "brunnells@hashicorp.com"
+    },
+    {
+      "name": "Hector Simpson",
+      "email": "hector@hashicorp.com"
+    },
+    {
+      "name": "Heather Larsen",
+      "email": "hlarsen@hashicorp.com"
+    },
+    {
+      "name": "Amy Lam",
+      "email": "alam@hashicorp.com"
+    },
+    {
+      "name": "Cristiano Rastelli",
+      "email": "cristiano.rastelli@hashicorp.com"
+    }
+  ],
+  "scripts": {
+    "typecheck": "yarn tsc --noEmit",
+    "lint": "yarn eslint --quiet --ext .js,.ts",
+    "build": "ts-node --transpile-only ./scripts/build",
+    "bump": "./node_modules/.bin/bump package.json",
+    "prerelease": "cp -f package.json README.md dist ",
+    "release": "cd dist && yarn publish --new-version $npm_package_version",
+    "postrelease:cleanup": "rm -f dist/package.json dist/README.md",
+    "postrelease:git-tag": "TAG_VERSION=\"${npm_package_name}/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION",
+    "postrelease": "yarn postrelease:cleanup && yarn postrelease:git-tag"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.7.1",
+    "@types/tinycolor2": "^1.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "del": "^5.1.0",
+    "eslint": "^7.32.0",
+    "fs-extra": "^10.0.0",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
+    "style-dictionary": "^3.0.3",
+    "tinycolor2": "^1.4.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2",
+    "version-bump-prompt": "^6.1.0"
+  }
+}

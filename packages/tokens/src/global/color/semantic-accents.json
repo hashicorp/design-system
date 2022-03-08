@@ -1,0 +1,374 @@
+{
+    "color": {
+        "action": {
+            "foreground": {
+                "primary": {
+                    "value": "{color.palette.blue-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-action'"
+                },
+                "on-faint": {
+                    "value": "{color.palette.blue-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative'"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.blue-500.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                }
+            },
+            "background": {
+                "primary": {
+                    "value": "{color.palette.blue-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "hover": {
+                    "value": "{color.palette.blue-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "active": {
+                    "value": "{color.palette.blue-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "faint": {
+                    "value": "{color.palette.blue-50.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-surface-action'"
+                }
+            },
+            "border": {
+                "primary": {
+                    "value": "{color.palette.blue-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-primary": {
+                    "value": "{color.palette.blue-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-hover": {
+                    "value": "{color.palette.blue-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-faint": {
+                    "value": "{color.palette.blue-100.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-border-action'"
+                }
+            }
+        },
+        "highlight": {
+            "foreground": {
+                "primary": {
+                    "value": "{color.palette.purple-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-highlight'"
+                },
+                "on-faint": {
+                    "value": "{color.palette.purple-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-highlight-on-surface'"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.purple-500.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-highlight-high-contrast'"
+                }
+            },
+            "background": {
+                "primary": {
+                    "value": "{color.palette.purple-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "hover": {
+                    "value": "{color.palette.purple-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "active": {
+                    "value": "{color.palette.purple-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "faint": {
+                    "value": "{color.palette.purple-50.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-surface-highlight'"
+                }
+            },
+            "border": {
+                "primary": {
+                    "value": "{color.palette.purple-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-primary": {
+                    "value": "{color.palette.purple-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-hover": {
+                    "value": "{color.palette.purple-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-faint": {
+                    "value": "{color.palette.purple-100.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-border-highlight'"
+                }
+            }
+        },
+        "success": {
+            "foreground": {
+                "primary": {
+                    "value": "{color.palette.green-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-success'"
+                },
+                "on-faint": {
+                    "value": "{color.palette.green-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-success-on-surface'"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.green-500.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-success-high-contrast'"
+                }
+            },
+            "background": {
+                "primary": {
+                    "value": "{color.palette.green-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "hover": {
+                    "value": "{color.palette.green-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "active": {
+                    "value": "{color.palette.green-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "faint": {
+                    "value": "{color.palette.green-50.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-surface-success'"
+                }
+            },
+            "border": {
+                "primary": {
+                    "value": "{color.palette.green-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-primary": {
+                    "value": "{color.palette.green-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-hover": {
+                    "value": "{color.palette.green-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-faint": {
+                    "value": "{color.palette.green-100.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-border-success'"
+                }
+            }
+        },
+        "warning": {
+            "foreground": {
+                "primary": {
+                    "value": "{color.palette.amber-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-warning'"
+                },
+                "on-faint": {
+                    "value": "{color.palette.amber-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-warning-on-surface'"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.amber-500.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-warning-high-contrast'"
+                }
+            },
+            "background": {
+                "primary": {
+                    "value": "{color.palette.amber-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "hover": {
+                    "value": "{color.palette.amber-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "active": {
+                    "value": "{color.palette.amber-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "faint": {
+                    "value": "{color.palette.amber-50.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-surface-warning'"
+                }
+            },
+            "border": {
+                "primary": {
+                    "value": "{color.palette.amber-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-primary": {
+                    "value": "{color.palette.amber-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-hover": {
+                    "value": "{color.palette.amber-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-faint": {
+                    "value": "{color.palette.amber-100.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-border-warning'"
+                }
+            }
+        },
+        "critical": {
+            "foreground": {
+                "primary": {
+                    "value": "{color.palette.red-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-critical'"
+                },
+                "on-faint": {
+                    "value": "{color.palette.red-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-critical-on-surface'"
+                },
+                "high-contrast": {
+                    "value": "{color.palette.red-500.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-foreground-critical-high-contrast'"
+                }
+            },
+            "background": {
+                "primary": {
+                    "value": "{color.palette.red-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "hover": {
+                    "value": "{color.palette.red-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "active": {
+                    "value": "{color.palette.red-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "faint": {
+                    "value": "{color.palette.red-50.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-surface-critical'"
+                }
+            },
+            "border": {
+                "primary": {
+                    "value": "{color.palette.red-200.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-primary": {
+                    "value": "{color.palette.red-300.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-hover": {
+                    "value": "{color.palette.red-400.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: please speak with the HDS team to decide which color to use as alternative"
+                },
+                "on-faint": {
+                    "value": "{color.palette.red-100.value}",
+                    "type": "color",
+                    "deprecated": true,
+                    "comment": "deprecated: replace with 'color-border-critical'"
+                }
+            }
+        }
+    }
+}
