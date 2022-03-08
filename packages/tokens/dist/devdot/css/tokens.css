@@ -1,0 +1,277 @@
+/**
+ * Do not edit directly
+ * Generated on Mon, 07 Mar 2022 11:14:41 GMT
+ */
+
+:root {
+  --token-color-palette-blue-500: #1c345f;
+  --token-color-palette-blue-400: #0046d1;
+  --token-color-palette-blue-300: #0c56e9;
+  --token-color-palette-blue-200: #1060ff;
+  --token-color-palette-blue-100: #cce3fe;
+  --token-color-palette-blue-50: #f2f8ff;
+  --token-color-palette-purple-500: #42215b;
+  --token-color-palette-purple-400: #7b00db;
+  --token-color-palette-purple-300: #911ced;
+  --token-color-palette-purple-200: #a737ff;
+  --token-color-palette-purple-100: #ead2fe;
+  --token-color-palette-purple-50: #f9f2ff;
+  --token-color-palette-green-500: #054220;
+  --token-color-palette-green-400: #006619;
+  --token-color-palette-green-300: #00781e;
+  --token-color-palette-green-200: #008a22;
+  --token-color-palette-green-100: #cceeda;
+  --token-color-palette-green-50: #f2fbf6;
+  --token-color-palette-amber-500: #542800;
+  --token-color-palette-amber-400: #803d00;
+  --token-color-palette-amber-300: #9e4b00;
+  --token-color-palette-amber-200: #bb5a00;
+  --token-color-palette-amber-100: #fbeabf;
+  --token-color-palette-amber-50: #fff9e8;
+  --token-color-palette-red-500: #51130a;
+  --token-color-palette-red-400: #940004;
+  --token-color-palette-red-300: #c00005;
+  --token-color-palette-red-200: #e52228;
+  --token-color-palette-red-100: #fbd4d4;
+  --token-color-palette-red-50: #fff5f5;
+  --token-color-palette-neutral-700: #0c0c0e;
+  --token-color-palette-neutral-600: #3b3d45;
+  --token-color-palette-neutral-500: #656a76;
+  --token-color-palette-neutral-400: #8c909c;
+  --token-color-palette-neutral-300: #c2c5cb;
+  --token-color-palette-neutral-200: #dedfe3;
+  --token-color-palette-neutral-100: #f1f2f3;
+  --token-color-palette-neutral-50: #fafafa;
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-palette-alpha-300: #3b3d4566;
+  --token-color-palette-alpha-200: #656a7633;
+  --token-color-palette-alpha-100: #656a761a;
+  --token-color-action-foreground-primary: #1060ff; /* deprecated: replace with 'color-foreground-action' */
+  --token-color-action-foreground-on-faint: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative' */
+  --token-color-action-foreground-high-contrast: #1c345f; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-primary: #1060ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-hover: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-active: #0046d1; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-background-faint: #f2f8ff; /* deprecated: replace with 'color-surface-action' */
+  --token-color-action-border-primary: #1060ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-border-on-primary: #0c56e9; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-border-on-hover: #0046d1; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-action-border-on-faint: #cce3fe; /* deprecated: replace with 'color-border-action' */
+  --token-color-highlight-foreground-primary: #a737ff; /* deprecated: replace with 'color-foreground-highlight' */
+  --token-color-highlight-foreground-on-faint: #911ced; /* deprecated: replace with 'color-foreground-highlight-on-surface' */
+  --token-color-highlight-foreground-high-contrast: #42215b; /* deprecated: replace with 'color-highlight-high-contrast' */
+  --token-color-highlight-background-primary: #a737ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-background-hover: #911ced; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-background-active: #7b00db; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-background-faint: #f9f2ff; /* deprecated: replace with 'color-surface-highlight' */
+  --token-color-highlight-border-primary: #a737ff; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-border-on-primary: #911ced; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-border-on-hover: #7b00db; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-highlight-border-on-faint: #ead2fe; /* deprecated: replace with 'color-border-highlight' */
+  --token-color-success-foreground-primary: #008a22; /* deprecated: replace with 'color-foreground-success' */
+  --token-color-success-foreground-on-faint: #00781e; /* deprecated: replace with 'color-foreground-success-on-surface' */
+  --token-color-success-foreground-high-contrast: #054220; /* deprecated: replace with 'color-foreground-success-high-contrast' */
+  --token-color-success-background-primary: #008a22; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-background-hover: #00781e; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-background-active: #006619; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-background-faint: #f2fbf6; /* deprecated: replace with 'color-surface-success' */
+  --token-color-success-border-primary: #008a22; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-border-on-primary: #00781e; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-border-on-hover: #006619; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-success-border-on-faint: #cceeda; /* deprecated: replace with 'color-border-success' */
+  --token-color-warning-foreground-primary: #bb5a00; /* deprecated: replace with 'color-foreground-warning' */
+  --token-color-warning-foreground-on-faint: #9e4b00; /* deprecated: replace with 'color-foreground-warning-on-surface' */
+  --token-color-warning-foreground-high-contrast: #542800; /* deprecated: replace with 'color-foreground-warning-high-contrast' */
+  --token-color-warning-background-primary: #bb5a00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-background-hover: #9e4b00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-background-active: #803d00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-background-faint: #fff9e8; /* deprecated: replace with 'color-surface-warning' */
+  --token-color-warning-border-primary: #bb5a00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-border-on-primary: #9e4b00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-border-on-hover: #803d00; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-warning-border-on-faint: #fbeabf; /* deprecated: replace with 'color-border-warning' */
+  --token-color-critical-foreground-primary: #e52228; /* deprecated: replace with 'color-foreground-critical' */
+  --token-color-critical-foreground-on-faint: #c00005; /* deprecated: replace with 'color-foreground-critical-on-surface' */
+  --token-color-critical-foreground-high-contrast: #51130a; /* deprecated: replace with 'color-foreground-critical-high-contrast' */
+  --token-color-critical-background-primary: #e52228; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-background-hover: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-background-active: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-background-faint: #fff5f5; /* deprecated: replace with 'color-surface-critical' */
+  --token-color-critical-border-primary: #e52228; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-border-on-primary: #c00005; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-border-on-hover: #940004; /* deprecated: please speak with the HDS team to decide which color to use as alternative */
+  --token-color-critical-border-on-faint: #fbd4d4; /* deprecated: replace with 'color-border-critical' */
+  --token-color-border-primary: #656a7633;
+  --token-color-border-faint: #656a761a;
+  --token-color-border-strong: #3b3d4566;
+  --token-color-border-action: #cce3fe;
+  --token-color-border-highlight: #ead2fe;
+  --token-color-border-success: #cceeda;
+  --token-color-border-warning: #fbeabf;
+  --token-color-border-critical: #fbd4d4;
+  --token-color-focus-action-internal: #0c56e9;
+  --token-color-focus-action-external: #5990ff; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-focus-critical-internal: #c00005;
+  --token-color-focus-critical-external: #dd7578; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-foreground-strong: #0c0c0e;
+  --token-color-foreground-primary: #3b3d45;
+  --token-color-foreground-faint: #656a76;
+  --token-color-foreground-high-contrast: #ffffff;
+  --token-color-foreground-disabled: #8c909c;
+  --token-color-foreground-action: #1060ff;
+  --token-color-foreground-action-hover: #0c56e9;
+  --token-color-foreground-action-active: #0046d1;
+  --token-color-foreground-highlight: #a737ff;
+  --token-color-foreground-highlight-on-surface: #911ced;
+  --token-color-foreground-highlight-high-contrast: #42215b;
+  --token-color-foreground-success: #008a22;
+  --token-color-foreground-success-on-surface: #00781e;
+  --token-color-foreground-success-high-contrast: #054220;
+  --token-color-foreground-warning: #bb5a00;
+  --token-color-foreground-warning-on-surface: #9e4b00;
+  --token-color-foreground-warning-high-contrast: #542800;
+  --token-color-foreground-critical: #e52228;
+  --token-color-foreground-critical-on-surface: #c00005;
+  --token-color-foreground-critical-high-contrast: #51130a;
+  --token-color-foreground-action-visited: #a737ff; /* This extra color is unique for the DevDot platform (the 'visited' state of a link is not differentiated in the products applications). */
+  --token-color-neutral-foreground-primary: #0c0c0e; /* deprecated: replace with 'token-color-foreground-strong' */
+  --token-color-neutral-foreground-secondary: #3b3d45; /* deprecated: replace with 'token-color-foreground-primary' */
+  --token-color-neutral-foreground-faint: #656a76; /* deprecated: replace with 'token-color-foreground-faint' */
+  --token-color-neutral-background-primary: #ffffff; /* deprecated: replace with 'token-color-surface-primary' */
+  --token-color-neutral-background-secondary: #fafafa; /* deprecated: replace with 'token-color-surface-faint' */
+  --token-color-neutral-background-base: #ffffff; /* deprecated: replace with 'token-color-surface-primary' */
+  --token-color-neutral-border-primary: #656a7633; /* deprecated: replace with 'token-color-border-primary' */
+  --token-color-neutral-border-faint: #656a761a; /* deprecated: replace with 'token-color-border-faint' */
+  --token-color-neutral-border-strong: #3b3d4566; /* deprecated: replace with 'token-color-border-strong' */
+  --token-color-page-primary: #ffffff;
+  --token-color-page-faint: #fafafa;
+  --token-color-surface-primary: #ffffff;
+  --token-color-surface-faint: #fafafa;
+  --token-color-surface-strong: #f1f2f3;
+  --token-color-surface-interactive: #ffffff;
+  --token-color-surface-interactive-hover: #f1f2f3;
+  --token-color-surface-interactive-active: #dedfe3;
+  --token-color-surface-interactive-disabled: #fafafa;
+  --token-color-surface-action: #f2f8ff;
+  --token-color-surface-highlight: #f9f2ff;
+  --token-color-surface-success: #f2fbf6;
+  --token-color-surface-warning: #fff9e8;
+  --token-color-surface-critical: #fff5f5;
+  --token-color-hashicorp-brand: #000000;
+  --token-color-boundary-brand: #f24c53;
+  --token-color-boundary-foreground: #cf2d32;
+  --token-color-boundary-surface: #ffecec;
+  --token-color-boundary-border: #fbd7d8;
+  --token-color-boundary-gradient-primary-start: #f97076;
+  --token-color-boundary-gradient-primary-stop: #db363b;
+  --token-color-boundary-gradient-faint-start: #fffafa; /* this is the 'boundary-50' value at 25% opacity on white */
+  --token-color-boundary-gradient-faint-stop: #ffecec;
+  --token-color-consul-brand: #e03875;
+  --token-color-consul-foreground: #d01c5b;
+  --token-color-consul-surface: #ffe9f1;
+  --token-color-consul-border: #ffcede;
+  --token-color-consul-gradient-primary-start: #ff99be;
+  --token-color-consul-gradient-primary-stop: #da306e;
+  --token-color-consul-gradient-faint-start: #fff9fb; /* this is the 'consul-50' value at 25% opacity on white */
+  --token-color-consul-gradient-faint-stop: #ffe9f1;
+  --token-color-hcp-brand: #000000;
+  --token-color-nomad-brand: #06d092;
+  --token-color-nomad-foreground: #008661;
+  --token-color-nomad-surface: #d3fdeb;
+  --token-color-nomad-border: #bff3dd;
+  --token-color-nomad-gradient-primary-start: #bff3dd;
+  --token-color-nomad-gradient-primary-stop: #60dea9;
+  --token-color-nomad-gradient-faint-start: #f3fff9; /* this is the 'nomad-50' value at 25% opacity on white */
+  --token-color-nomad-gradient-faint-stop: #d3fdeb;
+  --token-color-packer-brand: #02a8ef;
+  --token-color-packer-foreground: #007eb4;
+  --token-color-packer-surface: #d4f2ff;
+  --token-color-packer-border: #b4e4ff;
+  --token-color-packer-gradient-primary-start: #b4e4ff;
+  --token-color-packer-gradient-primary-stop: #63d0ff;
+  --token-color-packer-gradient-faint-start: #f3fcff; /* this is the 'packer-50' value at 25% opacity on white */
+  --token-color-packer-gradient-faint-stop: #d4f2ff;
+  --token-color-terraform-brand: #7b42bc;
+  --token-color-terraform-foreground: #773cb4;
+  --token-color-terraform-surface: #f4ecff;
+  --token-color-terraform-border: #ebdbfc;
+  --token-color-terraform-gradient-primary-start: #bb8deb;
+  --token-color-terraform-gradient-primary-stop: #844fba;
+  --token-color-terraform-gradient-faint-start: #fcfaff; /* this is the 'terraform-50' value at 25% opacity on white */
+  --token-color-terraform-gradient-faint-stop: #f4ecff;
+  --token-color-vagrant-brand: #1868f2;
+  --token-color-vagrant-foreground: #1c61d8;
+  --token-color-vagrant-surface: #d6ebff;
+  --token-color-vagrant-border: #c7dbfc;
+  --token-color-vagrant-gradient-primary-start: #c7dbfc;
+  --token-color-vagrant-gradient-primary-stop: #7dadff;
+  --token-color-vagrant-gradient-faint-start: #f4faff; /* this is the 'vagrant-50' value at 25% opacity on white */
+  --token-color-vagrant-gradient-faint-stop: #d6ebff;
+  --token-color-vault-brand: #ffd814;
+  --token-color-vault-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --token-color-vault-foreground: #9a6f00;
+  --token-color-vault-surface: #fff9cf;
+  --token-color-vault-border: #feec7b;
+  --token-color-vault-gradient-primary-start: #feec7b;
+  --token-color-vault-gradient-primary-stop: #ffe543;
+  --token-color-vault-gradient-faint-start: #fffdf2; /* this is the 'vault-50' value at 25% opacity on white */
+  --token-color-vault-gradient-faint-stop: #fff9cf;
+  --token-color-waypoint-brand: #14c6cb;
+  --token-color-waypoint-foreground: #008196;
+  --token-color-waypoint-surface: #e0fcff;
+  --token-color-waypoint-border: #cbf1f3;
+  --token-color-waypoint-gradient-primary-start: #cbf1f3;
+  --token-color-waypoint-gradient-primary-stop: #62d4dc;
+  --token-color-waypoint-gradient-faint-start: #f6feff; /* this is the 'waypoint-50' value at 25% opacity on white */
+  --token-color-waypoint-gradient-faint-stop: #e0fcff;
+  --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
+  --token-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
+  --token-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
+  --token-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+  --token-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
+  --token-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4580, 0px 12px 24px 0px #3b3d4599;
+  --token-surface-inset-box-shadow: inset 0 0 0 1px #656a764d, inset 0px 1px 2px 1px #656a761a;
+  --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
+  --token-surface-low-box-shadow: 0 0 0 1px #656a7626, 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
+  --token-surface-mid-box-shadow: 0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
+  --token-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+  --token-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
+  --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4566, 0px 2px 3px 0px #3b3d4580, 0px 12px 24px 0px #3b3d4599;
+  --token-focus-ring-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+  --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-font-stack-code: SF Mono, Consolas, Ubuntu Mono, monospace;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
+  --token-typography-display-500-font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-display-500-font-size: 1.875rem; /* 30px/1.875rem */
+  --token-typography-display-500-line-height: 1.2666; /* 38px */
+  --token-typography-display-400-font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-display-400-font-size: 1.5rem; /* 24px/1.5rem */
+  --token-typography-display-400-line-height: 1.3333; /* 32px */
+  --token-typography-display-300-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-display-300-font-size: 1.125rem; /* 18px/1.125rem */
+  --token-typography-display-300-line-height: 1.3333; /* 24px */
+  --token-typography-display-300-letter-spacing: -0.5px; /* this is `tracking` */
+  --token-typography-display-200-font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
+  --token-typography-display-200-font-size: 1rem; /* 16px/1rem */
+  --token-typography-display-200-line-height: 1.5; /* 24px */
+  --token-typography-display-200-letter-spacing: -0.5px; /* this is `tracking` */
+  --token-typography-display-100-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-display-100-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-display-100-line-height: 1.3846; /* 18px */
+  --token-typography-body-300-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-body-300-font-size: 1rem; /* 16px/1rem */
+  --token-typography-body-300-line-height: 1.5; /* 24px */
+  --token-typography-body-200-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-body-200-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-body-200-line-height: 1.4286; /* 20px */
+  --token-typography-body-100-font-family: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
+  --token-typography-body-100-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-body-100-line-height: 1.3846; /* 18px */
+  --token-typography-code-100-font-family: SF Mono, Consolas, Ubuntu Mono, monospace;
+  --token-typography-code-100-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-code-100-line-height: 1.23; /* 16px */
+}
