@@ -10,6 +10,6 @@ module('Unit | Helper | hds-link-to-query', function (hooks) {
   });
 
   test('returns an empty object if no argument is passed', async function (assert) {
-    assert.equal(hdsLinkToQuery([]), {});
+    assert.deepEqual(hdsLinkToQuery([]), {});
   });
 });
