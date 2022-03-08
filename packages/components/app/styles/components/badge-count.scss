@@ -63,36 +63,36 @@ $size-props: (
 
 .hds-badge-count--color-neutral {
   &.hds-badge-count--type-filled {
-    background-color: var(--token-color-palette-neutral-100);
-    color: var(--token-color-palette-neutral-600);
+    background-color: var(--token-color-surface-strong);
+    color: var(--token-color-foreground-primary);
   }
 
   &.hds-badge-count--type-inverted {
-    background-color: var(--token-color-palette-neutral-500);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-foreground-faint);
+    color: var(--token-color-foreground-high-contrast);
   }
 
   &.hds-badge-count--type-outlined {
     background-color: transparent;
-    border-color: var(--token-color-palette-neutral-500);
-    color: var(--token-color-palette-neutral-600);
+    border-color: var(--token-color-foreground-faint);
+    color: var(--token-color-foreground-primary);
   }
 }
 
 .hds-badge-count--color-neutral-dark-mode {
   &.hds-badge-count--type-filled {
-    background-color: var(--token-color-palette-neutral-500);
-    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-foreground-faint);
+    color: var(--token-color-foreground-high-contrast);
   }
 
   &.hds-badge-count--type-inverted {
-    background-color: var(--token-color-palette-neutral-50);
-    color: var(--token-color-palette-neutral-600);
+    background-color: var(--token-color-surface-faint);
+    color: var(--token-color-foreground-primary);
   }
 
   &.hds-badge-count--type-outlined {
     background-color: transparent;
     border-color: var(--token-color-palette-neutral-100);
-    color: var(--token-color-palette-neutral-0);
+    color: var(--token-color-foreground-high-contrast);
   }
 }

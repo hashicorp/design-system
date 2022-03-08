@@ -82,11 +82,11 @@ $size-props: (
 // Note: the order of the pseuo-selectors need to stay the way they are
 
 .hds-link-standalone--color-primary {
-  color: var(--token-color-action-foreground-primary);
+  color: var(--token-color-foreground-action);
 
   &:hover,
   &.is-hover {
-    color: var(--token-color-action-background-hover);
+    color: var(--token-color-foreground-action-hover);
 
     .hds-link-standalone__text {
       text-decoration-color: #4E81E8; // custom color by design
@@ -95,7 +95,7 @@ $size-props: (
 
   &:active,
   &.is-active {
-    color: var(--token-color-action-background-active);
+    color: var(--token-color-foreground-action-active);
 
     .hds-link-standalone__text {
       text-decoration-color: #396ED6; // custom color by design
@@ -108,7 +108,7 @@ $size-props: (
 }
 
 .hds-link-standalone--color-secondary {
-  color: var(--token-color-neutral-foreground-primary);
+  color: var(--token-color-foreground-strong);
 
   &:hover,
   &.is-hover {
@@ -119,14 +119,14 @@ $size-props: (
 
   &:active,
   &.is-active {
-    color: var(--token-color-neutral-foreground-secondary);
+    color: var(--token-color-foreground-primary);
 
     .hds-link-standalone__text {
       text-decoration-color: #6E7075; // custom color by design
     }
 
     &::before {
-      background-color: var(--token-color-palette-neutral-200);
+      background-color: var(--token-color-surface-interactive-active);
     }
   }
 }
