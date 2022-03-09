@@ -67,7 +67,7 @@
     </dd>
     <dt>“splattributes”</dt>
     <dd>
-      <p><code>...attributes</code> spreading is supported on this component.</p>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
@@ -77,7 +77,7 @@
   <p class="dummy-paragraph">
     The button component is used to trigger an action or event. They should not be used to route to a URL. This
     component supports
-    <strong>...attributes</strong>
+    <code class="dummy-code">...attributes</code>
     .
   </p>
 
@@ -96,7 +96,7 @@
 
   <h4 class="dummy-h4">Add an icon</h4>
   <p class="dummy-paragraph">To add an icon to your button, give the
-    <strong>@icon</strong>
+    <code class="dummy-code">@icon</code>
     a
     <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
     name:
@@ -115,7 +115,7 @@
   <h4 class="dummy-h4">Icon position</h4>
   <p class="dummy-paragraph">By default, if you define an icon, it is placed before the text. If you would like to
     position the icon after the text, define
-    <strong>@iconPosition</strong>:
+    <code class="dummy-code">@iconPosition</code>:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -130,14 +130,14 @@
 
   <h4 class="dummy-h4">Icon-only button</h4>
   <p class="dummy-paragraph">If you would like to create an icon-only button, set
-    <strong>@isIconOnly</strong>
+    <code class="dummy-code">@isIconOnly</code>
     to
-    <strong>true</strong>. Note that you still have to define the
-    <strong>@text</strong>
+    <code class="dummy-code">true</code>. Note that you still have to define the
+    <code class="dummy-code">@text</code>
     value; it will be used as the
-    <strong>aria-label</strong>
+    <code class="dummy-code">aria-label</code>
     attribute value on the
-    <strong>button</strong>
+    <code class="dummy-code">button</code>
     element.
   </p>
   {{! prettier-ignore-start }}
@@ -155,7 +155,7 @@
   <p class="dummy-paragraph">
     There are three available colors for a button: primary, secondary, and critical. The default is primary. To use a
     different color, declare another value for
-    <strong>@color</strong>:
+    <code class="dummy-code">@color</code>:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -173,9 +173,13 @@
 
   <h4 class="dummy-h4">Size</h4>
   <p class="dummy-paragraph">
-    There are three sizes available for buttons: small, medium and large. The default is medium. To use a different
-    size, declare a value for
-    <strong>@size</strong>:
+    There are three sizes available for buttons:
+    <code class="dummy-code">small</code>,
+    <code class="dummy-code">medium</code>
+    and
+    <code class="dummy-code">large</code>. The default is
+    <code class="dummy-code">medium</code>. To use a different size, declare a value for
+    <code class="dummy-code">@size</code>:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -194,10 +198,17 @@
 
   <h4 class="dummy-h4">Type</h4>
   <p class="dummy-paragraph">This is the native button attribute,
-    <strong>type</strong>. There are three possible values: button, submit, and reset. If the button is used inside of a
-    form, its type should be submit. The default for the button type is button. To use a different value, declare a
-    different value for
-    <strong>@type</strong>:
+    <code class="dummy-code">type</code>. There are three possible values:
+    <code class="dummy-code">button</code>,
+    <code class="dummy-code">submit</code>, and
+    <code class="dummy-code">reset</code>. If the button is used inside of a form, its
+    <code class="dummy-code">@type</code>
+    should be
+    <code class="dummy-code">submit</code>. The default for the button
+    <code class="dummy-code">@type</code>
+    is
+    <code class="dummy-code">button</code>. To use a different value, declare a different value for
+    <code class="dummy-code">@type</code>:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -210,10 +221,11 @@
 
   <h4 class="dummy-h4">Disabled buttons</h4>
   <p class="dummy-paragraph">This is the native button attribute,
-    <strong>disabled</strong>. To use this attribute, set
-    <strong>@isDisabled</strong>
+    <code class="dummy-code">disabled</code>. To use this attribute, set
+    <code class="dummy-code">@isDisabled</code>
     to
-    <strong>true</strong>. The default is null, which means that the attribute will not render at all in the DOM.
+    <code class="dummy-code">true</code>. The default is
+    <code class="dummy-code">null</code>, which means that the attribute will not render at all in the DOM.
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -228,8 +240,9 @@
 
   <h4 class="dummy-h4">Full-width buttons</h4>
   <p class="dummy-paragraph">
-    This allows indication that a button should take up the full-width of the parent container. It is set to false by
-    default.
+    This allows indication that a button should take up the full-width of the parent container. It is set to
+    <code class="dummy-code">false</code>
+    by default.
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -340,21 +353,21 @@
   <h4 class="dummy-h4">Containers</h4>
   <div class="dummy-button-containers-list">
     <div>
-      <span class="dummy-text-small">Parent with <code>display: inline-block</code></span>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-block</code></span>
       <br />
       <div class="dummy-button-containers-list-item__inline-block">
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </div>
     <div>
-      <span class="dummy-text-small">Parent with <code>display: inline-flex</code></span>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-flex</code></span>
       <br />
       <div class="dummy-button-containers-list-item__inline-flex">
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </div>
     <div>
-      <span class="dummy-text-small">Parent with <code>flex-grow: 0</code></span>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">flex-grow: 0</code></span>
       <br />
       <div class="dummy-button-containers-list-item__flex">
         <div class="dummy-button-containers-list-item__flex-grow-0">
@@ -363,7 +376,7 @@
       </div>
     </div>
     <div>
-      <span class="dummy-text-small">Parent with <code>max-width: fit-content</code></span>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">max-width: fit-content</code></span>
       <br />
       <div class="dummy-button-containers-list-item__max-width-fit-content">
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
