@@ -5,8 +5,8 @@
 *Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
 
 * `git clone <repository-url>`
-* `cd design-system-tokens`
 * `yarn install`
+* `cd packages/tokens`
 
 ## Linting
 
@@ -43,7 +43,7 @@ Whenever there is an update to the "foundations/components" in Figma (e.g. a new
 The "build" step takes the "source" JSON files, process them, and generates in "output" a set of files that later will be published as npm package.
 You can find the code that relates to this step in the file `/scripts/build.ts`.
 
-To run this script use the following command in your CLI (while in the `design-system-tokens` folder):
+To run this script use the following command in your CLI (while in the `packages/tokens` folder):
 
 ```bash
 yarn build

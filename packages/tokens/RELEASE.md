@@ -10,7 +10,7 @@ The "bump" step increases the _SemVer_ version number in the `package.json` file
 
 * Make sure your local `main` branch is up to date.
 * Create new custom branch from `main`.
-* `cd /design-system-tokens`
+* `cd /packages/tokens`
 * Run `yarn bump` and choose the _SemVer_ version as agreed upon on the previous PR.
   * _The `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter": the tool will automatically update the version in the `package.json` file for you._
 * Check the `git diff` for the project, you should see only the `package.json` file changed (with the new version).
@@ -26,7 +26,7 @@ _**IMPORTANT**: Once released a package on the public registry, you can't revert
 
 * Make sure your local `main` branch is up to date.
 * You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
-* `cd /design-system-tokens`
+* `cd packages/tokens`
 * `yarn release`
 * Check the git diff, you should not see any change.
 
