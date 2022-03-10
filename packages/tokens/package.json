@@ -15,11 +15,6 @@
   },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
-  "files": [
-    "devdot",
-    "docs",
-    "products"
-  ],
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
