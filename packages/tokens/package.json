@@ -19,12 +19,8 @@
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
     "build": "ts-node --transpile-only ./scripts/build",
-    "bump": "./node_modules/.bin/bump package.json",
-    "prerelease": "cp -f package.json README.md dist ",
-    "release": "cd dist && yarn publish --new-version $npm_package_version",
-    "postrelease:cleanup": "rm -f dist/package.json dist/README.md",
-    "postrelease:git-tag": "TAG_VERSION=\"${npm_package_name}/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION",
-    "postrelease": "yarn postrelease:cleanup && yarn postrelease:git-tag"
+    "prepublishOnly": "cp -r ./dist/* .",
+    "postpublish": "git clean -fd"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
@@ -41,7 +37,6 @@
     "style-dictionary": "^3.0.3",
     "tinycolor2": "^1.4.2",
     "ts-node": "^9.0.0",
-    "typescript": "^4.1.2",
-    "version-bump-prompt": "^6.1.0"
+    "typescript": "^4.1.2"
   }
 }

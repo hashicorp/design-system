@@ -20,7 +20,7 @@ For more information on using ember-cli, visit [https://ember-cli.com/](https://
 
 ## Releasing a new npm version of the package
 
-See the [RELEASE](../RELEASE.md) guide for details.
+Follow the instructions for Changesets in the root [README](../../README.md).
 
 ## Testing local changes to the addon
 
