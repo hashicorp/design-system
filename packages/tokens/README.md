@@ -24,6 +24,7 @@ Then import one of those files in your app's style file (`app.scss` or similar):
 
 // to use the CSS helper classes
 //
+~/[products|devdot]/css/helpers/colors.css     // for color styles
 ~/[products|devdot]/css/helpers/elevation.css  // for elevation styles
 ~/[products|devdot]/css/helpers/typography.css // for typographic styles
 ~/[products|devdot]/css/helpers/focus-ring.css // for focus-ring style
