@@ -18,6 +18,8 @@ yarn changeset
 
 See the [changeset docs](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) for more information.
 
+Note: If you want to ignore a changestep bump in terminal (e.g. major bump for selected "package x" is N/A, want a patch release), press return on the command line to skip that step.
+
 ## Releasing
 
 Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR can be merged to `main` and released to npm with the following command:
@@ -25,6 +27,8 @@ Release PRs are created and automatically updated on every PR merge by the [chan
 ```bash
 yarn changeset publish
 ```
+
+Note: You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
 
 ## Flight Icons
 
@@ -48,6 +52,16 @@ See [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) guide for
 #### @hashicorp/ember-flight-icons
 
 See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) guide for details on how to build and test the Ember addon.
+
+## @hashicorp/design-system-tokens
+
+| Package                                                                              | Version                                                                                                                         |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **[@hashicorp/design-system-tokens](./packages/tokens/)** <br />Design tokens    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) |
+
+### Contributing
+
+See [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
 
 ## License
 

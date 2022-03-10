@@ -4,38 +4,9 @@ Whenever there is an update to the design tokens in Figma (e.g. a new color is a
 
 Please see the instructions in the [CONTRIBUTING](CONTRIBUTING.md) file for more details about how to setup the project and make changes to the code for these packages.
 
-## Bump
+## Bump and release
 
-The "bump" step increases the _SemVer_ version number in the `package.json` file.
-
-* Make sure your local `main` branch is up to date.
-* Create new custom branch from `main`.
-* `cd /packages/tokens`
-* Run `yarn bump` and choose the _SemVer_ version as agreed upon on the previous PR.
-  * _The `bump` command is interactive, you can move up and down with the keyboard, choose one option, and then hit "enter": the tool will automatically update the version in the `package.json` file for you._
-* Check the `git diff` for the project, you should see only the `package.json` file changed (with the new version).
-* Commit, push, open a pull request, and wait for approval.
-
-Once the PR has been approved and merged, you can finally move to the next step, the actual release.
-
-## Release
-
-The "release" step publishes the package on the npm registry, using the version declared in the `package.json` file, and [tags](https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag) that specific release on git.
-
-_**IMPORTANT**: Once released a package on the public registry, you can't revert the changes: the only solution is to deprecate the package (this will hide it from the public, but remains there). If you need to do some tests, use a **local** package registry (see below), don't test directly in production!_
-
-* Make sure your local `main` branch is up to date.
-* You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
-* `cd packages/tokens`
-* `yarn release`
-* Check the git diff, you should not see any change.
-
-**Notice**: this action will automatically:
-
-* publish the new version of the package on the [NPM registry](https://www.npmjs.com/) using the current _SemVer_ version declared in the `package.json` file (the one previously chosen in the `bump` step).
-* tag the current last commit in the `main` branch and push the tag to the git origin
-
-At this point check on npm that the package ([@hashicorp/design-system-tokens](https://www.npmjs.com/package/@hashicorp/design-system-tokens) has been successfully published, and if it's so... well done! You just published your new package 🎉.
+Follow the instructions for Changesets in the root [README](../../README.md).
 
 🚨 **DON'T FORGET**:
 

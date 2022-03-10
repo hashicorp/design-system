@@ -75,7 +75,7 @@ This action will:
 
 ## Releasing a new npm version of the package
 
-See the [RELEASE](../RELEASE.md) guide for details.
+Follow the instructions for Changesets in the root [README](../../README.md).
 
 ### Figma Token
 
