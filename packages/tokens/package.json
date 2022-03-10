@@ -18,7 +18,9 @@
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
-    "build": "ts-node --transpile-only ./scripts/build"
+    "build": "ts-node --transpile-only ./scripts/build",
+    "prepublishOnly": "cp -r ./dist/* .",
+    "postpublish": "git clean -fd"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",
