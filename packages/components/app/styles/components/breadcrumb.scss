@@ -131,6 +131,10 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     text-decoration-color: transparent;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    .hds-breadcrumb__sublist & {
+        white-space: normal;
+    }
 }
 
 // TRUNCATION
@@ -178,8 +182,10 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     box-shadow: var(--token-surface-high-box-shadow);
     left: -$hds-breadcrumb-item-visual-horizontal-padding;
     margin-top: 4px;
+    max-width: 200px; // by design
     padding: 8px 16px;
     position: absolute;
     top: 100%;
+    width: max-content;
     z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
 }
