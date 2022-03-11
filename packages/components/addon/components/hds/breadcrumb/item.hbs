@@ -7,12 +7,6 @@
         </div>
       {{/if}}
       <span class="hds-breadcrumb__text">{{@text}}</span>
-      {{! TODO: this should work but it doesn't (for me) - see also https://youtu.be/RD8a2SrjieM?t=4936 }}
-      {{#if (has-block "extra")}}
-        <div class="hds-breadcrumb__extra">
-          {{yield to="extra"}}
-        </div>
-      {{/if}}
     </div>
   {{else}}
     <LinkTo
@@ -29,12 +23,6 @@
         </div>
       {{/if}}
       <span class="hds-breadcrumb__text">{{@text}}</span>
-      {{! TODO: this should work but it doesn't (for me) - see also https://youtu.be/RD8a2SrjieM?t=4936 }}
-      {{#if (has-block "extra")}}
-        <div class="hds-breadcrumb__extra">
-          {{yield to="extra"}}
-        </div>
-      {{/if}}
     </LinkTo>
   {{/if}}
 </li>
