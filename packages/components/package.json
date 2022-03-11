@@ -8,35 +8,13 @@
     "components",
     "ember-addon"
   ],
-  "repository": "https://github.com/hashicorp/design-system-components",
-  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "packages/components"
+  }, 
+   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
-  "contributors": [
-    {
-      "name": "Melanie Sumner",
-      "email": "melanie@hashicorp.com"
-    },
-    {
-      "name": "Brian Runnells",
-      "email": "brunnells@hashicorp.com"
-    },
-    {
-      "name": "Hector Simpson",
-      "email": "hector@hashicorp.com"
-    },
-    {
-      "name": "Heather Larsen",
-      "email": "hlarsen@hashicorp.com"
-    },
-    {
-      "name": "Amy Lam",
-      "email": "alam@hashicorp.com"
-    },
-    {
-      "name": "Cristiano Rastelli",
-      "email": "cristiano.rastelli@hashicorp.com"
-    }
-  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -54,10 +32,6 @@
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
-    "bump": "./node_modules/.bin/bump package.json",
-    "release": "yarn publish --new-version $npm_package_version",
-    "postrelease:git-tag": "TAG_VERSION=\"${npm_package_name}/${npm_package_version}\" && git tag $TAG_VERSION && git push origin $TAG_VERSION",
-    "postrelease": "yarn postrelease:git-tag",
     "prepare": "husky install"
   },
   "dependencies": {

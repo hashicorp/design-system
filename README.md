@@ -63,6 +63,16 @@ See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.m
 
 See [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
 
+## @hashicorp/design-system-tokens
+
+| Package                                                                              | Version                                                                                                                         |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **[@hashicorp/design-system-components](./packages/components/)** <br />Design System components    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components) |
+
+### Contributing
+
+See [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) guide for details on how to update the components.
+
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE.md).

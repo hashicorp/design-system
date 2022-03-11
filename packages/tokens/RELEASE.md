@@ -1,4 +1,4 @@
-# How To Release
+# How to release
 
 Whenever there is an update to the design tokens in Figma (e.g. a new color is added), these changes need to be transfered also to the code. This means updating the "source" token files, and re-generate "output" CSS/Sass/JS/JSON files and once these changes have been approved, release them as package to the npm registry.
 
