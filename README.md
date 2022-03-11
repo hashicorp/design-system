@@ -63,7 +63,7 @@ See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.m
 
 See [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
 
-## @hashicorp/design-system-tokens
+## @hashicorp/design-system-components
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
