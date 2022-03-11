@@ -21,7 +21,7 @@ Installation
 yarn add @hashicorp/design-system-components
 ```
 
-If you do not have `ember-cli-sass` installed, you will need to do three things before importing the styles into your app:
+You will need to do three things before importing the styles into your app:
 
 1. Install `ember-cli-sass`
 
