@@ -4,6 +4,7 @@
 @import "./_typography";
 
 @import "./pages/db-badge";
+@import "./pages/db-breadcrumb";
 @import "./pages/db-button";
 @import "./pages/db-card";
 @import "./pages/db-colors";
@@ -26,6 +27,7 @@ body.dummy-app {
     .dummy-app-wrapper {
         display: grid;
         grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%; // necessary or when the content is larger than the page, it grows indefinitely!
 
         .dummy-header {
             width: 100%;

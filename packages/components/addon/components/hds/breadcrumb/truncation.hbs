@@ -1,0 +1,23 @@
+<li class="hds-breadcrumb__item hds-breadcrumb__item--is-truncation">
+  <Hds::Disclosure>
+    <:toggle as |t|>
+      <button
+        type="button"
+        class="hds-breadcrumb__truncation-toggle
+          {{if @hover 'is-hover'}}
+          {{if @active 'is-active'}}
+          {{if @focus 'is-focus'}}"
+        {{on "click" t.onClickToggle}}
+      >
+        <FlightIcon @name="more-horizontal" @size="16" @isInlineBlock={{false}} />
+      </button>
+    </:toggle>
+    <:content>
+      <div class="hds-breadcrumb__truncation-content">
+        <ol class="hds-breadcrumb__sublist">
+          {{yield}}
+        </ol>
+      </div>
+    </:content>
+  </Hds::Disclosure>
+</li>

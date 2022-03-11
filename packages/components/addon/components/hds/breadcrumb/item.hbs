@@ -1,0 +1,40 @@
+<li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
+  {{#if @current}}
+    <div class="hds-breadcrumb__current">
+      {{#if @icon}}
+        <div class="hds-breadcrumb__icon">
+          <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+        </div>
+      {{/if}}
+      <span class="hds-breadcrumb__text">{{@text}}</span>
+      {{! TODO: this should work but it doesn't (for me) - see also https://youtu.be/RD8a2SrjieM?t=4936 }}
+      {{#if (has-block "extra")}}
+        <div class="hds-breadcrumb__extra">
+          {{yield to="extra"}}
+        </div>
+      {{/if}}
+    </div>
+  {{else}}
+    <LinkTo
+      class="hds-breadcrumb__link {{if @hover 'is-hover'}} {{if @active 'is-active'}} {{if @focus 'is-focus'}}"
+      @current-when={{@current-when}}
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @replace={{@replace}}
+      @route={{@route}}
+    >
+      {{#if @icon}}
+        <div class="hds-breadcrumb__icon">
+          <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+        </div>
+      {{/if}}
+      <span class="hds-breadcrumb__text">{{@text}}</span>
+      {{! TODO: this should work but it doesn't (for me) - see also https://youtu.be/RD8a2SrjieM?t=4936 }}
+      {{#if (has-block "extra")}}
+        <div class="hds-breadcrumb__extra">
+          {{yield to="extra"}}
+        </div>
+      {{/if}}
+    </LinkTo>
+  {{/if}}
+</li>
