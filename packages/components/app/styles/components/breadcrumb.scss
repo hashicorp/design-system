@@ -138,9 +138,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 .hds-breadcrumb__truncation-toggle {
     align-items: center;
     background-color: transparent;
-    border: none;
+    border: 1px solid transparent; // We need this to be transparent for a11y
     border-radius: $hds-breadcrumb-item-border-radius;
-    color: var(--token-color-neutral-foreground-faint);
+    color: var(--token-color-foreground-faint);
     cursor: pointer;
     display: flex;
     flex: none;
@@ -149,24 +149,26 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
     outline: none; // TODO check with @melanie
     padding: 0;
-    width: 36px; // by design
+    width: $hds-breadcrumb-item-height;
 
     // we apply the focus directly to the element, without using a pseudo-element
     @include hds-focus-ring-basic();
 
     &:hover,
     &.is-hover {
-        background-color: var(--token-color-neutral-background-secondary);
+        border-color: var(--token-color-border-strong);
         color: var(--token-color-foreground-faint);
     }
     &:active,
     &.is-active {
-        background-color: var(--token-color-palette-neutral-200);
-        color: var(--token-color-neutral-foreground-secondary);
+        background-color: var(--token-color-surface-interactive-active);
+        border-color: var(--token-color-border-strong);
+        color: var(--token-color-foreground-primary);
     }
     &:focus,
     &.is-focus {
         background-color: transparent;
+        border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
     }
 }
 
