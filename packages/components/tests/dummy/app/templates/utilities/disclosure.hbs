@@ -1,0 +1,193 @@
+{{page-title "Disclosure"}}
+
+<h2 class="dummy-h2">Disclosure</h2>
+<p class="dummy-paragraph">🚧
+  <em>Notice: this component is intended for internal use for now. It may be that in the future it will exposed as
+    official component of the design system but not for now. Please if you need to use it speak with the HDS team.</em></p>
+
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
+    <dt>&lt;:toggle&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where to pass the interactive element that works as "toggle" for the disclosure.</p>
+    </dd>
+    <dt>[:toggle].onClickToggle <code>event handler</code></dt>
+    <dd>
+      <p>Function that needs to be called by the interactive element to toggle the visibility of the content.</p>
+    </dd>
+    <dt>&lt;:content&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where to pass the actual content that is shown/hidden upon toggling.</p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Disclosure>
+        <:toggle>
+          your interactive element here (usually a button)
+        </:toggle>
+        <:content>
+          your content here
+        </:content>
+      </Hds::Disclosure>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">To actually work, you need an interactive element that can trigger a custom event handler
+    provided by the
+    <code class="dummy-code">:toggle</code>
+    block (is passed via
+    <code class="dummy-code">hash</code>
+    by Ember). This element is usually usually a button, or a component that renders a button (for accessibility
+    reasons).
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Disclosure>
+        <:toggle as |t|>
+          <button type="button" \{{on "click" t.onClickToggle}}>Click me</button>
+        </:toggle>
+        <:content>
+          your content here
+        </:content>
+      </Hds::Disclosure>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">When the content is disclosed, the container can be closed in different way: toggling again
+    the visibility via the button (<code class="dummy-code">click</code>
+    or
+    <code class="dummy-code">enter/return</code>), clicking outside of the content, or via the
+    <code class="dummy-code">esc</code>
+    key.</p>
+  <p class="dummy-paragraph"><strong>Important:</strong></p>
+  <ul>
+    <li class="dummy-paragraph">
+      the
+      <code class="dummy-code">HDS::Disclosure</code>
+      component will trap the focus inside the "content" while it's open (we're using the
+      <a href="https://github.com/focus-trap/focus-trap" target="_blank" rel="noopener noreferrer">
+        <code class="dummy-code">
+          focus-trap</code>
+      </a>
+      library); at the moment we don't allow non-focusable content (it will trigger an error).
+    </li>
+    <li class="dummy-paragraph">the "content" is not positioned in any way in relation to the toggle: this
+      responsibility is left to the consumers (eg by applying a
+      <code class="dummy-code">position: absolute</code>
+      to a wrapper around the content that is passed to the
+      <code class="dummy-code">:content</code>
+      block).</li>
+  </ul>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+
+  <h4 class="dummy-h4">Variants</h4>
+
+  <p class="dummy-paragraph">with generic HTML
+    <code class="dummy-code">&lt;button&gt;</code>
+    and generic content (placeholder)</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
+      </:toggle>
+      <:content>
+        <a href="#">
+          <DummyPlaceholder @text="some generic content here" @width="200" @height="90" @background="#FAFAFA" />
+        </a>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
+  <p class="dummy-paragraph">with generic HTML
+    <code class="dummy-code">&lt;button&gt;</code>
+    and generic list of
+    <code class="dummy-code">&lt;a&gt;</code>
+    links</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
+      </:toggle>
+      <:content>
+        <ul class="dummy-disclosure-content-list-of-links">
+          <li>
+            <a href="https://google.com">Link to Google</a>
+          </li>
+          <li>
+            <a href="https://apple.com">Link with a much longer text</a>
+          </li>
+        </ul>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
+  <p class="dummy-paragraph">with
+    <code class="dummy-code">&lt;Hds::Button&gt;</code>
+    and generic list of
+    <code class="dummy-code">&lt;a&gt;</code>
+    links</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onClickToggle}} />
+      </:toggle>
+      <:content>
+        <ul class="dummy-disclosure-content-list-of-links">
+          <li>
+            <a href="https://google.com">Link to Google</a>
+          </li>
+          <li>
+            <a href="https://apple.com">Link with a much longer text</a>
+          </li>
+        </ul>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
+  <p class="dummy-paragraph">with
+    <code class="dummy-code">&lt;Hds::Button&gt;</code>
+    inside a larger container and generic list of
+    <code class="dummy-code">&lt;a&gt;</code>
+    links</p>
+  <div class="dummy-disclosure-container">
+    <Hds::Disclosure>
+      <:toggle as |t|>
+        <div class="dummy-disclosure-button-wrapper">
+          <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onClickToggle}} />
+        </div>
+      </:toggle>
+      <:content>
+        <ul class="dummy-disclosure-content-list-of-links">
+          <li>
+            <a href="https://google.com">Link to Google</a>
+          </li>
+          <li>
+            <a href="https://apple.com">Link with a much longer text</a>
+          </li>
+        </ul>
+      </:content>
+    </Hds::Disclosure>
+  </div>
+
+</section>

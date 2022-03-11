@@ -1,0 +1,107 @@
+{{page-title "Elevation"}}
+
+<h2 class="dummy-h2">Elevation</h2>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">There are two different ways to apply an "elevation" or "surface" effect to a UI element,
+    via
+    <strong>design tokens</strong>
+    or via
+    <strong>CSS helper classes</strong>.</p>
+  <p class="dummy-paragraph">Which one to use will depend on the context: since both refer to the same design token
+    values, from the design system perspective there's no difference between the two methods (it's more of a preference
+    for the "consumer" codebase).</p>
+
+  <h4 class="dummy-h4">Design tokens</h4>
+  <p class="dummy-paragraph">You can use the "elevation" and "surface"
+    <a href="./tokens">design tokens</a>
+    directly in your CSS definitions:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="css"
+    @code="
+      .your-selector {
+        box-shadow: var(--token-elevation-mid-box-shadow);
+      }
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">These are the <strong>CSS variables</strong> that you can use:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock @language="css" @code={{this.cssVariables}} />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><strong>🚨 IMPORTANT: 🚨</strong></p>
+  <ul>
+    <li class="dummy-paragraph">the "elevation" and "surface" CSS variables can be used
+      <strong>only</strong>
+      with a
+      <code class="dummy-code">box-shadow</code>
+      property</li>
+    <li class="dummy-paragraph">the border radius depends on the UI element to which is applied to, so it's up to you to
+      apply the right
+      <code class="dummy-code">border-radius</code></li>
+  </ul>
+
+  <h4 class="dummy-h4">CSS helper classes</h4>
+  <p class="dummy-paragraph">You can use one of the predefined CSS helper classes:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <div class="hds-elevation-mid">...</div>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">These are the <strong>CSS helper classes</strong> that you can use:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock @language="css" @code={{this.cssHelpers}} />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">To use this classes you have to import the CSS file
+    <code class="dummy-code">[products|devdot]/css/helpers/elevation.css</code>
+    from the
+    <code class="dummy-code">@hashicorp/design-system-tokens</code>
+    package.</p>
+  <p class="dummy-paragraph"><strong>🚨 IMPORTANT: 🚨</strong></p>
+  <ul>
+    <li class="dummy-paragraph">the border radius depends on the UI element to which is applied to, so it's up to you to
+      apply the right
+      <code class="dummy-code">border-radius</code></li>
+  </ul>
+</section>
+
+<section>
+  <div class="dummy-design-guidelines">
+    <h3 class="dummy-h3">Design guidelines</h3>
+    <p class="dummy-paragraph"><a href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/?node-id=1988%3A2">Figma UI
+        Kit</a></p>
+    <br />
+    <img
+      class="dummy-figma-docs"
+      src="/assets/images/elevation-design-usage.png"
+      alt="Elevation design usage from Figma"
+    />
+  </div>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Elevation:</h4>
+  <p class="dummy-paragraph">Standalone shadow effects</p>
+  <div class="dummy-elevation-sample">
+    {{#each @model.ELEVATIONS as |elevation|}}
+      <div class="hds-elevation-{{elevation}}">
+        <DummyPlaceholder @text={{elevation}} @width="100" @height="100" @background="transparent" />
+      </div>
+    {{/each}}
+  </div>
+  <h4 class="dummy-h4">Surface:</h4>
+  <p class="dummy-paragraph">Shadow effects combined with an additional edge</p>
+  <div class="dummy-elevation-sample">
+    {{#each @model.SURFACES as |surface|}}
+      <div class="hds-surface-{{surface}}">
+        <DummyPlaceholder @text={{surface}} @width="100" @height="100" @background="transparent" />
+      </div>
+    {{/each}}
+  </div>
+</section>
