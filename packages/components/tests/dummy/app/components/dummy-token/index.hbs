@@ -1,0 +1,57 @@
+<div
+  class="dummy-token
+    {{if this.isExpanded 'dummy-token--is-expanded' ''}}
+    {{if this.isDeprecated 'dummy-token--is-deprecated' ''}}"
+>
+  <button class="dummy-token__summary" type="button" {{on "click" this.toggle}}>
+    <span class="dummy-token__name">
+      {{this.token.name}}
+      {{#if this.isAlias}}
+        <span class="dummy-token__asterisk">*</span>
+      {{/if}}
+    </span>
+    <code class="dummy-token__value">
+      {{#if this.isColor}}
+        {{! template-lint-disable no-inline-styles }}
+        <span class="dummy-token__color" style={{this.colorPreviewStyle}}></span>
+      {{/if}}
+      {{this.token.value}}
+    </code>
+  </button>
+  <div class="dummy-token__details">
+    <table class="dummy-token__details-table">
+      <tbody>
+        <tr>
+          <th>CSS variable:</th>
+          <td>--{{this.token.name}}</td>
+          <td>
+            <CopyButton @clipboardText="var(--{{this.token.name}})">Copy</CopyButton>
+          </td>
+        </tr>
+        {{#if this.isAlias}}
+          <tr>
+            <th>Value/Computed:</th>
+            {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
+            <td colspan="2">{{this.token.value}}</td>
+          </tr>
+          <tr>
+            <th>Value/Original:</th>
+            <td colspan="2">{{this.token.original_value}}</td>
+          </tr>
+        {{else}}
+          <tr>
+            <th>Value:</th>
+            {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
+            <td colspan="2">{{this.token.value}}</td>
+          </tr>
+        {{/if}}
+        {{#if this.token.comment}}
+          <tr>
+            <th>Comment:</th>
+            <td colspan="2"><span class="dummy-token__comment">{{this.token.comment}}</span></td>
+          </tr>
+        {{/if}}
+      </tbody>
+    </table>
+  </div>
+</div>

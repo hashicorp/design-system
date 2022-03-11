@@ -1,0 +1,39 @@
+//
+// CARD COMPONENT > CONTAINER
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+
+$hds-card-container-levels: ( 'base', 'mid', 'high' );
+
+$hds-card-container-border-radius: 6px;
+
+.hds-card__container {
+  background-color: #fff;
+  border-radius: $hds-card-container-border-radius;
+  position: relative;
+}
+
+
+// BACKGROUND
+
+.hds-card__container--background-neutral-primary {
+  background-color: var(--token-color-surface-primary);
+}
+
+.hds-card__container--background-neutral-secondary {
+  background-color: var(--token-color-surface-faint);
+}
+
+
+// OVERFLOW
+
+.hds-card__container--overflow-hidden {
+  overflow: hidden;
+}
+
+.hds-card__container--overflow-visible {
+  overflow: visible;
+}

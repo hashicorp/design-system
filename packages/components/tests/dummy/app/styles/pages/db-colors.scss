@@ -1,0 +1,53 @@
+// COLORS
+
+.dummy-colors-list {
+    margin-top: 1rem;;
+}
+
+.dummy-color-card {
+    max-width: 600px;
+    padding: 20px 20px 20px 160px;
+    position: relative;
+    width: 100%;
+
+    & + & { margin-top: 0.5rem; }
+}
+
+.dummy-color-card__color-preview {
+    box-shadow: rgb(0 0 0 / 50%) 0px 0px 1px inset;
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    width: 140px;
+    background-color: currentColor;
+}
+
+.dummy-color-card__color-name {
+    @include dummyFontFamily();
+    font-size: 1rem;
+    line-height: 1;
+    color: #000;
+}
+
+.dummy-color-card__color-vars {
+    font-size: 0.8rem;
+    line-height: 1;
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    color: #000;
+
+    li {
+        margin: 0.5rem 0 0 0;
+        padding: 0;
+    }
+
+    span {
+        @include dummyFontFamily();
+        display: inline-block;
+        opacity: 0.5;
+        width: 85px;
+    }
+}

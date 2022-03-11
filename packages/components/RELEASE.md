@@ -1,6 +1,6 @@
 # How to release
 
-Whenever there is an update to the design tokens in Figma (e.g. a new color is added), these changes need to be transfered also to the code. This means updating the "source" token files, and re-generate "output" CSS/Sass/JS/JSON files and once these changes have been approved, release them as package to the npm registry.
+Whenever there is an update to the components, and these changes have been approved, we need to release them as package to the npm registry.
 
 Please see the instructions in the [CONTRIBUTING](CONTRIBUTING.md) file for more details about how to setup the project and make changes to the code for these packages.
 
@@ -10,7 +10,7 @@ Follow the instructions for Changesets in the root [README](../../README.md).
 
 🚨 **DON'T FORGET**:
 
-You need to communicate to the product teams that are consuming the design tokens!
+You need to communicate to the product teams that are consuming the components!
 
 ## Using a local NPM registry for testing
 
@@ -34,7 +34,7 @@ This will make sure the package is published on Verdaccio. Once the package is p
 
 Once you've completed testing the package locally:
 
-1. remove verdaccio via `npm uninstall -g verdaccio`  
+1. remove verdaccio via `npm uninstall -g verdaccio`
 2. remove the files it created with `rm -fr ~/.local/share/verdaccio && rm -fr .config/verdaccio`
 
 This same command can be used to cleanup the entire data storage of Verdaccio and start from scratch (no need to reinstall, only cleanup the data).

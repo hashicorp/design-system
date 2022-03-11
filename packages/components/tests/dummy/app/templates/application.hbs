@@ -1,0 +1,33 @@
+{{page-title "HDS Design System"}}
+<div class="dummy-app-wrapper">
+  <header class="dummy-header">
+    <NavigationNarrator />
+    <h1 class="dummy-h1">
+      HashiCorp Design System (HDS)
+    </h1>
+  </header>
+  <nav aria-label="primary nav" class="dummy-nav">
+    <ul>
+      <li class="dummy-paragraph">
+        <LinkTo @route="index">
+          <FlightIcon @name="home" />
+          Home
+        </LinkTo>
+      </li>
+    </ul>
+  </nav>
+  <main id="main" class="dummy-main">
+    {{outlet}}
+  </main>
+  <footer class="dummy-footer">
+    <p class="dummy-paragraph">
+      <a
+        class="dummy-link"
+        href="https://github.com/hashicorp/design-system-components"
+        target="_blank"
+        rel="noopener noreferrer"
+      >GitHub repo
+      </a>
+    </p>
+  </footer>
+</div>

@@ -1,0 +1,56 @@
+// BUTTON
+
+.dummy-button-base-sample {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    min-width: fit-content;
+    padding: 0.125rem;
+
+}
+
+.dummy-button-max-width-container {
+    width: 200px;
+}
+
+.dummy-button-full-width-container {
+    width: 300px;
+}
+
+.dummy-button-states-grid {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+.dummy-button-containers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.dummy-button-containers-list-item__inline-block {
+    display: inline-block;
+}
+
+.dummy-button-containers-list-item__inline-flex {
+    display: inline-flex;
+}
+
+.dummy-button-containers-list-item__max-width-fit-content {
+    max-width: fit-content;
+}
+
+.dummy-button-containers-list-item__flex {
+    display: flex;
+}
+
+.dummy-button-containers-list-item__flex-grow-0 {
+    flex-grow: 0;
+}

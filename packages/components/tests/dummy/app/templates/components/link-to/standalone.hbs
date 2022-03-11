@@ -1,0 +1,326 @@
+{{page-title "LinkTo (Standalone) component"}}
+
+<h2 class="dummy-h2">
+  LinkTo (Standalone)
+</h2>
+
+<section>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">The LinkTo (Standalone) component handles generation of an
+    <a
+      href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Ember LinkTo</a>, which is an internal link.
+  </p>
+  <p class="dummy-paragraph">
+    What do we mean by the name
+    <strong>LinkTo (Standalone)</strong>? It's a LinkTo that's used in isolation, meaning it's not inline with adjacent
+    text.
+    <em>Note: Solutions for LinkTo (Inline) are coming soon.</em>
+  </p>
+
+  <ul>
+    <li class="dummy-paragraph">
+      <strong>LinkTo (Standalone)</strong>
+      is intended for internal app links that are not inline and are used as standalone elements whose destination is a
+      URL.
+    </li>
+    <li class="dummy-paragraph">
+      It must always have a
+      <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">Flight icon</a>
+      defined.
+    </li>
+    <li class="dummy-paragraph">
+      The
+      <code class="dummy-code">...attributes</code>
+      syntax is supported on this component. See
+      <a
+        href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >the Ember Guides section on HTML attributes in components</a>
+      if you are unfamiliar with the way Ember supports HTML attributes and/or the
+      <code class="dummy-code">
+        ...attributes
+      </code>
+      syntax. Additionally, see
+      <a
+        href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Attribute Ordering</a>
+      to understand how the position of
+      <code class="dummy-code">
+        ...attributes
+      </code>
+      matters.
+    </li>
+  </ul>
+
+  <h4 class="dummy-h4">Example of LinkTo (Standalone):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
+    <br />
+    <Hds::LinkTo::Standalone
+      @text="Hey, this link is a LinkTo (Standalone)"
+      @route="index"
+      @icon="arrow-right"
+      @iconPosition="trailing"
+    />
+  </div>
+
+  <h4 class="dummy-h4">Example of LinkTo (Inline):</h4>
+
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a
+      <LinkTo @route="index">LinkTo (Inline)</LinkTo>, coming soon to HDS.
+      <LinkTo @route="index">And another LinkTo (Inline)</LinkTo></p>
+  </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3">
+    Component API
+  </h3>
+  <p class="dummy-paragraph">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props">
+    <dt>
+      size
+      <code>
+        enum
+      </code>
+    </dt>
+    <dd>
+      <p>
+        Acceptable values:
+      </p>
+      <ol>
+        <li>
+          small
+        </li>
+        <li class="default">
+          medium
+        </li>
+        <li>
+          large
+        </li>
+      </ol>
+    </dd>
+    <dt>
+      text
+      <code>
+        string
+      </code>
+    </dt>
+    <dd>
+      <p>
+        The text of the link (standalone).
+      </p>
+      <p>
+        <em>
+          If no text value is defined an error will be thrown.
+        </em>
+      </p>
+    </dd>
+    <dt>
+      route
+      <code>
+        route name
+      </code>
+    </dt>
+    <dd>
+      The route that is passed to the link
+    </dd>
+    <dt>
+      model/models
+      <code>
+        route model(s)
+      </code>
+    </dt>
+    <dd>
+      Use this to explicitly supply a model to the route
+    </dd>
+    <dt>
+      query
+      <code>
+        query params as key value pairs
+      </code>
+    </dt>
+    <dd>
+      Use this to supply query parameters to the route
+    </dd>
+    <dt>
+      icon
+      <code>
+        string
+      </code>
+    </dt>
+    <dd>
+      <p>
+        Use this parameter to show an icon. Acceptable value: any Flight icon name.
+      </p>
+    </dd>
+    <dt>iconPosition <code>enum</code></dt>
+    <dd>
+      <p>Positions the icon before or after the text. Acceptable values:</p>
+      <ol>
+        <li class="default">leading</li>
+        <li>trailing</li>
+      </ol>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">
+    Usage
+  </h3>
+
+  <h4 class="dummy-h4">Basic invocation</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::LinkTo::Standalone @text="Watch tutorial video" @icon="film" @route="index" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::LinkTo::Standalone @text="Watch Tutorial Video" @icon="film" @route="index" />
+
+  <h4 class="dummy-h4">Sizes</h4>
+  <p class="dummy-paragraph">There are three sizes: small, medium, and large. If no size is defined,
+    <code class="dummy-code">medium</code>
+    is automatically applied.
+  </p>
+
+  <h5 class="dummy-h5">Small</h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="small" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="small" />
+
+  <h5 class="dummy-h5">Medium</h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" />    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" />
+
+  <h5 class="dummy-h5">Large</h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="large" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="large" />
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components-%5BWIP%5D?node-id=2522%3A8014"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Figma UI Kit
+      </a>
+    </p>
+    <p>
+      <em>
+        Note: Below image from Figma mentions internal or external, but the LinkTo is only for internal links in
+        Ember.js.
+      </em>
+    </p>
+    <img class="dummy-figma-docs" src="/assets/images/design-guidelines-link-standalone.png" alt="" role="none" />
+  </div>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">
+    Showcase
+  </h3>
+  <h4 class="dummy-h4">
+    Content
+  </h4>
+  <div class="dummy-link-base-sample">
+    <Hds::LinkTo::Standalone @icon="plus" @text="text & leading icon" @route="components.link-to" />
+    <Hds::LinkTo::Standalone
+      @icon="arrow-right"
+      @text="text & trailing icon"
+      @route="components.link-to"
+      @iconPosition="trailing"
+    />
+    <div class="dummy-link-max-width-container">
+      <Hds::LinkTo::Standalone
+        @icon="plus"
+        @text="very long text that might wrap for multiple lines"
+        @route="components.link-to"
+      />
+    </div>
+  </div>
+  <h4 class="dummy-h4">
+    Sizes
+  </h4>
+  <div class="dummy-link-base-sample">
+    {{#each @model.SIZES as |size|}}
+      <Hds::LinkTo::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+    {{/each}}
+  </div>
+  <h4 class="dummy-h4">
+    States (in each size)
+  </h4>
+  <div class="dummy-link-states-grid">
+    {{#each @model.COLORS as |color|}}
+      {{#each @model.SIZES as |size|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">
+              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}:
+            </span>
+            <br />
+            <Hds::LinkTo::Standalone
+              @icon="plus"
+              @text={{capitalize state}}
+              @size={{size}}
+              @color={{color}}
+              class="is-{{state}}"
+              @route="components.link-to"
+            />
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/each}}
+  </div>
+</section>
