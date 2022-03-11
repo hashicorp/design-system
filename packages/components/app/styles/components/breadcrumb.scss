@@ -125,8 +125,10 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 .hds-breadcrumb__text {
     font-family: var(--token-typography-font-stack-text);
     font-size: 0.8125rem; // 13px
-    line-height: $hds-breadcrumb-item-height; // we want to match the height of the item
+    line-height: 1rem; // 16px
     overflow: hidden;
+    // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
+    padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-overflow: ellipsis;
