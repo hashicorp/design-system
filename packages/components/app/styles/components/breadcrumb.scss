@@ -70,7 +70,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 .hds-breadcrumb__link {
     align-items: center;
     border-radius: $hds-breadcrumb-item-border-radius;
-    color: var(--token-color-neutral-foreground-faint);
+    color: var(--token-color-foreground-faint);
     display: flex;
     flex-direction: row;
     margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
@@ -105,7 +105,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 .hds-breadcrumb__current {
     align-items: center;
-    color: var(--token-color-neutral-foreground-primary);
+    color: var(--token-color-foreground-strong);
     display: flex;
     flex-direction: row;
     margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
