@@ -46,7 +46,7 @@ jobs:
 
     - name: Lint
       run: yarn lint
-
+      working-directory: packages/components
 
   test:
     name: Tests
@@ -91,8 +91,9 @@ jobs:
 
     - name: Test
       run: yarn test:ember:percy --launch ${{ matrix.browser }}
+      working-directory: packages/components
       env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
 
   floating-dependencies:
     name: Floating Dependencies
@@ -136,7 +137,7 @@ jobs:
     - name: Test
       run: yarn test:ember:percy --launch ${{ matrix.browser }}
       env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
