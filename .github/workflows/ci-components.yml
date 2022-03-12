@@ -9,10 +9,15 @@ on:
 env:
   NODE_VERSION: '16.x'
 
+concurrency:
+   group: ci-components-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
+
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+   
     steps:
     - uses: actions/checkout@v2
       with:
@@ -136,6 +141,7 @@ jobs:
 
     - name: Test
       run: yarn test:ember:percy --launch ${{ matrix.browser }}
+      working-directory: packages/components
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
 
@@ -192,6 +198,7 @@ jobs:
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
+      working-directory: packages/components
       env:
         EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
       run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
