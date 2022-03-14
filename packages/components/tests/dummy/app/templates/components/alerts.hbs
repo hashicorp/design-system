@@ -1,0 +1,184 @@
+{{page-title "Alert components"}}
+
+<h2 class="dummy-h2">Alerts</h2>
+
+<section>
+  <p class="dummy-paragraph">Reference:
+    <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
+      Alerts Component Requirement Document (CRD)
+    </a>
+  </p>
+  <p>Starting with Alerts: Global, Page, and Inline. (Alerts: Toast coming next.)</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+
+  <dl class="dummy-component-props">
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">global</li>
+        <li>page</li>
+        <li>inline</li>
+      </ol>
+    </dd>
+
+    <dt>intent <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">neutral</li>
+        <li>highlight</li>
+        <li>success</li>
+        <li>warning</li>
+        <li>critical</li>
+      </ol>
+      <p>🚧 TODO: Does <code>intent</code> result in a default icon?</p>
+    </dd>
+
+    <dt>hasIcon <code>boolean</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">true</li>
+        <li>false</li>
+      </ol>
+    </dd>
+
+    <dt>icon <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an icon. Exists if
+        <code>hasIcon=true</code>.
+      </p>
+      <p>Acceptable value:</p>
+      <p>Any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight icon</a>
+        name.
+      </p>
+    </dd>
+
+    <dt>headerText <code>string</code></dt>
+    <dd>
+      <p>The header text in the alert.</p>
+      <p>🚧 TODO: Determine if <code>headerText</code> and/or <code>bodyText</code>required?</p>
+    </dd>
+
+    <dt>bodyText <code>string</code></dt>
+    <dd>
+      <p>The body text in the alert.</p>
+      <p>🚧 TODO: Determine if <code>headerText</code> and/or <code>bodyText</code>required?</p>
+    </dd>
+
+    <dt>hasButton <code>boolean</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>true</li>
+        <li class="default">false</li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">buttonIcon <code>string</code></dt>
+    <dd class="dummy-indent">
+      <p>Use this parameter to show an icon on the button. Exists if
+        <code>hasButon=true</code>.
+      </p>
+      <p>Acceptable value:</p>
+      <p>Any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight icon</a>
+        name.
+      </p>
+    </dd>
+
+    <dt class="dummy-indent">buttonIconPosition <code>enum</code></dt>
+    <dd class="dummy-indent">
+      <p>
+        Positions the icon before or after the text. Exists if
+        <code>hasButon=true</code>.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">
+          leading
+        </li>
+        <li>
+          trailing
+        </li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">buttonText <code>string</code></dt>
+    <dd class="dummy-indent">
+      <p>Acceptable values:</p>
+      <p>Use this parameter to show text on the button. Exists if
+        <code>hasButon=true</code>.
+      </p>
+    </dd>
+
+    <dt>hasLinkStandalone <code>boolean</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>true</li>
+        <li class="default">false</li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">linkStandaloneIcon <code>string</code></dt>
+    <dd class="dummy-indent">
+      <p>Use this parameter to show an icon on the button. Exists if
+        <code>hasLinkStandalone=true</code>.
+      </p>
+      <p>Acceptable value:</p>
+      <p>Any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight icon</a>
+        name.
+      </p>
+    </dd>
+
+    <dt class="dummy-indent">linkStandaloneIconPosition <code>enum</code></dt>
+    <dd class="dummy-indent">
+      <p>
+        Positions the icon before or after the text. Exists if
+        <code>haslinkStandalone=true</code>.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">
+          leading
+        </li>
+        <li>
+          trailing
+        </li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">linkStandaloneText <code>string</code></dt>
+    <dd class="dummy-indent">
+      <p>Acceptable values:</p>
+      <p>Use this parameter to show text on the button. Exists if
+        <code>hasLinkStandalone=true</code>.
+      </p>
+    </dd>
+
+    <dt>hasDismiss <code>boolean</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">true</li>
+        <li>false</li>
+      </ol>
+    </dd>
+
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code>...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
