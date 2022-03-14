@@ -6,6 +6,9 @@ on:
       - main
   pull_request: {}
 
+env:
+  NODE_VERSION: '12.x'
+
 concurrency:
    group: ci-flight-website-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
@@ -20,13 +23,13 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
-        run: yarn lint
+        run: yarn run lint
         working-directory: packages/flight-website
 
   test:
@@ -38,13 +41,13 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Run Tests
-        run: yarn test:ember:percy
+        run: yarn run test:ember:percy
         working-directory: packages/flight-website
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBSITE }}
