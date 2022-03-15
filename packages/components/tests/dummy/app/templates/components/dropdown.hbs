@@ -22,3 +22,56 @@
   <p class="dummy-paragraph">Toggle, User (avatar)</p>
   <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
 </section>
+
+<section class="dummy-bg-gray">
+  <h3 class="dummy-h3">List Items</h3>
+  <p class="dummy-paragraph">Heading, Separator, Help Text</p>
+  <ul class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
+    <Hds::Dropdown::ListItem
+      @item="help-text"
+      @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider."
+    />
+    <Hds::Dropdown::ListItem @item="separator" />
+    <Hds::Dropdown::ListItem @route="index" @text="Components" />
+  </ul>
+
+  <p class="dummy-paragraph">Links (default)</p>
+  <ul class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @leadingIcon="hexagon" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @trailingIcon="circle" />
+    <Hds::Dropdown::ListItem
+      @route="components.dropdown"
+      @text="Dropdown Component"
+      @leadingIcon="hexagon"
+      @trailingIcon="circle"
+    />
+  </ul>
+
+  <p class="dummy-paragraph">Links (critical)</p>
+  <ul class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @color="critical" />
+    <Hds::Dropdown::ListItem
+      @route="components.dropdown"
+      @text="Dropdown Component"
+      @leadingIcon="hexagon"
+      @color="critical"
+    />
+    <Hds::Dropdown::ListItem
+      @route="components.dropdown"
+      @text="Dropdown Component"
+      @trailingIcon="circle"
+      @color="critical"
+    />
+    <Hds::Dropdown::ListItem
+      @route="components.dropdown"
+      @text="Dropdown Component"
+      @leadingIcon="hexagon"
+      @trailingIcon="circle"
+      @color="critical"
+    />
+
+  </ul>
+
+</section>

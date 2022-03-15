@@ -1,0 +1,45 @@
+{{#if (eq @item "heading")}}
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__heading">
+    {{@text}}
+  </li>
+
+{{else if (eq @item "help-text")}}
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__help-text">
+    {{@text}}
+  </li>
+
+{{else if (eq @item "separator")}}
+
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__separator" role="separator"></li>
+
+{{else if (eq @item "copy-item")}}
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__copy-item">
+    copy item will go here
+  </li>
+{{else}}
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__link {{if @color 'hds-dropdown-list-item--critical' null}}">
+    {{#if @route}}
+      {{! // TODO consider approach }}
+      <LinkTo @route={{@route}}>
+        {{#if @leadingIcon}}
+          <FlightIcon @name={{@leadingIcon}} />
+        {{/if}}
+        {{@text}}
+        {{#if @trailingIcon}}
+          <FlightIcon @name={{@trailingIcon}} />
+        {{/if}}
+      </LinkTo>
+    {{else}}
+      <a href={{@href}}>
+        {{#if @leadingIcon}}
+          <FlightIcon @name={{@leadingIcon}} />
+        {{/if}}
+        {{@text}}
+        {{#if @trailingIcon}}
+          <FlightIcon @name={{@trailingIcon}} />
+        {{/if}}
+      </a>
+    {{/if}}
+  </li>
+
+{{/if}}

@@ -71,3 +71,76 @@
     }
   }
 }
+
+// TODO dropdown container, should this be styled here?
+.hds-dropdown__list {
+  background-color: white; //TODO REPLACE WITH TOKEN
+  border-radius: 5px;
+  box-shadow: var(--token-elevation-high-box-shadow);
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  max-width: 265px;
+  padding: 4px 0;
+
+  .hds-dropdown-list-item {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-family: var(--token-typography-font-stack-text);
+    justify-content: center;
+    width: 100%;
+
+    
+
+    &.hds-dropdown-list-item__heading {
+      box-sizing: border-box;
+      color: var(--token-color-foreground-strong);
+      display: flex;
+      font-size: 13px;
+      font-weight: 600;
+      justify-content: flex-start;
+      line-height: 18px;
+      padding: 10px 16px 4px;
+      width: 100%;
+    }
+    
+    &.hds-dropdown-list-item__help-text {
+      box-sizing: border-box;
+      color: var(--token-color-foreground-faint);
+      display: flex;
+      flex-flow: row wrap;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      max-width: 100%;
+      padding: 2px 16px 4px;
+    }
+    
+    &.hds-dropdown-list-item__separator {}
+    
+    &.hds-dropdown-list-item__link {
+      border-color: transparent;
+      font-size: 15px;
+      line-height: 20px;
+      
+      a {
+        align-items: center;
+        color: var(--token-color-foreground-primary);
+        display: flex;
+        gap: 12px;
+        max-width: 100%;
+        padding: 9px 15px;
+        text-decoration: none;
+        width: 100%;
+
+      }
+
+      &.hds-dropdown-list-item--critical {
+        a {
+          color: var(--token-color-foreground-critical);
+        }
+      }
+    }
+  }
+}
