@@ -2,6 +2,23 @@
 
 <h2 class="dummy-h2">Dropdown Component</h2>
 
-<section>
-  content will go here
+<section class="dummy-bg-gray">
+  <h3 class="dummy-h3">Toggles</h3>
+  <p class="dummy-paragraph">Toggle, Default (primary)</p>
+  <Hds::Dropdown::Toggle @text="Manage Sources" />
+
+  <p class="dummy-paragraph">Toggle, Default (secondary)</p>
+  <Hds::Dropdown::Toggle @text="Manage Sources" @color="secondary" />
+
+  <p class="dummy-paragraph">Toggle, More (default)</p>
+  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" />
+
+  <p class="dummy-paragraph">Toggle, More (small)</p>
+  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" />
+
+  <p class="dummy-paragraph">Toggle, User (default)</p>
+  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />
+
+  <p class="dummy-paragraph">Toggle, User (avatar)</p>
+  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
 </section>

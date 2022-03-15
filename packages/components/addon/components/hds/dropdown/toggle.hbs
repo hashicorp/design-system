@@ -1,0 +1,38 @@
+{{! three toggle types: default, more, user }}
+{{#if (eq @toggle "more")}}
+  <button
+    class="hds-dropdown-toggle hds-dropdown-toggle__more {{if @size 'hds-dropdown-toggle-more--small' null}}"
+    aria-label={{@text}}
+    type="button"
+  >
+    {{#if @size}}
+      <FlightIcon @name="more-horizontal" />
+    {{else}}
+      <FlightIcon @name="more-horizontal" @size="24" />
+    {{/if}}
+  </button>
+
+{{else if (eq @toggle "user")}}
+  <button
+    class="hds-dropdown-toggle {{if @avatarUrl 'hds-dropdown-toggle__avatar' 'hds-dropdown-toggle__user'}}"
+    aria-label={{@text}}
+    type="button"
+  >
+    {{#if @avatarUrl}}
+      {{! leaving the alt blank to indicate presentation; the button already has an aria-label }}
+      <img src={{@avatarUrl}} alt="" role="presentation" />
+    {{else}}
+      <FlightIcon @name="user" @size="24" />
+    {{/if}}
+    <FlightIcon @name="chevron-down" />
+  </button>
+{{else}}
+  {{! default, toggle with text }}
+  <button
+    class="hds-dropdown-toggle {{if @color 'hds-dropdown-toggle--secondary' 'hds-dropdown-toggle--primary'}}"
+    type="button"
+  >
+    {{@text}}
+    <FlightIcon @name="chevron-down" />
+  </button>
+{{/if}}
