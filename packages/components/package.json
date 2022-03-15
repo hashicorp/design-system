@@ -12,8 +12,8 @@
     "type": "git",
     "url": "https://github.com/hashicorp/design-system.git",
     "directory": "packages/components"
-  }, 
-   "license": "MPL-2.0",
+  },
+  "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
     "doc": "doc",
@@ -30,7 +30,8 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:one",
+    "test:ember-compatibility": "ember try:each",
+    "test:ember-compatibility:ci": "ember try:one",
     "test:ember:percy": "percy exec ember test"
   },
   "dependencies": {
@@ -72,7 +73,7 @@
     "ember-prism": "^0.12.0",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
-    "ember-source": "~3.28.0",
+    "ember-source": "~3.24.3",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.6.0",
     "ember-template-lint-plugin-prettier": "^3.0.1",
