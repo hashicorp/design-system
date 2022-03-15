@@ -84,6 +84,8 @@ jobs:
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+      - name: WTH is happening
+        run: tree node_modules/@hashicorp/design-system-tokens
       - name: Run Tests
         run: yarn run test:ember-compatibility:ci ${{ matrix.try-scenario }}
         working-directory: packages/components
