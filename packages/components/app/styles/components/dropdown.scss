@@ -3,6 +3,9 @@
 // - [ ] Check colors against Figma (again)
 // - [ ] Determine what should be abstracted
 // - [ ] Have meta review of approach before refining
+// - [ ] Review with Heather re:padding had to be subtracted by one to account for the transparent border
+// - [ ] Add hover/focus/active/disabled states
+
 
 .hds-dropdown-toggle {
   align-items: center;
@@ -15,10 +18,10 @@
   color: var(--token-color-foreground-faint);
   display: flex;
   font-family: var(--token-typography-font-stack-text);
-  font-size: 14px;
+  font-size: 0.875rem; // 14px
   gap: 8px;
   justify-content: center;
-  line-height: 16px;
+  line-height: 1rem; // 16px
   padding: 10px;
 
   &::after {
@@ -44,7 +47,6 @@
 
     &.hds-dropdown-toggle__more--small {
       padding: 5px;
-    
     }
     
   }
