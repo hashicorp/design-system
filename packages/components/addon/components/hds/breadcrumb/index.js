@@ -4,13 +4,13 @@ const noop = () => {};
 
 export default class HdsBreadcrumbComponent extends Component {
   /**
-   * @param registerContainer
+   * @param onDidInsert
    * @type {function}
    * @default () => {}
    */
-  get registerContainer() {
+  get didInsert() {
     // TODO discuss with Matthew if this is the right way to create a guard for this method
-    return this.args.registerContainer ?? noop;
+    return this.args.didInsert ?? noop;
   }
 
   /**
