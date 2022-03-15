@@ -8,12 +8,6 @@ This should be a short TL;DR that includes the purpose of the PR.
 
 <!-- If more details are appropriate, add them here. What code changed, and why? -->
 
-### 👀 How to review
-
-<!-- Suggest how it's best for the reviewer to review the code (choose one, or remove) -->
-👉 Review commit-by-commit
-👉 Review by files changed
-
 ### :camera_flash: Screenshots
 
 <!-- Screenshots always help, especially if this PR will change what renders to the browser -->
@@ -24,7 +18,13 @@ This should be a short TL;DR that includes the purpose of the PR.
 
 ***
 
-### :white_check_mark: Reviewer's checklist
+### 👀 How to review
+
+<!-- Suggest how it's best for the reviewer to review the code (choose one, or remove) -->
+👉 Review commit-by-commit
+👉 Review by files changed
+
+Reviewer's checklist:
 
 - [ ] +1 Percy if applicable
 - [ ] Confirm that PR has a changelog update via [Changesets](https://github.com/changesets/changesets) if needed
