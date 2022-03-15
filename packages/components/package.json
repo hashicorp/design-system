@@ -31,6 +31,7 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
+    "test:ember-compatibility:ci": "ember try:one",
     "test:ember:percy": "percy exec ember test"
   },
   "dependencies": {

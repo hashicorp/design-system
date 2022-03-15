@@ -1,0 +1,89 @@
+name: CI - Components
+    
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+env:
+  NODE_VERSION: '16.x'
+
+concurrency:
+   group: ci-components-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
+
+jobs:
+  test:
+    name: "Tests"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn run lint
+        working-directory: packages/components
+      - name: Run Tests
+        run: yarn run test:ember:percy
+        working-directory: packages/components
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
+
+  floating:
+    name: "Floating Dependencies"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install Dependencies
+        run: yarn install --no-lockfile --non-interactive
+      - name: Run Tests
+        run: yarn run test:ember:percy
+        working-directory: packages/components
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
+
+  # try-scenarios:
+  #   name: ${{ matrix.try-scenario }}
+  #   runs-on: ubuntu-latest
+  #   needs: 'test'
+
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       try-scenario:
+  #         - ember-lts-3.24
+  #         - ember-lts-3.28
+  #         - ember-release
+  #         - ember-beta
+  #        # - ember-canary
+  #         - ember-classic
+  #        # - embroider-safe
+  #        # - embroider-optimized
+
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Install Node
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: ${{ env.NODE_VERSION }}
+  #         cache: yarn
+  #         cache-dependency-path: yarn.lock
+  #     - name: Install Dependencies
+  #       run: yarn install --frozen-lockfile
+  #     - name: Run Tests
+  #       working-directory: packages/components
+  #       run: yarn run test:ember-compatibility:ci ${{ matrix.try-scenario }}
