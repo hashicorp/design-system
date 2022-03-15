@@ -133,21 +133,6 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     white-space: nowrap;
 }
 
-.hds-breadcrumb__extra {
-    align-items: center;
-    display: flex;
-    flex: none;
-    height: $hds-breadcrumb-item-height;
-    margin-left: 4px;
-    overflow: visible;
-
-    // TODO necessary until we figure out if we can do a conditional in the HBS file
-    // UPDATE: doesn't work because Ember adds an empty comment ¯\_(ツ)_/¯
-    &:empty{
-        display: none;
-    }
-}
-
 // TRUNCATION
 
 .hds-breadcrumb__truncation-toggle {
