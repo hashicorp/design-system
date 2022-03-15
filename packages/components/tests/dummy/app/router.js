@@ -25,6 +25,7 @@ Router.map(function () {
     this.route('link-to', function () {
       this.route('standalone', { path: '/' });
     });
+    this.route('dropdown');
   });
   this.route('content', function () {
     this.route('writing-guidelines');
