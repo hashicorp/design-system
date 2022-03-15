@@ -85,5 +85,5 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Run Tests
+        run: yarn run test:ember-compatibility ${{ matrix.try-scenario }}
         working-directory: packages/components
-        run: ../../node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
