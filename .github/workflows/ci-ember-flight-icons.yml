@@ -27,7 +27,7 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Lint
         run: yarn run lint
         working-directory: packages/ember-flight-icons
@@ -83,7 +83,7 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Tests
         working-directory: packages/ember-flight-icons
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
