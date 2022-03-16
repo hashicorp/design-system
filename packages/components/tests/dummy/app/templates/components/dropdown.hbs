@@ -1,6 +1,23 @@
 {{page-title "Dropdown Component"}}
 
 <h2 class="dummy-h2">Dropdown Component</h2>
+<p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
+  dropdown menu they wish.</p>
+
+<nav class="dummy-nav-dropdown">
+  <Hds::Disclosure>
+    <:toggle as |t|>
+      <Hds::Dropdown::Toggle @text="Manage Sources" {{on "click" t.onClickToggle}} />
+    </:toggle>
+    <:content>
+      <ul class="hds-dropdown__list">
+        <li><a href="/">Link Here</a></li>
+        <li>Other content here</li>
+        <li>Yet something else</li>
+      </ul>
+    </:content>
+  </Hds::Disclosure>
+</nav>
 
 <section class="dummy-bg-gray">
   <h3 class="dummy-h3">Toggles</h3>
