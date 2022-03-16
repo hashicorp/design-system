@@ -30,6 +30,20 @@ yarn changeset publish
 
 Note: You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
 
+### Local Testing of Versioning
+
+You can simulate the versioning experience locally with this command:
+
+```bash
+yarn changeset version
+```
+
+In order for this step to complete successfully you'll need to create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
+
+```
+GITHUB_TOKEN=YOUR-TOKEN-HERE
+```
+
 ## Flight Icons
 
 | Package                                                                              | Version                                                                                                                         |
