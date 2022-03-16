@@ -1,0 +1,20 @@
+<div class="hds-alert" ...attributes role="alert">
+
+  <header class="hds-alert__header">
+    <div class="hds-alert__icon">
+      <FlightIcon @name="alert-triangle" @size="24" @color="var(--token-color-foreground-warning-on-surface)" />
+    </div>
+    <p class="hds-alert__title">Intentions are set to default allow</p>
+  </header>
+
+  <div class="hds-alert__body">
+    Your Intention settings are currently set to default allow. This means that this view will show connections to every
+    service in your cluster. We recommend changing your Intention settings to default deny and creating specific
+    Intentions for upstream and downstream services for this view to be useful.
+  </div>
+
+  <footer class="hds-alert__footer">
+    <Hds::Button @text="Resend invitation" @color="secondary" @size="small" class="hds-alert__button" />
+    <Hds::LinkTo::Standalone @text="Manage invitations" @icon="users" @route="index" @size="small" @color="secondary" />
+  </footer>
+</div>

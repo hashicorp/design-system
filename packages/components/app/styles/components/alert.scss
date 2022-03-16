@@ -1,0 +1,43 @@
+//
+// ALERT
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+.hds-alert {
+  background-color: var(--token-color-surface-warning);
+  padding: 1.25rem; // 20px
+}
+
+.hds-alert__header {
+  align-items: center;
+  display: flex;
+}
+
+.hds-alert__icon {
+  margin-right: 0.75rem; // 12px
+}
+
+.hds-alert__title {
+  color: var(--token-color-foreground-warning-on-surface);
+  font-family: var(--token-typography-body-200-font-family);
+  font-weight: var(--token-typography-font-weight-semibold);
+  margin: 0; // Temp override 
+}
+
+.hds-alert__body {
+  color: var(--token-color-foreground-warning-on-surface);
+  font-family: var(--token-typography-body-200-font-family);
+  margin: 0 0 0 2.25rem; // Temp override for 0's, 36px
+}
+
+.hds-alert__footer {
+  align-items: center;
+  display: flex;
+  margin: 1.25rem 0 0 2.25rem; // 20px 0 0 36px
+}
+
+.hds-alert__button {
+  margin-right: 1.25rem; // 20px
+}

@@ -15,7 +15,7 @@ Router.map(function () {
     this.route('focus-ring');
   });
   this.route('components', function () {
-    this.route('alerts');
+    this.route('alert');
     this.route('badge');
     this.route('button');
     this.route('card');
