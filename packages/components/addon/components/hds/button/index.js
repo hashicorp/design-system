@@ -72,6 +72,11 @@ export default class HdsButtonIndexComponent extends Component {
    * @description The name of the icon to be used.
    */
   get icon() {
+    assert(
+      `when the "Hds::Button" @color is "tertiary" an @icon is required`,
+      !(this.color === 'tertiary' && !this.args.icon)
+    );
+
     return this.args.icon ?? null;
   }
 
