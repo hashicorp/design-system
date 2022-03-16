@@ -21,6 +21,7 @@
       <ol>
         <li class="default">primary</li>
         <li>secondary</li>
+        <li>tertiary</li>
         <li>critical</li>
       </ol>
     </dd>
@@ -111,6 +112,9 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
+  <p class="dummy-paragraph"><strong>🚨 IMPORTANT:</strong>
+    <code class="dummy-code">tertiary</code>
+    buttons are required to have either a leading or trailing icon to be accessible.</p>
 
   <h4 class="dummy-h4">Icon position</h4>
   <p class="dummy-paragraph">By default, if you define an icon, it is placed before the text. If you would like to
@@ -153,8 +157,8 @@
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
-    There are three available colors for a button: primary, secondary, and critical. The default is primary. To use a
-    different color, declare another value for
+    There are four available colors for a button: primary, secondary, tertiary, and critical. The default is primary. To
+    use a different color, declare another value for
     <code class="dummy-code">@color</code>:
   </p>
   {{! prettier-ignore-start }}
@@ -165,11 +169,13 @@
     '
   />
   {{! prettier-ignore-end }}
-  <Hds::Button @text="Primary action" />
+  <Hds::Button @icon="plus" @text="Primary action" />
   <br />
-  <Hds::Button @text="Secondary action" @color="secondary" />
+  <Hds::Button @icon="plus" @text="Secondary action" @color="secondary" />
   <br />
-  <Hds::Button @text="Critical action" @color="critical" />
+  <Hds::Button @icon="plus" @text="Tertiary action" @color="tertiary" />
+  <br />
+  <Hds::Button @icon="plus" @text="Critical action" @color="critical" />
 
   <h4 class="dummy-h4">Size</h4>
   <p class="dummy-paragraph">
@@ -325,28 +331,31 @@
   <h4 class="dummy-h4">States (in each size)</h4>
   <div class="dummy-button-states-grid">
     {{#each @model.COLORS as |color|}}
+      <h5 class="dummy-h5 dummy-button-states-grid__title">{{capitalize color}}</h5>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <div>
-            <span class="dummy-text-small">{{capitalize size}}/{{color}}/{{state}}:</span>
+            <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
             <br />
             <Hds::Button @icon="plus" @text={{capitalize state}} @size={{size}} @color={{color}} class="is-{{state}}" />
           </div>
         {{/each}}
       {{/each}}
-      {{#each @model.STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">Full width/{{color}}/{{state}}:</span>
-          <br />
-          <Hds::Button
-            @icon="plus"
-            @text={{capitalize state}}
-            @color={{color}}
-            @isFullWidth={{true}}
-            class="is-{{state}}"
-          />
-        </div>
-      {{/each}}
+      {{#if (not-eq color "tertiary")}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">Full width/{{color}}/{{state}}:</span>
+            <br />
+            <Hds::Button
+              @icon="plus"
+              @text={{capitalize state}}
+              @color={{color}}
+              @isFullWidth={{true}}
+              class="is-{{state}}"
+            />
+          </div>
+        {{/each}}
+      {{/if}}
     {{/each}}
   </div>
 
