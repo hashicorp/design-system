@@ -4,17 +4,19 @@
 
 ### Minor Changes
 
-- [#70](https://github.com/hashicorp/design-system/pull/70) [`04db4d9e`](https://github.com/hashicorp/design-system/commit/04db4d9ece6aba358acfa0721a78dfe84c561b5e) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - #### 💥 Breaking change
+- [#70](https://github.com/hashicorp/design-system/pull/70) [`04db4d9e`](https://github.com/hashicorp/design-system/commit/04db4d9ece6aba358acfa0721a78dfe84c561b5e) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)!
 
-  Changes the output path for tokens to include dist/ in the path
+#### 💥 Breaking change
 
-  ##### Before
+  Changes the output path for tokens to include `dist/ in the path
 
-  /products/css/tokens.css
+##### Before
 
-  ##### After
+`/products/css/tokens.css`
 
-  /dist/products/css/tokens.css
+##### After
+
+`/dist/products/css/tokens.css`
 
 ## 0.5.2
 
