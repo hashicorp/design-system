@@ -52,12 +52,8 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
         }
     }
 
-    .hds-breadcrumb__sublist > & {
-        &:not(:last-child) {
-            border-bottom: 1px solid var(--token-color-palette-neutral-200);
-            margin-bottom: 2px;
-            padding-bottom: 2px;
-        }
+    .hds-breadcrumb__sublist > & + & {
+        margin-top: 4px;
     }
 }
 
@@ -70,7 +66,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 .hds-breadcrumb__link {
     align-items: center;
     border-radius: $hds-breadcrumb-item-border-radius;
-    color: var(--token-color-neutral-foreground-faint);
+    color: var(--token-color-foreground-faint);
     display: flex;
     flex-direction: row;
     margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
@@ -105,7 +101,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 .hds-breadcrumb__current {
     align-items: center;
-    color: var(--token-color-neutral-foreground-primary);
+    color: var(--token-color-foreground-strong);
     display: flex;
     flex-direction: row;
     margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
@@ -125,12 +121,18 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 .hds-breadcrumb__text {
     font-family: var(--token-typography-font-stack-text);
     font-size: 0.8125rem; // 13px
-    line-height: $hds-breadcrumb-item-height; // we want to match the height of the item
+    line-height: 1rem; // 16px
     overflow: hidden;
+    // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
+    padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    .hds-breadcrumb__sublist & {
+        white-space: normal;
+    }
 }
 
 // TRUNCATION
@@ -138,9 +140,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 .hds-breadcrumb__truncation-toggle {
     align-items: center;
     background-color: transparent;
-    border: none;
+    border: 1px solid transparent; // We need this to be transparent for a11y
     border-radius: $hds-breadcrumb-item-border-radius;
-    color: var(--token-color-neutral-foreground-faint);
+    color: var(--token-color-foreground-faint);
     cursor: pointer;
     display: flex;
     flex: none;
@@ -149,35 +151,39 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
     outline: none; // TODO check with @melanie
     padding: 0;
-    width: 36px; // by design
+    width: $hds-breadcrumb-item-height;
 
     // we apply the focus directly to the element, without using a pseudo-element
     @include hds-focus-ring-basic();
 
     &:hover,
     &.is-hover {
-        background-color: var(--token-color-neutral-background-secondary);
+        border-color: var(--token-color-border-strong);
         color: var(--token-color-foreground-faint);
     }
     &:active,
     &.is-active {
-        background-color: var(--token-color-palette-neutral-200);
-        color: var(--token-color-neutral-foreground-secondary);
+        background-color: var(--token-color-surface-interactive-active);
+        border-color: var(--token-color-border-strong);
+        color: var(--token-color-foreground-primary);
     }
     &:focus,
     &.is-focus {
         background-color: transparent;
+        border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
     }
 }
 
 .hds-breadcrumb__truncation-content {
-    background-color: #FFF;
+    background-color: var(--token-color-surface-primary);
     border-radius: 6px;
     box-shadow: var(--token-surface-high-box-shadow);
     left: -$hds-breadcrumb-item-visual-horizontal-padding;
     margin-top: 4px;
-    padding: 8px 16px;
+    max-width: 200px; // by design
+    padding: 6px 12px;
     position: absolute;
     top: 100%;
+    width: max-content;
     z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
 }
