@@ -27,7 +27,7 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Lint
         run: yarn run lint
         working-directory: packages/ember-flight-icons
@@ -37,24 +37,6 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
 
-  floating:
-    name: "Floating Dependencies"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
-      - name: Install Dependencies
-        run: yarn install --no-lockfile --non-interactive
-      - name: Run Tests
-        run: yarn run test:ember:percy
-        working-directory: packages/ember-flight-icons
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -83,9 +65,10 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Tests
         working-directory: packages/ember-flight-icons
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: yarn ember try:one ${{ matrix.try-scenario }}
         env:
-          PERCY_ENABLE: 0 
+          PERCY_ENABLE: 0
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
