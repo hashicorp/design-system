@@ -2064,7 +2064,7 @@ __metadata:
     "@embroider/test-setup": ^0.43.5
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@hashicorp/design-system-tokens": ^0.5.0
+    "@hashicorp/design-system-tokens": ^0.6.0
     "@hashicorp/ember-flight-icons": ^2.0.1
     "@percy/cli": ^1.0.0-beta.70
     "@percy/ember": ^3.0.0
@@ -2117,7 +2117,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@^0.5.0, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@^0.6.0, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
