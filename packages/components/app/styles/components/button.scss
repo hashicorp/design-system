@@ -59,6 +59,8 @@ $hds-button-focus-border-width: 3px;
 
   &:focus,
   &.is-focus {
+    box-shadow: none;
+
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
@@ -141,6 +143,7 @@ $size-props: (
 .hds-button--color-primary {
   background-color: var(--token-color-palette-blue-200);
   border-color: var(--token-color-palette-blue-300);
+  box-shadow: var(--token-elevation-low-box-shadow);
   color: var(--token-color-foreground-high-contrast);
 
   &:focus,
@@ -183,6 +186,7 @@ $size-props: (
 .hds-button--color-secondary {
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-border-strong);
+  box-shadow: var(--token-elevation-low-box-shadow);
   color: var(--token-color-foreground-primary);
 
   &:focus,
@@ -217,8 +221,6 @@ $size-props: (
   background-color: transparent;
   border-color: transparent;
   color: var(--token-color-foreground-action);
-  // TODO! fix the shadows for the button (this will be done in a follow-up PR)
-  box-shadow: none;
 
   &:focus,
   &.is-focus {
@@ -267,6 +269,7 @@ $size-props: (
 .hds-button--color-critical {
   background-color: var(--token-color-surface-critical);
   border-color: var(--token-color-foreground-critical-on-surface);
+  box-shadow: var(--token-elevation-low-box-shadow);
   color: var(--token-color-foreground-critical-on-surface);
 
   &:focus,
