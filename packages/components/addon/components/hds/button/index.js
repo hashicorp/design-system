@@ -6,7 +6,7 @@ export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_TYPE = 'button';
 export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'critical'];
+export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
 export const TYPES = ['button', 'submit', 'reset'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
