@@ -9,5 +9,8 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.0"
+  },
+  "scripts": {
+    "release": "yarn changeset publish"
   }
 }
