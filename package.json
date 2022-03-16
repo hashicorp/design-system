@@ -2,12 +2,12 @@
   "name": "@hashicorp/design-system",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
   "workspaces": [
     "./packages/*"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.0"
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }
