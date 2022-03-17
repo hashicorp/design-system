@@ -1,0 +1,13 @@
+{{page-title "Cta"}}
+<h2 class="dummy-h2">CTA Component</h2>
+<section>
+  <h3 class="dummy-h3">Basic Use (add action in invocation)</h3>
+  <Hds::Cta @text="Call to Action" {{action "this.mySpecialAction"}} />
+
+  <h3 class="dummy-h3">Basic Use (with route defined)</h3>
+  <Hds::Cta @route="components.cta" @text="Sign In" @icon="arrow-to" />
+
+  <h3 class="dummy-h3">Basic Use (with url defined)</h3>
+  <Hds::Cta @text="Register Now" @href="/" @icon="external-link" />
+
+</section>

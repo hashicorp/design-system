@@ -1,0 +1,9 @@
+<div class="hds-cta" ...attributes>
+  {{#if @route}}
+    <Hds::LinkTo::Standalone @text={{@text}} @icon="external-link" @route={{@route}} />
+  {{else if @href}}
+    <Hds::Link::Standalone @text={{@text}} @icon={{@icon}} href={{@href}} @iconPosition="trailing" />
+  {{else}}
+    <Hds::Button @text={{@text}} />
+  {{/if}}
+</div>

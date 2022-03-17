@@ -1,0 +1,8 @@
+@use "button";
+
+.hds-cta {
+  a.hds-linkto-standalone,
+  a.hds-link-standalone {
+    @extend .hds-button;
+  }
+}
