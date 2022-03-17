@@ -1,8 +1,16 @@
 @use "button";
 
+// if the <Hds::Link::Standalone> is inside of the <Hds::Cta> component, we want it to have the styles from <Hds::Button>
 .hds-cta {
-  a.hds-linkto-standalone,
-  a.hds-link-standalone {
+  width: fit-content;
+
+  .hds-link-standalone {
     @extend .hds-button;
+  }
+  .hds-link-standalone--color-primary {
+    @extend .hds-button--color-primary;
+  }
+  .hds-link-standalone--size-medium {
+    @extend .hds-button--size-medium;
   }
 }
