@@ -22,13 +22,7 @@ Note: If you want to ignore a changestep bump in terminal (e.g. major bump for s
 
 ## Releasing
 
-Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR can be merged to `main` and released to npm with the following command:
-
-```bash
-yarn changeset publish
-```
-
-Note: You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
+Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR – titled `Version Packages` – can be merged to `main` and the changes will be released to NPM automatically.
 
 ### Local Testing of Versioning
 
