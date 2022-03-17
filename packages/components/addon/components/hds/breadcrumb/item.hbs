@@ -11,10 +11,8 @@
   {{else}}
     <LinkTo
       class="hds-breadcrumb__link {{if @hover 'is-hover'}} {{if @active 'is-active'}} {{if @focus 'is-focus'}}"
-      @current-when={{@current-when}}
       @models={{hds-link-to-models @model @models}}
       @query={{hds-link-to-query @query}}
-      @replace={{@replace}}
       @route={{@route}}
     >
       {{#if @icon}}
