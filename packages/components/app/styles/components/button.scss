@@ -213,6 +213,57 @@ $size-props: (
   }
 }
 
+.hds-button--color-tertiary {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--token-color-foreground-action);
+  // TODO! fix the shadows for the button (this will be done in a follow-up PR)
+  box-shadow: none;
+
+  &:focus,
+  &.is-focus {
+    border-color: var(--token-color-focus-action-internal);
+    color: var(--token-color-foreground-action);
+    &::before {
+      border-color: var(--token-color-focus-action-external);
+    }
+  }
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-surface-primary);
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-action-hover);
+    cursor: pointer;
+  }
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+    box-shadow: none;
+    color: var(--token-color-foreground-action-active);
+    &::before {
+      border-color: transparent;
+    }
+  }
+
+  &:disabled,
+  &[disabled],
+  &.is-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.is-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.is-disabled:hover {
+    background-color: transparent;
+    border-color: transparent;
+
+    &::before {
+      border-color: transparent;
+    }
+  }
+}
+
 .hds-button--color-critical {
   background-color: var(--token-color-surface-critical);
   border-color: var(--token-color-foreground-critical-on-surface);

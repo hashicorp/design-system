@@ -6,7 +6,7 @@ export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_TYPE = 'button';
 export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'critical'];
+export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
 export const TYPES = ['button', 'submit', 'reset'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
@@ -72,6 +72,11 @@ export default class HdsButtonIndexComponent extends Component {
    * @description The name of the icon to be used.
    */
   get icon() {
+    assert(
+      `when the "Hds::Button" @color is "tertiary" an @icon is required`,
+      !(this.color === 'tertiary' && !this.args.icon)
+    );
+
     return this.args.icon ?? null;
   }
 
