@@ -1,11 +1,19 @@
 <div class="hds-cta" ...attributes>
   {{#if @route}}
-    <Hds::LinkTo::Standalone @text={{@text}} @icon={{@icon}}  @route={{@route}} 
-    class="hds-button hds-button--size-medium hds-button--color-primary" />
+    <Hds::LinkTo::Standalone
+      @text={{@text}}
+      @icon={{@icon}}
+      @route={{@route}}
+      class="hds-button hds-button--size-medium hds-button--color-primary"
+    />
   {{else if @href}}
-    <Hds::Link::Standalone 
-    @text={{@text}} @icon="external-link" href={{@href}} @iconPosition="trailing" 
-    class="hds-button hds-button--size-medium hds-button--color-primary" />
+    <Hds::Link::Standalone
+      @text={{@text}}
+      @icon="external-link"
+      href={{@href}}
+      @iconPosition="trailing"
+      class="hds-button hds-button--size-medium hds-button--color-primary"
+    />
   {{else}}
     <Hds::Button @text={{@text}} />
   {{/if}}

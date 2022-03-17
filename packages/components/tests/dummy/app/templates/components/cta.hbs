@@ -2,12 +2,39 @@
 <h2 class="dummy-h2">CTA Component</h2>
 <section>
   <h3 class="dummy-h3">Basic Use (add action in invocation)</h3>
-  <Hds::Cta @text="Call to Action" {{action "this.mySpecialAction"}} />
+  <Hds::Cta @text="Call to Action" {{on "click" this.mySpecialAction}} />
+  <p class="dummy-paragraph">Invocation Example:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Cta @text="Call to Action" &lbrace;&lbrace;on "click" this.mySpecialAction&rbrace;&rbrace; />
+    '
+  />
+  {{! prettier-ignore-end }}
 
   <h3 class="dummy-h3">Basic Use (with route defined)</h3>
   <Hds::Cta @route="components.cta" @text="Sign In" @icon="zap" />
+  <p class="dummy-paragraph">Invocation Example:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+       <Hds::Cta @route="components.cta" @text="Sign In" @icon="zap" />
+    '
+  />
+  {{! prettier-ignore-end }}
 
   <h3 class="dummy-h3">Basic Use (with url defined)</h3>
   <Hds::Cta @text="Register Now" @href="/" @icon="external-link" />
+  <p class="dummy-paragraph">Invocation Example:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Cta @text="Copy to clipboard" @text="Register Now" @href="/" @icon="external-link" />
+    '
+  />
+  {{! prettier-ignore-end }}
 
 </section>
