@@ -2,6 +2,7 @@
 <h2 class="dummy-h2">CTA Component</h2>
 <section>
   <h3 class="dummy-h3">Basic Use (add action in invocation)</h3>
+  <p>Renders a button element:</p>
   <Hds::Cta @text="Call to Action" /> 
   {{!-- VVV throwing an error but I'm not sure why --}}
   {{!-- <Hds::Cta @text="Call to Action" {{on "click" this.mySpecialAction}}/> --}}
@@ -17,7 +18,8 @@
   />
   {{! prettier-ignore-end }}
 
-  <h3 class="dummy-h3">Basic Use (with route defined)</h3>
+  <h3 class="dummy-h3">With route defined</h3>
+  <p class="dummy-paragraph">Renders a link to the browser (appropriate for users with assistive tech)</p>
   <Hds::Cta @route="components.cta" @text="Sign In" @icon="zap" />
   <p class="dummy-paragraph">Invocation Example:</p>
   {{! prettier-ignore-start }}
@@ -29,7 +31,8 @@
   />
   {{! prettier-ignore-end }}
 
-  <h3 class="dummy-h3">Basic Use (with url defined)</h3>
+  <h3 class="dummy-h3">With href defined</h3>
+  <p class="dummy-paragraph">Renders a link to the browser (appropriate for users with assistive tech)</p>
   <Hds::Cta @text="Register Now" @href="/" @icon="external-link" />
   <p class="dummy-paragraph">Invocation Example:</p>
   {{! prettier-ignore-start }}
