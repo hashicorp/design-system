@@ -75,12 +75,27 @@ export default class HdsCopyButtonIndexComponent extends Component {
   }
 
   /**
+   * @param isFullWidth
+   * @type {boolean}
+   * @default false
+   * @description Indicates that the element should take up the full width of the parent container. The default is false.
+   */
+  get isFullWidth() {
+    return this.args.isFullWidth ?? false;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method Badge#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
     let classes = ['hds-copy-button'];
+
+    // add a class based on the @isFullWidth argument
+    if (this.isFullWidth) {
+      classes.push('hds-button--width-full');
+    }
 
     return classes.join(' ');
   }

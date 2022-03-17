@@ -13,16 +13,17 @@
   align-items: center;
   border: 1px solid transparent; // We need this to be transparent for a11y
   border-radius: 5px;
-  box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
+  box-sizing: border-box;
   display: flex;
-  font-family: var(--token-typography-font-stack-text);
-  justify-content: center;
   max-width: 100%;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
-  position: relative;
   padding: 0.75rem 0.5rem; // 12px 8px
   width: auto;
+
+  &.hds-button--width-full {
+    width: 100%;
+  }
 }
 
 .hds-copy-button__text {
@@ -31,6 +32,7 @@
   font-size: var(--token-typography-code-100-font-size);
   line-height: var(--token-typography-code-100-line-height);
   overflow: hidden;
+  text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
 

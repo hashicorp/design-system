@@ -23,5 +23,12 @@
         <Hds::CopyButton @text={{state}} class="is-{{state}}" @copied={{eq state "success"}} />
       </div>
     {{/each}}
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}/full width:</span>
+        <br />
+        <Hds::CopyButton @text={{state}} class="is-{{state}}" @copied={{eq state "success"}} @isFullWidth={{true}} />
+      </div>
+    {{/each}}
   </div>
 </section>
