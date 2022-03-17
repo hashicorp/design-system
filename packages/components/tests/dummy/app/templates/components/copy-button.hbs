@@ -2,4 +2,26 @@
 
 <h2 class="dummy-h2">CopyButton component</h2>
 
-<Hds::CopyButton />
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+  <h4 class="dummy-h4">Content</h4>
+  <div class="dummy-copy-button-base-sample">
+    <Hds::CopyButton @iconPosition="leading" @text="With leading icon" />
+    <Hds::CopyButton @iconPosition="trailing" @text="With trailing icon" />
+    <Hds::CopyButton @isIconOnly={{true}} @text="Icon only" />
+    <div class="dummy-copy-button-max-width-container">
+      <Hds::CopyButton @text="This is a very long text that will be trimmed" />
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">States</h4>
+  <div class="dummy-copy-button-states-grid">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::CopyButton @text={{state}} class="is-{{state}}" @copied={{eq state "success"}} />
+      </div>
+    {{/each}}
+  </div>
+</section>

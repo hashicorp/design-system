@@ -1,1 +1,23 @@
-<button type="button">hello world</button>
+<button class={{this.classNames}} ...attributes type="button" disabled={{if this.isDisabled "disabled" null}}>
+  {{#if this.isIconOnly}}
+    <div class="hds-copy-button__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+    </div>
+  {{else}}
+    {{#if (eq this.iconPosition "leading")}}
+      <div class="hds-copy-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+      <div class="hds-copy-button__text">
+        {{this.text}}
+      </div>
+    {{else}}
+      <div class="hds-copy-button__text">
+        {{this.text}}
+      </div>
+      <div class="hds-copy-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+    {{/if}}
+  {{/if}}
+</button>

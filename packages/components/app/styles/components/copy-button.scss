@@ -1,0 +1,105 @@
+//
+// COPY-BUTTON COMPONENT
+//
+// properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+//
+
+@use '../mixins/focus-ring' as *;
+
+.hds-copy-button {
+  align-items: center;
+  border: 1px solid transparent; // We need this to be transparent for a11y
+  border-radius: 5px;
+  box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
+  display: flex;
+  font-family: var(--token-typography-font-stack-text);
+  justify-content: center;
+  max-width: 100%;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+  outline-color: transparent; // We need this to be transparent for a11y
+  position: relative;
+  padding: 0.75rem 0.5rem; // 12px 8px
+  width: auto;
+}
+
+.hds-copy-button__text {
+  flex: 1 0 0;
+  font-family: var(--token-typography-code-100-font-family);
+  font-size: var(--token-typography-code-100-font-size);
+  line-height: var(--token-typography-code-100-line-height);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .hds-copy-button__icon + & {
+    margin-left: 0.5rem;
+  }
+
+  & + .hds-copy-button__icon {
+    margin-left: 0.5rem;
+  }
+}
+
+.hds-copy-button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+// COLORS & STATES
+
+.hds-copy-button {
+  @include hds-focus-ring-basic();
+
+  background-color: var(--token-color-surface-interactive);
+  border-color: var(--token-color-border-primary);
+  color: var(--token-color-foreground-primary);
+
+  .hds-copy-button__icon { color: var(--token-color-foreground-action); }
+
+  &:focus,
+  &.is-focus {
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-focus-action-internal);
+    .hds-copy-button__icon { color: var(--token-color-foreground-action); }
+  }
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-surface-interactive-hover);
+    border-color: var(--token-color-border-strong);
+    cursor: pointer;
+    .hds-copy-button__icon { color: var(--token-color-foreground-action-hover); }
+  }
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+    .hds-copy-button__icon { color: var(--token-color-foreground-action-active) }
+  }
+  &.is-success {
+    background-color: var(--token-color-surface-success);
+    border-color: var(--token-color-border-success);
+    .hds-copy-button__icon { color: var(--token-color-foreground-success); }
+  }
+
+  // This covers all of the browsers and focus scenarios (due to the custom focus design).
+  &:disabled,
+  &[disabled],
+  &.is-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.is-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.is-disabled:hover {
+    background-color: var(--token-color-surface-interactive-disabled);
+    border-color: var(--token-color-border-primary);
+    box-shadow: none;
+    color: var(--token-color-foreground-disabled);
+    cursor: not-allowed;
+    .hds-copy-button__icon { color: inherit; }
+  }
+}
