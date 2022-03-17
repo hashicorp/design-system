@@ -22,7 +22,7 @@ Note: If you want to ignore a changestep bump in terminal (e.g. major bump for s
 
 ## Releasing
 
-Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR can be merged to `main` and the changes will be released to NPM automatically.
+Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR – titled `Version Packages` – can be merged to `main` and the changes will be released to NPM automatically.
 
 ### Local Testing of Versioning
 
