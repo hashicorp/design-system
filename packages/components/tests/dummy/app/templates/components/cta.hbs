@@ -2,7 +2,11 @@
 <h2 class="dummy-h2">CTA Component</h2>
 <section>
   <h3 class="dummy-h3">Basic Use (add action in invocation)</h3>
-  <Hds::Cta @text="Call to Action" {{on "click" this.mySpecialAction}} />
+  <Hds::Cta @text="Call to Action" /> 
+  {{!-- VVV throwing an error but I'm not sure why --}}
+  {{!-- <Hds::Cta @text="Call to Action" {{on "click" this.mySpecialAction}}/> --}}
+
+
   <p class="dummy-paragraph">Invocation Example:</p>
   {{! prettier-ignore-start }}
   <CodeBlock

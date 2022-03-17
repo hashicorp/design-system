@@ -1,9 +1,9 @@
 <button
-  class={{this.classNames}}
-  ...attributes
   aria-label={{if this.isIconOnly this.text null}}
   type={{this.type}}
   disabled={{if this.isDisabled "disabled" null}}
+  class={{this.classNames}}
+  ...attributes
 >
   {{#if this.isIconOnly}}
     <div class="hds-button__icon">
