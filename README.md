@@ -71,7 +71,7 @@ See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.m
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@hashicorp/design-system-tokens](./packages/tokens/)** <br />Design tokens    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) |
+| **[@hashicorp/design-system-tokens](./packages/tokens/)** <br />Design tokens    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) |
 
 ### Contributing
 
@@ -81,7 +81,7 @@ See [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on 
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@hashicorp/design-system-components](./packages/components/)** <br />Design System components    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components) |
+| **[@hashicorp/design-system-components](./packages/components/)** <br />Design System components    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components) |
 
 ### Contributing
 
