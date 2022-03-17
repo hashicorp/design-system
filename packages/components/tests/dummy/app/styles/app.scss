@@ -133,6 +133,32 @@ body.dummy-app {
     padding: 0 3px;
 }
 
+.dummy-banner {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d6d8db;
+    border-radius: 0.25rem;
+    background-color: #e2e3e5;
+
+    :first-child {
+        margin-top: 0;
+    }
+}
+
+
+.dummy-banner--info {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.dummy-banner--alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".
 // see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
