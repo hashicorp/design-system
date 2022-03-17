@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 04 Mar 2022 17:16:48 GMT
+ * Generated on Thu, 17 Mar 2022 08:19:13 GMT
  */
 
 .hds-border-primary { border: 1px solid var(--token-color-border-primary); }
@@ -32,6 +32,7 @@
 .hds-foreground-critical-on-surface { color: var(--token-color-foreground-critical-on-surface); }
 .hds-foreground-critical-high-contrast { color: var(--token-color-foreground-critical-high-contrast); }
 .hds-foreground-action-visited { color: var(--token-color-foreground-action-visited); }
+.hds-foreground-action-visited-hover { color: var(--token-color-foreground-action-visited-hover); }
 .hds-page-primary { background-color: var(--token-color-page-primary); }
 .hds-page-faint { background-color: var(--token-color-page-faint); }
 .hds-surface-primary { background-color: var(--token-color-surface-primary); }
