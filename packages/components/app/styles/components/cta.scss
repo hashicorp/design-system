@@ -16,8 +16,9 @@
   }
   .hds-link-standalone--color-primary {
     @extend .hds-button--color-primary;
-    &:hover {
-      @extend .hds-button--color-primary:hover;
+    
+    &:hover { // idk how to handle pseudo classes and it doesn't seem to do it automatically
+      @extend .hds-button--color-primary, :hover;
     }
   }
   .hds-link-standalone--size-medium {
