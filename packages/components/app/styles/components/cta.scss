@@ -6,9 +6,19 @@
 
   .hds-link-standalone {
     @extend .hds-button;
+
+    .hds-link-standalone__icon {
+      @extend .hds-button__icon;
+    }
+    .hds-link-standalone__text {
+      @extend .hds-button__text;
+    }
   }
   .hds-link-standalone--color-primary {
     @extend .hds-button--color-primary;
+    &:hover {
+      @extend .hds-button--color-primary:hover;
+    }
   }
   .hds-link-standalone--size-medium {
     @extend .hds-button--size-medium;
