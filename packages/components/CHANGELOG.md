@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.3.0
+
+### Minor Changes
+
+- [#48](https://github.com/hashicorp/design-system/pull/48) [`971efb9e`](https://github.com/hashicorp/design-system/commit/971efb9e92478e4d88c24aeee835f448f35d2066) Thanks [@didoo](https://github.com/didoo)! - Added "Breadcrumb" component
+
 ## 0.2.0
 
 ### Minor Changes
