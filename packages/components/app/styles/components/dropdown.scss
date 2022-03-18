@@ -5,7 +5,9 @@
 // - [ ] Have meta review of approach before refining
 // - [ ] Review with Heather re:padding had to be subtracted by one to account for the transparent border
 // - [ ] Add hover/focus/active/disabled states
+@use "../mixins/focus-ring" as *;
 
+$border-radius: 5px;
 
 .hds-dropdown-toggle {
   align-items: center;
@@ -103,7 +105,7 @@
     box-sizing: border-box;
     display: flex;
     font-family: var(--token-typography-font-stack-text);
-    height: 32px;    
+    min-height: 32px;    
     justify-content: center;
     width: 100%;
 
@@ -142,44 +144,77 @@
     }
     
     &.hds-dropdown-list-item__link {
+      box-sizing: border-box;
       border-color: transparent;
-      padding: 0 4px;
+      padding: 0 4px 0 10px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        border-radius: 1px;
+        content: '';
+      }
+      
       a {
+        @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
         align-items: center;
-        border-left: 2px solid transparent;
-        color: var(--token-color-foreground-primary);
+        border-radius: $border-radius;
         display: flex;
         flex-flow: row wrap;
         font-size: 15px;
         gap: 12px;
         line-height: 20px;
         max-width: 100%;
-        padding: 5px 15px 9px;
+        padding: 10px;
         text-decoration: none;
         width: 100%;
-
+      }
+      &.hds-dropdown-list-item--action {
         &:hover {
-          color: var(--token-color-foreground-action-hover);
-          border-left-color: var(--token-color-foreground-action-hover);
+          &::before {
+          background-color: var(--token-color-foreground-action-hover);
+          }
         }
-        &:focus {
-
-        }
-        &:active {
-          color: var(--token-color-foreground-action-active);
-          background-color: var(--token-color-surface-action);
-          border-left-color: var(--token-color-foreground-action-hover);
+        a {
+          color: var(--token-color-foreground-primary);
+          &:hover {
+            color: var(--token-color-foreground-action-hover);
+          }
+          &:active {
+            color: var(--token-color-foreground-action-active);
+            background-color: var(--token-color-surface-action);
+            border-left-color: var(--token-color-foreground-action-hover);
+          }
         }
 
       }
 
       &.hds-dropdown-list-item--critical {
+        &:hover {
+          &::before {
+            background-color: var(--token-color-foreground-critical-on-surface); //TODO we need a proper token here
+          }
+        }
         a {
           color: var(--token-color-foreground-critical);
           
           &:hover {
             border-left-color: var(--token-color-foreground-critical-on-surface);
             color: var(--token-color-foreground-critical-on-surface);
+          }
+          &:focus {
+            border: 1px solid var(--token-color-focus-critical-internal);
+            outline: 4px solid var( --token-color-focus-critical-external);
+            border-radius: 5px;
+          }
+          &:active {
+            color: var( --token-color-foreground-critical-on-surface);
+            background-color: var( --token-color-surface-critical);
+            border-left-color: var( --token-color-foreground-critical-on-surface);
           }
         }
       }

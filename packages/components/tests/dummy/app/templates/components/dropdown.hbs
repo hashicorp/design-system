@@ -22,8 +22,11 @@
           </:toggle>
           <:content>
             <ul class="hds-dropdown__list absolute--right">
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+              
               <Hds::Dropdown::ListItem @item="separator" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
             </ul>

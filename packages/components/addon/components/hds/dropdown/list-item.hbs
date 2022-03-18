@@ -17,7 +17,7 @@
     copy item will go here
   </li>
 {{else}}
-  <li class="hds-dropdown-list-item hds-dropdown-list-item__link {{if @color 'hds-dropdown-list-item--critical' null}}">
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__link {{if @color 'hds-dropdown-list-item--critical' 'hds-dropdown-list-item--action'}}">
     {{#if @route}}
       {{! // TODO consider approach }}
       <LinkTo @route={{@route}}>
