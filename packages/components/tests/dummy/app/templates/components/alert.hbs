@@ -3,8 +3,122 @@
 <h2 class="dummy-h2">Alert</h2>
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
+  <h3 class="dummy-h3">Scratch reference links</h3>
+  <p>Alert types coming soon:
+    <code class="dummy-code">Hds::Alert::FullWidth</code>,
+    <code class="dummy-code">Hds::Alert::Inline</code>, and
+    <code class="dummy-code">Hds::Alert::Toast</code>.
+  </p>
+  <ul class="dummy-paragraph">
+    <li>
+      <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
+        WIP Alert Component Requirement Document (CRD)
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=4023%3A15691"
+      >
+        WIP Figma file
+      </a>
+    </li>
+  </ul>
+</section>
 
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props">
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p><code class="dummy-code">color</code>
+        results in a default
+        <code class="dummy-code">icon</code>, which
+        <strong>can</strong>
+        be overriden.
+        <code class="dummy-code">color</code>
+        sets the color scheme for background, border,
+        <code class="dummy-code">title</code>, and
+        <code class="dummy-code">body</code>, which
+        <strong>cannot</strong>
+        be overriden.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>critical</li>
+        <li>warning</li>
+        <li class="default">neutral</li>
+        <li>highlight</li>
+        <li>success</li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">icon <code>string</code></dt>
+    <dd class="dummy-indent">
+      <p>Shows an icon in the alert. Optional parameter.</p>
+      <p>Acceptable value:</p>
+      <p>Any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight icon</a>
+        name.
+      </p>
+    </dd>
+
+    <dt>title <code>string</code></dt>
+    <dd>
+      <p>
+        The title text in the alert.
+        <code class="dummy-code">title</code>
+        <strong>or</strong>
+        <code class="dummy-code">body</code>
+        is required.
+      </p>
+    </dd>
+
+    <dt>body <code>string</code></dt>
+    <dd>
+      <p>The body text in the alert.
+        <code class="dummy-code">title</code>
+        <strong>or</strong>
+        <code class="dummy-code">body</code>
+        is required.</p>
+    </dd>
+
+    <dt>isDismissible <code>boolean</code></dt>
+    <p>The alert can be dismissed by the user. This parameter has some accessibility considerations for
+      <code class="dummy-code">Hds::Alert::Toast</code>
+      (<code class="dummy-code">role="alertdialog"</code>).
+    </p>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">true</li>
+        <li>false</li>
+      </ol>
+    </dd>
+
+    <dt>hasActions <code>boolean</code></dt>
+    <p>The alert has content below the
+      <code class="dummy-code">title</code>
+      and
+      <code class="dummy-code">body</code>, such as an
+      <code class="dummy-code">Hds::Button</code>
+      and an
+      <code class="dummy-code">Hds::LinkTo::Standalone</code>.
+    </p>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>true</li>
+        <li class="default">false</li>
+      </ol>
+    </dd>
+
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
 </section>
 
 <section>
