@@ -80,7 +80,8 @@ $border-radius: 5px;
   align-items: flex-start;
   background-color: white; //TODO REPLACE WITH TOKEN
   border-radius: 6px;
-  box-shadow: var(--token-elevation-high-box-shadow);
+  // box-shadow: var(--token-elevation-high-box-shadow); //TODO what should this actually be?
+  box-shadow: 0px 0px 0px 1px rgba(101, 106, 118, 0.25), 0px 2px 3px rgba(101, 106, 118, 0.15), 0px 16px 16px -10px rgba(101, 106, 118, 0.2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -105,7 +106,7 @@ $border-radius: 5px;
     box-sizing: border-box;
     display: flex;
     font-family: var(--token-typography-font-stack-text);
-    min-height: 32px;    
+    min-height: 36px;    
     justify-content: center;
     width: 100%;
 
@@ -152,25 +153,29 @@ $border-radius: 5px;
       border-color: transparent;
       padding: 0 4px 0 10px;
       position: relative;
+      font-size: 14px;
+      line-height: 20px;
 
       &::before {
-        position: absolute;
-        left: 4px;
-        top: 4px;
-        bottom: 4px;
-        width: 2px;
         border-radius: 1px;
+        bottom: 4px;
         content: '';
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        width: 2px;
       }
       
       a {
         @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
-        align-items: center;
+       
         border-radius: $border-radius;
-        display: flex;
-        flex-flow: row wrap;
+        display: grid;
         font-size: 15px;
-        gap: 12px;
+        gap: 0px 6px;
+        grid-auto-flow: row;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: min-content;
         line-height: 20px;
         max-width: 100%;
         padding: 10px;
@@ -178,7 +183,7 @@ $border-radius: 5px;
         width: 100%;
       }
 
-      &.hds-dropdown-list-item--action {
+      &.hds-dropdown-list-item__link--action {
         &:hover {
           &::before {
           background-color: var(--token-color-foreground-action-hover);
@@ -192,15 +197,15 @@ $border-radius: 5px;
           }
 
           &:active {
-            color: var(--token-color-foreground-action-active);
             background-color: var(--token-color-surface-action);
             border-left-color: var(--token-color-foreground-action-hover);
+            color: var(--token-color-foreground-action-active);
           }
         }
 
       }
 
-      &.hds-dropdown-list-item--critical {
+      &.hds-dropdown-list-item__link--critical {
         &:hover {
 
           &::before {
@@ -215,11 +220,22 @@ $border-radius: 5px;
           }
 
           &:active {
-            color: var( --token-color-foreground-critical-on-surface);
             background-color: var( --token-color-surface-critical);
             border-left-color: var( --token-color-foreground-critical-on-surface);
+            color: var( --token-color-foreground-critical-on-surface);
           }
         }
+      }
+
+      .hds-dropdown-list-item__link__text {
+        width: fit-content;
+        white-space: normal;
+      }
+      .hds-dropdown-list-item__link__icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
       }
     }
   }
