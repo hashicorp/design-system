@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 07 Mar 2022 11:14:41 GMT
+ * Generated on Thu, 17 Mar 2022 08:19:13 GMT
  */
 
 :root {
@@ -134,6 +134,7 @@
   --token-color-foreground-critical-on-surface: #c00005;
   --token-color-foreground-critical-high-contrast: #51130a;
   --token-color-foreground-action-visited: #a737ff; /* This extra color is unique for the DevDot platform (the 'visited' state of a link is not differentiated in the products applications). */
+  --token-color-foreground-action-visited-hover: #7b00db; /* This extra color is unique for the DevDot platform (the 'visited+hover' state of a link is not differentiated in the products applications). */
   --token-color-neutral-foreground-primary: #0c0c0e; /* deprecated: replace with 'token-color-foreground-strong' */
   --token-color-neutral-foreground-secondary: #3b3d45; /* deprecated: replace with 'token-color-foreground-primary' */
   --token-color-neutral-foreground-faint: #656a76; /* deprecated: replace with 'token-color-foreground-faint' */
