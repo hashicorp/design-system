@@ -1,0 +1,31 @@
+//
+// ALERT
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+.hds-alert {
+  background-color: var(--token-color-surface-warning);
+  padding: 1.25rem; // 20px
+  display: flex;
+  align-content: flex-start;
+}
+
+.hds-alert__icon {
+  margin-right: 0.75rem; // 12px
+}
+
+.hds-alert__text {
+  color: var(--token-color-foreground-warning-on-surface);
+  font-family: var(--token-typography-body-200-font-family);
+}
+
+.hds-alert__title {
+  font-weight: var(--token-typography-font-weight-semibold);
+  margin: 0; // TODO: Temp override, p has margin, why?
+}
+
+.hds-alert__body {
+  margin: 0.75rem 0 0; // 12px TODO: 0's are temp overrides, p has margin, why?
+}
