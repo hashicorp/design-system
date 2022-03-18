@@ -1,0 +1,24 @@
+<div class={{this.classNames}} ...attributes role="alert">
+
+  {{#if @icon}}
+    <div class="hds-alert__icon">
+      <FlightIcon
+        @name={{this.icon}}
+        @size="24"
+        {{! TODO: Replace w/dynamic color, once type implemented }}
+        @color="var(--token-color-foreground-warning-on-surface)"
+        @isInlineBlock={{false}}
+      />
+    </div>
+  {{/if}}
+
+  <div class="hds-alert__text">
+    {{#if @title}}
+      <p class="hds-alert__title">{{this.title}}</p>
+    {{/if}}
+
+    {{#if @body}}
+      <p class="hds-alert__body">{{this.body}}</p>
+    {{/if}}
+  </div>
+</div>
