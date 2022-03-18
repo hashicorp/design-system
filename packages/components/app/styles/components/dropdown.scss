@@ -134,11 +134,15 @@ $border-radius: 5px;
     }
     
     &.hds-dropdown-list-item__separator {
-      height: 16px;
-      padding: 2px 0;
+      align-items: center;
+      display: flex;
+      height: 6px;
+      justify-content: stretch;
+      min-height:6px;
+      padding: 0;
       span { 
         background-color: var(--token-color-border-primary);
-        height: 4px;
+        height: 1px;
         width: 100%;
       }
     }
@@ -173,6 +177,7 @@ $border-radius: 5px;
         text-decoration: none;
         width: 100%;
       }
+
       &.hds-dropdown-list-item--action {
         &:hover {
           &::before {
@@ -181,9 +186,11 @@ $border-radius: 5px;
         }
         a {
           color: var(--token-color-foreground-primary);
+
           &:hover {
             color: var(--token-color-foreground-action-hover);
           }
+
           &:active {
             color: var(--token-color-foreground-action-active);
             background-color: var(--token-color-surface-action);
@@ -195,6 +202,7 @@ $border-radius: 5px;
 
       &.hds-dropdown-list-item--critical {
         &:hover {
+
           &::before {
             background-color: var(--token-color-foreground-critical-on-surface); //TODO we need a proper token here
           }
@@ -203,14 +211,9 @@ $border-radius: 5px;
           color: var(--token-color-foreground-critical);
           
           &:hover {
-            border-left-color: var(--token-color-foreground-critical-on-surface);
             color: var(--token-color-foreground-critical-on-surface);
           }
-          &:focus {
-            border: 1px solid var(--token-color-focus-critical-internal);
-            outline: 4px solid var( --token-color-focus-critical-external);
-            border-radius: 5px;
-          }
+
           &:active {
             color: var( --token-color-foreground-critical-on-surface);
             background-color: var( --token-color-surface-critical);
