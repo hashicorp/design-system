@@ -19,6 +19,7 @@
 @import "./components/dummy-placeholder";
 
 body.dummy-app {
+    background-color: #d9d9d9;
     padding: 0;
     max-width: 100%;
     margin: 0 auto;
@@ -76,8 +77,12 @@ body.dummy-app {
         }
 
         .dummy-main {
+            background-color: #fff;
             padding: 2rem;
+            margin: 0 auto;
+            max-width: 100%;
             min-height: 84.75vh;
+            width: 1024px;
         }
         .dummy-footer {
             padding: 0 2rem;
