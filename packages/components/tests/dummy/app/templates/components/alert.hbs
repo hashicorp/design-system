@@ -55,7 +55,7 @@
 
     <dt class="dummy-indent">icon <code>string</code></dt>
     <dd class="dummy-indent">
-      <p>Shows an icon in the alert. Optional parameter.</p>
+      <p>Shows an icon in the alert at a set size of 24 viewBox. Optional parameter.</p>
       <p>Acceptable value:</p>
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -69,8 +69,6 @@
       <p>
         The title text in the alert.
         <code class="dummy-code">title</code>
-        <strong>or</strong>
-        <code class="dummy-code">body</code>
         is required.
       </p>
     </dd>
@@ -78,10 +76,8 @@
     <dt>body <code>string</code></dt>
     <dd>
       <p>The body text in the alert.
-        <code class="dummy-code">title</code>
-        <strong>or</strong>
         <code class="dummy-code">body</code>
-        is required.</p>
+        is optional.</p>
     </dd>
 
     <dt>isDismissible <code>boolean</code></dt>
@@ -123,6 +119,16 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="Intentions are set to default allow"
+    @body="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <Hds::Alert />
 </section>
 
 <section>
