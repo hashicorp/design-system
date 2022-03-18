@@ -167,7 +167,7 @@ export default class HdsButtonIndexComponent extends Component {
 
   /**
    * Get the class names to apply to the component.
-   * @method Badge#classNames
+   * @method Button#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   // "hds-button {{this.sizeClass}} {{this.colorClass}} {{this.widthClass}}"
