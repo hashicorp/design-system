@@ -2,3 +2,36 @@
   background-color: var(--token-color-palette-neutral-200);
   padding: 1rem 2rem;
 }
+
+.dummy-nav-dropdown {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex; 
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-items: center;
+  align-content: stretch;
+  background-color: black;
+  height: 62px;
+  padding: 0 32px;
+  &::after, &::before {
+    box-sizing: border-box;
+  }
+  .dummy-nav-dropdown__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 5px;
+    list-style: none;
+    width: 100%;
+    .dummy-nav-dropdown__list-item {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

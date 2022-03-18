@@ -53,6 +53,7 @@
   &.hds-dropdown-toggle__user {
     padding: 5px 7px;
     gap: 4px;
+
     svg {
       &:first-of-type {
         height: 24px;
@@ -74,24 +75,37 @@
 
 // TODO dropdown container, should this be styled here?
 .hds-dropdown__list {
+  align-items: flex-start;
   background-color: white; //TODO REPLACE WITH TOKEN
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: var(--token-elevation-high-box-shadow);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   list-style: none;
   margin: 0;
-  max-width: 265px;
+  min-height: fit-content;
   padding: 4px 0;
+  width: 200px; // default width
+
+  &.absolute--right {
+    position: absolute;
+    right: 0;  
+  }
+
+  &.absolute--left {
+    position: absolute;
+    left: 0;  
+  }
 
   .hds-dropdown-list-item {
     align-items: center;
     box-sizing: border-box;
     display: flex;
     font-family: var(--token-typography-font-stack-text);
+    height: 32px;    
     justify-content: center;
     width: 100%;
-
-    
 
     &.hds-dropdown-list-item__heading {
       box-sizing: border-box;
@@ -117,28 +131,56 @@
       padding: 2px 16px 4px;
     }
     
-    &.hds-dropdown-list-item__separator {}
+    &.hds-dropdown-list-item__separator {
+      height: 16px;
+      padding: 2px 0;
+      span { 
+        background-color: var(--token-color-border-primary);
+        height: 4px;
+        width: 100%;
+      }
+    }
     
     &.hds-dropdown-list-item__link {
       border-color: transparent;
-      font-size: 15px;
-      line-height: 20px;
-      
+      padding: 0 4px;
       a {
         align-items: center;
+        border-left: 2px solid transparent;
         color: var(--token-color-foreground-primary);
         display: flex;
+        flex-flow: row wrap;
+        font-size: 15px;
         gap: 12px;
+        line-height: 20px;
         max-width: 100%;
-        padding: 9px 15px;
+        padding: 5px 15px 9px;
         text-decoration: none;
         width: 100%;
+
+        &:hover {
+          color: var(--token-color-foreground-action-hover);
+          border-left-color: var(--token-color-foreground-action-hover);
+        }
+        &:focus {
+
+        }
+        &:active {
+          color: var(--token-color-foreground-action-active);
+          background-color: var(--token-color-surface-action);
+          border-left-color: var(--token-color-foreground-action-hover);
+        }
 
       }
 
       &.hds-dropdown-list-item--critical {
         a {
           color: var(--token-color-foreground-critical);
+          
+          &:hover {
+            border-left-color: var(--token-color-foreground-critical-on-surface);
+            color: var(--token-color-foreground-critical-on-surface);
+          }
         }
       }
     }

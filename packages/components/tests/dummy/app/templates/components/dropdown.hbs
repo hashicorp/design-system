@@ -1,26 +1,53 @@
 {{page-title "Dropdown Component"}}
 
+<section>
 <h2 class="dummy-h2">Dropdown Component</h2>
 <p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
   dropdown menu they wish.</p>
+<p class="dummy-paragraph">It makes use of the <code>&lt;Hds::Disclosure></code> component by providing items for the <code>&lt;:toggle></code> and <code>&lt;:content></code> named blocks.</p>
+</section>
 
-<nav class="dummy-nav-dropdown">
-  <Hds::Disclosure>
-    <:toggle as |t|>
-      <Hds::Dropdown::Toggle @text="Manage Sources" {{on "click" t.onClickToggle}} />
-    </:toggle>
-    <:content>
-      <ul class="hds-dropdown__list">
-        <li><a href="/">Link Here</a></li>
-        <li>Other content here</li>
-        <li>Yet something else</li>
-      </ul>
-    </:content>
-  </Hds::Disclosure>
-</nav>
+<div class="dummy-divider">
+  <h3 class="dummy-h3">Fake example for WIP demo only</h3>
+  <p class="dummy-paragraph">In the example below, we see a fake navbar with some things in it, the last of which is a user menu dropdown:</p>
+  <nav class="dummy-nav-dropdown">
+    <ul class="dummy-nav-dropdown__list">
+      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="boundary" @size="small" /></li>
+      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="waypoint" @size="small" /></li>
+      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="packer" @size="small" /></li>
+      <li class="dummy-nav-dropdown__list-item">
+        <Hds::Disclosure>
+          <:toggle as |t|>
+            <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" {{on "click" t.onClickToggle}} />
+          </:toggle>
+          <:content>
+            <ul class="hds-dropdown__list absolute--right">
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
+              <Hds::Dropdown::ListItem @item="separator" />
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            </ul>
+          </:content>
+        </Hds::Disclosure>
+      </li>
+    </ul>
+  </nav>
+</div>
 
 <section class="dummy-bg-gray">
   <h3 class="dummy-h3">Toggles</h3>
+  <p class="dummy-paragraph">
+    There are two parts to the dropdown component: the toggle and the list items.
+    For the toggle, there are a few different variations available:
+  </p>
+  <ul class="dummy-list">
+    <li>Text (available colors: primary or secondary)</li>
+    <li>More</li>
+    <li>User</li>
+    <li>Avatar</li>
+  </ul>
+
+
   <p class="dummy-paragraph">Toggle, Default (primary)</p>
   <Hds::Dropdown::Toggle @text="Manage Sources" />
 
@@ -42,6 +69,19 @@
 
 <section class="dummy-bg-gray">
   <h3 class="dummy-h3">List Items</h3>
+
+  <p class="dummy-paragraph">
+    For the items in the list items, the following items are available:
+  </p>
+  <ul class="dummy-list">
+    <li>A list-item link (default, no icons)</li>
+    <li>A list-item link (destructive, leading icon)</li>
+    <li>A heading</li>
+    <li>Help text</li>
+    <li>A copy-item</li>
+    <li>A separator</li>
+  </ul>
+
   <p class="dummy-paragraph">Heading, Separator, Help Text</p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
@@ -56,36 +96,22 @@
   <p class="dummy-paragraph">Links (default)</p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @leadingIcon="hexagon" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @trailingIcon="circle" />
-    <Hds::Dropdown::ListItem
-      @route="components.dropdown"
-      @text="Dropdown Component"
-      @leadingIcon="hexagon"
-      @trailingIcon="circle"
-    />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @trailingIcon="hexagon" />
   </ul>
 
   <p class="dummy-paragraph">Links (critical)</p>
   <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @color="critical" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
     <Hds::Dropdown::ListItem
       @route="components.dropdown"
-      @text="Dropdown Component"
-      @leadingIcon="hexagon"
+      @text="Remove something"
+      @leadingIcon="trash"
       @color="critical"
     />
     <Hds::Dropdown::ListItem
       @route="components.dropdown"
-      @text="Dropdown Component"
-      @trailingIcon="circle"
-      @color="critical"
-    />
-    <Hds::Dropdown::ListItem
-      @route="components.dropdown"
-      @text="Dropdown Component"
-      @leadingIcon="hexagon"
-      @trailingIcon="circle"
+      @text="Destructive action here"
+      @leadingIcon="trash"
       @color="critical"
     />
 
