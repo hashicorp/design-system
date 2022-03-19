@@ -1,24 +1,25 @@
-<div class={{this.classNames}} ...attributes role="alert">
+{{#if this.entity}}
+  <div class={{this.classNames}} ...attributes role="alert">
+    {{#if @icon}}
+      <div class="hds-alert__icon">
+        <FlightIcon
+          @name={{this.icon}}
+          @size="24"
+          {{! TODO: Replace w/dynamic color, once color prop implemented }}
+          @color="var(--token-color-foreground-warning-on-surface)"
+          @isInlineBlock={{false}}
+        />
+      </div>
+    {{/if}}
 
-  {{#if @icon}}
-    <div class="hds-alert__icon">
-      <FlightIcon
-        @name={{this.icon}}
-        @size="24"
-        {{! TODO: Replace w/dynamic color, once color prop implemented }}
-        @color="var(--token-color-foreground-warning-on-surface)"
-        @isInlineBlock={{false}}
-      />
+    <div class="hds-alert__text">
+      {{#if this.entity.title}}
+        <div class="hds-alert__title">{{this.entity.title}}</div>
+      {{/if}}
+
+      {{#if this.entity.description}}
+        <div class="hds-alert__description">{{this.entity.description}}</div>
+      {{/if}}
     </div>
-  {{/if}}
-
-  <div class="hds-alert__text">
-    {{#if @title}}
-      <div class="hds-alert__title">{{this.title}}</div>
-    {{/if}}
-
-    {{#if @description}}
-      <div class="hds-alert__description">{{this.description}}</div>
-    {{/if}}
   </div>
-</div>
+{{/if}}
