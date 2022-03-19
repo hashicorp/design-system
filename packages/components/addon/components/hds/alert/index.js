@@ -42,13 +42,13 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
-   * @param body
+   * @param description
    * @type {string}
-   * @description The text of the body.
+   * @description The text of the description.
    */
-  get body() {
-    let { body } = this.args;
+  get description() {
+    let { description } = this.args;
 
-    return body ?? null;
+    return description ?? null;
   }
 }
