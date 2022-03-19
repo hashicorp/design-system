@@ -3,19 +3,6 @@ import { assert } from '@ember/debug';
 
 export default class HdsAlertIndexComponent extends Component {
   /**
-   * Get the class names to apply to the component.
-   * @method Alert#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  // "hds-alert"
-  get classNames() {
-    let classes = ['hds-alert'];
-
-    // TODO: Add type classes, once type implemented
-    return classes;
-  }
-
-  /**
    * @param icon
    * @type {string}
    * @default null
@@ -50,5 +37,18 @@ export default class HdsAlertIndexComponent extends Component {
     let { description } = this.args;
 
     return description ?? null;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method Alert#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  // "hds-alert"
+  get classNames() {
+    let classes = ['hds-alert'];
+
+    // TODO: Add type classes, once type implemented
+    return classes;
   }
 }
