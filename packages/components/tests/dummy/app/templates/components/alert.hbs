@@ -39,7 +39,7 @@
         <code class="dummy-code">color</code>
         sets the color scheme for background, border,
         <code class="dummy-code">title</code>, and
-        <code class="dummy-code">body</code>, which
+        <code class="dummy-code">description</code>, which
         <strong>cannot</strong>
         be overriden.
       </p>
@@ -73,10 +73,10 @@
       </p>
     </dd>
 
-    <dt>body <code>string</code></dt>
+    <dt>description <code>string</code></dt>
     <dd>
-      <p>The body text in the alert.
-        <code class="dummy-code">body</code>
+      <p>The description text in the alert.
+        <code class="dummy-code">description</code>
         is optional.</p>
     </dd>
 
@@ -97,7 +97,7 @@
     <p>The alert has content below the
       <code class="dummy-code">title</code>
       and
-      <code class="dummy-code">body</code>, such as an
+      <code class="dummy-code">description</code>, such as an
       <code class="dummy-code">Hds::Button</code>
       and an
       <code class="dummy-code">Hds::LinkTo::Standalone</code>.
@@ -122,7 +122,7 @@
   <Hds::Alert
     @icon="alert-triangle"
     @title="Intentions are set to default allow"
-    @body="Your Intention settings are currently set to default allow. This
+    @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
       creating specific Intentions for upstream and downstream services for this
