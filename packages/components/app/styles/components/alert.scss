@@ -23,9 +23,11 @@
 
 .hds-alert__title {
   font-weight: var(--token-typography-font-weight-semibold);
-  margin: 0; // TODO: Temp override, p has margin, why?
+  margin: 0; // TODO: Temp override, p has margin on scrappy site, why?
 }
 
+// TODO: Refactor when fix p
+// .hds-alert__title + .hds-alert__description { margin-top: 0.75rem; }
 .hds-alert__description {
-  margin: 0.75rem 0 0; // 12px TODO: 0's are temp overrides, p has margin, why?
+  margin: 0.75rem 0 0; // 12px TODO: 0's are temp overrides, p has margin on scrappy site, why?
 }
