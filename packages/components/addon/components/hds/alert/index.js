@@ -13,30 +13,28 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
-   * @param title
-   * @type {string}
-   * @description The text of the title.
+   * We need a title or description to exist
+   * @method Alert#entity
+   * @return {object} { title, description }
    */
-  get title() {
-    let { title } = this.args;
+  get entity() {
+    let entity = { title: this.args.title, description: this.args.description };
 
-    assert(
-      '@title for "Hds::Alert" must have a valid value',
-      title !== undefined
-    );
+    if (this.args.title === undefined && this.args.description === undefined) {
+      assert(
+        `you need to pass @title or @description to the "Hds::Alert" component`,
+        !(this.args.title === undefined && this.args.description === undefined)
+      );
+    }
 
-    return title;
-  }
+    if (this.args.title) {
+      entity.title = this.args.title;
+    }
+    if (this.args.description) {
+      entity.description = this.args.description;
+    }
 
-  /**
-   * @param description
-   * @type {string}
-   * @description The text of the description.
-   */
-  get description() {
-    let { description } = this.args;
-
-    return description ?? null;
+    return entity;
   }
 
   /**

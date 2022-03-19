@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -24,13 +24,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // ICON
 
-  test('It should not have visible icon if @icon is not declared', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @text="I'm iconless, the horror" />`
-    );
-    assert.dom('.hds-alert__icon').doesNotExist();
-  });
-
   test('If an icon is declared, the FlightIcon should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Alert @title="yo" @icon="clipboard-copy" />`
@@ -44,8 +37,8 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // ASSERTIONS
 
-  skip('Throw an assertion if @title is missing/has no value', async function (assert) {
-    const errorMessage = '@title for "Hds::Alert" must have a valid value';
+  test('Throw an assertion if @title and @description is missing/has no value', async function (assert) {
+    const errorMessage = 'you need to pass @title or @description to the "Hds::Alert" component';
     // TODO: Debug
     assert.expect(2);
 
