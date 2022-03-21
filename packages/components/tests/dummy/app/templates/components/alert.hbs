@@ -4,7 +4,7 @@
 
 <section>
   <h3 class="dummy-h3">Scratch reference links</h3>
-  <p>Alert types coming soon:
+  <p>Alert types, that extend the base, coming soon:
     <code class="dummy-code">Hds::Alert::FullWidth</code>,
     <code class="dummy-code">Hds::Alert::Inline</code>, and
     <code class="dummy-code">Hds::Alert::Toast</code>.
@@ -144,7 +144,17 @@
       view to be useful."
   />
   <br />
-  Below alert with no title, no description does not appear (see error in console):
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="Description below has HTML"
+    @description="Your Intention settings are currently set to default <strong>allow</strong>. This
+      means that this view will show connections to every service in your
+      <code>cluster</code>. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful. For more info, see <a href='#'>About clusters</a>."
+  />
+  <br />
+  Below alert with no title, no description, does not appear in local dev (see error in console):
   <Hds::Alert @icon="meh" />
   <br />
 </section>
