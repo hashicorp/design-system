@@ -2,6 +2,15 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export default class HdsAlertIndexComponent extends Component {
+  constructor() {
+    super(...arguments);
+
+    assert(
+      `you need to pass @title or @description to the "Hds::Alert" component`,
+      !(this.args.title === undefined && this.args.description === undefined)
+    );
+  }
+
   /**
    * @param icon
    * @type {string}
@@ -10,31 +19,6 @@ export default class HdsAlertIndexComponent extends Component {
    */
   get icon() {
     return this.args.icon ?? null;
-  }
-
-  /**
-   * We need a title or description to exist
-   * @method Alert#entity
-   * @return {object} { title, description }
-   */
-  get entity() {
-    let entity = { title: this.args.title, description: this.args.description };
-
-    if (this.args.title === undefined && this.args.description === undefined) {
-      assert(
-        `you need to pass @title or @description to the "Hds::Alert" component`,
-        !(this.args.title === undefined && this.args.description === undefined)
-      );
-    }
-
-    if (this.args.title) {
-      entity.title = this.args.title;
-    }
-    if (this.args.description) {
-      entity.description = this.args.description;
-    }
-
-    return entity;
   }
 
   /**
