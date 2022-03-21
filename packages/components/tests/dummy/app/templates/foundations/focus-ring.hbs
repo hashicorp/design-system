@@ -63,6 +63,49 @@
       value).</li>
   </ul>
 
+  <h4 class="dummy-h4">Sass mixins</h4>
+  <p class="dummy-paragraph">We have also created two
+    <strong>Sass mixins</strong>
+    <code class="dummy-code">hds-focus-ring-basic</code>
+    and
+    <code class="dummy-code">hds-focus-ring-with-pseudo-element</code>
+    but they're mainly used for internal use (to the design system codebase). These mixins do more than just apply the
+    focus style: they also take care of all the different way to declare the
+    <code class="dummy-code">:focus/:focus-visible</code>
+    for different browsers.
+  </p>
+  <p class="dummy-paragraph">To use these mixins you have to import the Sass file
+    <code class="dummy-code">packages/components/app/styles/mixins/_focus-ring.scss</code>
+    contained in the
+    <code class="dummy-code">@hashicorp/design-system</code>
+    monorepo or the same file
+    <code class="dummy-code">app/styles/mixins/_focus-ring.scss</code>
+    distributed in the
+    <code class="dummy-code">@hashicorp/design-system-components</code>
+    package.</p>
+  <p class="dummy-paragraph">Then the mixins can be invoked in this way:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="css"
+    @code="
+      /* include the mixin file via @use (path will depend on your context) */
+      @use '../mixins/focus-ring' as *;
+
+      /* apply the focus-ring as box-shadow ('action' will be the default color ) */
+      .your-selector {
+        [...your CSS declarations]
+        @include hds-focus-ring-basic();
+      }
+
+      /* apply the focus-ring as pseudo-element (with 'critical' color ) */
+      .your-selector {
+        [...your CSS declarations]
+        @include hds-focus-ring-with-pseudo-element($top: 0, $right: 0, $bottom: 0, $left: 0, $radius: 5px, $color: critical);
+      }
+    "
+  />
+  {{! prettier-ignore-end }}
+
 </section>
 
 <section data-test-percy>
@@ -70,11 +113,27 @@
   <h4 class="dummy-h4">Focus ring:</h4>
   <p class="dummy-paragraph">Standalone "focus ring" effect</p>
   <div class="dummy-focus-ring-samples">
-    <div class="dummy-focus-ring-sample hds-focus-ring-box-shadow">
+    <div class="dummy-focus-ring-sample hds-focus-ring-action-box-shadow">
       <DummyPlaceholder @text="no radius" @width="100" @height="100" @background="transparent" />
     </div>
-    <div class="dummy-focus-ring-sample dummy-focus-ring-sample--border-radius hds-focus-ring-box-shadow">
+    <div class="dummy-focus-ring-sample dummy-focus-ring-sample--border-radius hds-focus-ring-action-box-shadow">
       <DummyPlaceholder @text="with border radius" @width="100" @height="100" @background="transparent" />
+    </div>
+  </div>
+  <div class="dummy-focus-ring-samples">
+    <div class="dummy-focus-ring-sample">
+      <span class="dummy-text-small">action</span>
+      <br />
+      <div class="hds-focus-ring-action-box-shadow">
+        <DummyPlaceholder @text="with border radius" @width="100" @height="100" @background="transparent" />
+      </div>
+    </div>
+    <div class="dummy-focus-ring-sample">
+      <span class="dummy-text-small">critical</span>
+      <br />
+      <div class="hds-focus-ring-critical-box-shadow">
+        <DummyPlaceholder @text="with border radius" @width="100" @height="100" @background="transparent" />
+      </div>
     </div>
   </div>
 </section>

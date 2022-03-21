@@ -13,7 +13,7 @@ $border-radius: 5px;
   align-items: center;
   background-color: var(--token-color-surface-interactive);
   border-color: transparent;
-  border-radius: 5px;
+  border-radius: $border-radius;
   border-width: 1px;
   box-shadow: var(--token-elevation-low-box-shadow);
   box-sizing: border-box; 
@@ -32,13 +32,13 @@ $border-radius: 5px;
   &::before {
     box-sizing: border-box;
   }
-  &.hds-dropdown-toggle--primary {
+  &.hds-dropdown-toggle__text--primary {
     background-color: var(--token-color-palette-blue-200);
     border-color: var(--token-color-palette-blue-300);
     color: var(--token-color-foreground-high-contrast);
 
   }
-  &.hds-dropdown-toggle--secondary {
+  &.hds-dropdown-toggle__text--secondary {
     background-color: var(--token-color-foreground-high-contrast);
     border-color: var(--token-color-border-strong);
     color: var(--token-color-foreground-primary);
@@ -54,23 +54,21 @@ $border-radius: 5px;
   }
   &.hds-dropdown-toggle__user {
     padding: 5px 7px;
-    gap: 4px;
 
-    svg {
-      &:first-of-type {
-        height: 24px;
-        width: 24px;
-      }
-    }
-  }
-  &.hds-dropdown-toggle__avatar {
-    gap: 4px;
-    padding: 1px;
-    
-    img {
-      border-radius: 3px;
+    .hds-dropdown-toggle__child-first {
+      // could be an svg user icon, could be an avatar
       height: 32px;
       width: 32px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center; //this centers whatever is inside, no matter what size it is
+    }
+    .hds-dropdown-toggle__child-second {
+      // will be the dropdown toggle icon
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
     }
   }
 }
