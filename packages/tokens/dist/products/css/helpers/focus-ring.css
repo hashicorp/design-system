@@ -1,6 +1,7 @@
 /**
  * Do not edit directly
- * Generated on Tue, 22 Feb 2022 21:05:19 GMT
+ * Generated on Fri, 18 Mar 2022 20:06:01 GMT
  */
 
-.hds-focus-ring-box-shadow { box-shadow: var(--token-focus-ring-box-shadow); }
+.hds-focus-ring-action-box-shadow { box-shadow: var(--token-focus-ring-action-box-shadow); }
+.hds-focus-ring-critical-box-shadow { box-shadow: var(--token-focus-ring-critical-box-shadow); }

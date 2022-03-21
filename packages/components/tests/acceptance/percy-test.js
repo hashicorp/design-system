@@ -25,6 +25,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/button');
     await percySnapshot('Button');
 
+    await visit('/components/breadcrumb');
+    await percySnapshot('Breadcrumb');
+
     await visit('/components/card');
     await percySnapshot('Card');
 

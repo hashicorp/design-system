@@ -25,6 +25,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 0;
     padding: 0;
+
+    .dummy-button-states-grid__title {
+        grid-column: 1 / 6;
+    }
 }
 
 .dummy-button-containers-list {
