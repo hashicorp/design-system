@@ -1,13 +1,18 @@
 {{page-title "Dropdown Component"}}
 
 <section>
-<h2 class="dummy-h2">Dropdown Component</h2>
-<p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
-  dropdown menu they wish.</p>
-<p class="dummy-paragraph">It makes use of the <code>&lt;Hds::Disclosure></code> component by providing items for the <code>&lt;:toggle></code> and <code>&lt;:content></code> named blocks.</p>
-<p class="dummy-paragraph">To decide: what does the optimum developer invocation look like?</p>
+  <h2 class="dummy-h2">Dropdown Component</h2>
+  <p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
+    dropdown menu they wish.</p>
+  <p class="dummy-paragraph">It makes use of the
+    <code>&lt;Hds::Disclosure></code>
+    component by providing items for the
+    <code>&lt;:toggle></code>
+    and
+    <code>&lt;:content></code>
+    named blocks.</p>
+  <p class="dummy-paragraph">To decide: what does the optimum developer invocation look like?</p>
 </section>
-
 
 {{!-- <div class="dummy-divider">
   <h3 class="dummy-h3">Fake example for WIP demo only</h3>
@@ -28,7 +33,6 @@
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-              
               <Hds::Dropdown::ListItem @item="separator" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
             </ul>
@@ -42,8 +46,8 @@
 <section class="dummy-bg-gray">
   <h3 class="dummy-h3">Toggles</h3>
   <p class="dummy-paragraph">
-    There are two parts to the dropdown component: the toggle and the list items.
-    For the toggle, there are a few different variations available:
+    There are two parts to the dropdown component: the toggle and the list items. For the toggle, there are a few
+    different variations available:
   </p>
   <ul class="dummy-list">
     <li>Text (available colors: primary or secondary)</li>
@@ -51,7 +55,6 @@
     <li>User</li>
     <li>Avatar</li>
   </ul>
-
 
   <p class="dummy-paragraph">Toggle, Default (primary)</p>
   <Hds::Dropdown::Toggle @text="Manage Sources" />
@@ -63,7 +66,7 @@
   <Hds::Dropdown::Toggle @toggle="more" @text="more menu" />
 
   <p class="dummy-paragraph">Toggle, More (small)</p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" /> 
+  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" />
 
   <p class="dummy-paragraph">Toggle, User (default)</p>
   <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />

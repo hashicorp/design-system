@@ -10,45 +10,50 @@
 
 {{else if (eq @item "separator")}}
 
-  <li class="hds-dropdown-list-item hds-dropdown-list-item__separator" role="separator"><span aria-hidden="true"></span></li>
+  <li class="hds-dropdown-list-item hds-dropdown-list-item__separator" role="separator"><span
+      aria-hidden="true"
+    ></span></li>
 
 {{else if (eq @item "copy-item")}}
   <li class="hds-dropdown-list-item hds-dropdown-list-item__copy-item">
     copy item will go here
   </li>
 {{else}}
-  <li class="hds-dropdown-list-item hds-dropdown-list-item__link {{if @color 'hds-dropdown-list-item__link--critical' 'hds-dropdown-list-item__link--action'}}">
+  <li
+    class="hds-dropdown-list-item hds-dropdown-list-item__link
+      {{if @color 'hds-dropdown-list-item__link--critical' 'hds-dropdown-list-item__link--action'}}"
+  >
     {{#if @route}}
       {{! // TODO consider approach }}
-        <LinkTo @route={{@route}}>
+      <LinkTo @route={{@route}}>
         {{#if @leadingIcon}}
-        <div class="hds-dropdown-list-item__link__icon">
-          <FlightIcon @name={{@leadingIcon}} />
-        </div>
+          <div class="hds-dropdown-list-item__link__icon">
+            <FlightIcon @name={{@leadingIcon}} />
+          </div>
         {{/if}}
         <div class="hds-dropdown-list-item__link__text">
           {{@text}}
         </div>
         {{#if @trailingIcon}}
-        <div class="hds-dropdown-list-item__link__icon">
-          <FlightIcon @name={{@trailingIcon}} />
-        </div>
+          <div class="hds-dropdown-list-item__link__icon">
+            <FlightIcon @name={{@trailingIcon}} />
+          </div>
         {{/if}}
       </LinkTo>
     {{else}}
       <a href={{@href}}>
         {{#if @leadingIcon}}
-        <div class="hds-dropdown-list-item__link__icon">
-          <FlightIcon @name={{@leadingIcon}} />
-        </div>
+          <div class="hds-dropdown-list-item__link__icon">
+            <FlightIcon @name={{@leadingIcon}} />
+          </div>
         {{/if}}
         <div class="hds-dropdown-list-item__link__text">
           {{@text}}
         </div>
         {{#if @trailingIcon}}
-        <div class="hds-dropdown-list-item__link__icon">
-          <FlightIcon @name={{@trailingIcon}} />
-        </div>
+          <div class="hds-dropdown-list-item__link__icon">
+            <FlightIcon @name={{@trailingIcon}} />
+          </div>
         {{/if}}
       </a>
     {{/if}}
