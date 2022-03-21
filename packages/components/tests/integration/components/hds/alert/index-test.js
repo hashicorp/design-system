@@ -11,7 +11,9 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
 
   test('Alert component renders with the defined `title` text', async function (assert) {
-    await render(hbs`<Hds::Alert @title="Intentions are set to default allow" />`);
+    await render(
+      hbs`<Hds::Alert @title="Intentions are set to default allow" />`
+    );
     assert.dom(this.element).hasText('Intentions are set to default allow');
   });
 
@@ -25,9 +27,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // ICON
 
   test('If an icon is declared, the FlightIcon should render in the component', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @title="yo" @icon="clipboard-copy" />`
-    );
+    await render(hbs`<Hds::Alert @title="yo" @icon="clipboard-copy" />`);
     assert
       .dom(
         this.element.querySelector('.flight-icon.flight-icon-clipboard-copy')
@@ -38,7 +38,8 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // ASSERTIONS
 
   test('Throw an assertion if @title and @description is missing/has no value', async function (assert) {
-    const errorMessage = 'you need to pass @title or @description to the "Hds::Alert" component';
+    const errorMessage =
+      'you need to pass @title or @description to the "Hds::Alert" component';
     // TODO: Debug
     assert.expect(2);
 
@@ -47,7 +48,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     });
 
     await render(hbs`<Hds::Alert />`);
-    
+
     assert.throws(function () {
       throw new Error(errorMessage);
     });
