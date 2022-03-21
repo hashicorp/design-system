@@ -2,15 +2,11 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_COLOR = 'primary';
-export const DEFAULT_TYPE = 'button';
 export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
-export const TYPES = ['button', 'submit', 'reset'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
-export default class HdsButtonIndexComponent extends Component {
+export default class HdsCtaIndexComponent extends Component {
   /**
    * @param text
    * @type {string}
@@ -44,25 +40,6 @@ export default class HdsButtonIndexComponent extends Component {
     );
 
     return size;
-  }
-
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
-   */
-  get color() {
-    let { color = DEFAULT_COLOR } = this.args;
-
-    assert(
-      `@color for "Hds::Button" must be one of the following: ${COLORS.join(
-        ', '
-      )}; received: ${color}`,
-      COLORS.includes(color)
-    );
-
-    return color;
   }
 
   /**
@@ -127,25 +104,6 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
-   * @param type
-   * @type {string}
-   * @default button
-   * @description The value for the button's `type` attribute. Acceptable values are `button`, `submit`, and `reset`
-   */
-  get type() {
-    let { type = DEFAULT_TYPE } = this.args;
-
-    assert(
-      `@type for "Hds::Button" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type)
-    );
-
-    return type;
-  }
-
-  /**
    * @param isFullWidth
    * @type {boolean}
    * @default false
@@ -156,32 +114,19 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
-   * @param isDisabled
-   * @type {boolean}
-   * @default null
-   * @description Sets the native HTML attribute `disabled` on the button element. Default is null (doesn't render the attribute).
-   */
-  get isDisabled() {
-    return this.args.isDisabled ?? null;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method Button#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-button'];
+    let classes = ['hds-cta'];
 
     // add a class based on the @size argument
-    classes.push(`hds-button--size-${this.size}`);
-
-    // add a class based on the @color argument
-    classes.push(`hds-button--color-${this.color}`);
+    classes.push(`hds-cta--size-${this.size}`);
 
     // add a class based on the @isFullWidth argument
     if (this.isFullWidth) {
-      classes.push('hds-button--width-full');
+      classes.push('hds-cta--width-full');
     }
 
     return classes.join(' ');

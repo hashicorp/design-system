@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('breadcrumb');
     this.route('button');
     this.route('card');
+    this.route('cta');
     this.route('icon-tile');
     this.route('link', function () {
       this.route('standalone', { path: '/' });
