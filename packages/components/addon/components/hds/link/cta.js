@@ -6,7 +6,7 @@ export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
-export default class HdsCtaIndexComponent extends Component {
+export default class HdsLinkCtaComponent extends Component {
   /**
    * @param text
    * @type {string}
