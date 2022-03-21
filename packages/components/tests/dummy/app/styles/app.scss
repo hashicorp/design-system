@@ -4,6 +4,7 @@
 @import "./_typography";
 
 @import "./pages/db-badge";
+@import "./pages/db-breadcrumb";
 @import "./pages/db-button";
 @import "./pages/db-card";
 @import "./pages/db-colors";
@@ -19,6 +20,7 @@
 @import "./components/dummy-placeholder";
 
 body.dummy-app {
+    background-color: #d9d9d9;
     padding: 0;
     max-width: 100%;
     margin: 0 auto;
@@ -26,6 +28,7 @@ body.dummy-app {
     .dummy-app-wrapper {
         display: grid;
         grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%; // necessary or when the content is larger than the page, it grows indefinitely!
 
         .dummy-header {
             width: 100%;
@@ -76,8 +79,12 @@ body.dummy-app {
         }
 
         .dummy-main {
+            background-color: #fff;
             padding: 2rem;
+            margin: 0 auto;
+            max-width: 100%;
             min-height: 84.75vh;
+            width: 1024px;
         }
         .dummy-footer {
             padding: 0 2rem;
@@ -131,6 +138,33 @@ body.dummy-app {
     font-family: courier, monospace;
     padding: 0 3px;
 }
+
+
+.dummy-banner {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d6d8db;
+    border-radius: 0.25rem;
+    background-color: #e2e3e5;
+
+    :first-child {
+        margin-top: 0;
+    }
+}
+
+
+.dummy-banner--info {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.dummy-banner--alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".

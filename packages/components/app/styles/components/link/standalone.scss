@@ -102,7 +102,7 @@ $size-props: (
     }
 
     &::before {
-      background-color: var(--token-color-action-background-faint);
+      background-color: var(--token-color-surface-action);
     }
   }
 }

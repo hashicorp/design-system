@@ -29,6 +29,10 @@
             margin: 0;
         }
 
+        p + p {
+            margin-top: 0.125rem;
+        }
+
         ol {
             display: flex;
             flex-wrap: wrap;
@@ -46,11 +50,15 @@
             border-radius: 4px;
             background-color: #E4E4E4;
 
-            &.default {
-                font-weight: 700;
-                color: #0C56E9;
-                background-color: #CCE3FE;
-            }
+        }
+
+        .default {
+            display: inline-block;
+            padding: 0.125rem 0.25rem;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #0C56E9;
+            background-color: #CCE3FE;
         }
     }
 }

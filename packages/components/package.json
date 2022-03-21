@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "0.1.1",
+  "version": "0.3.1",
   "description": "HashiCorp Design System Components",
   "keywords": [
     "hashicorp",
@@ -12,8 +12,8 @@
     "type": "git",
     "url": "https://github.com/hashicorp/design-system.git",
     "directory": "packages/components"
-  }, 
-   "license": "MPL-2.0",
+  },
+  "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
     "doc": "doc",
@@ -31,11 +31,10 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember-compatibility:ci": "ember try:one",
     "test:ember:percy": "percy exec ember test"
   },
   "dependencies": {
-    "@hashicorp/design-system-tokens": "^0.5.0",
+    "@hashicorp/design-system-tokens": "^0.7.0",
     "@hashicorp/ember-flight-icons": "^2.0.1",
     "ember-auto-import": "^2.2.3",
     "ember-cli-babel": "^7.26.6",
