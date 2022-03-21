@@ -10,28 +10,28 @@
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
   <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-button-base-sample">
+  <div class="dummy-cta-base-sample">
     <Hds::Cta @text="Only text" />
     <Hds::Cta @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
     <Hds::Cta @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" />
     <Hds::Cta @icon="plus" @isIconOnly={{true}} @text="Icon only" />
-    <div class="dummy-button-max-width-container">
+    <div class="dummy-cta-max-width-container">
       <Hds::Cta @icon="plus" @text="This is a very long text that should go on multiple lines" />
     </div>
   </div>
 
   <h4 class="dummy-h4">Sizes</h4>
-  <div class="dummy-button-base-sample">
+  <div class="dummy-cta-base-sample">
     {{#each @model.SIZES as |size|}}
       <Hds::Cta @icon="plus" @text={{capitalize size}} @size={{size}} />
     {{/each}}
-    <div class="dummy-button-full-width-container">
+    <div class="dummy-cta-full-width-container">
       <Hds::Cta @icon="plus" @text="Full width" @isFullWidth={{true}} />
     </div>
   </div>
 
   <h4 class="dummy-h4">States (in each size)</h4>
-  <div class="dummy-button-states-grid">
+  <div class="dummy-cta-states-grid">
     {{#each @model.SIZES as |size|}}
       {{#each @model.STATES as |state|}}
         <div>
