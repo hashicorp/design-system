@@ -22,13 +22,21 @@ Note: If you want to ignore a changestep bump in terminal (e.g. major bump for s
 
 ## Releasing
 
-Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR can be merged to `main` and released to npm with the following command:
+Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR – titled `Version Packages` – can be merged to `main` and the changes will be released to NPM automatically.
+
+### Local Testing of Versioning
+
+You can simulate the versioning experience locally with this command:
 
 ```bash
-yarn changeset publish
+yarn changeset version
 ```
 
-Note: You will need a company-approved 2FA-enabled account on npm to publish (see [npm 2FA docs](https://docs.npmjs.com/configuring-two-factor-authentication) for more info).
+In order for this step to complete successfully you'll need to create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
+
+```
+GITHUB_TOKEN=YOUR-TOKEN-HERE
+```
 
 ## Flight Icons
 
@@ -57,7 +65,7 @@ See [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.m
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@hashicorp/design-system-tokens](./packages/tokens/)** <br />Design tokens    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) |
+| **[@hashicorp/design-system-tokens](./packages/tokens/)** <br />Design tokens    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) |
 
 ### Contributing
 
@@ -67,7 +75,7 @@ See [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on 
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@hashicorp/design-system-components](./packages/components/)** <br />Design System components    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components) |
+| **[@hashicorp/design-system-components](./packages/components/)** <br />Design System components    | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components) |
 
 ### Contributing
 

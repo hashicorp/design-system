@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-tokens",
-  "version": "0.5.1",
+  "version": "0.7.0",
   "description": "HashiCorp Design Tokens",
   "keywords": [
     "hashicorp",
@@ -18,9 +18,7 @@
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
-    "build": "ts-node --transpile-only ./scripts/build",
-    "prepublishOnly": "cp -r ./dist/* .",
-    "postpublish": "git clean -fd"
+    "build": "ts-node --transpile-only ./scripts/build"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.1.0",

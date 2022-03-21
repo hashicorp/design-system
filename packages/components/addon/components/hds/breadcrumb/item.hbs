@@ -1,0 +1,26 @@
+<li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
+  {{#if @current}}
+    <div class="hds-breadcrumb__current">
+      {{#if @icon}}
+        <div class="hds-breadcrumb__icon">
+          <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+        </div>
+      {{/if}}
+      <span class="hds-breadcrumb__text">{{@text}}</span>
+    </div>
+  {{else}}
+    <LinkTo
+      class="hds-breadcrumb__link {{if @hover 'is-hover'}} {{if @active 'is-active'}} {{if @focus 'is-focus'}}"
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @route={{@route}}
+    >
+      {{#if @icon}}
+        <div class="hds-breadcrumb__icon">
+          <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+        </div>
+      {{/if}}
+      <span class="hds-breadcrumb__text">{{@text}}</span>
+    </LinkTo>
+  {{/if}}
+</li>

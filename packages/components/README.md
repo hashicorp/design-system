@@ -36,7 +36,7 @@ ember install ember-cli-sass
 sassOptions: {
   precision: 4,
   includePaths: [
-    './node_modules/@hashicorp/design-system-tokens/products/css',
+    './node_modules/@hashicorp/design-system-tokens/dist/products/css',
   ],
 },
 ```

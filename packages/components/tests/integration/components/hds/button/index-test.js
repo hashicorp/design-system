@@ -172,4 +172,18 @@ module('Integration | Component | hds/button/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  test('it should throw an assertion if @color is "tertiary" and an @icon is not provided', async function (assert) {
+    const errorMessage =
+      'when the "Hds::Button" @color is "tertiary" an @icon is required';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @color="tertiary" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
 });
