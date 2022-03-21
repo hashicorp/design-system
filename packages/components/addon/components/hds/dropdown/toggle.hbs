@@ -5,11 +5,7 @@
     type="button"
     ...attributes
   >
-    {{#if @size}}
-      <FlightIcon @name="more-horizontal" />
-    {{else}}
-      <FlightIcon @name="more-horizontal" @size="24" />
-    {{/if}}
+    <FlightIcon @name="more-horizontal" @size={{if @size "16" "24"}} />
   </button>
 
 {{else if (eq @toggle "user")}}
