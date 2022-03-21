@@ -57,10 +57,15 @@
     line-height: 1.2;
 }
 
-.dummy-paragraph, .dummy-list {
+.dummy-paragraph {
     @include dummyFontFamily();
     @include dummyFontSize(1rem);
     line-height: 1.2;
+}
+.dummy-list {
+    @include dummyFontFamily();
+    @include dummyFontSize(1rem);
+    line-height: 1.5;
 }
 .dummy-text-small {
     @include dummyFontFamily();
