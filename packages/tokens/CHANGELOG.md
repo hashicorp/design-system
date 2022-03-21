@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 0.7.0
+
+### Minor Changes
+
+- [#98](https://github.com/hashicorp/design-system/pull/98) [`411cd9b9`](https://github.com/hashicorp/design-system/commit/411cd9b949e376d38eb1dc4d4af93ae17e6c686a) Thanks [@didoo](https://github.com/didoo)! - refactored “focus-ring” tokens and CSS helpers to support both “action” and “critical“ colors
+
 ## 0.6.1
 
 ### Patch Changes
