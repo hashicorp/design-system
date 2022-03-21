@@ -1,6 +1,6 @@
 {{#if (eq @toggle "more")}}
   <button
-    class="hds-dropdown-toggle hds-dropdown-toggle__more {{if @size 'hds-dropdown-toggle-more--small' null}}"
+    class="hds-dropdown-toggle hds-dropdown-toggle__more {{if @size 'hds-dropdown-toggle__more--small' null}}"
     aria-label={{@text}}
     type="button"
     ...attributes
@@ -9,26 +9,32 @@
   </button>
 
 {{else if (eq @toggle "user")}}
-  <button
-    class="hds-dropdown-toggle {{if @avatarUrl 'hds-dropdown-toggle__avatar' 'hds-dropdown-toggle__user'}}"
-    aria-label={{@text}}
-    type="button"
-    ...attributes
-  >
+  <button class="hds-dropdown-toggle hds-dropdown-toggle__user" aria-label={{@text}} type="button" ...attributes>
     {{#if @avatarUrl}}
-      <img src={{@avatarUrl}} alt="" role="presentation" />
+      <div class="hds-dropdown-toggle__child-first">
+        <img src={{@avatarUrl}} alt="" role="presentation" height="32" width="32" />
+      </div>
     {{else}}
-      <FlightIcon @name="user" @size="24" />
+      <div class="hds-dropdown-toggle__child-first">
+        <FlightIcon @name="user" @size="24" />
+      </div>
     {{/if}}
-    <FlightIcon @name="chevron-down" />
+    <div class="hds-dropdown-toggle__child-second">
+      <FlightIcon @name="chevron-down" />
+    </div>
   </button>
 {{else}}
   <button
-    class="hds-dropdown-toggle {{if @color 'hds-dropdown-toggle--secondary' 'hds-dropdown-toggle--primary'}}"
+    class="hds-dropdown-toggle hds-dropdown-toggle__text
+      {{if @color 'hds-dropdown-toggle__text--secondary' 'hds-dropdown-toggle__text--primary'}}"
     type="button"
     ...attributes
   >
-    {{@text}}
-    <FlightIcon @name="chevron-down" />
+    <div class="hds-dropdown-toggle__child-first">
+      {{@text}}
+    </div>
+    <div class="hds-dropdown-toggle__child-second">
+      <FlightIcon @name="chevron-down" />
+    </div>
   </button>
 {{/if}}
