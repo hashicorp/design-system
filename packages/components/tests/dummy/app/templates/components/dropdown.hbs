@@ -8,7 +8,8 @@
 <p class="dummy-paragraph">To decide: what does the optimum developer invocation look like?</p>
 </section>
 
-<div class="dummy-divider">
+
+{{!-- <div class="dummy-divider">
   <h3 class="dummy-h3">Fake example for WIP demo only</h3>
   <p class="dummy-paragraph">In the example below, we see a fake navbar with some things in it, the last of which is a user menu dropdown:</p>
   <nav class="dummy-nav-dropdown">
@@ -36,7 +37,7 @@
       </li>
     </ul>
   </nav>
-</div>
+</div> --}}
 
 <section class="dummy-bg-gray">
   <h3 class="dummy-h3">Toggles</h3>
@@ -99,8 +100,10 @@
 
   <p class="dummy-paragraph">Links (default)</p>
   <ul class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" @trailingIcon="hexagon" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
   </ul>
 
   <p class="dummy-paragraph">Links (critical)</p>
@@ -112,9 +115,10 @@
       @leadingIcon="trash"
       @color="critical"
     />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
     <Hds::Dropdown::ListItem
       @route="components.dropdown"
-      @text="Destructive action here"
+      @text="Destructive action long text"
       @leadingIcon="trash"
       @color="critical"
     />
