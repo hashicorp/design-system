@@ -1,0 +1,13 @@
+// ALERT
+
+.dummy-alert-sample-custom-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.dummy-alert-sample-custom-actions__text {
+    @include dummyFontFamily();
+    @include dummyFontSize(0.8rem);
+    color: #999;
+}
