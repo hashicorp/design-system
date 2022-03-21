@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 17 Mar 2022 08:19:13 GMT
+ * Generated on Fri, 18 Mar 2022 20:06:01 GMT
  */
 
 :root {
@@ -238,7 +238,8 @@
   --token-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4566, 0px 2px 3px 0px #3b3d4580, 0px 12px 24px 0px #3b3d4599;
-  --token-focus-ring-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+  --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
   --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI Display, Ubuntu, sans-serif;
   --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, SF Pro Text, Segoe UI Text, Ubuntu, sans-serif;
   --token-typography-font-stack-code: SF Mono, Consolas, Ubuntu Mono, monospace;
