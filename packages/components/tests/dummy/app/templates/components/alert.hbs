@@ -97,21 +97,23 @@
       </ol>
     </dd>
 
-    <dt>hasActions <code>boolean</code></dt>
-    <p>The alert has content below the
-      <code class="dummy-code">title</code>
-      and
-      <code class="dummy-code">description</code>, such as an
-      <code class="dummy-code">Hds::Button</code>
-      and an
-      <code class="dummy-code">Hds::LinkTo::Standalone</code>.
-    </p>
+    <dt>actions <code>array (of objects)</code></dt>
     <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>true</li>
-        <li class="default">false</li>
-      </ol>
+      <p>The
+        <code class="dummy-code">actions</code>
+        property can be used to pass a set of possible actions to the
+        <code class="dummy-code">Alert</code>
+        component without the need to worry about their layout and making sure they follow the desing specifications
+        (automatically done by the component itself).
+      </p>
+      <p><strong>🚨 TODO: complete the explanation here! 🚨</strong></p>
+    </dd>
+    <dt>&lt;:actions&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block that can be used as alternative to the
+        <code class="dummy-code">@actions</code>
+        argument, to pass custom content inside the "actions" area. In that case responsibility to define the layout of
+        the content is left to the consumers.</p>
     </dd>
 
     <dt>“splattributes”</dt>
