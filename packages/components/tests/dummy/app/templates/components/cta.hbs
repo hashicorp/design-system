@@ -32,31 +32,22 @@
 
   <h4 class="dummy-h4">States (in each size)</h4>
   <div class="dummy-button-states-grid">
-    <h5 class="dummy-h5 dummy-button-states-grid__title">{{capitalize color}}</h5>
     {{#each @model.SIZES as |size|}}
       {{#each @model.STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
           <br />
-          <Hds::Cta @icon="plus" @text={{capitalize state}} @size={{size}} @color={{color}} class="is-{{state}}" />
+          <Hds::Cta @icon="plus" @text={{capitalize state}} @size={{size}} class="is-{{state}}" />
         </div>
       {{/each}}
     {{/each}}
-    {{#if (not-eq color "tertiary")}}
-      {{#each @model.STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">Full width/{{color}}/{{state}}:</span>
-          <br />
-          <Hds::Cta
-            @icon="plus"
-            @text={{capitalize state}}
-            @color={{color}}
-            @isFullWidth={{true}}
-            class="is-{{state}}"
-          />
-        </div>
-      {{/each}}
-    {{/if}}
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">Full width/{{state}}:</span>
+        <br />
+        <Hds::Cta @icon="plus" @text={{capitalize state}} @isFullWidth={{true}} class="is-{{state}}" />
+      </div>
+    {{/each}}
   </div>
 
   <h4 class="dummy-h4">Containers</h4>
