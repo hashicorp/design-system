@@ -145,7 +145,7 @@
   />
   <br />
   Below alert with no title, no description does not appear (see error in console):
-  <Hds::Alert @icon="meh" />
+  {{! <Hds::Alert @icon="meh" /> }}
   <br />
 </section>
 
@@ -165,6 +165,55 @@
 
   <h4 class="dummy-h4">Type</h4>
 
-  <h4 class="dummy-h4">Color:</h4>
+  <h4 class="dummy-h4">Actions</h4>
+  <h5 class="dummy-h5">With "@actions" argument</h5>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    @actions={{array
+      (hash element="button" text="Button" size="small" color="primary")
+      (hash element="button" text="Button" size="small" color="secondary")
+      (hash element="link-to" icon="plus" text="Link text" color="primary" route="index")
+      (hash element="link" icon="plus" text="Link text" color="secondary" href="#")
+    }}
+  />
+
+  <h5 class="dummy-h5">With "actions" named block</h5>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <DummyPlaceholder @text="generic content" @height="80" @background="#e1f5fe" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <div class="dummy-alert-sample-custom-actions">
+        <Hds::Button @text="Button" @size="large" @color="secondary" />
+        <Hds::Link::Standalone @icon="plus" @text="Link text" href="#" @size="large" @color="secondary" />
+      </div>
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <div class="dummy-alert-sample-custom-actions">
+        <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific only for
+          one special use case.</span>
+      </div>
+    </:actions>
+  </Hds::Alert>
 
 </section>
