@@ -28,3 +28,15 @@
 .hds-alert__title + .hds-alert__description {
   margin-top: 0.75rem; // 12px
 }
+
+.hds-alert__actions {
+  align-items: center;
+  display: flex;
+  margin-top: 1rem; // 16px
+}
+
+.hds-alert__action {
+  & + & {
+    margin-left: 1rem; // 16px
+  }
+}
