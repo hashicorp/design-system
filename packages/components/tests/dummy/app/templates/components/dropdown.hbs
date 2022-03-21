@@ -1,329 +1,575 @@
 {{page-title "Dropdown Component"}}
-
 <section>
-  <h2 class="dummy-h2">Dropdown Component</h2>
-  <p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
-    dropdown menu they wish.</p>
-  <p class="dummy-paragraph">It makes use of the
-    <code>&lt;Hds::Disclosure></code>
+  <h2 class="dummy-h2">
+    Dropdown Component
+  </h2>
+  <p class="dummy-paragraph">
+    The dropdown component has several flexible features that allow developers to build the dropdown menu they wish.
+  </p>
+  <p class="dummy-paragraph">
+    It makes use of the
+    <code>Hds::Disclosure</code>
     component by providing items for the
-    <code>&lt;:toggle></code>
+    <code>:toggle</code>
     and
-    <code>&lt;:content></code>
-    named blocks.</p>
-  <p class="dummy-paragraph">To decide: what does the optimum developer invocation look like?</p>
+    <code>:content</code>
+    named blocks.
+  </p>
 </section>
-
-{{!-- <div class="dummy-divider">
-  <h3 class="dummy-h3">Fake example for WIP demo only</h3>
-  <p class="dummy-paragraph">In the example below, we see a fake navbar with some things in it, the last of which is a user menu dropdown:</p>
-  <nav class="dummy-nav-dropdown">
-    <ul class="dummy-nav-dropdown__list">
-      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="boundary" @size="small" /></li>
-      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="waypoint" @size="small" /></li>
-      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="packer" @size="small" /></li>
-      <li class="dummy-nav-dropdown__list-item">
-        <Hds::Disclosure>
-          <:toggle as |t|>
-            <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" {{on "click" t.onClickToggle}} />
-          </:toggle>
-          <:content>
-            <ul class="hds-dropdown__list absolute--right">
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-              <Hds::Dropdown::ListItem @item="separator" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-            </ul>
-          </:content>
-        </Hds::Disclosure>
-      </li>
-    </ul>
-  </nav>
-</div> --}}
 <section>
-  <h3 class="dummy-h3" id="section-component-api"><a href="#section-component-api">&sect;</a> Component API</h3>
-  <p class="dummy-paragraph" id="toggle-api">This is the API for the
-    <span class="dummy-code">Dropdown::Toggle</span>
-    component:</p>
+  <h3 class="dummy-h3" id="section-component-api">
+    <a href="#section-component-api">
+      §
+    </a>
+    Component API
+  </h3>
+  <p class="dummy-paragraph" id="toggle-api">
+    This is the API for the
+    <span class="dummy-code">
+      Dropdown::Toggle
+    </span>
+    component:
+  </p>
   <dl class="dummy-component-props" aria-labelledby="toggle-api">
-    <dt>toggle <code>enum</code></dt>
+    <dt>
+      toggle
+      <code>
+        enum
+      </code>
+    </dt>
     <dd>
-      <p class="dummy-paragraph">Acceptable values:</p>
+      <p class="dummy-paragraph">
+        Acceptable values:
+      </p>
       <ol>
-        <li>user</li>
-        <li>more</li>
-        <li class="default">text</li>
+        <li>
+          user
+        </li>
+        <li>
+          more
+        </li>
+        <li class="default">
+          text
+        </li>
       </ol>
-      <p class="dummy-paragraph">Note:
-        <span class="dummy-code">&commat;toggle</span>
-        does not need to be defined if a text toggle is desired.</p>
+      <p class="dummy-paragraph">
+        Note:
+        <span class="dummy-code">
+          @toggle
+        </span>
+        does not need to be defined if a text toggle is desired.
+      </p>
     </dd>
-    <dt>avatarUrl <code>string</code></dt>
+    <dt>
+      avatarUrl
+      <code>
+        string
+      </code>
+    </dt>
     <dd>
       <p class="dummy-paragraph">
         If
-        <span class="dummy-code">&commat;toggle="user"</span>
+        <span class="dummy-code">
+          @toggle="user"
+        </span>
         is declared, add
-        <span class="dummy-code">&commat;avatarUrl</span>
+        <span class="dummy-code">
+          @avatarUrl
+        </span>
         to identify an image to be used for the avatar.
       </p>
     </dd>
-    <dt>color <code>enum</code></dt>
+    <dt>
+      color
+      <code>
+        enum
+      </code>
+    </dt>
     <dd>
-      <p class="dummy-paragraph">Acceptable values:</p>
+      <p class="dummy-paragraph">
+        Acceptable values:
+      </p>
       <ol>
-        <li class="default">primary</li>
-        <li>secondary</li>
+        <li class="default">
+          primary
+        </li>
+        <li>
+          secondary
+        </li>
       </ol>
       <p class="dummy-paragraph">
         To indicate that a secondary button style should be used for the text toggle, add
-        <span class="dummy-code">&commat;color="secondary"</span>. If no
-        <span class="dummy-code">&commat;color</span>
+        <span class="dummy-code">
+          @color="secondary"
+        </span>
+        . If no
+        <span class="dummy-code">
+          @color
+        </span>
         is declared,
-        <span class="dummy-code">primary</span>
+        <span class="dummy-code">
+          primary
+        </span>
         will be used by default.
       </p>
     </dd>
-    <dt>size <code>enum</code></dt>
+    <dt>
+      size
+      <code>
+        enum
+      </code>
+    </dt>
     <dd>
-      <p class="dummy-paragraph">Acceptable values:</p>
+      <p class="dummy-paragraph">
+        Acceptable values:
+      </p>
       <ol>
-        <li class="default">16</li>
-        <li>24</li>
+        <li class="default">
+          16
+        </li>
+        <li>
+          24
+        </li>
       </ol>
-      <p class="dummy-paragraph">The
-        <span class="dummy-code">&commat;size</span>
+      <p class="dummy-paragraph">
+        The
+        <span class="dummy-code">
+          @size
+        </span>
         property may only be set if
-        <span class="dummy-code">more</span>
-        toggle is defined.</p>
+        <span class="dummy-code">
+          more
+        </span>
+        toggle is defined.
+      </p>
     </dd>
   </dl>
-
   <hr />
-
-  <p class="dummy-paragraph" id="listitem-api">This is the API for the
-    <span class="dummy-code">Dropdown::ListItem</span>
-    component:</p>
+  <p class="dummy-paragraph" id="listitem-api">
+    This is the API for the
+    <span class="dummy-code">
+      Dropdown::ListItem
+    </span>
+    component:
+  </p>
   <dl class="dummy-component-props" aria-labelledby="listitem-api">
-    <dt>item <code>enum</code></dt>
+    <dt>
+      item
+      <code>
+        enum
+      </code>
+    </dt>
     <dd>
-      <p class="dummy-paragraph">Acceptable values:</p>
+      <p class="dummy-paragraph">
+        Acceptable values:
+      </p>
       <ol>
-        <li>heading</li>
-        <li>help-text</li>
-        <li>separator</li>
-        <li>copy-item</li>
-        <li class="default">link (default)</li>
+        <li>
+          heading
+        </li>
+        <li>
+          help-text
+        </li>
+        <li>
+          separator
+        </li>
+        <li>
+          copy-item
+        </li>
+        <li class="default">
+          link (default)
+        </li>
       </ol>
     </dd>
-    <dt>text <code>string</code></dt>
-    <dd>The text to be used for all items. The only item that does not require text to be defined is the separator</dd>
-    <dt>color <code>enum</code></dt>
+    <dt>
+      text
+      <code>
+        string
+      </code>
+    </dt>
     <dd>
-      <p class="dummy-paragraph">Acceptabe values:</p>
+      The text to be used for all items. The only item that does not require text to be defined is the separator
+    </dd>
+    <dt>
+      color
+      <code>
+        enum
+      </code>
+    </dt>
+    <dd>
+      <p class="dummy-paragraph">
+        Acceptabe values:
+      </p>
       <ol>
-        <li class="default">action</li>
-        <li>critical</li>
+        <li class="default">
+          action
+        </li>
+        <li>
+          critical
+        </li>
       </ol>
     </dd>
-    <dt>route <code>string</code></dt>
+    <dt>
+      route
+      <code>
+        string
+      </code>
+    </dt>
     <dd>
       <p>
         If the link is internal, define a
-        <span class="dummy-code">route</span>; Ember's
-        <span class="dummy-code">LinkTo</span>
+        <span class="dummy-code">
+          route
+        </span>
+        ; Ember's
+        <span class="dummy-code">
+          LinkTo
+        </span>
         component will be rendered.
       </p>
     </dd>
-    <dt>href <code>string</code></dt>
+    <dt>
+      href
+      <code>
+        string
+      </code>
+    </dt>
     <dd>
       <p>
         If the link is internal, define a
-        <span class="dummy-code">href</span>; an
-        <span class="dummy-code">a</span>
+        <span class="dummy-code">
+          href
+        </span>
+        ; an
+        <span class="dummy-code">
+          a
+        </span>
         element with the appropriate attributes will be rendered.
       </p>
     </dd>
-    <dt>leadingIcon <code>string</code></dt>
-    <dd>Valid values are any of the flight icons</dd>
-    <dt>trailingIcon <code>string</code></dt>
+    <dt>
+      leadingIcon
+      <code>
+        string
+      </code>
+    </dt>
     <dd>
-      <p>Valid values are any of the flight icons</p>
-      <p class="dummy-paragraph">Note: These are defined separately because there may be use cases where both a leading
-        and a trailing icon are required; these instances should be rare.</p>
-
+      Valid values are any of the flight icons
     </dd>
-
+    <dt>
+      trailingIcon
+      <code>
+        string
+      </code>
+    </dt>
+    <dd>
+      <p>
+        Valid values are any of the flight icons
+      </p>
+      <p class="dummy-paragraph">
+        Note: These are defined separately because there may be use cases where both a leading and a trailing icon are
+        required; these instances should be rare.
+      </p>
+    </dd>
   </dl>
 </section>
-
 <section>
-  <h3 class="dummy-h3" id="section-usage"><a href="#section-usage">&sect;</a>Usage</h3>
-  <p class="dummy-paragraph">Coming Soon!</p>
+  <h3 class="dummy-h3" id="section-usage">
+    <a href="#section-usage">
+      §
+    </a>
+    Usage
+  </h3>
+  <p class="dummy-paragraph">
+    1. User Menus. This is any case where a
+    <span class="dummy-code">
+      details
+    </span>
+    element is being used for a user menu dropdown.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Disclosure>
+        &lt;:toggle as |t|>
+          &lt;Hds::Dropdown::Toggle
+            @toggle="user"
+            @text="user menu"
+            @avatarUrl="/assets/images/avatar.png"
+           \{{on "click" t.onClickToggle}}
+          />
+        &lt;/:toggle>
+        &lt;:content>
+          &lt;ul class="hds-dropdown__list absolute--right">
+            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
+            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
+            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
+            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+            &lt;Hds::Dropdown::ListItem @item="separator" />
+            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          &lt;/ul>
+        &lt;/:content>
+      &lt;/Hds::Disclosure>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 </section>
-
 <section>
-  <h3 class="dummy-h3" id="section-design-guidelines"><a href="#section-design-guidelines">&sect;</a>Design guidelines</h3>
+  <h3 class="dummy-h3" id="section-design-guidelines">
+    <a href="#section-design-guidelines">
+      §
+    </a>
+    Design guidelines
+  </h3>
 </section>
-
 <section>
-  <h3 class="dummy-h3" id="section-accessibility"><a href="#section-accessibility">&sect;</a> Accessibility</h3>
+  <h3 class="dummy-h3" id="section-accessibility">
+    <a href="#section-accessibility">
+      §
+    </a>
+    Accessibility
+  </h3>
   <p class="dummy-paragraph">
     Each of our components intends to, at a minimum, conform to WCAG 2.1 AA standards. If you find an issue with this
     component, you can let us know in any of the following ways:
   </p>
   <ol class="dummy-list">
-    <li>Post a message in the #team-design-systems channel in our internal Slack</li>
-    <li>Email <a href="mailto:design-systems@hashicorp.com">design-systems@hashicorp.com</a></li>
-    <li>File an issue on this <a href="">GitHub Repository</a></li>
+    <li>
+      Post a message in the #team-design-systems channel in our internal Slack
+    </li>
+    <li>
+      Email
+      <a href="mailto:design-systems@hashicorp.com">
+        design-systems@hashicorp.com
+      </a>
+    </li>
+    <li>
+      File an issue on this
+      <a href="">
+        GitHub Repository
+      </a>
+    </li>
   </ol>
-
-  <h4 class="dummy-h4">Applicable WCAG Success Criteria</h4>
-  <p class="dummy-paragraph">This component intends to conform to the following WCAG success criteria:</p>
+  <h4 class="dummy-h4">
+    Applicable WCAG Success Criteria
+  </h4>
+  <p class="dummy-paragraph">
+    This component intends to conform to the following WCAG success criteria:
+  </p>
   <ul class="dummy-list">
-    <li>1.3.1:
+    <li>
+      1.3.1:
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
         rel="noopener noreferrer"
         target="_blank"
-      >Information and Relationships</a></li>
-    <li>1.3.2:
+      >
+        Information and Relationships
+      </a>
+    </li>
+    <li>
+      1.3.2:
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
         rel="noopener noreferrer"
         target="_blank"
-      >Meaningful Sequence</a></li>
-    <li>1.4.1:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >Use of Color</a></li>
-    <li>1.4.3:
+      >
+        Meaningful Sequence
+      </a>
+    </li>
+    <li>
+      1.4.1:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" rel="noopener noreferrer" target="_blank">
+        Use of Color
+      </a>
+    </li>
+    <li>
+      1.4.3:
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
         rel="noopener noreferrer"
         target="_blank"
-      >Contrast (Minimum)</a></li>
-    <li>1.4.4:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html"
-        rel="noopener noreferrer"
-        target_="_blank"
-      >Resize Text</a></li>
-    <li>1.4.10:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >Reflow</a></li>
-    <li>1.4.11:
+      >
+        Contrast (Minimum)
+      </a>
+    </li>
+    <li>
+      1.4.4:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html" rel="noopener noreferrer" target_="_blank">
+        Resize Text
+      </a>
+    </li>
+    <li>
+      1.4.10:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" rel="noopener noreferrer" target="_blank">
+        Reflow
+      </a>
+    </li>
+    <li>
+      1.4.11:
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
         rel="noopener noreferrer"
         target="_blank"
-      >Non-Text Contrast</a></li>
-    <li>1.4.12:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >Text Spacing</a></li>
-    <li>2.1.1:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >Keyboard</a></li>
-    <li>2.1.2:
+      >
+        Non-Text Contrast
+      </a>
+    </li>
+    <li>
+      1.4.12:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html" rel="noopener noreferrer" target="_blank">
+        Text Spacing
+      </a>
+    </li>
+    <li>
+      2.1.1:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" rel="noopener noreferrer" target="_blank">
+        Keyboard
+      </a>
+    </li>
+    <li>
+      2.1.2:
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
         rel="noopener noreferrer"
         target="_blank"
-      >No Keyboard Trap</a></li>
-    <li>2.4.3:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >Focus Order</a></li>
-    <li>2.4.7: <a href="" rel="noopener noreferrer" target="_blank">Focus Visible</a></li>
+      >
+        No Keyboard Trap
+      </a>
+    </li>
+    <li>
+      2.4.3:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html" rel="noopener noreferrer" target="_blank">
+        Focus Order
+      </a>
+    </li>
+    <li>
+      2.4.7:
+      <a href="" rel="noopener noreferrer" target="_blank">
+        Focus Visible
+      </a>
+    </li>
   </ul>
-  <p class="dummy-paragraph">While some WCAG success criteria like
-    <a
-      href="https://www.w3.org/WAI/WCAG21/Understanding/orientation.html"
-      rel="noopener noreferrer"
-      target="_blank"
-    >Orientation</a>
+  <p class="dummy-paragraph">
+    While some WCAG success criteria like
+    <a href="https://www.w3.org/WAI/WCAG21/Understanding/orientation.html" rel="noopener noreferrer" target="_blank">
+      Orientation
+    </a>
     or
     <a
       href="https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts.html"
       rel="noopener noreferrer"
       target="_blank"
-    >Character Keyboard Shortcuts</a>
-    <em>may</em>
-    apply, we consider those to be application-level decisions.</p>
-
-  <h4 class="dummy-h4">Known Issues</h4>
-  <p class="dummy-paragraph">In any instance where data truncation occurs, there is no current method to access that
-    data for the keyboard-only user.</p>
+    >
+      Character Keyboard Shortcuts
+    </a>
+    <em>
+      may
+    </em>
+    apply, we consider those to be application-level decisions.
+  </p>
+  <h4 class="dummy-h4">
+    Known Issues
+  </h4>
+  <p class="dummy-paragraph">
+    In any instance where data truncation occurs, there is no current method to access that data for the keyboard-only
+    user.
+  </p>
 </section>
 <section data-test-percy>
-  <h3 class="dummy-h3" id="section-showcase"><a href="#section-showcase">&sect;</a> Showcase</h3>
-  <h4 class="dummy-h4">Content</h4>
-  <p class="dummy-paragraph">Coming Soon!</p>
+  <h3 class="dummy-h3" id="section-showcase">
+    <a href="#section-showcase">
+      §
+    </a>
+    Showcase
+  </h3>
+  <h4 class="dummy-h4">
+    Content
+  </h4>
+  <p class="dummy-paragraph">
+    Coming Soon!
+  </p>
 </section>
-
 <section class="dummy-bg-gray">
-  <h3 class="dummy-h3">Toggles</h3>
+  <h3 class="dummy-h3">
+    Toggles
+  </h3>
   <p class="dummy-paragraph">
     There are two parts to the dropdown component: the toggle and the list items. For the toggle, there are a few
     different variations available:
   </p>
   <ul class="dummy-list">
-    <li>Text (available colors: primary or secondary)</li>
-    <li>More</li>
-    <li>User</li>
-    <li>Avatar</li>
+    <li>
+      Text (available colors: primary or secondary)
+    </li>
+    <li>
+      More
+    </li>
+    <li>
+      User
+    </li>
+    <li>
+      Avatar
+    </li>
   </ul>
-
-  <p class="dummy-paragraph">Toggle, Default (primary)</p>
+  <p class="dummy-paragraph">
+    Toggle, Default (primary)
+  </p>
   <Hds::Dropdown::Toggle @text="Manage Sources" />
-
-  <p class="dummy-paragraph">Toggle, Default (secondary)</p>
+  <p class="dummy-paragraph">
+    Toggle, Default (secondary)
+  </p>
   <Hds::Dropdown::Toggle @text="Manage Sources" @color="secondary" />
-
-  <p class="dummy-paragraph">Toggle, More (default)</p>
+  <p class="dummy-paragraph">
+    Toggle, More (default)
+  </p>
   <Hds::Dropdown::Toggle @toggle="more" @text="more menu" />
-
-  <p class="dummy-paragraph">Toggle, More (small)</p>
+  <p class="dummy-paragraph">
+    Toggle, More (small)
+  </p>
   <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" />
-
-  <p class="dummy-paragraph">Toggle, User (default)</p>
+  <p class="dummy-paragraph">
+    Toggle, User (default)
+  </p>
   <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />
-
-  <p class="dummy-paragraph">Toggle, User (avatar)</p>
+  <p class="dummy-paragraph">
+    Toggle, User (avatar)
+  </p>
   <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
 </section>
-
 <section class="dummy-bg-gray">
-  <h3 class="dummy-h3">List Items</h3>
-
+  <h3 class="dummy-h3">
+    List Items
+  </h3>
   <p class="dummy-paragraph">
     For the items in the list items, the following items are available:
   </p>
   <ul class="dummy-list">
-    <li>A list-item link (default, no icons)</li>
-    <li>A list-item link (destructive, leading icon)</li>
-    <li>A heading</li>
-    <li>Help text</li>
-    <li>A copy-item</li>
-    <li>A separator</li>
+    <li>
+      A list-item link (default, no icons)
+    </li>
+    <li>
+      A list-item link (destructive, leading icon)
+    </li>
+    <li>
+      A heading
+    </li>
+    <li>
+      Help text
+    </li>
+    <li>
+      A copy-item
+    </li>
+    <li>
+      A separator
+    </li>
   </ul>
-
-  <p class="dummy-paragraph">Heading, Separator, Help Text</p>
+  <p class="dummy-paragraph">
+    Heading, Separator, Help Text
+  </p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
     <Hds::Dropdown::ListItem
@@ -333,16 +579,18 @@
     <Hds::Dropdown::ListItem @item="separator" />
     <Hds::Dropdown::ListItem @route="index" @text="Components" />
   </ul>
-
-  <p class="dummy-paragraph">Links (default)</p>
+  <p class="dummy-paragraph">
+    Links (default)
+  </p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
   </ul>
-
-  <p class="dummy-paragraph">Links (critical)</p>
+  <p class="dummy-paragraph">
+    Links (critical)
+  </p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
     <Hds::Dropdown::ListItem
@@ -358,7 +606,5 @@
       @leadingIcon="trash"
       @color="critical"
     />
-
   </ul>
-
 </section>
