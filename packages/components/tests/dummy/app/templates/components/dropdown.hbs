@@ -193,9 +193,10 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="section-usage">Usage</h3>
+  <h4 class="dummy-h4">Toggle/Text</h4>
   <div>
     <p class="dummy-paragraph">
-      Example One: a text toggle with links, a separator and a destructive (critical) link:
+      Example: a text toggle with links, a separator and a destructive (critical) link:
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -260,8 +261,9 @@
     </nav>
   </div>
   <div>
+    <h4 class="dummy-h4">Toggle/More</h4>
     <p class="dummy-paragraph">
-      Example Two: a "more" toggle with default and destructive (critical) links.
+      Example: a "more" toggle with default and destructive (critical) links.
       <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the aria-label for the "more" toggle button.
 
     </p>
@@ -322,9 +324,10 @@
   <hr/>
   {{!-- TODO we really need some spacing between these examples, the doc has no vertical rhythm --}}
   <div>
+    <h4 class="dummy-h4">Toggle/User</h4>
     <p class="dummy-paragraph">
-      Example Three: a "user" toggle with a header, help-text, separator, and links.
-      <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the aria-label for the "more" toggle button.
+      Example: a "user" toggle with a header, help-text, separator, and links.
+      <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the value for the <span class="dummy-code">aria-label</span> attribute on the "more" toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -505,91 +508,57 @@
 </section>
 <section data-test-percy>
   <h3 class="dummy-h3" id="section-showcase">Showcase</h3>
-  <h4 class="dummy-h4">
-    Content
-  </h4>
-  <p class="dummy-paragraph">
-    Coming Soon!
-  </p>
-</section>
+  <h4 class="dummy-h4">Toggles</h4>
+  
+  <div class="dummy-button-states-grid">
+    <p class="dummy-button-states-grid__title">Toggle (default)</p>
+    <Hds::Dropdown::Toggle @text="Default" />
+    <Hds::Dropdown::Toggle @text="Hover" class="is-hover" />
+    <Hds::Dropdown::Toggle @text="Focus" class="is-focus" />
+    <Hds::Dropdown::Toggle @text="Active" class="is-active" />
+  </div>
 
-<section>
-  <h3 class="dummy-h3">
-    Toggles
-  </h3>
-  <p class="dummy-paragraph">
-    There are two parts to the dropdown component: the toggle and the list items. For the toggle, there are a few
-    different variations available:
-  </p>
-  <ul class="dummy-list">
-    <li>
-      Text (available colors: primary or secondary)
-    </li>
-    <li>
-      More
-    </li>
-    <li>
-      User
-    </li>
-    <li>
-      Avatar
-    </li>
-  </ul>
-  <p class="dummy-paragraph">
-    Toggle, Default (primary)
-  </p>
-  <Hds::Dropdown::Toggle @text="Manage Sources" />
-  <p class="dummy-paragraph">
-    Toggle, Default (secondary)
-  </p>
-  <Hds::Dropdown::Toggle @text="Manage Sources" @color="secondary" />
-  <p class="dummy-paragraph">
-    Toggle, More (default)
-  </p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" />
-  <p class="dummy-paragraph">
-    Toggle, More (small)
-  </p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" />
-  <p class="dummy-paragraph">
-    Toggle, User (default)
-  </p>
-  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />
-  <p class="dummy-paragraph">
-    Toggle, User (avatar)
-  </p>
-  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
-</section>
-<section>
-  <h3 class="dummy-h3">
-    List Items
-  </h3>
-  <p class="dummy-paragraph">
-    For the items in the list items, the following items are available:
-  </p>
-  <ul class="dummy-list">
-    <li>
-      A list-item link (default, no icons)
-    </li>
-    <li>
-      A list-item link (destructive, leading icon)
-    </li>
-    <li>
-      A heading
-    </li>
-    <li>
-      Help text
-    </li>
-    <li>
-      A copy-item
-    </li>
-    <li>
-      A separator
-    </li>
-  </ul>
-  <p class="dummy-paragraph">
-    Heading, Help Text, Separator, Link
-  </p>
+  <div class="dummy-button-states-grid">
+    <p class="dummy-button-states-grid__title">Toggle (default, secondary color)</p>
+    <Hds::Dropdown::Toggle @text="Default, secondary" @color="secondary" />
+    <Hds::Dropdown::Toggle @text="Hover" class="is-hover" @color="secondary"/>
+    <Hds::Dropdown::Toggle @text="Focus" class="is-focus" @color="secondary"/>
+    <Hds::Dropdown::Toggle @text="Active" class="is-active" @color="secondary"/>
+  </div>
+
+  <div class="dummy-button-states-grid">
+    <p class="dummy-button-states-grid__title">Toggle/More</p>
+    <Hds::Dropdown::Toggle @toggle="more" @text="more" />
+    <Hds::Dropdown::Toggle @text="more Hover" class="is-hover" @toggle="more" />
+    <Hds::Dropdown::Toggle @text="more Focus" class="is-focus" @toggle="more" />
+    <Hds::Dropdown::Toggle @text="more Active" class="is-active" @toggle="more" />
+  </div>
+
+ <div class="dummy-button-states-grid">
+    <p class="dummy-button-states-grid__title">Toggle/More (size small)</p>
+    <Hds::Dropdown::Toggle @toggle="more" @text="more" />
+    <Hds::Dropdown::Toggle @text="more Hover" class="is-hover" @toggle="more" @size="small" />
+    <Hds::Dropdown::Toggle @text="more Focus" class="is-focus" @toggle="more" @size="small" />
+    <Hds::Dropdown::Toggle @text="more Active" class="is-active" @toggle="more" @size="small" />
+  </div>
+
+  <div class="dummy-button-states-grid">
+    <p class="dummy-button-states-grid__title">Toggle/User</p>
+    <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />
+    <Hds::Dropdown::Toggle @text="user Hover" class="is-hover" @toggle="user" />
+    <Hds::Dropdown::Toggle @text="user Focus" class="is-focus" @toggle="user" />
+    <Hds::Dropdown::Toggle @text="user Active" class="is-active" @toggle="user" />
+  </div>
+  
+  <div class="dummy-button-states-grid">
+    <p class="dummy-button-states-grid__title">Toggle/User (w/Avatar)</p>
+    <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
+    <Hds::Dropdown::Toggle @text="user Hover" class="is-hover" @toggle="user" @avatarUrl="/assets/images/avatar.png" />
+    <Hds::Dropdown::Toggle @text="user Focus" class="is-focus" @toggle="user" @avatarUrl="/assets/images/avatar.png" />
+    <Hds::Dropdown::Toggle @text="user Active" class="is-active" @toggle="user" @avatarUrl="/assets/images/avatar.png" />
+  </div>
+
+  <h4 class="dummy-h4">List Items</h4>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
     <Hds::Dropdown::ListItem
@@ -599,18 +568,12 @@
     <Hds::Dropdown::ListItem @item="separator" />
     <Hds::Dropdown::ListItem @route="index" @text="Components" />
   </ul>
-  <p class="dummy-paragraph">
-    Links (default)
-  </p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
   </ul>
-  <p class="dummy-paragraph">
-    Links (critical)
-  </p>
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
     <Hds::Dropdown::ListItem
