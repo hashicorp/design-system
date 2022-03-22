@@ -19,13 +19,16 @@
 @import "./components/dummy-component-props";
 @import "./components/dummy-placeholder";
 
+[class^='.dummy-'] {
+    box-sizing:border-box;
+}
 body.dummy-app {
     background-color: #d9d9d9;
     padding: 0;
     max-width: 100%;
     margin: 0 auto;
 
-    .dummy-app-wrapper {
+    .dummy-app-wrapper {  //todo this should not be outside of landmark elements.
         display: grid;
         grid-template-rows: auto 1fr auto;
         grid-template-columns: 100%; // necessary or when the content is larger than the page, it grows indefinitely!
@@ -86,20 +89,49 @@ body.dummy-app {
             min-height: 84.75vh;
             width: 1024px;
         }
-        .dummy-footer {
-            padding: 0 2rem;
-            background-color: black;
-            color: white;
-            .dummy-paragraph {
-                padding: 0;
-                margin: 0;
 
-                .dummy-link {
-                color: white;
-                display: flex;
-                align-content: center;
-                padding: 1rem;
-                width: fit-content;
+        .dummy-footer {
+            background-color: #f1f2f3;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
+            margin: auto;
+            padding: 0;
+            width: 100%;
+
+            .dummy-row-wrapper {
+                padding: 2rem;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                > * {
+                    max-width: 100%;
+                    white-space: wrap;
+                }
+                &:last-of-type {
+                    background-color: black;
+                    color: white;
+                    padding: 0 2rem;
+                    width: 100%;
+
+                    .dummy-paragraph {
+                        padding-top: 0;
+                        margin: 0;
+                        .dummy-link {
+                            align-content: center;
+                            color: white;
+                            display: flex;
+                            margin: 0;
+                            padding: 1rem;
+                            width: fit-content;
+                        }
+                    }
+                }
+                .dummy-row {
+                    max-width: 100%;
+                    width: 1024px;
+                    margin: 0 auto;
+                    padding: 0;
                 }
             }
         }
