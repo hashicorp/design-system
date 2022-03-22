@@ -7,18 +7,23 @@ module('Integration | Component | hds/badge/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the default badge with text', async function (assert) {
-    await render(hbs`<Hds::Badge @text="text renders" />`);
+    await render(
+      hbs`<Hds::Badge @text="text renders" />`
+    );
     assert.dom(this.element).hasText('text renders');
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
+    await render(
+      hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
     assert.dom('#test-badge').hasClass('hds-badge');
   });
 
   // COLOR
 
   test('it should render the neutral color as the default if no color is declared', async function (assert) {
-    await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
+    await render(
+      hbs`<Hds::Badge @text="text renders" id="test-badge" />`
+    );
     assert.dom('#test-badge').hasClass('hds-badge--color-neutral');
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
@@ -44,7 +49,9 @@ module('Integration | Component | hds/badge/index', function (hooks) {
   // TYPE
 
   test('it should render the filled type if no type is declared', async function (assert) {
-    await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
+    await render(
+      hbs`<Hds::Badge @text="text renders" id="test-badge" />`
+    );
     assert.dom('#test-badge').hasClass('hds-badge--type-filled');
   });
   test('it should render the correct CSS type class if @type prop is declared', async function (assert) {
