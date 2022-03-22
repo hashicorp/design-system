@@ -11,11 +11,13 @@
   justify-content: stretch;
   align-items: center;
   align-content: stretch;
-  background-color: black;
   height: 62px;
   padding: 0 32px;
   &::after, &::before {
     box-sizing: border-box;
+  }
+  &.background-black {
+    background-color: black;
   }
   .dummy-nav-dropdown__list {
     margin: 0;

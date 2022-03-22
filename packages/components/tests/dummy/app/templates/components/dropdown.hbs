@@ -1,4 +1,5 @@
 {{page-title "Dropdown Component"}}
+{{!-- prettier ignore --}}
 <section>
   <h2 class="dummy-h2">
     Dropdown Component
@@ -17,17 +18,10 @@
   </p>
 </section>
 <section>
-  <h3 class="dummy-h3" id="section-component-api">
-    <a href="#section-component-api">
-      §
-    </a>
-    Component API
-  </h3>
+  <h3 class="dummy-h3" id="section-component-api">Component API</h3>
   <p class="dummy-paragraph" id="toggle-api">
     This is the API for the
-    <span class="dummy-code">
-      Dropdown::Toggle
-    </span>
+    <span class="dummy-code">Dropdown::Toggle</span>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="toggle-api">
@@ -38,9 +32,7 @@
       </code>
     </dt>
     <dd>
-      <p class="dummy-paragraph">
-        Acceptable values:
-      </p>
+      <p>Acceptable values:</p>
       <ol>
         <li>
           user
@@ -52,43 +44,25 @@
           text
         </li>
       </ol>
-      <p class="dummy-paragraph">
-        Note:
-        <span class="dummy-code">
-          @toggle
-        </span>
-        does not need to be defined if a text toggle is desired.
-      </p>
+      <p>Identifies the type of toggle (button) that you want to use.</p>
     </dd>
     <dt>
       avatarUrl
-      <code>
-        string
-      </code>
+      <code>string</code>
     </dt>
     <dd>
-      <p class="dummy-paragraph">
+      <p>
         If
-        <span class="dummy-code">
-          @toggle="user"
-        </span>
-        is declared, add
-        <span class="dummy-code">
-          @avatarUrl
-        </span>
-        to identify an image to be used for the avatar.
+        <span class="dummy-code">@toggle="user"</span>
+        is declared, you can add <span class="dummy-code">@avatarUrl</span>
+        to identify an image to be used for the avatar. If no avatarUrl is defined, the default user icon will be displayed.
       </p>
     </dd>
     <dt>
-      color
-      <code>
-        enum
-      </code>
+      color <code>enum</code>
     </dt>
     <dd>
-      <p class="dummy-paragraph">
-        Acceptable values:
-      </p>
+      <p>Acceptable values:</p>
       <ol>
         <li class="default">
           primary
@@ -97,19 +71,11 @@
           secondary
         </li>
       </ol>
-      <p class="dummy-paragraph">
-        To indicate that a secondary button style should be used for the text toggle, add
-        <span class="dummy-code">
-          @color="secondary"
-        </span>
-        . If no
-        <span class="dummy-code">
-          @color
-        </span>
-        is declared,
-        <span class="dummy-code">
-          primary
-        </span>
+      <p>
+        To indicate that a secondary button style should be used for the "text" toggle, add
+        <span class="dummy-code">@color="secondary"</span>.
+        If no <span class="dummy-code">@color</span> is declared,
+        <span class="dummy-code">primary</span>
         will be used by default.
       </p>
     </dd>
@@ -120,7 +86,7 @@
       </code>
     </dt>
     <dd>
-      <p class="dummy-paragraph">
+      <p>
         Acceptable values:
       </p>
       <ol>
@@ -131,15 +97,11 @@
           24
         </li>
       </ol>
-      <p class="dummy-paragraph">
+      <p>
         The
-        <span class="dummy-code">
-          @size
-        </span>
+        <span class="dummy-code">@size</span>
         property may only be set if
-        <span class="dummy-code">
-          more
-        </span>
+        <span class="dummy-code">more</span>
         toggle is defined.
       </p>
     </dd>
@@ -274,12 +236,7 @@
   </dl>
 </section>
 <section>
-  <h3 class="dummy-h3" id="section-usage">
-    <a href="#section-usage">
-      §
-    </a>
-    Usage
-  </h3>
+  <h3 class="dummy-h3" id="section-usage">Usage</h3>
   <div>
     <p class="dummy-paragraph">
       Example One: a text toggle with links, a separator and a destructive (critical) link:
@@ -305,19 +262,26 @@
     />
     {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Renders:</p>
-    <Hds::Dropdown
-      @toggle="text"
-      @toggleText="Toggle"
-      as |dd| >
 
-      <dd.ListItem @route="components.dropdown" @text="Hover" />
-      <dd.ListItem @route="components.dropdown" @text="Focus" />
-      <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
-      <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-      <dd.ListItem @item="separator" />
-      <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-    </Hds::Dropdown>
+    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown" aria-label="example positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown
+            @toggle="text"
+            @toggleText="Toggle"
+            as |dd| >
+
+            <dd.ListItem @route="components.dropdown" @text="Hover" />
+            <dd.ListItem @route="components.dropdown" @text="Focus" />
+            <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
+            <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+            <dd.ListItem @item="separator" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
   </div>
   <div>
     <p class="dummy-paragraph">
@@ -344,59 +308,49 @@
     />
     {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Renders:</p>
-    <Hds::Dropdown
-      @toggle="more"
-      @toggleText="More Options"
-      as |dd| >
+    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown" aria-label="example row more positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown
+            @toggle="more"
+            @toggleText="More Options"
+            as |dd| >
 
-      <dd.ListItem @route="components.dropdown" @text="Create" />
-      <dd.ListItem @route="components.dropdown" @text="Read" />
-      <dd.ListItem @route="components.dropdown" @text="Update" />
-      <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-    </Hds::Dropdown>
+            <dd.ListItem @route="components.dropdown" @text="Create" />
+            <dd.ListItem @route="components.dropdown" @text="Read" />
+            <dd.ListItem @route="components.dropdown" @text="Update" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
+    <p class="dummy-paragraph">Rendered (on a black background, in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown background-black" aria-label="example row more black bg positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown
+            @toggle="more"
+            @toggleText="More Options"
+            as |dd| >
+
+            <dd.ListItem @route="components.dropdown" @text="Create" />
+            <dd.ListItem @route="components.dropdown" @text="Read" />
+            <dd.ListItem @route="components.dropdown" @text="Update" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
   </div>
-
 </section>
 <section>
-  <h3 class="dummy-h3" id="section-design-guidelines">
-    <a href="#section-design-guidelines">
-      §
-    </a>
-    Design guidelines
-  </h3>
+  <h3 class="dummy-h3" id="section-design-guidelines">Design guidelines</h3>
   <p class="dummy-paragraph">Coming soon!</p>
 </section>
 <section>
-  <h3 class="dummy-h3" id="section-accessibility">
-    <a href="#section-accessibility">
-      §
-    </a>
-    Accessibility
-  </h3>
-  <p class="dummy-paragraph">
-    Each of our components intends to conform to WCAG 2.1 AA standards (at a minimum).
-    If you find an issue with this component, you can let us know in any of the following ways:
-  </p>
-  <ol class="dummy-list">
-    <li>
-      Post a message in the #team-design-systems channel in our internal Slack
-    </li>
-    <li>
-      Email
-      <a href="mailto:design-systems@hashicorp.com">
-        design-systems@hashicorp.com
-      </a>
-    </li>
-    <li>
-      File an issue on this
-      <a href="">
-        GitHub Repository
-      </a>
-    </li>
-  </ol>
-  <p class="dummy-paragraph"><strong>This component has been designed and implemented with accessibility in mind. When used as designed, there should not be any accessibility issues with this component.
-    </strong>
+  <h3 class="dummy-h3" id="section-accessibility">Accessibility</h3>
+  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as designed, there should not be any accessibility issues with this component.
   </p>
   <h4 class="dummy-h4">
     Known Accessibility Issues
@@ -405,7 +359,7 @@
   <ol class="dummy-list">
     <li>In any instance where data truncation occurs, there is no current method to access that data for the
       keyboard-only user.</li>
-    <li>If the "more" toggle is used in the wrong context, it will fail on perceivability. It must be used in context. For the best user experience, interactive elements should visually present as interactive, unless their context makes it clear that they are/should be interactive.</li>
+    <li>If the "more" toggle is used in the incorrect context, it will fail on perceivability. It must be used in context. For the best user experience, interactive elements should visually present as interactive, unless their context makes it clear that they are/should be interactive.</li>
   </ol>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
@@ -509,12 +463,7 @@
   </ul>
 </section>
 <section data-test-percy>
-  <h3 class="dummy-h3" id="section-showcase">
-    <a href="#section-showcase">
-      §
-    </a>
-    Showcase
-  </h3>
+  <h3 class="dummy-h3" id="section-showcase">Showcase</h3>
   <h4 class="dummy-h4">
     Content
   </h4>

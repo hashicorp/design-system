@@ -23,6 +23,14 @@ $border-radius: 5px;
     box-sizing: border-box;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   .hds-dropdown-toggle__child-first { // applies to all first children inside of a toggle
     // border: 1px solid red;
     display: flex;
@@ -155,12 +163,14 @@ $border-radius: 5px;
 
   &.absolute--right {
     position: absolute;
-    right: 0;  
+    right: 0;
+    z-index: 2;  
   }
 
   &.absolute--left {
     position: absolute;
-    left: 0;  
+    left: 0; 
+    z-index: 2; 
   }
 
   .hds-dropdown-list-item {
