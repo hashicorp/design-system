@@ -11,64 +11,297 @@ $border-radius: 5px;
 
 .hds-dropdown-toggle {
   align-items: center;
-  background-color: var(--token-color-surface-interactive);
-  border-color: transparent;
+  border: 1px solid transparent;
   border-radius: $border-radius;
-  border-width: 1px;
-  box-shadow: var(--token-elevation-low-box-shadow);
   box-sizing: border-box; 
-  color: var(--token-color-foreground-faint);
   display: flex;
-  font-family: var(--token-typography-font-stack-text);
-  font-size: 0.875rem; // 14px
-  gap: 8px;
   justify-content: center;
-  line-height: 1rem; // 16px
-  padding: 10px;
 
-  &::after {
-    box-sizing: border-box;
-  }
+
+  &::after,
   &::before {
     box-sizing: border-box;
   }
-  &.hds-dropdown-toggle__text--primary {
-    background-color: var(--token-color-palette-blue-200);
-    border-color: var(--token-color-palette-blue-300);
-    color: var(--token-color-foreground-high-contrast);
 
+  .hds-dropdown-toggle__child-first { // applies to all first children inside of a toggle
+    // border: 1px solid red;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; //this centers whatever is inside, no matter what size it is
+    
   }
-  &.hds-dropdown-toggle__text--secondary {
-    background-color: var(--token-color-foreground-high-contrast);
-    border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-primary);
+  .hds-dropdown-toggle__child-second {
+    // will be the chevron icon
+    // should always be centered horizontally and vertically
+    // spacing depends on parent element's padding
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  &.hds-dropdown-toggle__text {
+    background-color: var(--token-color-surface-interactive);
+    box-shadow: var(--token-elevation-low-box-shadow);
+    color: var(--token-color-foreground-faint);
+    font-family: var(--token-typography-font-stack-text);
+    font-size: 0.875rem; // 14px
+    justify-content: center;
+    line-height: 1rem; // 16px
+    padding: 10px;
+
+    &.hds-dropdown-toggle__text--primary {
+      background-color: var(--token-color-palette-blue-200);
+      border-color: var(--token-color-palette-blue-300);
+      color: var(--token-color-foreground-high-contrast);
+
+      // &:hover {}
+      // &:focus-visible {}
+      // &:active {}
+
+    }
+    &.hds-dropdown-toggle__text--secondary {
+      background-color: var(--token-color-foreground-high-contrast);
+      border-color: var(--token-color-border-strong);
+      color: var(--token-color-foreground-primary);
+    }
+    .hds-dropdown-toggle__child-second {
+      margin-left: 8px;
+    }
   }
 
   &.hds-dropdown-toggle__more {
-    padding: 5px 7px;
+    background-color: transparent;
+    color: var(--token-color-foreground-faint);
+    height: 36px; // TODO get these to 44x44
+    width: 36px;
+    // todo padding
+
 
     &.hds-dropdown-toggle__more--small {
-      padding: 5px;
+      height: 28px;
+      width: 28px;
+      // padding: 5px;
     }
     
+    &:hover {
+      background-color: var(--token-color-surface-primary);
+      border-color: var(--token-color-border-strong);
+    }
+    &:focus-visible {
+      @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
+    }
+    &:active {
+      background-color: var(--token-color-active-primary);
+      border-color: var(--token-color-border-strong);
+      color: var(--token-color-foreground-primary);
+    }
   }
+
   &.hds-dropdown-toggle__user {
-    padding: 5px 7px;
+    // border-color: var(--token-color-border-strong);
+    width: 56px;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    color: var(--token-color-foreground-faint);
+    padding: 1px; // needs to account for 1px border
+
+    &:hover {
+      background-color: var(--token-color-surface-primary);
+      border-color: var(--token-color-border-strong);
+      color: var(--token-color-foreground-primary);
+    }
+    
+    &:focus-visible {
+      @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
+    }
+    
+    &:active {
+      background-color: var(--token-color-surface-interactive-active);
+      border-color: var(--token-color-border-strong);
+      color: var(--token-color-foreground-primary); //this is what is in Figma, seems incorrect
+    }
 
     .hds-dropdown-toggle__child-first {
       // could be an svg user icon, could be an avatar
+      // size of svg and size of avatar are declared in the template so we don't need to worry about the size of further child elements here
       height: 32px;
       width: 32px;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center; //this centers whatever is inside, no matter what size it is
+
+      > * {
+        border-radius: $border-radius;
+      }
     }
-    .hds-dropdown-toggle__child-second {
-      // will be the dropdown toggle icon
+  }
+}
+
+// TODO dropdown container, should this be styled here?
+.hds-dropdown__list {
+  align-items: flex-start;
+  background-color: white; //TODO REPLACE WITH TOKEN
+  border-radius: 6px;
+  // box-shadow: var(--token-elevation-high-box-shadow); //TODO what should this actually be?
+  box-shadow: 0px 0px 0px 1px rgba(101, 106, 118, 0.25), 0px 2px 3px rgba(101, 106, 118, 0.15), 0px 16px 16px -10px rgba(101, 106, 118, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  min-height: fit-content;
+  padding: 4px 0;
+  width: 200px; // default width
+
+  &.absolute--right {
+    position: absolute;
+    right: 0;  
+  }
+
+  &.absolute--left {
+    position: absolute;
+    left: 0;  
+  }
+
+  .hds-dropdown-list-item {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-family: var(--token-typography-font-stack-text);
+    min-height: 36px;    
+    justify-content: center;
+    width: 100%;
+
+    &.hds-dropdown-list-item__heading {
+      box-sizing: border-box;
+      color: var(--token-color-foreground-strong);
       display: flex;
-      flex-flow: column;
-      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      justify-content: flex-start;
+      line-height: 18px;
+      padding: 10px 16px 4px;
+      width: 100%;
+    }
+    
+    &.hds-dropdown-list-item__help-text {
+      box-sizing: border-box;
+      color: var(--token-color-foreground-faint);
+      display: flex;
+      flex-flow: row wrap;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+      max-width: 100%;
+      padding: 2px 16px 4px;
+    }
+    
+    &.hds-dropdown-list-item__separator {
+      align-items: center;
+      display: flex;
+      height: 6px;
+      justify-content: stretch;
+      min-height:6px;
+      padding: 0;
+      span { 
+        background-color: var(--token-color-border-primary);
+        height: 1px;
+        width: 100%;
+      }
+    }
+    
+    &.hds-dropdown-list-item__link {
+      box-sizing: border-box;
+      border-color: transparent;
+      padding: 0 4px 0 10px;
+      position: relative;
+      font-size: 14px;
+      line-height: 20px;
+
+      &::before {
+        border-radius: 1px;
+        bottom: 4px;
+        content: '';
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        width: 2px;
+      }
+      
+      a {
+        @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px); //TODO @didoo need critical variant
+        border-radius: $border-radius;
+        display: grid;
+        font-size: 15px;
+        gap: 0px 6px;
+        grid-auto-flow: row;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: min-content;
+        line-height: 20px;
+        max-width: 100%;
+        padding: 10px;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      &.hds-dropdown-list-item__link--action {
+        &:hover {
+          &::before {
+          background-color: var(--token-color-foreground-action-hover);
+          }
+        }
+        a {
+          color: var(--token-color-foreground-primary);
+
+          &:hover {
+            color: var(--token-color-foreground-action-hover);
+          }
+
+          &:active {
+            background-color: var(--token-color-surface-action);
+            border-left-color: var(--token-color-foreground-action-hover);
+            color: var(--token-color-foreground-action-active);
+          }
+        }
+
+      }
+
+      &.hds-dropdown-list-item__link--critical {
+        &:hover {
+
+          &::before {
+            background-color: var(--token-color-foreground-critical-on-surface); //TODO we need a proper token here
+          }
+        }
+        a {
+          color: var(--token-color-foreground-critical);
+          
+          &:hover {
+            color: var(--token-color-foreground-critical-on-surface);
+          }
+          &:focus-visible {
+            &::before {
+              box-shadow: inset 0 0 0 1px var(--token-color-focus-critical-internal), 0 0 0 3px var(--token-color-focus-critical-external);
+            }
+          }
+          &:active {
+            background-color: var( --token-color-surface-critical);
+            border-left-color: var( --token-color-foreground-critical-on-surface);
+            color: var( --token-color-foreground-critical-on-surface);
+          }
+        }
+      }
+
+      .hds-dropdown-list-item__link__text {
+        width: fit-content;
+        white-space: normal;
+      }
+      .hds-dropdown-list-item__link__icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
+      }
     }
   }
 }
