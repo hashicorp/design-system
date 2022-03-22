@@ -6,10 +6,10 @@
 //
 
 .hds-alert {
-  background-color: var(--token-color-surface-warning);
-  padding: 1.25rem; // 20px
-  display: flex;
   align-content: flex-start;
+  background-color: var(--token-color-surface-warning);
+  display: flex;
+  padding: 1.25rem; // 20px
 
   code, pre {
     font-family: var(--token-typography-font-stack-code);
