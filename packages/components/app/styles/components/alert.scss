@@ -10,34 +10,6 @@
   background-color: var(--token-color-surface-warning);
   display: flex;
   padding: 1.25rem; // 20px
-
-  code, pre {
-    font-family: var(--token-typography-font-stack-code);
-  }
-
-  // Manually copied from components/link/standalone.scss for -primary
-  a {
-    color: var(--token-color-foreground-action);
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    transition: text-decoration-color 0.25s ease-in;
-
-    &:hover,
-    &.is-hover {
-      color: var(--token-color-foreground-action-hover);
-      text-decoration-color: #4E81E8; // custom color by design
-    }
-
-    &:active,
-    &.is-active {
-      color: var(--token-color-foreground-action-active);
-      text-decoration-color: #396ED6; // custom color by design
-  
-      &::before {
-        background-color: var(--token-color-surface-action);
-      }
-    }
-  }
 }
 
 .hds-alert__icon {
@@ -47,12 +19,42 @@
 .hds-alert__text {
   color: var(--token-color-foreground-warning-on-surface);
   font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  line-height: var(--token-typography-body-200-line-height);
 }
 
 .hds-alert__title {
   font-weight: var(--token-typography-font-weight-semibold);
 }
 
-.hds-alert__title + .hds-alert__description {
-  margin-top: 0.75rem; // 12px
+
+.hds-alert__description {
+  font-weight: var(--token-typography-font-weight-regular);
+
+  .hds-alert__title + & {
+    margin-top: 0.75rem; // 12px
+  }
+
+  strong {
+    font-weight: var(--token-typography-font-weight-medium);
+  }
+
+  code, pre {
+    font-family: var(--token-typography-font-stack-code);
+  }
+
+  // Notice: in the future this may become a "Link::Inline" component (for now we declare the styles directly here)
+  a {
+    color: var(--token-color-foreground-action);
+    // at the moment the "focus" state is not well defined in design (the one that is in Figma does not work) so we just apply a simple color to the default outline
+    outline-color: var(--token-color-focus-action-external);
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+    }
+  }
 }
