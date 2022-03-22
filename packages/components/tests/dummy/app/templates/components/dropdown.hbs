@@ -281,37 +281,25 @@
     Usage
   </h3>
   <p class="dummy-paragraph">
-    1. User Menus. This is any case where a
-    <span class="dummy-code">
-      details
-    </span>
-    element is being used for a user menu dropdown.
+    Example One:
   </p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      &lt;Hds::Disclosure>
-        &lt;:toggle as |t|>
-          &lt;Hds::Dropdown::Toggle
-            @toggle="user"
-            @text="user menu"
-            @avatarUrl="/assets/images/avatar.png"
-           \{{on "click" t.onClickToggle}}
-          />
-        &lt;/:toggle>
-        &lt;:content>
-          &lt;ul class="hds-dropdown__list absolute--right">
-            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
-            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
-            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-            &lt;Hds::Dropdown::ListItem @item="separator" />
-            &lt;Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-          &lt;/ul>
-        &lt;/:content>
-      &lt;/Hds::Disclosure>
+      &lt;Hds::Dropdown
+        @toggle="text"
+        @toggleText="user menu"
+        as |dd| &gt;
+
+        &lt;dd.ListItem @route="components.dropdown" @text="Hover" /&gt;
+        &lt;dd.ListItem @route="components.dropdown" @text="Focus" /&gt;
+        &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
+        &lt;dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" /&gt;
+        &lt;dd.ListItem @item="separator" /&gt;
+        &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+      &lt;/Hds::Dropdown&gt;
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
@@ -476,8 +464,8 @@
     Known Issues
   </h4>
   <ol class="dummy-list">
-    <li>In any instance where data truncation occurs, there is no current method to access that data for the keyboard-only
-    user.</li>
+    <li>In any instance where data truncation occurs, there is no current method to access that data for the
+      keyboard-only user.</li>
   </ol>
 </section>
 <section data-test-percy>

@@ -1,0 +1,16 @@
+<Hds::Disclosure>
+  <:toggle as |t|>
+    <Hds::Dropdown::Toggle
+      @toggle={{@toggle}}
+      @text={{@toggleText}}
+      @avatarUrl={{@avatarUrl}}
+      {{on "click" t.onClickToggle}}
+    />
+  </:toggle>
+  <:content>
+    <ul class="hds-dropdown__list absolute--right">
+      {{yield (hash ListItem=(component "hds/dropdown/list-item"))}}
+
+    </ul>
+  </:content>
+</Hds::Disclosure>
