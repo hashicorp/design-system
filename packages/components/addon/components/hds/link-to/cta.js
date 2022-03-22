@@ -11,13 +11,13 @@ export default class HdsLinkToCtaComponent extends Component {
   /**
    * @param text
    * @type {string}
-   * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
+   * @description The text of the component. If no text value is defined an error will be thrown.
    */
   get text() {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Button" must have a valid value',
+      '@text for "Hds::Link::Cta" must have a valid value',
       text !== undefined
     );
 
@@ -28,13 +28,13 @@ export default class HdsLinkToCtaComponent extends Component {
    * @param size
    * @type {string}
    * @default medium
-   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   * @description The size of the component; acceptable values are `small`, `medium`, and `large`
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Button" must be one of the following: ${SIZES.join(
+      `@size for "Hds::Link::Cta" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
@@ -50,11 +50,6 @@ export default class HdsLinkToCtaComponent extends Component {
    * @description The name of the icon to be used.
    */
   get icon() {
-    assert(
-      `when the "Hds::Button" @color is "tertiary" an @icon is required`,
-      !(this.color === 'tertiary' && !this.args.icon)
-    );
-
     return this.args.icon ?? null;
   }
 
@@ -68,7 +63,7 @@ export default class HdsLinkToCtaComponent extends Component {
     let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::Button" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::Link::Cta" must be one of the following: ${ICONPOSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
       ICONPOSITIONS.includes(iconPosition)
@@ -95,7 +90,7 @@ export default class HdsLinkToCtaComponent extends Component {
    * @param isFullWidth
    * @type {boolean}
    * @default false
-   * @description Indicates that a button should take up the full width of the parent container. The default is false.
+   * @description Indicates that the component should take up the full width of the parent container. The default is false.
    */
   get isFullWidth() {
     return this.args.isFullWidth ?? false;
@@ -130,7 +125,7 @@ export default class HdsLinkToCtaComponent extends Component {
 
   /**
    * Get the class names to apply to the component.
-   * @method Button#classNames
+   * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
