@@ -1,5 +1,5 @@
 {{page-title "Dropdown Component"}}
-{{!-- prettier ignore --}}
+{{! prettier ignore }}
 <section>
   <h2 class="dummy-h2">
     Dropdown Component
@@ -54,12 +54,15 @@
       <p>
         If
         <span class="dummy-code">@toggle="user"</span>
-        is declared, you can add <span class="dummy-code">@avatarUrl</span>
-        to identify an image to be used for the avatar. If no avatarUrl is defined, the default user icon will be displayed.
+        is declared, you can add
+        <span class="dummy-code">@avatarUrl</span>
+        to identify an image to be used for the avatar. If no avatarUrl is defined, the default user icon will be
+        displayed.
       </p>
     </dd>
     <dt>
-      color <code>enum</code>
+      color
+      <code>enum</code>
     </dt>
     <dd>
       <p>Acceptable values:</p>
@@ -73,8 +76,9 @@
       </ol>
       <p>
         To indicate that a secondary button style should be used for the "text" toggle, add
-        <span class="dummy-code">@color="secondary"</span>.
-        If no <span class="dummy-code">@color</span> is declared,
+        <span class="dummy-code">@color="secondary"</span>. If no
+        <span class="dummy-code">@color</span>
+        is declared,
         <span class="dummy-code">primary</span>
         will be used by default.
       </p>
@@ -131,7 +135,8 @@
         <li class="default">link</li>
       </ol>
     </dd>
-    <dt>text <code>string</code>
+    <dt>text
+      <code>string</code>
     </dt>
     <dd>The text to be used for all items. The only item that does not require text to be defined is the separator.</dd>
     <dt>color <code>enum</code></dt>
@@ -167,26 +172,32 @@
     <dd>
       <p>
         If the link is internal, define a
-        <span class="dummy-code">href</span>; an <span class="dummy-code">&lt;a&gt;</span>
+        <span class="dummy-code">href</span>; an
+        <span class="dummy-code">&lt;a&gt;</span>
         element with the appropriate attributes will be rendered.
       </p>
     </dd>
     <dt>
-      leadingIcon <code>string</code>
+      leadingIcon
+      <code>string</code>
     </dt>
     <dd>
       Valid values are any of the flight icons
     </dd>
     <dt>
-      trailingIcon <code>string</code>
+      trailingIcon
+      <code>string</code>
     </dt>
     <dd>
       <p>
         Valid values are any of the flight icons
       </p>
       <p>
-        Note: Both "leadingIcon" and "trailingIcon" are defined (vs. "iconPosition" in the button component, for example) because there may be use cases where both a leading and a trailing icon are
-        required; these instances should be <em>very</em> rare.
+        Note: Both "leadingIcon" and "trailingIcon" are defined (vs. "iconPosition" in the button component, for
+        example) because there may be use cases where both a leading and a trailing icon are required; these instances
+        should be
+        <em>very</em>
+        rare.
       </p>
     </dd>
   </dl>
@@ -224,10 +235,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown
-            @toggle="text"
-            @toggleText="Toggle"
-            as |dd| >
+          <Hds::Dropdown @toggle="text" @toggleText="Toggle" as |dd|>
 
             <dd.ListItem @route="components.dropdown" @text="Hover" />
             <dd.ListItem @route="components.dropdown" @text="Focus" />
@@ -243,11 +251,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown
-            @toggle="text"
-            @toggleText="Toggle"
-            @color="secondary"
-            as |dd| >
+          <Hds::Dropdown @toggle="text" @toggleText="Toggle" @color="secondary" as |dd|>
 
             <dd.ListItem @route="components.dropdown" @text="Hover" />
             <dd.ListItem @route="components.dropdown" @text="Focus" />
@@ -264,7 +268,9 @@
     <h4 class="dummy-h4">Toggle/More</h4>
     <p class="dummy-paragraph">
       Example: a "more" toggle with default and destructive (critical) links.
-      <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the aria-label for the "more" toggle button.
+      <br />Note that
+      <span class="dummy-code">toggleText</span>
+      is still required, because it supplies the aria-label for the "more" toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -290,10 +296,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example row more positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown
-            @toggle="more"
-            @toggleText="More Options"
-            as |dd| >
+          <Hds::Dropdown @toggle="more" @toggleText="More Options" as |dd|>
 
             <dd.ListItem @route="components.dropdown" @text="Create" />
             <dd.ListItem @route="components.dropdown" @text="Read" />
@@ -307,10 +310,7 @@
     <nav class="dummy-nav-dropdown background-black" aria-label="example row more black bg positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown
-            @toggle="more"
-            @toggleText="More Options"
-            as |dd| >
+          <Hds::Dropdown @toggle="more" @toggleText="More Options" as |dd|>
 
             <dd.ListItem @route="components.dropdown" @text="Create" />
             <dd.ListItem @route="components.dropdown" @text="Read" />
@@ -321,13 +321,17 @@
       </ul>
     </nav>
   </div>
-  <hr/>
-  {{!-- TODO we really need some spacing between these examples, the doc has no vertical rhythm --}}
+  <hr />
+  {{! TODO we really need some spacing between these examples, the doc has no vertical rhythm }}
   <div>
     <h4 class="dummy-h4">Toggle/User</h4>
     <p class="dummy-paragraph">
       Example: a "user" toggle with a header, help-text, separator, and links.
-      <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the value for the <span class="dummy-code">aria-label</span> attribute on the "more" toggle button.
+      <br />Note that
+      <span class="dummy-code">toggleText</span>
+      is still required, because it supplies the value for the
+      <span class="dummy-code">aria-label</span>
+      attribute on the "more" toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -354,10 +358,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown
-            @toggle="user"
-            @toggleText="user menu"
-            as |dd| >
+          <Hds::Dropdown @toggle="user" @toggleText="user menu" as |dd|>
 
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
@@ -368,14 +369,11 @@
         </li>
       </ul>
     </nav>
-     <p class="dummy-paragraph">Rendered user toggle (on a black background, in a row, positioned to the right):</p>
+    <p class="dummy-paragraph">Rendered user toggle (on a black background, in a row, positioned to the right):</p>
     <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown
-            @toggle="user"
-            @toggleText="user menu"
-            as |dd| >
+          <Hds::Dropdown @toggle="user" @toggleText="user menu" as |dd|>
 
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
@@ -386,7 +384,7 @@
         </li>
       </ul>
     </nav>
-    </div>
+  </div>
 </section>
 <section>
   <h3 class="dummy-h3" id="section-design-guidelines">Design guidelines</h3>
@@ -394,16 +392,20 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="section-accessibility">Accessibility</h3>
-  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as designed, there should not be any accessibility issues with this component.
+  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
+    designed, there should not be any accessibility issues with this component.
   </p>
   <h4 class="dummy-h4">
     Known Accessibility Issues
   </h4>
-  <p class="dummy-paragraph">The following are known accessibility issues, and developers should keep these in mind when implementing this component:</p>
+  <p class="dummy-paragraph">The following are known accessibility issues, and developers should keep these in mind when
+    implementing this component:</p>
   <ol class="dummy-list">
     <li>In any instance where data truncation occurs, there is no current method to access that data for the
       keyboard-only user.</li>
-    <li>If the "more" toggle is used in the incorrect context, it will fail on perceivability. It must be used in context. For the best user experience, interactive elements should visually present as interactive, unless their context makes it clear that they are/should be interactive.</li>
+    <li>If the "more" toggle is used in the incorrect context, it will fail on perceivability. It must be used in
+      context. For the best user experience, interactive elements should visually present as interactive, unless their
+      context makes it clear that they are/should be interactive.</li>
   </ol>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
@@ -509,7 +511,7 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="section-showcase">Showcase</h3>
   <h4 class="dummy-h4">Toggles</h4>
-  
+
   <div class="dummy-button-states-grid">
     <p class="dummy-button-states-grid__title">Toggle (default)</p>
     <Hds::Dropdown::Toggle @text="Default" />
@@ -521,9 +523,9 @@
   <div class="dummy-button-states-grid">
     <p class="dummy-button-states-grid__title">Toggle (default, secondary color)</p>
     <Hds::Dropdown::Toggle @text="Default, secondary" @color="secondary" />
-    <Hds::Dropdown::Toggle @text="Hover" class="is-hover" @color="secondary"/>
-    <Hds::Dropdown::Toggle @text="Focus" class="is-focus" @color="secondary"/>
-    <Hds::Dropdown::Toggle @text="Active" class="is-active" @color="secondary"/>
+    <Hds::Dropdown::Toggle @text="Hover" class="is-hover" @color="secondary" />
+    <Hds::Dropdown::Toggle @text="Focus" class="is-focus" @color="secondary" />
+    <Hds::Dropdown::Toggle @text="Active" class="is-active" @color="secondary" />
   </div>
 
   <div class="dummy-button-states-grid">
@@ -534,7 +536,7 @@
     <Hds::Dropdown::Toggle @text="more Active" class="is-active" @toggle="more" />
   </div>
 
- <div class="dummy-button-states-grid">
+  <div class="dummy-button-states-grid">
     <p class="dummy-button-states-grid__title">Toggle/More (size small)</p>
     <Hds::Dropdown::Toggle @toggle="more" @text="more" />
     <Hds::Dropdown::Toggle @text="more Hover" class="is-hover" @toggle="more" @size="small" />
@@ -549,13 +551,18 @@
     <Hds::Dropdown::Toggle @text="user Focus" class="is-focus" @toggle="user" />
     <Hds::Dropdown::Toggle @text="user Active" class="is-active" @toggle="user" />
   </div>
-  
+
   <div class="dummy-button-states-grid">
     <p class="dummy-button-states-grid__title">Toggle/User (w/Avatar)</p>
     <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
     <Hds::Dropdown::Toggle @text="user Hover" class="is-hover" @toggle="user" @avatarUrl="/assets/images/avatar.png" />
     <Hds::Dropdown::Toggle @text="user Focus" class="is-focus" @toggle="user" @avatarUrl="/assets/images/avatar.png" />
-    <Hds::Dropdown::Toggle @text="user Active" class="is-active" @toggle="user" @avatarUrl="/assets/images/avatar.png" />
+    <Hds::Dropdown::Toggle
+      @text="user Active"
+      class="is-active"
+      @toggle="user"
+      @avatarUrl="/assets/images/avatar.png"
+    />
   </div>
 
   <h4 class="dummy-h4">List Items</h4>
