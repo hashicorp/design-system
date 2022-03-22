@@ -109,9 +109,7 @@
   <hr />
   <p class="dummy-paragraph" id="listitem-api">
     This is the API for the
-    <span class="dummy-code">
-      Dropdown::ListItem
-    </span>
+    <span class="dummy-code">Dropdown::ListItem</span>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="listitem-api">
@@ -122,53 +120,28 @@
       </code>
     </dt>
     <dd>
-      <p class="dummy-paragraph">
+      <p>
         Acceptable values:
       </p>
       <ol>
-        <li>
-          heading
-        </li>
-        <li>
-          help-text
-        </li>
-        <li>
-          separator
-        </li>
-        <li>
-          copy-item
-        </li>
-        <li class="default">
-          link (default)
-        </li>
+        <li>heading</li>
+        <li>help-text</li>
+        <li>separator</li>
+        <li>copy-item</li>
+        <li class="default">link</li>
       </ol>
     </dd>
-    <dt>
-      text
-      <code>
-        string
-      </code>
+    <dt>text <code>string</code>
     </dt>
+    <dd>The text to be used for all items. The only item that does not require text to be defined is the separator.</dd>
+    <dt>color <code>enum</code></dt>
     <dd>
-      The text to be used for all items. The only item that does not require text to be defined is the separator
-    </dd>
-    <dt>
-      color
-      <code>
-        enum
-      </code>
-    </dt>
-    <dd>
-      <p class="dummy-paragraph">
+      <p>
         Acceptabe values:
       </p>
       <ol>
-        <li class="default">
-          action
-        </li>
-        <li>
-          critical
-        </li>
+        <li class="default">action</li>
+        <li>critical</li>
       </ol>
     </dd>
     <dt>
@@ -180,13 +153,8 @@
     <dd>
       <p>
         If the link is internal, define a
-        <span class="dummy-code">
-          route
-        </span>
-        ; Ember's
-        <span class="dummy-code">
-          LinkTo
-        </span>
+        <span class="dummy-code">route</span>; Ember's
+        <span class="dummy-code">LinkTo</span>
         component will be rendered.
       </p>
     </dd>
@@ -199,38 +167,26 @@
     <dd>
       <p>
         If the link is internal, define a
-        <span class="dummy-code">
-          href
-        </span>
-        ; an
-        <span class="dummy-code">
-          a
-        </span>
+        <span class="dummy-code">href</span>; an <span class="dummy-code">&lt;a&gt;</span>
         element with the appropriate attributes will be rendered.
       </p>
     </dd>
     <dt>
-      leadingIcon
-      <code>
-        string
-      </code>
+      leadingIcon <code>string</code>
     </dt>
     <dd>
       Valid values are any of the flight icons
     </dd>
     <dt>
-      trailingIcon
-      <code>
-        string
-      </code>
+      trailingIcon <code>string</code>
     </dt>
     <dd>
       <p>
         Valid values are any of the flight icons
       </p>
-      <p class="dummy-paragraph">
-        Note: These are defined separately because there may be use cases where both a leading and a trailing icon are
-        required; these instances should be rare.
+      <p>
+        Note: Both "leadingIcon" and "trailingIcon" are defined (vs. "iconPosition" in the button component, for example) because there may be use cases where both a leading and a trailing icon are
+        required; these instances should be <em>very</em> rare.
       </p>
     </dd>
   </dl>
@@ -282,11 +238,31 @@
         </li>
       </ul>
     </nav>
+    <p class="dummy-paragraph">Rendered as secondary variation (in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown
+            @toggle="text"
+            @toggleText="Toggle"
+            @color="secondary"
+            as |dd| >
+
+            <dd.ListItem @route="components.dropdown" @text="Hover" />
+            <dd.ListItem @route="components.dropdown" @text="Focus" />
+            <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
+            <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+            <dd.ListItem @item="separator" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
   </div>
   <div>
     <p class="dummy-paragraph">
       Example Two: a "more" toggle with default and destructive (critical) links.
-      Note that toggleText is still required, because it supplies the aria-label for the "more" toggle button.
+      <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the aria-label for the "more" toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -343,6 +319,71 @@
       </ul>
     </nav>
   </div>
+  <hr/>
+  {{!-- TODO we really need some spacing between these examples, the doc has no vertical rhythm --}}
+  <div>
+    <p class="dummy-paragraph">
+      Example Three: a "user" toggle with a header, help-text, separator, and links.
+      <br/>Note that <span class="dummy-code">toggleText</span> is still required, because it supplies the aria-label for the "more" toggle button.
+
+    </p>
+    {{! prettier-ignore-start }}
+    {{! template-lint-disable no-unbalanced-curlies }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        &lt;Hds::Dropdown
+          @toggle="user"
+          @toggleText="user menu"
+          as |dd| &gt;
+
+          &lt;dd.ListItem @item="heading" @text="Signed In" /&gt;
+          &lt;dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" /&gt;
+          &lt;dd.ListItem @item="separator" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+        &lt;/Hds::Dropdown&gt;
+      '
+    />
+    {{! template-lint-enable no-unbalanced-curlies }}
+    {{! prettier-ignore-end }}
+    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown
+            @toggle="user"
+            @toggleText="user menu"
+            as |dd| >
+
+            <dd.ListItem @item="heading" @text="Signed In" />
+            <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
+            <dd.ListItem @item="separator" />
+            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
+     <p class="dummy-paragraph">Rendered user toggle (on a black background, in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown
+            @toggle="user"
+            @toggleText="user menu"
+            as |dd| >
+
+            <dd.ListItem @item="heading" @text="Signed In" />
+            <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
+            <dd.ListItem @item="separator" />
+            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
+    </div>
 </section>
 <section>
   <h3 class="dummy-h3" id="section-design-guidelines">Design guidelines</h3>
