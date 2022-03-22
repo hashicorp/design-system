@@ -58,19 +58,6 @@ export default class HdsLinkToCtaComponent extends Component {
   }
 
   /**
-   * @param isIconOnly
-   * @type {boolean}
-   * @default false
-   * @description Indicates if the button will only contain an icon; component will also ensure that accessible text is still applied to the component.
-   */
-  get isIconOnly() {
-    if (this.icon) {
-      return this.args.isIconOnly ?? false;
-    }
-    return false;
-  }
-
-  /**
    * @param iconPosition
    * @type {string}
    * @default leading
@@ -119,14 +106,18 @@ export default class HdsLinkToCtaComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-cta'];
+    let classes = [
+      'hds-button',
+      'hds-button--color-primary',
+      'hds-link-cta--inherit-button-styles',
+    ];
 
     // add a class based on the @size argument
-    classes.push(`hds-cta--size-${this.size}`);
+    classes.push(`hds-button--size-${this.size}`);
 
     // add a class based on the @isFullWidth argument
     if (this.isFullWidth) {
-      classes.push('hds-cta--width-full');
+      classes.push('hds-button--width-full');
     }
 
     return classes.join(' ');

@@ -1,7 +1,12 @@
 //
-// CTA
+// LINK > CTA COMPONENT
 //
 // properties within each class are sorted alphabetically
 //
 //
 
+.hds-link-cta--inherit-button-styles {
+    display: inline-flex;
+    isolation: isolate;
+    text-decoration: none;
+}

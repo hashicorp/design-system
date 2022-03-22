@@ -1,29 +1,31 @@
-<a class={{this.classNames}} href="#" ...attributes>
-  {{#if this.isIconOnly}}
-    <div class="hds-cta__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </div>
-  {{else}}
-    {{#if this.icon}}
-      {{#if (eq this.iconPosition "leading")}}
-        <div class="hds-cta__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-        </div>
-        <div class="hds-cta__text">
-          {{this.text}}
-        </div>
-      {{else}}
-        <div class="hds-cta__text">
-          {{this.text}}
-        </div>
-        <div class="hds-cta__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-        </div>
-      {{/if}}
-    {{else}}
-      <div class="hds-cta__text">
+<LinkTo
+  class={{this.classNames}}
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{this.route}}
+  ...attributes
+>
+  {{#if this.icon}}
+    {{#if (eq this.iconPosition "leading")}}
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+      <div class="hds-button__text">
         {{this.text}}
       </div>
+    {{else}}
+      <div class="hds-button__text">
+        {{this.text}}
+      </div>
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
     {{/if}}
+  {{else}}
+    <div class="hds-button__text">
+      {{this.text}}
+    </div>
   {{/if}}
-</a>
+</LinkTo>

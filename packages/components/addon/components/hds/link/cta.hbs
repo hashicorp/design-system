@@ -1,29 +1,23 @@
 <a class={{this.classNames}} href="#" ...attributes>
-  {{#if this.isIconOnly}}
-    <div class="hds-cta__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </div>
-  {{else}}
-    {{#if this.icon}}
-      {{#if (eq this.iconPosition "leading")}}
-        <div class="hds-cta__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-        </div>
-        <div class="hds-cta__text">
-          {{this.text}}
-        </div>
-      {{else}}
-        <div class="hds-cta__text">
-          {{this.text}}
-        </div>
-        <div class="hds-cta__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-        </div>
-      {{/if}}
-    {{else}}
-      <div class="hds-cta__text">
+  {{#if this.icon}}
+    {{#if (eq this.iconPosition "leading")}}
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+      <div class="hds-button__text">
         {{this.text}}
       </div>
+    {{else}}
+      <div class="hds-button__text">
+        {{this.text}}
+      </div>
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
     {{/if}}
+  {{else}}
+    <div class="hds-button__text">
+      {{this.text}}
+    </div>
   {{/if}}
 </a>
