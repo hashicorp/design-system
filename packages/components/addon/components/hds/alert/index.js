@@ -2,6 +2,15 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export default class HdsAlertIndexComponent extends Component {
+  constructor() {
+    super(...arguments);
+
+    assert(
+      `you need to pass @title or @description to the "Hds::Alert" component`,
+      !(this.args.title === undefined && this.args.description === undefined)
+    );
+  }
+
   /**
    * @param icon
    * @type {string}
@@ -10,33 +19,6 @@ export default class HdsAlertIndexComponent extends Component {
    */
   get icon() {
     return this.args.icon ?? null;
-  }
-
-  /**
-   * @param title
-   * @type {string}
-   * @description The text of the title.
-   */
-  get title() {
-    let { title } = this.args;
-
-    assert(
-      '@title for "Hds::Alert" must have a valid value',
-      title !== undefined
-    );
-
-    return title;
-  }
-
-  /**
-   * @param description
-   * @type {string}
-   * @description The text of the description.
-   */
-  get description() {
-    let { description } = this.args;
-
-    return description ?? null;
   }
 
   /**

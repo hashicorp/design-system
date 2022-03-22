@@ -4,7 +4,7 @@
 
 <section>
   <h3 class="dummy-h3">Scratch reference links</h3>
-  <p>Alert types coming soon:
+  <p>Alert types, that extend the base, coming soon:
     <code class="dummy-code">Hds::Alert::FullWidth</code>,
     <code class="dummy-code">Hds::Alert::Inline</code>, and
     <code class="dummy-code">Hds::Alert::Toast</code>.
@@ -55,7 +55,7 @@
 
     <dt class="dummy-indent">icon <code>string</code></dt>
     <dd class="dummy-indent">
-      <p>Shows an icon in the alert at a set size of 24 viewBox. Optional parameter.</p>
+      <p>Shows an icon in the alert. Optional parameter.</p>
       <p>Acceptable value:</p>
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -69,6 +69,8 @@
       <p>
         The title text in the alert.
         <code class="dummy-code">title</code>
+        <strong>and/or</strong>
+        <code class="dummy-code">description</code>
         is required.
       </p>
     </dd>
@@ -77,7 +79,9 @@
     <dd>
       <p>The description text in the alert.
         <code class="dummy-code">description</code>
-        is optional.</p>
+        <strong>and/or</strong>
+        <code class="dummy-code">title</code>
+        is required.</p>
     </dd>
 
     <dt>isDismissible <code>boolean</code></dt>
@@ -94,15 +98,15 @@
     </dd>
 
     <dt>hasActions <code>boolean</code></dt>
-    <p>The alert has content below the
-      <code class="dummy-code">title</code>
-      and
-      <code class="dummy-code">description</code>, such as an
-      <code class="dummy-code">Hds::Button</code>
-      and an
-      <code class="dummy-code">Hds::LinkTo::Standalone</code>.
-    </p>
     <dd>
+      <p>The alert has content below the
+        <code class="dummy-code">title</code>
+        and
+        <code class="dummy-code">description</code>, such as an
+        <code class="dummy-code">Hds::Button</code>
+        and an
+        <code class="dummy-code">Hds::LinkTo::Standalone</code>.
+      </p>
       <p>Acceptable values:</p>
       <ol>
         <li>true</li>
@@ -118,16 +122,45 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">How to use</h3>
+  <h3 class="dummy-h3">Temporary scratch showcase</h3>
   <Hds::Alert
     @icon="alert-triangle"
-    @title="Intentions are set to default allow"
+    @title="Alert w/title & description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
       creating specific Intentions for upstream and downstream services for this
       view to be useful."
   />
+  <br />
+  <Hds::Alert @icon="alert-triangle" @description="Description only please" />
+  <br />
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="Really long title, yet no description. Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="Description below has HTML"
+    @description="Your Intention settings are currently set to default <strong>allow</strong>. This
+      means that this view will show connections to every service in your
+      <code>cluster</code>. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful. For more info, see <a href='#'>About clusters</a>."
+  />
+  <br />
+  Below alert with no title, no description, does not appear in local dev (see error in console):
+  <Hds::Alert @icon="meh" />
+  <br />
+</section>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
 </section>
 
 <section>

@@ -1,5 +1,4 @@
 <div class={{this.classNames}} ...attributes role="alert">
-
   {{#if @icon}}
     <div class="hds-alert__icon">
       <FlightIcon
@@ -14,11 +13,11 @@
 
   <div class="hds-alert__text">
     {{#if @title}}
-      <p class="hds-alert__title">{{this.title}}</p>
+      <div class="hds-alert__title">{{@title}}</div>
     {{/if}}
 
     {{#if @description}}
-      <p class="hds-alert__description">{{this.description}}</p>
+      <div class="hds-alert__description">{{html-safe @description}}</div>
     {{/if}}
   </div>
 </div>
