@@ -14,6 +14,30 @@
   code, pre {
     font-family: var(--token-typography-font-stack-code);
   }
+
+  // Manually copied from components/link/standalone.scss for -primary
+  a {
+    color: var(--token-color-foreground-action);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.25s ease-in;
+
+    &:hover,
+    &.is-hover {
+      color: var(--token-color-foreground-action-hover);
+      text-decoration-color: #4E81E8; // custom color by design
+    }
+
+    &:active,
+    &.is-active {
+      color: var(--token-color-foreground-action-active);
+      text-decoration-color: #396ED6; // custom color by design
+  
+      &::before {
+        background-color: var(--token-color-surface-action);
+      }
+    }
+  }
 }
 
 .hds-alert__icon {
