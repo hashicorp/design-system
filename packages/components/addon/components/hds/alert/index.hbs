@@ -26,56 +26,61 @@
     {{#if @actions}}
       <div class="hds-alert__actions">
         {{#each @actions as |action|}}
-          <div class="hds-alert__action">
-            {{#if (eq action.element "button")}}
-              <Hds::Button
-                @icon={{action.icon}}
-                @iconPosition={{action.iconPosition}}
-                @text={{action.text}}
-                @color={{action.color}}
-                {{!
-                TODO: here we're assuming that all the buttons in the alert actions are small
-                      we have to discuss with CVeight what are the "defaults" and locked props we want here
-              }}
-                @size="small"
-              />
-            {{/if}}
-            {{#if (eq action.element "link-to")}}
-              <Hds::LinkTo::Standalone
-                @icon={{action.icon}}
-                @iconPosition={{action.iconPosition}}
-                @text={{action.text}}
-                @color={{action.color}}
-                @route="components.alert"
-                {{!
-                TODO: here we're assuming that all the links in the alert actions are small
-                      we have to discuss with CVeight what are the "defaults" and locked props we want here
-              }}
-                @size="small"
-              />
-            {{/if}}
-            {{#if (eq action.element "link")}}
-              <Hds::Link::Standalone
-                @icon={{action.icon}}
-                @iconPosition={{action.iconPosition}}
-                @text={{action.text}}
-                @color={{action.color}}
-                @href="#"
-                {{!
-                TODO: here we're assuming that all the links in the alert actions are small
-                      we have to discuss with CVeight what are the "defaults" and locked props we want here
-              }}
-                @size="small"
-              />
-            {{/if}}
-          </div>
+          {{#if (eq action.element "button")}}
+            <Hds::Button
+              @icon={{action.icon}}
+              @iconPosition={{action.iconPosition}}
+              @text={{action.text}}
+              @color={{action.color}}
+              {{!
+              TODO: here we're assuming that all the buttons in the alert actions are small
+                    we have to discuss with CVeight what are the "defaults" and locked props we want here
+            }}
+              @size="small"
+            />
+          {{/if}}
+          {{#if (eq action.element "link-to")}}
+            <Hds::LinkTo::Standalone
+              @icon={{action.icon}}
+              @iconPosition={{action.iconPosition}}
+              @text={{action.text}}
+              @color={{action.color}}
+              @route="components.alert"
+              {{!
+              TODO: here we're assuming that all the links in the alert actions are small
+                    we have to discuss with CVeight what are the "defaults" and locked props we want here
+            }}
+              @size="small"
+            />
+          {{/if}}
+          {{#if (eq action.element "link")}}
+            <Hds::Link::Standalone
+              @icon={{action.icon}}
+              @iconPosition={{action.iconPosition}}
+              @text={{action.text}}
+              @color={{action.color}}
+              @href="#"
+              {{!
+              TODO: here we're assuming that all the links in the alert actions are small
+                    we have to discuss with CVeight what are the "defaults" and locked props we want here
+            }}
+              @size="small"
+            />
+          {{/if}}
         {{/each}}
       </div>
     {{/if}}
+
+    {{! IMPORTANT: don't change the formatting or it will add empty space inside the element (we're using ":empty" in CSS to hide it when it's empty!) }}
     {{#if (has-block "actions")}}
-      <div class="hds-alert__actions">
-        {{yield to="actions"}}
-      </div>
+      <div class="hds-alert__actions">{{yield
+          (hash
+            Button=(component "hds/button")
+            Link::Standalone=(component "hds/link/standalone")
+            LinkTo::Standalone=(component "hds/link-to/standalone")
+          )
+          to="actions"
+        }}</div>
     {{/if}}
 
   </div>

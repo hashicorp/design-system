@@ -181,7 +181,20 @@
     }}
   />
 
-  <h5 class="dummy-h5">With "actions" named block</h5>
+  <h5 class="dummy-h5">With "actions" named block and yielded components</h5>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions as |A|>
+      <A.Button @text="Button" @size="small" @color="primary" />
+      <A.Button @text="Button" @size="small" @color="secondary" />
+      <A.Link::Standalone @icon="plus" @text="Link text" href="#" @size="small" @color="primary" />
+      <A.Link::Standalone @icon="plus" @text="Link text" href="#" @size="small" @color="secondary" />
+    </:actions>
+  </Hds::Alert>
+  <br />
   <Hds::Alert
     @icon="alert-triangle"
     @title="This is the title"
@@ -198,20 +211,11 @@
     @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   >
     <:actions>
-      <div class="dummy-alert-sample-custom-actions">
-        <Hds::Button @text="Button" @size="large" @color="secondary" />
-        <Hds::Link::Standalone @icon="plus" @text="Link text" href="#" @size="large" @color="secondary" />
-      </div>
-    </:actions>
-  </Hds::Alert>
-  <br />
-  <Hds::Alert
-    @icon="alert-triangle"
-    @title="This is the title"
-    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  >
-    <:actions>
-      <div class="dummy-alert-sample-custom-actions">
+      <div>
+        <div class="dummy-alert-sample-custom-actions__actions">
+          <Hds::Button @text="Button" @size="large" @color="secondary" />
+          <Hds::Link::Standalone @icon="plus" @text="Link text" href="#" @size="large" @color="secondary" />
+        </div>
         <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific only for
           one special use case.</span>
       </div>
