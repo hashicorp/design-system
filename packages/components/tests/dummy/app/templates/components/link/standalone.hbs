@@ -29,7 +29,7 @@
       attribute with the desired value.
     </li>
     <li class="dummy-paragraph">
-      Additional HTML attributes may be added as necessary to configure markup for specific use cases.
+      Additional HTML attributes may be added as necessary to configure the markup for specific use cases.
     </li>
     <li class="dummy-paragraph">
       It must always have a
@@ -124,6 +124,10 @@
       <p>
         Use this parameter to show an icon. Acceptable value: any Flight icon name.
       </p>
+      <p><strong>🚨 IMPORTANT:</strong>
+        the
+        <code class="dummy-code">icon</code>
+        is required to make the component accessible.</p>
     </dd>
     <dt>
       iconPosition
@@ -143,6 +147,16 @@
           trailing
         </li>
       </ol>
+    </dd>
+    <dt>href</dt>
+    <dd>
+      <p>This is the URL that is passed down ("splatted") as arguments to the
+        <code>&lt;a&gt;</code>
+        element (see URL handling for details).</p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>

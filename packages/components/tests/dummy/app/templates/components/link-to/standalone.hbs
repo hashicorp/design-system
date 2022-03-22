@@ -130,33 +130,6 @@
       </p>
     </dd>
     <dt>
-      route
-      <code>
-        route name
-      </code>
-    </dt>
-    <dd>
-      The route that is passed to the link
-    </dd>
-    <dt>
-      model/models
-      <code>
-        route model(s)
-      </code>
-    </dt>
-    <dd>
-      Use this to explicitly supply a model to the route
-    </dd>
-    <dt>
-      query
-      <code>
-        query params as key value pairs
-      </code>
-    </dt>
-    <dd>
-      Use this to supply query parameters to the route
-    </dd>
-    <dt>
       icon
       <code>
         string
@@ -166,6 +139,10 @@
       <p>
         Use this parameter to show an icon. Acceptable value: any Flight icon name.
       </p>
+      <p><strong>🚨 IMPORTANT:</strong>
+        the
+        <code class="dummy-code">icon</code>
+        is required to make the component accessible.</p>
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
@@ -182,6 +159,16 @@
         <li class="default">primary</li>
         <li>secondary</li>
       </ol>
+    </dd>
+    <dt>route <code>route name</code></dt>
+    <dd>The route that is passed to the link</dd>
+    <dt>model/models <code>route model(s)</code></dt>
+    <dd>Use this to explicitly supply a model to the route</dd>
+    <dt>query <code>query params as key value pairs</code></dt>
+    <dd>Use this to supply query parameters to the route</dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
