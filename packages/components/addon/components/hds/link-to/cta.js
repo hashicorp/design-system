@@ -96,6 +96,21 @@ export default class HdsLinkToCtaComponent extends Component {
     return this.args.isFullWidth ?? false;
   }
 
+  /**
+   * @param route
+   * @type {string|null}
+   * @description Checks to make sure route is defined.
+   */
+  get route() {
+    let { route } = this.args;
+    assert(
+      '@route must be defined for "Hds::LinkTo::Cta"',
+      route !== undefined
+    );
+
+    return route;
+  }
+
   // TODO! is this the only way to do it??
   @action
   didInsert(el) {
