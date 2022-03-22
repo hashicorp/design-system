@@ -11,21 +11,21 @@
   <h3 class="dummy-h3">Showcase</h3>
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-cta-base-sample">
-    <Hds::LinkTo::Cta @text="Only text" />
-    <Hds::LinkTo::Cta @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
-    <Hds::LinkTo::Cta @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" />
+    <Hds::LinkTo::Cta @text="Only text" @route="index" />
+    <Hds::LinkTo::Cta @icon="plus" @iconPosition="leading" @text="Text + leading icon" @route="index" />
+    <Hds::LinkTo::Cta @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" @route="index" />
     <div class="dummy-cta-max-width-container">
-      <Hds::LinkTo::Cta @icon="plus" @text="This is a very long text that should go on multiple lines" />
+      <Hds::LinkTo::Cta @icon="plus" @text="This is a very long text that should go on multiple lines" @route="index" />
     </div>
   </div>
 
   <h4 class="dummy-h4">Sizes</h4>
   <div class="dummy-cta-base-sample">
     {{#each @model.SIZES as |size|}}
-      <Hds::LinkTo::Cta @icon="plus" @text={{capitalize size}} @size={{size}} />
+      <Hds::LinkTo::Cta @icon="plus" @text={{capitalize size}} @size={{size}} @route="index" />
     {{/each}}
     <div class="dummy-cta-full-width-container">
-      <Hds::LinkTo::Cta @icon="plus" @text="Full width" @isFullWidth={{true}} />
+      <Hds::LinkTo::Cta @icon="plus" @text="Full width" @isFullWidth={{true}} @route="index" />
     </div>
   </div>
 
@@ -36,7 +36,7 @@
         <div>
           <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
           <br />
-          <Hds::LinkTo::Cta @icon="plus" @text={{capitalize state}} @size={{size}} class="is-{{state}}" />
+          <Hds::LinkTo::Cta @icon="plus" @text={{capitalize state}} @size={{size}} class="is-{{state}}" @route="index" />
         </div>
       {{/each}}
     {{/each}}
@@ -44,7 +44,7 @@
       <div>
         <span class="dummy-text-small">Full width/{{state}}:</span>
         <br />
-        <Hds::LinkTo::Cta @icon="plus" @text={{capitalize state}} @isFullWidth={{true}} class="is-{{state}}" />
+        <Hds::LinkTo::Cta @icon="plus" @text={{capitalize state}} @isFullWidth={{true}} class="is-{{state}}" @route="index" />
       </div>
     {{/each}}
   </div>

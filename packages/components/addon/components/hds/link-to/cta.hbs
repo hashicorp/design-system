@@ -6,6 +6,8 @@
   @replace={{@replace}}
   @route={{this.route}}
   ...attributes
+  {{did-insert this.didInsert}}
+  {{on-key "Space" this.onKeySpace}}
 >
   {{#if this.icon}}
     {{#if (eq this.iconPosition "leading")}}
