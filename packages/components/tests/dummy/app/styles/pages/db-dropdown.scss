@@ -1,4 +1,22 @@
+// DROPDOWN
+
 .dummy-bg-gray {
   background-color: var(--token-color-palette-neutral-200);
   padding: 1rem 2rem;
+}
+
+.dummy-dropdown-hide {
+  display: none;
+}
+
+.dummy-dropdown-states-grid {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 0;
+  padding: 0;
+
+  .dummy-dropdown-states-grid__title {
+      grid-column: 1 / 6;
+  }
 }
