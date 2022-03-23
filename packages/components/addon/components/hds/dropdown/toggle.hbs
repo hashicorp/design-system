@@ -24,17 +24,13 @@
     </div>
   </button>
 {{else}}
-  <button
-    class="hds-dropdown-toggle hds-dropdown-toggle__text
-      {{if @color 'hds-dropdown-toggle__text--secondary' 'hds-dropdown-toggle__text--primary'}}"
+  <Hds::Button
+    @text={{@text}}
+    @icon={{"chevron-down"}}
+    @iconPosition="trailing"
+    @color={{@color}}
     type="button"
+    class="hds-dropdown-toggle--button"
     ...attributes
-  >
-    <div class="hds-dropdown-toggle__child-first">
-      {{@text}}
-    </div>
-    <div class="hds-dropdown-toggle__child-second">
-      <FlightIcon @name="chevron-down" />
-    </div>
-  </button>
+  />
 {{/if}}

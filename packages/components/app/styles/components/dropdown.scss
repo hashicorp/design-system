@@ -5,18 +5,27 @@
 // - [ ] Have meta review of approach before refining
 // - [ ] Review with Heather re:padding had to be subtracted by one to account for the transparent border
 // - [ ] Add hover/focus/active/disabled states
+
 @use "../mixins/focus-ring" as *;
 
 $border-radius: 5px;
+
+// IMPORTANT: this is an override for the `Hds::Button` component used as toggle
+// TODO add banner that explains why we're doing it, and that is not standard approach for HDS
+.hds-dropdown-toggle--button {
+  .hds-button__icon {
+    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+  }
+}
 
 .hds-dropdown-toggle {
   align-items: center;
   border: 1px solid transparent;
   border-radius: $border-radius;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-
 
   &::after,
   &::before {
@@ -29,7 +38,7 @@ $border-radius: 5px;
     flex-flow: column;
     justify-content: center;
     align-items: center; //this centers whatever is inside, no matter what size it is
-    
+
   }
   .hds-dropdown-toggle__child-second {
     // will be the chevron icon
@@ -38,36 +47,6 @@ $border-radius: 5px;
     display: flex;
     flex-flow: column;
     justify-content: center;
-  }
-
-  &.hds-dropdown-toggle__text {
-    background-color: var(--token-color-surface-interactive);
-    box-shadow: var(--token-elevation-low-box-shadow);
-    color: var(--token-color-foreground-faint);
-    font-family: var(--token-typography-font-stack-text);
-    font-size: 0.875rem; // 14px
-    justify-content: center;
-    line-height: 1rem; // 16px
-    padding: 10px;
-
-    &.hds-dropdown-toggle__text--primary {
-      background-color: var(--token-color-palette-blue-200);
-      border-color: var(--token-color-palette-blue-300);
-      color: var(--token-color-foreground-high-contrast);
-
-      // &:hover {}
-      // &:focus-visible {}
-      // &:active {}
-
-    }
-    &.hds-dropdown-toggle__text--secondary {
-      background-color: var(--token-color-foreground-high-contrast);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary);
-    }
-    .hds-dropdown-toggle__child-second {
-      margin-left: 8px;
-    }
   }
 
   &.hds-dropdown-toggle__more {
@@ -83,7 +62,7 @@ $border-radius: 5px;
       width: 28px;
       // padding: 5px;
     }
-    
+
     &:hover {
       background-color: var(--token-color-surface-primary);
       border-color: var(--token-color-border-strong);
@@ -113,11 +92,11 @@ $border-radius: 5px;
       border-color: var(--token-color-border-strong);
       color: var(--token-color-foreground-primary);
     }
-    
+
     &:focus-visible {
       @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
     }
-    
+
     &:active {
       background-color: var(--token-color-surface-interactive-active);
       border-color: var(--token-color-border-strong);
@@ -155,12 +134,12 @@ $border-radius: 5px;
 
   &.absolute--right {
     position: absolute;
-    right: 0;  
+    right: 0;
   }
 
   &.absolute--left {
     position: absolute;
-    left: 0;  
+    left: 0;
   }
 
   .hds-dropdown-list-item {
@@ -168,7 +147,7 @@ $border-radius: 5px;
     box-sizing: border-box;
     display: flex;
     font-family: var(--token-typography-font-stack-text);
-    min-height: 36px;    
+    min-height: 36px;
     justify-content: center;
     width: 100%;
 
@@ -183,7 +162,7 @@ $border-radius: 5px;
       padding: 10px 16px 4px;
       width: 100%;
     }
-    
+
     &.hds-dropdown-list-item__help-text {
       box-sizing: border-box;
       color: var(--token-color-foreground-faint);
@@ -195,7 +174,7 @@ $border-radius: 5px;
       max-width: 100%;
       padding: 2px 16px 4px;
     }
-    
+
     &.hds-dropdown-list-item__separator {
       align-items: center;
       display: flex;
@@ -203,13 +182,13 @@ $border-radius: 5px;
       justify-content: stretch;
       min-height:6px;
       padding: 0;
-      span { 
+      span {
         background-color: var(--token-color-border-primary);
         height: 1px;
         width: 100%;
       }
     }
-    
+
     &.hds-dropdown-list-item__link {
       box-sizing: border-box;
       border-color: transparent;
@@ -227,7 +206,7 @@ $border-radius: 5px;
         top: 4px;
         width: 2px;
       }
-      
+
       a {
         @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px); //TODO @didoo need critical variant
         border-radius: $border-radius;
@@ -275,7 +254,7 @@ $border-radius: 5px;
         }
         a {
           color: var(--token-color-foreground-critical);
-          
+
           &:hover {
             color: var(--token-color-foreground-critical-on-surface);
           }
