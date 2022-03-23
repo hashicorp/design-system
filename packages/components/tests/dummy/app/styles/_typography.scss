@@ -72,3 +72,7 @@
     font-size: 0.8rem;
     line-height: 2;
 }
+.dummy-table {
+    @include dummyFontFamily();
+    @include dummyFontSize(1rem);
+}

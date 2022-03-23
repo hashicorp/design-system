@@ -292,36 +292,47 @@
     />
     {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example row more positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="more" @toggleText="More Options" as |dd|>
+    <p class="dummy-paragraph">Rendered in a table cell:</p>
+    <table class="dummy-table">
+      <thead>
+        <tr>
+          <th>Column A</th>
+          <th>Column B</th>
+          <th>Column C</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row 1, cell 1</td>
+          <td>Row 1, cell 2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Row 2, cell 1</td>
+          <td>Row 2, cell 2</td>
+          <td>
+            <Hds::Dropdown @toggle="more" @toggleText="More Options" as |dd|>
 
-            <dd.ListItem @route="components.dropdown" @text="Create" />
-            <dd.ListItem @route="components.dropdown" @text="Read" />
-            <dd.ListItem @route="components.dropdown" @text="Update" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-    <p class="dummy-paragraph">Rendered (on a black background, in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown background-black" aria-label="example row more black bg positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="more" @toggleText="More Options" as |dd|>
-
-            <dd.ListItem @route="components.dropdown" @text="Create" />
-            <dd.ListItem @route="components.dropdown" @text="Read" />
-            <dd.ListItem @route="components.dropdown" @text="Update" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <hr />
+              <dd.ListItem @route="components.dropdown" @text="Create" />
+              <dd.ListItem @route="components.dropdown" @text="Read" />
+              <dd.ListItem @route="components.dropdown" @text="Update" />
+              <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            </Hds::Dropdown>
+          </td>
+        </tr>
+        <tr>
+          <td>Row 3, cell 1</td>
+          <td>Row 3, cell 2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Row 4, cell 1</td>
+          <td>Row 4, cell 2</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
   {{! TODO we really need some spacing between these examples, the doc has no vertical rhythm }}
   <div>
     <h4 class="dummy-h4">Toggle/User</h4>
