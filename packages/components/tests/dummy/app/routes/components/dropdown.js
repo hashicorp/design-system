@@ -1,8 +1,10 @@
 import Route from '@ember/routing/route';
 
-// TODO! import from the component JS file
-const TOGGLE_BUTTON_COLORS = ['primary', 'secondary'];
-const TOGGLE_MORE_SIZES = ['medium', 'small'];
+import {
+  BUTTON_COLORS as TOGGLE_BUTTON_COLORS,
+  MORE_SIZES as TOGGLE_MORE_SIZES,
+} from '@hashicorp/design-system-components/components/hds/dropdown/toggle';
+
 export default class ComponentsDropdownRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
