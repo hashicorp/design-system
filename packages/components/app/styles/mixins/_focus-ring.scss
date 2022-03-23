@@ -2,14 +2,14 @@
 // - https://github.com/hashicorp/design-system-components/issues/161
 // - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
-@mixin hds-focus-ring-basic() {
+@mixin hds-focus-ring-basic($color: action) {
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
 
   // default focus for browsers that still rely on ":focus"
   &:focus,
   &.is-focus {
-    box-shadow: var(--token-focus-ring-box-shadow);
+    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
   }
   // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
   &:focus:not(:focus-visible) {
@@ -17,7 +17,7 @@
   }
   // set focus for browsers that support ":focus-visible"
   &:focus-visible {
-    box-shadow: var(--token-focus-ring-box-shadow);
+    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
   }
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
@@ -26,7 +26,7 @@
   }
 }
 
-@mixin hds-focus-ring-with-pseudo-element($top: 0, $right: 0, $bottom: 0, $left: 0, $radius: 5px) {
+@mixin hds-focus-ring-with-pseudo-element($top: 0, $right: 0, $bottom: 0, $left: 0, $radius: 5px, $color: action) {
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
@@ -48,7 +48,7 @@
   &:focus,
   &.is-focus {
     &::before {
-      box-shadow: var(--token-focus-ring-box-shadow);
+      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
     }
   }
   // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
@@ -60,7 +60,7 @@
   // set focus for browsers that support ":focus-visible"
   &:focus-visible {
     &::before {
-      box-shadow: var(--token-focus-ring-box-shadow);
+      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
     }
   }
   // remove the focus ring on "active + focused" state (by design)
