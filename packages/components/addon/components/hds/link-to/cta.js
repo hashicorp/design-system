@@ -127,30 +127,16 @@ export default class HdsLinkToCtaComponent extends Component {
     return route;
   }
 
-  // TODO! is this the only way to do it??
   @action
   didInsert(el) {
     // we need to register the element to compare it with the one that triggered the "key/space" event
     this.el = el;
   }
 
-  // TODO! cleanup this before final review
   @action
   onKeySpace(event) {
-    console.log(
-      'This is triggered for every component instance that is present in the page'
-    );
     if (event.target === this.el) {
-      console.log(
-        'This is triggered only for the component instance that was focused and triggered the “space” event as target',
-        event.target
-      );
-      // for details see: https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-      window.open(
-        event.target.href,
-        event.target.target,
-        'noreferrer=true,noopener=true'
-      );
+      event.target.click();
     }
   }
 
