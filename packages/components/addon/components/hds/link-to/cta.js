@@ -33,7 +33,7 @@ export default class HdsLinkToCtaComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Link::Cta" must have a valid value',
+      '@text for "Hds::LinkTo::Cta" must have a valid value',
       text !== undefined
     );
 
@@ -50,7 +50,7 @@ export default class HdsLinkToCtaComponent extends Component {
     let { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Link::Cta" must be one of the following: ${SIZES.join(
+      `@size for "Hds::LinkTo::Cta" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
@@ -79,7 +79,7 @@ export default class HdsLinkToCtaComponent extends Component {
     let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::Link::Cta" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::LinkTo::Cta" must be one of the following: ${ICONPOSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
       ICONPOSITIONS.includes(iconPosition)
