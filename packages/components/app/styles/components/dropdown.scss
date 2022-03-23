@@ -1,10 +1,16 @@
-// TODOs
-// - [ ] Convert to relational units
-// - [ ] Check colors against Figma (again)
-// - [ ] Determine what should be abstracted
-// - [ ] Have meta review of approach before refining
-// - [ ] Review with Heather re:padding had to be subtracted by one to account for the transparent border
-// - [ ] Add hover/focus/active/disabled states
+//
+// DROPDOWN COMPONENT
+//
+// properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+//
+
+// TODO! split this file in sub-files and import them here:
+// - index (main container)
+// - toggle
+// - list
 
 @use "../mixins/focus-ring" as *;
 
