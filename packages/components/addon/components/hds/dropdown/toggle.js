@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+// import { assert } from '@ember/debug';
 
 export const BUTTON_DEFAULT_COLOR = 'primary';
 export const BUTTON_COLORS = ['primary', 'secondary'];
