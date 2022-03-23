@@ -62,7 +62,7 @@
     @include dummyFontSize(1rem);
     line-height: 1.2;
 }
-.dummy-paragraph-title {
+.dummy-title-small {
     @include dummyFontFamily();
     @include dummyFontSize(1rem);
     font-weight: bold;
