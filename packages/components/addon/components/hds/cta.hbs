@@ -1,1 +1,3 @@
-<LinkTo @route={{@route}} class="hds-cta"  {{on-key 'Space' this.doRouteTransition}} >{{@linkText}}</LinkTo>
+{{!-- <LinkTo @route={{@route}} class="hds-cta" {{on-key 'Space' this.doRouteTransition}}>{{@linkText}}</LinkTo> --}}
+{{! template-lint-disable link-href-attributes }}
+<a class="hds-cta" {{on-key "Space" this.doRouteTransition}} ...attributes>{{@linkText}}</a>

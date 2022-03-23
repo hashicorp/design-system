@@ -1,3 +1,28 @@
 {{page-title "Cta"}}
 
-<Hds::Cta @route="components.button" @linkText="Visit the Button Component" />
+{{! <Hds::Cta @route="components.badge" @linkText="This is the first CTA that points to the Badge page" />
+<br />
+<Hds::Cta @route="components.button" @linkText="This is the second CTA that points to the Button page" />
+<br />
+<Hds::Cta @route="components.icon-tile" @linkText="This is the third CTA that points to the IconTile page" /> }}
+
+<Hds::Cta
+  href="https://apple.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  @linkText="This is the first CTA that points to apple.com"
+/>
+<br />
+<Hds::Cta
+  href="https://emberjs.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  @linkText="This is the second CTA that points to emberjs.com"
+/>
+<br />
+<Hds::Cta
+  href="https://melanie.codes/"
+  target="_blank"
+  rel="noopener noreferrer"
+  @linkText="This is the third CTA that points to melanie.codes"
+/>
