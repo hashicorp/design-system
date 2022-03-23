@@ -8,113 +8,123 @@
 
 @use "../mixins/focus-ring" as *;
 
-$border-radius: 5px;
+$hds-dropdown-toggle-more-sizes: ( 'small', 'medium' );
 
+$hds-dropdown-toggle-base-height: 36px;
+$hds-dropdown-toggle-border-radius: 5px;
+$hds-dropdown-toggle-border-width: 1px;
+$hds-dropdown-list-item-border-radius: 5px;
+
+
+// BASE (for "MORE" and "USER")
+
+.hds-dropdown-toggle {
+  align-items: center;
+  background-color: transparent;
+  border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
+  border-radius: $hds-dropdown-toggle-border-radius;
+  box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
+  color: var(--token-color-foreground-strong);
+  display: flex;
+  isolation: isolate;
+  justify-content: center;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+  outline-color: transparent; // We need this to be transparent for a11y
+  padding: 0;
+  position: relative;
+  width: auto;
+
+  // This covers all of the browsers and focus scenarios (due to the custom focus design).
+  &:disabled,
+  &[disabled],
+  &.is-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.is-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.is-disabled:hover {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--token-color-foreground-disabled);
+    cursor: not-allowed;
+  }
+
+  &:focus,
+  &.is-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
+  }
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong);
+    cursor: pointer;
+  }
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+  }
+}
+
+// BUTTON
 // IMPORTANT: this is an override for the `Hds::Button` component used as toggle
 // TODO add banner that explains why we're doing it, and that is not standard approach for HDS
 .hds-dropdown-toggle--with-button-component {
+  box-shadow: none; // we override this to remove the elevation style
+
   .hds-button__icon {
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
     margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
   }
 }
 
-.hds-dropdown-toggle {
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: $border-radius;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
 
-  &::after,
-  &::before {
-    box-sizing: border-box;
-  }
+// MORE
 
-  .hds-dropdown-toggle__child-first { // applies to all first children inside of a toggle
-    // border: 1px solid red;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center; //this centers whatever is inside, no matter what size it is
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "size": 28px
+  ),
+  "medium": (
+    "size": $hds-dropdown-toggle-base-height
+  )
+);
 
-  }
-  .hds-dropdown-toggle__child-second {
-    // will be the chevron icon
-    // should always be centered horizontally and vertically
-    // spacing depends on parent element's padding
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-  }
-
-  &.hds-dropdown-toggle__more {
-    background-color: transparent;
-    color: var(--token-color-foreground-faint);
-    height: 36px; // TODO get these to 44x44
-    width: 36px;
-    // todo padding
-
-
-    &.hds-dropdown-toggle__more--small {
-      height: 28px;
-      width: 28px;
-      // padding: 5px;
-    }
-
-    &:hover {
-      background-color: var(--token-color-surface-primary);
-      border-color: var(--token-color-border-strong);
-    }
-    &:focus-visible {
-      @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
-    }
-    &:active {
-      background-color: var(--token-color-active-primary);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary);
-    }
-  }
-
-  &.hds-dropdown-toggle__user {
-    // border-color: var(--token-color-border-strong);
-    width: 56px;
-    height: 36px;
-    display: flex;
-    justify-content: space-between;
-    background-color: transparent;
-    color: var(--token-color-foreground-faint);
-    padding: 1px; // needs to account for 1px border
-
-    &:hover {
-      background-color: var(--token-color-surface-primary);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary);
-    }
-
-    &:focus-visible {
-      @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
-    }
-
-    &:active {
-      background-color: var(--token-color-surface-interactive-active);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary); //this is what is in Figma, seems incorrect
-    }
-
-    .hds-dropdown-toggle__child-first {
-      // could be an svg user icon, could be an avatar
-      // size of svg and size of avatar are declared in the template so we don't need to worry about the size of further child elements here
-      height: 32px;
-      width: 32px;
-
-      > * {
-        border-radius: $border-radius;
-      }
+.hds-dropdown-toggle--more {
+  @each $size in $hds-dropdown-toggle-more-sizes {
+    &.hds-dropdown-toggle--size-#{$size} {
+      height: map-get($size-props, $size, "size");
+      width: map-get($size-props, $size, "size");
     }
   }
 }
+
+
+// USER
+
+.hds-dropdown-toggle--user {
+  height: $hds-dropdown-toggle-base-height;
+  padding: 1px;
+
+  .hds-dropdown-toggle__user {
+    $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
+    align-items: center;
+    border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
+    display: flex;
+    justify-content: center;
+    margin-right: 0.25rem; // 4px
+    height: $size;
+    width: $size;
+
+    > * {
+      border-radius: inherit;
+    }
+  }
+}
+
 
 // TODO dropdown container, should this be styled here?
 .hds-dropdown__list {
@@ -209,7 +219,7 @@ $border-radius: 5px;
 
       a {
         @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px); //TODO @didoo need critical variant
-        border-radius: $border-radius;
+        border-radius: $hds-dropdown-list-item-border-radius;
         display: grid;
         font-size: 15px;
         gap: 0px 6px;

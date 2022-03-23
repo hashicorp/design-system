@@ -101,9 +101,9 @@ export default class HdsDropdownToggleComponent extends Component {
     let classes = ['hds-dropdown-toggle'];
 
     // TODO probably this will need to be split
-    // add a class based on the @type argument
-    if (this.args.type) {
-      classes.push(`hds-dropdown-toggle--${this.args.type}`);
+    // add a class based on the @toggle argument
+    if (this.args.toggle) {
+      classes.push(`hds-dropdown-toggle--${this.args.toggle}`);
     }
 
     // add a class based on the @size argument
