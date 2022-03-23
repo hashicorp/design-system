@@ -12,7 +12,7 @@ $border-radius: 5px;
 
 // IMPORTANT: this is an override for the `Hds::Button` component used as toggle
 // TODO add banner that explains why we're doing it, and that is not standard approach for HDS
-.hds-dropdown-toggle--button {
+.hds-dropdown-toggle--with-button-component {
   .hds-button__icon {
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
     margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
