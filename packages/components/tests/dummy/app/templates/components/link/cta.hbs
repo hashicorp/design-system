@@ -12,7 +12,7 @@
       &lt;a&gt;</code>
     anchor element with the same exact visual appearence as the "primary"
     <LinkTo @route="components.button">Button</LinkTo>
-    component, that points to an extarnal URL.
+    component, that points to an external URL.
   </p>
   <p class="dummy-paragraph">
     What do we mean by the name
@@ -96,7 +96,9 @@
   </h3>
 
   <h4 class="dummy-h4">Basic use</h4>
-  <p class="dummy-paragraph">The most basic invocation requires text to be passed and an
+  <p class="dummy-paragraph">The most basic invocation requires
+    <code class="dummy-code">text</code>
+    to be passed and an
     <code class="dummy-code">href</code>
     value (for details on how URLs are handled see below).</p>
   {{! prettier-ignore-start }}
@@ -109,8 +111,8 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Link::Cta @text="Sign in" href="#" />
-  <p class="dummy-paragraph"><em>Notice: additional HTML attributes may be added as necessary to configure the markup for
-      specific use cases.</em></p>
+  <p class="dummy-paragraph"><em>Notice: additional HTML attributes may be added as necessary to configure the markup
+      for specific use cases.</em></p>
 
   <h4 class="dummy-h4">Add an icon</h4>
   <p class="dummy-paragraph">To add an icon to your element, give the

@@ -9,12 +9,10 @@
     Overview
   </h3>
 
-  <p class="dummy-paragraph">The Link::Standalone component handles generation of an HTML anchor element
+  <p class="dummy-paragraph">The Link::Standalone component handles the generation of an HTML anchor element
     <code class="dummy-code">
       &lt;a&gt;</code>
-    and automatically adds
-    <code class="dummy-code">target="_blank" rel="noopener noreferrer"</code>
-    .
+    that points to an external URL.
   </p>
   <p class="dummy-paragraph">
     What do we mean by the name
@@ -22,26 +20,10 @@
     text.
     <em>Note: Solutions for Link (Inline) are coming soon.</em>
   </p>
-  <ul>
-    <li class="dummy-paragraph">
-      Manually add the
-      <code class="dummy-code">href</code>
-      attribute with the desired value.
-    </li>
-    <li class="dummy-paragraph">
-      Additional HTML attributes may be added as necessary to configure the markup for specific use cases.
-    </li>
-    <li class="dummy-paragraph">
-      It must always have a
-      <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
-      defined.
-    </li>
-  </ul>
 
   <h4 class="dummy-h4">Example of Link (Standalone):</h4>
-
   <div class="dummy-example">
-    <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
+    <p class="dummy-paragraph">Here's a completely separate paragraph of text.</p>
     <br />
     <Hds::Link::Standalone
       @text="Hey, this link is a Link (Standalone)"
@@ -52,7 +34,6 @@
   </div>
 
   <h4 class="dummy-h4">Example of Link (Inline):</h4>
-
   <div class="dummy-example">
     <p class="dummy-paragraph">Here's a
       <a href="#">Link (Inline)</a>, coming soon to HDS.
@@ -90,6 +71,14 @@
         </li>
       </ol>
     </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
+    </dd>
     <dt>
       text
       <code>
@@ -105,14 +94,6 @@
           If no text value is defined an error will be thrown.
         </em>
       </p>
-    </dd>
-    <dt>color <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">primary</li>
-        <li>secondary</li>
-      </ol>
     </dd>
     <dt>
       icon
@@ -162,61 +143,114 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">
-    Usage
-  </h3>
+  <h3 class="dummy-h3">Usage</h3>
 
-  <h4 class="dummy-h4">Basic invocation</h4>
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">The most basic invocation requires both
+    <code class="dummy-code">icon</code>
+    and
+    <code class="dummy-code">text</code>
+    to be passed and an
+    <code class="dummy-code">href</code>
+    value (for details on how URLs are handled see below).</p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+      <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+  <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" href="#" />
 
-  <h4 class="dummy-h4">Sizes</h4>
-
-  <p class="dummy-paragraph">
-    There are three sizes: small, medium, and large. If no size is defined, medium is automatically applied.
+  <h4 class="dummy-h4">Icon position</h4>
+  <p class="dummy-paragraph">By default the icon is placed before the text. If you would like to position it after the
+    text, define
+    <code class="dummy-code">@iconPosition</code>:
   </p>
-  <h5 class="dummy-h5">Small</h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="small" />        '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="small" />
-
-  <h5 class="dummy-h5">Medium</h5>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" />
+      <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" />
+  <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" href="#" />
 
-  <h5 class="dummy-h5">Large</h5>
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">
+    There are two available colors for a button:
+    <code class="dummy-code">primary</code>
+    and
+    <code class="dummy-code">secondary</code>. The default is
+    <code class="dummy-code">primary</code>. To use a different color, declare another value for
+    <code class="dummy-code">@color</code>:
+  </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="large" />
+      <Hds::Link::Standalone @color="primary" @icon="collections" @text="Read tutorial" href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @text="Read tutorial" @icon="collections" href="/" @size="large" />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @color="primary" href="#" />
+  <br />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @color="secondary" href="#" />
+
+  <h4 class="dummy-h4">Size</h4>
+  <p class="dummy-paragraph">
+    There are three sizes available:
+    <code class="dummy-code">small</code>,
+    <code class="dummy-code">medium</code>
+    and
+    <code class="dummy-code">large</code>. The default is
+    <code class="dummy-code">medium</code>. To use a different size, declare a value for
+    <code class="dummy-code">@size</code>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" href="..." />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" href="#" />
+  <br />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="medium" href="#" />
+  <br />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="large" href="#" />
+
+  <h4 class="dummy-h4">URL handling</h4>
+  <p class="dummy-paragraph">
+    For the component to work as expected, a
+    <code class="dummy-code">href</code>
+    value needs to be passed as attribute. The component automatically adds
+    <code class="dummy-code">target="_blank" rel="noopener noreferrer"</code>
+    to the
+    <code class="dummy-code">&lt;a&gt;</code>
+    element (but their values can be overwritten passing those attributes to the component).
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @icon="terraform" @text="Request a demo" href="https://www.hashicorp.com/request-demo/terraform" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone
+    @icon="terraform"
+    @text="Request a demo"
+    href="https://www.hashicorp.com/request-demo/terraform"
+  />
 </section>
 
 <section>
@@ -271,11 +305,12 @@
   </h4>
   <div class="dummy-link-states-grid">
     {{#each @model.COLORS as |color|}}
+      <h5 class="dummy-h5 dummy-link-states-grid__title">{{capitalize color}}</h5>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <div>
             <span class="dummy-text-small">
-              {{capitalize size}}/{{capitalize state}}/{{capitalize color}}:
+              {{capitalize size}}/{{capitalize state}}:
             </span>
             <br />
             <Hds::Link::Standalone

@@ -22,4 +22,8 @@
     margin: 0;
     padding: 0;
     width: fit-content;
+
+    .dummy-link-states-grid__title {
+        grid-column: 1 / 5;
+    }
 }

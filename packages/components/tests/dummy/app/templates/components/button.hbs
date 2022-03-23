@@ -153,8 +153,12 @@
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
-    There are four available colors for a button: primary, secondary, tertiary, and critical. The default is primary. To
-    use a different color, declare another value for
+    There are four available colors for a button:
+    <code class="dummy-code">primary</code>,
+    <code class="dummy-code">secondary</code>,
+    <code class="dummy-code">tertiary</code>, and
+    <code class="dummy-code">critical</code>. The default is
+    <code class="dummy-code">primary</code>. To use a different color, declare another value for
     <code class="dummy-code">@color</code>:
   </p>
   {{! prettier-ignore-start }}
@@ -165,6 +169,7 @@
     '
   />
   {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @icon="plus" @text="Primary action" />
   <br />
   <Hds::Button @icon="plus" @text="Secondary action" @color="secondary" />
