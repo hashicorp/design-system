@@ -21,7 +21,7 @@
   <li class={{this.classNames}} ...attributes>
     {{#if @route}}
       {{! // TODO consider approach }}
-      <LinkTo @route={{@route}}>
+      <LinkTo @route={{@route}} class="is-{{@state}}">
         {{#if @icon}}
           <div class="hds-dropdown-list-item__link-icon">
             <FlightIcon @name={{@icon}} />
@@ -32,7 +32,7 @@
         </div>
       </LinkTo>
     {{else}}
-      <a href={{@href}}>
+      <a href={{@href}} class="is-{{@state}}">
         {{#if @icon}}
           <div class="hds-dropdown-list-item__link-icon">
             <FlightIcon @name={{@icon}} />

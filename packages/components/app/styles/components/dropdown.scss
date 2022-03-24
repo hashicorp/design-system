@@ -306,13 +306,15 @@ $size-props: (
       // box-shadow: 0 0 0 3px red;
     }
 
-    &:hover {
+    &:hover,
+    &.is-hover {
       color: var(--token-color-foreground-action-hover);
       &::before {
         background-color: currentColor;
       }
     }
-    &:active {
+    &:active,
+    &.is-active {
       color: var(--token-color-foreground-action-active);
       &::before {
         background-color: currentColor;
@@ -333,13 +335,15 @@ $size-props: (
       @include hds-focus-ring-basic($color: critical);
     }
 
-    &:hover {
+    &:hover,
+    &.is-hover {
       // color: var(--token-color-foreground-critical-hover); // TODO we need to add this token to the design system
       &::before {
         background-color: currentColor;
       }
     }
-    &:active {
+    &:active,
+    &.is-active {
       // color: var(--token-color-foreground-critical-active); // TODO we need to add this token to the design system
       &::before {
         background-color: currentColor;

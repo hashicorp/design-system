@@ -636,7 +636,7 @@
     <div class="dummy-dropdown-list-items-base-sample">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} class="is-{{state}}" />
+          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} @state={{state}} />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
@@ -644,9 +644,9 @@
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
             @icon={{if (eq color "critical") "trash" "learn-link"}}
-            @text={{state}}
+            @text="{{state}} with icon"
             @color={{color}}
-            class="is-{{state}}"
+            @state={{state}}
           />
         {{/each}}
       </ul>
@@ -655,9 +655,9 @@
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
             @icon={{if (eq color "critical") "trash" "learn-link"}}
-            @text={{concat state " with a multi-line text"}}
+            @text="{{state}} with a long multi-line text"
             @color={{color}}
-            class="is-{{state}}"
+            @state={{state}}
           />
         {{/each}}
       </ul>
