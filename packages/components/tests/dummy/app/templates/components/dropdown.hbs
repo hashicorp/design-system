@@ -28,7 +28,7 @@
             <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" {{on "click" t.onClickToggle}} />
           </:toggle>
           <:content>
-            <ul class="hds-dropdown__list absolute--right">
+            <ul class="hds-dropdown-list absolute--right">
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
@@ -91,7 +91,7 @@
   </ul>
 
   <p class="dummy-paragraph">Heading, Separator, Help Text</p>
-  <ul class="hds-dropdown__list">
+  <ul class="hds-dropdown-list">
     <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
     <Hds::Dropdown::ListItem
       @item="help-text"
@@ -102,7 +102,7 @@
   </ul>
 
   <p class="dummy-paragraph">Links (default)</p>
-  <ul class="hds-dropdown__list">
+  <ul class="hds-dropdown-list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
@@ -110,14 +110,9 @@
   </ul>
 
   <p class="dummy-paragraph">Links (critical)</p>
-  <ul class="hds-dropdown__list">
+  <ul class="hds-dropdown-list">
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-    <Hds::Dropdown::ListItem
-      @route="components.dropdown"
-      @text="Remove something"
-      @icon="trash"
-      @color="critical"
-    />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Remove something" @icon="trash" @color="critical" />
     <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
     <Hds::Dropdown::ListItem
       @route="components.dropdown"
@@ -216,7 +211,7 @@
   <h4 class="dummy-h4">List with items</h4>
   <h5 class="dummy-h5">List container</h5>
   <div>
-    <ul class="hds-dropdown__list">
+    <ul class="hds-dropdown-list">
       <DummyPlaceholder @text="items" @height="200" @background="#e1f5fe" />
     </ul>
   </div>
@@ -225,21 +220,15 @@
 
   <h6 class="dummy-h6">Heading, Help Text, Separator</h6>
   <div class="dummy-dropdown-list-items-base-sample">
-    <ul class="hds-dropdown__list">
+    <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="heading" @text="A simple heading" />
-      <Hds::Dropdown::ListItem
-        @item="help-text"
-        @text="Some help text."
-      />
+      <Hds::Dropdown::ListItem @item="help-text" @text="Some help text." />
       <Hds::Dropdown::ListItem @item="separator" />
       <Hds::Dropdown::ListItem @route="index" @text="Item" />
     </ul>
-    <ul class="hds-dropdown__list">
+    <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="heading" @text="A longer heading that goes on multiple lines" />
-      <Hds::Dropdown::ListItem
-        @item="help-text"
-        @text="A longer help text that can span on multiple lines."
-      />
+      <Hds::Dropdown::ListItem @item="help-text" @text="A longer help text that can span on multiple lines." />
       <Hds::Dropdown::ListItem @item="separator" />
       <Hds::Dropdown::ListItem @route="index" @text="Item" />
     </ul>
@@ -250,34 +239,29 @@
   {{#each @model.ITEM_COLORS as |color|}}
     <p class="dummy-paragraph">{{capitalize color}}</p>
     <div class="dummy-dropdown-list-items-base-sample">
-      <ul class="hds-dropdown__list">
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} class="is-{{state}}" />
+        {{/each}}
+      </ul>
+      <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
+            @icon={{if (eq color "critical") "trash" "learn-link"}}
             @text={{state}}
-            @color="action"
+            @color={{color}}
             class="is-{{state}}"
           />
         {{/each}}
       </ul>
-      <ul class="hds-dropdown__list">
+      <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
-            @icon="learn-link"
-            @text={{state}}
-            @color="action"
-            class="is-{{state}}"
-          />
-        {{/each}}
-      </ul>
-      <ul class="hds-dropdown__list">
-        {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
-            @route="components.dropdown"
-            @icon="learn-link"
+            @icon={{if (eq color "critical") "trash" "learn-link"}}
             @text={{concat state " with a multi-line text"}}
-            @color="action"
+            @color={{color}}
             class="is-{{state}}"
           />
         {{/each}}
