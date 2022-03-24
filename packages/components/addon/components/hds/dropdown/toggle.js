@@ -5,6 +5,8 @@ export const BUTTON_DEFAULT_COLOR = 'primary';
 export const BUTTON_COLORS = ['primary', 'secondary'];
 export const MORE_DEFAULT_SIZE = 'medium';
 export const MORE_SIZES = ['medium', 'small'];
+export const ITEM_DEFAULT_COLOR = 'primary';
+export const ITEM_COLORS = ['action', 'critical'];
 
 export default class HdsDropdownToggleComponent extends Component {
   /**

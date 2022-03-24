@@ -42,14 +42,20 @@
   }
 }
 
-.dummy-dropdown-states-grid {
+.dummy-dropdown-toggle-states-grid {
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 0;
   padding: 0;
+}
 
-  .dummy-dropdown-states-grid__title {
-      grid-column: 1 / 6;
-  }
+.dummy-dropdown-list-items-base-sample {
+  align-items: flex-start;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  min-width: fit-content;
+  padding: 0.125rem;
 }

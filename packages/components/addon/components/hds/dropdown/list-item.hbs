@@ -26,35 +26,25 @@
     {{#if @route}}
       {{! // TODO consider approach }}
       <LinkTo @route={{@route}}>
-        {{#if @leadingIcon}}
+        {{#if @icon}}
           <div class="hds-dropdown-list-item__link__icon">
-            <FlightIcon @name={{@leadingIcon}} />
+            <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__link__text">
           {{@text}}
         </div>
-        {{#if @trailingIcon}}
-          <div class="hds-dropdown-list-item__link__icon">
-            <FlightIcon @name={{@trailingIcon}} />
-          </div>
-        {{/if}}
       </LinkTo>
     {{else}}
       <a href={{@href}}>
-        {{#if @leadingIcon}}
+        {{#if @icon}}
           <div class="hds-dropdown-list-item__link__icon">
-            <FlightIcon @name={{@leadingIcon}} />
+            <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__link__text">
           {{@text}}
         </div>
-        {{#if @trailingIcon}}
-          <div class="hds-dropdown-list-item__link__icon">
-            <FlightIcon @name={{@trailingIcon}} />
-          </div>
-        {{/if}}
       </a>
     {{/if}}
   </li>

@@ -34,7 +34,7 @@
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
               <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
               <Hds::Dropdown::ListItem @item="separator" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
             </ul>
           </:content>
         </Hds::Disclosure>
@@ -111,18 +111,18 @@
 
   <p class="dummy-paragraph">Links (critical)</p>
   <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
     <Hds::Dropdown::ListItem
       @route="components.dropdown"
       @text="Remove something"
-      @leadingIcon="trash"
+      @icon="trash"
       @color="critical"
     />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
     <Hds::Dropdown::ListItem
       @route="components.dropdown"
       @text="Destructive action long text"
-      @leadingIcon="trash"
+      @icon="trash"
       @color="critical"
     />
 
@@ -134,7 +134,7 @@
 
   <h4 class="dummy-h4">Toggles</h4>
   <h5 class="dummy-h5">"Button" variant</h5>
-  <div class="dummy-dropdown-states-grid">
+  <div class="dummy-dropdown-toggle-states-grid">
     <div>
       <p class="dummy-paragraph">Primary (default)</p>
       <span class="dummy-text-small">closed (default)</span>
@@ -151,7 +151,7 @@
     </div>
   </div>
   <h5 class="dummy-h5">"More" variant</h5>
-  <div class="dummy-dropdown-states-grid">
+  <div class="dummy-dropdown-toggle-states-grid">
     <div>
       <span class="dummy-text-small">medium (default)</span>
       <Hds::Dropdown::Toggle @toggle="more" />
@@ -162,7 +162,7 @@
     </div>
   </div>
   <h5 class="dummy-h5">"User" variant</h5>
-  <div class="dummy-dropdown-states-grid">
+  <div class="dummy-dropdown-toggle-states-grid">
     <div>
       <span class="dummy-text-small">icon/closed (default)</span>
       <Hds::Dropdown::Toggle @toggle="user" />
@@ -178,9 +178,9 @@
   </div>
 
   <h5 class="dummy-h5">Interaction states</h5>
-  <div class="dummy-dropdown-states-grid">
+  <div class="dummy-dropdown-toggle-states-grid">
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-      {{#each @model.STATES as |state|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{color}}/{{state}}:</span>
           <br />
@@ -189,7 +189,7 @@
       {{/each}}
     {{/each}}
     {{#each @model.TOGGLE_MORE_SIZES as |size|}}
-      {{#each @model.STATES as |state|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{size}}/{{state}}:</span>
           <br />
@@ -197,14 +197,14 @@
         </div>
       {{/each}}
     {{/each}}
-    {{#each @model.STATES as |state|}}
+    {{#each @model.TOGGLE_STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
         <Hds::Dropdown::Toggle @toggle="user" class="is-{{state}}" />
       </div>
     {{/each}}
-    {{#each @model.STATES as |state|}}
+    {{#each @model.TOGGLE_STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
@@ -212,4 +212,77 @@
       </div>
     {{/each}}
   </div>
+
+  <h4 class="dummy-h4">List with items</h4>
+  <h5 class="dummy-h5">List container</h5>
+  <div>
+    <ul class="hds-dropdown__list">
+      <DummyPlaceholder @text="items" @height="200" @background="#e1f5fe" />
+    </ul>
+  </div>
+
+  <h5 class="dummy-h5">Items</h5>
+
+  <h6 class="dummy-h6">Heading, Help Text, Separator</h6>
+  <div class="dummy-dropdown-list-items-base-sample">
+    <ul class="hds-dropdown__list">
+      <Hds::Dropdown::ListItem @item="heading" @text="A simple heading" />
+      <Hds::Dropdown::ListItem
+        @item="help-text"
+        @text="Some help text."
+      />
+      <Hds::Dropdown::ListItem @item="separator" />
+      <Hds::Dropdown::ListItem @route="index" @text="Item" />
+    </ul>
+    <ul class="hds-dropdown__list">
+      <Hds::Dropdown::ListItem @item="heading" @text="A longer heading that goes on multiple lines" />
+      <Hds::Dropdown::ListItem
+        @item="help-text"
+        @text="A longer help text that can span on multiple lines."
+      />
+      <Hds::Dropdown::ListItem @item="separator" />
+      <Hds::Dropdown::ListItem @route="index" @text="Item" />
+    </ul>
+  </div>
+
+  <h6 class="dummy-h6">Links</h6>
+
+  {{#each @model.ITEM_COLORS as |color|}}
+    <p class="dummy-paragraph">{{capitalize color}}</p>
+    <div class="dummy-dropdown-list-items-base-sample">
+      <ul class="hds-dropdown__list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem
+            @route="components.dropdown"
+            @text={{state}}
+            @color="action"
+            class="is-{{state}}"
+          />
+        {{/each}}
+      </ul>
+      <ul class="hds-dropdown__list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem
+            @route="components.dropdown"
+            @icon="learn-link"
+            @text={{state}}
+            @color="action"
+            class="is-{{state}}"
+          />
+        {{/each}}
+      </ul>
+      <ul class="hds-dropdown__list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem
+            @route="components.dropdown"
+            @icon="learn-link"
+            @text={{concat state " with a multi-line text"}}
+            @color="action"
+            class="is-{{state}}"
+          />
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+
 </section>
