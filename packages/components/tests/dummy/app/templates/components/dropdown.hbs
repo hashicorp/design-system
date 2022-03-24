@@ -49,16 +49,16 @@
     <div>
       <p class="dummy-paragraph">Primary (default)</p>
       <span class="dummy-text-small">closed (default)</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{false}} />
       <span class="dummy-text-small">opened</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} />
     </div>
     <div>
       <p class="dummy-paragraph">Secondary</p>
       <span class="dummy-text-small">closed (default)</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{false}} />
       <span class="dummy-text-small">opened</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
     </div>
   </div>
   <h5 class="dummy-h5">"More" variant</h5>
@@ -76,15 +76,15 @@
   <div class="dummy-dropdown-states-grid">
     <div>
       <span class="dummy-text-small">icon/closed (default)</span>
-      <Hds::Dropdown::ToggleUser />
+      <Hds::Dropdown::ToggleUser @isOpen={{false}} />
       <span class="dummy-text-small">icon/opened</span>
-      <Hds::Dropdown::ToggleUser />
+      <Hds::Dropdown::ToggleUser @isOpen={{true}} />
     </div>
     <div>
       <span class="dummy-text-small">avatar/closed (default)</span>
-      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" />
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} />
       <span class="dummy-text-small">avatar/opened</span>
-      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" />
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} />
     </div>
   </div>
 

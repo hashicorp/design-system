@@ -12,5 +12,5 @@
       <FlightIcon @name="user" @size="24" />
     {{/if}}
   </div>
-  <FlightIcon @name="chevron-down" />
+  <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" />
 </button>
