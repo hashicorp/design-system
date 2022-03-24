@@ -158,17 +158,12 @@ $size-props: (
 // LIST
 
 .hds-dropdown-list {
-  align-items: flex-start;
-  background-color: white; //TODO REPLACE WITH TOKEN
-  border-radius: 6px; // TODO
-  // box-shadow: var(--token-elevation-high-box-shadow); //TODO what should this actually be?
-  box-shadow: 0px 0px 0px 1px rgba(101, 106, 118, 0.25), 0px 2px 3px rgba(101, 106, 118, 0.15), 0px 16px 16px -10px rgba(101, 106, 118, 0.2);
+  background-color: var(--token-color-surface-primary);
+  border-radius: 6px;
+  box-shadow: var(--token-surface-high-box-shadow);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   list-style: none;
   margin: 0;
-  min-height: fit-content; // TODO why???
   padding: 4px 0;
   width: 200px; // default width // TODO
 
@@ -189,39 +184,30 @@ $size-props: (
 }
 
 
-.hds-dropdown-list-item {
-  width: 100%;
-}
+// LIST > ITEM
 
 .hds-dropdown-list-item--heading {
-  box-sizing: border-box;
   color: var(--token-color-foreground-strong);
-  display: flex;
-  font-family: var(--token-typography-font-stack-text);
-  font-size: 13px;
-  font-weight: 600;
-  justify-content: flex-start;
-  line-height: 18px;
+  font-family: var(--token-typography-body-100-font-family);
+  font-size: var(--token-typography-body-100-font-size);
+  font-weight: var(--token-typography-font-weight-semibold);
+  line-height: var(--token-typography-body-100-line-height);
   padding: 10px 16px 4px;
-  width: 100%;
 }
 
 .hds-dropdown-list-item--help-text {
-  box-sizing: border-box;
   color: var(--token-color-foreground-faint);
-  display: flex;
-  flex-flow: row wrap;
-  font-family: var(--token-typography-font-stack-text);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 18px;
-  max-width: 100%;
+  font-family: var(--token-typography-body-100-font-family);
+  font-size: var(--token-typography-body-100-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  line-height: var(--token-typography-body-100-line-height);
   padding: 2px 16px 4px;
 }
 
 .hds-dropdown-list-item--separator {
   position: relative;
   height: 4px;
+  width: 100%;
 
   &::before {
     position: absolute;
@@ -233,25 +219,17 @@ $size-props: (
   }
 }
 
-
-// hds-dropdown-list-item hds-dropdown-list-item--link hds-dropdown-list-item--color-action
-
 .hds-dropdown-list-item--link {
-  box-sizing: border-box;
-  border-color: transparent;
   position: relative;
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
-  min-height: 36px; // TODO understand if this is really needed
+  min-height: 36px;
 
   a {
     align-items: center;
     display: flex;
     outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
-    padding: 8px 6px 8px 16px; // TODO check these values
+    padding: 8px 10px 8px 16px;
     text-decoration: none;
 
     // this is used for the left "hover" indicator
@@ -316,9 +294,10 @@ $size-props: (
 }
 
 .hds-dropdown-list-item__link-text {
-  font-size: 14px; // TODO check this value
-  font-family: var(--token-typography-font-stack-text);
-  line-height: 20px; // TODO check this value
+  font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  font-weight: var(--token-typography-font-weight-medium);
+  line-height: var(--token-typography-body-200-line-height);
 }
 
 .hds-dropdown-list-item__link-icon {
