@@ -1,12 +1,4 @@
-<nav
-  class={{this.classNames}}
-  {{!
-    TODO: should this string be localized, like in Structure? https://github.com/hashicorp/structure/blob/dffbb0e0ae5246d3b832586ab25bcb981a052b30/packages/pds-ember/addon/components/pds/breadcrumbs/index.hbs#L3
-    (in which case, we need to expose a prop? or start to have localization in the HDS system?)
-  }}
-  aria-label="breadcrumbs"
-  ...attributes
->
+<nav class={{this.classNames}} aria-label="breadcrumbs" ...attributes>
   <ol class="hds-breadcrumb__list" {{did-insert this.didInsert}}>
     {{yield}}
   </ol>
