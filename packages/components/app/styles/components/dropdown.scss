@@ -245,16 +245,14 @@ $size-props: (
   display: flex;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   min-height: 36px; // TODO understand if this is really needed
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
 
   a {
     align-items: center;
     display: flex;
-    max-width: 100%; // TODO is needed?
+    outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+    outline-color: transparent;
     padding: 8px 6px 8px 16px; // TODO check these values
     text-decoration: none;
-    width: 100%; // TODO is needed?
 
     // this is used for the left "hover" indicator
     &::before {
@@ -268,10 +266,10 @@ $size-props: (
       z-index: -1;
     }
 
-    // this is used for the active/focus states which are indented
+    // Notice: this is used for the active/focus states which have very specific positions
+    // and also has a background color, so we can't use the existing focus-ring mixins
     &::after {
       border-radius: 5px;
-      border: 1px solid transparent;
       bottom: 0px;
       content: '';
       left: 10px;
@@ -279,6 +277,40 @@ $size-props: (
       right: 4px;
       z-index: -1;
       top: 0;
+    }
+
+    // Notice: to avoid too much duplication we define two local CSS variables
+    // and define their values in the color variants below
+
+    // default focus for browsers that still rely on ":focus"
+    &:focus,
+    &.is-focus {
+      &::after {
+        background-color: var(--current-background-color);
+        box-shadow: var(--current-focus-ring-box-shadow);
+        left: 4px;
+      }
+    }
+    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+    &:focus:not(:focus-visible) {
+      &::after {
+        box-shadow: none;
+      }
+    }
+    // set focus for browsers that support ":focus-visible"
+    &:focus-visible {
+      &::after {
+        background-color: var(--current-background-color);
+        box-shadow: var(--current-focus-ring-box-shadow);
+        left: 4px;
+      }
+    }
+    // remove the focus ring on "active + focused" state (by design)
+    &:focus:active,
+    &.is-focus.is-active {
+      &::after {
+        box-shadow: none;
+      }
     }
   }
 }
@@ -290,20 +322,18 @@ $size-props: (
 }
 
 .hds-dropdown-list-item__link-icon {
-  margin-right: 8px; // TODO check this value
+  margin-right: 8px;
 }
 
-
-// hds-dropdown-list-item--color-action is-active
 
 .hds-dropdown-list-item--color-action {
   a {
     color: var(--token-color-foreground-primary);
 
-    // we apply the focus to the existing pseudo-element as box-shadow
+    // assign the values to the local CSS variables used above
     &::after {
-      @include hds-focus-ring-basic($color: action);
-      // box-shadow: 0 0 0 3px red;
+      --current-background-color: var(--token-color-surface-action);
+      --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
 
     &:hover,
@@ -330,21 +360,22 @@ $size-props: (
   a {
     color: var(--token-color-foreground-critical);
 
-    // we apply the focus to the existing pseudo-element as box-shadow
+    // assign the values to the local CSS variables used above
     &::after {
-      @include hds-focus-ring-basic($color: critical);
+      --current-background-color: var(--token-color-surface-critical);
+      --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
     }
 
     &:hover,
     &.is-hover {
-      // color: var(--token-color-foreground-critical-hover); // TODO we need to add this token to the design system
+      color: var(--token-color-palette-red-300); // TODO we need to add this token to the design system
       &::before {
         background-color: currentColor;
       }
     }
     &:active,
     &.is-active {
-      // color: var(--token-color-foreground-critical-active); // TODO we need to add this token to the design system
+      color: var(--token-color-palette-red-400); // TODO we need to add this token to the design system
       &::before {
         background-color: currentColor;
       }
