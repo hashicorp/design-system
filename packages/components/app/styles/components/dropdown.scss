@@ -70,6 +70,15 @@ $hds-dropdown-toggle-border-width: 1px;
     box-shadow: none;
     color: var(--token-color-foreground-disabled);
     cursor: not-allowed;
+
+    // it looks weird to see the user photo in full color when the toggle is disabled
+    // so we we convert the image to monochrome and reduce its opacity to blend with the background
+    .hds-dropdown-toggle__user {
+      img {
+        filter: grayscale(100%);
+        opacity: 0.25;
+      }
+    }
   }
 
   &:focus,
