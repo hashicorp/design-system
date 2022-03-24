@@ -7,7 +7,7 @@
 <nav class="dummy-nav-dropdown">
   <Hds::Disclosure>
     <:toggle as |t|>
-      <Hds::Dropdown::Toggle @text="Manage Sources" {{on "click" t.onClickToggle}} />
+      <Hds::Dropdown::ToggleButton @text="Manage Sources" {{on "click" t.onClickToggle}} />
     </:toggle>
     <:content>
       <ul class="hds-dropdown__list">
@@ -22,22 +22,22 @@
 <section class="dummy-bg-gray dummy-dropdown-hide">
   <h3 class="dummy-h3">Toggles</h3>
   <p class="dummy-paragraph">Toggle, Default (primary)</p>
-  <Hds::Dropdown::Toggle @text="Manage Sources" />
+  <Hds::Dropdown::ToggleButton @text="Manage Sources" />
 
   <p class="dummy-paragraph">Toggle, Default (secondary)</p>
-  <Hds::Dropdown::Toggle @text="Manage Sources" @color="secondary" />
+  <Hds::Dropdown::ToggleButton @text="Manage Sources" @color="secondary" />
 
   <p class="dummy-paragraph">Toggle, More (default)</p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" />
+  <Hds::Dropdown::ToggleMore @text="more menu" />
 
   <p class="dummy-paragraph">Toggle, More (small)</p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" />
+  <Hds::Dropdown::ToggleMore @text="more menu" @size="small" />
 
   <p class="dummy-paragraph">Toggle, User (default)</p>
-  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />
+  <Hds::Dropdown::ToggleUser @text="user menu" />
 
   <p class="dummy-paragraph">Toggle, User (avatar)</p>
-  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
+  <Hds::Dropdown::ToggleUser @text="user menu" @avatarUrl="/assets/images/avatar.png" />
 </section>
 
 <section data-test-percy>
@@ -49,42 +49,42 @@
     <div>
       <p class="dummy-paragraph">Primary (default)</p>
       <span class="dummy-text-small">closed (default)</span>
-      <Hds::Dropdown::Toggle @text="Manage sources" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" />
       <span class="dummy-text-small">opened</span>
-      <Hds::Dropdown::Toggle @text="Manage sources" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" />
     </div>
     <div>
       <p class="dummy-paragraph">Secondary</p>
       <span class="dummy-text-small">closed (default)</span>
-      <Hds::Dropdown::Toggle @text="Manage sources" @color="secondary" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" />
       <span class="dummy-text-small">opened</span>
-      <Hds::Dropdown::Toggle @text="Manage sources" @color="secondary" />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" />
     </div>
   </div>
   <h5 class="dummy-h5">"More" variant</h5>
   <div class="dummy-dropdown-states-grid">
     <div>
       <span class="dummy-text-small">medium (default)</span>
-      <Hds::Dropdown::Toggle @toggle="more" />
+      <Hds::Dropdown::ToggleMore />
     </div>
     <div>
       <span class="dummy-text-small">small</span>
-      <Hds::Dropdown::Toggle @toggle="more" @size="small" />
+      <Hds::Dropdown::ToggleMore @size="small" />
     </div>
   </div>
   <h5 class="dummy-h5">"User" variant</h5>
   <div class="dummy-dropdown-states-grid">
     <div>
       <span class="dummy-text-small">icon/closed (default)</span>
-      <Hds::Dropdown::Toggle @toggle="user" />
+      <Hds::Dropdown::ToggleUser />
       <span class="dummy-text-small">icon/opened</span>
-      <Hds::Dropdown::Toggle @toggle="user" />
+      <Hds::Dropdown::ToggleUser />
     </div>
     <div>
       <span class="dummy-text-small">avatar/closed (default)</span>
-      <Hds::Dropdown::Toggle @toggle="user" @avatarUrl="/assets/images/avatar.png" />
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" />
       <span class="dummy-text-small">avatar/opened</span>
-      <Hds::Dropdown::Toggle @toggle="user" @avatarUrl="/assets/images/avatar.png" />
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" />
     </div>
   </div>
 
@@ -95,7 +95,7 @@
         <div>
           <span class="dummy-text-small">{{color}}/{{state}}:</span>
           <br />
-          <Hds::Dropdown::Toggle @text={{capitalize state}} @color={{color}} class="is-{{state}}" />
+          <Hds::Dropdown::ToggleButton @text={{capitalize state}} @color={{color}} class="is-{{state}}" />
         </div>
       {{/each}}
     {{/each}}
@@ -104,7 +104,7 @@
         <div>
           <span class="dummy-text-small">{{size}}/{{state}}:</span>
           <br />
-          <Hds::Dropdown::Toggle @toggle="more" @size={{@size}} class="is-{{state}}" />
+          <Hds::Dropdown::ToggleMore @size={{@size}} class="is-{{state}}" />
         </div>
       {{/each}}
     {{/each}}
@@ -112,14 +112,14 @@
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::Toggle @toggle="user" class="is-{{state}}" />
+        <Hds::Dropdown::ToggleUser class="is-{{state}}" />
       </div>
     {{/each}}
     {{#each @model.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::Toggle @toggle="user" @avatarUrl="/assets/images/avatar.png" class="is-{{state}}" />
+        <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" class="is-{{state}}" />
       </div>
     {{/each}}
   </div>
