@@ -16,9 +16,9 @@ module('Integration | Component | hds/dropdown/toggle', function (hooks) {
 
     // Template block usage:
     await render(hbs`
-      <Hds::Dropdown::Toggle>
+      <Hds::Dropdown::ToggleButton>
         template block text
-      </Hds::Dropdown::Toggle>
+      </Hds::Dropdown::ToggleButton>
     `);
 
     assert.dom(this.element).hasText('template block text');

@@ -1,3 +1,19 @@
+//  ██     ██  █████  ██████  ███    ██ ██ ███    ██  ██████
+//  ██     ██ ██   ██ ██   ██ ████   ██ ██ ████   ██ ██
+//  ██  █  ██ ███████ ██████  ██ ██  ██ ██ ██ ██  ██ ██   ███
+//  ██ ███ ██ ██   ██ ██   ██ ██  ██ ██ ██ ██  ██ ██ ██    ██
+//   ███ ███  ██   ██ ██   ██ ██   ████ ██ ██   ████  ██████
+//
+// Notice: in this component we're using directly the `Hds::Button` component
+// (and adding a specialized class for the "toggle-button" variant, see below)
+// If you need to change the styling of the `Button` component, remember that this will impact also
+// this component too.
+// If instead you need to change only the styling of the `toggle-button` component, you can do it here using
+// the specialized class declared below.
+// This is NOT a standard approach that we use in the HDS design system implementation, but it's been
+// the least worst option we could find to solve the problem of sharing the exact same style of the
+// `Button (primary)` with other components.
+
 //
 // DROPDOWN COMPONENT
 //
@@ -74,8 +90,7 @@ $hds-dropdown-toggle-border-width: 1px;
 }
 
 // BUTTON
-// IMPORTANT: this is an override for the `Hds::Button` component used as toggle
-// TODO add banner that explains why we're doing it, and that is not standard approach for HDS
+
 .hds-dropdown-toggle--with-button-component {
   box-shadow: none; // we override this to remove the elevation style
 

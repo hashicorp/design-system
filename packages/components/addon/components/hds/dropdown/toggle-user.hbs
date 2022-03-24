@@ -1,0 +1,10 @@
+<button class={{this.classNames}} aria-label={{@text}} type="button" ...attributes>
+  <div class="hds-dropdown-toggle__user">
+    {{#if @avatarUrl}}
+      <img src={{@avatarUrl}} alt="" role="presentation" height="32" width="32" />
+    {{else}}
+      <FlightIcon @name="user" @size="24" />
+    {{/if}}
+  </div>
+  <FlightIcon @name="chevron-down" />
+</button>
