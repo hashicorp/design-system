@@ -21,6 +21,7 @@ $hds-button-focus-border-width: 3px;
   box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
   display: flex;
   font-family: var(--token-typography-font-stack-text);
+  isolation: isolate;
   justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
