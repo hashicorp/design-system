@@ -1,155 +1,166 @@
-// TODOs
-// - [ ] Convert to relational units
-// - [ ] Check colors against Figma (again)
-// - [ ] Determine what should be abstracted
-// - [ ] Have meta review of approach before refining
-// - [ ] Review with Heather re:padding had to be subtracted by one to account for the transparent border
-// - [ ] Add hover/focus/active/disabled states
+//  ██     ██  █████  ██████  ███    ██ ██ ███    ██  ██████
+//  ██     ██ ██   ██ ██   ██ ████   ██ ██ ████   ██ ██
+//  ██  █  ██ ███████ ██████  ██ ██  ██ ██ ██ ██  ██ ██   ███
+//  ██ ███ ██ ██   ██ ██   ██ ██  ██ ██ ██ ██  ██ ██ ██    ██
+//   ███ ███  ██   ██ ██   ██ ██   ████ ██ ██   ████  ██████
+//
+// Notice: in this component we're using directly the `Hds::Button` component
+// (and adding a specialized class for the "toggle-button" variant, see below)
+// If you need to change the styling of the `Button` component, remember that this will impact also
+// this component too.
+// If instead you need to change only the styling of the `toggle-button` component, you can do it here using
+// the specialized class declared below.
+// This is NOT a standard approach that we use in the HDS design system implementation, but it's been
+// the least worst option we could find to solve the problem of sharing the exact same style of the
+// `Button (primary)` with other components.
+
+//
+// DROPDOWN COMPONENT
+//
+// properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+//
+
+// TODO! split this file in sub-files and import them here:
+// - index (main container)
+// - toggle
+// - list
+
 @use "../mixins/focus-ring" as *;
 
-$border-radius: 5px;
+$hds-dropdown-toggle-more-sizes: ( 'small', 'medium' );
+
+$hds-dropdown-toggle-base-height: 36px;
+$hds-dropdown-toggle-border-radius: 5px;
+$hds-dropdown-toggle-border-width: 1px;
+
+
+// BASE (for "MORE" and "USER")
 
 .hds-dropdown-toggle {
   align-items: center;
-  border: 1px solid transparent;
-  border-radius: $border-radius;
-  box-sizing: border-box; 
+  background-color: transparent;
+  border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
+  border-radius: $hds-dropdown-toggle-border-radius;
+  box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
+  color: var(--token-color-foreground-strong);
   display: flex;
+  isolation: isolate;
   justify-content: center;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+  outline-color: transparent; // We need this to be transparent for a11y
+  padding: 0;
+  position: relative;
+  width: auto;
 
+  // This covers all of the browsers and focus scenarios (due to the custom focus design).
+  &:disabled,
+  &[disabled],
+  &.is-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.is-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.is-disabled:hover {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--token-color-foreground-disabled);
+    cursor: not-allowed;
 
-  &::after,
-  &::before {
-    box-sizing: border-box;
+    // it looks weird to see the user photo in full color when the toggle is disabled
+    // so we we convert the image to monochrome and reduce its opacity to blend with the background
+    .hds-dropdown-toggle__user {
+      img {
+        filter: grayscale(100%);
+        opacity: 0.25;
+      }
+    }
   }
 
-  &:hover, &.is-hover {
+  &:focus,
+  &.is-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
+  }
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong);
     cursor: pointer;
   }
-
-  &:disabled {
-    cursor: not-allowed;
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
   }
+}
 
-  .hds-dropdown-toggle__child-first { // applies to all first children inside of a toggle
-    // border: 1px solid red;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center; //this centers whatever is inside, no matter what size it is
-    
+// BUTTON
+
+.hds-dropdown-toggle--with-button-component {
+  box-shadow: none; // we override this to remove the elevation style
+
+  .hds-button__icon {
+    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
   }
-  .hds-dropdown-toggle__child-second {
-    // will be the chevron icon
-    // should always be centered horizontally and vertically
-    // spacing depends on parent element's padding
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-  }
-
-  &.hds-dropdown-toggle__text {
-    background-color: var(--token-color-surface-interactive);
-    box-shadow: var(--token-elevation-low-box-shadow);
-    color: var(--token-color-foreground-faint);
-    font-family: var(--token-typography-font-stack-text);
-    font-size: 0.875rem; // 14px
-    justify-content: center;
-    line-height: 1rem; // 16px
-    padding: 10px;
-
-    &.hds-dropdown-toggle__text--primary {
-      background-color: var(--token-color-palette-blue-200);
-      border-color: var(--token-color-palette-blue-300);
-      color: var(--token-color-foreground-high-contrast);
-
-      // &:hover, &.is-hover {}
-      // &:focus-visible, &.is-focus {}
-      // &:active, &.is-active {}
-
-    }
-    &.hds-dropdown-toggle__text--secondary {
-      background-color: var(--token-color-foreground-high-contrast);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary);
-    }
-    .hds-dropdown-toggle__child-second {
-      margin-left: 8px;
-    }
-  }
-
-  &.hds-dropdown-toggle__more {
-    background-color: transparent;
-    color: var(--token-color-foreground-faint);
-    height: 36px; // TODO get these to 44x44
-    width: 36px;
-    // todo padding
+}
 
 
-    &.hds-dropdown-toggle__more--small {
-      height: 28px;
-      width: 28px;
-      // padding: 5px;
-    }
-    
-    &:hover, &.is-hover {
-      background-color: var(--token-color-surface-primary);
-      border-color: var(--token-color-border-strong);
-    }
-    &:focus-visible, &.is-focus {
-      @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
-    }
-    &:active, &.is-active {
-      background-color: var(--token-color-active-primary);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary);
-    }
-  }
+// MORE
 
-  &.hds-dropdown-toggle__user {
-    // border-color: var(--token-color-border-strong);
-    width: 56px;
-    height: 36px;
-    display: flex;
-    justify-content: space-between;
-    background-color: transparent;
-    color: var(--token-color-foreground-faint);
-    padding: 1px; // needs to account for 1px border
+// these values later may come from the design tokens
+$size-props: (
+  "small": (
+    "size": 28px
+  ),
+  "medium": (
+    "size": $hds-dropdown-toggle-base-height
+  )
+);
 
-    &:hover, &.is-hover {
-      background-color: var(--token-color-surface-primary);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary);
-    }
-    
-    &:focus-visible, &.is-focus {
-      @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px);
-    }
-    
-    &:active, &.is-active {
-      background-color: var(--token-color-surface-interactive-active);
-      border-color: var(--token-color-border-strong);
-      color: var(--token-color-foreground-primary); //this is what is in Figma, seems incorrect
-    }
-
-    .hds-dropdown-toggle__child-first {
-      // could be an svg user icon, could be an avatar
-      // size of svg and size of avatar are declared in the template so we don't need to worry about the size of further child elements here
-      height: 32px;
-      width: 32px;
-
-      > * {
-        border-radius: $border-radius;
-      }
+.hds-dropdown-toggle--more {
+  @each $size in $hds-dropdown-toggle-more-sizes {
+    &.hds-dropdown-toggle--size-#{$size} {
+      height: map-get($size-props, $size, "size");
+      width: map-get($size-props, $size, "size");
     }
   }
 }
 
-// TODO dropdown container, should this be styled here?
-.hds-dropdown__list {
+
+// USER
+
+.hds-dropdown-toggle--user {
+  height: $hds-dropdown-toggle-base-height;
+  padding: 1px;
+
+  .hds-dropdown-toggle__user {
+    $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
+    align-items: center;
+    border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
+    display: flex;
+    justify-content: center;
+    margin-right: 0.25rem; // 4px
+    height: $size;
+    width: $size;
+
+    > * {
+      border-radius: inherit;
+    }
+  }
+}
+
+
+// LIST
+
+.hds-dropdown-list {
   align-items: flex-start;
   background-color: white; //TODO REPLACE WITH TOKEN
-  border-radius: 6px;
+  border-radius: 6px; // TODO
   // box-shadow: var(--token-elevation-high-box-shadow); //TODO what should this actually be?
   box-shadow: 0px 0px 0px 1px rgba(101, 106, 118, 0.25), 0px 2px 3px rgba(101, 106, 118, 0.15), 0px 16px 16px -10px rgba(101, 106, 118, 0.2);
   box-sizing: border-box;
@@ -157,160 +168,182 @@ $border-radius: 5px;
   flex-direction: column;
   list-style: none;
   margin: 0;
-  min-height: fit-content;
+  min-height: fit-content; // TODO why???
   padding: 4px 0;
-  width: 200px; // default width
+  width: 200px; // default width // TODO
 
+  // TODO this should be controlled by the "list" or by the "dropdown" element?
   &.absolute--right {
     position: absolute;
-    right: 0; 
-    z-index: 2;  // TODO what is a pragmatic value?
+    right: 0;
+    // TODO what about the top value?
   }
 
   &.absolute--left {
     position: absolute;
     left: 0;
-    z-index: 2;  // TODO what is a pragmatic value?  
+    // TODO what about the top value?
   }
+}
 
-  .hds-dropdown-list-item {
+
+.hds-dropdown-list-item {
+  width: 100%;
+}
+
+.hds-dropdown-list-item--heading {
+  box-sizing: border-box;
+  color: var(--token-color-foreground-strong);
+  display: flex;
+  font-family: var(--token-typography-font-stack-text);
+  font-size: 13px;
+  font-weight: 600;
+  justify-content: flex-start;
+  line-height: 18px;
+  padding: 10px 16px 4px;
+  width: 100%;
+}
+
+.hds-dropdown-list-item--help-text {
+  box-sizing: border-box;
+  color: var(--token-color-foreground-faint);
+  display: flex;
+  flex-flow: row wrap;
+  font-family: var(--token-typography-font-stack-text);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  max-width: 100%;
+  padding: 2px 16px 4px;
+}
+
+.hds-dropdown-list-item--separator {
+  position: relative;
+  height: 4px;
+
+  &::before {
+    position: absolute;
+    right: 6px;
+    left: 6px;
+    bottom: 0;
+    border-bottom: 1px solid var(--token-color-border-primary);
+    content: '';
+  }
+}
+
+
+// hds-dropdown-list-item hds-dropdown-list-item--link hds-dropdown-list-item--color-action
+
+.hds-dropdown-list-item--link {
+  box-sizing: border-box;
+  border-color: transparent;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  min-height: 36px; // TODO understand if this is really needed
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+  outline-color: transparent;
+
+  a {
     align-items: center;
-    box-sizing: border-box;
     display: flex;
-    font-family: var(--token-typography-font-stack-text);
-    min-height: 36px;    
-    justify-content: center;
-    width: 100%;
+    max-width: 100%; // TODO is needed?
+    padding: 8px 6px 8px 16px; // TODO check these values
+    text-decoration: none;
+    width: 100%; // TODO is needed?
 
-    &.hds-dropdown-list-item__heading {
-      box-sizing: border-box;
-      color: var(--token-color-foreground-strong);
-      display: flex;
-      font-size: 13px;
-      font-weight: 600;
-      justify-content: flex-start;
-      line-height: 18px;
-      padding: 10px 16px 4px;
-      width: 100%;
+    // this is used for the left "hover" indicator
+    &::before {
+      border-radius: 1px;
+      bottom: 6px;
+      content: '';
+      left: 4px;
+      position: absolute;
+      top: 6px;
+      width: 2px;
+      z-index: -1;
     }
-    
-    &.hds-dropdown-list-item__help-text {
-      box-sizing: border-box;
-      color: var(--token-color-foreground-faint);
-      display: flex;
-      flex-flow: row wrap;
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 18px;
-      max-width: 100%;
-      padding: 2px 16px 4px;
-    }
-    
-    &.hds-dropdown-list-item__separator {
-      align-items: center;
-      display: flex;
-      height: 6px;
-      justify-content: stretch;
-      min-height:6px;
-      padding: 0;
-      span { 
-        background-color: var(--token-color-border-primary);
-        height: 1px;
-        width: 100%;
-      }
-    }
-    
-    &.hds-dropdown-list-item__link {
-      box-sizing: border-box;
-      border-color: transparent;
-      padding: 0 4px 0 10px;
-      position: relative;
-      font-size: 14px;
-      line-height: 20px;
 
+    // this is used for the active/focus states which are indented
+    &::after {
+      border-radius: 5px;
+      border: 1px solid transparent;
+      bottom: 0px;
+      content: '';
+      left: 10px;
+      position: absolute;
+      right: 4px;
+      z-index: -1;
+      top: 0;
+    }
+  }
+}
+
+.hds-dropdown-list-item__link-text {
+  font-size: 14px; // TODO check this value
+  font-family: var(--token-typography-font-stack-text);
+  line-height: 20px; // TODO check this value
+}
+
+.hds-dropdown-list-item__link-icon {
+  margin-right: 8px; // TODO check this value
+}
+
+
+// hds-dropdown-list-item--color-action is-active
+
+.hds-dropdown-list-item--color-action {
+  a {
+    color: var(--token-color-foreground-primary);
+
+    // we apply the focus to the existing pseudo-element as box-shadow
+    &::after {
+      @include hds-focus-ring-basic($color: action);
+      // box-shadow: 0 0 0 3px red;
+    }
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
       &::before {
-        border-radius: 1px;
-        bottom: 4px;
-        content: '';
-        left: 4px;
-        position: absolute;
-        top: 4px;
-        width: 2px;
+        background-color: currentColor;
       }
-      
-      a {
-        @include hds-focus-ring-with-pseudo-element($top: 0, $right:0, $bottom: 0, $left: 0, $radius: 5px); //TODO @didoo need critical variant
-        border-radius: $border-radius;
-        display: grid;
-        font-size: 15px;
-        gap: 0px 6px;
-        grid-auto-flow: row;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: min-content;
-        line-height: 20px;
-        max-width: 100%;
-        padding: 10px;
-        text-decoration: none;
-        width: 100%;
+    }
+    &:active {
+      color: var(--token-color-foreground-action-active);
+      &::before {
+        background-color: currentColor;
       }
-
-      &.hds-dropdown-list-item__link--action {
-        &:hover, &.is-hover {
-          &::before {
-          background-color: var(--token-color-foreground-action-hover);
-          }
-        }
-        a {
-          color: var(--token-color-foreground-primary);
-
-          &:hover, &.is-hover {
-            color: var(--token-color-foreground-action-hover);
-          }
-
-          &:active, &.is-active {
-            background-color: var(--token-color-surface-action);
-            border-left-color: var(--token-color-foreground-action-hover);
-            color: var(--token-color-foreground-action-active);
-          }
-        }
-
+      &::after {
+        background-color: var(--token-color-surface-action);
       }
+    }
+  }
+}
 
-      &.hds-dropdown-list-item__link--critical {
-        &:hover, &.is-hover {
+.hds-dropdown-list-item--color-critical {
+  a {
+    color: var(--token-color-foreground-critical);
 
-          &::before {
-            background-color: var(--token-color-foreground-critical-on-surface); //TODO we need a proper token here
-          }
-        }
-        a {
-          color: var(--token-color-foreground-critical);
-          
-          &:hover, &.is-hover {
-            color: var(--token-color-foreground-critical-on-surface);
-          }
-          &:focus-visible, &.is-focus {
-            &::before {
-              box-shadow: inset 0 0 0 1px var(--token-color-focus-critical-internal), 0 0 0 3px var(--token-color-focus-critical-external);
-            }
-          }
-          &:active, &.is-active {
-            background-color: var( --token-color-surface-critical);
-            border-left-color: var( --token-color-foreground-critical-on-surface);
-            color: var( --token-color-foreground-critical-on-surface);
-          }
-        }
+    // we apply the focus to the existing pseudo-element as box-shadow
+    &::after {
+      @include hds-focus-ring-basic($color: critical);
+    }
+
+    &:hover {
+      // color: var(--token-color-foreground-critical-hover); // TODO we need to add this token to the design system
+      &::before {
+        background-color: currentColor;
       }
-
-      .hds-dropdown-list-item__link__text {
-        width: fit-content;
-        white-space: normal;
+    }
+    &:active {
+      // color: var(--token-color-foreground-critical-active); // TODO we need to add this token to the design system
+      &::before {
+        background-color: currentColor;
       }
-      .hds-dropdown-list-item__link__icon {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: fit-content;
+      &::after {
+        background-color: var(--token-color-surface-critical);
       }
     }
   }

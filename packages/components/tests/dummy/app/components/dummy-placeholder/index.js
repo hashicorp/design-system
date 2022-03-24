@@ -11,7 +11,7 @@ export default class DummyPlaceholderIndexComponent extends Component {
   get width() {
     let { width = '100%' } = this.args;
 
-    if (typeof width === 'string' && width.match(/[\d]+/)) {
+    if (typeof width === 'string' && width.match(/^[\d]+$/)) {
       width = `${parseInt(width, 10)}px`;
     }
 
@@ -28,7 +28,7 @@ export default class DummyPlaceholderIndexComponent extends Component {
   get height() {
     let { height = '100%' } = this.args;
 
-    if (typeof height === 'string' && height.match(/[\d]+/)) {
+    if (typeof height === 'string' && height.match(/^[\d]+$/)) {
       height = `${parseInt(height, 10)}px`;
     }
 
