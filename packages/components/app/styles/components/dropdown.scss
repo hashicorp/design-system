@@ -177,12 +177,14 @@ $size-props: (
     position: absolute;
     right: 0;
     // TODO what about the top value?
+    z-index: 2; // TODO understand what is the right value here
   }
 
   &.absolute--left {
     position: absolute;
     left: 0;
     // TODO what about the top value?
+    z-index: 2; // TODO understand what is the right value here
   }
 }
 
