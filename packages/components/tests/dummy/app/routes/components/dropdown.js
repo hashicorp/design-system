@@ -8,7 +8,7 @@ export default class ComponentsDropdownRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const TOGGLE_STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
-    const ITEM_STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
+    const ITEM_STATES = ['default', 'hover', 'active', 'focus'];
     return {
       TOGGLE_BUTTON_COLORS,
       TOGGLE_MORE_SIZES,
