@@ -4,6 +4,7 @@
 @import "./_typography";
 
 @import "./pages/db-badge";
+@import "./pages/db-breadcrumb";
 @import "./pages/db-button";
 @import "./pages/db-card";
 @import "./pages/db-copy-button";
@@ -20,13 +21,15 @@
 @import "./components/dummy-placeholder";
 
 body.dummy-app {
+    background-color: #d9d9d9;
     padding: 0;
     max-width: 100%;
     margin: 0 auto;
 
-    .dummy-app-wrapper {
+    .dummy-app-wrapper {  //todo this should not be outside of landmark elements.
         display: grid;
         grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%; // necessary or when the content is larger than the page, it grows indefinitely!
 
         .dummy-header {
             width: 100%;
@@ -77,23 +80,70 @@ body.dummy-app {
         }
 
         .dummy-main {
+            background-color: #fff;
             padding: 2rem;
+            margin: 0 auto;
+            max-width: 100%;
             min-height: 84.75vh;
+            width: 1024px;
         }
-        .dummy-footer {
-            padding: 0 2rem;
-            background-color: black;
-            color: white;
-            .dummy-paragraph {
-                padding: 0;
-                margin: 0;
 
-                .dummy-link {
-                color: white;
-                display: flex;
-                align-content: center;
-                padding: 1rem;
-                width: fit-content;
+        .dummy-footer {
+            background-color: #f1f2f3;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
+            margin: auto;
+            padding: 0;
+            width: 100%;
+
+            .dummy-row-wrapper {
+                padding: 2rem;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                > * {
+                    max-width: 100%;
+                    white-space: wrap;
+                }
+                &.dummy-row-wrapper--last{
+                    background-color: black;
+                    color: white;
+                    padding: 0 0 0 2rem; // if there's not some padding, it collapses; can address in later refactor
+                    width: 100%;
+
+                    .dummy-paragraph {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: flex-end;
+                        padding-top: 0;
+                        margin: 0;
+                        min-height: fit-content;
+                        .dummy-link {
+                            border: 1px solid transparent;
+                            box-sizing: border-box;
+                            align-content: center;
+                            color: white;
+                            display: flex;
+                            gap: 6px;
+                            margin: 0;
+                            padding: 1rem;
+                            text-decoration: none;
+                            width: fit-content;
+                            &::before, &::after {
+                                box-sizing: border-box;
+                            }
+                            &:hover, &:focus {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                .dummy-row {
+                    max-width: 100%;
+                    width: 1024px;
+                    margin: 0 auto;
+                    padding: 0;
                 }
             }
         }

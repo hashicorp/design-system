@@ -62,8 +62,21 @@
     @include dummyFontSize(1rem);
     line-height: 1.2;
 }
+.dummy-title-small {
+    @include dummyFontFamily();
+    @include dummyFontSize(1rem);
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
 .dummy-text-small {
     @include dummyFontFamily();
     font-size: 0.8rem;
     line-height: 2;
+}
+.dummy-list {
+    @include dummyFontFamily();
+    @include dummyFontSize(1rem);
+    line-height: 1.5;
 }

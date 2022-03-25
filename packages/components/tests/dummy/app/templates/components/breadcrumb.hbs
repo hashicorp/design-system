@@ -1,0 +1,413 @@
+{{page-title "Breadcrumb"}}
+
+<h2 class="dummy-h2">Breadcrumb</h2>
+
+<div class="dummy-banner dummy-banner--alert">
+  <p class="dummy-paragraph"><strong>🚨 ATTENTION 🚨</strong></p>
+  <p class="dummy-paragraph">Despite being ready this component can't be used in production code yet. The reason is
+    that, in order to be fully adopted in the Cloud UI codebase, it requires some refactoring on the way breadcrumbs are
+    implemented in Cloud UI.</p>
+  <p class="dummy-paragraph">If you need to adopt it in your codebase please speak with the HDS team first so they can
+    help you.</p>
+</div>
+
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Breadcrumb</code>
+    component is composed by different parts, with their own APIs:</p>
+  <ul>
+    <li class="dummy-paragraph">
+      a main "container" (the breadcrumb itself)
+    </li>
+    <li class="dummy-paragraph">
+      an "item" sub-component (a single "crumb")
+    </li>
+    <li class="dummy-paragraph">
+      a "truncation" sub-component (a hidden list of "crumbs" that can be made visible via a toggle)
+    </li>
+  </ul>
+  <h4 class="dummy-h4">Breadcrumb</h4>
+  <p class="dummy-paragraph">Here is the API for the main ("container") component:</p>
+  <dl class="dummy-component-props">
+    <dt>itemsCanWrap <code>boolean</code></dt>
+    <dd>
+      <p>This controls if the breadcrumb items can wrap in case they can't fit in the container width.</p>
+      <p> Default: <span class="default">true</span></p>
+    </dd>
+    <dt>didInsert <code>function</code></dt>
+    <dd>
+      <p>This hook method is called when the component is inserted in the DOM.</p>
+      <p> Default: <span class="default">noop / () => {}</span> </p>
+      <p><em>Notice: internally we use the "did-insert" modifier from @ember/render-modifiers.</em></p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: by default an attribute
+          <code class="dummy-code">aria-label="breadcrumbs"</code>
+          is assigned to the component. If you want to localize it you can override it passing the same attribute with a
+          different value.
+        </em></p>
+    </dd>
+  </dl>
+  <h4 class="dummy-h4">Breadcrumb::Item</h4>
+  <p class="dummy-paragraph">Here is the API for the "item" sub-component:</p>
+  <dl class="dummy-component-props">
+    <dt>text <code>string</code></dt>
+    <dd>
+      <p>The text to show as "crumb" for the item.</p>
+    </dd>
+    <dt>icon <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
+    </dd>
+    <dt>route/models/model/query</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the <code>&lt;LinkTo&gt;</code> component.</p>
+    </dd>
+    <dt>current <code>boolean</code></dt>
+    <dd>
+      <p>This controls if this is the last item in the breadcrumb (in which case it doesn't generate a link).</p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+  <h4 class="dummy-h4">Breadcrumb::Truncation</h4>
+  <p class="dummy-paragraph">Here is the API for the "truncation" sub-component:</p>
+  <dl class="dummy-component-props">
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this sub-component are yielded to the content of the
+        <a href="../utilities/disclosure">Disclosure</a>
+        component (used to show/hide the yielded breadcrumb items via a "toggle" button).</p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+  <p class="dummy-paragraph">The breadcrumb is a high-level UI element, so it's likely that it will be implemented once
+    per application, and then never changed (apart from follow-up redesigns/improvements). Below we give a couple of
+    examples to give a general overview and show how it works.</p>
+
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">A simple breadcrumb can be invoked using something like this:</p>
+
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Breadcrumb>
+        <Hds::Breadcrumb::Item @text="My org" @icon="org" />
+        <Hds::Breadcrumb::Item @text="Consul" @icon="consul" />
+        <Hds::Breadcrumb::Item @text="my-consul-cluster" />
+        <Hds::Breadcrumb::Item @text="Overview" @current=\{{true}} />
+      </Hds::Breadcrumb>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">With routing parameters</h4>
+  <p class="dummy-paragraph">In the example above, we have omitted a few parameters for clarity. In reality, each
+    breadcrumb item is expected to be a link, so in order to work the correct
+    <code>@route/@models/@model/@query</code>
+    parameter needs to be passed too (they will depend on the context, of course):</p>
+
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Breadcrumb>
+        <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="index" />
+        <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="list" />
+        <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="detail.index" @model=\{{@cluster.id}} />
+        <Hds::Breadcrumb::Item @text="Overview" @current=\{{true}} />
+      </Hds::Breadcrumb>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">No wrapping</h4>
+  <p class="dummy-paragraph">By default, the breadcrumb allows the item to wrap on multiple lines, if the container
+    width is too small. If you don't want this to happen you have to pass the
+    <code class="dummy-code">itemsCanWrap</code>
+    parameter as
+    <code class="dummy-code">false</code>, but keep in mind that the text will be automatically elliptized in this case,
+    to fit the container:</p>
+
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Breadcrumb itemsCanWrap=\{{false}}>
+        [items here]
+      </Hds::Breadcrumb>
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">With truncation</h4>
+  <p class="dummy-paragraph">It is also possible to collect and hide part of the breadcrumb tree under a "truncated"
+    item, that will show the elements via "toggle":</p>
+
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Breadcrumb>
+        <Hds::Breadcrumb::Truncation>
+          <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="..." />
+          <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="..." />
+          <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="..." />
+        </Hds::Breadcrumb::Truncation>
+        <Hds::Breadcrumb::Item @text="Cluster details" @route="..." />
+        <Hds::Breadcrumb::Item @text="Cluster sub-details" @current=\{{true}} />
+      </Hds::Breadcrumb>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2989%3A7660"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a></p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/breadcrumb-design-usage.png" alt="" role="none" />
+  </div>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+
+  <h4 class="dummy-h4">Variants</h4>
+
+  <p class="dummy-paragraph">text only</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" />
+    <Hds::Breadcrumb::Item @text="Level two" />
+    <Hds::Breadcrumb::Item @text="Level three" />
+    <Hds::Breadcrumb::Item @text="Level four" />
+    <Hds::Breadcrumb::Item @text="Level five" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  </Hds::Breadcrumb>
+
+  <p class="dummy-paragraph">with icons</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+    <Hds::Breadcrumb::Item @text="Level three" />
+    <Hds::Breadcrumb::Item @text="Level four" />
+    <Hds::Breadcrumb::Item @text="Level five" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  </Hds::Breadcrumb>
+
+  <p class="dummy-paragraph">with truncation</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" />
+    <Hds::Breadcrumb::Item @text="Level two" />
+    <Hds::Breadcrumb::Truncation>
+      <Hds::Breadcrumb::Item @text="Sub-level one" />
+      <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
+      <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
+    </Hds::Breadcrumb::Truncation>
+    <Hds::Breadcrumb::Item @text="Level four" />
+    <Hds::Breadcrumb::Item @text="Level five" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  </Hds::Breadcrumb>
+
+  <h4 class="dummy-h4">States</h4>
+
+  <p class="dummy-paragraph">default</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+    <Hds::Breadcrumb::Truncation>
+      <Hds::Breadcrumb::Item @text="Sub-level one" />
+      <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
+      <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
+    </Hds::Breadcrumb::Truncation>
+    <Hds::Breadcrumb::Item @text="Level four" />
+    <Hds::Breadcrumb::Item @text="Level five" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  </Hds::Breadcrumb>
+
+  <p class="dummy-paragraph">hover</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" @hover={{true}} />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" @hover={{true}} />
+    <Hds::Breadcrumb::Truncation @hover={{true}}>
+      <Hds::Breadcrumb::Item @text="Sub-level one" />
+      <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
+      <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
+    </Hds::Breadcrumb::Truncation>
+    <Hds::Breadcrumb::Item @text="Level four" @hover={{true}} />
+    <Hds::Breadcrumb::Item @text="Level five" @hover={{true}} />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} @hover={{true}} />
+  </Hds::Breadcrumb>
+
+  <p class="dummy-paragraph">active</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" @active={{true}} />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" @active={{true}} />
+    <Hds::Breadcrumb::Truncation @active={{true}}>
+      <Hds::Breadcrumb::Item @text="Sub-level one" />
+      <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
+      <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
+    </Hds::Breadcrumb::Truncation>
+    <Hds::Breadcrumb::Item @text="Level four" @active={{true}} />
+    <Hds::Breadcrumb::Item @text="Level five" @active={{true}} />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} @active={{true}} />
+  </Hds::Breadcrumb>
+
+  <p class="dummy-paragraph">focus</p>
+  <Hds::Breadcrumb>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" @focus={{true}} />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" @focus={{true}} />
+    <Hds::Breadcrumb::Truncation @focus={{true}}>
+      <Hds::Breadcrumb::Item @text="Sub-level one" />
+      <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
+      <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
+    </Hds::Breadcrumb::Truncation>
+    <Hds::Breadcrumb::Item @text="Level four" @focus={{true}} />
+    <Hds::Breadcrumb::Item @text="Level five" @focus={{true}} />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} @focus={{true}} />
+  </Hds::Breadcrumb>
+
+  <h4 class="dummy-h4">Truncation options</h4>
+
+  <p class="dummy-paragraph">with long strings / items can wrap (default)</p>
+  <div class="dummy-breadcrumb-max-width-container-large">
+    <Hds::Breadcrumb>
+      <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
+      <Hds::Breadcrumb::Item @text="Level three with a very long string" />
+      <Hds::Breadcrumb::Item @text="Level four with a very long string" />
+      <Hds::Breadcrumb::Item @text="Level five with a very long string" />
+      <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
+    </Hds::Breadcrumb>
+
+  </div>
+
+  <p class="dummy-paragraph">with long strings / items can't wrap (text is elliptized)</p>
+  <div class="dummy-breadcrumb-max-width-container-large">
+    <Hds::Breadcrumb @itemsCanWrap={{false}}>
+      <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
+      <Hds::Breadcrumb::Item @text="Level three with a very long string" />
+      <Hds::Breadcrumb::Item @text="Level four with a very long string" />
+      <Hds::Breadcrumb::Item @text="Level five with a very long string" />
+      <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
+    </Hds::Breadcrumb>
+  </div>
+
+  <p class="dummy-paragraph">with max-width on single item</p>
+  <div class="dummy-breadcrumb-max-width-container-large">
+    <Hds::Breadcrumb @itemsCanWrap={{false}}>
+      <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+      <Hds::Breadcrumb::Item @text="Level three" />
+      <Hds::Breadcrumb::Item @text="Level four with a very long string" @maxWidth="180px" />
+      <Hds::Breadcrumb::Item @text="Level five" />
+      <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+    </Hds::Breadcrumb>
+  </div>
+
+  <p class="dummy-paragraph">with "truncation" element</p>
+  <div class="dummy-breadcrumb-sample-with-truncation-dropdown">
+    <Hds::Breadcrumb>
+      <Hds::Breadcrumb::Item @text="Level one" />
+      <Hds::Breadcrumb::Item @text="Level two" />
+      <Hds::Breadcrumb::Truncation>
+        <Hds::Breadcrumb::Item @text="Level three" />
+        <Hds::Breadcrumb::Item @text="Level four with a long string that can span multiple lines" />
+        <Hds::Breadcrumb::Item @text="Level five with icon" @icon="dashboard" />
+        <Hds::Breadcrumb::Item @text="Level six with icon" @icon="database" />
+      </Hds::Breadcrumb::Truncation>
+      <Hds::Breadcrumb::Item @text="Level seven" />
+      <Hds::Breadcrumb::Item @text="Level eight" />
+      <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+    </Hds::Breadcrumb>
+  </div>
+
+</section>
+
+<section>
+  <h3 class="dummy-h3">Known issues</h3>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Breadcrumb</code>
+    component is composed by different parts, with their own APIs:</p>
+  <ul>
+    <li>
+      <p class="dummy-paragraph">
+        <strong>feature</strong>/ the
+        <code class="dummy-code">"truncation"</code>
+        element has been implemented, but it's likely that it can't be used in Cloud UI as is, but will require some
+        adjustments (reason being how the "breadcrumbs" are currently declared and generated in Cloud UI; for this to
+        work a refactoring will be needed on their side)
+      </p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">
+        <strong>a11y</strong>/ when the browser zoom is used to scale content to 400%, if the
+        <code class="dummy-code">Breadcrumb</code>
+        has a
+        <code class="dummy-code">"truncation"</code>
+        open, the dropdow may extend beyond the viewport and require the user to scroll in more than one direction (this
+        is a failure of
+        <a
+          href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Reflow – 1.4.10</a>).
+      </p>
+      <img
+        src="/assets/images/breadcrumb-known-issue-truncation-outside-viewport.png"
+        alt="The breadcrumb component with the “truncation” dropdowm extending beyond the viewport"
+        width="400px"
+      />
+    </li>
+    <li>
+      <p class="dummy-paragraph">
+        <strong>a11y</strong>
+        / when the browser zoom is used to scale content to 400%, if the
+        <code class="dummy-code">Breadcrumb</code>
+        is not allowed to wrap its items (via the
+        <code class="dummy-code">@itemsCanWrap</code>
+        prop) the text gets likely truncated, making it impossible for keyboard-only user to access the truncated
+        content
+      </p>
+      <img
+        src="/assets/images/breadcrumb-known-issue-truncated-text.png"
+        alt="The breadcrumb component with truncated text (ellipsis)"
+        width="400px"
+      />
+    </li>
+  </ul>
+
+</section>

@@ -33,6 +33,10 @@
     <dt>icon <code>string</code></dt>
     <dd>
       <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
+      <p><strong>🚨 IMPORTANT:</strong>
+        <code class="dummy-code">tertiary</code>
+        buttons are required to have either a leading or trailing icon to be accessible.</p>
+
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
@@ -112,9 +116,6 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
-  <p class="dummy-paragraph"><strong>🚨 IMPORTANT:</strong>
-    <code class="dummy-code">tertiary</code>
-    buttons are required to have either a leading or trailing icon to be accessible.</p>
 
   <h4 class="dummy-h4">Icon position</h4>
   <p class="dummy-paragraph">By default, if you define an icon, it is placed before the text. If you would like to
