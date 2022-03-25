@@ -61,17 +61,6 @@ export default class HdsDropdownListItemComponent extends Component {
     return item;
   }
 
-  // TODO! check this and other components, where we are not actually handling this with the classnames!!!
-  /**
-   * @param isDisabled
-   * @type {boolean}
-   * @default null
-   * @description Sets the native HTML attribute `disabled` on the button element. Default is null (doesn't render the attribute).
-   */
-  get isDisabled() {
-    return this.args.isDisabled ?? null;
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames
@@ -80,7 +69,6 @@ export default class HdsDropdownListItemComponent extends Component {
   get classNames() {
     let classes = ['hds-dropdown-list-item'];
 
-    // TODO! is there a better way?
     // add a class based on the @item argument
     if (this.item) {
       classes.push(`hds-dropdown-list-item--${this.item}`);
@@ -88,7 +76,6 @@ export default class HdsDropdownListItemComponent extends Component {
 
     // add a class based on the @color argument
     if (this.item === 'link' && this.color) {
-      console.log(this.item === 'link', this.color);
       classes.push(`hds-dropdown-list-item--color-${this.color}`);
     }
 
