@@ -37,9 +37,10 @@ $hds-dropdown-toggle-border-radius: 5px;
 $hds-dropdown-toggle-border-width: 1px;
 
 
-// BASE (for "MORE" and "USER")
+// COMMON for "MORE" and "USER"
 
-.hds-dropdown-toggle {
+.hds-dropdown-toggle--more,
+.hds-dropdown-toggle--user {
   align-items: center;
   background-color: transparent;
   border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
