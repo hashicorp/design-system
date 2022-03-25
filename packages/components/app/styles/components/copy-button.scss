@@ -86,22 +86,4 @@
     border-color: var(--token-color-border-success);
     .hds-copy-button__icon { color: var(--token-color-foreground-success); }
   }
-
-  // This covers all of the browsers and focus scenarios (due to the custom focus design).
-  &:disabled,
-  &[disabled],
-  &.is-disabled,
-  &:disabled:focus,
-  &[disabled]:focus,
-  &.is-disabled:focus,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.is-disabled:hover {
-    background-color: var(--token-color-surface-interactive-disabled);
-    border-color: var(--token-color-border-primary);
-    box-shadow: none;
-    color: var(--token-color-foreground-disabled);
-    cursor: not-allowed;
-    .hds-copy-button__icon { color: inherit; }
-  }
 }
