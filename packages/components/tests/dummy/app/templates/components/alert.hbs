@@ -32,16 +32,17 @@
   <dl class="dummy-component-props">
     <dt>color <code>enum</code></dt>
     <dd>
-      <p><code class="dummy-code">color</code>
-        results in a default
-        <code class="dummy-code">icon</code>, which
-        <strong>can</strong>
-        be overriden.
+      <p>
         <code class="dummy-code">color</code>
         sets the color scheme for background, border,
         <code class="dummy-code">title</code>, and
         <code class="dummy-code">description</code>, which
         <strong>cannot</strong>
+        be overriden.
+        <code class="dummy-code">color</code>
+        results in a default
+        <code class="dummy-code">icon</code>, which
+        <strong>can</strong>
         be overriden.
       </p>
       <p>Acceptable values:</p>
@@ -137,9 +138,12 @@
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
 
+  Color variations:
+
   <Hds::Alert
+    @color="neutral"
     @icon="alert-triangle"
-    @title="Alert w/title & description"
+    @title="Neutral! Alert w/title & description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -148,10 +152,61 @@
   />
   <br />
 
-  <Hds::Alert @icon="alert-triangle" @description="Description only please" />
+  <Hds::Alert
+    @color="highlight"
+    @icon="alert-triangle"
+    @title="Highlight! Alert w/title & description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
   <br />
 
   <Hds::Alert
+    @color="success"
+    @icon="alert-triangle"
+    @title="Success! Alert w/title & description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+
+  <Hds::Alert
+    @color="warning"
+    @icon="alert-triangle"
+    @title="Warning! Alert w/title & description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+
+  <Hds::Alert
+    @color="critical"
+    @icon="alert-triangle"
+    @title="Critical! Alert w/title & description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+
+  Other variations:
+
+  <Hds::Alert @color="critical" @icon="alert-triangle" @description="Description only please" />
+  <br />
+
+  <Hds::Alert
+    @color="neutral"
     @icon="alert-triangle"
     @title="Really long title, yet no description. Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
@@ -162,6 +217,7 @@
   <br />
 
   <Hds::Alert
+    @color="highlight"
     @icon="alert-triangle"
     @title="Description below has HTML"
     @description="Your Intention settings are currently set to default <strong>allow</strong>. This
@@ -170,11 +226,6 @@
       creating specific Intentions for upstream and downstream services for this
       view to be useful. For more info, see <a href='#'>About clusters</a>."
   />
-  <br />
-
-  {{! TODO: For dev only }}
-  <p>Below alert with no title, no description, does not appear in local dev (see error in console):</p>
-  <Hds::Alert @icon="meh" />
 
   <h4 class="dummy-h4">Content</h4>
 
@@ -183,5 +234,4 @@
   <h4 class="dummy-h4">Type</h4>
 
   <h4 class="dummy-h4">Color:</h4>
-
 </section>
