@@ -65,7 +65,7 @@
   &:focus,
   &.is-focus {
     background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-focus-action-internal);
+    border: none;
     .hds-copy-button__icon { color: var(--token-color-foreground-action); }
   }
   &:hover,
