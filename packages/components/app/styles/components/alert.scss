@@ -28,6 +28,7 @@
 
 .hds-alert__description {
   font-weight: var(--token-typography-font-weight-regular);
+  color: var(--token-color-foreground-primary);
 
   .hds-alert__title + & {
     margin-top: 0.25rem; // 4px
@@ -65,10 +66,6 @@
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-critical-on-surface);
   } 
-
-  .hds-alert__description {
-    color: var(--token-color-foreground-primary);
-  }
 }
 
 .hds-alert--color-warning {
@@ -77,10 +74,6 @@
 
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-warning-on-surface);
-  }
-
-  .hds-alert__description {
-    color: var(--token-color-foreground-primary);
   }
 }
 
@@ -92,10 +85,6 @@
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-primary);
   }
-
-  .hds-alert__description {
-    color: var(--token-color-foreground-primary);
-  }
 }
 
 .hds-alert--color-highlight {
@@ -105,10 +94,6 @@
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-highlight-on-surface);
   }
-
-  .hds-alert__description {
-    color: var(--token-color-foreground-primary);
-  }
 }
 
 .hds-alert--color-success {
@@ -117,9 +102,5 @@
 
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-success-on-surface);
-  }
-
-  .hds-alert__description {
-    color: var(--token-color-foreground-primary);
   }
 }
