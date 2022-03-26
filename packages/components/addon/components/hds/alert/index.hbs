@@ -1,9 +1,9 @@
 <div class={{this.classNames}} ...attributes role="alert">
-  {{#if (or @icon @color)}}
+  {{#if (or @icon this.color)}}
     <div class="hds-alert__icon">
       {{#if @icon}}
         <FlightIcon @name={{@icon}} @size="24" @isInlineBlock={{false}} />
-      {{else if (or (eq @color "neutral") (eq @color "highlight"))}}
+      {{else if (or (eq this.color "neutral") (eq @color "highlight"))}}
         <FlightIcon @name="info" @size="24" @isInlineBlock={{false}} />
       {{else if (eq @color "success")}}
         <FlightIcon @name="check-circle" @size="24" @isInlineBlock={{false}} />

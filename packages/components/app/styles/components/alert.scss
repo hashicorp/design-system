@@ -45,7 +45,7 @@
   // Notice: in the future this may become a "Link::Inline" component (for now we declare the styles directly here)
   a {
     color: var(--token-color-foreground-action);
-    // at the moment the "focus" state is not well defined in design (the one that is in Figma does not work) so we just apply a simple color to the default outline
+    // At the moment the "focus" state is not well defined in design (the one that is in Figma does not work) so we just apply a simple color to the default outline
     outline-color: var(--token-color-focus-action-external);
 
     &:hover {
@@ -77,9 +77,10 @@
   }
 }
 
+// TODO: Check all neutral tokens, cause don't follow pattern of other `color`s 
 .hds-alert--color-neutral {
   background-color: var(--token-color-surface-faint);
-  // TODO: Check if should be a token
+  // TODO: Check if should be a token for 0px 1px 0px 0px thruout, and rgba
   box-shadow: 0px 1px 0px 0px rgba(59, 61, 69, 0.4);
 
   .hds-alert__icon, .hds-alert__title {

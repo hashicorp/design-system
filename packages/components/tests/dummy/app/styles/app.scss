@@ -208,6 +208,9 @@ body.dummy-app {
     border-color: #f5c6cb;
 }
 
+.dummy-indent {
+    margin-left: 30px !important;
+}
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".
