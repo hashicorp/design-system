@@ -2,7 +2,13 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_COLOR = 'neutral';
-export const COLORS = ['critical', 'warning', 'neutral', 'highlight', 'success'];
+export const COLORS = [
+  'critical',
+  'warning',
+  'neutral',
+  'highlight',
+  'success',
+];
 
 export default class HdsAlertIndexComponent extends Component {
   constructor() {
@@ -20,7 +26,7 @@ export default class HdsAlertIndexComponent extends Component {
    * @default neutral
    * @description Determines the color scheme for the alert.
    */
-   get color() {
+  get color() {
     let { color = DEFAULT_COLOR } = this.args;
 
     assert(
