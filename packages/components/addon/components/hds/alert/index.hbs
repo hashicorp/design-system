@@ -1,7 +1,17 @@
 <div class={{this.classNames}} ...attributes role="alert">
-  {{#if @icon}}
+  {{#if (or @icon @color)}}
     <div class="hds-alert__icon">
-      <FlightIcon @name={{this.icon}} @size="24" @isInlineBlock={{false}} />
+      {{#if @icon}}
+        <FlightIcon @name={{@icon}} @size="24" @isInlineBlock={{false}} />
+      {{else if (or (eq @color "neutral") (eq @color "highlight"))}}
+        <FlightIcon @name="info" @size="24" @isInlineBlock={{false}} />
+      {{else if (eq @color "success")}}
+        <FlightIcon @name="check-circle" @size="24" @isInlineBlock={{false}} />
+      {{else if (eq @color "warning")}}
+        <FlightIcon @name="alert-triangle" @size="24" @isInlineBlock={{false}} />
+      {{else if (eq @color "critical")}}
+        <FlightIcon @name="alert-octagon" @size="24" @isInlineBlock={{false}} />
+      {{/if}}
     </div>
   {{/if}}
 

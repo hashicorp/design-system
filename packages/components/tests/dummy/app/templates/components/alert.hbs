@@ -142,7 +142,6 @@
 
   <Hds::Alert
     @color="neutral"
-    @icon="alert-triangle"
     @title="Neutral! Alert w/title & description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
@@ -154,7 +153,6 @@
 
   <Hds::Alert
     @color="highlight"
-    @icon="alert-triangle"
     @title="Highlight! Alert w/title & description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
@@ -166,7 +164,6 @@
 
   <Hds::Alert
     @color="success"
-    @icon="alert-triangle"
     @title="Success! Alert w/title & description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
@@ -178,7 +175,6 @@
 
   <Hds::Alert
     @color="warning"
-    @icon="alert-triangle"
     @title="Warning! Alert w/title & description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
@@ -190,8 +186,19 @@
 
   <Hds::Alert
     @color="critical"
-    @icon="alert-triangle"
     @title="Critical! Alert w/title & description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+
+  <Hds::Alert
+    @color="critical"
+    @icon="meh"
+    @title="Critical! With special icon"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
