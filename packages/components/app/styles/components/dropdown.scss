@@ -14,26 +14,24 @@
 // DROPDOWN COMPONENT
 //
 // properties within each class are sorted alphabetically
-// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
 // see https://github.com/hashicorp/design-system-components/issues/132
 //
 //
 
-// TODO! split this file in sub-files and import them here:
-// - index (main container)
-// - toggle
-// - list
 
 @use '../mixins/focus-ring' as *;
 
-$hds-dropdown-toggle-more-sizes: ('small', 'medium');
+$hds-dropdown-toggle-overflow-sizes: ('small', 'medium');
 
 $hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: 5px;
 $hds-dropdown-toggle-border-width: 1px;
 $hds-dropdown-list-item-border-radius: 5px;
 
-// TOGGLE/BASE (for "MORE" and "USER") // TODO this is not how we name things like this.
+
+// TOGGLE/BASE (for "OVERFLOW" and "USER") 
+// TODO update this name to be more explicit (MS)
 
 .hds-dropdown-toggle {
   align-items: center;
@@ -69,7 +67,7 @@ $hds-dropdown-list-item-border-radius: 5px;
 
     // it looks weird to see the user photo in full color when the toggle is disabled
     // so we we convert the image to monochrome and reduce its opacity to blend with the background
-    .hds-dropdown-toggle__user {
+    .hds-dropdown-toggle-user {
       img {
         filter: grayscale(100%);
         opacity: 0.25;
@@ -87,12 +85,14 @@ $hds-dropdown-list-item-border-radius: 5px;
       $radius: $hds-dropdown-toggle-border-radius
     );
   }
+
   &:hover,
   &.is-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
     cursor: pointer;
   }
+
   &:active,
   &.is-active {
     background-color: var(--token-color-surface-interactive-active);
@@ -123,22 +123,29 @@ $size-props: (
   ),
 );
 
-.hds-dropdown-toggle--more {
-  @each $size in $hds-dropdown-toggle-more-sizes {
-    &.hds-dropdown-toggle--size-#{$size} {
+.hds-dropdown-toggle-overflow {
+  @each $size in $hds-dropdown-toggle-overflow-sizes {
+    &.hds-dropdown-toggle-overflow--size-#{$size} {
       height: map-get($size-props, $size, 'size');
       width: map-get($size-props, $size, 'size');
     }
+  }
+
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
   }
 }
 
 // TOGGLE/USER
 
-.hds-dropdown-toggle--user {
+
+.hds-dropdown-toggle-user {
   height: $hds-dropdown-toggle-base-height;
   padding: 1px;
 
-  .hds-dropdown-toggle__user {
+  .hds-dropdown-toggle-user--avatar {
     $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
     align-items: center;
     border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
@@ -154,177 +161,209 @@ $size-props: (
   }
 }
 
-.hds-dropdown__list {
-  align-items: flex-start;
-  background-color: white; //TODO REPLACE WITH TOKEN
+
+// LIST
+// UL ELEMENT
+// GOES INSIDE HDS::DISCLOSURE's :content block
+
+.hds-dropdown-list {
+  background-color: var(--token-color-surface-primary);
   border-radius: 6px;
   box-shadow: var(--token-surface-high-box-shadow);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;  //TODO 
   list-style: none;
-  margin: 0;
-  min-height: fit-content;
+  margin: 6px 0 0;
   padding: 4px 0;
-  width: 200px; // default width; TODO once copy-item is added, width should be wider
+  width: 200px; // default width // TODO
 
   &.absolute--right {
     position: absolute;
     right: 0;
+    z-index: 2; // TODO understand what is the right value here
   }
 
   &.absolute--left {
     position: absolute;
     left: 0;
+    z-index: 2; // TODO understand what is the right value here
+  }
+}
+
+
+// LIST > LIST-ITEM
+// HDS::DROPDOWN::LIST-ITEM
+
+.hds-dropdown-list-item {
+  // TODO flex removed? (MS)
+
+  &.hds-dropdown-list-item--heading {
+    color: var(--token-color-foreground-strong);
+    font-family: var(--token-typography-body-100-font-family);
+    font-size: var(--token-typography-body-100-font-size);
+    font-weight: var(--token-typography-font-weight-semibold);
+    line-height: var(--token-typography-body-100-line-height);
+    padding: 10px 16px 4px;
   }
 
-  .hds-dropdown-list-item {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    font-family: var(--token-typography-font-stack-text);
-    min-height: 36px;
-    justify-content: center;
+  &.hds-dropdown-list-item--help-text {
+    color: var(--token-color-foreground-faint);
+    font-family: var(--token-typography-body-100-font-family);
+    font-size: var(--token-typography-body-100-font-size);
+    font-weight: var(--token-typography-font-weight-regular);
+    line-height: var(--token-typography-body-100-line-height);
+    padding: 2px 16px 4px;
+  }
+
+  &.hds-dropdown-list-item--separator {
+    // TODO (MS) why was this changed?
+    position: relative;
+    height: 4px;
     width: 100%;
 
-    &.hds-dropdown-list-item__heading {
-      box-sizing: border-box;
-      color: var(--token-color-foreground-strong);
-      display: flex;
-      font-size: 13px;
-      font-weight: 600;
-      justify-content: flex-start;
-      line-height: 18px;
-      padding: 10px 16px 4px;
-      width: 100%;
+    &::before {
+      position: absolute;
+      right: 6px;
+      left: 6px;
+      bottom: 0;
+      border-bottom: 1px solid var(--token-color-border-primary);
+      content: '';
     }
+  }
 
-    &.hds-dropdown-list-item__help-text {
-      box-sizing: border-box;
-      color: var(--token-color-foreground-faint);
-      display: flex;
-      flex-flow: row wrap;
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 18px;
-      max-width: 100%;
-      padding: 2px 16px 4px;
-    }
+  &.hds-dropdown-list-item--link {
+    position: relative;
+    isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+    min-height: 36px;
 
-    &.hds-dropdown-list-item__separator {
+    a {
       align-items: center;
       display: flex;
-      height: 6px;
-      justify-content: stretch;
-      min-height: 6px;
-      padding: 0;
-      span {
-        background-color: var(--token-color-border-primary);
-        height: 1px;
-        width: 100%;
-      }
-    }
+      outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+      outline-color: transparent;
+      padding: 8px 10px 8px 16px;
+      text-decoration: none;
 
-    &.hds-dropdown-list-item__link {
-      box-sizing: border-box;
-      border-color: transparent;
-      padding: 0 4px 0 10px;
-      position: relative;
-      font-size: 14px;
-      line-height: 20px;
-
+      // this is used for the left "hover" indicator
       &::before {
         border-radius: 1px;
-        bottom: 4px;
+        bottom: 6px;
         content: '';
         left: 4px;
         position: absolute;
-        top: 4px;
+        top: 6px;
         width: 2px;
+        z-index: -1;
+      }
+
+      // Notice: this is used for the active/focus states which have very specific positions
+      // and also has a background color, so we can't use the existing focus-ring mixins
+      &::after {
+        border-radius: 5px;
+        bottom: 0px;
+        content: '';
+        left: 10px;
+        position: absolute;
+        right: 4px;
+        z-index: -1;
+        top: 0;
+      }
+
+      // Notice: to avoid too much duplication we define two local CSS variables
+      // and define their values in the color variants below
+
+      // default focus for browsers that still rely on ":focus"
+      &:focus,
+      &.is-focus {
+        &::after {
+          background-color: var(--current-background-color);
+          box-shadow: var(--current-focus-ring-box-shadow);
+          left: 4px;
+        }
+      }
+      // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+      &:focus:not(:focus-visible) {
+        &::after {
+          box-shadow: none;
+        }
+      }
+      // set focus for browsers that support ":focus-visible"
+      &:focus-visible {
+        &::after {
+          background-color: var(--current-background-color);
+          box-shadow: var(--current-focus-ring-box-shadow);
+          left: 4px;
+        }
+      }
+      // remove the focus ring on "active + focused" state (by design) // TODO Mel fix this
+      &:focus:active,
+      &.is-focus.is-active {
+        &::after {
+          box-shadow: none;
+        }
+      }
+    }
+  
+    &.hds-dropdown-list-item--link--action {
+      &:hover {
+        &::before {
+          background-color: var(--token-color-foreground-action-hover);
+        }
       }
 
       a {
-        @include hds-focus-ring-with-pseudo-element(
-          $top: 0,
-          $right: 0,
-          $bottom: 0,
-          $left: 0,
-          $radius: 5px
-        ); //TODO @didoo need critical variant
-        border-radius: $hds-dropdown-list-item-border-radius;
-        display: grid;
-        font-size: 15px;
-        gap: 0px 6px;
-        grid-auto-flow: row;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: min-content;
-        line-height: 20px;
-        max-width: 100%;
-        padding: 10px;
-        text-decoration: none;
-        width: 100%;
-      }
+        color: var(--token-color-foreground-primary);
 
-      &.hds-dropdown-list-item__link--action {
         &:hover {
-          &::before {
-            background-color: var(--token-color-foreground-action-hover);
-          }
+          color: var(--token-color-foreground-action-hover);
         }
-        a {
-          color: var(--token-color-foreground-primary);
 
-          &:hover {
-            color: var(--token-color-foreground-action-hover);
-          }
-
-          &:active {
-            background-color: var(--token-color-surface-action);
-            border-left-color: var(--token-color-foreground-action-hover);
-            color: var(--token-color-foreground-action-active);
-          }
+        &:active {
+          background-color: var(--token-color-surface-action);
+          border-left-color: var(--token-color-foreground-action-hover);
+          color: var(--token-color-foreground-action-active);
         }
-      }
-
-      &.hds-dropdown-list-item__link--critical {
-        &:hover {
-          &::before {
-            background-color: var(--token-color-foreground-critical-on-surface);
-          }
-        }
-        a {
-          color: var(--token-color-foreground-critical);
-
-          &:hover {
-            color: var(--token-color-foreground-critical-on-surface);
-          }
-          &:focus-visible {
-            &::before {
-              box-shadow: inset 0 0 0 1px
-                  var(--token-color-focus-critical-internal),
-                0 0 0 3px var(--token-color-focus-critical-external);
-            }
-          }
-          &:active {
-            background-color: var(--token-color-surface-critical);
-            border-left-color: var(
-              --token-color-foreground-critical-on-surface
-            );
-            color: var(--token-color-foreground-critical-on-surface);
-          }
-        }
-      }
-
-      .hds-dropdown-list-item__link__text {
-        width: fit-content;
-        white-space: normal;
-      }
-      .hds-dropdown-list-item__link__icon {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: fit-content;
       }
     }
+
+    &.hds-dropdown-list-item--link--critical {
+      &:hover {
+        &::before {
+          background-color: var(--token-color-foreground-critical-on-surface);
+        }
+      }
+      a {
+        color: var(--token-color-foreground-critical);
+
+        &:hover {
+          color: var(--token-color-foreground-critical-on-surface);
+        }
+        &:focus-visible {
+          &::before {
+            box-shadow: inset 0 0 0 1px
+                var(--token-color-focus-critical-internal),
+              0 0 0 3px var(--token-color-focus-critical-external);
+          }
+        }
+        &:active {
+          background-color: var(--token-color-surface-critical);
+          border-left-color: var(
+            --token-color-foreground-critical-on-surface
+          );
+          color: var(--token-color-foreground-critical-on-surface);
+        }
+      }
+    }
+
+  //   &:active,
+  //   &.is-active {
+  //     color: var(--token-color-palette-red-400); // TODO we need to add this token to the design system
+  //     &::before {
+  //       background-color: currentColor;
+  //     }
+  //     &::after {
+  //       background-color: var(--token-color-surface-critical);
+  //     }
+  //   }
+  // }
   }
 }

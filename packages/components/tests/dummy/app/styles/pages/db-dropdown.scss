@@ -5,10 +5,14 @@
   padding: 1rem 2rem;
 }
 
+.dummy-dropdown-hide {
+  display: none;
+}
+
 .dummy-nav-dropdown {
   box-sizing: border-box;
   width: 100%;
-  display: flex; 
+  display: flex;
   flex-flow: row wrap;
   justify-content: stretch;
   align-items: center;
@@ -41,7 +45,8 @@
   display: none;
 }
 
-.dummy-dropdown-states-grid {
+
+.dummy-dropdown-toggle-states-grid {
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns: repeat(5, 1fr);;
@@ -51,4 +56,14 @@
   .dummy-dropdown-states-grid__title {
       grid-column: 1 / 6;
   }
+}
+
+.dummy-dropdown-list-items-base-sample {
+  align-items: flex-start;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  min-width: fit-content;
+  padding: 0.125rem;
 }
