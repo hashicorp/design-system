@@ -145,7 +145,13 @@
     <div class="dummy-dropdown-list-items-base-sample">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} @state={{state}} @linkClass="is-{{state}}" />
+          <Hds::Dropdown::ListItem
+            @route="components.dropdown"
+            @text={{state}}
+            @color={{color}}
+            @state={{state}}
+            @linkClass="is-{{state}}"
+          />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
