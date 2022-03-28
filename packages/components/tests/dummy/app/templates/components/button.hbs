@@ -64,12 +64,6 @@
     <dd>
       <p>This indicates that a button should take up the full width of the parent container. The default is false.</p>
     </dd>
-    <dt>isDisabled <code>boolean</code></dt>
-    <dd>
-      <p>Sets the native HTML attribute
-        <em>disabled</em>
-        on the button element. Default is null (doesn't render the attribute).</p>
-    </dd>
     <dt>“splattributes”</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
@@ -227,23 +221,20 @@
   {{! prettier-ignore-end }}
 
   <h4 class="dummy-h4">Disabled buttons</h4>
-  <p class="dummy-paragraph">This is the native button attribute,
-    <code class="dummy-code">disabled</code>. To use this attribute, set
-    <code class="dummy-code">@isDisabled</code>
-    to
-    <code class="dummy-code">true</code>. The default is
-    <code class="dummy-code">null</code>, which means that the attribute will not render at all in the DOM.
+  <p class="dummy-paragraph">To disable a button just use the native
+    <code class="dummy-code">disabled</code>
+    attribute:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Button @text="Copy to clipboard" @isDisabled=true />
+      <Hds::Button @text="Copy to clipboard" disabled />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" @isDisabled={{true}} />
+  <Hds::Button @text="Copy to clipboard" disabled />
 
   <h4 class="dummy-h4">Full-width buttons</h4>
   <p class="dummy-paragraph">
