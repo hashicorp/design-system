@@ -11,7 +11,6 @@
     and
     <code>&lt;:content></code>
     named blocks.</p>
-  <p class="dummy-paragraph">To decide: what does the optimum developer invocation look like?</p>
 </section>
 
 <section class="dummy-bg-gray dummy-dropdown-hide">
@@ -35,55 +34,6 @@
   <Hds::Dropdown::ToggleUser @text="user menu" @avatarUrl="/assets/images/avatar.png" />
 </section>
 
-<section class="dummy-bg-gray dummy-dropdown-hide">
-  <h3 class="dummy-h3">List Items</h3>
-
-  <p class="dummy-paragraph">
-    For the items in the list items, the following items are available:
-  </p>
-  <ul class="dummy-list">
-    <li>A list-item link (default, no icons)</li>
-    <li>A list-item link (destructive, leading icon)</li>
-    <li>A heading</li>
-    <li>Help text</li>
-    <li>A copy-item</li>
-    <li>A separator</li>
-  </ul>
-
-  <p class="dummy-paragraph">Heading, Separator, Help Text</p>
-  <ul class="hds-dropdown-list">
-    <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
-    <Hds::Dropdown::ListItem
-      @item="help-text"
-      @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider."
-    />
-    <Hds::Dropdown::ListItem @item="separator" />
-    <Hds::Dropdown::ListItem @route="index" @text="Components" />
-  </ul>
-
-  <p class="dummy-paragraph">Links (default)</p>
-  <ul class="hds-dropdown-list">
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-  </ul>
-
-  <p class="dummy-paragraph">Links (critical)</p>
-  <ul class="hds-dropdown-list">
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Remove something" @icon="trash" @color="critical" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-    <Hds::Dropdown::ListItem
-      @route="components.dropdown"
-      @text="Destructive action long text"
-      @icon="trash"
-      @color="critical"
-    />
-
-  </ul>
-</section>
-
 <section data-test-percy>
   <h3 class="dummy-h3" id="section-showcase">Showcase: Toggles</h3>
 
@@ -104,6 +54,7 @@
       <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
     </div>
   </div>
+
   <h4 class="dummy-h4">Toggle: Overflow</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
@@ -187,14 +138,14 @@
     </ul>
   </div>
 
-  <h6 class="dummy-h6">Links</h6>
+  <h4 class="dummy-h4">Links</h4>
 
   {{#each @model.ITEM_COLORS as |color|}}
     <p class="dummy-paragraph">{{capitalize color}}</p>
     <div class="dummy-dropdown-list-items-base-sample">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} @state={{state}} />
+          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} @state={{state}} @linkClass="is-{{state}}" />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
@@ -205,6 +156,7 @@
             @text="{{state}} with icon"
             @color={{color}}
             @state={{state}}
+            @linkClass="is-{{state}}"
           />
         {{/each}}
       </ul>
@@ -216,6 +168,7 @@
             @text="{{state}} with a long multi-line text"
             @color={{color}}
             @state={{state}}
+            @linkClass="is-{{state}}"
           />
         {{/each}}
       </ul>

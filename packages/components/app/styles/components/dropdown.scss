@@ -251,7 +251,7 @@ $size-props: (
         left: 4px;
         position: absolute;
         top: 6px;
-        width: 2px;
+        width: 1px;
         z-index: -1;
       }
 
@@ -287,7 +287,8 @@ $size-props: (
         }
       }
       // set focus for browsers that support ":focus-visible"
-      &:focus-visible {
+      &:focus-visible,
+      &.is-focus {
         &::after {
           background-color: var(--current-background-color);
           box-shadow: var(--current-focus-ring-box-shadow);
@@ -304,7 +305,7 @@ $size-props: (
     }
   
     &.hds-dropdown-list-item--link--color-action {
-      &:hover {
+      &:hover, &.is-hover {
         &::before {
           background-color: var(--token-color-foreground-action-hover);
         }
@@ -313,11 +314,11 @@ $size-props: (
       a {
         color: var(--token-color-foreground-primary);
 
-        &:hover {
+        &:hover, &.is-hover {
           color: var(--token-color-foreground-action-hover);
         }
 
-        &:active {
+        &:active, &.is-active {
           background-color: var(--token-color-surface-action);
           border-left-color: var(--token-color-foreground-action-hover);
           color: var(--token-color-foreground-action-active);
@@ -326,7 +327,7 @@ $size-props: (
     }
 
     &.hds-dropdown-list-item--link--color-critical {
-      &:hover {
+      &:hover, &.is-hover {
         &::before {
           background-color: var(--token-color-foreground-critical-on-surface);
         }
@@ -334,15 +335,15 @@ $size-props: (
       a {
         color: var(--token-color-foreground-critical);
 
-        &:hover {
+        &:hover, &.is-hover {
           color: var(--token-color-foreground-critical-on-surface);
         }
-        &:focus-visible {
+        &:focus-visible, &.is-focus {
           &::before {
             box-shadow: inset 0 0 0 1px var(--token-color-focus-critical-internal), 0 0 0 3px var(--token-color-focus-critical-external);
           }
         }
-        &:active {
+        &:active, &.is-active {
           background-color: var(--token-color-surface-critical);
           border-left-color: var(
             --token-color-foreground-critical-on-surface
