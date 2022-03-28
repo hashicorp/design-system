@@ -303,7 +303,7 @@ $size-props: (
       }
     }
   
-    &.hds-dropdown-list-item--link--action {
+    &.hds-dropdown-list-item--link--color-action {
       &:hover {
         &::before {
           background-color: var(--token-color-foreground-action-hover);
@@ -325,7 +325,7 @@ $size-props: (
       }
     }
 
-    &.hds-dropdown-list-item--link--critical {
+    &.hds-dropdown-list-item--link--color-critical {
       &:hover {
         &::before {
           background-color: var(--token-color-foreground-critical-on-surface);
@@ -339,9 +339,7 @@ $size-props: (
         }
         &:focus-visible {
           &::before {
-            box-shadow: inset 0 0 0 1px
-                var(--token-color-focus-critical-internal),
-              0 0 0 3px var(--token-color-focus-critical-external);
+            box-shadow: inset 0 0 0 1px var(--token-color-focus-critical-internal), 0 0 0 3px var(--token-color-focus-critical-external);
           }
         }
         &:active {
@@ -353,17 +351,5 @@ $size-props: (
         }
       }
     }
-
-  //   &:active,
-  //   &.is-active {
-  //     color: var(--token-color-palette-red-400); // TODO we need to add this token to the design system
-  //     &::before {
-  //       background-color: currentColor;
-  //     }
-  //     &::after {
-  //       background-color: var(--token-color-surface-critical);
-  //     }
-  //   }
-  // }
   }
 }
