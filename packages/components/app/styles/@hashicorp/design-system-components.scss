@@ -1,7 +1,9 @@
 // these are files coming from the 'design-system-tokens' package
 @use "tokens";
+@use "helpers/color";
 @use "helpers/elevation";
 @use "helpers/focus-ring";
+@use "helpers/typography";
 
 @use "../components/badge";
 @use "../components/badge-count";
@@ -9,6 +11,7 @@
 @use "../components/button";
 @use "../components/card";
 @use "../components/disclosure";
+@use "../components/dropdown";
 @use "../components/icon-tile";
 @use "../components/link/standalone";
 

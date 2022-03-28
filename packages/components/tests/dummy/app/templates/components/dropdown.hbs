@@ -1,7 +1,127 @@
 {{page-title "Dropdown Component"}}
 
 <h2 class="dummy-h2">Dropdown Component</h2>
+<p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
+  dropdown menu they wish.</p>
 
-<section>
-  content will go here
+<nav class="dummy-nav-dropdown">
+  <Hds::Disclosure>
+    <:toggle as |t|>
+      <Hds::Dropdown::ToggleButton @text="Manage Sources" {{on "click" t.onClickToggle}} />
+    </:toggle>
+    <:content>
+      <ul class="hds-dropdown__list">
+        <li><a href="/">Link Here</a></li>
+        <li>Other content here</li>
+        <li>Yet something else</li>
+      </ul>
+    </:content>
+  </Hds::Disclosure>
+</nav>
+
+<section class="dummy-bg-gray dummy-dropdown-hide">
+  <h3 class="dummy-h3">Toggles</h3>
+  <p class="dummy-paragraph">Toggle, Default (primary)</p>
+  <Hds::Dropdown::ToggleButton @text="Manage Sources" />
+
+  <p class="dummy-paragraph">Toggle, Default (secondary)</p>
+  <Hds::Dropdown::ToggleButton @text="Manage Sources" @color="secondary" />
+
+  <p class="dummy-paragraph">Toggle, More (default)</p>
+  <Hds::Dropdown::ToggleMore @text="more menu" />
+
+  <p class="dummy-paragraph">Toggle, More (small)</p>
+  <Hds::Dropdown::ToggleMore @text="more menu" @size="small" />
+
+  <p class="dummy-paragraph">Toggle, User (default)</p>
+  <Hds::Dropdown::ToggleUser @text="user menu" />
+
+  <p class="dummy-paragraph">Toggle, User (avatar)</p>
+  <Hds::Dropdown::ToggleUser @text="user menu" @avatarUrl="/assets/images/avatar.png" />
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="section-showcase">Showcase</h3>
+
+  <h4 class="dummy-h4">Toggles</h4>
+  <h5 class="dummy-h5">"Button" variant</h5>
+  <div class="dummy-dropdown-states-grid">
+    <div>
+      <p class="dummy-paragraph">Primary (default)</p>
+      <span class="dummy-text-small">closed (default)</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{false}} />
+      <span class="dummy-text-small">opened</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} />
+    </div>
+    <div>
+      <p class="dummy-paragraph">Secondary</p>
+      <span class="dummy-text-small">closed (default)</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{false}} />
+      <span class="dummy-text-small">opened</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
+    </div>
+  </div>
+  <h5 class="dummy-h5">"More" variant</h5>
+  <div class="dummy-dropdown-states-grid">
+    <div>
+      <span class="dummy-text-small">medium (default)</span>
+      <Hds::Dropdown::ToggleMore />
+    </div>
+    <div>
+      <span class="dummy-text-small">small</span>
+      <Hds::Dropdown::ToggleMore @size="small" />
+    </div>
+  </div>
+  <h5 class="dummy-h5">"User" variant</h5>
+  <div class="dummy-dropdown-states-grid">
+    <div>
+      <span class="dummy-text-small">icon/closed (default)</span>
+      <Hds::Dropdown::ToggleUser @isOpen={{false}} />
+      <span class="dummy-text-small">icon/opened</span>
+      <Hds::Dropdown::ToggleUser @isOpen={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">avatar/closed (default)</span>
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} />
+      <span class="dummy-text-small">avatar/opened</span>
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} />
+    </div>
+  </div>
+
+  <h5 class="dummy-h5">Interaction states</h5>
+  <div class="dummy-dropdown-states-grid">
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{color}}/{{state}}:</span>
+          <br />
+          <Hds::Dropdown::ToggleButton @text={{capitalize state}} @color={{color}} class="is-{{state}}" />
+        </div>
+      {{/each}}
+    {{/each}}
+    {{#each @model.TOGGLE_MORE_SIZES as |size|}}
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{size}}/{{state}}:</span>
+          <br />
+          <Hds::Dropdown::ToggleMore @size={{size}} class="is-{{state}}" />
+        </div>
+      {{/each}}
+    {{/each}}
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::Dropdown::ToggleUser class="is-{{state}}" />
+      </div>
+    {{/each}}
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" class="is-{{state}}" />
+      </div>
+    {{/each}}
+  </div>
+
 </section>
