@@ -34,7 +34,7 @@ export default class HdsDropdownToggleUserComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dropdown-toggle', 'hds-dropdown-toggle--user'];
+    let classes = ['hds-dropdown-toggle', 'hds-dropdown-toggle-user'];
 
     return classes.join(' ');
   }

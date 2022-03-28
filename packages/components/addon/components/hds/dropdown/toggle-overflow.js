@@ -4,7 +4,7 @@ import { assert } from '@ember/debug';
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['medium', 'small'];
 
-export default class HdsDropdownToggleMoreComponent extends Component {
+export default class HdsDropdownToggleOverflowComponent extends Component {
   /**
    * @param text
    * @type {string}
@@ -14,7 +14,7 @@ export default class HdsDropdownToggleMoreComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Dropdown::ToggleMore" must have a valid value',
+      '@text for "Hds::Dropdown::ToggleOverflow" must have a valid value',
       text !== undefined
     );
 
@@ -31,7 +31,7 @@ export default class HdsDropdownToggleMoreComponent extends Component {
     let { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Dropdown::ToggleMore" must be one of the following: ${SIZES.join(
+      `@size for "Hds::Dropdown::ToggleOverflow" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
@@ -66,10 +66,10 @@ export default class HdsDropdownToggleMoreComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dropdown-toggle', 'hds-dropdown-toggle--more'];
+    let classes = ['hds-dropdown-toggle', 'hds-dropdown-toggle-overflow'];
 
     // add a class based on the @size argument
-    classes.push(`hds-dropdown-toggle--size-${this.size}`);
+    classes.push(`hds-dropdown-toggle-overflow--size-${this.size}`);
 
     return classes.join(' ');
   }
