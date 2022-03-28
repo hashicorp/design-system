@@ -268,6 +268,49 @@
       view to be useful."
   />
   <br />
+
+  <h4 class="dummy-h4">Actions</h4>
+  <span class="dummy-text-small">with actions passed as yielded components</span>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions as |A|>
+      <A.Button @text="Button" @size="small" @color="secondary" />
+      <A.Button @icon="plus" @text="Button" @size="small" @color="tertiary" />
+      <A.Link::Standalone @icon="plus" @text="Link" href="#" @size="small" @color="secondary" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <span class="dummy-text-small">with content yielded in the "actions" named block</span>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <DummyPlaceholder @text="generic content" @height="80" @background="#e1f5fe" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <span class="dummy-text-small">with custom content yielded in the "actions" named block</span>
+  <Hds::Alert
+    @icon="alert-triangle"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <div>
+        <div class="dummy-alert-sample-custom-actions__actions">
+          <Hds::Button @text="Button" @size="small" @color="secondary" />
+          <Hds::Link::Standalone @icon="plus" @text="Link text" href="#" @size="small" @color="secondary" />
+        </div>
+        <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific only for
+          one special use case.</span>
+      </div>
+    </:actions>
+  </Hds::Alert>
 </section>
 
 <section>
