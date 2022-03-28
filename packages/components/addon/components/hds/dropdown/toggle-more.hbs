@@ -1,0 +1,9 @@
+<button
+  class={{this.classNames}}
+  ...attributes
+  aria-label={{@text}}
+  type="button"
+  disabled={{if this.isDisabled "disabled" null}}
+>
+  <FlightIcon @name="more-horizontal" @size={{this.iconSize}} />
+</button>

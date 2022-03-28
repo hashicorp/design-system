@@ -1,131 +1,127 @@
 {{page-title "Dropdown Component"}}
 
-<section>
-  <h2 class="dummy-h2">Dropdown Component</h2>
-  <p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
-    dropdown menu they wish.</p>
-  <p class="dummy-paragraph">It makes use of the
-    <code>&lt;Hds::Disclosure></code>
-    component by providing items for the
-    <code>&lt;:toggle></code>
-    and
-    <code>&lt;:content></code>
-    named blocks.</p>
-  <p class="dummy-paragraph">To decide: what does the optimum developer invocation look like?</p>
-</section>
+<h2 class="dummy-h2">Dropdown Component</h2>
+<p class="dummy-paragraph">The dropdown component has several flexible features that allow developers to build the
+  dropdown menu they wish.</p>
 
-{{!-- <div class="dummy-divider">
-  <h3 class="dummy-h3">Fake example for WIP demo only</h3>
-  <p class="dummy-paragraph">In the example below, we see a fake navbar with some things in it, the last of which is a user menu dropdown:</p>
-  <nav class="dummy-nav-dropdown">
-    <ul class="dummy-nav-dropdown__list">
-      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="boundary" @size="small" /></li>
-      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="waypoint" @size="small" /></li>
-      <li class="dummy-nav-dropdown__list-item"><Hds::IconTile @logo="packer" @size="small" /></li>
-      <li class="dummy-nav-dropdown__list-item">
-        <Hds::Disclosure>
-          <:toggle as |t|>
-            <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" {{on "click" t.onClickToggle}} />
-          </:toggle>
-          <:content>
-            <ul class="hds-dropdown__list absolute--right">
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-              <Hds::Dropdown::ListItem @item="separator" />
-              <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-            </ul>
-          </:content>
-        </Hds::Disclosure>
-      </li>
-    </ul>
-  </nav>
-</div> --}}
+<nav class="dummy-nav-dropdown">
+  <Hds::Disclosure>
+    <:toggle as |t|>
+      <Hds::Dropdown::ToggleButton @text="Manage Sources" {{on "click" t.onClickToggle}} />
+    </:toggle>
+    <:content>
+      <ul class="hds-dropdown__list">
+        <li><a href="/">Link Here</a></li>
+        <li>Other content here</li>
+        <li>Yet something else</li>
+      </ul>
+    </:content>
+  </Hds::Disclosure>
+</nav>
 
-<section class="dummy-bg-gray">
+<section class="dummy-bg-gray dummy-dropdown-hide">
   <h3 class="dummy-h3">Toggles</h3>
-  <p class="dummy-paragraph">
-    There are two parts to the dropdown component: the toggle and the list items. For the toggle, there are a few
-    different variations available:
-  </p>
-  <ul class="dummy-list">
-    <li>Text (available colors: primary or secondary)</li>
-    <li>More</li>
-    <li>User</li>
-    <li>Avatar</li>
-  </ul>
-
   <p class="dummy-paragraph">Toggle, Default (primary)</p>
-  <Hds::Dropdown::Toggle @text="Manage Sources" />
+  <Hds::Dropdown::ToggleButton @text="Manage Sources" />
 
   <p class="dummy-paragraph">Toggle, Default (secondary)</p>
-  <Hds::Dropdown::Toggle @text="Manage Sources" @color="secondary" />
+  <Hds::Dropdown::ToggleButton @text="Manage Sources" @color="secondary" />
 
   <p class="dummy-paragraph">Toggle, More (default)</p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" />
+  <Hds::Dropdown::ToggleMore @text="more menu" />
 
   <p class="dummy-paragraph">Toggle, More (small)</p>
-  <Hds::Dropdown::Toggle @toggle="more" @text="more menu" @size="small" />
+  <Hds::Dropdown::ToggleMore @text="more menu" @size="small" />
 
   <p class="dummy-paragraph">Toggle, User (default)</p>
-  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" />
+  <Hds::Dropdown::ToggleUser @text="user menu" />
 
   <p class="dummy-paragraph">Toggle, User (avatar)</p>
-  <Hds::Dropdown::Toggle @toggle="user" @text="user menu" @avatarUrl="/assets/images/avatar.png" />
+  <Hds::Dropdown::ToggleUser @text="user menu" @avatarUrl="/assets/images/avatar.png" />
 </section>
 
-<section class="dummy-bg-gray">
-  <h3 class="dummy-h3">List Items</h3>
+<section data-test-percy>
+  <h3 class="dummy-h3" id="section-showcase">Showcase</h3>
 
-  <p class="dummy-paragraph">
-    For the items in the list items, the following items are available:
-  </p>
-  <ul class="dummy-list">
-    <li>A list-item link (default, no icons)</li>
-    <li>A list-item link (destructive, leading icon)</li>
-    <li>A heading</li>
-    <li>Help text</li>
-    <li>A copy-item</li>
-    <li>A separator</li>
-  </ul>
+  <h4 class="dummy-h4">Toggles</h4>
+  <h5 class="dummy-h5">"Button" variant</h5>
+  <div class="dummy-dropdown-states-grid">
+    <div>
+      <p class="dummy-paragraph">Primary (default)</p>
+      <span class="dummy-text-small">closed (default)</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{false}} />
+      <span class="dummy-text-small">opened</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} />
+    </div>
+    <div>
+      <p class="dummy-paragraph">Secondary</p>
+      <span class="dummy-text-small">closed (default)</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{false}} />
+      <span class="dummy-text-small">opened</span>
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
+    </div>
+  </div>
+  <h5 class="dummy-h5">"More" variant</h5>
+  <div class="dummy-dropdown-states-grid">
+    <div>
+      <span class="dummy-text-small">medium (default)</span>
+      <Hds::Dropdown::ToggleMore />
+    </div>
+    <div>
+      <span class="dummy-text-small">small</span>
+      <Hds::Dropdown::ToggleMore @size="small" />
+    </div>
+  </div>
+  <h5 class="dummy-h5">"User" variant</h5>
+  <div class="dummy-dropdown-states-grid">
+    <div>
+      <span class="dummy-text-small">icon/closed (default)</span>
+      <Hds::Dropdown::ToggleUser @isOpen={{false}} />
+      <span class="dummy-text-small">icon/opened</span>
+      <Hds::Dropdown::ToggleUser @isOpen={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">avatar/closed (default)</span>
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} />
+      <span class="dummy-text-small">avatar/opened</span>
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} />
+    </div>
+  </div>
 
-  <p class="dummy-paragraph">Heading, Separator, Help Text</p>
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem @item="heading" @text="Heading" />
-    <Hds::Dropdown::ListItem
-      @item="help-text"
-      @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider."
-    />
-    <Hds::Dropdown::ListItem @item="separator" />
-    <Hds::Dropdown::ListItem @route="index" @text="Components" />
-  </ul>
-
-  <p class="dummy-paragraph">Links (default)</p>
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Hover" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Focus" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Dropdown Component" />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-  </ul>
-
-  <p class="dummy-paragraph">Links (critical)</p>
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-    <Hds::Dropdown::ListItem
-      @route="components.dropdown"
-      @text="Remove something"
-      @leadingIcon="trash"
-      @color="critical"
-    />
-    <Hds::Dropdown::ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
-    <Hds::Dropdown::ListItem
-      @route="components.dropdown"
-      @text="Destructive action long text"
-      @leadingIcon="trash"
-      @color="critical"
-    />
-
-  </ul>
+  <h5 class="dummy-h5">Interaction states</h5>
+  <div class="dummy-dropdown-states-grid">
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{color}}/{{state}}:</span>
+          <br />
+          <Hds::Dropdown::ToggleButton @text={{capitalize state}} @color={{color}} class="is-{{state}}" />
+        </div>
+      {{/each}}
+    {{/each}}
+    {{#each @model.TOGGLE_MORE_SIZES as |size|}}
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{size}}/{{state}}:</span>
+          <br />
+          <Hds::Dropdown::ToggleMore @size={{size}} class="is-{{state}}" />
+        </div>
+      {{/each}}
+    {{/each}}
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::Dropdown::ToggleUser class="is-{{state}}" />
+      </div>
+    {{/each}}
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" class="is-{{state}}" />
+      </div>
+    {{/each}}
+  </div>
 
 </section>

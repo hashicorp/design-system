@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.3.2
+
+### Patch Changes
+
+- [#112](https://github.com/hashicorp/design-system/pull/112) [`2be08081`](https://github.com/hashicorp/design-system/commit/2be08081582dd7e9c092fdb35c94c063d5ee7f4e) Thanks [@didoo](https://github.com/didoo)! - added missing helpers for “color” and “typography” in “components” package
+
 ## 0.3.1
 
 ### Patch Changes
