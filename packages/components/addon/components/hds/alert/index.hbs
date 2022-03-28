@@ -6,13 +6,29 @@
     </div>
   {{/unless}}
 
-  <div class="hds-alert__text">
-    {{#if @title}}
-      <div class="hds-alert__title">{{@title}}</div>
-    {{/if}}
+  <div class="hds-alert__content">
+    <div class="hds-alert__text">
 
-    {{#if @description}}
-      <div class="hds-alert__description">{{html-safe @description}}</div>
-    {{/if}}
+      {{#if @title}}
+        <div class="hds-alert__title">{{@title}}</div>
+      {{/if}}
+
+      {{#if @description}}
+        <div class="hds-alert__description">{{html-safe @description}}</div>
+      {{/if}}
+
+      {{#if (has-block "actions")}}
+        {{! IMPORTANT: don't change the formatting or it will add empty space inside the element (we're using ":empty" in CSS to hide it when it's empty!) }}
+        <div class="hds-alert__actions">{{yield
+            (hash
+              Button=(component "hds/button")
+              Link::Standalone=(component "hds/link/standalone")
+              LinkTo::Standalone=(component "hds/link-to/standalone")
+            )
+            to="actions"
+          }}</div>
+      {{/if}}
+    </div>
+
   </div>
 </div>
