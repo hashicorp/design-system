@@ -3,7 +3,7 @@
 <h2 class="dummy-h2">Alert</h2>
 
 <section>
-  <h3 class="dummy-h3">Scratch reference links</h3>
+  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
   <ul class="dummy-paragraph">
     <li>
       <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
@@ -28,7 +28,12 @@
     <dd>
       <p>
         <code class="dummy-code">type</code>
-        sets the type of alert. TODO: Update verbiage!
+        sets the type of alert. A
+        <code class="dummy-code">page</code>
+        alert is a rectangular alert (no border-radius). A
+        <code class="dummy-code">page</code>
+        alert typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent
+        containing div to its top, left, and right. 🚧 TODO: Update verbiage!
       </p>
       <p>Acceptable values:</p>
       <ol>
@@ -41,8 +46,8 @@
 
     <dt class="dummy-indent">🚧 isDismissible <code>boolean</code></dt>
     <p class="dummy-indent">The alert can be dismissed by the user. Default value determined by
-      <code class="dummy-code">type</code>, e.g. this parameter has some accessibility considerations for Alert (Toast).
-      Alert (Toast) will be
+      <code class="dummy-code">type</code>. For example, this parameter has some accessibility considerations for Alert
+      (Toast). Alert (Toast) will be
       <code class="dummy-code">role="alertdialog"</code>
       and generally not dismissible for accessibility.
     </p>
@@ -90,9 +95,7 @@
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
           Flight icon</a>
-        name, or pass
-        <code class="dummy-code">""</code>
-        for no icon.
+        name, or pass empty string (<code class="dummy-code">""</code>) for no icon.
       </p>
     </dd>
 
@@ -118,7 +121,7 @@
 
     <dt>&lt;:actions&gt; <code>named block</code></dt>
     <dd>
-      <p>TODO</p>
+      <p>🚧 TODO</p>
     </dd>
 
     <dt>“splattributes”</dt>
@@ -149,14 +152,14 @@
     and
     <code class="dummy-code">color</code>
     of
-    <code class="dummy-code">neutral</code>, as seen here:
+    <code class="dummy-code">neutral</code>:
   </p>
   <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
 </section>
 
 <section>
   <h3 class="dummy-h3">🚧 Design guidelines</h3>
-  🚨 TODO: Insert Figma stickersheet here
+  <p class="dummy-paragraph">TODO: Insert Figma stickersheet here</p>
 </section>
 
 <section data-test-percy>
