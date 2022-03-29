@@ -33,7 +33,8 @@ $hds-dropdown-list-item-border-radius: 5px;
 // TOGGLE/BASE (for "OVERFLOW" and "USER")
 // TODO update this name to be more explicit (MS)
 
-.hds-dropdown-toggle {
+.hds-dropdown-toggle-overflow,
+.hds-dropdown-toggle-user {
   align-items: center;
   background-color: transparent;
   border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
@@ -111,7 +112,7 @@ $hds-dropdown-list-item-border-radius: 5px;
   }
 }
 
-// TOGGLE/MORE
+// TOGGLE/OVERFLOW
 
 // these values later may come from the design tokens
 $size-props: (
@@ -123,18 +124,10 @@ $size-props: (
   ),
 );
 
-.hds-dropdown-toggle-overflow {
-  @each $size in $hds-dropdown-toggle-overflow-sizes {
-    &.hds-dropdown-toggle-overflow--size-#{$size} {
-      height: map-get($size-props, $size, 'size');
-      width: map-get($size-props, $size, 'size');
-    }
-  }
-
-  &:active,
-  &.is-active {
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
+@each $size in $hds-dropdown-toggle-overflow-sizes {
+  .hds-dropdown-toggle-overflow--size-#{$size} {
+    height: map-get($size-props, $size, 'size');
+    width: map-get($size-props, $size, 'size');
   }
 }
 
@@ -143,8 +136,7 @@ $size-props: (
   height: $hds-dropdown-toggle-base-height;
   padding: 1px;
 
-  // TODO figure out the naming for this, it's not correct (MS)
-  .hds-dropdown-toggle-user--avatar {
+  .hds-dropdown-toggle-user__avatar {
     $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
     align-items: center;
     border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
