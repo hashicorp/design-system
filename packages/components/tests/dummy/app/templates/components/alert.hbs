@@ -146,9 +146,9 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
-  <p class="dummy-paragraph">
-    Basic invocation of the component:
-  </p>
+  <h4 class="dummy-h4">
+    Basic invocation: Alert (Page)
+  </h4>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -168,6 +168,29 @@
     <code class="dummy-code">neutral</code>:
   </p>
   <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
+  <br />
+  <a href="#showcase-page">Jump to Showcase: Alert (Page)</a>
+
+  <h4 class="dummy-h4">
+    Basic invocation: Alert (Inline)
+  </h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>:
+  </p>
+  <Hds::Alert @type="inline" @title="Really cool title here" @description="And a rad description too!" />
+  <br />
+  <a href="#showcase-inline">Jump to Showcase: Alert (Inline)</a>
 </section>
 
 <section>
@@ -176,7 +199,7 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Alert (Page) Showcase</h3>
+  <h3 class="dummy-h3" id="showcase-page">Showcase: Alert (Page)</h3>
 
   <h4 class="dummy-h4">Content</h4>
 
@@ -342,7 +365,7 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Alert (Inline) Showcase</h3>
+  <h3 class="dummy-h3" id="showcase-inline">Showcase: Alert (Inline)</h3>
 
   <h4 class="dummy-h4">Content</h4>
 
