@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-const noop = () => {};
+const NOOP = () => {};
 
 export const DEFAULT_TYPE = 'page';
 export const TYPES = ['page', 'inline', 'compact', 'toast'];
@@ -86,13 +86,18 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
-   * @param onClickDismiss
+   * @param onDismiss
    * @type {function}
    * @default () => {}
    */
-  get onClickDismiss() {
-    // TODO discuss with Matthew if this is the right way to create a guard for this method
-    return this.args.onClickDismiss ?? noop;
+  get onDismiss() {
+    let { onDismiss } = this.args;
+
+    if (typeof onDismiss === 'function') {
+      return onDismiss;
+    } else {
+      return NOOP;
+    }
   }
 
   /**
