@@ -58,10 +58,15 @@
   }
 }
 
-// COLORS & STATES
+//
+// COLOR & TYPE
+//
 .hds-alert--color-critical {
   background-color: var(--token-color-surface-critical);
-  box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
+  }
 
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-critical-on-surface);
@@ -70,7 +75,10 @@
 
 .hds-alert--color-warning {
   background-color: var(--token-color-surface-warning);
-  box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
+  }
 
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-warning-on-surface);
@@ -80,8 +88,11 @@
 // TODO: Check all neutral tokens, cause don't follow pattern of other `color`s 
 .hds-alert--color-neutral {
   background-color: var(--token-color-surface-faint);
-  // TODO: Check if should be a token for 0px 1px 0px 0px thruout, and rgba
-  box-shadow: 0px 1px 0px 0px rgba(59, 61, 69, 0.4);
+
+  &.hds-alert--type-page {
+    // TODO: Check if should be a token for 0px 1px 0px 0px thruout, and rgba
+    box-shadow: 0px 1px 0px 0px rgba(59, 61, 69, 0.4);
+  }
 
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-primary);
@@ -90,7 +101,10 @@
 
 .hds-alert--color-highlight {
   background-color: var(--token-color-surface-highlight);
-  box-shadow: 0px 1px 0px 0px var(--token-color-border-highlight);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-highlight);
+  }
 
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-highlight-on-surface);
@@ -99,13 +113,19 @@
 
 .hds-alert--color-success {
   background-color: var(--token-color-surface-success);
-  box-shadow: 0px 1px 0px 0px var(--token-color-border-success);
-
+  
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-success);
+  }
+  
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-success-on-surface);
   }
 }
 
+//
+// ACTIONS
+//
 .hds-alert__actions {
   align-items: center;
   display: flex;

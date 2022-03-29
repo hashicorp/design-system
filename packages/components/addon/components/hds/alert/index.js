@@ -1,6 +1,13 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+export const DEFAULT_TYPE = 'page';
+export const TYPES = [
+  'page',
+  'inline',
+  'compact',
+  'toast'
+];
 export const DEFAULT_COLOR = 'neutral';
 export const COLORS = [
   'critical',
@@ -26,6 +33,25 @@ export default class HdsAlertIndexComponent extends Component {
       !(this.args.title === undefined && this.args.description === undefined)
     );
   }
+
+  /**
+   * @param type
+   * @type {enum}
+   * @default page
+   * @description Determines the type of the alert.
+   */
+     get type() {
+      let { type = DEFAULT_TYPE } = this.args;
+  
+      assert(
+        `@type for "Hds::Alert" must be one of the following: ${TYPES.join(
+          ', '
+        )}; received: ${type}`,
+        TYPES.includes(type)
+      );
+  
+      return type;
+    }
 
   /**
    * @param color
@@ -70,7 +96,8 @@ export default class HdsAlertIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-alert'];
 
-    // TODO: Add type classes, once types implemented
+    // Add a class based on the @type argument
+    classes.push(`hds-alert--type-${this.type}`);
 
     // Add a class based on the @color argument
     classes.push(`hds-alert--color-${this.color}`);
