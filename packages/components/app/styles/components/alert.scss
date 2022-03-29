@@ -68,6 +68,10 @@
     box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
   }
 
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-critical);
+  }
+
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-critical-on-surface);
   } 
@@ -78,6 +82,10 @@
 
   &.hds-alert--type-page {
     box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
+  }
+
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-warning);
   }
 
   .hds-alert__icon, .hds-alert__title {
@@ -94,6 +102,10 @@
     box-shadow: 0px 1px 0px 0px rgba(59, 61, 69, 0.4);
   }
 
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-strong);
+  }
+
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-primary);
   }
@@ -104,6 +116,10 @@
 
   &.hds-alert--type-page {
     box-shadow: 0px 1px 0px 0px var(--token-color-border-highlight);
+  }
+
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-highlight);
   }
 
   .hds-alert__icon, .hds-alert__title {
@@ -117,10 +133,20 @@
   &.hds-alert--type-page {
     box-shadow: 0px 1px 0px 0px var(--token-color-border-success);
   }
+
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-success);
+  }
   
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-success-on-surface);
   }
+}
+
+// POTENTIAL TODO: Could arguably be clearer above within color...but wasn't sure if you prefer extra DRY
+.hds-alert--type-inline {
+  border: 1px solid;
+  border-radius: 6px;
 }
 
 //
