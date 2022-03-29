@@ -201,13 +201,61 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase-page">Showcase: Alert (Page)</h3>
 
+  <h4 class="dummy-h4">Color</h4>
+  <Hds::Alert
+    @color="critical"
+    @title="Critical with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="warning"
+    @title="Warning with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @title="Neutral with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="highlight"
+    @title="Highlight with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="success"
+    @title="Success with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+
   <h4 class="dummy-h4">Content</h4>
 
   <h5 class="dummy-h5">Title and description variations</h5>
-
   <Hds::Alert @color="success" @title="Success with regular title and description" @description="Regular description" />
   <br />
-
   <Hds::Alert
     @color="success"
     @title="Success with regular title and rich text description (description below has HTML, e.g. <strong>, <code>, <a>)"
@@ -218,7 +266,6 @@
       view to be useful. For more info, see <a href='#'>About clusters</a>."
   />
   <br />
-
   <Hds::Alert
     @color="success"
     @title="Success with really long title, yet no description below. Your Intention settings are currently set to default allow. This
@@ -228,11 +275,9 @@
       view to be useful."
   />
   <br />
-
   <Hds::Alert @color="success" @description="Success with no title, description only" />
 
   <h5 class="dummy-h5">Icon override variations</h5>
-
   <Hds::Alert
     @color="critical"
     @title="Critical with default icon"
@@ -243,7 +288,6 @@
       view to be useful."
   />
   <br />
-
   <Hds::Alert
     @color="critical"
     @icon="meh"
@@ -255,7 +299,6 @@
       view to be useful."
   />
   <br />
-
   <Hds::Alert
     @color="critical"
     @icon=""
@@ -266,62 +309,6 @@
       creating specific Intentions for upstream and downstream services for this
       view to be useful."
   />
-
-  <h4 class="dummy-h4">Color</h4>
-
-  <Hds::Alert
-    @title="Neutral with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @color="highlight"
-    @title="Highlight with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @color="success"
-    @title="Success with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @color="warning"
-    @title="Warning with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @color="critical"
-    @title="Critical with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
 
   <h4 class="dummy-h4">Actions</h4>
   <span class="dummy-text-small">with actions passed as yielded components</span>
@@ -367,10 +354,64 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase-inline">Showcase: Alert (Inline)</h3>
 
+  <h4 class="dummy-h4">Color</h4>
+  <Hds::Alert
+    @type="inline"
+    @color="critical"
+    @title="Critical with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @title="Warning with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @title="Neutral with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="highlight"
+    @title="Highlight with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="success"
+    @title="Success with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+
   <h4 class="dummy-h4">Content</h4>
 
   <h5 class="dummy-h5">Title and description variations</h5>
-
   <Hds::Alert
     @type="inline"
     @color="highlight"
@@ -378,7 +419,6 @@
     @description="Regular description"
   />
   <br />
-
   <Hds::Alert
     @type="inline"
     @color="highlight"
@@ -390,7 +430,6 @@
       view to be useful. For more info, see <a href='#'>About clusters</a>."
   />
   <br />
-
   <Hds::Alert
     @type="inline"
     @color="highlight"
@@ -401,11 +440,9 @@
       view to be useful."
   />
   <br />
-
   <Hds::Alert @type="inline" @color="highlight" @description="Highlight with no title, description only" />
 
   <h5 class="dummy-h5">Icon override variations</h5>
-
   <Hds::Alert
     @type="inline"
     @color="warning"
@@ -417,7 +454,6 @@
       view to be useful."
   />
   <br />
-
   <Hds::Alert
     @type="inline"
     @color="warning"
@@ -430,7 +466,6 @@
       view to be useful."
   />
   <br />
-
   <Hds::Alert
     @type="inline"
     @color="warning"
@@ -442,67 +477,6 @@
       creating specific Intentions for upstream and downstream services for this
       view to be useful."
   />
-
-  <h4 class="dummy-h4">Color</h4>
-
-  <Hds::Alert
-    @type="inline"
-    @title="Neutral with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @type="inline"
-    @color="highlight"
-    @title="Highlight with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @type="inline"
-    @color="success"
-    @title="Success with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @type="inline"
-    @color="warning"
-    @title="Warning with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-
-  <Hds::Alert
-    @type="inline"
-    @color="critical"
-    @title="Critical with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
 
   <h4 class="dummy-h4">Actions</h4>
   <span class="dummy-text-small">with actions passed as yielded components</span>
@@ -549,15 +523,15 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Alert (Page) Accessibility</h3>
-  <p>
+  <h3 class="dummy-h3">🚧 Accessibility: Alert (Page), Alert (Inline), and Alert (Compact)</h3>
+  <p class="dummy-paragraph">
     The Alert (Page) has
     <code class="dummy-code">role="alert"</code>
     on the parent
     <code class="dummy-code">div</code>, to identify the element as the container where alert content will be added or
     updated.
   </p>
-  <p>References:</p>
+  <p class="dummy-paragraph">References:</p>
   <ul>
     <li>
       <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
