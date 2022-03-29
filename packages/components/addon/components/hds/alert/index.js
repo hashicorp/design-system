@@ -71,19 +71,17 @@ export default class HdsAlertIndexComponent extends Component {
 
   /**
    * @param icon
-   * @type {string|false}
+   * @type {string}
    * @default null
    * @description The name of the icon to be used.
    */
   get icon() {
     let { icon } = this.args;
 
-    if (icon === undefined) {
-      return MAPPING_COLORS_TO_ICONS[this.color];
-    } else if (icon === false) {
-      return false;
-    } else {
+    if (icon === '') {
       return icon;
+    } else {
+      return icon || MAPPING_COLORS_TO_ICONS[this.color];
     }
   }
 
