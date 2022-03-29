@@ -26,6 +26,7 @@ Router.map(function () {
     this.route('link-to', function () {
       this.route('standalone', { path: '/' });
     });
+    this.route('icon-count');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

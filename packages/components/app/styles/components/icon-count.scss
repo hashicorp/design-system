@@ -1,0 +1,21 @@
+.hds-icon-count {
+  align-items: center;
+  background-image: url(images/hexagon-fill-24.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+  justify-content: center;
+  margin: 5px;
+  width: 2rem;
+  .hds-icon-count__number {
+    background-color: transparent;
+    color: white;
+    font-family: system-ui;
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
