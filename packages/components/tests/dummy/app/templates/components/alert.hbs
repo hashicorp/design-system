@@ -24,25 +24,34 @@
   <h3 class="dummy-h3">Alert Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
   <dl class="dummy-component-props">
-
-    <dt>title <code>string</code></dt>
+    <dt>type <code>enum</code></dt>
     <dd>
       <p>
-        The title text in the alert.
-        <code class="dummy-code">title</code>
-        <strong>and/or</strong>
-        <code class="dummy-code">description</code>
-        is required.
+        <code class="dummy-code">type</code>
+        sets the type of alert. TODO: Update verbiage!
       </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">page</li>
+        <li>inline</li>
+        <li>compact</li>
+        <li>toast</li>
+      </ol>
     </dd>
 
-    <dt>description <code>string</code></dt>
-    <dd>
-      <p>The description text in the alert.
-        <code class="dummy-code">description</code>
-        <strong>and/or</strong>
-        <code class="dummy-code">title</code>
-        is required.</p>
+    <dt class="dummy-indent">🚧 isDismissible <code>boolean</code></dt>
+    <p class="dummy-indent">The alert can be dismissed by the user. Default value determined by
+      <code class="dummy-code">type</code>, e.g. this parameter has some accessibility considerations for Alert (Toast).
+      Alert (Toast) will be
+      <code class="dummy-code">role="alertdialog"</code>
+      and generally not dismissible for accessibility.
+    </p>
+    <dd class="dummy-indent">
+      <p>Acceptable values:</p>
+      <ol>
+        <li>true</li>
+        <li>false</li>
+      </ol>
     </dd>
 
     <dt>color <code>enum</code></dt>
@@ -87,17 +96,24 @@
       </p>
     </dd>
 
-    <dt>🚧 isDismissible <code>boolean</code></dt>
-    <p>The alert can be dismissed by the user. This parameter has some accessibility considerations for Alert (Toast),
-      which will be
-      <code class="dummy-code">role="alertdialog"</code>.
-    </p>
+    <dt>title <code>string</code></dt>
     <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">true</li>
-        <li>false</li>
-      </ol>
+      <p>
+        The title text in the alert.
+        <code class="dummy-code">title</code>
+        <strong>and/or</strong>
+        <code class="dummy-code">description</code>
+        is required.
+      </p>
+    </dd>
+
+    <dt>description <code>string</code></dt>
+    <dd>
+      <p>The description text in the alert.
+        <code class="dummy-code">description</code>
+        <strong>and/or</strong>
+        <code class="dummy-code">title</code>
+        is required.</p>
     </dd>
 
     <dt>&lt;:actions&gt; <code>named block</code></dt>
@@ -113,7 +129,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">🚧 How to use</h3>
+  <h3 class="dummy-h3">How to use</h3>
   <p class="dummy-paragraph">
     Basic invocation of the component:
   </p>
@@ -126,7 +142,15 @@
   />
   {{! prettier-ignore-end }}
 
-  <p class="dummy-paragraph">Renders to:</p>
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">type</code>
+    of
+    <code class="dummy-code">page</code>
+    and
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>, as seen here:
+  </p>
   <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
 </section>
 
@@ -142,12 +166,23 @@
 
   <h5 class="dummy-h5">Title and description variations</h5>
 
-  <Hds::Alert @color="success" @description="Success: No title, description only" />
+  <Hds::Alert @color="success" @title="Success with regular title and description" @description="Regular description" />
   <br />
 
   <Hds::Alert
     @color="success"
-    @title="Success: Really long title, yet no description below. Your Intention settings are currently set to default allow. This
+    @title="Success with regular title and rich text description (description below has HTML, e.g. <strong>, <code>, <a>)"
+    @description="Your Intention settings are currently set to default <strong>allow</strong>. This
+      means that this view will show connections to every service in your
+      <code>cluster</code>. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful. For more info, see <a href='#'>About clusters</a>."
+  />
+  <br />
+
+  <Hds::Alert
+    @color="success"
+    @title="Success with really long title, yet no description below. Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
       creating specific Intentions for upstream and downstream services for this
@@ -155,21 +190,13 @@
   />
   <br />
 
-  <Hds::Alert
-    @color="success"
-    @title="Success: with rich text description (description below has HTML e.g. <strong>, <code>, <a>)"
-    @description="Your Intention settings are currently set to default <strong>allow</strong>. This
-      means that this view will show connections to every service in your
-      <code>cluster</code>. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful. For more info, see <a href='#'>About clusters</a>."
-  />
+  <Hds::Alert @color="success" @description="Success with no title, description only" />
 
-  <h5 class="dummy-h5">Icon override variation</h5>
+  <h5 class="dummy-h5">Icon override variations</h5>
 
   <Hds::Alert
     @color="critical"
-    @title="Critical: With default icon"
+    @title="Critical with default icon"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -181,7 +208,7 @@
   <Hds::Alert
     @color="critical"
     @icon="meh"
-    @title="Critical: With override icon of your choice"
+    @title="Critical with override icon of your choice"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -193,7 +220,7 @@
   <Hds::Alert
     @color="critical"
     @icon=""
-    @title="Critical: With no icon!"
+    @title="Critical with no icon!"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -204,7 +231,7 @@
   <h4 class="dummy-h4">Color</h4>
 
   <Hds::Alert
-    @title="Neutral: With title and description"
+    @title="Neutral with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -215,7 +242,7 @@
 
   <Hds::Alert
     @color="highlight"
-    @title="Highlight: With title and description"
+    @title="Highlight with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -226,7 +253,7 @@
 
   <Hds::Alert
     @color="success"
-    @title="Success: With title and description"
+    @title="Success with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -237,7 +264,7 @@
 
   <Hds::Alert
     @color="warning"
-    @title="Warning: With title and description"
+    @title="Warning with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -248,7 +275,7 @@
 
   <Hds::Alert
     @color="critical"
-    @title="Critical: With title and description"
+    @title="Critical with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
