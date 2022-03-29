@@ -105,3 +105,17 @@
     color: var(--token-color-foreground-success-on-surface);
   }
 }
+
+.hds-alert__actions {
+  align-items: center;
+  display: flex;
+  margin-top: 1rem; // 16px
+
+  > * + * {
+    margin-left: 1rem; // 16px
+  }
+
+  &:empty {
+    display: none;
+  }
+}
