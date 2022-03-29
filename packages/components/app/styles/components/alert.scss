@@ -145,7 +145,8 @@
 
 // POTENTIAL TODO: Could arguably be clearer above within color...but wasn't sure if you prefer extra DRY
 .hds-alert--type-inline {
-  border: 1px solid;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 6px;
 }
 
