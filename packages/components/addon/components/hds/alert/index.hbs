@@ -1,19 +1,10 @@
 <div class={{this.classNames}} ...attributes role="alert">
-  {{#if (or @icon this.color)}}
+  {{! template-lint-disable simple-unless}}
+  {{#unless (eq this.icon "")}}
     <div class="hds-alert__icon">
-      {{#if @icon}}
-        <FlightIcon @name={{@icon}} @size="24" @isInlineBlock={{false}} />
-      {{else if (or (eq this.color "neutral") (eq @color "highlight"))}}
-        <FlightIcon @name="info" @size="24" @isInlineBlock={{false}} />
-      {{else if (eq @color "success")}}
-        <FlightIcon @name="check-circle" @size="24" @isInlineBlock={{false}} />
-      {{else if (eq @color "warning")}}
-        <FlightIcon @name="alert-triangle" @size="24" @isInlineBlock={{false}} />
-      {{else if (eq @color "critical")}}
-        <FlightIcon @name="alert-octagon" @size="24" @isInlineBlock={{false}} />
-      {{/if}}
+      <FlightIcon @name={{this.icon}} @size="24" @isInlineBlock={{false}} />
     </div>
-  {{/if}}
+  {{/unless}}
 
   <div class="hds-alert__text">
     {{#if @title}}

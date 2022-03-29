@@ -9,6 +9,13 @@ export const COLORS = [
   'highlight',
   'success',
 ];
+export const MAPPING_COLORS_TO_ICONS = {
+  critical: 'alert-octagon',
+  warning: 'alert-triangle',
+  neutral: 'info',
+  highlight: 'info',
+  success: 'check-circle',
+};
 
 export default class HdsAlertIndexComponent extends Component {
   constructor() {
@@ -46,7 +53,13 @@ export default class HdsAlertIndexComponent extends Component {
    * @description The name of the icon to be used.
    */
   get icon() {
-    return this.args.icon ?? null;
+    let { icon } = this.args;
+
+    if (icon === '') {
+      return icon;
+    } else {
+      return icon || MAPPING_COLORS_TO_ICONS[this.color];
+    }
   }
 
   /**
@@ -54,7 +67,6 @@ export default class HdsAlertIndexComponent extends Component {
    * @method Alert#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  // "hds-alert {{this.colorClass}}"
   get classNames() {
     let classes = ['hds-alert'];
 

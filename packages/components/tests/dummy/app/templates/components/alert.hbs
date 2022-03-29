@@ -4,12 +4,6 @@
 
 <section>
   <h3 class="dummy-h3">Scratch reference links</h3>
-  <p class="dummy-paragraph">These are the Alert types, that extend the base:
-    <code class="dummy-code">Hds::Alert::Page</code>,
-    <code class="dummy-code">Hds::Alert::Inline</code>,
-    <code class="dummy-code">Hds::Alert::Compact</code>, and
-    <code class="dummy-code">Hds::Alert::Toast</code>.
-  </p>
   <ul class="dummy-paragraph">
     <li>
       <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
@@ -27,48 +21,9 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3"><code class="dummy-code">Hds::Alert::Page</code> Component API</h3>
+  <h3 class="dummy-h3">Alert Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
   <dl class="dummy-component-props">
-    <dt>color <code>enum</code></dt>
-    <dd>
-      <p>
-        <code class="dummy-code">color</code>
-        sets the color scheme for background, border,
-        <code class="dummy-code">title</code>, and
-        <code class="dummy-code">description</code>, which
-        <strong>cannot</strong>
-        be overriden.
-        <code class="dummy-code">color</code>
-        results in a default
-        <code class="dummy-code">icon</code>, which
-        <strong>can</strong>
-        be overriden. Required parameter.
-      </p>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>critical</li>
-        <li>warning</li>
-        <li class="default">neutral</li>
-        <li>highlight</li>
-        <li>success</li>
-      </ol>
-    </dd>
-
-    <dt class="dummy-indent">icon <code>string</code></dt>
-    <dd class="dummy-indent">
-      <p>Override the default
-        <code class="dummy-code">icon</code>
-        name determined by the
-        <code class="dummy-code">color</code>. Optional parameter.
-      </p>
-      <p>Acceptable value:</p>
-      <p>Any
-        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
-          Flight icon</a>
-        name.
-      </p>
-    </dd>
 
     <dt>title <code>string</code></dt>
     <dd>
@@ -90,10 +45,52 @@
         is required.</p>
     </dd>
 
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>
+        <code class="dummy-code">color</code>
+        sets the color scheme for background, border,
+        <code class="dummy-code">title</code>, and
+        <code class="dummy-code">description</code>, which
+        <strong>cannot</strong>
+        be overriden.
+        <code class="dummy-code">color</code>
+        results in a default
+        <code class="dummy-code">icon</code>, which
+        <strong>can</strong>
+        be overriden.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>critical</li>
+        <li>warning</li>
+        <li class="default">neutral</li>
+        <li>highlight</li>
+        <li>success</li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">icon <code>string</code></dt>
+    <dd class="dummy-indent">
+      <p>Override the default
+        <code class="dummy-code">icon</code>
+        name, which is determined by the
+        <code class="dummy-code">color</code>. Optional parameter.
+      </p>
+      <p>Acceptable values:</p>
+      <p>Any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight icon</a>
+        name, or pass
+        <code class="dummy-code">""</code>
+        for no icon.
+      </p>
+    </dd>
+
     <dt>🚧 isDismissible <code>boolean</code></dt>
-    <p>The alert can be dismissed by the user. This parameter has some accessibility considerations for
-      <code class="dummy-code">Hds::Alert::Toast</code>
-      (<code class="dummy-code">role="alertdialog"</code>).
+    <p>The alert can be dismissed by the user. This parameter has some accessibility considerations for Alert (Toast),
+      which will be
+      <code class="dummy-code">role="alertdialog"</code>.
     </p>
     <dd>
       <p>Acceptable values:</p>
@@ -130,10 +127,7 @@
 <section>
   <h3 class="dummy-h3">🚧 How to use</h3>
   <p class="dummy-paragraph">
-    Basic invocation of the component (calling
-    <code class="dummy-code">Hds::Alert</code>
-    temporarily, instead of
-    <code class="dummy-code">Hds::Alert::Page</code>):
+    Basic invocation of the component:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -150,20 +144,15 @@
 
 <section>
   <h3 class="dummy-h3">🚧 Design guidelines</h3>
-  <Hds::Alert @color="critical" @title="TODO: Insert Figma stickersheet here" />
+  🚨 TODO: Insert Figma stickersheet here
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3"><code class="dummy-code">Hds::Alert (Page)</code>Showcase</h3>
+  <h3 class="dummy-h3">Alert (Page) Showcase</h3>
 
   <h4 class="dummy-h4">Content</h4>
 
-  <h5 class="dummy-h5">
-    <code class="dummy-code">title</code>
-    and
-    <code class="dummy-code">description</code>
-    variations
-  </h5>
+  <h5 class="dummy-h5">Title and description variations</h5>
 
   <Hds::Alert @color="success" @description="Success: No title, description only" />
   <br />
@@ -188,7 +177,7 @@
       view to be useful. For more info, see <a href='#'>About clusters</a>."
   />
 
-  <h5 class="dummy-h5"><code class="dummy-code">icon</code> override variation</h5>
+  <h5 class="dummy-h5">Icon override variation</h5>
 
   <Hds::Alert
     @color="critical"
@@ -212,6 +201,17 @@
       view to be useful."
   />
   <br />
+
+  <Hds::Alert
+    @color="critical"
+    @icon=""
+    @title="Critical: With no icon!"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
 
   <h4 class="dummy-h4">Color</h4>
 
@@ -271,11 +271,9 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3"><code class="dummy-code">Hds::Alert::Page</code> Accessibility</h3>
+  <h3 class="dummy-h3">Alert (Page) Accessibility</h3>
   <p>
-    The
-    <code class="dummy-code">Hds::Alert::Page</code>
-    has
+    The Alert (Page) has
     <code class="dummy-code">role="alert"</code>
     on the parent
     <code class="dummy-code">div</code>, to identify the element as the container where alert content will be added or
