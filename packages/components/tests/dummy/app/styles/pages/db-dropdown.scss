@@ -17,11 +17,13 @@
   justify-content: stretch;
   align-items: center;
   align-content: stretch;
-  background-color: black;
   height: 62px;
   padding: 0 32px;
   &::after, &::before {
     box-sizing: border-box;
+  }
+  &.background-black {
+    background-color: black;
   }
   .dummy-nav-dropdown__list {
     margin: 0;
@@ -45,6 +47,25 @@
   display: none;
 }
 
+.dummy-dropdown-table-demo {
+  min-width: fit-content;
+  border: 1px solid #4d4d4d;
+  th {
+    font-weight: bold;
+    border-bottom: thin solid #888;
+    text-align: left;
+  }
+  th, td {
+    border-collapse: collapse;
+    padding: 0.25em 0.5em;
+    width: 8em;
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #ddd;
+    }
+  }
+}
 
 .dummy-dropdown-toggle-states-grid {
   display: grid;

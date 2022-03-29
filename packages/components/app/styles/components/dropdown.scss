@@ -163,17 +163,17 @@ $size-props: (
   padding: 4px 0;
   width: 200px; // default width // TODO
 
-  &.absolute--right {
+  &.hds-dropdown-list--absolute-right {
     position: absolute;
     right: 0;
-    top: 4px;
+    top: calc(100% + 4px);
     z-index: 2; // TODO understand what is the right value here
   }
 
-  &.absolute--left {
+  &.hds-dropdown-list--absolute-left {
     position: absolute;
     left: 0;
-    top: 4px;
+    top: calc(100% + 4px);
     z-index: 2; // TODO understand what is the right value here
   }
 }

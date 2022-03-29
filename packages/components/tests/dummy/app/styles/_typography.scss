@@ -83,3 +83,8 @@
     @include dummyFontSize(1rem);
     line-height: 1.5;
 }
+
+.dummy-table {
+    @include dummyFontFamily();
+    @include dummyFontSize(1rem);
+}
