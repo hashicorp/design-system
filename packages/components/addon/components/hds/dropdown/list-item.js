@@ -80,7 +80,7 @@ export default class HdsDropdownListItemComponent extends Component {
 
     // add a class based on the @color argument
     if (this.item === 'link' && this.color) {
-      classes.push(`hds-dropdown-list-item--link--color-${this.color}`);
+      classes.push(`hds-dropdown-list-item--color-${this.color}`);
     }
 
     return classes.join(' ');

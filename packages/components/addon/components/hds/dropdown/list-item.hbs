@@ -20,24 +20,25 @@
 {{else if (eq this.item "link")}}
   <li class={{this.classNames}}>
     {{#if @route}}
-      <LinkTo @route={{@route}} class={{@linkClass}}>
+      {{! // TODO consider approach }}
+      <LinkTo @route={{@route}} class="is-{{@state}}">
         {{#if @icon}}
-          <div class="hds-dropdown-list-item--link__icon">
+          <div class="hds-dropdown-list-item__link-icon">
             <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item--link__text">
+        <div class="hds-dropdown-list-item__link-text">
           {{@text}}
         </div>
       </LinkTo>
     {{else}}
-      <a target="_blank" rel="noopener noreferrer" href={{@href}} class={{@linkClass}}>
+      <a target="_blank" rel="noopener noreferrer" href={{@href}} class="is-{{@state}}">
         {{#if @icon}}
-          <div class="hds-dropdown-list-item--link__icon">
+          <div class="hds-dropdown-list-item__link-icon">
             <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item--link__text">
+        <div class="hds-dropdown-list-item__link_text">
           {{@text}}
         </div>
       </a>
