@@ -349,6 +349,20 @@
       </div>
     </:actions>
   </Hds::Alert>
+
+  <h4 class="dummy-h4">Dismiss</h4>
+  <span class="dummy-text-small">with icon/title/text/actions + dismiss</span>
+  <Hds::Alert
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    @isDismissible={{true}}
+  >
+    <:actions as |A|>
+      <A.Button @text="Button" @size="small" @color="secondary" />
+      <A.Button @icon="plus" @text="Button" @size="small" @color="tertiary" />
+      <A.Link::Standalone @icon="plus" @text="Link" href="#" @size="small" @color="secondary" />
+    </:actions>
+  </Hds::Alert>
 </section>
 
 <section data-test-percy>
