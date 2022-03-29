@@ -5,11 +5,11 @@ export const DEFAULT_TYPE = 'page';
 export const TYPES = ['page', 'inline', 'compact', 'toast'];
 export const DEFAULT_COLOR = 'neutral';
 export const COLORS = [
-  'critical',
-  'warning',
   'neutral',
   'highlight',
   'success',
+  'warning',
+  'critical',
 ];
 export const MAPPING_COLORS_TO_ICONS = {
   critical: 'alert-octagon',
