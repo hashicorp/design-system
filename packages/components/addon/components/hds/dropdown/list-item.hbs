@@ -1,0 +1,48 @@
+{{#if (eq this.item "heading")}}
+  <li class={{this.classNames}}>
+    {{@text}}
+  </li>
+
+{{else if (eq this.item "help-text")}}
+  <li class={{this.classNames}}>
+    {{@text}}
+  </li>
+
+{{else if (eq this.item "separator")}}
+  <li class={{this.classNames}} role="separator"></li>
+
+{{else if (eq this.item "copy-item")}}
+  {{! TODO!! add the copy-item element here }}
+  <li class={{this.classNames}}>
+    copy item will go here
+  </li>
+
+{{else if (eq this.item "link")}}
+  <li class={{this.classNames}}>
+    {{#if @route}}
+      {{! // TODO consider approach }}
+      <LinkTo @route={{@route}} class="is-{{@state}}">
+        {{#if @icon}}
+          <div class="hds-dropdown-list-item__link-icon">
+            <FlightIcon @name={{@icon}} />
+          </div>
+        {{/if}}
+        <div class="hds-dropdown-list-item__link-text">
+          {{@text}}
+        </div>
+      </LinkTo>
+    {{else}}
+      <a target="_blank" rel="noopener noreferrer" href={{@href}} class="is-{{@state}}">
+        {{#if @icon}}
+          <div class="hds-dropdown-list-item__link-icon">
+            <FlightIcon @name={{@icon}} />
+          </div>
+        {{/if}}
+        <div class="hds-dropdown-list-item__link_text">
+          {{@text}}
+        </div>
+      </a>
+    {{/if}}
+  </li>
+
+{{/if}}
