@@ -5,6 +5,8 @@
 //
 //
 
+@use "../mixins/focus-ring" as *;
+
 .hds-alert {
   align-content: flex-start;
   display: flex;
@@ -13,6 +15,10 @@
 
 .hds-alert__icon {
   margin-right: 0.75rem; // 12px
+}
+
+.hds-alert__content {
+  flex: 1 1 auto;
 }
 
 .hds-alert__text {
@@ -163,5 +169,47 @@
 
   &:empty {
     display: none;
+  }
+}
+
+
+// DISMISS
+
+.hds-alert__dismiss {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent; // We need this to be transparent for a11y
+  border-radius: 5px;
+  // color: var(--token-color-foreground-strong);
+  cursor: pointer;
+  display: flex;
+  flex: none;
+  height: 24px;
+  justify-content: center;
+  margin-left: 1rem; // 16px
+  outline: none;
+  padding: 0;
+  width: 24px;
+  // TODO - move up in the code and set color to the element depending on the @color parameter?
+
+  // we apply the focus directly to the element, without using a pseudo-element
+  @include hds-focus-ring-basic();
+
+  // TODO - discuss with cveight what are the design specs for the different statuses
+  &:hover,
+  &.is-hover {
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-faint);
+  }
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-primary);
+  }
+  &:focus,
+  &.is-focus {
+      background-color: transparent;
+      border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
   }
 }

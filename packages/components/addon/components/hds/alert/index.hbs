@@ -30,4 +30,10 @@
       </div>
     {{/if}}
   </div>
+
+  {{#if @isDismissible}}
+    <button class="hds-alert__dismiss" type="button" {{on "click" this.onClickDismiss}}>
+      <FlightIcon @name="x" @size="16" @isInlineBlock={{false}} />
+    </button>
+  {{/if}}
 </div>

@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+const noop = () => {};
+
 export const DEFAULT_TYPE = 'page';
 export const TYPES = ['page', 'inline', 'compact', 'toast'];
 export const DEFAULT_COLOR = 'neutral';
@@ -69,18 +71,30 @@ export default class HdsAlertIndexComponent extends Component {
 
   /**
    * @param icon
-   * @type {string}
+   * @type {string|false}
    * @default null
    * @description The name of the icon to be used.
    */
   get icon() {
     let { icon } = this.args;
 
-    if (icon === '') {
-      return icon;
+    if (icon === undefined) {
+      return MAPPING_COLORS_TO_ICONS[this.color];
+    } else if (icon === false) {
+      return false;
     } else {
-      return icon || MAPPING_COLORS_TO_ICONS[this.color];
+      return icon;
     }
+  }
+
+  /**
+   * @param onClickDismiss
+   * @type {function}
+   * @default () => {}
+   */
+  get onClickDismiss() {
+    // TODO discuss with Matthew if this is the right way to create a guard for this method
+    return this.args.onClickDismiss ?? noop;
   }
 
   /**
