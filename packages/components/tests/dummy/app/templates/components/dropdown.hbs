@@ -292,7 +292,7 @@
     {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
     <p class="dummy-paragraph">Rendered in a table cell:</p>
-    <table class="dummy-table">
+    <table class="dummy-table dummy-dropdown-table-demo">
       <thead>
         <tr>
           <th>Column A</th>
@@ -342,7 +342,6 @@
       is still required, because it supplies the value for the
       <span class="dummy-code">aria-label</span>
       attribute on the "overflow" toggle button.
-
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -369,7 +368,6 @@
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown @toggle="user" @toggleText="user menu" as |dd|>
-
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
             <dd.ListItem @item="separator" />
