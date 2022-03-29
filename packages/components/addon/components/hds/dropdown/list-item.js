@@ -43,6 +43,10 @@ export default class HdsDropdownListItemComponent extends Component {
   }
 
   /**
+   * TODO if color is critical, it MUST have an icon
+   */
+
+  /**
    * @param item
    * @type {string}
    * @default link

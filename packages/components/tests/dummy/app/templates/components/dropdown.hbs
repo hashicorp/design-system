@@ -37,7 +37,7 @@
           user
         </li>
         <li>
-          more
+          overflow
         </li>
         <li class="default">
           text
@@ -104,7 +104,7 @@
         The
         <span class="dummy-code">@size</span>
         property may only be set if
-        <span class="dummy-code">more</span>
+        <span class="dummy-code">overflow</span>
         toggle is defined.
       </p>
     </dd>
@@ -264,12 +264,12 @@
     </nav>
   </div>
   <div>
-    <h4 class="dummy-h4">Toggle/More</h4>
+    <h4 class="dummy-h4">Toggle/Overflow</h4>
     <p class="dummy-paragraph">
-      Example: a "more" toggle with default and destructive (critical) links.
+      Example: an "overflow" toggle with default and destructive (critical) links.
       <br />Note that
       <span class="dummy-code">toggleText</span>
-      is still required, because it supplies the aria-label for the "more" toggle button.
+      is still required, because it supplies the aria-label for the "overflow" toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -278,8 +278,8 @@
       @language="markup"
       @code='
         &lt;Hds::Dropdown
-          @toggle="more"
-          @toggleText="More Options"
+          @toggle="overflow"
+          @toggleText="Overflow Options"
           as |dd| &gt;
 
           &lt;dd.ListItem @route="components.dropdown" @text="Create" /&gt;
@@ -310,7 +310,7 @@
           <td>Row 2, cell 1</td>
           <td>Row 2, cell 2</td>
           <td>
-            <Hds::Dropdown @toggle="more" @toggleText="More Options" as |dd|>
+            <Hds::Dropdown @toggle="overflow" @toggleText="Overflow Options" as |dd|>
 
               <dd.ListItem @route="components.dropdown" @text="Create" />
               <dd.ListItem @route="components.dropdown" @text="Read" />
@@ -341,7 +341,7 @@
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the value for the
       <span class="dummy-code">aria-label</span>
-      attribute on the "more" toggle button.
+      attribute on the "overflow" toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -413,7 +413,7 @@
   <ol class="dummy-list">
     <li>In any instance where data truncation occurs, there is no current method to access that data for the
       keyboard-only user.</li>
-    <li>If the "more" toggle is used in the incorrect context, it will fail on perceivability. It must be used in
+    <li>If the "overflow" toggle is used in the incorrect context, it will fail on perceivability. It must be used in
       context. For the best user experience, interactive elements should visually present as interactive, unless their
       context makes it clear that they are/should be interactive.</li>
   </ol>
@@ -520,54 +520,56 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3" id="section-showcase">Showcase</h3>
+  <h3 class="dummy-h3" id="section-showcase">Showcase: Toggles</h3>
 
-  <h4 class="dummy-h4">Toggles</h4>
-  <h5 class="dummy-h5">"Button" variant</h5>
+  <h4 class="dummy-h4">Toggle: Button (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <p class="dummy-paragraph">Primary (default)</p>
-      <span class="dummy-text-small">closed (default)</span>
+      <p class="dummy-paragraph">Color: primary (default)</p>
+      <span class="dummy-text-small">State: closed (default)</span>
       <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{false}} />
-      <span class="dummy-text-small">opened</span>
+      <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} />
     </div>
     <div>
-      <p class="dummy-paragraph">Secondary</p>
-      <span class="dummy-text-small">closed (default)</span>
+      <p class="dummy-paragraph">Color: secondary</p>
+      <span class="dummy-text-small">State: closed (default)</span>
       <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{false}} />
-      <span class="dummy-text-small">opened</span>
+      <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
     </div>
   </div>
-  <h5 class="dummy-h5">"More" variant</h5>
+
+  <h4 class="dummy-h4">Toggle: Overflow</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <span class="dummy-text-small">medium (default)</span>
-      <Hds::Dropdown::ToggleMore />
+      <span class="dummy-text-small">Size: medium (default)</span>
+      <Hds::Dropdown::ToggleOverflow />
     </div>
     <div>
-      <span class="dummy-text-small">small</span>
-      <Hds::Dropdown::ToggleMore @size="small" />
+      <span class="dummy-text-small">Size: small</span>
+      <Hds::Dropdown::ToggleOverflow @size="small" />
     </div>
   </div>
-  <h5 class="dummy-h5">"User" variant</h5>
+  <h4 class="dummy-h4">Toggle: User</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <span class="dummy-text-small">icon/closed (default)</span>
+      <p class="dummy-paragraph">Type: icon (default)</p>
+      <span class="dummy-text-small">State: closed (default)</span>
       <Hds::Dropdown::ToggleUser @isOpen={{false}} />
-      <span class="dummy-text-small">icon/opened</span>
+      <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleUser @isOpen={{true}} />
     </div>
     <div>
-      <span class="dummy-text-small">avatar/closed (default)</span>
+      <p class="dummy-paragraph">Type: avatar</p>
+      <span class="dummy-text-small">State: closed (default)</span>
       <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} />
-      <span class="dummy-text-small">avatar/opened</span>
+      <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} />
     </div>
   </div>
 
-  <h5 class="dummy-h5">Interaction states</h5>
+  <h4 class="dummy-h4">Interaction states</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
@@ -578,12 +580,12 @@
         </div>
       {{/each}}
     {{/each}}
-    {{#each @model.TOGGLE_MORE_SIZES as |size|}}
+    {{#each @model.TOGGLE_OVERFLOW_SIZES as |size|}}
       {{#each @model.TOGGLE_STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{size}}/{{state}}:</span>
           <br />
-          <Hds::Dropdown::ToggleMore @size={{size}} class="is-{{state}}" />
+          <Hds::Dropdown::ToggleOverflow @size={{size}} class="is-{{state}}" />
         </div>
       {{/each}}
     {{/each}}
@@ -603,17 +605,9 @@
     {{/each}}
   </div>
 
-  <h4 class="dummy-h4">List with items</h4>
-  <h5 class="dummy-h5">List container</h5>
-  <div>
-    <ul class="hds-dropdown-list">
-      <DummyPlaceholder @text="items" @height="200" @background="#e1f5fe" />
-    </ul>
-  </div>
+  <h3 class="dummy-h3" id="section-showcase-listitem">Showcase: List Items</h3>
 
-  <h5 class="dummy-h5">Items</h5>
-
-  <h6 class="dummy-h6">Heading, Help Text, Separator</h6>
+  <h4 class="dummy-h4">Heading, Help Text, Separator</h4>
   <div class="dummy-dropdown-list-items-base-sample">
     <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="heading" @text="A simple heading" />
@@ -629,7 +623,7 @@
     </ul>
   </div>
 
-  <h6 class="dummy-h6">Links</h6>
+  <h4 class="dummy-h4">Links</h4>
 
   {{#each @model.ITEM_COLORS as |color|}}
     <p class="dummy-paragraph">{{capitalize color}}</p>
@@ -643,7 +637,7 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
-            @icon={{if (eq color "critical") "trash" "learn-link"}}
+            @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with icon"
             @color={{color}}
             @state={{state}}
@@ -654,7 +648,7 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
-            @icon={{if (eq color "critical") "trash" "learn-link"}}
+            @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with a long multi-line text"
             @color={{color}}
             @state={{state}}
@@ -663,5 +657,4 @@
       </ul>
     </div>
   {{/each}}
-
 </section>

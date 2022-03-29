@@ -1,8 +1,4 @@
-//  ██     ██  █████  ██████  ███    ██ ██ ███    ██  ██████
-//  ██     ██ ██   ██ ██   ██ ████   ██ ██ ████   ██ ██
-//  ██  █  ██ ███████ ██████  ██ ██  ██ ██ ██ ██  ██ ██   ███
-//  ██ ███ ██ ██   ██ ██   ██ ██  ██ ██ ██ ██  ██ ██ ██    ██
-//   ███ ███  ██   ██ ██   ██ ██   ████ ██ ██   ████  ██████
+// >>>>>>>>>> WARNING <<<<<<<<<<<
 //
 // Notice: in this component we're using directly the `Hds::Button` component
 // (and adding a specialized class for the "toggle-button" variant, see below)
@@ -18,29 +14,24 @@
 // DROPDOWN COMPONENT
 //
 // properties within each class are sorted alphabetically
-// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
 // see https://github.com/hashicorp/design-system-components/issues/132
 //
 //
 
-// TODO! split this file in sub-files and import them here:
-// - index (main container)
-// - toggle
-// - list
 
-@use "../mixins/focus-ring" as *;
+@use '../mixins/focus-ring' as *;
 
-$hds-dropdown-toggle-more-sizes: ( 'small', 'medium' );
+$hds-dropdown-toggle-overflow-sizes: ('small', 'medium');
 
 $hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: 5px;
 $hds-dropdown-toggle-border-width: 1px;
 
+// TOGGLE/BASE (for "OVERFLOW" and "USER")
 
-// COMMON for "MORE" and "USER"
-
-.hds-dropdown-toggle--more,
-.hds-dropdown-toggle--user {
+.hds-dropdown-toggle-overflow,
+.hds-dropdown-toggle-user {
   align-items: center;
   background-color: transparent;
   border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
@@ -74,7 +65,7 @@ $hds-dropdown-toggle-border-width: 1px;
 
     // it looks weird to see the user photo in full color when the toggle is disabled
     // so we we convert the image to monochrome and reduce its opacity to blend with the background
-    .hds-dropdown-toggle__user {
+    .hds-dropdown-toggle-user {
       img {
         filter: grayscale(100%);
         opacity: 0.25;
@@ -84,14 +75,22 @@ $hds-dropdown-toggle-border-width: 1px;
 
   &:focus,
   &.is-focus {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -1px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: $hds-dropdown-toggle-border-radius
+    );
   }
+
   &:hover,
   &.is-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
     cursor: pointer;
   }
+
   &:active,
   &.is-active {
     background-color: var(--token-color-surface-interactive-active);
@@ -99,7 +98,7 @@ $hds-dropdown-toggle-border-width: 1px;
   }
 }
 
-// BUTTON
+// TOGGLE/BUTTON
 
 .hds-dropdown-toggle--with-button-component {
   box-shadow: none; // we override this to remove the elevation style
@@ -110,36 +109,31 @@ $hds-dropdown-toggle-border-width: 1px;
   }
 }
 
-
-// MORE
+// TOGGLE/OVERFLOW
 
 // these values later may come from the design tokens
 $size-props: (
-  "small": (
-    "size": 28px
+  'small': (
+    'size': 28px,
   ),
-  "medium": (
-    "size": $hds-dropdown-toggle-base-height
-  )
+  'medium': (
+    'size': $hds-dropdown-toggle-base-height,
+  ),
 );
 
-.hds-dropdown-toggle--more {
-  @each $size in $hds-dropdown-toggle-more-sizes {
-    &.hds-dropdown-toggle--size-#{$size} {
-      height: map-get($size-props, $size, "size");
-      width: map-get($size-props, $size, "size");
-    }
+@each $size in $hds-dropdown-toggle-overflow-sizes {
+  .hds-dropdown-toggle-overflow--size-#{$size} {
+    height: map-get($size-props, $size, 'size');
+    width: map-get($size-props, $size, 'size');
   }
 }
 
-
-// USER
-
-.hds-dropdown-toggle--user {
+// TOGGLE/USER
+.hds-dropdown-toggle-user {
   height: $hds-dropdown-toggle-base-height;
   padding: 1px;
 
-  .hds-dropdown-toggle__user {
+  .hds-dropdown-toggle-user__avatar {
     $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
     align-items: center;
     border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
@@ -157,35 +151,36 @@ $size-props: (
 
 
 // LIST
+// UL ELEMENT
+// GOES INSIDE HDS::DISCLOSURE's :content block
 
 .hds-dropdown-list {
   background-color: var(--token-color-surface-primary);
   border-radius: 6px;
   box-shadow: var(--token-surface-high-box-shadow);
-  box-sizing: border-box;
   list-style: none;
   margin: 0;
   padding: 4px 0;
   width: 200px; // default width // TODO
 
-  // TODO this should be controlled by the "list" or by the "dropdown" element?
   &.absolute--right {
     position: absolute;
     right: 0;
-    // TODO what about the top value?
+    top: 4px;
     z-index: 2; // TODO understand what is the right value here
   }
 
   &.absolute--left {
     position: absolute;
     left: 0;
-    // TODO what about the top value?
+    top: 4px;
     z-index: 2; // TODO understand what is the right value here
   }
 }
 
 
-// LIST > ITEM
+// LIST > LIST-ITEM
+// HDS::DROPDOWN::LIST-ITEM
 
 .hds-dropdown-list-item--heading {
   color: var(--token-color-foreground-strong);
@@ -304,7 +299,6 @@ $size-props: (
 .hds-dropdown-list-item__link-icon {
   margin-right: 8px;
 }
-
 
 .hds-dropdown-list-item--color-action {
   a {

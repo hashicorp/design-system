@@ -43,6 +43,10 @@
     }
   }
 }
+.dummy-dropdown-hide {
+  display: none;
+}
+
 
 .dummy-table {
   min-width: fit-content;
@@ -70,6 +74,10 @@
   grid-template-columns: repeat(5, 1fr);;
   margin: 0;
   padding: 0;
+
+  .dummy-dropdown-states-grid__title {
+      grid-column: 1 / 6;
+  }
 }
 
 .dummy-dropdown-list-items-base-sample {

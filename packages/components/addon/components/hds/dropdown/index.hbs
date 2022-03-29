@@ -1,7 +1,7 @@
 <Hds::Disclosure>
   <:toggle as |t|>
-    {{#if (eq @toggle "more")}}
-      <Hds::Dropdown::ToggleMore @text={{@toggleText}} @size={{@size}} {{on "click" t.onClickToggle}} />
+    {{#if (eq @toggle "overflow")}}
+      <Hds::Dropdown::ToggleOverflow @text={{@toggleText}} @size={{@size}} {{on "click" t.onClickToggle}} />
     {{else if (eq @toggle "user")}}
       <Hds::Dropdown::ToggleUser @text={{@toggleText}} @avatarUrl={{@avatarUrl}} {{on "click" t.onClickToggle}} />
     {{else}}

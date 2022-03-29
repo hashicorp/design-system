@@ -71,6 +71,7 @@
     line-height: 1.2;
     text-transform: uppercase;
 }
+
 .dummy-text-small {
     @include dummyFontFamily();
     font-size: 0.8rem;

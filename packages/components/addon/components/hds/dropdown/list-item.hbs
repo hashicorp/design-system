@@ -13,12 +13,12 @@
 
 {{else if (eq this.item "copy-item")}}
   {{! TODO!! add the copy-item element here }}
-  <li {{this.classNames}}>
+  <li class={{this.classNames}}>
     copy item will go here
   </li>
 
 {{else if (eq this.item "link")}}
-  <li class={{this.classNames}} ...attributes>
+  <li class={{this.classNames}}>
     {{#if @route}}
       {{! // TODO consider approach }}
       <LinkTo @route={{@route}} class="is-{{@state}}">
@@ -32,13 +32,13 @@
         </div>
       </LinkTo>
     {{else}}
-      <a href={{@href}} class="is-{{@state}}">
+      <a target="_blank" rel="noopener noreferrer" href={{@href}} class="is-{{@state}}">
         {{#if @icon}}
           <div class="hds-dropdown-list-item__link-icon">
             <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item__link-text">
+        <div class="hds-dropdown-list-item__link_text">
           {{@text}}
         </div>
       </a>
