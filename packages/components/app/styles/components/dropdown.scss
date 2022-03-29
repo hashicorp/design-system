@@ -139,12 +139,11 @@ $size-props: (
 }
 
 // TOGGLE/USER
-
-
 .hds-dropdown-toggle-user {
   height: $hds-dropdown-toggle-base-height;
   padding: 1px;
 
+  // TODO figure out the naming for this, it's not correct (MS) 
   .hds-dropdown-toggle-user--avatar {
     $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
     align-items: center;
@@ -257,6 +256,7 @@ $size-props: (
 
       // Notice: this is used for the active/focus states which have very specific positions
       // and also has a background color, so we can't use the existing focus-ring mixins
+      // TODO why was this changed though, it was already solved (MS)
       &::after {
         border-radius: 5px;
         bottom: 0px;

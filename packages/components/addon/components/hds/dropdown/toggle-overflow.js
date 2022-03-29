@@ -66,7 +66,7 @@ export default class HdsDropdownToggleOverflowComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dropdown-toggle', 'hds-dropdown-toggle-overflow'];
+    let classes = ['hds-dropdown-toggle-overflow'];
 
     // add a class based on the @size argument
     classes.push(`hds-dropdown-toggle-overflow--size-${this.size}`);
