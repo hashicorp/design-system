@@ -197,6 +197,169 @@
 </section>
 
 <section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+
+  <h4 class="dummy-h4">Type</h4>
+  {{#each @model.TYPES as |type|}}
+    <div>
+      <p class="dummy-paragraph">{{capitalize type}}</p>
+      <br />
+      <Hds::Alert @type={{type}} @title={{capitalize type}} @description="Lorem ipsum dolor sit amet." />
+    </div>
+  {{/each}}
+
+  <h4 class="dummy-h4">Color</h4>
+  <div class="dummy-alert-sample-grid">
+    {{#each @model.COLORS as |color|}}
+      <p class="dummy-paragraph dummy-alert-sample-grid__title">{{capitalize color}}</p>
+      {{#each @model.TYPES as |type|}}
+        <div>
+          <Hds::Alert
+            @type={{type}}
+            @color={{color}}
+            @title="{{capitalize type}} title"
+            @description="This is the <em>{{type}}</em> alert with <em>{{color}}</em> color."
+          />
+        </div>
+      {{/each}}
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Icon</h4>
+  <div class="dummy-alert-sample-grid">
+    <Hds::Alert @type="inline" @color="critical" @title="Default icon" @description="Lorem ipsum dolor sit amet." />
+    <Hds::Alert
+      @type="inline"
+      @color="critical"
+      @icon="meh"
+      @title="With icon override"
+      @description="Lorem ipsum dolor sit amet."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="critical"
+      @icon=""
+      @title="Without icon"
+      @description="Lorem ipsum dolor sit amet."
+    />
+  </div>
+
+  <h4 class="dummy-h4">Content</h4>
+  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert @type="inline" @color="success" @title="A simple title" @description="A simple description text" />
+    <Hds::Alert
+      @type="inline"
+      @color="success"
+      @title="An alert with a very long title and a long description text that should go on multiple lines"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
+    />
+    <Hds::Alert @type="inline" @color="success" @title="An alert with just a title and no description text." />
+    <Hds::Alert @type="inline" @color="success" @description="An alert with no title and just a description text" />
+    <Hds::Alert
+      @type="inline"
+      @color="success"
+      @title="An alert with rich text description (HTML)"
+      @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="success"
+      @title="An alert with extra/custom content"
+      @description="In special cases, you can pass extra content to the alert using the <code>actions</code> named block."
+    >
+      <:actions>
+        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+      </:actions>
+    </Hds::Alert>
+  </div>
+
+  <h4 class="dummy-h4">Actions</h4>
+  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @title="Action passed as yielded component"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    >
+      <:actions as |A|>
+        <A.Button @text="Action" @size="small" @color="secondary" />
+      </:actions>
+    </Hds::Alert>
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @title="With multiple actions passed as yielded components"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    >
+      <:actions as |A|>
+        <A.Button @text="Secondary" @size="small" @color="secondary" />
+        <A.Button @icon="plus" @text="Tertiary" @size="small" @color="tertiary" />
+        <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @size="small" @color="secondary" />
+      </:actions>
+    </Hds::Alert>
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @title="With content yielded in the 'actions' named block"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    >
+      <:actions>
+        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+      </:actions>
+    </Hds::Alert>
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @title="With actions and custom content in the 'actions' named block"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    >
+      <:actions>
+        <div>
+          <div class="dummy-alert-sample-custom-actions__actions">
+            <Hds::Button @text="Action" @size="small" @color="secondary" />
+            <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @size="small" @color="secondary" />
+          </div>
+          <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific for a
+            special use case.</span>
+        </div>
+      </:actions>
+    </Hds::Alert>
+  </div>
+
+  <h4 class="dummy-h4">Dismiss</h4>
+  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @title="Without the dismiss button (default)"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @title="With the dismiss button"
+      @description="TODO at the moment this is not visible. Once we merge the branch with the implementation of the dismiss button, it will appear here automatically."
+      @isDismissible={{true}}
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @icon=""
+      @title="With the dismiss button and no icon"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      @isDismissible={{true}}
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @description="With the dismiss button and no title"
+      @isDismissible={{true}}
+    />
+  </div>
+
+</section>
+
+<section data-test-percy>
   <h3 class="dummy-h3" id="showcase-page">Showcase: Alert (Page)</h3>
 
   <h4 class="dummy-h4">Color</h4>
