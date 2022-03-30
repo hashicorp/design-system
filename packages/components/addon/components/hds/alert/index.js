@@ -99,6 +99,11 @@ export default class HdsAlertIndexComponent extends Component {
     // Add a class based on the @type argument
     classes.push(`hds-alert--type-${this.type}`);
 
+    // Add an elevation to the "toast" alert
+    if (this.type === 'toast') {
+      classes.push(`hds-elevation-higher`);
+    }
+
     // Add a class based on the @color argument
     classes.push(`hds-alert--color-${this.color}`);
 
