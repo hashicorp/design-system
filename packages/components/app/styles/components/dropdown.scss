@@ -29,7 +29,8 @@ $hds-dropdown-toggle-border-width: 1px;
 // TOGGLE/BASE (for "OVERFLOW" and "USER")
 
 .hds-dropdown-toggle-overflow,
-.hds-dropdown-toggle-user {
+.hds-dropdown-toggle-user,
+.hds-dropdown-toggle-icon {
   align-items: center;
   background-color: transparent;
   border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
@@ -44,7 +45,7 @@ $hds-dropdown-toggle-border-width: 1px;
   outline-color: transparent; // We need this to be transparent for a11y
   padding: 0;
   position: relative;
-  width: auto;
+  min-width: $hds-dropdown-toggle-base-height;
 
   &:hover,
   &.is-hover {
@@ -106,6 +107,34 @@ $hds-dropdown-toggle-border-width: 1px;
       border-radius: inherit;
     }
   }
+}
+
+.hds-dropdown-toggle-icon {
+  border-color: lightgray;
+  padding: 1px;
+}
+.hds-dropdown-toggle-icon__wrapper {
+  align-items: center;
+  border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
+  display: flex;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+
+  > * {
+    border-radius: inherit;
+  }
+}
+
+.hds-dropdown-toggle-icon--hasChevron {
+  margin-right: 0.25rem;
+}
+.hds-dropdown-toggle-icon__chevron {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: center;
+  margin-left: 0.25rem;
 }
 
 
