@@ -3,12 +3,7 @@
 <h2 class="dummy-h2">Alert</h2>
 
 <section>
-  <h3 class="dummy-h3">Scratch reference links</h3>
-  <p>Alert types, that extend the base, coming soon:
-    <code class="dummy-code">Hds::Alert::FullWidth</code>,
-    <code class="dummy-code">Hds::Alert::Inline</code>, and
-    <code class="dummy-code">Hds::Alert::Toast</code>.
-  </p>
+  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
   <ul class="dummy-paragraph">
     <li>
       <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
@@ -26,41 +21,94 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
+  <h3 class="dummy-h3">Alert Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
   <dl class="dummy-component-props">
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>
+        <code class="dummy-code">type</code>
+        sets the type of alert.
+      </p>
+      <p>
+        A
+        <code class="dummy-code">page</code>
+        alert is a rectangular alert (no border-radius). A
+        <code class="dummy-code">page</code>
+        alert typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent
+        containing div to its top, left, and right.
+      </p>
+      <p>
+        An
+        <code class="dummy-code">inline</code>
+        alert is an alert with a border-radius. A
+        <code class="dummy-code">page</code>
+        alert typically has adjacent whitespace on all four sides.
+      </p>
+      <p>
+        🚧 TODO: Update verbiage!
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">page</li>
+        <li>inline</li>
+        <li>compact</li>
+        <li>toast</li>
+      </ol>
+    </dd>
+
+    <dt class="dummy-indent">🚧 isDismissible <code>boolean</code></dt>
+    <p class="dummy-indent">The alert can be dismissed by the user. Default value determined by
+      <code class="dummy-code">type</code>. For example, this parameter has some accessibility considerations for Alert
+      (Toast). Alert (Toast) will be
+      <code class="dummy-code">role="alertdialog"</code>
+      and generally not dismissible for accessibility.
+    </p>
+    <dd class="dummy-indent">
+      <p>Acceptable values:</p>
+      <ol>
+        <li>true</li>
+        <li>false</li>
+      </ol>
+    </dd>
+
     <dt>color <code>enum</code></dt>
     <dd>
-      <p><code class="dummy-code">color</code>
-        results in a default
-        <code class="dummy-code">icon</code>, which
-        <strong>can</strong>
-        be overriden.
+      <p>
         <code class="dummy-code">color</code>
         sets the color scheme for background, border,
         <code class="dummy-code">title</code>, and
         <code class="dummy-code">description</code>, which
         <strong>cannot</strong>
         be overriden.
+        <code class="dummy-code">color</code>
+        results in a default
+        <code class="dummy-code">icon</code>, which
+        <strong>can</strong>
+        be overriden.
       </p>
       <p>Acceptable values:</p>
       <ol>
-        <li>critical</li>
-        <li>warning</li>
         <li class="default">neutral</li>
         <li>highlight</li>
         <li>success</li>
+        <li>warning</li>
+        <li>critical</li>
       </ol>
     </dd>
 
     <dt class="dummy-indent">icon <code>string</code></dt>
     <dd class="dummy-indent">
-      <p>Shows an icon in the alert. Optional parameter.</p>
-      <p>Acceptable value:</p>
+      <p>Override the default
+        <code class="dummy-code">icon</code>
+        name, which is determined by the
+        <code class="dummy-code">color</code>. Optional parameter.
+      </p>
+      <p>Acceptable values:</p>
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
           Flight icon</a>
-        name.
+        name, or pass empty string (<code class="dummy-code">""</code>) for no icon.
       </p>
     </dd>
 
@@ -84,34 +132,9 @@
         is required.</p>
     </dd>
 
-    <dt>isDismissible <code>boolean</code></dt>
-    <p>The alert can be dismissed by the user. This parameter has some accessibility considerations for
-      <code class="dummy-code">Hds::Alert::Toast</code>
-      (<code class="dummy-code">role="alertdialog"</code>).
-    </p>
+    <dt>&lt;:actions&gt; <code>named block</code></dt>
     <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">true</li>
-        <li>false</li>
-      </ol>
-    </dd>
-
-    <dt>hasActions <code>boolean</code></dt>
-    <dd>
-      <p>The alert has content below the
-        <code class="dummy-code">title</code>
-        and
-        <code class="dummy-code">description</code>, such as an
-        <code class="dummy-code">Hds::Button</code>
-        and an
-        <code class="dummy-code">Hds::LinkTo::Standalone</code>.
-      </p>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>true</li>
-        <li class="default">false</li>
-      </ol>
+      <p>🚧 TODO</p>
     </dd>
 
     <dt>“splattributes”</dt>
@@ -122,10 +145,63 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Temporary scratch showcase</h3>
+  <h3 class="dummy-h3">How to use</h3>
+  <h4 class="dummy-h4">
+    Basic invocation: Alert (Page)
+  </h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">type</code>
+    of
+    <code class="dummy-code">page</code>
+    and
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>:
+  </p>
+  <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
+  <br />
+
+  <h4 class="dummy-h4">
+    Basic invocation: Alert (Inline)
+  </h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>:
+  </p>
+  <Hds::Alert @type="inline" @title="Really cool title here" @description="And a rad description too!" />
+  <br />
+</section>
+
+<section>
+  <h3 class="dummy-h3">🚧 Design guidelines</h3>
+  <p class="dummy-paragraph">TODO: Insert Figma stickersheet here</p>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase-page">Showcase: Alert (Page)</h3>
+
+  <h4 class="dummy-h4">Color</h4>
   <Hds::Alert
-    @icon="alert-triangle"
-    @title="Alert w/title & description"
+    @title="Neutral with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -133,11 +209,10 @@
       view to be useful."
   />
   <br />
-  <Hds::Alert @icon="alert-triangle" @description="Description only please" />
-  <br />
   <Hds::Alert
-    @icon="alert-triangle"
-    @title="Really long title, yet no description. Your Intention settings are currently set to default allow. This
+    @color="highlight"
+    @title="Highlight with title and description"
+    @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
       creating specific Intentions for upstream and downstream services for this
@@ -145,8 +220,43 @@
   />
   <br />
   <Hds::Alert
-    @icon="alert-triangle"
-    @title="Description below has HTML"
+    @color="success"
+    @title="Success with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="warning"
+    @title="Warning with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="critical"
+    @title="Critical with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+
+  <h4 class="dummy-h4">Content</h4>
+
+  <h5 class="dummy-h5">Title and description variations</h5>
+  <Hds::Alert @color="success" @title="Success with regular title and description" @description="Regular description" />
+  <br />
+  <Hds::Alert
+    @color="success"
+    @title="Success with regular title and rich text description (description below has HTML, e.g. <strong>, <code>, <a>)"
     @description="Your Intention settings are currently set to default <strong>allow</strong>. This
       means that this view will show connections to every service in your
       <code>cluster</code>. We recommend changing your Intention settings to default deny and
@@ -154,27 +264,286 @@
       view to be useful. For more info, see <a href='#'>About clusters</a>."
   />
   <br />
-  Below alert with no title, no description, does not appear in local dev (see error in console):
-  <Hds::Alert @icon="meh" />
+  <Hds::Alert
+    @color="success"
+    @title="Success with really long title, yet no description below. Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
   <br />
-</section>
+  <Hds::Alert @color="success" @description="Success with no title, description only" />
 
-<section>
-  <h3 class="dummy-h3">How to use</h3>
-</section>
+  <h5 class="dummy-h5">Icon override variations</h5>
+  <Hds::Alert
+    @color="critical"
+    @title="Critical with default icon"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="critical"
+    @icon="meh"
+    @title="Critical with override icon of your choice"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="critical"
+    @icon=""
+    @title="Critical with no icon!"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
 
-<section>
-  <h3 class="dummy-h3">Design guidelines</h3>
+  <h4 class="dummy-h4">Actions</h4>
+  <span class="dummy-text-small">with actions passed as yielded components</span>
+  <Hds::Alert
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions as |A|>
+      <A.Button @text="Button" @size="small" @color="secondary" />
+      <A.Button @icon="plus" @text="Button" @size="small" @color="tertiary" />
+      <A.Link::Standalone @icon="plus" @text="Link" href="#" @size="small" @color="secondary" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <span class="dummy-text-small">with content yielded in the "actions" named block</span>
+  <Hds::Alert
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <DummyPlaceholder @text="generic content" @height="80" @background="#e1f5fe" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <span class="dummy-text-small">with custom content yielded in the "actions" named block</span>
+  <Hds::Alert
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <div>
+        <div class="dummy-alert-sample-custom-actions__actions">
+          <Hds::Button @text="Button" @size="small" @color="secondary" />
+          <Hds::Link::Standalone @icon="plus" @text="Link text" href="#" @size="small" @color="secondary" />
+        </div>
+        <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific only for
+          one special use case.</span>
+      </div>
+    </:actions>
+  </Hds::Alert>
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
+  <h3 class="dummy-h3" id="showcase-inline">Showcase: Alert (Inline)</h3>
+
+  <h4 class="dummy-h4">Color</h4>
+  <Hds::Alert
+    @type="inline"
+    @title="Neutral with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="highlight"
+    @title="Highlight with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="success"
+    @title="Success with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @title="Warning with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="critical"
+    @title="Critical with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+
   <h4 class="dummy-h4">Content</h4>
 
-  <h4 class="dummy-h4">Size</h4>
+  <h5 class="dummy-h5">Title and description variations</h5>
+  <Hds::Alert
+    @type="inline"
+    @color="highlight"
+    @title="Highlight with regular title and description"
+    @description="Regular description"
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="highlight"
+    @title="Highlight with regular title and rich text description (description below has HTML, e.g. <strong>, <code>, <a>)"
+    @description="Your Intention settings are currently set to default <strong>allow</strong>. This
+      means that this view will show connections to every service in your
+      <code>cluster</code>. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful. For more info, see <a href='#'>About clusters</a>."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="highlight"
+    @title="Highlight with really long title, yet no description below. Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert @type="inline" @color="highlight" @description="Highlight with no title, description only" />
 
-  <h4 class="dummy-h4">Type</h4>
+  <h5 class="dummy-h5">Icon override variations</h5>
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @title="Warning with default icon"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @icon="wall"
+    @title="Warning with override icon of your choice"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @icon=""
+    @title="Warning with no icon!"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
 
-  <h4 class="dummy-h4">Color:</h4>
+  <h4 class="dummy-h4">Actions</h4>
+  <span class="dummy-text-small">with actions passed as yielded components</span>
+  <Hds::Alert
+    @type="inline"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions as |A|>
+      <A.Button @text="Button" @size="small" @color="secondary" />
+      <A.Button @icon="plus" @text="Button" @size="small" @color="tertiary" />
+      <A.Link::Standalone @icon="plus" @text="Link" href="#" @size="small" @color="secondary" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <span class="dummy-text-small">with content yielded in the "actions" named block</span>
+  <Hds::Alert
+    @type="inline"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <DummyPlaceholder @text="generic content" @height="80" @background="#e1f5fe" />
+    </:actions>
+  </Hds::Alert>
+  <br />
+  <span class="dummy-text-small">with custom content yielded in the "actions" named block</span>
+  <Hds::Alert
+    @type="inline"
+    @title="This is the title"
+    @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  >
+    <:actions>
+      <div>
+        <div class="dummy-alert-sample-custom-actions__actions">
+          <Hds::Button @text="Button" @size="small" @color="secondary" />
+          <Hds::Link::Standalone @icon="plus" @text="Link text" href="#" @size="small" @color="secondary" />
+        </div>
+        <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific only for
+          one special use case.</span>
+      </div>
+    </:actions>
+  </Hds::Alert>
+</section>
 
+<section>
+  <h3 class="dummy-h3">🚧 Accessibility: Alert (Page), Alert (Inline), and Alert (Compact)</h3>
+  <p class="dummy-paragraph">
+    The Alert (Page) has
+    <code class="dummy-code">role="alert"</code>
+    on the parent
+    <code class="dummy-code">div</code>, to identify the element as the container where alert content will be added or
+    updated.
+  </p>
+  <p class="dummy-paragraph">References:</p>
+  <ul>
+    <li>
+      <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
+        WAI-ARIA Authoring Practices 1.2, Alert
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/TR/wai-aria-practices-1.2/examples/alert/alert.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WAI-ARIA Authoring Practices 1.2, Alert Example
+      </a>
+    </li>
+  </ul>
 </section>

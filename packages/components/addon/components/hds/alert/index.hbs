@@ -1,23 +1,32 @@
 <div class={{this.classNames}} ...attributes role="alert">
-  {{#if @icon}}
+  {{#if this.icon}}
     <div class="hds-alert__icon">
-      <FlightIcon
-        @name={{this.icon}}
-        @size="24"
-        {{! TODO: Replace w/dynamic color, once color prop implemented }}
-        @color="var(--token-color-foreground-warning-on-surface)"
-        @isInlineBlock={{false}}
-      />
+      <FlightIcon @name={{this.icon}} @size="24" @isInlineBlock={{false}} />
     </div>
   {{/if}}
 
-  <div class="hds-alert__text">
-    {{#if @title}}
-      <div class="hds-alert__title">{{@title}}</div>
-    {{/if}}
+  <div class="hds-alert__content">
+    <div class="hds-alert__text">
+      {{#if @title}}
+        <div class="hds-alert__title">{{@title}}</div>
+      {{/if}}
+      {{#if @description}}
+        <div class="hds-alert__description">{{html-safe @description}}</div>
+      {{/if}}
+    </div>
 
-    {{#if @description}}
-      <div class="hds-alert__description">{{html-safe @description}}</div>
+    {{#if (has-block "actions")}}
+      {{! IMPORTANT: don't change the formatting or it will add empty space inside the element (we're using ":empty" in CSS to hide it when it's empty!) }}
+      <div class="hds-alert__actions">
+        {{yield
+          (hash
+            Button=(component "hds/button")
+            Link::Standalone=(component "hds/link/standalone")
+            LinkTo::Standalone=(component "hds/link-to/standalone")
+          )
+          to="actions"
+        }}
+      </div>
     {{/if}}
   </div>
 </div>

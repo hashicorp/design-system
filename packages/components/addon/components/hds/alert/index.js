@@ -1,6 +1,24 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+export const DEFAULT_TYPE = 'page';
+export const TYPES = ['page', 'inline', 'compact', 'toast'];
+export const DEFAULT_COLOR = 'neutral';
+export const COLORS = [
+  'neutral',
+  'highlight',
+  'success',
+  'warning',
+  'critical',
+];
+export const MAPPING_COLORS_TO_ICONS = {
+  critical: 'alert-octagon',
+  warning: 'alert-triangle',
+  neutral: 'info',
+  highlight: 'info',
+  success: 'check-circle',
+};
+
 export default class HdsAlertIndexComponent extends Component {
   constructor() {
     super(...arguments);
@@ -12,13 +30,62 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
+   * @param type
+   * @type {enum}
+   * @default page
+   * @description Determines the type of the alert.
+   */
+  get type() {
+    let { type = DEFAULT_TYPE } = this.args;
+
+    assert(
+      `@type for "Hds::Alert" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${type}`,
+      TYPES.includes(type)
+    );
+
+    return type;
+  }
+
+  /**
+   * @param color
+   * @type {enum}
+   * @default neutral
+   * @description Determines the color scheme for the alert.
+   */
+  get color() {
+    let { color = DEFAULT_COLOR } = this.args;
+
+    assert(
+      `@color for "Hds::Alert" must be one of the following: ${COLORS.join(
+        ', '
+      )}; received: ${color}`,
+      COLORS.includes(color)
+    );
+
+    return color;
+  }
+
+  /**
    * @param icon
    * @type {string}
    * @default null
    * @description The name of the icon to be used.
    */
   get icon() {
-    return this.args.icon ?? null;
+    let { icon } = this.args;
+
+    // If `icon` isn't passed, use the pre-defined one from `color`
+    if (icon === undefined) {
+      return MAPPING_COLORS_TO_ICONS[this.color];
+      // If `icon` is set explicitly to false, user doesn't want any icon in the alert
+    } else if (icon === false) {
+      return false;
+    } else {
+      // If a name for `icon` is passed, set FlightIcon to that name
+      return icon;
+    }
   }
 
   /**
@@ -26,11 +93,15 @@ export default class HdsAlertIndexComponent extends Component {
    * @method Alert#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  // "hds-alert"
   get classNames() {
     let classes = ['hds-alert'];
 
-    // TODO: Add type classes, once type implemented
-    return classes;
+    // Add a class based on the @type argument
+    classes.push(`hds-alert--type-${this.type}`);
+
+    // Add a class based on the @color argument
+    classes.push(`hds-alert--color-${this.color}`);
+
+    return classes.join(' ');
   }
 }
