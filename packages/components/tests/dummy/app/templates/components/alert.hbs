@@ -46,7 +46,17 @@
         alert typically has adjacent whitespace on all four sides.
       </p>
       <p>
-        🚧 TODO: Update verbiage!
+        A
+        <code class="dummy-code">compact</code>
+        alert is only an
+        <code class="dummy-code">icon</code>
+        and
+        <code class="dummy-code">description</code>, with smaller proportions than the other alerts. The
+        <code class="dummy-code">color</code>
+        sets the icon color.
+      </p>
+      <p>
+        🚧 TODO: Add Alert (Toast)
       </p>
       <p>Acceptable values:</p>
       <ol>
@@ -58,10 +68,16 @@
     </dd>
 
     <dt class="dummy-indent">🚧 isDismissible <code>boolean</code></dt>
-    <p class="dummy-indent">The alert can be dismissed by the user. Default value determined by
-      <code class="dummy-code">type</code>. For example, this parameter has some accessibility considerations for Alert
-      (Toast). Alert (Toast) will be
-      <code class="dummy-code">role="alertdialog"</code>
+    <p class="dummy-indent">
+      The alert can be dismissed by the user. Default value determined by
+      <code class="dummy-code">type</code>.
+    </p>
+    <p class="dummy-indent">
+      <code class="dummy-code">type="compact"</code>: N/A
+    </p>
+    <p class="dummy-indent">
+      Has some accessibility considerations for Alert (Toast). Alert (Toast) will be
+      <code class="dummy-code">role="alertdialog"</code>,
       and generally not dismissible for accessibility.
     </p>
     <dd class="dummy-indent">
@@ -188,6 +204,26 @@
     <code class="dummy-code">neutral</code>:
   </p>
   <Hds::Alert @type="inline" @title="Really cool title here" @description="And a rad description too!" />
+  <br />
+
+  <h4 class="dummy-h4">
+    Basic invocation: Alert (Compact)
+  </h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="compact" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>:
+  </p>
+  <Hds::Alert @type="compact" @description="Description only" />
   <br />
 </section>
 

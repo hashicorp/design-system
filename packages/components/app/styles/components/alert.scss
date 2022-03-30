@@ -62,13 +62,13 @@
 // COLOR & TYPE
 //
 .hds-alert--color-neutral {
-  background-color: var(--token-color-surface-faint);
-
   &.hds-alert--type-page {
+    background-color: var(--token-color-surface-faint);
     box-shadow: 0px 1px 0px 0px var(--token-color-palette-alpha-300);
   }
 
   &.hds-alert--type-inline { 
+    background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-strong);
   }
 
