@@ -66,10 +66,12 @@
 
   // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
   &.hds-alert--type-page {
+    background-color: var(--token-color-surface-faint);
     box-shadow: 0px 1px 0px 0px var(--token-color-palette-alpha-300);
   }
 
   &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-strong);
   }
 
@@ -157,9 +159,29 @@
   border-radius: 6px;
 }
 
-//
+.hds-alert--type-compact {
+  border: none;
+  background: none;
+  padding: 0;
+
+  // notice: the icon size for the "compact" type is 16px, not 24px, so this 2px extra are needed to reach the exact same height as the "description" text line-height
+  .hds-alert__icon {
+    margin-right: 0.5rem; // 8px
+    padding: 2px 0;
+  }
+
+  // extra safety
+  .hds-alert__title {
+    display: none;
+    & + .hds-alert__description {
+      margin-top: 0;
+    }
+  }
+}
+
+
 // ACTIONS
-//
+
 .hds-alert__actions {
   align-items: center;
   display: flex;
