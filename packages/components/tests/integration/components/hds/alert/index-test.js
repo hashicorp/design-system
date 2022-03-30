@@ -35,12 +35,20 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       .exists();
   });
 
+  test('Alert should display no icon, when empty string is passed', async function (assert) {
+    await render(hbs`<Hds::Alert @title="yo" @icon="" />`);
+    assert
+      .dom(
+        this.element.querySelector('.flight-icon.flight-icon-clipboard-copy')
+      )
+      .doesNotExist();
+  });
+
   // ASSERTIONS
 
   test('Throw an assertion if @title and @description is missing/has no value', async function (assert) {
     const errorMessage =
       'you need to pass @title or @description to the "Hds::Alert" component';
-    // TODO: Debug
     assert.expect(2);
 
     setupOnerror(function (error) {

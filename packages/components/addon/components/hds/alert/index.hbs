@@ -1,10 +1,9 @@
 <div class={{this.classNames}} ...attributes role="alert">
-  {{! template-lint-disable simple-unless}}
-  {{#unless (eq this.icon "")}}
+  {{#if this.icon}}
     <div class="hds-alert__icon">
       <FlightIcon @name={{this.icon}} @size="24" @isInlineBlock={{false}} />
     </div>
-  {{/unless}}
+  {{/if}}
 
   <div class="hds-alert__content">
     <div class="hds-alert__text">

@@ -76,10 +76,15 @@ export default class HdsAlertIndexComponent extends Component {
   get icon() {
     let { icon } = this.args;
 
-    if (icon === '') {
-      return icon;
+    // If `icon` isn't passed, use the pre-defined one from `color`
+    if (icon === undefined) {
+      return MAPPING_COLORS_TO_ICONS[this.color];
+      // If `icon` is set explicitly to false, user doesn't want any icon in the alert
+    } else if (icon === false) {
+      return false;
     } else {
-      return icon || MAPPING_COLORS_TO_ICONS[this.color];
+      // If a name for `icon` is passed, set FlightIcon to that name
+      return icon;
     }
   }
 
