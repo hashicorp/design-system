@@ -108,11 +108,11 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('.hds-button__text').doesNotExist();
   });
-  test('it should add the `disabled` attribute to the button if `@isDisabled` is set to true', async function (assert) {
+  test('it should disable to the button if the `disabled` attribute is passed', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @isDisabled={{true}} id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" disabled id="test-button" />`
     );
-    assert.dom('#test-button').hasAttribute('disabled');
+    assert.dom('#test-button').isDisabled();
   });
   test('it should have the correct CSS class to support full-width button size if @isFullWidth prop is true', async function (assert) {
     await render(
