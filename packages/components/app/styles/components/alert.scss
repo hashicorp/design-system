@@ -67,45 +67,11 @@
 //
 // COLOR & TYPE
 //
-.hds-alert--color-critical {
-  background-color: var(--token-color-surface-critical);
-
-  &.hds-alert--type-page {
-    box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
-  }
-
-  &.hds-alert--type-inline { 
-    border-color: var(--token-color-border-critical);
-  }
-
-  .hds-alert__icon, .hds-alert__title {
-    color: var(--token-color-foreground-critical-on-surface);
-  } 
-}
-
-.hds-alert--color-warning {
-  background-color: var(--token-color-surface-warning);
-
-  &.hds-alert--type-page {
-    box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
-  }
-
-  &.hds-alert--type-inline { 
-    border-color: var(--token-color-border-warning);
-  }
-
-  .hds-alert__icon, .hds-alert__title {
-    color: var(--token-color-foreground-warning-on-surface);
-  }
-}
-
-// TODO: Check all neutral tokens, cause don't follow pattern of other `color`s 
 .hds-alert--color-neutral {
   background-color: var(--token-color-surface-faint);
 
   &.hds-alert--type-page {
-    // TODO: Check if should be a token for 0px 1px 0px 0px thruout, and rgba
-    box-shadow: 0px 1px 0px 0px rgba(59, 61, 69, 0.4);
+    box-shadow: 0px 1px 0px 0px var(--token-color-palette-alpha-300);
   }
 
   &.hds-alert--type-inline { 
@@ -149,9 +115,41 @@
   }
 }
 
-// POTENTIAL TODO: Could arguably be clearer above within color...but wasn't sure if you prefer extra DRY
+.hds-alert--color-warning {
+  background-color: var(--token-color-surface-warning);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
+  }
+
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-warning);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-warning-on-surface);
+  }
+}
+
+.hds-alert--color-critical {
+  background-color: var(--token-color-surface-critical);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
+  }
+
+  &.hds-alert--type-inline { 
+    border-color: var(--token-color-border-critical);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-critical-on-surface);
+  } 
+}
+
 .hds-alert--type-inline {
-  border: 1px solid;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 6px;
 }
 

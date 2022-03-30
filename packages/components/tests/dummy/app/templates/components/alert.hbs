@@ -89,11 +89,11 @@
       </p>
       <p>Acceptable values:</p>
       <ol>
-        <li>critical</li>
-        <li>warning</li>
         <li class="default">neutral</li>
         <li>highlight</li>
         <li>success</li>
+        <li>warning</li>
+        <li>critical</li>
       </ol>
     </dd>
 
@@ -169,7 +169,6 @@
   </p>
   <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
   <br />
-  <a href="#showcase-page">Jump to Showcase: Alert (Page)</a>
 
   <h4 class="dummy-h4">
     Basic invocation: Alert (Inline)
@@ -190,7 +189,6 @@
   </p>
   <Hds::Alert @type="inline" @title="Really cool title here" @description="And a rad description too!" />
   <br />
-  <a href="#showcase-inline">Jump to Showcase: Alert (Inline)</a>
 </section>
 
 <section>
@@ -202,26 +200,6 @@
   <h3 class="dummy-h3" id="showcase-page">Showcase: Alert (Page)</h3>
 
   <h4 class="dummy-h4">Color</h4>
-  <Hds::Alert
-    @color="critical"
-    @title="Critical with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-  <Hds::Alert
-    @color="warning"
-    @title="Warning with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
   <Hds::Alert
     @title="Neutral with title and description"
     @description="Your Intention settings are currently set to default allow. This
@@ -244,6 +222,26 @@
   <Hds::Alert
     @color="success"
     @title="Success with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="warning"
+    @title="Warning with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @color="critical"
+    @title="Critical with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
@@ -371,28 +369,6 @@
   <h4 class="dummy-h4">Color</h4>
   <Hds::Alert
     @type="inline"
-    @color="critical"
-    @title="Critical with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-  <Hds::Alert
-    @type="inline"
-    @color="warning"
-    @title="Warning with title and description"
-    @description="Your Intention settings are currently set to default allow. This
-      means that this view will show connections to every service in your
-      cluster. We recommend changing your Intention settings to default deny and
-      creating specific Intentions for upstream and downstream services for this
-      view to be useful."
-  />
-  <br />
-  <Hds::Alert
-    @type="inline"
     @title="Neutral with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
@@ -416,6 +392,28 @@
     @type="inline"
     @color="success"
     @title="Success with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @title="Warning with title and description"
+    @description="Your Intention settings are currently set to default allow. This
+      means that this view will show connections to every service in your
+      cluster. We recommend changing your Intention settings to default deny and
+      creating specific Intentions for upstream and downstream services for this
+      view to be useful."
+  />
+  <br />
+  <Hds::Alert
+    @type="inline"
+    @color="critical"
+    @title="Critical with title and description"
     @description="Your Intention settings are currently set to default allow. This
       means that this view will show connections to every service in your
       cluster. We recommend changing your Intention settings to default deny and
