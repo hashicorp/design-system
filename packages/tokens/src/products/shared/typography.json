@@ -8,11 +8,19 @@
                         "private": "true"
                     },
                     "windows": {
-                        "value": "Segoe UI Display",
+                        "value": "Segoe UI",
                         "private": "true"
                     },
                     "linux": {
                         "value": "Ubuntu",
+                        "private": "true"
+                    },
+                    "sans": {
+                        "value": "Roboto, Helvetica, Arial, sans-serif",
+                        "private": "true"
+                    },
+                    "emoji": {
+                        "value": "Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                         "private": "true"
                     }
                 },
@@ -22,11 +30,15 @@
                         "private": "true"
                     },
                     "windows": {
-                        "value": "Segoe UI Text",
+                        "value": "Segoe UI",
                         "private": "true"
                     },
                     "linux": {
                         "value": "Ubuntu",
+                        "private": "true"
+                    },
+                    "emoji": {
+                        "value": "Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                         "private": "true"
                     }
                 }
@@ -34,7 +46,7 @@
             "monospace": {
                 "code": {
                     "macOS": {
-                        "value": "SF Mono",
+                        "value": "SF Mono, Menlo",
                         "private": "true"
                     },
                     "windows": {
@@ -48,10 +60,10 @@
                 }
             },
             "display": {
-                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif"
+                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.display.emoji.value}"
             },
             "text": {
-                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif"
+                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.text.emoji.value}"
             },
             "code": {
                 "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace"
