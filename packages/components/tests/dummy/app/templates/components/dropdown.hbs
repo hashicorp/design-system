@@ -215,14 +215,14 @@
       @code='
         &lt;Hds::Dropdown
           @toggle="text"
-          @toggleText="Toggle"
+          @toggleText="Text Toggle"
           as |dd| &gt;
 
           &lt;dd.ListItem @route="components.dropdown" @text="Hover" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Focus" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" /&gt;
-          &lt;dd.ListItem @item="separator" /&gt;
+          &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
@@ -234,13 +234,13 @@
     <nav class="dummy-nav-dropdown" aria-label="example positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="text" @toggleText="Toggle" as |dd|>
+          <Hds::Dropdown @toggle="text" @toggleText="Text Toggle" as |dd|>
 
             <dd.ListItem @route="components.dropdown" @text="Hover" />
             <dd.ListItem @route="components.dropdown" @text="Focus" />
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
             <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-            <dd.ListItem @item="separator" />
+            <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
           </Hds::Dropdown>
         </li>
@@ -256,7 +256,7 @@
             <dd.ListItem @route="components.dropdown" @text="Focus" />
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
             <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-            <dd.ListItem @item="separator" />
+            <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
           </Hds::Dropdown>
         </li>
@@ -355,7 +355,7 @@
 
           &lt;dd.ListItem @item="heading" @text="Signed In" /&gt;
           &lt;dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" /&gt;
-          &lt;dd.ListItem @item="separator" /&gt;
+          &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
@@ -370,7 +370,7 @@
           <Hds::Dropdown @toggle="user" @toggleText="user menu" as |dd|>
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
-            <dd.ListItem @item="separator" />
+            <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
           </Hds::Dropdown>
@@ -385,7 +385,7 @@
 
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
-            <dd.ListItem @item="separator" />
+            <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
           </Hds::Dropdown>
