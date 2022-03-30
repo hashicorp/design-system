@@ -547,14 +547,14 @@
         </div>
       {{/each}}
     {{/each}}
-    
+
     {{#each @model.TOGGLE_STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
         <Hds::Dropdown::ToggleOverflow @text="overflow menu" class="is-{{state}}" />
       </div>
-     
+
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
       <div>
