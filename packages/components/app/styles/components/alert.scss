@@ -62,6 +62,9 @@
 // COLOR & TYPE
 //
 .hds-alert--color-neutral {
+  background-color: var(--token-color-surface-faint);
+
+  // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-faint);
     box-shadow: 0px 1px 0px 0px var(--token-color-palette-alpha-300);
@@ -70,6 +73,10 @@
   &.hds-alert--type-inline {
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-strong);
+  }
+
+  &.hds-alert--type-toast {
+    border-color: var(--token-color-border-primary);
   }
 
   .hds-alert__icon, .hds-alert__title {
@@ -84,7 +91,8 @@
     box-shadow: 0px 1px 0px 0px var(--token-color-border-highlight);
   }
 
-  &.hds-alert--type-inline {
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
     border-color: var(--token-color-border-highlight);
   }
 
@@ -100,7 +108,8 @@
     box-shadow: 0px 1px 0px 0px var(--token-color-border-success);
   }
 
-  &.hds-alert--type-inline {
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
     border-color: var(--token-color-border-success);
   }
 
@@ -116,7 +125,8 @@
     box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
   }
 
-  &.hds-alert--type-inline {
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
     border-color: var(--token-color-border-warning);
   }
 
@@ -132,7 +142,8 @@
     box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
   }
 
-  &.hds-alert--type-inline {
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
     border-color: var(--token-color-border-critical);
   }
 
@@ -141,7 +152,8 @@
   }
 }
 
-.hds-alert--type-inline {
+.hds-alert--type-inline,
+.hds-alert--type-toast {
   border-width: 1px;
   border-style: solid;
   border-radius: 6px;
