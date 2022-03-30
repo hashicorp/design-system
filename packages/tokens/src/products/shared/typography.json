@@ -46,7 +46,7 @@
             "monospace": {
                 "code": {
                     "macOS": {
-                        "value": "SF Mono, Menlo",
+                        "value": "ui-monospace, Menlo",
                         "private": "true"
                     },
                     "windows": {
