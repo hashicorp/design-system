@@ -1,10 +1,5 @@
 <div class={{this.classNames}} ...attributes role="alert">
-  {{! Clean up center alignment and first item in __content > __text, more noticeable at smaller size}}
-  {{#if (eq @type "compact")}}
-    <div class="hds-alert__icon">
-      <FlightIcon @name={{this.icon}} @size="16" @isInlineBlock={{false}} />
-    </div>
-  {{else if this.icon}}
+  {{#if this.icon}}
     <div class="hds-alert__icon">
       <FlightIcon @name={{this.icon}} @size="24" @isInlineBlock={{false}} />
     </div>

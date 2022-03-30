@@ -78,9 +78,20 @@ export default class HdsAlertIndexComponent extends Component {
 
     // If `icon` isn't passed, use the pre-defined one from `color`
     if (icon === undefined) {
-      return MAPPING_COLORS_TO_ICONS[this.color];
+      if (this.type === 'compact') {
+        // for the "compact" type by default we use filled icons
+        return `${MAPPING_COLORS_TO_ICONS[this.color]}-fill`;
+      } else {
+        // for all the other types by default we use outlined icons
+        return MAPPING_COLORS_TO_ICONS[this.color];
+      }
       // If `icon` is set explicitly to false, user doesn't want any icon in the alert
     } else if (icon === false) {
+      assert(
+        `@icon for "Hds::Alert" with @type "compact" is required`,
+        this.type !== 'compact'
+      );
+
       return false;
     } else {
       // If a name for `icon` is passed, set FlightIcon to that name
