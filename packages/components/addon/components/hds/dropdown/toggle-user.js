@@ -19,16 +19,6 @@ export default class HdsDropdownToggleUserComponent extends Component {
   }
 
   /**
-   * @param isDisabled
-   * @type {boolean}
-   * @default null
-   * @description Sets the native HTML attribute `disabled` on the button element. Default is null (doesn't render the attribute).
-   */
-  get isDisabled() {
-    return this.args.isDisabled ?? null;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method Button#classNames
    * @return {string} The "class" attribute to apply to the component.
