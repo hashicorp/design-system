@@ -12,11 +12,11 @@ export const COLORS = [
   'critical',
 ];
 export const MAPPING_COLORS_TO_ICONS = {
-  critical: 'alert-octagon',
-  warning: 'alert-triangle',
   neutral: 'info',
   highlight: 'info',
   success: 'check-circle',
+  warning: 'alert-triangle',
+  critical: 'alert-diamond',
 };
 
 export default class HdsAlertIndexComponent extends Component {
@@ -96,6 +96,19 @@ export default class HdsAlertIndexComponent extends Component {
     } else {
       // If a name for `icon` is passed, set FlightIcon to that name
       return icon;
+    }
+  }
+
+  /**
+   * @param iconSize
+   * @type {string}
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
+  get iconSize() {
+    if (this.type === 'compact') {
+      return '16';
+    } else {
+      return '24';
     }
   }
 
