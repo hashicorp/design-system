@@ -2,9 +2,15 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_COLOR = 'action';
-export const DEFAULT_ITEM = 'link';
+export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
-export const ITEMS = ['heading', 'help-text', 'separator', 'copy-item', 'link'];
+export const ITEMS = [
+  'heading',
+  'help-text',
+  'separator',
+  'copy-item',
+  'interactive',
+];
 
 export default class HdsDropdownListItemComponent extends Component {
   /**
@@ -49,7 +55,7 @@ export default class HdsDropdownListItemComponent extends Component {
   /**
    * @param item
    * @type {string}
-   * @default link
+   * @default interactive
    * @description Determines the type of item to show
    */
   get item() {
@@ -79,7 +85,7 @@ export default class HdsDropdownListItemComponent extends Component {
     }
 
     // add a class based on the @color argument
-    if (this.item === 'link' && this.color) {
+    if (this.item === 'interactive' && this.color) {
       classes.push(`hds-dropdown-list-item--color-${this.color}`);
     }
 
