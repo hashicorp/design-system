@@ -215,7 +215,7 @@ $size-props: (
   }
 }
 
-.hds-dropdown-list-item--link {
+.hds-dropdown-list-item--interactive {
   position: relative;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   min-height: 36px;
@@ -296,6 +296,7 @@ $size-props: (
   line-height: var(--token-typography-body-200-line-height);
 }
 
+// TODO (MS) re-add flex column here to vertically center icon with text
 .hds-dropdown-list-item__link-icon {
   margin-right: 8px;
 }
