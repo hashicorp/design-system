@@ -48,6 +48,8 @@ This action will:
 * Export the assets as `.svg` files into `./svg-original/`
 * Generate the `catalog.json` file
 
+*🚨 **Notice**: it's not uncommon that when doing a `sync` you will find that some SVGs of the icons appear as "modified" in the codebase even if they have not been really changed by the designers. The reasons can be different: Figma has slighly changed the algorithm that generates the SVGs in output, or the designer changed the order of the icons in the frame, or maybe just Figma changing by a sub-pixel the internal path of an SVG element. In that case it's hard to detect if this change is OK or not, you have to try to understand if it's expected or not, and if you want to be 100% sure you have to compare the SVGs (old and new) importing them in Figma and overlaying one on top of the other and eyeball if there are differences.*
+
 ## Build
 
 The "build" step takes the assets exported from Figma, optimize and process them, and saves the final SVG files in the bundles that will be published as npm package.
