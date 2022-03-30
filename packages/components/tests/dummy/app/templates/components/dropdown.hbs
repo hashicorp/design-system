@@ -82,32 +82,6 @@
         will be used by default.
       </p>
     </dd>
-    <dt>
-      size
-      <code>
-        enum
-      </code>
-    </dt>
-    <dd>
-      <p>
-        Acceptable values:
-      </p>
-      <ol>
-        <li class="default">
-          16
-        </li>
-        <li>
-          24
-        </li>
-      </ol>
-      <p>
-        The
-        <span class="dummy-code">@size</span>
-        property may only be set if
-        <span class="dummy-code">overflow</span>
-        toggle is defined.
-      </p>
-    </dd>
   </dl>
   <hr />
   <p class="dummy-paragraph" id="listitem-api">
@@ -541,12 +515,7 @@
   <h4 class="dummy-h4">Toggle: Overflow</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <span class="dummy-text-small">Size: medium (default)</span>
-      <Hds::Dropdown::ToggleOverflow />
-    </div>
-    <div>
-      <span class="dummy-text-small">Size: small</span>
-      <Hds::Dropdown::ToggleOverflow @size="small" />
+      <Hds::Dropdown::ToggleOverflow @text="overflow menu" />
     </div>
   </div>
   <h4 class="dummy-h4">Toggle: User</h4>
@@ -554,16 +523,16 @@
     <div>
       <p class="dummy-paragraph">Type: icon (default)</p>
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleUser @isOpen={{false}} />
+      <Hds::Dropdown::ToggleUser @isOpen={{false}} @text="user menu" />
       <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::ToggleUser @isOpen={{true}} />
+      <Hds::Dropdown::ToggleUser @isOpen={{true}} @text="user menu" />
     </div>
     <div>
       <p class="dummy-paragraph">Type: avatar</p>
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} />
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} @text="user menu" />
       <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} />
+      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} @text="user menu" />
     </div>
   </div>
 
@@ -578,14 +547,14 @@
         </div>
       {{/each}}
     {{/each}}
-    {{#each @model.TOGGLE_OVERFLOW_SIZES as |size|}}
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">{{size}}/{{state}}:</span>
-          <br />
-          <Hds::Dropdown::ToggleOverflow @size={{size}} class="is-{{state}}" />
-        </div>
-      {{/each}}
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::Dropdown::ToggleOverflow @text="overflow menu" class="is-{{state}}" />
+      </div>
+
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
       <div>

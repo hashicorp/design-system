@@ -1,9 +1,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_SIZE = 'medium';
-export const SIZES = ['medium', 'small'];
-
 export default class HdsDropdownToggleOverflowComponent extends Component {
   /**
    * @param text
@@ -19,35 +16,6 @@ export default class HdsDropdownToggleOverflowComponent extends Component {
     );
 
     return text;
-  }
-
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the button; acceptable values are `small` and `medium`
-   */
-  get size() {
-    let { size = DEFAULT_SIZE } = this.args;
-
-    assert(
-      `@size for "Hds::Dropdown::ToggleOverflow" must be one of the following: ${SIZES.join(
-        ', '
-      )}; received: ${size}`,
-      SIZES.includes(size)
-    );
-
-    return size;
-  }
-
-  /**
-   * @param iconSize
-   * @type {string}
-   * @default 16
-   * @description ensures that the correct icon size is used. Automatically calculated.
-   */
-  get iconSize() {
-    return this.size === 'small' ? '16' : '24';
   }
 
   /**

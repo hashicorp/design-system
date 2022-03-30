@@ -22,8 +22,6 @@
 
 @use '../mixins/focus-ring' as *;
 
-$hds-dropdown-toggle-overflow-sizes: ('small', 'medium');
-
 $hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: 5px;
 $hds-dropdown-toggle-border-width: 1px;
@@ -39,6 +37,7 @@ $hds-dropdown-toggle-border-width: 1px;
   box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
   color: var(--token-color-foreground-strong);
   display: flex;
+  height: $hds-dropdown-toggle-base-height;
   isolation: isolate;
   justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
@@ -85,26 +84,12 @@ $hds-dropdown-toggle-border-width: 1px;
 
 // TOGGLE/OVERFLOW
 
-// these values later may come from the design tokens
-$size-props: (
-  'small': (
-    'size': 28px,
-  ),
-  'medium': (
-    'size': $hds-dropdown-toggle-base-height,
-  ),
-);
-
-@each $size in $hds-dropdown-toggle-overflow-sizes {
-  .hds-dropdown-toggle-overflow--size-#{$size} {
-    height: map-get($size-props, $size, 'size');
-    width: map-get($size-props, $size, 'size');
-  }
+.hds-dropdown-toggle-overflow {
+  width: $hds-dropdown-toggle-base-height;
 }
 
 // TOGGLE/USER
 .hds-dropdown-toggle-user {
-  height: $hds-dropdown-toggle-base-height;
   padding: 1px;
 
   .hds-dropdown-toggle-user__avatar {
