@@ -154,6 +154,7 @@
 
   // notice: the icon size for the "compact" type is 16px, not 24px, so this 2px extra are needed to reach the exact same height as the "description" text line-height
   .hds-alert__icon {
+    margin-right: 0.5rem; // 8px
     padding: 2px 0;
   }
 
