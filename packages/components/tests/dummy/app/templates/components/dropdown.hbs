@@ -150,27 +150,11 @@
       </p>
     </dd>
     <dt>
-      leadingIcon
+      icon
       <code>string</code>
     </dt>
     <dd>
       Valid values are any of the flight icons
-    </dd>
-    <dt>
-      trailingIcon
-      <code>string</code>
-    </dt>
-    <dd>
-      <p>
-        Valid values are any of the flight icons
-      </p>
-      <p>
-        Note: Both "leadingIcon" and "trailingIcon" are defined (vs. "iconPosition" in the button component, for
-        example) because there may be use cases where both a leading and a trailing icon are required; these instances
-        should be
-        <em>very</em>
-        rare.
-      </p>
     </dd>
   </dl>
 </section>
@@ -196,7 +180,7 @@
           &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" /&gt;
           &lt;dd.Separator /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -214,7 +198,7 @@
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
             <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -230,7 +214,7 @@
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
             <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -258,7 +242,7 @@
           &lt;dd.ListItem @route="components.dropdown" @text="Create" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Read" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Update" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -288,7 +272,7 @@
               <dd.ListItem @route="components.dropdown" @text="Create" />
               <dd.ListItem @route="components.dropdown" @text="Read" />
               <dd.ListItem @route="components.dropdown" @text="Update" />
-              <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+              <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
             </Hds::Dropdown>
           </td>
         </tr>
@@ -330,7 +314,7 @@
           &lt;dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -345,7 +329,7 @@
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -360,7 +344,7 @@
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
