@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-02-23T19:38:25.779Z",
+  "lastRunTimeISO": "2022-03-29T09:24:18.900Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -1506,6 +1506,42 @@
       "height": 16
     },
     {
+      "id": "1729:90",
+      "fileName": "alert-diamond-24",
+      "iconName": "alert-diamond",
+      "description": "alert, diamond, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1729:94",
+      "fileName": "alert-diamond-16",
+      "iconName": "alert-diamond",
+      "description": "alert, diamond, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1729:101",
+      "fileName": "alert-diamond-fill-24",
+      "iconName": "alert-diamond-fill",
+      "description": "alert, diamond, error, attention",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1729:106",
+      "fileName": "alert-diamond-fill-16",
+      "iconName": "alert-diamond-fill",
+      "description": "alert, diamond, error, attention",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:43",
       "fileName": "alert-triangle-24",
       "iconName": "alert-triangle",
@@ -2959,6 +2995,24 @@
       "fileName": "cloud-16",
       "iconName": "cloud",
       "description": "cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1736:66",
+      "fileName": "closed-caption-24",
+      "iconName": "closed-caption",
+      "description": "cc, closed-caption",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1736:70",
+      "fileName": "closed-caption-16",
+      "iconName": "closed-caption",
+      "description": "cc, closed-caption",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4920,6 +4974,24 @@
       "id": "350:2198",
       "fileName": "info-16",
       "iconName": "info",
+      "description": "info, tip",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1727:66",
+      "fileName": "info-fill-24",
+      "iconName": "info-fill",
+      "description": "info, tip",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1727:71",
+      "fileName": "info-fill-16",
+      "iconName": "info-fill",
       "description": "info, tip",
       "size": "16",
       "width": 16,
