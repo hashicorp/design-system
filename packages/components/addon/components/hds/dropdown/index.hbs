@@ -3,7 +3,13 @@
     {{#if (eq @toggle "text")}}
       <Hds::Dropdown::ToggleButton @text={{@toggleText}} @color={{@color}} {{on "click" t.onClickToggle}} />
     {{else}}
-      <Hds::Dropdown::ToggleIcon @text={{@toggleText}} {{on "click" t.onClickToggle}} @iconName={{@iconName}} @hasChevron={{@hasChevron}} @isOpen={{@isOpen}} />
+      <Hds::Dropdown::ToggleIcon
+        @text={{@toggleText}}
+        {{on "click" t.onClickToggle}}
+        @iconName={{@iconName}}
+        @hasChevron={{@hasChevron}}
+        @isOpen={{@isOpen}}
+      />
     {{/if}}
   </:toggle>
   <:content>

@@ -4,16 +4,9 @@
 
 <section>
   <p class="dummy-paragraph">
-    The dropdown component has several flexible features that allow developers to build the dropdown menu they wish.
-  </p>
-  <p class="dummy-paragraph">
-    It makes use of the
-    <code>Hds::Disclosure</code>
-    component by providing items for the
-    <code>:toggle</code>
-    and
-    <code>:content</code>
-    named blocks.
+    The dropdown component has several flexible features that allow developers to build the dropdown menu they wish. A
+    dropdown displays a list of links or actions to choose from. It should not to be confused with a select element
+    which is used in a form (element) as a way for the user to select one or more options from a list.
   </p>
 </section>
 <section>
@@ -68,7 +61,11 @@
         <li class="default">true</li>
         <li>false</li>
       </ol>
-      <p>Per design, <span class="dummy-code">false</span> is only acceptable when the "more-horizontal" icon is used; as such, it is set to <span class="dummy-code">true</span> by default.</p>
+      <p>Per design,
+        <span class="dummy-code">false</span>
+        is only acceptable when the "more-horizontal" icon is used; as such, it is set to
+        <span class="dummy-code">true</span>
+        by default.</p>
     </dd>
     <dt>
       imageSrc
@@ -218,7 +215,8 @@
   <div>
     <h4 class="dummy-h4">Toggle/Icon: Overflow</h4>
     <p class="dummy-paragraph">
-      Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and destructive (critical) links.
+      Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and
+      destructive (critical) links.
       <br />Note that
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the aria-label for the toggle button.
@@ -347,7 +345,7 @@
     </nav>
   </div>
 
-    <div>
+  <div>
     <h4 class="dummy-h4">Toggle/Icon: Other Icons</h4>
     <p class="dummy-paragraph">
       In this example, we have a settings icon with a header, help-text, separator, and links.
@@ -379,7 +377,7 @@
     {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
     <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
+    <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown @toggleText="settings menu" @iconName="settings" @isOpen={{false}} as |dd|>
@@ -587,7 +585,12 @@
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleIcon @text="overflow menu" @iconName="more-horizontal" @hasChevron={{false}} class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon
+          @text="overflow menu"
+          @iconName="more-horizontal"
+          @hasChevron={{false}}
+          class="is-{{state}}"
+        />
       </div>
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
