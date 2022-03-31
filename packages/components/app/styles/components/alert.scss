@@ -22,6 +22,10 @@
 }
 
 .hds-alert__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 24px; // same as the icon height, to keep text vertically centered in case is a single line
   color: var(--token-color-foreground-warning-on-surface);
   font-family: var(--token-typography-body-200-font-family);
   font-size: var(--token-typography-body-200-font-size);
@@ -174,6 +178,10 @@
   .hds-alert__icon {
     margin-right: 0.5rem; // 8px
     padding: 2px 0;
+  }
+
+  .hds-alert__text {
+    min-height: auto; // we remove the min-height for the container, it's determined by the text line-height so the icon and text are already aligned using the extra padding (see above)
   }
 
   // extra safety
