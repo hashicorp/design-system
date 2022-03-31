@@ -1,20 +1,6 @@
 {{page-title "Dropdown Component"}}
 
 <h2 class="dummy-h2">Dropdown Component</h2>
-<Hds::Dropdown::ToggleIcon @text="toggle icon, type overflow" @iconType="overflow" @isOpen={{false}} />
-<br />
-<Hds::Dropdown::ToggleIcon @text="toggle icon, type user" @iconType="user" @isOpen={{false}} />
-<br />
-<Hds::Dropdown::ToggleIcon
-  @text="toggle icon, type user with avatar"
-  @iconType="user"
-  @isOpen={{false}}
-  @avatarUrl="/assets/images/avatar.png"
-/>
-<br />
-<Hds::Dropdown::ToggleIcon @text="toggle icon, no type" @iconName="settings" @isOpen={{false}} />
-<br />
-<Hds::Dropdown::ToggleIcon @text="toggle icon, no type" @iconName="more-horizontal" @isOpen={{false}} />
 
 <section>
   <p class="dummy-paragraph">
@@ -32,47 +18,12 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="section-component-api">Component API</h3>
-  <p class="dummy-paragraph" id="toggle-api">
+  <p class="dummy-paragraph" id="toggle-button-api">
     This is the API for the
-    <span class="dummy-code">Dropdown::Toggle</span>
+    <span class="dummy-code">Dropdown::ToggleButton</span>
     component:
   </p>
-  <dl class="dummy-component-props" aria-labelledby="toggle-api">
-    <dt>
-      toggle
-      <code>
-        enum
-      </code>
-    </dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>
-          user
-        </li>
-        <li>
-          overflow
-        </li>
-        <li class="default">
-          text
-        </li>
-      </ol>
-      <p>Identifies the type of toggle (button) that you want to use.</p>
-    </dd>
-    <dt>
-      avatarUrl
-      <code>string</code>
-    </dt>
-    <dd>
-      <p>
-        If
-        <span class="dummy-code">@toggle="user"</span>
-        is declared, you can add
-        <span class="dummy-code">@avatarUrl</span>
-        to identify an image to be used for the avatar. If no avatarUrl is defined, the default user icon will be
-        displayed.
-      </p>
-    </dd>
+  <dl class="dummy-component-props" aria-labelledby="toggle-button-api">
     <dt>
       color
       <code>enum</code>
@@ -95,6 +46,36 @@
         <span class="dummy-code">primary</span>
         will be used by default.
       </p>
+    </dd>
+  </dl>
+  <hr />
+  <p class="dummy-paragraph" id="toggle-icon-api">
+    This is the API for the
+    <span class="dummy-code">Dropdown::ToggleIcon</span>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="toggle-icon-api">
+    <dt>icon <code>string</code></dt>
+    <dd>
+      <p>Any valid flight-icon name. If none is defined, <span class="dummy-code">user</span> is set by default</p>
+    </dd>
+    <dt>hasChevron <code>boolean</code></dt>
+    <dd>
+      <p>
+        Acceptable values:
+      </p>
+      <ol>
+        <li class="default">true</li>
+        <li>false</li>
+      </ol>
+      <p>Per design, <span class="dummy-code">false</span> is only acceptable when the "more-horizontal" icon is used; as such, it is set to <span class="dummy-code">true</span> by default.</p>
+    </dd>
+    <dt>
+      imageSrc
+      <code>string</code>
+    </dt>
+    <dd>
+      provide a URL of an image to be used instead of an icon
     </dd>
   </dl>
   <hr />
@@ -164,27 +145,11 @@
       </p>
     </dd>
     <dt>
-      leadingIcon
+      icon
       <code>string</code>
     </dt>
     <dd>
       Valid values are any of the flight icons
-    </dd>
-    <dt>
-      trailingIcon
-      <code>string</code>
-    </dt>
-    <dd>
-      <p>
-        Valid values are any of the flight icons
-      </p>
-      <p>
-        Note: Both "leadingIcon" and "trailingIcon" are defined (vs. "iconPosition" in the button component, for
-        example) because there may be use cases where both a leading and a trailing icon are required; these instances
-        should be
-        <em>very</em>
-        rare.
-      </p>
     </dd>
   </dl>
 </section>
@@ -210,7 +175,7 @@
           &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" /&gt;
           &lt;dd.Separator /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -228,7 +193,7 @@
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
             <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -244,19 +209,19 @@
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
             <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
     </nav>
   </div>
   <div>
-    <h4 class="dummy-h4">Toggle/Overflow</h4>
+    <h4 class="dummy-h4">Toggle/Icon: Overflow</h4>
     <p class="dummy-paragraph">
-      Example: an "overflow" toggle with default and destructive (critical) links.
+      Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and destructive (critical) links.
       <br />Note that
       <span class="dummy-code">toggleText</span>
-      is still required, because it supplies the aria-label for the "overflow" toggle button.
+      is still required, because it supplies the aria-label for the toggle button.
 
     </p>
     {{! prettier-ignore-start }}
@@ -265,14 +230,15 @@
       @language="markup"
       @code='
         &lt;Hds::Dropdown
-          @toggle="overflow"
+          @iconName="more-horizontal"
+          @hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;
           @toggleText="Overflow Options"
           as |dd| &gt;
 
           &lt;dd.ListItem @route="components.dropdown" @text="Create" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Read" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Update" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -297,12 +263,12 @@
           <td>Row 2, cell 1</td>
           <td>Row 2, cell 2</td>
           <td>
-            <Hds::Dropdown @toggle="overflow" @toggleText="Overflow Options" as |dd|>
+            <Hds::Dropdown @toggleText="Overflow Options" @iconName="more-horizontal" @hasChevron={{false}} as |dd|>
 
               <dd.ListItem @route="components.dropdown" @text="Create" />
               <dd.ListItem @route="components.dropdown" @text="Read" />
               <dd.ListItem @route="components.dropdown" @text="Update" />
-              <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+              <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
             </Hds::Dropdown>
           </td>
         </tr>
@@ -321,9 +287,9 @@
   </div>
   {{! TODO we really need some spacing between these examples, the doc has no vertical rhythm }}
   <div>
-    <h4 class="dummy-h4">Toggle/User</h4>
+    <h4 class="dummy-h4">Toggle/Icon: User Icon</h4>
     <p class="dummy-paragraph">
-      Example: a "user" toggle with a header, help-text, separator, and links.
+      In this example, we have a user icon with a header, help-text, separator, and links.
       <br />Note that
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the value for the
@@ -336,15 +302,15 @@
       @language="markup"
       @code='
         &lt;Hds::Dropdown
-          @toggle="user"
           @toggleText="user menu"
+          @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
           as |dd| &gt;
 
           &lt;dd.ListItem @item="heading" @text="Signed In" /&gt;
           &lt;dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -354,12 +320,12 @@
     <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="user" @toggleText="user menu" as |dd|>
+          <Hds::Dropdown @toggleText="user menu" @isOpen={{false}} as |dd|>
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -368,13 +334,60 @@
     <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="user" @toggleText="user menu" as |dd|>
+          <Hds::Dropdown @toggleText="user menu" @isOpen={{false}} as |dd|>
 
             <dd.ListItem @item="heading" @text="Signed In" />
             <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @leadingIcon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+    <div>
+    <h4 class="dummy-h4">Toggle/Icon: Other Icons</h4>
+    <p class="dummy-paragraph">
+      In this example, we have a settings icon with a header, help-text, separator, and links.
+      <br />Note that
+      <span class="dummy-code">toggleText</span>
+      is still required, because it supplies the value for the
+      <span class="dummy-code">aria-label</span>
+      attribute on the "overflow" toggle button.
+    </p>
+    {{! prettier-ignore-start }}
+    {{! template-lint-disable no-unbalanced-curlies }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        &lt;Hds::Dropdown
+          @toggleText="settings menu"
+          @iconName="settings"
+          @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
+          as |dd| &gt;
+
+          &lt;dd.ListItem @item="heading" @text="Signed In" /&gt;
+          &lt;dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" /&gt;
+          &lt;dd.Separator /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+        &lt;/Hds::Dropdown&gt;
+      '
+    />
+    {{! template-lint-enable no-unbalanced-curlies }}
+    {{! prettier-ignore-end }}
+    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown @toggleText="settings menu" @iconName="settings" @isOpen={{false}} as |dd|>
+            <dd.ListItem @item="heading" @text="Signed In" />
+            <dd.ListItem @item="help-text" @text="design-systems@hashicorp.com" />
+            <dd.Separator />
+            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -524,28 +537,37 @@
       <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
     </div>
   </div>
-
-  <h4 class="dummy-h4">Toggle: Overflow</h4>
+  <h4 class="dummy-h4">Toggle: Icon (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <Hds::Dropdown::ToggleOverflow @text="overflow menu" />
+      <span class="dummy-text-small">State: closed (default)</span>
+      <Hds::Dropdown::ToggleIcon @isOpen={{false}} @text="user menu" />
+      <span class="dummy-text-small">State: opened</span>
+      <Hds::Dropdown::ToggleIcon @isOpen={{true}} @text="user menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: User</h4>
+  <h4 class="dummy-h4">Toggle: Icon (Overflow)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <p class="dummy-paragraph">Type: icon (default)</p>
-      <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleUser @isOpen={{false}} @text="user menu" />
-      <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::ToggleUser @isOpen={{true}} @text="user menu" />
+      <Hds::Dropdown::ToggleIcon @iconName="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
     </div>
+  </div>
+  <h4 class="dummy-h4">Toggle: Icon (Image/Avatar)</h4>
+  <div class="dummy-dropdown-toggle-states-grid">
     <div>
-      <p class="dummy-paragraph">Type: avatar</p>
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{false}} @text="user menu" />
+      <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @isOpen={{false}} @text="user menu" />
       <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" @isOpen={{true}} @text="user menu" />
+      <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @isOpen={{true}} @text="user menu" />
+    </div>
+  </div>
+  <h4 class="dummy-h4">Toggle: Icon (Any other icon)</h4>
+  <div class="dummy-dropdown-toggle-states-grid">
+    <div>
+      <span class="dummy-text-small">State: closed (default)</span>
+      <Hds::Dropdown::ToggleIcon @iconName="settings" @isOpen={{false}} @text="settings menu" />
+      <span class="dummy-text-small">State: opened</span>
+      <Hds::Dropdown::ToggleIcon @iconName="settings" @isOpen={{true}} @text="settings menu" />
     </div>
   </div>
 
@@ -565,22 +587,21 @@
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleOverflow @text="overflow menu" class="is-{{state}}" />
-      </div>
-
-    {{/each}}
-    {{#each @model.TOGGLE_STATES as |state|}}
-      <div>
-        <span class="dummy-text-small">{{state}}:</span>
-        <br />
-        <Hds::Dropdown::ToggleUser class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon @text="overflow menu" @iconName="more-horizontal" @hasChevron={{false}} class="is-{{state}}" />
       </div>
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleUser @avatarUrl="/assets/images/avatar.png" class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon class="is-{{state}}" />
+      </div>
+    {{/each}}
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{state}}:</span>
+        <br />
+        <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" class="is-{{state}}" />
       </div>
     {{/each}}
   </div>

@@ -1,62 +1,12 @@
 <button class="hds-dropdown-toggle-icon" aria-label={{@text}} type="button" ...attributes>
-
-  {{#if (eq @iconType "overflow")}}
-    <div class="hds-dropdown-toggle-icon__wrapper">
-      <FlightIcon @name="more-horizontal" @size="24" />
-    </div>
-  {{else if (eq @iconType "user")}}
-    <div class="hds-dropdown-toggle-icon__wrapper hds-dropdown-toggle-icon--hasChevron">
-      {{#if @avatarUrl}}
-        <img src={{@avatarUrl}} alt="" role="presentation" height="32" width="32" />
-      {{else}}
-        <FlightIcon @name="user" @size="24" />
-      {{/if}}
-    </div>
-    <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" />
-  {{else}}
-    <div class="hds-dropdown-toggle-icon__wrapper hds-dropdown-toggle-icon--hasChevron">
-      <FlightIcon @name={{@iconName}} @size="24" />
-    </div>
-    <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" />
-  {{/if}}
-</button>
-
-{{! another approach: it is more DRY but it also uses an "unless" }}
-<button class="hds-dropdown-toggle-icon" aria-label={{@text}} type="button" ...attributes>
   <div class="hds-dropdown-toggle-icon__wrapper">
-    {{#if (eq @iconType "overflow")}}
-      <FlightIcon @name="more-horizontal" @size="24" />
-    {{else if (eq @iconType "user")}}
-      {{#if @avatarUrl}}
-        <img src={{@avatarUrl}} alt="" role="presentation" height="32" width="32" />
-      {{else}}
-        <FlightIcon @name="user" @size="24" />
-      {{/if}}
+    {{#if @imageSrc}}
+      <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" />
     {{else}}
-      <FlightIcon @name={{@iconName}} @size="24" />
+      <FlightIcon @name={{this.iconName}} @size="24" />
     {{/if}}
   </div>
-  {{#unless (eq @iconType "overflow")}}
-    <div class="hds-dropdown-toggle-icon__chevron">
-      <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" />
-    </div>
-  {{/unless}}
-</button>
-
-{{! third approach: even more DRY }}
-<button class="hds-dropdown-toggle-icon" aria-label={{@text}} type="button" ...attributes>
-  <div class="hds-dropdown-toggle-icon__wrapper">
-    {{! here we're making the assumption that there will always be an image OR an icon (this will be enforced via assertion) }}
-    {{#if this.image}}
-      <img src={{this.image}} alt="" role="presentation" height="32" width="32" />
-    {{else}}
-      <FlightIcon @name={{this.icon}} @size="24" />
-    {{/if}}
-  </div>
-  {{! name of the prop t.b.d. }}
-  {{#if @hasChevron}}
-    <div class="hds-dropdown-toggle-icon__chevron">
-      <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" />
-    </div>
+  {{#if this.hasChevron}}
+    <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" class="hds-dropdown-toggle-icon__chevron" />
   {{/if}}
 </button>
