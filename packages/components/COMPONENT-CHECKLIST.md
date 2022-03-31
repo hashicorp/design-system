@@ -21,7 +21,7 @@ The engineering checklist has six parts: creating the feature branch, component 
 - [ ] **component template**
   - use semantic HTML
   - the component should have a css class that is the same as the component (e.g. `hds/button` should have a class name of `hds-button` on the component, and additional CSS classes should start with this same class name.
-  - add `...attributes` unless doing so would be detrimental (e.g., a parent component and child component that both have ...attributes)
+  - add `...attributes` unless doing so would be detrimental (e.g., a parent element and child element in the same component that both have ...attributes)
 - [ ] **component class**
   - use getters (vs template conditionals or constructors, if possible)
   - write API comments in the JS doc way (copy from an existing DS component)
