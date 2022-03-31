@@ -4,19 +4,15 @@
             "sans": {
                 "display": {
                     "macOS": {
-                        "value": "-apple-system, BlinkMacSystemFont, SF Pro Display",
+                        "value": "-apple-system, BlinkMacSystemFont",
                         "private": "true"
                     },
                     "windows": {
                         "value": "Segoe UI",
                         "private": "true"
                     },
-                    "linux": {
-                        "value": "Ubuntu",
-                        "private": "true"
-                    },
                     "sans": {
-                        "value": "Roboto, Helvetica, Arial, sans-serif",
+                        "value": "Helvetica, Arial, sans-serif",
                         "private": "true"
                     },
                     "emoji": {
@@ -26,15 +22,11 @@
                 },
                 "text": {
                     "macOS": {
-                        "value": "-apple-system, BlinkMacSystemFont, SF Pro Text",
+                        "value": "-apple-system, BlinkMacSystemFont",
                         "private": "true"
                     },
                     "windows": {
                         "value": "Segoe UI",
-                        "private": "true"
-                    },
-                    "linux": {
-                        "value": "Ubuntu",
                         "private": "true"
                     },
                     "emoji": {
@@ -52,21 +44,17 @@
                     "windows": {
                         "value": "Consolas",
                         "private": "true"
-                    },
-                    "linux": {
-                        "value": "Ubuntu Mono",
-                        "private": "true"
                     }
                 }
             },
             "display": {
-                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.display.emoji.value}"
+                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.display.emoji.value}"
             },
             "text": {
-                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.text.emoji.value}"
+                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.text.emoji.value}"
             },
             "code": {
-                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace"
+                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, monospace"
             }
         },
         "font-weight": {
