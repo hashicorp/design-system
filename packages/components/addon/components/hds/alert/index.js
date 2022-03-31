@@ -1,8 +1,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-const NOOP = () => {};
-
 export const DEFAULT_TYPE = 'page';
 export const TYPES = ['page', 'inline', 'compact', 'toast'];
 export const DEFAULT_COLOR = 'neutral';
@@ -102,17 +100,17 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
-   * @param onDismiss
+   * @param onClose
    * @type {function}
    * @default () => {}
    */
-  get onDismiss() {
-    let { onDismiss } = this.args;
+  get onClose() {
+    let { onClose } = this.args;
 
-    if (typeof onDismiss === 'function') {
-      return onDismiss;
+    if (typeof onClose === 'function') {
+      return onClose;
     } else {
-      return NOOP;
+      return false;
     }
   }
 
