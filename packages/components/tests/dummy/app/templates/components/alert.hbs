@@ -262,24 +262,24 @@
 
   <h4 class="dummy-h4">Icon</h4>
   <div class="dummy-alert-sample-grid">
-    <Hds::Alert @type="inline" @color="critical" @title="Default icon" @description="Lorem ipsum dolor sit amet." />
+    <Hds::Alert @type="inline" @color="highlight" @title="Default icon" @description="Lorem ipsum dolor sit amet." />
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="highlight"
       @icon="meh"
       @title="With icon override"
       @description="Lorem ipsum dolor sit amet."
     />
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="highlight"
       @icon="running"
       @title="With animated icon"
       @description="Lorem ipsum dolor sit amet."
     />
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="highlight"
       @icon=""
       @title="Without icon"
       @description="Lorem ipsum dolor sit amet."
@@ -319,7 +319,7 @@
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
     <Hds::Alert
       @type="inline"
-      @color="highlight"
+      @color="warning"
       @title="Action passed as yielded component"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     >
@@ -329,7 +329,7 @@
     </Hds::Alert>
     <Hds::Alert
       @type="inline"
-      @color="highlight"
+      @color="warning"
       @title="With multiple actions passed as yielded components"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     >
@@ -341,7 +341,7 @@
     </Hds::Alert>
     <Hds::Alert
       @type="inline"
-      @color="highlight"
+      @color="warning"
       @title="With content yielded in the 'actions' named block"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     >
@@ -351,7 +351,7 @@
     </Hds::Alert>
     <Hds::Alert
       @type="inline"
-      @color="highlight"
+      @color="warning"
       @title="With actions and custom content in the 'actions' named block"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     >
@@ -372,20 +372,20 @@
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
     <Hds::Alert
       @type="inline"
-      @color="warning"
+      @color="critical"
       @title="Without the dismiss button (default)"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     />
     <Hds::Alert
       @type="inline"
-      @color="warning"
+      @color="critical"
       @title="With the dismiss button"
       @description="TODO at the moment this is not visible. Once we merge the branch with the implementation of the dismiss button, it will appear here automatically."
       @isDismissible={{true}}
     />
     <Hds::Alert
       @type="inline"
-      @color="warning"
+      @color="critical"
       @icon=""
       @title="With the dismiss button and no icon"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -393,7 +393,7 @@
     />
     <Hds::Alert
       @type="inline"
-      @color="warning"
+      @color="critical"
       @description="With the dismiss button and no title"
       @isDismissible={{true}}
     />
