@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-const noop = () => {};
+const NOOP = () => {};
 
 export default class HdsBreadcrumbComponent extends Component {
   /**
@@ -9,8 +9,13 @@ export default class HdsBreadcrumbComponent extends Component {
    * @default () => {}
    */
   get didInsert() {
-    // TODO discuss with Matthew if this is the right way to create a guard for this method
-    return this.args.didInsert ?? noop;
+    let { didInsert } = this.args;
+
+    if (typeof didInsert === 'function') {
+      return didInsert;
+    } else {
+      return NOOP;
+    }
   }
 
   /**
