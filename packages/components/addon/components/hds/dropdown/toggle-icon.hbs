@@ -42,3 +42,21 @@
     </div>
   {{/unless}}
 </button>
+
+{{! third approach: even more DRY }}
+<button class="hds-dropdown-toggle-icon" aria-label={{@text}} type="button" ...attributes>
+  <div class="hds-dropdown-toggle-icon__wrapper">
+    {{! here we're making the assumption that there will always be an image OR an icon (this will be enforced via assertion) }}
+    {{#if this.image}}
+      <img src={{this.image}} alt="" role="presentation" height="32" width="32" />
+    {{else}}
+      <FlightIcon @name={{this.icon}} @size="24" />
+    {{/if}}
+  </div>
+  {{! name of the prop t.b.d. }}
+  {{#if @hasChevron}}
+    <div class="hds-dropdown-toggle-icon__chevron">
+      <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" />
+    </div>
+  {{/if}}
+</button>
