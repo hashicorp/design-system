@@ -5,7 +5,7 @@ This is the quest issue/engineering checklist for the COMPONENT_NAME Component. 
 ## Pre-Flight Checklist
 Update this list and these links as appropriate.
 
-- [Component Doc](url_here): This file should exist before any code is written.
+- [Component Requirement Document (CRD)](url_here): This file should exist before any code is written.
 - [FIGMA Design](url_here): Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
 - [Design System Website](https://design-system-website.vercel.app/?path=/story/example-introduction--page) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
 
