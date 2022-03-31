@@ -53,6 +53,7 @@ The engineering checklist has six parts: creating the feature branch, component 
 
 Pre-review request checks:
 
+- [ ] run `yarn lint` and fix any issues (`yarn lint:hbs --fix` will resolve most issues)
 - [ ] make sure all tests pass (`ember s` then visit /tests; or `ember t -s`)
 - [ ] check for basic a11y on docs page:
   - keyboard navigation
