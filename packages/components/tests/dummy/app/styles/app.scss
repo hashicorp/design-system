@@ -19,6 +19,14 @@
 @import "./components/dummy-component-props";
 @import "./components/dummy-placeholder";
 
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body.dummy-app {
     background-color: #d9d9d9;
     padding: 0;
