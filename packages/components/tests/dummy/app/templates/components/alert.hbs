@@ -236,9 +236,9 @@
 
   <h4 class="dummy-h4">Type</h4>
   {{#each @model.TYPES as |type|}}
-    <div>
-      <p class="dummy-paragraph">{{capitalize type}}</p>
-      <br />
+    <p class="dummy-paragraph">{{capitalize type}}</p>
+    <br />
+    <div class="dummy-alert-sample-item--type-{{type}}">
       <Hds::Alert @type={{type}} @title={{capitalize type}} @description="Lorem ipsum dolor sit amet." />
     </div>
   {{/each}}
@@ -248,7 +248,7 @@
     {{#each @model.COLORS as |color|}}
       <p class="dummy-paragraph dummy-alert-sample-grid__title">{{capitalize color}}</p>
       {{#each @model.TYPES as |type|}}
-        <div>
+        <div class="dummy-alert-sample-item--type-{{type}}">
           <Hds::Alert
             @type={{type}}
             @color={{color}}
