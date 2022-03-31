@@ -26,10 +26,8 @@ $hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: 5px;
 $hds-dropdown-toggle-border-width: 1px;
 
-// TOGGLE/BASE (for "OVERFLOW" and "USER")
+// TOGGLE/ICON
 
-.hds-dropdown-toggle-overflow,
-.hds-dropdown-toggle-user,
 .hds-dropdown-toggle-icon {
   align-items: center;
   background-color: transparent;
@@ -72,53 +70,13 @@ $hds-dropdown-toggle-border-width: 1px;
   }
 }
 
-// TOGGLE/BUTTON
-
-.hds-dropdown-toggle--with-button-component {
-  box-shadow: none; // we override this to remove the elevation style
-
-  .hds-button__icon {
-    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
-    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
-  }
-}
-
-// TOGGLE/OVERFLOW
-
-.hds-dropdown-toggle-overflow {
-  width: $hds-dropdown-toggle-base-height;
-}
-
-// TOGGLE/USER
-.hds-dropdown-toggle-user {
-  padding: 1px;
-
-  .hds-dropdown-toggle-user__avatar {
-    $size: 32px; // $hds-dropdown-toggle-base-height (36px) - 2 * 1px padding - 2 * 1px border
-    align-items: center;
-    border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
-    display: flex;
-    justify-content: center;
-    margin-right: 0.25rem; // 4px
-    height: $size;
-    width: $size;
-
-    > * {
-      border-radius: inherit;
-    }
-  }
-}
-
-.hds-dropdown-toggle-icon {
-  border-color: lightgray;
-  padding: 1px;
-}
 .hds-dropdown-toggle-icon__wrapper {
   align-items: center;
   border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
   display: flex;
   justify-content: center;
   height: 32px;
+  padding: 1px;
   width: 32px;
 
   > * {
@@ -128,6 +86,17 @@ $hds-dropdown-toggle-border-width: 1px;
 
 .hds-dropdown-toggle-icon__chevron {
   margin-left: 0.25rem;
+}
+
+// TOGGLE/BUTTON
+
+.hds-dropdown-toggle--with-button-component {
+  box-shadow: none; // we override this to remove the elevation style
+
+  .hds-button__icon {
+    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+  }
 }
 
 
