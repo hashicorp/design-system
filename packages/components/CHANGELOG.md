@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.5.1
+
+### Patch Changes
+
+- [#133](https://github.com/hashicorp/design-system/pull/133) [`6ed18c7f`](https://github.com/hashicorp/design-system/commit/6ed18c7f9bf211141ac38005e6bd3aea2dbbf1c7) Thanks [@didoo](https://github.com/didoo)! - small change to the “noop“ guard in the “@didInsert“ method of the “Disclosure“ component
+
 ## 0.5.0
 
 ### Minor Changes
