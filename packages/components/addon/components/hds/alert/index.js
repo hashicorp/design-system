@@ -14,11 +14,11 @@ export const COLORS = [
   'critical',
 ];
 export const MAPPING_COLORS_TO_ICONS = {
-  critical: 'alert-octagon',
-  warning: 'alert-triangle',
   neutral: 'info',
   highlight: 'info',
   success: 'check-circle',
+  warning: 'alert-triangle',
+  critical: 'alert-diamond',
 };
 
 export default class HdsAlertIndexComponent extends Component {
@@ -80,9 +80,20 @@ export default class HdsAlertIndexComponent extends Component {
 
     // If `icon` isn't passed, use the pre-defined one from `color`
     if (icon === undefined) {
-      return MAPPING_COLORS_TO_ICONS[this.color];
+      if (this.type === 'compact') {
+        // for the "compact" type by default we use filled icons
+        return `${MAPPING_COLORS_TO_ICONS[this.color]}-fill`;
+      } else {
+        // for all the other types by default we use outlined icons
+        return MAPPING_COLORS_TO_ICONS[this.color];
+      }
       // If `icon` is set explicitly to false, user doesn't want any icon in the alert
     } else if (icon === false) {
+      assert(
+        `@icon for "Hds::Alert" with @type "compact" is required`,
+        this.type !== 'compact'
+      );
+
       return false;
     } else {
       // If a name for `icon` is passed, set FlightIcon to that name
@@ -106,6 +117,19 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
+   * @param iconSize
+   * @type {string}
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
+  get iconSize() {
+    if (this.type === 'compact') {
+      return '16';
+    } else {
+      return '24';
+    }
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method Alert#classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -115,6 +139,11 @@ export default class HdsAlertIndexComponent extends Component {
 
     // Add a class based on the @type argument
     classes.push(`hds-alert--type-${this.type}`);
+
+    // Add an elevation to the "toast" alert
+    if (this.type === 'toast') {
+      classes.push(`hds-elevation-higher`);
+    }
 
     // Add a class based on the @color argument
     classes.push(`hds-alert--color-${this.color}`);
