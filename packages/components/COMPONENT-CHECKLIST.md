@@ -47,6 +47,7 @@ The engineering checklist has six parts: creating the feature branch, component 
   - add link to `templates/index.hbs` page
   - [ ] API docs
   - [ ] Usage
+  - [ ] Accessibility
   - [ ] Showcase
 
 ### Component Review
