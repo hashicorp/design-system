@@ -92,7 +92,7 @@ body.dummy-app {
             margin: 0 auto;
             max-width: 100%;
             min-height: 84.75vh;
-            width: 1024px;
+            width: calc(1024px + 2 * 2rem);
         }
 
         .dummy-footer {
