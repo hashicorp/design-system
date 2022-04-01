@@ -1,11 +1,16 @@
-<Hds::Disclosure>
+<Hds::Disclosure class="hds-dropdown">
   <:toggle as |t|>
-    {{#if (eq @toggle "overflow")}}
-      <Hds::Dropdown::ToggleOverflow @text={{@toggleText}} @size={{@size}} {{on "click" t.onClickToggle}} />
-    {{else if (eq @toggle "user")}}
-      <Hds::Dropdown::ToggleUser @text={{@toggleText}} @avatarUrl={{@avatarUrl}} {{on "click" t.onClickToggle}} />
-    {{else}}
+    {{#if (eq @toggle "toggleButton")}}
       <Hds::Dropdown::ToggleButton @text={{@toggleText}} @color={{@color}} {{on "click" t.onClickToggle}} />
+    {{else}}
+      <Hds::Dropdown::ToggleIcon
+        @text={{@toggleText}}
+        {{on "click" t.onClickToggle}}
+        @iconName={{@iconName}}
+        @imageSrc={{@imageSrc}}
+        @hasChevron={{@hasChevron}}
+        @isOpen={{@isOpen}}
+      />
     {{/if}}
   </:toggle>
   <:content>
