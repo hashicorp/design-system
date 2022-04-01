@@ -381,7 +381,8 @@
       @color="critical"
       @title="With the dismiss button"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onClose={{"noop"}}
+      {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
+      @onClose={{this.noop}}
     />
     <Hds::Alert
       @type="inline"
@@ -389,13 +390,13 @@
       @icon=""
       @title="With the dismiss button and no icon"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onClose={{"noop"}}
+      @onClose={{this.noop}}
     />
     <Hds::Alert
       @type="inline"
       @color="critical"
       @description="With the dismiss button and no title"
-      @onClose={{"noop"}}
+      @onClose={{this.noop}}
     />
   </div>
 
