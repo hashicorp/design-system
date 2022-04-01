@@ -17,7 +17,10 @@
     <ul class="hds-dropdown-list hds-dropdown-list--absolute-right">
       {{yield
         (hash
-          ListItem=(component "hds/dropdown/list-item") Separator=(component "hds/dropdown/list-item" item="separator")
+          Heading=(component "hds/dropdown/list-item" item="heading")
+          HelpText=(component "hds/dropdown/list-item" item="help-text")
+          ListItem=(component "hds/dropdown/list-item")
+          Separator=(component "hds/dropdown/list-item" item="separator")
         )
       }}
     </ul>

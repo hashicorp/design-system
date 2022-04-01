@@ -19,7 +19,6 @@
 //
 //
 
-
 @use '../mixins/focus-ring' as *;
 
 $hds-dropdown-toggle-base-height: 36px;
@@ -27,8 +26,8 @@ $hds-dropdown-toggle-border-radius: 5px;
 $hds-dropdown-toggle-border-width: 1px;
 
 .hds-dropdown {
-  // TOGGLE/ICON
 
+  // TOGGLE/ICON
   .hds-dropdown-toggle-icon {
     align-items: center;
     background-color: transparent;
@@ -80,17 +79,17 @@ $hds-dropdown-toggle-border-width: 1px;
     padding: 1px;
     width: 32px;
 
-    > * {
-      border-radius: inherit;
+    .hds-button__icon {
+      margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+      margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+    }
+
+    .hds-dropdown-toggle-icon__chevron {
+      margin-left: 0.25rem;
     }
   }
 
-  .hds-dropdown-toggle-icon__chevron {
-    margin-left: 0.25rem;
-  }
-
   // TOGGLE/BUTTON
-
   .hds-dropdown-toggle--with-button-component {
     box-shadow: none; // we override this to remove the elevation style
 
@@ -99,7 +98,7 @@ $hds-dropdown-toggle-border-width: 1px;
       margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
     }
   }
-
+  
 
   // LIST
   // UL ELEMENT
@@ -128,7 +127,6 @@ $hds-dropdown-toggle-border-width: 1px;
       z-index: 2; // TODO understand what is the right value here
     }
   }
-
 
   // LIST > LIST-ITEM
   // HDS::DROPDOWN::LIST-ITEM
@@ -247,7 +245,6 @@ $hds-dropdown-toggle-border-width: 1px;
     line-height: var(--token-typography-body-200-line-height);
   }
 
-  // TODO (MS) re-add flex column here to vertically center icon with text
   .hds-dropdown-list-item__link-icon {
     margin-right: 8px;
   }
@@ -259,7 +256,9 @@ $hds-dropdown-toggle-border-width: 1px;
       // assign the values to the local CSS variables used above
       &::after {
         --current-background-color: var(--token-color-surface-action);
-        --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
+        --current-focus-ring-box-shadow: var(
+          --token-focus-ring-action-box-shadow
+        );
       }
 
       &:hover,
@@ -289,19 +288,25 @@ $hds-dropdown-toggle-border-width: 1px;
       // assign the values to the local CSS variables used above
       &::after {
         --current-background-color: var(--token-color-surface-critical);
-        --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
+        --current-focus-ring-box-shadow: var(
+          --token-focus-ring-critical-box-shadow
+        );
       }
 
       &:hover,
       &.is-hover {
-        color: var(--token-color-palette-red-300); // TODO we need to add this token to the design system
+        color: var(
+          --token-color-palette-red-300
+        ); // TODO we need to add this token to the design system
         &::before {
           background-color: currentColor;
         }
       }
       &:active,
       &.is-active {
-        color: var(--token-color-palette-red-400); // TODO we need to add this token to the design system
+        color: var(
+          --token-color-palette-red-400
+        ); // TODO we need to add this token to the design system
         &::before {
           background-color: currentColor;
         }
