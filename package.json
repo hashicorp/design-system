@@ -12,5 +12,8 @@
   },
   "scripts": {
     "release": "yarn changeset publish"
+  },
+  "resolutions": {
+    "@percy/ember/@percy/sdk-utils": "1.0.0-beta.76"
   }
 }

@@ -44,9 +44,6 @@
     "ember-named-blocks-polyfill": "^0.2.5",
     "sass": "^1.43.4"
   },
-  "resolutions": {
-    "@percy/sdk-utils": "1.0.0-beta.76"
-  },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.4.2",
