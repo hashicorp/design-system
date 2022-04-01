@@ -1,12 +1,13 @@
-<Hds::Disclosure>
+<Hds::Disclosure class="hds-dropdown">
   <:toggle as |t|>
-    {{#if (eq @toggle "text")}}
+    {{#if (eq @toggle "toggleButton")}}
       <Hds::Dropdown::ToggleButton @text={{@toggleText}} @color={{@color}} {{on "click" t.onClickToggle}} />
     {{else}}
       <Hds::Dropdown::ToggleIcon
         @text={{@toggleText}}
         {{on "click" t.onClickToggle}}
         @iconName={{@iconName}}
+        @imageSrc={{@imageSrc}}
         @hasChevron={{@hasChevron}}
         @isOpen={{@isOpen}}
       />

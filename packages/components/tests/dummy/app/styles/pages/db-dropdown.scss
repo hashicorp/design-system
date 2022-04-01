@@ -10,15 +10,17 @@
 }
 
 .dummy-nav-dropdown {
+  align-content: stretch;
+  align-items: center;
+  border-bottom: 1px solid darkgray;
+  border-top: 1px solid darkgray;
   box-sizing: border-box;
-  width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: stretch;
-  align-items: center;
-  align-content: stretch;
   height: 62px;
+  justify-content: stretch;
   padding: 0 32px;
+  width: 100%;
   &::after, &::before {
     box-sizing: border-box;
   }
@@ -26,20 +28,20 @@
     background-color: black;
   }
   .dummy-nav-dropdown__list {
-    margin: 0;
-    padding: 0;
+    align-items: stretch;
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-end;
-    align-items: stretch;
     gap: 5px;
+    justify-content: flex-end;
     list-style: none;
+    margin: 0;
+    padding: 0;
     width: 100%;
     .dummy-nav-dropdown__list-item {
-      padding: 0;
-      margin: 0;
-      display: flex;
       align-items: center;
+      display: flex;
+      margin: 0;
+      padding: 0;
     }
   }
 }
