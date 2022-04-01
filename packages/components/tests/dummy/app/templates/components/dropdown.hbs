@@ -409,53 +409,6 @@
       </ul>
     </nav>
   </div>
-
-  <div>
-    <h4 class="dummy-h4">Toggle/Icon: Other Icons</h4>
-    <p class="dummy-paragraph">
-      In this example, we have a settings icon with a header, help-text, separator, and links.
-      <br />Note that
-      <span class="dummy-code">toggleText</span>
-      is still required, because it supplies the value for the
-      <span class="dummy-code">aria-label</span>
-      attribute on the "overflow" toggle button.
-    </p>
-    {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
-    <CodeBlock
-      @language="markup"
-      @code='
-        &lt;Hds::Dropdown
-          @toggleText="settings menu"
-          @iconName="settings"
-          @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
-          as |dd| &gt;
-
-          &lt;dd.Heading @text="Signed In" /&gt;
-          &lt;dd.HelpText @text="design-systems@hashicorp.com" /&gt;
-          &lt;dd.Separator /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
-        &lt;/Hds::Dropdown&gt;
-      '
-    />
-    {{! template-lint-enable no-unbalanced-curlies }}
-    {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="settings menu" @iconName="settings" @isOpen={{false}} as |dd|>
-            <dd.Heading @text="Signed In" />
-            <dd.HelpText @text="design-systems@hashicorp.com" />
-            <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-  </div>
 </section>
 <section>
   <h3 class="dummy-h3" id="section-design-guidelines">Design guidelines</h3>
