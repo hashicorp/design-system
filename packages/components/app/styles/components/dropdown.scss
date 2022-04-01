@@ -111,7 +111,8 @@ $hds-dropdown-toggle-border-width: 1px;
     list-style: none;
     margin: 0;
     padding: 4px 0;
-    width: 200px; // default width // TODO
+    min-width: 200px;
+    max-width: 400px;
 
     &.hds-dropdown-list--absolute-right {
       position: absolute;
@@ -169,7 +170,22 @@ $hds-dropdown-toggle-border-width: 1px;
     isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
     min-height: 36px;
 
-    a {
+    // need to reset a few extra things to make the button visually appear the same as the links
+    // also CR if you want to re-factor, that's fine; just trying to make this work in this first pass
+    // TODO this is 2px taller than the link...why?
+    button {
+      box-sizing: border-box;
+      border: 1px inset transparent; // this might be the cause of the extra height?
+      background-color: transparent;
+      width: 100%;
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+
+    // shared styles for links and buttons
+    a, button {
       align-items: center;
       display: flex;
       outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
@@ -238,19 +254,19 @@ $hds-dropdown-toggle-border-width: 1px;
     }
   }
 
-  .hds-dropdown-list-item__link-text {
+  .hds-dropdown-list-item__interactive-text {
     font-family: var(--token-typography-body-200-font-family);
     font-size: var(--token-typography-body-200-font-size);
     font-weight: var(--token-typography-font-weight-medium);
     line-height: var(--token-typography-body-200-line-height);
   }
 
-  .hds-dropdown-list-item__link-icon {
+  .hds-dropdown-list-item__interactive-icon {
     margin-right: 8px;
   }
 
   .hds-dropdown-list-item--color-action {
-    a {
+    a, button {
       color: var(--token-color-foreground-primary);
 
       // assign the values to the local CSS variables used above
@@ -282,7 +298,7 @@ $hds-dropdown-toggle-border-width: 1px;
   }
 
   .hds-dropdown-list-item--color-critical {
-    a {
+    a, button {
       color: var(--token-color-foreground-critical);
 
       // assign the values to the local CSS variables used above

@@ -679,4 +679,37 @@
       </ul>
     </div>
   {{/each}}
+
+  <h4 class="dummy-h4">Buttons</h4>
+
+  {{#each @model.ITEM_COLORS as |color|}}
+    <p class="dummy-paragraph">{{capitalize color}}</p>
+    <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem @text={{state}} @color={{color}} @state={{state}} />
+        {{/each}}
+      </ul>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem
+            @icon={{if (eq color "critical") "trash" "settings"}}
+            @text="{{state}} with icon"
+            @color={{color}}
+            @state={{state}}
+          />
+        {{/each}}
+      </ul>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem
+            @icon={{if (eq color "critical") "trash" "settings"}}
+            @text="{{state}} with a long multi-line text"
+            @color={{color}}
+            @state={{state}}
+          />
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
 </section>
