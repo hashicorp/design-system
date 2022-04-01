@@ -1,22 +1,15 @@
----
-name: New Component Quest Issue/Engineering Checklist
-about: 'DS Team: Engineering Checklist for New Components'
-title: "[Quest] New Component: Component Name"
-labels: ''
-assignees: ''
+# New Component Checklist
 
----
-
-This is the quest issue/engineering checklist for the COMPONENT_NAME Component. All new components will have their own feature branch, and any PR that adds an item from the checklist should target the feature branch, and not `main`. 
+This is the quest issue/engineering checklist for the COMPONENT_NAME Component. All new components will have their own feature branch, and any PR that adds an item from the checklist should target the feature branch, and not `main`.
 
 ## Pre-Flight Checklist
 Update this list and these links as appropriate.
 
-- [Component Doc](url_here): This file should exist before any code is written.
-- [FIGMA Design](url_here): Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however. 
+- [Component Requirement Document (CRD)](url_here): This file should exist before any code is written.
+- [FIGMA Design](url_here): Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
 - [Design System Website](https://design-system-website.vercel.app/?path=/story/example-introduction--page) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
 
-## Engineering Checklist 
+## Engineering Checklist
 The engineering checklist has six parts: creating the feature branch, component template, component backing class, component style, tests, and documentation.
 
 ### Component Creation
@@ -28,7 +21,7 @@ The engineering checklist has six parts: creating the feature branch, component 
 - [ ] **component template**
   - use semantic HTML
   - the component should have a css class that is the same as the component (e.g. `hds/button` should have a class name of `hds-button` on the component, and additional CSS classes should start with this same class name.
-  - add `...attributes` unless doing so would be detrimental (e.g., a parent component and child component that both have ...attributes) 
+  - add `...attributes` unless doing so would be detrimental (e.g., a parent element and child element in the same component that both have ...attributes)
 - [ ] **component class**
   - use getters (vs template conditionals or constructors, if possible)
   - write API comments in the JS doc way (copy from an existing DS component)
@@ -39,7 +32,7 @@ The engineering checklist has six parts: creating the feature branch, component 
   - assertion text should match the content style of the other components.
   - goal is a terse invocation
 - [ ] **component style**
-  - create `component/COMPONENT_NAME.scss` in `app/styles` 
+  - create `component/COMPONENT_NAME.scss` in `app/styles`
   - add `@use` to `app/styles/@hashicorp/design-system-components.scss` (see existing code for precise syntax)
   - use design tokens wherever possible, comment where they are not
   - sizes should be in relative units
@@ -53,26 +46,28 @@ The engineering checklist has six parts: creating the feature branch, component 
   - create component page `ember generate route components/COMPONENT_NAME --dummy`
   - add link to `templates/index.hbs` page
   - [ ] API docs
-  - [ ] Usage 
-  - [ ] Showcase 
+  - [ ] Usage
+  - [ ] Accessibility
+  - [ ] Showcase
 
 ### Component Review
 
 Pre-review request checks:
 
+- [ ] run `yarn lint` and fix any issues (`yarn lint:hbs --fix` will resolve most issues)
 - [ ] make sure all tests pass (`ember s` then visit /tests; or `ember t -s`)
-- [ ] check for basic a11y on docs page: 
+- [ ] check for basic a11y on docs page:
   - keyboard navigation
   - logical DOM order
-  - zoom up to 400% 
+  - zoom up to 400%
   - color contrast
-  - (the axe-core browser plugin can run some basic tests and give immediate feedback) 
+  - (the axe-core browser plugin can run some basic tests and give immediate feedback)
 - [ ] check page on browsers
   - Chrome
   - Firefox
   - Safari
-  - Edge (once available) 
+  - Edge (once available)
 
-When ready for review: 
+When ready for review:
 - [ ] add situationally appropriate reviewers
 - [ ] added instructions for reviewers in your PR, letting them know what kind of review you need

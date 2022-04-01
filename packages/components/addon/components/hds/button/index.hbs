@@ -1,10 +1,4 @@
-<button
-  class={{this.classNames}}
-  ...attributes
-  aria-label={{if this.isIconOnly this.text null}}
-  type={{this.type}}
-  disabled={{if this.isDisabled "disabled" null}}
->
+<button class={{this.classNames}} ...attributes aria-label={{if this.isIconOnly this.text null}} type={{this.type}}>
   {{#if this.isIconOnly}}
     <div class="hds-button__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
