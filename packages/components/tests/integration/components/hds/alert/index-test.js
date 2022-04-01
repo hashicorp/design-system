@@ -97,7 +97,38 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // TODO add a case for compact that should have only the description?
 
   // ACTIONS
-  // TODO
+
+  test('it should render any content passed to the <:actions> named block', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @description="yo" id="test-alert"><:actions><pre>test</pre></:actions></Hds::Alert>`
+    );
+    assert.dom('#test-alert .hds-alert__actions pre').exists().hasText('test');
+  });
+  test('it should render an Hds::Button component yielded to the <:actions> named block', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @description="yo" id="test-alert"><:actions as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></:actions></Hds::Alert>`
+    );
+    assert
+      .dom(
+        '#test-alert .hds-alert__actions button.hds-button.hds-button--size-small.hds-button--color-secondary'
+      )
+      .exists()
+      .hasText('I am a button');
+  });
+  test('it should render an Hds::Link::Standalone component yielded to the <:actions> named block', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @description="yo" id="test-alert"><:actions as |A|><A.Link::Standalone @icon="plus" @text="I am a link" href="#" @size="small" @color="secondary" /></:actions></Hds::Alert>`
+    );
+    assert
+      .dom(
+        '#test-alert .hds-alert__actions a.hds-link-standalone.hds-link-standalone--size-small.hds-link-standalone--color-secondary'
+      )
+      .exists()
+      .hasText('I am a link');
+  });
 
   // DISMISS
 
@@ -106,13 +137,20 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('button.hds-alert__dismiss').doesNotExist();
   });
   // TODO! how can this be done??
-  skip('it should render the "dismiss" button if a callback function is passed to the @onClose argument', async function (assert) {
-    await render(hbs`<Hds::Alert @description="yo" @onClose={{NOOP}} />`);
-    assert.dom('button.hds-alert__dismiss').exists();
-  });
+  // skip('it should render the "dismiss" button if a callback function is passed to the @onClose argument', async function (assert) {
+  //   await render(hbs`<Hds::Alert @description="yo" @onClose={{NOOP}} />`);
+  //   assert.dom('button.hds-alert__dismiss').exists();
+  // });
 
   // A11Y
-  // TODO
+
+  // TODO this is only a partial implementation, we'll wait for the a11y review of the component to add all the other missing requirements
+  test('it should render with the correct semantic tags and aria attributes', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @title="This is the title" @description="This is the description" id="test-alert" />`
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alert');
+  });
 
   // ASSERTIONS
 
