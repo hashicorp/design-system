@@ -100,6 +100,21 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
+   * @param onClose
+   * @type {function}
+   * @default () => {}
+   */
+  get onClose() {
+    let { onClose } = this.args;
+
+    if (typeof onClose === 'function') {
+      return onClose;
+    } else {
+      return false;
+    }
+  }
+
+  /**
    * @param iconSize
    * @type {string}
    * @description ensures that the correct icon size is used. Automatically calculated.

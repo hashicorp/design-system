@@ -5,8 +5,10 @@
 //
 //
 
+@use "../mixins/focus-ring" as *;
+
 .hds-alert {
-  align-content: flex-start;
+  align-items: flex-start;
   display: flex;
   padding: 1rem; // 16px
 }
@@ -15,7 +17,15 @@
   margin-right: 0.75rem; // 12px
 }
 
+.hds-alert__content {
+  flex: 1 1 auto;
+}
+
 .hds-alert__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 24px; // same as the icon height, to keep text vertically centered in case is a single line
   color: var(--token-color-foreground-warning-on-surface);
   font-family: var(--token-typography-body-200-font-family);
   font-size: var(--token-typography-body-200-font-size);
@@ -170,6 +180,10 @@
     padding: 2px 0;
   }
 
+  .hds-alert__text {
+    min-height: auto; // we remove the min-height for the container, it's determined by the text line-height so the icon and text are already aligned using the extra padding (see above)
+  }
+
   // extra safety
   .hds-alert__title {
     display: none;
@@ -193,5 +207,35 @@
 
   &:empty {
     display: none;
+  }
+}
+
+
+// DISMISS
+
+.hds-alert__dismiss {
+  background-color: transparent;
+  border: none;
+  color: var(--token-color-foreground-faint);
+  cursor: pointer;
+  margin-left: 1rem; // 16px
+  padding: 0;
+
+  // notice: this is used not only for the focus, but also to increase the clickable area
+  @include hds-focus-ring-with-pseudo-element($top: -4px, $right: -4px, $bottom: -4px, $left: -4px);
+
+  &:hover,
+  &.is-hover {
+    &::before { // we re-use the pseudo-element created above by the "focus-ring" mixin
+      background-color: rgba(#dedfe3, 0.4);
+    }
+  }
+  &:active,
+  &.is-active {
+    color: var(--token-color-foreground-secondary);
+    &::before {
+      background-color: rgba(#dedfe3, 0.4);
+      border: 1px solid var(--token-color-border-strong);
+    }
   }
 }
