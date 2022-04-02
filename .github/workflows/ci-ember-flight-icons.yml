@@ -7,7 +7,7 @@ on:
   pull_request: {}
 
 env:
-  NODE_VERSION: '12.x'
+  NODE_VERSION: '16.x'
 
 concurrency:
    group: ci-ember-flight-icons-${{ github.head_ref || github.ref }}
