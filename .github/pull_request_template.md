@@ -1,24 +1,24 @@
-### :pushpin: Summary
+## :pushpin: Summary
 
-<!-- If merged, this PR.... 
-This should be a short TL;DR that includes the purpose of the PR.
+If merged, this PR....
+<!--This should be a short TL;DR that includes the purpose of the PR.
 -->
 
-### :hammer_and_wrench: Detailed description
+## :hammer_and_wrench: Detailed description
 
 <!-- If more details are appropriate, add them here. What code changed, and why? -->
 
-### :camera_flash: Screenshots
+## :camera_flash: Screenshots
 
 <!-- Screenshots always help, especially if this PR will change what renders to the browser -->
 
-### :link: External links
+## :link: External links
 
 <!-- Issues, RFC, etc. -->
 
 ***
 
-### 👀 How to review
+## 👀 How to review
 
 <!-- Suggest how it's best for the reviewer to review the code (choose one, or remove) -->
 👉 Review commit-by-commit
