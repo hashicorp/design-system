@@ -120,7 +120,9 @@
       </p>
       <ol>
         <li>title</li>
+        <li>subtitle</li>
         <li>description</li>
+        <li>copy-item</li>
         <li>separator</li>
         <li class="default">interactive</li>
       </ol>
@@ -667,7 +669,10 @@
   <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
     <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
-      <Hds::Dropdown::ListItem @item="description" @text="Create a new run task in Terraform using the URL and key below." />
+      <Hds::Dropdown::ListItem
+        @item="description"
+        @text="Create a new run task in Terraform using the URL and key below."
+      />
       <Hds::Dropdown::ListItem @item="subtitle" @text="Endpoint URL" />
       <Hds::Dropdown::ListItem @item="copy-item" @text="https://apli.cloud.hashicorp.com" />
       <Hds::Dropdown::ListItem @item="subtitle" @text="HMAC Key" />

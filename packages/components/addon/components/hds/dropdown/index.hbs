@@ -25,10 +25,12 @@
     >
       {{yield
         (hash
-          Title=(component "hds/dropdown/list-item" item="title")
+          CopyItem=(component "hds/dropdown/list-item" item="copy-item")
           Description=(component "hds/dropdown/list-item" item="description")
           ListItem=(component "hds/dropdown/list-item")
           Separator=(component "hds/dropdown/list-item" item="separator")
+          Subtitle=(component "hds/dropdown/list-item" item="subtitle")
+          Title=(component "hds/dropdown/list-item" item="title")
         )
       }}
     </ul>
