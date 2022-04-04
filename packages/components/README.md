@@ -47,6 +47,8 @@ Finally, add this line to the top of your app's style file (`app.scss` or simila
 @import '@hashicorp/design-system-components';
 ```
 
+⚠️ **Notice**: our component library assumes that a `*, *::before, *::after { box-sizing: border-box; }` reset is applied globally in the CSS of the application. If in your use case this is not true, please speak with the design system team (we can try to find a workaround).
+
 Usage
 ------------------------------------------------------------------------------
 

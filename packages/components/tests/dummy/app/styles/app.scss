@@ -19,6 +19,14 @@
 @import "./components/dummy-component-props";
 @import "./components/dummy-placeholder";
 
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body.dummy-app {
     background-color: #d9d9d9;
     padding: 0;
@@ -45,7 +53,6 @@ body.dummy-app {
         }
         .dummy-nav {
             background-color: #f1f2f3;
-            box-sizing: border-box;
             display: flex;
             margin: 0;
             padding: 0 0 0 0.5rem;
@@ -84,12 +91,11 @@ body.dummy-app {
             margin: 0 auto;
             max-width: 100%;
             min-height: 84.75vh;
-            width: 1024px;
+            width: calc(1024px + 2 * 2rem);
         }
 
         .dummy-footer {
             background-color: #f1f2f3;
-            box-sizing: border-box;
             display: flex;
             flex-flow: row wrap;
             margin: auto;
@@ -120,7 +126,6 @@ body.dummy-app {
                         min-height: fit-content;
                         .dummy-link {
                             border: 1px solid transparent;
-                            box-sizing: border-box;
                             align-content: center;
                             color: white;
                             display: flex;
@@ -129,9 +134,6 @@ body.dummy-app {
                             padding: 1rem;
                             text-decoration: none;
                             width: fit-content;
-                            &::before, &::after {
-                                box-sizing: border-box;
-                            }
                             &:hover, &:focus {
                                 text-decoration: underline;
                             }
