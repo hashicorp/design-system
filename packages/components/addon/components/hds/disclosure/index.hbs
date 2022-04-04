@@ -1,6 +1,6 @@
 <div class="hds-disclosure" ...attributes>
   <div class="hds-disclosure__toggle">
-    {{yield (hash onClickToggle=this.onClickToggle) to="toggle"}}
+    {{yield (hash onClickToggle=this.onClickToggle isActive=this.isActive) to="toggle"}}
   </div>
   {{#if this.isActive}}
     <div
