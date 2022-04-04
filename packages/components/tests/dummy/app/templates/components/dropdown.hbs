@@ -19,10 +19,12 @@
         <li>left</li>
         <li class="default">right</li>
       </ol>
-      <p>If no <span class="dummy-code">listPostion</span> is defined, it will automatically be positioned to the right.</p>
+      <p>If no
+        <span class="dummy-code">listPostion</span>
+        is defined, it will automatically be positioned to the right.</p>
     </dd>
   </dl>
-  <hr>
+  <hr />
   <p class="dummy-paragraph" id="toggle-button-api">
     This is the API for the
     <span class="dummy-code">Dropdown::ToggleButton</span>
@@ -644,14 +646,20 @@
   <h4 class="dummy-h4">Title, Description, Separator</h4>
   <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
     <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="title" @text="A simple Title" />
+      <Hds::Dropdown::ListItem @item="title" @text="A simple title" />
       <Hds::Dropdown::ListItem @item="description" @text="A description." />
       <Hds::Dropdown::ListItem @item="separator" />
       <Hds::Dropdown::ListItem @route="index" @text="Item" />
     </ul>
     <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="title" @text="A longer title that could span multiple lines if the characters surpass a certain length" />
-      <Hds::Dropdown::ListItem @item="description" @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default." />
+      <Hds::Dropdown::ListItem
+        @item="title"
+        @text="A longer title that could span multiple lines if the characters surpass a certain length"
+      />
+      <Hds::Dropdown::ListItem
+        @item="description"
+        @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
+      />
       <Hds::Dropdown::ListItem @item="separator" />
       <Hds::Dropdown::ListItem @route="index" @text="Item" />
     </ul>
