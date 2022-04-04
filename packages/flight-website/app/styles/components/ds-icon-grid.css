@@ -73,7 +73,6 @@ button.ds-toggle-button {
   bg-brand
   border-2 
   border-transparent 
-  box-border
   cursor-pointer 
   duration-200 
   ease-in-out 
@@ -93,7 +92,6 @@ button.ds-toggle-button {
 .ds-toggle-button-slider {
   @apply
   bg-transparent
-  box-border
   flex
   h-9
   justify-evenly
@@ -108,7 +106,6 @@ button.ds-toggle-button {
 
 .ds-toggle-16 {
   @apply 
-  box-border
   text-white
   ease-in 
   duration-200 
@@ -132,7 +129,6 @@ button.ds-toggle-button {
 .ds-toggle-24 {
   @apply
   bg-transparent
-  box-border
   duration-100
   ease-out
   flex
@@ -156,7 +152,6 @@ button.ds-toggle-button {
 
 /* Icon Grid */
 ul.ds-ul-grid {
-  box-sizing: border-box;
   display: grid;
   font-family: var(--font-body);
   gap: 16px;
@@ -172,7 +167,6 @@ ul.ds-ul-grid li.ds-li {
   background: var(--gray-7);
   border-radius: 3px;
   box-shadow: 0 0 0 1px var(--gray-5);
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   gap: 1em;
@@ -180,7 +174,6 @@ ul.ds-ul-grid li.ds-li {
 }
 ul.ds-ul-grid li.ds-li .ds-icon-frame {
   align-items: center;
-  box-sizing: border-box;
   background: #fff;
   border-radius: 3px;
   box-shadow: 0 0 0 1px var(--gray-5);

@@ -15,7 +15,6 @@ $hds-badge-count-border-width: 1px;
 .hds-badge-count {
   align-items: center;
   border: $hds-badge-count-border-width solid transparent;
-  box-sizing: border-box;
   display: inline-flex;
   font-family: var(--token-typography-font-stack-text);
   max-width: 100%;
