@@ -6,7 +6,7 @@ export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
 export const ITEMS = [
   'title',
-  'subtitle',
+  'copy-label',
   'copy-item',
   'description',
   'separator',
