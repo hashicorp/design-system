@@ -55,6 +55,7 @@ export default class HdsDropdownListItemComponent extends Component {
   get item() {
     let { item = DEFAULT_ITEM } = this.args;
 
+    // do we need this assert anymore?
     assert(
       `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
         ', '

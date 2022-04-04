@@ -14,28 +14,46 @@
 {{else if (eq this.item "interactive")}}
   <li class={{this.classNames}}>
     {{#if @route}}
-      {{! // TODO consider approach }}
-      <LinkTo @route={{@route}} class="is-{{@state}}">
+      <LinkTo
+        class="{{if @state (concat 'is-' @state)}}"
+        @current-when={{@current-when}}
+        @models={{hds-link-to-models @model @models}}
+        @query={{hds-link-to-query @query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        ...attributes
+      >
         {{#if @icon}}
-          <div class="hds-dropdown-list-item__link-icon">
+          <div class="hds-dropdown-list-item__interactive-icon">
             <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item__link-text">
+        <div class="hds-dropdown-list-item__interactive-text">
           {{@text}}
         </div>
       </LinkTo>
-    {{else}}
-      <a target="_blank" rel="noopener noreferrer" href={{@href}} class="is-{{@state}}">
+    {{else if @href}}
+      <a target="_blank" rel="noopener noreferrer" href={{@href}} class="{{if @state (concat 'is-' @state)}}">
         {{#if @icon}}
-          <div class="hds-dropdown-list-item__link-icon">
+          <div class="hds-dropdown-list-item__interactive-icon">
             <FlightIcon @name={{@icon}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item__link_text">
+        <div class="hds-dropdown-list-item__interactive-text">
           {{@text}}
         </div>
       </a>
+    {{else}}
+      <button class="{{if @state (concat 'is-' @state)}}" type="button" ...attributes>
+        {{#if @icon}}
+          <div class="hds-dropdown-list-item__interactive-icon">
+            <FlightIcon @name={{@icon}} />
+          </div>
+        {{/if}}
+        <div class="hds-dropdown-list-item__interactive-text">
+          {{@text}}
+        </div>
+      </button>
     {{/if}}
   </li>
 
