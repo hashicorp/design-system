@@ -132,7 +132,7 @@ $hds-dropdown-toggle-border-width: 1px;
   // LIST > LIST-ITEM
   // HDS::DROPDOWN::LIST-ITEM
 
-  .hds-dropdown-list-item--heading {
+  .hds-dropdown-list-item--title {
     color: var(--token-color-foreground-strong);
     font-family: var(--token-typography-body-100-font-family);
     font-size: var(--token-typography-body-100-font-size);
@@ -141,7 +141,7 @@ $hds-dropdown-toggle-border-width: 1px;
     padding: 10px 16px 4px;
   }
 
-  .hds-dropdown-list-item--help-text {
+  .hds-dropdown-list-item--description {
     color: var(--token-color-foreground-faint);
     font-family: var(--token-typography-body-100-font-family);
     font-size: var(--token-typography-body-100-font-size);

@@ -117,8 +117,8 @@
         Acceptable values:
       </p>
       <ol>
-        <li>heading</li>
-        <li>help-text</li>
+        <li>title</li>
+        <li>description</li>
         <li>separator</li>
         <li class="default">interactive</li>
       </ol>
@@ -316,7 +316,7 @@
   <div>
     <h4 class="dummy-h4">Toggle/Icon: User Icon</h4>
     <p class="dummy-paragraph">
-      In this example, we have a user icon with a header, help-text, separator, and links.
+      In this example, we have a user icon with a title, description, separator, and links.
       <br />Note that
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the value for the
@@ -333,8 +333,8 @@
           @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
           as |dd| &gt;
 
-          &lt;dd.Heading @text="Signed In" /&gt;
-          &lt;dd.HelpText @text="design-systems@hashicorp.com" /&gt;
+          &lt;dd.Title @text="Signed In" /&gt;
+          &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
@@ -348,8 +348,8 @@
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown @toggleText="user menu" @isOpen={{false}} as |dd|>
-            <dd.Heading @text="Signed In" />
-            <dd.HelpText @text="design-systems@hashicorp.com" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
@@ -364,8 +364,8 @@
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown @toggleText="user menu" @isOpen={{false}} as |dd|>
 
-            <dd.Heading @text="Signed In" />
-            <dd.HelpText @text="design-systems@hashicorp.com" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
@@ -378,7 +378,7 @@
   <div>
     <h4 class="dummy-h4">Toggle/Icon: Other Icons</h4>
     <p class="dummy-paragraph">
-      In this example, we have a settings icon with a header, help-text, separator, and links.
+      In this example, we have a settings icon with a title, description, separator, and links.
       <br />Note that
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the value for the
@@ -396,8 +396,8 @@
           @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
           as |dd| &gt;
 
-          &lt;dd.Heading @text="Signed In" /&gt;
-          &lt;dd.HelpText @text="design-systems@hashicorp.com" /&gt;
+          &lt;dd.Title @text="Signed In" /&gt;
+          &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
@@ -411,8 +411,8 @@
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown @toggleText="settings menu" @iconName="settings" @isOpen={{false}} as |dd|>
-            <dd.Heading @text="Signed In" />
-            <dd.HelpText @text="design-systems@hashicorp.com" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
@@ -641,17 +641,17 @@
 
   <h3 class="dummy-h3" id="section-showcase-listitem">Showcase: List Items</h3>
 
-  <h4 class="dummy-h4">Heading, Help Text, Separator</h4>
+  <h4 class="dummy-h4">Title, Description, Separator</h4>
   <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
     <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="heading" @text="A simple heading" />
-      <Hds::Dropdown::ListItem @item="help-text" @text="Some help text." />
+      <Hds::Dropdown::ListItem @item="title" @text="A simple Title" />
+      <Hds::Dropdown::ListItem @item="description" @text="A description." />
       <Hds::Dropdown::ListItem @item="separator" />
       <Hds::Dropdown::ListItem @route="index" @text="Item" />
     </ul>
     <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="heading" @text="A longer heading that goes on multiple lines" />
-      <Hds::Dropdown::ListItem @item="help-text" @text="A longer help text that can span on multiple lines." />
+      <Hds::Dropdown::ListItem @item="title" @text="A longer title that could span multiple lines if the characters surpass a certain length" />
+      <Hds::Dropdown::ListItem @item="description" @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default." />
       <Hds::Dropdown::ListItem @item="separator" />
       <Hds::Dropdown::ListItem @route="index" @text="Item" />
     </ul>
