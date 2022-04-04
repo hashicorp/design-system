@@ -114,14 +114,14 @@ $hds-dropdown-toggle-border-width: 1px;
     min-width: 200px;
     max-width: 400px;
 
-    &.hds-dropdown-list--absolute-right {
+    &.hds-dropdown-list--position-right {
       position: absolute;
       right: 0;
       top: calc(100% + 4px);
       z-index: 2; // TODO understand what is the right value here
     }
 
-    &.hds-dropdown-list--absolute-left {
+    &.hds-dropdown-list--position-left {
       position: absolute;
       left: 0;
       top: calc(100% + 4px);
