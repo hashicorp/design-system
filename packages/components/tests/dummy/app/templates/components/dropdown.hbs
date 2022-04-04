@@ -669,7 +669,7 @@
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
             @icon={{if (eq color "critical") "trash" "settings"}}
-            @text="{{state}} with a long multi-line text"
+            @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
             @color={{color}}
             @state={{state}}
           />
@@ -702,7 +702,7 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem
             @icon={{if (eq color "critical") "trash" "settings"}}
-            @text="{{state}} with a long multi-line text"
+            @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
             @color={{color}}
             @state={{state}}
           />
