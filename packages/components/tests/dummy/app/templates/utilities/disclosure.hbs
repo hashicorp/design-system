@@ -109,7 +109,10 @@
   <div class="dummy-disclosure-container">
     <Hds::Disclosure>
       <:toggle as |t|>
-        <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
+        <button type="button" {{on "click" t.onClickToggle}}>
+          Click me
+          <FlightIcon @name={{if t.isActive "chevron-up" "chevron-down"}} />
+        </button>
       </:toggle>
       <:content>
         <a href="#">
