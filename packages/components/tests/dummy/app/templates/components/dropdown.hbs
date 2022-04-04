@@ -332,7 +332,6 @@
       @code='
         &lt;Hds::Dropdown
           @toggleText="user menu"
-          @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
           as |dd| &gt;
 
           &lt;dd.Title @text="Signed In" /&gt;
@@ -349,7 +348,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="user menu" @isOpen={{false}} as |dd|>
+          <Hds::Dropdown @toggleText="user menu" as |dd|>
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -364,7 +363,7 @@
     <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="user menu" @isOpen={{false}} as |dd|>
+          <Hds::Dropdown @toggleText="user menu" as |dd|>
 
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
@@ -395,7 +394,6 @@
         &lt;Hds::Dropdown
           @toggleText="settings menu"
           @iconName="settings"
-          @isOpen=&lbrace;&lbrace;false&rbrace;&rbrace;
           as |dd| &gt;
 
           &lt;dd.Title @text="Signed In" /&gt;
@@ -412,7 +410,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="settings menu" @iconName="settings" @isOpen={{false}} as |dd|>
+          <Hds::Dropdown @toggleText="settings menu" @iconName="settings" as |dd|>
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -555,23 +553,23 @@
     <div class="hds-dropdown">
       <p class="dummy-paragraph">Color: primary (default)</p>
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{false}} />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" />
       <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} />
     </div>
     <div class="hds-dropdown">
       <p class="dummy-paragraph">Color: secondary</p>
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{false}} />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" />
       <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::ToggleButton @text="Manage sources" @color="secondary" @isOpen={{true}} />
+      <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} @color="secondary" />
     </div>
   </div>
   <h4 class="dummy-h4">Toggle: Icon (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleIcon @isOpen={{false}} @text="user menu" />
+      <Hds::Dropdown::ToggleIcon @text="user menu" />
       <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleIcon @isOpen={{true}} @text="user menu" />
     </div>
@@ -586,7 +584,7 @@
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @isOpen={{false}} @text="user menu" />
+      <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @text="user menu" />
       <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @isOpen={{true}} @text="user menu" />
     </div>
@@ -595,7 +593,7 @@
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleIcon @iconName="settings" @isOpen={{false}} @text="settings menu" />
+      <Hds::Dropdown::ToggleIcon @iconName="settings" @text="settings menu" />
       <span class="dummy-text-small">State: opened</span>
       <Hds::Dropdown::ToggleIcon @iconName="settings" @isOpen={{true}} @text="settings menu" />
     </div>
@@ -691,7 +689,7 @@
           <Hds::Dropdown::ListItem
             @route="components.dropdown"
             @icon={{if (eq color "critical") "trash" "settings"}}
-            @text="{{state}} with a long multi-line text"
+            @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
             @color={{color}}
             @state={{state}}
           />
@@ -724,7 +722,7 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem
             @icon={{if (eq color "critical") "trash" "settings"}}
-            @text="{{state}} with a long multi-line text"
+            @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
             @color={{color}}
             @state={{state}}
           />

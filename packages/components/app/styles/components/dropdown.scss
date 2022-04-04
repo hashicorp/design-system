@@ -259,6 +259,7 @@ $hds-dropdown-toggle-border-width: 1px;
     font-size: var(--token-typography-body-200-font-size);
     font-weight: var(--token-typography-font-weight-medium);
     line-height: var(--token-typography-body-200-line-height);
+    text-align: left; // the button element was centering text
   }
 
   .hds-dropdown-list-item__interactive-icon {
