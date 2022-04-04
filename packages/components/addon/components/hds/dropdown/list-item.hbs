@@ -1,9 +1,9 @@
-{{#if (eq this.item "heading")}}
+{{#if (eq this.item "title")}}
   <li class={{this.classNames}}>
     {{@text}}
   </li>
 
-{{else if (eq this.item "help-text")}}
+{{else if (eq this.item "description")}}
   <li class={{this.classNames}}>
     {{@text}}
   </li>
