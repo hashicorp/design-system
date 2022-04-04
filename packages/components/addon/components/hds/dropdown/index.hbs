@@ -19,11 +19,14 @@
     {{/if}}
   </:toggle>
   <:content>
-    <ul class="hds-dropdown-list hds-dropdown-list--absolute-right">
+    <ul
+      class="hds-dropdown-list
+        {{if (eq @listPosition 'left') 'hds-dropdown-list--position-left' 'hds-dropdown-list--position-right'}}"
+    >
       {{yield
         (hash
-          Heading=(component "hds/dropdown/list-item" item="heading")
-          HelpText=(component "hds/dropdown/list-item" item="help-text")
+          Title=(component "hds/dropdown/list-item" item="title")
+          Description=(component "hds/dropdown/list-item" item="description")
           ListItem=(component "hds/dropdown/list-item")
           Separator=(component "hds/dropdown/list-item" item="separator")
         )
