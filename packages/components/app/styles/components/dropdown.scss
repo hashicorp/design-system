@@ -141,6 +141,15 @@ $hds-dropdown-toggle-border-width: 1px;
     padding: 10px 16px 4px;
   }
 
+  .hds-dropdown-list-item--subtitle {
+    color: var(--token-color-foreground-faint);
+    font-family: var(--token-typography-body-100-font-family);
+    font-size: var(--token-typography-body-100-font-size); // 13
+    font-weight: var(--token-typography-font-weight-bold);
+    line-height: var(--token-typography-body-100-line-height); // 18
+    padding: 2px 16px 4px;
+  }
+
   .hds-dropdown-list-item--description {
     color: var(--token-color-foreground-faint);
     font-family: var(--token-typography-body-100-font-family);
@@ -162,6 +171,42 @@ $hds-dropdown-toggle-border-width: 1px;
       bottom: 0;
       border-bottom: 1px solid var(--token-color-border-primary);
       content: '';
+    }
+  }
+
+  .hds-dropdown-list-item--copy-item {
+    box-sizing: border-box;
+    padding: 10px 16px 12px;
+    width: 100%;
+
+
+    button {
+      background-color: transparent;
+      border: 1px solid var(--token-color-border-primary);
+      border-radius: 5px;
+      box-sizing: border-box;
+      display: flex;
+      font-family: var(--token-typography-font-stack-code);
+      justify-content: space-between;
+      padding: 12px 8px;
+      width: 100%;
+    }
+
+    .hds-dropdown-list-item__copy-item-text {
+      color: var(--token-color-foreground-primary);
+      font-size: var(--token-typography-code-100-font-size);
+      font-weight: 400;
+      line-height: var(--token-typography-code-100-line-height);
+      max-width: 250px; // TODO we should be able to figure out the proportions here
+      text-align: left;
+      text-overflow: ellipsis;
+      // overflow: hidden;
+    }
+
+    .hds-dropdown-list-item__copy-item-icon {
+      align-self: flex-end;
+      color: var(--token-color-foreground-action-active);
+      margin-left: 8px;
     }
   }
 

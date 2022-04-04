@@ -4,7 +4,14 @@ import { assert } from '@ember/debug';
 export const DEFAULT_COLOR = 'action';
 export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
-export const ITEMS = ['title', 'description', 'separator', 'interactive'];
+export const ITEMS = [
+  'title',
+  'subtitle',
+  'copy-item',
+  'description',
+  'separator',
+  'interactive',
+];
 
 export default class HdsDropdownListItemComponent extends Component {
   /**

@@ -3,6 +3,21 @@
     {{@text}}
   </li>
 
+{{else if (eq this.item "subtitle")}}
+  <li class={{this.classNames}}>
+    {{@text}}
+  </li>
+
+{{else if (eq this.item "copy-item")}}
+  <li class={{this.classNames}}>
+    <button type="button">
+      <div class="hds-dropdown-list-item__copy-item-text">
+        {{@text}}
+      </div>
+      <FlightIcon @name="clipboard-copy" class="hds-dropdown-list-item__copy-item-icon" />
+    </button>
+  </li>
+
 {{else if (eq this.item "description")}}
   <li class={{this.classNames}}>
     {{@text}}
