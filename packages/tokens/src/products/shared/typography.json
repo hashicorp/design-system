@@ -4,29 +4,33 @@
             "sans": {
                 "display": {
                     "macOS": {
-                        "value": "-apple-system, BlinkMacSystemFont, SF Pro Display",
+                        "value": "-apple-system, BlinkMacSystemFont",
                         "private": "true"
                     },
                     "windows": {
-                        "value": "Segoe UI Display",
+                        "value": "Segoe UI",
                         "private": "true"
                     },
-                    "linux": {
-                        "value": "Ubuntu",
+                    "sans": {
+                        "value": "Helvetica, Arial, sans-serif",
+                        "private": "true"
+                    },
+                    "emoji": {
+                        "value": "Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                         "private": "true"
                     }
                 },
                 "text": {
                     "macOS": {
-                        "value": "-apple-system, BlinkMacSystemFont, SF Pro Text",
+                        "value": "-apple-system, BlinkMacSystemFont",
                         "private": "true"
                     },
                     "windows": {
-                        "value": "Segoe UI Text",
+                        "value": "Segoe UI",
                         "private": "true"
                     },
-                    "linux": {
-                        "value": "Ubuntu",
+                    "emoji": {
+                        "value": "Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
                         "private": "true"
                     }
                 }
@@ -34,27 +38,23 @@
             "monospace": {
                 "code": {
                     "macOS": {
-                        "value": "SF Mono",
+                        "value": "ui-monospace, Menlo",
                         "private": "true"
                     },
                     "windows": {
                         "value": "Consolas",
                         "private": "true"
-                    },
-                    "linux": {
-                        "value": "Ubuntu Mono",
-                        "private": "true"
                     }
                 }
             },
             "display": {
-                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.linux.value}, sans-serif"
+                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.display.emoji.value}"
             },
             "text": {
-                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.text.linux.value}, sans-serif"
+                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.text.emoji.value}"
             },
             "code": {
-                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, {typography.font-stack.monospace.code.linux.value}, monospace"
+                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, monospace"
             }
         },
         "font-weight": {
