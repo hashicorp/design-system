@@ -71,10 +71,12 @@ See [tokens/README](packages/tokens/README.md)  and [tokens/CONTRIBUTING](packag
 Run this command from the monorepo root:
 
 ```bash
-yarn workspace <workspace-package-name> run ember install <package>
+yarn workspace <workspace-npm-package> run ember install <npm-package>
 ```
 
-e.g. `yarn workspace components run ember install ember-a11y-refocus`
+e.g. `yarn workspace @hashicorp/design-system-components run ember install ember-a11y-refocus`
+
+🚨 Note: Since we use Yarn 1, this command will install a `yarn.lock` at `packages/components`. Please manually delete that file!
 
 ## License
 
