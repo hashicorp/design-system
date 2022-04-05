@@ -116,7 +116,7 @@ $hds-dropdown-toggle-border-width: 1px;
   margin: 0;
   padding: 4px 0;
   min-width: 200px; // TODO relational units
-  max-width: 400px; // TODO relatinal units
+  max-width: 400px; // TODO relational units
 
   &.hds-dropdown-list--position-right {
     position: absolute;
@@ -206,7 +206,6 @@ $hds-dropdown-toggle-border-width: 1px;
       //TODO this focus is just way too complex 
       background-color:  var(--token-color-surface-action);
       border-color: var(--token-color-focus-action-internal);
-      color: var(--token-color-foreground-high-contrast);
     }
     
     &:active, 
