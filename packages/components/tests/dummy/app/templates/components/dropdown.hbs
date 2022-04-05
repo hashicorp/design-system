@@ -119,12 +119,12 @@
         Acceptable values:
       </p>
       <ol>
-        <li>title</li>
-        <li>subtitle</li>
-        <li>description</li>
-        <li>copy-item</li>
-        <li>separator</li>
         <li class="default">interactive</li>
+        <li>copy-item</li>
+        <li>copy-label</li>
+        <li>description</li>
+        <li>separator</li>
+        <li>title</li>
       </ol>
     </dd>
     <dt>text
@@ -185,13 +185,24 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="section-usage">Usage</h3>
-  <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the list-item item types. For example, <span class="dummy-code">&lt;Hds::Dropdown::ListItem &commat;item="separator" /&gt;</span> becomes <span class="dummy-code">&lt;dd.Separator /&gt;</span> when invoked (see examples below).
+  <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the
+    list-item item types. For example,
+    <span class="dummy-code">&lt;Hds::Dropdown::ListItem &commat;item="separator" /&gt;</span>
+    becomes
+    <span class="dummy-code">&lt;dd.Separator /&gt;</span>
+    when invoked (see examples below).
   </p>
-  <p class="dummy-paragraph">The <span class="dummy-code">interactive</span> item type stays as the default and renders the correct element based on the passing of an <span class="dummy-code">&commat;route</span>, <span class="dummy-code">&commat;href</span>, or the addition of a click event (i.e., <span class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</span>).</p>
+  <p class="dummy-paragraph">The
+    <span class="dummy-code">interactive</span>
+    item type stays as the default and renders the correct element based on the passing of an
+    <span class="dummy-code">&commat;route</span>,
+    <span class="dummy-code">&commat;href</span>, or the addition of a click event (i.e.,
+    <span class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</span>).</p>
   <h4 class="dummy-h4">Example: ToggleButton + ListItem, Separator</h4>
   <div>
     <p class="dummy-paragraph">
-      This example demonstrates the use of a dropdown with a toggle-button, links, a separator and a link (color, critical):
+      This example demonstrates the use of a dropdown with a toggle-button, links, a separator and a link (color,
+      critical):
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -236,7 +247,8 @@
   <h4 class="dummy-h4">Example: ToggleButton + Title, Description, CopyLabel, CopyItem, Separator</h4>
   <div>
     <p class="dummy-paragraph">
-      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, copy-label, copy-item, a separator and a link (color, critical):
+      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description,
+      copy-label, copy-item, a separator and a link (color, critical):
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -273,7 +285,7 @@
             <dd.CopyLabel @text="HMAC Key" />
             <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link"/>
+            <dd.ListItem @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -284,7 +296,8 @@
     <h4 class="dummy-h4">Example: ToggleIcon for Overflow dropdown menus</h4>
     <p class="dummy-paragraph">
       Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and
-      destructive (critical) links. This is the only use case where it is acceptable to use <span class="dummy-code">&commat;hasChevron="false"</span>.
+      destructive (critical) links. This is the only use case where it is acceptable to use
+      <span class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</span>.
       <br />Note that
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the aria-label for the toggle button.
@@ -411,8 +424,12 @@
         </li>
       </ul>
     </nav>
-    <p class="dummy-paragraph">Dark mode is not supported by the design system yet. Here is a customized example to demonstrate that customization can be implemented by the consuming app:</p>
-    <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right with customization">
+    <p class="dummy-paragraph">Dark mode is not supported by the design system yet. Here is a customized example to
+      demonstrate that customization can be implemented by the consuming app:</p>
+    <nav
+      class="dummy-nav-dropdown background-black"
+      aria-label="example row user bgblack positioned right with customization"
+    >
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item dummy-nav-dropdown__list-item-customized">
           <Hds::Dropdown @text="user menu" as |dd|>
