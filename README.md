@@ -9,6 +9,33 @@
 | **@hashicorp/flight-icons** <br />Flight Icon svgs (React) | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons) | [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/) | [flight-icons/README](packages/flight-icons/README.md) |
 | **@hashicorp/design-system-tokens** <br />Design tokens | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) | [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens) | [tokens/README](packages/tokens/README.md) |
 
+### @hashicorp/design-system-components
+
+See [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) guide for more info.
+
+### @hashicorp/ember-flight-icons
+
+See [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) guide for details on how to build and test the Ember addon.
+
+### @hashicorp/flight-icons
+
+See [flight-icons/README](packages/flight-icons/README.md)  and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
+
+### @hashicorp/design-system-tokens
+
+See [tokens/README](packages/tokens/README.md)  and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
+
+### Using ember install in the monorepo
+
+Run this command from the monorepo root:
+
+```bash
+yarn workspace <workspace-npm-package> run ember install <npm-package>
+```
+
+e.g. `yarn workspace @hashicorp/design-system-components run ember install ember-a11y-refocus`
+
+🚨 Note: Since we use Yarn 1, this command will install a `yarn.lock` at `packages/components`. Please manually delete that file!
 
 ## Contributing
 
@@ -49,34 +76,6 @@ In order for this step to complete successfully you'll need to create a personal
 ```bash
 GITHUB_TOKEN=YOUR-TOKEN-HERE
 ```
-
-### @hashicorp/design-system-components
-
-See [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) guide for more info.
-
-### @hashicorp/ember-flight-icons
-
-See [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) guide for details on how to build and test the Ember addon.
-
-### @hashicorp/flight-icons
-
-See [flight-icons/README](packages/flight-icons/README.md)  and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
-
-### @hashicorp/design-system-tokens
-
-See [tokens/README](packages/tokens/README.md)  and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
-
-### ember install
-
-Run this command from the monorepo root:
-
-```bash
-yarn workspace <workspace-npm-package> run ember install <npm-package>
-```
-
-e.g. `yarn workspace @hashicorp/design-system-components run ember install ember-a11y-refocus`
-
-🚨 Note: Since we use Yarn 1, this command will install a `yarn.lock` at `packages/components`. Please manually delete that file!
 
 ## License
 
