@@ -14,7 +14,10 @@
       <div class="hds-dropdown-list-item__copy-item-text">
         {{@text}}
       </div>
-      <FlightIcon @name="clipboard-copy" class="hds-dropdown-list-item__copy-item-icon" />
+      <FlightIcon
+        @name="{{if @isSuccess 'clipboard-checked' 'clipboard-copy'}}"
+        class="hds-dropdown-list-item__copy-item-icon"
+      />
     </button>
   </li>
 

@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_COLOR = 'action';
 export const DEFAULT_ITEM = 'interactive';
@@ -14,6 +15,8 @@ export const ITEMS = [
 ];
 
 export default class HdsDropdownListItemComponent extends Component {
+  @tracked isSuccess = false;
+
   /**
    * @param text
    * @type {string}
