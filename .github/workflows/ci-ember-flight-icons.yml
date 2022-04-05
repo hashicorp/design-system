@@ -87,3 +87,5 @@ jobs:
       - name: Run Tests
         working-directory: packages/ember-flight-icons
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        env:
+          PERCY_ENABLE: 0 
