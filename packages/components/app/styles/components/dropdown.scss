@@ -183,7 +183,6 @@ $hds-dropdown-toggle-border-width: 1px;
   padding: 10px 16px 12px;
   width: 100%;
 
-
   button {
     background-color: transparent;
     border: 1px solid var(--token-color-border-primary);
@@ -194,23 +193,51 @@ $hds-dropdown-toggle-border-width: 1px;
     justify-content: space-between;
     padding: 12px 8px;
     width: 100%;
-  }
+    
+    &:hover,
+    &.is-hover {
+      background-color: var(--token-color-surface-interactive-hover);
+      cursor: pointer;
+    }
 
-  .hds-dropdown-list-item__copy-item-text {
-    color: var(--token-color-foreground-primary);
-    font-size: var(--token-typography-code-100-font-size);
-    font-weight: 400;
-    line-height: var(--token-typography-code-100-line-height);
-    max-width: 250px; // TODO we should be able to figure out the proportions here
-    text-align: left;
-    text-overflow: ellipsis;
-    // overflow: hidden;
-  }
+    &:focus,
+    &.is-focus {
+      //TODO this focus is just way too complex 
+      background-color:  var(--token-color-surface-action);
+      border-color: var(--token-color-focus-action-internal);
+      color: var(--token-color-foreground-high-contrast);
+    }
+    
+    &:active, 
+    &.is-active {
+      background-color: var(--token-color-surface-interactive-active);
+    }
 
-  .hds-dropdown-list-item__copy-item-icon {
-    align-self: flex-end;
-    color: var(--token-color-foreground-action-active);
-    margin-left: 8px;
+    &.is-success {
+      border-color: var(--token-color-border-success);
+      background-color: var(--token-color-surface-success);
+      .hds-dropdown-list-item__copy-item-icon {
+        color: var(--token-color-foreground-success);
+      }
+    } 
+
+    .hds-dropdown-list-item__copy-item-text {
+      background-color: transparent;
+      color: var(--token-color-foreground-primary);
+      font-size: var(--token-typography-code-100-font-size);
+      font-weight: 400;
+      line-height: var(--token-typography-code-100-line-height);
+      max-width: 250px; // TODO we should be able to figure out the proportions here
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .hds-dropdown-list-item__copy-item-icon {
+      align-self: flex-end;
+      color: var(--token-color-foreground-action);
+      margin-left: 8px;
+    }
   }
 }
 
@@ -220,11 +247,10 @@ $hds-dropdown-toggle-border-width: 1px;
   min-height: 36px;
 
   // need to reset a few extra things to make the button visually appear the same as the links
-  // also CR if you want to re-factor, that's fine; just trying to make this work in this first pass
-  // TODO this is 2px taller than the link...why?
+  // TODO this is 2px taller than the link...
   button {
     box-sizing: border-box;
-    border: 1px inset transparent; // this might be the cause of the extra height?
+    border: 1px inset transparent; // cause of the extra height
     background-color: transparent;
     width: 100%;
     &:hover {

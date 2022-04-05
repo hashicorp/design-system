@@ -617,7 +617,7 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="section-showcase">Showcase: Toggles</h3>
 
-  <h4 class="dummy-h4">Toggle: Button (Default)</h4>
+  <h4 class="dummy-h4">ToggleButton (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <p class="dummy-paragraph">Color: primary (default)</p>
@@ -634,7 +634,7 @@
       <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} @color="secondary" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Default)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
@@ -643,13 +643,13 @@
       <Hds::Dropdown::ToggleIcon @isOpen={{true}} @text="user menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Overflow)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Overflow)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <Hds::Dropdown::ToggleIcon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Image/Avatar)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Image/Avatar)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
@@ -658,7 +658,7 @@
       <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @isOpen={{true}} @text="user menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Any other icon)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Any other icon)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
@@ -744,6 +744,21 @@
       <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" />
       <Hds::Dropdown::ListItem @item="copy-label" @text="HMAC Key" />
       <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" />
+    </ul>
+  </div>
+
+  <h4 class="dummy-h4">CopyItem</h4>
+  <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
+    <ul class="hds-dropdown-list">
+      {{#each @model.ITEM_STATES as |state|}}
+
+        <Hds::Dropdown::ListItem
+          @item="copy-item"
+          @text="{{state}}:91ee1e8ef65b337f0e70d793f456c71d"
+          @state={{state}}
+        />
+      {{/each}}
+      <Hds::Dropdown::ListItem @item="copy-item" @text="success:91ee1e8ef65b337f0e70d793f456c71d" @state="success" />
     </ul>
   </div>
 
