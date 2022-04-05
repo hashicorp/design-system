@@ -11,7 +11,7 @@
       <Hds::Dropdown::ToggleIcon
         @text={{@toggleText}}
         {{on "click" t.onClickToggle}}
-        @iconName={{@iconName}}
+        @icon={{@icon}}
         @imageSrc={{@imageSrc}}
         @hasChevron={{@hasChevron}}
         @isOpen={{t.isActive}}
@@ -21,7 +21,7 @@
   <:content>
     <ul
       class="hds-dropdown-list
-        {{if (eq @listPosition 'left') 'hds-dropdown-list--position-left' 'hds-dropdown-list--position-right'}}"
+      {{if (eq @listPosition 'left') 'hds-dropdown-list--position-left' 'hds-dropdown-list--position-right'}}"
     >
       {{yield
         (hash

@@ -32,11 +32,11 @@ export default class HdsDropdownToggleIconComponent extends Component {
   /**
    * Sets the icon name
    *
-   * @param iconName
+   * @param icon
    * @type {string}
    * @default user
    */
-  get iconName() {
-    return this.args.iconName ?? 'user';
+  get icon() {
+    return this.args.icon ?? 'user';
   }
 }

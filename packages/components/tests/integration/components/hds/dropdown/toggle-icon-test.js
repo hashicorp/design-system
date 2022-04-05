@@ -66,7 +66,7 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
   });
   test('toggle-icon renders other valid flight icons', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @iconName="settings" @text="settings menu" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" id="test-toggleIcon" />`
     );
 
     assert
