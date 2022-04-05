@@ -232,19 +232,21 @@
     <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @toggleText="Toggle" @color="secondary" as |dd|>
-
-            <dd.ListItem @route="components.dropdown" @text="Hover" />
-            <dd.ListItem @route="components.dropdown" @text="Focus" />
-            <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
-            <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+          <Hds::Dropdown @toggle="toggleButton" @toggleText="Integrate with Terraform Cloud" @color="secondary" as |dd|>
+            <dd.Title @text="Integrate with Terraform Cloud" />
+            <dd.Description @text="Create a new run task in Terraform using the URL and key below."
+            />
+            <dd.CopyLabel @text="Endpoint URL" />
+            <dd.CopyItem @text="https://api.cloud.hashicorp.com" />
+            <dd.CopyLabel @text="HMAC Key" />
+            <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+            <dd.ListItem @route="components.dropdown" @text="Documents" @icon="clipboard-copy"/>
           </Hds::Dropdown>
         </li>
       </ul>
     </nav>
-  </div>
+  </div>  
   <div>
     <h4 class="dummy-h4">Toggle/Icon: Overflow</h4>
     <p class="dummy-paragraph">
