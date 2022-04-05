@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.7.0
+
+### Minor Changes
+
+- [#150](https://github.com/hashicorp/design-system/pull/150) [`c236c159`](https://github.com/hashicorp/design-system/commit/c236c159f7d7ec6edc661710963f5733eb961edf) Thanks [@didoo](https://github.com/didoo)! - removed “box-sizing“ declarations from the components (we assume the consumers codebase already have set it to “border-box“ by default
+
 ## 0.6.0
 
 ### Minor Changes
