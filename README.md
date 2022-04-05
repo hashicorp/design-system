@@ -66,6 +66,16 @@ See [flight-icons/README](packages/flight-icons/README.md)  and [flight-icons/CO
 
 See [tokens/README](packages/tokens/README.md)  and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
 
+### ember install
+
+Run this command from the monorepo root:
+
+```bash
+yarn workspace <workspace-package-name> run ember install <package>
+```
+
+e.g. `yarn workspace components run ember install ember-a11y-refocus`
+
 ## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE).
