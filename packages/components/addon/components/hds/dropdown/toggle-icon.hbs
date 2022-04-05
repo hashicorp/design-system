@@ -7,6 +7,6 @@
     {{/if}}
   </div>
   {{#if this.hasChevron}}
-    <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" class="hds-dropdown-toggle-icon__chevron" />
+    <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" class="hds-dropdown-toggle-icon__chevron" @isInlineBlock={{false}} />
   {{/if}}
 </button>

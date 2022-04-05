@@ -41,7 +41,7 @@ $hds-dropdown-toggle-border-width: 1px;
   justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
-  padding: 0;
+  padding: 1px;
   position: relative;
   min-width: $hds-dropdown-toggle-base-height;
 
@@ -79,14 +79,18 @@ $hds-dropdown-toggle-border-width: 1px;
   padding: 1px;
   width: 32px;
 
-  .hds-button__icon {
-    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
-    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+  img {
+    border-radius: inherit;
   }
+}
 
-  .hds-dropdown-toggle-icon__chevron {
-    margin-left: 0.25rem;
-  }
+.hds-button__icon { // TODO this class is not being used.
+  margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+  margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+}
+
+.hds-dropdown-toggle-icon__chevron {
+  margin-left: 0.25rem;
 }
 
 // TOGGLE/BUTTON
