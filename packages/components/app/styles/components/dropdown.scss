@@ -115,8 +115,8 @@ $hds-dropdown-toggle-border-width: 1px;
   list-style: none;
   margin: 0;
   padding: 4px 0;
-  min-width: 200px;
-  max-width: 400px;
+  min-width: 200px; // TODO relational units
+  max-width: 400px; // TODO relatinal units
 
   &.hds-dropdown-list--position-right {
     position: absolute;
@@ -185,9 +185,10 @@ $hds-dropdown-toggle-border-width: 1px;
 
   button {
     background-color: transparent;
-    border: 1px solid var(--token-color-border-primary);
     border-radius: 5px;
+    border: 1px solid var(--token-color-border-primary);
     box-sizing: border-box;
+    color: var(--token-color-foreground-primary);  
     display: flex;
     font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
@@ -222,15 +223,13 @@ $hds-dropdown-toggle-border-width: 1px;
     } 
 
     .hds-dropdown-list-item__copy-item-text {
-      background-color: transparent;
-      color: var(--token-color-foreground-primary);
       font-size: var(--token-typography-code-100-font-size);
-      font-weight: 400;
+      font-weight: var(--token-typography-font-weight-regular);
       line-height: var(--token-typography-code-100-line-height);
       max-width: 250px; // TODO we should be able to figure out the proportions here
+      overflow: hidden;
       text-align: left;
       text-overflow: ellipsis;
-      overflow: hidden;
     }
 
     .hds-dropdown-list-item__copy-item-icon {
