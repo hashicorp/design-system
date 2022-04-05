@@ -2,14 +2,14 @@
   <:toggle as |t|>
     {{#if (eq @toggle "toggleButton")}}
       <Hds::Dropdown::ToggleButton
-        @text={{@toggleText}}
+        @text={{@text}}
         @color={{@color}}
         {{on "click" t.onClickToggle}}
         @isOpen={{t.isActive}}
       />
     {{else}}
       <Hds::Dropdown::ToggleIcon
-        @text={{@toggleText}}
+        @text={{@text}}
         {{on "click" t.onClickToggle}}
         @icon={{@icon}}
         @imageSrc={{@imageSrc}}

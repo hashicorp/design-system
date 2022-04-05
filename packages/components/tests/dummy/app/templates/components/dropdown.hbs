@@ -185,10 +185,13 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="section-usage">Usage</h3>
-  <h4 class="dummy-h4">Toggle/Text</h4>
+  <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the list-item item types. For example, <span class="dummy-code">&lt;Hds::Dropdown::ListItem &commat;item="separator" /&gt;</span> becomes <span class="dummy-code">&lt;dd.Separator /&gt;</span> when invoked (see examples below).
+  </p>
+  <p class="dummy-paragraph">The <span class="dummy-code">interactive</span> item type stays as the default and renders the correct element based on the passing of an <span class="dummy-code">&commat;route</span>, <span class="dummy-code">&commat;href</span>, or the addition of a click event (i.e., <span class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</span>).</p>
+  <h4 class="dummy-h4">Example: ToggleButton + ListItem, Separator</h4>
   <div>
     <p class="dummy-paragraph">
-      Example: a ToggleButton with links, a separator and a destructive (critical) link:
+      This example demonstrates the use of a dropdown with a toggle-button, links, a separator and a link (color, critical):
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -197,7 +200,7 @@
       @code='
         &lt;Hds::Dropdown
           @toggle="toggleButton"
-          @toggleText="Text Toggle"
+          @text="Text Toggle"
           as |dd| &gt;
 
           &lt;dd.ListItem @route="components.dropdown" @text="Hover" /&gt;
@@ -216,7 +219,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @toggleText="Text Toggle" as |dd|>
+          <Hds::Dropdown @toggle="toggleButton" @text="Text Toggle" as |dd|>
 
             <dd.ListItem @route="components.dropdown" @text="Hover" />
             <dd.ListItem @route="components.dropdown" @text="Focus" />
@@ -228,14 +231,43 @@
         </li>
       </ul>
     </nav>
+  </div>
+
+  <h4 class="dummy-h4">Example: ToggleButton + Title, Description, CopyLabel, CopyItem, Separator</h4>
+  <div>
+    <p class="dummy-paragraph">
+      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, copy-label, copy-item, a separator and a link (color, critical):
+    </p>
+    {{! prettier-ignore-start }}
+    {{! template-lint-disable no-unbalanced-curlies }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        &lt;Hds::Dropdown
+          @toggle="toggleButton"
+          @text="Integrate with Terraform Cloud"
+          as |dd| &gt;
+
+          &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
+          &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
+          &lt;dd.CopyLabel @text="Endpoint URL" /&gt;
+          &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" /&gt;
+          &lt;dd.CopyLabel @text="HMAC Key" /&gt;
+          &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" /&gt;
+          &lt;dd.Separator /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+        &lt;/Hds::Dropdown&gt;
+      '
+    />
+    {{! template-lint-enable no-unbalanced-curlies }}
+    {{! prettier-ignore-end }}
     <p class="dummy-paragraph">Rendered as secondary variation (in a row, positioned to the right):</p>
     <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @toggleText="Integrate with Terraform Cloud" @color="secondary" as |dd|>
+          <Hds::Dropdown @toggle="toggleButton" @text="Integrate with Terraform Cloud" @color="secondary" as |dd|>
             <dd.Title @text="Integrate with Terraform Cloud" />
-            <dd.Description @text="Create a new run task in Terraform using the URL and key below."
-            />
+            <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
             <dd.CopyLabel @text="Endpoint URL" />
             <dd.CopyItem @text="https://api.cloud.hashicorp.com" />
             <dd.CopyLabel @text="HMAC Key" />
@@ -246,7 +278,8 @@
         </li>
       </ul>
     </nav>
-  </div>  
+  </div>
+
   <div>
     <h4 class="dummy-h4">Toggle/Icon: Overflow</h4>
     <p class="dummy-paragraph">
@@ -265,7 +298,7 @@
         &lt;Hds::Dropdown
           @icon="more-horizontal"
           @hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;
-          @toggleText="Overflow Options"
+          @text="Overflow Options"
           as |dd| &gt;
 
           &lt;dd.ListItem @route="components.dropdown" @text="Create" /&gt;
@@ -296,7 +329,7 @@
           <td>Row 2, cell 1</td>
           <td>Row 2, cell 2</td>
           <td>
-            <Hds::Dropdown @toggleText="Overflow Options" @icon="more-horizontal" @hasChevron={{false}} as |dd|>
+            <Hds::Dropdown @text="Overflow Options" @icon="more-horizontal" @hasChevron={{false}} as |dd|>
 
               <dd.ListItem @route="components.dropdown" @text="Create" />
               <dd.ListItem @route="components.dropdown" @text="Read" />
@@ -335,7 +368,7 @@
       @language="markup"
       @code='
         &lt;Hds::Dropdown
-          @toggleText="user menu"
+          @text="user menu"
           as |dd| &gt;
 
           &lt;dd.Title @text="Signed In" /&gt;
@@ -352,7 +385,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="user menu" as |dd|>
+          <Hds::Dropdown @text="user menu" as |dd|>
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -367,7 +400,7 @@
     <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="user menu" as |dd|>
+          <Hds::Dropdown @text="user menu" as |dd|>
 
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
@@ -396,7 +429,7 @@
       @language="markup"
       @code='
         &lt;Hds::Dropdown
-          @toggleText="settings menu"
+          @text="settings menu"
           @icon="settings"
           as |dd| &gt;
 
@@ -414,7 +447,7 @@
     <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="settings menu" @icon="settings" as |dd|>
+          <Hds::Dropdown @text="settings menu" @icon="settings" as |dd|>
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
