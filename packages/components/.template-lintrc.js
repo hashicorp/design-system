@@ -6,6 +6,5 @@ module.exports = {
   rules: {
     'no-html-comments': false,
     'no-trailing-spaces': true,
-    'no-implicit-this': { allow: ['noop'] },
   },
 };
