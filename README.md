@@ -9,23 +9,23 @@
 | **@hashicorp/flight-icons** <br />Flight Icon svgs (React) | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons) | [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/) | [flight-icons/README](packages/flight-icons/README.md) |
 | **@hashicorp/design-system-tokens** <br />Design tokens | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) | [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens) | [tokens/README](packages/tokens/README.md) |
 
-### @hashicorp/design-system-components (`packages/components`)
+### @hashicorp/design-system-components (packages/components)
 
 See [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
 
-### @hashicorp/ember-flight-icons (`packages/ember-flight-icons`)
+### @hashicorp/ember-flight-icons (packages/ember-flight-icons)
 
 See [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember addon.
 
-### @hashicorp/flight-icons (`packages/flight-icons`)
+### @hashicorp/flight-icons (packages/flight-icons)
 
 See [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
-### `packages/flight-website`
+### packages/flight-website
 
 We've broken out the `flight-website` into its own Yarn workspace.
 
-### @hashicorp/design-system-tokens (`packages/tokens`)
+### @hashicorp/design-system-tokens (packages/tokens)
 
 See [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
