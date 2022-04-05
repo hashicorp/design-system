@@ -193,11 +193,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @toggle="toggleButton"
-          @toggleText="Text Toggle"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleButton @text="Text Toggle" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Hover" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Focus" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
@@ -214,8 +211,8 @@
     <nav class="dummy-nav-dropdown" aria-label="example positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @toggleText="Text Toggle" as |dd|>
-
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Text Toggle" />
             <dd.ListItem @route="components.dropdown" @text="Hover" />
             <dd.ListItem @route="components.dropdown" @text="Focus" />
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
@@ -230,8 +227,8 @@
     <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @toggleText="Toggle" @color="secondary" as |dd|>
-
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Toggle" @color="secondary" />
             <dd.ListItem @route="components.dropdown" @text="Hover" />
             <dd.ListItem @route="components.dropdown" @text="Focus" />
             <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
@@ -258,12 +255,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @iconName="more-horizontal"
-          @hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;
-          @toggleText="Overflow Options"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleIcon @text="Overflow Options" @iconName="more-horizontal" @hasChevron=\{{false}} /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Create" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Read" /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Update" /&gt;
@@ -292,8 +285,8 @@
           <td>Row 2, cell 1</td>
           <td>Row 2, cell 2</td>
           <td>
-            <Hds::Dropdown @toggleText="Overflow Options" @iconName="more-horizontal" @hasChevron={{false}} as |dd|>
-
+            <Hds::Dropdown as |dd|>
+              <dd.ToggleIcon @iconName="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
               <dd.ListItem @route="components.dropdown" @text="Create" />
               <dd.ListItem @route="components.dropdown" @text="Read" />
               <dd.ListItem @route="components.dropdown" @text="Update" />
@@ -326,14 +319,11 @@
       attribute on the "overflow" toggle button.
     </p>
     {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @toggleText="user menu"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleIcon @text="user menu" /&gt;
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
@@ -342,13 +332,13 @@
         &lt;/Hds::Dropdown&gt;
       '
     />
-    {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
     <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
     <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="user menu" as |dd|>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -363,8 +353,8 @@
     <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="user menu" as |dd|>
-
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -391,11 +381,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @toggleText="settings menu"
-          @iconName="settings"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleIcon @text="settings menu" @iconName="settings" /&gt;
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
@@ -410,7 +397,8 @@
     <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggleText="settings menu" @iconName="settings" as |dd|>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="settings menu" @iconName="settings" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
