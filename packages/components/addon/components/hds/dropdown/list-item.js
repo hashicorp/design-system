@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export const DEFAULT_COLOR = 'action';
 export const DEFAULT_ITEM = 'interactive';
@@ -95,5 +96,13 @@ export default class HdsDropdownListItemComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  copyCode() {
+    navigator.clipboard.writeText(this.text);
+    if (navigator.clipboard.readText) {
+      this.isSuccess = true;
+    }
   }
 }

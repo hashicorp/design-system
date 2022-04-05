@@ -10,7 +10,7 @@
 
 {{else if (eq this.item "copy-item")}}
   <li class={{this.classNames}}>
-    <button type="button" class="{{if @state (concat 'is-' @state)}}" ...attributes>
+    <button type="button" class="{{if @state (concat 'is-' @state)}}" {{on "click" this.copyCode}}>
       <div class="hds-dropdown-list-item__copy-item-text">
         {{@text}}
       </div>

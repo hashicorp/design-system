@@ -184,6 +184,8 @@ $hds-dropdown-toggle-border-width: 1px;
   width: 100%;
 
   button {
+    @include hds-focus-ring-basic();
+    
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--token-color-border-primary);

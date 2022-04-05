@@ -773,12 +773,13 @@
     <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem 
+          <Hds::Dropdown::ListItem
             @icon={{if (eq color "critical") "trash" null}}
             @route="components.dropdown"
             @text={{state}}
             @color={{color}}
-            @state={{state}} />
+            @state={{state}}
+          />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
@@ -817,7 +818,8 @@
             @icon={{if (eq color "critical") "trash" null}}
             @text={{state}}
             @color={{color}}
-            @state={{state}} />
+            @state={{state}}
+          />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
