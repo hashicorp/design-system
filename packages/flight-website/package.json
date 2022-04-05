@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/hashicorp/design-system.git",
     "directory": "packages/flight-website"
-  },  
+  },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
@@ -34,7 +34,7 @@
     "@glimmer/tracking": "^1.0.4",
     "@hashicorp/ember-flight-icons": "^2.0.2",
     "@hashicorp/flight-icons": "^2.1.1",
-    "@percy/cli": "^1.0.0-beta.68",
+    "@percy/cli": "^1.0.1",
     "@percy/ember": "^3.0.0",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
