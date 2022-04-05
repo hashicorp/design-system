@@ -11,19 +11,23 @@
 
 ### @hashicorp/design-system-components
 
-See [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) guide for more info.
+See [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
 
 ### @hashicorp/ember-flight-icons
 
-See [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) guide for details on how to build and test the Ember addon.
+See [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember addon.
 
 ### @hashicorp/flight-icons
 
-See [flight-icons/README](packages/flight-icons/README.md)  and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) guide for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
+See [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
+
+### packages/flight-website
+
+We've broken out the `flight-website` into its own Yarn workspace.
 
 ### @hashicorp/design-system-tokens
 
-See [tokens/README](packages/tokens/README.md)  and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) guide for details on how to update the design tokens.
+See [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
 ### Using ember install in the monorepo
 
