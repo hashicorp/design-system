@@ -23,6 +23,13 @@
 <section>
   <h3 class="dummy-h3">Alert Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
+
+  <p class="dummy-paragraph">
+    🚧 Note: Exceptions for `compact` could be on a background-color (purple highlight color?) if you want? Or, deviate
+    from the other components and go with a table? Seems better than repeating the API 4x, but just a suggestion, up to
+    you.
+  </p>
+
   <dl class="dummy-component-props">
     <dt>type <code>enum</code></dt>
     <dd>
@@ -41,22 +48,23 @@
       <p>
         An
         <code class="dummy-code">inline</code>
-        alert is an alert with a border-radius. A
-        <code class="dummy-code">page</code>
+        alert is an alert with a border-radius. An
+        <code class="dummy-code">inline</code>
         alert typically has adjacent whitespace on all four sides.
       </p>
       <p>
         A
         <code class="dummy-code">compact</code>
-        alert is only an
+        alert only contains an
         <code class="dummy-code">icon</code>
         and
-        <code class="dummy-code">description</code>, with smaller proportions than the other alerts. The
-        <code class="dummy-code">color</code>
-        sets the icon color.
+        <code class="dummy-code">description</code>, with smaller proportions than the other alerts.
       </p>
       <p>
-        🚧 TODO: Add Alert (Toast)
+        A
+        <code class="dummy-code">toast</code>
+        alert is an alert that typically displays brief, temporary notifications. Toasts typically disappears on their
+        own.
       </p>
       <p>Acceptable values:</p>
       <ol>
@@ -64,26 +72,6 @@
         <li>inline</li>
         <li>compact</li>
         <li>toast</li>
-      </ol>
-    </dd>
-
-    <dt class="dummy-indent">🚧 isDismissible <code>boolean</code></dt>
-    <p class="dummy-indent">
-      The alert can be dismissed by the user. Default value determined by
-      <code class="dummy-code">type</code>.
-    </p>
-    <p class="dummy-indent">
-      <code class="dummy-code">type="compact"</code>: N/A
-    </p>
-    <p class="dummy-indent">
-      Has some accessibility considerations for Alert (Toast). Alert (Toast) will be
-      <code class="dummy-code">role="alertdialog"</code>, and generally not dismissible for accessibility.
-    </p>
-    <dd class="dummy-indent">
-      <p>Acceptable values:</p>
-      <ol>
-        <li>true</li>
-        <li>false</li>
       </ol>
     </dd>
 
@@ -119,11 +107,21 @@
         name, which is determined by the
         <code class="dummy-code">color</code>. Optional parameter.
       </p>
+      <p>
+        (Note: The default icon for
+        <code class="dummy-code">compact</code>
+        is different from the other three alert types.)
+      </p>
       <p>Acceptable values:</p>
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
           Flight icon</a>
-        name, or pass empty string (<code class="dummy-code">""</code>) for no icon.
+        name, or pass an empty string for no icon.
+      </p>
+      <p>
+        (Note: Required for
+        <code class="dummy-code">compact</code>
+        alerts.)
       </p>
     </dd>
 
@@ -136,6 +134,10 @@
         <code class="dummy-code">description</code>
         is required.
       </p>
+      <p>
+        (Note: N/A for
+        <code class="dummy-code">type="compact"</code>.)
+      </p>
     </dd>
 
     <dt>description <code>string</code></dt>
@@ -144,12 +146,40 @@
         <code class="dummy-code">description</code>
         <strong>and/or</strong>
         <code class="dummy-code">title</code>
-        is required.</p>
+        is required.
+      </p>
+      <p>
+        (Note: Required for
+        <code class="dummy-code">type="compact"</code>.)
+      </p>
+    </dd>
+
+    <dt>isDismissible <code>boolean</code></dt>
+    <p>
+      The alert can be dismissed by the user.
+    </p>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>true</li>
+        <li class="default">false</li>
+      </ol>
+      <p>
+        (Note: N/A for
+        <code class="dummy-code">type="compact"</code>.)
+      </p>
     </dd>
 
     <dt>&lt;:actions&gt; <code>named block</code></dt>
     <dd>
-      <p>🚧 TODO</p>
+      <p>Actions can optionally be passed into the alert as yielded components. The user can use the suggested
+        <code class="dummy-code">HDS::Button</code>,
+        <code class="dummy-code">HDS::Link::Standalone</code>, and/or
+        <code class="dummy-code">HDS::LinkTo::Standalone</code>
+        as yielded components. Or, the user can insert their own content to the
+        <code class="dummy-code">:actions</code>
+        block.
+      </p>
     </dd>
 
     <dt>“splattributes”</dt>
@@ -224,15 +254,25 @@
   </p>
   <Hds::Alert @type="compact" @description="Description only" />
   <br />
+  <p class="dummy-paragraph">
+    🚧 TODO: Flesh out rest of "How to use". Consider showing the alerts with background color, so that compact is more
+    clear. Consider showing the alerts with background, so it's clear that `page` is flush to adjacent parent top, left,
+    and right, vs. the other alerts. Also will highlight that `page` and `inline` are typically wider than `toast`, as
+    the Showcase is arguably misleading, and more for Percy / testing variations dynamically in full.
+  </p>
 </section>
 
 <section>
-  <h3 class="dummy-h3">🚧 Design guidelines</h3>
-  <p class="dummy-paragraph">TODO: Insert Figma stickersheet here</p>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO: Insert Figma stickersheet here</p>
 </section>
 
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
+
+  <p class="dummy-paragraph">
+    🚨 Note: The compact alert is borderless, but shown with a a dotted border throughout the "Showcase" for clarity.
+  </p>
 
   <h4 class="dummy-h4">Type</h4>
   {{#each @model.TYPES as |type|}}
