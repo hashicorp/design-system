@@ -48,10 +48,14 @@ The engineering checklist has six parts: creating the feature branch, component 
 - [ ] **documentation**
   - create component page `ember generate route components/COMPONENT_NAME --dummy`
   - add link to `templates/index.hbs` page
-  - [ ] API docs
+  - [ ] Definition of component (from CRD) (this should be a paragraph under the component name, and before the first section)
+  - [ ] Component API
   - [ ] Usage
   - [ ] Design Guidelines
   - [ ] Accessibility
+    - Conformance Rating [(internal document)](https://docs.google.com/document/d/1OjTKpQLB_wuZSVJNLbbguTzMDMYCHKhNdKQz7-Kfqic/edit#bookmark=id.v7r42vfu4pdd)
+    - Known Issues (if any)
+    - Related WCAG (pull from CRD or ask Melanie)
   - [ ] Showcase
 
 ### Component Review
