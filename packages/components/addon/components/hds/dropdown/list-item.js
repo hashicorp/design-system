@@ -10,6 +10,7 @@ export const ITEMS = [
   'copy-item',
   'copy-label',
   'description',
+  'generic',
   'interactive',
   'separator',
   'title',

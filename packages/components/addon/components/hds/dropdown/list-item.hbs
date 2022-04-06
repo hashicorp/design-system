@@ -8,6 +8,11 @@
     {{@text}}
   </li>
 
+{{else if (eq this.item "generic")}}
+  <li class={{this.classNames}}>
+    {{yield}}
+  </li>
+
 {{else if (eq this.item "copy-item")}}
   <li class={{this.classNames}}>
     {{#if @subtitle}}

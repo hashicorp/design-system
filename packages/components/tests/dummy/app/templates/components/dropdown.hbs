@@ -121,8 +121,8 @@
       <ol>
         <li class="default">interactive</li>
         <li>copy-item</li>
-        <li>copy-label</li>
         <li>description</li>
+        <li>generic</li>
         <li>separator</li>
         <li>title</li>
       </ol>
@@ -738,12 +738,11 @@
       <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
       <Hds::Dropdown::ListItem
         @item="description"
-        @text="Create a new run task in Terraform with the URL below."
+        @text="Create a new run task in Terraform."
       />
-      <Hds::Dropdown::ListItem @item="copy-label" @text="Endpoint URL" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" />
-      <Hds::Dropdown::ListItem @item="copy-label" @text="HMAC Key" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" />
+      <Hds::Dropdown::ListItem @href="#" @text="Docs: Import usage" @icon="docs-link" />
+      <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" @subtitle="Endpoint URL" />
+      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d"  @subtitle="HMAC Key"/>
     </ul>
     <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
@@ -751,19 +750,7 @@
         @item="description"
         @text="Create a new run task in Terraform."
       />
-      <Hds::Dropdown::ListItem @href="#" @text="Docs: Import usage" @icon="docs-link" />
-      <Hds::Dropdown::ListItem @item="copy-label" @text="Endpoint URL" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" />
-      <Hds::Dropdown::ListItem @item="copy-label" @text="HMAC Key" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" />
-    </ul>
-    <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
-      <Hds::Dropdown::ListItem
-        @item="description"
-        @text="Create a new run task in Terraform."
-      />
-      <Hds::Dropdown::ListItem @href="#" @text="Docs: Import usage" @icon="docs-link" />
+      <Hds::Dropdown::ListItem @item="generic" @text="something"><div class="dummy-dropdown-generic">generic yield, style yourself</div></Hds::Dropdown::ListItem>
       <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" @subtitle="Endpoint URL" />
       <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d"  @subtitle="HMAC Key"/>
     </ul>
