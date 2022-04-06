@@ -443,19 +443,22 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">🚧 Accessibility: Alert (Page), Alert (Inline), and Alert (Compact)</h3>
-  <p class="dummy-paragraph">
-    The Alert (Page) has
-    <code class="dummy-code">role="alert"</code>
-    on the parent
-    <code class="dummy-code">div</code>, to identify the element as the container where alert content will be added or
-    updated.
-  </p>
+  <h3 class="dummy-h3">🚧 Accessibility</h3>
+  <ul>
+    <li>color="warning" or color="critical" => role="alert", can have dismiss.</li>
+    <li>color="neutral", color="highlight" or color="success" => role="status", can have dismiss.</li>
+    <li>Dismiss button, type="button"</li>
+    <li>Dismiss has a focus state (e.g. tab to the button)</li>
+    <li>When the dismiss button is focused, it should close on return / enter (Note: Close on ESC, would be for modal or a classic role="alertdialog" that is an alert-like modal)</li>
+    <li>I think it's arguable if the dismiss needs a hover or active state. The hover state seems good though, especially for a static alert (e.g. not a disappearing toast).</li>
+    <li>When the alert has :actions, the role will change to role="alertdialog", as it's requiring a response from the user. role="alertdialog" seems to typically apply to a "modal" alertdialog, but not always. Some DS's refer to all of their alerts with role="alertdialog" instead of role="alert" or role="status".</li>
+  </ul>
   <p class="dummy-paragraph">References:</p>
+  🚧 TODO: Confirm a tag titles for all of these
   <ul>
     <li>
       <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
-        WAI-ARIA Authoring Practices 1.2, Alert
+        WAI-ARIA Authoring Practices 1.2, Alert (role="alert")
       </a>
     </li>
     <li>
@@ -464,7 +467,21 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        WAI-ARIA Authoring Practices 1.2, Alert Example
+        WAI-ARIA Authoring Practices 1.2, Alert Example (role="alert")
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" target="_blank" rel="noopener noreferrer">
+        WAI-ARIA Techniques 1.2, Using role=status to present status messages
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/TR/wai-aria-practices-1.2/examples/dialog-modal/alertdialog.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WAI-ARIA Authoring Practices 1.2, Alert Dialog Example (role="alertdialog")
       </a>
     </li>
   </ul>
