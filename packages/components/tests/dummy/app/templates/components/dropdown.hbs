@@ -696,14 +696,14 @@
       <div class="hds-dropdown">
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleIcon class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon @text={{state}} class="is-{{state}}" />
       </div>
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
       <div class="hds-dropdown">
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon @text={{state}} @imageSrc="/assets/images/avatar.png" class="is-{{state}}" />
       </div>
     {{/each}}
   </div>
