@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.8.0
+
+### Minor Changes
+
+- [#115](https://github.com/hashicorp/design-system/pull/115) [`caff569b`](https://github.com/hashicorp/design-system/commit/caff569b46a9a46940eab94d263816dd7d046c56) Thanks [@didoo](https://github.com/didoo)! - added “Link::CTA“ and “LinkTo::CTA” components
+
 ## 0.7.1
 
 ### Patch Changes
