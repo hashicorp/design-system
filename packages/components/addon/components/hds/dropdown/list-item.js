@@ -1,22 +1,22 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { action, set } from '@ember/object';
 
 export const DEFAULT_COLOR = 'action';
 export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
 export const ITEMS = [
-  'title',
-  'copy-label',
   'copy-item',
+  'copy-label',
   'description',
-  'separator',
   'interactive',
+  'separator',
+  'title',
 ];
 
 export default class HdsDropdownListItemComponent extends Component {
-  @tracked isSuccess = false;
+  @tracked isSuccess = this.args.isSuccess ?? false;
 
   /**
    * @param text
@@ -100,9 +100,24 @@ export default class HdsDropdownListItemComponent extends Component {
 
   @action
   copyCode() {
-    navigator.clipboard.writeText(this.text);
-    if (navigator.clipboard.readText) {
+    navigator.clipboard.writeText(this.args.text);
+    // this if statement resolves to [object Promise] so maybe some improvements
+    // could be made here
+    if (navigator.clipboard.readText()) {
       this.isSuccess = true;
+      // computer says no to this
+      // this.args.state = 'success';
+      console.log(
+        `success is ${this.isSuccess},
+        this.args.text is ${this.args.text},
+        and clipboard is ${navigator.clipboard.readText()}`
+      );
+    } else {
+      console.log(
+        `success is ${this.isSuccess}, this.args.text is ${
+          this.args.text
+        } and clipboard is ${navigator.clipboard.readText()}`
+      );
     }
   }
 }

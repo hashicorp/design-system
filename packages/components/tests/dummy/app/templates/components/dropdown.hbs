@@ -761,6 +761,25 @@
       <Hds::Dropdown::ListItem
         @item="copy-item"
         @text="success:91ee1e8ef65b337f0e70d793f456c71d"
+        @state="success"
+        @isSuccess="true"
+      />
+    </ul>
+
+    <ul class="hds-dropdown-list">
+      {{#each @model.ITEM_STATES as |state|}}
+
+        <Hds::Dropdown::ListItem
+          @subtitle="Optional subtitle"
+          @item="copy-item"
+          @text="{{state}}:91ee1e8ef65b337f0e70d793f456c71d"
+          @state={{state}}
+        />
+      {{/each}}
+      <Hds::Dropdown::ListItem
+        @subtitle="Optional subtitle"
+        @item="copy-item"
+        @text="success:91ee1e8ef65b337f0e70d793f456c71d"
         @isSuccess="true"
         @state="success"
       />
@@ -769,7 +788,7 @@
 
   <h4 class="dummy-h4">Links</h4>
   {{#each @model.ITEM_COLORS as |color|}}
-    <p class="dummy-paragraph">{{capitalize color}}</p>
+    <p class="dummy-paragraph">Color: {{capitalize color}}</p>
     <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
