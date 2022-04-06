@@ -41,10 +41,16 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
 
-    await visit('/components/link');
+    await visit('/components/link/cta');
+    await percySnapshot('Link CTA');
+
+    await visit('/components/link-to/cta');
+    await percySnapshot('LinkTo CTA');
+
+    await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
-    await visit('/components/link-to');
+    await visit('/components/link-to/standalone');
     await percySnapshot('LinkTo Standalone');
 
     assert.ok(true);

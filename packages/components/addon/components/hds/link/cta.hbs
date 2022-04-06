@@ -1,0 +1,50 @@
+{{!
+//  ██     ██  █████  ██████  ███    ██ ██ ███    ██  ██████
+//  ██     ██ ██   ██ ██   ██ ████   ██ ██ ████   ██ ██
+//  ██  █  ██ ███████ ██████  ██ ██  ██ ██ ██ ██  ██ ██   ███
+//  ██ ███ ██ ██   ██ ██   ██ ██  ██ ██ ██ ██  ██ ██ ██    ██
+//   ███ ███  ██   ██ ██   ██ ██   ████ ██ ██   ████  ██████
+//
+// Notice: in this component we're using directly the styles from the `Hds::Button` component
+// using the `hds-button` class names (and adding a specialized class for the "cta", see below)
+// If you need to change the styling of the `Button` component, remember that this will impact also
+// this component too.
+// If instead you need to change only the styling of the `CTA` component, you can do it
+// in the CSS file using the specialized class declared there.
+// This is NOT a standard approach that we use in the HDS design system implementation, but it's been
+// the least worst option we could find to solve the problem of sharing the exact same style of the
+// `Button (primary)` with other components.
+}}
+
+{{! template-lint-disable link-href-attributes }}
+{{! we can disable this linting rule because the developer will add the html attribute themselves }}
+<a
+  class={{this.classNames}}
+  target="_blank"
+  rel="noopener noreferrer"
+  ...attributes
+  {{did-insert this.didInsert}}
+  {{on-key "Space" this.onKeySpace}}
+>
+  {{#if this.icon}}
+    {{#if (eq this.iconPosition "leading")}}
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+      <div class="hds-button__text">
+        {{this.text}}
+      </div>
+    {{else}}
+      <div class="hds-button__text">
+        {{this.text}}
+      </div>
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+    {{/if}}
+  {{else}}
+    <div class="hds-button__text">
+      {{this.text}}
+    </div>
+  {{/if}}
+</a>

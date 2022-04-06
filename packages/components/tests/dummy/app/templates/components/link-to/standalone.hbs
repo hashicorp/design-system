@@ -1,7 +1,7 @@
-{{page-title "LinkTo (Standalone) component"}}
+{{page-title "LinkTo::Standalone component"}}
 
 <h2 class="dummy-h2">
-  LinkTo (Standalone)
+  LinkTo::Standalone
 </h2>
 
 <DummyLinkCtaButtonBanner />
@@ -16,7 +16,7 @@
       href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
       target="_blank"
       rel="noopener noreferrer"
-    >Ember LinkTo</a>, which is an internal link.
+    >Ember LinkTo</a>, that points to an internal application link or resource.
   </p>
   <p class="dummy-paragraph">
     What do we mean by the name
@@ -25,46 +25,7 @@
     <em>Note: Solutions for LinkTo (Inline) are coming soon.</em>
   </p>
 
-  <ul>
-    <li class="dummy-paragraph">
-      <strong>LinkTo (Standalone)</strong>
-      is intended for internal app links that are not inline and are used as standalone elements whose destination is a
-      URL.
-    </li>
-    <li class="dummy-paragraph">
-      It must always have a
-      <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">Flight icon</a>
-      defined.
-    </li>
-    <li class="dummy-paragraph">
-      The
-      <code class="dummy-code">...attributes</code>
-      syntax is supported on this component. See
-      <a
-        href="https://guides.emberjs.com/release/components/component-arguments-and-html-attributes/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >the Ember Guides section on HTML attributes in components</a>
-      if you are unfamiliar with the way Ember supports HTML attributes and/or the
-      <code class="dummy-code">
-        ...attributes
-      </code>
-      syntax. Additionally, see
-      <a
-        href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attributes"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Attribute Ordering</a>
-      to understand how the position of
-      <code class="dummy-code">
-        ...attributes
-      </code>
-      matters.
-    </li>
-  </ul>
-
   <h4 class="dummy-h4">Example of LinkTo (Standalone):</h4>
-
   <div class="dummy-example">
     <p class="dummy-paragraph">Here's a completely separate paragraph of text. Lorem ipsum 123.</p>
     <br />
@@ -115,6 +76,14 @@
         </li>
       </ol>
     </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
+    </dd>
     <dt>
       text
       <code>
@@ -132,33 +101,6 @@
       </p>
     </dd>
     <dt>
-      route
-      <code>
-        route name
-      </code>
-    </dt>
-    <dd>
-      The route that is passed to the link
-    </dd>
-    <dt>
-      model/models
-      <code>
-        route model(s)
-      </code>
-    </dt>
-    <dd>
-      Use this to explicitly supply a model to the route
-    </dd>
-    <dt>
-      query
-      <code>
-        query params as key value pairs
-      </code>
-    </dt>
-    <dd>
-      Use this to supply query parameters to the route
-    </dd>
-    <dt>
       icon
       <code>
         string
@@ -168,6 +110,10 @@
       <p>
         Use this parameter to show an icon. Acceptable value: any Flight icon name.
       </p>
+      <p><strong>🚨 IMPORTANT:</strong>
+        the
+        <code class="dummy-code">icon</code>
+        is required to make the component accessible.</p>
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
@@ -177,74 +123,154 @@
         <li>trailing</li>
       </ol>
     </dd>
-    <dt>color <code>enum</code></dt>
+    <dt>route <code>route name</code></dt>
+    <dd>The route that is passed to the link</dd>
+    <dt>model/models <code>route model(s)</code></dt>
+    <dd>Use this to explicitly supply a model to the route</dd>
+    <dt>query <code>query params as key value pairs</code></dt>
+    <dd>Use this to supply query parameters to the route</dd>
+    <dt>“splattributes”</dt>
     <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">primary</li>
-        <li>secondary</li>
-      </ol>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
 
 <section>
-  <h3 class="dummy-h3">
-    Usage
-  </h3>
+  <h3 class="dummy-h3">Usage</h3>
 
-  <h4 class="dummy-h4">Basic invocation</h4>
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">The most basic invocation requires both
+    <code class="dummy-code">icon</code>
+    and
+    <code class="dummy-code">text</code>
+    to be passed and the routes details (for details on how routing is handled see below).</p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::LinkTo::Standalone @text="Watch tutorial video" @icon="film" @route="index" />
+      <Hds::LinkTo::Standalone @icon="film" @text="Watch tutorial video" @route="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::LinkTo::Standalone @text="Watch Tutorial Video" @icon="film" @route="index" />
+  <Hds::LinkTo::Standalone @icon="film" @text="Watch tutorial video" @route="components.link-to.standalone" />
 
-  <h4 class="dummy-h4">Sizes</h4>
-  <p class="dummy-paragraph">There are three sizes: small, medium, and large. If no size is defined,
-    <code class="dummy-code">medium</code>
-    is automatically applied.
+  <h4 class="dummy-h4">Icon position</h4>
+  <p class="dummy-paragraph">By default the icon is placed before the text. If you would like to position it after the
+    text, define
+    <code class="dummy-code">@iconPosition</code>:
   </p>
-
-  <h5 class="dummy-h5">Small</h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="small" />
+      <Hds::LinkTo::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" @route="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="small" />
-
-  <h5 class="dummy-h5">Medium</h5>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" />    '
+  <Hds::LinkTo::Standalone
+    @icon="film"
+    @iconPosition="trailing"
+    @text="Watch tutorial video"
+    @route="components.link-to.standalone"
   />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" />
 
-  <h5 class="dummy-h5">Large</h5>
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">
+    There are two available colors for a LinkTo (Standalone):
+    <code class="dummy-code">primary</code>
+    and
+    <code class="dummy-code">secondary</code>. The default is
+    <code class="dummy-code">primary</code>. To use a different color, declare another value for
+    <code class="dummy-code">@color</code>:
+  </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="large" />
+      <Hds::LinkTo::Standalone @color="primary" @icon="collections" @text="Read tutorial" @route="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::LinkTo::Standalone @text="Read Tutorial" @icon="collections" @route="index" @size="large" />
+  <Hds::LinkTo::Standalone
+    @icon="collections"
+    @text="Read tutorial"
+    @color="primary"
+    @route="components.link-to.standalone"
+  />
+  <br />
+  <Hds::LinkTo::Standalone
+    @icon="collections"
+    @text="Read tutorial"
+    @color="secondary"
+    @route="components.link-to.standalone"
+  />
+
+  <h4 class="dummy-h4">Size</h4>
+  <p class="dummy-paragraph">
+    There are three sizes available:
+    <code class="dummy-code">small</code>,
+    <code class="dummy-code">medium</code>
+    and
+    <code class="dummy-code">large</code>. The default is
+    <code class="dummy-code">medium</code>. To use a different size, declare a value for
+    <code class="dummy-code">@size</code>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::LinkTo::Standalone @icon="collections" @text="Read tutorial" @size="small" @route="..." />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::LinkTo::Standalone
+    @icon="collections"
+    @text="Read tutorial"
+    @size="small"
+    @route="components.link-to.standalone"
+  />
+  <br />
+  <Hds::LinkTo::Standalone
+    @icon="collections"
+    @text="Read tutorial"
+    @size="medium"
+    @route="components.link-to.standalone"
+  />
+  <br />
+  <Hds::LinkTo::Standalone
+    @icon="collections"
+    @text="Read tutorial"
+    @size="large"
+    @route="components.link-to.standalone"
+  />
+
+  <h4 class="dummy-h4">Routes handling</h4>
+  <p class="dummy-paragraph">
+    This components uses the
+    <a
+      href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Ember LinkTo</a>
+    component so you need to pass all the necessary routing arguments to it (<code class="dummy-code">@route</code>,
+    <code class="dummy-code">@models</code>,
+    <code class="dummy-code">@query</code>, etc).
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::LinkTo::Standalone @icon="collections" @text="Go to the index page" @route="my.page.route" @model="my.page.model" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::LinkTo::Standalone @icon="collections" @text="Go to the index page" @route="index" />
 </section>
 
 <section>
@@ -265,7 +291,8 @@
         Ember.js.
       </em>
     </p>
-    <img class="dummy-figma-docs" src="/assets/images/design-guidelines-link-standalone.png" alt="" role="none" />
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/link-standalone-design-usage.png" alt="" role="none" />
   </div>
 </section>
 
