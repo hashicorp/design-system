@@ -2,9 +2,16 @@ import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import percySnapshot from '@percy/ember';
+import config from 'dummy/config/environment';
 
 module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
+
+  if (config.emberTryScenario) {
+    // eslint-disable-next-line no-console
+    console.log('Not running percy in ember-try');
+    return;
+  }
 
   test('Take percy snapshots', async function (assert) {
     await visit('/foundations/elevation');
