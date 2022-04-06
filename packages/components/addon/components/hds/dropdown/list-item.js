@@ -110,19 +110,6 @@ export default class HdsDropdownListItemComponent extends Component {
     // could be made here
     if (navigator.clipboard.readText()) {
       this.isSuccess = true;
-      // computer says no to this
-      // this.args.state = 'success';
-      console.log(
-        `success is ${this.isSuccess},
-        this.args.text is ${this.args.text},
-        and clipboard is ${navigator.clipboard.readText()}`
-      );
-    } else {
-      console.log(
-        `success is ${this.isSuccess}, this.args.text is ${
-          this.args.text
-        } and clipboard is ${navigator.clipboard.readText()}`
-      );
     }
   }
 }
