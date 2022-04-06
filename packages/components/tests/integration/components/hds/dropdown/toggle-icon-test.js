@@ -1,76 +1,93 @@
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { setupRenderingTest, pauseTest } from 'ember-qunit';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
   setupRenderingTest(hooks);
 
-  // TOGGLE-ICON
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
-  test('default toggle-icon renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  // notice: by default the "toggle-icon" has "user" icon, "chevron-down", and an aria-label
 
-    // default toggle icon has user icon, chevron-down, and an aria-label
+  test('it renders the "toggle-icon"', async function (assert) {
     await render(hbs`<Hds::Dropdown::ToggleIcon @text="toggle text" />`);
-
     assert.dom(this.element).exists();
   });
-  test('default toggle-icon renders with aria-label', async function (assert) {
-    // default toggle icon has user icon, chevron-down, and an aria-label
+
+  // ICON
+
+  test('it should render with the "user" icon by default', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
     );
-
-    assert.dom('#test-toggleIcon').hasAria('label', 'user menu');
+    assert.dom('.flight-icon.flight-icon-user').exists();
   });
-  test('default toggle-icon renders with the user icon', async function (assert) {
-    // default toggle icon has user icon, chevron-down, and an aria-label
+  test('if an icon is declared the flight icon should render in the component', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" id="test-toggleIcon" />`
+    );
+    assert.dom('.flight-icon.flight-icon-settings').exists();
+  });
+
+  // IMAGE (AVATAR)
+
+  test('if an @imageSrc is declared the image should render in the component', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggleIcon" />`
+    );
+    assert.dom('img').exists();
+  });
+
+  // CHEVRON
+
+  test('it should render the chevron "down" by default', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
     );
-
-    assert
-      .dom(this.element.querySelector('.flight-icon.flight-icon-user'))
-      .exists();
+    assert.dom('.flight-icon.flight-icon-chevron-down').exists();
   });
-  test('default toggle-icon renders with the the chevron-down icon', async function (assert) {
-    // default toggle icon has user icon, chevron-down, and an aria-label
+  test('it should render the chevron "up" when @isOpen is true', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @isOpen="true" id="test-toggleIcon" />`
     );
-
-    assert
-      .dom(this.element.querySelector('.flight-icon.flight-icon-chevron-down'))
-      .exists();
-  });
-  test('default toggle-icon renders with the the chevron-up icon when isOpen is true', async function (assert) {
-    // default toggle icon has user icon, chevron-down, and an aria-label
-    await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" @isOpen="true" />`
-    );
-
-    assert
-      .dom(this.element.querySelector('.flight-icon.flight-icon-chevron-up'))
-      .exists();
+    assert.dom('.flight-icon.flight-icon-chevron-up').exists();
   });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" @hasChevron={{false}} />`
     );
-
-    assert
-      .dom(this.element.querySelector('.flight-icon.flight-icon-chevron-down'))
-      .doesNotExist();
+    assert.dom('.flight-icon.flight-icon-chevron-down').doesNotExist();
   });
-  test('toggle-icon renders other valid flight icons', async function (assert) {
-    await render(
-      hbs`<Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" id="test-toggleIcon" />`
-    );
 
-    assert
-      .dom(this.element.querySelector('.flight-icon.flight-icon-settings'))
-      .exists();
+  // A11Y
+
+  test('it should render with the correct aria attribute declared using the @text prop', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
+    );
+    assert.dom('#test-toggleIcon').hasAria('label', 'user menu');
+  });
+  test('it should render the user "avatar" image with the correct role', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggleIcon" />`
+    );
+    assert.dom('#test-toggleIcon img').hasAttribute('role', 'presentation');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @text is not defined', async function (assert) {
+    const errorMessage = `@text for "Hds::Dropdown::ToggleIcon" must have a valid value`;
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Dropdown::ToggleIcon id="test-toggleIcon" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
