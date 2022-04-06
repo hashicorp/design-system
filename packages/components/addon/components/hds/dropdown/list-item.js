@@ -1,14 +1,13 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { action, set } from '@ember/object';
+import { action } from '@ember/object';
 
 export const DEFAULT_COLOR = 'action';
 export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
 export const ITEMS = [
   'copy-item',
-  'copy-label',
   'description',
   'generic',
   'interactive',
@@ -27,10 +26,15 @@ export default class HdsDropdownListItemComponent extends Component {
   get text() {
     let { text } = this.args;
 
-    assert(
-      '@text for "Hds::Dropdown::ListItem" must have a valid value',
-      text !== undefined
-    );
+    if (this.args.item === 'generic') {
+      // eslint-disable-next-line getter-return
+      return;
+    } else {
+      assert(
+        '@text for "Hds::Dropdown::ListItem" must have a valid value',
+        text !== undefined
+      );
+    }
 
     return text;
   }
