@@ -1,4 +1,4 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -6,21 +6,13 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/dropdown/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Hds::Dropdown::Index />`);
-
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Hds::Dropdown::Index>
-        template block text
-      </Hds::Dropdown::Index>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+  test('it renders the dropdown container', async function (assert) {
+    await render(hbs`<Hds::Dropdown @text="dropdown toggle" />`);
+    assert.dom(this.element).exists();
   });
+
+  // TODO
+  // - test @toggle prop or yielded toggles?
+  // - test yielded list items? (use single render with multiple assertions)
+  // - test @listPosition
 });
