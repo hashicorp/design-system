@@ -21,13 +21,13 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('it should render with the "user" icon by default', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-user').exists();
   });
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-settings').exists();
   });
@@ -36,7 +36,7 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('if an @imageSrc is declared the image should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
     );
     assert.dom('img').exists();
   });
@@ -45,19 +45,19 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('it should render the chevron "down" by default', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-chevron-down').exists();
   });
   test('it should render the chevron "up" when @isOpen is true', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @isOpen="true" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @isOpen="true" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-chevron-up').exists();
   });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" @hasChevron={{false}} />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`
     );
     assert.dom('.flight-icon.flight-icon-chevron-down').doesNotExist();
   });
@@ -66,15 +66,15 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('it should render with the correct aria attribute declared using the @text prop', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" />`
     );
-    assert.dom('#test-toggleIcon').hasAria('label', 'user menu');
+    assert.dom('#test-toggle-icon').hasAria('label', 'user menu');
   });
   test('it should render the user "avatar" image with the correct role', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggleIcon" />`
+      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
     );
-    assert.dom('#test-toggleIcon img').hasAttribute('role', 'presentation');
+    assert.dom('#test-toggle-icon img').hasAttribute('role', 'presentation');
   });
 
   // ASSERTIONS
@@ -85,7 +85,7 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Dropdown::ToggleIcon id="test-toggleIcon" />`);
+    await render(hbs`<Hds::Dropdown::ToggleIcon id="test-toggle-icon" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });

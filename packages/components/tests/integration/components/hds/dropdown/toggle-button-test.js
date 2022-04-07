@@ -23,22 +23,22 @@ module(
 
     test('it should render the text passed as @text prop', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="toggle text" id="test-toggleButton" />`
+        hbs`<Hds::Dropdown::ToggleButton @text="toggle text" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggleButton').hasText('toggle text');
+      assert.dom('#test-toggle-button').hasText('toggle text');
     });
 
     // CHEVRON
 
     test('it should render the chevron "down" by default', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" id="test-toggleButton" />`
+        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" id="test-toggle-button" />`
       );
       assert.dom('.flight-icon.flight-icon-chevron-down').exists();
     });
     test('it should render the chevron "up" when @isOpen is true', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @isOpen="true" id="test-toggleButton" />`
+        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @isOpen="true" id="test-toggle-button" />`
       );
       assert.dom('.flight-icon.flight-icon-chevron-up').exists();
     });
@@ -47,15 +47,15 @@ module(
 
     test('it should render the primary color as the default if no color is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" id="test-toggleButton" />`
+        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggleButton').hasClass('hds-button--color-primary');
+      assert.dom('#test-toggle-button').hasClass('hds-button--color-primary');
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @color="secondary" id="test-toggleButton" />`
+        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @color="secondary" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggleButton').hasClass('hds-button--color-secondary');
+      assert.dom('#test-toggle-button').hasClass('hds-button--color-secondary');
     });
 
     // ASSERTIONS
@@ -66,7 +66,7 @@ module(
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(hbs`<Hds::Dropdown::ToggleButton id="test-toggleButton" />`);
+      await render(hbs`<Hds::Dropdown::ToggleButton id="test-toggle-button" />`);
       assert.throws(function () {
         throw new Error(errorMessage);
       });
@@ -79,7 +79,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @color="foo" id="test-toggleButton" />`
+        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @color="foo" id="test-toggle-button" />`
       );
       assert.throws(function () {
         throw new Error(errorMessage);
