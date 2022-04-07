@@ -2,16 +2,16 @@
   <:toggle as |t|>
     {{#if (eq @toggle "toggleButton")}}
       <Hds::Dropdown::ToggleButton
-        @text={{@toggleText}}
+        @text={{@text}}
         @color={{@color}}
         {{on "click" t.onClickToggle}}
         @isOpen={{t.isActive}}
       />
     {{else}}
       <Hds::Dropdown::ToggleIcon
-        @text={{@toggleText}}
+        @text={{@text}}
         {{on "click" t.onClickToggle}}
-        @iconName={{@iconName}}
+        @icon={{@icon}}
         @imageSrc={{@imageSrc}}
         @hasChevron={{@hasChevron}}
         @isOpen={{t.isActive}}
@@ -25,10 +25,12 @@
     >
       {{yield
         (hash
-          Title=(component "hds/dropdown/list-item" item="title")
+          CopyItem=(component "hds/dropdown/list-item" item="copy-item")
           Description=(component "hds/dropdown/list-item" item="description")
+          Generic=(component "hds/dropdown/list-item" item="generic")
           ListItem=(component "hds/dropdown/list-item")
           Separator=(component "hds/dropdown/list-item" item="separator")
+          Title=(component "hds/dropdown/list-item" item="title")
         )
       }}
     </ul>

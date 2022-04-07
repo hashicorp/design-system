@@ -3,10 +3,14 @@
     {{#if @imageSrc}}
       <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" />
     {{else}}
-      <FlightIcon @name={{this.iconName}} @size="24" />
+      <FlightIcon @name={{this.icon}} @size="24" />
     {{/if}}
   </div>
   {{#if this.hasChevron}}
-    <FlightIcon @name="chevron-{{if @isOpen 'up' 'down'}}" class="hds-dropdown-toggle-icon__chevron" />
+    <FlightIcon
+      @name="chevron-{{if @isOpen 'up' 'down'}}"
+      class="hds-dropdown-toggle-icon__chevron"
+      @isInlineBlock={{false}}
+    />
   {{/if}}
 </button>

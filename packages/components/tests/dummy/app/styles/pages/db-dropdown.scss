@@ -42,6 +42,17 @@
       display: flex;
       margin: 0;
       padding: 0;
+      &.dummy-nav-dropdown__list-item-customized {
+        .hds-dropdown-toggle-icon {
+          color: white;
+          border: 1px solid #9e9e9e;
+          &:hover {
+            background-color: #484848;
+            color: white;
+            border: 1px solid #9e9e9e;
+          }
+        }
+      }
     }
   }
 }
@@ -89,4 +100,9 @@
   margin: 0;
   min-width: fit-content;
   padding: 0.125rem;
+}
+
+.dummy-whiteout {
+  background-color: white !important;
+  color: white !important;
 }

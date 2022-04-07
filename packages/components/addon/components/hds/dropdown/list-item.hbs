@@ -3,6 +3,31 @@
     {{@text}}
   </li>
 
+{{else if (eq this.item "generic")}}
+  <li class={{this.classNames}}>
+    {{yield}}
+  </li>
+
+{{else if (eq this.item "copy-item")}}
+  <li class={{this.classNames}}>
+    {{#if @copyItemTitle}}
+      <div class="hds-dropdown-list-item--copy-item-title">{{@copyItemTitle}}</div>
+    {{/if}}
+    <button
+      type="button"
+      class="{{if @state (concat 'is-' @state)}} foo {{if this.isSuccess 'is-success'}}"
+      {{on "click" this.copyCode}}
+    >
+      <div class="hds-dropdown-list-item__copy-item-text">
+        {{@text}}
+      </div>
+      <FlightIcon
+        @name="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}"
+        class="hds-dropdown-list-item__copy-item-icon"
+      />
+    </button>
+  </li>
+
 {{else if (eq this.item "description")}}
   <li class={{this.classNames}}>
     {{@text}}
@@ -25,7 +50,7 @@
       >
         {{#if @icon}}
           <div class="hds-dropdown-list-item__interactive-icon">
-            <FlightIcon @name={{@icon}} />
+            <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__interactive-text">
@@ -36,7 +61,7 @@
       <a target="_blank" rel="noopener noreferrer" href={{@href}} class="{{if @state (concat 'is-' @state)}}">
         {{#if @icon}}
           <div class="hds-dropdown-list-item__interactive-icon">
-            <FlightIcon @name={{@icon}} />
+            <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__interactive-text">
@@ -47,7 +72,7 @@
       <button class="{{if @state (concat 'is-' @state)}}" type="button" ...attributes>
         {{#if @icon}}
           <div class="hds-dropdown-list-item__interactive-icon">
-            <FlightIcon @name={{@icon}} />
+            <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__interactive-text">
@@ -56,5 +81,4 @@
       </button>
     {{/if}}
   </li>
-
 {{/if}}
