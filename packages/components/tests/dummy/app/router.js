@@ -21,10 +21,12 @@ Router.map(function () {
     this.route('card');
     this.route('icon-tile');
     this.route('link', function () {
-      this.route('standalone', { path: '/' });
+      this.route('standalone');
+      this.route('cta');
     });
     this.route('link-to', function () {
-      this.route('standalone', { path: '/' });
+      this.route('standalone');
+      this.route('cta');
     });
     this.route('dropdown');
   });

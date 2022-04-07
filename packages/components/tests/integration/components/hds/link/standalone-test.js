@@ -15,7 +15,6 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     );
     assert.dom(this.element).hasText('watch video');
   });
-
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" id="test-link" />`
@@ -79,20 +78,6 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-  test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
-    const errorMessage =
-      '@size for "Hds::Link::Standalone" must be one of the following: small, medium, large; received: tiny';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(
-      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" href="/" @size="tiny" />`
-    );
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
   test('it should throw an assertion if an incorrect value for @iconPosition is provided', async function (assert) {
     const errorMessage =
       '@iconPosition for "Hds::Link::Standalone" must be one of the following: leading, trailing; received: after';
@@ -102,6 +87,20 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     });
     await render(
       hbs`<Hds::Link::Standalone @icon="film" href="/" @text="watch video" @iconPosition="after" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+    const errorMessage =
+      '@size for "Hds::Link::Standalone" must be one of the following: small, medium, large; received: tiny';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" href="/" @size="tiny" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);

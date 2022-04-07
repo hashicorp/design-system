@@ -1,6 +1,6 @@
-// LINK > STANDALONE
+// BUTTON
 
-.dummy-link-base-sample {
+.dummy-cta-base-sample {
     align-items: flex-start;
     display: flex;
     gap: 0.5rem;
@@ -11,19 +11,18 @@
 
 }
 
-.dummy-link-max-width-container {
+.dummy-cta-max-width-container {
     width: 200px;
 }
 
-.dummy-link-states-grid {
+.dummy-cta-full-width-container {
+    width: 300px;
+}
+
+.dummy-cta-states-grid {
     display: grid;
     grid-gap: 0.5rem;
-    grid-template-columns: repeat(4, 1fr);;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0;
     padding: 0;
-    width: fit-content;
-
-    .dummy-link-states-grid__title {
-        grid-column: 1 / 5;
-    }
 }

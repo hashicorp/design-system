@@ -160,7 +160,6 @@ export default class HdsButtonIndexComponent extends Component {
    * @method Button#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  // "hds-button {{this.sizeClass}} {{this.colorClass}} {{this.widthClass}}"
   get classNames() {
     let classes = ['hds-button'];
 
