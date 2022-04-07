@@ -28,6 +28,7 @@ Router.map(function () {
       this.route('standalone');
       this.route('cta');
     });
+    this.route('demo-icons');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

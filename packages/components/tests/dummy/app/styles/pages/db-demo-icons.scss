@@ -1,0 +1,75 @@
+.dummy-demo-icon-column-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.dummy-demo-icon-column {
+  padding: 0.5rem;
+}
+
+
+.dummy-demo-icon {
+  .size-16 {
+    height: 16px;
+    width: 16px;
+  }
+  .size-18 {
+    height: 18px;
+    width: 18px;
+    }
+  .size-24 {
+    height: 24px;
+    width: 24px;
+  }
+  .size-32 {
+    height: 32px;
+    width: 32px;
+  }
+  .size-36 {
+    height: 36px;
+    width: 36px;
+  }
+  .size-72 {
+    height:72px;
+    width: 72px;
+  }
+  .size-100 {
+    height: 100px;
+    width: 100px;
+  }
+  .size-200 {
+    height: 200px;
+    width: 200px;
+  }
+  .size-300 {
+    height: 300px;
+    width: 300px;
+  }
+  .size-400 {
+    height: 400px;
+    width: 400px;
+  }
+  .color-red {
+    color: red;
+  }
+  .color-orange {
+    color: orange;
+  }
+  .color-yellow {
+    color: yellow;
+  }
+  .color-green {
+    color: green;
+  }
+  .color-blue {
+    color: blue;
+  }
+  .color-indigo {
+    color: indigo;
+  }
+  .color-violet {
+    color: violet;
+  }
+  .color-purple {
+    color: rebeccapurple;
+  }
+}
