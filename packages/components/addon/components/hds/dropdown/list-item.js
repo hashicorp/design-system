@@ -24,18 +24,18 @@ export default class HdsDropdownListItemComponent extends Component {
    * @default interactive
    * @description Determines the type of item to show
    */
-     get item() {
-      let { item = DEFAULT_ITEM } = this.args;
-  
-      assert(
-        `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
-          ', '
-        )}; received: ${item}`,
-        ITEMS.includes(item)
-      );
-  
-      return item;
-    }
+  get item() {
+    let { item = DEFAULT_ITEM } = this.args;
+
+    assert(
+      `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
+        ', '
+      )}; received: ${item}`,
+      ITEMS.includes(item)
+    );
+
+    return item;
+  }
 
   /**
    * @param text
