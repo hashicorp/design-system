@@ -75,9 +75,9 @@ $hds-dropdown-toggle-border-width: 1px;
   border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
   display: flex;
   justify-content: center;
-  height: 32px;
+  height: 2rem;
   padding: 1px;
-  width: 32px;
+  width: 2rem;
 
   img {
     border-radius: inherit;
@@ -109,22 +109,21 @@ $hds-dropdown-toggle-border-width: 1px;
   box-shadow: var(--token-surface-high-box-shadow);
   list-style: none;
   margin: 0;
-  padding: 4px 0;
-  min-width: 200px; // TODO relational units
-  max-width: 400px; // TODO relational units
-
+  max-width: 25rem;
+  min-width: 12.5rem;
+  padding: 0.25rem 0;
   &.hds-dropdown-list--position-right {
     position: absolute;
     right: 0;
-    top: calc(100% + 4px);
-    z-index: 2; // TODO understand what is the right value here
+    top: calc(100% + 0.25rem);
+    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
   }
 
   &.hds-dropdown-list--position-left {
     position: absolute;
     left: 0;
-    top: calc(100% + 4px);
-    z-index: 2; // TODO understand what is the right value here
+    top: calc(100% + 0.25rem);
+    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
   }
 }
 
@@ -137,16 +136,7 @@ $hds-dropdown-toggle-border-width: 1px;
   font-size: var(--token-typography-body-100-font-size);
   font-weight: var(--token-typography-font-weight-semibold);
   line-height: var(--token-typography-body-100-line-height);
-  padding: 10px 16px 4px;
-}
-
-.hds-dropdown-list-item--copy-label {
-  color: var(--token-color-foreground-faint);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size); // 13
-  font-weight: var(--token-typography-font-weight-bold);
-  line-height: var(--token-typography-body-100-line-height); // 18
-  padding: 2px 16px 4px;
+  padding: 0.625rem 1rem 0.25rem;
 }
 
 .hds-dropdown-list-item--copy-item-title {
@@ -155,12 +145,12 @@ $hds-dropdown-toggle-border-width: 1px;
   font-size: var(--token-typography-body-100-font-size); // 13
   font-weight: var(--token-typography-font-weight-semibold);
   line-height: var(--token-typography-body-100-line-height); // 18
-  padding: 2px 0 4px;
+  padding: 0.125rem 0 0.25rem;
 }
 
 .hds-dropdown-list-item--generic {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .hds-dropdown-list-item--description {
@@ -169,12 +159,12 @@ $hds-dropdown-toggle-border-width: 1px;
   font-size: var(--token-typography-body-100-font-size);
   font-weight: var(--token-typography-font-weight-regular);
   line-height: var(--token-typography-body-100-line-height);
-  padding: 2px 16px 4px;
+  padding: 0.125rem 1rem 0.25rem;
 }
 
 .hds-dropdown-list-item--separator {
   position: relative;
-  height: 4px;
+  height: 0.25rem;
   width: 100%;
 
   &::before {
@@ -189,7 +179,7 @@ $hds-dropdown-toggle-border-width: 1px;
 
 .hds-dropdown-list-item--copy-item {
   box-sizing: border-box;
-  padding: 10px 16px 12px;
+  padding: 0.625rem 1rem 0.75rem;
   width: 100%;
 
   button {
@@ -203,7 +193,7 @@ $hds-dropdown-toggle-border-width: 1px;
     display: flex;
     font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
-    padding: 12px 8px;
+    padding: 0.75rem 0.5rem;
     width: 100%;
     
     &:hover,
@@ -246,7 +236,7 @@ $hds-dropdown-toggle-border-width: 1px;
     .hds-dropdown-list-item__copy-item-icon {
       align-self: flex-end;
       color: var(--token-color-foreground-action);
-      margin-left: 8px;
+      margin-left: 0.5rem;
     }
   }
 }
@@ -257,7 +247,7 @@ $hds-dropdown-toggle-border-width: 1px;
   min-height: 36px;
 
   // need to reset a few extra things to make the button visually appear the same as the links
-  // TODO this is 2px taller than the link...
+  // TODO this is 0.125rem taller than the link...
   button {
     box-sizing: border-box;
     border: 1px inset transparent; // cause of the extra height
@@ -275,7 +265,7 @@ $hds-dropdown-toggle-border-width: 1px;
     display: flex;
     outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
-    padding: 8px 10px 8px 16px;
+    padding: 0.5rem 0.625rem 0.5rem 1rem;
     text-decoration: none;
 
     // this is used for the left "hover" indicator
@@ -283,7 +273,7 @@ $hds-dropdown-toggle-border-width: 1px;
       border-radius: 1px;
       bottom: 6px;
       content: '';
-      left: 4px;
+      left: 0.25rem;
       position: absolute;
       top: 6px;
       width: 2px;
@@ -296,9 +286,9 @@ $hds-dropdown-toggle-border-width: 1px;
       border-radius: 5px;
       bottom: 0px;
       content: '';
-      left: 10px;
+      left: 0.625rem;
       position: absolute;
-      right: 4px;
+      right: 0.25rem;
       z-index: -1;
       top: 0;
     }
@@ -312,7 +302,7 @@ $hds-dropdown-toggle-border-width: 1px;
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
-        left: 4px;
+        left: 0.25rem;
       }
     }
     // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
@@ -326,7 +316,7 @@ $hds-dropdown-toggle-border-width: 1px;
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
-        left: 4px;
+        left: 0.25rem;
       }
     }
     // remove the focus ring on "active + focused" state (by design)
@@ -348,7 +338,7 @@ $hds-dropdown-toggle-border-width: 1px;
 }
 
 .hds-dropdown-list-item__interactive-icon {
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .hds-dropdown-list-item--color-action {
