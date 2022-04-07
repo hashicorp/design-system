@@ -137,13 +137,12 @@
     </dt>
     <dd>
       <p>The text to be used for all items. The only items that do not require text to be defined are the separator and
-        generic item types.</p>
-      <p><em>If no text value is defined an error will be thrown.</em></p>
+        generic item types. Otherwise, <em>If no text value is defined an error will be thrown.</em></p>
     </dd>
     <dt>color <code>enum</code></dt>
     <dd>
       <p>
-        Acceptabe values:
+        For use on the <span class="dummy-code">interactive</span> item type. Acceptabe values:
       </p>
       <ol>
         <li class="default">action</li>
@@ -187,6 +186,13 @@
         <em>must</em>
         exist for critical list-items. All icons will be placed to the left of the list-item.</p>
     </dd>
+    <dt>
+      copyItemTitle
+      <code>string</code>
+    </dt>
+    <dd>
+      <p>Optional. For use on the <span class="dummy-code">copy-item</span> item type.</p>
+    </dd>
   </dl>
 </section>
 <section>
@@ -220,10 +226,10 @@
           @text="Text Toggle"
           as |dd| &gt;
 
-          &lt;dd.ListItem @route="components.dropdown" @text="Hover" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Focus" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Item One" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Item Two" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Item Three" /&gt;
+          &lt;dd.ListItem @route="components.dropdown" @text="Item Four" /&gt;
           &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
@@ -238,10 +244,10 @@
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown @toggle="toggleButton" @text="Text Toggle" as |dd|>
 
-            <dd.ListItem @route="components.dropdown" @text="Hover" />
-            <dd.ListItem @route="components.dropdown" @text="Focus" />
-            <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
-            <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+            <dd.ListItem @route="components.dropdown" @text="Item One" />
+            <dd.ListItem @route="components.dropdown" @text="Item Two" />
+            <dd.ListItem @route="components.dropdown" @text="Item Three" />
+            <dd.ListItem @route="components.dropdown" @text="Item Four" />
             <dd.Separator />
             <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
@@ -739,48 +745,20 @@
     </ul>
   </div>
 
-  <h4 class="dummy-h4">Title, Description and some variations</h4>
-  <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
-    <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
-      <Hds::Dropdown::ListItem @item="description" @text="Create a new run task in Terraform." />
-      <Hds::Dropdown::ListItem @href="#" @text="Docs: Import usage" @icon="docs-link" />
-      <Hds::Dropdown::ListItem
-        @item="copy-item"
-        @text="https://api.cloud.hashicorp.com"
-        @copyItemTitle="Endpoint URL"
-      />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
-    </ul>
-    <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
-      <Hds::Dropdown::ListItem @item="description" @text="Create a new run task in Terraform." />
-      <Hds::Dropdown::ListItem @item="generic" @text="something">
-        <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
-      </Hds::Dropdown::ListItem>
-      <Hds::Dropdown::ListItem
-        @item="copy-item"
-        @text="https://api.cloud.hashicorp.com"
-        @copyItemTitle="Endpoint URL"
-      />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
-    </ul>
-  </div>
-
-  <h4 class="dummy-h4">CopyItem (States)</h4>
+  <h4 class="dummy-h4">CopyItem</h4>
   <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
     <ul class="hds-dropdown-list">
       {{#each @model.ITEM_STATES as |state|}}
 
         <Hds::Dropdown::ListItem
           @item="copy-item"
-          @text="{{state}}:91ee1e8ef65b337f0e70d793f456c71d"
+          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
           @state={{state}}
         />
       {{/each}}
       <Hds::Dropdown::ListItem
         @item="copy-item"
-        @text="success:91ee1e8ef65b337f0e70d793f456c71d"
+        @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
         @state="success"
         @isSuccess="true"
       />
@@ -792,14 +770,14 @@
         <Hds::Dropdown::ListItem
           @copyItemTitle="Optional copyItemTitle"
           @item="copy-item"
-          @text="{{state}}:91ee1e8ef65b337f0e70d793f456c71d"
+          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
           @state={{state}}
         />
       {{/each}}
       <Hds::Dropdown::ListItem
         @copyItemTitle="Optional copyItemTitle"
         @item="copy-item"
-        @text="success:91ee1e8ef65b337f0e70d793f456c71d"
+        @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
         @isSuccess="true"
         @state="success"
       />
