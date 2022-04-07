@@ -11,7 +11,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom(this.element).exists();
   });
 
-  // TODO
+  // TODO once everything is finalized in https://github.com/hashicorp/design-system/pull/66
   // - test @toggle prop or yielded toggles?
   // - test yielded list items? (use single render with multiple assertions)
   // - test @listPosition
