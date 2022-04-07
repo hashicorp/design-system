@@ -45,16 +45,11 @@ export default class HdsDropdownListItemComponent extends Component {
   get text() {
     let { text } = this.args;
 
-    if (this.args.item === 'generic' || this.args.item === 'separator') {
-      // eslint-disable-next-line getter-return
-      return;
-    } else {
-      assert(
-        '@text for "Hds::Dropdown::ListItem" must have a valid value',
-        text !== undefined
-      );
-    }
-
+    assert(
+      '@text for "Hds::Dropdown::ListItem" must have a valid value',
+      text !== undefined
+    );
+    
     return text;
   }
 
