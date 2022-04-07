@@ -66,7 +66,9 @@ module(
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(hbs`<Hds::Dropdown::ToggleButton id="test-toggle-button" />`);
+      await render(
+        hbs`<Hds::Dropdown::ToggleButton id="test-toggle-button" />`
+      );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
