@@ -1,6 +1,6 @@
 {{#if (eq this.item "title")}}
   <li class={{this.classNames}}>
-    {{@text}}
+    {{this.text}}
   </li>
 
 {{else if (eq this.item "generic")}}
@@ -15,11 +15,11 @@
     {{/if}}
     <button
       type="button"
-      class="{{if @state (concat 'is-' @state)}} foo {{if this.isSuccess 'is-success'}}"
+      class="{{if @state (concat 'is-' @state)}} {{if this.isSuccess 'is-success'}}"
       {{on "click" this.copyCode}}
     >
       <div class="hds-dropdown-list-item__copy-item-text">
-        {{@text}}
+        {{this.text}}
       </div>
       <FlightIcon
         @name="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}"
@@ -30,7 +30,7 @@
 
 {{else if (eq this.item "description")}}
   <li class={{this.classNames}}>
-    {{@text}}
+    {{this.text}}
   </li>
 
 {{else if (eq this.item "separator")}}
@@ -54,7 +54,7 @@
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__interactive-text">
-          {{@text}}
+          {{this.text}}
         </div>
       </LinkTo>
     {{else if @href}}
@@ -65,7 +65,7 @@
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__interactive-text">
-          {{@text}}
+          {{this.text}}
         </div>
       </a>
     {{else}}
@@ -76,7 +76,7 @@
           </div>
         {{/if}}
         <div class="hds-dropdown-list-item__interactive-text">
-          {{@text}}
+          {{this.text}}
         </div>
       </button>
     {{/if}}
