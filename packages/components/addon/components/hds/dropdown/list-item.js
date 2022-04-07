@@ -19,14 +19,33 @@ export default class HdsDropdownListItemComponent extends Component {
   @tracked isSuccess = this.args.isSuccess ?? false;
 
   /**
+   * @param item
+   * @type {string}
+   * @default interactive
+   * @description Determines the type of item to show
+   */
+     get item() {
+      let { item = DEFAULT_ITEM } = this.args;
+  
+      assert(
+        `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
+          ', '
+        )}; received: ${item}`,
+        ITEMS.includes(item)
+      );
+  
+      return item;
+    }
+
+  /**
    * @param text
    * @type {string}
-   * @description The text of the item. If no text value is defined an error will be thrown.
+   * @description The text of the item. If no text value is defined an error will be thrown unless it is the generic or separator item type.
    */
   get text() {
     let { text } = this.args;
 
-    if (this.args.item === 'generic') {
+    if (this.args.item === 'generic' || this.args.item === 'separator') {
       // eslint-disable-next-line getter-return
       return;
     } else {
@@ -43,7 +62,7 @@ export default class HdsDropdownListItemComponent extends Component {
    * @param color
    * @type {string}
    * @default primary
-   * @description Determines the color of the item
+   * @description Determines the color of the item (when item is set to interactive)
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -63,26 +82,6 @@ export default class HdsDropdownListItemComponent extends Component {
    */
 
   /**
-   * @param item
-   * @type {string}
-   * @default interactive
-   * @description Determines the type of item to show
-   */
-  get item() {
-    let { item = DEFAULT_ITEM } = this.args;
-
-    // do we need this assert anymore?
-    assert(
-      `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
-        ', '
-      )}; received: ${item}`,
-      ITEMS.includes(item)
-    );
-
-    return item;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -96,7 +95,7 @@ export default class HdsDropdownListItemComponent extends Component {
     }
 
     // add a class based on the @color argument
-    if (this.item === 'interactive' && this.color) {
+    if (this.item === 'interactive') {
       classes.push(`hds-dropdown-list-item--color-${this.color}`);
     }
 
