@@ -2,9 +2,16 @@ import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import percySnapshot from '@percy/ember';
+import config from 'dummy/config/environment';
 
 module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
+
+  if (config.emberTryScenario) {
+    // eslint-disable-next-line no-console
+    console.log('Not running percy in ember-try');
+    return;
+  }
 
   test('Take percy snapshots', async function (assert) {
     await visit('/foundations/elevation');
@@ -34,10 +41,16 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
 
-    await visit('/components/link');
+    await visit('/components/link/cta');
+    await percySnapshot('Link CTA');
+
+    await visit('/components/link-to/cta');
+    await percySnapshot('LinkTo CTA');
+
+    await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
-    await visit('/components/link-to');
+    await visit('/components/link-to/standalone');
     await percySnapshot('LinkTo Standalone');
 
     assert.ok(true);

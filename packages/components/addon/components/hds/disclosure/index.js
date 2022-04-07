@@ -20,7 +20,9 @@ export default class HdsDisclosureComponent extends Component {
   clickOutsideDeactivates(event) {
     // we check if the toggle reference belongs to the tree of parent DOM nodes
     // of the element that was clicked and triggered the "click outside" event handling
-    this.isToggleClicked = event.path.includes(this.toggleRef);
+    // notice: we use "event.composedPath" here because is now fully supported (see https://caniuse.com/?search=event%20path)
+    const path = event.composedPath();
+    this.isToggleClicked = path.includes(this.toggleRef);
     // here we need to return `true` to make sure that the focus trap will be deactivated (and allow the click event to do its thing (i.e. to pass-through to the element that was clicked).
     // see: https://github.com/focus-trap/focus-trap#createoptions
     return true;

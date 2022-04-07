@@ -1296,7 +1296,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/addon-shim@^1.0.0":
+"@embroider/addon-shim@^1.0.0", "@embroider/addon-shim@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@embroider/addon-shim/-/addon-shim-1.5.0.tgz#639b8b394336a5ae26dd3e24ffc3d34d864ac5ce"
   integrity sha512-5zgwA/wTYjgn2Oo6hKRQhF/5Gnwb+hGhj/WXhZQa5yA7fRRdBV1tVMS7b7SLawZcmOhuWkyPwFdgsYtGBvDB0w==
@@ -6699,6 +6699,22 @@ ember-cli-typescript@^4.1.0:
     stagehand "^1.0.0"
     walk-sync "^2.2.0"
 
+ember-cli-typescript@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-5.0.0.tgz#52f53843082d0a0128f318809dadabf83a76bbff"
+  integrity sha512-UDKZlG7bInRo7eDsF3jvPz1Dxh1YvRhMw9wyj5rj2K3brw0xEh1IMTqPgWRbPESqjcWuwa8s0FCNuYWDc4PTfg==
+  dependencies:
+    ansi-to-html "^0.6.15"
+    broccoli-stew "^3.0.0"
+    debug "^4.0.0"
+    execa "^4.0.0"
+    fs-extra "^9.0.1"
+    resolve "^1.5.0"
+    rsvp "^4.8.1"
+    semver "^7.3.2"
+    stagehand "^1.0.0"
+    walk-sync "^2.2.0"
+
 ember-cli-version-checker@^2.1.0, ember-cli-version-checker@^2.1.2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-2.2.0.tgz#47771b731fe0962705e27c8199a9e3825709f3b3"
@@ -6927,7 +6943,7 @@ ember-cli@~4.1.1:
     workerpool "^6.1.4"
     yam "^1.0.0"
 
-ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-compatibility-helpers@^1.2.1, ember-compatibility-helpers@^1.2.4:
+ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-compatibility-helpers@^1.2.1, ember-compatibility-helpers@^1.2.4, ember-compatibility-helpers@^1.2.5:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/ember-compatibility-helpers/-/ember-compatibility-helpers-1.2.6.tgz#603579ab2fb14be567ef944da3fc2d355f779cd8"
   integrity sha512-2UBUa5SAuPg8/kRVaiOfTwlXdeVweal1zdNPibwItrhR0IvPrXpaqwJDlEZnWKEoB+h33V0JIfiWleSG6hGkkA==
@@ -6996,6 +7012,15 @@ ember-focus-trap@^1.0.1:
     "@embroider/addon-shim" "^1.0.0"
     focus-trap "^6.7.1"
 
+ember-keyboard@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-8.0.0.tgz#dd4a7253d277be9ed9d6878f073ea32406e29435"
+  integrity sha512-/9poW0DS8akMLvYsvn1scAMMCsyOPt22L4W7c4CLruFkUY7wdVrfFxb/qHwDmtWxyZDka0yc8aIZHqL6sSa9wQ==
+  dependencies:
+    "@embroider/addon-shim" "^1.5.0"
+    ember-modifier "^2.1.2 || ^3.1.0"
+    ember-modifier-manager-polyfill "^1.2.0"
+
 ember-load-initializers@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ember-load-initializers/-/ember-load-initializers-2.1.2.tgz#8a47a656c1f64f9b10cecdb4e22a9d52ad9c7efa"
@@ -7035,6 +7060,17 @@ ember-modifier@^2.1.1:
     ember-compatibility-helpers "^1.2.4"
     ember-destroyable-polyfill "^2.0.2"
     ember-modifier-manager-polyfill "^1.2.0"
+
+"ember-modifier@^2.1.2 || ^3.1.0":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.4.tgz#dd05d8f93d5a6a93a8b08993c8fb66c4f2cad277"
+  integrity sha512-gWshNHgj4cF5FjIJnrU+RNZ6fg2UM024Pi0GGXM7sp30khe/t08s9ExJTlFUCyHJVeLpIH1cnML77lX1JFjubQ==
+  dependencies:
+    ember-cli-babel "^7.26.6"
+    ember-cli-normalize-entity-name "^1.0.0"
+    ember-cli-string-utils "^1.1.0"
+    ember-cli-typescript "^5.0.0"
+    ember-compatibility-helpers "^1.2.5"
 
 ember-named-blocks-polyfill@^0.2.5:
   version "0.2.5"
