@@ -158,6 +158,11 @@ $hds-dropdown-toggle-border-width: 1px;
   padding: 2px 0 4px;
 }
 
+.hds-dropdown-list-item--generic {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .hds-dropdown-list-item--description {
   color: var(--token-color-foreground-faint);
   font-family: var(--token-typography-body-100-font-family);

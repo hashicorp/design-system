@@ -126,12 +126,18 @@
         <li>separator</li>
         <li>title</li>
       </ol>
+      <p>🚨 Important Note: the
+        <span class="dummy-code">generic</span>
+        is a yield and the developer is completely responsible for any item yielded there (including the accessibility
+        of that item). This is provided as an escape hatch to empower developers to more easily transition to the design
+        system. It should be considered as a temporary measure with plans for replacement.</p>
     </dd>
     <dt>text
       <code>string</code>
     </dt>
     <dd>
-      <p>The text to be used for all items. The only item that does not require text to be defined is the separator.</p>
+      <p>The text to be used for all items. The only items that do not require text to be defined are the separator and
+        generic item types.</p>
       <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
     <dt>color <code>enum</code></dt>
@@ -244,11 +250,11 @@
     </nav>
   </div>
 
-  <h4 class="dummy-h4">Example: ToggleButton + Title, Description, CopyLabel, CopyItem, Separator</h4>
+  <h4 class="dummy-h4">Example: ToggleButton + Title, Description, CopyItem, Separator</h4>
   <div>
     <p class="dummy-paragraph">
-      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description,
-      copy-label, copy-item, a separator and a link (color, critical):
+      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, a
+      generic (which is yielding a Link::Standalone component), copy-item, a separator and a link (color, critical):
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -262,10 +268,12 @@
 
           &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
           &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
-          &lt;dd.CopyLabel @text="Endpoint URL" /&gt;
-          &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" /&gt;
-          &lt;dd.CopyLabel @text="HMAC Key" /&gt;
-          &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" /&gt;
+          &lt;dd.Generic&gt;
+            &lt;Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" /&gt;
+          &lt;/dd.Generic&gt;
+          &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" /&gt;
+          &lt;dd.CopyLabel  /&gt;
+          &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @text="HMAC Key" /&gt;
           &lt;dd.Separator /&gt;
           &lt;dd.ListItem @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" /&gt;
         &lt;/Hds::Dropdown&gt;
@@ -280,12 +288,11 @@
           <Hds::Dropdown @toggle="toggleButton" @text="Integrate with Terraform Cloud" @color="secondary" as |dd|>
             <dd.Title @text="Integrate with Terraform Cloud" />
             <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
-            <dd.CopyLabel @text="Endpoint URL" />
-            <dd.CopyItem @text="https://api.cloud.hashicorp.com" />
-            <dd.CopyLabel @text="HMAC Key" />
-            <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" />
-            <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" />
+            <dd.Generic>
+              <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+            </dd.Generic>
+            <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
+            <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -736,23 +743,27 @@
   <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
     <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
-      <Hds::Dropdown::ListItem
-        @item="description"
-        @text="Create a new run task in Terraform."
-      />
+      <Hds::Dropdown::ListItem @item="description" @text="Create a new run task in Terraform." />
       <Hds::Dropdown::ListItem @href="#" @text="Docs: Import usage" @icon="docs-link" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" @subtitle="Endpoint URL" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d"  @subtitle="HMAC Key"/>
+      <Hds::Dropdown::ListItem
+        @item="copy-item"
+        @text="https://api.cloud.hashicorp.com"
+        @copyItemTitle="Endpoint URL"
+      />
+      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
     </ul>
     <ul class="hds-dropdown-list">
       <Hds::Dropdown::ListItem @item="title" @text="Integrate with Terraform Cloud" />
+      <Hds::Dropdown::ListItem @item="description" @text="Create a new run task in Terraform." />
+      <Hds::Dropdown::ListItem @item="generic" @text="something">
+        <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+      </Hds::Dropdown::ListItem>
       <Hds::Dropdown::ListItem
-        @item="description"
-        @text="Create a new run task in Terraform."
+        @item="copy-item"
+        @text="https://api.cloud.hashicorp.com"
+        @copyItemTitle="Endpoint URL"
       />
-      <Hds::Dropdown::ListItem @item="generic" @text="something"><div class="dummy-dropdown-generic">generic yield, style yourself</div></Hds::Dropdown::ListItem>
-      <Hds::Dropdown::ListItem @item="copy-item" @text="https://api.cloud.hashicorp.com" @subtitle="Endpoint URL" />
-      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d"  @subtitle="HMAC Key"/>
+      <Hds::Dropdown::ListItem @item="copy-item" @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
     </ul>
   </div>
 
@@ -779,14 +790,14 @@
       {{#each @model.ITEM_STATES as |state|}}
 
         <Hds::Dropdown::ListItem
-          @subtitle="Optional subtitle"
+          @copyItemTitle="Optional copyItemTitle"
           @item="copy-item"
           @text="{{state}}:91ee1e8ef65b337f0e70d793f456c71d"
           @state={{state}}
         />
       {{/each}}
       <Hds::Dropdown::ListItem
-        @subtitle="Optional subtitle"
+        @copyItemTitle="Optional copyItemTitle"
         @item="copy-item"
         @text="success:91ee1e8ef65b337f0e70d793f456c71d"
         @isSuccess="true"

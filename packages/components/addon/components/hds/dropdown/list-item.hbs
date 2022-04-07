@@ -15,8 +15,8 @@
 
 {{else if (eq this.item "copy-item")}}
   <li class={{this.classNames}}>
-    {{#if @subtitle}}
-      <div class="hds-dropdown-list-item--copy-item-title">{{@subtitle}}</div>
+    {{#if @copyItemTitle}}
+      <div class="hds-dropdown-list-item--copy-item-title">{{@copyItemTitle}}</div>
     {{/if}}
     <button
       type="button"

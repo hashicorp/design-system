@@ -8,7 +8,6 @@ export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
 export const ITEMS = [
   'copy-item',
-  'copy-label',
   'description',
   'generic',
   'interactive',
@@ -27,10 +26,15 @@ export default class HdsDropdownListItemComponent extends Component {
   get text() {
     let { text } = this.args;
 
-    assert(
-      '@text for "Hds::Dropdown::ListItem" must have a valid value',
-      text !== undefined
-    );
+    if (this.args.item === 'generic') {
+      // eslint-disable-next-line getter-return
+      return;
+    } else {
+      assert(
+        '@text for "Hds::Dropdown::ListItem" must have a valid value',
+        text !== undefined
+      );
+    }
 
     return text;
   }
@@ -106,19 +110,6 @@ export default class HdsDropdownListItemComponent extends Component {
     // could be made here
     if (navigator.clipboard.readText()) {
       this.isSuccess = true;
-      // computer says no to this
-      // this.args.state = 'success';
-      console.log(
-        `success is ${this.isSuccess},
-        this.args.text is ${this.args.text},
-        and clipboard is ${navigator.clipboard.readText()}`
-      );
-    } else {
-      console.log(
-        `success is ${this.isSuccess}, this.args.text is ${
-          this.args.text
-        } and clipboard is ${navigator.clipboard.readText()}`
-      );
     }
   }
 }
