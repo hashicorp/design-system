@@ -29,12 +29,10 @@
   border-radius: 5px;
   display: flex;
   height: 36px;
-  isolation: isolate;
   justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   padding: 1px;
-  position: relative;
   min-width: 36px;
 
   &:hover,  
@@ -67,9 +65,9 @@
   border-radius: 3px; // 5px- 1px padding - 1px border
   display: flex;
   justify-content: center;
-  height: 2rem;
+  height: 32px;
   padding: 1px;
-  width: 2rem;
+  width: 32px;
 
   img {
     border-radius: inherit;
@@ -129,12 +127,12 @@
   font-size: var(--token-typography-body-100-font-size);
   font-weight: var(--token-typography-font-weight-semibold);
   line-height: var(--token-typography-body-100-line-height);
-  padding: 0.625rem 1rem 0.25rem;
+  padding: 10px 16px 4px;
 }
 
 .hds-dropdown-list-item--generic {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .hds-dropdown-list-item--description {
@@ -143,12 +141,12 @@
   font-size: var(--token-typography-body-100-font-size);
   font-weight: var(--token-typography-font-weight-regular);
   line-height: var(--token-typography-body-100-line-height);
-  padding: 0.125rem 1rem 0.25rem;
+  padding: 2px 16px 4px;
 }
 
 .hds-dropdown-list-item--separator {
   position: relative;
-  height: 0.25rem;
+  height: 4px;
   width: 100%;
 
   &::before {
@@ -167,11 +165,11 @@
   font-size: var(--token-typography-body-100-font-size); // 13
   font-weight: var(--token-typography-font-weight-semibold);
   line-height: var(--token-typography-body-100-line-height); // 18
-  padding: 0.125rem 0 0.25rem;
+  padding: 2px 0 4px;
 }
 
 .hds-dropdown-list-item--copy-item {
-  padding: 0.625rem 1rem 0.75rem;
+  padding: 10px 16px 12px;
   width: 100%;
 
   button {
@@ -184,7 +182,7 @@
     display: flex;
     font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
-    padding: 0.75rem 0.5rem;
+    padding: 12px 8px;
     width: 100%;
     
     &:hover,
@@ -256,7 +254,7 @@
     display: flex;
     outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
-    padding: 0.5rem 0.625rem 0.5rem 1rem;
+    padding: 8px 10px 8px 16px;
     text-decoration: none;
 
     // this is used for the left "hover" indicator
