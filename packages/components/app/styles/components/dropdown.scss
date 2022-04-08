@@ -42,10 +42,8 @@
     cursor: pointer;
   }
 
-  &:focus,
-  &.is-focus {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
-  }
+  // this is the :focus
+  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
 
   &:active,
   &.is-active {
@@ -71,7 +69,6 @@
 
 .hds-dropdown-toggle-icon__chevron {
   margin-left: 0.25rem;
-  transition: ease-in-out 0.3s;
 }
 
 // TOGGLE/BUTTON
@@ -167,9 +164,7 @@
   padding: 10px 16px 12px;
   width: 100%;
 
-  button {
-    @include hds-focus-ring-basic();
-    
+  button { 
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--token-color-border-primary);
@@ -186,6 +181,8 @@
       cursor: pointer;
     }
 
+    @include hds-focus-ring-basic();
+    
     &:focus,
     &.is-focus {
       //TODO this focus is just way too complex 
