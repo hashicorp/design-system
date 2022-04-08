@@ -28,6 +28,7 @@ Router.map(function () {
       this.route('standalone');
       this.route('cta');
     });
+    this.route('dropdown');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

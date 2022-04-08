@@ -1,0 +1,392 @@
+// >>>>>>>>>> WARNING <<<<<<<<<<<
+//
+// Notice: in this component we're using directly the `Hds::Button` component
+// (and adding a specialized class for the "toggle-button" variant, see below)
+// If you need to change the styling of the `Button` component, remember that this will impact also
+// this component too.
+// If instead you need to change only the styling of the `toggle-button` component, you can do it here using
+// the specialized class declared below.
+// This is NOT a standard approach that we use in the HDS design system implementation, but it's been
+// the least worst option we could find to solve the problem of sharing the exact same style of the
+// `Button (primary)` with other components.
+
+//
+// DROPDOWN COMPONENT
+//
+// properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+//
+
+@use '../mixins/focus-ring' as *;
+
+// TOGGLE/ICON
+.hds-dropdown-toggle-icon {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent; // We need this to be transparent for a11y
+  border-radius: 5px;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+  outline-color: transparent; // We need this to be transparent for a11y
+  padding: 1px;
+  min-width: 36px;
+
+  &:hover,  
+  &.is-hover {
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong);
+    cursor: pointer;
+  }
+
+  // this is the :focus
+  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
+
+  &:active,
+  &.is-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+  }
+}
+
+.hds-dropdown-toggle-icon__wrapper {
+  align-items: center;
+  border-radius: 3px; // 5px- 1px padding - 1px border
+  display: flex;
+  justify-content: center;
+  height: 32px;
+  padding: 1px;
+  width: 32px;
+
+  img {
+    border-radius: inherit;
+    object-fit: cover; // this will make sure it's correct even if the item isn't square
+  }
+}
+
+.hds-dropdown-toggle-icon__chevron {
+  margin-left: 0.25rem;
+}
+
+// TOGGLE/BUTTON
+.hds-dropdown-toggle--with-button-component {
+  box-shadow: none; // we override this to remove the elevation style
+
+  .hds-button__icon {
+    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+  }
+}
+
+
+// LIST
+// UL ELEMENT
+// GOES INSIDE HDS::DISCLOSURE's :content block
+
+.hds-dropdown-list {
+  background-color: var(--token-color-surface-primary);
+  border-radius: 6px;
+  box-shadow: var(--token-surface-high-box-shadow);
+  list-style: none;
+  margin: 0;
+  max-width: 25rem;
+  min-width: 12.5rem;
+  padding: 4px 0;
+  &.hds-dropdown-list--position-right {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.25rem);
+    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+  }
+
+  &.hds-dropdown-list--position-left {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.25rem);
+    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+  }
+}
+
+// LIST > LIST-ITEM
+// HDS::DROPDOWN::LIST-ITEM
+
+.hds-dropdown-list-item--title {
+  color: var(--token-color-foreground-strong);
+  font-family: var(--token-typography-body-100-font-family);
+  font-size: var(--token-typography-body-100-font-size);
+  font-weight: var(--token-typography-font-weight-semibold);
+  line-height: var(--token-typography-body-100-line-height);
+  padding: 10px 16px 4px;
+}
+
+.hds-dropdown-list-item--generic {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.hds-dropdown-list-item--description {
+  color: var(--token-color-foreground-faint);
+  font-family: var(--token-typography-body-100-font-family);
+  font-size: var(--token-typography-body-100-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  line-height: var(--token-typography-body-100-line-height);
+  padding: 2px 16px 4px;
+}
+
+.hds-dropdown-list-item--separator {
+  position: relative;
+  height: 4px;
+  width: 100%;
+
+  &::before {
+    position: absolute;
+    right: 6px;
+    left: 6px;
+    bottom: 0;
+    border-bottom: 1px solid var(--token-color-border-primary);
+    content: '';
+  }
+}
+
+.hds-dropdown-list-item__copy-item-title {
+  color: var(--token-color-foreground-faint);
+  font-family: var(--token-typography-body-100-font-family);
+  font-size: var(--token-typography-body-100-font-size); // 13
+  font-weight: var(--token-typography-font-weight-semibold);
+  line-height: var(--token-typography-body-100-line-height); // 18
+  padding: 2px 0 4px;
+}
+
+.hds-dropdown-list-item--copy-item {
+  padding: 10px 16px 12px;
+  width: 100%;
+
+  button { 
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid var(--token-color-border-primary);
+    color: var(--token-color-foreground-primary);  
+    display: flex;
+    font-family: var(--token-typography-font-stack-code);
+    justify-content: space-between;
+    padding: 12px 8px;
+    width: 100%;
+    
+    &:hover,
+    &.is-hover {
+      background-color: var(--token-color-surface-interactive-hover);
+      cursor: pointer;
+    }
+
+    @include hds-focus-ring-basic();
+    
+    &:focus,
+    &.is-focus {
+      //TODO this focus is just way too complex 
+      background-color:  var(--token-color-surface-action);
+      border-color: var(--token-color-focus-action-internal);
+    }
+    
+    &:active, 
+    &.is-active {
+      background-color: var(--token-color-surface-interactive-active);
+    }
+
+    &.is-success {
+      border-color: var(--token-color-border-success);
+      background-color: var(--token-color-surface-success);
+      
+      .hds-dropdown-list-item__copy-item-icon {
+        color: var(--token-color-foreground-success);
+      }
+    } 
+
+    .hds-dropdown-list-item__copy-item-text {
+      font-size: var(--token-typography-code-100-font-size);
+      font-weight: var(--token-typography-font-weight-regular);
+      line-height: var(--token-typography-code-100-line-height);
+      // max-width: 250px; // TODO we should be able to figure out the proportions here
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hds-dropdown-list-item__copy-item-icon {
+      color: var(--token-color-foreground-action);
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.hds-dropdown-list-item--interactive {
+  position: relative;
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  min-height: 36px;
+
+  // need to reset a few extra things to make the button visually appear the same as the links
+  // TODO this is 0.125rem taller than the link...
+  button {
+    border: 1px inset transparent; // cause of the extra height
+    background-color: transparent;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+
+  // shared styles for links and buttons
+  a, button {
+    align-items: center;
+    display: flex;
+    outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+    outline-color: transparent;
+    padding: 8px 10px 8px 16px;
+    text-decoration: none;
+
+    // this is used for the left "hover" indicator
+    &::before {
+      border-radius: 1px;
+      bottom: 6px;
+      content: '';
+      left: 0.25rem;
+      position: absolute;
+      top: 6px;
+      width: 2px;
+      z-index: -1;
+    }
+
+    // Notice: this is used for the active/focus states which have very specific positions
+    // and also has a background color, so we can't use the existing focus-ring mixins
+    &::after {
+      border-radius: 5px;
+      bottom: 0px;
+      content: '';
+      left: 0.625rem;
+      position: absolute;
+      right: 0.25rem;
+      z-index: -1;
+      top: 0;
+    }
+
+    // Notice: to avoid too much duplication we define two local CSS variables
+    // and define their values in the color variants below
+
+    // default focus for browsers that still rely on ":focus"
+    &:focus,
+    &.is-focus {
+      &::after {
+        background-color: var(--current-background-color);
+        box-shadow: var(--current-focus-ring-box-shadow);
+        left: 0.25rem;
+      }
+    }
+    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+    &:focus:not(:focus-visible) {
+      &::after {
+        box-shadow: none;
+      }
+    }
+    // set focus for browsers that support ":focus-visible"
+    &:focus-visible {
+      &::after {
+        background-color: var(--current-background-color);
+        box-shadow: var(--current-focus-ring-box-shadow);
+        left: 0.25rem;
+      }
+    }
+    // remove the focus ring on "active + focused" state (by design)
+    &:focus:active,
+    &.is-focus.is-active {
+      &::after {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.hds-dropdown-list-item__interactive-text {
+  font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  font-weight: var(--token-typography-font-weight-medium);
+  line-height: var(--token-typography-body-200-line-height);
+  text-align: left; // the button element was centering text
+}
+
+.hds-dropdown-list-item__interactive-icon {
+  margin-right: 0.5rem;
+}
+
+.hds-dropdown-list-item--color-action {
+  a, button {
+    color: var(--token-color-foreground-primary);
+
+    // assign the values to the local CSS variables used above
+    &::after {
+      --current-background-color: var(--token-color-surface-action);
+      --current-focus-ring-box-shadow: var(
+        --token-focus-ring-action-box-shadow
+      );
+    }
+
+    &:hover,
+    &.is-hover {
+      color: var(--token-color-foreground-action-hover);
+      &::before {
+        background-color: currentColor;
+      }
+    }
+
+    &:active,
+    &.is-active {
+      color: var(--token-color-foreground-action-active);
+      &::before {
+        background-color: currentColor;
+      }
+      &::after {
+        background-color: var(--token-color-surface-action);
+      }
+    }
+  }
+}
+
+.hds-dropdown-list-item--color-critical {
+  a, button {
+    color: var(--token-color-foreground-critical);
+
+    // assign the values to the local CSS variables used above
+    &::after {
+      --current-background-color: var(--token-color-surface-critical);
+      --current-focus-ring-box-shadow: var(
+        --token-focus-ring-critical-box-shadow
+      );
+    }
+
+    &:hover,
+    &.is-hover {
+      color: var(
+        --token-color-palette-red-300
+      ); // TODO we need to add this token to the design system
+      &::before {
+        background-color: currentColor;
+      }
+    }
+    &:active,
+    &.is-active {
+      color: var(
+        --token-color-palette-red-400
+      ); // TODO we need to add this token to the design system
+      &::before {
+        background-color: currentColor;
+      }
+      &::after {
+        background-color: var(--token-color-surface-critical);
+      }
+    }
+  }
+}

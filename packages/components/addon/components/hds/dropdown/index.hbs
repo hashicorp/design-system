@@ -1,0 +1,38 @@
+<Hds::Disclosure class="hds-dropdown">
+  <:toggle as |t|>
+    {{#if (eq @toggle "toggleButton")}}
+      <Hds::Dropdown::ToggleButton
+        @color={{@color}}
+        @isOpen={{t.isActive}}
+        @text={{@text}}
+        {{on "click" t.onClickToggle}}
+      />
+    {{else}}
+      <Hds::Dropdown::ToggleIcon
+        @hasChevron={{@hasChevron}}
+        @icon={{@icon}}
+        @imageSrc={{@imageSrc}}
+        @isOpen={{t.isActive}}
+        @text={{@text}}
+        {{on "click" t.onClickToggle}}
+      />
+    {{/if}}
+  </:toggle>
+  <:content>
+    <ul
+      class="hds-dropdown-list
+        {{if (eq @listPosition 'left') 'hds-dropdown-list--position-left' 'hds-dropdown-list--position-right'}}"
+    >
+      {{yield
+        (hash
+          CopyItem=(component "hds/dropdown/list-item" item="copy-item")
+          Description=(component "hds/dropdown/list-item" item="description")
+          Generic=(component "hds/dropdown/list-item" item="generic")
+          Interactive=(component "hds/dropdown/list-item")
+          Separator=(component "hds/dropdown/list-item" item="separator")
+          Title=(component "hds/dropdown/list-item" item="title")
+        )
+      }}
+    </ul>
+  </:content>
+</Hds::Disclosure>
