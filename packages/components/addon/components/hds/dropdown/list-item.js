@@ -49,7 +49,7 @@ export default class HdsDropdownListItemComponent extends Component {
       '@text for "Hds::Dropdown::ListItem" must have a valid value',
       text !== undefined
     );
-    
+
     return text;
   }
 
@@ -73,8 +73,19 @@ export default class HdsDropdownListItemComponent extends Component {
   }
 
   /**
-   * TODO if color is critical, it MUST have an icon
+   * @param icon
+   * @type {string}
+   * @default null
+   * @description The name of the icon to be used.
    */
+  get icon() {
+    assert(
+      `when the "Hds::ListItem" @color is "critical" an @icon is required`,
+      !(this.color === 'critical' && !this.args.icon)
+    );
+
+    return this.args.icon ?? null;
+  }
 
   /**
    * Get the class names to apply to the component.
