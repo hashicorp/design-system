@@ -1,4 +1,10 @@
-<button class="hds-dropdown-toggle-icon" aria-label={{this.text}} type="button" ...attributes>
+<button
+  class="hds-dropdown-toggle-icon"
+  aria-label={{this.text}}
+  ...attributes
+  {{on "click" this.onClick}}
+  type="button"
+>
   <div class="hds-dropdown-toggle-icon__wrapper">
     {{#if @imageSrc}}
       <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" />

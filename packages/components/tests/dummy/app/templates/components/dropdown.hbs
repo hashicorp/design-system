@@ -224,11 +224,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @toggle="toggleButton"
-          @text="Text Toggle"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleButton @text="Text Toggle" /&gt;
           &lt;dd.Interactive @route="components.dropdown" @text="Item One" /&gt;
           &lt;dd.Interactive @route="components.dropdown" @text="Item Two" /&gt;
           &lt;dd.Interactive @route="components.dropdown" @text="Item Three" /&gt;
@@ -245,8 +242,8 @@
     <nav class="dummy-nav-dropdown" aria-label="example positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @text="Text Toggle" as |dd|>
-
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Text Toggle" />
             <dd.Interactive @route="components.dropdown" @text="Item One" />
             <dd.Interactive @route="components.dropdown" @text="Item Two" />
             <dd.Interactive @route="components.dropdown" @text="Item Three" />
@@ -270,11 +267,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @toggle="toggleButton"
-          @text="Integrate with Terraform Cloud"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd| &gt;
+          &lt;dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" /&gt;
           &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
           &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
           &lt;dd.Generic&gt;
@@ -294,7 +288,8 @@
     <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @toggle="toggleButton" @text="Integrate with Terraform Cloud" @color="secondary" as |dd|>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" />
             <dd.Title @text="Integrate with Terraform Cloud" />
             <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
             <dd.Generic>
@@ -324,12 +319,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @icon="more-horizontal"
-          @hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;
-          @text="Overflow Options"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleIcon @text="Overflow Options" @icon="more-horizontal" @hasChevron=\{{false}} /&gt;
           &lt;dd.Interactive @route="components.dropdown" @text="Create" /&gt;
           &lt;dd.Interactive @route="components.dropdown" @text="Read" /&gt;
           &lt;dd.Interactive @route="components.dropdown" @text="Update" /&gt;
@@ -358,8 +349,8 @@
           <td>Row 2, cell 1</td>
           <td>Row 2, cell 2</td>
           <td>
-            <Hds::Dropdown @text="Overflow Options" @icon="more-horizontal" @hasChevron={{false}} as |dd|>
-
+            <Hds::Dropdown as |dd|>
+              <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
               <dd.Interactive @route="components.dropdown" @text="Create" />
               <dd.Interactive @route="components.dropdown" @text="Read" />
               <dd.Interactive @route="components.dropdown" @text="Update" />
@@ -392,14 +383,11 @@
       attribute on the "overflow" toggle button.
     </p>
     {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @text="user menu"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleIcon @text="user menu" /&gt;
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
@@ -408,13 +396,13 @@
         &lt;/Hds::Dropdown&gt;
       '
     />
-    {{! template-lint-enable no-unbalanced-curlies }}
     {{! prettier-ignore-end }}
     <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
     <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @text="user menu" as |dd|>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -429,8 +417,8 @@
     <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @text="user menu" as |dd|>
-
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -448,8 +436,8 @@
     >
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item dummy-nav-dropdown__list-item-customized">
-          <Hds::Dropdown @text="user menu" as |dd|>
-
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -476,11 +464,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @text="settings menu"
-          @icon="settings"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd|&gt;
+          &lt;dd.ToggleIcon @text="settings menu" @icon="settings" /&gt;
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
@@ -495,7 +480,8 @@
     <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown @text="settings menu" @icon="settings" as |dd|>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="settings menu" @icon="settings" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />

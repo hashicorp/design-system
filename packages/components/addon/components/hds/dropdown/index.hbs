@@ -1,22 +1,11 @@
 <Hds::Disclosure class="hds-dropdown">
   <:toggle as |t|>
-    {{#if (eq @toggle "toggleButton")}}
-      <Hds::Dropdown::ToggleButton
-        @color={{@color}}
-        @isOpen={{t.isActive}}
-        @text={{@text}}
-        {{on "click" t.onClickToggle}}
-      />
-    {{else}}
-      <Hds::Dropdown::ToggleIcon
-        @hasChevron={{@hasChevron}}
-        @icon={{@icon}}
-        @imageSrc={{@imageSrc}}
-        @isOpen={{t.isActive}}
-        @text={{@text}}
-        {{on "click" t.onClickToggle}}
-      />
-    {{/if}}
+    {{yield
+      (hash
+        ToggleButton=(component "hds/dropdown/toggle-button" isOpen=t.isActive onClick=t.onClickToggle)
+        ToggleIcon=(component "hds/dropdown/toggle-icon" isOpen=t.isActive onClick=t.onClickToggle)
+      )
+    }}
   </:toggle>
   <:content>
     <ul
