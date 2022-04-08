@@ -15,7 +15,7 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
   // so we can't use the DOM "id" to target the component but we have to rely on the class name
 
   test('it renders the "list-item"', async function (assert) {
-    await render(hbs`<Hds::Dropdown::ListItem />`);
+    await render(hbs`<Hds::Dropdown::ListItem @text="some text must exist" />`);
     assert.dom(this.element).exists();
   });
 
@@ -118,7 +118,7 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ListItem @color="critical" @text="interactive" />`
+      hbs`<Hds::Dropdown::ListItem @color="critical" @text="interactive" @icon="trash" />`
     );
     assert
       .dom('.hds-dropdown-list-item')
