@@ -1,16 +1,46 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export const DEFAULT_COLOR = 'action';
 export const DEFAULT_ITEM = 'interactive';
 export const COLORS = ['action', 'critical'];
-export const ITEMS = ['title', 'description', 'separator', 'interactive'];
+export const ITEMS = [
+  'copy-item',
+  'description',
+  'generic',
+  'interactive',
+  'separator',
+  'title',
+];
 
 export default class HdsDropdownListItemComponent extends Component {
+  @tracked isSuccess = this.args.isSuccess ?? false;
+
+  /**
+   * @param item
+   * @type {string}
+   * @default interactive
+   * @description Determines the type of item to show
+   */
+  get item() {
+    let { item = DEFAULT_ITEM } = this.args;
+
+    assert(
+      `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
+        ', '
+      )}; received: ${item}`,
+      ITEMS.includes(item)
+    );
+
+    return item;
+  }
+
   /**
    * @param text
    * @type {string}
-   * @description The text of the item. If no text value is defined an error will be thrown.
+   * @description The text of the item. If no text value is defined an error will be thrown unless it is the generic or separator item type.
    */
   get text() {
     let { text } = this.args;
@@ -27,7 +57,7 @@ export default class HdsDropdownListItemComponent extends Component {
    * @param color
    * @type {string}
    * @default primary
-   * @description Determines the color of the item
+   * @description Determines the color of the item (when item is set to interactive)
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -43,27 +73,18 @@ export default class HdsDropdownListItemComponent extends Component {
   }
 
   /**
-   * TODO if color is critical, it MUST have an icon
-   */
-
-  /**
-   * @param item
+   * @param icon
    * @type {string}
-   * @default interactive
-   * @description Determines the type of item to show
+   * @default null
+   * @description The name of the icon to be used.
    */
-  get item() {
-    let { item = DEFAULT_ITEM } = this.args;
-
-    // do we need this assert anymore?
+  get icon() {
     assert(
-      `@item for "Hds::Dropdown::ListItem" must be one of the following: ${ITEMS.join(
-        ', '
-      )}; received: ${item}`,
-      ITEMS.includes(item)
+      `when the "Hds::ListItem" @color is "critical" an @icon is required`,
+      !(this.color === 'critical' && !this.args.icon)
     );
 
-    return item;
+    return this.args.icon ?? null;
   }
 
   /**
@@ -80,10 +101,20 @@ export default class HdsDropdownListItemComponent extends Component {
     }
 
     // add a class based on the @color argument
-    if (this.item === 'interactive' && this.color) {
+    if (this.item === 'interactive') {
       classes.push(`hds-dropdown-list-item--color-${this.color}`);
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  copyCode() {
+    navigator.clipboard.writeText(this.args.text);
+    // this if statement resolves to [object Promise] so maybe some improvements
+    // could be made here
+    if (navigator.clipboard.readText()) {
+      this.isSuccess = true;
+    }
   }
 }

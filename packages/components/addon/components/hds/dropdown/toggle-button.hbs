@@ -13,10 +13,10 @@
 }}
 
 <Hds::Button
-  @text={{@text}}
+  @text={{this.text}}
   @icon="chevron-{{if @isOpen 'up' 'down'}}"
   @iconPosition="trailing"
-  @color={{@color}}
+  @color={{this.color}}
   class="hds-dropdown-toggle--with-button-component"
   {{on "click" this.onClick}}
   ...attributes

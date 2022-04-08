@@ -2,6 +2,8 @@
 
 <h2 class="dummy-h2">Button component</h2>
 
+<DummyLinkCtaButtonBanner />
+
 <section>
   <h3 class="dummy-h3">Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
@@ -36,7 +38,6 @@
       <p><strong>🚨 IMPORTANT:</strong>
         <code class="dummy-code">tertiary</code>
         buttons are required to have either a leading or trailing icon to be accessible.</p>
-
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
@@ -74,11 +75,8 @@
 <section>
   <h3 class="dummy-h3">Usage</h3>
   <p class="dummy-paragraph">
-    The button component is used to trigger an action or event. They should not be used to route to a URL. This
-    component supports
-    <code class="dummy-code">...attributes</code>
-    .
-  </p>
+    The button component is used to trigger an action or event. For accessibility, buttons should not be used to route
+    to a URL.</p>
 
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">The most basic invocation requires text to be passed:</p>
@@ -152,8 +150,12 @@
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
-    There are four available colors for a button: primary, secondary, tertiary, and critical. The default is primary. To
-    use a different color, declare another value for
+    There are four available colors for a button:
+    <code class="dummy-code">primary</code>,
+    <code class="dummy-code">secondary</code>,
+    <code class="dummy-code">tertiary</code>, and
+    <code class="dummy-code">critical</code>. The default is
+    <code class="dummy-code">primary</code>. To use a different color, declare another value for
     <code class="dummy-code">@color</code>:
   </p>
   {{! prettier-ignore-start }}
@@ -164,6 +166,7 @@
     '
   />
   {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @icon="plus" @text="Primary action" />
   <br />
   <Hds::Button @icon="plus" @text="Secondary action" @color="secondary" />
@@ -236,7 +239,7 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Copy to clipboard" disabled />
 
-  <h4 class="dummy-h4">Full-width buttons</h4>
+  <h4 class="dummy-h4">Full-width</h4>
   <p class="dummy-paragraph">
     This allows indication that a button should take up the full-width of the parent container. It is set to
     <code class="dummy-code">false</code>

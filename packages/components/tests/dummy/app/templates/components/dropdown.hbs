@@ -72,7 +72,7 @@
       <p>The value of <em>aria-label</em> for the toggle icon.</p>
       <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
-    <dt>iconName <code>string</code></dt>
+    <dt>icon <code>string</code></dt>
     <dd>
       <p>Any valid flight-icon name. If none is defined,
         <span class="dummy-code default">user</span>
@@ -119,23 +119,33 @@
         Acceptable values:
       </p>
       <ol>
-        <li>title</li>
-        <li>description</li>
-        <li>separator</li>
         <li class="default">interactive</li>
+        <li>copy-item</li>
+        <li>description</li>
+        <li>generic</li>
+        <li>separator</li>
+        <li>title</li>
       </ol>
+      <p>🚨 Important Note: the
+        <span class="dummy-code">generic</span>
+        is a yield and the developer is completely responsible for any item yielded there (including the accessibility
+        of that item). This is provided as an escape hatch to empower developers to more easily transition to the design
+        system. It should be considered as a temporary measure with plans for replacement.</p>
     </dd>
     <dt>text
       <code>string</code>
     </dt>
     <dd>
-      <p>The text to be used for all items. The only item that does not require text to be defined is the separator.</p>
-      <p><em>If no text value is defined an error will be thrown.</em></p>
+      <p>The text to be used for all items. The only items that do not require text to be defined are the separator and
+        generic item types. Otherwise,
+        <em>If no text value is defined an error will be thrown.</em></p>
     </dd>
     <dt>color <code>enum</code></dt>
     <dd>
       <p>
-        Acceptabe values:
+        For use on the
+        <span class="dummy-code">interactive</span>
+        item type. Acceptabe values:
       </p>
       <ol>
         <li class="default">action</li>
@@ -179,14 +189,35 @@
         <em>must</em>
         exist for critical list-items. All icons will be placed to the left of the list-item.</p>
     </dd>
+    <dt>
+      copyItemTitle
+      <code>string</code>
+    </dt>
+    <dd>
+      <p>Optional. For use on the <span class="dummy-code">copy-item</span> item type.</p>
+    </dd>
   </dl>
 </section>
 <section>
   <h3 class="dummy-h3" id="section-usage">Usage</h3>
-  <h4 class="dummy-h4">Toggle/Text</h4>
+  <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the
+    list-item item types. For example,
+    <span class="dummy-code">&lt;Hds::Dropdown::ListItem &commat;item="separator" /&gt;</span>
+    becomes
+    <span class="dummy-code">&lt;.Separator /&gt;</span>
+    when invoked (see examples below).
+  </p>
+  <p class="dummy-paragraph">The
+    <span class="dummy-code">interactive</span>
+    item type stays as the default and renders the correct element based on the passing of an
+    <span class="dummy-code">&commat;route</span>,
+    <span class="dummy-code">&commat;href</span>, or the addition of a click event (i.e.,
+    <span class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</span>).</p>
+  <h4 class="dummy-h4">Example: ToggleButton + ListItem, Separator</h4>
   <div>
     <p class="dummy-paragraph">
-      Example: a ToggleButton with links, a separator and a destructive (critical) link:
+      This example demonstrates the use of a dropdown with a toggle-button, links, a separator and a link (color,
+      critical):
     </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
@@ -195,12 +226,12 @@
       @code='
         &lt;Hds::Dropdown as |dd|&gt;
           &lt;dd.ToggleButton @text="Text Toggle" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Hover" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Focus" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Dropdown Component" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Item One" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Item Two" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Item Three" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Item Four" /&gt;
           &lt;dd.Separator /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -213,38 +244,74 @@
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Text Toggle" />
-            <dd.ListItem @route="components.dropdown" @text="Hover" />
-            <dd.ListItem @route="components.dropdown" @text="Focus" />
-            <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
-            <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
+            <dd.Interactive @route="components.dropdown" @text="Item One" />
+            <dd.Interactive @route="components.dropdown" @text="Item Two" />
+            <dd.Interactive @route="components.dropdown" @text="Item Three" />
+            <dd.Interactive @route="components.dropdown" @text="Item Four" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-    <p class="dummy-paragraph">Rendered as secondary variation (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleButton @text="Toggle" @color="secondary" />
-            <dd.ListItem @route="components.dropdown" @text="Hover" />
-            <dd.ListItem @route="components.dropdown" @text="Focus" />
-            <dd.ListItem @route="components.dropdown" @text="Dropdown Component" />
-            <dd.ListItem @route="components.dropdown" @text="Active (+ Hover)" />
-            <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
     </nav>
   </div>
+
+  <h4 class="dummy-h4">Example: ToggleButton + Title, Description, CopyItem, Separator</h4>
   <div>
-    <h4 class="dummy-h4">Toggle/Icon: Overflow</h4>
+    <p class="dummy-paragraph">
+      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, a
+      generic (which is yielding a Link::Standalone component), copy-item, a separator and a link (color, critical):
+    </p>
+    {{! prettier-ignore-start }}
+    {{! template-lint-disable no-unbalanced-curlies }}
+    <CodeBlock
+      @language="markup"
+      @code='
+        &lt;Hds::Dropdown
+          @toggle="toggleButton"
+          @text="Integrate with Terraform Cloud"
+          as |dd| &gt;
+
+          &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
+          &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
+          &lt;dd.Generic&gt;
+            &lt;Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" /&gt;
+          &lt;/dd.Generic&gt;
+          &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" /&gt;
+          &lt;dd.CopyLabel  /&gt;
+          &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @text="HMAC Key" /&gt;
+          &lt;dd.Separator /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" /&gt;
+        &lt;/Hds::Dropdown&gt;
+      '
+    />
+    {{! template-lint-enable no-unbalanced-curlies }}
+    {{! prettier-ignore-end }}
+    <p class="dummy-paragraph">Rendered as secondary variation (in a row, positioned to the right):</p>
+    <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item">
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" />
+            <dd.Title @text="Integrate with Terraform Cloud" />
+            <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
+            <dd.Generic>
+              <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+            </dd.Generic>
+            <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
+            <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div>
+    <h4 class="dummy-h4">Example: ToggleIcon for Overflow dropdown menus</h4>
     <p class="dummy-paragraph">
       Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and
-      destructive (critical) links.
+      destructive (critical) links. This is the only use case where it is acceptable to use
+      <span class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</span>.
       <br />Note that
       <span class="dummy-code">toggleText</span>
       is still required, because it supplies the aria-label for the toggle button.
@@ -257,10 +324,10 @@
       @code='
         &lt;Hds::Dropdown as |dd|&gt;
           &lt;dd.ToggleIcon @text="Overflow Options" @iconName="more-horizontal" @hasChevron=\{{false}} /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Create" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Read" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Update" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Create" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Read" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Update" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -287,10 +354,10 @@
           <td>
             <Hds::Dropdown as |dd|>
               <dd.ToggleIcon @iconName="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-              <dd.ListItem @route="components.dropdown" @text="Create" />
-              <dd.ListItem @route="components.dropdown" @text="Read" />
-              <dd.ListItem @route="components.dropdown" @text="Update" />
-              <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+              <dd.Interactive @route="components.dropdown" @text="Create" />
+              <dd.Interactive @route="components.dropdown" @text="Read" />
+              <dd.Interactive @route="components.dropdown" @text="Update" />
+              <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
             </Hds::Dropdown>
           </td>
         </tr>
@@ -309,7 +376,7 @@
   </div>
   {{! TODO we really need some spacing between these examples, the doc has no vertical rhythm }}
   <div>
-    <h4 class="dummy-h4">Toggle/Icon: User Icon</h4>
+    <h4 class="dummy-h4">Example: ToggleIcon as user menu</h4>
     <p class="dummy-paragraph">
       In this example, we have a user icon with a title, description, separator, and links.
       <br />Note that
@@ -327,8 +394,8 @@
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -342,8 +409,8 @@
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -358,8 +425,27 @@
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+        </li>
+      </ul>
+    </nav>
+    <p class="dummy-paragraph">Dark mode is not supported by the design system yet. Here is a customized example to
+      demonstrate that customization can be implemented by the consuming app:</p>
+    <nav
+      class="dummy-nav-dropdown background-black"
+      aria-label="example row user bgblack positioned right with customization"
+    >
+      <ul class="dummy-nav-dropdown__list">
+        <li class="dummy-nav-dropdown__list-item dummy-nav-dropdown__list-item-customized">
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="design-systems@hashicorp.com" />
+            <dd.Separator />
+            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
@@ -367,7 +453,7 @@
   </div>
 
   <div>
-    <h4 class="dummy-h4">Toggle/Icon: Other Icons</h4>
+    <h4 class="dummy-h4">Example: ToggleIcon with other icons</h4>
     <p class="dummy-paragraph">
       In this example, we have a settings icon with a title, description, separator, and links.
       <br />Note that
@@ -386,8 +472,8 @@
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
+          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
         &lt;/Hds::Dropdown&gt;
       '
     />
@@ -402,18 +488,27 @@
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
-            <dd.ListItem @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.ListItem @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </li>
       </ul>
     </nav>
   </div>
 </section>
+
 <section>
-  <h3 class="dummy-h3" id="section-design-guidelines">Design guidelines</h3>
-  <p class="dummy-paragraph">Coming soon!</p>
+  <h3 class="dummy-h3">Design guidelines</h3>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a
+        href="https://www.figma.com/file/DUjKDINH2ps9ggk6YsAVC6/Dropdown?node-id=6484%3A17367"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma Documentation (internal)</a></p>
+  </div>
 </section>
+
 <section>
   <h3 class="dummy-h3" id="section-accessibility">Accessibility</h3>
   <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
@@ -536,7 +631,7 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="section-showcase">Showcase: Toggles</h3>
 
-  <h4 class="dummy-h4">Toggle: Button (Default)</h4>
+  <h4 class="dummy-h4">ToggleButton (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <p class="dummy-paragraph">Color: primary (default)</p>
@@ -553,7 +648,7 @@
       <Hds::Dropdown::ToggleButton @text="Manage sources" @isOpen={{true}} @color="secondary" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Default)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Default)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
@@ -562,13 +657,13 @@
       <Hds::Dropdown::ToggleIcon @isOpen={{true}} @text="user menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Overflow)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Overflow)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
-      <Hds::Dropdown::ToggleIcon @iconName="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
+      <Hds::Dropdown::ToggleIcon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Image/Avatar)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Image/Avatar)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
@@ -577,13 +672,13 @@
       <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" @isOpen={{true}} @text="user menu" />
     </div>
   </div>
-  <h4 class="dummy-h4">Toggle: Icon (Any other icon)</h4>
+  <h4 class="dummy-h4">ToggleIcon (Any other icon)</h4>
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::ToggleIcon @iconName="settings" @text="settings menu" />
+      <Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" />
       <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::ToggleIcon @iconName="settings" @isOpen={{true}} @text="settings menu" />
+      <Hds::Dropdown::ToggleIcon @icon="settings" @isOpen={{true}} @text="settings menu" />
     </div>
   </div>
 
@@ -605,7 +700,7 @@
         <br />
         <Hds::Dropdown::ToggleIcon
           @text="overflow menu"
-          @iconName="more-horizontal"
+          @icon="more-horizontal"
           @hasChevron={{false}}
           class="is-{{state}}"
         />
@@ -615,14 +710,14 @@
       <div class="hds-dropdown">
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleIcon class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon @text={{state}} class="is-{{state}}" />
       </div>
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
       <div class="hds-dropdown">
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::ToggleIcon @imageSrc="/assets/images/avatar.png" class="is-{{state}}" />
+        <Hds::Dropdown::ToggleIcon @text={{state}} @imageSrc="/assets/images/avatar.png" class="is-{{state}}" />
       </div>
     {{/each}}
   </div>
@@ -651,14 +746,58 @@
     </ul>
   </div>
 
-  <h4 class="dummy-h4">Links</h4>
+  <h4 class="dummy-h4">CopyItem</h4>
+  <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
+    <ul class="hds-dropdown-list">
+      {{#each @model.ITEM_STATES as |state|}}
 
+        <Hds::Dropdown::ListItem
+          @item="copy-item"
+          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
+          @state={{state}}
+        />
+      {{/each}}
+      <Hds::Dropdown::ListItem
+        @item="copy-item"
+        @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
+        @state="success"
+        @isSuccess="true"
+      />
+    </ul>
+
+    <ul class="hds-dropdown-list">
+      {{#each @model.ITEM_STATES as |state|}}
+
+        <Hds::Dropdown::ListItem
+          @copyItemTitle="Optional copyItemTitle"
+          @item="copy-item"
+          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
+          @state={{state}}
+        />
+      {{/each}}
+      <Hds::Dropdown::ListItem
+        @copyItemTitle="Optional copyItemTitle"
+        @item="copy-item"
+        @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
+        @isSuccess="true"
+        @state="success"
+      />
+    </ul>
+  </div>
+
+  <h4 class="dummy-h4">Links</h4>
   {{#each @model.ITEM_COLORS as |color|}}
-    <p class="dummy-paragraph">{{capitalize color}}</p>
+    <p class="dummy-paragraph">Color: {{capitalize color}}</p>
     <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem @route="components.dropdown" @text={{state}} @color={{color}} @state={{state}} />
+          <Hds::Dropdown::ListItem
+            @icon={{if (eq color "critical") "trash" null}}
+            @route="components.dropdown"
+            @text={{state}}
+            @color={{color}}
+            @state={{state}}
+          />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
@@ -693,7 +832,12 @@
     <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem @text={{state}} @color={{color}} @state={{state}} />
+          <Hds::Dropdown::ListItem
+            @icon={{if (eq color "critical") "trash" null}}
+            @text={{state}}
+            @color={{color}}
+            @state={{state}}
+          />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">

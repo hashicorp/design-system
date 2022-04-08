@@ -25,7 +25,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @param color
    * @type {string}
    * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
+   * @description Determines the color of button to be used; acceptable values are `primary` and  `secondary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
