@@ -37,7 +37,7 @@
   position: relative;
   min-width: 36px;
 
-  &:hover,
+  &:hover,  
   &.is-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
@@ -73,6 +73,7 @@
 
   img {
     border-radius: inherit;
+    object-fit: cover; // this will make sure it's correct even if the item isn't square
   }
 }
 
