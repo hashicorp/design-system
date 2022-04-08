@@ -1,9 +1,9 @@
 <button
   class="hds-dropdown-toggle-icon"
   aria-label={{this.text}}
-  type="button"
-  {{on "click" this.onClick}}
   ...attributes
+  {{on "click" this.onClick}}
+  type="button"
 >
   <div class="hds-dropdown-toggle-icon__wrapper">
     {{#if @imageSrc}}
