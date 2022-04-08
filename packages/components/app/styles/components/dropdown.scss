@@ -44,13 +44,7 @@
 
   &:focus,
   &.is-focus {
-    @include hds-focus-ring-with-pseudo-element(
-      $top: -1px,
-      $right: -1px,
-      $bottom: -1px,
-      $left: -1px,
-      $radius: 5px
-    );
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
   }
 
   &:active,
@@ -77,6 +71,7 @@
 
 .hds-dropdown-toggle-icon__chevron {
   margin-left: 0.25rem;
+  transition: ease-in-out 0.3s;
 }
 
 // TOGGLE/BUTTON
