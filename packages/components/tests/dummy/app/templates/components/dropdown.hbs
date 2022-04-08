@@ -267,11 +267,8 @@
     <CodeBlock
       @language="markup"
       @code='
-        &lt;Hds::Dropdown
-          @toggle="toggleButton"
-          @text="Integrate with Terraform Cloud"
-          as |dd| &gt;
-
+        &lt;Hds::Dropdown as |dd| &gt;
+          &lt;dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" /&gt;
           &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
           &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
           &lt;dd.Generic&gt;
