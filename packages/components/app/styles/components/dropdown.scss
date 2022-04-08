@@ -21,29 +21,21 @@
 
 @use '../mixins/focus-ring' as *;
 
-$hds-dropdown-toggle-base-height: 36px;
-$hds-dropdown-toggle-border-radius: 5px;
-$hds-dropdown-toggle-border-width: 1px;
-
-
-
 // TOGGLE/ICON
 .hds-dropdown-toggle-icon {
   align-items: center;
   background-color: transparent;
-  border: $hds-dropdown-toggle-border-width solid transparent; // We need this to be transparent for a11y
-  border-radius: $hds-dropdown-toggle-border-radius;
-  box-sizing: border-box; // TODO https://github.com/hashicorp/design-system-components/issues/46
-  color: var(--token-color-foreground-strong);
+  border: 1px solid transparent; // We need this to be transparent for a11y
+  border-radius: 5px;
   display: flex;
-  height: $hds-dropdown-toggle-base-height;
+  height: 36px;
   isolation: isolate;
   justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   padding: 1px;
   position: relative;
-  min-width: $hds-dropdown-toggle-base-height;
+  min-width: 36px;
 
   &:hover,
   &.is-hover {
@@ -59,7 +51,7 @@ $hds-dropdown-toggle-border-width: 1px;
       $right: -1px,
       $bottom: -1px,
       $left: -1px,
-      $radius: $hds-dropdown-toggle-border-radius
+      $radius: 5px
     );
   }
 
@@ -72,7 +64,7 @@ $hds-dropdown-toggle-border-width: 1px;
 
 .hds-dropdown-toggle-icon__wrapper {
   align-items: center;
-  border-radius: 3px; // $hds-dropdown-toggle-border-radius- 1px padding - 1px border
+  border-radius: 3px; // 5px- 1px padding - 1px border
   display: flex;
   justify-content: center;
   height: 2rem;
@@ -178,7 +170,6 @@ $hds-dropdown-toggle-border-width: 1px;
 }
 
 .hds-dropdown-list-item--copy-item {
-  box-sizing: border-box;
   padding: 0.625rem 1rem 0.75rem;
   width: 100%;
 
@@ -188,7 +179,6 @@ $hds-dropdown-toggle-border-width: 1px;
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--token-color-border-primary);
-    box-sizing: border-box;
     color: var(--token-color-foreground-primary);  
     display: flex;
     font-family: var(--token-typography-font-stack-code);
@@ -231,10 +221,10 @@ $hds-dropdown-toggle-border-width: 1px;
       overflow: hidden;
       text-align: left;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .hds-dropdown-list-item__copy-item-icon {
-      align-self: flex-end;
       color: var(--token-color-foreground-action);
       margin-left: 0.5rem;
     }
@@ -249,10 +239,10 @@ $hds-dropdown-toggle-border-width: 1px;
   // need to reset a few extra things to make the button visually appear the same as the links
   // TODO this is 0.125rem taller than the link...
   button {
-    box-sizing: border-box;
     border: 1px inset transparent; // cause of the extra height
     background-color: transparent;
     width: 100%;
+
     &:hover {
       cursor: pointer;
     }
@@ -360,6 +350,7 @@ $hds-dropdown-toggle-border-width: 1px;
         background-color: currentColor;
       }
     }
+
     &:active,
     &.is-active {
       color: var(--token-color-foreground-action-active);
