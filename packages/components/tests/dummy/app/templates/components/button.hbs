@@ -35,9 +35,19 @@
     <dt>icon <code>string</code></dt>
     <dd>
       <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
-      <p><strong>🚨 IMPORTANT:</strong>
+      <p><strong>🚨 IMPORTANT a11y note:</strong>
         <code class="dummy-code">tertiary</code>
-        buttons are required to have either a leading or trailing icon to be accessible.</p>
+        buttons have transparent backgrounds, and interactive elements must communicate interactivity with more than
+        just color. Therefore, a leading or trailing icon is required when using the
+        <code class="dummy-code">tertiary</code>
+        color.
+        <Hds::Link::Standalone
+          href="https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=141#use-of-color"
+          @text="WCAG 2.1 Criterion 1.4.1: Use of Color (Level A)"
+          @icon="external-link"
+          @iconPosition="trailing"
+        />
+      </p>
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
