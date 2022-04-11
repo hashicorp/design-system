@@ -141,10 +141,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-list-item--title {
   color: var(--token-color-foreground-strong);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size);
-  font-weight: var(--token-typography-font-weight-semibold);
-  line-height: var(--token-typography-body-100-line-height);
   padding: 10px 16px 4px;
 }
 
@@ -155,10 +151,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-list-item--description {
   color: var(--token-color-foreground-faint);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size);
-  font-weight: var(--token-typography-font-weight-regular);
-  line-height: var(--token-typography-body-100-line-height);
   padding: 2px 16px 4px;
 }
 
@@ -179,10 +171,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-list-item__copy-item-title {
   color: var(--token-color-foreground-faint);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size); // 13
-  font-weight: var(--token-typography-font-weight-semibold);
-  line-height: var(--token-typography-body-100-line-height); // 18
   padding: 2px 0 4px;
 }
 
@@ -196,7 +184,6 @@ $hds-dropdown-toggle-border-radius: 5px;
     border: 1px solid var(--token-color-border-primary);
     color: var(--token-color-foreground-primary);
     display: flex;
-    font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
     padding: 12px 8px;
     width: 100%;
@@ -231,10 +218,6 @@ $hds-dropdown-toggle-border-radius: 5px;
     }
 
     .hds-dropdown-list-item__copy-item-text {
-      font-size: var(--token-typography-code-100-font-size);
-      font-weight: var(--token-typography-font-weight-regular);
-      line-height: var(--token-typography-code-100-line-height);
-      // max-width: 250px; // TODO we should be able to figure out the proportions here
       overflow: hidden;
       text-align: left;
       text-overflow: ellipsis;
@@ -337,10 +320,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item__interactive-text {
-  font-family: var(--token-typography-body-200-font-family);
-  font-size: var(--token-typography-body-200-font-size);
-  font-weight: var(--token-typography-font-weight-medium);
-  line-height: var(--token-typography-body-200-line-height);
   text-align: left; // the button element was centering text
 }
 

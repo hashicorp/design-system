@@ -11,14 +11,16 @@
 {{else if (eq this.item "copy-item")}}
   <li class={{this.classNames}}>
     {{#if @copyItemTitle}}
-      <div class="hds-dropdown-list-item__copy-item-title">{{@copyItemTitle}}</div>
+      <div
+        class="hds-dropdown-list-item__copy-item-title hds-typography-body-100 hds-font-weight-semibold"
+      >{{@copyItemTitle}}</div>
     {{/if}}
     <button
       type="button"
       class="{{if @state (concat 'is-' @state)}} {{if this.isSuccess 'is-success'}}"
       {{on "click" this.copyCode}}
     >
-      <div class="hds-dropdown-list-item__copy-item-text">
+      <div class="hds-dropdown-list-item__copy-item-text hds-typography-code-100">
         {{this.text}}
       </div>
       <FlightIcon
@@ -53,7 +55,7 @@
             <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item__interactive-text">
+        <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
           {{this.text}}
         </div>
       </LinkTo>
@@ -64,7 +66,7 @@
             <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item__interactive-text">
+        <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
           {{this.text}}
         </div>
       </a>
@@ -75,7 +77,7 @@
             <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
           </div>
         {{/if}}
-        <div class="hds-dropdown-list-item__interactive-text">
+        <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
           {{this.text}}
         </div>
       </button>
