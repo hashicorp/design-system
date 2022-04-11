@@ -219,11 +219,9 @@ $hds-dropdown-toggle-border-radius: 5px;
   min-height: 36px;
   position: relative;
 
-  // need to reset a few extra things to make the button visually appear the same as the links
-  // TODO this is 2px taller than the link...
+  // need to reset a few extra things to make the button visually appear the same as the link
   button {
     background-color: transparent;
-    border: 1px inset transparent; // cause of the extra height
     width: 100%;
 
     &:hover {
@@ -235,10 +233,11 @@ $hds-dropdown-toggle-border-radius: 5px;
   // shared styles for links and buttons
   a, button {
     align-items: center;
+    border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
     display: flex;
     outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
-    padding: 8px 10px 8px 16px;
+    padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
 
     // this is used for the left "hover" indicator
