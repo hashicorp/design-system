@@ -21,6 +21,9 @@
 
 @use '../mixins/focus-ring' as *;
 
+$hds-dropdown-toggle-base-height: 36px;
+$hds-dropdown-toggle-border-radius: 5px;
+
 
 // TOGGLE/ICON
 
@@ -28,14 +31,14 @@
   align-items: center;
   background-color: transparent;
   border: 1px solid transparent; // We need this to be transparent for a11y
-  border-radius: 5px;
+  border-radius: $hds-dropdown-toggle-border-radius;
   display: flex;
-  height: 36px;
+  height: $hds-dropdown-toggle-base-height;
   justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   padding: 1px;
-  min-width: 36px;
+  min-width: $hds-dropdown-toggle-base-height;
 
   &:hover,
   &.is-hover {
@@ -44,7 +47,7 @@
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
+  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
 
   &:active,
   &.is-active {
@@ -55,7 +58,7 @@
 
 .hds-dropdown-toggle-icon__wrapper {
   align-items: center;
-  border-radius: 3px; // 5px- 1px padding - 1px border
+  border-radius: 3px; // $hds-dropdown-toggle-border-radius - 1px padding - 1px border
   display: flex;
   justify-content: center;
   height: 32px;
