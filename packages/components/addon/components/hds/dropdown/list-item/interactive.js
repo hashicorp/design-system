@@ -4,7 +4,7 @@ import { assert } from '@ember/debug';
 export const DEFAULT_COLOR = 'action';
 export const COLORS = ['action', 'critical'];
 
-export default class HdsDropdownListItemComponent extends Component {
+export default class HdsDropdownListItemInteractiveComponent extends Component {
   /**
    * @param text
    * @type {string}
