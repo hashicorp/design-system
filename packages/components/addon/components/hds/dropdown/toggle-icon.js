@@ -56,4 +56,20 @@ export default class HdsDropdownToggleIconComponent extends Component {
       return () => {};
     }
   }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method ToggleIcon#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-dropdown-toggle-icon'];
+
+    // add a class based on the @isOpen argument
+    if (this.args.isOpen) {
+      classes.push('hds-dropdown-toggle-icon--is-open');
+    }
+
+    return classes.join(' ');
+  }
 }

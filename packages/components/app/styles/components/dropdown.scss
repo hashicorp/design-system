@@ -21,7 +21,9 @@
 
 @use '../mixins/focus-ring' as *;
 
+
 // TOGGLE/ICON
+
 .hds-dropdown-toggle-icon {
   align-items: center;
   background-color: transparent;
@@ -35,14 +37,13 @@
   padding: 1px;
   min-width: 36px;
 
-  &:hover,  
+  &:hover,
   &.is-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
     cursor: pointer;
   }
 
-  // this is the :focus
   @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
 
   &:active,
@@ -69,15 +70,35 @@
 
 .hds-dropdown-toggle-icon__chevron {
   margin-left: 0.25rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform .3s;
+  }
+
+  .hds-dropdown-toggle-icon--is-open & {
+    transform: rotate(-180deg);
+  }
 }
 
 // TOGGLE/BUTTON
-.hds-dropdown-toggle--with-button-component {
+
+.hds-dropdown-toggle-button {
   box-shadow: none; // we override this to remove the elevation style
 
   .hds-button__icon {
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
     margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform .3s;
+    }
+  }
+}
+
+
+.hds-dropdown-toggle-button--is-open {
+  .hds-button__icon {
+    transform: rotate(-180deg);
   }
 }
 
@@ -164,17 +185,17 @@
   padding: 10px 16px 12px;
   width: 100%;
 
-  button { 
+  button {
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--token-color-border-primary);
-    color: var(--token-color-foreground-primary);  
+    color: var(--token-color-foreground-primary);
     display: flex;
     font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
     padding: 12px 8px;
     width: 100%;
-    
+
     &:hover,
     &.is-hover {
       background-color: var(--token-color-surface-interactive-hover);
@@ -182,15 +203,15 @@
     }
 
     @include hds-focus-ring-basic();
-    
+
     &:focus,
     &.is-focus {
-      //TODO this focus is just way too complex 
+      //TODO this focus is just way too complex
       background-color:  var(--token-color-surface-action);
       border-color: var(--token-color-focus-action-internal);
     }
-    
-    &:active, 
+
+    &:active,
     &.is-active {
       background-color: var(--token-color-surface-interactive-active);
     }
@@ -198,11 +219,11 @@
     &.is-success {
       border-color: var(--token-color-border-success);
       background-color: var(--token-color-surface-success);
-      
+
       .hds-dropdown-list-item__copy-item-icon {
         color: var(--token-color-foreground-success);
       }
-    } 
+    }
 
     .hds-dropdown-list-item__copy-item-text {
       font-size: var(--token-typography-code-100-font-size);
