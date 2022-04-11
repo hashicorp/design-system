@@ -67,7 +67,9 @@ $hds-dropdown-toggle-border-radius: 5px;
 
   img {
     border-radius: inherit;
+    height: 100%;
     object-fit: cover; // this will make sure it's correct even if the item isn't square
+    width: 100%;
   }
 }
 
