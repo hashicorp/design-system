@@ -72,7 +72,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-toggle-icon__chevron {
-  margin-left: 0.25rem;
+  margin-left: 4px;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform .3s;
@@ -90,7 +90,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
   .hds-button__icon {
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
-    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+    margin-left: 8px; // this overrides the rule `.hds-button__text + .hds-button__icon`
 
     @media (prefers-reduced-motion: no-preference) {
       transition: transform .3s;
@@ -116,20 +116,20 @@ $hds-dropdown-toggle-border-radius: 5px;
   box-shadow: var(--token-surface-high-box-shadow);
   list-style: none;
   margin: 0;
-  max-width: 25rem;
-  min-width: 12.5rem;
+  max-width: 400px;
+  min-width: 200px;
   padding: 4px 0;
   &.hds-dropdown-list--position-right {
     position: absolute;
     right: 0;
-    top: calc(100% + 0.25rem);
+    top: calc(100% + 4px);
     z-index: 2; // https://github.com/hashicorp/design-system/issues/114
   }
 
   &.hds-dropdown-list--position-left {
     position: absolute;
     left: 0;
-    top: calc(100% + 0.25rem);
+    top: calc(100% + 4px);
     z-index: 2; // https://github.com/hashicorp/design-system/issues/114
   }
 }
@@ -241,7 +241,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
     .hds-dropdown-list-item__copy-item-icon {
       color: var(--token-color-foreground-action);
-      margin-left: 0.5rem;
+      margin-left: 8px;
     }
   }
 }
@@ -252,7 +252,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   min-height: 36px;
 
   // need to reset a few extra things to make the button visually appear the same as the links
-  // TODO this is 0.125rem taller than the link...
+  // TODO this is 2px taller than the link...
   button {
     border: 1px inset transparent; // cause of the extra height
     background-color: transparent;
@@ -278,7 +278,7 @@ $hds-dropdown-toggle-border-radius: 5px;
       border-radius: 1px;
       bottom: 6px;
       content: '';
-      left: 0.25rem;
+      left: 4px;
       position: absolute;
       top: 6px;
       width: 2px;
@@ -291,9 +291,9 @@ $hds-dropdown-toggle-border-radius: 5px;
       border-radius: 5px;
       bottom: 0px;
       content: '';
-      left: 0.625rem;
+      left: 10px;
       position: absolute;
-      right: 0.25rem;
+      right: 4px;
       z-index: -1;
       top: 0;
     }
@@ -307,7 +307,7 @@ $hds-dropdown-toggle-border-radius: 5px;
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
-        left: 0.25rem;
+        left: 4px;
       }
     }
     // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
@@ -321,7 +321,7 @@ $hds-dropdown-toggle-border-radius: 5px;
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
-        left: 0.25rem;
+        left: 4px;
       }
     }
     // remove the focus ring on "active + focused" state (by design)
@@ -343,7 +343,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item__interactive-icon {
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
 .hds-dropdown-list-item--color-action {
