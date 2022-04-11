@@ -59,7 +59,7 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
   });
   test('it should render the "list-item/interactive" with a CSS class that matches the component name and the type of item', async function (assert) {
     assert.expect(2);
-    await render(hbs`<Hds::Dropdown::ListItem @item="generic" />`);
+    await render(hbs`<Hds::Dropdown::ListItem @item="interactive" />`);
     assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
     assert
       .dom('.hds-dropdown-list-item')
