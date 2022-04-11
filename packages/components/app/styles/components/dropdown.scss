@@ -141,36 +141,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
 
-.hds-dropdown-list-item--title {
-  color: var(--token-color-foreground-strong);
-  padding: 10px 16px 4px;
-}
-
-.hds-dropdown-list-item--generic {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.hds-dropdown-list-item--description {
-  color: var(--token-color-foreground-faint);
-  padding: 2px 16px 4px;
-}
-
-.hds-dropdown-list-item--separator {
-  height: 4px;
-  position: relative;
-  width: 100%;
-
-  &::before {
-    border-bottom: 1px solid var(--token-color-border-primary);
-    bottom: 0;
-    content: '';
-    left: 6px;
-    position: absolute;
-    right: 6px;
-  }
-}
-
 .hds-dropdown-list-item__copy-item-title {
   color: var(--token-color-foreground-faint);
   padding: 2px 0 4px;
@@ -232,6 +202,17 @@ $hds-dropdown-toggle-border-radius: 5px;
   color: var(--token-color-foreground-action);
   margin-left: 8px;
 }
+
+.hds-dropdown-list-item--description {
+  color: var(--token-color-foreground-faint);
+  padding: 2px 16px 4px;
+}
+
+.hds-dropdown-list-item--generic {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 
 .hds-dropdown-list-item--interactive {
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
@@ -391,3 +372,24 @@ $hds-dropdown-toggle-border-radius: 5px;
     }
   }
 }
+
+.hds-dropdown-list-item--separator {
+  height: 4px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    border-bottom: 1px solid var(--token-color-border-primary);
+    bottom: 0;
+    content: '';
+    left: 6px;
+    position: absolute;
+    right: 6px;
+  }
+}
+
+.hds-dropdown-list-item--title {
+  color: var(--token-color-foreground-strong);
+  padding: 10px 16px 4px;
+}
+
