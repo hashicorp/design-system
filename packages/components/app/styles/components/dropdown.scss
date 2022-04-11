@@ -35,10 +35,10 @@ $hds-dropdown-toggle-border-radius: 5px;
   display: flex;
   height: $hds-dropdown-toggle-base-height;
   justify-content: center;
+  min-width: $hds-dropdown-toggle-base-height;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   padding: 1px;
-  min-width: $hds-dropdown-toggle-base-height;
 
   &:hover,
   &.is-hover {
@@ -91,8 +91,8 @@ $hds-dropdown-toggle-border-radius: 5px;
   box-shadow: none; // we override this to remove the elevation style
 
   .hds-button__icon {
-    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
     margin-left: 8px; // this overrides the rule `.hds-button__text + .hds-button__icon`
+    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
 
     @media (prefers-reduced-motion: no-preference) {
       transition: transform .3s;
@@ -121,7 +121,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   max-width: 400px;
   min-width: 200px;
   padding: 4px 0;
-  width: max-content;
+  width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
 
   &.hds-dropdown-list--position-right {
     position: absolute;
@@ -131,8 +131,8 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 
   &.hds-dropdown-list--position-left {
-    position: absolute;
     left: 0;
+    position: absolute;
     top: calc(100% + 4px);
     z-index: 2; // https://github.com/hashicorp/design-system/issues/114
   }
@@ -157,17 +157,17 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item--separator {
-  position: relative;
   height: 4px;
+  position: relative;
   width: 100%;
 
   &::before {
+    border-bottom: 1px solid var(--token-color-border-primary);
+    bottom: 0;
+    content: '';
+    left: 6px;
     position: absolute;
     right: 6px;
-    left: 6px;
-    bottom: 0;
-    border-bottom: 1px solid var(--token-color-border-primary);
-    content: '';
   }
 }
 
@@ -211,8 +211,8 @@ $hds-dropdown-toggle-border-radius: 5px;
     }
 
     &.is-success {
-      border-color: var(--token-color-border-success);
       background-color: var(--token-color-surface-success);
+      border-color: var(--token-color-border-success);
 
       .hds-dropdown-list-item__copy-item-icon {
         color: var(--token-color-foreground-success);
@@ -234,15 +234,15 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item--interactive {
-  position: relative;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   min-height: 36px;
+  position: relative;
 
   // need to reset a few extra things to make the button visually appear the same as the links
   // TODO this is 2px taller than the link...
   button {
-    border: 1px inset transparent; // cause of the extra height
     background-color: transparent;
+    border: 1px inset transparent; // cause of the extra height
     width: 100%;
 
     &:hover {
@@ -281,8 +281,8 @@ $hds-dropdown-toggle-border-radius: 5px;
       left: 10px;
       position: absolute;
       right: 4px;
-      z-index: -1;
       top: 0;
+      z-index: -1;
     }
 
     // Notice: to avoid too much duplication we define two local CSS variables
@@ -369,25 +369,19 @@ $hds-dropdown-toggle-border-radius: 5px;
     // assign the values to the local CSS variables used above
     &::after {
       --current-background-color: var(--token-color-surface-critical);
-      --current-focus-ring-box-shadow: var(
-        --token-focus-ring-critical-box-shadow
-      );
+      --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
     }
 
     &:hover,
     &.is-hover {
-      color: var(
-        --token-color-palette-red-300
-      ); // TODO we need to add this token to the design system
+      color: var(--token-color-palette-red-300);
       &::before {
         background-color: currentColor;
       }
     }
     &:active,
     &.is-active {
-      color: var(
-        --token-color-palette-red-400
-      ); // TODO we need to add this token to the design system
+      color: var(--token-color-palette-red-400);
       &::before {
         background-color: currentColor;
       }
