@@ -97,13 +97,14 @@ export default class HdsDropdownListItemComponent extends Component {
 
     // add a class based on the @item argument
     classes.push(`hds-dropdown-list-item--${this.item}`);
-    if (this.item === 'title') {
-      classes.push('hds-typography-body-100');
-      classes.push('hds-font-weight-semibold');
-    }
     if (this.item === 'description') {
       classes.push('hds-typography-body-100');
       classes.push('hds-font-weight-regular');
+    }
+
+    if (this.item === 'title') {
+      classes.push('hds-typography-body-100');
+      classes.push('hds-font-weight-semibold');
     }
 
     // add a class based on the @color argument
