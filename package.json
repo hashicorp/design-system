@@ -10,6 +10,9 @@
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.0"
   },
+   "resolutions": {
+      "babel-import-util": "1.1.0"
+  },
   "scripts": {
     "release": "yarn changeset publish"
   }
