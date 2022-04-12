@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
+module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.afterEach(() => {
@@ -13,7 +13,7 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
   // notice: by default the "toggle-icon" has "user" icon, "chevron-down", and an aria-label
 
   test('it renders the "toggle-icon"', async function (assert) {
-    await render(hbs`<Hds::Dropdown::ToggleIcon @text="toggle text" />`);
+    await render(hbs`<Hds::Dropdown::Toggle::Icon @text="toggle text" />`);
     assert.dom(this.element).exists();
   });
 
@@ -21,13 +21,13 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('it should render with the "user" icon by default', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-user').exists();
   });
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @icon="settings" @text="settings menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="settings" @text="settings menu" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-settings').exists();
   });
@@ -36,7 +36,7 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('if an @imageSrc is declared the image should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
     );
     assert.dom('img').exists();
   });
@@ -45,13 +45,13 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('it should render the chevron "down" by default', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" id="test-toggle-icon" />`
     );
     assert.dom('.flight-icon.flight-icon-chevron-down').exists();
   });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`
+      hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`
     );
     assert.dom('.flight-icon.flight-icon-chevron-down').doesNotExist();
   });
@@ -60,13 +60,13 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
 
   test('it should render with the correct aria attribute declared using the @text prop', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" id="test-toggle-icon" />`
     );
     assert.dom('#test-toggle-icon').hasAria('label', 'user menu');
   });
   test('it should render the user "avatar" image with the correct role', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
     );
     assert.dom('#test-toggle-icon img').hasAttribute('role', 'presentation');
   });
@@ -74,12 +74,12 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
   // ASSERTIONS
 
   test('it should throw an assertion if @text is not defined', async function (assert) {
-    const errorMessage = `@text for "Hds::Dropdown::ToggleIcon" must have a valid value`;
+    const errorMessage = `@text for "Hds::Dropdown::Toggle::Icon" must have a valid value`;
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Dropdown::ToggleIcon id="test-toggle-icon" />`);
+    await render(hbs`<Hds::Dropdown::Toggle::Icon id="test-toggle-icon" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
