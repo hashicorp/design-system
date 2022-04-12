@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+const NOOP = () => {};
 export default class HdsDropdownToggleIconComponent extends Component {
   /**
    * @param text
@@ -53,7 +54,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
     if (typeof onClick === 'function') {
       return onClick;
     } else {
-      return () => {};
+      return NOOP;
     }
   }
 

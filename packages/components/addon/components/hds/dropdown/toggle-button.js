@@ -4,6 +4,8 @@ import { assert } from '@ember/debug';
 export const DEFAULT_COLOR = 'primary';
 export const COLORS = ['primary', 'secondary'];
 
+const NOOP = () => {};
+
 export default class HdsDropdownToggleButtonComponent extends Component {
   /**
    * @param text
@@ -53,7 +55,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     if (typeof onClick === 'function') {
       return onClick;
     } else {
-      return () => {};
+      return NOOP;
     }
   }
 
