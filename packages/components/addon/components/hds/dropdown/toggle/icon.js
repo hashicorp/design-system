@@ -12,7 +12,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Dropdown::ToggleIcon" must have a valid value',
+      '@text for "Hds::Dropdown::Toggle::Icon" must have a valid value',
       text !== undefined
     );
 
