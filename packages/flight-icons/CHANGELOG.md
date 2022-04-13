@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.3.0
+
+### Minor Changes
+
+- [#214](https://github.com/hashicorp/design-system/pull/214) [`84b2514d`](https://github.com/hashicorp/design-system/commit/84b2514dff3e0ad584b843f315d3e2d77444b7be) Thanks [@didoo](https://github.com/didoo)! - Added new icon “government”
+
 ## 2.2.0
 
 ### Minor Changes
