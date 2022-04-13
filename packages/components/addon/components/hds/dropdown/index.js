@@ -1,7 +1,5 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { action } from '@ember/object';
-import { htmlSafe } from '@ember/template';
 
 export const DEFAULT_POSITION = 'right';
 export const POSITIONS = ['right', 'left'];
@@ -27,14 +25,6 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   /**
-   * Get a style attribute to apply to the "list" based on the @width argument
-   * @return {string} The style attribute to apply to the list
-   */
-  get listStyle() {
-    return this.args.width ? htmlSafe(`width: ${this.args.width}`) : undefined;
-  }
-
-  /**
    * Get the class names to apply to the "list"
    * @method DropdownIndex#listClassNames
    * @return {string} The "class" attribute to apply to the "list" element
@@ -51,10 +41,5 @@ export default class HdsDropdownIndexComponent extends Component {
     }
 
     return classes.join(' ');
-  }
-
-  @action
-  didInsert(el) {
-    el.style.setProperty('--width', htmlSafe(this.args.width));
   }
 }
