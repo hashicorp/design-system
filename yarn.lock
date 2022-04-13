@@ -7072,6 +7072,17 @@ ember-modifier@^2.1.1:
     ember-cli-typescript "^5.0.0"
     ember-compatibility-helpers "^1.2.5"
 
+ember-modifier@^3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
+  integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
+  dependencies:
+    ember-cli-babel "^7.26.6"
+    ember-cli-normalize-entity-name "^1.0.0"
+    ember-cli-string-utils "^1.1.0"
+    ember-cli-typescript "^5.0.0"
+    ember-compatibility-helpers "^1.2.5"
+
 ember-named-blocks-polyfill@^0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/ember-named-blocks-polyfill/-/ember-named-blocks-polyfill-0.2.5.tgz#d5841406277026a221f479c815cfbac6cdcaeecb"
@@ -7247,6 +7258,14 @@ ember-source@~4.1.0:
     resolve "^1.17.0"
     semver "^7.3.4"
     silent-error "^1.1.1"
+
+ember-style-modifier@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/ember-style-modifier/-/ember-style-modifier-0.8.0.tgz#ef46b3f288e63e3d850418ea8dc6f7b12edde721"
+  integrity sha512-I7M+oZ+poYYOP7n521rYv7kkYZbxotL8VbtHYxLQ3tasRZYQJ21qfu3vVjydSjwyE3w7EZRgKngBoMhKSAEZnw==
+  dependencies:
+    ember-cli-babel "^7.26.6"
+    ember-modifier "^3.2.7"
 
 ember-template-lint-plugin-prettier@^2.0.1:
   version "2.0.1"
