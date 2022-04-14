@@ -1,28 +1,41 @@
 {{page-title "Alert component"}}
 
-<h2 class="dummy-h2">Alert</h2>
+<h2 class="dummy-h2">Alerts</h2>
 
 <section>
-  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
-  <ul class="dummy-paragraph">
-    <li>
-      <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
-        WIP Alert Component Requirement Document (CRD)
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=4023%3A15691"
-      >
-        WIP Figma file
-      </a>
-    </li>
-  </ul>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">
+    An Alert is an element that displays a brief, important message in a way that attracts the user's attention, without
+    interrupting the user's task.
+    <ul>
+      <li class="dummy-paragraph">
+        Dynamically-rendered Alerts are automatically announced by most screen readers.
+      </li>
+      <li class="dummy-paragraph">In some operating systems, Alerts may trigger an alert sound.</li>
+    </ul>
+  </p>
+
+  <p class="dummy-paragraph">
+    We currently have four types of alerts.
+    <ul>
+      <li class="dummy-paragraph">
+        <strong>Alert (Page)</strong>,
+        <strong>Alert (Inline)</strong>, and
+        <strong>Alert (Compact)</strong>
+        are intended for system-generated messages.
+      </li>
+      <li class="dummy-paragraph"><strong>Alert (Toasts)</strong> are intended for user-triggered messages.</li>
+    </ul>
+  </p>
 </section>
 
 <section>
   <h3 class="dummy-h3">Alert Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
+
   <dl class="dummy-component-props">
     <dt>type <code>enum</code></dt>
     <dd>
@@ -30,60 +43,13 @@
         <code class="dummy-code">type</code>
         sets the type of alert.
       </p>
-      <p>
-        A
-        <code class="dummy-code">page</code>
-        alert is a rectangular alert (no border-radius). A
-        <code class="dummy-code">page</code>
-        alert typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent
-        containing div to its top, left, and right.
-      </p>
-      <p>
-        An
-        <code class="dummy-code">inline</code>
-        alert is an alert with a border-radius. A
-        <code class="dummy-code">page</code>
-        alert typically has adjacent whitespace on all four sides.
-      </p>
-      <p>
-        A
-        <code class="dummy-code">compact</code>
-        alert is only an
-        <code class="dummy-code">icon</code>
-        and
-        <code class="dummy-code">description</code>, with smaller proportions than the other alerts. The
-        <code class="dummy-code">color</code>
-        sets the icon color.
-      </p>
-      <p>
-        🚧 TODO: Add Alert (Toast)
-      </p>
+
       <p>Acceptable values:</p>
       <ol>
         <li class="default">page</li>
         <li>inline</li>
         <li>compact</li>
         <li>toast</li>
-      </ol>
-    </dd>
-
-    <dt class="dummy-indent">🚧 isDismissible <code>boolean</code></dt>
-    <p class="dummy-indent">
-      The alert can be dismissed by the user. Default value determined by
-      <code class="dummy-code">type</code>.
-    </p>
-    <p class="dummy-indent">
-      <code class="dummy-code">type="compact"</code>: N/A
-    </p>
-    <p class="dummy-indent">
-      Has some accessibility considerations for Alert (Toast). Alert (Toast) will be
-      <code class="dummy-code">role="alertdialog"</code>, and generally not dismissible for accessibility.
-    </p>
-    <dd class="dummy-indent">
-      <p>Acceptable values:</p>
-      <ol>
-        <li>true</li>
-        <li>false</li>
       </ol>
     </dd>
 
@@ -123,7 +89,7 @@
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
           Flight icon</a>
-        name, or pass empty string (<code class="dummy-code">""</code>) for no icon.
+        name, or pass an empty string for no icon.
       </p>
     </dd>
 
@@ -144,12 +110,25 @@
         <code class="dummy-code">description</code>
         <strong>and/or</strong>
         <code class="dummy-code">title</code>
-        is required.</p>
+        is required.
+      </p>
     </dd>
+
+    <dt>onClose <code>function</code></dt>
+    <p>
+      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
+    </p>
 
     <dt>&lt;:actions&gt; <code>named block</code></dt>
     <dd>
-      <p>🚧 TODO</p>
+      <p>Actions can optionally be passed into the alert as yielded components. The user can use the suggested
+        <code class="dummy-code">HDS::Button</code>,
+        <code class="dummy-code">HDS::Link::Standalone</code>, and/or
+        <code class="dummy-code">HDS::LinkTo::Standalone</code>
+        as yielded components. Or, the user can insert their own content to the
+        <code class="dummy-code">:actions</code>
+        block.
+      </p>
     </dd>
 
     <dt>“splattributes”</dt>
@@ -161,9 +140,24 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
+
   <h4 class="dummy-h4">
-    Basic invocation: Alert (Page)
+    Alert (Page)
   </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Page)</strong>
+    is a rectangular alert (without a border-radius). An
+    <strong>Alert (Page)</strong>
+    has a bottom border. An
+    <strong>Alert (Page)</strong>
+    typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent containing div
+    to its top, left, and right.
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Page)
+  </h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -172,7 +166,6 @@
     '
   />
   {{! prettier-ignore-end }}
-
   <p class="dummy-paragraph">Renders to the default
     <code class="dummy-code">type</code>
     of
@@ -182,12 +175,33 @@
     of
     <code class="dummy-code">neutral</code>:
   </p>
-  <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
-  <br />
+  <div class="dummy-alert-docs">
+    <Hds::Alert @title="Title here" @description="Description here" />
+    <div class="dummy-alert-indent--x">
+      <p>Rest of the page content here:</p>
+      <ul>
+        <li>Vault</li>
+        <li>Terraform</li>
+        <li>Packer</li>
+        <li>&mldr;and more!</li>
+      </ul>
+    </div>
+  </div>
 
   <h4 class="dummy-h4">
-    Basic invocation: Alert (Inline)
+    Alert (Inline)
   </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Inline)</strong>
+    is an alert with a border-radius and a border. An
+    <strong>Alert (Inline)</strong>
+    typically has adjacent whitespace on all four sides.
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Inline)
+  </h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -196,18 +210,54 @@
     '
   />
   {{! prettier-ignore-end }}
-
   <p class="dummy-paragraph">Renders to the default
     <code class="dummy-code">color</code>
     of
     <code class="dummy-code">neutral</code>:
   </p>
-  <Hds::Alert @type="inline" @title="Really cool title here" @description="And a rad description too!" />
-  <br />
+  <div class="dummy-alert-docs dummy-alert-indent">
+    <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+
+    <p>Rest of the page content here:</p>
+    <ul>
+      <li>Vault</li>
+      <li>Terraform</li>
+      <li>Packer</li>
+      <li>&mldr;and more!</li>
+    </ul>
+  </div>
 
   <h4 class="dummy-h4">
-    Basic invocation: Alert (Compact)
+    Alert (Compact)
   </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Compact)</strong>
+    only contains an
+    <strong>icon</strong>
+    and
+    <strong>description</strong>, with smaller proportions than the other alerts.
+    <ul>
+      <li class="dummy-paragraph">
+        The default
+        <code class="dummy-code">icon</code>
+        for
+        <strong>Alert (Compact)</strong>
+        is different from the other alert types.
+      </li>
+      <li class="dummy-paragraph">
+        <code class="dummy-code">icon</code>
+        and
+        <code class="dummy-code">description</code>
+        are required for
+        <strong>Alert (Compact)</strong>.
+      </li>
+    </ul>
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Compact)
+  </h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -222,17 +272,80 @@
     of
     <code class="dummy-code">neutral</code>:
   </p>
-  <Hds::Alert @type="compact" @description="Description only" />
-  <br />
+  <div class="dummy-alert-docs dummy-alert-indent">
+    <Hds::Alert @type="compact" @description="Description here" />
+
+    <p>Rest of the page content here:</p>
+    <ul>
+      <li>Vault</li>
+      <li>Terraform</li>
+      <li>Packer</li>
+      <li>&mldr;and more!</li>
+    </ul>
+  </div>
+
+  <h4 class="dummy-h4">
+    Alert (Toast)
+  </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Toast)</strong>
+    is an alert that typically displays brief, temporary notifications.
+    <strong>Alert (Toasts)</strong>
+    typically disappear on their own.
+    <strong>Alert (Toast)</strong>
+    will need to be implemented in your app with an Ember addon such as
+    <a href="https://github.com/poteto/ember-cli-flash">ember-cli-flash</a>
+    to handle the placement, animation, and dismiss.
+    <strong>Alert (Toast)</strong>
+    has a border-radius, a border, and elevation (box-shadow).
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Toast)
+  </h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="toast" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>:
+  </p>
+  <Hds::Alert @type="toast" @title="Title here" @description="Description here" />
+
+  <p class="dummy-paragraph">
+    🚧 TODO: Insert working Toast implementation here if desired. Other Toast recommendations may be duplicated from the
+    Figma stickersheet.
+  </p>
 </section>
 
 <section>
-  <h3 class="dummy-h3">🚧 Design guidelines</h3>
-  <p class="dummy-paragraph">TODO: Insert Figma stickersheet here</p>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO: Update Figma link and stickersheet, if edits after April 14</p>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=6652%3A30199"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a></p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage.png" alt="" role="none" />
+  </div>
 </section>
 
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
+
+  <p class="dummy-paragraph">
+    🚨 Note: The compact alert is borderless, but shown with a a dotted border throughout the "Showcase" for clarity.
+  </p>
 
   <h4 class="dummy-h4">Type</h4>
   {{#each @model.TYPES as |type|}}
@@ -403,28 +516,212 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">🚧 Accessibility: Alert (Page), Alert (Inline), and Alert (Compact)</h3>
-  <p class="dummy-paragraph">
-    The Alert (Page) has
-    <code class="dummy-code">role="alert"</code>
-    on the parent
-    <code class="dummy-code">div</code>, to identify the element as the container where alert content will be added or
-    updated.
-  </p>
-  <p class="dummy-paragraph">References:</p>
+  <h3 class="dummy-h3">Accessibility</h3>
+  <p class="dummy-paragraph">🚧 TODO: Have Melanie review post-Amy transfer</p>
+  <p class="dummy-paragraph">🚧 TODO: Bring role change to code, if folks agree</p>
+  <ul>
+    <li class="dummy-paragraph">
+      If
+      <code class="dummy-code">color="warning"</code>
+      or
+      <code class="dummy-code">color="critical"</code>
+      => then
+      <code class="dummy-code">role="alert"</code>, as it's an important message.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">Reference:
+        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Authoring Practices 1.2 (Alert)
+        </a>
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      If
+      <code class="dummy-code">color="neutral"</code>,
+      <code class="dummy-code">color="highlight"</code>
+      or
+      <code class="dummy-code">color="success"</code>
+      => then
+      <code class="dummy-code">role="status"</code>, as the content is advisory information for the user, but is not
+      important enough to justify a
+      <code class="dummy-code">role="alert"</code>. Elements with
+      <code class="dummy-code">role="status"</code>
+      have an implicit
+      <code class="dummy-code">aria-live="polite"</code>
+      and
+      <code class="dummy-code">aria-atomic="true"</code>, so we have included them explicitly, for clarity.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/TR/wai-aria-1.2/#status" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA 1.2 (Status)
+        </a>
+      </li>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Techniques 1.2 (Using role=status to present status messages)
+        </a>
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      Dismiss is a button, with
+      <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
+      When the dismiss button is focused, the alert closes on pressing the return key (enter on Windows). Note: You will
+      need to implement an
+      <code class="dummy-code">onClose</code>
+      function in your app.
+    </li>
+    <li class="dummy-paragraph">
+      We do not have a
+      <code class="dummy-code">role="alertdialog"</code>
+      yet, as this type of alert interrupts the user's workflow to communicate an important message and acquire a
+      response.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Techniques 1.2, Alert and Message Dialogs
+        </a>
+      </li>
+    </ul>
+  </ul>
+  <p class="dummy-paragraph">Applicable WCAG success criteria</p>
   <ul>
     <li>
-      <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
-        WAI-ARIA Authoring Practices 1.2, Alert
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.3.1: Info and Relationships
       </a>
     </li>
     <li>
       <a
-        href="https://www.w3.org/TR/wai-aria-practices-1.2/examples/alert/alert.html"
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
         target="_blank"
         rel="noopener noreferrer"
       >
-        WAI-ARIA Authoring Practices 1.2, Alert Example
+        1.3.2: Meaningful Sequence
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" target="_blank" rel="noopener noreferrer">
+        1.4.1: Use of Color
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.4.3: Contrast (Minimum)
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" target="_blank" rel="noopener noreferrer">
+        1.4.10: Reflow
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.4.11: Non-text Contrast
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html" target="_blank" rel="noopener noreferrer">
+        1.4.12: Text Spacing
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank" rel="noopener noreferrer">
+        2.1.1: Keyboard
+      </a>
+      (For Alerts with focusable elements, such as those with
+      <code class="dummy-code">onDismiss</code>
+      or
+      <code class="dummy-code">:actions</code>.)
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        2.1.2: No Keyboard Trap
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        2.2.1: Timing Adjustable
+      </a>
+    </li>
+    <ul>
+      <li>For
+        <strong>Alert (Toast)</strong>, which will automatically dismiss. Note: The automatic dismiss functionality will
+        come from the consuming app, not the Design System.
+      </li>
+    </ul>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        2.5.3: Label in Name
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html" target="_blank" rel="noopener noreferrer">
+        4.1.1: Parsing
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        4.1.2: Name, Role, Value
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        4.1.3: Status Messages
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
+  <ul class="dummy-paragraph">
+    <li>
+      <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
+        WIP Alert Component Requirement Document (CRD)
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=4023%3A15691"
+      >
+        WIP Figma file
       </a>
     </li>
   </ul>
