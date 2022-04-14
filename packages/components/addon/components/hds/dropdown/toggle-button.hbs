@@ -1,0 +1,23 @@
+{{!
+// >>>>>>>>>>> WARNING <<<<<<<<<<
+//
+// Notice: in this component we're directly using the `Hds::Button` component
+// (and adding a specialized class for the "toggle-button" variant, see below)
+// If you need to change the styling of the `Button` component, remember that this will impact also
+// this component too.
+// If instead you need to change only the styling of the `toggle-button` component, you can do it
+// in the CSS file using the specialized class declared there.
+// This is NOT a standard approach that we use in the HDS design system implementation, but it's been
+// the least worst option we could find to solve the problem of sharing the exact same style of the
+// `Button (primary)` with other components.
+}}
+
+<Hds::Button
+  @text={{this.text}}
+  @icon="chevron-{{if @isOpen 'up' 'down'}}"
+  @iconPosition="trailing"
+  @color={{this.color}}
+  class="hds-dropdown-toggle--with-button-component"
+  {{on "click" this.onClick}}
+  ...attributes
+/>

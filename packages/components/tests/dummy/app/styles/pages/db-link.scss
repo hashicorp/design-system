@@ -18,8 +18,12 @@
 .dummy-link-states-grid {
     display: grid;
     grid-gap: 0.5rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);;
     margin: 0;
     padding: 0;
     width: fit-content;
+
+    .dummy-link-states-grid__title {
+        grid-column: 1 / 5;
+    }
 }

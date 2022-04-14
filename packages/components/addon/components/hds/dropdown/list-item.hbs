@@ -1,0 +1,84 @@
+{{#if (eq this.item "title")}}
+  <li class={{this.classNames}}>
+    {{this.text}}
+  </li>
+
+{{else if (eq this.item "generic")}}
+  <li class={{this.classNames}}>
+    {{yield}}
+  </li>
+
+{{else if (eq this.item "copy-item")}}
+  <li class={{this.classNames}}>
+    {{#if @copyItemTitle}}
+      <div class="hds-dropdown-list-item__copy-item-title">{{@copyItemTitle}}</div>
+    {{/if}}
+    <button
+      type="button"
+      class="{{if @state (concat 'is-' @state)}} {{if this.isSuccess 'is-success'}}"
+      {{on "click" this.copyCode}}
+    >
+      <div class="hds-dropdown-list-item__copy-item-text">
+        {{this.text}}
+      </div>
+      <FlightIcon
+        @name="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}"
+        class="hds-dropdown-list-item__copy-item-icon"
+      />
+    </button>
+  </li>
+
+{{else if (eq this.item "description")}}
+  <li class={{this.classNames}}>
+    {{this.text}}
+  </li>
+
+{{else if (eq this.item "separator")}}
+  <li class={{this.classNames}} role="separator"></li>
+
+{{else if (eq this.item "interactive")}}
+  <li class={{this.classNames}}>
+    {{#if @route}}
+      <LinkTo
+        class="{{if @state (concat 'is-' @state)}}"
+        @current-when={{@current-when}}
+        @models={{hds-link-to-models @model @models}}
+        @query={{hds-link-to-query @query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        ...attributes
+      >
+        {{#if @icon}}
+          <div class="hds-dropdown-list-item__interactive-icon">
+            <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
+          </div>
+        {{/if}}
+        <div class="hds-dropdown-list-item__interactive-text">
+          {{this.text}}
+        </div>
+      </LinkTo>
+    {{else if @href}}
+      <a target="_blank" rel="noopener noreferrer" href={{@href}} class="{{if @state (concat 'is-' @state)}}">
+        {{#if this.icon}}
+          <div class="hds-dropdown-list-item__interactive-icon">
+            <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
+          </div>
+        {{/if}}
+        <div class="hds-dropdown-list-item__interactive-text">
+          {{this.text}}
+        </div>
+      </a>
+    {{else}}
+      <button class="{{if @state (concat 'is-' @state)}}" type="button" ...attributes>
+        {{#if this.icon}}
+          <div class="hds-dropdown-list-item__interactive-icon">
+            <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
+          </div>
+        {{/if}}
+        <div class="hds-dropdown-list-item__interactive-text">
+          {{this.text}}
+        </div>
+      </button>
+    {{/if}}
+  </li>
+{{/if}}

@@ -504,6 +504,8 @@ export { IconGlobe24 } from './globe-24';
 export { IconGlobe16 } from './globe-16';
 export { IconGlobePrivate24 } from './globe-private-24';
 export { IconGlobePrivate16 } from './globe-private-16';
+export { IconGovernment24 } from './government-24';
+export { IconGovernment16 } from './government-16';
 export { IconGrid24 } from './grid-24';
 export { IconGrid16 } from './grid-16';
 export { IconGridAlt24 } from './grid-alt-24';

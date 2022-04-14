@@ -1,0 +1,36 @@
+// notice: here we use custom typography to make the banner more compact
+
+.dummy-link-cta-button-banner {
+    @include dummyFontFamily();
+    border-radius: 0.25rem;
+    background-color: #f9f2ff;
+    margin: 1rem auto;
+    padding: 1.25rem;
+
+    h3 {
+        font-size: 1.1rem;
+        color: #911ced;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    h4 {
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin: 1rem 0 0 0;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 0.5rem 0 0 0;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    code {
+        font-weight: bold;
+    }
+}
+

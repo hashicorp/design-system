@@ -1,0 +1,108 @@
+// DROPDOWN
+
+.dummy-bg-gray {
+  background-color: var(--token-color-palette-neutral-200);
+  padding: 1rem 2rem;
+}
+
+.dummy-dropdown-hide {
+  display: none;
+}
+
+.dummy-nav-dropdown {
+  align-content: stretch;
+  align-items: center;
+  border-bottom: 1px solid darkgray;
+  border-top: 1px solid darkgray;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  height: 62px;
+  justify-content: stretch;
+  padding: 0 32px;
+  width: 100%;
+  &::after, &::before {
+    box-sizing: border-box;
+  }
+  &.background-black {
+    background-color: black;
+  }
+  .dummy-nav-dropdown__list {
+    align-items: stretch;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    .dummy-nav-dropdown__list-item {
+      align-items: center;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      &.dummy-nav-dropdown__list-item-customized {
+        .hds-dropdown-toggle-icon {
+          color: white;
+          border: 1px solid #9e9e9e;
+          &:hover {
+            background-color: #484848;
+            color: white;
+            border: 1px solid #9e9e9e;
+          }
+        }
+      }
+    }
+  }
+}
+.dummy-dropdown-hide {
+  display: none;
+}
+
+.dummy-dropdown-table-demo {
+  min-width: fit-content;
+  border: 1px solid #4d4d4d;
+  th {
+    font-weight: bold;
+    border-bottom: thin solid #888;
+    text-align: left;
+  }
+  th, td {
+    border-collapse: collapse;
+    padding: 0.25em 0.5em;
+    width: 8em;
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #ddd;
+    }
+  }
+}
+
+.dummy-dropdown-toggle-states-grid {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);;
+  margin: 0;
+  padding: 0;
+
+  .dummy-dropdown-states-grid__title {
+      grid-column: 1 / 6;
+  }
+}
+
+.dummy-dropdown-list-items-base-sample {
+  align-items: flex-start;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  min-width: fit-content;
+  padding: 0.125rem;
+}
+
+.dummy-whiteout {
+  background-color: white !important;
+  color: white !important;
+}

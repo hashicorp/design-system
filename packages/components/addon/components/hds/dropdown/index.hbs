@@ -1,0 +1,27 @@
+<Hds::Disclosure class="hds-dropdown">
+  <:toggle as |t|>
+    {{yield
+      (hash
+        ToggleButton=(component "hds/dropdown/toggle-button" isOpen=t.isActive onClick=t.onClickToggle)
+        ToggleIcon=(component "hds/dropdown/toggle-icon" isOpen=t.isActive onClick=t.onClickToggle)
+      )
+    }}
+  </:toggle>
+  <:content>
+    <ul
+      class="hds-dropdown-list
+        {{if (eq @listPosition 'left') 'hds-dropdown-list--position-left' 'hds-dropdown-list--position-right'}}"
+    >
+      {{yield
+        (hash
+          CopyItem=(component "hds/dropdown/list-item" item="copy-item")
+          Description=(component "hds/dropdown/list-item" item="description")
+          Generic=(component "hds/dropdown/list-item" item="generic")
+          Interactive=(component "hds/dropdown/list-item")
+          Separator=(component "hds/dropdown/list-item" item="separator")
+          Title=(component "hds/dropdown/list-item" item="title")
+        )
+      }}
+    </ul>
+  </:content>
+</Hds::Disclosure>

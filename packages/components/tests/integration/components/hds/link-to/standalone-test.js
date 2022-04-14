@@ -9,7 +9,7 @@ module('Integration | Component | hds/link-to/standalone', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders', async function (assert) {
+  test('it renders a link(standalone) with the defined text', async function (assert) {
     await render(
       hbs`<Hds::LinkTo::Standalone @text="watch video" @route="index" @icon="film" />`
     );
@@ -37,6 +37,21 @@ module('Integration | Component | hds/link-to/standalone', function (hooks) {
     assert.dom('#test-link').hasClass('hds-link-standalone--size-small');
   });
 
+  // ICON
+
+  test('it should render the icon in the leading position by default', async function (assert) {
+    await render(
+      hbs`<Hds::LinkTo::Standalone @text="watch video" @route="index" @icon="film" id="test-link" />`
+    );
+    assert.dom('.hds-link-standalone__icon').matchesSelector(':first-child');
+  });
+  test('it should render the icon in the trailing position if @iconPosition is set to trailing', async function (assert) {
+    await render(
+      hbs`<Hds::LinkTo::Standalone @text="watch video" @route="index" @icon="film" @iconPosition="trailing" id="test-link" />`
+    );
+    assert.dom('.hds-link-standalone__icon').matchesSelector(':last-child');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if @text is missing/has no value', async function (assert) {
@@ -60,6 +75,20 @@ module('Integration | Component | hds/link-to/standalone', function (hooks) {
     });
     await render(
       hbs`<Hds::LinkTo::Standalone @route="index" @text="watch video" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @iconPosition is provided', async function (assert) {
+    const errorMessage =
+      '@iconPosition for "Hds::LinkTo::Standalone" must be one of the following: leading, trailing; received: after';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::LinkTo::Standalone @icon="film" @route="index" @text="watch video" @iconPosition="after" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
