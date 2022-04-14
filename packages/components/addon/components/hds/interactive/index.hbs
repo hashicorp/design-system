@@ -1,0 +1,34 @@
+{{#if @route}}
+  {{#if @isRouteExternal}}
+    <LinkToExternal
+      @current-when={{@current-when}}
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @replace={{@replace}}
+      @route={{@route}}
+      ...attributes
+    >
+      {{yield}}
+    </LinkToExternal>
+  {{else}}
+    <LinkTo
+      @current-when={{@current-when}}
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @replace={{@replace}}
+      @route={{@route}}
+      ...attributes
+    >
+      {{yield}}
+    </LinkTo>
+  {{/if}}
+{{else if @href}}
+  {{! IMPORTANT: we can't support the direct use of the "href" HTML attribute, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
+  <a target="_blank" rel="noopener noreferrer" ...attributes href={{@href}}>
+    {{yield}}
+  </a>
+{{else}}
+  <button type="button" ...attributes>
+    {{yield}}
+  </button>
+{{/if}}
