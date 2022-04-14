@@ -114,17 +114,10 @@
       </p>
     </dd>
 
-    <dt>isDismissible <code>boolean</code></dt>
+    <dt>onClose <code>function</code></dt>
     <p>
-      The alert can be dismissed by the user.
+      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
     </p>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>true</li>
-        <li class="default">false</li>
-      </ol>
-    </dd>
 
     <dt>&lt;:actions&gt; <code>named block</code></dt>
     <dd>
@@ -154,7 +147,9 @@
   <p class="dummy-paragraph">
     An
     <strong>Alert (Page)</strong>
-    is a rectangular alert, without a border-radius. An
+    is a rectangular alert (without a border-radius). An
+    <strong>Alert (Page)</strong>
+    has a bottom border. An
     <strong>Alert (Page)</strong>
     typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent containing div
     to its top, left, and right.
@@ -199,7 +194,7 @@
   <p class="dummy-paragraph">
     An
     <strong>Alert (Inline)</strong>
-    is an alert with a border-radius. An
+    is an alert with a border-radius and a border. An
     <strong>Alert (Inline)</strong>
     typically has adjacent whitespace on all four sides.
   </p>
@@ -301,7 +296,32 @@
     <strong>Alert (Toast)</strong>
     will need to be implemented in your app with an Ember addon such as
     <a href="https://github.com/poteto/ember-cli-flash">ember-cli-flash</a>
-    to handle the placement, animation, and dismiss. 🚧 TODO: Insert working Toast implementation here if desired.
+    to handle the placement, animation, and dismiss.
+    <strong>Alert (Toast)</strong>
+    has a border-radius, a border, and elevation (box-shadow).
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Toast)
+  </h5>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="toast" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to the default
+    <code class="dummy-code">color</code>
+    of
+    <code class="dummy-code">neutral</code>:
+  </p>
+  <Hds::Alert @type="toast" @title="Title here" @description="Description here" />
+
+  <p class="dummy-paragraph">
+    🚧 TODO: Insert working Toast implementation here if desired. Other Toast recommendations may be duplicated from the
+    Figma stickersheet.
   </p>
 </section>
 
@@ -486,45 +506,93 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">🚧 Accessibility</h3>
+  <h3 class="dummy-h3">Accessibility</h3>
+  <p class="dummy-paragraph">🚧 TODO: Have Melanie review post-Amy transfer</p>
+  <p class="dummy-paragraph">🚧 TODO: Bring role change to code, if folks agree</p>
   <ul>
-    <li>color="warning" or color="critical" => role="alert", can have dismiss.</li>
-    <li>color="neutral", color="highlight" or color="success" => role="status", can have dismiss.</li>
-    <li>Dismiss button, type="button"</li>
-    <li>Dismiss has a focus state (e.g. tab to the button)</li>
-    <li>When the dismiss button is focused, it should close on return / enter (Note: Close on ESC, would be for modal or a classic role="alertdialog" that is an alert-like modal)</li>
-    <li>I think it's arguable if the dismiss needs a hover or active state. The hover state seems good though, especially for a static alert (e.g. not a disappearing toast).</li>
-    <li>When the alert has :actions, the role will change to role="alertdialog", as it's requiring a response from the user. role="alertdialog" seems to typically apply to a "modal" alertdialog, but not always. Some DS's refer to all of their alerts with role="alertdialog" instead of role="alert" or role="status".</li>
+    <li class="dummy-paragraph">
+      If
+      <code class="dummy-code">color="warning"</code>
+      or
+      <code class="dummy-code">color="critical"</code>
+      => then
+      <code class="dummy-code">role="alert"</code>, as it's an important message.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">Reference:
+        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Authoring Practices 1.2 (Alert)
+        </a>
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      If
+      <code class="dummy-code">color="neutral"</code>,
+      <code class="dummy-code">color="highlight"</code>
+      or
+      <code class="dummy-code">color="success"</code>
+      => then
+      <code class="dummy-code">role="status"</code>, as the content is advisory information for the user, but is not
+      important enough to justify a
+      <code class="dummy-code">role="alert"</code>. Elements with
+      <code class="dummy-code">role="status"</code>
+      have an implicit
+      <code class="dummy-code">aria-live="polite"</code>
+      and
+      <code class="dummy-code">aria-atomic="true"</code>, so we have included them explicitly, for clarity.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/TR/wai-aria-1.2/#status" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA 1.2 (Status)
+        </a>
+      </li>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Techniques 1.2 (Using role=status to present status messages)
+        </a>
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      Dismiss is a button, with
+      <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
+      When the dismiss button is focused, the alert closes on pressing the return key (enter on Windows). Note: You will
+      need to implement an
+      <code class="dummy-code">onClose</code>
+      function in your app.
+    </li>
+    <li class="dummy-paragraph">
+      We do not have a
+      <code class="dummy-code">role="alertdialog"</code>
+      yet, as this type of alert interrupts the user's workflow to communicate an important message and acquire a
+      response.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Techniques 1.2, Alert and Message Dialogs
+        </a>
+      </li>
+    </ul>
   </ul>
   <p class="dummy-paragraph">References:</p>
-  🚧 TODO: Confirm a tag titles for all of these
   <ul>
     <li>
       <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
-        WAI-ARIA Authoring Practices 1.2, Alert (role="alert")
+        WAI-ARIA Authoring Practices 1.2 (Alert)
       </a>
     </li>
     <li>
-      <a
-        href="https://www.w3.org/TR/wai-aria-practices-1.2/examples/alert/alert.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WAI-ARIA Authoring Practices 1.2, Alert Example (role="alert")
+      <a href="https://www.w3.org/TR/wai-aria-1.2/#status" target="_blank" rel="noopener noreferrer">
+        WAI-ARIA 1.2 (Status)
       </a>
     </li>
     <li>
       <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" target="_blank" rel="noopener noreferrer">
-        WAI-ARIA Techniques 1.2, Using role=status to present status messages
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://www.w3.org/TR/wai-aria-practices-1.2/examples/dialog-modal/alertdialog.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        WAI-ARIA Authoring Practices 1.2, Alert Dialog Example (role="alertdialog")
+        WAI-ARIA Techniques 1.2 (Using role=status to present status messages)
       </a>
     </li>
   </ul>
