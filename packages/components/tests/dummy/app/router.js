@@ -35,5 +35,6 @@ Router.map(function () {
   });
   this.route('utilities', function () {
     this.route('disclosure');
+    this.route('interactive');
   });
 });
