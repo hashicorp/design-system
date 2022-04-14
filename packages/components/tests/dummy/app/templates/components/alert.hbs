@@ -17,16 +17,17 @@
       <li class="dummy-paragraph">In some operating systems, Alerts may trigger an alert sound.</li>
     </ul>
   </p>
+
   <p class="dummy-paragraph">
-    There are some differences between the alert types we have:
+    We currently have four types of alerts.
     <ul>
       <li class="dummy-paragraph">
         <strong>Alert (Page)</strong>,
         <strong>Alert (Inline)</strong>, and
         <strong>Alert (Compact)</strong>
-        are system-generated messages.
+        are intended for system-generated messages.
       </li>
-      <li class="dummy-paragraph"><strong>Alert (Toasts)</strong> are user-triggered messages.</li>
+      <li class="dummy-paragraph"><strong>Alert (Toasts)</strong> are intended for user-triggered messages.</li>
     </ul>
   </p>
 </section>
@@ -35,12 +36,6 @@
   <h3 class="dummy-h3">Alert Component API</h3>
   <p class="dummy-paragraph">Here is the API for the component:</p>
 
-  <p class="dummy-paragraph">
-    🚧 Note: Exceptions for `compact` could be on a background-color (purple highlight color?) if you want? Or, deviate
-    from the other components and go with a table? Seems better than repeating the API 4x, but just a suggestion, up to
-    you.
-  </p>
-
   <dl class="dummy-component-props">
     <dt>type <code>enum</code></dt>
     <dd>
@@ -48,35 +43,7 @@
         <code class="dummy-code">type</code>
         sets the type of alert.
       </p>
-      <p>
-        A
-        <code class="dummy-code">page</code>
-        alert is a rectangular alert (no border-radius). A
-        <code class="dummy-code">page</code>
-        alert typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent
-        containing div to its top, left, and right.
-      </p>
-      <p>
-        An
-        <code class="dummy-code">inline</code>
-        alert is an alert with a border-radius. An
-        <code class="dummy-code">inline</code>
-        alert typically has adjacent whitespace on all four sides.
-      </p>
-      <p>
-        A
-        <code class="dummy-code">compact</code>
-        alert only contains an
-        <code class="dummy-code">icon</code>
-        and
-        <code class="dummy-code">description</code>, with smaller proportions than the other alerts.
-      </p>
-      <p>
-        A
-        <code class="dummy-code">toast</code>
-        alert is an alert that typically displays brief, temporary notifications. Toasts typically disappears on their
-        own.
-      </p>
+
       <p>Acceptable values:</p>
       <ol>
         <li class="default">page</li>
@@ -118,21 +85,11 @@
         name, which is determined by the
         <code class="dummy-code">color</code>. Optional parameter.
       </p>
-      <p>
-        (Note: The default icon for
-        <code class="dummy-code">compact</code>
-        is different from the other three alert types.)
-      </p>
       <p>Acceptable values:</p>
       <p>Any
         <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
           Flight icon</a>
         name, or pass an empty string for no icon.
-      </p>
-      <p>
-        (Note: Required for
-        <code class="dummy-code">compact</code>
-        alerts.)
       </p>
     </dd>
 
@@ -145,10 +102,6 @@
         <code class="dummy-code">description</code>
         is required.
       </p>
-      <p>
-        (Note: N/A for
-        <code class="dummy-code">type="compact"</code>.)
-      </p>
     </dd>
 
     <dt>description <code>string</code></dt>
@@ -158,10 +111,6 @@
         <strong>and/or</strong>
         <code class="dummy-code">title</code>
         is required.
-      </p>
-      <p>
-        (Note: Required for
-        <code class="dummy-code">type="compact"</code>.)
       </p>
     </dd>
 
@@ -175,10 +124,6 @@
         <li>true</li>
         <li class="default">false</li>
       </ol>
-      <p>
-        (Note: N/A for
-        <code class="dummy-code">type="compact"</code>.)
-      </p>
     </dd>
 
     <dt>&lt;:actions&gt; <code>named block</code></dt>
@@ -202,9 +147,22 @@
 
 <section>
   <h3 class="dummy-h3">How to use</h3>
+
   <h4 class="dummy-h4">
-    Basic invocation: Alert (Page)
+    Alert (Page)
   </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Page)</strong>
+    is a rectangular alert, without a border-radius. An
+    <strong>Alert (Page)</strong>
+    typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent containing div
+    to its top, left, and right.
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Page)
+  </h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -213,7 +171,6 @@
     '
   />
   {{! prettier-ignore-end }}
-
   <p class="dummy-paragraph">Renders to the default
     <code class="dummy-code">type</code>
     of
@@ -223,12 +180,33 @@
     of
     <code class="dummy-code">neutral</code>:
   </p>
-  <Hds::Alert @title="Really cool title here" @description="And a rad description too!" />
-  <br />
+  <div class="dummy-alert-docs">
+    <Hds::Alert @title="Title here" @description="Description here" />
+    <div class="dummy-alert-indent--x">
+      <p>Rest of the page content here:</p>
+      <ul>
+        <li>Vault</li>
+        <li>Terraform</li>
+        <li>Packer</li>
+        <li>&mldr;and more!</li>
+      </ul>
+    </div>
+  </div>
 
   <h4 class="dummy-h4">
-    Basic invocation: Alert (Inline)
+    Alert (Inline)
   </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Inline)</strong>
+    is an alert with a border-radius. An
+    <strong>Alert (Inline)</strong>
+    typically has adjacent whitespace on all four sides.
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Inline)
+  </h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -237,18 +215,54 @@
     '
   />
   {{! prettier-ignore-end }}
-
   <p class="dummy-paragraph">Renders to the default
     <code class="dummy-code">color</code>
     of
     <code class="dummy-code">neutral</code>:
   </p>
-  <Hds::Alert @type="inline" @title="Really cool title here" @description="And a rad description too!" />
-  <br />
+  <div class="dummy-alert-docs dummy-alert-indent">
+    <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+
+    <p>Rest of the page content here:</p>
+    <ul>
+      <li>Vault</li>
+      <li>Terraform</li>
+      <li>Packer</li>
+      <li>&mldr;and more!</li>
+    </ul>
+  </div>
 
   <h4 class="dummy-h4">
-    Basic invocation: Alert (Compact)
+    Alert (Compact)
   </h4>
+  <p class="dummy-paragraph">
+    An
+    <strong>Alert (Compact)</strong>
+    only contains an
+    <strong>icon</strong>
+    and
+    <strong>description</strong>, with smaller proportions than the other alerts.
+    <ul>
+      <li class="dummy-paragraph">
+        The default
+        <code class="dummy-code">icon</code>
+        for
+        <strong>Alert (Compact)</strong>
+        is different from the other alert types.
+      </li>
+      <li class="dummy-paragraph">
+        <code class="dummy-code">icon</code>
+        and
+        <code class="dummy-code">description</code>
+        are required for
+        <strong>Alert (Compact)</strong>.
+      </li>
+    </ul>
+  </p>
+
+  <h5 class="dummy-h5">
+    Basic invocation of Alert (Compact)
+  </h5>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -263,19 +277,37 @@
     of
     <code class="dummy-code">neutral</code>:
   </p>
-  <Hds::Alert @type="compact" @description="Description only" />
-  <br />
+  <div class="dummy-alert-docs dummy-alert-indent">
+    <Hds::Alert @type="compact" @description="Description here" />
+
+    <p>Rest of the page content here:</p>
+    <ul>
+      <li>Vault</li>
+      <li>Terraform</li>
+      <li>Packer</li>
+      <li>&mldr;and more!</li>
+    </ul>
+  </div>
+
+  <h4 class="dummy-h4">
+    Alert (Toast)
+  </h4>
   <p class="dummy-paragraph">
-    🚧 TODO: Flesh out rest of "How to use". Consider showing the alerts with background color, so that compact is more
-    clear. Consider showing the alerts with background, so it's clear that `page` is flush to adjacent parent top, left,
-    and right, vs. the other alerts. Also will highlight that `page` and `inline` are typically wider than `toast`, as
-    the Showcase is arguably misleading, and more for Percy / testing variations dynamically in full.
+    An
+    <strong>Alert (Toast)</strong>
+    is an alert that typically displays brief, temporary notifications.
+    <strong>Alert (Toasts)</strong>
+    typically disappear on their own.
+    <strong>Alert (Toast)</strong>
+    will need to be implemented in your app with an Ember addon such as
+    <a href="https://github.com/poteto/ember-cli-flash">ember-cli-flash</a>
+    to handle the placement, animation, and dismiss. 🚧 TODO: Insert working Toast implementation here if desired.
   </p>
 </section>
 
 <section>
   <h3 class="dummy-h3">Design guidelines</h3>
-  <p class="dummy-paragraph">🚧 TODO: Insert Figma stickersheet here</p>
+  <p class="dummy-paragraph">🚧 TODO: Insert Figma stickersheet here.</p>
 </section>
 
 <section data-test-percy>

@@ -211,6 +211,18 @@ body.dummy-app {
     border-color: #f5c6cb;
 }
 
+.dummy-alert-docs {
+    border: 1px solid pink;
+}
+
+.dummy-alert-indent--x {
+    padding: 0 16px;
+}
+
+.dummy-alert-indent {
+    padding: 16px 16px 0;
+}
+
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".
 // see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
