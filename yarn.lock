@@ -7022,12 +7022,13 @@ ember-focus-trap@^1.0.1:
     "@embroider/addon-shim" "^1.0.0"
     focus-trap "^6.7.1"
 
-ember-keyboard@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-8.0.0.tgz#dd4a7253d277be9ed9d6878f073ea32406e29435"
-  integrity sha512-/9poW0DS8akMLvYsvn1scAMMCsyOPt22L4W7c4CLruFkUY7wdVrfFxb/qHwDmtWxyZDka0yc8aIZHqL6sSa9wQ==
+ember-keyboard@^8.1.0:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-8.1.1.tgz#b12844a0f87cbb091b7c21293afccbf5aedc2ea3"
+  integrity sha512-mgCV2LBeD3JrFCDqubY8GjHH7o1zysb4BbAogCStJIo/4HCvjHmw5UOO0ePXk4vjlpoVrDx7lxVsKLb604Y/Iw==
   dependencies:
     "@embroider/addon-shim" "^1.5.0"
+    ember-destroyable-polyfill "^2.0.3"
     ember-modifier "^2.1.2 || ^3.1.0"
     ember-modifier-manager-polyfill "^1.2.0"
 
@@ -7072,9 +7073,9 @@ ember-modifier@^2.1.1:
     ember-modifier-manager-polyfill "^1.2.0"
 
 "ember-modifier@^2.1.2 || ^3.1.0":
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.4.tgz#dd05d8f93d5a6a93a8b08993c8fb66c4f2cad277"
-  integrity sha512-gWshNHgj4cF5FjIJnrU+RNZ6fg2UM024Pi0GGXM7sp30khe/t08s9ExJTlFUCyHJVeLpIH1cnML77lX1JFjubQ==
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
+  integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-normalize-entity-name "^1.0.0"
