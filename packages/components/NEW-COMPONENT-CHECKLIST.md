@@ -26,7 +26,7 @@ The engineering checklist has six parts: creating the feature branch, component 
   - add `...attributes` unless doing so would be detrimental (e.g., a parent element and child element in the same component that both have ...attributes)
 - [ ] **component class**
   - use getters (vs template conditionals or constructors, if possible)
-  - we have chosen to compile the CSS classes in the backing class, UNLESS that component only has one CSS class name.
+  - we have chosen to define the value of the `class` attribute (containing the different CSS class names) for the "root" of the element's code in the backing class, UNLESS that component only has one CSS class name.
   - write API comments in the [JS doc](https://jsdoc.app/) format (look at existing components for examples)
   - use the same naming as the Figma file for the components API, unless it conflicts with a pre-existing HTML attribute. If that is the case, document the difference in a comment.
   - if there is an existing Structure component that is similar to the HDS component being created, ensure that all existing functionality is accounted for in some way. If we are not providing existing functionality at all, it should be documented (along with the reason why). If we are providing temporary functionality, explain that it's temporary and why.
