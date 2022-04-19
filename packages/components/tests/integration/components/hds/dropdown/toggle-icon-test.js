@@ -49,12 +49,6 @@ module('Integration | Component | hds/dropdown/toggle-icon', function (hooks) {
     );
     assert.dom('.flight-icon.flight-icon-chevron-down').exists();
   });
-  test('it should render the chevron "up" when @isOpen is true', async function (assert) {
-    await render(
-      hbs`<Hds::Dropdown::ToggleIcon @text="user menu" @isOpen="true" id="test-toggle-icon" />`
-    );
-    assert.dom('.flight-icon.flight-icon-chevron-up').exists();
-  });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::ToggleIcon @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`

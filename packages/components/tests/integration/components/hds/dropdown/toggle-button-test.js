@@ -36,12 +36,6 @@ module(
       );
       assert.dom('.flight-icon.flight-icon-chevron-down').exists();
     });
-    test('it should render the chevron "up" when @isOpen is true', async function (assert) {
-      await render(
-        hbs`<Hds::Dropdown::ToggleButton @text="text toggle" @isOpen="true" id="test-toggle-button" />`
-      );
-      assert.dom('.flight-icon.flight-icon-chevron-up').exists();
-    });
 
     // COLOR
 
