@@ -90,11 +90,14 @@
     HTML attribute because we need to rely on the
     <code class="dummy-code">@href</code>
     Ember argument to differentiate between different types of generated output.</p>
-  <p class="dummy-paragraph"><em>Notice: the
+  <p class="dummy-paragraph"><em>Notice: in this case the component automatically adds the HTML attributes
       <code class="dummy-code">target="_blank"</code>
       and
       <code class="dummy-code">rel="noopener noreferrer"</code>
-      HTML attributes are applied by default to the element, but these can be overwritten using the "splattributes".</em></p>
+      to the
+      <code class="dummy-code">&lt;a&gt;</code>
+      element (but their values can be overwritten passing those attributes to the component, as "splattributes").</em>
+  </p>
 
   <h4 class="dummy-h4">With "@route" parameter (&lt;LinkTo&gt;/&lt;LinkToExternal&gt;)</h4>
   <p class="dummy-paragraph">If a <code class="dummy-code">@route</code> argument is provided:</p>
