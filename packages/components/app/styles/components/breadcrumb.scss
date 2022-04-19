@@ -2,6 +2,7 @@
 // BREADCRUMB
 //
 // properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
 //
 //
 
@@ -75,9 +76,6 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
     text-decoration-color: transparent;
 
-    // we apply the focus directly to the element, without using a pseudo-element
-    @include hds-focus-ring-basic();
-
     &:hover,
     &.is-hover {
         color: var(--token-color-palette-neutral-600);
@@ -86,6 +84,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
             text-decoration-color: currentColor;
         }
     }
+
+    // we apply the focus directly to the element, without using a pseudo-element
+    @include hds-focus-ring-basic();
 
     &:active,
     &.is-active {
@@ -153,24 +154,26 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     padding: 0;
     width: $hds-breadcrumb-item-height;
 
-    // we apply the focus directly to the element, without using a pseudo-element
-    @include hds-focus-ring-basic();
-
     &:hover,
     &.is-hover {
         border-color: var(--token-color-border-strong);
         color: var(--token-color-foreground-faint);
     }
+
+    // we apply the focus directly to the element, without using a pseudo-element
+    @include hds-focus-ring-basic();
+
+    &:focus,
+    &.is-focus {
+        background-color: transparent;
+        border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
+    }
+
     &:active,
     &.is-active {
         background-color: var(--token-color-surface-interactive-active);
         border-color: var(--token-color-border-strong);
         color: var(--token-color-foreground-primary);
-    }
-    &:focus,
-    &.is-focus {
-        background-color: transparent;
-        border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
     }
 }
 
