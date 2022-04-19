@@ -203,7 +203,7 @@
   <h3 class="dummy-h3" id="section-usage">Usage</h3>
   <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the
     list-item item types. For example,
-    <span class="dummy-code">&lt;Hds::Dropdown::ListItem &commat;item="separator" /&gt;</span>
+    <span class="dummy-code">&lt;Hds::Dropdown::ListItem::Separator /&gt;</span>
     becomes
     <span class="dummy-code">&lt;.Separator /&gt;</span>
     when invoked (see examples below).
@@ -725,22 +725,20 @@
   <h4 class="dummy-h4">Title, Description, Separator</h4>
   <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
     <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem @item="title" @text="A simple title" />
-      <Hds::Dropdown::ListItem @item="description" @text="A description." />
-      <Hds::Dropdown::ListItem @item="separator" />
-      <Hds::Dropdown::ListItem @route="index" @text="Item" />
+      <Hds::Dropdown::ListItem::Title @text="A simple title" />
+      <Hds::Dropdown::ListItem::Description @text="A description." />
+      <Hds::Dropdown::ListItem::Separator />
+      <Hds::Dropdown::ListItem::Interactive @route="index" @text="Item" />
     </ul>
     <ul class="hds-dropdown-list">
-      <Hds::Dropdown::ListItem
-        @item="title"
+      <Hds::Dropdown::ListItem::Title
         @text="A longer title that could span multiple lines if the characters surpass a certain length"
       />
-      <Hds::Dropdown::ListItem
-        @item="description"
+      <Hds::Dropdown::ListItem::Description
         @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
       />
-      <Hds::Dropdown::ListItem @item="separator" />
-      <Hds::Dropdown::ListItem @route="index" @text="Item" />
+      <Hds::Dropdown::ListItem::Separator />
+      <Hds::Dropdown::ListItem::Interactive @route="index" @text="Item" />
     </ul>
   </div>
 
@@ -749,14 +747,9 @@
     <ul class="hds-dropdown-list">
       {{#each @model.ITEM_STATES as |state|}}
 
-        <Hds::Dropdown::ListItem
-          @item="copy-item"
-          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
-          @state={{state}}
-        />
+        <Hds::Dropdown::ListItem::CopyItem @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d" @state={{state}} />
       {{/each}}
-      <Hds::Dropdown::ListItem
-        @item="copy-item"
+      <Hds::Dropdown::ListItem::CopyItem
         @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
         @state="success"
         @isSuccess="true"
@@ -766,16 +759,14 @@
     <ul class="hds-dropdown-list">
       {{#each @model.ITEM_STATES as |state|}}
 
-        <Hds::Dropdown::ListItem
+        <Hds::Dropdown::ListItem::CopyItem
           @copyItemTitle="Optional copyItemTitle"
-          @item="copy-item"
           @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
           @state={{state}}
         />
       {{/each}}
-      <Hds::Dropdown::ListItem
+      <Hds::Dropdown::ListItem::CopyItem
         @copyItemTitle="Optional copyItemTitle"
-        @item="copy-item"
         @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
         @isSuccess="true"
         @state="success"
@@ -784,12 +775,12 @@
   </div>
 
   <h4 class="dummy-h4">Links</h4>
-  {{#each @model.ITEM_COLORS as |color|}}
+  {{#each @model.ITEM_INTERACTIVE_COLORS as |color|}}
     <p class="dummy-paragraph">Color: {{capitalize color}}</p>
     <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
+          <Hds::Dropdown::ListItem::Interactive
             @icon={{if (eq color "critical") "trash" null}}
             @route="components.dropdown"
             @text={{state}}
@@ -800,7 +791,7 @@
       </ul>
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
+          <Hds::Dropdown::ListItem::Interactive
             @route="components.dropdown"
             @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with icon"
@@ -811,7 +802,7 @@
       </ul>
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
+          <Hds::Dropdown::ListItem::Interactive
             @route="components.dropdown"
             @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
@@ -825,12 +816,12 @@
 
   <h4 class="dummy-h4">Buttons</h4>
 
-  {{#each @model.ITEM_COLORS as |color|}}
+  {{#each @model.ITEM_INTERACTIVE_COLORS as |color|}}
     <p class="dummy-paragraph">{{capitalize color}}</p>
     <div class="dummy-dropdown-list-items-base-sample hds-dropdown">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
+          <Hds::Dropdown::ListItem::Interactive
             @icon={{if (eq color "critical") "trash" null}}
             @text={{state}}
             @color={{color}}
@@ -840,7 +831,7 @@
       </ul>
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
+          <Hds::Dropdown::ListItem::Interactive
             @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with icon"
             @color={{color}}
@@ -850,7 +841,7 @@
       </ul>
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem
+          <Hds::Dropdown::ListItem::Interactive
             @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
             @color={{color}}
