@@ -29,13 +29,15 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
       .dom('.hds-dropdown-list-item')
       .hasClass('hds-dropdown-list-item--interactive');
   });
-  test('it should render the "list-item/title" with a CSS class that matches the component name and the type of item', async function (assert) {
+  test('it should render the "list-item/copy-item" with a CSS class that matches the component name and the type of item', async function (assert) {
     assert.expect(2);
-    await render(hbs`<Hds::Dropdown::ListItem @item="title" @text="title" />`);
+    await render(
+      hbs`<Hds::Dropdown::ListItem @item="copy-item" @text="copy-item" />`
+    );
     assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
     assert
       .dom('.hds-dropdown-list-item')
-      .hasClass('hds-dropdown-list-item--title');
+      .hasClass('hds-dropdown-list-item--copy-item');
   });
   test('it should render the "list-item/description" with a CSS class that matches the component name and the type of item', async function (assert) {
     assert.expect(2);
@@ -47,24 +49,6 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
       .dom('.hds-dropdown-list-item')
       .hasClass('hds-dropdown-list-item--description');
   });
-  test('it should render the "list-item/separator" with a CSS class that matches the component name and the type of item', async function (assert) {
-    assert.expect(2);
-    await render(hbs`<Hds::Dropdown::ListItem @item="separator" />`);
-    assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
-    assert
-      .dom('.hds-dropdown-list-item')
-      .hasClass('hds-dropdown-list-item--separator');
-  });
-  test('it should render the "list-item/copy-item" with a CSS class that matches the component name and the type of item', async function (assert) {
-    assert.expect(2);
-    await render(
-      hbs`<Hds::Dropdown::ListItem @item="copy-item" @text="copy-item" />`
-    );
-    assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
-    assert
-      .dom('.hds-dropdown-list-item')
-      .hasClass('hds-dropdown-list-item--copy-item');
-  });
   test('it should render the "list-item/generic" with a CSS class that matches the component name and the type of item', async function (assert) {
     assert.expect(2);
     await render(hbs`<Hds::Dropdown::ListItem @item="generic" />`);
@@ -73,14 +57,31 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
       .dom('.hds-dropdown-list-item')
       .hasClass('hds-dropdown-list-item--generic');
   });
-
-  // ITEM: TEXT
-
-  test('it should render the "list-item/title" with a title text', async function (assert) {
+  test('it should render the "list-item/interactive" with a CSS class that matches the component name and the type of item', async function (assert) {
+    assert.expect(2);
     await render(
-      hbs`<Hds::Dropdown::ListItem @item="title" @text="This is the title" />`
+      hbs`<Hds::Dropdown::ListItem @item="interactive" @text="interactive" />`
     );
-    assert.dom('.hds-dropdown-list-item').hasText('This is the title');
+    assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
+    assert
+      .dom('.hds-dropdown-list-item')
+      .hasClass('hds-dropdown-list-item--interactive');
+  });
+  test('it should render the "list-item/separator" with a CSS class that matches the component name and the type of item', async function (assert) {
+    assert.expect(2);
+    await render(hbs`<Hds::Dropdown::ListItem @item="separator" />`);
+    assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
+    assert
+      .dom('.hds-dropdown-list-item')
+      .hasClass('hds-dropdown-list-item--separator');
+  });
+  test('it should render the "list-item/title" with a CSS class that matches the component name and the type of item', async function (assert) {
+    assert.expect(2);
+    await render(hbs`<Hds::Dropdown::ListItem @item="title" @text="title" />`);
+    assert.dom('.hds-dropdown-list-item').hasClass('hds-dropdown-list-item');
+    assert
+      .dom('.hds-dropdown-list-item')
+      .hasClass('hds-dropdown-list-item--title');
   });
 
   // ITEM: DESCRIPTION
@@ -133,6 +134,15 @@ module('Integration | Component | hds/dropdown/list-item', function (hooks) {
   test('it should render the text passed as @text prop', async function (assert) {
     await render(hbs`<Hds::Dropdown::ListItem @text="interactive text" />`);
     assert.dom('.hds-dropdown-list-item').hasText('interactive text');
+  });
+
+  // ITEM: TITLE
+
+  test('it should render the "list-item/title" with a title text', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::ListItem @item="title" @text="This is the title" />`
+    );
+    assert.dom('.hds-dropdown-list-item').hasText('This is the title');
   });
 
   // A11Y
