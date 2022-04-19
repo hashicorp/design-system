@@ -1,5 +1,23 @@
 # @hashicorp/design-system-components
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.5
+
+## 0.9.0
+
+### Minor Changes
+
+- [#66](https://github.com/hashicorp/design-system/pull/66) [`29e2ce55`](https://github.com/hashicorp/design-system/commit/29e2ce55bab74cc02dd511794dfadd2b3ac40a14) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds dropdown component to the design system
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.4
+
 ## 0.8.0
 
 ### Minor Changes

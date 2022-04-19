@@ -112,19 +112,6 @@ export default class HdsLinkCtaComponent extends Component {
     return this.args.isFullWidth ?? false;
   }
 
-  @action
-  didInsert(el) {
-    // we need to register the element to compare it with the one that triggered the "key/space" event
-    this.el = el;
-  }
-
-  @action
-  onKeySpace(event) {
-    if (event.target === this.el) {
-      event.target.click();
-    }
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames
@@ -146,5 +133,18 @@ export default class HdsLinkCtaComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  didInsert(el) {
+    // we need to register the element to compare it with the one that triggered the "key/space" event
+    this.el = el;
+  }
+
+  @action
+  onKeySpace(event) {
+    if (event.target === this.el) {
+      event.target.click();
+    }
   }
 }

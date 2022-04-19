@@ -2,8 +2,7 @@
 // BUTTON COMPONENT
 //
 // properties within each class are sorted alphabetically
-// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
-// see https://github.com/hashicorp/design-system-components/issues/132
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
 //
 //
 
@@ -145,6 +144,14 @@ $size-props: (
   box-shadow: var(--token-elevation-low-box-shadow);
   color: var(--token-color-foreground-high-contrast);
 
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-palette-blue-300);
+    border-color: var(--token-color-palette-blue-400);
+    color: var(--token-color-foreground-high-contrast);
+    cursor: pointer;
+  }
+
   &:focus,
   &.is-focus {
     background-color: var(--token-color-palette-blue-200);
@@ -163,13 +170,7 @@ $size-props: (
       top: -$shift;
     }
   }
-  &:hover,
-  &.is-hover {
-    background-color: var(--token-color-palette-blue-300);
-    border-color: var(--token-color-palette-blue-400);
-    color: var(--token-color-foreground-high-contrast);
-    cursor: pointer;
-  }
+
   &:active,
   &.is-active {
     background-color: var(--token-color-palette-blue-400);
@@ -188,6 +189,14 @@ $size-props: (
   box-shadow: var(--token-elevation-low-box-shadow);
   color: var(--token-color-foreground-primary);
 
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-surface-primary);
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-primary);
+    cursor: pointer;
+  }
+
   &:focus,
   &.is-focus {
     background-color: var(--token-color-surface-faint);
@@ -197,13 +206,7 @@ $size-props: (
       border-color: var(--token-color-focus-action-external);
     }
   }
-  &:hover,
-  &.is-hover {
-    background-color: var(--token-color-surface-primary);
-    border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-primary);
-    cursor: pointer;
-  }
+
   &:active,
   &.is-active {
     background-color: var(--token-color-surface-interactive-active);
@@ -221,6 +224,14 @@ $size-props: (
   border-color: transparent;
   color: var(--token-color-foreground-action);
 
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-surface-primary);
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-action-hover);
+    cursor: pointer;
+  }
+
   &:focus,
   &.is-focus {
     border-color: var(--token-color-focus-action-internal);
@@ -229,13 +240,7 @@ $size-props: (
       border-color: var(--token-color-focus-action-external);
     }
   }
-  &:hover,
-  &.is-hover {
-    background-color: var(--token-color-surface-primary);
-    border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-action-hover);
-    cursor: pointer;
-  }
+
   &:active,
   &.is-active {
     background-color: var(--token-color-surface-interactive-active);
@@ -271,6 +276,14 @@ $size-props: (
   box-shadow: var(--token-elevation-low-box-shadow);
   color: var(--token-color-foreground-critical-on-surface);
 
+  &:hover,
+  &.is-hover {
+    background-color: var(--token-color-palette-red-300);
+    border-color: var(--token-color-palette-red-400);
+    color: var(--token-color-foreground-high-contrast);
+    cursor: pointer;
+  }
+
   &:focus,
   &.is-focus {
     background-color: var(--token-color-surface-critical);
@@ -279,13 +292,6 @@ $size-props: (
     &::before {
       border-color: var(--token-color-focus-critical-external);
     }
-  }
-  &:hover,
-  &.is-hover {
-    background-color: var(--token-color-palette-red-300);
-    border-color: var(--token-color-palette-red-400);
-    color: var(--token-color-foreground-high-contrast);
-    cursor: pointer;
   }
 
   &:active,

@@ -15,7 +15,6 @@
 //
 // properties within each class are sorted alphabetically
 // notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
-// see https://github.com/hashicorp/design-system-components/issues/132
 //
 //
 
@@ -122,21 +121,22 @@ $hds-dropdown-toggle-border-radius: 5px;
   min-width: 200px;
   padding: 4px 0;
   width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
-
-  &.hds-dropdown-list--position-right {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 4px);
-    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
-  }
-
-  &.hds-dropdown-list--position-left {
-    left: 0;
-    position: absolute;
-    top: calc(100% + 4px);
-    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
-  }
 }
+
+.hds-dropdown-list--position-right {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+}
+
+.hds-dropdown-list--position-left {
+  left: 0;
+  position: absolute;
+  top: calc(100% + 4px);
+  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+}
+
 
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
