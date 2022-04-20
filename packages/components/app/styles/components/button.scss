@@ -304,3 +304,23 @@ $size-props: (
     }
   }
 }
+
+
+// SPECIAL
+
+// we apply a visual treatment to alert the developer if a "href" HTML attribute is used (instead of the "@href" Ember argument)
+
+button.hds-button[href] {
+  background-color: red !important;
+  color: white !important;
+  border: none;
+
+  .hds-button__text,
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    content: ' Attention: you’re passing a "href" attribute to the "Hds::Button" component, you should use an "@href" argument.';
+  }
+}
