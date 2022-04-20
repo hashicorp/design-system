@@ -42,27 +42,27 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     await render(
       hbs`<Hds::Interactive id="test-interactive" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-interactive').hasClass('my-class');
-    assert.dom('#test-interactive').hasAttribute('data-test1');
-    assert.dom('#test-interactive').hasAttribute('data-test2', 'test');
+    assert.dom('button#test-interactive').hasClass('my-class');
+    assert.dom('button#test-interactive').hasAttribute('data-test1');
+    assert.dom('button#test-interactive').hasAttribute('data-test2', 'test');
   });
   test('it should spread all the attributes passed to the <a> element', async function (assert) {
     assert.expect(3);
     await render(
       hbs`<Hds::Interactive @href="#" id="test-interactive" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-interactive').hasClass('my-class');
-    assert.dom('#test-interactive').hasAttribute('data-test1');
-    assert.dom('#test-interactive').hasAttribute('data-test2', 'test');
+    assert.dom('a#test-interactive').hasClass('my-class');
+    assert.dom('a#test-interactive').hasAttribute('data-test1');
+    assert.dom('a#test-interactive').hasAttribute('data-test2', 'test');
   });
   test('it should spread all the attributes passed to the <LinkTo> element', async function (assert) {
     assert.expect(3);
     await render(
       hbs`<Hds::Interactive @route="index" id="test-interactive" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-interactive').hasClass('my-class');
-    assert.dom('#test-interactive').hasAttribute('data-test1');
-    assert.dom('#test-interactive').hasAttribute('data-test2', 'test');
+    assert.dom('a#test-interactive').hasClass('my-class');
+    assert.dom('a#test-interactive').hasAttribute('data-test1');
+    assert.dom('a#test-interactive').hasAttribute('data-test2', 'test');
   });
 
   // YIELDING
