@@ -10,9 +10,9 @@ module('Integration | Component | hds/button/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders a button with the defined text', async function (assert) {
+  test('it renders the button', async function (assert) {
     await render(hbs`<Hds::Button @text="Copy to clipboard" />`);
-    assert.dom(this.element).hasText('Copy to clipboard');
+    assert.dom(this.element).exists();
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -91,6 +91,15 @@ module('Integration | Component | hds/button/index', function (hooks) {
       .doesNotHaveAria('label', 'copy to clipboard');
   });
 
+  // TEXT
+
+  test('it renders a button with the defined text', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-toggle-button" />`
+    );
+    assert.dom('#test-toggle-button').hasText('Copy to clipboard');
+  });
+
   // A11Y
 
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {
@@ -98,6 +107,18 @@ module('Integration | Component | hds/button/index', function (hooks) {
       hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`
     );
     assert.dom('#test-button').hasAria('label', 'copy to clipboard');
+  });
+  test('it should have "button" type by default', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
+    );
+    assert.dom('#test-button').hasAttribute('type', 'button');
+  });
+  test('it should have a custom type if @type is set', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @type="submit" id="test-button" />`
+    );
+    assert.dom('#test-button').hasAttribute('type', 'submit');
   });
 
   // OTHER
@@ -142,6 +163,20 @@ module('Integration | Component | hds/button/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Button @text="copy to clipboard" @type="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @type is provided together with @href', async function (assert) {
+    const errorMessage =
+      '@type for "Hds::Button" should be passed only to generate a <button> (you\'re passing @href or @route so this will generate a <a> link)';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @href="#" @type="submit" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
