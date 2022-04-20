@@ -135,12 +135,19 @@ export default class HdsButtonIndexComponent extends Component {
   get type() {
     let { type = DEFAULT_TYPE } = this.args;
 
-    assert(
-      `@type for "Hds::Button" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type)
-    );
+    if (this.args.href || this.args.route) {
+      assert(
+        `@type for "Hds::Button" should be passed only to generate a <button> (you're passing @href or @route so this will generate a <a> link)`,
+        !this.args.type
+      );
+    } else {
+      assert(
+        `@type for "Hds::Button" must be one of the following: ${TYPES.join(
+          ', '
+        )}; received: ${type}`,
+        TYPES.includes(type)
+      );
+    }
 
     return type;
   }
