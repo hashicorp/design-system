@@ -98,4 +98,8 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     await render(hbs`<Hds::Interactive id="test-interactive" />`);
     assert.dom('button#test-interactive').hasAttribute('type', 'button');
   });
+  test('it should have a custom type if @type is set', async function (assert) {
+    await render(hbs`<Hds::Interactive id="test-interactive" type="submit" />`);
+    assert.dom('button#test-interactive').hasAttribute('type', 'submit');
+  });
 });
