@@ -4,6 +4,8 @@ import { assert } from '@ember/debug';
 export const DEFAULT_COLOR = 'primary';
 export const COLORS = ['primary', 'secondary'];
 
+const NOOP = () => {};
+
 export default class HdsDropdownToggleButtonComponent extends Component {
   /**
    * @param text
@@ -14,7 +16,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Dropdown::ToggleButton" must have a valid value',
+      '@text for "Hds::Dropdown::Toggle::Button" must have a valid value',
       text !== undefined
     );
 
@@ -31,7 +33,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     let { color = DEFAULT_COLOR } = this.args;
 
     assert(
-      `@color for "Hds::Dropdown::ToggleButton" must be one of the following: ${COLORS.join(
+      `@color for "Hds::Dropdown::Toggle::Button" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
       COLORS.includes(color)
@@ -53,7 +55,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     if (typeof onClick === 'function') {
       return onClick;
     } else {
-      return () => {};
+      return NOOP;
     }
   }
 
