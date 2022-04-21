@@ -8,10 +8,7 @@
     }}
   </:toggle>
   <:content>
-    <ul
-      class="hds-dropdown-list
-        {{if (eq @listPosition 'left') 'hds-dropdown-list--position-left' 'hds-dropdown-list--position-right'}}"
-    >
+    <ul class={{this.listClassNames}} {{style width=@width}}>
       {{yield
         (hash
           CopyItem=(component "hds/dropdown/list-item/copy-item")
