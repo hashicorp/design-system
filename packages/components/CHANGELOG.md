@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.9.2
+
+### Patch Changes
+
+- [#209](https://github.com/hashicorp/design-system/pull/209) [`6021d433`](https://github.com/hashicorp/design-system/commit/6021d43352b8e38b268b06cd98ca0c62adb14999) Thanks [@didoo](https://github.com/didoo)! - Re-ordered declarations of CSS states
+
 ## 0.9.1
 
 ### Patch Changes
