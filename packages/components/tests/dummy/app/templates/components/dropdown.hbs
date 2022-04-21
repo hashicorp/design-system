@@ -12,6 +12,56 @@
 
 <section>
   <h3 class="dummy-h3" id="section-component-api">Component API</h3>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Dropdown</code>
+    component is composed by different parts, with their own APIs:</p>
+  <ul>
+    <li class="dummy-paragraph">
+      a main "container" (the dropdown itself)
+    </li>
+    <li class="dummy-paragraph">
+      <p>two "toggle" sub-components (the button that opens/closes the dropdown)</p>
+      <ul>
+        <li class="dummy-paragraph">
+          ToggleButtom (TODO)
+        </li>
+        <li class="dummy-paragraph">
+          ToggleIcon (TODO)
+        </li>
+      </ul>
+    </li>
+    <li class="dummy-paragraph">
+      <p>different "list-item" sub-components (they have different specialized scopes)</p>
+      <ul>
+        <li class="dummy-paragraph">
+          Description
+        </li>
+        <li class="dummy-paragraph">
+          Generic
+        </li>
+        <li class="dummy-paragraph">
+          Interactive
+        </li>
+        <li class="dummy-paragraph">
+          Separator
+        </li>
+        <li class="dummy-paragraph">
+          Title
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p class="dummy-paragraph"><em>
+      Notice: to make the invocation more intuitive for developers, all the sub-components are named yields, so the
+      yielded name is a simplified version of the full component name (eg.
+      <code class="dummy-code">Hds::ListItem::Interactive</code>
+      becomes just
+      <code class="dummy-code">Interactive</code>). See below how they are invoked as yielded components.
+    </em>
+  </p>
+
+  <h4 class="dummy-h4">Dropdown</h4>
+  <p class="dummy-paragraph">Here is the API for the main ("container") component:</p>
   <dl class="dummy-component-props">
     <dt>listPosition <code>string</code></dt>
     <dd>
@@ -20,57 +70,43 @@
         <li>left</li>
         <li class="default">right</li>
       </ol>
-      <p>If no
-        <span class="dummy-code">listPostion</span>
-        is defined, it will automatically be positioned to the right.</p>
     </dd>
     <dt>onClose <code>function</code></dt>
     <dd>
       <p>Callback function invoked when the dropdown is closed (if provided).</p>
     </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
   </dl>
-  <hr />
-  <p class="dummy-paragraph" id="toggle-button-api">
-    This is the API for the
-    <span class="dummy-code">Dropdown::ToggleButton</span>
-    component:
-  </p>
+
+  <h4 class="dummy-h4">Toggle::Button</h4>
+  <p class="dummy-paragraph">Here is the API for the "button-like" toggle component (yielded as
+    <code class="dummy-code">ToggleButton</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="toggle-button-api">
     <dt>text <code>string</code></dt>
     <dd>
       <p>The text of the toggle button.</p>
       <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
-    <dt>
-      color
-      <code>enum</code>
-    </dt>
+    <dt>color <code>enum</code></dt>
     <dd>
       <p>Acceptable values:</p>
       <ol>
-        <li class="default">
-          primary
-        </li>
-        <li>
-          secondary
-        </li>
+        <li class="default">primary</li>
+        <li>secondary</li>
       </ol>
-      <p>
-        To indicate that a secondary button style should be used for the "text" toggle, add
-        <span class="dummy-code">@color="secondary"</span>. If no
-        <span class="dummy-code">@color</span>
-        is declared,
-        <span class="dummy-code">primary</span>
-        will be used by default.
-      </p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
-  <hr />
-  <p class="dummy-paragraph" id="toggle-icon-api">
-    This is the API for the
-    <span class="dummy-code">Dropdown::ToggleIcon</span>
-    component:
-  </p>
+
+  <h4 class="dummy-h4">Toggle::Icon</h4>
+  <p class="dummy-paragraph">Here is the API for the "icon-like" toggle component (yielded as
+    <code class="dummy-code">ToggleIcon</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="toggle-icon-api">
     <dt>text <code>string</code></dt>
     <dd>
@@ -79,127 +115,153 @@
     </dd>
     <dt>icon <code>string</code></dt>
     <dd>
-      <p>Any valid flight-icon name. If none is defined,
-        <span class="dummy-code default">user</span>
-        is set by default</p>
+      <p>Acceptable value: any Flight icon name.</p>
+      <p>Default: <span class="default">"user"</span></p>
     </dd>
     <dt>hasChevron <code>boolean</code></dt>
     <dd>
-      <p>
-        Acceptable values:
-      </p>
-      <ol>
-        <li class="default">true</li>
-        <li>false</li>
-      </ol>
+      <p>Default: <span class="default">true</span></p>
       <p>Per design,
-        <span class="dummy-code">false</span>
+        <code class="dummy-code">false</code>
         is only acceptable when the "more-horizontal" icon is used; as such, it is set to
-        <span class="dummy-code">true</span>
+        <code class="dummy-code">true</code>
         by default.</p>
     </dd>
-    <dt>
-      imageSrc
-      <code>string</code>
-    </dt>
+    <dt>imageSrc <code>string</code></dt>
     <dd>
       The URL of an image to be used instead of an icon (e.g., as an avatar).
     </dd>
-  </dl>
-  <hr />
-  <p class="dummy-paragraph" id="listitem-api">
-    This is the API for the
-    <span class="dummy-code">Dropdown::ListItem</span>
-    component:
-  </p>
-  <dl class="dummy-component-props" aria-labelledby="listitem-api">
-    <dt>
-      item
-      <code>
-        enum
-      </code>
-    </dt>
+    <dt>“splattributes”</dt>
     <dd>
-      <p>
-        Acceptable values:
-      </p>
-      <ol>
-        <li class="default">interactive</li>
-        <li>copy-item</li>
-        <li>description</li>
-        <li>generic</li>
-        <li>separator</li>
-        <li>title</li>
-      </ol>
-      <p>🚨 Important Note: the
-        <span class="dummy-code">generic</span>
-        is a yield and the developer is completely responsible for any item yielded there (including the accessibility
-        of that item). This is provided as an escape hatch to empower developers to more easily transition to the design
-        system. It should be considered as a temporary measure with plans for replacement.</p>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
-    <dt>text
-      <code>string</code>
-    </dt>
+  </dl>
+
+  <h4 class="dummy-h4">ListItem::CopyItem</h4>
+  <p class="dummy-paragraph">TODO??</p>
+  {{! TODO?? }}
+
+  <h4 class="dummy-h4">ListItem::Description</h4>
+  <p class="dummy-paragraph">Here is the API for the "description" list item component (yielded as
+    <code class="dummy-code">Description</code>):</p>
+  <dl class="dummy-component-props" aria-labelledby="listitem-description-api">
+    <dt>text <code>string</code></dt>
     <dd>
-      <p>The text to be used for all items. The only items that do not require text to be defined are the separator and
-        generic item types. Otherwise,
-        <em>If no text value is defined an error will be thrown.</em></p>
+      <p>The text to be used for the description.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">ListItem::Generic</h4>
+  <p class="dummy-paragraph">Here is the API for the "generic" list item component (yielded as
+    <code class="dummy-code">Generic</code>):</p>
+  <dl class="dummy-component-props" aria-labelledby="listitem-generic-api">
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this sub-component are yielded inside the list item.</p>
+      <p>🚨
+        <em>Notice: when using the "generic" list item the developer is completely responsible for any item yielded
+          there (including the accessibility of that item).</em></p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">ListItem::Interactive</h4>
+  <p class="dummy-paragraph">Here is the API for the "interactive" list item component (yielded as
+    <code class="dummy-code">Interactive</code>):</p>
+  <dl class="dummy-component-props" aria-labelledby="listitem-generic-api">
+    <dt>text <code>string</code></dt>
+    <dd>
+      <p>The text to be used in the item.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
     <dt>color <code>enum</code></dt>
     <dd>
-      <p>
-        For use on the
-        <span class="dummy-code">interactive</span>
-        item type. Acceptabe values:
-      </p>
+      <p>For use on the
+        <code class="dummy-code">interactive</code>
+        item type. Acceptabe values:</p>
       <ol>
         <li class="default">action</li>
         <li>critical</li>
       </ol>
     </dd>
-    <dt>
-      route
-      <code>
-        string
-      </code>
-    </dt>
+    <dt>icon <code>string</code></dt>
     <dd>
-      <p>
-        If the interactive item is an internal link, define a
-        <span class="dummy-code">route</span>; Ember's
-        <span class="dummy-code">LinkTo</span>
-        component will be rendered.
-      </p>
+      <p>Acceptable value: any Flight icon name.</p>
+      <p>🚨
+        <em>Notice: when the @color is "critical" an icon is required.</em></p>
     </dd>
-    <dt>
-      href
-      <code>
-        string
-      </code>
-    </dt>
+    <dt>href</dt>
     <dd>
-      <p>
-        If the interactive item is an external link, define a
-        <span class="dummy-code">href</span>; an
-        <span class="dummy-code">&lt;a&gt;</span>
-        element with the appropriate attributes will be rendered.
-      </p>
+      <p>This is the URL parameter that is passed down to the
+        <code>&lt;a&gt;</code>
+        element.</p>
     </dd>
-    <dt>
-      icon
-      <code>string</code>
-    </dt>
+    <dt>route/models/model/query/current-when/replace</dt>
     <dd>
-      <p>Acceptable value: any flight icon name. As per design, an icon
-        <em>must</em>
-        exist for critical list-items. All icons will be placed to the left of the list-item.</p>
+      <p>These are the parameters that are passed down as arguments to the
+        <code>&lt;LinkTo&gt;</code>
+        component. For more details about these parameters see the
+        <a
+          href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Ember documentation</a>
+        or the
+        <a
+          href="https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/input?anchor=LinkTo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >LinkTo component API specs</a>.</p>
     </dd>
-    <dt>
-      copyItemTitle
-      <code>string</code>
-    </dt>
+    <dt>“splattributes”</dt>
     <dd>
-      <p>Optional. For use on the <span class="dummy-code">copy-item</span> item type.</p>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p>🚨
+        <em><strong>Important</strong>: in this specific component, the
+          <code class="dummy-code">...attributes</code>
+          are not spread on the root element of the component (an
+          <code class="dummy-code">&lt;li&gt;</code>
+          element) but on the underlying element/component (<code class="dummy-code">&lt;button&gt;</code>,
+          <code class="dummy-code">&lt;a&gt;</code>,
+          <code class="dummy-code">&lt;LinkTo&gt;</code>
+          or
+          <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+          depending on the
+          <code class="dummy-code">@route/@href</code>
+          arguments).</em></p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">ListItem::Separator</h4>
+  <p class="dummy-paragraph">Here is the API for the "separator" list item component (yielded as
+    <code class="dummy-code">Separator</code>):</p>
+  <dl class="dummy-component-props" aria-labelledby="listitem-separator-api">
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">ListItem::Title</h4>
+  <p class="dummy-paragraph">Here is the API for the "description" list item component (yielded as
+    <code class="dummy-code">Title</code>):</p>
+  <dl class="dummy-component-props" aria-labelledby="listitem-title-api">
+    <dt>text <code>string</code></dt>
+    <dd>
+      <p>The text to be used for the title.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
+    </dd>
+    <dt>“splattributes”</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
@@ -207,17 +269,17 @@
   <h3 class="dummy-h3" id="section-usage">Usage</h3>
   <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the
     list-item item types. For example,
-    <span class="dummy-code">&lt;Hds::Dropdown::ListItem::Separator /&gt;</span>
+    <code class="dummy-code">&lt;Hds::Dropdown::ListItem::Separator /&gt;</code>
     becomes
-    <span class="dummy-code">&lt;.Separator /&gt;</span>
+    <code class="dummy-code">&lt;.Separator /&gt;</code>
     when invoked (see examples below).
   </p>
   <p class="dummy-paragraph">The
-    <span class="dummy-code">interactive</span>
+    <code class="dummy-code">interactive</code>
     item type stays as the default and renders the correct element based on the passing of an
-    <span class="dummy-code">&commat;route</span>,
-    <span class="dummy-code">&commat;href</span>, or the addition of a click event (i.e.,
-    <span class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</span>).</p>
+    <code class="dummy-code">&commat;route</code>,
+    <code class="dummy-code">&commat;href</code>, or the addition of a click event (i.e.,
+    <code class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</code>).</p>
   <h4 class="dummy-h4">Example: ToggleButton + ListItem, Separator</h4>
   <div>
     <p class="dummy-paragraph">
@@ -267,6 +329,14 @@
       This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, a
       generic (which is yielding a Link::Standalone component), copy-item, a separator and a link (color, critical):
     </p>
+    <p class="dummy-paragraph">
+      To indicate that a secondary button style should be used for the "button" toggle, add
+      <code class="dummy-code">@color="secondary"</code>. If no
+      <code class="dummy-code">@color</code>
+      is declared,
+      <code class="dummy-code">primary</code>
+      will be used by default.
+    </p>
     {{! prettier-ignore-start }}
     {{! template-lint-disable no-unbalanced-curlies }}
     <CodeBlock
@@ -313,9 +383,9 @@
     <p class="dummy-paragraph">
       Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and
       destructive (critical) links. This is the only use case where it is acceptable to use
-      <span class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</span>.
+      <code class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</code>.
       <br />Note that
-      <span class="dummy-code">toggleText</span>
+      <code class="dummy-code">toggleText</code>
       is still required, because it supplies the aria-label for the toggle button.
 
     </p>
@@ -382,9 +452,9 @@
     <p class="dummy-paragraph">
       In this example, we have a user icon with a title, description, separator, and links.
       <br />Note that
-      <span class="dummy-code">toggleText</span>
+      <code class="dummy-code">toggleText</code>
       is still required, because it supplies the value for the
-      <span class="dummy-code">aria-label</span>
+      <code class="dummy-code">aria-label</code>
       attribute on the "overflow" toggle button.
     </p>
     {{! prettier-ignore-start }}
@@ -459,9 +529,9 @@
     <p class="dummy-paragraph">
       In this example, we have a settings icon with a title, description, separator, and links.
       <br />Note that
-      <span class="dummy-code">toggleText</span>
+      <code class="dummy-code">toggleText</code>
       is still required, because it supplies the value for the
-      <span class="dummy-code">aria-label</span>
+      <code class="dummy-code">aria-label</code>
       attribute on the "overflow" toggle button.
     </p>
     {{! prettier-ignore-start }}
