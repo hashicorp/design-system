@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+const NOOP = () => {};
 export default class HdsDropdownToggleIconComponent extends Component {
   /**
    * @param text
@@ -11,7 +12,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Dropdown::ToggleIcon" must have a valid value',
+      '@text for "Hds::Dropdown::Toggle::Icon" must have a valid value',
       text !== undefined
     );
 
@@ -53,7 +54,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
     if (typeof onClick === 'function') {
       return onClick;
     } else {
-      return () => {};
+      return NOOP;
     }
   }
 
