@@ -23,10 +23,10 @@
       <p>two "toggle" sub-components (the button that opens/closes the dropdown)</p>
       <ul>
         <li class="dummy-paragraph">
-          ToggleButtom (TODO)
+          ToggleButtom
         </li>
         <li class="dummy-paragraph">
-          ToggleIcon (TODO)
+          ToggleIcon
         </li>
       </ul>
     </li>
@@ -153,8 +153,8 @@
   </dl>
 
   <h4 class="dummy-h4">ListItem::CopyItem</h4>
+  {{! TODO: add props here if we decide to use the current version }}
   <p class="dummy-paragraph">TODO??</p>
-  {{! TODO?? }}
 
   <h4 class="dummy-h4">ListItem::Description</h4>
   <p class="dummy-paragraph">Here is the API for the "description" list item component (yielded as
@@ -199,9 +199,7 @@
     </dd>
     <dt>color <code>enum</code></dt>
     <dd>
-      <p>For use on the
-        <code class="dummy-code">interactive</code>
-        item type. Acceptabe values:</p>
+      <p>Acceptabe values:</p>
       <ol>
         <li class="default">action</li>
         <li>critical</li>
@@ -210,8 +208,6 @@
     <dt>icon <code>string</code></dt>
     <dd>
       <p>Acceptable value: any Flight icon name.</p>
-      <p>🚨
-        <em>Notice: when the @color is "critical" an icon is required.</em></p>
     </dd>
     <dt>href</dt>
     <dd>
@@ -282,307 +278,401 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3" id="section-usage">Usage</h3>
+  <h3 class="dummy-h3" id="section-usage">How to use</h3>
+  <h4 class="dummy-h4">Invocation</h4>
   <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the
-    list-item item types. For example,
+    toggles and list-item items. For example,
     <code class="dummy-code">&lt;Hds::Dropdown::ListItem::Separator /&gt;</code>
     becomes
-    <code class="dummy-code">&lt;.Separator /&gt;</code>
-    when invoked (see examples below).
+    <code class="dummy-code">&lt;XX.Separator /&gt;</code>
+    when invoked:
   </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        &lt;dd.ToggleButton @text="..." /&gt;
+        &lt;dd.Title @text="Lorem ipsum" /&gt;
+        &lt;dd.Description @text="Lorem ipsum dolor sine qua non est." /&gt;
+        &lt;dd.Interactive @href="..." @text="Add" /&gt;
+        &lt;dd.Separator /&gt;
+        &lt;dd.Interactive @route="..." @icon="trash" @text="Delete" @color="critical" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">URLs and routes handling</h4>
   <p class="dummy-paragraph">The
-    <code class="dummy-code">interactive</code>
-    item type stays as the default and renders the correct element based on the passing of an
+    <code class="dummy-code">Interactive</code>
+    list item renders the correct element based on the passing of an
     <code class="dummy-code">&commat;route</code>,
     <code class="dummy-code">&commat;href</code>, or the addition of a click event (i.e.,
     <code class="dummy-code">&lbrace;&lbrace;on "click" myAction&rbrace;&rbrace;</code>).</p>
-  <h4 class="dummy-h4">Example: ToggleButton + ListItem, Separator</h4>
-  <div>
-    <p class="dummy-paragraph">
-      This example demonstrates the use of a dropdown with a toggle-button, links, a separator and a link (color,
-      critical):
-    </p>
-    {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
-    <CodeBlock
-      @language="markup"
-      @code='
-        &lt;Hds::Dropdown as |dd|&gt;
-          &lt;dd.ToggleButton @text="Text Toggle" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Item One" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Item Two" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Item Three" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Item Four" /&gt;
-          &lt;dd.Separator /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
-        &lt;/Hds::Dropdown&gt;
-      '
-    />
-    {{! template-lint-enable no-unbalanced-curlies }}
-    {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><em>Notice: the
+      <code class="dummy-code">Interactive</code>
+      list item component internally uses the generic
+      <code class="dummy-code">Hds::Interactive</code>
+      component. For more details about how this low-level component works please refer to
+      {{! TODO: add route "utilities.interactive" when available }}
+      <LinkTo @route="index">its documentation page</LinkTo>
+      (soon available).</em></p>
 
-    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
+  <h5 class="dummy-h5">Basic use</h5>
+  <p class="dummy-paragraph">If you don't pass a
+    <code class="dummy-code">@href</code>
+    or
+    <code class="dummy-code">@route</code>
+    argument a simple
+    <code class="dummy-code">&lt;button&gt;</code>
+    will be generated:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        ...
+        &lt;dd.Interactive \{{on "click" myAction}} @text="Run command" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><em>Notice: in this case you will have to add your own event handling function to it.</em>
+  </p>
+
+  <h5 class="dummy-h5">With @href</h5>
+  <p class="dummy-paragraph">If you pass a
+    <code class="dummy-code">@href</code>
+    argument a
+    <code class="dummy-code">&lt;a&gt;</code>
+    link will be generated:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        ...
+        &lt;dd.Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><em>Notice: in this case the component automatically adds the HTML attributes
+      <code class="dummy-code">target="_blank"</code>
+      and
+      <code class="dummy-code">rel="noopener noreferrer"</code>
+      to the
+      <code class="dummy-code">&lt;a&gt;</code>
+      element (but their values can be overwritten passing those attributes to the component, as "splattributes").</em>
+  </p>
+
+  <h5 class="dummy-h5">With @route</h5>
+  <p class="dummy-paragraph">If you pass a
+    <code class="dummy-code">@route</code>
+    argument a
+    <code class="dummy-code">&lt;a&gt;</code>
+    link will be generated using a
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    Ember component:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        ...
+        &lt;dd.Interactive @route="my.page.route" @model="my.page.model" @text="Activate cluster" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: if the route is external to your current engine you have to pass also
+    <code class="dummy-code">@isRouteExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component so that it will use
+    <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+    instead of a simple
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    for the
+    <code class="dummy-code">@route</code>. For more details see the
+    {{! TODO: add route "utilities.interactive" when available }}
+    <LinkTo @route="index">Hds::Interactive component</LinkTo>
+    (soon available)</p>
+  <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
+      <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
+      components are supported (eg.
+      <code class="dummy-code">models/model/query/current-when/replace</code>).</em></p>
+
+  <h4 class="dummy-h4">Examples</h4>
+  <h5 class="dummy-h5">ToggleButton + ListItem, Separator</h5>
+  <p class="dummy-paragraph">
+    This example demonstrates the use of a dropdown with a toggle-button, links, a separator and a link (color,
+    critical):
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        &lt;dd.ToggleButton @text="Text Toggle" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Item One" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Item Two" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Item Three" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Item Four" /&gt;
+        &lt;dd.Separator /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Rendered (positioned to the right):</p>
+  <nav class="dummy-nav-dropdown" aria-label="example positioned right">
+    <ul class="dummy-nav-dropdown__list">
+      <li class="dummy-nav-dropdown__list-item">
+        <Hds::Dropdown as |dd|>
+          <dd.ToggleButton @text="Text Toggle" />
+          <dd.Interactive @route="components.dropdown" @text="Item One" />
+          <dd.Interactive @route="components.dropdown" @text="Item Two" />
+          <dd.Interactive @route="components.dropdown" @text="Item Three" />
+          <dd.Interactive @route="components.dropdown" @text="Item Four" />
+          <dd.Separator />
+          <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+        </Hds::Dropdown>
+      </li>
+    </ul>
+  </nav>
+
+  <h5 class="dummy-h5">ToggleButton + Title, Description, CopyItem, Separator</h5>
+  <p class="dummy-paragraph">
+    This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, a
+    generic (which is yielding a Link::Standalone component), copy-item, a separator and a link (color, critical):
+  </p>
+  <p class="dummy-paragraph">
+    To indicate that a secondary button style should be used for the "button" toggle, add
+    <code class="dummy-code">@color="secondary"</code>. If no
+    <code class="dummy-code">@color</code>
+    is declared,
+    <code class="dummy-code">primary</code>
+    will be used by default.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd| &gt;
+        &lt;dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" /&gt;
+        &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
+        &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
+        &lt;dd.Generic&gt;
+          &lt;Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" /&gt;
+        &lt;/dd.Generic&gt;
+        &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" /&gt;
+        &lt;dd.CopyLabel  /&gt;
+        &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @text="HMAC Key" /&gt;
+        &lt;dd.Separator /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Rendered as secondary variation (positioned to the right):</p>
+  <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
+    <ul class="dummy-nav-dropdown__list">
+      <li class="dummy-nav-dropdown__list-item">
+        <Hds::Dropdown as |dd|>
+          <dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" />
+          <dd.Title @text="Integrate with Terraform Cloud" />
+          <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
+          <dd.Generic>
+            <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+          </dd.Generic>
+          <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
+          <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
+        </Hds::Dropdown>
+      </li>
+    </ul>
+  </nav>
+
+  <h5 class="dummy-h5">ToggleIcon for "overflow" dropdown menus</h5>
+  <p class="dummy-paragraph">
+    Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and destructive
+    (critical) links. This is the only use case where it is acceptable to use
+    <code class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</code>.
+  </p>
+  <p class="dummy-paragraph">Note that
+    <code class="dummy-code">toggleText</code>
+    is still required, because it supplies the
+    <code class="dummy-code">aria-label</code>
+    for the toggle button.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        &lt;dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron=\{{false}} /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Create" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Read" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Update" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Rendered in a table cell:</p>
+  <table class="dummy-table dummy-dropdown-table-demo">
+    <thead>
+      <tr>
+        <th>Column A</th>
+        <th>Column B</th>
+        <th>Column C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Row 1, cell 1</td>
+        <td>Row 1, cell 2</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Row 2, cell 1</td>
+        <td>Row 2, cell 2</td>
+        <td>
           <Hds::Dropdown as |dd|>
-            <dd.ToggleButton @text="Text Toggle" />
-            <dd.Interactive @route="components.dropdown" @text="Item One" />
-            <dd.Interactive @route="components.dropdown" @text="Item Two" />
-            <dd.Interactive @route="components.dropdown" @text="Item Three" />
-            <dd.Interactive @route="components.dropdown" @text="Item Four" />
-            <dd.Separator />
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+            <dd.Interactive @route="components.dropdown" @text="Create" />
+            <dd.Interactive @route="components.dropdown" @text="Read" />
+            <dd.Interactive @route="components.dropdown" @text="Update" />
             <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-  </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Row 3, cell 1</td>
+        <td>Row 3, cell 2</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Row 4, cell 1</td>
+        <td>Row 4, cell 2</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h4 class="dummy-h4">Example: ToggleButton + Title, Description, CopyItem, Separator</h4>
-  <div>
-    <p class="dummy-paragraph">
-      This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, a
-      generic (which is yielding a Link::Standalone component), copy-item, a separator and a link (color, critical):
-    </p>
-    <p class="dummy-paragraph">
-      To indicate that a secondary button style should be used for the "button" toggle, add
-      <code class="dummy-code">@color="secondary"</code>. If no
-      <code class="dummy-code">@color</code>
-      is declared,
-      <code class="dummy-code">primary</code>
-      will be used by default.
-    </p>
-    {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
-    <CodeBlock
-      @language="markup"
-      @code='
-        &lt;Hds::Dropdown as |dd| &gt;
-          &lt;dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" /&gt;
-          &lt;dd.Title @text="Integrate with Terraform Cloud" /&gt;
-          &lt;dd.Description @text="Create a new run task in Terraform using the URL and key below." /&gt;
-          &lt;dd.Generic&gt;
-            &lt;Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" /&gt;
-          &lt;/dd.Generic&gt;
-          &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" /&gt;
-          &lt;dd.CopyLabel  /&gt;
-          &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @text="HMAC Key" /&gt;
-          &lt;dd.Separator /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" /&gt;
-        &lt;/Hds::Dropdown&gt;
-      '
-    />
-    {{! template-lint-enable no-unbalanced-curlies }}
-    {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Rendered as secondary variation (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example secondary positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" />
-            <dd.Title @text="Integrate with Terraform Cloud" />
-            <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
-            <dd.Generic>
-              <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
-            </dd.Generic>
-            <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
-            <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <h5 class="dummy-h5">ToggleIcon as user menu</h5>
+  <p class="dummy-paragraph">
+    In this example, we have a user icon with a title, description, separator, and links.
+  </p>
+  <p class="dummy-paragraph">Note that
+    <code class="dummy-code">toggleText</code>
+    is still required, because it supplies the
+    <code class="dummy-code">aria-label</code>
+    for the toggle button.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        &lt;dd.ToggleIcon @icon="user" @text="user menu" /&gt;
+        &lt;dd.Title @text="Signed In" /&gt;
+        &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
+        &lt;dd.Separator /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Rendered as a toggle/icon for a user menu (positioned to the right):</p>
+  <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
+    <ul class="dummy-nav-dropdown__list">
+      <li class="dummy-nav-dropdown__list-item">
+        <Hds::Dropdown as |dd|>
+          <dd.ToggleIcon @icon="user" @text="user menu" />
+          <dd.Title @text="Signed In" />
+          <dd.Description @text="design-systems@hashicorp.com" />
+          <dd.Separator />
+          <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+          <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+        </Hds::Dropdown>
+      </li>
+    </ul>
+  </nav>
+  <p class="dummy-paragraph">Here is a customized example to demonstrate how that would look like in dark mode (not
+    supported by the design system yet):</p>
+  <nav
+    class="dummy-nav-dropdown background-black"
+    aria-label="example row user bgblack positioned right with customization"
+  >
+    <ul class="dummy-nav-dropdown__list">
+      <li class="dummy-nav-dropdown__list-item dummy-nav-dropdown__list-item-customized">
+        <Hds::Dropdown @width="248px" as |dd|>
+          <dd.ToggleIcon @icon="user" @text="user menu" />
+          <dd.Title @text="Signed In" />
+          <dd.Description @text="design-systems@hashicorp.com" />
+          <dd.Separator />
+          <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+          <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+        </Hds::Dropdown>
+      </li>
+    </ul>
+  </nav>
 
-  <div>
-    <h4 class="dummy-h4">Example: ToggleIcon for Overflow dropdown menus</h4>
-    <p class="dummy-paragraph">
-      Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and
-      destructive (critical) links. This is the only use case where it is acceptable to use
-      <code class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</code>.
-      <br />Note that
-      <code class="dummy-code">toggleText</code>
-      is still required, because it supplies the aria-label for the toggle button.
-
-    </p>
-    {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
-    <CodeBlock
-      @language="markup"
-      @code='
-        &lt;Hds::Dropdown as |dd|&gt;
-          &lt;dd.ToggleIcon @text="Overflow Options" @icon="more-horizontal" @hasChevron=\{{false}} /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Create" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Read" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Update" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
-        &lt;/Hds::Dropdown&gt;
-      '
-    />
-    {{! template-lint-enable no-unbalanced-curlies }}
-    {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Rendered in a table cell:</p>
-    <table class="dummy-table dummy-dropdown-table-demo">
-      <thead>
-        <tr>
-          <th>Column A</th>
-          <th>Column B</th>
-          <th>Column C</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Row 1, cell 1</td>
-          <td>Row 1, cell 2</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Row 2, cell 1</td>
-          <td>Row 2, cell 2</td>
-          <td>
-            <Hds::Dropdown as |dd|>
-              <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-              <dd.Interactive @route="components.dropdown" @text="Create" />
-              <dd.Interactive @route="components.dropdown" @text="Read" />
-              <dd.Interactive @route="components.dropdown" @text="Update" />
-              <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-            </Hds::Dropdown>
-          </td>
-        </tr>
-        <tr>
-          <td>Row 3, cell 1</td>
-          <td>Row 3, cell 2</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Row 4, cell 1</td>
-          <td>Row 4, cell 2</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  {{! TODO we really need some spacing between these examples, the doc has no vertical rhythm }}
-  <div>
-    <h4 class="dummy-h4">Example: ToggleIcon as user menu</h4>
-    <p class="dummy-paragraph">
-      In this example, we have a user icon with a title, description, separator, and links.
-      <br />Note that
-      <code class="dummy-code">toggleText</code>
-      is still required, because it supplies the value for the
-      <code class="dummy-code">aria-label</code>
-      attribute on the "overflow" toggle button.
-    </p>
-    {{! prettier-ignore-start }}
-    <CodeBlock
-      @language="markup"
-      @code='
-        &lt;Hds::Dropdown as |dd|&gt;
-          &lt;dd.ToggleIcon @text="user menu" /&gt;
-          &lt;dd.Title @text="Signed In" /&gt;
-          &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
-          &lt;dd.Separator /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
-        &lt;/Hds::Dropdown&gt;
-      '
-    />
-    {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example row user positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="design-systems@hashicorp.com" />
-            <dd.Separator />
-            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-    <p class="dummy-paragraph">Rendered as a toggle/icon for a user menu (on a black background, in a row, positioned to
-      the right):</p>
-    <nav class="dummy-nav-dropdown background-black" aria-label="example row user bgblack positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="design-systems@hashicorp.com" />
-            <dd.Separator />
-            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-    <p class="dummy-paragraph">Dark mode is not supported by the design system yet. Here is a customized example to
-      demonstrate that customization can be implemented by the consuming app:</p>
-    <nav
-      class="dummy-nav-dropdown background-black"
-      aria-label="example row user bgblack positioned right with customization"
-    >
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item dummy-nav-dropdown__list-item-customized">
-          <Hds::Dropdown @width="248px" as |dd|>
-            <dd.ToggleIcon @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="design-systems@hashicorp.com" />
-            <dd.Separator />
-            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <div>
-    <h4 class="dummy-h4">Example: ToggleIcon with other icons</h4>
-    <p class="dummy-paragraph">
-      In this example, we have a settings icon with a title, description, separator, and links.
-      <br />Note that
-      <code class="dummy-code">toggleText</code>
-      is still required, because it supplies the value for the
-      <code class="dummy-code">aria-label</code>
-      attribute on the "overflow" toggle button.
-    </p>
-    {{! prettier-ignore-start }}
-    {{! template-lint-disable no-unbalanced-curlies }}
-    <CodeBlock
-      @language="markup"
-      @code='
-        &lt;Hds::Dropdown as |dd|&gt;
-          &lt;dd.ToggleIcon @text="settings menu" @icon="settings" /&gt;
-          &lt;dd.Title @text="Signed In" /&gt;
-          &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
-          &lt;dd.Separator /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
-          &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
-        &lt;/Hds::Dropdown&gt;
-      '
-    />
-    {{! template-lint-enable no-unbalanced-curlies }}
-    {{! prettier-ignore-end }}
-    <p class="dummy-paragraph">Rendered (in a row, positioned to the right):</p>
-    <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
-      <ul class="dummy-nav-dropdown__list">
-        <li class="dummy-nav-dropdown__list-item">
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon @text="settings menu" @icon="settings" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="design-systems@hashicorp.com" />
-            <dd.Separator />
-            <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
-            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <h5 class="dummy-h5">ToggleIcon with other icons</h5>
+  <p class="dummy-paragraph">
+    In this example, we have a settings icon with a title, description, separator, and links.
+  </p>
+  <p class="dummy-paragraph">Note that
+    <code class="dummy-code">toggleText</code>
+    is still required, because it supplies the
+    <code class="dummy-code">aria-label</code>
+    for the toggle button.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        &lt;dd.ToggleIcon @icon="settings" @text="settings menu" /&gt;
+        &lt;dd.Title @text="Signed In" /&gt;
+        &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
+        &lt;dd.Separator /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
+        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Rendered (positioned to the right):</p>
+  <nav class="dummy-nav-dropdown" aria-label="example row settings positioned right">
+    <ul class="dummy-nav-dropdown__list">
+      <li class="dummy-nav-dropdown__list-item">
+        <Hds::Dropdown as |dd|>
+          <dd.ToggleIcon @icon="settings" @text="settings menu" />
+          <dd.Title @text="Signed In" />
+          <dd.Description @text="design-systems@hashicorp.com" />
+          <dd.Separator />
+          <dd.Interactive @route="components.dropdown" @text="Settings and Preferences" />
+          <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+        </Hds::Dropdown>
+      </li>
+    </ul>
+  </nav>
 </section>
 
 <section>
@@ -737,7 +827,7 @@
   <div class="dummy-dropdown-toggle-icon-sample">
     <div>
       <span class="dummy-text-small">with icon + chevron</span>
-      <Hds::Dropdown::Toggle::Icon @text="user menu" />
+      <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" />
     </div>
     <div>
       <span class="dummy-text-small">icon only</span>
@@ -770,8 +860,8 @@
         <span class="dummy-text-small">icon/{{state}}:</span>
         <br />
         <Hds::Dropdown::Toggle::Icon
-          @text="overflow menu"
           @icon="more-horizontal"
+          @text="overflow menu"
           @hasChevron={{false}}
           class="is-{{state}}"
         />
@@ -781,8 +871,8 @@
       <span class="dummy-text-small">icon/open:</span>
       <br />
       <Hds::Dropdown::Toggle::Icon
-        @text="overflow menu"
         @icon="more-horizontal"
+        @text="overflow menu"
         @hasChevron={{false}}
         @isOpen={{true}}
       />
@@ -792,13 +882,13 @@
       <div>
         <span class="dummy-text-small">icon+chevron/{{state}}:</span>
         <br />
-        <Hds::Dropdown::Toggle::Icon @text={{state}} class="is-{{state}}" />
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} class="is-{{state}}" />
       </div>
     {{/each}}
     <div>
       <span class="dummy-text-small">icon+chevron/open:</span>
       <br />
-      <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} />
+      <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
     </div>
 
     {{#each @model.TOGGLE_STATES as |state|}}
@@ -911,10 +1001,12 @@
   </div>
   <h6 class="dummy-h6">States (in each color)</h6>
   {{#each @model.ITEM_INTERACTIVE_COLORS as |color|}}
+    <span class="dummy-text-small">{{capitalize color}}</span>
     <div class="dummy-dropdown-list-items-base-sample">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Interactive
+            {{! TODO remove once https://github.com/hashicorp/design-system/pull/242 is merged }}
             @icon={{if (eq color "critical") "trash" null}}
             @text={{state}}
             @color={{color}}
@@ -955,34 +1047,39 @@
   </div>
 
   <h5 class="dummy-h5">CopyItem</h5>
+  <h6 class="dummy-h6">Content</h6>
+  <div class="dummy-dropdown-list-items-base-sample">
+    {{! template-lint-disable no-inline-styles }}
+    <div>
+      <span class="dummy-text-small">base</span>
+      {{! Notice: we want to emulate the case of a fixed width list }}
+      <ul class="hds-dropdown-list" style="width: 250px">
+        <Hds::Dropdown::ListItem::CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" />
+      </ul>
+    </div>
+    <div>
+      <span class="dummy-text-small">with copyItemTitle</span>
+      <ul class="hds-dropdown-list" style="width: 250px">
+        <Hds::Dropdown::ListItem::CopyItem
+          @copyItemTitle="Lorem ipsum dolor"
+          @text="91ee1e8ef65b337f0e70d793f456c71d"
+        />
+      </ul>
+    </div>
+    {{! template-lint-enable no-inline-styles }}
+  </div>
   <h6 class="dummy-h6">States</h6>
   <div class="dummy-dropdown-list-items-base-sample">
     {{! Notice: we want to emulate the case of a fixed width list }}
     {{! template-lint-disable no-inline-styles }}
     <ul class="hds-dropdown-list" style="width: 250px">
       {{#each @model.ITEM_STATES as |state|}}
-
         <Hds::Dropdown::ListItem::CopyItem @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d" @state={{state}} />
       {{/each}}
       <Hds::Dropdown::ListItem::CopyItem
         @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
         @state="success"
         @isSuccess="true"
-      />
-    </ul>
-    <ul class="hds-dropdown-list" style="width: 250px">
-      {{#each @model.ITEM_STATES as |state|}}
-        <Hds::Dropdown::ListItem::CopyItem
-          @copyItemTitle="Optional copyItemTitle"
-          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
-          @state={{state}}
-        />
-      {{/each}}
-      <Hds::Dropdown::ListItem::CopyItem
-        @copyItemTitle="Optional copyItemTitle"
-        @text="success: 91ee1e8ef65b337f0e70d793f456c71d"
-        @isSuccess="true"
-        @state="success"
       />
     </ul>
     {{! template-lint-enable no-inline-styles }}
