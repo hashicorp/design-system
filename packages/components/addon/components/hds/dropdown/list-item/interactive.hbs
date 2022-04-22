@@ -11,7 +11,7 @@
     >
       {{#if @icon}}
         <div class="hds-dropdown-list-item__interactive-icon">
-          <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
+          <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
         </div>
       {{/if}}
       <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
@@ -20,9 +20,9 @@
     </LinkTo>
   {{else if @href}}
     <a target="_blank" rel="noopener noreferrer" href={{@href}} class="{{if @state (concat 'is-' @state)}}">
-      {{#if this.icon}}
+      {{#if @icon}}
         <div class="hds-dropdown-list-item__interactive-icon">
-          <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
+          <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
         </div>
       {{/if}}
       <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
@@ -31,9 +31,9 @@
     </a>
   {{else}}
     <button class="{{if @state (concat 'is-' @state)}}" type="button" ...attributes>
-      {{#if this.icon}}
+      {{#if @icon}}
         <div class="hds-dropdown-list-item__interactive-icon">
-          <FlightIcon @name={{this.icon}} @isInlineBlock={{false}} />
+          <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
         </div>
       {{/if}}
       <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
