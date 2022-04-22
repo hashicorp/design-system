@@ -11,22 +11,24 @@ Update this list and these links as appropriate.
 
 
 ## Design Checklist 
-The design checklist has [] parts: .
+The design checklist has 5 parts: creating the branch, design explorations and iterations, documentation, figma release, and testing. The design process is largely cyclical, so some of these steps may need to be repeated until approval.
 
 ### Component Creation
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
 - [ ] add a new page for the component, as needed
-- [ ] work through design explorations 
-  - provide 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
-- [ ] review with appropriate stakeholders
-  - typically HDS designers, engineering partner, ambassadors
-  - [ ] iterations, as necessary
-- [ ] a11y sign off
-  - [ ] iterations, as necessary
-- [ ] design sign off with leadership
-  - [ ] iterations, as necessary
-- [ ] build out the approved design as a component
-- [ ] documentation
+- [ ] **design**
+  - [ ] work through design explorations 
+    - provide 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
+  - [ ] review with appropriate stakeholders
+    - typically HDS designers, engineering partner, ambassadors
+    - [ ] iterations, as necessary
+  - [ ] a11y sign off
+    - [ ] iterations, as necessary
+  - [ ] design sign off with leadership
+    - [ ] iterations, as necessary
+  - [ ] build out the approved design as a component
+    - ensure the variant and property names align with what was discussed/decided on with your engineering partner
+- [ ] **documentation**
   - [ ] stickersheet
     - make sure the component instances can be easily selected and other layers are locked
   - [ ] design guidelines
@@ -35,12 +37,15 @@ The design checklist has [] parts: .
     - lock this frame
   - [ ] migration details, as necessary
     - lock this frame
-- [ ] merge the branch
-  - before merging, 
-- [ ] publish the ui kit
-  - do not communicate this release to consumers
-- [ ] test the component with ambassadors
-  - if iterations are needed, create a new branch, iterate, review and merge, as normal
+- [ ] **release**
+  - [ ] merge the branch
+    - before merging, lock and hide the components leaving only the stickersheets and docs visible
+    - before merging, add release notes to the changelog
+  - [ ] publish the ui kit
+    - do not communicate this release to consumers
+- [ ] **testing**
+  - [ ] test the component with ambassadors
+    - if iterations are needed, create a new branch, iterate, review and merge, as normal
 
 When ready to add docs to the scrappy site:
 - [ ] export a screenshot of the design guidelines
