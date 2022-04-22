@@ -96,9 +96,10 @@ code[class*="language-"] ::selection
 }
 
 
-pre[class*="language-"] {
+/* pre[class*="language-"] {
   border: 1px solid var(--orange);
-}
+} */
+
 /* Line numbers */
 
 pre.line-numbers 
