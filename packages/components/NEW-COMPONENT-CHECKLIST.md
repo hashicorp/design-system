@@ -5,12 +5,54 @@ This is the quest issue/engineering checklist for the COMPONENT_NAME Component. 
 ## Pre-Flight Checklist
 Update this list and these links as appropriate.
 
-- [Component Requirement Document (CRD)](url_here): This file should exist before any code is written.
-- [FIGMA Design](url_here): Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
+- [Component Audit](https://www.figma.com/file/h3LtloARmbYVwh7z6XWHVb/Component-Audits-FY23?node-id=0%3A1): This audit should be completed by ambassadors before any work gets started.
+- [Component Requirement Document (CRD)](url_here): This file should exist before any design explorations or code is written.
 - [Design System Website](https://design-system-website.vercel.app/?path=/story/example-introduction--page) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
+
+
+## Design Checklist 
+The design checklist has [] parts: .
+
+### Component Creation
+- [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
+- [ ] add a new page for the component, as needed
+- [ ] work through design explorations 
+  - provide 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
+- [ ] review with appropriate stakeholders
+  - typically HDS designers, engineering partner, ambassadors
+  - [ ] iterations, as necessary
+- [ ] a11y sign off
+  - [ ] iterations, as necessary
+- [ ] design sign off with leadership
+  - [ ] iterations, as necessary
+- [ ] build out the approved design as a component
+- [ ] documentation
+  - [ ] stickersheet
+    - make sure the component instances can be easily selected and other layers are locked
+  - [ ] design guidelines
+    - lock this frame
+  - [ ] figma tips, as necessary
+    - lock this frame
+  - [ ] migration details, as necessary
+    - lock this frame
+- [ ] merge the branch
+  - before merging, 
+- [ ] publish the ui kit
+  - do not communicate this release to consumers
+- [ ] test the component with ambassadors
+  - if iterations are needed, create a new branch, iterate, review and merge, as normal
+
+When ready to add docs to the scrappy site:
+- [ ] export a screenshot of the design guidelines
+- [ ] create a new issue in [github](https://github.com/hashicorp/design-system/issues) with the screenshot
+- [ ] let your engineering partner know it's ready to be added (or add it yourself)
+
 
 ## Engineering Checklist
 The engineering checklist has six parts: creating the feature branch, component template, component backing class, component style, tests, and documentation.
+
+### Dependency
+- [Figma Design](url_here): Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
 
 ### Component Creation
 
