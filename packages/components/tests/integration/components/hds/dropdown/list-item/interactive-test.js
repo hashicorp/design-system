@@ -1,12 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
   'Integration | Component | hds/dropdown/list-item/interactive',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    hooks.afterEach(() => {
+      resetOnerror();
+    });
 
     // 🚨 NOTICE 🚨:
     // unlike other components, the `...attributes` spread is not applied to the top element, but to the `<button>/<a>` children,
@@ -90,6 +94,31 @@ module(
 
     // ASSERTIONS
 
-    // TODO once everything is finalized
+    test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+      const errorMessage =
+        '@text for "Hds::Dropdown::ListItem::Interactive" must have a valid value';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(hbs`<Hds::Dropdown::ListItem::Interactive />`);
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
+    test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+      const errorMessage =
+        '@color for "Hds::Dropdown::ListItem::Interactive" must be one of the following: action, critical; received: foo';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" @color="foo" />`
+      );
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
   }
 );
