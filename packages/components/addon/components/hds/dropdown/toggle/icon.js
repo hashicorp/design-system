@@ -3,6 +3,15 @@ import { assert } from '@ember/debug';
 
 const NOOP = () => {};
 export default class HdsDropdownToggleIconComponent extends Component {
+  constructor() {
+    super(...arguments);
+    if (!(this.args.icon || this.args.imageSrc)) {
+      assert(
+        '@icon or @imageSrc must be defined for "Hds::Dropdown::Toggle::Icon"'
+      );
+    }
+  }
+
   /**
    * @param text
    * @type {string}
