@@ -22,7 +22,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.ToggleIcon @text="toggle icon" id="test-toggle-icon" />
+        <dd.ToggleIcon @icon="user" @text="toggle icon" id="test-toggle-icon" />
       </Hds::Dropdown>
     `);
     assert.dom('#test-dropdown #test-toggle-button').exists();
