@@ -17,35 +17,30 @@ The design checklist has 5 parts: creating the branch, design explorations and i
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
 - [ ] add a new page for the component, as needed
 - [ ] **design**
-  - [ ] work through design explorations 
-    - provide 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
-  - [ ] review with appropriate stakeholders
-    - typically HDS designers, engineering partner, ambassadors
-    - [ ] iterations, as necessary
-  - [ ] a11y sign off
-    - [ ] iterations, as necessary
-  - [ ] design sign off with leadership
-    - [ ] iterations, as necessary
-  - [ ] build out the approved design as a component
+  - [ ] work through design explorations, providing 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
+  - [ ] review with appropriate stakeholders (typically HDS designers, engineering partner, ambassadors) and iterate, as necessary
+  - [ ] review for a11y considerations and iterate, as necessary
+  - [ ] review with design leadership and iterate, as necessary
+  - [ ] once approved, build out the design as a component
     - ensure the variant and property names align with what was discussed/decided on with your engineering partner
 - [ ] **documentation**
   - [ ] stickersheet
     - make sure the component instances can be easily selected and other layers are locked
   - [ ] design guidelines
-    - lock this frame
+    - when complete, lock this frame
   - [ ] figma tips, as necessary
-    - lock this frame
+    - when complete, lock this frame
   - [ ] migration details, as necessary
-    - lock this frame
+    - when complete, lock this frame
 - [ ] **release**
+  - lock and hide the components leaving only the stickersheets and docs visible
+  - add release notes to the changelog
   - [ ] merge the branch
-    - before merging, lock and hide the components leaving only the stickersheets and docs visible
-    - before merging, add release notes to the changelog
   - [ ] publish the ui kit
-    - do not communicate this release to consumers
+  - do not communicate this release to consumers
 - [ ] **testing**
   - [ ] test the component with ambassadors
-    - if iterations are needed, create a new branch, iterate, review and merge, as normal
+  - if iterations are needed, work through the process until approved
 
 When ready to add docs to the scrappy site:
 - [ ] export a screenshot of the design guidelines
