@@ -3,6 +3,7 @@
 
 @import "./_typography";
 
+@import "./pages/db-alert";
 @import "./pages/db-badge";
 @import "./pages/db-breadcrumb";
 @import "./pages/db-button";
@@ -212,7 +213,6 @@ body.dummy-app {
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
-
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".

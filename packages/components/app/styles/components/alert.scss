@@ -1,0 +1,242 @@
+//
+// ALERT
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+@use "../mixins/focus-ring" as *;
+
+.hds-alert {
+  align-items: flex-start;
+  display: flex;
+  padding: 1rem; // 16px
+}
+
+.hds-alert__icon {
+  margin-right: 0.75rem; // 12px
+}
+
+.hds-alert__content {
+  flex: 1 1 auto;
+}
+
+.hds-alert__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 24px; // same as the icon height, to keep text vertically centered in case is a single line
+  color: var(--token-color-foreground-warning-on-surface);
+  font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  line-height: var(--token-typography-body-200-line-height);
+}
+
+.hds-alert__title {
+  font-weight: var(--token-typography-font-weight-semibold);
+}
+
+.hds-alert__description {
+  font-weight: var(--token-typography-font-weight-regular);
+  color: var(--token-color-foreground-primary);
+
+  .hds-alert__title + & {
+    margin-top: 0.25rem; // 4px
+  }
+
+  strong {
+    font-weight: var(--token-typography-font-weight-medium);
+  }
+
+  code, pre {
+    font-family: var(--token-typography-font-stack-code);
+  }
+
+  // Notice: in the future this may become a "Link::Inline" component (for now we declare the styles directly here)
+  a {
+    color: var(--token-color-foreground-action);
+    // At the moment the "focus" state is not well defined in design (the one that is in Figma does not work) so we just apply a simple color to the default outline
+    outline-color: var(--token-color-focus-action-external);
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+    }
+  }
+}
+
+//
+// COLOR & TYPE
+//
+.hds-alert--color-neutral {
+  background-color: var(--token-color-surface-faint);
+
+  // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
+  &.hds-alert--type-page {
+    background-color: var(--token-color-surface-faint);
+    box-shadow: 0px 1px 0px 0px var(--token-color-palette-alpha-300);
+  }
+
+  &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-faint);
+    border-color: var(--token-color-border-strong);
+  }
+
+  &.hds-alert--type-toast {
+    border-color: var(--token-color-border-primary);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-primary);
+  }
+}
+
+.hds-alert--color-highlight {
+  background-color: var(--token-color-surface-highlight);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-highlight);
+  }
+
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
+    border-color: var(--token-color-border-highlight);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-highlight-on-surface);
+  }
+}
+
+.hds-alert--color-success {
+  background-color: var(--token-color-surface-success);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-success);
+  }
+
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
+    border-color: var(--token-color-border-success);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-success-on-surface);
+  }
+}
+
+.hds-alert--color-warning {
+  background-color: var(--token-color-surface-warning);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
+  }
+
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
+    border-color: var(--token-color-border-warning);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-warning-on-surface);
+  }
+}
+
+.hds-alert--color-critical {
+  background-color: var(--token-color-surface-critical);
+
+  &.hds-alert--type-page {
+    box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
+  }
+
+  &.hds-alert--type-inline,
+  &.hds-alert--type-toast {
+    border-color: var(--token-color-border-critical);
+  }
+
+  .hds-alert__icon, .hds-alert__title {
+    color: var(--token-color-foreground-critical-on-surface);
+  }
+}
+
+.hds-alert--type-inline,
+.hds-alert--type-toast {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+}
+
+.hds-alert--type-compact {
+  border: none;
+  background: none;
+  padding: 0;
+
+  // notice: the icon size for the "compact" type is 16px, not 24px, so this 2px extra are needed to reach the exact same height as the "description" text line-height
+  .hds-alert__icon {
+    margin-right: 0.5rem; // 8px
+    padding: 2px 0;
+  }
+
+  .hds-alert__text {
+    min-height: auto; // we remove the min-height for the container, it's determined by the text line-height so the icon and text are already aligned using the extra padding (see above)
+  }
+
+  // extra safety
+  .hds-alert__title {
+    display: none;
+    & + .hds-alert__description {
+      margin-top: 0;
+    }
+  }
+}
+
+
+// ACTIONS
+
+.hds-alert__actions {
+  align-items: center;
+  display: flex;
+  margin-top: 1rem; // 16px
+
+  > * + * {
+    margin-left: 1rem; // 16px
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+
+// DISMISS
+
+.hds-alert__dismiss {
+  background-color: transparent;
+  border: none;
+  color: var(--token-color-foreground-faint);
+  cursor: pointer;
+  margin-left: 1rem; // 16px
+  padding: 0;
+
+  &:hover,
+  &.is-hover {
+    &::before { // we re-use the pseudo-element created above by the "focus-ring" mixin
+      background-color: rgba(#dedfe3, 0.4);
+    }
+  }
+
+  // notice: this is used not only for the focus, but also to increase the clickable area
+  @include hds-focus-ring-with-pseudo-element($top: -4px, $right: -4px, $bottom: -4px, $left: -4px);
+
+  &:active,
+  &.is-active {
+    color: var(--token-color-foreground-secondary);
+    &::before {
+      background-color: rgba(#dedfe3, 0.4);
+      border: 1px solid var(--token-color-border-strong);
+    }
+  }
+}

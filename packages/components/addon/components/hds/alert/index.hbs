@@ -1,0 +1,38 @@
+<div class={{this.classNames}} ...attributes role="alert">
+  {{#if this.icon}}
+    <div class="hds-alert__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @isInlineBlock={{false}} />
+    </div>
+  {{/if}}
+
+  <div class="hds-alert__content">
+    <div class="hds-alert__text">
+      {{#if @title}}
+        <div class="hds-alert__title">{{@title}}</div>
+      {{/if}}
+      {{#if @description}}
+        <div class="hds-alert__description">{{html-safe @description}}</div>
+      {{/if}}
+    </div>
+
+    {{#if (has-block "actions")}}
+      {{! IMPORTANT: don't change the formatting or it will add empty space inside the element (we're using ":empty" in CSS to hide it when it's empty!) }}
+      {{! prettier-ignore-start }}
+      <div class="hds-alert__actions">{{yield
+          (hash
+            Button=(component "hds/button" size="small")
+            Link::Standalone=(component "hds/link/standalone" size="small")
+            LinkTo::Standalone=(component "hds/link-to/standalone" size="small")
+          )
+          to="actions"
+        }}</div>
+      {{! prettier-ignore-end }}
+    {{/if}}
+  </div>
+
+  {{#if this.onClose}}
+    <button class="hds-alert__dismiss" type="button" {{on "click" this.onClose}}>
+      <FlightIcon @name="x" @size="16" @isInlineBlock={{false}} />
+    </button>
+  {{/if}}
+</div>

@@ -1,0 +1,34 @@
+// ALERT
+
+.dummy-alert-sample-grid {
+    align-items: start;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    .dummy-alert-sample-grid__title {
+        grid-column: 1 / 5;
+    }
+
+    &.dummy-alert-sample-grid--wide-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.dummy-alert-sample-item--type-compact {
+    outline: 1px dotted #eee;
+}
+
+.dummy-alert-sample-custom-actions__actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.dummy-alert-sample-custom-actions__text {
+    @include dummyFontFamily();
+    @include dummyFontSize(0.8rem);
+    display: block;
+    color: #999;
+    margin-top: 1rem;
+}

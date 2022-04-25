@@ -1,0 +1,845 @@
+{{page-title "Alert component"}}
+
+<h2 class="dummy-h2">Alerts</h2>
+
+<section>
+  <h3 class="dummy-h3">Overview</h3>
+
+  <p class="dummy-paragraph">
+    An Alert is an element that displays a brief, important message in a way that attracts the user's attention, without
+    interrupting the user's task.
+  </p>
+
+  <p class="dummy-paragraph">
+    We currently have four types of alerts, slightly different one from another
+  </p>
+
+  <h4 class="dummy-h5">Page</h4>
+  <p class="dummy-paragraph">
+    This alert is intended for
+    <strong>system-generated messages</strong>.</p>
+  <p class="dummy-paragraph">It is rectangular (without a radius) and a visible border only at the bottom. Typically
+    only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent container.
+  </p>
+  <p class="dummy-paragraph">
+    It can have an
+    <strong>icon</strong>
+    (optional), a
+    <strong>title</strong>
+    and/or
+    <strong>description</strong>
+    (required to have at least one of the two), some
+    <strong>actions</strong>
+    (optional) and a
+    <strong>close</strong>
+    button (optional).</p>
+
+  <h4 class="dummy-h5">Inline</h4>
+  <p class="dummy-paragraph">
+    This alert is intended for
+    <strong>system-generated messages</strong>.</p>
+  <p class="dummy-paragraph">
+    It has a border on all sides and a radius. Typically it has adjacent whitespace on all four sides.
+  </p>
+  <p class="dummy-paragraph">
+    It can have an
+    <strong>icon</strong>
+    (optional), a
+    <strong>title</strong>
+    and/or
+    <strong>description</strong>
+    (required to have at least one of the two), some
+    <strong>actions</strong>
+    (optional) and a
+    <strong>close</strong>
+    button (optional).</p>
+
+  <h4 class="dummy-h5">Compact</h4>
+  <p class="dummy-paragraph">
+    This alert is intended for
+    <strong>system-generated messages</strong>.</p>
+  <p class="dummy-paragraph">
+    It's without border or internal padding, and so it has smaller proportions than the others.
+  </p>
+  <p class="dummy-paragraph">
+    It only contains an
+    <strong>icon</strong>
+    and
+    <strong>description</strong>
+    (hence they are both required for this type of alert).</p>
+  <p class="dummy-paragraph">The default icon is also slightly different from the other alert types: it's filled instead
+    of outlined.
+  </p>
+
+  <h4 class="dummy-h5">Toast</h4>
+  <p class="dummy-paragraph">
+    This alert is intended for
+    <strong>user-triggered messages</strong>.</p>
+  <p class="dummy-paragraph">
+    It has a border on all sides, a radius, and elevation (box-shadow). Typically it displays brief, temporary
+    notifications and disappears on its own (after a time interval) or as a result of a user interacting with it.
+  </p>
+  <p class="dummy-paragraph">
+    It can have an
+    <strong>icon</strong>
+    (optional), a
+    <strong>title</strong>
+    and/or
+    <strong>description</strong>
+    (required to have at least one of the two), some
+    <strong>actions</strong>
+    (optional) and a
+    <strong>close</strong>
+    button (optional).</p>
+  <p class="dummy-paragraph">
+    🚨
+    <em><strong>Important</strong>: we provide only the visual styling to this alert, so other features like placement,
+      animations/transitions, and what happens on dismiss, will need to be implemented in your app (eg. with an Ember
+      addon such as
+      <a href="https://github.com/poteto/ember-cli-flash">ember-cli-flash</a>).
+    </em>
+  </p>
+</section>
+
+<section>
+  <h3 class="dummy-h3">Component API</h3>
+  <p class="dummy-paragraph" id="component-api-alert">Here is the API for the component:</p>
+
+  <dl class="dummy-component-props" aria-labelledby="component-api-alert">
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the type of alert.
+      </p>
+
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">page</li>
+        <li>inline</li>
+        <li>compact</li>
+        <li>toast</li>
+      </ol>
+    </dd>
+
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the color scheme for
+        <code class="dummy-code">background</code>,
+        <code class="dummy-code">border</code>,
+        <code class="dummy-code">title</code>, and
+        <code class="dummy-code">description</code>, which
+        <strong>cannot</strong>
+        be overriden.
+        <code class="dummy-code">color</code>
+        results in a default
+        <code class="dummy-code">icon</code>, which
+        <strong>can</strong>
+        be overriden.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">neutral</li>
+        <li>highlight</li>
+        <li>success</li>
+        <li>warning</li>
+        <li>critical</li>
+      </ol>
+    </dd>
+    <dt>icon <code>string | false</code></dt>
+    <dd>
+      <p>Override the default
+        <code class="dummy-code">icon</code>
+        name, which is determined by the
+        <code class="dummy-code">color</code>
+        argument.</p>
+      <p>Acceptable values: any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight</a>
+        icon name or pass
+        <code class="dummy-code">false</code>
+        for no icon.</p>
+    </dd>
+
+    <dt>title <code>string</code></dt>
+    <dd>
+      <p>
+        The title text in the alert.
+        <code class="dummy-code">title</code>
+        <strong>and/or</strong>
+        <code class="dummy-code">description</code>
+        is required.
+      </p>
+    </dd>
+
+    <dt>description <code>string</code></dt>
+    <dd>
+      <p>The description text in the alert.
+        <code class="dummy-code">description</code>
+        <strong>and/or</strong>
+        <code class="dummy-code">title</code>
+        is required.
+      </p>
+    </dd>
+
+    <dt>onClose <code>function</code></dt>
+    <p>
+      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
+    </p>
+
+    <dt>&lt;:actions&gt; <code>named block</code></dt>
+    <dd>
+      <p>Actions can optionally be passed into the alert as yielded components, using the suggested
+        <code class="dummy-code">Button</code>
+        and/or
+        <code class="dummy-code">Link/LinkTo::Standalone</code>. See below ("How to use > Actions") for more details.</p>
+      <p><em>Notice: it's also possible to insert custom content in the
+          <code class="dummy-code">:actions</code>
+          named block, but in that case we suggest to speak with the design system team to check that the solution is
+          conformant and satifies the accessibility criteria.
+        </em></p>
+    </dd>
+
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">How to use</h3>
+
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation requires a
+    <code class="dummy-code">title</code>
+    and/or
+    <code class="dummy-code">text</code>
+    argument to be passed. By default a
+    <code class="dummy-code">page</code>
+    type of alert is generated, with a
+    <code class="dummy-code">neutral</code>
+    color applied and a specific icon visible.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @title="Title here" @description="Description here" />
+  <p class="dummy-paragraph">
+    If needed, you can pass only
+    <code class="dummy-code">title</code>
+    or only
+    <code class="dummy-code">text</code>
+    as argument.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @title="Title here" />
+    '
+  />
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @title="Title here" />
+  <br />
+  <Hds::Alert @description="Description here" />
+
+  <h4 class="dummy-h4">Type</h4>
+  <p class="dummy-paragraph">
+    A different type of alert can be invoked using the specific
+    <code class="dummy-code">type</code>
+    argument.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">
+    A different type of color can be applied to the alert using the
+    <code class="dummy-code">color</code>
+    argument. This will also determine the icon default used in the alert (unless overwritten, see below).
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" @title="Title here" @description="Description here" />
+
+  <h4 class="dummy-h4">Icon</h4>
+  <p class="dummy-paragraph">
+    A different icon can be used in the alert using the
+    <code class="dummy-code">icon</code>
+    argument.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" @icon="bulb" @title="Title here" @description="Description here" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" @icon="bulb" @title="Title here" @description="Description here" />
+  <p class="dummy-paragraph">
+    If instead you want to completely hide the icon you have to pass a
+    <code class="dummy-code">false</code>
+    value to the
+    <code class="dummy-code">icon</code>
+    argument.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" @icon=\{{false}} @title="Title here" @description="Description here" />
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" @icon={{false}} @title="Title here" @description="Description here" />
+
+  <h4 class="dummy-h4">Close</h4>
+  <p class="dummy-paragraph">
+    In some cases the alert needs to be dismissable. In this case you have to pass a callback function to the
+    <code class="dummy-code">onClose</code>
+    argument. This will also automatically add a "close/dismiss" button to the alert, that when clicked will execute the
+    callback function.
+  </p>
+  <p class="dummy-paragraph">
+    🚨
+    <em><strong>Important</strong>: the actual implementation of what happens to the alert when the callback function is
+      invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used,
+      on the specific use case, etc.).</em>
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert
+        @type="inline"
+        @color="warning"
+        @title="Title here"
+        @description="Description here"
+        @onClose=\{{ your function here }}
+      />
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert
+    @type="inline"
+    @color="warning"
+    @title="Title here"
+    @description="Description here"
+    @onClose={{this.noop}}
+  />
+
+  <h4 class="dummy-h4">Actions</h4>
+  <p class="dummy-paragraph">Actions can optionally be passed into the
+    <code class="dummy-code">&lt;:actions&gt;</code>
+    named block using one of the suggested
+    <code class="dummy-code">Button</code>,
+    <code class="dummy-code">Link::Standalone</code>
+    or
+    <code class="dummy-code">LinkTo::Standalone</code>
+    yielded components.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">Button</code>
+    is a yielded
+    <code class="dummy-code">HDS::Button</code>
+    component, so it exposes exactly
+    <LinkTo @route="components.button">the same API</LinkTo>
+    , apart from the
+    <code class="dummy-code">@size</code>
+    argument that is pre-defined to be
+    <code class="dummy-code">small</code>, and the
+    <code class="dummy-code">@color</code>
+    argument that accepts only
+    <code class="dummy-code">secondary</code>
+    or
+    <code class="dummy-code">tertiary</code>.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">Link::Standalone</code>
+    is a yielded
+    <code class="dummy-code">HDS::Link::Standalone</code>
+    component, so it exposes exactly
+    <LinkTo @route="components.link.standalone">the same API</LinkTo>
+    , apart from the
+    <code class="dummy-code">@size</code>
+    argument that is pre-defined to be
+    <code class="dummy-code">small</code>.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">LinkTo::Standalone</code>
+    is a yielded
+    <code class="dummy-code">HDS::LinkTo::Standalone</code>
+    component, so it exposes exactly
+    <LinkTo @route="components.link-to.standalone">the same API</LinkTo>
+    , apart from the
+    <code class="dummy-code">@size</code>
+    argument that is pre-defined to be
+    <code class="dummy-code">small</code>.</p>
+  <p class="dummy-paragraph"><em>Notice: it's also possible to insert custom content in the
+      <code class="dummy-code">:actions</code>
+      named block, but in that case we suggest to speak with the design system team to check that the solution is
+      conformant and satifies the accessibility criteria.
+    </em></p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="toast" @title="Title here" @description="Description here">
+        <:actions as |A|>
+          <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
+          <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+          <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" href="#" />
+        </:actions>
+      </Hds::Alert>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="toast" @title="Title here" @description="Description here">
+    <:actions as |A|>
+      <A.Button @text="Your action" @color="secondary" />
+      <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+      <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
+    </:actions>
+  </Hds::Alert>
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO: Update Figma link and screenshot</p>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=6652%3A30199"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a></p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage.png" alt="" role="none" />
+  </div>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+
+  <p class="dummy-paragraph">
+    🚨 Note: The compact alert is borderless, but shown with a a dotted border throughout the "Showcase" for clarity.
+  </p>
+
+  <h4 class="dummy-h4">Type</h4>
+  {{#each @model.TYPES as |type|}}
+    <p class="dummy-paragraph">{{capitalize type}}</p>
+    <br />
+    <div class="dummy-alert-sample-item--type-{{type}}">
+      <Hds::Alert @type={{type}} @title={{capitalize type}} @description="Lorem ipsum dolor sit amet." />
+    </div>
+  {{/each}}
+
+  <h4 class="dummy-h4">Color</h4>
+  <div class="dummy-alert-sample-grid">
+    {{#each @model.COLORS as |color|}}
+      <p class="dummy-paragraph dummy-alert-sample-grid__title">{{capitalize color}}</p>
+      {{#each @model.TYPES as |type|}}
+        <div class="dummy-alert-sample-item--type-{{type}}">
+          <Hds::Alert
+            @type={{type}}
+            @color={{color}}
+            @title="{{capitalize type}} title"
+            @description="This is the <em>{{type}}</em> alert with <em>{{color}}</em> color."
+          />
+        </div>
+      {{/each}}
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Icon</h4>
+  <div class="dummy-alert-sample-grid">
+    <Hds::Alert @type="inline" @color="highlight" @title="Default icon" @description="Lorem ipsum dolor sit amet." />
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @icon="meh"
+      @title="With icon override"
+      @description="Lorem ipsum dolor sit amet."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @icon="running"
+      @title="With animated icon"
+      @description="Lorem ipsum dolor sit amet."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="highlight"
+      @icon=""
+      @title="Without icon"
+      @description="Lorem ipsum dolor sit amet."
+    />
+  </div>
+
+  <h4 class="dummy-h4">Content</h4>
+  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert @type="inline" @color="success" @title="A simple title" @description="A simple description text" />
+    <Hds::Alert
+      @type="inline"
+      @color="success"
+      @title="An alert with a very long title and a long description text that should go on multiple lines"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
+    />
+    <Hds::Alert @type="inline" @color="success" @title="An alert with just a title and no description text." />
+    <Hds::Alert @type="inline" @color="success" @description="An alert with no title and just a description text" />
+    <Hds::Alert
+      @type="inline"
+      @color="success"
+      @title="An alert with rich text description (HTML)"
+      @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="success"
+      @title="An alert with extra/custom content"
+      @description="In special cases, you can pass extra content to the alert using the <code>actions</code> named block."
+    >
+      <:actions>
+        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+      </:actions>
+    </Hds::Alert>
+  </div>
+
+  <h4 class="dummy-h4">Actions</h4>
+  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @title="Action passed as yielded component"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    >
+      <:actions as |A|>
+        <A.Button @text="Action" @color="secondary" />
+      </:actions>
+    </Hds::Alert>
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @title="With multiple actions passed as yielded components"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    >
+      <:actions as |A|>
+        <A.Button @text="Secondary" @color="secondary" />
+        <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+        <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
+      </:actions>
+    </Hds::Alert>
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @title="With content yielded in the 'actions' named block"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    >
+      <:actions>
+        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+      </:actions>
+    </Hds::Alert>
+    <Hds::Alert
+      @type="inline"
+      @color="warning"
+      @title="With actions and custom content in the 'actions' named block"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    >
+      <:actions>
+        <div>
+          <div class="dummy-alert-sample-custom-actions__actions">
+            <Hds::Button @text="Action" @color="secondary" />
+            <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
+          </div>
+          <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific for a
+            special use case.</span>
+        </div>
+      </:actions>
+    </Hds::Alert>
+  </div>
+
+  <h4 class="dummy-h4">Dismiss</h4>
+  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert
+      @type="inline"
+      @color="critical"
+      @title="Without the dismiss button (default)"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="critical"
+      @title="With the dismiss button"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
+      @onClose={{this.noop}}
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="critical"
+      @icon=""
+      @title="With the dismiss button and no icon"
+      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      @onClose={{this.noop}}
+    />
+    <Hds::Alert
+      @type="inline"
+      @color="critical"
+      @description="With the dismiss button and no title"
+      @onClose={{this.noop}}
+    />
+  </div>
+
+</section>
+
+<section>
+  <h3 class="dummy-h3">Accessibility</h3>
+  <p class="dummy-paragraph">Dynamically-rendered Alerts are automatically announced by most screen readers. On some
+    operating systems, Alerts may trigger an alert sound.
+  </p>
+
+  <p class="dummy-paragraph">🚧 TODO: Have Melanie review post-Amy transfer</p>
+  <p class="dummy-paragraph">🚧 TODO: Bring role change to code, if folks agree</p>
+  <ul>
+    <li class="dummy-paragraph">
+      If
+      <code class="dummy-code">color="warning"</code>
+      or
+      <code class="dummy-code">color="critical"</code>
+      => then
+      <code class="dummy-code">role="alert"</code>, as it's an important message.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">Reference:
+        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Authoring Practices 1.2 (Alert)
+        </a>
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      If
+      <code class="dummy-code">color="neutral"</code>,
+      <code class="dummy-code">color="highlight"</code>
+      or
+      <code class="dummy-code">color="success"</code>
+      => then
+      <code class="dummy-code">role="status"</code>, as the content is advisory information for the user, but is not
+      important enough to justify a
+      <code class="dummy-code">role="alert"</code>. Elements with
+      <code class="dummy-code">role="status"</code>
+      have an implicit
+      <code class="dummy-code">aria-live="polite"</code>
+      and
+      <code class="dummy-code">aria-atomic="true"</code>, so we have included them explicitly, for clarity.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/TR/wai-aria-1.2/#status" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA 1.2 (Status)
+        </a>
+      </li>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Techniques 1.2 (Using role=status to present status messages)
+        </a>
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      Dismiss is a button, with
+      <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
+      When the dismiss button is focused, the alert closes on pressing the return key (enter on Windows). Note: You will
+      need to implement an
+      <code class="dummy-code">onClose</code>
+      function in your app.
+    </li>
+    <li class="dummy-paragraph">
+      We do not have a
+      <code class="dummy-code">role="alertdialog"</code>
+      yet, as this type of alert interrupts the user's workflow to communicate an important message and acquire a
+      response.
+    </li>
+    <ul>
+      <li class="dummy-paragraph">
+        Reference:
+        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog" target="_blank" rel="noopener noreferrer">
+          WAI-ARIA Techniques 1.2, Alert and Message Dialogs
+        </a>
+      </li>
+    </ul>
+  </ul>
+  <p class="dummy-paragraph">Applicable WCAG success criteria</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.3.1: Info and Relationships
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.3.2: Meaningful Sequence
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" target="_blank" rel="noopener noreferrer">
+        1.4.1: Use of Color
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.4.3: Contrast (Minimum)
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" target="_blank" rel="noopener noreferrer">
+        1.4.10: Reflow
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        1.4.11: Non-text Contrast
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html" target="_blank" rel="noopener noreferrer">
+        1.4.12: Text Spacing
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank" rel="noopener noreferrer">
+        2.1.1: Keyboard
+      </a>
+      (For Alerts with focusable elements, such as those with
+      <code class="dummy-code">onDismiss</code>
+      or
+      <code class="dummy-code">:actions</code>.)
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        2.1.2: No Keyboard Trap
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        2.2.1: Timing Adjustable
+      </a>
+    </li>
+    <ul>
+      <li class="dummy-paragraph">For
+        <strong>Alert (Toast)</strong>, which will automatically dismiss. Note: The automatic dismiss functionality will
+        come from the consuming app, not the Design System.
+      </li>
+    </ul>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        2.5.3: Label in Name
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html" target="_blank" rel="noopener noreferrer">
+        4.1.1: Parsing
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        4.1.2: Name, Role, Value
+      </a>
+    </li>
+    <li class="dummy-paragraph">
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        4.1.3: Status Messages
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
+  <ul class="dummy-paragraph">
+    <li>
+      <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
+        WIP Alert Component Requirement Document (CRD)
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=4023%3A15691"
+      >
+        WIP Figma file
+      </a>
+    </li>
+  </ul>
+</section>
