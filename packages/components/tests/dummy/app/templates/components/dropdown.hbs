@@ -392,7 +392,7 @@
       @language="markup"
       @code='
         &lt;Hds::Dropdown as |dd|&gt;
-          &lt;dd.ToggleIcon @text="user menu" /&gt;
+          &lt;dd.ToggleIcon @icon="user" @text="user menu" /&gt;
           &lt;dd.Title @text="Signed In" /&gt;
           &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
           &lt;dd.Separator /&gt;
@@ -407,7 +407,7 @@
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon @text="user menu" />
+            <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -423,7 +423,7 @@
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item">
           <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon @text="user menu" />
+            <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -442,7 +442,7 @@
       <ul class="dummy-nav-dropdown__list">
         <li class="dummy-nav-dropdown__list-item dummy-nav-dropdown__list-item-customized">
           <Hds::Dropdown @width="248px" as |dd|>
-            <dd.ToggleIcon @text="user menu" />
+            <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="design-systems@hashicorp.com" />
             <dd.Separator />
@@ -656,9 +656,9 @@
   <div class="dummy-dropdown-toggle-states-grid">
     <div class="hds-dropdown">
       <span class="dummy-text-small">State: closed (default)</span>
-      <Hds::Dropdown::Toggle::Icon @text="user menu" />
+      <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" />
       <span class="dummy-text-small">State: opened</span>
-      <Hds::Dropdown::Toggle::Icon @isOpen={{true}} @text="user menu" />
+      <Hds::Dropdown::Toggle::Icon @isOpen={{true}} @icon="user" @text="user menu" />
     </div>
   </div>
   <h4 class="dummy-h4">ToggleIcon (Overflow)</h4>
@@ -714,7 +714,7 @@
       <div class="hds-dropdown">
         <span class="dummy-text-small">{{state}}:</span>
         <br />
-        <Hds::Dropdown::Toggle::Icon @text={{state}} class="is-{{state}}" />
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} class="is-{{state}}" />
       </div>
     {{/each}}
     {{#each @model.TOGGLE_STATES as |state|}}
