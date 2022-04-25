@@ -20,7 +20,7 @@
       a main "container" (the dropdown itself)
     </li>
     <li class="dummy-paragraph">
-      <p>two "toggle" sub-components (the button that opens/closes the dropdown)</p>
+      <p>two "toggle" child components (the button that opens/closes the dropdown)</p>
       <ul>
         <li class="dummy-paragraph">
           ToggleButtom
@@ -31,7 +31,7 @@
       </ul>
     </li>
     <li class="dummy-paragraph">
-      <p>different "list-item" sub-components (they have different specialized scopes)</p>
+      <p>different "list-item" child components (they have different specialized scopes)</p>
       <ul>
         <li class="dummy-paragraph">
           Description
@@ -183,8 +183,8 @@
     <dd>
       <p>Elements passed as children of this sub-component are yielded inside the list item.</p>
       <p>🚨
-        <em>Notice: when using the "generic" list item the developer is completely responsible for any item yielded
-          there (including the accessibility of that item).</em></p>
+        <em>Notice: when using the "generic" list item the developer is completely responsible for any element yielded,
+          including the accessibility of that element.</em></p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -257,7 +257,8 @@
   </dl>
 
   <h4 class="dummy-h4">ListItem::Separator</h4>
-  <p class="dummy-paragraph" id="component-api-listitem-separator">Here is the API for the "separator" list item component (yielded as
+  <p class="dummy-paragraph" id="component-api-listitem-separator">Here is the API for the "separator" list item
+    component (yielded as
     <code class="dummy-code">Separator</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-separator">
     <dt>...attributes</dt>
@@ -267,7 +268,8 @@
   </dl>
 
   <h4 class="dummy-h4">ListItem::Title</h4>
-  <p class="dummy-paragraph" id="component-api-listitem-title">Here is the API for the "description" list item component (yielded as
+  <p class="dummy-paragraph" id="component-api-listitem-title">Here is the API for the "description" list item component
+    (yielded as
     <code class="dummy-code">Title</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-title">
     <dt>text <code>string</code></dt>
