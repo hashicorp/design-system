@@ -98,7 +98,7 @@
 
   <h4 class="dummy-h4">Toggle::Button</h4>
   <p class="dummy-paragraph" id="component-api-toggle-button">Here is the API for the "button-like" toggle component
-    (yielded as
+    (yielded in a hash under the key
     <code class="dummy-code">ToggleButton</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-toggle-button">
     <dt>text <code>string</code></dt>
@@ -121,8 +121,8 @@
   </dl>
 
   <h4 class="dummy-h4">Toggle::Icon</h4>
-  <p class="dummy-paragraph" id="component-api-toggle-icon">Here is the API for the "icon-like" toggle component
-    (yielded as
+  <p class="dummy-paragraph" id="component-api-toggle-icon">Here is the API for the icon-only toggle component (yielded
+    as
     <code class="dummy-code">ToggleIcon</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-toggle-icon">
     <dt>text <code>string</code></dt>
@@ -159,7 +159,7 @@
 
   <h4 class="dummy-h4">ListItem::Description</h4>
   <p class="dummy-paragraph" id="component-api-listitem-description">Here is the API for the "description" list item
-    component (yielded as
+    component (yielded in a hash under the key
     <code class="dummy-code">Description</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-description">
     <dt>text <code>string</code></dt>
@@ -175,7 +175,7 @@
 
   <h4 class="dummy-h4">ListItem::Generic</h4>
   <p class="dummy-paragraph" id="component-api-listitem-generic">Here is the API for the "generic" list item component
-    (yielded as
+    (yielded in a hash under the key
     <code class="dummy-code">Generic</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-generic">
     <dt>"yield"</dt>
@@ -193,7 +193,7 @@
 
   <h4 class="dummy-h4">ListItem::Interactive</h4>
   <p class="dummy-paragraph" id="component-api-listitem-interactive">Here is the API for the "interactive" list item
-    component (yielded as
+    component (yielded in a hash under the key
     <code class="dummy-code">Interactive</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-interactive">
     <dt>text <code>string</code></dt>
@@ -257,7 +257,7 @@
 
   <h4 class="dummy-h4">ListItem::Separator</h4>
   <p class="dummy-paragraph" id="component-api-listitem-separator">Here is the API for the "separator" list item
-    component (yielded as
+    component (yielded in a hash under the key
     <code class="dummy-code">Separator</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-separator">
     <dt>...attributes</dt>
@@ -268,7 +268,7 @@
 
   <h4 class="dummy-h4">ListItem::Title</h4>
   <p class="dummy-paragraph" id="component-api-listitem-title">Here is the API for the "description" list item component
-    (yielded as
+    (yielded in a hash under the key
     <code class="dummy-code">Title</code>):</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-listitem-title">
     <dt>text <code>string</code></dt>
@@ -286,10 +286,10 @@
 <section>
   <h3 class="dummy-h3" id="section-usage">How to use</h3>
   <h4 class="dummy-h4">Invocation</h4>
-  <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided named yields for the
+  <p class="dummy-paragraph">To make the invocation more intuitive for developers, we've provided contextual components for the
     toggles and list-item items. For example,
     <code class="dummy-code">&lt;Hds::Dropdown::ListItem::Separator /&gt;</code>
-    becomes
+    is yielded in a hash under the key
     <code class="dummy-code">&lt;XX.Separator /&gt;</code>
     when invoked:
   </p>
@@ -1012,11 +1012,7 @@
     <div class="dummy-dropdown-list-items-base-sample">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Interactive
-            @text={{state}}
-            @color={{color}}
-            @state={{state}}
-          />
+          <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} @state={{state}} />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
