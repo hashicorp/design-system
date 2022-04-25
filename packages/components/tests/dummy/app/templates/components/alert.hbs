@@ -103,9 +103,9 @@
 
 <section>
   <h3 class="dummy-h3">Component API</h3>
-  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <p class="dummy-paragraph" id="component-api-alert">Here is the API for the component:</p>
 
-  <dl class="dummy-component-props">
+  <dl class="dummy-component-props" aria-labelledby="component-api-alert">
     <dt>type <code>enum</code></dt>
     <dd>
       <p>
@@ -200,7 +200,7 @@
         </em></p>
     </dd>
 
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
@@ -367,14 +367,47 @@
   />
 
   <h4 class="dummy-h4">Actions</h4>
-  <p>Actions can optionally be passed into the alert as yielded components, using the suggested
-    <code class="dummy-code">Button</code>
-    (a yielded
-    <code class="dummy-code">HDS::Button</code>) and/or
-    <code class="dummy-code">Link/LinkTo::Standalone</code>
-    (a yielded
-    <code class="dummy-code">HDS::Link/LinkTo::Standalone</code>). See below for more details.</p>
-  <p><em>Notice: it's also possible to insert custom content in the
+  <p class="dummy-paragraph">Actions can optionally be passed into the
+    <code class="dummy-code">&lt;:actions&gt;</code>
+    named block using one of the suggested
+    <code class="dummy-code">Button</code>,
+    <code class="dummy-code">Link::Standalone</code>
+    or
+    <code class="dummy-code">LinkTo::Standalone</code>
+    yielded components.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">Button</code>
+    is a yielded
+    <code class="dummy-code">HDS::Button</code>
+    component, so it exposes exactly
+    <LinkTo @route="components.button">the same API</LinkTo>
+    , apart from the
+    <code class="dummy-code">@size</code>
+    argument that is pre-defined to be
+    <code class="dummy-code">small</code>, and the
+    <code class="dummy-code">@color</code>
+    argument that accepts only
+    <code class="dummy-code">secondary</code>
+    or
+    <code class="dummy-code">tertiary</code>.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">Link::Standalone</code>
+    is a yielded
+    <code class="dummy-code">HDS::Link::Standalone</code>
+    component, so it exposes exactly
+    <LinkTo @route="components.link.standalone">the same API</LinkTo>
+    , apart from the
+    <code class="dummy-code">@size</code>
+    argument that is pre-defined to be
+    <code class="dummy-code">small</code>.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">LinkTo::Standalone</code>
+    is a yielded
+    <code class="dummy-code">HDS::LinkTo::Standalone</code>
+    component, so it exposes exactly
+    <LinkTo @route="components.link-to.standalone">the same API</LinkTo>
+    , apart from the
+    <code class="dummy-code">@size</code>
+    argument that is pre-defined to be
+    <code class="dummy-code">small</code>.</p>
+  <p class="dummy-paragraph"><em>Notice: it's also possible to insert custom content in the
       <code class="dummy-code">:actions</code>
       named block, but in that case we suggest to speak with the design system team to check that the solution is
       conformant and satifies the accessibility criteria.
@@ -387,7 +420,8 @@
       <Hds::Alert @type="toast" @title="Title here" @description="Description here">
         <:actions as |A|>
           <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-          <A.Link::Standalone @icon="plus" @text="Another action" href="..." @color="secondary" />
+          <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+          <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" href="#" />
         </:actions>
       </Hds::Alert>
     '
@@ -398,7 +432,8 @@
   <Hds::Alert @type="toast" @title="Title here" @description="Description here">
     <:actions as |A|>
       <A.Button @text="Your action" @color="secondary" />
-      <A.Link::Standalone @icon="plus" @text="Another action" href="#" @color="secondary" />
+      <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+      <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
     </:actions>
   </Hds::Alert>
 </section>
@@ -672,7 +707,7 @@
   </ul>
   <p class="dummy-paragraph">Applicable WCAG success criteria</p>
   <ul>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
         target="_blank"
@@ -681,7 +716,7 @@
         1.3.1: Info and Relationships
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
         target="_blank"
@@ -690,12 +725,12 @@
         1.3.2: Meaningful Sequence
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" target="_blank" rel="noopener noreferrer">
         1.4.1: Use of Color
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
         target="_blank"
@@ -704,12 +739,12 @@
         1.4.3: Contrast (Minimum)
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" target="_blank" rel="noopener noreferrer">
         1.4.10: Reflow
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
         target="_blank"
@@ -718,12 +753,12 @@
         1.4.11: Non-text Contrast
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html" target="_blank" rel="noopener noreferrer">
         1.4.12: Text Spacing
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank" rel="noopener noreferrer">
         2.1.1: Keyboard
       </a>
@@ -732,7 +767,7 @@
       or
       <code class="dummy-code">:actions</code>.)
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
         target="_blank"
@@ -741,7 +776,7 @@
         2.1.2: No Keyboard Trap
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html"
         target="_blank"
@@ -751,12 +786,12 @@
       </a>
     </li>
     <ul>
-      <li>For
+      <li class="dummy-paragraph">For
         <strong>Alert (Toast)</strong>, which will automatically dismiss. Note: The automatic dismiss functionality will
         come from the consuming app, not the Design System.
       </li>
     </ul>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
         target="_blank"
@@ -765,12 +800,12 @@
         2.5.3: Label in Name
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html" target="_blank" rel="noopener noreferrer">
         4.1.1: Parsing
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
         target="_blank"
@@ -779,7 +814,7 @@
         4.1.2: Name, Role, Value
       </a>
     </li>
-    <li>
+    <li class="dummy-paragraph">
       <a
         href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
         target="_blank"
