@@ -133,7 +133,6 @@
     <dt>icon <code>string</code></dt>
     <dd>
       <p>Acceptable value: any Flight icon name.</p>
-      <p>Default: <span class="default">"user"</span></p>
     </dd>
     <dt>hasChevron <code>boolean</code></dt>
     <dd>
@@ -156,7 +155,7 @@
 
   <h4 class="dummy-h4">ListItem::CopyItem</h4>
   {{! TODO: add props here if we decide to use the current version }}
-  <p class="dummy-paragraph">TODO??</p>
+  <p class="dummy-paragraph">[WIP]</p>
 
   <h4 class="dummy-h4">ListItem::Description</h4>
   <p class="dummy-paragraph" id="component-api-listitem-description">Here is the API for the "description" list item
@@ -1014,8 +1013,6 @@
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Interactive
-            {{! TODO remove once https://github.com/hashicorp/design-system/pull/242 is merged }}
-            @icon={{if (eq color "critical") "trash" null}}
             @text={{state}}
             @color={{color}}
             @state={{state}}
