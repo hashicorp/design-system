@@ -2,8 +2,8 @@
   <div class="hds-dropdown-toggle-icon__wrapper">
     {{#if @imageSrc}}
       <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" />
-    {{else}}
-      <FlightIcon @name={{this.icon}} @size="24" />
+    {{else if @icon}}
+      <FlightIcon @name={{@icon}} @size="24" />
     {{/if}}
   </div>
   {{#if this.hasChevron}}

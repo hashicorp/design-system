@@ -41,21 +41,6 @@ export default class HdsDropdownListItemInteractiveComponent extends Component {
   }
 
   /**
-   * @param icon
-   * @type {string}
-   * @default null
-   * @description The name of the icon to be used.
-   */
-  get icon() {
-    assert(
-      `when the "Hds::ListItem::Interactive" @color is "critical" an @icon is required`,
-      !(this.color === 'critical' && !this.args.icon)
-    );
-
-    return this.args.icon ?? null;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
