@@ -169,6 +169,7 @@
     border: 1px solid var(--token-color-border-primary);
     color: var(--token-color-foreground-primary);  
     display: flex;
+    flex: 1 0 0;
     font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
     padding: 12px 8px;
@@ -217,6 +218,7 @@
     .hds-dropdown-list-item__copy-item-icon {
       color: var(--token-color-foreground-action);
       margin-left: 0.5rem;
+      min-width: 16px;
     }
   }
 }
