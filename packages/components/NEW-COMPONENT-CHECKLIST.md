@@ -15,7 +15,7 @@ The design checklist has 5 parts: creating the branch, design explorations and i
 
 ### Component Creation
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
-- [ ] add a new page for the component, as needed
+- [ ] add a new page for the component, as needed and mark the header as In progress
 - [ ] **design**
   - [ ] work through design explorations, providing 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
   - [ ] review with appropriate stakeholders (typically HDS designers, engineering partner, ambassadors) and iterate, as necessary
@@ -33,12 +33,13 @@ The design checklist has 5 parts: creating the branch, design explorations and i
   - [ ] migration details, as necessary
     - when complete, lock this frame
 - [ ] **release**
-  - lock and hide the components leaving only the stickersheets and docs visible
+  - lock and hide the components leaving only the stickersheets and docs visible, and change the header's badge to Experimental
   - add release notes to the changelog
   - [ ] merge the branch
   - [ ] publish the ui kit
   - do not communicate this release to consumers
 - [ ] **testing**
+  - [ ] add a new page to the [playground](https://www.figma.com/file/95YqaJF4TNV72ucXbyC7A0/Playground?node-id=302%3A10) file and prepare a frame for each ambassador to test
   - [ ] test the component with ambassadors
   - if iterations are needed, work through the process until approved
 
