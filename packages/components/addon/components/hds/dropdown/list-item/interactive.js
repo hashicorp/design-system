@@ -8,7 +8,7 @@ export default class HdsDropdownListItemInteractiveComponent extends Component {
   /**
    * @param text
    * @type {string}
-   * @description The text of the item. If no text value is defined an error will be thrown unless it is the generic or separator item type.
+   * @description The text of the item. If no text value is defined an error will be thrown
    */
   get text() {
     let { text } = this.args;
