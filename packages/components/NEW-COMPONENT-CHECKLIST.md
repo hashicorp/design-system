@@ -23,6 +23,7 @@ The design checklist has 5 parts: creating the branch, design explorations and i
   - [ ] review with design leadership and iterate, as necessary
   - [ ] once approved, build out the design as a component
     - ensure the variant and property names align with what was discussed/decided on with your engineering partner
+  - [ ] test the component with HDS designers
 - [ ] **documentation**
   - [ ] stickersheet
     - make sure the component instances can be easily selected and other layers are locked
@@ -35,6 +36,7 @@ The design checklist has 5 parts: creating the branch, design explorations and i
 - [ ] **release**
   - lock and hide the components leaving only the stickersheets and docs visible, and change the header's badge to Experimental
   - add release notes to the changelog
+  - [ ] review with situationally appropriate reviewers to get final approval
   - [ ] merge the branch
   - [ ] publish the ui kit
   - do not communicate this release to consumers
