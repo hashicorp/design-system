@@ -71,6 +71,17 @@
         <code>&lt;a&gt;</code>
         element.</p>
     </dd>
+    <dt>isHrefExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>This controls if the
+        <code>&lt;a&gt;</code>
+        link is external and so for security reasons we need to add the
+        <code>target="_blank"</code>
+        and
+        <code>rel="noopener noreferrer"</code>
+        attributes to it.</p>
+    </dd>
     <dt>route/models/model/query/current-when/replace</dt>
     <dd>
       <p>These are the parameters that are passed down as arguments to the
@@ -333,6 +344,30 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: when using the
+    <code class="dummy-code">@href</code>
+    argument the component adds by default the attributes
+    <code class="dummy-code">target="_blank"</code>
+    and
+    <code class="dummy-code">rel="noopener noreferrer"</code>
+    to the
+    <code class="dummy-code">&lt;a&gt;</code>
+    element (because this is the most common use case: internal links are generally handled using a
+    <code class="dummy-code">@route</code>
+    argument). If the
+    <code class="dummy-code">href</code>
+    points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass
+    <code class="dummy-code">@isHrefExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component and it will not add the
+    <code class="dummy-code">target</code>
+    and
+    <code class="dummy-code">rel</code>
+    attributes (but you can pass yours if needed, using the
+    <code class="dummy-code">...attributes</code>
+    spreading. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
+
   <p class="dummy-paragraph">🚨
     <strong>Notice</strong>: if a
     <code class="dummy-code">href</code>
@@ -368,7 +403,7 @@
     <code class="dummy-code">&lt;LinkTo&gt;</code>
     for the
     <code class="dummy-code">@route</code>. For more details see the
-    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo></p>
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
   <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
       <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
       components are supported (eg.
