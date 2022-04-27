@@ -205,6 +205,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-list-item__copy-item-icon {
   color: var(--token-color-foreground-action);
+  flex: none;
   margin-left: 8px;
 }
 
