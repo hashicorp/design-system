@@ -7,11 +7,18 @@ Update this list and these links as appropriate.
 
 - [Component Audit](https://www.figma.com/file/h3LtloARmbYVwh7z6XWHVb/Component-Audits-FY23?node-id=0%3A1): This audit should be completed by ambassadors before any work gets started.
 - [Component Requirement Document (CRD)](url_here): This file should exist before any design explorations or code is written.
-- [Design System Website](https://design-system-website.vercel.app/?path=/story/example-introduction--page) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
+- ["System of Systems" Storybook](https://design-system-website.vercel.app/?path=/story/example-introduction--page) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
 
 
 ## Design Checklist 
-The design checklist has 5 parts: creating the branch, design explorations and iterations, documentation, figma release, and testing. The design process is largely cyclical, so some of these steps may need to be repeated until approval.
+The design checklist has 5 parts: 
+1. creating the branch
+2. design explorations and iterations
+3. documentation
+4. release
+5. testing. 
+
+The design process is largely cyclical, so some of these steps may need to be repeated until approval.
 
 ### Component Creation
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
@@ -34,28 +41,26 @@ The design checklist has 5 parts: creating the branch, design explorations and i
   - [ ] migration details, as necessary
     - when complete, lock this frame
 - [ ] **release**
-  - lock and hide the components leaving only the stickersheets and docs visible, and change the header's badge to Experimental
-  - add release notes to the changelog
+  - [ ] lock and hide the components leaving only the stickersheets and docs visible, and change the header's badge to Experimental
+  - [ ] add release notes to the changelog
   - [ ] review with situationally appropriate reviewers to get final approval
   - [ ] merge the branch
   - [ ] publish the ui kit
-  - do not communicate this release to consumers
+    - Important: do not communicate this release to consumers yet! (will be done later in the process)
 - [ ] **testing**
   - [ ] add a new page to the [playground](https://www.figma.com/file/95YqaJF4TNV72ucXbyC7A0/Playground?node-id=302%3A10) file and prepare a frame for each ambassador to test
   - [ ] test the component with ambassadors
   - if iterations are needed, work through the process until approved
 
 When ready to add docs to the scrappy site:
-- [ ] export a screenshot of the design guidelines
-- [ ] create a new issue in [github](https://github.com/hashicorp/design-system/issues) with the screenshot
-- [ ] let your engineering partner know it's ready to be added (or add it yourself)
+- [ ] let your engineering partner know it's ready to be added (they will add it themselves)
 
 
 ## Engineering Checklist
 The engineering checklist has six parts: creating the feature branch, component template, component backing class, component style, tests, and documentation.
 
 ### Dependency
-- [Figma Design](url_here): Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
+- Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
 
 ### Component Creation
 
