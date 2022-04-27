@@ -24,28 +24,15 @@ export default class HdsAlertIndexComponent extends Component {
     super(...arguments);
 
     assert(
+      `@type for "Hds::Alert" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${this.args.type}`,
+      TYPES.includes(this.args.type)
+    );
+    assert(
       `you need to pass @title or @description to the "Hds::Alert" component`,
       !(this.args.title === undefined && this.args.description === undefined)
     );
-  }
-
-  /**
-   * @param type
-   * @type {enum}
-   * @default page
-   * @description Determines the type of the alert.
-   */
-  get type() {
-    let { type = DEFAULT_TYPE } = this.args;
-
-    assert(
-      `@type for "Hds::Alert" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type)
-    );
-
-    return type;
   }
 
   /**
@@ -78,7 +65,7 @@ export default class HdsAlertIndexComponent extends Component {
 
     // If `icon` isn't passed, use the pre-defined one from `color`
     if (icon === undefined) {
-      if (this.type === 'compact') {
+      if (this.args.type === 'compact') {
         // for the "compact" type by default we use filled icons
         return `${MAPPING_COLORS_TO_ICONS[this.color]}-fill`;
       } else {
@@ -89,7 +76,7 @@ export default class HdsAlertIndexComponent extends Component {
     } else if (icon === false) {
       assert(
         `@icon for "Hds::Alert" with @type "compact" is required`,
-        this.type !== 'compact'
+        this.args.type !== 'compact'
       );
 
       return false;
@@ -120,7 +107,7 @@ export default class HdsAlertIndexComponent extends Component {
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
   get iconSize() {
-    if (this.type === 'compact') {
+    if (this.args.type === 'compact') {
       return '16';
     } else {
       return '24';
@@ -136,10 +123,10 @@ export default class HdsAlertIndexComponent extends Component {
     let classes = ['hds-alert'];
 
     // Add a class based on the @type argument
-    classes.push(`hds-alert--type-${this.type}`);
+    classes.push(`hds-alert--type-${this.args.type}`);
 
     // Add an elevation to the "toast" alert
-    if (this.type === 'toast') {
+    if (this.args.type === 'toast') {
       classes.push(`hds-elevation-higher`);
     }
 
