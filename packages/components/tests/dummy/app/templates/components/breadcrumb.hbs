@@ -30,20 +30,20 @@
     </li>
   </ul>
   <h4 class="dummy-h4">Breadcrumb</h4>
-  <p class="dummy-paragraph">Here is the API for the main ("container") component:</p>
-  <dl class="dummy-component-props">
+  <p class="dummy-paragraph" id="component-api-breadcrumb">Here is the API for the main ("container") component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-breadcrumb">
     <dt>itemsCanWrap <code>boolean</code></dt>
     <dd>
       <p>This controls if the breadcrumb items can wrap in case they can't fit in the container width.</p>
-      <p> Default: <span class="default">true</span></p>
+      <p>Default: <span class="default">true</span></p>
     </dd>
     <dt>didInsert <code>function</code></dt>
     <dd>
       <p>This hook method is called when the component is inserted in the DOM.</p>
-      <p> Default: <span class="default">noop / () => {}</span> </p>
+      <p>Default: <span class="default">noop / () => {}</span> </p>
       <p><em>Notice: internally we use the "did-insert" modifier from @ember/render-modifiers.</em></p>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
       <p><em>Notice: by default an attribute
@@ -54,8 +54,8 @@
     </dd>
   </dl>
   <h4 class="dummy-h4">Breadcrumb::Item</h4>
-  <p class="dummy-paragraph">Here is the API for the "item" sub-component:</p>
-  <dl class="dummy-component-props">
+  <p class="dummy-paragraph" id="component-api-breadcrumb-item">Here is the API for the "item" sub-component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-breadcrumb-item">
     <dt>text <code>string</code></dt>
     <dd>
       <p>The text to show as "crumb" for the item.</p>
@@ -72,21 +72,22 @@
     <dd>
       <p>This controls if this is the last item in the breadcrumb (in which case it doesn't generate a link).</p>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
   <h4 class="dummy-h4">Breadcrumb::Truncation</h4>
-  <p class="dummy-paragraph">Here is the API for the "truncation" sub-component:</p>
-  <dl class="dummy-component-props">
+  <p class="dummy-paragraph" id="component-api-breadcrumb-truncation">Here is the API for the "truncation"
+    sub-component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-breadcrumb-truncation">
     <dt>"yield"</dt>
     <dd>
       <p>Elements passed as children of this sub-component are yielded to the content of the
         <a href="../utilities/disclosure">Disclosure</a>
         component (used to show/hide the yielded breadcrumb items via a "toggle" button).</p>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>

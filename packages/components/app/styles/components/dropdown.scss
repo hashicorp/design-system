@@ -20,29 +20,33 @@
 
 @use '../mixins/focus-ring' as *;
 
+$hds-dropdown-toggle-base-height: 36px;
+$hds-dropdown-toggle-border-radius: 5px;
+
+
 // TOGGLE/ICON
+
 .hds-dropdown-toggle-icon {
   align-items: center;
   background-color: transparent;
   border: 1px solid transparent; // We need this to be transparent for a11y
-  border-radius: 5px;
+  border-radius: $hds-dropdown-toggle-border-radius;
   display: flex;
-  height: 36px;
+  height: $hds-dropdown-toggle-base-height;
   justify-content: center;
+  min-width: $hds-dropdown-toggle-base-height;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   padding: 1px;
-  min-width: 36px;
 
-  &:hover,  
+  &:hover,
   &.is-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
     cursor: pointer;
   }
 
-  // this is the :focus
-  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 5px);
+  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
 
   &:active,
   &.is-active {
@@ -53,7 +57,7 @@
 
 .hds-dropdown-toggle-icon__wrapper {
   align-items: center;
-  border-radius: 3px; // 5px- 1px padding - 1px border
+  border-radius: 3px; // $hds-dropdown-toggle-border-radius - 1px padding - 1px border
   display: flex;
   justify-content: center;
   height: 32px;
@@ -62,21 +66,43 @@
 
   img {
     border-radius: inherit;
+    height: 100%;
     object-fit: cover; // this will make sure it's correct even if the item isn't square
+    width: 100%;
   }
 }
 
 .hds-dropdown-toggle-icon__chevron {
-  margin-left: 0.25rem;
+  margin-left: 4px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform .3s;
+  }
+
+  .hds-dropdown-toggle-icon--is-open & {
+    transform: rotate(-180deg);
+  }
 }
 
 // TOGGLE/BUTTON
-.hds-dropdown-toggle--with-button-component {
+
+.hds-dropdown-toggle-button {
   box-shadow: none; // we override this to remove the elevation style
 
   .hds-button__icon {
+    margin-left: 8px; // this overrides the rule `.hds-button__text + .hds-button__icon`
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
-    margin-left: 0.5rem; // this overrides the rule `.hds-button__text + .hds-button__icon`
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform .3s;
+    }
+  }
+}
+
+
+.hds-dropdown-toggle-button--is-open {
+  .hds-button__icon {
+    transform: rotate(-180deg);
   }
 }
 
@@ -91,71 +117,37 @@
   box-shadow: var(--token-surface-high-box-shadow);
   list-style: none;
   margin: 0;
-  max-width: 25rem;
-  min-width: 12.5rem;
+  max-width: 400px;
+  min-width: 200px;
   padding: 4px 0;
-  &.hds-dropdown-list--position-right {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 0.25rem);
-    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
-  }
-
-  &.hds-dropdown-list--position-left {
-    position: absolute;
-    left: 0;
-    top: calc(100% + 0.25rem);
-    z-index: 2; // https://github.com/hashicorp/design-system/issues/114
-  }
+  width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
 }
+
+.hds-dropdown-list--fixed-width {
+  max-width: initial;
+  min-width: initial;
+}
+
+.hds-dropdown-list--position-right {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+}
+
+.hds-dropdown-list--position-left {
+  left: 0;
+  position: absolute;
+  top: calc(100% + 4px);
+  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+}
+
 
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
 
-.hds-dropdown-list-item--title {
-  color: var(--token-color-foreground-strong);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size);
-  font-weight: var(--token-typography-font-weight-semibold);
-  line-height: var(--token-typography-body-100-line-height);
-  padding: 10px 16px 4px;
-}
-
-.hds-dropdown-list-item--generic {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.hds-dropdown-list-item--description {
-  color: var(--token-color-foreground-faint);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size);
-  font-weight: var(--token-typography-font-weight-regular);
-  line-height: var(--token-typography-body-100-line-height);
-  padding: 2px 16px 4px;
-}
-
-.hds-dropdown-list-item--separator {
-  position: relative;
-  height: 4px;
-  width: 100%;
-
-  &::before {
-    position: absolute;
-    right: 6px;
-    left: 6px;
-    bottom: 0;
-    border-bottom: 1px solid var(--token-color-border-primary);
-    content: '';
-  }
-}
-
 .hds-dropdown-list-item__copy-item-title {
   color: var(--token-color-foreground-faint);
-  font-family: var(--token-typography-body-100-font-family);
-  font-size: var(--token-typography-body-100-font-size); // 13
-  font-weight: var(--token-typography-font-weight-semibold);
-  line-height: var(--token-typography-body-100-line-height); // 18
   padding: 2px 0 4px;
 }
 
@@ -163,17 +155,16 @@
   padding: 10px 16px 12px;
   width: 100%;
 
-  button { 
+  button {
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--token-color-border-primary);
-    color: var(--token-color-foreground-primary);  
+    color: var(--token-color-foreground-primary);
     display: flex;
-    font-family: var(--token-typography-font-stack-code);
     justify-content: space-between;
     padding: 12px 8px;
     width: 100%;
-    
+
     &:hover,
     &.is-hover {
       background-color: var(--token-color-surface-interactive-hover);
@@ -181,55 +172,60 @@
     }
 
     @include hds-focus-ring-basic();
-    
+
     &:focus,
     &.is-focus {
-      //TODO this focus is just way too complex 
+      //TODO this focus is just way too complex
       background-color:  var(--token-color-surface-action);
       border-color: var(--token-color-focus-action-internal);
     }
-    
-    &:active, 
+
+    &:active,
     &.is-active {
       background-color: var(--token-color-surface-interactive-active);
     }
 
     &.is-success {
-      border-color: var(--token-color-border-success);
       background-color: var(--token-color-surface-success);
-      
+      border-color: var(--token-color-border-success);
+
       .hds-dropdown-list-item__copy-item-icon {
         color: var(--token-color-foreground-success);
       }
-    } 
-
-    .hds-dropdown-list-item__copy-item-text {
-      font-size: var(--token-typography-code-100-font-size);
-      font-weight: var(--token-typography-font-weight-regular);
-      line-height: var(--token-typography-code-100-line-height);
-      // max-width: 250px; // TODO we should be able to figure out the proportions here
-      overflow: hidden;
-      text-align: left;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .hds-dropdown-list-item__copy-item-icon {
-      color: var(--token-color-foreground-action);
-      margin-left: 0.5rem;
     }
   }
 }
 
+.hds-dropdown-list-item__copy-item-text {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hds-dropdown-list-item__copy-item-icon {
+  color: var(--token-color-foreground-action);
+  margin-left: 8px;
+}
+
+.hds-dropdown-list-item--description {
+  color: var(--token-color-foreground-faint);
+  padding: 2px 16px 4px;
+}
+
+.hds-dropdown-list-item--generic {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
 .hds-dropdown-list-item--interactive {
-  position: relative;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
   min-height: 36px;
+  position: relative;
 
-  // need to reset a few extra things to make the button visually appear the same as the links
-  // TODO this is 0.125rem taller than the link...
+  // need to reset a few extra things to make the button visually appear the same as the link
   button {
-    border: 1px inset transparent; // cause of the extra height
     background-color: transparent;
     width: 100%;
 
@@ -242,10 +238,11 @@
   // shared styles for links and buttons
   a, button {
     align-items: center;
+    border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
     display: flex;
     outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
-    padding: 8px 10px 8px 16px;
+    padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
 
     // this is used for the left "hover" indicator
@@ -253,7 +250,7 @@
       border-radius: 1px;
       bottom: 6px;
       content: '';
-      left: 0.25rem;
+      left: 4px;
       position: absolute;
       top: 6px;
       width: 2px;
@@ -266,11 +263,11 @@
       border-radius: 5px;
       bottom: 0px;
       content: '';
-      left: 0.625rem;
+      left: 10px;
       position: absolute;
-      right: 0.25rem;
-      z-index: -1;
+      right: 4px;
       top: 0;
+      z-index: -1;
     }
 
     // Notice: to avoid too much duplication we define two local CSS variables
@@ -282,7 +279,7 @@
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
-        left: 0.25rem;
+        left: 4px;
       }
     }
     // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
@@ -296,7 +293,7 @@
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
-        left: 0.25rem;
+        left: 4px;
       }
     }
     // remove the focus ring on "active + focused" state (by design)
@@ -310,15 +307,11 @@
 }
 
 .hds-dropdown-list-item__interactive-text {
-  font-family: var(--token-typography-body-200-font-family);
-  font-size: var(--token-typography-body-200-font-size);
-  font-weight: var(--token-typography-font-weight-medium);
-  line-height: var(--token-typography-body-200-line-height);
   text-align: left; // the button element was centering text
 }
 
 .hds-dropdown-list-item__interactive-icon {
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
 .hds-dropdown-list-item--color-action {
@@ -361,25 +354,19 @@
     // assign the values to the local CSS variables used above
     &::after {
       --current-background-color: var(--token-color-surface-critical);
-      --current-focus-ring-box-shadow: var(
-        --token-focus-ring-critical-box-shadow
-      );
+      --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
     }
 
     &:hover,
     &.is-hover {
-      color: var(
-        --token-color-palette-red-300
-      ); // TODO we need to add this token to the design system
+      color: var(--token-color-palette-red-300);
       &::before {
         background-color: currentColor;
       }
     }
     &:active,
     &.is-active {
-      color: var(
-        --token-color-palette-red-400
-      ); // TODO we need to add this token to the design system
+      color: var(--token-color-palette-red-400);
       &::before {
         background-color: currentColor;
       }
@@ -389,3 +376,24 @@
     }
   }
 }
+
+.hds-dropdown-list-item--separator {
+  height: 4px;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    border-bottom: 1px solid var(--token-color-border-primary);
+    bottom: 0;
+    content: '';
+    left: 6px;
+    position: absolute;
+    right: 6px;
+  }
+}
+
+.hds-dropdown-list-item--title {
+  color: var(--token-color-foreground-strong);
+  padding: 10px 16px 4px;
+}
+
