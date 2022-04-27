@@ -89,6 +89,13 @@
     border-color: var(--token-color-border-primary);
   }
 
+  &.hds-alert--type-compact {
+    // special override by design
+    .hds-alert__icon {
+      color: var(--token-color-foreground-faint);
+    }
+  }
+
   .hds-alert__icon, .hds-alert__title {
     color: var(--token-color-foreground-primary);
   }
