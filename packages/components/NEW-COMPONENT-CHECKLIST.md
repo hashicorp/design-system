@@ -16,22 +16,30 @@ The design checklist has 5 parts:
 2. design explorations and iterations
 3. documentation
 4. release
-5. testing. 
+5. testing
 
 The design process is largely cyclical, so some of these steps may need to be repeated until approval.
 
 ### Component Creation
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
-- [ ] add a new page for the component, as needed and mark the header as In progress
+- [ ] add a new page for the component, as needed
+- [ ] copy & paste the [stickersheet template](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2279%3A26800) found in UI Helpers to the new page
+  - [ ] update the status badge to "In progress"
+  - [ ] change "{DOC TYPE}" to "STICKERSHEET"
+  - [ ] change "{Component name}" to the name of the component
+  - [ ] delete the sunset notice
 - [ ] **design**
   - [ ] work through design explorations, providing 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
-  - [ ] review with appropriate stakeholders (typically HDS designers, engineering partner, ambassadors) and iterate, as necessary
+  - [ ] review with appropriate stakeholders (typically HDS designers, engineering partner, ambassadors) and iterate
   - [ ] review for a11y considerations and iterate, as necessary
   - [ ] review with design leadership and iterate, as necessary
   - [ ] once approved, build out the design as a component
     - ensure the variant and property names align with what was discussed/decided on with your engineering partner
-  - [ ] test the component with HDS designers
+  - [ ] test the component with HDS designers and iterate, as necessary
+  - [ ] sync with your engineering partner (pseudo handoff)
+    - let them know it's been design approved and discuss any remaining questions (this should be an ongoing process as well)
 - [ ] **documentation**
+  - all documentation should be contained within a frame so it can be easily linked to
   - [ ] stickersheet
     - make sure the component instances can be easily selected and other layers are locked
   - [ ] design guidelines
@@ -40,20 +48,23 @@ The design process is largely cyclical, so some of these steps may need to be re
     - when complete, lock this frame
   - [ ] migration details, as necessary
     - when complete, lock this frame
+  - [ ] let your engineering partner know that design guidelines are ready to be added to the scrappy site (they will add it themselves)
 - [ ] **release**
   - [ ] lock and hide the components leaving only the stickersheets and docs visible, and change the header's badge to Experimental
   - [ ] add release notes to the changelog
   - [ ] review with situationally appropriate reviewers to get final approval
   - [ ] merge the branch
   - [ ] publish the ui kit
-    - Important: do not communicate this release to consumers yet! (will be done later in the process)
+    - Important: do not communicate this release to consumers yet! (this will be done later in the process)
 - [ ] **testing**
   - [ ] add a new page to the [playground](https://www.figma.com/file/95YqaJF4TNV72ucXbyC7A0/Playground?node-id=302%3A10) file and prepare a frame for each ambassador to test
+    - provide a variety (basic to complex) of screenshots to recreate based on real world examples from the audit
   - [ ] test the component with ambassadors
-  - if iterations are needed, work through the process until approved
-
-When ready to add docs to the scrappy site:
-- [ ] let your engineering partner know it's ready to be added (they will add it themselves)
+  - if iterations are needed, work through the process until approved (don't forget to branch!)
+- [ ] **final release**
+  - this comes after ambassadors have tested the component in Figma and no other adjustments are needed
+  - [ ] if changes were required, follow the steps under "release" again
+  - [ ] share about the release in the slack channel [#team_design_systems](https://hashicorp.slack.com/archives/C7KTUHNUS) and let consumers know that the component is available for use in Figma
 
 
 ## Engineering Checklist
