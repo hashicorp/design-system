@@ -285,6 +285,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     // default focus for browsers that still rely on ":focus"
     &:focus,
     &.is-focus {
+      color: var(--current-color-focus);
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
@@ -300,6 +301,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     }
     // set focus for browsers that support ":focus-visible"
     &:focus-visible {
+      color: var(--current-color-focus);
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
@@ -345,6 +347,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
     // assign the values to the local CSS variables used above
     --current-color-hover: var(--token-color-foreground-action-hover);
+    --current-color-focus: var(--token-color-foreground-action-active);
     --current-color-active: var(--token-color-foreground-action-active);
     &::after {
       --current-background-color: var(--token-color-surface-action);
@@ -359,6 +362,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
     // assign the values to the local CSS variables used above
     --current-color-hover: var(--token-color-palette-red-300);
+    --current-color-focus: var(--token-color-palette-red-400);
     --current-color-active: var(--token-color-palette-red-400);
     &::after {
       --current-background-color: var(--token-color-surface-critical);
