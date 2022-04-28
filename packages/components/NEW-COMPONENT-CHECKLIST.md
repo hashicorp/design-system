@@ -39,7 +39,7 @@ The design process is largely cyclical, so some of these steps may need to be re
   - [ ] sync with your engineering partner (pseudo handoff)
     - let them know it's been design approved and discuss any remaining questions (this should be an ongoing process as well)
 - [ ] **documentation**
-  - all documentation should be contained within a frame so it can be easily linked to
+  - all documentation should be contained within frames so it can be easily linked to
   - [ ] stickersheet
     - make sure the component instances can be easily selected and other layers are locked
   - [ ] design guidelines
