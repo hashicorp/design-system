@@ -64,7 +64,7 @@ The design process is largely cyclical, so some of these steps may need to be re
 - [ ] **final release**
   - this comes after ambassadors have tested the component in Figma and no other adjustments are needed
   - [ ] if changes were required, follow the steps under "release" again
-  - [ ] share about the release in the slack channel [#team_design_systems](https://hashicorp.slack.com/archives/C7KTUHNUS) and let consumers know that the component is available for use in Figma
+  - [ ] share about the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) and let consumers know that the component is available for use in Figma
 
 
 ## Engineering Checklist
