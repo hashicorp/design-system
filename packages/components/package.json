@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "description": "HashiCorp Design System Components",
   "keywords": [
     "hashicorp",
@@ -41,7 +41,7 @@
     "ember-cli-htmlbars": "^5.7.1",
     "ember-cli-sass": "^10.0.1",
     "ember-focus-trap": "^1.0.1",
-    "ember-keyboard": "^8.0.0",
+    "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
     "sass": "^1.43.4"
   },
@@ -59,6 +59,7 @@
     "ember-cli": "~3.28.4",
     "ember-cli-clipboard": "^0.15.0",
     "ember-cli-dependency-checker": "^3.2.0",
+    "ember-cli-deprecation-workflow": "^2.1.0",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-markdown-it-templates": "^0.0.3",
     "ember-cli-sri": "^2.1.1",
@@ -75,6 +76,7 @@
     "ember-resolver": "^8.0.2",
     "ember-source": "~3.28.0",
     "ember-source-channel-url": "^3.0.0",
+    "ember-style-modifier": "^0.8.0",
     "ember-template-lint": "^3.6.0",
     "ember-template-lint-plugin-prettier": "^3.0.1",
     "ember-truth-helpers": "^3.0.0",

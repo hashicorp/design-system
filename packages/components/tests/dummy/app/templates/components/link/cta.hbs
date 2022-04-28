@@ -5,9 +5,7 @@
 <DummyLinkCtaButtonBanner />
 
 <section>
-  <h3 class="dummy-h3">
-    Overview
-  </h3>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">The Link::CTA component handles the generation of an HTML
     <code class="dummy-code">
@@ -24,9 +22,9 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
-  <p class="dummy-paragraph">Here is the API for the component:</p>
-  <dl class="dummy-component-props">
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-link-cta">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-link-cta">
     <dt>size <code>enum</code></dt>
     <dd>
       <p>Acceptable values:</p>
@@ -63,7 +61,7 @@
         <code>&lt;a&gt;</code>
         element (see URL handling for details).</p>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
@@ -93,10 +91,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">
-    Usage
-  </h3>
-
+  <h3 class="dummy-h3" id="usage"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">The most basic invocation requires
     <code class="dummy-code">text</code>
@@ -215,7 +210,8 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Design guidelines</h3>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
   <div class="dummy-design-guidelines">
     <p class="dummy-paragraph">
       <a
@@ -232,7 +228,7 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-cta-base-sample">
     <Hds::Link::Cta @text="Only text" href="#" />
