@@ -3,8 +3,8 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `cd packages/design-system-components`
 * `yarn install`
+* `cd packages/components`
 
 ## Linting
 
