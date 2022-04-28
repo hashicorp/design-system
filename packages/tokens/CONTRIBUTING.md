@@ -5,8 +5,8 @@
 *Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
 
 * `git clone <repository-url>`
-* `yarn install`
 * `cd packages/tokens`
+* `yarn install`
 
 ## Linting
 
