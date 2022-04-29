@@ -1,0 +1,21 @@
+//
+// TOAST
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+.hds-toast {
+  // we apply an elevation to the "alert/inline" element
+  box-shadow: var(--token-elevation-higher-box-shadow);
+
+  // TODO discuss with CVeight
+  min-width: 300px;
+  max-width: 400px;
+  width: fit-content;
+
+  // TODO add comment here
+  &.hds-alert--color-neutral {
+    border-color: var(--token-color-border-primary);
+  }
+}

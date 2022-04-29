@@ -56,6 +56,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/link-to/standalone');
     await percySnapshot('LinkTo Standalone');
 
+    await visit('/components/toast');
+    await percySnapshot('Toast');
+
     assert.ok(true);
   });
 });

@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_TYPE = 'page';
-export const TYPES = ['page', 'inline', 'compact', 'toast'];
+export const TYPES = ['page', 'inline', 'compact'];
 export const DEFAULT_COLOR = 'neutral';
 export const COLORS = [
   'neutral',
@@ -124,11 +124,6 @@ export default class HdsAlertIndexComponent extends Component {
 
     // Add a class based on the @type argument
     classes.push(`hds-alert--type-${this.args.type}`);
-
-    // Add an elevation to the "toast" alert
-    if (this.args.type === 'toast') {
-      classes.push(`hds-elevation-higher`);
-    }
 
     // Add a class based on the @color argument
     classes.push(`hds-alert--color-${this.color}`);
