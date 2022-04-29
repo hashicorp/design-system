@@ -2,14 +2,7 @@
 
 <h2 class="dummy-h2">Toast</h2>
 
-<pre>TODO explain it comes from the Alert inline!!</pre>
-<pre>TODO make sure all the instances have an `onClose` to show the button!</pre>
-
-<Hds::Toast
-  @color="warning"
-  @title="TEST 1"
-  @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
->
+<Hds::Toast @color="warning" @title="TEST 1" @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
   <:actions as |A|>
     <A.Button @text="Action" @color="secondary" />
   </:actions>
@@ -24,8 +17,7 @@
   <T.Button @text="Action" @color="secondary" />
 </Hds::Toast>
 
-
-<section style="display: none">
+<section>
   <h3 class="dummy-h3">Overview</h3>
 
   <p class="dummy-paragraph">
@@ -41,11 +33,6 @@
   </p>
 
   <p class="dummy-paragraph">
-    <em>Notice: for system-generated messages see the
-      <LinkTo @route="components.alert">Alert</LinkTo>
-      component.</em></p>
-
-  <p class="dummy-paragraph">
     It can have an
     <strong>icon</strong>
     (optional), a
@@ -56,106 +43,29 @@
     <strong>actions</strong>
     (optional) and a
     <strong>close</strong>
-    button (optional).</p>
+    button.</p>
   <p class="dummy-paragraph">
     🚨
-    <em><strong>Important</strong>: we provide only the visual styling to this alert, so other features like placement,
-      animations/transitions, and what happens on dismiss, will need to be implemented in your app (eg. with an Ember
-      addon such as
+    <em><strong>Important</strong>: we provide only the visual styling to this element, so other features like
+      placement, animations/transitions, and what happens on dismiss, will need to be implemented in your app (eg. with
+      an Ember addon such as
       <a href="https://github.com/poteto/ember-cli-flash">ember-cli-flash</a>).
     </em>
   </p>
 </section>
 
-<section style="display: none">
+<section>
   <h3 class="dummy-h3">Component API</h3>
-  <p class="dummy-paragraph" id="component-api-alert">Here is the API for the component:</p>
+  <div class="dummy-banner dummy-banner--info">
+    <p class="dummy-paragraph"><strong>Notice</strong>: the
+      <code class="dummy-code">Hds::Toast</code>
+      component is built out of the
+      <code class="dummy-code">Hds::Alert(Inline)</code>
+      component, so it shares the same API. Please refer to
+      <LinkTo @route="components.alert">the Alert Component API documentation</LinkTo>
+      to know more about the component API.</p>
+  </div>
 
-  <dl class="dummy-component-props" aria-labelledby="component-api-alert">
-    <dt>color <code>enum</code></dt>
-    <dd>
-      <p>
-        Sets the color scheme for
-        <code class="dummy-code">background</code>,
-        <code class="dummy-code">border</code>,
-        <code class="dummy-code">title</code>, and
-        <code class="dummy-code">description</code>, which
-        <strong>cannot</strong>
-        be overriden.
-        <code class="dummy-code">color</code>
-        results in a default
-        <code class="dummy-code">icon</code>, which
-        <strong>can</strong>
-        be overriden.
-      </p>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">neutral</li>
-        <li>highlight</li>
-        <li>success</li>
-        <li>warning</li>
-        <li>critical</li>
-      </ol>
-    </dd>
-    <dt>icon <code>string | false</code></dt>
-    <dd>
-      <p>Override the default
-        <code class="dummy-code">icon</code>
-        name, which is determined by the
-        <code class="dummy-code">color</code>
-        argument.</p>
-      <p>Acceptable values: any
-        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
-          Flight</a>
-        icon name or pass
-        <code class="dummy-code">false</code>
-        for no icon.</p>
-    </dd>
-
-    <dt>title <code>string</code></dt>
-    <dd>
-      <p>
-        The title text in the alert.
-        <code class="dummy-code">title</code>
-        <strong>and/or</strong>
-        <code class="dummy-code">description</code>
-        is required.
-      </p>
-    </dd>
-
-    <dt>description <code>string</code></dt>
-    <dd>
-      <p>The description text in the alert.
-        <code class="dummy-code">description</code>
-        <strong>and/or</strong>
-        <code class="dummy-code">title</code>
-        is required.
-      </p>
-    </dd>
-
-    <dt>onClose <code>function</code></dt>
-    <p>
-      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
-    </p>
-
-    <dt>&lt;:actions&gt; <code>named block</code></dt>
-    <dd>
-      <p>Actions can optionally be passed into the alert as yielded components, using the suggested
-        <code class="dummy-code">Button</code>
-        and/or
-        <code class="dummy-code">Link/LinkTo::Standalone</code>. See below ("How to use > Actions") for more details.</p>
-      <p><em>Notice: it's also possible to insert custom content in the
-          <code class="dummy-code">:actions</code>
-          named block, but in that case we suggest to speak with the design system team to check that the solution is
-          conformant and satifies the accessibility criteria.
-        </em></p>
-    </dd>
-
-    <dt>...attributes</dt>
-    <dd>
-      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-    </dd>
-  </dl>
 </section>
 
 <section>
@@ -168,20 +78,24 @@
     <code class="dummy-code">title</code>
     and/or
     <code class="dummy-code">text</code>
-    arguments to be passed. By default a
+    arguments to be passed, and an
+    <code class="dummy-code">onClose</code>
+    callback function. By default a
     <code class="dummy-code">neutral</code>
-    alert is generated (with a neutral color applied and a specific icon visible).
+    toast is generated (with a neutral color applied and a specific icon visible).
   </p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @description="Description here" />
+      <Hds::Toast @title="Title here" @description="Description here" @onClose=\{{ your function here }} />
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" />
+  <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}} />
   <p class="dummy-paragraph">
     If needed, you can pass only
     <code class="dummy-code">title</code>
@@ -190,23 +104,25 @@
     as argument.
   </p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" />
+      <Hds::Toast @title="Title here" @onClose=\{{...}} />
     '
   />
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @description="Description here" />
+      <Hds::Toast @description="Description here" @onClose=\{{...}} />
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" />
+  <Hds::Toast @title="Title here" @onClose={{this.noop}} />
   <br />
-  <Hds::Toast @description="Description here" />
+  <Hds::Toast @description="Description here" @onClose={{this.noop}} />
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -215,32 +131,42 @@
     argument. This will also determine the icon default used in the toast (unless overwritten, see below).
   </p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @title="Title here" @description="Description here" />
+      <Hds::Toast @color="success" @title="Title here" @description="Description here" @onClose=\{{...}} />
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" @title="Title here" @description="Description here" />
+  <Hds::Toast @color="success" @title="Title here" @description="Description here" @onClose={{this.noop}} />
 
   <h4 class="dummy-h4">Icon</h4>
   <p class="dummy-paragraph">
-    A different icon can be used in the alert using the
+    A different icon can be used in the toast using the
     <code class="dummy-code">icon</code>
     argument.
   </p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @icon="bulb" @title="Title here" @description="Description here" />
+      <Hds::Toast @color="success" @icon="bulb" @title="Title here" @description="Description here" @onClose=\{{...}} />
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" @icon="bulb" @title="Title here" @description="Description here" />
+  <Hds::Toast
+    @color="success"
+    @icon="bulb"
+    @title="Title here"
+    @description="Description here"
+    @onClose={{this.noop}}
+  />
   <p class="dummy-paragraph">
     If instead you want to completely hide the icon you have to pass a
     <code class="dummy-code">false</code>
@@ -253,46 +179,21 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @icon=\{{false}} @title="Title here" @description="Description here" />
+      <Hds::Toast @color="success" @icon=\{{false}} @title="Title here" @description="Description here" @onClose=\{{...}} />
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" @icon={{false}} @title="Title here" @description="Description here" />
-
-  <h4 class="dummy-h4">Close</h4>
-  <p class="dummy-paragraph">
-    In some cases the alert needs to be dismissable. In this case you have to pass a callback function to the
-    <code class="dummy-code">onClose</code>
-    argument. This will also automatically add a "close/dismiss" button to the alert, that when clicked will execute the
-    callback function.
-  </p>
-  <p class="dummy-paragraph">
-    🚨
-    <em><strong>Important</strong>: the actual implementation of what happens to the alert when the callback function is
-      invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used,
-      on the specific use case, etc.).</em>
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Toast
-        @color="warning"
-        @title="Title here"
-        @description="Description here"
-        @onClose=\{{ your function here }}
-      />
-    '
+  <Hds::Toast
+    @color="success"
+    @icon={{false}}
+    @title="Title here"
+    @description="Description here"
+    @onClose={{this.noop}}
   />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="warning" @title="Title here" @description="Description here" @onClose={{this.noop}} />
 
-  <h4 class="dummy-h4">Actions</h4>
+  <h4 class="dummy-h4">Actions [TODO update folling new Alert API]</h4>
   <p class="dummy-paragraph">Actions can optionally be passed into the
     <code class="dummy-code">&lt;:actions&gt;</code>
     named block using one of the suggested
@@ -343,7 +244,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @description="Description here">
+      <Hds::Toast @title="Title here" @description="Description here" @onClose=\{{...}}>
         <:actions as |A|>
           <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
           <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
@@ -355,7 +256,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here">
+  <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}}>
     <:actions as |A|>
       <A.Button @text="Your action" @color="secondary" />
       <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
@@ -373,48 +274,79 @@
   <h3 class="dummy-h3">Showcase</h3>
 
   <h4 class="dummy-h4">Color</h4>
-  <div class="dummy-alert-sample-grid">
+  <div class="dummy-toast-base-sample">
     {{#each @model.COLORS as |color|}}
       <Hds::Toast
         @color={{color}}
         @title={{capitalize color}}
         @description="This is the toast with <em>{{color}}</em> color."
+        @onClose={{this.noop}}
       />
     {{/each}}
   </div>
 
   <h4 class="dummy-h4">Icon</h4>
-  <div class="dummy-alert-sample-grid">
-    <Hds::Toast @color="highlight" @title="Default icon" @description="Lorem ipsum dolor sit amet." />
-    <Hds::Toast @color="highlight" @icon="meh" @title="With icon override" @description="Lorem ipsum dolor sit amet." />
+  <div class="dummy-toast-base-sample">
+    <Hds::Toast
+      @color="highlight"
+      @title="Default icon"
+      @description="Lorem ipsum dolor sit amet."
+      @onClose={{this.noop}}
+    />
+    <Hds::Toast
+      @color="highlight"
+      @icon="meh"
+      @title="With icon override"
+      @description="Lorem ipsum dolor sit amet."
+      @onClose={{this.noop}}
+    />
     <Hds::Toast
       @color="highlight"
       @icon="running"
       @title="With animated icon"
       @description="Lorem ipsum dolor sit amet."
+      @onClose={{this.noop}}
     />
-    <Hds::Toast @color="highlight" @icon="" @title="Without icon" @description="Lorem ipsum dolor sit amet." />
+    <Hds::Toast
+      @color="highlight"
+      @icon=""
+      @title="Without icon"
+      @description="Lorem ipsum dolor sit amet."
+      @onClose={{this.noop}}
+    />
   </div>
 
   <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
-    <Hds::Toast @color="success" @title="A simple title" @description="A simple description text" />
+  <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
     <Hds::Toast
       @color="success"
-      @title="An alert with a very long title and a long description text that should go on multiple lines"
+      @title="A simple title"
+      @description="A simple description text"
+      @onClose={{this.noop}}
+    />
+    <Hds::Toast
+      @color="success"
+      @title="A toast with a very long title and a long description text that should go on multiple lines"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
+      @onClose={{this.noop}}
     />
-    <Hds::Toast @color="success" @title="An alert with just a title and no description text." />
-    <Hds::Toast @color="success" @description="An alert with no title and just a description text" />
+    <Hds::Toast @color="success" @title="A toast with a title and no description text." @onClose={{this.noop}} />
     <Hds::Toast
       @color="success"
-      @title="An alert with rich text description (HTML)"
+      @description="A toast with no title and just a description text"
+      @onClose={{this.noop}}
+    />
+    <Hds::Toast
+      @color="success"
+      @title="A toast with rich text description (HTML)"
       @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
+      @onClose={{this.noop}}
     />
     <Hds::Toast
       @color="success"
-      @title="An alert with extra/custom content"
-      @description="In special cases, you can pass extra content to the alert using the <code>actions</code> named block."
+      @title="A toast with extra/custom content"
+      @description="In special cases, you can pass extra content to the toast using the <code>actions</code> named block."
+      @onClose={{this.noop}}
     >
       <:actions>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
@@ -423,11 +355,12 @@
   </div>
 
   <h4 class="dummy-h4">Actions</h4>
-  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+  <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
     <Hds::Toast
       @color="warning"
       @title="Action passed as yielded component"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      @onClose={{this.noop}}
     >
       <:actions as |A|>
         <A.Button @text="Action" @color="secondary" />
@@ -437,6 +370,7 @@
       @color="warning"
       @title="With multiple actions passed as yielded components"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      @onClose={{this.noop}}
     >
       <:actions as |A|>
         <A.Button @text="Secondary" @color="secondary" />
@@ -448,6 +382,7 @@
       @color="warning"
       @title="With content yielded in the 'actions' named block"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      @onClose={{this.noop}}
     >
       <:actions>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
@@ -457,50 +392,27 @@
       @color="warning"
       @title="With actions and custom content in the 'actions' named block"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      @onClose={{this.noop}}
     >
       <:actions>
         <div>
-          <div class="dummy-alert-sample-custom-actions__actions">
+          <div class="dummy-toast-sample-custom-actions__actions">
             <Hds::Button @text="Action" @color="secondary" />
             <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
           </div>
-          <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific for a
+          <span class="dummy-toast-sample-custom-actions__text">This for example could be extra text, specific for a
             special use case.</span>
         </div>
       </:actions>
     </Hds::Toast>
   </div>
 
-  <h4 class="dummy-h4">Dismiss</h4>
-  <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
-    <Hds::Toast
-      @color="critical"
-      @title="Without the dismiss button (default)"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
-    <Hds::Toast
-      @color="critical"
-      @title="With the dismiss button"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
-      @onClose={{this.noop}}
-    />
-    <Hds::Toast
-      @color="critical"
-      @icon=""
-      @title="With the dismiss button and no icon"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onClose={{this.noop}}
-    />
-    <Hds::Toast @color="critical" @description="With the dismiss button and no title" @onClose={{this.noop}} />
-  </div>
-
 </section>
 
 <section>
   <h3 class="dummy-h3">Accessibility</h3>
-  <p class="dummy-paragraph">Dynamically-rendered Alerts are automatically announced by most screen readers. On some
-    operating systems, Alerts may trigger an alert sound.
+  <p class="dummy-paragraph">Dynamically-rendered Toast are automatically announced by most screen readers. On some
+    operating systems, Toast may trigger a sound.
   </p>
 
   <p class="dummy-paragraph">🚧 TODO: Have Melanie review post-Amy transfer</p>
@@ -554,7 +466,7 @@
     <li class="dummy-paragraph">
       Dismiss is a button, with
       <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
-      When the dismiss button is focused, the alert closes on pressing the return key (enter on Windows). Note: You will
+      When the dismiss button is focused, the toast closes on pressing the return key (enter on Windows). Note: You will
       need to implement an
       <code class="dummy-code">onClose</code>
       function in your app.

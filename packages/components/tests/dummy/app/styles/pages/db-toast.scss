@@ -1,22 +1,21 @@
 // TOAST
 
+.dummy-toast-base-sample {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .dummy-toast-sample-grid {
     align-items: start;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
 
-    .dummy-toast-sample-grid__title {
-        grid-column: 1 / 5;
-    }
-
     &.dummy-toast-sample-grid--wide-content {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-.dummy-toast-sample-item--type-compact {
-    outline: 1px dotted #eee;
 }
 
 .dummy-toast-sample-custom-actions__actions {
