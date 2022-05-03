@@ -9,8 +9,8 @@
   // we apply an elevation to the "alert/inline" element
   box-shadow: var(--token-elevation-higher-box-shadow);
 
-  // TODO discuss with CVeight
-  min-width: 300px;
-  max-width: 400px;
+  // per design specs
+  min-width: 360px;
+  max-width: 500px;
   width: fit-content;
 }
