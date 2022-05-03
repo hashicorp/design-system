@@ -103,12 +103,12 @@
         <code class="dummy-code">title</code>, and
         <code class="dummy-code">description</code>, which
         <strong>cannot</strong>
-        be overriden.
+        be overridden.
         <code class="dummy-code">color</code>
         results in a default
         <code class="dummy-code">icon</code>, which
         <strong>can</strong>
-        be overriden.
+        be overridden.
       </p>
       <p>Acceptable values:</p>
       <ol>
@@ -154,12 +154,6 @@
         is required.
       </p>
     </dd>
-
-    <dt>onClose <code>function</code></dt>
-    <p>
-      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
-    </p>
-
     <dt>&lt;:actions&gt; <code>named block</code></dt>
     <dd>
       <p>Actions can optionally be passed into the alert as yielded components, using the suggested
@@ -172,12 +166,83 @@
           conformant and satifies the accessibility criteria.
         </em></p>
     </dd>
+    <dt>&lt;:generic&gt; <code>named block</code></dt>
+    <dd>
+      <p>Generic content can optionally be passed into the alert using the
+        <code class="dummy-code">&lt;:generic&gt;</code>
+        named block.</p>
+      <p><em>Notice: the content will appear at the bottom, after title, description and actions, and the developer will
+          need to take care of spacing, layout and styling of the custom content in this case.</em></p>
+      <p>🚨
+        <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you
+          find yourself in need to use it, we suggest to speak with the design system team to check that the solution is
+          conformant and satifies the accessibility criteria.
+        </em></p>
+    </dd>
+    <dt>onClose <code>function</code></dt>
+    <p>
+      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
+    </p>
 
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
+
+  <h4 class="dummy-h4">Contextual components</h4>
+  <p class="dummy-paragraph" id="contextual-components-alert">Actions can optionally be passed into the alert as yielded
+    components, using the
+    <code class="dummy-code">Button</code>,
+    <code class="dummy-code">Link::Standalone</code>,
+    <code class="dummy-code">LinkTo::Standalone</code>
+    keys.</p>
+  <dl class="dummy-component-props" aria-labelledby="contextual-components-alert">
+    <dt>&lt;[A].Button&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a yielded
+        <code class="dummy-code">HDS::Button</code>
+        component, so it exposes exactly
+        <LinkTo @route="components.button">the same API of the
+          <code class="dummy-code">Button</code>
+          component</LinkTo>, apart from the
+        <code class="dummy-code">@size</code>
+        argument that is pre-defined to be
+        <code class="dummy-code">small</code>, and the
+        <code class="dummy-code">@color</code>
+        argument that accepts only
+        <code class="dummy-code">secondary</code>
+        or
+        <code class="dummy-code">tertiary</code>.</p>
+    </dd>
+    <dt>&lt;[A].Link::Standalone&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a yielded
+        <code class="dummy-code">HDS::Link::Standalone</code>
+        component, so it exposes exactly
+        <LinkTo @route="components.link.standalone">the same API of the
+          <code class="dummy-code">Link::Standalone</code>
+          component</LinkTo>, apart from the
+        <code class="dummy-code">@size</code>
+        argument that is pre-defined to be
+        <code class="dummy-code">small</code>.</p>
+    </dd>
+    <dt>&lt;[A].LinkTo::Standalone&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a yielded
+        <code class="dummy-code">HDS::LinkTo::Standalone</code>
+        component, so it exposes exactly
+        <LinkTo @route="components.link-to.standalone">the same API of the
+          <code class="dummy-code">LinkTo::Standalone</code>
+          component</LinkTo>, apart from the
+        <code class="dummy-code">@size</code>
+        argument that is pre-defined to be
+        <code class="dummy-code">small</code>.</p>
+    </dd>
+  </dl>
+  <p class="dummy-paragraph">
+    For more details about how to invoke these contextual components see the section "How to use > Actions" below.
+  </p>
 </section>
 
 <section>
@@ -346,44 +411,7 @@
     <code class="dummy-code">Link::Standalone</code>
     or
     <code class="dummy-code">LinkTo::Standalone</code>
-    yielded components.</p>
-  <p class="dummy-paragraph"><code class="dummy-code">Button</code>
-    is a yielded
-    <code class="dummy-code">HDS::Button</code>
-    component, so it exposes exactly
-    <LinkTo @route="components.button">the same API</LinkTo>
-    , apart from the
-    <code class="dummy-code">@size</code>
-    argument that is pre-defined to be
-    <code class="dummy-code">small</code>, and the
-    <code class="dummy-code">@color</code>
-    argument that accepts only
-    <code class="dummy-code">secondary</code>
-    or
-    <code class="dummy-code">tertiary</code>.</p>
-  <p class="dummy-paragraph"><code class="dummy-code">Link::Standalone</code>
-    is a yielded
-    <code class="dummy-code">HDS::Link::Standalone</code>
-    component, so it exposes exactly
-    <LinkTo @route="components.link.standalone">the same API</LinkTo>
-    , apart from the
-    <code class="dummy-code">@size</code>
-    argument that is pre-defined to be
-    <code class="dummy-code">small</code>.</p>
-  <p class="dummy-paragraph"><code class="dummy-code">LinkTo::Standalone</code>
-    is a yielded
-    <code class="dummy-code">HDS::LinkTo::Standalone</code>
-    component, so it exposes exactly
-    <LinkTo @route="components.link-to.standalone">the same API</LinkTo>
-    , apart from the
-    <code class="dummy-code">@size</code>
-    argument that is pre-defined to be
-    <code class="dummy-code">small</code>.</p>
-  <p class="dummy-paragraph"><em>Notice: it's also possible to insert custom content in the
-      <code class="dummy-code">:actions</code>
-      named block, but in that case we suggest to speak with the design system team to check that the solution is
-      conformant and satifies the accessibility criteria.
-    </em></p>
+    contextual components.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -408,20 +436,54 @@
       <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
     </:actions>
   </Hds::Alert>
+
+  <h4 class="dummy-h4">Generic content</h4>
+  <p class="dummy-paragraph">It's also possible to insert custom content in the
+    <code class="dummy-code">&lt;:generic&gt;</code>
+    named block.
+  </p>
+  <p class="dummy-paragraph"><em>Notice: the content will appear at the bottom, after title, description and actions,
+      and the developer will need to take care of spacing, layout and styling of the custom content in this case.</em>
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @title="Title here" @description="Description here">
+        <:generic>
+          [your content here]
+        </:generic>
+      </Hds::Alert>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @title="Title here" @description="Description here">
+    <:generic>
+      [your content here]
+    </:generic>
+  </Hds::Alert>
+  <p class="dummy-paragraph">🚨
+    <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
+      yourself in need to use it, we suggest to speak with the design system team to check that the solution is
+      conformant and satifies the accessibility criteria.
+    </em></p>
+
 </section>
 
 <section>
   <h3 class="dummy-h3">Design guidelines</h3>
-  <p class="dummy-paragraph">🚧 TODO: Update Figma link and screenshot</p>
-
   <div class="dummy-design-guidelines">
     <p class="dummy-paragraph"><a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=6652%3A30199"
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=1377%3A11987"
         target="_blank"
         rel="noopener noreferrer"
       >Figma UI Kit</a></p>
     <br />
-    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage.png" alt="" role="none" />
+    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage-part1.png" alt="" role="none" />
+    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage-part2.png" alt="" role="none" />
   </div>
 </section>
 
@@ -505,11 +567,11 @@
       @type="inline"
       @color="success"
       @title="An alert with extra/custom content"
-      @description="In special cases, you can pass extra content to the alert using the <code>actions</code> named block."
+      @description="In special cases, you can pass extra content to the alert using the <code>generic</code> named block."
     >
-      <:actions>
+      <:generic>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </:actions>
+      </:generic>
     </Hds::Alert>
   </div>
 
@@ -787,24 +849,6 @@
         rel="noopener noreferrer"
       >
         4.1.3: Status Messages
-      </a>
-    </li>
-  </ul>
-</section>
-
-<section>
-  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
-  <ul class="dummy-paragraph">
-    <li>
-      <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
-        WIP Alert Component Requirement Document (CRD)
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=4023%3A15691"
-      >
-        WIP Figma file
       </a>
     </li>
   </ul>
