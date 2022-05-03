@@ -6,6 +6,16 @@
   @title={{@title}}
   @description={{@description}}
   @onClose={{@onClose}}
+  ...attributes
 >
-  {{yield}}
+  <:actions as |A|>
+    {{#if (has-block "actions")}}
+      {{yield A to="actions"}}
+    {{/if}}
+  </:actions>
+  <:generic as |G|>
+    {{#if (has-block "generic")}}
+      {{yield G to="generic"}}
+    {{/if}}
+  </:generic>
 </Hds::Alert>

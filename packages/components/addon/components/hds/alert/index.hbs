@@ -15,21 +15,22 @@
       {{/if}}
     </div>
 
-    {{! IMPORTANT: here we have to rely on handlebar's "squishies" to remove the extra whitespace added by Ember (we're using ':empty' in CSS to hide it when it's empty!) }}
-    {{! Notice: this needs to be done also on the consumer side too, unfortunately ¯\_(ツ)_/¯ }}
-    {{! See here: https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
-    {{~#if (has-block "actions")~}}
+    {{#if (has-block "actions")}}
       <div class="hds-alert__actions">
-        {{~yield
+        {{yield
           (hash
             Button=(component "hds/button" size="small")
             Link::Standalone=(component "hds/link/standalone" size="small")
             LinkTo::Standalone=(component "hds/link-to/standalone" size="small")
           )
           to="actions"
-        ~}}
+        }}
       </div>
-    {{~/if~}}
+    {{/if}}
+
+    {{#if (has-block "generic")}}
+      {{yield to="generic"}}
+    {{/if}}
   </div>
 
   {{#if this.onClose}}
