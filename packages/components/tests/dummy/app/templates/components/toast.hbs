@@ -3,11 +3,11 @@
 <h2 class="dummy-h2">Toast</h2>
 
 <section>
-  <h3 class="dummy-h3">Overview</h3>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">
     A Toast is an element intended for
-    <strong>user-triggered messages</strong>
+    <strong>messages that are the result of a user's actions</strong>
     (for system-generated messages see the
     <LinkTo @route="components.alert">Alert</LinkTo>
     component.).
@@ -33,14 +33,13 @@
     🚨
     <em><strong>Important</strong>: we provide only the visual styling to this element, so other features like
       placement, animations/transitions, and what happens on dismiss, will need to be implemented in your app (eg. with
-      an Ember addon such as
-      <a href="https://github.com/poteto/ember-cli-flash">ember-cli-flash</a>).
+      an Ember addon).
     </em>
   </p>
 </section>
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <div class="dummy-banner dummy-banner--info">
     <p class="dummy-paragraph"><strong>Notice</strong>: the
       <code class="dummy-code">Hds::Toast</code>
@@ -48,13 +47,13 @@
       <code class="dummy-code">Hds::Alert(Inline)</code>
       component, so it shares the same API. Please refer to
       <LinkTo @route="components.alert">the Alert Component API documentation</LinkTo>
-      to know more about the component API.</p>
+      to know more.</p>
   </div>
 
 </section>
 
 <section>
-  <h3 class="dummy-h3">How to use</h3>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
 
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">
@@ -81,6 +80,13 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}} />
+  <p class="dummy-paragraph">
+    🚨
+    <em><strong>Important</strong>: the actual implementation of what happens to the alert when the
+      <code class="dummy-code">onClose</code>
+      function is invoked is left to the developer.</em>
+  </p>
+
   <p class="dummy-paragraph">
     If needed, you can pass only
     <code class="dummy-code">title</code>
@@ -178,7 +184,7 @@
     @onClose={{this.noop}}
   />
 
-  <h4 class="dummy-h4">Actions [TODO update folling new Alert API]</h4>
+  <h4 class="dummy-h4">Actions</h4>
   <p class="dummy-paragraph">Actions can optionally be passed into the
     <code class="dummy-code">&lt;:actions&gt;</code>
     named block using one of the suggested
@@ -187,53 +193,15 @@
     or
     <code class="dummy-code">LinkTo::Standalone</code>
     yielded components.</p>
-  <p class="dummy-paragraph"><code class="dummy-code">Button</code>
-    is a yielded
-    <code class="dummy-code">HDS::Button</code>
-    component, so it exposes exactly
-    <LinkTo @route="components.button">the same API</LinkTo>
-    , apart from the
-    <code class="dummy-code">@size</code>
-    argument that is pre-defined to be
-    <code class="dummy-code">small</code>, and the
-    <code class="dummy-code">@color</code>
-    argument that accepts only
-    <code class="dummy-code">secondary</code>
-    or
-    <code class="dummy-code">tertiary</code>.</p>
-  <p class="dummy-paragraph"><code class="dummy-code">Link::Standalone</code>
-    is a yielded
-    <code class="dummy-code">HDS::Link::Standalone</code>
-    component, so it exposes exactly
-    <LinkTo @route="components.link.standalone">the same API</LinkTo>
-    , apart from the
-    <code class="dummy-code">@size</code>
-    argument that is pre-defined to be
-    <code class="dummy-code">small</code>.</p>
-  <p class="dummy-paragraph"><code class="dummy-code">LinkTo::Standalone</code>
-    is a yielded
-    <code class="dummy-code">HDS::LinkTo::Standalone</code>
-    component, so it exposes exactly
-    <LinkTo @route="components.link-to.standalone">the same API</LinkTo>
-    , apart from the
-    <code class="dummy-code">@size</code>
-    argument that is pre-defined to be
-    <code class="dummy-code">small</code>.</p>
-  <p class="dummy-paragraph"><em>Notice: it's also possible to insert custom content in the
-      <code class="dummy-code">:actions</code>
-      named block, but in that case we suggest to speak with the design system team to check that the solution is
-      conformant and satifies the accessibility criteria.
-    </em></p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @description="Description here" @onClose=\{{...}}>
+      <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onClose=\{{...}}>
         <:actions as |A|>
           <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
           <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
-          <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" href="#" />
         </:actions>
       </Hds::Toast>
     '
@@ -241,22 +209,64 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}}>
+  <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onClose={{this.noop}}>
     <:actions as |A|>
       <A.Button @text="Your action" @color="secondary" />
       <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
-      <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
     </:actions>
   </Hds::Toast>
+
+  <h4 class="dummy-h4">Generic content</h4>
+  <p class="dummy-paragraph">It's also possible to insert custom content in the
+    <code class="dummy-code">&lt;:generic&gt;</code>
+    named block.
+  </p>
+  <p class="dummy-paragraph"><em>Notice: the content will appear at the bottom, after title, description and actions,
+      and the developer will need to take care of spacing, layout and styling of the custom content in this case.</em>
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Toast @title="Title here" @description="Description here" @onClose=\{{...}}>
+        <:generic>
+          [your content here]
+        </:generic>
+      </Hds::Toast>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}}>
+    <:generic>
+      [your content here]
+    </:generic>
+  </Hds::Toast>
+  <p class="dummy-paragraph">🚨
+    <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
+      yourself in need to use it, we suggest to speak with the design system team to check that the solution is
+      conformant and satifies the accessibility criteria.
+    </em></p>
 </section>
 
 <section>
-  <h3 class="dummy-h3">Design guidelines</h3>
-  <p class="dummy-paragraph">🚧 TODO: add Figma link and screenshot</p>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph"><a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=6484%3A17367"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a></p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/toast-design-usage.png" alt="" role="none" />
+  </div>
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   <h4 class="dummy-h4">Color</h4>
   <div class="dummy-toast-base-sample">
@@ -330,12 +340,12 @@
     <Hds::Toast
       @color="success"
       @title="A toast with extra/custom content"
-      @description="In special cases, you can pass extra content to the toast using the <code>actions</code> named block."
+      @description="In special cases, you can pass extra content to the toast using the <code>generic</code> named block."
       @onClose={{this.noop}}
     >
-      <:actions>
+      <:generic>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </:actions>
+      </:generic>
     </Hds::Toast>
   </div>
 
@@ -363,39 +373,11 @@
         <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
       </:actions>
     </Hds::Toast>
-    <Hds::Toast
-      @color="warning"
-      @title="With content yielded in the 'actions' named block"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      @onClose={{this.noop}}
-    >
-      <:actions>
-        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </:actions>
-    </Hds::Toast>
-    <Hds::Toast
-      @color="warning"
-      @title="With actions and custom content in the 'actions' named block"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      @onClose={{this.noop}}
-    >
-      <:actions>
-        <div>
-          <div class="dummy-toast-sample-custom-actions__actions">
-            <Hds::Button @text="Action" @color="secondary" />
-            <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
-          </div>
-          <span class="dummy-toast-sample-custom-actions__text">This for example could be extra text, specific for a
-            special use case.</span>
-        </div>
-      </:actions>
-    </Hds::Toast>
   </div>
-
 </section>
 
 <section>
-  <h3 class="dummy-h3">Accessibility</h3>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">Dynamically-rendered Toast are automatically announced by most screen readers. On some
     operating systems, Toast may trigger a sound.
   </p>
@@ -587,24 +569,6 @@
         rel="noopener noreferrer"
       >
         4.1.3: Status Messages
-      </a>
-    </li>
-  </ul>
-</section>
-
-<section>
-  <h3 class="dummy-h3">🚧 Scratch reference links</h3>
-  <ul class="dummy-paragraph">
-    <li>
-      <a href="https://docs.google.com/document/d/1MC0MTm8-0F26s6Y-gou_RsMj6rtKS6jC-eM7rmruqLY/edit#heading=h.gjdgxs">
-        WIP Alert Component Requirement Document (CRD)
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/Ru0h1oqy6r7SeGxwtQ6085/HDS-Product---Components-%5BWIP%5D?node-id=4023%3A15691"
-      >
-        WIP Figma file
       </a>
     </li>
   </ul>

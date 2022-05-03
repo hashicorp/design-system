@@ -3,12 +3,12 @@
 <h2 class="dummy-h2">Alert</h2>
 
 <section>
-  <h3 class="dummy-h3">Overview</h3>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">
     An Alert is an element intended for
     <strong>system-generated messages</strong>
-    (for user-triggered messages see the
+    (for messages that are the result of a user's actions see the
     <LinkTo @route="components.toast">Toast</LinkTo>
     component.)
   </p>
@@ -19,7 +19,7 @@
   </p>
 
   <p class="dummy-paragraph">
-    We currently have three types of alerts, slightly different one from another.
+    There are three types of alerts, each slightly different one from another.
   </p>
 
   <h4 class="dummy-h5">Page</h4>
@@ -76,7 +76,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph" id="component-api-alert">Here is the API for the component:</p>
 
   <dl class="dummy-component-props" aria-labelledby="component-api-alert">
@@ -180,9 +180,11 @@
         </em></p>
     </dd>
     <dt>onClose <code>function</code></dt>
-    <p>
-      The alert can be dismissed by the user. Pass in a function to display this optional parameter.
-    </p>
+    <dd>
+      <p>
+        The alert can be dismissed by the user. Pass in a function to display this optional parameter.
+      </p>
+    </dd>
 
     <dt>...attributes</dt>
     <dd>
@@ -246,7 +248,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">How to use</h3>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
 
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">
@@ -474,7 +476,8 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Design guidelines</h3>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
   <div class="dummy-design-guidelines">
     <p class="dummy-paragraph"><a
         href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=1377%3A11987"
@@ -602,29 +605,17 @@
     <Hds::Alert
       @type="inline"
       @color="warning"
-      @title="With content yielded in the 'actions' named block"
+      @title="With actions and custom content in the 'generic' named block"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     >
       <:actions>
-        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+        <Hds::Button @text="Action" @color="secondary" />
+        <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
       </:actions>
-    </Hds::Alert>
-    <Hds::Alert
-      @type="inline"
-      @color="warning"
-      @title="With actions and custom content in the 'actions' named block"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    >
-      <:actions>
-        <div>
-          <div class="dummy-alert-sample-custom-actions__actions">
-            <Hds::Button @text="Action" @color="secondary" />
-            <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
-          </div>
-          <span class="dummy-alert-sample-custom-actions__text">This for example could be extra text, specific for a
-            special use case.</span>
-        </div>
-      </:actions>
+      <:generic>
+        <div class="dummy-alert-sample-custom-content-after-actions">This for example could be extra text, specific for
+          a special use case.</div>
+      </:generic>
     </Hds::Alert>
   </div>
 
@@ -663,7 +654,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Accessibility</h3>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">Dynamically-rendered Alerts are automatically announced by most screen readers. On some
     operating systems, Alerts may trigger an alert sound.
   </p>

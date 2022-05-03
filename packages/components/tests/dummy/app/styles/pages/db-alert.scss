@@ -19,16 +19,10 @@
     outline: 1px dotted #eee;
 }
 
-.dummy-alert-sample-custom-actions__actions {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-}
-
-.dummy-alert-sample-custom-actions__text {
+.dummy-alert-sample-custom-content-after-actions {
     @include dummyFontFamily();
     @include dummyFontSize(0.8rem);
     display: block;
-    color: #999;
+    font-style: italic;
     margin-top: 1rem;
 }
