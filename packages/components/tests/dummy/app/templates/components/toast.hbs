@@ -265,6 +265,107 @@
   </div>
 </section>
 
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
+    designed, there should not be any accessibility issues with this component.
+  </p>
+  <h4 class="dummy-h4">
+    Applicable WCAG Success Criteria (Reference)
+  </h4>
+  <p class="dummy-paragraph">
+    This section is for reference only. This component intends to conform to the following WCAG success criteria:
+  </p>
+  <ul class="dummy-list">
+    <li>1.3.1:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Info and Relationships</a></li>
+    <li>1.3.2:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Meaningful Sequence</a></li>
+    <li>1.4.1:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Use of Color</a></li>
+    <li>1.4.3:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Contrast (Minimum)</a></li>
+    <li>1.4.10:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Reflow</a></li>
+    <li>1.4.11
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Non-text Contrast</a></li>
+    <li>1.4.12:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Text Spacing</a></li>
+    <li>2.1.1:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Keyboard</a>
+      (if they contain focusable elements)</li>
+    <li>2.1.2:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >No Keyboard Trap</a></li>
+    <li>2.2.1:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Timing Adjustable</a>
+      (if these are designed to automatically disappear)</li>
+    <li>2.5.3:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Label in Name</a></li>
+    <li>4.1.1:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Parsing</a></li>
+    <li>4.1.2:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Name, Role, Value</a></li>
+    <li>4.1.3:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Status Messages</a></li>
+  </ul>
+</section>
+
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
@@ -374,202 +475,4 @@
       </:actions>
     </Hds::Toast>
   </div>
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
-  <p class="dummy-paragraph">Dynamically-rendered Toast are automatically announced by most screen readers. On some
-    operating systems, Toast may trigger a sound.
-  </p>
-
-  <p class="dummy-paragraph">🚧 TODO: Have Melanie review post-Amy transfer</p>
-  <p class="dummy-paragraph">🚧 TODO: Bring role change to code, if folks agree</p>
-  <ul>
-    <li class="dummy-paragraph">
-      If
-      <code class="dummy-code">color="warning"</code>
-      or
-      <code class="dummy-code">color="critical"</code>
-      => then
-      <code class="dummy-code">role="alert"</code>, as it's an important message.
-    </li>
-    <ul>
-      <li class="dummy-paragraph">Reference:
-        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alert" target="_blank" rel="noopener noreferrer">
-          WAI-ARIA Authoring Practices 1.2 (Alert)
-        </a>
-      </li>
-    </ul>
-    <li class="dummy-paragraph">
-      If
-      <code class="dummy-code">color="neutral"</code>,
-      <code class="dummy-code">color="highlight"</code>
-      or
-      <code class="dummy-code">color="success"</code>
-      => then
-      <code class="dummy-code">role="status"</code>, as the content is advisory information for the user, but is not
-      important enough to justify a
-      <code class="dummy-code">role="alert"</code>. Elements with
-      <code class="dummy-code">role="status"</code>
-      have an implicit
-      <code class="dummy-code">aria-live="polite"</code>
-      and
-      <code class="dummy-code">aria-atomic="true"</code>, so we have included them explicitly, for clarity.
-    </li>
-    <ul>
-      <li class="dummy-paragraph">
-        Reference:
-        <a href="https://www.w3.org/TR/wai-aria-1.2/#status" target="_blank" rel="noopener noreferrer">
-          WAI-ARIA 1.2 (Status)
-        </a>
-      </li>
-      <li class="dummy-paragraph">
-        Reference:
-        <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" target="_blank" rel="noopener noreferrer">
-          WAI-ARIA Techniques 1.2 (Using role=status to present status messages)
-        </a>
-      </li>
-    </ul>
-    <li class="dummy-paragraph">
-      Dismiss is a button, with
-      <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
-      When the dismiss button is focused, the toast closes on pressing the return key (enter on Windows). Note: You will
-      need to implement an
-      <code class="dummy-code">onDismiss</code>
-      function in your app.
-    </li>
-    <li class="dummy-paragraph">
-      We do not have a
-      <code class="dummy-code">role="alertdialog"</code>
-      yet, as this type of alert interrupts the user's workflow to communicate an important message and acquire a
-      response.
-    </li>
-    <ul>
-      <li class="dummy-paragraph">
-        Reference:
-        <a href="https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog" target="_blank" rel="noopener noreferrer">
-          WAI-ARIA Techniques 1.2, Alert and Message Dialogs
-        </a>
-      </li>
-    </ul>
-  </ul>
-  <p class="dummy-paragraph">Applicable WCAG success criteria</p>
-  <ul>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        1.3.1: Info and Relationships
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        1.3.2: Meaningful Sequence
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" target="_blank" rel="noopener noreferrer">
-        1.4.1: Use of Color
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        1.4.3: Contrast (Minimum)
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" target="_blank" rel="noopener noreferrer">
-        1.4.10: Reflow
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        1.4.11: Non-text Contrast
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html" target="_blank" rel="noopener noreferrer">
-        1.4.12: Text Spacing
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" target="_blank" rel="noopener noreferrer">
-        2.1.1: Keyboard
-      </a>
-      (For Alerts with focusable elements, such as those with
-      <code class="dummy-code">onDismiss</code>
-      or
-      <code class="dummy-code">:actions</code>.)
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        2.1.2: No Keyboard Trap
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        2.2.1: Timing Adjustable
-      </a>
-    </li>
-    <ul>
-      <li class="dummy-paragraph">For
-        <strong>Alert (Toast)</strong>, which will automatically dismiss. Note: The automatic dismiss functionality will
-        come from the consuming app, not the Design System.
-      </li>
-    </ul>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        2.5.3: Label in Name
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html" target="_blank" rel="noopener noreferrer">
-        4.1.1: Parsing
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        4.1.2: Name, Role, Value
-      </a>
-    </li>
-    <li class="dummy-paragraph">
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        4.1.3: Status Messages
-      </a>
-    </li>
-  </ul>
 </section>
