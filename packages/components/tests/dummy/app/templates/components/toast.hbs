@@ -27,7 +27,7 @@
     (required to have at least one of the two), some
     <strong>actions</strong>
     (optional) and a
-    <strong>close</strong>
+    <strong>dismiss/close</strong>
     button.</p>
   <p class="dummy-paragraph">
     🚨
@@ -63,7 +63,7 @@
     and/or
     <code class="dummy-code">text</code>
     arguments to be passed, and an
-    <code class="dummy-code">onClose</code>
+    <code class="dummy-code">onDismiss</code>
     callback function. By default a
     <code class="dummy-code">neutral</code>
     toast is generated (with a neutral color applied and a specific icon visible).
@@ -73,17 +73,17 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @description="Description here" @onClose=\{{ your function here }} />
+      <Hds::Toast @title="Title here" @description="Description here" @onDismiss=\{{ your function here }} />
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}} />
+  <Hds::Toast @title="Title here" @description="Description here" @onDismiss={{this.noop}} />
   <p class="dummy-paragraph">
     🚨
     <em><strong>Important</strong>: the actual implementation of what happens to the alert when the
-      <code class="dummy-code">onClose</code>
+      <code class="dummy-code">onDismiss</code>
       function is invoked is left to the developer.</em>
   </p>
 
@@ -99,21 +99,21 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @onClose=\{{...}} />
+      <Hds::Toast @title="Title here" @onDismiss=\{{...}} />
     '
   />
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @description="Description here" @onClose=\{{...}} />
+      <Hds::Toast @description="Description here" @onDismiss=\{{...}} />
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @onClose={{this.noop}} />
+  <Hds::Toast @title="Title here" @onDismiss={{this.noop}} />
   <br />
-  <Hds::Toast @description="Description here" @onClose={{this.noop}} />
+  <Hds::Toast @description="Description here" @onDismiss={{this.noop}} />
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -126,13 +126,13 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @title="Title here" @description="Description here" @onClose=\{{...}} />
+      <Hds::Toast @color="success" @title="Title here" @description="Description here" @onDismiss=\{{...}} />
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" @title="Title here" @description="Description here" @onClose={{this.noop}} />
+  <Hds::Toast @color="success" @title="Title here" @description="Description here" @onDismiss={{this.noop}} />
 
   <h4 class="dummy-h4">Icon</h4>
   <p class="dummy-paragraph">
@@ -145,7 +145,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @icon="bulb" @title="Title here" @description="Description here" @onClose=\{{...}} />
+      <Hds::Toast @color="success" @icon="bulb" @title="Title here" @description="Description here" @onDismiss=\{{...}} />
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
@@ -156,7 +156,7 @@
     @icon="bulb"
     @title="Title here"
     @description="Description here"
-    @onClose={{this.noop}}
+    @onDismiss={{this.noop}}
   />
   <p class="dummy-paragraph">
     If instead you want to completely hide the icon you have to pass a
@@ -170,7 +170,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @icon=\{{false}} @title="Title here" @description="Description here" @onClose=\{{...}} />
+      <Hds::Toast @color="success" @icon=\{{false}} @title="Title here" @description="Description here" @onDismiss=\{{...}} />
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
@@ -181,7 +181,7 @@
     @icon={{false}}
     @title="Title here"
     @description="Description here"
-    @onClose={{this.noop}}
+    @onDismiss={{this.noop}}
   />
 
   <h4 class="dummy-h4">Actions</h4>
@@ -198,7 +198,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onClose=\{{...}}>
+      <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss=\{{...}}>
         <:actions as |A|>
           <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
           <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
@@ -209,7 +209,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onClose={{this.noop}}>
+  <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss={{this.noop}}>
     <:actions as |A|>
       <A.Button @text="Your action" @color="secondary" />
       <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
@@ -229,7 +229,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @description="Description here" @onClose=\{{...}}>
+      <Hds::Toast @title="Title here" @description="Description here" @onDismiss=\{{...}}>
         <:generic>
           [your content here]
         </:generic>
@@ -239,7 +239,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" @onClose={{this.noop}}>
+  <Hds::Toast @title="Title here" @description="Description here" @onDismiss={{this.noop}}>
     <:generic>
       [your content here]
     </:generic>
@@ -275,7 +275,7 @@
         @color={{color}}
         @title={{capitalize color}}
         @description="This is the toast with <em>{{color}}</em> color."
-        @onClose={{this.noop}}
+        @onDismiss={{this.noop}}
       />
     {{/each}}
   </div>
@@ -286,28 +286,28 @@
       @color="highlight"
       @title="Default icon"
       @description="Lorem ipsum dolor sit amet."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Toast
       @color="highlight"
       @icon="meh"
       @title="With icon override"
       @description="Lorem ipsum dolor sit amet."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Toast
       @color="highlight"
       @icon="running"
       @title="With animated icon"
       @description="Lorem ipsum dolor sit amet."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Toast
       @color="highlight"
       @icon=""
       @title="Without icon"
       @description="Lorem ipsum dolor sit amet."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
   </div>
 
@@ -317,31 +317,31 @@
       @color="success"
       @title="A simple title"
       @description="A simple description text"
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Toast
       @color="success"
       @title="A toast with a very long title and a long description text that should go on multiple lines"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
-    <Hds::Toast @color="success" @title="A toast with a title and no description text." @onClose={{this.noop}} />
+    <Hds::Toast @color="success" @title="A toast with a title and no description text." @onDismiss={{this.noop}} />
     <Hds::Toast
       @color="success"
       @description="A toast with no title and just a description text"
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Toast
       @color="success"
       @title="A toast with rich text description (HTML)"
       @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Toast
       @color="success"
       @title="A toast with extra/custom content"
       @description="In special cases, you can pass extra content to the toast using the <code>generic</code> named block."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     >
       <:generic>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
@@ -355,7 +355,7 @@
       @color="warning"
       @title="Action passed as yielded component"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     >
       <:actions as |A|>
         <A.Button @text="Action" @color="secondary" />
@@ -365,7 +365,7 @@
       @color="warning"
       @title="With multiple actions passed as yielded components"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     >
       <:actions as |A|>
         <A.Button @text="Secondary" @color="secondary" />
@@ -435,7 +435,7 @@
       <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
       When the dismiss button is focused, the toast closes on pressing the return key (enter on Windows). Note: You will
       need to implement an
-      <code class="dummy-code">onClose</code>
+      <code class="dummy-code">onDismiss</code>
       function in your app.
     </li>
     <li class="dummy-paragraph">

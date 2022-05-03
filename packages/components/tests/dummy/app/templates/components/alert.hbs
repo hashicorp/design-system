@@ -36,7 +36,7 @@
     (required to have at least one of the two), some
     <strong>actions</strong>
     (optional) and a
-    <strong>close</strong>
+    <strong>dismiss/close</strong>
     button (optional).</p>
 
   <h4 class="dummy-h5">Inline</h4>
@@ -53,7 +53,7 @@
     (required to have at least one of the two), some
     <strong>actions</strong>
     (optional) and a
-    <strong>close</strong>
+    <strong>dismiss/close</strong>
     button (optional).</p>
   <p class="dummy-paragraph">
     <em>Notice: the "inline" alert is used to build the
@@ -179,10 +179,10 @@
           conformant and satifies the accessibility criteria.
         </em></p>
     </dd>
-    <dt>onClose <code>function</code></dt>
+    <dt>onDismiss <code>function</code></dt>
     <dd>
       <p>
-        The alert can be dismissed by the user. Pass in a function to display this optional parameter.
+        The alert can be dismissed by the user. Pass in a function to display the "dismiss" button.
       </p>
     </dd>
 
@@ -367,11 +367,11 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Alert @type="inline" @color="success" @icon={{false}} @title="Title here" @description="Description here" />
 
-  <h4 class="dummy-h4">Close</h4>
+  <h4 class="dummy-h4">Dismiss</h4>
   <p class="dummy-paragraph">
     In some cases the alert needs to be dismissable. In this case you have to pass a callback function to the
-    <code class="dummy-code">onClose</code>
-    argument. This will also automatically add a "close/dismiss" button to the alert, that when clicked will execute the
+    <code class="dummy-code">onDismiss</code>
+    argument. This will also automatically add a "dismiss/close" button to the alert, that when clicked will execute the
     callback function.
   </p>
   <p class="dummy-paragraph">
@@ -390,7 +390,7 @@
         @color="warning"
         @title="Title here"
         @description="Description here"
-        @onClose=\{{ your function here }}
+        @onDismiss=\{{ your function here }}
       />
     '
   />
@@ -402,7 +402,7 @@
     @color="warning"
     @title="Title here"
     @description="Description here"
-    @onClose={{this.noop}}
+    @onDismiss={{this.noop}}
   />
 
   <h4 class="dummy-h4">Actions</h4>
@@ -633,7 +633,7 @@
       @title="With the dismiss button"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Alert
       @type="inline"
@@ -641,13 +641,13 @@
       @icon=""
       @title="With the dismiss button and no icon"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
     <Hds::Alert
       @type="inline"
       @color="critical"
       @description="With the dismiss button and no title"
-      @onClose={{this.noop}}
+      @onDismiss={{this.noop}}
     />
   </div>
 
@@ -712,7 +712,7 @@
       <code class="dummy-code">type="button"</code>. Dismiss has a focus state (e.g. the user can tab to the button).
       When the dismiss button is focused, the alert closes on pressing the return key (enter on Windows). Note: You will
       need to implement an
-      <code class="dummy-code">onClose</code>
+      <code class="dummy-code">onDismiss</code>
       function in your app.
     </li>
     <li class="dummy-paragraph">

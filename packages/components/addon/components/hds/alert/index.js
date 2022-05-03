@@ -87,15 +87,15 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   /**
-   * @param onClose
+   * @param onDismiss
    * @type {function}
    * @default () => {}
    */
-  get onClose() {
-    let { onClose } = this.args;
+  get onDismiss() {
+    let { onDismiss } = this.args;
 
-    if (typeof onClose === 'function') {
-      return onClose;
+    if (typeof onDismiss === 'function') {
+      return onDismiss;
     } else {
       return false;
     }

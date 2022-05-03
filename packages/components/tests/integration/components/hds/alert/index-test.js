@@ -137,8 +137,8 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('button.hds-alert__dismiss').doesNotExist();
   });
   // TODO! how can this be done??
-  // skip('it should render the "dismiss" button if a callback function is passed to the @onClose argument', async function (assert) {
-  //   await render(hbs`<Hds::Alert @description="yo" @onClose={{NOOP}} />`);
+  // skip('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
+  //   await render(hbs`<Hds::Alert @description="yo" @onDismiss={{NOOP}} />`);
   //   assert.dom('button.hds-alert__dismiss').exists();
   // });
 
