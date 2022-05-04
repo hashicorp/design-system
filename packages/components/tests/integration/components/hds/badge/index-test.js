@@ -68,7 +68,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(
       hbs`<Hds::Badge @text="meaningful text for icon only badge" @isIconOnly={{true}} id="test-badge" @icon="activity" />`
     );
-    assert.equal(
+    assert.deepEqual(
       this.element.querySelector('.sr-only').textContent.trim(),
       'meaningful text for icon only badge'
     );
