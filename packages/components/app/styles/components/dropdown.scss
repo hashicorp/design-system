@@ -274,9 +274,18 @@ $hds-dropdown-toggle-border-radius: 5px;
     // Notice: to avoid too much duplication we define two local CSS variables
     // and define their values in the color variants below
 
+    &:hover,
+    &.is-hover {
+      color: var(--current-color-hover);
+      &::before {
+        background-color: currentColor;
+      }
+    }
+
     // default focus for browsers that still rely on ":focus"
     &:focus,
     &.is-focus {
+      color: var(--current-color-focus);
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
@@ -286,22 +295,39 @@ $hds-dropdown-toggle-border-radius: 5px;
     // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
     &:focus:not(:focus-visible) {
       &::after {
+        background-color: transparent;
         box-shadow: none;
       }
     }
     // set focus for browsers that support ":focus-visible"
     &:focus-visible {
+      color: var(--current-color-focus);
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
         left: 4px;
       }
     }
+
     // remove the focus ring on "active + focused" state (by design)
     &:focus:active,
+    &:focus-visible:active,
     &.is-focus.is-active {
       &::after {
+        background-color: var(--current-background-color);
         box-shadow: none;
+        left: 10px;
+      }
+    }
+
+    &:active,
+    &.is-active {
+      color: var(--current-color-active);
+      &::before {
+        background-color: currentColor;
+      }
+      &::after {
+        background-color: var(--current-background-color);
       }
     }
   }
@@ -320,30 +346,12 @@ $hds-dropdown-toggle-border-radius: 5px;
     color: var(--token-color-foreground-primary);
 
     // assign the values to the local CSS variables used above
+    --current-color-hover: var(--token-color-foreground-action-hover);
+    --current-color-focus: var(--token-color-foreground-action-active);
+    --current-color-active: var(--token-color-foreground-action-active);
     &::after {
       --current-background-color: var(--token-color-surface-action);
-      --current-focus-ring-box-shadow: var(
-        --token-focus-ring-action-box-shadow
-      );
-    }
-
-    &:hover,
-    &.is-hover {
-      color: var(--token-color-foreground-action-hover);
-      &::before {
-        background-color: currentColor;
-      }
-    }
-
-    &:active,
-    &.is-active {
-      color: var(--token-color-foreground-action-active);
-      &::before {
-        background-color: currentColor;
-      }
-      &::after {
-        background-color: var(--token-color-surface-action);
-      }
+      --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
 }
@@ -353,27 +361,12 @@ $hds-dropdown-toggle-border-radius: 5px;
     color: var(--token-color-foreground-critical);
 
     // assign the values to the local CSS variables used above
+    --current-color-hover: var(--token-color-palette-red-300);
+    --current-color-focus: var(--token-color-palette-red-400);
+    --current-color-active: var(--token-color-palette-red-400);
     &::after {
       --current-background-color: var(--token-color-surface-critical);
       --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
-    }
-
-    &:hover,
-    &.is-hover {
-      color: var(--token-color-palette-red-300);
-      &::before {
-        background-color: currentColor;
-      }
-    }
-    &:active,
-    &.is-active {
-      color: var(--token-color-palette-red-400);
-      &::before {
-        background-color: currentColor;
-      }
-      &::after {
-        background-color: var(--token-color-surface-critical);
-      }
     }
   }
 }
