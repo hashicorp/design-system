@@ -6,12 +6,12 @@ This is the quest issue/engineering checklist for the COMPONENT_NAME Component. 
 Update this list and these links as appropriate.
 
 - [Component Audit](https://www.figma.com/file/h3LtloARmbYVwh7z6XWHVb/Component-Audits-FY23?node-id=0%3A1): This audit should be completed by ambassadors before any work gets started.
-- [Component Requirement Document (CRD)](url_here): This file should exist before any design explorations or code is written.
-- ["System of Systems" Storybook](https://design-system-website.vercel.app/?path=/story/example-introduction--page) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
+- [Component Requirement Document (CRD)](https://docs.google.com/document/d/1kGcdfnb_z5tVUUvkSJGQPOssNd1yl2SVyd7bqk1KXII/): This file should exist before any design explorations or code is written.
+- ["System of Systems" Storybook](https://unofficial-design-system-search.vercel.app) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
 
 
-## Design Checklist 
-The design checklist has 5 parts: 
+## Design Checklist
+The design checklist has 5 parts:
 1. creating the branch
 2. design explorations and iterations
 3. documentation
