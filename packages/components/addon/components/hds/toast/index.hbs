@@ -6,16 +6,15 @@
   @title={{@title}}
   @description={{@description}}
   @onDismiss={{@onDismiss}}
+  {{! Notice: these args are not officially part of the API of the "Alert" component, but are used to by-pass the problem of Ember passing down the <actions> even if there are no "actions" declared in the Toast }}
+  @ignoreActionsBlock={{not (has-block "actions")}}
+  @ignoreGenericBlock={{not (has-block "generic")}}
   ...attributes
 >
   <:actions as |A|>
-    {{#if (has-block "actions")}}
-      {{yield A to="actions"}}
-    {{/if}}
+    {{yield A to="actions"}}
   </:actions>
   <:generic as |G|>
-    {{#if (has-block "generic")}}
-      {{yield G to="generic"}}
-    {{/if}}
+    {{yield G to="generic"}}
   </:generic>
 </Hds::Alert>
