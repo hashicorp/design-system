@@ -113,10 +113,10 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // ACTIONS
 
-  test('it should render an Hds::Button component yielded to the <:actions> named block', async function (assert) {
+  test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
     assert.expect(2);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert"><:actions as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></:actions></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom(
@@ -125,10 +125,10 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       .exists()
       .hasText('I am a button');
   });
-  test('it should render an Hds::Link::Standalone component yielded to the <:actions> named block', async function (assert) {
+  test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
     assert.expect(2);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert"><:actions as |A|><A.Link::Standalone @icon="plus" @text="I am a link" href="#" @size="small" @color="secondary" /></:actions></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" href="#" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom(
@@ -140,10 +140,10 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // GENERIC
 
-  test('it should render any content passed to the <:generic> named block', async function (assert) {
+  test('it should render any content passed to the "generic" contextual component', async function (assert) {
     assert.expect(2);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert"><:generic><pre>test</pre></:generic></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`
     );
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
   });
