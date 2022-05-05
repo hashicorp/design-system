@@ -1,7 +1,17 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+const NOOP = () => {};
 export default class HdsDropdownToggleIconComponent extends Component {
+  constructor() {
+    super(...arguments);
+    if (!(this.args.icon || this.args.imageSrc)) {
+      assert(
+        '@icon or @imageSrc must be defined for "Hds::Dropdown::Toggle::Icon"'
+      );
+    }
+  }
+
   /**
    * @param text
    * @type {string}
@@ -11,7 +21,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Dropdown::ToggleIcon" must have a valid value',
+      '@text for "Hds::Dropdown::Toggle::Icon" must have a valid value',
       text !== undefined
     );
 
@@ -30,17 +40,6 @@ export default class HdsDropdownToggleIconComponent extends Component {
   }
 
   /**
-   * Sets the icon name
-   *
-   * @param icon
-   * @type {string}
-   * @default user
-   */
-  get icon() {
-    return this.args.icon ?? 'user';
-  }
-
-  /**
    * @param onClick
    * @type {function}
    * @default () => {}
@@ -53,7 +52,23 @@ export default class HdsDropdownToggleIconComponent extends Component {
     if (typeof onClick === 'function') {
       return onClick;
     } else {
-      return () => {};
+      return NOOP;
     }
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method ToggleIcon#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-dropdown-toggle-icon'];
+
+    // add a class based on the @isOpen argument
+    if (this.args.isOpen) {
+      classes.push('hds-dropdown-toggle-icon--is-open');
+    }
+
+    return classes.join(' ');
   }
 }

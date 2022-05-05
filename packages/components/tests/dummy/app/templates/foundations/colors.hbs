@@ -3,7 +3,7 @@
 <h2 class="dummy-h2">Colors</h2>
 
 <section>
-  <h3 class="dummy-h3">How to use</h3>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
   <p class="dummy-paragraph">There are two different ways to apply a color to a UI element, via
     <strong>design tokens</strong>
     or via
@@ -65,7 +65,7 @@
 
 <section data-test-percy>
 
-  <h3 class="dummy-h3">Semantic</h3>
+  <h3 class="dummy-h3" id="colors-semantic"><a href="#colors-semantic" class="dummy-link-section">§</a> Semantic</h3>
 
   <h4 class="dummy-h4">Foreground</h4>
   <p class="dummy-paragraph">Use for text and icons.</p>
@@ -120,7 +120,8 @@
     {{/each}}
   </div>
 
-  <h3 class="dummy-h3">Product ("branding")</h3>
+  <h3 class="dummy-h3" id="product-branding"><a href="#product-branding" class="dummy-link-section">§</a>
+    Product ("branding")</h3>
   {{#each-in this.colors.branding as |brand colorsList|}}
     <h4 class="dummy-h4">{{capitalize brand}}</h4>
     <div class="dummy-colors-list">
@@ -132,7 +133,7 @@
     <p class="dummy-paragraph">No tokens found for "branding" colors 🤷‍♀️</p>
   {{/each-in}}
 
-  <h3 class="dummy-h3">Palette</h3>
+  <h3 class="dummy-h3" id="color-palette"><a href="#color-palette" class="dummy-link-section">§</a> Palette</h3>
   <p class="dummy-paragraph">Core Palette colors should be used sparingly and only when the correct semantic mapping
     isn’t available for the use case.</p>
   {{#each-in this.colors.palette as |tone colorsList|}}

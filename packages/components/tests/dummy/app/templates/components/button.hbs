@@ -5,9 +5,9 @@
 <DummyLinkCtaButtonBanner />
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
-  <p class="dummy-paragraph">Here is the API for the component:</p>
-  <dl class="dummy-component-props">
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-button">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-button">
     <dt>size <code>enum</code></dt>
     <dd>
       <p>Acceptable values:</p>
@@ -35,9 +35,20 @@
     <dt>icon <code>string</code></dt>
     <dd>
       <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
-      <p><strong>🚨 IMPORTANT:</strong>
+      <p><strong>🚨 IMPORTANT a11y note:</strong>
         <code class="dummy-code">tertiary</code>
-        buttons are required to have either a leading or trailing icon to be accessible.</p>
+        buttons have transparent backgrounds, and interactive elements must communicate interactivity with more than
+        just color. Therefore, a leading or trailing icon is required when using the
+        <code class="dummy-code">tertiary</code>
+        color.
+        <a
+          href="https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=141#use-of-color"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WCAG 2.1 Criterion 1.4.1: Use of Color (Level A)
+        </a>
+      </p>
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
@@ -65,7 +76,7 @@
     <dd>
       <p>This indicates that a button should take up the full width of the parent container. The default is false.</p>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
@@ -73,7 +84,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Usage</h3>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
   <p class="dummy-paragraph">
     The button component is used to trigger an action or event. For accessibility, buttons should not be used to route
     to a URL.</p>
@@ -280,7 +291,8 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Design guidelines</h3>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
 
   <div class="dummy-design-guidelines">
     <p class="dummy-paragraph"><a
@@ -294,7 +306,7 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-button-base-sample">
     <Hds::Button @text="Only text" />

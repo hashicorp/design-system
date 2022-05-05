@@ -3,9 +3,9 @@
 <h2 class="dummy-h2">Card container</h2>
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
-  <p class="dummy-paragraph">Here is the API for the component:</p>
-  <dl class="dummy-component-props">
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-card">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-card">
     <dt>level <code>enum</code></dt>
     <dd>
       <p>This controls the level of elevation ("shadow" visual effect). Acceptable values:</p>
@@ -46,7 +46,7 @@
         <li>visible</li>
       </ol>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
@@ -54,7 +54,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">How to use</h3>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
   <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -68,16 +68,15 @@
 
 <section>
   <div class="dummy-design-guidelines">
-    <h3 class="dummy-h3">Design guidelines</h3>
+    <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+      Design guidelines</h3>
     <p class="dummy-paragraph"><a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A11">Figma UI Kit</a></p>
-    <br />
-    <img class="dummy-figma-docs" src="/assets/images/card-container-design-usage.png" alt="" role="none" />
   </div>
 </section>
 
 <section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">
-    <h3 class="dummy-h3">Accessibility</h3>
     By default, the
     <em>Card Container</em>
     component has
@@ -87,7 +86,7 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
   <h4 class="dummy-h4">Level:</h4>
   <div class="dummy-card-base-sample">
     {{#each @model.CONTAINER_LEVELS as |level|}}
