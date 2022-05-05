@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.3.1
+
+### Patch Changes
+
+- [#219](https://github.com/hashicorp/design-system/pull/219) [`fc3a3dd4`](https://github.com/hashicorp/design-system/commit/fc3a3dd429f5681474bed95b43245d83b4094567) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - minor adjustments to add optical balance to the `government` icon
+
 ## 2.3.0
 
 ### Minor Changes

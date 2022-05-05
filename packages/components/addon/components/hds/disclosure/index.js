@@ -38,6 +38,10 @@ export default class HdsDisclosureComponent extends Component {
       this.isActive = false;
       // we need to reset this check
       this.isToggleClicked = false;
+      // we call the "onClose" callback if it exists (and is a function)
+      if (this.args.onClose && typeof this.args.onClose === 'function') {
+        this.args.onClose();
+      }
     }
   }
 }

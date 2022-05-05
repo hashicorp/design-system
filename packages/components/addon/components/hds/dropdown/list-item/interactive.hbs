@@ -1,0 +1,23 @@
+<li class={{this.classNames}}>
+  <Hds::Interactive
+    class="{{if @state (concat 'is-' @state)}}"
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    ...attributes
+  >
+    {{#if @icon}}
+      <div class="hds-dropdown-list-item__interactive-icon">
+        <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+      </div>
+    {{/if}}
+    <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
+      {{this.text}}
+    </div>
+  </Hds::Interactive>
+</li>
