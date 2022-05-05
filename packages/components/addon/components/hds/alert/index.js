@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_TYPE = 'page';
 export const TYPES = ['page', 'inline', 'compact'];
 export const DEFAULT_COLOR = 'neutral';
 export const COLORS = [
@@ -28,10 +27,6 @@ export default class HdsAlertIndexComponent extends Component {
         ', '
       )}; received: ${this.args.type}`,
       TYPES.includes(this.args.type)
-    );
-    assert(
-      `you need to pass @title or @description to the "Hds::Alert" component`,
-      !(this.args.title === undefined && this.args.description === undefined)
     );
   }
 

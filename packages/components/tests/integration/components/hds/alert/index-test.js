@@ -211,16 +211,4 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-  test('Throw an assertion if both @title and @description are missing/have no value', async function (assert) {
-    const errorMessage =
-      'you need to pass @title or @description to the "Hds::Alert" component';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Alert @type="inline" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
 });
