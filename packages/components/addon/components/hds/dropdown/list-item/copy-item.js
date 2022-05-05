@@ -44,7 +44,6 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
     navigator.clipboard.readText().then((result) => {
       if (result === this.args.text) {
         this.isSuccess = true;
-        console.log(`msg: ${result} and ${this.args.text} should be equal`);
       } 
     });
   }
