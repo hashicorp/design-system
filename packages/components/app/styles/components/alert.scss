@@ -43,10 +43,6 @@
   justify-content: center;
   line-height: var(--token-typography-body-200-line-height);
 
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
-
   .hds-alert--type-compact & {
     font-family: var(--token-typography-body-100-font-family);
     font-size: var(--token-typography-body-100-font-size);
@@ -97,6 +93,10 @@
 .hds-alert__actions {
   align-items: center;
   display: flex;
+
+  > * {
+    margin-top: 16px;
+  }
 
   > * + * {
     margin-left: 16px;
