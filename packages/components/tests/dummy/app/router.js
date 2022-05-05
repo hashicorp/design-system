@@ -25,7 +25,6 @@ Router.map(function () {
       this.route('cta');
     });
     this.route('link-to', function () {
-      this.route('standalone');
       this.route('cta');
     });
     this.route('dropdown');
