@@ -5,7 +5,6 @@ import { action } from '@ember/object';
 
 export default class HdsDropdownListItemCopyItemComponent extends Component {
   @tracked isSuccess = false;
-  @tracked isError = false;
 
   /**
    * @param text
@@ -47,11 +46,8 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
       navigator.clipboard.readText().then((result) => {
         if (result === this.args.text) {
           this.isSuccess = true;
-          // console.log(`msg: ${result} and ${this.args.text} should be equal`);
-        } else {
-          this.isError = true;
-          // console.log(`copyCode was not successful (for whatever reason). One possible reason could be browser clipboard permissions.`);
-        }
+          console.log(`msg: ${result} and ${this.args.text} should be equal`);
+        } 
       });
     }
   }
