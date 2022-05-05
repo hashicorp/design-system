@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsDropdownListItemCopyItemComponent extends Component {
-  @tracked isSuccess = this.args.isSuccess ?? false;
+  @tracked isSuccess = false;
 
   /**
    * @param text
@@ -37,12 +37,18 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   }
 
   @action
-  copyCode() {
-    navigator.clipboard.writeText(this.args.text);
-    // this if statement resolves to [object Promise] so maybe some improvements
-    // could be made here
-    if (navigator.clipboard.readText()) {
-      this.isSuccess = true;
+  async copyCode() {
+    // If there is text to be copied, then copy it to the clipboard.
+    // If the text in the clipboard is the same as the text to be copied, then set isSuccess to true.
+    // TODO: set any _other_ isSuccess to false, so there is only one indicated successful copy at a time.
+    if (this.args.text) {
+      navigator.clipboard.writeText(this.args.text);
+      navigator.clipboard.readText().then((result) => {
+        if (result === this.args.text) {
+          this.isSuccess = true;
+          // console.log(`msg: ${result} and ${this.args.text} should be equal`);
+        }
+      });
     }
   }
 }
