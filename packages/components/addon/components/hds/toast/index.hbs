@@ -7,11 +7,9 @@
   @description={{@description}}
   @onDismiss={{@onDismiss}}
   ...attributes
+  as |A|
 >
-  <:actions as |A|>
-    {{yield A to="actions"}}
-  </:actions>
-  <:generic as |G|>
-    {{yield G to="generic"}}
-  </:generic>
+  {{~yield
+    (hash Button=A.Button Link::Standalone=A.Link::Standalone LinkTo::Standalone=A.LinkTo::Standalone Generic=A.Generic)
+  ~}}
 </Hds::Alert>
