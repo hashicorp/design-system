@@ -81,23 +81,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
 
   // FOCUS
 
-  test('it should focus the first item in the "content" when the "toggle" is clicked', async function (assert) {
-    await render(hbs`
-      <Hds::Disclosure>
-        <:toggle as |t|>
-          <button type="button" id="test-disclosure-button" {{on "click" t.onClickToggle}} />
-        </:toggle>
-        <:content>
-          <a id="test-disclosure-link-1" href="#">test1</a>
-          <a id="test-disclosure-link-2" href="#">test2</a>
-        </:content>
-      </Hds::Disclosure>
-    `);
-    await click('button#test-disclosure-button');
-    await waitNextExecutionFrame();
-    assert.dom('a#test-disclosure-link-1').isFocused();
-  });
-
   // TODO this doesn't work
   // see https://github.com/emberjs/ember-test-helpers/issues/738
   // https://discord.com/channels/480462759797063690/480523424121356298/842578755633545276

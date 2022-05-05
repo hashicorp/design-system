@@ -1,5 +1,33 @@
 # @hashicorp/design-system-components
 
+## 0.10.0
+
+### Minor Changes
+
+- [#200](https://github.com/hashicorp/design-system/pull/200) [`a8072537`](https://github.com/hashicorp/design-system/commit/a8072537542791398d375cde4a7a85c2955c66da) Thanks [@didoo](https://github.com/didoo)! - Updated Dropdown component:
+
+  - added chevron animation for `toggle` elements
+  - fixed issue with `list-item/interactive` height
+  - added handling of dynamic `width` for the list
+  - exposed an `onClose` event
+  - removed the default icon for `toggle/icon`
+  - removed icon requirement from the `critical` list item
+  - updated the documentation and integration tests
+  - some code refactorings, reorganizations and cleanups
+
+## 0.9.2
+
+### Patch Changes
+
+- [#209](https://github.com/hashicorp/design-system/pull/209) [`6021d433`](https://github.com/hashicorp/design-system/commit/6021d43352b8e38b268b06cd98ca0c62adb14999) Thanks [@didoo](https://github.com/didoo)! - Re-ordered declarations of CSS states
+
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.5
+
 ## 0.9.0
 
 ### Minor Changes

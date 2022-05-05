@@ -1,0 +1,12 @@
+<button class={{this.classNames}} aria-label={{this.text}} ...attributes {{on "click" this.onClick}} type="button">
+  <div class="hds-dropdown-toggle-icon__wrapper">
+    {{#if @imageSrc}}
+      <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" />
+    {{else if @icon}}
+      <FlightIcon @name={{@icon}} @size="24" />
+    {{/if}}
+  </div>
+  {{#if this.hasChevron}}
+    <FlightIcon @name="chevron-down" class="hds-dropdown-toggle-icon__chevron" @isInlineBlock={{false}} />
+  {{/if}}
+</button>
