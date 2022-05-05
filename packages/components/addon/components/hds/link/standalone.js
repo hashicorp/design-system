@@ -9,6 +9,13 @@ export const COLORS = ['primary', 'secondary'];
 export const SIZES = ['small', 'medium', 'large'];
 
 export default class HdsLinkStandaloneComponent extends Component {
+  constructor() {
+    super(...arguments);
+    if (!(this.args.href || this.args.route)) {
+      assert('@href or @route must be defined for <Hds::Link::Standalone>');
+    }
+  }
+
   /**
    * @param text
    * @type {string}
