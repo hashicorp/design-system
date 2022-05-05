@@ -38,7 +38,7 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   }
 
   @action
-  async copyCode() {
+  copyCode() {
     // If there is text to be copied, then copy it to the clipboard.
     // If the text in the clipboard is the same as the text to be copied, then set isSuccess to true.
     // TODO: set any _other_ isSuccess to false, so there is only one indicated successful copy at a time.
