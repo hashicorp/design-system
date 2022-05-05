@@ -11,13 +11,13 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
 
   test('it renders a link(standalone) with the defined text', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" />`
     );
     assert.dom(this.element).hasText('watch video');
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" id="test-link" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" />`
     );
     assert.dom('#test-link').hasClass('hds-link-standalone');
   });
@@ -26,13 +26,13 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
 
   test('it should render the medium size if no size is declared', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" id="test-link" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" />`
     );
     assert.dom('#test-link').hasClass('hds-link-standalone--size-medium');
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" id="test-link" @size="small" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" @size="small" />`
     );
     assert.dom('#test-link').hasClass('hds-link-standalone--size-small');
   });
@@ -41,19 +41,40 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
 
   test('it should render the icon in the leading position by default', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" id="test-link" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" />`
     );
     assert.dom('.hds-link-standalone__icon').matchesSelector(':first-child');
   });
   test('it should render the icon in the trailing position if @iconPosition is set to trailing', async function (assert) {
     await render(
-      hbs`<Hds::Link::Standalone @text="watch video" href="/" @icon="film" @iconPosition="trailing" id="test-link" />`
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" @iconPosition="trailing" id="test-link" />`
     );
     assert.dom('.hds-link-standalone__icon').matchesSelector(':last-child');
   });
 
+  // TEXT
+
+  test('it renders a link with the defined text', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-toggle-button" />`
+    );
+    assert.dom('#test-toggle-button').hasText('Copy to clipboard');
+  });
+
   // ASSERTIONS
 
+  test('it should throw an assertion if both @href and @route are not defined', async function (assert) {
+    const errorMessage =
+      '@href or @route must be defined for <Hds::Link::Standalone>';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Link::Standalone @text="watch video" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
   test('it should throw an assertion if @text is missing/has no value', async function (assert) {
     const errorMessage =
       '@text for "Hds::Link::Standalone" must have a valid value';
@@ -61,7 +82,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Link::Standalone @icon="film" href="/" />`);
+    await render(hbs`<Hds::Link::Standalone @icon="film" @href="/" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -73,7 +94,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Link::Standalone href="/" @text="watch video" />`);
+    await render(hbs`<Hds::Link::Standalone @href="/" @text="watch video" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -86,7 +107,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Link::Standalone @icon="film" href="/" @text="watch video" @iconPosition="after" />`
+      hbs`<Hds::Link::Standalone @icon="film" @href="/" @text="watch video" @iconPosition="after" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -100,7 +121,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" href="/" @size="tiny" />`
+      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" @href="/" @size="tiny" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
