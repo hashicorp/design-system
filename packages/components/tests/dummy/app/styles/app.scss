@@ -1,5 +1,4 @@
 @import '@hashicorp/design-system-components';
-@import 'helpers/typography';
 
 @import "./_typography";
 
@@ -213,6 +212,9 @@ body.dummy-app {
     border-color: #f5c6cb;
 }
 
+.dummy-link-section {
+    text-decoration: none;
+}
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".

@@ -5,9 +5,9 @@
 <DummyLinkCtaButtonBanner />
 
 <section>
-  <h3 class="dummy-h3">Component API</h3>
-  <p class="dummy-paragraph">Here is the API for the component:</p>
-  <dl class="dummy-component-props">
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-button">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-button">
     <dt>size <code>enum</code></dt>
     <dd>
       <p>Acceptable values:</p>
@@ -35,9 +35,20 @@
     <dt>icon <code>string</code></dt>
     <dd>
       <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
-      <p><strong>🚨 IMPORTANT:</strong>
+      <p><strong>🚨 IMPORTANT a11y note:</strong>
         <code class="dummy-code">tertiary</code>
-        buttons are required to have either a leading or trailing icon to be accessible.</p>
+        buttons have transparent backgrounds, and interactive elements must communicate interactivity with more than
+        just color. Therefore, a leading or trailing icon is required when using the
+        <code class="dummy-code">tertiary</code>
+        color.
+        <a
+          href="https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=141#use-of-color"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WCAG 2.1 Criterion 1.4.1: Use of Color (Level A)
+        </a>
+      </p>
     </dd>
     <dt>iconPosition <code>enum</code></dt>
     <dd>
@@ -71,6 +82,17 @@
         <code>&lt;a&gt;</code>
         element.</p>
     </dd>
+    <dt>isHrefExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>This controls if the
+        <code>&lt;a&gt;</code>
+        link is external and so for security reasons we need to add the
+        <code>target="_blank"</code>
+        and
+        <code>rel="noopener noreferrer"</code>
+        attributes to it.</p>
+    </dd>
     <dt>route/models/model/query/current-when/replace</dt>
     <dd>
       <p>These are the parameters that are passed down as arguments to the
@@ -79,6 +101,7 @@
     </dd>
     <dt>isRouteExternal <code>boolean</code></dt>
     <dd>
+      <p>Default: <span class="default">false</span></p>
       <p>This controls if the "LinkTo" is external to the Ember engine (<a
           href="https://ember-engines.com/docs/link-to-external"
           target="_blank"
@@ -89,7 +112,7 @@
         <code>&lt;LinkTo&gt;</code>
         for the @route.</p>
     </dd>
-    <dt>“splattributes”</dt>
+    <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
@@ -97,7 +120,7 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Usage</h3>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
   <p class="dummy-paragraph">
     The button component is used to trigger an action or event. For accessibility, buttons should not be used to route
     to a URL.</p>
@@ -333,6 +356,30 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: when using the
+    <code class="dummy-code">@href</code>
+    argument the component adds by default the attributes
+    <code class="dummy-code">target="_blank"</code>
+    and
+    <code class="dummy-code">rel="noopener noreferrer"</code>
+    to the
+    <code class="dummy-code">&lt;a&gt;</code>
+    element (because this is the most common use case: internal links are generally handled using a
+    <code class="dummy-code">@route</code>
+    argument). If the
+    <code class="dummy-code">href</code>
+    points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass
+    <code class="dummy-code">@isHrefExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component and it will not add the
+    <code class="dummy-code">target</code>
+    and
+    <code class="dummy-code">rel</code>
+    attributes (but you can pass yours if needed, using the
+    <code class="dummy-code">...attributes</code>
+    spreading. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
+
   <p class="dummy-paragraph">🚨
     <strong>Notice</strong>: if a
     <code class="dummy-code">href</code>
@@ -368,7 +415,7 @@
     <code class="dummy-code">&lt;LinkTo&gt;</code>
     for the
     <code class="dummy-code">@route</code>. For more details see the
-    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo></p>
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
   <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
       <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
       components are supported (eg.
@@ -376,7 +423,8 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3">Design guidelines</h3>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
 
   <div class="dummy-design-guidelines">
     <p class="dummy-paragraph"><a
@@ -390,7 +438,7 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3">Showcase</h3>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
   <h4 class="dummy-h4">Generated element</h4>
   <div class="dummy-button-generated-list">
     <div>

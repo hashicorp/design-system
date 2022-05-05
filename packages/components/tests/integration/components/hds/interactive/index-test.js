@@ -20,6 +20,7 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('#test-interactive').hasTagName('button');
   });
   test('it should render a <a> link if @href is passed', async function (assert) {
+    assert.expect(2);
     await render(hbs`<Hds::Interactive @href="#" id="test-interactive" />`);
     assert.dom('#test-interactive').hasTagName('a');
     assert.dom('#test-interactive').hasAttribute('href', '#');
@@ -33,6 +34,31 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert
       .dom('#test-interactive')
       .hasAttribute('href', '/utilities/interactive');
+  });
+
+  // TARGET/REL ATTRIBUTES
+
+  test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
+    assert.expect(2);
+    await render(hbs`<Hds::Interactive @href="#" id="test-interactive" />`);
+    assert.dom('#test-interactive').hasAttribute('target', '_blank');
+    assert.dom('#test-interactive').hasAttribute('rel', 'noopener noreferrer');
+  });
+  test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Interactive @href="#" id="test-interactive" target="test-target" rel="test-rel" />`
+    );
+    assert.dom('#test-interactive').hasAttribute('target', 'test-target');
+    assert.dom('#test-interactive').hasAttribute('rel', 'test-rel');
+  });
+  test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Interactive @href="#" @isHrefExternal={{false}} id="test-interactive" />`
+    );
+    assert.dom('#test-interactive').doesNotHaveAttribute('target');
+    assert.dom('#test-interactive').doesNotHaveAttribute('rel');
   });
 
   // SPLATTRIBUTES
