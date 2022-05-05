@@ -185,9 +185,7 @@
   />
 
   <h4 class="dummy-h4">Actions</h4>
-  <p class="dummy-paragraph">Actions can optionally be passed into the
-    <code class="dummy-code">&lt;:actions&gt;</code>
-    named block using one of the suggested
+  <p class="dummy-paragraph">Actions can optionally be passed into the component using one of the suggested
     <code class="dummy-code">Button</code>,
     <code class="dummy-code">Link::Standalone</code>
     or
@@ -198,28 +196,24 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss=\{{...}}>
-        <:actions as |A|>
-          <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-          <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
-        </:actions>
+      <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss=\{{...}} as |A|>
+        <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
+        <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
       </Hds::Toast>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss={{this.noop}}>
-    <:actions as |A|>
-      <A.Button @text="Your action" @color="secondary" />
-      <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
-    </:actions>
+  <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss={{this.noop}} as |A|>
+    <A.Button @text="Your action" @color="secondary" />
+    <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
   </Hds::Toast>
 
   <h4 class="dummy-h4">Generic content</h4>
   <p class="dummy-paragraph">It's also possible to insert custom content in the
-    <code class="dummy-code">&lt;:generic&gt;</code>
-    named block.
+    <code class="dummy-code">Generic</code>
+    contextual component.
   </p>
   <p class="dummy-paragraph"><em>Notice: the content will appear at the bottom, after title, description and actions,
       and the developer will need to take care of spacing, layout and styling of the custom content in this case.</em>
@@ -229,20 +223,20 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @title="Title here" @description="Description here" @onDismiss=\{{...}}>
-        <:generic>
+      <Hds::Toast @title="Title here" @description="Description here" @onDismiss=\{{...}} as |A|>
+        <A.Generic>
           [your content here]
-        </:generic>
+        </A.generic>
       </Hds::Toast>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" @onDismiss={{this.noop}}>
-    <:generic>
+  <Hds::Toast @title="Title here" @description="Description here" @onDismiss={{this.noop}} as |A|>
+    <A.Generic>
       [your content here]
-    </:generic>
+    </A.Generic>
   </Hds::Toast>
   <p class="dummy-paragraph">🚨
     <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
@@ -441,12 +435,13 @@
     <Hds::Toast
       @color="success"
       @title="A toast with extra/custom content"
-      @description="In special cases, you can pass extra content to the toast using the <code>generic</code> named block."
+      @description="In special cases, you can pass extra content to the toast using the <code>Generic</code> contextual component."
       @onDismiss={{this.noop}}
+      as |A|
     >
-      <:generic>
+      <A.Generic>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </:generic>
+      </A.Generic>
     </Hds::Toast>
   </div>
 
@@ -457,22 +452,20 @@
       @title="Action passed as yielded component"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       @onDismiss={{this.noop}}
+      as |A|
     >
-      <:actions as |A|>
-        <A.Button @text="Action" @color="secondary" />
-      </:actions>
+      <A.Button @text="Action" @color="secondary" />
     </Hds::Toast>
     <Hds::Toast
       @color="warning"
       @title="With multiple actions passed as yielded components"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       @onDismiss={{this.noop}}
+      as |A|
     >
-      <:actions as |A|>
-        <A.Button @text="Secondary" @color="secondary" />
-        <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-        <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
-      </:actions>
+      <A.Button @text="Secondary" @color="secondary" />
+      <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+      <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
     </Hds::Toast>
   </div>
 </section>

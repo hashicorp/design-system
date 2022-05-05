@@ -143,35 +143,10 @@
     <dd>
       <p>The description text in the alert.</p>
     </dd>
-    <dt>&lt;:actions&gt; <code>named block</code></dt>
-    <dd>
-      <p>Actions can optionally be passed into the alert as yielded components, using the suggested
-        <code class="dummy-code">Button</code>
-        and/or
-        <code class="dummy-code">Link/LinkTo::Standalone</code>. See below ("How to use > Actions") for more details.</p>
-      <p><em>Notice: it's also possible to insert custom content in the
-          <code class="dummy-code">:actions</code>
-          named block, but in that case we suggest to speak with the design system team to check that the solution is
-          conformant and satifies the accessibility criteria.
-        </em></p>
-    </dd>
-    <dt>&lt;:generic&gt; <code>named block</code></dt>
-    <dd>
-      <p>Generic content can optionally be passed into the alert using the
-        <code class="dummy-code">&lt;:generic&gt;</code>
-        named block.</p>
-      <p><em>Notice: the content will appear at the bottom, after title, description and actions, and the developer will
-          need to take care of spacing, layout and styling of the custom content in this case.</em></p>
-      <p>🚨
-        <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you
-          find yourself in need to use it, we suggest to speak with the design system team to check that the solution is
-          conformant and satifies the accessibility criteria.
-        </em></p>
-    </dd>
     <dt>onDismiss <code>function</code></dt>
     <dd>
       <p>
-        The alert can be dismissed by the user. Pass in a function to display the "dismiss" button.
+        The alert can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
       </p>
     </dd>
 
@@ -182,11 +157,12 @@
   </dl>
 
   <h4 class="dummy-h4">Contextual components</h4>
-  <p class="dummy-paragraph" id="contextual-components-alert">Actions can optionally be passed into the alert as yielded
-    components, using the
+  <p class="dummy-paragraph" id="contextual-components-alert">Actions and generic content can optionally be passed into
+    the alert as yielded components, using the
     <code class="dummy-code">Button</code>,
     <code class="dummy-code">Link::Standalone</code>,
-    <code class="dummy-code">LinkTo::Standalone</code>
+    <code class="dummy-code">LinkTo::Standalone</code>,
+    <code class="dummy-code">Generic</code>
     keys.</p>
   <dl class="dummy-component-props" aria-labelledby="contextual-components-alert">
     <dt>&lt;[A].Button&gt; <code>yielded component</code></dt>
@@ -230,9 +206,28 @@
         argument that is pre-defined to be
         <code class="dummy-code">small</code>.</p>
     </dd>
+    <dt>&lt;[A].Generic&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a very simple component that yields its content (inside a
+        <code class="dummy-code">&lt;div&gt;</code>) and accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+      <p><em>Notice: generic the content will appear at the bottom, after title, description and actions, and the
+          developer will need to take care of spacing, layout and styling of the custom content in this case.</em></p>
+      <p>🚨
+        <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you
+          find yourself in need to use it, we suggest to speak with the design system team to check that the solution is
+          conformant and satifies the accessibility criteria.
+        </em></p>
+    </dd>
   </dl>
+
   <p class="dummy-paragraph">
-    For more details about how to invoke these contextual components see the section "How to use > Actions" below.
+    For more details about how to invoke these contextual components see the sections
+    <a href="#how-to-use-actions">"How to use > Actions"</a>
+    and
+    <a href="#how-to-use-generic">"How to use > Generic content"</a>
+    below.
   </p>
 </section>
 
@@ -394,10 +389,8 @@
     @onDismiss={{this.noop}}
   />
 
-  <h4 class="dummy-h4">Actions</h4>
-  <p class="dummy-paragraph">Actions can optionally be passed into the
-    <code class="dummy-code">&lt;:actions&gt;</code>
-    named block using one of the suggested
+  <h4 class="dummy-h4" id="how-to-use-actions">Actions</h4>
+  <p class="dummy-paragraph">Actions can optionally be passed to component using one of the suggested
     <code class="dummy-code">Button</code>,
     <code class="dummy-code">Link::Standalone</code>
     or
@@ -408,30 +401,26 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @title="Title here" @description="Description here">
-        <:actions as |A|>
-          <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-          <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
-          <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" href="#" />
-        </:actions>
+      <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+        <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
+        <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+        <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" href="#" />
       </Hds::Alert>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" @description="Description here">
-    <:actions as |A|>
-      <A.Button @text="Your action" @color="secondary" />
-      <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
-      <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
-    </:actions>
+  <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+    <A.Button @text="Your action" @color="secondary" />
+    <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+    <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
   </Hds::Alert>
 
-  <h4 class="dummy-h4">Generic content</h4>
-  <p class="dummy-paragraph">It's also possible to insert custom content in the
-    <code class="dummy-code">&lt;:generic&gt;</code>
-    named block.
+  <h4 class="dummy-h4" id="how-to-use-generic">Generic content</h4>
+  <p class="dummy-paragraph">It's also possible to insert custom content in the component using the
+    <code class="dummy-code">Generic</code>
+    contextual component.
   </p>
   <p class="dummy-paragraph"><em>Notice: the content will appear at the bottom, after title, description and actions,
       and the developer will need to take care of spacing, layout and styling of the custom content in this case.</em>
@@ -441,20 +430,20 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @title="Title here" @description="Description here">
-        <:generic>
+      <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+        <A.Generic>
           [your content here]
-        </:generic>
+        </A.Generic>
       </Hds::Alert>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" @description="Description here">
-    <:generic>
+  <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+    <A.Generic>
       [your content here]
-    </:generic>
+    </A.Generic>
   </Hds::Alert>
   <p class="dummy-paragraph">🚨
     <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
@@ -659,11 +648,12 @@
       @type="inline"
       @color="success"
       @title="An alert with extra/custom content"
-      @description="In special cases, you can pass extra content to the alert using the <code>generic</code> named block."
+      @description="In special cases, you can pass extra content to the alert using the <code>Generic</code> contextual component."
+      as |A|
     >
-      <:generic>
+      <A.Generic>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </:generic>
+      </A.Generic>
     </Hds::Alert>
   </div>
 
@@ -674,37 +664,34 @@
       @color="warning"
       @title="Action passed as yielded component"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      as |A|
     >
-      <:actions as |A|>
-        <A.Button @text="Action" @color="secondary" />
-      </:actions>
+      <A.Button @text="Action" @color="secondary" />
     </Hds::Alert>
     <Hds::Alert
       @type="inline"
       @color="warning"
       @title="With multiple actions passed as yielded components"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      as |A|
     >
-      <:actions as |A|>
-        <A.Button @text="Secondary" @color="secondary" />
-        <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-        <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
-      </:actions>
+      <A.Button @text="Secondary" @color="secondary" />
+      <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+      <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
     </Hds::Alert>
     <Hds::Alert
       @type="inline"
       @color="warning"
-      @title="With actions and custom content in the 'generic' named block"
+      @title="With actions and custom content"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      as |A|
     >
-      <:actions>
-        <Hds::Button @text="Action" @color="secondary" />
-        <Hds::Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
-      </:actions>
-      <:generic>
+      <A.Button @text="Action" @color="secondary" />
+      <A.Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
+      <A.Generic>
         <div class="dummy-alert-sample-custom-content-after-actions">This for example could be extra text, specific for
           a special use case.</div>
-      </:generic>
+      </A.Generic>
     </Hds::Alert>
   </div>
 
