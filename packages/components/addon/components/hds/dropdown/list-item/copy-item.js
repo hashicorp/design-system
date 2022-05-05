@@ -40,12 +40,14 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   copyCode() {
     // Write the text to be copied to the clipboard.
     // If the text in the clipboard is the same as the text to be copied, then set isSuccess to true.
+    // Using the native web api for clipboard: 
+    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
     navigator.clipboard.writeText(this.args.text);
     navigator.clipboard.readText().then((result) => {
       if (result === this.args.text) {
         this.isSuccess = true;
         // return result;
-        console.log(`result is ${result}`);
+        // console.log(`result is ${result}`);
       } 
     });
   }
