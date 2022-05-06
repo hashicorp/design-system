@@ -114,27 +114,29 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // ACTIONS
 
   test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
-    assert.expect(2);
+    assert.expect(5);
     await render(
       hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
-      .dom(
-        '#test-alert .hds-alert__actions button.hds-button.hds-button--size-small.hds-button--color-secondary'
-      )
+      .dom('#test-alert .hds-alert__actions button')
       .exists()
+      .hasClass('hds-button')
+      .hasClass('hds-button--size-small')
+      .hasClass('hds-button--color-secondary')
       .hasText('I am a button');
   });
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
-    assert.expect(2);
+    assert.expect(5);
     await render(
       hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" href="#" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
-      .dom(
-        '#test-alert .hds-alert__actions a.hds-link-standalone.hds-link-standalone--size-small.hds-link-standalone--color-secondary'
-      )
+      .dom('#test-alert .hds-alert__actions a')
       .exists()
+      .hasClass('hds-link-standalone')
+      .hasClass('hds-link-standalone--size-small')
+      .hasClass('hds-link-standalone--color-secondary')
       .hasText('I am a link');
   });
 
