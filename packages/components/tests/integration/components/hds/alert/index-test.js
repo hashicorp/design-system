@@ -3,8 +3,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-// const NOOP = () => {};
-
 module('Integration | Component | hds/alert/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -156,11 +154,13 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     await render(hbs`<Hds::Alert @type="inline" @title="yo" />`);
     assert.dom('button.hds-alert__dismiss').doesNotExist();
   });
-  // TODO! how can this be done??
-  // skip('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
-  //   await render(hbs`<Hds::Alert @type="inline" @description="yo" @onDismiss={{NOOP}} />`);
-  //   assert.dom('button.hds-alert__dismiss').exists();
-  // });
+  test('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
+    this.set('NOOP', () => {});
+    await render(
+      hbs`<Hds::Alert @type="inline" @description="yo" @onDismiss={{this.NOOP}} />`
+    );
+    assert.dom('button.hds-alert__dismiss').exists();
+  });
 
   // A11Y
 
