@@ -10,7 +10,7 @@
   box-shadow: var(--token-elevation-higher-box-shadow);
 
   // per design specs
-  min-width: 360px;
-  max-width: 500px;
+  min-width: min(360px, 80vw);
+  max-width: min(500px, 80vw);
   width: fit-content;
 }
