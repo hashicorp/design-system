@@ -156,7 +156,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
   // TODO! how can this be done??
   // skip('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
-  //   await render(hbs`<Hds::Alert @description="yo" @onDismiss={{NOOP}} />`);
+  //   await render(hbs`<Hds::Alert @type="inline" @description="yo" @onDismiss={{NOOP}} />`);
   //   assert.dom('button.hds-alert__dismiss').exists();
   // });
 
