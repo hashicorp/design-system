@@ -9,11 +9,11 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders a link(standalone) with the defined text', async function (assert) {
+  test('it renders the link(standalone)', async function (assert) {
     await render(
       hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" />`
     );
-    assert.dom(this.element).hasText('watch video');
+    assert.dom(this.element).exists();
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -37,6 +37,21 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     assert.dom('#test-link').hasClass('hds-link-standalone--size-small');
   });
 
+  // COLOR
+
+  test('it should render the primary color as the default if no color is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" />`
+    );
+    assert.dom('#test-link').hasClass('hds-link-standalone--color-primary');
+  });
+  test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" @color="secondary" id="test-link" />`
+    );
+    assert.dom('#test-link').hasClass('hds-link-standalone--color-secondary');
+  });
+
   // ICON
 
   test('it should render the icon in the leading position by default', async function (assert) {
@@ -56,9 +71,9 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
 
   test('it renders a link with the defined text', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" id="test-toggle-button" />`
+      hbs`<Hds::Link::Standalone @text="Copy to clipboard" @href="/" @icon="film" id="test-link" />`
     );
-    assert.dom('#test-toggle-button').hasText('Copy to clipboard');
+    assert.dom('#test-link').hasText('Copy to clipboard');
   });
 
   // ASSERTIONS
@@ -122,6 +137,20 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     });
     await render(
       hbs`<Hds::Link::Standalone @icon="film" @text="watch video" @href="/" @size="tiny" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+    const errorMessage =
+      '@color for "Hds::Link::Standalone" must be one of the following: primary, secondary; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" @href="/" @color="foo" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
