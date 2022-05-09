@@ -47,6 +47,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/link-to/cta');
     await percySnapshot('LinkTo CTA');
 
+    await visit('/components/link/inline');
+    await percySnapshot('Link Inline');
+
     await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
