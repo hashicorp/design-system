@@ -19,6 +19,21 @@
   }
 }
 
+.hds-link-inline__icon {
+  display: inline-block;
+  height: 1em;
+  vertical-align: middle;
+  width: 1em;
+
+  &:first-child {
+    margin-right: 0.25em;
+  }
+
+  &:last-child {
+    margin-left: 0.25em;
+  }
+}
+
 
 // COLORS & STATES
 

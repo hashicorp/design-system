@@ -11,5 +11,16 @@
   rel="noopener noreferrer"
   ...attributes
 >
+  {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+  {{~#if (and @icon (eq this.iconPosition "leading"))~}}
+    <span class="hds-link-inline__icon">
+      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+    </span>
+  {{~/if~}}
   {{yield}}
+  {{~#if (and @icon (eq this.iconPosition "trailing"))~}}
+    <span class="hds-link-inline__icon">
+      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+    </span>
+  {{~/if~}}
 </Hds::Interactive>

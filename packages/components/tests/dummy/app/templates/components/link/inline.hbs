@@ -301,6 +301,44 @@
   <h4 class="dummy-h4">Content</h4>
 
   <div class="dummy-link-inline-content-list">
+    <div class="hds-typography-body-300">
+      <Hds::Link::Inline @color="primary" @href="#">Only text</Hds::Link::Inline>
+    </div>
+    <div class="hds-typography-body-300">
+      <Hds::Link::Inline @color="primary" @icon="globe" @href="#">Text + leading icon</Hds::Link::Inline>
+    </div>
+    <div class="hds-typography-body-300">
+      <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Text + trailing
+        icon</Hds::Link::Inline>
+    </div>
+  </div>
+  <br />
+  <div class="hds-typography-body-100">
+    Lorem
+    <Hds::Link::Inline @color="primary" @icon="globe" @href="#">ipsum dolor</Hds::Link::Inline>
+    sit amet
+    <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
+      adipiscing</Hds::Link::Inline>
+    elit.
+  </div>
+  <div class="hds-typography-body-200">
+    Lorem
+    <Hds::Link::Inline @color="primary" @icon="globe" @href="#">ipsum dolor</Hds::Link::Inline>
+    sit amet
+    <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
+      adipiscing</Hds::Link::Inline>
+    elit.
+  </div>
+  <div class="hds-typography-body-300">
+    Lorem
+    <Hds::Link::Inline @color="primary" @icon="globe" @href="#">ipsum dolor</Hds::Link::Inline>
+    sit amet
+    <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
+      adipiscing</Hds::Link::Inline>
+    elit.
+  </div>
+  <br />
+  <div class="dummy-link-inline-content-list">
     <div class="dummy-link-inline-content-list__item">
       <span class="dummy-text-small">within text block</span>
       <br />
@@ -336,13 +374,26 @@
     {{#each @model.COLORS as |color|}}
       <h5 class="dummy-h5 dummy-link-inline-states-grid__title">{{capitalize color}}</h5>
       {{#each @model.STATES as |state|}}
-        <div class="hds-typography-body-300">This is the
-          <Hds::Link::Inline
-            @color={{color}}
-            class="is-{{state}}"
-            @href="../components/link"
-          >{{state}}</Hds::Link::Inline>
-          state
+        <div>
+          <div class="hds-typography-body-300">This is the
+            <Hds::Link::Inline
+              @color={{color}}
+              class="is-{{state}}"
+              @href="../components/link"
+            >{{state}}</Hds::Link::Inline>
+            state
+          </div>
+          <br />
+          <div class="hds-typography-body-300">This is the
+            <Hds::Link::Inline
+              @color={{color}}
+              class="is-{{state}}"
+              @href="../components/link"
+              @icon="external-link"
+              @iconPosition="trailing"
+            >{{state}}</Hds::Link::Inline>
+            state
+          </div>
         </div>
       {{/each}}
     {{/each}}

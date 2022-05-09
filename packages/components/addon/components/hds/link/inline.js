@@ -1,7 +1,9 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+export const DEFAULT_ICONPOSITION = 'leading';
 export const DEFAULT_COLOR = 'primary';
+export const ICONPOSITIONS = ['leading', 'trailing'];
 export const COLORS = ['primary', 'secondary'];
 
 export default class HdsLinkInlineComponent extends Component {
@@ -29,6 +31,25 @@ export default class HdsLinkInlineComponent extends Component {
     );
 
     return color;
+  }
+
+  /**
+   * @param iconPosition
+   * @type {string}
+   * @default leading
+   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
+   */
+  get iconPosition() {
+    let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+
+    assert(
+      `@iconPosition for "Hds::Link::Inline" must be one of the following: ${ICONPOSITIONS.join(
+        ', '
+      )}; received: ${iconPosition}`,
+      ICONPOSITIONS.includes(iconPosition)
+    );
+
+    return iconPosition;
   }
 
   /**
