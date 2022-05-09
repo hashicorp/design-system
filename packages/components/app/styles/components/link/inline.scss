@@ -22,7 +22,7 @@
 .hds-link-inline__icon {
   display: inline-block;
   height: 1em;
-  vertical-align: middle;
+  vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the
   width: 1em;
 
   &:first-child {
