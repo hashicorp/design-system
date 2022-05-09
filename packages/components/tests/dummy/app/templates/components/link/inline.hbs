@@ -1,0 +1,350 @@
+{{page-title "Link::Inline component"}}
+
+<h2 class="dummy-h2">
+  Link::Inline
+</h2>
+
+<DummyLinkCtaButtonBanner />
+
+<section>
+  <h3 class="dummy-h3">
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Link::Inline</code>
+    component handles the generation of:</p>
+  <ul>
+    <li class="dummy-paragraph">an HTML anchor element
+      <code class="dummy-code">&lt;a&gt;</code>
+      that points to an external URL (when using a
+      <code class="dummy-code">@href</code>
+      argument)</li>
+    <li class="dummy-paragraph">an
+      <a
+        href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Ember component</a>
+      <code class="dummy-code">&lt;LinkTo&gt;</code>
+      that points to an internal application link or resource (when using a
+      <code class="dummy-code">@route</code>
+      argument)
+    </li>
+  </ul>
+  <h4 class="dummy-h5">Why it's called "inline"</h4>
+  <p class="dummy-paragraph">
+    A
+    <strong>"Link Inline"</strong>
+    is a link that's used in within a body of text.
+  </p>
+
+  <h5 class="dummy-h6">Example of Link (Inline):</h5>
+  <div class="dummy-example">
+    <p class="dummy-paragraph">Here's a
+      <Hds::Link::Inline @href="#">Link (Inline)</Hds::Link::Inline>
+      that is inline with adjacent text. And this is
+      <Hds::Link::Inline @href="#">another Link (Inline)</Hds::Link::Inline></p>
+  </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3">
+    Component API
+  </h3>
+  <p class="dummy-paragraph">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props">
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children are yielded to the content of the
+        <code>&lt;a&gt;</code>
+        HTML element.</p>
+    </dd>
+    <dt>href</dt>
+    <dd>
+      <p>This is the URL parameter that is passed down to the
+        <code>&lt;a&gt;</code>
+        element.</p>
+    </dd>
+    <dt>isHrefExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>This controls if the
+        <code>&lt;a&gt;</code>
+        link is external and so for security reasons we need to add the
+        <code>target="_blank"</code>
+        and
+        <code>rel="noopener noreferrer"</code>
+        attributes to it.</p>
+    </dd>
+    <dt>route/models/model/query/current-when/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code>&lt;LinkTo/LinkToExternal&gt;</code>
+        component. For more details about these parameters see the
+        <a
+          href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Ember documentation</a>
+        or the
+        <a
+          href="https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/input?anchor=LinkTo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >LinkTo component API specs</a>.</p>
+    </dd>
+    <dt>isRouteExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>This controls if the "LinkTo" is external to the Ember engine (<a
+          href="https://ember-engines.com/docs/link-to-external"
+          target="_blank"
+          rel="noopener noreferrer"
+        >more details here</a>) in which case it will use a
+        <code>&lt;LinkToExternal&gt;</code>
+        instead of a simple
+        <code>&lt;LinkTo&gt;</code>
+        for the @route.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3">Usage</h3>
+
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">The most basic invocation requires some content to be passed as children and one of the two
+    <code class="dummy-code">@href</code>
+    or
+    <code class="dummy-code">@route</code>
+    arguments (for details on how URLs and routing are handled see below).</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Inline @href="...">Watch tutorial video</Hds::Link::Inline>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Inline @href="...">Watch tutorial video</Hds::Link::Inline>
+
+  <h5 class="dummy-h5">Styling</h5>
+  <p class="dummy-paragraph"><strong>Important</strong>: the only CSS styling applied to the component is to handle the
+    two available colors (see below) and their values depending on the interaction states (eg.
+    <em>hover, focus, active</em>). All the other properties, expecially the font styling, are inherited from the parent
+    container, mimicking the default behaviour of the
+    <code class="dummy-code">&lt;a&gt;</code>
+    HTML element.</p>
+
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">
+    There are two available colors for a Link (Inline):
+    <code class="dummy-code">primary</code>
+    and
+    <code class="dummy-code">secondary</code>. The default is
+    <code class="dummy-code">primary</code>. To use a different color, declare another value for
+    <code class="dummy-code">@color</code>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Inline @color="primary" @href="...">Read tutorial</Hds::Link::Inline>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Inline @color="primary" @href="...">Read tutorial</Hds::Link::Inline>
+  <br />
+  <Hds::Link::Inline @color="secondary" @href="...">Read tutorial</Hds::Link::Inline>
+
+  <h4 class="dummy-h4">URLs and routes handling</h4>
+  <p class="dummy-paragraph">You can generate an inline link passing a
+    <code class="dummy-code">@href</code>
+    or a
+    <code class="dummy-code">@route</code>
+    to the component. If none of the two is provided, the component will throw an error.</p>
+  <p class="dummy-paragraph"><em>Notice: the
+      <code class="dummy-code">Link::Inline</code>
+      component internally uses the generic
+      <code class="dummy-code">Hds::Interactive</code>
+      component. For more details about how this low-level component works please refer to
+      <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</em></p>
+  <h5 class="dummy-h5">With @href</h5>
+  <p class="dummy-paragraph">If you pass a
+    <code class="dummy-code">@href</code>
+    argument a
+    <code class="dummy-code">&lt;a&gt;</code>
+    link will be generated:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Inline @href="https://www.hashicorp.com/request-demo/terraform">Request a demo</Hds::Link::Inline>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Inline @href="https://www.hashicorp.com/request-demo/terraform">Request a demo</Hds::Link::Inline>
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: when using the
+    <code class="dummy-code">@href</code>
+    argument the component adds by default the attributes
+    <code class="dummy-code">target="_blank"</code>
+    and
+    <code class="dummy-code">rel="noopener noreferrer"</code>
+    to the
+    <code class="dummy-code">&lt;a&gt;</code>
+    element (because this is the most common use case: internal links are generally handled using a
+    <code class="dummy-code">@route</code>
+    argument). If the
+    <code class="dummy-code">href</code>
+    points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass
+    <code class="dummy-code">@isHrefExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component and it will not add the
+    <code class="dummy-code">target</code>
+    and
+    <code class="dummy-code">rel</code>
+    attributes (but you can pass yours if needed, using the
+    <code class="dummy-code">...attributes</code>
+    spreading. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
+
+  <h5 class="dummy-h5">With @route</h5>
+  <p class="dummy-paragraph">If you pass a
+    <code class="dummy-code">@route</code>
+    argument a
+    <code class="dummy-code">&lt;a&gt;</code>
+    link will be generated using a
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    Ember component:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Inline @route="my.page.route" @model="my.page.model">Go to the index page</Hds::Link::Inline>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Inline @route="index">Go to the index page</Hds::Link::Inline>
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: if the route is external to your current engine you have to pass also
+    <code class="dummy-code">@isRouteExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component so that it will use
+    <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+    instead of a simple
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    for the
+    <code class="dummy-code">@route</code>. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo></p>
+  <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
+      <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
+      components are supported (eg.
+      <code class="dummy-code">models/model/query/current-when/replace</code>).</em></p>
+</section>
+
+<section>
+  <h3 class="dummy-h3">Design guidelines</h3>
+  <pre>TODO</pre>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3">Showcase</h3>
+  <p class="dummy-paragraph"><em>Notice: in the following examples we apply a
+      <code class="dummy-code">.hds-typography-body-300</code>
+      style to the text for presentation purpose.</em></p>
+
+  <h4 class="dummy-h4">Generated element</h4>
+
+  <div class="dummy-link-inline-generated-list">
+    <div>
+      <span class="dummy-text-small">with
+        <code class="dummy-code">@href</code>
+        ⇒
+        <code class="dummy-code">&lt;a&gt;</code></span>
+      <br />
+      <div class="hds-typography-body-300">
+        <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor</Hds::Link::Inline>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">with
+        <code class="dummy-code">@route</code>
+        ⇒
+        <code class="dummy-code">&lt;LinkTo&gt;</code>
+        ⇒
+        <code class="dummy-code">&lt;a&gt;</code></span>
+      <br />
+      <div class="hds-typography-body-300">
+        <Hds::Link::Inline @color="primary" @route="index">Lorem ipsum dolor</Hds::Link::Inline>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">Content</h4>
+
+  <div class="dummy-link-inline-content-list">
+    <div class="dummy-link-inline-content-list__item">
+      <span class="dummy-text-small">within text block</span>
+      <br />
+      <div class="hds-typography-body-300">
+        <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor sit amet</Hds::Link::Inline>, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+      </div>
+    </div>
+    <div class="dummy-link-inline-content-list__item">
+      <span class="dummy-text-small">span two lines</span>
+      <br />
+      <div class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet,
+        <Hds::Link::Inline @color="primary" @href="#">consectetur adipiscing elit</Hds::Link::Inline>, sed do eiusmod
+        tempor incididunt ut labore et dolore.
+      </div>
+    </div>
+    <div class="dummy-link-inline-content-list__item">
+      <span class="dummy-text-small">span two lines and overlaps</span>
+      <br />
+      <div class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet,
+        <Hds::Link::Inline @color="primary" @href="#">consectetur adipiscing elit, sed do eiusmod tempor</Hds::Link::Inline>
+        incididunt ut labore et dolore.
+      </div>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">
+    States
+  </h4>
+  <div class="dummy-link-inline-states-grid">
+    {{#each @model.COLORS as |color|}}
+      <h5 class="dummy-h5 dummy-link-inline-states-grid__title">{{capitalize color}}</h5>
+      {{#each @model.STATES as |state|}}
+        <div class="hds-typography-body-300">This is the
+          <Hds::Link::Inline
+            @color={{color}}
+            class="is-{{state}}"
+            @href="../components/link"
+          >{{state}}</Hds::Link::Inline>
+          state
+        </div>
+      {{/each}}
+    {{/each}}
+  </div>
+</section>

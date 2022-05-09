@@ -21,6 +21,7 @@ Router.map(function () {
     this.route('card');
     this.route('icon-tile');
     this.route('link', function () {
+      this.route('inline');
       this.route('standalone');
       this.route('cta');
     });
