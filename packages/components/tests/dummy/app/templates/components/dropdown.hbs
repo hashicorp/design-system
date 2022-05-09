@@ -153,9 +153,16 @@
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">ListItem::CopyItem</h4>
-  {{! TODO: add props here if we decide to use the current version }}
-  <p class="dummy-paragraph">[WIP]</p>
+  <h4 class="dummy-h4" id="api-listitem-copyitem">ListItem::CopyItem</h4>
+  <dl class="dummy-component-props" aria-labelledby="api-listitem-copyitem">
+    <dt>copyItemTitle <code>string</code></dt>
+    <dd>Optional. Provides a contextual title for the text to be copied.</dd>
+    <dt>text <code>string</code></dt>
+    <dd>
+      <p>The text to be copied.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
+    </dd>
+  </dl>
 
   <h4 class="dummy-h4">ListItem::Description</h4>
   <p class="dummy-paragraph" id="component-api-listitem-description">Here is the API for the "description" list item
@@ -483,10 +490,7 @@
           &lt;Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" /&gt;
         &lt;/dd.Generic&gt;
         &lt;dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" /&gt;
-        &lt;dd.CopyLabel  /&gt;
-        &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @text="HMAC Key" /&gt;
-        &lt;dd.Separator /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Docs: Import usage" @icon="docs-link" /&gt;
+        &lt;dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" /&gt;
       &lt;/Hds::Dropdown&gt;
     '
   />
