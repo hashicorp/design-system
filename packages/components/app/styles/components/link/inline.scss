@@ -1,0 +1,52 @@
+//
+// LINK > INLINE COMPONENT
+//
+// properties within each class are sorted alphabetically
+// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+//
+
+.hds-link-inline {
+  // TODO do we need to add something else here?
+  border-radius: 2px; // this is used by the outline too
+
+  &:focus,
+  &.is-focus,
+  &:focus-visible {
+    outline: 2px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
+  }
+}
+
+
+// COLORS & STATES
+
+.hds-link-inline--color-primary {
+  color: var(--token-color-foreground-action);
+
+  &:hover,
+  &.is-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active,
+  &.is-active {
+    color: var(--token-color-foreground-action-active);
+  }
+}
+
+.hds-link-inline--color-secondary {
+  color: var(--token-color-foreground-strong);
+
+  &:hover,
+  &.is-hover {
+    // TODO what color to use ???
+    color: var(--token-color-foreground-strong);
+  }
+
+  &:active,
+  &.is-active {
+    color: var(--token-color-foreground-primary);
+  }
+}
