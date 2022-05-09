@@ -99,7 +99,7 @@
   }
 
   > * + * {
-    margin-left: 16px;
+    margin-left: 8px;
   }
 }
 
@@ -182,14 +182,12 @@
     border-color: var(--token-color-border-strong); // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
   }
 
-  &.hds-alert--type-compact {
-    // special override by design
-    .hds-alert__icon {
-      color: var(--token-color-foreground-faint);
-    }
+  // different color by design
+  .hds-alert__icon {
+    color: var(--token-color-foreground-faint);
   }
 
-  .hds-alert__icon, .hds-alert__title {
+  .hds-alert__title {
     color: var(--token-color-foreground-primary);
   }
 }

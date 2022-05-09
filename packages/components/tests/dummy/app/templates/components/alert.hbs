@@ -701,13 +701,13 @@
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="neutral"
       @title="Without the dismiss button (default)"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     />
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="neutral"
       @title="With the dismiss button"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
@@ -715,7 +715,7 @@
     />
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="neutral"
       @icon=""
       @title="With the dismiss button and no icon"
       @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -723,7 +723,7 @@
     />
     <Hds::Alert
       @type="inline"
-      @color="critical"
+      @color="neutral"
       @description="With the dismiss button and no title"
       @onDismiss={{this.noop}}
     />
