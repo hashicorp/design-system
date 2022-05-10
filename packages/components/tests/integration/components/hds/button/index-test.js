@@ -183,6 +183,18 @@ module('Integration | Component | hds/button/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+    const errorMessage =
+      '@color for "Hds::Button" must be one of the following: primary, secondary, tertiary, critical; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Button @text="copy to clipboard" @color="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
     const errorMessage =
       '@size for "Hds::Button" must be one of the following: small, medium, large; received: tiny';
