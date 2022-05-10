@@ -65,7 +65,7 @@
   // we add very basic styling for elements that may be injected via the "description" string
 
   strong {
-    font-weight: var(--token-typography-font-weight-medium);
+    font-weight: var(--token-typography-font-weight-semibold);
   }
 
   code, pre {
