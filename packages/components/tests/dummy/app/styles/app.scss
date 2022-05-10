@@ -1,5 +1,6 @@
 @import '@hashicorp/design-system-components';
 
+@import "./layout";
 @import "./_typography";
 
 @import "./pages/db-badge";
@@ -20,6 +21,7 @@
 @import "./components/dummy-component-props";
 @import "./components/dummy-placeholder";
 @import "./components/dummy-link-cta-button-banner";
+@import "./components/dummy-toc";
 
 html {
     box-sizing: border-box;

@@ -1,0 +1,16 @@
+.dummy-with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dummy-with-sidebar > :first-child {
+  flex-basis: 12rem;
+  flex-grow: 1;
+}
+
+.dummy-with-sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 70%;
+}

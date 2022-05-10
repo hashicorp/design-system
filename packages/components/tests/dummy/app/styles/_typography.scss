@@ -27,6 +27,10 @@
     @include dummyFontSize(2.5rem);
     font-weight: 600;
     line-height: 1.2;
+    // the first one shouldn't have a top margin else it looks weird next to the sidebar
+    &:first-of-type {
+        margin-top: 0;
+    }
 }
 
 .dummy-h3 {
