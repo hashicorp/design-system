@@ -8,14 +8,14 @@
 //
 
 .hds-link-inline {
-  // TODO do we need to add something else here?
   border-radius: 2px; // this is used by the outline too
 
   &:focus,
   &.is-focus,
   &:focus-visible {
     outline: 2px solid var(--token-color-focus-action-external);
-    outline-offset: 1px;
+    outline-offset: 2px;
+    text-decoration: none;
   }
 }
 
@@ -56,12 +56,11 @@
 
   &:hover,
   &.is-hover {
-    // TODO what color to use ???
-    color: var(--token-color-foreground-strong);
+    color: var(--token-color-foreground-primary);
   }
 
   &:active,
   &.is-active {
-    color: var(--token-color-foreground-primary);
+    color: var(--token-color-foreground-strong);
   }
 }
