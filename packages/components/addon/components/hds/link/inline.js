@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_ICONPOSITION = 'leading';
+export const DEFAULT_ICONPOSITION = 'trailing';
 export const DEFAULT_COLOR = 'primary';
 export const ICONPOSITIONS = ['leading', 'trailing'];
 export const COLORS = ['primary', 'secondary'];
