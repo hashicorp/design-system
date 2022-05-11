@@ -127,7 +127,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
     assert.expect(5);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" href="#" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions a')
