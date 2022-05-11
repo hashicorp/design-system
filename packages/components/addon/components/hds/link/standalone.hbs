@@ -1,6 +1,17 @@
-{{! template-lint-disable link-href-attributes }}
-{{! we can disable this linting rule because the developer will add the html attribute themselves }}
-<a class={{this.classNames}} target="_blank" rel="noopener noreferrer" ...attributes>
+<Hds::Interactive
+  class={{this.classNames}}
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  target="_blank"
+  rel="noopener noreferrer"
+  ...attributes
+>
   {{#if (eq this.iconPosition "leading")}}
     <div class="hds-link-standalone__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
@@ -16,5 +27,4 @@
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{/if}}
-</a>
-{{! template-lint-enable link-href-attributes }}
+</Hds::Interactive>
