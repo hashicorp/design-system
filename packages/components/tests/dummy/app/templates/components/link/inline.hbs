@@ -44,7 +44,8 @@
     <p class="dummy-paragraph">Here's a
       <Hds::Link::Inline @href="#">Link (Inline)</Hds::Link::Inline>
       that is inline with adjacent text. And this is
-      <Hds::Link::Inline @href="#">another Link (Inline)</Hds::Link::Inline></p>
+      <Hds::Link::Inline @href="#" @icon="external-link" @iconPosition="trailing">another Link (Inline)</Hds::Link::Inline>
+      with an icon too.</p>
   </div>
 </section>
 
@@ -69,6 +70,18 @@
       <p>Elements passed as children are yielded to the content of the
         <code>&lt;a&gt;</code>
         HTML element.</p>
+    </dd>
+    <dt> icon <code>string</code></dt>
+    <dd>
+      <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
+    </dd>
+    <dt>iconPosition <code>enum</code></dt>
+    <dd>
+      <p>Positions the icon before or after the text. Acceptable values:</p>
+      <ol>
+        <li>leading</li>
+        <li class="default">trailing</li>
+      </ol>
     </dd>
     <dt>href</dt>
     <dd>
@@ -151,6 +164,46 @@
     container, mimicking the default behaviour of the
     <code class="dummy-code">&lt;a&gt;</code>
     HTML element.</p>
+
+  <h4 class="dummy-h4">Add an icon</h4>
+  <p class="dummy-paragraph">To add an icon to your inline link, give the
+    <code class="dummy-code">@icon</code>
+    a
+    <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
+    name:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Inline @href="..." @icon="external-link">Watch tutorial video</Hds::Link::Inline>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Inline @href="#" @icon="external-link">Watch tutorial video</Hds::Link::Inline>
+
+  <p class="dummy-paragraph"><em>Notice: since the
+      <code class="dummy-code">Hds::Link::Inline</code>
+      doesn't have an intrinsic size, the size of the icon is calculated proportionally (via
+      <code class="dummy-code">em</code>) in relation to the font-size of the text
+    </em>.</p>
+
+  <h4 class="dummy-h4">Icon position</h4>
+  <p class="dummy-paragraph">By default, if you define an icon, it is placed after the text. If you would like to
+    position the icon before the text, define
+    <code class="dummy-code">@iconPosition</code>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Inline @href="..." @icon="video" @iconPosition="leading">Watch tutorial video</Hds::Link::Inline>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Inline @href="#" @icon="video" @iconPosition="leading">Watch tutorial video</Hds::Link::Inline>
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -267,9 +320,9 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3">Showcase</h3>
-  <p class="dummy-paragraph"><em>Notice: in the following examples we apply a
-      <code class="dummy-code">.hds-typography-body-300</code>
-      style to the text for presentation purpose.</em></p>
+  <p class="dummy-paragraph"><em>Notice: in the following examples we apply
+      <code class="dummy-code">.hds-typography</code>
+      styles to the text for presentation purpose.</em></p>
 
   <h4 class="dummy-h4">Generated element</h4>
 
@@ -305,7 +358,7 @@
       <Hds::Link::Inline @color="primary" @href="#">Only text</Hds::Link::Inline>
     </div>
     <div class="hds-typography-body-300">
-      <Hds::Link::Inline @color="primary" @icon="globe" @href="#">Text + leading icon</Hds::Link::Inline>
+      <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">Text + leading icon</Hds::Link::Inline>
     </div>
     <div class="hds-typography-body-300">
       <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Text + trailing
@@ -315,7 +368,7 @@
   <br />
   <div class="hds-typography-body-100">
     Lorem
-    <Hds::Link::Inline @color="primary" @icon="globe" @href="#">ipsum dolor</Hds::Link::Inline>
+    <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
     sit amet
     <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
       adipiscing</Hds::Link::Inline>
@@ -323,7 +376,7 @@
   </div>
   <div class="hds-typography-body-200">
     Lorem
-    <Hds::Link::Inline @color="primary" @icon="globe" @href="#">ipsum dolor</Hds::Link::Inline>
+    <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
     sit amet
     <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
       adipiscing</Hds::Link::Inline>
@@ -331,7 +384,7 @@
   </div>
   <div class="hds-typography-body-300">
     Lorem
-    <Hds::Link::Inline @color="primary" @icon="globe" @href="#">ipsum dolor</Hds::Link::Inline>
+    <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
     sit amet
     <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
       adipiscing</Hds::Link::Inline>
