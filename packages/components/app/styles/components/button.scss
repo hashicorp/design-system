@@ -26,6 +26,7 @@ $hds-button-focus-border-width: 3px;
   position: relative;
   width: auto;
 
+  // we remove the underline when the rendered HTML element is an <a> link
   @at-root a#{&} {
     text-decoration: none;
     width: fit-content;
