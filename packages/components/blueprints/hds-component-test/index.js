@@ -1,12 +1,13 @@
 'use strict';
 
 const stringUtil = require('ember-cli-string-utils');
+const EmberRouterGenerator = require('ember-router-generator');
+const fs = require('fs');
 
 module.exports = {
   description: 'Generates tests for an HDS component',
 
   locals(options) {
-    // Return custom template variables here.
     return {
       columnizedModuleName: options.entity.name
         .split('/')
@@ -23,8 +24,7 @@ module.exports = {
     };
   },
 
-  fileMapTokens(options) {
-    // Return custom tokens to be replaced in your files paths
+  fileMapTokens() {
     return {
       // prepend `db-` to the file name
       __dummyCSSFileName__(options) {
@@ -34,4 +34,17 @@ module.exports = {
       },
     };
   },
+
+  afterInstall(options) {
+    updateRouter.call(this, options);
+  },
 };
+
+function updateRouter(options) {
+  const newRouteToAdd = `components/${options.entity.name}`; // we prefix all the component routes with "components"
+  const routerFilePath = `${options.project.root}/tests/dummy/app/router.js`;
+  let source = fs.readFileSync(routerFilePath, 'utf-8');
+  let oldRoutes = new EmberRouterGenerator(source);
+  let newRoutes = oldRoutes['add'](newRouteToAdd, options);
+  fs.writeFileSync(routerFilePath, newRoutes.code());
+}

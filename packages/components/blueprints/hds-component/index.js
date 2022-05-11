@@ -6,7 +6,6 @@ module.exports = {
   description: 'Generates all files for an HDS component',
 
   locals(options) {
-    // Return custom template variables here.
     return {
       columnizedModuleName: options.entity.name
         .split('/')
@@ -21,9 +20,5 @@ module.exports = {
         .map((part) => stringUtil.dasherize(part).toUpperCase())
         .join(' > '),
     };
-  },
-
-  afterInstall(options) {
-    // console.log('AAAAA', options);
   },
 };
