@@ -1,3 +1,4 @@
+{{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
 <Hds::Interactive
   class={{this.classNames}}
   @current-when={{@current-when}}
@@ -10,6 +11,4 @@
   target="_blank"
   rel="noopener noreferrer"
   ...attributes
->
-  {{yield}}
-</Hds::Interactive>
+>{{yield}}</Hds::Interactive>
