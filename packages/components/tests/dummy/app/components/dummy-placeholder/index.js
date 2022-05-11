@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 
 export default class DummyPlaceholderIndexComponent extends Component {
   /**
@@ -51,6 +52,6 @@ export default class DummyPlaceholderIndexComponent extends Component {
       styles.push(`background: ${this.args.background}`);
     }
 
-    return styles.length > 0 ? styles.join('; ') : undefined;
+    return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 }

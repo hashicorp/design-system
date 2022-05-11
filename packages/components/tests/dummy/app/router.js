@@ -15,10 +15,12 @@ Router.map(function () {
     this.route('focus-ring');
   });
   this.route('components', function () {
+    this.route('alert');
     this.route('badge');
     this.route('breadcrumb');
     this.route('button');
     this.route('card');
+    this.route('dropdown');
     this.route('icon-tile');
     this.route('link', function () {
       this.route('standalone');
@@ -27,7 +29,7 @@ Router.map(function () {
     this.route('link-to', function () {
       this.route('cta');
     });
-    this.route('dropdown');
+    this.route('toast');
   });
   this.route('content', function () {
     this.route('writing-guidelines');
