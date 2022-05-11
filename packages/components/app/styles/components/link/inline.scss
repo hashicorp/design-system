@@ -19,6 +19,21 @@
   }
 }
 
+.hds-link-inline__icon {
+  display: inline-block;
+  height: 1em;
+  vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
+  width: 1em;
+
+  .hds-link-inline--icon-leading > & {
+    margin-right: 0.25em;
+  }
+
+  .hds-link-inline--icon-trailing > &  {
+    margin-left: 0.25em;
+  }
+}
+
 
 // COLORS & STATES
 
