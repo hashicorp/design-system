@@ -26,6 +26,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/foundations/focus-ring');
     await percySnapshot('FocusRing');
 
+    await visit('/components/alert');
+    await percySnapshot('Alert');
+
     await visit('/components/badge');
     await percySnapshot('Badge');
 
@@ -53,8 +56,8 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
-    await visit('/components/link-to/standalone');
-    await percySnapshot('LinkTo Standalone');
+    await visit('/components/toast');
+    await percySnapshot('Toast');
 
     assert.ok(true);
   });

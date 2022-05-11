@@ -5,6 +5,7 @@
 @use "helpers/focus-ring";
 @use "helpers/typography";
 
+@use "../components/alert";
 @use "../components/badge";
 @use "../components/badge-count";
 @use "../components/breadcrumb";
@@ -16,6 +17,7 @@
 @use "../components/link/cta";
 @use "../components/link/inline";
 @use "../components/link/standalone";
+@use "../components/toast";
 
 .sr-only {
 	border: 0 !important;

@@ -1,6 +1,6 @@
 // LINK > STANDALONE
 
-.dummy-link-base-sample {
+.dummy-link-standalone-base-sample {
     align-items: flex-start;
     display: flex;
     gap: 0.5rem;
@@ -11,11 +11,17 @@
 
 }
 
-.dummy-link-max-width-container {
+.dummy-link-standalone-max-width-container {
     width: 200px;
 }
 
-.dummy-link-states-grid {
+.dummy-link-standalone-generated-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dummy-link-standalone-states-grid {
     display: grid;
     grid-gap: 0.5rem;
     grid-template-columns: repeat(4, 1fr);;
@@ -23,7 +29,7 @@
     padding: 0;
     width: fit-content;
 
-    .dummy-link-states-grid__title {
+    .dummy-link-standalone-states-grid__title {
         grid-column: 1 / 5;
     }
 }
