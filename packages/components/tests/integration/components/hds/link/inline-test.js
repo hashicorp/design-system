@@ -9,7 +9,7 @@ module('Integration | Component | hds/link/inline', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the link(inline)', async function (assert) {
+  test('it renders the component', async function (assert) {
     await render(hbs`<Hds::Link::Inline @href="/" />`);
     assert.dom(this.element).exists();
   });
@@ -20,9 +20,26 @@ module('Integration | Component | hds/link/inline', function (hooks) {
     assert.dom('#test-link').hasClass('hds-link-inline');
   });
 
+  // ICON
+
+  test('it should render the icon in the trailing position by default', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Link::Inline @href="/" @icon="film" id="test-link">watch video</Hds::Link::Inline>`
+    );
+    assert.dom('#test-link .hds-link-inline__icon').exists();
+    assert.dom('#test-link ').hasClass('hds-link-inline--icon-trailing');
+  });
+  test('it should render the icon in the leading position if @iconPosition is set to leading', async function (assert) {
+    await render(
+      hbs`<Hds::Link::Inline @href="/" @icon="film" @iconPosition="leading" id="test-link">watch video</Hds::Link::Inline>`
+    );
+    assert.dom('#test-link ').hasClass('hds-link-inline--icon-leading');
+  });
+
   // COLOR
 
-  test('it should render the primary color as the default if no color is declared', async function (assert) {
+  test('it should render the primary color as the default if no @color prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Link::Inline @href="/" id="test-link">watch video</Hds::Link::Inline>`
     );
