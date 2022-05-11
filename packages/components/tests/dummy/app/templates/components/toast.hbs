@@ -186,10 +186,9 @@
 
   <h4 class="dummy-h4">Actions</h4>
   <p class="dummy-paragraph">Actions can optionally be passed into the component using one of the suggested
-    <code class="dummy-code">Button</code>,
-    <code class="dummy-code">Link::Standalone</code>
+    <code class="dummy-code">Button</code>
     or
-    <code class="dummy-code">LinkTo::Standalone</code>
+    <code class="dummy-code">Link::Standalone</code>
     yielded components.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -198,7 +197,7 @@
     @code='
       <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss=\{{...}} as |A|>
         <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-        <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+        <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
       </Hds::Toast>
     '
   />
@@ -207,7 +206,7 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss={{this.noop}} as |A|>
     <A.Button @text="Your action" @color="secondary" />
-    <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+    <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
   </Hds::Toast>
 
   <h4 class="dummy-h4">Generic content</h4>
@@ -465,7 +464,7 @@
     >
       <A.Button @text="Secondary" @color="secondary" />
       <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-      <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
+      <A.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
     </Hds::Toast>
   </div>
 </section>
