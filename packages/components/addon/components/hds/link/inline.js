@@ -63,6 +63,9 @@ export default class HdsLinkInlineComponent extends Component {
     // add a class based on the @color argument
     classes.push(`hds-link-inline--color-${this.color}`);
 
+    // add a class based on the @iconPosition argument
+    classes.push(`hds-link-inline--icon-${this.iconPosition}`);
+
     return classes.join(' ');
   }
 }

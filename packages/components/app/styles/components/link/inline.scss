@@ -13,23 +13,23 @@
   &:focus,
   &.is-focus,
   &:focus-visible {
-    outline: 2px solid var(--token-color-focus-action-external);
-    outline-offset: 2px;
-    text-decoration: none;
+    outline: 2px solid var(--token-color-focus-action-internal);
+    outline-offset: 1px;
+    // text-decoration: none; // TBD with CVeight
   }
 }
 
 .hds-link-inline__icon {
   display: inline-block;
   height: 1em;
-  vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the
+  vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
   width: 1em;
 
-  &:first-child {
+  .hds-link-inline--icon-leading > & {
     margin-right: 0.25em;
   }
 
-  &:last-child {
+  .hds-link-inline--icon-trailing > &  {
     margin-left: 0.25em;
   }
 }
