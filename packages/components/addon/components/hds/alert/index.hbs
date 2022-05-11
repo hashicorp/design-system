@@ -1,0 +1,33 @@
+<div class={{this.classNames}} role="alert" aria-live="polite" ...attributes>
+  {{#if this.icon}}
+    <div class="hds-alert__icon">
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} @isInlineBlock={{false}} />
+    </div>
+  {{/if}}
+
+  <div class="hds-alert__content">
+    <div class="hds-alert__text">
+      {{#if @title}}
+        <div class="hds-alert__title">{{@title}}</div>
+      {{/if}}
+      {{#if @description}}
+        <div class="hds-alert__description">{{html-safe @description}}</div>
+      {{/if}}
+    </div>
+
+    <div class="hds-alert__actions">
+      {{yield
+        (hash
+          Button=(component "hds/button" size="small") Link::Standalone=(component "hds/link/standalone" size="small")
+        )
+      }}
+    </div>
+    {{yield (hash Generic=(component "hds/yield"))}}
+  </div>
+
+  {{#if this.onDismiss}}
+    <button class="hds-alert__dismiss" type="button" aria-label="Dismiss" {{on "click" this.onDismiss}}>
+      <FlightIcon @name="x" @size="16" @isInlineBlock={{false}} />
+    </button>
+  {{/if}}
+</div>

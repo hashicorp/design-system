@@ -1,0 +1,33 @@
+// TOAST
+
+.dummy-toast-base-sample {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dummy-toast-sample-grid {
+    align-items: start;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    &.dummy-toast-sample-grid--wide-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.dummy-toast-sample-custom-actions__actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.dummy-toast-sample-custom-actions__text {
+    @include dummyFontFamily();
+    @include dummyFontSize(0.8rem);
+    display: block;
+    color: #999;
+    margin-top: 1rem;
+}
