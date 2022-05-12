@@ -15,7 +15,7 @@
   &:focus-visible {
     outline: 2px solid var(--token-color-focus-action-internal);
     outline-offset: 1px;
-    // text-decoration: none; // TBD with CVeight
+    text-decoration: none;
   }
 }
 
