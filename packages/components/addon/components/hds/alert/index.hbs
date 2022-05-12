@@ -13,6 +13,7 @@
       {{#if @description}}
         <div class="hds-alert__description">{{html-safe @description}}</div>
       {{/if}}
+      {{yield (hash Description=(component "hds/alert/description"))}}
     </div>
 
     <div class="hds-alert__actions">
