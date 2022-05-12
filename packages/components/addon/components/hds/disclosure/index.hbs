@@ -3,6 +3,7 @@
   ...attributes
   {{did-insert this.didInsert}}
   {{on "focusout" this.onFocusOut}}
+  {{on "keyup" this.onKeyUp}}
 >
   <div class="hds-disclosure__toggle">
     {{yield (hash onClickToggle=this.onClickToggle isActive=this.isActive) to="toggle"}}

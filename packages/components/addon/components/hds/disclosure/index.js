@@ -32,6 +32,14 @@ export default class HdsDisclosureComponent extends Component {
   }
 
   @action
+  onKeyUp(event) {
+    if (event.key === 'Escape') {
+      this.deactivate();
+      this.toggleRef.focus();
+    }
+  }
+
+  @action
   deactivate() {
     if (this.isActive) {
       this.isActive = false;
