@@ -7,7 +7,5 @@ module.exports = {
     'no-html-comments': false,
     'no-trailing-spaces': true,
   },
-  ignore: [
-    'blueprints/**'
-  ]
+  ignore: ['blueprints/**'],
 };
