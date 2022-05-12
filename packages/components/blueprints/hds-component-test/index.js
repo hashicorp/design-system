@@ -9,18 +9,9 @@ module.exports = {
 
   locals(options) {
     return {
-      columnizedModuleName: options.entity.name
-        .split('/')
-        .map((part) => stringUtil.classify(part))
-        .join('::'),
-      kebabizedModuleName: options.entity.name
-        .split('/')
-        .map((part) => stringUtil.dasherize(part))
-        .join('-'),
-      folderizedModuleName: options.entity.name
-        .split('/')
-        .map((part) => stringUtil.dasherize(part).toUpperCase())
-        .join(' > '),
+      columnizedModuleName: getColumnizedModuleName(options.entity.name),
+      kebabizedModuleName: getKebabizedModuleName(options.entity.name),
+      folderizedModuleName: getFolderizedModuleName(options.entity.name),
     };
   },
 
@@ -28,9 +19,7 @@ module.exports = {
     return {
       // prepend `db-` to the file name
       __dummyCSSFileName__(options) {
-        const parts = options.dasherizedModuleName.split('/');
-        const fileName = parts.pop();
-        return `${parts.join('/')}/db-${fileName}`;
+        return getDummyCSSFileName(options.dasherizedModuleName);
       },
     };
   },
@@ -38,21 +27,21 @@ module.exports = {
   afterInstall(options) {
     updateDummyAppRouter.call(this, options);
     updateDummyAppCSS.call(this, options);
+    updateDummyAppIndexHBS.call(this, options);
   },
 };
 
-function updateDummyAppRouter(options) {
+const updateDummyAppRouter = (options) => {
   const newRouteToAdd = `components/${options.entity.name}`; // we prefix all the component routes with "components"
   const routerFilePath = `${options.project.root}/tests/dummy/app/router.js`;
   const source = fs.readFileSync(routerFilePath, 'utf-8');
   let oldRoutes = new EmberRouterGenerator(source);
   let newRoutes = oldRoutes['add'](newRouteToAdd, options);
   fs.writeFileSync(routerFilePath, newRoutes.code());
-}
+};
 
-function updateDummyAppCSS(options) {
-  const parts = options.entity.name.split('/');
-  const fileName = `db-${parts.pop()}`;
+const updateDummyAppCSS = (options) => {
+  const name = options.entity.name;
   const cssFilePath = `${options.project.root}/tests/dummy/app/styles/app.scss`;
   const source = fs.readFileSync(cssFilePath, 'utf-8');
   const oldLinesArray = source.split(/\r?\n/);
@@ -68,9 +57,7 @@ function updateDummyAppCSS(options) {
     firstComponentImportIndex,
     lastComponentImportIndex + 1
   );
-  importLinesArray.push(
-    `@import "./pages/${parts.concat([fileName]).join('/')}";`
-  );
+  importLinesArray.push(`@import "./pages/${getDummyCSSFileName(name)}";`);
   const newImportLinesArray = importLinesArray
     .filter((line, index, self) => self.indexOf(line) === index)
     .sort();
@@ -80,4 +67,58 @@ function updateDummyAppCSS(options) {
     oldLinesArray.slice(lastComponentImportIndex + 1)
   );
   fs.writeFileSync(cssFilePath, newLinesArray.join('\n'));
-}
+};
+
+const updateDummyAppIndexHBS = (options) => {
+  const name = options.entity.name;
+  const hbsFilePath = `${options.project.root}/tests/dummy/app/templates/index.hbs`;
+  let newListItemHTML = '';
+  newListItemHTML += '<!-- MOVE THIS HTML BLOCK IN THE RIGHT POSITION -->\n';
+  newListItemHTML += '<!-- (adjust component name & route if necessary) -->\n';
+  newListItemHTML += '<li class="dummy-paragraph">\n';
+  newListItemHTML += `  <LinkTo @route="components.${getRoutedModuleName(
+    name
+  )}">\n`;
+  newListItemHTML += `    ${getColumnizedModuleName(name)}\n`;
+  newListItemHTML += '  </LinkTo>\n';
+  newListItemHTML += '</li>\n';
+  fs.appendFileSync(hbsFilePath, `\n\n${newListItemHTML}\n`);
+};
+
+const getColumnizedModuleName = (name) => {
+  const columnizedModuleName = name
+    .split('/')
+    .map((part) => stringUtil.classify(part))
+    .join('::');
+  return columnizedModuleName;
+};
+
+const getKebabizedModuleName = (name) => {
+  const kebabizedModuleName = name
+    .split('/')
+    .map((part) => stringUtil.dasherize(part))
+    .join('-');
+  return kebabizedModuleName;
+};
+
+const getFolderizedModuleName = (name) => {
+  const folderizedModuleName = name
+    .split('/')
+    .map((part) => stringUtil.dasherize(part).toUpperCase())
+    .join(' > ');
+  return folderizedModuleName;
+};
+
+const getRoutedModuleName = (name) => {
+  const routedModuleName = name
+    .split('/')
+    .map((part) => stringUtil.dasherize(part))
+    .join('.');
+  return routedModuleName;
+};
+
+const getDummyCSSFileName = (name) => {
+  const parts = name.split('/');
+  const fileName = `db-${parts.pop()}`;
+  return `${parts.concat([fileName]).join('/')}`;
+};
