@@ -85,25 +85,14 @@
     <code class="dummy-code">enter/return</code>), clicking outside of the content, or via the
     <code class="dummy-code">esc</code>
     key.</p>
-  <p class="dummy-paragraph"><strong>Important:</strong></p>
-  <ul>
-    <li class="dummy-paragraph">
-      the
-      <code class="dummy-code">HDS::Disclosure</code>
-      component will trap the focus inside the "content" while it's open (we're using the
-      <a href="https://github.com/focus-trap/focus-trap" target="_blank" rel="noopener noreferrer">
-        <code class="dummy-code">
-          focus-trap</code>
-      </a>
-      library); at the moment we don't allow non-focusable content (it will trigger an error).
-    </li>
-    <li class="dummy-paragraph">the "content" is not positioned in any way in relation to the toggle: this
-      responsibility is left to the consumers (eg by applying a
-      <code class="dummy-code">position: absolute</code>
-      to a wrapper around the content that is passed to the
-      <code class="dummy-code">:content</code>
-      block).</li>
-  </ul>
+  <p class="dummy-paragraph">
+    <strong>Important:</strong>
+    The "content" is not positioned in any way in relation to the toggle: this responsibility is left to the consumers
+    (eg by applying a
+    <code class="dummy-code">position: absolute</code>
+    to a wrapper around the content that is passed to the
+    <code class="dummy-code">:content</code>
+    block).</p>
 </section>
 
 <section data-test-percy>
@@ -123,9 +112,7 @@
         </button>
       </:toggle>
       <:content>
-        <a href="#">
-          <DummyPlaceholder @text="some generic content here" @width="200" @height="90" @background="#FAFAFA" />
-        </a>
+        <DummyPlaceholder @text="some generic content here" @width="200" @height="90" @background="#FAFAFA" />
       </:content>
     </Hds::Disclosure>
   </div>
