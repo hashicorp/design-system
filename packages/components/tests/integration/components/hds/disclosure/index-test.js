@@ -9,13 +9,6 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-// we need to wait for the next event loop cycle after clicking the "toggle"
-// otherwise the test don't work (surely related to the focus-trap 'delayInitialFocus' parameter)
-// see https://github.com/focus-trap/focus-trap#createoptions
-// notice: you can use console.log(document.activeElement) to check which element has focus
-const waitNextExecutionFrame = () =>
-  new Promise((resolve) => setTimeout(resolve, 100));
-
 module('Integration | Component | hds/disclosure/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -73,7 +66,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
       </Hds::Disclosure>
     `);
     await triggerKeyEvent('button#test-disclosure-button', 'keydown', 'Enter');
-    // await waitNextExecutionFrame();
     // await waitFor('.hds-disclosure__content', { timeout: 2000 });
     assert.dom('.hds-disclosure__content').exists();
     assert.dom('a#test-disclosure-link').exists();
@@ -100,7 +92,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
       </Hds::Disclosure>
     `);
     await click('button#test-disclosure-button');
-    await waitNextExecutionFrame();
     // console.log('BBB', document.activeElement);
     assert.dom('a#test-disclosure-link-1').isFocused();
     await triggerKeyEvent('a#test-disclosure-link-1', 'keydown', 'Tab');
