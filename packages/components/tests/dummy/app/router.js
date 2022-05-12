@@ -21,6 +21,14 @@ Router.map(function () {
     this.route('button');
     this.route('card');
     this.route('dropdown');
+    this.route('form', function () {
+      this.route('textarea');
+      this.route('select');
+      this.route('checkbox');
+      this.route('toggle');
+      this.route('text-input');
+      this.route('radio');
+    });
     this.route('icon-tile');
     this.route('link', function () {
       this.route('standalone');
