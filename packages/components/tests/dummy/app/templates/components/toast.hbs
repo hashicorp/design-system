@@ -184,6 +184,76 @@
     @onDismiss={{this.noop}}
   />
 
+  <h4 class="dummy-h4" id="how-to-use-description">Description with structured content</h4>
+  <p class="dummy-paragraph">If the "description" block needs to contain logic, rich HTML or structured content it's
+    necessary to use the
+    <code class="dummy-code">Description</code>
+    contextual component.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Toast @color="success" @title="Title here" onDismiss=\{{...}} as |A|>
+        <A.Description>
+          The description can contain
+          \{{#if true}}conditional logic\{{/if}}, Ember components, and HTML tags, like
+          <strong>strong text</strong>,
+          <em>emphasized text</em>,
+          <code>HTML</code>,
+          <pre>pre</pre>,
+          <a href="#">inline</a>
+          <LinkTo @route="index">links</LinkTo>.
+        </A.Description>
+      </Hds::Toast>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Toast @color="success" @title="Title here" onDismiss={{this.noop}} as |A|>
+    <A.Description>
+      The description can contain
+      {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
+      <strong>strong text</strong>,
+      <em>emphasized text</em>,
+      <code>HTML</code>,
+      <pre>pre</pre>,
+      <a href="#">inline</a>
+      <LinkTo @route="index">links</LinkTo>.
+    </A.Description>
+  </Hds::Toast>
+  <p class="dummy-paragraph"><em>Notice: for a few simple HTML elements (like
+      <code class="dummy-code">strong</code>,
+      <code class="dummy-code">em</code>,
+      <code class="dummy-code">a</code>,
+      <code class="dummy-code">code/pre</code>) we apply styling. If you use other elements you will need to take care
+      of styling them accordingly.</em>
+  </p>
+  <p class="dummy-paragraph">You can pass more than one
+    <code class="dummy-code">D.Description</code>
+    contextual components to have multiple description lines.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Toast @color="success" @title="Title here" onDismiss=\{{...}} as |A|>
+        <A.Description>First line of description.</A.Description>
+        <A.Description>Second line of description.</A.Description>
+      </Hds::Toast>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Toast @color="success" @title="Title here" onDismiss={{this.noop}} as |A|>
+    <A.Description>First line of description.</A.Description>
+    <A.Description>Second line of description.</A.Description>
+  </Hds::Toast>
+
   <h4 class="dummy-h4">Actions</h4>
   <p class="dummy-paragraph">Actions can optionally be passed into the component using one of the suggested
     <code class="dummy-code">Button</code>,
@@ -408,41 +478,65 @@
 
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
-    <Hds::Toast
-      @color="success"
-      @title="A simple title"
-      @description="A simple description text"
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="success"
-      @title="A toast with a very long title and a long description text that should go on multiple lines"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast @color="success" @title="A toast with a title and no description text." @onDismiss={{this.noop}} />
-    <Hds::Toast
-      @color="success"
-      @description="A toast with no title and just a description text"
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="success"
-      @title="A toast with rich text description (HTML)"
-      @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="success"
-      @title="A toast with extra/custom content"
-      @description="In special cases, you can pass extra content to the toast using the <code>Generic</code> contextual component."
-      @onDismiss={{this.noop}}
-      as |A|
-    >
-      <A.Generic>
-        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </A.Generic>
-    </Hds::Toast>
+    <div class="dummy-toast-sample-grid__column">
+      <Hds::Toast
+        @color="success"
+        @title="A simple title"
+        @description="A simple description text"
+        @onDismiss={{this.noop}}
+      />
+      <Hds::Toast @color="success" @title="A toast with a title and no description text." @onDismiss={{this.noop}} />
+      <Hds::Toast
+        @color="success"
+        @description="A toast with no title and just a description text"
+        @onDismiss={{this.noop}}
+      />
+      <Hds::Toast
+        @color="success"
+        @title="A toast with a very long title and a long description text that should go on multiple lines"
+        @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
+        @onDismiss={{this.noop}}
+      />
+    </div>
+    <div class="dummy-toast-sample-grid__column">
+      <Hds::Toast @color="success" @title="A toast with a rich description (HTML)" @onDismiss={{this.noop}} as |A|>
+        <A.Description>Using the
+          <code>A.Description</code>
+          contextual component it's possible to have content that contains HTML tags, like
+          <strong>strong text</strong>
+          and
+          <em>emphasized text</em>
+          as well as
+          <code>code</code>,
+          <pre>pre</pre>
+          and
+          <a href="#">inline links</a>.</A.Description>
+      </Hds::Toast>
+      <Hds::Toast
+        @onDismiss={{this.noop}}
+        @color="success"
+        @title="Multiple lines of description using more than one 'description' contextual component"
+        as |A|
+      >
+        <A.Description>This is the first line of description, yielded to a
+          <code>A.Description</code>
+          contextual component.</A.Description>
+        <A.Description>And this is the second line of description, yielded to another
+          <code>A.Description</code>
+          contextual component.</A.Description>
+      </Hds::Toast>
+      <Hds::Toast
+        @color="success"
+        @title="A toast with extra/custom content"
+        @description="In special cases, you can pass extra content to the toast using the <code>A.Generic</code> contextual component."
+        @onDismiss={{this.noop}}
+        as |A|
+      >
+        <A.Generic>
+          <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+        </A.Generic>
+      </Hds::Toast>
+    </div>
   </div>
 
   <h4 class="dummy-h4">Actions</h4>
