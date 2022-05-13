@@ -69,14 +69,28 @@
   }
 
   code, pre {
-    font-family: var(--token-typography-font-stack-code);
+    background-color: var(--token-color-surface-primary);
+    border: 1px solid var(--token-color-palette-neutral-300);
+    border-radius: 5px;
+    display: inline;
+    font-family: var(--token-typography-code-100-font-family);
+    // font-size: var(--token-typography-code-100-font-size);
+    font-size: 0.9em; // TODO discuss with CVeight
+    line-height: 1em;
+    padding: 1px 5px;
   }
 
-  // Notice: in the future this may become a "Link::Inline" component (for now we declare the styles directly here)
+  // Notice: in the future this may become a "Link::Inline" component (for now we declare the exact same styles directly here)
   a {
     color: var(--token-color-foreground-action);
-    // At the moment the "focus" state is not well defined in design (the one that is in Figma does not work) so we just apply a simple color to the default outline
-    outline-color: var(--token-color-focus-action-external);
+
+    &:focus,
+    &.is-focus,
+    &:focus-visible {
+      outline: 2px solid var(--token-color-focus-action-internal);
+      outline-offset: 1px;
+      text-decoration: none;
+    }
 
     &:hover {
       color: var(--token-color-foreground-action-hover);
