@@ -144,6 +144,10 @@
     <dt>description <code>string</code></dt>
     <dd>
       <p>The description text in the alert.</p>
+      <p><em>Notice: this is intended for simple textual descriptions; if you need to put logic, rich HTML or structured
+          content inside the description, you can use the
+          <code class="dummy-code">A.Description</code>
+          contextual component (see below).</em></p>
     </dd>
     <dt>onDismiss <code>function</code></dt>
     <dd>
@@ -167,6 +171,26 @@
     <code class="dummy-code">Generic</code>
     keys.</p>
   <dl class="dummy-component-props" aria-labelledby="contextual-components-alert">
+    <dt>&lt;[A].Description&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the
+        <code class="dummy-code">"description"</code>
+        block (the content inherits its style). It accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+      <p>It can be used to pass content more complex than a simple string (eg. logic/conditionals, HTML elements, other
+        Ember components, etc.) inside the "description" block.</p>
+      <p><em>Notice: for a few simple HTML elements (like
+          <code class="dummy-code">strong</code>,
+          <code class="dummy-code">em</code>,
+          <code class="dummy-code">a</code>,
+          <code class="dummy-code">code/pre</code>) we apply styling. If you use other elements you will need to take
+          care of styling them accordingly.</em></p>
+      <p>🚨
+        <em><strong>Important</strong>: this is not intended to be a generic container for any possible type of content,
+          but a way to allow Ember logic inside the "description" block (and to retrofit existing alert elements in the
+          product codebase).</em></p>
+    </dd>
     <dt>&lt;[A].Button&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a yielded
@@ -226,6 +250,7 @@
 
   <p class="dummy-paragraph">
     For more details about how to invoke these contextual components see the sections
+    <a href="#how-to-use-description">"How to use > Description"</a>,
     <a href="#how-to-use-actions">"How to use > Actions"</a>
     and
     <a href="#how-to-use-generic">"How to use > Generic content"</a>
@@ -390,6 +415,76 @@
     @description="Description here"
     @onDismiss={{this.noop}}
   />
+
+  <h4 class="dummy-h4" id="how-to-use-description">Description with structured content</h4>
+  <p class="dummy-paragraph">If the "description" block needs to contain logic, rich HTML or structured content it's
+    necessary to use the
+    <code class="dummy-code">Description</code>
+    contextual component.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" @title="Title here" as |A|>
+        <A.Description>
+          The description can contain
+          \{{#if true}}conditional logic\{{/if}}, Ember components, and HTML tags, like
+          <strong>strong text</strong>,
+          <em>emphasized text</em>,
+          <code>HTML</code>,
+          <pre>pre</pre>,
+          <a href="#">inline</a>
+          <LinkTo @route="index">links</LinkTo>.
+        </A.Description>
+      </Hds::Alert>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" @title="Title here" as |A|>
+    <A.Description>
+      The description can contain
+      {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
+      <strong>strong text</strong>,
+      <em>emphasized text</em>,
+      <code>HTML</code>,
+      <pre>pre</pre>,
+      <a href="#">inline</a>
+      <LinkTo @route="index">links</LinkTo>.
+    </A.Description>
+  </Hds::Alert>
+  <p class="dummy-paragraph"><em>Notice: for a few simple HTML elements (like
+      <code class="dummy-code">strong</code>,
+      <code class="dummy-code">em</code>,
+      <code class="dummy-code">a</code>,
+      <code class="dummy-code">code/pre</code>) we apply styling. If you use other elements you will need to take care
+      of styling them accordingly.</em>
+  </p>
+  <p class="dummy-paragraph">You can pass more than one
+    <code class="dummy-code">D.Description</code>
+    contextual components to have multiple description lines.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" @title="Title here" as |A|>
+        <A.Description>First line of description.</A.Description>
+        <A.Description>Second line of description.</A.Description>
+      </Hds::Alert>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" @title="Title here" as |A|>
+    <A.Description>First line of description.</A.Description>
+    <A.Description>Second line of description.</A.Description>
+  </Hds::Alert>
 
   <h4 class="dummy-h4" id="how-to-use-actions">Actions</h4>
   <p class="dummy-paragraph">Actions can optionally be passed to component using one of the suggested
@@ -631,32 +726,56 @@
 
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
-    <Hds::Alert @type="inline" @color="success" @title="A simple title" @description="A simple description text" />
-    <Hds::Alert
-      @type="inline"
-      @color="success"
-      @title="An alert with a very long title and a long description text that should go on multiple lines"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
-    />
-    <Hds::Alert @type="inline" @color="success" @title="An alert with just a title and no description text." />
-    <Hds::Alert @type="inline" @color="success" @description="An alert with no title and just a description text" />
-    <Hds::Alert
-      @type="inline"
-      @color="success"
-      @title="An alert with rich text description (HTML)"
-      @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="success"
-      @title="An alert with extra/custom content"
-      @description="In special cases, you can pass extra content to the alert using the <code>Generic</code> contextual component."
-      as |A|
-    >
-      <A.Generic>
-        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </A.Generic>
-    </Hds::Alert>
+    <div class="dummy-alert-sample-grid__column">
+      <Hds::Alert @type="inline" @color="success" @title="A simple title" @description="A simple description text" />
+      <Hds::Alert @type="inline" @color="success" @title="An alert with just a title and no description text." />
+      <Hds::Alert @type="inline" @color="success" @description="An alert with no title and just a description text" />
+      <Hds::Alert
+        @type="inline"
+        @color="success"
+        @title="An alert with a very long title and a long description text that should go on multiple lines"
+        @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
+      />
+    </div>
+    <div class="dummy-alert-sample-grid__column">
+      <Hds::Alert @type="inline" @color="success" @title="An alert with a rich description (HTML)" as |A|>
+        <A.Description>Using the
+          <code>A.Description</code>
+          contextual component it's possible to have content that contains HTML tags, like
+          <strong>strong text</strong>
+          and
+          <em>emphasized text</em>
+          as well as
+          <code>code</code>,
+          <pre>pre</pre>
+          and
+          <a href="#">inline links</a>.</A.Description>
+      </Hds::Alert>
+      <Hds::Alert
+        @type="inline"
+        @color="success"
+        @title="Multiple lines of description using more than one 'description' contextual component"
+        as |A|
+      >
+        <A.Description>This is the first line of description, yielded to a
+          <code>A.Description</code>
+          contextual component.</A.Description>
+        <A.Description>And this is the second line of description, yielded to another
+          <code>A.Description</code>
+          contextual component.</A.Description>
+      </Hds::Alert>
+      <Hds::Alert
+        @type="inline"
+        @color="success"
+        @title="An alert with extra/custom content"
+        @description="In special cases, you can pass extra content to the alert using the <code>A.Generic</code> contextual component."
+        as |A|
+      >
+        <A.Generic>
+          <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+        </A.Generic>
+      </Hds::Alert>
+    </div>
   </div>
 
   <h4 class="dummy-h4">Actions</h4>
