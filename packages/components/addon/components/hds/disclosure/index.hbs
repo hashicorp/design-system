@@ -6,7 +6,7 @@
   {{on "focusout" this.onFocusOut}}
   {{on "keyup" this.onKeyUp}}
 >
-  <div class="hds-disclosure__toggle">
+  <div class="hds-disclosure__toggle" tabindex="-1">
     {{yield (hash onClickToggle=this.onClickToggle isActive=this.isActive) to="toggle"}}
   </div>
   {{#if this.isActive}}

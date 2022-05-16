@@ -19,6 +19,8 @@ export default class HdsDisclosureComponent extends Component {
       this.toggleRef = event.currentTarget;
     }
     this.isActive = !this.isActive;
+    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see b8abfcf)
+    this.toggleRef.focus();
   }
 
   @action
