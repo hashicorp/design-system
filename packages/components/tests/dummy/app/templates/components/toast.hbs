@@ -436,70 +436,55 @@
   <h4 class="dummy-h4">Color</h4>
   <div class="dummy-toast-base-sample">
     {{#each @model.COLORS as |color|}}
-      <Hds::Toast
-        @color={{color}}
-        @title={{capitalize color}}
-        @description="This is the toast with <em>{{color}}</em> color."
-        @onDismiss={{this.noop}}
-      />
+      <Hds::Toast @color={{color}} @onDismiss={{this.noop}} as |A|>
+        <A.Title>{{capitalize color}}</A.Title>
+        <A.Description>This is the toast with <em>{{color}}</em> color.</A.Description>
+      </Hds::Toast>
     {{/each}}
   </div>
 
   <h4 class="dummy-h4">Icon</h4>
   <div class="dummy-toast-base-sample">
-    <Hds::Toast
-      @color="highlight"
-      @title="Default icon"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="highlight"
-      @icon="meh"
-      @title="With icon override"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="highlight"
-      @icon="running"
-      @title="With animated icon"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="highlight"
-      @icon=""
-      @title="Without icon"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
+    <Hds::Toast @color="highlight" @onDismiss={{this.noop}} as |A|>
+      <A.Title>Default icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @icon="meh" @onDismiss={{this.noop}} as |A|>
+      <A.Title>With icon override</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @icon="running" @onDismiss={{this.noop}} as |A|>
+      <A.Title>With animated icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @icon="" @onDismiss={{this.noop}} as |A|>
+      <A.Title>Without icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Toast>
   </div>
 
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
     <div class="dummy-toast-sample-grid__column">
-      <Hds::Toast
-        @color="success"
-        @title="A simple title"
-        @description="A simple description text"
-        @onDismiss={{this.noop}}
-      />
-      <Hds::Toast @color="success" @title="A toast with a title and no description text." @onDismiss={{this.noop}} />
-      <Hds::Toast
-        @color="success"
-        @description="A toast with no title and just a description text"
-        @onDismiss={{this.noop}}
-      />
-      <Hds::Toast
-        @color="success"
-        @title="A toast with a very long title and a long description text that should go on multiple lines"
-        @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
-        @onDismiss={{this.noop}}
-      />
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |A|>
+        <A.Title>A simple title</A.Title>
+        <A.Description>A simple description text</A.Description>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |A|>
+        <A.Title>A toast with a title and no description text.</A.Title>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |A|>
+        <A.Description>A toast with no title and just a description text</A.Description>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |A|>
+        <A.Title>A toast with a very long title and a long description text that should go on multiple lines</A.Title>
+        <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna
+          eget, porttitor lobortis nulla.</A.Description>
+      </Hds::Toast>
     </div>
     <div class="dummy-toast-sample-grid__column">
-      <Hds::Toast @color="success" @title="A toast with a rich description (HTML)" @onDismiss={{this.noop}} as |A|>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |A|>
+        <A.Title>A toast with a rich description (HTML)</A.Title>
         <A.Description>Using the
           <code>A.Description</code>
           contextual component it's possible to have content that contains HTML tags, like
@@ -512,12 +497,8 @@
           and
           <a href="#">inline links</a>.</A.Description>
       </Hds::Toast>
-      <Hds::Toast
-        @onDismiss={{this.noop}}
-        @color="success"
-        @title="Multiple lines of description using more than one 'description' contextual component"
-        as |A|
-      >
+      <Hds::Toast @onDismiss={{this.noop}} @color="success" as |A|>
+        <A.Title>Multiple lines of description using more than one 'description' contextual component</A.Title>
         <A.Description>This is the first line of description, yielded to a
           <code>A.Description</code>
           contextual component.</A.Description>
@@ -525,13 +506,11 @@
           <code>A.Description</code>
           contextual component.</A.Description>
       </Hds::Toast>
-      <Hds::Toast
-        @color="success"
-        @title="A toast with extra/custom content"
-        @description="In special cases, you can pass extra content to the toast using the <code>A.Generic</code> contextual component."
-        @onDismiss={{this.noop}}
-        as |A|
-      >
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |A|>
+        <A.Title>A toast with extra/custom content</A.Title>
+        <A.Description>In special cases, you can pass extra content to the toast using the
+          <code>A.Generic</code>
+          contextual component.</A.Description>
         <A.Generic>
           <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
         </A.Generic>
@@ -541,22 +520,14 @@
 
   <h4 class="dummy-h4">Actions</h4>
   <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
-    <Hds::Toast
-      @color="warning"
-      @title="Action passed as yielded component"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onDismiss={{this.noop}}
-      as |A|
-    >
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |A|>
+      <A.Title>Action passed as yielded component</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       <A.Button @text="Action" @color="secondary" />
     </Hds::Toast>
-    <Hds::Toast
-      @color="warning"
-      @title="With multiple actions passed as yielded components"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onDismiss={{this.noop}}
-      as |A|
-    >
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |A|>
+      <A.Title>With multiple actions passed as yielded components</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       <A.Button @text="Secondary" @color="secondary" />
       <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
       <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
