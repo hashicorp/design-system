@@ -537,7 +537,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @color="success" @title="Title here" as |A|>
+  <Hds::Alert @type="inline" @color="success" as |A|>
     <A.Title>Title here</A.Title>
     <A.Description>First line of description.</A.Description>
     <A.Description>Second line of description.</A.Description>
@@ -568,7 +568,9 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+  <Hds::Alert @type="inline" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
     <A.Generic>
       [your content here]
     </A.Generic>
