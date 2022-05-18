@@ -74,13 +74,12 @@
     border-radius: 5px;
     display: inline;
     font-family: var(--token-typography-code-100-font-family);
-    // font-size: var(--token-typography-code-100-font-size);
-    font-size: 0.9em; // TODO discuss with CVeight
+    font-size: 0.9em; // as discussed with designers, we reduce the size for optical/visual balance
     line-height: 1em;
     padding: 1px 5px;
   }
 
-  // Notice: in the future this may become a "Link::Inline" component (for now we declare the exact same styles directly here)
+  // Notice: in the future this may become a "Link::Inline" component (for now we declare directly the same styles here)
   a {
     color: var(--token-color-foreground-action);
 
