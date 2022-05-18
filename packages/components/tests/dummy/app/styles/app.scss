@@ -2,6 +2,8 @@
 
 @import "./_typography";
 
+// Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
+// START COMPONENT PAGES IMPORTS
 @import "./pages/db-alert";
 @import "./pages/db-badge";
 @import "./pages/db-breadcrumb";
@@ -20,6 +22,7 @@
 @import "./pages/db-toast";
 @import "./pages/db-tokens";
 @import "./pages/db-typography";
+// END COMPONENT PAGES IMPORTS
 
 @import "./components/dummy-component-props";
 @import "./components/dummy-placeholder";

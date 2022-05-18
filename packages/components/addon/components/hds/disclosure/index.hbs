@@ -1,16 +1,16 @@
-<div class="hds-disclosure" ...attributes>
-  <div class="hds-disclosure__toggle">
+{{! template-lint-disable no-invalid-interactive }}
+<div
+  class="hds-disclosure"
+  ...attributes
+  {{did-insert this.didInsert}}
+  {{on "focusout" this.onFocusOut}}
+  {{on "keyup" this.onKeyUp}}
+>
+  <div class="hds-disclosure__toggle" tabindex="-1">
     {{yield (hash onClickToggle=this.onClickToggle isActive=this.isActive) to="toggle"}}
   </div>
   {{#if this.isActive}}
-    <div
-      class="hds-disclosure__content"
-      {{focus-trap
-        isActive=this.isActive
-        shouldSelfFocus=true
-        focusTrapOptions=(hash clickOutsideDeactivates=this.clickOutsideDeactivates onDeactivate=this.onDeactivate)
-      }}
-    >
+    <div class="hds-disclosure__content" tabindex="-1">
       {{yield to="content"}}
     </div>
   {{/if}}
