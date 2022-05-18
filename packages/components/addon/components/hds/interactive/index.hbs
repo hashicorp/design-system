@@ -26,11 +26,11 @@
   {{! IMPORTANT: we can't support the direct use of the "href" HTML attribute via ...attributes, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
 {{else if @href}}
   {{#if this.isHrefExternal}}
-    <a target="_blank" rel="noopener noreferrer" ...attributes href={{@href}}>
+    <a target="_blank" rel="noopener noreferrer" ...attributes href={{@href}} {{on "keyup" this.onKeyUp}}>
       {{yield}}
     </a>
   {{else}}
-    <a ...attributes href={{@href}}>
+    <a ...attributes href={{@href}} {{on "keyup" this.onKeyUp}}>
       {{yield}}
     </a>
   {{/if}}
