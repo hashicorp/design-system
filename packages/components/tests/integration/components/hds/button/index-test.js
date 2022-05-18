@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -113,13 +113,6 @@ module('Integration | Component | hds/button/index', function (hooks) {
       hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
     );
     assert.dom('#test-button').hasAttribute('type', 'button');
-  });
-  // for some strange bug in "ember-lts-3.24" the type attribute is not overwritten by the "splattributes" (so this test fails in that scenario)
-  skip('it should have a custom type if @type is set', async function (assert) {
-    await render(
-      hbs`<Hds::Button @text="copy to clipboard" @type="submit" id="test-button" />`
-    );
-    assert.dom('#test-button').hasAttribute('type', 'submit');
   });
 
   // OTHER
