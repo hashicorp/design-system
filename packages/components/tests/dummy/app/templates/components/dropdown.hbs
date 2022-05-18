@@ -706,19 +706,20 @@
 <section>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
-    designed, there should not be any accessibility issues with this component.
+    recommended, there should not be any accessibility issues with this component.
   </p>
   <h4 class="dummy-h4">
-    Known Accessibility Issues
+    Known Potential Accessibility Issues
   </h4>
-  <p class="dummy-paragraph">The following are known accessibility issues, and developers should keep these in mind when
+  <p class="dummy-paragraph">The following are known potential issues, and developers should keep these in mind when
     implementing this component:</p>
   <ol class="dummy-list">
     <li>In any instance where data truncation occurs, there is no current method to access that data for the
-      keyboard-only user.</li>
-    <li>If the "overflow" toggle is used in the incorrect context, it will fail on perceivability. It must be used in
-      context. For the best user experience, interactive elements should visually present as interactive, unless their
-      context makes it clear that they are/should be interactive.</li>
+      keyboard-only user. Therefore, we do not recommend allowing data to be truncated within this component.</li>
+    <li>If the "overflow" toggle is used in the incorrect context, it will fail on perceivability. It must be used in in
+      the current recommended context of a data table. For the best user experience, interactive elements should
+      visually present as interactive, unless their context otherwise makes it clear that they are/should be
+      interactive.</li>
   </ol>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
