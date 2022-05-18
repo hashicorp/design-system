@@ -1,20 +1,13 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   click,
+  triggerEvent,
   triggerKeyEvent,
-  // waitFor,
   render,
   resetOnerror,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-
-// we need to wait for the next event loop cycle after clicking the "toggle"
-// otherwise the test don't work (surely related to the focus-trap 'delayInitialFocus' parameter)
-// see https://github.com/focus-trap/focus-trap#createoptions
-// notice: you can use console.log(document.activeElement) to check which element has focus
-const waitNextExecutionFrame = () =>
-  new Promise((resolve) => setTimeout(resolve, 100));
 
 module('Integration | Component | hds/disclosure/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -59,11 +52,13 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
     assert.dom('.hds-disclosure__content').exists();
     assert.dom('a#test-disclosure-link').exists();
   });
-  // TODO this doesn't work
-  skip('it should render the "content" when the "toggle" is activated via "enter"', async function (assert) {
-    assert.expect(2);
+
+  // ESCAPE KEY
+
+  test('it should hide the "content" when the "toggle" is deactivated via "Escape"', async function (assert) {
+    assert.expect(4);
     await render(hbs`
-      <Hds::Disclosure>
+      <Hds::Disclosure id="test-disclosure">
         <:toggle as |t|>
           <button type="button" id="test-disclosure-button" {{on "click" t.onClickToggle}} />
         </:toggle>
@@ -72,42 +67,33 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
         </:content>
       </Hds::Disclosure>
     `);
-    await triggerKeyEvent('button#test-disclosure-button', 'keydown', 'Enter');
-    // await waitNextExecutionFrame();
-    // await waitFor('.hds-disclosure__content', { timeout: 2000 });
+    await click('button#test-disclosure-button');
     assert.dom('.hds-disclosure__content').exists();
     assert.dom('a#test-disclosure-link').exists();
+    await triggerKeyEvent('#test-disclosure', 'keyup', 'Escape');
+    assert.dom('.hds-disclosure__content').doesNotExist();
+    assert.dom('a#test-disclosure-link').doesNotExist();
   });
 
-  // FOCUS
+  // FOCUS OUT
 
-  // TODO this doesn't work
-  // see https://github.com/emberjs/ember-test-helpers/issues/738
-  // https://discord.com/channels/480462759797063690/480523424121356298/842578755633545276
-  // https://github.com/emberjs/ember-test-helpers/issues/626
-  // https://discord.com/channels/480462759797063690/483601670685720591/831546103266148403
-  skip('it should trap the focus inside the "content" block', async function (assert) {
-    assert.expect(3);
+  test('it should hide the "content" when the focus is moved outside', async function (assert) {
+    assert.expect(4);
     await render(hbs`
-      <Hds::Disclosure>
+      <Hds::Disclosure id="test-disclosure">
         <:toggle as |t|>
           <button type="button" id="test-disclosure-button" {{on "click" t.onClickToggle}} />
         </:toggle>
         <:content>
-          <a id="test-disclosure-link-1" href="#">test1</a>
-          <a id="test-disclosure-link-2" href="#">test2</a>
+          <a id="test-disclosure-link" href="#">test</a>
         </:content>
       </Hds::Disclosure>
     `);
     await click('button#test-disclosure-button');
-    await waitNextExecutionFrame();
-    // console.log('BBB', document.activeElement);
-    assert.dom('a#test-disclosure-link-1').isFocused();
-    await triggerKeyEvent('a#test-disclosure-link-1', 'keydown', 'Tab');
-    // console.log('CCC', document.activeElement);
-    assert.dom('a#test-disclosure-link-2').isFocused();
-    await triggerKeyEvent('a#test-disclosure-link-2', 'keydown', 'Tab');
-    // console.log('DDD', document.activeElement);
-    assert.dom('a#test-disclosure-link-1').isFocused();
+    assert.dom('.hds-disclosure__content').exists();
+    assert.dom('a#test-disclosure-link').exists();
+    await triggerEvent('#test-disclosure', 'focusout');
+    assert.dom('.hds-disclosure__content').doesNotExist();
+    assert.dom('a#test-disclosure-link').doesNotExist();
   });
 });

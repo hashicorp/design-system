@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class HdsInteractiveComponent extends Component {
   /**
@@ -21,5 +22,12 @@ export default class HdsInteractiveComponent extends Component {
    */
   get isRouteExternal() {
     return this.args.isRouteExternal ?? false;
+  }
+
+  @action
+  onKeyUp(event) {
+    if (event.key === ' ' || event.code === 'Space') {
+      event.target.click();
+    }
   }
 }
