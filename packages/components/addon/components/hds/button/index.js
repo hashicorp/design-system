@@ -3,11 +3,9 @@ import { assert } from '@ember/debug';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
-export const DEFAULT_TYPE = 'button';
 export const DEFAULT_ICONPOSITION = 'leading';
 export const SIZES = ['small', 'medium', 'large'];
 export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
-export const TYPES = ['button', 'submit', 'reset'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
 export default class HdsButtonIndexComponent extends Component {
@@ -124,32 +122,6 @@ export default class HdsButtonIndexComponent extends Component {
     } else {
       return '16';
     }
-  }
-
-  /**
-   * @param type
-   * @type {string}
-   * @default button
-   * @description The value for the button's `type` attribute. Acceptable values are `button`, `submit`, and `reset`
-   */
-  get type() {
-    let { type = DEFAULT_TYPE } = this.args;
-
-    if (this.args.href || this.args.route) {
-      assert(
-        `@type for "Hds::Button" should be passed only to generate a <button> (you're passing @href or @route so this will generate a <a> link)`,
-        !this.args.type
-      );
-    } else {
-      assert(
-        `@type for "Hds::Button" must be one of the following: ${TYPES.join(
-          ', '
-        )}; received: ${type}`,
-        TYPES.includes(type)
-      );
-    }
-
-    return type;
   }
 
   /**

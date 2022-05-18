@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -114,13 +114,6 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert.dom('#test-button').hasAttribute('type', 'button');
   });
-  // for some strange bug in "ember-lts-3.24" the type attribute is not overwritten by the "splattributes" (so this test fails in that scenario)
-  skip('it should have a custom type if @type is set', async function (assert) {
-    await render(
-      hbs`<Hds::Button @text="copy to clipboard" @type="submit" id="test-button" />`
-    );
-    assert.dom('#test-button').hasAttribute('type', 'submit');
-  });
 
   // OTHER
 
@@ -152,33 +145,6 @@ module('Integration | Component | hds/button/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Button @icon="clipboard-copy" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-  // for some strange reasons in "ember-lts-3.24" this test fails
-  skip('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
-    const errorMessage =
-      '@type for "Hds::Button" must be one of the following: button, submit, reset; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Button @text="copy to clipboard" @type="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-  test('it should throw an assertion if @type is provided together with @href', async function (assert) {
-    const errorMessage =
-      '@type for "Hds::Button" should be passed only to generate a <button> (you\'re passing @href or @route so this will generate a <a> link)';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(
-      hbs`<Hds::Button @text="copy to clipboard" @href="#" @type="submit" />`
-    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
