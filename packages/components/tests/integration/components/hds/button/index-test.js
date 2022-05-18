@@ -156,33 +156,6 @@ module('Integration | Component | hds/button/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-  // for some strange reasons in "ember-lts-3.24" this test fails
-  skip('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
-    const errorMessage =
-      '@type for "Hds::Button" must be one of the following: button, submit, reset; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Button @text="copy to clipboard" @type="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-  test('it should throw an assertion if @type is provided together with @href', async function (assert) {
-    const errorMessage =
-      '@type for "Hds::Button" should be passed only to generate a <button> (you\'re passing @href or @route so this will generate a <a> link)';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(
-      hbs`<Hds::Button @text="copy to clipboard" @href="#" @type="submit" />`
-    );
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
   test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
     const errorMessage =
       '@color for "Hds::Button" must be one of the following: primary, secondary, tertiary, critical; received: foo';
