@@ -80,6 +80,19 @@
     - they're using native HTML <input>/<label> elements, no components
     - they have only 5/6 cases, and they're styled in the context of where they're used (not globally)
 }}
+{{! EMBER-EUI
+  - doc page: https://ember-eui.netlify.app/docs/core/docs/forms/form-controls/text-field
+  - doc page: https://elastic.github.io/eui/#/forms/form-controls#text-field
+  - https://github.com/prysmex/ember-eui/blob/master/packages/core/addon/components/eui-field-text/index.hbs
+    - they use a @controlOnly argument to allow consumers to generate just the simple "input", instead of the whole "field" (using the FormControlLayout, see below)
+    - the text field exposes these extra properties:
+      - fullWidth
+      - loading (the leading/trailing icon is a loading icon)
+      - prepend/append (named blocks?)
+    - internally it uses the FormControlLayout
+      - https://github.com/prysmex/ember-eui/blob/master/packages/core/addon/components/eui-form-control-layout/index.hbs
+        - it's the responsible for the prepend/append
+}}
 <input
     type={{this.type}}
     value={{@value}}
