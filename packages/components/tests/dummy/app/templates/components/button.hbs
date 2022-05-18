@@ -63,15 +63,6 @@
       <p>This indicates if the button will only contain an icon.</p>
       <p><em>Notice: an internal check is in place to ensure that accessible text is still applied to the component.</em></p>
     </dd>
-    <dt>type <code>enum</code></dt>
-    <dd>
-      <p>The value for the button's <em>type</em> attribute. Acceptable values:</p>
-      <ol>
-        <li class="default">button</li>
-        <li>submit</li>
-        <li>reset</li>
-      </ol>
-    </dd>
     <dt>isFullWidth <code>boolean</code></dt>
     <dd>
       <p>This indicates that a button should take up the full width of the parent container. The default is false.</p>
@@ -247,45 +238,6 @@
   <br />
   <Hds::Button @text="Large button" @size="large" @icon="clipboard-copy" />
 
-  <h4 class="dummy-h4">Type</h4>
-  <p class="dummy-paragraph">This is the native button attribute,
-    <code class="dummy-code">type</code>. There are three possible values:
-    <code class="dummy-code">button</code>,
-    <code class="dummy-code">submit</code>, and
-    <code class="dummy-code">reset</code>. If the button is used inside of a form, its
-    <code class="dummy-code">@type</code>
-    should be
-    <code class="dummy-code">submit</code>. The default for the button
-    <code class="dummy-code">@type</code>
-    is
-    <code class="dummy-code">button</code>. To use a different value, declare a different value for
-    <code class="dummy-code">@type</code>:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Submit" @type="submit" />
-    '
-  />
-  {{! prettier-ignore-end }}
-
-  <h4 class="dummy-h4">Disabled buttons</h4>
-  <p class="dummy-paragraph">To disable a button, manually add the native
-    <code class="dummy-code">disabled</code>
-    attribute:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" disabled />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" disabled />
-
   <h4 class="dummy-h4">Full-width</h4>
   <p class="dummy-paragraph">
     This allows indication that a button should take up the full-width of the parent container. It is set to
@@ -302,6 +254,40 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
+
+  <h4 class="dummy-h4">Type</h4>
+  <p class="dummy-paragraph">This is the native button attribute,
+    <code class="dummy-code">type</code>. There are three possible values:
+    <code class="dummy-code">button</code>,
+    <code class="dummy-code">submit</code>, and
+    <code class="dummy-code">reset</code>. The default
+    <code class="dummy-code">type</code>
+    for the button is
+    <code class="dummy-code">button</code>. If the button is used inside of a form, its
+    <code class="dummy-code">type</code>
+    should be
+    <code class="dummy-code">submit</code>. To use a different value, declare a different value for
+    <code class="dummy-code">type</code>:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Submit" type="submit" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><em>Notice: if you're passing a
+      <code class="dummy-code">@href</code>
+      or a
+      <code class="dummy-code">@route</code>
+      argument to the component, this will generate a
+      <code class="dummy-code">&lt;a&gt;</code>
+      link, not a
+      <code class="dummy-code">&lt;button&gt;</code>
+      (see below). In this case no
+      <code class="dummy-code">type</code>
+      is needed.</em></p>
 
   <h4 class="dummy-h4">Actions</h4>
   <p class="dummy-paragraph">
@@ -332,7 +318,7 @@
     <code class="dummy-code">@href</code>
     or a
     <code class="dummy-code">@route</code>
-    to the component.</p>
+    argument to the component.</p>
   <p class="dummy-paragraph"><em>Notice: the
       <code class="dummy-code">Hds::Button</code>
       component internally uses the generic
@@ -420,6 +406,31 @@
       <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
       components are supported (eg.
       <code class="dummy-code">models/model/query/current-when/replace</code>).</em></p>
+
+  <h4 class="dummy-h4">Disabled buttons</h4>
+  <p class="dummy-paragraph">To disable a button, manually add the native
+    <code class="dummy-code">disabled</code>
+    attribute:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Copy to clipboard" disabled />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Copy to clipboard" disabled />
+  <p class="dummy-paragraph"><em>Notice: since a
+      <code class="dummy-code">&lt;a&gt;</code>
+      link can't be disabled, if you're passing a
+      <code class="dummy-code">@href</code>
+      or a
+      <code class="dummy-code">@route</code>
+      argument to the component you will need to take care of intercepting the events in case you want to disable it.
+    </em></p>
+
 </section>
 
 <section>
