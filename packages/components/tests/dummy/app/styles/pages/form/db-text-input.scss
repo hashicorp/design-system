@@ -6,3 +6,14 @@
   grid-gap: 1rem;
   grid-template-columns: repeat(5, 1fr);
 }
+
+.dummy-form-text-input-states-grid {
+  align-items: start;
+  display: grid;
+  grid-gap: 0rem 1rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  .dummy-form-text-input-states-grid__title {
+    grid-column: 1 / 4;
+  }
+}

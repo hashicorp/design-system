@@ -31,8 +31,11 @@ const TYPES = [
 
 export default class ComponentsFormTextInputRoute extends Route {
   model() {
+    // these are used only for presentation purpose in the showcase
+    const STATES = ['default', 'readonly', 'disabled'];
     return {
       TYPES,
+      STATES,
     };
   }
 }

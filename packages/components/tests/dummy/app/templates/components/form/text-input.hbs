@@ -76,7 +76,7 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  <h4 class="dummy-h4">Type (native)</h4>
+  <h4 class="dummy-h4">Types (native)</h4>
   <div class="dummy-form-text-input-types-grid">
     {{#each @model.TYPES as |type|}}
       <div>
@@ -84,6 +84,25 @@
         <br />
         <Hds::Form::TextInput @type={{type}} @value={{type}} />
       </div>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">States</h4>
+  <div class="dummy-form-text-input-states-grid">
+    {{#each @model.TYPES as |type|}}
+      <p class="dummy-paragraph dummy-form-text-input-states-grid__title">{{capitalize type}}</p>
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{capitalize state}}:</span>
+          <br />
+          <Hds::Form::TextInput
+            @type={{type}}
+            @value={{type}}
+            disabled={{if (eq state "disabled") "disabled" undefined}}
+            readonly={{if (eq state "readonly") "readonly" undefined}}
+          />
+        </div>
+      {{/each}}
     {{/each}}
   </div>
 
