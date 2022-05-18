@@ -36,8 +36,49 @@
     - pds-touched=\{\{this.touched\}\}
     - \{\{on 'blur' this.onBlur once=true passive=true\}\}
 - For more details about validation in PDS/Structure see:
+
   - https://structure.hashicorp.vercel.app/?path=/story/guides-forms-validation--page
   - notice these dirty/touched validation are applied only to `text input` + `select` + `textarea`
+
+- Notice: for the documentation website (storybook) they've created a custom `Docs:FormField` component that puts together different pieces of code:
+  - https://github.com/hashicorp/structure/blob/main/packages/pds-ember/tests/dummy/app/components/docs/form-field/index.hbs
+  - https://github.com/hashicorp/structure/blob/dffbb0e0ae5246d3b832586ab25bcb981a052b30/packages/pds-ember/tests/integration/components/form-field/stories/index.stories.js#L31-L45
+  - https://structure.hashicorp.vercel.app/?path=/story/components-form-field--index
+
+## CLOUD UI
+
+Run a codemod to collect some stats, here's the results:
+
+Found 61 occurrencies of `<Pds::Input>` in 28 files
+
+- `@type` (55)
+  - [missing/default] (6)
+  - text (37)
+  - date (4)
+  - password (4)
+  - radio (3)
+  - time (3)
+  - url (2)
+  - checkbox (1)
+  - email (1)
+- `id` (52)
+- `name` (44)
+- `value` (58)
+- `placeholder` (12)
+- `@invalid` (44)
+- `autocomplet`e (4)
+- `checke`d (4)
+- `min` (3)
+- `max` (2)
+- `required` (10)
+- `disabled` (9)
+- `aria-describedby` (31)
+- `aria-labeledBy` (1)
+- `data-test-\*` (54)
+
+Found only 2 instances of `<input>` in 1 file
+
+GH search results too: https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AInput%20language%3AHandlebars%20repo%3Ahashicorp%2Fcloud-ui&scopeName=All%20repos&scope=
 
 ## CONSUL
 
@@ -84,8 +125,11 @@
 ## WAYPOINT
 
 - https://github.com/hashicorp/waypoint/tree/main/ui
-  - they're using native HTML <input>/<label> elements, no components
+  - they're using native HTML <input>/<label> elements (no custom components) plus four instances of `Pds::Input` (only with `@type=text`)
+    - https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AInput%20language%3AHandlebars%20repo%3Ahashicorp%2Fwaypoint
   - they have only 5/6 cases, and they're styled in the context of where they're used (not globally)
+
+(the PDS:: ob)
 
 ## EMBER-EUI
 
