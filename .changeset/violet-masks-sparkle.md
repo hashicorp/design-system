@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-added "description" as contextual component to the "Alert" and "Toast" components
+"Alert" and "Toast" components - converted "title" and "description" arguments to be contextual components
