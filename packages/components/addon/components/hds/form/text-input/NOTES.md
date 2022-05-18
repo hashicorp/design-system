@@ -2,6 +2,7 @@
 
 ## STRUCTURE
 
+- doc page: https://structure.hashicorp.vercel.app/?path=/story/components-input--index
 - https://github.com/hashicorp/structure/blob/dffbb0e0ae5246d3b832586ab25bcb981a052b30/packages/pds-ember/addon/components/pds/input/utils.js#L3-L25
   - They have multiple types of inputs, mapped to a "text-like" input or not
     - button: { like: 'button' },
@@ -100,21 +101,20 @@ GH search results too: https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AIn
   - https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/addon/components/rose/form/input/index.hbs
     - they use a @contextual argument to allow consumers to use a contentual component syntax for the input (see https://github.com/hashicorp/boundary-ui/blame/main/addons/rose/addon/components/rose/form/input/index.stories.mdx#L141-L153)
     - the component exposes the following props
-      - @type
-      - @name
-      - @value
-      - @label
-      - @helperText
-      - @link + @linkText
-      - @error
-      - @disabled
-      - @icon (always leading)
+      - `@type` - can be `text/email/number/password`
+      - `@name`
+      - `@value`
+      - `@label`
+      - `@helperText`
+      - `@link` + `@linkText`
+      - `@error`
+      - `@disabled`
+      - `@aria-describedby`
+      - `@icon` (always leading)
       - readonly (attr)
       - generates a UID internally (in JS backing class) used for "ID", "for", "aria-describedby"
   - https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/addon/components/rose/form/input/input/index.hbs
     - this is the "pure" input, and is located in a sub-folder (with same name as component, same for select or textarea)
-    - interestingly enough, they expose
-      - @aria-describedby (to be understood why is needed)
 
 ## ATLAS/TERRAFORM
 
@@ -125,11 +125,10 @@ GH search results too: https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AIn
 ## WAYPOINT
 
 - https://github.com/hashicorp/waypoint/tree/main/ui
-  - they're using native HTML <input>/<label> elements (no custom components) plus four instances of `Pds::Input` (only with `@type=text`)
+  - they're using native HTML <input>/<label> elements (no custom components)
+  - 4 instances of `Pds::Input` (only with `@type=text`)
     - https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AInput%20language%3AHandlebars%20repo%3Ahashicorp%2Fwaypoint
   - they have only 5/6 cases, and they're styled in the context of where they're used (not globally)
-
-(the PDS:: ob)
 
 ## EMBER-EUI
 
