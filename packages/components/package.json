@@ -40,7 +40,6 @@
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-sass": "^10.0.1",
-    "ember-focus-trap": "^1.0.1",
     "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
     "sass": "^1.43.4"
