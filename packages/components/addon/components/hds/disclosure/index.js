@@ -8,40 +8,47 @@ export default class HdsDisclosureComponent extends Component {
   @tracked isToggleClicked;
 
   @action
+  didInsert(element) {
+    this.element = element;
+  }
+
+  @action
   onClickToggle(event) {
     // we store a reference to the DOM node that has the "onClickToggle" event associated with it
     if (!this.toggleRef) {
       this.toggleRef = event.currentTarget;
     }
     this.isActive = !this.isActive;
+    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see b8abfcf)
+    this.toggleRef.focus();
   }
 
   @action
-  clickOutsideDeactivates(event) {
-    // we check if the toggle reference belongs to the tree of parent DOM nodes
-    // of the element that was clicked and triggered the "click outside" event handling
-    // notice: we use "event.composedPath" here because is now fully supported (see https://caniuse.com/?search=event%20path)
-    const path = event.composedPath();
-    this.isToggleClicked = path.includes(this.toggleRef);
-    // here we need to return `true` to make sure that the focus trap will be deactivated (and allow the click event to do its thing (i.e. to pass-through to the element that was clicked).
-    // see: https://github.com/focus-trap/focus-trap#createoptions
-    return true;
+  onFocusOut(event) {
+    if (
+      !event.relatedTarget || // click or tap a non-related target (e.g. outside the element)
+      !this.element.contains(event.relatedTarget) // move focus to a target outside the element
+    ) {
+      this.deactivate();
+    }
   }
 
   @action
-  onDeactivate() {
-    // on deactivate we hide the content, except for the case when the button has been clicked
-    // the reason is that the "onClickToggle" is called in any case (there's no way to block the event)
-    // so when the user clicks the toggle to close the panel, we let the "onClickToggle" handle the closure
-    // otherwise we would have two changes of status, this and the toggle, and the panel would remain open
-    if (!this.isToggleClicked) {
+  onKeyUp(event) {
+    if (event.key === 'Escape') {
+      this.deactivate();
+      this.toggleRef.focus();
+    }
+  }
+
+  @action
+  deactivate() {
+    if (this.isActive) {
       this.isActive = false;
-      // we need to reset this check
-      this.isToggleClicked = false;
-      // we call the "onClose" callback if it exists (and is a function)
-      if (this.args.onClose && typeof this.args.onClose === 'function') {
-        this.args.onClose();
-      }
+    }
+    // we call the "onClose" callback if it exists (and is a function)
+    if (this.args.onClose && typeof this.args.onClose === 'function') {
+      this.args.onClose();
     }
   }
 }

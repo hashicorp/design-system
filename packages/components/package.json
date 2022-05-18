@@ -40,7 +40,6 @@
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-sass": "^10.0.1",
-    "ember-focus-trap": "^1.0.1",
     "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
     "sass": "^1.43.4"
@@ -51,7 +50,7 @@
     "@embroider/test-setup": "^1.5.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "@percy/cli": "^1.0.1",
+    "@percy/cli": "^1.2.1",
     "@percy/ember": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
