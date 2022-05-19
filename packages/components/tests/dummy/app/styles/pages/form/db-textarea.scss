@@ -5,8 +5,4 @@
   display: grid;
   grid-gap: 0rem 1rem;
   grid-template-columns: repeat(3, 1fr);
-
-  .dummy-form-textarea-states-grid__title {
-    grid-column: 1 / 4;
-  }
 }

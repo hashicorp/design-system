@@ -61,8 +61,22 @@
   {{! ADD YOUR CONTENT HERE }}
 
   {{! This below is just an example of invocation, to get started }}
-  <Hds::Form::Select>
-    <option>This is the Hds::Form::Select component</option>
-  </Hds::Form::Select>
+
+  <h4 class="dummy-h4">States</h4>
+  <div class="dummy-form-select-states-grid">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::Select
+          disabled={{if (eq state "disabled") "disabled" undefined}}
+          readonly={{if (eq state "readonly") "readonly" undefined}}
+        >
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </Hds::Form::Select>
+      </div>
+    {{/each}}
+  </div>
 
 </section>
