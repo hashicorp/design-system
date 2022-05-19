@@ -24,10 +24,6 @@ Router.map(function () {
     this.route('icon-tile');
     this.route('link', function () {
       this.route('standalone');
-      this.route('cta');
-    });
-    this.route('link-to', function () {
-      this.route('cta');
     });
     this.route('toast');
   });

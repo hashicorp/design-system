@@ -26,6 +26,11 @@ $hds-button-focus-border-width: 3px;
   position: relative;
   width: auto;
 
+  // the <a> element behaves differently than a <button>
+  @at-root a#{&} {
+    width: fit-content;
+  }
+
   // This covers all of the browsers and focus scenarios (due to the custom focus design).
   &:disabled,
   &[disabled],
@@ -303,5 +308,25 @@ $size-props: (
     &::before {
       border-color: transparent;
     }
+  }
+}
+
+
+// SPECIAL
+
+// we apply a visual treatment to alert the developer if a "href" HTML attribute is used (instead of the "@href" Ember argument)
+
+button.hds-button[href] {
+  background-color: red !important;
+  color: white !important;
+  border: none;
+
+  .hds-button__text,
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    content: ' Attention: you’re passing a "href" attribute to the "Hds::Button" component, you should use an "@href" argument.';
   }
 }
