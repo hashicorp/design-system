@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.11.2
+
+### Patch Changes
+
+- [#301](https://github.com/hashicorp/design-system/pull/301) [`4976379e`](https://github.com/hashicorp/design-system/commit/4976379e1b080c7753ceee2affe8cadc053296e5) Thanks [@alex-ju](https://github.com/alex-ju)! - Convey the disclosure state to assistive tech for dropdown and truncated breadcrumbs
+
 ## 0.11.1
 
 ### Patch Changes
