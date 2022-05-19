@@ -1,0 +1,34 @@
+.dummy-app {
+  display: grid;
+  grid-template-areas: "header header"
+                       "nav nav"
+                       "aside  aside"
+                       "main main"
+                       "footer footer";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(auto);
+
+  @media screen and (min-width:40em) {
+    grid-template-areas: "header header"
+                         "nav nav"
+                         "aside main"
+                         "footer footer";
+  }
+
+}
+
+.dummy-header {
+  grid-area: "header";
+}
+.dummy-nav {
+  grid-area: "nav";
+}
+.dummy-aside {
+  grid-area: "aside";
+}
+.dummy-main {
+  grid-area: "main";
+}
+.dummy-footer {
+  grid-area: "footer";
+}
