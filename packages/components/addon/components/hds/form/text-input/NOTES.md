@@ -79,27 +79,29 @@ Found 61 occurrencies of `<Pds::Input>` in 28 files
 
 Found only 2 instances of `<input>` in 1 file
 
-GH search results too: https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AInput%20language%3AHandlebars%20repo%3Ahashicorp%2Fcloud-ui&scopeName=All%20repos&scope=
+GH search results: https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AInput%20language%3AHandlebars%20repo%3Ahashicorp%2Fcloud-ui&scopeName=All%20repos&scope=
 
 ## CONSUL
 
 - doc page: https://github.com/hashicorp/consul/tree/main/ui/packages/consul-ui/app/components/text-input
-- https://github.com/hashicorp/consul/blob/main/ui/packages/consul-ui/app/components/form-input/index.hbs
-- this contains the label, the "input" yielding, the helper text and the error text all in the same component
-- they are named blocks, so technically the "form-input" is a layout element, more of a generic container, than an "input" component
 - https://github.com/hashicorp/consul/blob/main/ui/packages/consul-ui/app/components/text-input/index.hbs
   - this is the actual "text-input" component
-    - the "input" exposes
+    - it exposes
       - an "onInput" callback
       - there is a "validate" modifier (see https://github.com/hashicorp/consul/blob/main/ui/packages/consul-ui/app/components/modifiers/validate.mdx)
     - it has @label, @name, @placeholder, @help
+- it uses the generic `<FormInput>` component under the hood
+  - https://github.com/hashicorp/consul/blob/main/ui/packages/consul-ui/app/components/form-input/index.hbs
+  - see https://consul-ui-staging-cjythooc7-hashicorp.vercel.app/ui/docs/components/form-input
+  - this contains the label, the "input" yielding, the helper text and the error text all in the same component
+  - they are named blocks, so technically the "form-input" is a layout element, more of a generic container, than an "input" component
 
 ## BOUNDARY/ROSE
 
 - doc page: https://boundary-ui-storybook.vercel.app/?path=/story/rose-form-input--basic-field
 - they have an interesting organization/architecture of code:
   - https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/addon/components/rose/form/input/index.hbs
-    - they use a @contextual argument to allow consumers to use a contentual component syntax for the input (see https://github.com/hashicorp/boundary-ui/blame/main/addons/rose/addon/components/rose/form/input/index.stories.mdx#L141-L153)
+    - they use a @contextual argument to allow consumers to use a contentual component syntax for the component invocation (see https://github.com/hashicorp/boundary-ui/blame/main/addons/rose/addon/components/rose/form/input/index.stories.mdx#L141-L153)
     - the component exposes the following props
       - `@type` - can be `text/email/number/password`
       - `@name`
@@ -126,7 +128,7 @@ GH search results too: https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AIn
 
 - https://github.com/hashicorp/waypoint/tree/main/ui
   - they're using native HTML <input>/<label> elements (no custom components)
-  - 4 instances of `Pds::Input` (only with `@type=text`)
+  - 4 instances of `<Pds::Input>` (only with `@type=text`)
     - https://cs.github.com/?q=org%3Ahashicorp%20%3CPds%3A%3AInput%20language%3AHandlebars%20repo%3Ahashicorp%2Fwaypoint
   - they have only 5/6 cases, and they're styled in the context of where they're used (not globally)
 

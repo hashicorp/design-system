@@ -22,8 +22,6 @@
 
 ## CLOUD UI
 
-Run a codemod to collect some stats, here's the results:
-
 Found 2 occurrencies of `<Pds::Textare>` in 2 files
 
 - `id` (1)
@@ -33,10 +31,11 @@ Found 2 occurrencies of `<Pds::Textare>` in 2 files
 
 Found no instances of `<textarea>`
 
-GH search results too: https://cs.github.com/?scopeName=All+repos&scope=&q=org%3Ahashicorp+%3CPds%3A%3ATextarea+language%3AHandlebars+repo%3Ahashicorp%2Fcloud-ui
+GH search results: https://cs.github.com/?scopeName=All+repos&scope=&q=org%3Ahashicorp+%3CPds%3A%3ATextarea+language%3AHandlebars+repo%3Ahashicorp%2Fcloud-ui
 
 ## CONSUL
 
+- no custom component for this
 - found only 5 instances using native <textarea> control
 - list of arguments passed to it:
   - `name`
@@ -46,6 +45,7 @@ GH search results too: https://cs.github.com/?scopeName=All+repos&scope=&q=org%3
   - `{{on 'input' ...}}` or `oninput`
   - `{{validate ...}}`
 
+
 GH search results: https://cs.github.com/?scopeName=All+repos&scope=&q=org%3Ahashicorp+%3Ctextarea+language%3AHandlebars+repo%3Ahashicorp%2Fconsul
 
 ## BOUNDARY/ROSE
@@ -53,7 +53,7 @@ GH search results: https://cs.github.com/?scopeName=All+repos&scope=&q=org%3Ahas
 - doc page: https://boundary-ui-storybook.vercel.app/?path=/story/rose-form-textarea--basic-textarea
 - they have an interesting organization/architecture of code:
   - https://github.com/hashicorp/boundary-ui/blob/main/addons/rose/addon/components/rose/form/textarea/index.hbs
-    - they use a @contextual argument to allow consumers to use a contentual component syntax for the input
+    - they use a @contextual argument to allow consumers to use a contentual component syntax for the component invocation
     - the component exposes the following props
       - `@name`
       - `@value`
