@@ -3,11 +3,11 @@
   @type="inline"
   @color={{@color}}
   @icon={{@icon}}
-  @title={{@title}}
-  @description={{@description}}
   @onDismiss={{@onDismiss}}
   ...attributes
   as |A|
 >
-  {{yield (hash Button=A.Button Link::Standalone=A.Link::Standalone Generic=A.Generic)}}
+  {{yield
+    (hash Title=A.Title Description=A.Description Button=A.Button Link::Standalone=A.Link::Standalone Generic=A.Generic)
+  }}
 </Hds::Alert>
