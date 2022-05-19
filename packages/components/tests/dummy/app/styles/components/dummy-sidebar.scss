@@ -54,6 +54,11 @@
     outline-offset: 4px;
     outline-color: blue;
   }
+  &:active {
+    background-color: aliceblue;
+    border-color: blue;
+    text-decoration: underline;
+  }
 
   .flight-icon {
     color: blue;
