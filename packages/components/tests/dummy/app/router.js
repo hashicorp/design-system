@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('dropdown');
     this.route('icon-tile');
     this.route('link', function () {
+      this.route('inline');
       this.route('standalone');
     });
     this.route('toast');

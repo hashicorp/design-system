@@ -44,6 +44,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
 
+    await visit('/components/link/inline');
+    await percySnapshot('Link Inline');
+
     await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
