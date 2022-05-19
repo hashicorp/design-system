@@ -2,7 +2,7 @@
   class={{this.classNames}}
   aria-label={{this.text}}
   ...attributes
-  aria-expanded={{this.expanded}}
+  aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
   type="button"
 >

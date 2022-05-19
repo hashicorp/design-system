@@ -71,14 +71,4 @@ export default class HdsDropdownToggleIconComponent extends Component {
 
     return classes.join(' ');
   }
-
-  /**
-   * Get the state of the toggle based on the @isOpen argument
-   * @method ToggleButton#expanded
-   * @default "false"
-   * @return {string} "true" when expanded, "false" when collapsed
-   */
-  get expanded() {
-    return this.args.isOpen ? 'true' : 'false';
-  }
 }
