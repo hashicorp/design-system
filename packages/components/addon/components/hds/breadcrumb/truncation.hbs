@@ -7,6 +7,7 @@
           {{if @hover 'is-hover'}}
           {{if @active 'is-active'}}
           {{if @focus 'is-focus'}}"
+        aria-expanded={{if t.isActive "true" "false"}}
         {{on "click" t.onClickToggle}}
       >
         <FlightIcon @name="more-horizontal" @size="16" @isInlineBlock={{false}} />
