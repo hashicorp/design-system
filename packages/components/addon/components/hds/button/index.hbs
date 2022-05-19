@@ -1,4 +1,16 @@
-<button class={{this.classNames}} ...attributes aria-label={{if this.isIconOnly this.text null}} type={{this.type}}>
+<Hds::Interactive
+  class={{this.classNames}}
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+  aria-label={{if this.isIconOnly this.text null}}
+>
   {{#if this.isIconOnly}}
     <div class="hds-button__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
@@ -26,4 +38,4 @@
       </div>
     {{/if}}
   {{/if}}
-</button>
+</Hds::Interactive>

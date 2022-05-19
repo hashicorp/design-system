@@ -22,9 +22,9 @@
   {{/if}}
 {{else if @href}}
   {{#if this.isHrefExternal}}
-    <a target="_blank" rel="noopener noreferrer" ...attributes href={{@href}}>{{yield}}</a>
+    <a target="_blank" rel="noopener noreferrer" ...attributes href={{@href}} {{on "keyup" this.onKeyUp}}>{{yield}}</a>
   {{else}}
-    <a ...attributes href={{@href}}>{{yield}}</a>
+    <a ...attributes href={{@href}} {{on "keyup" this.onKeyUp}}>{{yield}}</a>
   {{/if}}
 {{else}}
   <button type="button" ...attributes>

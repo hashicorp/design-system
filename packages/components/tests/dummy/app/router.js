@@ -25,10 +25,6 @@ Router.map(function () {
     this.route('link', function () {
       this.route('inline');
       this.route('standalone');
-      this.route('cta');
-    });
-    this.route('link-to', function () {
-      this.route('cta');
     });
     this.route('toast');
   });
