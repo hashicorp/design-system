@@ -17,9 +17,9 @@
     <dd>
       <p>Function that needs to be called by the interactive element to toggle the visibility of the content.</p>
     </dd>
-    <dt>[:toggle].isActive <code> tracked property</code></dt>
+    <dt>[:toggle].isOpen <code> tracked property</code></dt>
     <dd>
-      <p>Hook into this tracked property if you need to access the state of `isActive`.</p>
+      <p>Hook into this tracked property if you need to access the state of `isOpen`.</p>
     </dd>
     <dt>&lt;:content&gt; <code>named block</code></dt>
     <dd>
@@ -108,7 +108,7 @@
       <:toggle as |t|>
         <button type="button" {{on "click" t.onClickToggle}}>
           Click me
-          <FlightIcon @name={{if t.isActive "chevron-up" "chevron-down"}} />
+          <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
         </button>
       </:toggle>
       <:content>
