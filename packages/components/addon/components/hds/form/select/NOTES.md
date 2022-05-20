@@ -18,9 +18,9 @@
     - pds-dirty=\{\{this.dirty\}\}
     - pds-touched=\{\{this.touched\}\}
     - \{\{on 'blur' this.onBlur once=true passive=true\}\} - not sure why it's not onChange, maybe is better this way?
+- https://github.com/hashicorp/structure/blob/main/packages/pds-ember/addon/components/pds/select/facade.hbs
   - it uses a "facade" element to have custom styling of the root element
-    - https://github.com/hashicorp/structure/blob/main/packages/pds-ember/addon/components/pds/select/facade.hbs
-    - apparently what it does is just to add a custom icon to it (in overlay), not changing the style of the root element as usually I've seen doing
+  - apparently what it does is just to add a custom icon to it (in overlay), not changing the style of the root element as usually I've seen doing
 - For more details about validation in PDS/Structure see:
   - https://structure.hashicorp.vercel.app/?path=/story/guides-forms-validation--page
   - notice these dirty/touched validation are applied only to `text input` + `select` + `textarea`
