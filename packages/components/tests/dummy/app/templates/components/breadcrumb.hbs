@@ -11,6 +11,11 @@
     <p class="dummy-paragraph">If you need to adopt it in your codebase please speak with the HDS team first so they can
       help you.</p>
   </div>
+
+  <p class="dummy-paragraph">
+    A “breadcrumb” (or “breadcrumb trail”) is a type of secondary navigation that reveals the user's location in a
+    website or Web application.
+  </p>
 </section>
 
 <section>
@@ -200,7 +205,60 @@
     <img class="dummy-figma-docs" src="/assets/images/breadcrumb-design-usage.png" alt="" role="none" />
   </div>
 </section>
-
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. However, if
+    the truncation feature is used, this component would not pass a WCAG conformance audit.
+  </p>
+  <h4 class="dummy-h4" id="known-issues">Known issues</h4>
+  <ul>
+    <li>
+      <p class="dummy-paragraph">
+        <strong>feature</strong>/ the
+        <code class="dummy-code">"truncation"</code>
+        element has been implemented, but it's likely that it can't be used in Cloud UI as is, but will require some
+        adjustments (reason being how the "breadcrumbs" are currently declared and generated in Cloud UI; for this to
+        work a refactoring will be needed on their side)
+      </p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">
+        <strong>a11y</strong>/ when the browser zoom is used to scale content to 400%, if the
+        <code class="dummy-code">Breadcrumb</code>
+        has a
+        <code class="dummy-code">"truncation"</code>
+        open, the dropdow may extend beyond the viewport and require the user to scroll in more than one direction (this
+        is a failure of
+        <a
+          href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Reflow – 1.4.10</a>).
+      </p>
+      <img
+        src="/assets/images/breadcrumb-known-issue-truncation-outside-viewport.png"
+        alt="The breadcrumb component with the “truncation” dropdowm extending beyond the viewport"
+        width="400px"
+      />
+    </li>
+    <li>
+      <p class="dummy-paragraph">
+        <strong>a11y</strong>
+        / when the browser zoom is used to scale content to 400%, if the
+        <code class="dummy-code">Breadcrumb</code>
+        is not allowed to wrap its items (via the
+        <code class="dummy-code">@itemsCanWrap</code>
+        prop) the text gets likely truncated, making it impossible for keyboard-only user to access the truncated
+        content
+      </p>
+      <img
+        src="/assets/images/breadcrumb-known-issue-truncated-text.png"
+        alt="The breadcrumb component with truncated text (ellipsis)"
+        width="400px"
+      />
+    </li>
+  </ul>
+</section>
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
@@ -358,60 +416,5 @@
       <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
     </Hds::Breadcrumb>
   </div>
-
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="known-issues"><a href="#known-issues">§</a> Known issues</h3>
-  <p class="dummy-paragraph">The
-    <code class="dummy-code">Breadcrumb</code>
-    component is composed by different parts, with their own APIs:</p>
-  <ul>
-    <li>
-      <p class="dummy-paragraph">
-        <strong>feature</strong>/ the
-        <code class="dummy-code">"truncation"</code>
-        element has been implemented, but it's likely that it can't be used in Cloud UI as is, but will require some
-        adjustments (reason being how the "breadcrumbs" are currently declared and generated in Cloud UI; for this to
-        work a refactoring will be needed on their side)
-      </p>
-    </li>
-    <li>
-      <p class="dummy-paragraph">
-        <strong>a11y</strong>/ when the browser zoom is used to scale content to 400%, if the
-        <code class="dummy-code">Breadcrumb</code>
-        has a
-        <code class="dummy-code">"truncation"</code>
-        open, the dropdow may extend beyond the viewport and require the user to scroll in more than one direction (this
-        is a failure of
-        <a
-          href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Reflow – 1.4.10</a>).
-      </p>
-      <img
-        src="/assets/images/breadcrumb-known-issue-truncation-outside-viewport.png"
-        alt="The breadcrumb component with the “truncation” dropdowm extending beyond the viewport"
-        width="400px"
-      />
-    </li>
-    <li>
-      <p class="dummy-paragraph">
-        <strong>a11y</strong>
-        / when the browser zoom is used to scale content to 400%, if the
-        <code class="dummy-code">Breadcrumb</code>
-        is not allowed to wrap its items (via the
-        <code class="dummy-code">@itemsCanWrap</code>
-        prop) the text gets likely truncated, making it impossible for keyboard-only user to access the truncated
-        content
-      </p>
-      <img
-        src="/assets/images/breadcrumb-known-issue-truncated-text.png"
-        alt="The breadcrumb component with truncated text (ellipsis)"
-        width="400px"
-      />
-    </li>
-  </ul>
 
 </section>
