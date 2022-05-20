@@ -1,7 +1,7 @@
 {{yield}}
 
 <aside class="dummy-aside">
-  <ul class="dummy-aside__list">
+  <ul class="dummy-aside__list dummy-list">
     <li><LinkTo @route="index"><FlightIcon @name="arrow-left" @isInlineBlock={{false}} /> Back</LinkTo></li>
     {{#each this.sections as |section|}}
       <li><a href="{{this.dummyRouteUrl}}{{section.fragment}}">{{section.title}}</a></li>

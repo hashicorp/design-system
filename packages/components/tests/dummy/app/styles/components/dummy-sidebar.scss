@@ -29,7 +29,9 @@
   padding: 0.5rem 1rem;
 
   &:hover {
-    // what do we do for hover then? think about this.
+    background-color: aliceblue;
+    border-color: blue;
+    border-style: dashed;
   }
   &:focus {
     border-color: blue;
