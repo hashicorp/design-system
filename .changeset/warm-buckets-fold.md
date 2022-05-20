@@ -13,7 +13,7 @@
 		- the button responds to `space` key event
 - removed the `@type` argument from the API in favour of the `type` native attribute - 🚨 **Breaking change!**
 
-#Link/LinkTo::CTA
+# Link/LinkTo::CTA
 - removed the `<Hds::Link/LinkTo::CTA>` component, in favour of `<Hds::Button>` component (see above) - 🚨 **Breaking change!**
 
 # Link::Inline
