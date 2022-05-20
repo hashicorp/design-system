@@ -1,29 +1,15 @@
-.dummy-aside {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  width: 100%;
-}
-
-@media screen and (min-width: 40em) {
-  .dummy-aside {
-    height: 100vh;
-    padding: 0.5rem;
-    position: sticky;
-    top: 0;
-    width: 12em;
-  }
-}
-
-.dummy-aside__ul {
+.dummy-aside__list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
   width: 100%;
 }
 
-.dummy-aside__ul li {
+.dummy-aside__list li {
+  padding: 1px; // this accounts for the border of the child element
+  
   // "back" is the first item, we want to separate it visually from the rest of the links
   // to give it some breathing room, but still have it be part of the ul element from a AT perspective.
   &:first-of-type {
@@ -31,7 +17,7 @@
     margin-bottom: 1rem;
   }
 }
-.dummy-aside__ul li a {
+.dummy-aside__list li a {
   align-items: center;
   border-radius: 5px;
   border: 2px solid transparent;
@@ -41,10 +27,9 @@
   font-size: 0.9rem;
   gap: 5px;
   padding: 0.5rem 1rem;
-  text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    // what do we do for hover then? think about this.
   }
   &:focus {
     border-color: blue;

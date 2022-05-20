@@ -28,133 +28,120 @@
 @import "./components/dummy-link-cta-button-banner";
 @import "./components/dummy-sidebar";
 
-html {
-    box-sizing: border-box;
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
+html {
+    box-sizing: border-box;
 }
 
 body.dummy-app {
     background-color: #d9d9d9;
     padding: 0;
-    max-width: 100%;
-    margin: 0 auto;
+    margin: 0;
 
-    .dummy-app-wrapper {  //todo this should not be outside of landmark elements.
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        grid-template-columns: 100%; // necessary or when the content is larger than the page, it grows indefinitely!
+    .dummy-header {
+        background-color: black;
+        color: white;
 
-        .dummy-header {
-            width: 100%;
+        h1.dummy-h1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+        }
+    }
+    .dummy-nav {
+        background-color: #f1f2f3;
+
+        ul {
+            display: flex;
+            justify-content: flex-start;
+            list-style: none;
             margin: 0;
-            display: flex;
-            background-color: black;
-            color: white;
-
-            h1.dummy-h1 {
-                margin:auto;
-                display: flex;
-                padding: 0.5rem 1rem;
-            }
-        }
-        .dummy-nav {
-            background-color: #f1f2f3;
-            display: flex;
-            margin: 0;
-            padding: 0 0 0 0.5rem;
-            width: 100%;
-            ul {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                li {
-                    padding: 0;
-                    margin: 0;
-                    a {
-                        border: 2px solid transparent;
-                        display: flex;
-                        gap: 0.5rem;
-                        justify-content: space-evenly;
-                        line-height: 1;
-                        min-width: fit-content;
-                        padding: 0.75rem;
-                        &:visited {
-                            color: blue;
-                        }
-                        &:hover {
-                            border: 2px dashed blue;
-                        }
-                    }
-                }
-            }
-        }
-
-        .dummy-main {
-            background-color: #fff;
-            padding: 2rem;
-            margin: 0 auto;
-            max-width: 100%;
-            min-height: 84.75vh;
-            width: calc(1024px + 2 * 2rem);
-        }
-
-        .dummy-footer {
-            background-color: #f1f2f3;
-            display: flex;
-            flex-flow: row wrap;
-            margin: auto;
             padding: 0;
             width: 100%;
-
-            .dummy-row-wrapper {
-                padding: 2rem;
+            li {
+                padding: 0;
                 margin: 0;
-                width: 100%;
-                max-width: 100%;
-                > * {
-                    max-width: 100%;
-                    white-space: wrap;
+                a {
+                    border: 2px solid transparent;
+                    display: flex;
+                    gap: 0.5rem;
+                    justify-content: space-evenly;
+                    line-height: 1;
+                    min-width: fit-content;
+                    padding: 0.75rem;
+                    &:visited {
+                        color: blue;
+                    }
+                    &:hover {
+                        border: 2px dashed blue;
+                    }
                 }
-                &.dummy-row-wrapper--last{
-                    background-color: black;
-                    color: white;
-                    padding: 0 0 0 2rem; // if there's not some padding, it collapses; can address in later refactor
-                    width: 100%;
+            }
+        }
+    }
+    .dummy-aside {
+        background-color: #ffffff;
+    }
+    .dummy-main {
+        background-color: #fff;
+        padding: 0 2rem 2rem;
+    }
 
-                    .dummy-paragraph {
+    .dummy-footer {
+        background-color: #f1f2f3;
+        display: flex;
+        flex-flow: row wrap;
+        margin: auto;
+        padding: 0;
+        width: 100%;
+
+        .dummy-row-wrapper {
+            padding: 2rem;
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            > * {
+                max-width: 100%;
+                white-space: wrap;
+            }
+            &.dummy-row-wrapper--last{
+                background-color: black;
+                color: white;
+                padding: 0 0 0 2rem; // if there's not some padding, it collapses; can address in later refactor
+                width: 100%;
+
+                .dummy-paragraph {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-end;
+                    padding-top: 0;
+                    margin: 0;
+                    min-height: fit-content;
+                    .dummy-link {
+                        border: 1px solid transparent;
+                        align-content: center;
+                        color: white;
                         display: flex;
-                        flex-flow: row wrap;
-                        justify-content: flex-end;
-                        padding-top: 0;
+                        gap: 6px;
                         margin: 0;
-                        min-height: fit-content;
-                        .dummy-link {
-                            border: 1px solid transparent;
-                            align-content: center;
-                            color: white;
-                            display: flex;
-                            gap: 6px;
-                            margin: 0;
-                            padding: 1rem;
-                            text-decoration: none;
-                            width: fit-content;
-                            &:hover, &:focus {
-                                text-decoration: underline;
-                            }
+                        padding: 1rem;
+                        text-decoration: none;
+                        width: fit-content;
+                        &:hover, &:focus {
+                            text-decoration: underline;
                         }
                     }
                 }
-                .dummy-row {
-                    max-width: 100%;
-                    width: 1024px;
-                    margin: 0 auto;
-                    padding: 0;
-                }
+            }
+            .dummy-row {
+                max-width: 100%;
+                width: 1024px;
+                margin: 0 auto;
+                padding: 0;
             }
         }
     }
@@ -166,9 +153,9 @@ body.dummy-app {
     }
 
     img {
-        max-width: 1280px;
+        width: 1280px;
         height: auto;
-        width: 100%;
+        max-width: 100%;
     }
 }
 
