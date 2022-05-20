@@ -20,9 +20,20 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox">
-
-    {{! ADD YOUR CONTENT HERE }}
-
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>Unique identifier used as
+        <code class="dummy-code">id</code>
+        HTML attribute for the element. If a
+        <code class="dummy-code">@label</code>
+        argument is provided, used as
+        <code class="dummy-code">for</code>
+        HTML attribute for the label.</p>
+    </dd>
+    <dt>label <code>string</code></dt>
+    <dd>
+      <p>Optional label for the control.</p>
+    </dd>
   </dl>
 </section>
 
@@ -59,7 +70,7 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   <h4 class="dummy-h4">States</h4>
-  <div class="dummy-form-text-input-states-grid">
+  <div class="dummy-form-checkbox-states-grid">
     {{#each @model.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
