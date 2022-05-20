@@ -58,10 +58,19 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
-  {{! This below is just an example of invocation, to get started }}
-  <label for="checkbox">This is the Hds::Form::Checkbox component</label>
-  <Hds::Form::Checkbox name="checkbox" />
+  <h4 class="dummy-h4">States</h4>
+  <div class="dummy-form-text-input-states-grid">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <label for="checkbox-{{state}}">Lorem ipsum dolor</label>
+        <Hds::Form::Checkbox
+          id="checkbox-{{state}}"
+          disabled={{if (eq state "disabled") "disabled" undefined}}
+        />
+      </div>
+    {{/each}}
+  </div>
 
 </section>
