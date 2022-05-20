@@ -7,6 +7,22 @@
 {{! <DummyLinkCtaButtonBanner /> }}
 
 <section>
+  <div class="dummy-banner dummy-banner--info">
+    <p class="dummy-paragraph">👀 <strong>Notice</strong> 👀</p>
+    <p class="dummy-paragraph">In all the examples below we apply
+      <code class="dummy-code">.hds-typography</code>
+      styles to the
+      <code class="dummy-code">Link::Inline</code>
+      text for presentation purpose.<br />
+      In reality the only CSS styling applied to the component is to handle the two available colors (see below). All
+      the other properties, especially the font styling, are inherited from the parent container, mimicking the default
+      behavior of the
+      <code class="dummy-code">&lt;a&gt;</code>
+      HTML element</p>
+  </div>
+</section>
+
+<section>
   <h3 class="dummy-h3" id="overview"><a href="#overview">§</a> Overview</h3>
 
   <p class="dummy-paragraph">The
@@ -151,15 +167,9 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Inline @href="...">Watch tutorial video</Hds::Link::Inline>
-
-  <h5 class="dummy-h5">Styling</h5>
-  <p class="dummy-paragraph"><strong>Important</strong>: the only CSS styling applied to the component is to handle the
-    two available colors (see below) and their values depending on the interaction states (eg.
-    <em>hover, focus, active</em>). All the other properties, especially the font styling, are inherited from the parent
-    container, mimicking the default behavior of the
-    <code class="dummy-code">&lt;a&gt;</code>
-    HTML element.</p>
+  <div class="hds-typography-body-300">
+    <Hds::Link::Inline @href="...">Watch tutorial video</Hds::Link::Inline>
+  </div>
 
   <h4 class="dummy-h4">Add an icon</h4>
   <p class="dummy-paragraph">To add an icon to your inline link, give the
@@ -177,7 +187,9 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Inline @href="#" @icon="external-link">Watch tutorial video</Hds::Link::Inline>
+  <div class="hds-typography-body-300">
+    <Hds::Link::Inline @href="#" @icon="external-link">Watch tutorial video</Hds::Link::Inline>
+  </div>
 
   <p class="dummy-paragraph"><em>Notice: since the
       <code class="dummy-code">Hds::Link::Inline</code>
@@ -199,7 +211,9 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Inline @href="#" @icon="film" @iconPosition="leading">Watch tutorial video</Hds::Link::Inline>
+  <div class="hds-typography-body-300">
+    <Hds::Link::Inline @href="#" @icon="film" @iconPosition="leading">Watch tutorial video</Hds::Link::Inline>
+  </div>
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -219,9 +233,11 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Inline @color="primary" @href="...">Read tutorial</Hds::Link::Inline>
-  <br />
-  <Hds::Link::Inline @color="secondary" @href="...">Read tutorial</Hds::Link::Inline>
+  <div class="hds-typography-body-300">
+    <Hds::Link::Inline @color="primary" @href="...">Read tutorial</Hds::Link::Inline>
+    <br />
+    <Hds::Link::Inline @color="secondary" @href="...">Read tutorial</Hds::Link::Inline>
+  </div>
 
   <h4 class="dummy-h4">URLs and routes handling</h4>
   <p class="dummy-paragraph">You can generate an inline link passing a
@@ -250,7 +266,9 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Inline @href="https://www.hashicorp.com/request-demo/terraform">Request a demo</Hds::Link::Inline>
+  <div class="hds-typography-body-300">
+    <Hds::Link::Inline @href="https://www.hashicorp.com/request-demo/terraform">Request a demo</Hds::Link::Inline>
+  </div>
   <p class="dummy-paragraph">⚠️
     <strong>Important</strong>: when using the
     <code class="dummy-code">@href</code>
@@ -292,7 +310,9 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
+  <div class="hds-typography-body-300">
   <Hds::Link::Inline @route="index">Go to the index page</Hds::Link::Inline>
+  </div>
   <p class="dummy-paragraph">⚠️
     <strong>Important</strong>: if the route is external to your current engine you have to pass also
     <code class="dummy-code">@isRouteExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
@@ -317,10 +337,6 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-
-  <p class="dummy-paragraph"><em>Notice: in the following examples we apply
-      <code class="dummy-code">.hds-typography</code>
-      styles to the text for presentation purpose.</em></p>
 
   <h4 class="dummy-h4">Generated element</h4>
 
