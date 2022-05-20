@@ -66,6 +66,12 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     );
     assert.dom('#test-toggle-icon img').hasAttribute('role', 'presentation');
   });
+  test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @isOpen={{true}} id="test-toggle-icon" />`
+    );
+    assert.dom('#test-toggle-icon').hasAttribute('aria-expanded', 'true');
+  });
 
   // ASSERTIONS
 
