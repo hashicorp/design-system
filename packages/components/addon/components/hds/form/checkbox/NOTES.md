@@ -5,7 +5,7 @@
 - doc page: https://structure.hashicorp.vercel.app/?path=/story/components-checkboxfield--index
   - facade: https://structure.hashicorp.vercel.app/?path=/story/components-checkboxfield-facade--index
   - multi-line label: https://structure.hashicorp.vercel.app/?path=/story/components-checkboxfield--multi-line-label
-    - done using simply a `<br />`: https://github.com/hashicorp/structure/blob/dffbb0e0ae5246d3b832586ab25bcb981a052b30/packages/pds-ember/tests/integration/components/checkbox-field/stories/index.stories.js#L39-L43
+    - done using simply a `<br />`: https://github.com/hashicorp/structure/blob/main/packages/pds-ember/tests/integration/components/checkbox-field/stories/index.stories.js#L39-L43
   - blueprints: https://structure.hashicorp.vercel.app/?path=/story/components-checkbox-blueprints--page
 - https://github.com/hashicorp/structure/blob/main/packages/pds-ember/addon/components/pds/checkbox-field/index.js
   - the `id` can be passed as argument (`@id`) otherwise is generated at runtime
@@ -22,7 +22,7 @@
       - the <Pds::CheckboxField::Facade />
       - the `pds-checkboxField__text` text that yields its content
         - 🚨🚨 IMPORTANT 🚨🚨: this also hashes the `id` and pass it to the yielded content, probably we will have to do the same too if they use it in this way for some reasons (not sure why)
-- https://github.com/hashicorp/structure/blob/main/packages/pds-ember/addon/components/pds/checkbox-field/facade.hbs
+- https://github.com/hashicorp/structure/blob/main/packages/pds-ember/addon/components/pds/checkbox-field/facade/index.hbs
   - it uses a "facade" element to have custom styling of the root element
     - internally uses the `<Pds::Icon>` with `icon="check-plain"` (are we going to do the same?)
 
@@ -87,7 +87,7 @@ Notice: there is also the `RadioCard` component used quite a few times, but that
 
 - https://github.com/hashicorp/atlas/tree/main/frontend
 
-Found 24 occurrencies of `<Input>` in 13 files (not sure where this component comes from, maybe some Ember addon?)
+Found 24 occurrencies of `<Input @type="checkbox">` in 13 files (not sure where this component comes from, maybe some Ember addon?)
 - `id` (10)
 - `name` (13)
 - `@checked` (23)
