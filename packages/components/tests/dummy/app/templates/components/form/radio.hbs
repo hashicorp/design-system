@@ -58,10 +58,21 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
-  {{! This below is just an example of invocation, to get started }}
-  <label for="radio">This is the Hds::Form::Radio component</label>
-  <Hds::Form::Radio name="radio" />
+  <h4 class="dummy-h4">States</h4>
+  <div class="dummy-form-radio-states-grid">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::Radio @id="radio-{{state}}" disabled={{if (eq state "disabled") "disabled" undefined}} />
+        <br />
+        <Hds::Form::Radio
+          @id="radio-with-label-{{state}}"
+          @label="Lorem ipsum dolor"
+          disabled={{if (eq state "disabled") "disabled" undefined}}
+        />
+      </div>
+    {{/each}}
+  </div>
 
 </section>

@@ -1,1 +1,4 @@
-<input type="radio" className={{this.classNames}} ...attributes />
+{{#if @label}}
+  <label for={{@id}}>{{@label}}</label>
+{{/if}}
+<input type="radio" id={{@id}} className={{this.classNames}} ...attributes />
