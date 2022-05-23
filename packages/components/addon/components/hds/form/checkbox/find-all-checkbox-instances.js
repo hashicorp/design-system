@@ -13,7 +13,11 @@ module.exports = function ({ source, path }, { parse, visit }) {
       ElementNode(node) {
         if (node.tag === 'Input') {
           if (node.attributes.length > 0) {
-            if (node.attributes.find(a => a.name === '@type' && a.value.chars === 'checkbox')) {
+            if (
+              node.attributes.find(
+                (a) => a.name === '@type' && a.value.chars === 'checkbox'
+              )
+            ) {
               let output = '';
               output += `\nFILE: "${path}"`;
               output += `\n  • <${node.tag}>`;
@@ -30,9 +34,13 @@ module.exports = function ({ source, path }, { parse, visit }) {
             }
           }
         }
-        if (node.tag === 'input' ) {
+        if (node.tag === 'input') {
           if (node.attributes.length > 0) {
-            if (node.attributes.find(a => a.name === 'type' && a.value.chars === 'checkbox')) {
+            if (
+              node.attributes.find(
+                (a) => a.name === 'type' && a.value.chars === 'checkbox'
+              )
+            ) {
               let output = '';
               output += `\nFILE: "${path}"`;
               output += `\n  • <${node.tag}>`;

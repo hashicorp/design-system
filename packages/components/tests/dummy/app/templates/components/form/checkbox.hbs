@@ -75,10 +75,7 @@
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Checkbox
-          @id="checkbox-{{state}}"
-          disabled={{if (eq state "disabled") "disabled" undefined}}
-        />
+        <Hds::Form::Checkbox @id="checkbox-{{state}}" disabled={{if (eq state "disabled") "disabled" undefined}} />
         <br />
         <Hds::Form::Checkbox
           @id="checkbox-with-label-{{state}}"
