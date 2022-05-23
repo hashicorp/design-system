@@ -79,9 +79,11 @@
         <br />
         <Hds::Form::Checkbox
           @id="checkbox-with-label-{{state}}"
-          @label="Lorem ipsum dolor"
           disabled={{if (eq state "disabled") "disabled" undefined}}
-        />
+          as |C|
+        >
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::Checkbox>
       </div>
     {{/each}}
   </div>

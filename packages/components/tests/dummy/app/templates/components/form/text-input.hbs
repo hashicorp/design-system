@@ -93,7 +93,9 @@
       <div>
         <span class="dummy-text-small">{{capitalize type}}:</span>
         <br />
-        <Hds::Form::TextInput @type={{type}} @value={{type}} @label="Lorem ipsum dolor" />
+        <Hds::Form::TextInput @type={{type}} @value={{type}} as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::TextInput>
       </div>
     {{/each}}
   </div>

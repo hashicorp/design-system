@@ -80,9 +80,13 @@
           @label="Lorem ipsum dolor"
           disabled={{if (eq state "disabled") "disabled" undefined}}
           readonly={{if (eq state "readonly") "readonly" undefined}}
+          as |C|
         >
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
+          <C.Label>Lorem ipsum dolor</C.Label>
+          <C.Options>
+            <option>Lorem ipsum dolor</option>
+            <option>Sine qua non est</option>
+          </C.Options>
         </Hds::Form::Select>
       </div>
     {{/each}}

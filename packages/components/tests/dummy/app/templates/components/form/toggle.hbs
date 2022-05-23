@@ -80,7 +80,10 @@
           @id="toggle-with-label-{{state}}"
           @label="Lorem ipsum dolor"
           disabled={{if (eq state "disabled") "disabled" undefined}}
-        />
+          as |C|
+        >
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::Toggle>
       </div>
     {{/each}}
   </div>

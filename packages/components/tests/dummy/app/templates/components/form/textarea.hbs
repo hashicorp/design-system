@@ -67,13 +67,21 @@
         <Hds::Form::Textarea
           disabled={{if (eq state "disabled") "disabled" undefined}}
           readonly={{if (eq state "readonly") "readonly" undefined}}
-        >Lorem ipsum dolor</Hds::Form::Textarea>
+          as |C|
+        >
+          <C.Content>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</C.Content>
+        </Hds::Form::Textarea>
         <br />
         <Hds::Form::Textarea
-          @label="Lorem ipsum dolor"
           disabled={{if (eq state "disabled") "disabled" undefined}}
           readonly={{if (eq state "readonly") "readonly" undefined}}
-        >Lorem ipsum dolor</Hds::Form::Textarea>
+          as |C|
+        >
+          <C.Label>Lorem ipsum dolor</C.Label>
+          <C.Content>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</C.Content>
+        </Hds::Form::Textarea>
       </div>
     {{/each}}
   </div>

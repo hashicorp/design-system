@@ -1,4 +1,2 @@
-{{#if @label}}
-  <Hds::Form::Label for={{@id}}>{{@label}}</Hds::Form::Label>
-{{/if}}
+{{yield (hash Label=(component "hds/form/label"))}}
 <input type="radio" id={{@id}} className={{this.classNames}} ...attributes />

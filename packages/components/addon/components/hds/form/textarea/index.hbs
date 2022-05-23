@@ -1,6 +1,5 @@
-{{#if @label}}
-  <Hds::Form::Label for={{@id}}>{{@label}}</Hds::Form::Label>
-{{/if}}
+{{yield (hash Label=(component "hds/form/label"))}}
 <textarea className={{this.classNames}} ...attributes>
-  {{yield}}
+  {{! TODO think if  it would be better to use a named block?? }}
+  {{yield (hash Content=(component "hds/form/textarea/content"))}}
 </textarea>
