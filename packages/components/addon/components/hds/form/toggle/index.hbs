@@ -4,5 +4,6 @@
   <div class="hds-form-toggle-text">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
     {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
   </div>
 </div>

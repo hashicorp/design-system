@@ -60,7 +60,7 @@
 
   <h4 class="dummy-h4">Content</h4>
   <h5 class="dummy-h5">Label</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <div class="dummy-form-textarea-base-sample">
     <div>
       <span class="dummy-text-small">Auto-generated id:</span>
       <br />
@@ -77,7 +77,7 @@
     </div>
   </div>
   <h5 class="dummy-h5">Helper text</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <div class="dummy-form-textarea-base-sample">
     <div>
       <span class="dummy-text-small">Only helper text</span>
       <br />
@@ -94,9 +94,28 @@
       </Hds::Form::Textarea>
     </div>
   </div>
+  <h5 class="dummy-h5">Error</h5>
+  <div class="dummy-form-textarea-base-sample">
+    <div>
+      <span class="dummy-text-small">Only error</span>
+      <br />
+      <Hds::Form::Textarea as |C|>
+        <C.Error>This is the error</C.Error>
+      </Hds::Form::Textarea>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Error</span>
+      <br />
+      <Hds::Form::Textarea as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.HelperText>This is the helper text</C.HelperText>
+        <C.Error>This is the error</C.Error>
+      </Hds::Form::Textarea>
+    </div>
+  </div>
 
   <h4 class="dummy-h4">States</h4>
-  <div class="dummy-form-text-input-states-grid">
+  <div class="dummy-form-textarea-states-grid">
     {{#each @model.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>

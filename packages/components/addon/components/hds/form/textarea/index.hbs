@@ -3,3 +3,4 @@
 <textarea class={{this.classNames}} id={{this.id}} ...attributes>{{~yield
     (hash Content=(component "hds/form/textarea/content"))
   ~}}</textarea>
+  {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}

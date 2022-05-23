@@ -105,6 +105,26 @@
       </Hds::Form::Checkbox>
     </div>
   </div>
+  <h5 class="dummy-h5">Error</h5>
+  <div class="dummy-form-checkbox-base-sample">
+    <div>
+      <span class="dummy-text-small">Label + Error</span>
+      <br />
+      <Hds::Form::Checkbox as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.Error>This is the error</C.Error>
+      </Hds::Form::Checkbox>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Error</span>
+      <br />
+      <Hds::Form::Checkbox as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.HelperText>This is the helper text</C.HelperText>
+        <C.Error>This is the error</C.Error>
+      </Hds::Form::Checkbox>
+    </div>
+  </div>
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-checkbox-states-grid">

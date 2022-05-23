@@ -58,9 +58,91 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <h4 class="dummy-h4">Content</h4>
+  <h5 class="dummy-h5">Label</h5>
+  <div class="dummy-form-select-base-sample">
+    <div>
+      <span class="dummy-text-small">Auto-generated id:</span>
+      <br />
+      <Hds::Form::Select as |C|>
+        <C.Label>Lorem ipsum dolor</C.Label>
+        <C.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
 
-  {{! This below is just an example of invocation, to get started }}
+      </Hds::Form::Select>
+    </div>
+    <div>
+      <span class="dummy-text-small">Custom id:</span>
+      <br />
+      <Hds::Form::Select @id="custom-id" as |C|>
+        <C.Label>Lorem ipsum dolor</C.Label>
+        <C.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+
+      </Hds::Form::Select>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Helper text</h5>
+  <div class="dummy-form-select-base-sample">
+    <div>
+      <span class="dummy-text-small">Only helper text</span>
+      <br />
+      <Hds::Form::Select as |C|>
+        <C.HelperText>This is the helper text</C.HelperText>
+        <C.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+
+      </Hds::Form::Select>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text</span>
+      <br />
+      <Hds::Form::Select as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.HelperText>This is the helper text</C.HelperText>
+        <C.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+
+      </Hds::Form::Select>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Error</h5>
+  <div class="dummy-form-select-base-sample">
+    <div>
+      <span class="dummy-text-small">Only error</span>
+      <br />
+      <Hds::Form::Select as |C|>
+        <C.Error>This is the error</C.Error>
+        <C.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+
+      </Hds::Form::Select>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Error</span>
+      <br />
+      <Hds::Form::Select as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.HelperText>This is the helper text</C.HelperText>
+        <C.Error>This is the error</C.Error>
+        <C.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+
+      </Hds::Form::Select>
+    </div>
+  </div>
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-select-states-grid">
@@ -71,9 +153,12 @@
         <Hds::Form::Select
           disabled={{if (eq state "disabled") "disabled" undefined}}
           readonly={{if (eq state "readonly") "readonly" undefined}}
+          as |C|
         >
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
+          <C.Options>
+            <option>Lorem ipsum dolor</option>
+            <option>Sine qua non est</option>
+          </C.Options>
         </Hds::Form::Select>
         <br />
         <Hds::Form::Select

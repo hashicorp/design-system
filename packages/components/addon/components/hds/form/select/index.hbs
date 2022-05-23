@@ -4,3 +4,4 @@
   {{! TODO think if  it would be better to use a named block?? }}
   {{yield (hash Options=(component "hds/form/select/options"))}}
 </select>
+{{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
