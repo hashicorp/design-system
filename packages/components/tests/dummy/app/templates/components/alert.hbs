@@ -12,7 +12,7 @@
     are not required to receive focus, it should not be required that the user close the alert.</p>
   <p class="dummy-paragraph">For messages that are the result of a user's actions see the
     <LinkTo @route="components.toast">Toast</LinkTo>
-    component.)
+    component.
   </p>
 
   <p class="dummy-paragraph">
@@ -135,23 +135,12 @@
         <code class="dummy-code">false</code>
         for no icon.</p>
     </dd>
-
-    <dt>title <code>string</code></dt>
-    <dd>
-      <p>The title text in the alert.</p>
-    </dd>
-
-    <dt>description <code>string</code></dt>
-    <dd>
-      <p>The description text in the alert.</p>
-    </dd>
     <dt>onDismiss <code>function</code></dt>
     <dd>
       <p>
         The alert can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
       </p>
     </dd>
-
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
@@ -159,14 +148,40 @@
   </dl>
 
   <h4 class="dummy-h4">Contextual components</h4>
-  <p class="dummy-paragraph" id="contextual-components-alert">Actions and generic content can optionally be passed into
-    the alert as yielded components, using the
+  <p class="dummy-paragraph" id="contextual-components-alert">Title, description, actions and generic content are passed
+    into the alert as yielded components, using the
+    <code class="dummy-code">Title</code>,
+    <code class="dummy-code">Description</code>,
     <code class="dummy-code">Button</code>,
     <code class="dummy-code">Link::Standalone</code>,
     <code class="dummy-code">LinkTo::Standalone</code>,
     <code class="dummy-code">Generic</code>
     keys.</p>
   <dl class="dummy-component-props" aria-labelledby="contextual-components-alert">
+    <dt>&lt;[A].Title&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the
+        <code class="dummy-code">"title"</code>
+        block (the content inherits its style). It accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+    </dd>
+    <dt>&lt;[A].Description&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the
+        <code class="dummy-code">"description"</code>
+        block (the content inherits its style). It accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+      <p>It can be used to pass content more complex than a simple string (eg. logic/conditionals, HTML elements, other
+        Ember components, etc.) inside the "description" block.</p>
+      <p><em>Notice: for a few simple HTML elements (like
+          <code class="dummy-code">strong</code>,
+          <code class="dummy-code">em</code>,
+          <code class="dummy-code">a</code>,
+          <code class="dummy-code">code/pre</code>) we apply styling. If you use other elements you will need to take
+          care of styling them accordingly.</em></p>
+    </dd>
     <dt>&lt;[A].Button&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a yielded
@@ -226,6 +241,7 @@
 
   <p class="dummy-paragraph">
     For more details about how to invoke these contextual components see the sections
+    <a href="#how-to-use-description">"How to use > Description"</a>,
     <a href="#how-to-use-actions">"How to use > Actions"</a>
     and
     <a href="#how-to-use-generic">"How to use > Generic content"</a>
@@ -239,11 +255,12 @@
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">
     The most basic invocation requires the
-    <code class="dummy-code">type</code>,
+    <code class="dummy-code">type</code>
+    argument to be passed, along with the
     <code class="dummy-code">title</code>
     and/or
-    <code class="dummy-code">text</code>
-    arguments to be passed. By default a
+    <code class="dummy-code">description</code>
+    content. By default a
     <code class="dummy-code">neutral</code>
     alert is generated (with a neutral color applied and a specific icon visible).
   </p>
@@ -251,37 +268,50 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
+      </Hds::Alert>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" @description="Description here" />
+  <Hds::Alert @type="inline" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
   <p class="dummy-paragraph">
     If needed, you can pass only
     <code class="dummy-code">title</code>
     or only
-    <code class="dummy-code">text</code>
-    as argument.
+    <code class="dummy-code">text</code>.
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @title="Title here" />
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title>Title here</A.Title>
+      </Hds::Alert>
     '
   />
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @description="Description here" />
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title>Title here</A.Title>
+      </Hds::Alert>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" />
+  <Hds::Alert @type="inline" as |A|>
+    <A.Title>Title here</A.Title>
+  </Hds::Alert>
   <br />
-  <Hds::Alert @type="inline" @description="Description here" />
+  <Hds::Alert @type="inline" as |A|>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
 
   <h4 class="dummy-h4">Type</h4>
   <p class="dummy-paragraph">
@@ -293,12 +323,18 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="page" @title="Title here" @description="Description here" />
+      <Hds::Alert @type="page" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
+      </Hds::Alert>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="page" @title="Title here" @description="Description here" />
+  <Hds::Alert @type="page" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -310,12 +346,18 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @color="success" @title="Title here" @description="Description here" />
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
+      </Hds::Alert>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @color="success" @title="Title here" @description="Description here" />
+  <Hds::Alert @type="inline" @color="success" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
 
   <h4 class="dummy-h4">Icon</h4>
   <p class="dummy-paragraph">
@@ -327,12 +369,18 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @color="success" @icon="bulb" @title="Title here" @description="Description here" />
+      <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
+      </Hds::Alert>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @color="success" @icon="bulb" @title="Title here" @description="Description here" />
+  <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
   <p class="dummy-paragraph">
     If instead you want to completely hide the icon you have to pass a
     <code class="dummy-code">false</code>
@@ -345,13 +393,19 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @color="success" @icon=\{{false}} @title="Title here" @description="Description here" />
+      <Hds::Alert @type="inline" @color="success" @icon=\{{false}} as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
+      </Hds::Alert>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @color="success" @icon={{false}} @title="Title here" @description="Description here" />
+  <Hds::Alert @type="inline" @color="success" @icon={{false}} as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
 
   <h4 class="dummy-h4">Dismiss</h4>
   <p class="dummy-paragraph">
@@ -371,25 +425,19 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert
-        @type="inline"
-        @color="warning"
-        @title="Title here"
-        @description="Description here"
-        @onDismiss=\{{ your function here }}
-      />
+      <Hds::Alert @type="inline" @color="warning" @onDismiss=\{{ your function here }} as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
+      </Hds::Alert>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert
-    @type="inline"
-    @color="warning"
-    @title="Title here"
-    @description="Description here"
-    @onDismiss={{this.noop}}
-  />
+  <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
+  </Hds::Alert>
 
   <h4 class="dummy-h4" id="how-to-use-actions">Actions</h4>
   <p class="dummy-paragraph">Actions can optionally be passed to component using one of the suggested
@@ -403,7 +451,9 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
         <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
         <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
         <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" href="#" />
@@ -413,10 +463,85 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+  <Hds::Alert @type="inline" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
     <A.Button @text="Your action" @color="secondary" />
     <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
     <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" href="#" />
+  </Hds::Alert>
+
+  <h4 class="dummy-h4" id="how-to-use-description">Structured content</h4>
+  <p class="dummy-paragraph">When needed the
+    <code class="dummy-code">Description</code>
+    contextual component can contain logic, rich HTML or structured content.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>
+          The description can contain
+          \{{#if true}}conditional logic\{{/if}}, Ember components, and HTML tags, like
+          <strong>strong text</strong>,
+          <em>emphasized text</em>,
+          <code>code</code>,
+          <pre>pre</pre>,
+          <a href="#">inline</a>
+          <LinkTo @route="index">links</LinkTo>.
+        </A.Description>
+      </Hds::Alert>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>
+      The description can contain
+      {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
+      <strong>strong text</strong>,
+      <em>emphasized text</em>,
+      <code>code</code>,
+      <pre>pre</pre>,
+      <a href="#">inline</a>
+      <LinkTo @route="index">links</LinkTo>.
+    </A.Description>
+  </Hds::Alert>
+  <p class="dummy-paragraph"><em>Notice: for a few simple HTML elements (like
+      <code class="dummy-code">strong</code>,
+      <code class="dummy-code">em</code>,
+      <code class="dummy-code">a</code>,
+      <code class="dummy-code">code/pre</code>) we apply styling. If you use other elements you will need to take care
+      of styling them accordingly.</em>
+  </p>
+  <p class="dummy-paragraph">You can pass more than one
+    <code class="dummy-code">D.Description</code>
+    contextual components to have multiple description lines.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>First line of description.</A.Description>
+        <A.Description>Second line of description.</A.Description>
+      </Hds::Alert>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Alert @type="inline" @color="success" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>First line of description.</A.Description>
+    <A.Description>Second line of description.</A.Description>
   </Hds::Alert>
 
   <h4 class="dummy-h4" id="how-to-use-generic">Generic content</h4>
@@ -432,7 +557,9 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
         <A.Generic>
           [your content here]
         </A.Generic>
@@ -442,7 +569,9 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @title="Title here" @description="Description here" as |A|>
+  <Hds::Alert @type="inline" as |A|>
+    <A.Title>Title here</A.Title>
+    <A.Description>Description here</A.Description>
     <A.Generic>
       [your content here]
     </A.Generic>
@@ -473,7 +602,7 @@
 <section>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
-    designed, there should not be any accessibility issues with this component.
+    recommended, there should not be any accessibility issues with this component.
   </p>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
@@ -582,7 +711,10 @@
     <p class="dummy-paragraph">{{capitalize type}}</p>
     <br />
     <div class="dummy-alert-sample-item--type-{{type}}">
-      <Hds::Alert @type={{type}} @title={{capitalize type}} @description="Lorem ipsum dolor sit amet." />
+      <Hds::Alert @type={{type}} as |A|>
+        <A.Title>{{capitalize type}}</A.Title>
+        <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+      </Hds::Alert>
     </div>
   {{/each}}
 
@@ -592,12 +724,10 @@
       <p class="dummy-paragraph dummy-alert-sample-grid__title">{{capitalize color}}</p>
       {{#each @model.TYPES as |type|}}
         <div class="dummy-alert-sample-item--type-{{type}}">
-          <Hds::Alert
-            @type={{type}}
-            @color={{color}}
-            @title="{{capitalize type}} title"
-            @description="This is the <em>{{type}}</em> alert with <em>{{color}}</em> color."
-          />
+          <Hds::Alert @type={{type}} @color={{color}} as |A|>
+            <A.Title>{{capitalize type}} title</A.Title>
+            <A.Description>This is the <em>{{type}}</em> alert with <em>{{color}}</em> color.</A.Description>
+          </Hds::Alert>
         </div>
       {{/each}}
     {{/each}}
@@ -605,89 +735,97 @@
 
   <h4 class="dummy-h4">Icon</h4>
   <div class="dummy-alert-sample-grid">
-    <Hds::Alert @type="inline" @color="highlight" @title="Default icon" @description="Lorem ipsum dolor sit amet." />
-    <Hds::Alert
-      @type="inline"
-      @color="highlight"
-      @icon="meh"
-      @title="With icon override"
-      @description="Lorem ipsum dolor sit amet."
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="highlight"
-      @icon="running"
-      @title="With animated icon"
-      @description="Lorem ipsum dolor sit amet."
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="highlight"
-      @icon=""
-      @title="Without icon"
-      @description="Lorem ipsum dolor sit amet."
-    />
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>Default icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::Alert @type="inline" @color="highlight" @icon="meh" as |A|>
+      <A.Title>With icon override</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::Alert @type="inline" @color="highlight" @icon="running" as |A|>
+      <A.Title>With animated icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
+    <Hds::Alert @type="inline" @color="highlight" @icon="" as |A|>
+      <A.Title>Without icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+    </Hds::Alert>
   </div>
 
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
-    <Hds::Alert @type="inline" @color="success" @title="A simple title" @description="A simple description text" />
-    <Hds::Alert
-      @type="inline"
-      @color="success"
-      @title="An alert with a very long title and a long description text that should go on multiple lines"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
-    />
-    <Hds::Alert @type="inline" @color="success" @title="An alert with just a title and no description text." />
-    <Hds::Alert @type="inline" @color="success" @description="An alert with no title and just a description text" />
-    <Hds::Alert
-      @type="inline"
-      @color="success"
-      @title="An alert with rich text description (HTML)"
-      @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="success"
-      @title="An alert with extra/custom content"
-      @description="In special cases, you can pass extra content to the alert using the <code>Generic</code> contextual component."
-      as |A|
-    >
-      <A.Generic>
-        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </A.Generic>
-    </Hds::Alert>
+    <div class="dummy-alert-sample-grid__column">
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>A simple title</A.Title>
+        <A.Description>A simple description text</A.Description>
+      </Hds::Alert>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>An alert with just a title and no description text.</A.Title>
+      </Hds::Alert>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Description>An alert with no title and just a description text</A.Description>
+      </Hds::Alert>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>An alert with a very long title and a long description text that should go on multiple lines</A.Title>
+        <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna
+          eget, porttitor lobortis nulla.</A.Description>
+      </Hds::Alert>
+    </div>
+    <div class="dummy-alert-sample-grid__column">
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>An alert with a rich description (HTML)</A.Title>
+        <A.Description>Using the
+          <code>A.Description</code>
+          contextual component it's possible to have content that contains HTML tags, like
+          <strong>strong text</strong>
+          and
+          <em>emphasized text</em>
+          as well as
+          <code>code</code>,
+          <pre>pre</pre>
+          and
+          <a href="#">inline links</a>.</A.Description>
+      </Hds::Alert>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>Multiple lines of description using more than one 'description' contextual component</A.Title>
+        <A.Description>This is the first line of description, yielded to a
+          <code>A.Description</code>
+          contextual component.</A.Description>
+        <A.Description>And this is the second line of description, yielded to another
+          <code>A.Description</code>
+          contextual component.</A.Description>
+      </Hds::Alert>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>An alert with extra/custom content</A.Title>
+        <A.Description>In special cases, you can pass extra content to the alert using the
+          <code>A.Generic</code>
+          contextual component.</A.Description>
+        <A.Generic>
+          <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+        </A.Generic>
+      </Hds::Alert>
+    </div>
   </div>
 
   <h4 class="dummy-h4">Actions</h4>
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
-    <Hds::Alert
-      @type="inline"
-      @color="warning"
-      @title="Action passed as yielded component"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      as |A|
-    >
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+      <A.Title>Action passed as yielded component</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       <A.Button @text="Action" @color="secondary" />
     </Hds::Alert>
-    <Hds::Alert
-      @type="inline"
-      @color="warning"
-      @title="With multiple actions passed as yielded components"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      as |A|
-    >
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+      <A.Title>With multiple actions passed as yielded components</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       <A.Button @text="Secondary" @color="secondary" />
       <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
       <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
     </Hds::Alert>
-    <Hds::Alert
-      @type="inline"
-      @color="warning"
-      @title="With actions and custom content"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      as |A|
-    >
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+      <A.Title>With actions and custom content</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.</A.Description>
       <A.Button @text="Action" @color="secondary" />
       <A.Link::Standalone @icon="plus" @text="Action" href="#" @color="secondary" />
       <A.Generic>
@@ -699,34 +837,27 @@
 
   <h4 class="dummy-h4">Dismiss</h4>
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
+    <Hds::Alert @type="inline" @color="neutral" as |A|>
+      <A.Title>Without the dismiss button (default)</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+    </Hds::Alert>
     <Hds::Alert
       @type="inline"
       @color="neutral"
-      @title="Without the dismiss button (default)"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="neutral"
-      @title="With the dismiss button"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
       @onDismiss={{this.noop}}
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="neutral"
-      @icon=""
-      @title="With the dismiss button and no icon"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Alert
-      @type="inline"
-      @color="neutral"
-      @description="With the dismiss button and no title"
-      @onDismiss={{this.noop}}
-    />
+      as |A|
+    >
+      <A.Title>With the dismiss button</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+    </Hds::Alert>
+    <Hds::Alert @type="inline" @color="neutral" @icon="" @onDismiss={{this.noop}} as |A|>
+      <A.Title>With the dismiss button and no icon</A.Title>
+      <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+    </Hds::Alert>
+    <Hds::Alert @type="inline" @color="neutral" @onDismiss={{this.noop}} as |A|>
+      <A.Description>With the dismiss button and no title</A.Description>
+    </Hds::Alert>
   </div>
 
 </section>

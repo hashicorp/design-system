@@ -10,6 +10,12 @@
         grid-column: 1 / 4;
     }
 
+    .dummy-alert-sample-grid__column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     &.dummy-alert-sample-grid--wide-content {
         grid-template-columns: repeat(2, 1fr);
     }

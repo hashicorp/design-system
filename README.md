@@ -2,34 +2,45 @@
 
 ## Packages
 
-| NPM package | Version | Website | Local package README |
-|---|---|---|---|
-| **@hashicorp/design-system-components** <br />Design System components in Ember.js | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components) | [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app) | [components/README](packages/components/README.md) |
-| **@hashicorp/ember-flight-icons** <br />Ember.js addon with `<FlightIcon />` component | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons) | [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/) | [ember-flight-icons/README](packages/ember-flight-icons/README.md) |
-| **@hashicorp/flight-icons** <br />Flight Icon svgs (React) | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons) | [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/) | [flight-icons/README](packages/flight-icons/README.md) |
-| **@hashicorp/design-system-tokens** <br />Design tokens | [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens) | [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens) | [tokens/README](packages/tokens/README.md) |
+### `packages/components`
 
-### @hashicorp/design-system-components (packages/components)
+Design System components in Ember.js
 
-See [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
+- NPM package: **@hashicorp/design-system-components** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
+- website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app) 
+- more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
 
-### @hashicorp/ember-flight-icons (packages/ember-flight-icons)
+### `packages/ember-flight-icons`
 
-See [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember addon.
+Ember.js addon with `<FlightIcon />` component
 
-### @hashicorp/flight-icons (packages/flight-icons)
+- NPM package: **@hashicorp/ember-flight-icons** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
+- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+- more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember addon.
 
-See [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
+### `packages/flight-icons`
 
-### packages/flight-website
+Flight icons in different formats (SVG/SVG Sprite/React)
 
-We've broken out the `flight-website` into its own Yarn workspace.
+- NPM package: `@hashicorp/flight-icons` - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
+- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+- more info: see [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
-### @hashicorp/design-system-tokens (packages/tokens)
+### `packages/flight-website`
 
-See [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
+The dedicated `flight-icons` website (it has its own Yarn workspace).
 
-### Using ember install in the monorepo
+- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+
+### `packages/tokens`
+
+Design tokens
+
+- NPM package: **@hashicorp/design-system-tokens** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens)
+- website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
+- more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
+
+## Using ember install in the monorepo
 
 Run this command from the monorepo root:
 
