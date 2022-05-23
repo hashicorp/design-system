@@ -1,5 +1,4 @@
 {{yield (hash Label=(component "hds/form/label"))}}
-<textarea className={{this.classNames}} ...attributes>
-  {{! TODO think if  it would be better to use a named block?? }}
-  {{yield (hash Content=(component "hds/form/textarea/content"))}}
-</textarea>
+<textarea className={{this.classNames}} ...attributes>{{~yield
+    (hash Content=(component "hds/form/textarea/content"))
+  ~}}</textarea>
