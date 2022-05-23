@@ -1,5 +1,6 @@
-{{yield (hash Label=(component "hds/form/label"))}}
-<select className={{this.classNames}} ...attributes>
+{{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
+{{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
+<select class={{this.classNames}} id={{this.id}} ...attributes>
   {{! TODO think if  it would be better to use a named block?? }}
   {{yield (hash Options=(component "hds/form/select/options"))}}
 </select>

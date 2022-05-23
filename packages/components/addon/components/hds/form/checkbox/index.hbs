@@ -1,2 +1,3 @@
-{{yield (hash Label=(component "hds/form/label"))}}
-<input type="checkbox" id={{@id}} className={{this.classNames}} ...attributes />
+{{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
+{{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
+<input type="checkbox" class={{this.classNames}} id={{this.id}} ...attributes />

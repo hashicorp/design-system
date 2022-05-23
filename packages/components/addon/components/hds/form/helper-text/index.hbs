@@ -1,4 +1,4 @@
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
-<div className={{this.classNames}} ...attributes>
+{{! TODO we have to be smarter and add the "id" only if the value is defined (use "this.id") }}
+<div class={{this.classNames}} id="helper-text-{{@fieldId}}" ...attributes>
   {{yield}}
 </div>

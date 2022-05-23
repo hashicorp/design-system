@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { guid } from '../utils/guid';
 
 export default class HdsFormCheckboxIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
@@ -6,6 +7,13 @@ export default class HdsFormCheckboxIndexComponent extends Component {
   //   super(...arguments);
   //   // ADD YOUR ASSERTIONS HERE
   // }
+
+  /**
+   * Calculates the unique ID to assign to the form control
+   */
+  get id() {
+    return guid(this);
+  }
 
   /**
    * Get the class names to apply to the component.

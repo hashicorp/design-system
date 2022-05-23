@@ -19,6 +19,9 @@ export default class HdsFormTextInputIndexComponent extends Component {
     return this.args.type ?? 'text';
   }
 
+  /**
+   * Calculates the unique ID to assign to the form control
+   */
   get id() {
     return guid(this);
   }
