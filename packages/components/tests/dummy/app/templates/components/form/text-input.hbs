@@ -89,15 +89,20 @@
 
   <h4 class="dummy-h4">Types with label</h4>
   <div class="dummy-form-text-input-types-grid">
-    {{#each @model.TYPES as |type|}}
       <div>
-        <span class="dummy-text-small">{{capitalize type}}:</span>
+        <span class="dummy-text-small">Auto-generated id:</span>
         <br />
-        <Hds::Form::TextInput @type={{type}} @value={{type}} as |C|>
+        <Hds::Form::TextInput as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
         </Hds::Form::TextInput>
       </div>
-    {{/each}}
+      <div>
+        <span class="dummy-text-small">Custom id:</span>
+        <br />
+        <Hds::Form::TextInput @id="custom-id" as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::TextInput>
+      </div>
   </div>
 
   <h4 class="dummy-h4">States</h4>

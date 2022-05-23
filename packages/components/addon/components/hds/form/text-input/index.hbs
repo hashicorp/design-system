@@ -1,2 +1,2 @@
-{{yield (hash Label=(component "hds/form/label"))}}
-<input type={{this.type}} value={{@value}} className={{this.classNames}} ...attributes />
+{{yield (hash Label=(component "hds/form/label" for=this.id))}}
+<input id={{this.id}} type={{this.type}} value={{@value}} className={{this.classNames}} ...attributes />

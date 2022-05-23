@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { guid } from '../utils/guid';
 
 export default class HdsFormTextInputIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
@@ -16,6 +17,10 @@ export default class HdsFormTextInputIndexComponent extends Component {
    */
   get type() {
     return this.args.type ?? 'text';
+  }
+
+  get id() {
+    return guid(this);
   }
 
   /**
