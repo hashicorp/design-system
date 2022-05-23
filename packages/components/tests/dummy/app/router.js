@@ -22,6 +22,7 @@ Router.map(function () {
     this.route('card');
     this.route('dropdown');
     this.route('form', function () {
+      this.route('base-elements');
       this.route('textarea');
       this.route('select');
       this.route('checkbox');
