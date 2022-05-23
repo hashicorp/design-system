@@ -4,3 +4,16 @@
 // properties within each class are sorted alphabetically
 //
 
+.hds-form-checkbox-wrapper {
+    display: flex;
+    gap: 0.5rem; // temp
+    align-items: start;
+  }
+
+  .hds-form-checkbox-text {
+      flex: none;
+  }
+
+  .hds-form-checkbox-text {
+      flex: 1 0 auto;
+  }

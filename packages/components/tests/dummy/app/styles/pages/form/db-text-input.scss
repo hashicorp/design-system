@@ -1,5 +1,10 @@
 // FORM > TEXT-INPUT
 
+.dummy-form-text-input-base-sample {
+  display: flex;
+  gap: 1rem;
+}
+
 .dummy-form-text-input-types-grid {
   align-items: start;
   display: grid;

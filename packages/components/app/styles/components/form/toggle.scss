@@ -4,3 +4,16 @@
 // properties within each class are sorted alphabetically
 //
 
+.hds-form-toggle-wrapper {
+  display: flex;
+  gap: 0.5rem; // temp
+  align-items: start;
+}
+
+.hds-form-toggle-text {
+    flex: none;
+}
+
+.hds-form-toggle-text {
+    flex: 1 0 auto;
+}

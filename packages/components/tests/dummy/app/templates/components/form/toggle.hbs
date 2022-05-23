@@ -69,6 +69,43 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
+  <h4 class="dummy-h4">Content</h4>
+  <h5 class="dummy-h5">Label</h5>
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">Auto-generated id:</span>
+      <br />
+      <Hds::Form::Toggle as |C|>
+        <C.Label>Lorem ipsum dolor</C.Label>
+      </Hds::Form::Toggle>
+    </div>
+    <div>
+      <span class="dummy-text-small">Custom id:</span>
+      <br />
+      <Hds::Form::Toggle @id="custom-id" as |C|>
+        <C.Label>Lorem ipsum dolor</C.Label>
+      </Hds::Form::Toggle>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Helper text</h5>
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">Only helper text</span>
+      <br />
+      <Hds::Form::Toggle as |C|>
+        <C.HelperText>This is the helper text</C.HelperText>
+      </Hds::Form::Toggle>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text</span>
+      <br />
+      <Hds::Form::Toggle as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.HelperText>This is the helper text</C.HelperText>
+      </Hds::Form::Toggle>
+    </div>
+  </div>
+
   <div class="dummy-form-toggle-states-grid">
     {{#each @model.STATES as |state|}}
       <div>
@@ -78,7 +115,6 @@
         <br />
         <Hds::Form::Toggle
           @id="toggle-with-label-{{state}}"
-          @label="Lorem ipsum dolor"
           disabled={{if (eq state "disabled") "disabled" undefined}}
           as |C|
         >

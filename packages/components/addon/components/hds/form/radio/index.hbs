@@ -1,3 +1,8 @@
-{{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
-{{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-<input type="radio" class={{this.classNames}} id={{this.id}} ...attributes />
+{{! TODO the layout implementation is temporary, it needs to be properly implemented but for now it'll do }}
+<div class="hds-form-toggle-wrapper">
+  <input type="radio" class={{this.classNames}} id={{this.id}} ...attributes />
+  <div class="hds-form-toggle-text">
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
+    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
+  </div>
+</div>
