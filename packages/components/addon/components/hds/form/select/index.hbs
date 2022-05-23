@@ -1,3 +1,6 @@
+{{#if @label}}
+  <Hds::Form::Label for={{@id}}>{{@label}}</Hds::Form::Label>
+{{/if}}
 <select className={{this.classNames}} ...attributes>
   {{yield}}
 </select>

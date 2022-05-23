@@ -1,3 +1,6 @@
+{{#if @label}}
+  <Hds::Form::Label for={{@id}}>{{@label}}</Hds::Form::Label>
+{{/if}}
 <textarea className={{this.classNames}} ...attributes>
   {{yield}}
 </textarea>

@@ -87,6 +87,17 @@
     {{/each}}
   </div>
 
+  <h4 class="dummy-h4">Types with label</h4>
+  <div class="dummy-form-text-input-types-grid">
+    {{#each @model.TYPES as |type|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize type}}:</span>
+        <br />
+        <Hds::Form::TextInput @type={{type}} @value={{type}} @label="Lorem ipsum dolor" />
+      </div>
+    {{/each}}
+  </div>
+
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-text-input-states-grid">
     {{#each @model.TYPES as |type|}}

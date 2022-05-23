@@ -75,6 +75,15 @@
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
         </Hds::Form::Select>
+        <br />
+        <Hds::Form::Select
+          @label="Lorem ipsum dolor"
+          disabled={{if (eq state "disabled") "disabled" undefined}}
+          readonly={{if (eq state "readonly") "readonly" undefined}}
+        >
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </Hds::Form::Select>
       </div>
     {{/each}}
   </div>
