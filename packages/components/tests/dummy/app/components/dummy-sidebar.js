@@ -18,7 +18,7 @@ export default class DummySidebarComponent extends Component {
       icon: 'wrench',
     },
     {
-      title: 'Design Guidelines',
+      title: 'Design guidelines',
       fragment: '#design-guidelines',
       icon: 'monitor',
     },

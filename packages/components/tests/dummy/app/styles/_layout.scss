@@ -1,5 +1,5 @@
 :root {
-	--content-width: calc(1024px + 2 * 2rem);
+	--content-width: calc(1024px + 2 * 8rem);
 }
 
 .dummy-app {
@@ -22,23 +22,23 @@
 		grid-template-rows: auto auto 1fr auto;
 		grid-template-columns:
 			1fr
-			minmax(12em, calc(var(--content-width) * 0.2))
-			minmax(30em, calc(var(--content-width) * 0.8))
+			minmax(12em, calc(var(--content-width) * 0.15))
+			minmax(30em, calc(var(--content-width) * 0.85))
 			1fr;
 	}
 
 }
 
-header.dummy-header {
+.dummy-header {
   grid-area: header;
 }
-nav.dummy-nav {
+.dummy-nav {
   grid-area: nav;
 }
-aside.dummy-aside {
+.dummy-aside {
   grid-area: aside;
 }
-main.dummy-main {
+.dummy-main {
   grid-area: aside/aside/main/main;
 }
 .dummy-aside + .dummy-main {
@@ -58,6 +58,7 @@ main.dummy-main {
   margin: 0;
   padding: 0;
 }
+
 .dummy-content-width-wrapper {
 	max-width: 100%;
 	width: var(--content-width);
