@@ -1,7 +1,18 @@
 {{! TODO the layout implementation is temporary, it needs to be properly implemented but for now it'll do }}
-<div class="hds-form-toggle-wrapper">
-  <input type="checkbox" class={{this.classNames}} id={{this.id}} ...attributes />
-  <div class="hds-form-toggle-text">
+<div class={{this.classNames}}>
+  <div class="hds-form-checkbox__control-wrapper">
+    {{! likely will be extracted as standalone element (TBD how it's called) }}
+    <div class="hds-form-checkbox-standalone">
+      <input type="checkbox" class="hds-form-checkbox-standalone__control" id={{this.id}} ...attributes />
+      <div class="hds-form-checkbox-standalone__facade">
+        <svg width="12" height="12"><path
+            fill="currentColor"
+            d="M9.78 3.22a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 0 1 1.06-1.06l1.47 1.47 3.97-3.97a.75.75 0 0 1 1.06 0Z"
+          ></path></svg>
+      </div>
+    </div>
+  </div>
+  <div class="hds-form-checkbox__text-wrapper">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
     {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
     {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
