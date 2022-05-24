@@ -1,13 +1,10 @@
 import Component from '@glimmer/component';
-import { service } from '@ember/service';
 
 export default class DummySidebarComponent extends Component {
-  @service router;
-
   sections = [
     {
       title: 'Overview',
-      fragment: '#',
+      fragment: '',
       icon: 'collections',
     },
     {
@@ -36,8 +33,4 @@ export default class DummySidebarComponent extends Component {
       icon: 'camera',
     },
   ];
-  get dummyRouteUrl() {
-    let dummyPathUrl = this.router.currentURL;
-    return dummyPathUrl;
-  }
 }
