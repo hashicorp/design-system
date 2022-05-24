@@ -1,6 +1,4 @@
 {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
 {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-<textarea class={{this.classNames}} id={{this.id}} ...attributes>{{~yield
-    (hash Content=(component "hds/form/textarea/content"))
-  ~}}</textarea>
-  {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
+<Textarea @value={{@value}} class={{this.classNames}} id={{this.id}} ...attributes />
+{{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
