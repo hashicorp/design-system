@@ -5,7 +5,7 @@
     <div class="hds-form-checkbox-standalone">
       <input
         type="checkbox"
-        class="hds-form-checkbox-standalone__control"
+        class={{if @native "hds-form-checkbox-standalone__native" "hds-form-checkbox-standalone__control"}}
         id={{this.id}}
         aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
         ...attributes

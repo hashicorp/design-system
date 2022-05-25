@@ -40,6 +40,11 @@ export default class HdsFormRadioIndexComponent extends Component {
     // add a class based on the @xxx argument
     // classes.push(`hds-form-radio--[variant]-${this.xxx}`);
 
+    // add a class based on the @native argument
+    if (this.args.native) {
+      classes.push('hds-form-radio--use-native');
+    }
+
     return classes.join(' ');
   }
 }

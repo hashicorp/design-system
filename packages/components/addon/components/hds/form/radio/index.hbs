@@ -5,7 +5,7 @@
     <div class="hds-form-radio-standalone">
       <input
         type="radio"
-        class="hds-form-radio-standalone__control"
+        class={{if @native "hds-form-radio-standalone__native" "hds-form-radio-standalone__control"}}
         id={{this.id}}
         aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
         ...attributes

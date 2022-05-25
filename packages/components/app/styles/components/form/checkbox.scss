@@ -4,7 +4,7 @@
 // properties within each class are sorted alphabetically
 //
 
-@use "../../mixins/focus-ring" as *;
+@use '../../mixins/focus-ring' as *;
 
 $hds-form-checkbox-control-size: 16px;
 $hds-form-checkbox-control-border-radius: 3px;
@@ -86,7 +86,7 @@ $hds-form-checkbox-control-border-radius: 3px;
     border-radius: $hds-form-checkbox-control-border-radius + $border-width;
     border-width: $border-width;
     bottom: -$shift;
-    content: "";
+    content: '';
     left: -$shift;
     margin: auto;
     position: absolute;
@@ -134,7 +134,7 @@ $hds-form-checkbox-control-border-radius: 3px;
 
     &::before {
       border-style: solid;
-      border-color: var( --token-color-focus-action-external);
+      border-color: var(--token-color-focus-action-external);
     }
   }
 
@@ -173,5 +173,134 @@ $hds-form-checkbox-control-border-radius: 3px;
     box-shadow: none;
     color: var(--token-color-foreground-faint);
   }
+}
 
+// #####################################################################
+// #####################################################################
+// #####################################################################
+// #####################################################################
+
+// TEST USING NATIVE STYLING
+
+.hds-form-checkbox--use-native {
+  .hds-form-checkbox-standalone__facade {
+    display: none;
+  }
+
+  .hds-form-checkbox-standalone__native {
+    appearance: none;
+    cursor: pointer;
+    border-radius: $hds-form-checkbox-control-border-radius;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    height: $hds-form-checkbox-control-size;
+    position: relative;
+    width: $hds-form-checkbox-control-size;
+    background-size: 12px 12px;
+    background-position: center center;
+
+    // used for the focus
+
+    // &::before {
+    //   $border-width: 2px;
+    //   $shift: $border-width + 1px; // we need to take in account also the border width of the parent
+    //   border-radius: $hds-form-checkbox-control-border-radius + $border-width;
+    //   border-width: $border-width;
+    //   bottom: -$shift;
+    //   content: '';
+    //   left: -$shift;
+    //   margin: auto;
+    //   position: absolute;
+    //   right: -$shift;
+    //   top: -$shift;
+    // }
+
+    // STATUS
+
+    // base (default)
+
+    &:not(:checked) {
+      background-color: var(--token-color-surface-primary);
+      border-color: var(--token-color-border-primary);
+      box-shadow: var(--hds-elevation-inset-box-shadow);
+    }
+    &:checked {
+      background-color: var(--token-color-palette-blue-200);
+      border-color: var(--token-color-palette-blue-400);
+      color: var(--token-color-foreground-high-contrast);
+      // notice: the "tick" color is hardcoded here!
+      background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
+
+      &::after {
+        display: block;
+      }
+    }
+
+    // hover
+
+    &:hover:not(:checked),
+    &.mock-hover:not(:checked) {
+      border-color: var(--token-color-border-strong);
+    }
+    &:hover:checked,
+    &.mock-hover:checked {
+      background-color: var(--token-color-foreground-action-hover);
+      border-color: var(--token-color-palette-blue-500);
+    }
+
+    // focus (same for all the states)
+    // TODO add handling of focus-visible
+
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-palette-blue-400);
+      // TODO test if it works across all browsers
+      // Update: Safari doesn't apply a rounded border, is not
+      outline: 2px solid var(--token-color-focus-action-external);
+      outline-offset: 0px;
+
+      // &::before {
+      //   border-style: solid;
+      //   border-color: var(--token-color-focus-action-external);
+      // }
+    }
+
+    // active
+
+    &:active:not(:checked),
+    &.mock-active:not(:checked) {
+      border-color: var(--token-color-palette-blue-400);
+    }
+    &:active:checked,
+    &.mock-active:checked {
+      background-color: var(--token-color-foreground-action-active);
+      border-color: var(--token-color-palette-blue-500);
+    }
+
+    // INVALID
+
+    // TODO add handling of invalid state via a custom class
+    // TODO would make sense to use `:invalid` here? what would be the benefits?
+    &.mock-invalid:not(:checked) {
+      border-color: var(--token-color-foreground-critical);
+    }
+    &.mock-invalid:checked {
+      background-color: var(--token-color-surface-critical);
+      border-color: var(--token-color-foreground-critical);
+      // notice: the "tick" color is hardcoded here!
+      background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23e52228'/%3e%3c/svg%3e");
+    }
+
+    // DISABLED
+
+    // TODO would make sense to use `:disabled` here? what would be the benefits?
+    &[disabled]:not(:checked),
+    &[disabled]:checked {
+      background-color: var(--token-color-surface-strong);
+      border-color: var(--token-color-border-primary);
+      // notice: the "tick" color is hardcoded here!
+      background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23656a76'/%3e%3c/svg%3e");
+    }
+  }
 }

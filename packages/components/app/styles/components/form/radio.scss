@@ -80,7 +80,6 @@ $hds-form-radio-control-size: 16px;
   }
 
   // used for the focus
-  // TODO add handling of focus-visible
 
   &::before {
     $border-width: 2px;
@@ -173,5 +172,141 @@ $hds-form-radio-control-size: 16px;
     border-color: var(--token-color-border-primary);
     box-shadow: none;
     color: var(--token-color-foreground-faint);
+  }
+}
+
+// #####################################################################
+// #####################################################################
+// #####################################################################
+// #####################################################################
+
+// TEST USING NATIVE STYLING
+
+.hds-form-radio--use-native {
+  .hds-form-radio-standalone__facade {
+    display: none;
+  }
+
+  .hds-form-radio-standalone__native {
+    appearance: none;
+    cursor: pointer;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    height: $hds-form-radio-control-size;
+    position: relative;
+    width: $hds-form-radio-control-size;
+
+    // used for the dot
+    &::after {
+      display: none;
+      background-color: currentColor;
+      border-radius: 50%;
+      width: 5px;
+      height: 5px;
+      bottom: 0;
+      content: '';
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    // used for the focus
+
+    // &::before {
+    //   $border-width: 2px;
+    //   $shift: $border-width + 1px; // we need to take in account also the border width of the parent
+    //   border-radius: 50%;
+    //   border-width: $border-width;
+    //   bottom: -$shift;
+    //   content: '';
+    //   left: -$shift;
+    //   margin: auto;
+    //   position: absolute;
+    //   right: -$shift;
+    //   top: -$shift;
+    // }
+
+    // STATUS
+
+    // base (default)
+
+    &:not(:checked) {
+      background-color: var(--token-color-surface-primary);
+      border-color: var(--token-color-border-primary);
+      box-shadow: var(--hds-elevation-inset-box-shadow);
+    }
+    &:checked {
+      background-color: var(--token-color-palette-blue-200);
+      border-color: var(--token-color-palette-blue-400);
+      color: var(--token-color-foreground-high-contrast);
+
+      &::after {
+        display: block;
+      }
+    }
+
+    // hover
+
+    &:hover:not(:checked),
+    &.mock-hover:not(:checked) {
+      border-color: var(--token-color-border-strong);
+    }
+    &:hover:checked,
+    &.mock-hover:checked {
+      background-color: var(--token-color-foreground-action-hover);
+      border-color: var(--token-color-palette-blue-500);
+    }
+
+    // focus (same for all the states)
+
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-palette-blue-400);
+
+      &::before {
+        border-style: solid;
+        border-color: var(--token-color-focus-action-external);
+      }
+    }
+
+    // active
+
+    &:active:not(:checked),
+    &.mock-active:not(:checked) {
+      border-color: var(--token-color-palette-blue-400);
+    }
+    &:active:checked,
+    &.mock-active:checked {
+      background-color: var(--token-color-foreground-action-active);
+      border-color: var(--token-color-palette-blue-500);
+    }
+
+    // INVALID
+
+    // TODO add handling of invalid state via a custom class
+    // TODO would make sense to use `:invalid` here? what would be the benefits?
+    &.mock-invalid:not(:checked) {
+      border-color: var(--token-color-foreground-critical);
+    }
+    &.mock-invalid:checked {
+      background-color: var(--token-color-surface-critical);
+      border-color: var(--token-color-foreground-critical);
+      color: var(--token-color-foreground-critical);
+    }
+
+    // DISABLED
+
+    // TODO would make sense to use `:disabled` here? what would be the benefits?
+    &[disabled]:not(:checked),
+    &[disabled]:checked {
+      background-color: var(--token-color-surface-strong);
+      border-color: var(--token-color-border-primary);
+      box-shadow: none;
+      color: var(--token-color-foreground-faint);
+    }
   }
 }
