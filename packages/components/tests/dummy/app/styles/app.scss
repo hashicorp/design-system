@@ -1,33 +1,33 @@
-@import '@hashicorp/design-system-components';
+@import "@hashicorp/design-system-components";
 
-@import './_layout.scss';
-@import './_typography';
+@import "./_layout.scss";
+@import "./_typography";
 
-// Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
+// Notice: this list can be automatically edited by the Ember blueprint, please don"t remove the start/end comments
 // START COMPONENT PAGES IMPORTS
-@import './pages/db-alert';
-@import './pages/db-badge';
-@import './pages/db-breadcrumb';
-@import './pages/db-button';
-@import './pages/db-card';
-@import './pages/db-colors';
-@import './pages/db-cta';
-@import './pages/db-disclosure';
-@import './pages/db-dropdown';
-@import './pages/db-elevation';
-@import './pages/db-focus-ring';
-@import './pages/db-icon-tile';
-@import './pages/db-link';
-@import './pages/db-toast';
-@import './pages/db-tokens';
-@import './pages/db-typography';
+@import "./pages/db-alert";
+@import "./pages/db-badge";
+@import "./pages/db-breadcrumb";
+@import "./pages/db-button";
+@import "./pages/db-card";
+@import "./pages/db-colors";
+@import "./pages/db-cta";
+@import "./pages/db-disclosure";
+@import "./pages/db-dropdown";
+@import "./pages/db-elevation";
+@import "./pages/db-focus-ring";
+@import "./pages/db-icon-tile";
+@import "./pages/db-link";
+@import "./pages/db-toast";
+@import "./pages/db-tokens";
+@import "./pages/db-typography";
 // END COMPONENT PAGES IMPORTS
 
-@import './components/dummy-component-props';
-@import './components/dummy-footer';
-@import './components/dummy-link-cta-button-banner';
-@import './components/dummy-placeholder';
-@import './components/dummy-sidebar';
+@import "./components/dummy-component-props";
+@import "./components/dummy-footer";
+@import "./components/dummy-link-cta-button-banner";
+@import "./components/dummy-placeholder";
+@import "./components/dummy-sidebar";
 
 *,
 *:before,
