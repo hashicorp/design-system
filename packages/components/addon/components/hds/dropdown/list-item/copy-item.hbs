@@ -6,7 +6,7 @@
   {{/if}}
   <button
     type="button"
-    class="{{if @state (concat 'is-' @state)}} {{if this.isSuccess 'is-success'}}"
+    class="{{if this.isSuccess 'is-success'}}"
     {{on "click" this.copyCode}}
   >
     <div class="hds-dropdown-list-item__copy-item-text hds-typography-code-100">

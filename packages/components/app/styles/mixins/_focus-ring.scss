@@ -8,7 +8,8 @@
 
   // default focus for browsers that still rely on ":focus"
   &:focus,
-  &.is-focus {
+  &.is-focus,
+  &.mock-focus {
     box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
   }
   // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
@@ -21,7 +22,8 @@
   }
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
-  &.is-focus.is-active {
+  &.is-focus.is-active,
+  &.mock-focus.is-active {
     box-shadow: none;
   }
 }
@@ -45,7 +47,8 @@
 
   // default focus for browsers that still rely on ":focus"
   &:focus,
-  &.is-focus {
+  &.is-focus,
+  &.mock-focus {
     &::before {
       box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
     }
@@ -64,7 +67,8 @@
   }
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
-  &.is-focus.is-active {
+  &.is-focus.is-active,
+  &.mock-focus.is-active {
     &::before {
       box-shadow: none;
     }
