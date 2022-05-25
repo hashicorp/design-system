@@ -15,6 +15,9 @@ export default class HdsFormLabelIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-label'];
 
+    // add typographic classes
+    classes.push('hds-typography-body-200', 'hds-font-weight-semibold');
+
     // add a class based on the @xxx argument
     // classes.push(`hds-form-label--[variant]-${this.xxx}`);
 

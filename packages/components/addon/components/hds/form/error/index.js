@@ -29,6 +29,9 @@ export default class HdsFormErrorIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-error'];
 
+    // add typographic classes
+    classes.push('hds-typography-body-100', 'hds-font-weight-medium');
+
     // add a class based on the @xxx argument
     // classes.push(`hds-form-error--[variant]-${this.xxx}`);
 

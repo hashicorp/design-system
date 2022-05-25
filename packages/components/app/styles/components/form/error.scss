@@ -5,6 +5,7 @@
 //
 
 .hds-form-error {
+    color: var(--token-color-foreground-critical-on-surface);
     display: block;
-    color: red;
+    margin-top: 8px;
 }

@@ -29,6 +29,9 @@ export default class HdsFormHelperTextIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-helper-text'];
 
+    // add typographic classes
+    classes.push('hds-typography-body-100', 'hds-font-weight-regular');
+
     // add a class based on the @xxx argument
     // classes.push(`hds-form-helper-text--[variant]-${this.xxx}`);
 

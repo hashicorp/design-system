@@ -5,6 +5,7 @@
 //
 
 .hds-form-helper-text {
-    display: block;
-    font-style: italic;
+  color: var(--token-color-foreground-faint);
+  display: block;
+  margin-bottom: 8px;
 }
