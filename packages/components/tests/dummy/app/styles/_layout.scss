@@ -1,0 +1,65 @@
+:root {
+	--content-width: calc(1024px + 2 * 8rem);
+}
+
+.dummy-app {
+  display: grid;
+	grid-template-areas:
+		"header header"
+		"nav nav"
+		"aside  aside"
+		"main main"
+		"footer footer";
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto auto 1fr auto;
+
+	@media screen and (min-width: 40em) {
+		grid-template-areas:
+			"header header header header"
+			"nav nav nav nav"
+			". aside main ."
+			"footer footer footer footer";
+		grid-template-rows: auto auto 1fr auto;
+		grid-template-columns:
+			1fr
+			minmax(12em, calc(var(--content-width) * 0.15))
+			minmax(30em, calc(var(--content-width) * 0.85))
+			1fr;
+	}
+
+}
+
+.dummy-header {
+  grid-area: header;
+}
+.dummy-nav {
+  grid-area: nav;
+}
+.dummy-aside {
+  grid-area: aside;
+}
+.dummy-main {
+  grid-area: aside/aside/main/main;
+}
+.dummy-aside + .dummy-main {
+  grid-area: main;
+}
+.dummy-footer {
+  grid-area: footer;
+}
+
+.dummy-header,
+.dummy-nav,
+.dummy-footer {
+	align-content: center;
+	display: flex;
+	justify-content: center;
+	max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.dummy-content-width-wrapper {
+	max-width: 100%;
+	width: var(--content-width);
+}

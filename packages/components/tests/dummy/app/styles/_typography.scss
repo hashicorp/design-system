@@ -27,6 +27,7 @@
     @include dummyFontSize(2.5rem);
     font-weight: 600;
     line-height: 1.2;
+    margin-top: 0.75rem; // makes it seem balanced visually with sidebar
 }
 
 .dummy-h3 {

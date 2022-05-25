@@ -366,35 +366,38 @@
     {{/each}}
   </div>
 
-  <h4 class="dummy-h4">Containers</h4>
+  <h4 class="dummy-h4">Inside Containers</h4>
   <div class="dummy-button-containers-list">
     <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-block</code></span>
+      <span class="dummy-text-small">Parent (red border) with
+        <br /><code class="dummy-code">display: inline-block</code></span>
       <br />
-      <div class="dummy-button-containers-list-item__inline-block">
+      <div class="dummy-button-containers-list-item__inline-block dummy-demo-border">
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </div>
     <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-flex</code></span>
+      <span class="dummy-text-small">Parent (red border) with
+        <br /><code class="dummy-code">display: inline-flex</code></span>
       <br />
-      <div class="dummy-button-containers-list-item__inline-flex">
+      <div class="dummy-button-containers-list-item__inline-flex dummy-demo-border">
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </div>
     <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">flex-grow: 0</code></span>
+      <span class="dummy-text-small">Parent (red border) with <br /><code class="dummy-code">flex-grow: 0</code></span>
       <br />
       <div class="dummy-button-containers-list-item__flex">
-        <div class="dummy-button-containers-list-item__flex-grow-0">
+        <div class="dummy-button-containers-list-item__flex-grow-0 dummy-demo-border">
           <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
         </div>
       </div>
     </div>
     <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">max-width: fit-content</code></span>
+      <span class="dummy-text-small">Parent (red border) with
+        <br /><code class="dummy-code">max-width: fit-content</code></span>
       <br />
-      <div class="dummy-button-containers-list-item__max-width-fit-content">
+      <div class="dummy-button-containers-list-item__max-width-fit-content dummy-demo-border">
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </div>
