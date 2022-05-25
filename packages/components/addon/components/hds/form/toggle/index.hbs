@@ -1,7 +1,15 @@
 {{! TODO the layout implementation is temporary, it needs to be properly implemented but for now it'll do }}
-<div class="hds-form-toggle-wrapper">
-  <input type="checkbox" class={{this.classNames}} id={{this.id}} ...attributes />
-  <div class="hds-form-toggle-text">
+<div class={{this.classNames}}>
+  <div class="hds-form-toggle__control-wrapper">
+    {{! likely will be extracted as standalone element (TBD how it's called) }}
+    <div class="hds-form-toggle-standalone">
+      {{! ⚠️ TODO ⚠️ in EUI it's  it's a `<button>` with `role="switch"`, not the usual checkbox - should we do the same?? }}
+      {{! https://github.com/prysmex/ember-eui/blob/master/packages/core/addon/components/eui-switch/index.hbs }}
+      <input type="checkbox" class="hds-form-toggle-standalone__control" id={{this.id}} ...attributes />
+      <div class="hds-form-toggle-standalone__facade"></div>
+    </div>
+  </div>
+  <div class="hds-form-toggle__text-wrapper">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
     {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
     {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}

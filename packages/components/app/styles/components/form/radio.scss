@@ -80,6 +80,7 @@ $hds-form-radio-control-size: 16px;
   }
 
   // used for the focus
+  // TODO add handling of focus-visible
 
   &::before {
     $border-width: 2px;

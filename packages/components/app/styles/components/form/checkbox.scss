@@ -78,6 +78,8 @@ $hds-form-checkbox-control-border-radius: 3px;
     fill: currentColor;
   }
 
+  // used for the focus
+
   &::before {
     $border-width: 2px;
     $shift: $border-width + 1px; // we need to take in account also the border width of the parent
@@ -124,6 +126,7 @@ $hds-form-checkbox-control-border-radius: 3px;
   }
 
   // focus (same for all the states)
+  // TODO add handling of focus-visible
 
   :focus + &,
   .mock-focus + & {

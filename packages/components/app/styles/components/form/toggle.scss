@@ -4,16 +4,177 @@
 // properties within each class are sorted alphabetically
 //
 
-.hds-form-toggle-wrapper {
+@use "sass:math";
+@use "../../mixins/focus-ring" as *;
+
+$hds-form-toggle-control-width: 32px;
+$hds-form-toggle-control-height: 16px;
+$hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
+
+// FIELD
+
+.hds-form-toggle {
   display: flex;
-  gap: 0.5rem; // temp
   align-items: start;
 }
 
-.hds-form-toggle-text {
-    flex: none;
+.hds-form-toggle__control-wrapper {
+  flex: none;
 }
 
-.hds-form-toggle-text {
-    flex: 1 0 auto;
+.hds-form-toggle__text-wrapper {
+  flex: 1 0 auto;
+  margin-left: 0.5rem;
+}
+
+// STANDALONE CONTROL
+
+.hds-form-toggle-standalone {
+  position: relative;
+  isolation: isolate; // used to create a new stacking context
+  // TODO display ??
+}
+
+// control (hidden)
+
+.hds-form-toggle-standalone__control {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: transparent;
+  opacity: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+// facade (visible)
+
+.hds-form-toggle-standalone__facade {
+  border-radius: $hds-form-toggle-border-radius;
+  border: 1px solid var(--border-color);
+  display: block;
+  height: $hds-form-toggle-control-height;
+  position: relative;
+  width: $hds-form-toggle-control-width;
+  transition: background 0.2s;
+
+  // used for the "thumb"
+
+  &::after {
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    width: $hds-form-toggle-control-height;
+    height: $hds-form-toggle-control-height;
+    content: '';
+    left: -1px;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1), border-color 0.2s ease-in;
+    top: -1px;
+  }
+
+  // used for the focus
+
+  &::before {
+    $border-width: 2px;
+    $shift: $border-width + 1px; // we need to take in account also the border width of the parent
+    border-radius: $hds-form-toggle-border-radius + $border-width;
+    border-width: $border-width;
+    bottom: -$shift;
+    content: "";
+    left: -$shift;
+    margin: auto;
+    position: absolute;
+    right: -$shift;
+    top: -$shift;
+  }
+
+  // STATUS
+
+  // base (default)
+
+  :not(:checked) + & {
+    --border-color: var(--token-color-border-strong);
+    background-color: var(--token-color-surface-primary);
+  }
+  :checked + & {
+    background-color: var(--token-color-palette-blue-200);
+    --border-color: var(--token-color-palette-blue-400);
+
+    &::after {
+      $shift: $hds-form-toggle-control-width - $hds-form-toggle-control-height;
+      transform: translate3d($shift, 0, 0);
+    }
+  }
+
+  // hover
+
+  :hover:not(:checked) + &,
+  .mock-hover:not(:checked) + & {
+    --border-color: var(--token-color-border-strong);
+  }
+  :hover:checked + &,
+  .mock-hover:checked + & {
+    background-color: var(--token-color-foreground-action-hover);
+    --border-color: var(--token-color-palette-blue-500);
+  }
+
+  // focus (same for all the states)
+  // TODO add handling of focus-visible
+
+  :focus + &,
+  .mock-focus + & {
+    --border-color: var(--token-color-palette-blue-400);
+
+    &::before {
+      border-style: solid;
+      border-color: var( --token-color-focus-action-external);
+    }
+  }
+
+  // active
+
+  :active:not(:checked) + &,
+  .mock-active:not(:checked) + & {
+    --border-color: var(--token-color-palette-blue-400);
+  }
+  :active:checked + &,
+  .mock-active:checked + & {
+    background-color: var(--token-color-foreground-action-active);
+    --border-color: var(--token-color-palette-blue-500);
+  }
+
+  // INVALID
+
+  // TODO add handling of invalid state via a custom class
+  // TODO would make sense to use `:invalid` here? what would be the benefits?
+  .mock-invalid:not(:checked) + & {
+    --border-color: var(--token-color-foreground-critical);
+  }
+  .mock-invalid:checked + & {
+    background-color: var(--token-color-palette-red-200);
+    --border-color: var(--token-color-foreground-critical);
+  }
+
+  // DISABLED
+
+  // TODO would make sense to use `:disabled` here? what would be the benefits?
+  [disabled]:not(:checked) + &,
+  [disabled]:checked + & {
+    background-color: var(--token-color-surface-strong);
+    --border-color: var(--token-color-border-primary);
+  }
+
 }
