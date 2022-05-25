@@ -8,6 +8,18 @@ export default class HdsFormErrorIndexComponent extends Component {
   // }
 
   /**
+   * Determines the unique ID to assign to the element
+   * @method id
+   * @return {string} The "id" attribute to apply to the element.
+   */
+  get id () {
+    let { fieldId } = this.args;
+    if (fieldId) {
+      return `error-${fieldId}`;
+    }
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
