@@ -109,26 +109,23 @@ $hds-form-checkbox-control-border-radius: 3px;
       display: block;
     }
   }
-  [disabled] + & {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
-    box-shadow: none;
-    color: var(--token-color-foreground-faint);
-  }
 
   // hover
 
-  :not(:checked):hover + & {
+  :hover:not(:checked) + &,
+  .mock-hover:not(:checked) + & {
     border-color: var(--token-color-border-strong);
   }
-  :checked:hover + & {
+  :hover:checked + &,
+  .mock-hover:checked + & {
     background-color: var(--token-color-foreground-action-hover);
     border-color: var(--token-color-palette-blue-500);
   }
 
   // focus (same for all the states)
 
-  :focus + & {
+  :focus + &,
+  .mock-focus + & {
     border-color: var(--token-color-palette-blue-400);
 
     &::before {
@@ -139,11 +136,23 @@ $hds-form-checkbox-control-border-radius: 3px;
 
   // active
 
-  :not(:checked):active + & {
+  :active:not(:checked) + &,
+  .mock-active:not(:checked) + & {
     border-color: var(--token-color-palette-blue-400);
   }
-  :checked:active + & {
+  :active:checked + &,
+  .mock-active:checked + & {
     background-color: var(--token-color-foreground-action-active);
     border-color: var(--token-color-palette-blue-500);
   }
+
+  // TODO would make sense to use `:disabled` here? what would be the benefits?
+  [disabled]:not(:checked) + &,
+  [disabled]:checked + & {
+    background-color: var(--token-color-surface-strong);
+    border-color: var(--token-color-border-primary);
+    box-shadow: none;
+    color: var(--token-color-foreground-faint);
+  }
+
 }
