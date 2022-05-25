@@ -154,7 +154,6 @@
         </Hds::Form::Checkbox>
       </div>
     {{/each}}
-    {{! TODO probably we need to pass also an error message in this case? }}
     <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Invalid</h5>
     {{#each @model.STATES as |state|}}
       <div mock-state-value="{{state}}+invalid" mock-state-selector=".hds-form-checkbox-standalone__control">

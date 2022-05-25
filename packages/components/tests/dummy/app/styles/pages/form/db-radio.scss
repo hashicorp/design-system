@@ -6,8 +6,16 @@
 }
 
 .dummy-form-radio-states-grid {
-    align-items: start;
-    display: grid;
-    grid-gap: 0rem 1rem;
-    grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  display: grid;
+  grid-gap: 0rem 1rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  .dummy-form-radio-states-grid__title {
+    grid-column: 1 / 5;
+
+    &:first-child {
+      margin-top: 0.75rem;
+    }
   }
+}
