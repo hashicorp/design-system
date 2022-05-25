@@ -1,24 +1,26 @@
 import Controller from '@ember/controller';
 import { scheduleOnce } from '@ember/runloop';
 
-function replaceDummyStates() {
-  document.querySelectorAll('[mock-state-value]').forEach(function (element) {
-    let target;
+function replaceMockStates() {
+  document.querySelectorAll('[mock-state-value]').forEach((element) => {
+    let targets;
     if (element.attributes['mock-state-selector']) {
-      target = element.querySelector(
+      targets = element.querySelectorAll(
         element.attributes['mock-state-selector'].value
       );
     } else {
-      target = element;
+      targets = [element];
     }
-    const state = element.attributes['mock-state-value'].value;
-    target.classList.add(`mock-${state}`);
+    const states = element.attributes['mock-state-value'].value.split('+');
+    const classes = states.map((state) => `mock-${state.trim()}`);
+    targets.forEach((target) => {
+      target.classList.add(...classes);
+    });
   });
 }
-
 export default class ComponentsController extends Controller {
   constructor() {
     super(...arguments);
-    scheduleOnce('afterRender', this, replaceDummyStates);
+    scheduleOnce('afterRender', this, replaceMockStates);
   }
 }
