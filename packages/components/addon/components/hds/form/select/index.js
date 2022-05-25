@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
 import { guid } from '../utils/guid';
+import { ID_PREFIX as ERROR_ID_PREFIX } from '../error';
+import { ID_PREFIX as HELPER_TEXT_ID_PREFIX } from '../helper-text';
 
 export default class HdsFormSelectIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
