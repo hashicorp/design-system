@@ -7,4 +7,6 @@
 .hds-form-label {
     display: block;
     font-weight: bold;
+    max-width: 100%;
+    width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
 }
