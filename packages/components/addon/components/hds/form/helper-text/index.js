@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+export const ID_PREFIX = 'helper-text-';
 
 export default class HdsFormHelperTextIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
@@ -10,13 +11,14 @@ export default class HdsFormHelperTextIndexComponent extends Component {
   /**
    * Determines the unique ID to assign to the element
    * @method id
-   * @return {string} The "id" attribute to apply to the element.
+   * @return {(string|boolean)} The "id" attribute to apply to the element or false, if no fieldId is provided
    */
-  get id () {
+  get id() {
     let { fieldId } = this.args;
     if (fieldId) {
-      return `helper-text-${fieldId}`;
+      return `${ID_PREFIX}${fieldId}`;
     }
+    return false;
   }
 
   /**

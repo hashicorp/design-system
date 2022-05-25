@@ -3,7 +3,13 @@
   <div class="hds-form-checkbox__control-wrapper">
     {{! likely will be extracted as standalone element (TBD how it's called) }}
     <div class="hds-form-checkbox-standalone">
-      <input type="checkbox" class="hds-form-checkbox-standalone__control" id={{this.id}} ...attributes />
+      <input
+        type="checkbox"
+        class="hds-form-checkbox-standalone__control"
+        id={{this.id}}
+        aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
+        ...attributes
+      />
       <div class="hds-form-checkbox-standalone__facade">
         <svg width="12" height="12"><path
             d="M9.78 3.22a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 0 1 1.06-1.06l1.47 1.47 3.97-3.97a.75.75 0 0 1 1.06 0Z"

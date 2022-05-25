@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
 import { guid } from '../utils/guid';
+import { ID_PREFIX as ERROR_ID_PREFIX } from '../error';
+import { ID_PREFIX as HELPER_TEXT_ID_PREFIX } from '../helper-text';
 
 export default class HdsFormTextInputIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
@@ -33,8 +35,8 @@ export default class HdsFormTextInputIndexComponent extends Component {
    */
   get ariaDescribedBy() {
     let describedBy = [];
-    describedBy.push(`helper-text-${this.id}`);
-    describedBy.push(`error-${this.id}`);
+    describedBy.push(`${HELPER_TEXT_ID_PREFIX}${this.id}`);
+    describedBy.push(`${ERROR_ID_PREFIX}${this.id}`);
     return describedBy.join(' ');
   }
 

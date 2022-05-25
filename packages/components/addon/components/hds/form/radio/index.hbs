@@ -3,7 +3,13 @@
   <div class="hds-form-radio__control-wrapper">
     {{! likely will be extracted as standalone element (TBD how it's called) }}
     <div class="hds-form-radio-standalone">
-      <input type="radio" class="hds-form-radio-standalone__control" id={{this.id}} ...attributes />
+      <input
+        type="radio"
+        class="hds-form-radio-standalone__control"
+        id={{this.id}}
+        aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
+        ...attributes
+      />
       <div class="hds-form-radio-standalone__facade"></div>
     </div>
   </div>
