@@ -177,6 +177,7 @@ body.dummy-app {
 @media only percy {
   header,
   nav.dummy-nav,
+  aside,
   footer,
   main section:not([data-test-percy]) {
     display: none;
