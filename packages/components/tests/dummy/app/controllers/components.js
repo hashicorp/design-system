@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
 function replaceMockStates() {
@@ -19,8 +20,18 @@ function replaceMockStates() {
   });
 }
 export default class ComponentsController extends Controller {
+  @service router;
+
   constructor() {
     super(...arguments);
+    this.router.on('routeDidChange', this, 'routeDidChange');
+  }
+
+  routeDidChange() {
     scheduleOnce('afterRender', this, replaceMockStates);
+  }
+
+  willDestroy() {
+    this.router.off('routeDidChange', this, 'routeDidChange');
   }
 }
