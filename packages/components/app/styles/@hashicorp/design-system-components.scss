@@ -5,6 +5,8 @@
 @use "helpers/focus-ring";
 @use "helpers/typography";
 
+// Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
+// START COMPONENTS CSS FILES IMPORTS
 @use "../components/alert";
 @use "../components/badge";
 @use "../components/badge-count";
@@ -17,6 +19,7 @@
 @use "../components/link/cta";
 @use "../components/link/standalone";
 @use "../components/toast";
+// END COMPONENT CSS FILES IMPORTS
 
 .sr-only {
 	border: 0 !important;
