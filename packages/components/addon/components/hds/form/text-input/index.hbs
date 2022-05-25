@@ -1,4 +1,4 @@
 {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
 {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-<input type={{this.type}} class={{this.classNames}} id={{this.id}} value={{@value}} ...attributes />
+<input type={{this.type}} class={{this.classNames}} id={{this.id}} value={{@value}} aria-describedby={{if (has-block-params)  this.ariaDescribedBy}} ...attributes />
 {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
