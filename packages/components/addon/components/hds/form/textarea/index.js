@@ -22,8 +22,8 @@ export default class HdsFormTextareaIndexComponent extends Component {
    */
   get ariaDescribedBy() {
     let describedBy = [];
-    describedBy.push(`helper-text-${this.id}`);
-    describedBy.push(`error-${this.id}`);
+    describedBy.push(`${HELPER_TEXT_ID_PREFIX}${this.id}`);
+    describedBy.push(`${ERROR_ID_PREFIX}${this.id}`);
     return describedBy.join(' ');
   }
 

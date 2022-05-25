@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+export const ERROR_ID_PREFIX = 'error-';
 
 export default class HdsFormErrorIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
@@ -15,7 +16,7 @@ export default class HdsFormErrorIndexComponent extends Component {
   get id () {
     let { fieldId } = this.args;
     if (fieldId) {
-      return `error-${fieldId}`;
+      return `${ERROR_ID_PREFIX}${fieldId}`;
     }
   }
 

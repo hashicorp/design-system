@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+export const HELEPR_TEXT_ID_PREFIX = 'helper-text-';
 
 export default class HdsFormHelperTextIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
@@ -15,7 +16,7 @@ export default class HdsFormHelperTextIndexComponent extends Component {
   get id () {
     let { fieldId } = this.args;
     if (fieldId) {
-      return `helper-text-${fieldId}`;
+      return `${HELEPR_TEXT_ID_PREFIX}${fieldId}`;
     }
   }
 
