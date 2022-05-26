@@ -71,15 +71,11 @@
 
   <h4 class="dummy-h4">Content</h4>
   <h5 class="dummy-h5">"Bare" control</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <div class="dummy-form-checkbox-base-sample">
     <div>
       <span class="dummy-text-small">Unchecked</span>
       <br />
       <Hds::Form::Checkbox />
-      <div>
-        <Hds::Form::Checkbox id="my-custom-checkbox-unchecked" />
-        <label for="my-custom-checkbox-unchecked">Custom label</label>
-      </div>
     </div>
     <div>
       <span class="dummy-text-small">Checked</span>
@@ -87,8 +83,33 @@
       <Hds::Form::Checkbox checked="checked" />
     </div>
   </div>
-  <h5 class="dummy-h5">Label</h5>
+  <br />
   <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">With custom layout</span>
+      <br />
+      <div>
+        <span>Some content</span>
+        <Hds::Form::Checkbox id="my-custom-checkbox-example1" />
+        <label for="my-custom-checkbox-example1">Custom label</label>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">With Ember logic as child</span>
+      <br />
+      <div>
+        <span>Some content</span>
+        <Hds::Form::Checkbox id="my-custom-checkbox-example2" as |C|>
+          {{#if false}}
+            <C.Label>Lorem ipsum dolor</C.Label>
+          {{/if}}
+        </Hds::Form::Checkbox>
+        <label for="my-custom-checkbox-example2">Custom label</label>
+      </div>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Label</h5>
+  <div class="dummy-form-checkbox-base-sample">
     <div>
       <span class="dummy-text-small">Auto-generated id:</span>
       <br />
@@ -105,7 +126,7 @@
     </div>
   </div>
   <h5 class="dummy-h5">Helper text</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <div class="dummy-form-checkbox-base-sample">
     <div>
       <span class="dummy-text-small">Only helper text</span>
       <br />

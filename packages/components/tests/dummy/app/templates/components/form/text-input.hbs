@@ -88,6 +88,44 @@
   </div>
 
   <h4 class="dummy-h4">Content</h4>
+  <h5 class="dummy-h5">"Bare" control</h5>
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">Default</span>
+      <br />
+      <Hds::Form::TextInput />
+    </div>
+    <div>
+      <span class="dummy-text-small">With value</span>
+      <br />
+      <Hds::Form::TextInput value="Lorem ipsum dolor" />
+    </div>
+  </div>
+  <br />
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">With custom layout</span>
+      <br />
+      <div class="dummy-form-text-input-content-sample-with-custom-layout">
+        <span>Some content</span>
+        <Hds::Form::TextInput value="Lorem ipsum dolor" />
+        <label for="my-custom-checkbox-example1">Custom label</label>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">With Ember logic as child</span>
+      <br />
+      <div class="dummy-form-text-input-content-sample-with-custom-layout">
+        <span>Some content</span>
+        <Hds::Form::TextInput value="Lorem ipsum dolor" as |C|>
+          {{#if false}}
+            <C.Label>Lorem ipsum dolor</C.Label>
+          {{/if}}
+        </Hds::Form::TextInput>
+        <label for="my-custom-checkbox-example2">Custom label</label>
+      </div>
+    </div>
+  </div>
   <h5 class="dummy-h5">Label</h5>
   <div class="dummy-form-text-input-base-sample">
     <div>
