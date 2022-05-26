@@ -7,10 +7,12 @@
 
   <p class="dummy-paragraph">
     A Toast is an element intended for
-    <strong>messages that are the result of a user's actions</strong>
-    (for system-generated messages see the
+    <strong>messages that are the result of a user's actions</strong>.
+  </p>
+  <p class="dummy-paragraph">
+    For system-generated messages see the
     <LinkTo @route="components.alert">Alert</LinkTo>
-    component.).
+    component.
   </p>
 
   <p class="dummy-paragraph">Typically it displays a brief, temporary notification and it disappears on its own (after a
@@ -58,13 +60,14 @@
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">
     The most basic invocation requires the
-    <code class="dummy-code">type</code>,
-    <code class="dummy-code">title</code>
-    and/or
-    <code class="dummy-code">text</code>
+    <code class="dummy-code">type</code>
     arguments to be passed, and an
     <code class="dummy-code">onDismiss</code>
-    callback function. By default a
+    callback function, along with the
+    <code class="dummy-code">title</code>
+    and/or
+    <code class="dummy-code">description</code>
+    content. By default a
     <code class="dummy-code">neutral</code>
     toast is generated (with a neutral color applied and a specific icon visible).
   </p>
@@ -72,14 +75,21 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Toast @title="Title here" @description="Description here" @onDismiss=\{{ your function here }} />
-    '
+    @code="
+      <Hds::Toast @onDismiss=\{{ your function here }} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>Description here</T.Description>
+      </Hds::Toast>
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" @onDismiss={{this.noop}} />
+  <Hds::Toast @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>Description here</T.Description>
+  </Hds::Toast>
+
   <p class="dummy-paragraph">
     🚨
     <em><strong>Important</strong>: the actual implementation of what happens to the alert when the
@@ -98,22 +108,30 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Toast @title="Title here" @onDismiss=\{{...}} />
-    '
+    @code="
+      <Hds::Toast @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+      </Hds::Toast>
+    "
   />
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Toast @description="Description here" @onDismiss=\{{...}} />
-    '
+    @code="
+      <Hds::Toast @onDismiss=\{{...}} as |T|>
+        <T.Description>Description here</T.Description>
+      </Hds::Toast>
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @onDismiss={{this.noop}} />
+  <Hds::Toast @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+  </Hds::Toast>
   <br />
-  <Hds::Toast @description="Description here" @onDismiss={{this.noop}} />
+  <Hds::Toast @onDismiss={{this.noop}} as |T|>
+    <T.Description>Description here</T.Description>
+  </Hds::Toast>
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -126,13 +144,19 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @title="Title here" @description="Description here" @onDismiss=\{{...}} />
+      <Hds::Toast @color="success" @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>Description here</T.Description>
+      </Hds::Toast>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" @title="Title here" @description="Description here" @onDismiss={{this.noop}} />
+  <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>Description here</T.Description>
+  </Hds::Toast>
 
   <h4 class="dummy-h4">Icon</h4>
   <p class="dummy-paragraph">
@@ -145,19 +169,20 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @icon="bulb" @title="Title here" @description="Description here" @onDismiss=\{{...}} />
+      <Hds::Toast @color="success" @icon="bulb" @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>Description here</T.Description>
+      </Hds::Toast>
+
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast
-    @color="success"
-    @icon="bulb"
-    @title="Title here"
-    @description="Description here"
-    @onDismiss={{this.noop}}
-  />
+  <Hds::Toast @color="success" @icon="bulb" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>Description here</T.Description>
+  </Hds::Toast>
   <p class="dummy-paragraph">
     If instead you want to completely hide the icon you have to pass a
     <code class="dummy-code">false</code>
@@ -170,44 +195,120 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @icon=\{{false}} @title="Title here" @description="Description here" @onDismiss=\{{...}} />
-    '
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast
-    @color="success"
-    @icon={{false}}
-    @title="Title here"
-    @description="Description here"
-    @onDismiss={{this.noop}}
-  />
-
-  <h4 class="dummy-h4">Actions</h4>
-  <p class="dummy-paragraph">Actions can optionally be passed into the component using one of the suggested
-    <code class="dummy-code">Button</code>,
-    <code class="dummy-code">Link::Standalone</code>
-    or
-    <code class="dummy-code">LinkTo::Standalone</code>
-    yielded components.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss=\{{...}} as |A|>
-        <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-        <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+      <Hds::Toast @color="success" @icon=\{{false}} @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>Description here</T.Description>
       </Hds::Toast>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="critical" @title="Title here" @description="Description here" @onDismiss={{this.noop}} as |A|>
-    <A.Button @text="Your action" @color="secondary" />
-    <A.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+  <Hds::Toast @color="success" @icon={{false}} @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>Description here</T.Description>
+  </Hds::Toast>
+
+  <h4 class="dummy-h4">Actions</h4>
+  <p class="dummy-paragraph">Actions can optionally be passed into the component using one of the suggested
+    <code class="dummy-code">Button</code>
+    or
+    <code class="dummy-code">Link::Standalone</code>
+    yielded components.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Toast @color="critical" @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>Description here</T.Description>
+        <T.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
+        <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+      </Hds::Toast>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>Description here</T.Description>
+    <T.Button @text="Your action" @color="secondary" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+  </Hds::Toast>
+
+  <h4 class="dummy-h4" id="how-to-use-description">Structured content</h4>
+  <p class="dummy-paragraph">When needed the
+    <code class="dummy-code">Description</code>
+    contextual component can contain logic, rich HTML or structured content.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Toast @color="success" onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>
+          The description can contain
+          \{{#if true}}conditional logic\{{/if}}, Ember components, and HTML tags, like
+          <strong>strong text</strong>,
+          <em>emphasized text</em>,
+          <code>code</code>,
+          <pre>pre</pre>,
+          <a href="#">inline</a>
+          <LinkTo @route="index">links</LinkTo>.
+        </T.Description>
+      </Hds::Toast>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Toast @color="success" onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>
+      The description can contain
+      {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
+      <strong>strong text</strong>,
+      <em>emphasized text</em>,
+      <code>code</code>,
+      <pre>pre</pre>,
+      <a href="#">inline</a>
+      <LinkTo @route="index">links</LinkTo>.
+    </T.Description>
+  </Hds::Toast>
+  <p class="dummy-paragraph"><em>Notice: for a few simple HTML elements (like
+      <code class="dummy-code">strong</code>,
+      <code class="dummy-code">em</code>,
+      <code class="dummy-code">a</code>,
+      <code class="dummy-code">code/pre</code>) we apply styling. If you use other elements you will need to take care
+      of styling them accordingly.</em>
+  </p>
+  <p class="dummy-paragraph">You can pass more than one
+    <code class="dummy-code">D.Description</code>
+    contextual components to have multiple description lines.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Toast @color="success" onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>First line of description.</T.Description>
+        <T.Description>Second line of description.</T.Description>
+      </Hds::Toast>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Toast @color="success" onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>First line of description.</T.Description>
+    <T.Description>Second line of description.</T.Description>
   </Hds::Toast>
 
   <h4 class="dummy-h4">Generic content</h4>
@@ -222,21 +323,25 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Toast @title="Title here" @description="Description here" @onDismiss=\{{...}} as |A|>
-        <A.Generic>
+    @code="
+      <Hds::Toast @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
+        <T.Description>Description here</T.Description>
+        <T.Generic>
           [your content here]
-        </A.generic>
+        </T.generic>
       </Hds::Toast>
-    '
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @title="Title here" @description="Description here" @onDismiss={{this.noop}} as |A|>
-    <A.Generic>
+  <Hds::Toast @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
+    <T.Description>Description here</T.Description>
+    <T.Generic>
       [your content here]
-    </A.Generic>
+    </T.Generic>
   </Hds::Toast>
   <p class="dummy-paragraph">🚨
     <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
@@ -366,106 +471,101 @@
   <h4 class="dummy-h4">Color</h4>
   <div class="dummy-toast-base-sample">
     {{#each @model.COLORS as |color|}}
-      <Hds::Toast
-        @color={{color}}
-        @title={{capitalize color}}
-        @description="This is the toast with <em>{{color}}</em> color."
-        @onDismiss={{this.noop}}
-      />
+      <Hds::Toast @color={{color}} @onDismiss={{this.noop}} as |T|>
+        <T.Title>{{capitalize color}}</T.Title>
+        <T.Description>This is the toast with <em>{{color}}</em> color.</T.Description>
+      </Hds::Toast>
     {{/each}}
   </div>
 
   <h4 class="dummy-h4">Icon</h4>
   <div class="dummy-toast-base-sample">
-    <Hds::Toast
-      @color="highlight"
-      @title="Default icon"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="highlight"
-      @icon="meh"
-      @title="With icon override"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="highlight"
-      @icon="running"
-      @title="With animated icon"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="highlight"
-      @icon=""
-      @title="Without icon"
-      @description="Lorem ipsum dolor sit amet."
-      @onDismiss={{this.noop}}
-    />
+    <Hds::Toast @color="highlight" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Default icon</T.Title>
+      <T.Description>Lorem ipsum dolor sit amet.</T.Description>
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @icon="meh" @onDismiss={{this.noop}} as |T|>
+      <T.Title>With icon override</T.Title>
+      <T.Description>Lorem ipsum dolor sit amet.</T.Description>
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @icon="running" @onDismiss={{this.noop}} as |T|>
+      <T.Title>With animated icon</T.Title>
+      <T.Description>Lorem ipsum dolor sit amet.</T.Description>
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @icon="" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Without icon</T.Title>
+      <T.Description>Lorem ipsum dolor sit amet.</T.Description>
+    </Hds::Toast>
   </div>
 
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
-    <Hds::Toast
-      @color="success"
-      @title="A simple title"
-      @description="A simple description text"
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="success"
-      @title="A toast with a very long title and a long description text that should go on multiple lines"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast @color="success" @title="A toast with a title and no description text." @onDismiss={{this.noop}} />
-    <Hds::Toast
-      @color="success"
-      @description="A toast with no title and just a description text"
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="success"
-      @title="A toast with rich text description (HTML)"
-      @description="The description text can support HTML tags embedded in the string value, like <strong>strong</strong> and <em>em</em> as well as <code>code</code> and <a href='#'>links</a>."
-      @onDismiss={{this.noop}}
-    />
-    <Hds::Toast
-      @color="success"
-      @title="A toast with extra/custom content"
-      @description="In special cases, you can pass extra content to the toast using the <code>Generic</code> contextual component."
-      @onDismiss={{this.noop}}
-      as |A|
-    >
-      <A.Generic>
-        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
-      </A.Generic>
-    </Hds::Toast>
+    <div class="dummy-toast-sample-grid__column">
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Title>A simple title</T.Title>
+        <T.Description>A simple description text</T.Description>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Title>A toast with a title and no description text.</T.Title>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Description>A toast with no title and just a description text</T.Description>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Title>A toast with a very long title and a long description text that should go on multiple lines</T.Title>
+        <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna
+          eget, porttitor lobortis nulla.</T.Description>
+      </Hds::Toast>
+    </div>
+    <div class="dummy-toast-sample-grid__column">
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Title>A toast with a rich description (HTML)</T.Title>
+        <T.Description>Using the
+          <code>A.Description</code>
+          contextual component it's possible to have content that contains HTML tags, like
+          <strong>strong text</strong>
+          and
+          <em>emphasized text</em>
+          as well as
+          <code>code</code>,
+          <pre>pre</pre>
+          and
+          <a href="#">inline links</a>.</T.Description>
+      </Hds::Toast>
+      <Hds::Toast @onDismiss={{this.noop}} @color="success" as |T|>
+        <T.Title>Multiple lines of description using more than one 'description' contextual component</T.Title>
+        <T.Description>This is the first line of description, yielded to a
+          <code>A.Description</code>
+          contextual component.</T.Description>
+        <T.Description>And this is the second line of description, yielded to another
+          <code>A.Description</code>
+          contextual component.</T.Description>
+      </Hds::Toast>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Title>A toast with extra/custom content</T.Title>
+        <T.Description>In special cases, you can pass extra content to the toast using the
+          <code>A.Generic</code>
+          contextual component.</T.Description>
+        <T.Generic>
+          <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+        </T.Generic>
+      </Hds::Toast>
+    </div>
   </div>
 
   <h4 class="dummy-h4">Actions</h4>
   <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
-    <Hds::Toast
-      @color="warning"
-      @title="Action passed as yielded component"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onDismiss={{this.noop}}
-      as |A|
-    >
-      <A.Button @text="Action" @color="secondary" />
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Action passed as yielded component</T.Title>
+      <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</T.Description>
+      <T.Button @text="Action" @color="secondary" />
     </Hds::Toast>
-    <Hds::Toast
-      @color="warning"
-      @title="With multiple actions passed as yielded components"
-      @description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      @onDismiss={{this.noop}}
-      as |A|
-    >
-      <A.Button @text="Secondary" @color="secondary" />
-      <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-      <A.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
+      <T.Title>With multiple actions passed as yielded components</T.Title>
+      <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</T.Description>
+      <T.Button @text="Secondary" @color="secondary" />
+      <T.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+      <T.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
     </Hds::Toast>
   </div>
 </section>

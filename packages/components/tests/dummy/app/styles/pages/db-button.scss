@@ -18,6 +18,12 @@
     width: 300px;
 }
 
+.dummy-button-generated-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .dummy-button-states-grid {
     display: grid;
     grid-gap: 0.5rem;

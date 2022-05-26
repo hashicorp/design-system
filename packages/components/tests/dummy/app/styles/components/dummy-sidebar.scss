@@ -1,0 +1,53 @@
+.dummy-aside__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.dummy-aside__list li {
+  padding: 1px; // this accounts for the border of the child element
+  
+  // "back" is the first item, we want to separate it visually from the rest of the links
+  // to give it some breathing room, but still have it be part of the ul element from a AT perspective.
+  &:first-of-type {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+}
+.dummy-aside__list li a {
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9rem;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: aliceblue;
+    border-color: blue;
+    border-style: dashed;
+  }
+  &:focus {
+    border-color: blue;
+    text-decoration: underline;
+  }
+  &:focus-visible {
+    outline-offset: 4px;
+    outline-color: blue;
+  }
+  &:active {
+    background-color: aliceblue;
+    border-color: blue;
+    text-decoration: underline;
+  }
+
+  .flight-icon {
+    color: blue;
+  }
+}

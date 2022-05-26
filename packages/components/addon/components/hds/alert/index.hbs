@@ -7,20 +7,14 @@
 
   <div class="hds-alert__content">
     <div class="hds-alert__text">
-      {{#if @title}}
-        <div class="hds-alert__title">{{@title}}</div>
-      {{/if}}
-      {{#if @description}}
-        <div class="hds-alert__description">{{html-safe @description}}</div>
-      {{/if}}
+      {{yield (hash Title=(component "hds/alert/title"))}}
+      {{yield (hash Description=(component "hds/alert/description"))}}
     </div>
 
     <div class="hds-alert__actions">
       {{yield
         (hash
-          Button=(component "hds/button" size="small")
-          Link::Standalone=(component "hds/link/standalone" size="small")
-          LinkTo::Standalone=(component "hds/link-to/standalone" size="small")
+          Button=(component "hds/button" size="small") Link::Standalone=(component "hds/link/standalone" size="small")
         )
       }}
     </div>

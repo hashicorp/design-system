@@ -52,6 +52,15 @@ module(
       assert.dom('#test-toggle-button').hasClass('hds-button--color-secondary');
     });
 
+    // A11Y
+
+    test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @isOpen={{true}} id="test-toggle-button" />`
+      );
+      assert.dom('#test-toggle-button').hasAttribute('aria-expanded', 'true');
+    });
+
     // ASSERTIONS
 
     test('it should throw an assertion if @text is not defined', async function (assert) {

@@ -84,7 +84,7 @@ $size-props: (
   color: var(--token-color-foreground-action);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     color: var(--token-color-foreground-action-hover);
 
     .hds-link-standalone__text {
@@ -93,7 +93,7 @@ $size-props: (
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     color: var(--token-color-foreground-action-active);
 
     .hds-link-standalone__text {
@@ -110,14 +110,14 @@ $size-props: (
   color: var(--token-color-foreground-strong);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     .hds-link-standalone__text {
       text-decoration-color: #4D4D4F; // custom color by design
     }
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     color: var(--token-color-foreground-primary);
 
     .hds-link-standalone__text {

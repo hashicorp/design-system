@@ -11,23 +11,19 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
 
   test('it renders the alert container', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" @title="I'm a cool alert!" />`);
+    await render(hbs`<Hds::Alert @type="inline" />`);
     assert.dom(this.element).exists();
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @title="I'm a cool alert!" id="test-alert" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" id="test-alert" />`);
     assert.dom('#test-alert').hasClass('hds-alert');
   });
 
   // TYPE
 
-  test('it should render the correct CSS type class if @type prop is declared', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" />`
-    );
-    assert.dom('#test-alert').hasClass('hds-alert--type-inline');
+  test('it should render the correct CSS type class depending on the @type prop', async function (assert) {
+    await render(hbs`<Hds::Alert @type="page" id="test-alert" />`);
+    assert.dom('#test-alert').hasClass('hds-alert--type-page');
   });
 
   // ICON
@@ -35,73 +31,51 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an icon by default depending on the type and color', async function (assert) {
     // here we don't test all the possible combinations, only some of them as precaution
     assert.expect(6);
-    await render(hbs`<Hds::Alert @type="inline" @description="yo" />`);
+    await render(hbs`<Hds::Alert @type="inline" />`);
     assert.dom('.flight-icon-info').exists();
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @type="compact" />`
-    );
+    await render(hbs`<Hds::Alert @type="compact" />`);
     assert.dom('.flight-icon-info-fill').exists();
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @color="highlight" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @color="highlight" />`);
     assert.dom('.flight-icon-info').exists();
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @color="success" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @color="success" />`);
     assert.dom('.flight-icon-check-circle').exists();
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @color="warning" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @color="warning" />`);
     assert.dom('.flight-icon-alert-triangle').exists();
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @color="critical" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @color="critical" />`);
     assert.dom('.flight-icon-alert-diamond').exists();
   });
 
   test('if an icon is declared, the icon should render in the component and override the default one', async function (assert) {
     assert.expect(2);
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @icon="clipboard-copy" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @icon="clipboard-copy" />`);
     assert.dom('.flight-icon-clipboard-copy').exists();
-    await render(
-      hbs`<Hds::Alert @description="yo" @type="compact" @icon="clipboard-copy" />`
-    );
+    await render(hbs`<Hds::Alert @type="compact" @icon="clipboard-copy" />`);
     assert.dom('.flight-icon-clipboard-copy').exists();
   });
 
   test('it should display no icon when @icon is set to false', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @title="yo" @icon={{false}} />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @icon={{false}} />`);
     assert.dom('.flight-icon').doesNotExist();
   });
 
   // TEXT (TITLE + DESCRIPTION)
 
-  test('it should render the title when the @title argument is provided', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" @title="This is the title" />`);
+  test('it should render the title when the "title" contextual component is provided', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @type="inline" as |A|><A.Title>This is the title</A.Title></Hds::Alert>`
+    );
     assert.dom(this.element).hasText('This is the title');
   });
-  test('it should render the description when the @description argument is provided', async function (assert) {
+  test('it should render the description when the "description" contextual component is provided', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" @description="This is the description" />`
+      hbs`<Hds::Alert @type="inline" as |A|><A.Description>This is the description</A.Description></Hds::Alert>`
     );
     assert.dom(this.element).hasText('This is the description');
   });
-  test('it should render both the title and the description when both the @title and @description arguments are provided', async function (assert) {
-    assert.expect(2);
-    await render(
-      hbs`<Hds::Alert @type="inline" @title="This is the title" @description="This is the description" />`
-    );
-    assert.dom('.hds-alert__title').hasText('This is the title');
-    assert.dom('.hds-alert__description').hasText('This is the description');
-  });
-  test('it should render rich HTML when the @description argument contains HTML tags', async function (assert) {
+  test('it should render rich HTML when the "description" contextual component contains HTML tags', async function (assert) {
     assert.expect(8);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a>" />`
+      hbs`<Hds::Alert @type="inline" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`
     );
     assert.dom('.hds-alert__description strong').exists().hasText('strong');
     assert.dom('.hds-alert__description em').exists().hasText('em');
@@ -114,7 +88,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
     assert.expect(5);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions button')
@@ -127,7 +101,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
     assert.expect(5);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" href="#" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions a')
@@ -143,7 +117,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render any content passed to the "generic" contextual component', async function (assert) {
     assert.expect(2);
     await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`
     );
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
   });
@@ -151,23 +125,19 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // DISMISS
 
   test('it should not render the "dismiss" button by default', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" @title="yo" />`);
+    await render(hbs`<Hds::Alert @type="inline" />`);
     assert.dom('button.hds-alert__dismiss').doesNotExist();
   });
   test('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
     this.set('NOOP', () => {});
-    await render(
-      hbs`<Hds::Alert @type="inline" @description="yo" @onDismiss={{this.NOOP}} />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @onDismiss={{this.NOOP}} />`);
     assert.dom('button.hds-alert__dismiss').exists();
   });
 
   // A11Y
 
   test('it should render with the correct semantic tags and aria attributes', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @title="This is the title" @description="This is the description" id="test-alert" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" id="test-alert" />`);
     assert.dom('#test-alert').hasAttribute('role', 'alert');
   });
 
@@ -180,7 +150,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Alert @type="foo" @description="yo" />`);
+    await render(hbs`<Hds::Alert @type="foo" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -192,9 +162,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(
-      hbs`<Hds::Alert @type="compact" @description="yo" @icon={{false}} />`
-    );
+    await render(hbs`<Hds::Alert @type="compact" @icon={{false}} />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -206,9 +174,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(
-      hbs`<Hds::Alert @type="inline" @color="foo" @description="yo" />`
-    );
+    await render(hbs`<Hds::Alert @type="inline" @color="foo" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
