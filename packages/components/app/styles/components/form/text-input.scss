@@ -5,7 +5,7 @@
 //
 
 .hds-form-text-input {
-  border-color: var(--token-color-border-strong);
+  border: 1px solid var(--token-color-border-strong);
   border-radius: 5px;
   box-shadow: var(--hds-elevation-inset-box-shadow);
   padding: 4px;
@@ -37,7 +37,7 @@
 
   // TODO add handling of invalid state via a custom class
   // TODO would make sense to use `:invalid` here? what would be the benefits?
-  &.mock-invalid {
+  &.hds-form-text-input--is-invalid {
     border-color: var(--token-color-foreground-critical);
   }
 

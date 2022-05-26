@@ -177,7 +177,7 @@
     {{/each}}
     <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Invalid</h5>
     {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}+invalid" mock-state-selector="input">
+      <div mock-state-value="{{state}}" mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::TextInput @value="Lorem ipsum dolor" @isInvalid={{true}} as |C|>

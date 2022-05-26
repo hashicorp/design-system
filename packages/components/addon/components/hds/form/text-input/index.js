@@ -51,8 +51,10 @@ export default class HdsFormTextInputIndexComponent extends Component {
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-regular');
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-form-text-input--[variant]-${this.xxx}`);
+    // add a class based on the @isInvalid argument
+    if (this.args.isInvalid) {
+      classes.push(`hds-form-text-input--is-invalid`);
+    }
 
     return classes.join(' ');
   }
