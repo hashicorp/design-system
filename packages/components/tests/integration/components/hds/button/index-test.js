@@ -10,9 +10,9 @@ module('Integration | Component | hds/button/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders a button with the defined text', async function (assert) {
+  test('it renders the button', async function (assert) {
     await render(hbs`<Hds::Button @text="Copy to clipboard" />`);
-    assert.dom(this.element).hasText('Copy to clipboard');
+    assert.dom(this.element).exists();
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -91,6 +91,15 @@ module('Integration | Component | hds/button/index', function (hooks) {
       .doesNotHaveAria('label', 'copy to clipboard');
   });
 
+  // TEXT
+
+  test('it renders a button with the defined text', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-toggle-button" />`
+    );
+    assert.dom('#test-toggle-button').hasText('Copy to clipboard');
+  });
+
   // A11Y
 
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {
@@ -98,6 +107,12 @@ module('Integration | Component | hds/button/index', function (hooks) {
       hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`
     );
     assert.dom('#test-button').hasAria('label', 'copy to clipboard');
+  });
+  test('it should have "button" type by default', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
+    );
+    assert.dom('#test-button').hasAttribute('type', 'button');
   });
 
   // OTHER
@@ -134,14 +149,14 @@ module('Integration | Component | hds/button/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-  test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
     const errorMessage =
-      '@type for "Hds::Button" must be one of the following: button, submit, reset; received: foo';
+      '@color for "Hds::Button" must be one of the following: primary, secondary, tertiary, critical; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Button @text="copy to clipboard" @type="foo" />`);
+    await render(hbs`<Hds::Button @text="copy to clipboard" @color="foo" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });

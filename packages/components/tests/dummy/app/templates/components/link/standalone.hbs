@@ -1,44 +1,59 @@
-{{page-title "Link::Standalone Component"}}
+{{page-title "Link::Standalone component"}}
 
-<h2 class="dummy-h2">
-  Link::Standalone
-</h2>
+<h2 class="dummy-h2">Link::Standalone</h2>
 
-<DummyLinkCtaButtonBanner />
+{{! <DummyLinkCtaButtonBanner /> }}
 
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview">§</a> Overview</h3>
 
-  <p class="dummy-paragraph">The Link::Standalone component handles the generation of an HTML anchor element
-    <code class="dummy-code">
-      &lt;a&gt;</code>
-    that points to an external URL.
-  </p>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Link::Standalone</code>
+    component handles the generation of:</p>
+  <ul>
+    <li class="dummy-paragraph">an HTML anchor element
+      <code class="dummy-code">&lt;a&gt;</code>
+      that points to an external URL (when using a
+      <code class="dummy-code">@href</code>
+      argument)</li>
+    <li class="dummy-paragraph">an
+      <a
+        href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Ember component</a>
+      <code class="dummy-code">&lt;LinkTo&gt;</code>
+      that points to an internal application link or resource (when using a
+      <code class="dummy-code">@route</code>
+      argument)
+    </li>
+  </ul>
+  <h4 class="dummy-h5">Why it's called "standalone"</h4>
   <p class="dummy-paragraph">
-    What do we mean by the name
-    <strong>Link "Standalone"</strong>? It's a link that's used in isolation, meaning it's not inline with adjacent
-    text.
-    <em>Note: Solutions for Link (Inline) are coming soon.</em>
+    A
+    <strong>"Link Standalone"</strong>
+    is a link that's used in isolation, meaning it's not inline with adjacent text.
   </p>
 
-  <h4 class="dummy-h4">Example of Link (Standalone):</h4>
+  <h5 class="dummy-h6">Example of Link (Standalone):</h5>
   <div class="dummy-example">
     <p class="dummy-paragraph">Here's a completely separate paragraph of text.</p>
     <br />
     <Hds::Link::Standalone
       @text="Hey, this link is a Link (Standalone)"
-      href="/"
+      @href="/"
       @icon="external-link"
       @iconPosition="trailing"
     />
   </div>
 
-  <h4 class="dummy-h4">Example of Link (Inline):</h4>
+  <h5 class="dummy-h6">Example of Link (Inline):</h5>
   <div class="dummy-example">
     <p class="dummy-paragraph">Here's a
-      <a href="#">Link (Inline)</a>, coming soon to HDS.
-      <a href="#">And another Link (Inline)</a></p>
+      <Hds::Link::Inline @href="#">Link (Inline)</Hds::Link::Inline>.
+      <Hds::Link::Inline @href="#">And another Link (Inline)</Hds::Link::Inline></p>
   </div>
+
 </section>
 
 <section>
@@ -47,12 +62,7 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-link-standalone">
-    <dt>
-      size
-      <code>
-        enum
-      </code>
-    </dt>
+    <dt>size <code>enum</code></dt>
     <dd>
       <p>
         Acceptable values:
@@ -84,21 +94,10 @@
       </code>
     </dt>
     <dd>
-      <p>
-        The text of the link (standalone).
-      </p>
-      <p>
-        <em>
-          If no text value is defined an error will be thrown.
-        </em>
-      </p>
+      <p>The text of the link.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
-    <dt>
-      icon
-      <code>
-        string
-      </code>
-    </dt>
+    <dt>icon <code>string</code></dt>
     <dd>
       <p>
         Use this parameter to show an icon. Acceptable value: any Flight icon name.
@@ -108,30 +107,49 @@
         <code class="dummy-code">icon</code>
         is required to make the component accessible.</p>
     </dd>
-    <dt>
-      iconPosition
-      <code>
-        enum
-      </code>
-    </dt>
+    <dt>iconPosition <code>enum</code></dt>
     <dd>
-      <p>
-        Positions the icon before or after the text. Acceptable values:
-      </p>
+      <p>Positions the icon before or after the text. Acceptable values:</p>
       <ol>
-        <li class="default">
-          leading
-        </li>
-        <li>
-          trailing
-        </li>
+        <li class="default">leading</li>
+        <li>trailing</li>
       </ol>
     </dd>
     <dt>href</dt>
     <dd>
-      <p>This is the URL that is passed down ("splatted") as arguments to the
+      <p>This is the URL parameter that is passed down to the
         <code>&lt;a&gt;</code>
-        element (see URL handling for details).</p>
+        element.</p>
+    </dd>
+    <dt>isHrefExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>This controls if the
+        <code>&lt;a&gt;</code>
+        link is external and so for security reasons we need to add the
+        <code>target="_blank"</code>
+        and
+        <code>rel="noopener noreferrer"</code>
+        attributes to it.</p>
+    </dd>
+    <dt>route/models/model/query/current-when/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code>&lt;LinkTo/LinkToExternal&gt;</code>
+        component.</p>
+    </dd>
+    <dt>isRouteExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>This controls if the "LinkTo" is external to the Ember engine (<a
+          href="https://ember-engines.com/docs/link-to-external"
+          target="_blank"
+          rel="noopener noreferrer"
+        >more details here</a>) in which case it will use a
+        <code>&lt;LinkToExternal&gt;</code>
+        instead of a simple
+        <code>&lt;LinkTo&gt;</code>
+        for the @route.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -148,19 +166,21 @@
     <code class="dummy-code">icon</code>
     and
     <code class="dummy-code">text</code>
-    to be passed and an
-    <code class="dummy-code">href</code>
-    value (for details on how URLs are handled see below).</p>
+    to be passed and one of the two
+    <code class="dummy-code">@href</code>
+    or
+    <code class="dummy-code">@route</code>
+    arguments (for details on how URLs and routing are handled see below).</p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" href="..." />
+      <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" @href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" href="#" />
+  <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" @href="#" />
 
   <h4 class="dummy-h4">Icon position</h4>
   <p class="dummy-paragraph">By default the icon is placed before the text. If you would like to position it after the
@@ -171,12 +191,12 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" href="..." />
+      <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" @href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" href="#" />
+  <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" @href="#" />
 
   <h4 class="dummy-h4">Color</h4>
   <p class="dummy-paragraph">
@@ -191,14 +211,14 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @color="primary" @icon="collections" @text="Read tutorial" href="..." />
+      <Hds::Link::Standalone @color="primary" @icon="collections" @text="Read tutorial" @href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @color="primary" href="#" />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @color="primary" @href="#" />
   <br />
-  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @color="secondary" href="#" />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @color="secondary" @href="#" />
 
   <h4 class="dummy-h4">Size</h4>
   <p class="dummy-paragraph">
@@ -214,32 +234,40 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" href="..." />
+      <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" @href="..." />
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" href="#" />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" @href="#" />
   <br />
-  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="medium" href="#" />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="medium" @href="#" />
   <br />
-  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="large" href="#" />
+  <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="large" @href="#" />
 
-  <h4 class="dummy-h4">URL handling</h4>
-  <p class="dummy-paragraph">
-    For the component to work as expected, a
-    <code class="dummy-code">href</code>
-    value needs to be passed as attribute. The component automatically adds
-    <code class="dummy-code">target="_blank" rel="noopener noreferrer"</code>
-    to the
+  <h4 class="dummy-h4">URLs and routes handling</h4>
+  <p class="dummy-paragraph">You can generate a standalone link passing a
+    <code class="dummy-code">@href</code>
+    or a
+    <code class="dummy-code">@route</code>
+    to the component. If none of the two is provided, the component will throw an error.</p>
+  <p class="dummy-paragraph"><em>Notice: the
+      <code class="dummy-code">Link::Standalone</code>
+      component internally uses the generic
+      <code class="dummy-code">Hds::Interactive</code>
+      component. For more details about how this low-level component works please refer to
+      <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</em></p>
+  <h5 class="dummy-h5">With @href</h5>
+  <p class="dummy-paragraph">If you pass a
+    <code class="dummy-code">@href</code>
+    argument a
     <code class="dummy-code">&lt;a&gt;</code>
-    element (but their values can be overwritten passing those attributes to the component).
-  </p>
+    link will be generated:</p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Link::Standalone @icon="terraform" @text="Request a demo" href="https://www.hashicorp.com/request-demo/terraform" />
+      <Hds::Link::Standalone @icon="terraform" @text="Request a demo" @href="https://www.hashicorp.com/request-demo/terraform" />
     '
   />
   {{! prettier-ignore-end }}
@@ -247,8 +275,64 @@
   <Hds::Link::Standalone
     @icon="terraform"
     @text="Request a demo"
-    href="https://www.hashicorp.com/request-demo/terraform"
+    @href="https://www.hashicorp.com/request-demo/terraform"
   />
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: when using the
+    <code class="dummy-code">@href</code>
+    argument the component adds by default the attributes
+    <code class="dummy-code">target="_blank"</code>
+    and
+    <code class="dummy-code">rel="noopener noreferrer"</code>
+    to the
+    <code class="dummy-code">&lt;a&gt;</code>
+    element (because this is the most common use case: internal links are generally handled using a
+    <code class="dummy-code">@route</code>
+    argument). If the
+    <code class="dummy-code">href</code>
+    points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass
+    <code class="dummy-code">@isHrefExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component and it will not add the
+    <code class="dummy-code">target</code>
+    and
+    <code class="dummy-code">rel</code>
+    attributes (but you can pass yours if needed, using the
+    <code class="dummy-code">...attributes</code>
+    spreading. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
+
+  <h5 class="dummy-h5">With @route</h5>
+  <p class="dummy-paragraph">If you pass a
+    <code class="dummy-code">@route</code>
+    argument a
+    <code class="dummy-code">&lt;a&gt;</code>
+    link will be generated using a
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    Ember component:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Link::Standalone @icon="collections" @text="Go to the index page" @route="my.page.route" @model="my.page.model" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Link::Standalone @icon="collections" @text="Go to the index page" @route="index" />
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: if the route is external to your current engine you have to pass also
+    <code class="dummy-code">@isRouteExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component so that it will use
+    <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+    instead of a simple
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    for the
+    <code class="dummy-code">@route</code>. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo></p>
+  <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
+      <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
+      components are supported (eg.
+      <code class="dummy-code">models/model/query/current-when/replace</code>).</em></p>
 </section>
 
 <section>
@@ -271,39 +355,61 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-  <h4 class="dummy-h4">
-    Content
-  </h4>
-  <div class="dummy-link-base-sample">
-    <Hds::Link::Standalone @icon="plus" @text="Text & leading icon" href="../components/link" />
+
+  <h4 class="dummy-h4">Generated element</h4>
+
+  <div class="dummy-link-standalone-generated-list">
+    <div>
+      <span class="dummy-text-small">with
+        <code class="dummy-code">@href</code>
+        ⇒
+        <code class="dummy-code">&lt;a&gt;</code></span>
+      <br />
+      <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
+    </div>
+    <div>
+      <span class="dummy-text-small">with
+        <code class="dummy-code">@route</code>
+        ⇒
+        <code class="dummy-code">&lt;LinkTo&gt;</code>
+        ⇒
+        <code class="dummy-code">&lt;a&gt;</code></span>
+      <br />
+      <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">Content</h4>
+  <div class="dummy-link-standalone-base-sample">
+    <Hds::Link::Standalone @icon="plus" @text="Text & leading icon" @href="../components/link" />
     <Hds::Link::Standalone
       @icon="arrow-right"
       @text="Text & trailing icon"
-      href="../components/link"
+      @href="../components/link"
       @iconPosition="trailing"
     />
-    <div class="dummy-link-max-width-container">
+    <div class="dummy-link-standalone-max-width-container">
       <Hds::Link::Standalone
         @icon="plus"
         @text="Very long text that might wrap for multiple lines"
-        href="../components/link"
+        @href="../components/link"
       />
     </div>
   </div>
   <h4 class="dummy-h4">
     Sizes
   </h4>
-  <div class="dummy-link-base-sample">
+  <div class="dummy-link-standalone-base-sample">
     {{#each @model.SIZES as |size|}}
-      <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link-to" />
+      <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link" />
     {{/each}}
   </div>
   <h4 class="dummy-h4">
     States (in each size)
   </h4>
-  <div class="dummy-link-states-grid">
+  <div class="dummy-link-standalone-states-grid">
     {{#each @model.COLORS as |color|}}
-      <h5 class="dummy-h5 dummy-link-states-grid__title">{{capitalize color}}</h5>
+      <h5 class="dummy-h5 dummy-link-standalone-states-grid__title">{{capitalize color}}</h5>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <div>
@@ -316,8 +422,8 @@
               @text={{capitalize state}}
               @size={{size}}
               @color={{color}}
-              class="is-{{state}}"
-              href="../components/link"
+              @href="../components/link"
+              mock-state-value={{state}}
             />
           </div>
         {{/each}}

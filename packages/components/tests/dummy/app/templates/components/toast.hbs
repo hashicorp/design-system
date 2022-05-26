@@ -211,10 +211,9 @@
 
   <h4 class="dummy-h4">Actions</h4>
   <p class="dummy-paragraph">Actions can optionally be passed into the component using one of the suggested
-    <code class="dummy-code">Button</code>,
-    <code class="dummy-code">Link::Standalone</code>
+    <code class="dummy-code">Button</code>
     or
-    <code class="dummy-code">LinkTo::Standalone</code>
+    <code class="dummy-code">Link::Standalone</code>
     yielded components.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -225,7 +224,7 @@
         <T.Title>Title here</T.Title>
         <T.Description>Description here</T.Description>
         <T.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-        <T.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+        <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
       </Hds::Toast>
     '
   />
@@ -236,7 +235,7 @@
     <T.Title>Title here</T.Title>
     <T.Description>Description here</T.Description>
     <T.Button @text="Your action" @color="secondary" />
-    <T.LinkTo::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
   </Hds::Toast>
 
   <h4 class="dummy-h4" id="how-to-use-description">Structured content</h4>
@@ -566,7 +565,7 @@
       <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</T.Description>
       <T.Button @text="Secondary" @color="secondary" />
       <T.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-      <T.Link::Standalone @icon="plus" @text="Standalone" href="#" @color="secondary" />
+      <T.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
     </Hds::Toast>
   </div>
 </section>

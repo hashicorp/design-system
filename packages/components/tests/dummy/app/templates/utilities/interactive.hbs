@@ -1,0 +1,255 @@
+{{page-title "Interactive"}}
+
+<h2 class="dummy-h2">Interactive</h2>
+<section>
+  <div class="dummy-banner dummy-banner--info">
+    <p class="dummy-paragraph">⚠️
+      <strong>Notice</strong>: this component is intended
+      <strong>only</strong>
+      for internal use (for now). If you need to use it please speak with the HDS team.</p>
+  </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-interactive">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-interactive">
+    <dt>href</dt>
+    <dd>
+      <p>This is the URL parameter that is passed down to the
+        <code>&lt;a&gt;</code>
+        element.</p>
+    </dd>
+    <dt>isHrefExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>This controls if the
+        <code>&lt;a&gt;</code>
+        link is external and so for security reasons we need to add the
+        <code>target="_blank"</code>
+        and
+        <code>rel="noopener noreferrer"</code>
+        attributes to it.</p>
+    </dd>
+    <dt>route/models/model/query/current-when/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code>&lt;LinkTo&gt;</code>
+        /
+        <code>&lt;LinkToExternal&gt;</code>
+        components.</p>
+    </dd>
+    <dt>isRouteExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>This controls if the "LinkTo" is external to the Ember engine (<a
+          href="https://ember-engines.com/docs/link-to-external"
+          target="_blank"
+          rel="noopener noreferrer"
+        >more details here</a>) in which case it will use a
+        <code>&lt;LinkToExternal&gt;</code>
+        instead of a simple
+        <code>&lt;LinkTo&gt;</code>
+        for the @route.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+
+  <h4 class="dummy-h4">Basic use (&lt;button&gt;)</h4>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Interactive>
+          your content here (will be yielded)
+      </Hds::Interactive>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">In this case, since no
+    <code class="dummy-code">@href</code>
+    or
+    <code class="dummy-code">@route</code>
+    argument is provided it will generate in output an HTML
+    <code class="dummy-code">&lt;button&gt;</code>
+    element.
+  </p>
+  <p class="dummy-paragraph"><em>Notice: a
+      <code class="dummy-code">type="button"</code>
+      HTML attribute is applied by default to the element, but this can be overwritten using the "splattributes".</em></p>
+
+  <h4 class="dummy-h4">With "@href" parameter (&lt;a&gt;)</h4>
+  <p class="dummy-paragraph"><strong>🚨 ATTENTION</strong>: we can't support the direct use of the
+    <code class="dummy-code">href</code>
+    HTML attribute because we need to rely on the
+    <code class="dummy-code">@href</code>
+    Ember argument to differentiate between different types of generated output.</p>
+  <p class="dummy-paragraph">If an <code class="dummy-code">@href</code> argument is provided:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Interactive @href="https://google.com">
+          your content here
+      </Hds::Interactive>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">it will generate in output an HTML
+    <code class="dummy-code">&lt;a&gt;</code>
+    link element with
+    <code class="dummy-code">target="_blank"</code>
+    and
+    <code class="dummy-code">rel="noopener noreferrer"</code>
+    attributes.
+  </p>
+  <p class="dummy-paragraph"><em>We add these attributes by default because this is the most common case (internal links
+      are generally handled using a
+      <code class="dummy-code">@route</code>
+      argument). This behavior can be overridden (see below).</em>
+  </p>
+  <p class="dummy-paragraph">If an
+    <code class="dummy-code">@isHrefExternal</code>
+    argument is provided with
+    <code class="dummy-code">false</code>
+    value:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Interactive @href="#your-local-anchor-id" @isHrefExternal=\{{false}}>
+          your content here
+      </Hds::Interactive>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">it will generate in output an HTML
+    <code class="dummy-code">&lt;a&gt;</code>
+    link element
+    <strong>without</strong>
+    the HTML
+    <code class="dummy-code">target</code>
+    and
+    <code class="dummy-code">rel</code>
+    attributes.
+  </p>
+
+  <h4 class="dummy-h4">With "@route" parameter (&lt;LinkTo&gt;/&lt;LinkToExternal&gt;)</h4>
+  <p class="dummy-paragraph">If a <code class="dummy-code">@route</code> argument is provided:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Interactive @route="list" @model="...">
+          your content here
+      </Hds::Interactive>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">it will generate in output a
+    <code class="dummy-code">&lt;LinkTo&gt;</code>
+    component.
+  </p>
+
+  <p class="dummy-paragraph">If the
+    <code class="dummy-code">@route</code>
+    is external to the current engine (<a
+      href="https://ember-engines.com/docs/link-to-external"
+      target="_blank"
+      rel="noopener noreferrer"
+    >more details here</a>), you need to provide an extra
+    <code class="dummy-code">@isRouteExternal</code>
+    parameter:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Interactive @route="list" @isRouteExternal=\{{true}} @model="..." >
+          your content here
+      </Hds::Interactive>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">and it will generate in output a
+    <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+    component.
+  </p>
+
+  <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
+      <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
+      components are supported (eg.
+      <code class="dummy-code">models</code>,
+      <code class="dummy-code">model</code>,
+      <code class="dummy-code">query</code>,
+      <code class="dummy-code">current-when</code>,
+      <code class="dummy-code">replace</code>). For more details about these parameters see the
+      <a
+        href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Ember documentation</a>
+      or the
+      <a
+        href="https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/input?anchor=LinkTo"
+        target="_blank"
+        rel="noopener noreferrer"
+      >LinkTo component API specs</a>.</em></p>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">Generated elements</h4>
+
+  <div class="dummy-interactive-sample">
+    <p class="dummy-paragraph">
+      <code class="dummy-code">&lt;button&gt;</code>
+      <span class="dummy-text-small">(with no @route or @href provided / default)</span>
+    </p>
+    <Hds::Interactive>This is a button (default)</Hds::Interactive>
+  </div>
+
+  <div class="dummy-interactive-sample" id="local-anchor">
+    <p class="dummy-paragraph">
+      <code class="dummy-code">&lt;a&gt;</code>
+      <span class="dummy-text-small">(with @href argument)</span>
+    </p>
+    <Hds::Interactive @href="http://google.com">This is an external
+      <code>&lt;a&gt;</code>
+      link (default)</Hds::Interactive>
+    <br />
+    <Hds::Interactive @href="#local-anchor" @isHrefExternal={{false}}>This is an internal
+      <code>&lt;a&gt;</code>
+      link</Hds::Interactive>
+  </div>
+
+  <div class="dummy-interactive-sample">
+    <p class="dummy-paragraph">
+      <code class="dummy-code">&lt;LinkTo&gt;</code>
+      <span class="dummy-text-small">(with @route argument but no @isRouteExternal)</span>
+    </p>
+    <Hds::Interactive @route="index">This is a <code>&lt;LinkTo&gt;</code> link</Hds::Interactive>
+  </div>
+
+  <div class="dummy-interactive-sample">
+    <p class="dummy-paragraph">
+      <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+      <span class="dummy-text-small">(with @route argument and @isRouteExternal set to true)</span>
+    </p>
+    {{!-- <Hds::Interactive @route="index" @isRouteExternal={{true}}>This is a <code>&lt;LinkToExternal&gt;</code> link</Hds::Interactive> --}}
+    <pre>⚠️ We can't render this component in this application (it will work only on Ember engines).</pre>
+  </div>
+
+</section>
