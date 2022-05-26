@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.4.0
+
+### Minor Changes
+
+- [#317](https://github.com/hashicorp/design-system/pull/317) [`59906536`](https://github.com/hashicorp/design-system/commit/599065361476aab6016dce017f01ca73b9ebeebc) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new log and test icons to Flight
+
 ## 2.3.1
 
 ### Patch Changes
