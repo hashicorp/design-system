@@ -1,0 +1,40 @@
+name: Sync & Build Icons
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '16.x'
+
+jobs:
+  sync_iconset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+  
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Sync icons
+        env:
+          # this is Brian's personal access token
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }} 
+        run: yarn sync
+        working-directory: packages/flight-icons
+
+      - name: Build icons
+        run: yarn build
+        working-directory: packages/flight-icons
+
+      - name: Open a PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: 'sync & build of flight icons'
+          title: 'Updated export of icons from Figma'
+          body: ''
+          token: ${{ secrets.PAT_TOKEN }}
