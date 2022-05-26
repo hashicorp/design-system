@@ -11,7 +11,7 @@
   border-radius: 2px; // this is used by the outline too
 
   &:focus,
-  &.is-focus,
+  &.mock-focus,
   &:focus-visible {
     outline: 2px solid var(--token-color-focus-action-internal);
     outline-offset: 1px;
@@ -41,12 +41,12 @@
   color: var(--token-color-foreground-action);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     color: var(--token-color-foreground-action-hover);
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     color: var(--token-color-foreground-action-active);
   }
 }
@@ -55,12 +55,12 @@
   color: var(--token-color-foreground-strong);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     color: var(--token-color-foreground-primary);
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     color: var(--token-color-foreground-faint);
   }
 }
