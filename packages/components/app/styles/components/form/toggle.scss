@@ -169,9 +169,8 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
   // DISABLED
 
-  // TODO would make sense to use `:disabled` here? what would be the benefits?
-  [disabled]:not(:checked) + &,
-  [disabled]:checked + & {
+  :disabled:not(:checked) + &,
+  :disabled:checked + & {
     background-color: var(--token-color-surface-strong);
     --border-color: var(--token-color-border-primary);
   }

@@ -140,11 +140,8 @@ $hds-form-checkbox-control-border-radius: 3px;
     background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23e52228'/%3e%3c/svg%3e");
   }
 
-  // DISABLED
-
-  // TODO would make sense to use `:disabled` here? what would be the benefits?
-  &[disabled]:not(:checked),
-  &[disabled]:checked {
+  &:disabled:not(:checked),
+  &:disabled:checked {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
     // notice: the "tick" color is hardcoded here!

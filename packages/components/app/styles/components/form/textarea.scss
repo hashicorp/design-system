@@ -45,8 +45,7 @@
 
     // DISABLED
 
-    // TODO would make sense to use `:disabled` here? what would be the benefits?
-    &[disabled] {
+    &:disabled {
       background-color: var(--token-color-surface-strong);
       border-color: var(--token-color-border-primary);
     }
