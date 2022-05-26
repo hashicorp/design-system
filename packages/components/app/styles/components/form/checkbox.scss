@@ -12,6 +12,13 @@ $hds-form-checkbox-control-border-radius: 3px;
 .hds-form-checkbox {
   display: flex;
   align-items: start;
+
+}
+
+// TODO add comment
+
+.hds-form-checkbox--standalone {
+  display: inline-block;
 }
 
 .hds-form-checkbox__control-wrapper {
@@ -38,6 +45,8 @@ $hds-form-checkbox-control-border-radius: 3px;
   width: $hds-form-checkbox-control-size;
   background-size: 12px 12px;
   background-position: center center;
+  margin: 0;
+  padding: 0;
 
   // used for the focus
 
