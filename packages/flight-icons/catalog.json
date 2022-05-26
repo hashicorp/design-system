@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-04-14T19:48:53.560Z",
+  "lastRunTimeISO": "2022-05-26T13:28:38.561Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -5322,6 +5322,24 @@
       "height": 16
     },
     {
+      "id": "1874:66",
+      "fileName": "logs-24",
+      "iconName": "logs",
+      "description": "logs",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1874:72",
+      "fileName": "logs-16",
+      "iconName": "logs",
+      "description": "logs",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:2431",
       "fileName": "mail-24",
       "iconName": "mail",
@@ -7657,6 +7675,24 @@
       "fileName": "terminal-screen-16",
       "iconName": "terminal-screen",
       "description": "terminal, code, cli, interactive",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "1845:66",
+      "fileName": "test-24",
+      "iconName": "test",
+      "description": "activity, pulse, health",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "1845:71",
+      "fileName": "test-16",
+      "iconName": "test",
+      "description": "activity, pulse, health",
       "size": "16",
       "width": 16,
       "height": 16
