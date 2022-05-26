@@ -40,7 +40,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   padding: 1px;
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
     cursor: pointer;
@@ -49,7 +49,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
 
   &:active,
-  &.is-active {
+  &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
   }
@@ -166,7 +166,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     width: 100%;
 
     &:hover,
-    &.is-hover {
+    &.mock-hover {
       background-color: var(--token-color-surface-interactive-hover);
       cursor: pointer;
     }
@@ -174,18 +174,18 @@ $hds-dropdown-toggle-border-radius: 5px;
     @include hds-focus-ring-basic();
 
     &:focus,
-    &.is-focus {
+    &.mock-focus {
       //TODO this focus is just way too complex
       background-color:  var(--token-color-surface-action);
       border-color: var(--token-color-focus-action-internal);
     }
 
     &:active,
-    &.is-active {
+    &.mock-active {
       background-color: var(--token-color-surface-interactive-active);
     }
 
-    &.is-success {
+    &.mock-success {
       background-color: var(--token-color-surface-success);
       border-color: var(--token-color-border-success);
 
@@ -275,7 +275,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     // and define their values in the color variants below
 
     &:hover,
-    &.is-hover {
+    &.mock-hover {
       color: var(--current-color-hover);
       &::before {
         background-color: currentColor;
@@ -284,7 +284,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
     // default focus for browsers that still rely on ":focus"
     &:focus,
-    &.is-focus {
+    &.mock-focus {
       color: var(--current-color-focus);
       &::after {
         background-color: var(--current-background-color);
@@ -312,7 +312,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     // remove the focus ring on "active + focused" state (by design)
     &:focus:active,
     &:focus-visible:active,
-    &.is-focus.is-active {
+    &.mock-focus.mock-active {
       &::after {
         background-color: var(--current-background-color);
         box-shadow: none;
@@ -321,7 +321,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     }
 
     &:active,
-    &.is-active {
+    &.mock-active {
       color: var(--current-color-active);
       &::before {
         background-color: currentColor;

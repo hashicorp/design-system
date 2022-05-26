@@ -4,11 +4,7 @@
       class="hds-dropdown-list-item__copy-item-title hds-typography-body-100 hds-font-weight-semibold"
     >{{@copyItemTitle}}</div>
   {{/if}}
-  <button
-    type="button"
-    class="{{if @state (concat 'is-' @state)}} {{if this.isSuccess 'is-success'}}"
-    {{on "click" this.copyCode}}
-  >
+  <button type="button" class="{{if this.isSuccess 'is-success'}}" {{on "click" this.copyCode}}>
     <div class="hds-dropdown-list-item__copy-item-text hds-typography-code-100">
       {{this.text}}
     </div>

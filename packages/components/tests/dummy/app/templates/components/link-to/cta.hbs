@@ -278,8 +278,8 @@
             @icon="plus"
             @text={{capitalize state}}
             @size={{size}}
-            class="is-{{state}}"
             @route="components.link-to.cta"
+            mock-state-value={{state}}
           />
         </div>
       {{/each}}
@@ -292,8 +292,8 @@
           @icon="plus"
           @text={{capitalize state}}
           @isFullWidth={{true}}
-          class="is-{{state}}"
           @route="components.link-to.cta"
+          mock-state-value={{state}}
         />
       </div>
     {{/each}}

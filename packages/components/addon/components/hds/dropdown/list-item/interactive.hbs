@@ -1,7 +1,6 @@
 <li class={{this.classNames}}>
   {{#if @route}}
     <LinkTo
-      class="{{if @state (concat 'is-' @state)}}"
       @current-when={{@current-when}}
       @models={{hds-link-to-models @model @models}}
       @query={{hds-link-to-query @query}}
@@ -19,7 +18,7 @@
       </div>
     </LinkTo>
   {{else if @href}}
-    <a target="_blank" rel="noopener noreferrer" href={{@href}} class="{{if @state (concat 'is-' @state)}}">
+    <a target="_blank" rel="noopener noreferrer" href={{@href}}>
       {{#if @icon}}
         <div class="hds-dropdown-list-item__interactive-icon">
           <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
@@ -30,7 +29,7 @@
       </div>
     </a>
   {{else}}
-    <button class="{{if @state (concat 'is-' @state)}}" type="button" ...attributes>
+    <button type="button" ...attributes>
       {{#if @icon}}
         <div class="hds-dropdown-list-item__interactive-icon">
           <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />

@@ -860,7 +860,7 @@
         <div>
           <span class="dummy-text-small">{{color}}/{{state}}:</span>
           <br />
-          <Hds::Dropdown::Toggle::Button @text={{capitalize state}} @color={{color}} class="is-{{state}}" />
+          <Hds::Dropdown::Toggle::Button @text={{capitalize state}} @color={{color}} mock-state-value={{state}} />
         </div>
       {{/each}}
       <div>
@@ -878,7 +878,7 @@
           @icon="more-horizontal"
           @text="overflow menu"
           @hasChevron={{false}}
-          class="is-{{state}}"
+          mock-state-value={{state}}
         />
       </div>
     {{/each}}
@@ -897,7 +897,7 @@
       <div>
         <span class="dummy-text-small">icon+chevron/{{state}}:</span>
         <br />
-        <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} class="is-{{state}}" />
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
       </div>
     {{/each}}
     <div>
@@ -910,7 +910,7 @@
       <div>
         <span class="dummy-text-small">avatar+chevron/{{state}}:</span>
         <br />
-        <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" class="is-{{state}}" />
+        <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
       </div>
     {{/each}}
     <div>
@@ -1020,7 +1020,7 @@
     <div class="dummy-dropdown-list-items-base-sample">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} @state={{state}} />
+          <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} mock-state-value={{state}} />
         {{/each}}
       </ul>
       <ul class="hds-dropdown-list">
@@ -1029,7 +1029,7 @@
             @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with icon"
             @color={{color}}
-            @state={{state}}
+            mock-state-value={{state}}
           />
         {{/each}}
       </ul>
@@ -1039,7 +1039,7 @@
             @icon={{if (eq color "critical") "trash" "settings"}}
             @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
             @color={{color}}
-            @state={{state}}
+            mock-state-value={{state}}
           />
         {{/each}}
       </ul>
@@ -1083,12 +1083,17 @@
     {{! template-lint-disable no-inline-styles }}
     <ul class="hds-dropdown-list" style="width: 250px">
       {{#each @model.ITEM_STATES as |state|}}
-        <Hds::Dropdown::ListItem::CopyItem @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d" @state={{state}} />
+        <Hds::Dropdown::ListItem::CopyItem
+          @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
+          mock-state-value={{state}}
+          mock-state-selector="button"
+        />
       {{/each}}
       <Hds::Dropdown::ListItem::CopyItem
         @text="success: 91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d"
-        @state="success"
         @isSuccess="true"
+        mock-state-value="success"
+        mock-state-selector="button"
       />
     </ul>
     {{! template-lint-enable no-inline-styles }}

@@ -29,13 +29,13 @@ $hds-button-focus-border-width: 3px;
   // This covers all of the browsers and focus scenarios (due to the custom focus design).
   &:disabled,
   &[disabled],
-  &.is-disabled,
+  &.mock-disabled,
   &:disabled:focus,
   &[disabled]:focus,
-  &.is-disabled:focus,
+  &.mock-disabled:focus,
   &:disabled:hover,
   &[disabled]:hover,
-  &.is-disabled:hover {
+  &.mock-disabled:hover {
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
@@ -57,7 +57,7 @@ $hds-button-focus-border-width: 3px;
   }
 
   &:focus,
-  &.is-focus {
+  &.mock-focus {
     box-shadow: none;
 
     &::before {
@@ -145,7 +145,7 @@ $size-props: (
   color: var(--token-color-foreground-high-contrast);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     background-color: var(--token-color-palette-blue-300);
     border-color: var(--token-color-palette-blue-400);
     color: var(--token-color-foreground-high-contrast);
@@ -153,7 +153,7 @@ $size-props: (
   }
 
   &:focus,
-  &.is-focus {
+  &.mock-focus {
     background-color: var(--token-color-palette-blue-200);
     border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-high-contrast);
@@ -172,7 +172,7 @@ $size-props: (
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     background-color: var(--token-color-palette-blue-400);
     border-color: var(--token-color-palette-blue-400);
     box-shadow: none;
@@ -190,7 +190,7 @@ $size-props: (
   color: var(--token-color-foreground-primary);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     background-color: var(--token-color-surface-primary);
     border-color: var(--token-color-border-strong);
     color: var(--token-color-foreground-primary);
@@ -198,7 +198,7 @@ $size-props: (
   }
 
   &:focus,
-  &.is-focus {
+  &.mock-focus {
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-primary);
@@ -208,7 +208,7 @@ $size-props: (
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
     box-shadow: none;
@@ -225,7 +225,7 @@ $size-props: (
   color: var(--token-color-foreground-action);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     background-color: var(--token-color-surface-primary);
     border-color: var(--token-color-border-strong);
     color: var(--token-color-foreground-action-hover);
@@ -233,7 +233,7 @@ $size-props: (
   }
 
   &:focus,
-  &.is-focus {
+  &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-action);
     &::before {
@@ -242,7 +242,7 @@ $size-props: (
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
     box-shadow: none;
@@ -254,13 +254,13 @@ $size-props: (
 
   &:disabled,
   &[disabled],
-  &.is-disabled,
+  &.mock-disabled,
   &:disabled:focus,
   &[disabled]:focus,
-  &.is-disabled:focus,
+  &.mock-disabled:focus,
   &:disabled:hover,
   &[disabled]:hover,
-  &.is-disabled:hover {
+  &.mock-disabled:hover {
     background-color: transparent;
     border-color: transparent;
 
@@ -277,7 +277,7 @@ $size-props: (
   color: var(--token-color-foreground-critical-on-surface);
 
   &:hover,
-  &.is-hover {
+  &.mock-hover {
     background-color: var(--token-color-palette-red-300);
     border-color: var(--token-color-palette-red-400);
     color: var(--token-color-foreground-high-contrast);
@@ -285,7 +285,7 @@ $size-props: (
   }
 
   &:focus,
-  &.is-focus {
+  &.mock-focus {
     background-color: var(--token-color-surface-critical);
     border-color: var(--token-color-focus-critical-internal);
     color: var(--token-color-foreground-critical-on-surface);
@@ -295,7 +295,7 @@ $size-props: (
   }
 
   &:active,
-  &.is-active {
+  &.mock-active {
     background-color: var(--token-color-palette-red-400);
     border-color: var(--token-color-palette-red-400);
     box-shadow: none;

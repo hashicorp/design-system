@@ -256,7 +256,7 @@
         <div>
           <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
           <br />
-          <Hds::Link::Cta @icon="plus" @text={{capitalize state}} @size={{size}} class="is-{{state}}" href="#" />
+          <Hds::Link::Cta @icon="plus" @text={{capitalize state}} @size={{size}} href="#" mock-state-value={{state}} />
         </div>
       {{/each}}
     {{/each}}
@@ -264,7 +264,13 @@
       <div>
         <span class="dummy-text-small">Full width/{{state}}:</span>
         <br />
-        <Hds::Link::Cta @icon="plus" @text={{capitalize state}} @isFullWidth={{true}} class="is-{{state}}" href="#" />
+        <Hds::Link::Cta
+          @icon="plus"
+          @text={{capitalize state}}
+          @isFullWidth={{true}}
+          href="#"
+          mock-state-value={{state}}
+        />
       </div>
     {{/each}}
   </div>
