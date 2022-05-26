@@ -6,49 +6,20 @@
 
 $hds-form-radio-control-size: 16px;
 
+// "BARE" CONTROL
+
 .hds-form-radio {
-  display: flex;
-  align-items: start;
-}
-
-.hds-form-radio__control-wrapper {
-  flex: none;
-}
-
-.hds-form-radio__text-wrapper {
-  flex: 1 0 auto;
-  margin-left: 0.5rem;
-}
-
-// STANDALONE CONTROL
-
-.hds-form-radio-standalone__control {
   appearance: none;
-  cursor: pointer;
+  background-position: center center;
+  background-size: 12px 12px;
   border-radius: 50%;
   border-style: solid;
   border-width: 1px;
-  display: block;
+  cursor: pointer;
   height: $hds-form-radio-control-size;
   isolation: isolate; // used to create a new stacking context
   position: relative;
   width: $hds-form-radio-control-size;
-
-  // used for the dot
-  &::after {
-    display: none;
-    background-color: currentColor;
-    border-radius: 50%;
-    width: 5px;
-    height: 5px;
-    bottom: 0;
-    content: '';
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
 
   // used for the focus
 
@@ -78,11 +49,8 @@ $hds-form-radio-control-size: 16px;
   &:checked {
     background-color: var(--token-color-palette-blue-200);
     border-color: var(--token-color-palette-blue-400);
-    color: var(--token-color-foreground-high-contrast);
-
-    &::after {
-      display: block;
-    }
+    // notice: the "dot" color is hardcoded here!
+    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e");
   }
 
   // hover
@@ -98,6 +66,7 @@ $hds-form-radio-control-size: 16px;
   }
 
   // focus (same for all the states)
+  // TODO add handling of focus-visible
 
   &:focus,
   &.mock-focus {
@@ -125,24 +94,72 @@ $hds-form-radio-control-size: 16px;
     border-color: var(--token-color-palette-blue-500);
   }
 
-  // INVALID
-
-  .hds-form-radio--is-invalid &:not(:checked) {
-    border-color: var(--token-color-foreground-critical);
-  }
-  .hds-form-radio--is-invalid &:checked {
-    background-color: var(--token-color-surface-critical);
-    border-color: var(--token-color-foreground-critical);
-    color: var(--token-color-foreground-critical);
-  }
-
   // DISABLED
 
-  &:disabled:not(:checked),
+  &:disabled:not(:checked) {
+    background-color: var(--token-color-surface-strong);
+    border-color: var(--token-color-border-primary);
+  }
   &:disabled:checked {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
-    color: var(--token-color-foreground-faint);
+    // notice: the "dot" color is hardcoded here!
+    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23656a76'/%3e%3c/svg%3e");
+  }
+
+  // INVALID
+
+  &.hds-form-radio--is-invalid:not(:checked) {
+    border-color: var(--token-color-foreground-critical);
+  }
+  &.hds-form-radio--is-invalid:checked {
+    background-color: var(--token-color-foreground-critical-on-surface);
+    border-color: var(--token-color-foreground-critical);
+  }
+}
+
+
+// "FIELD" CONTROL
+// see https://codepen.io/didoo/pen/xxYPNeY
+
+.hds-form-radio-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "control label"
+    "control helper-text"
+    "control error";
+  width: max-content;
+
+  .hds-form-radio {
+    grid-area: control;
+
+    &:not(:only-child) {
+      margin-top: 2px; // the line height of the label is bigger than the icon size
+      margin-right: 8px;
+    }
+  }
+
+  .hds-form-radio__label {
+    grid-area: label;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-radio__helper-text {
+    grid-area: helper-text;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-radio__error {
+    grid-area: error;
   }
 }

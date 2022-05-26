@@ -7,39 +7,23 @@
 $hds-form-checkbox-control-size: 16px;
 $hds-form-checkbox-control-border-radius: 3px;
 
+// "BARE" CONTROL
+
 .hds-form-checkbox {
-  align-items: start;
-  display: flex;
-
-  // TODO add comment
-  &.hds-form-checkbox--standalone {
-    display: inline-block;
-  }
-}
-
-.hds-form-checkbox__text-wrapper {
-  flex: 1 0 auto;
-  margin-left: 0.5rem;
-}
-
-// CONTROL
-
-.hds-form-checkbox__control {
   appearance: none;
-  cursor: pointer;
+  background-position: center center;
+  background-size: 12px 12px;
   border-radius: $hds-form-checkbox-control-border-radius;
   border-style: solid;
   border-width: 1px;
-  display: block;
+  cursor: pointer;
   flex: none;
   height: $hds-form-checkbox-control-size;
   isolation: isolate; // used to create a new stacking context
-  position: relative;
-  width: $hds-form-checkbox-control-size;
-  background-size: 12px 12px;
-  background-position: center center;
   margin: 0;
   padding: 0;
+  position: relative;
+  width: $hds-form-checkbox-control-size;
 
   // used for the focus
 
@@ -69,13 +53,8 @@ $hds-form-checkbox-control-border-radius: 3px;
   &:checked {
     background-color: var(--token-color-palette-blue-200);
     border-color: var(--token-color-palette-blue-400);
-    color: var(--token-color-foreground-high-contrast);
     // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
-
-    &::after {
-      display: block;
-    }
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
   }
 
   // hover
@@ -119,23 +98,72 @@ $hds-form-checkbox-control-border-radius: 3px;
     border-color: var(--token-color-palette-blue-500);
   }
 
-  // INVALID
+  // DISABLED
 
-  .hds-form-checkbox--is-invalid &:not(:checked) {
-    border-color: var(--token-color-foreground-critical);
+  &:disabled:not(:checked){
+    background-color: var(--token-color-surface-strong);
+    border-color: var(--token-color-border-primary);
   }
-  .hds-form-checkbox--is-invalid &:checked {
-    background-color: var(--token-color-surface-critical);
-    border-color: var(--token-color-foreground-critical);
-    // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23e52228'/%3e%3c/svg%3e");
-  }
-
-  &:disabled:not(:checked),
   &:disabled:checked {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
+    box-shadow: none;
     // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23656a76'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23656a76'/%3e%3c/svg%3e");
+  }
+
+  // INVALID
+
+  &.hds-form-checkbox--is-invalid:not(:checked) {
+    border-color: var(--token-color-foreground-critical);
+  }
+  &.hds-form-checkbox--is-invalid:checked {
+    background-color: var(--token-color-foreground-critical-on-surface);
+    border-color: var(--token-color-foreground-critical);
+  }
+}
+
+
+// "FIELD" CONTROL
+// see https://codepen.io/didoo/pen/xxYPNeY
+
+.hds-form-checkbox-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "control label"
+    "control helper-text"
+    "control error";
+  width: max-content;
+
+  .hds-form-checkbox {
+    grid-area: control;
+
+    &:not(:only-child) {
+      margin-top: 2px; // the line height of the label is bigger than the icon size
+      margin-right: 8px;
+    }
+  }
+
+  .hds-form-checkbox__label {
+    grid-area: label;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-checkbox__helper-text {
+    grid-area: helper-text;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-checkbox__error {
+    grid-area: error;
   }
 }

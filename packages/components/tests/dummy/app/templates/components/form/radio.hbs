@@ -59,43 +59,48 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   <h4 class="dummy-h4">Content</h4>
-  <h5 class="dummy-h5">Label</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <h5 class="dummy-h5">"Bare" control</h5>
+  <div class="dummy-form-radio-base-sample">
     <div>
-      <span class="dummy-text-small">Auto-generated id:</span>
+      <span class="dummy-text-small">Unchecked</span>
       <br />
-      <Hds::Form::radio as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::radio>
+      <Hds::Form::Radio @bare={{true}} />
     </div>
     <div>
-      <span class="dummy-text-small">Custom id:</span>
+      <span class="dummy-text-small">Checked</span>
       <br />
-      <Hds::Form::radio @id="custom-id" as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::radio>
+      <Hds::Form::Radio checked="checked" @bare={{true}} />
     </div>
   </div>
-  <h5 class="dummy-h5">Helper text</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <br />
+  <div class="dummy-form-radio-base-sample">
     <div>
-      <span class="dummy-text-small">Only helper text</span>
+      <span class="dummy-text-small">With custom layout</span>
       <br />
-      <Hds::Form::radio as |C|>
-        <C.HelperText>This is the helper text</C.HelperText>
-      </Hds::Form::radio>
+      <div>
+        <span>Some content</span>
+        <Hds::Form::Radio id="my-custom-radio-example1" @bare={{true}} />
+        <label for="my-custom-radio-example1">Custom label</label>
+      </div>
+    </div>
+  </div>
+  <h5 class="dummy-h5">"Field" control</h5>
+  <div class="dummy-form-radio-base-sample">
+    <div>
+      <span class="dummy-text-small">Only label</span>
+      <br />
+      <Hds::Form::Radio as |C|>
+        <C.Label>Lorem ipsum dolor</C.Label>
+      </Hds::Form::Radio>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::radio as |C|>
+      <Hds::Form::Radio as |C|>
         <C.Label>This is the label</C.Label>
         <C.HelperText>This is the helper text</C.HelperText>
-      </Hds::Form::radio>
+      </Hds::Form::Radio>
     </div>
-  </div>
-  <h5 class="dummy-h5">Error</h5>
-  <div class="dummy-form-radio-base-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />

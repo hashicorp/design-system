@@ -75,63 +75,33 @@
     <div>
       <span class="dummy-text-small">Unchecked</span>
       <br />
-      <Hds::Form::Checkbox />
+      <Hds::Form::Checkbox @bare={{true}} />
     </div>
     <div>
       <span class="dummy-text-small">Checked</span>
       <br />
-      <Hds::Form::Checkbox checked="checked" />
+      <Hds::Form::Checkbox checked="checked" @bare={{true}} />
     </div>
   </div>
   <br />
-  <div class="dummy-form-text-input-base-sample">
+  <div class="dummy-form-checkbox-base-sample">
     <div>
       <span class="dummy-text-small">With custom layout</span>
       <br />
       <div>
         <span>Some content</span>
-        <Hds::Form::Checkbox id="my-custom-checkbox-example1" />
+        <Hds::Form::Checkbox id="my-custom-checkbox-example1" @bare={{true}} />
         <label for="my-custom-checkbox-example1">Custom label</label>
       </div>
     </div>
-    <div>
-      <span class="dummy-text-small">With Ember logic as child</span>
-      <br />
-      <div>
-        <span>Some content</span>
-        <Hds::Form::Checkbox id="my-custom-checkbox-example2" as |C|>
-          {{#if false}}
-            <C.Label>Lorem ipsum dolor</C.Label>
-          {{/if}}
-        </Hds::Form::Checkbox>
-        <label for="my-custom-checkbox-example2">Custom label</label>
-      </div>
-    </div>
   </div>
-  <h5 class="dummy-h5">Label</h5>
+  <h5 class="dummy-h5">"Field" control</h5>
   <div class="dummy-form-checkbox-base-sample">
     <div>
-      <span class="dummy-text-small">Auto-generated id:</span>
+      <span class="dummy-text-small">Only label</span>
       <br />
       <Hds::Form::Checkbox as |C|>
         <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::Checkbox>
-    </div>
-    <div>
-      <span class="dummy-text-small">Custom id:</span>
-      <br />
-      <Hds::Form::Checkbox @id="custom-id" as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::Checkbox>
-    </div>
-  </div>
-  <h5 class="dummy-h5">Helper text</h5>
-  <div class="dummy-form-checkbox-base-sample">
-    <div>
-      <span class="dummy-text-small">Only helper text</span>
-      <br />
-      <Hds::Form::Checkbox as |C|>
-        <C.HelperText>This is the helper text</C.HelperText>
       </Hds::Form::Checkbox>
     </div>
     <div>
@@ -142,9 +112,6 @@
         <C.HelperText>This is the helper text</C.HelperText>
       </Hds::Form::Checkbox>
     </div>
-  </div>
-  <h5 class="dummy-h5">Error</h5>
-  <div class="dummy-form-checkbox-base-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />

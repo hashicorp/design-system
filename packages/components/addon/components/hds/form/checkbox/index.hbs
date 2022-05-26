@@ -1,17 +1,19 @@
-{{! template-lint-disable simple-unless }}
-<div class="{{this.classNames}} {{unless (has-block-params) 'hds-form-checkbox--standalone'}}">
-  <input
-    type="checkbox"
-    class="hds-form-checkbox__control"
-    id={{this.id}}
-    aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
-    ...attributes
-  />
-  {{#if (has-block-params)}}
-    <div class="hds-form-checkbox__text-wrapper">
-      {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
-      {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-      {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
-    </div>
-  {{/if}}
-</div>
+{{! TODO - which one to use? "bare" / "plain" / "pure" }}
+{{#if @bare}}
+  <input type="checkbox" class={{this.classNames}} id={{this.id}} ...attributes />
+{{else}}
+  <div class="hds-form-checkbox-field">
+    <input
+      type="checkbox"
+      class={{this.classNames}}
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
+      ...attributes
+    />
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-checkbox__label"))}}
+    {{yield
+      (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-checkbox__helper-text"))
+    }}
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-checkbox__error"))}}
+  </div>
+{{/if}}
