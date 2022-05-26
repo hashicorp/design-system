@@ -23,6 +23,10 @@ Whenever there is an update to the Flight Icons library in Figma (e.g. a new ico
 
 We have developed a set of custom Node.js scripts, to create a single pipeline for this purpose. The pipeline can be run manually on your local machine.
 
+Additionally, you can run the [Sync & Build Icons action](https://github.com/hashicorp/design-system/actions/workflows/open-pull-request-for-icon-update.yml) on the [Actions tab in GitHub](https://github.com/hashicorp/design-system/actions) to create a PR with the updated icons automatically.
+
+With either approach it will be necessary to add a commit creating a changeset entry either [via the instructions in our readme](https://github.com/hashicorp/design-system/blob/main/README.md#changesets) or by clicking the link provided by `changeset-bot` on the PR.
+
 ## Before you run the scripts
 
 * Make sure you have:
