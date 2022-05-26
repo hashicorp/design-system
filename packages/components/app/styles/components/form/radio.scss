@@ -18,6 +18,8 @@ $hds-form-radio-control-size: 16px;
   cursor: pointer;
   height: $hds-form-radio-control-size;
   isolation: isolate; // used to create a new stacking context
+  margin: 0;
+  padding: 0;
   position: relative;
   width: $hds-form-radio-control-size;
 
@@ -68,8 +70,10 @@ $hds-form-radio-control-size: 16px;
   // focus (same for all the states)
   // TODO add handling of focus-visible
 
-  &:focus,
-  &.mock-focus {
+  &:focus:not(:checked),
+  &:focus:checked,
+  &.mock-focus:checked,
+  &.mock-focus:not(:checked) {
     border-color: var(--token-color-palette-blue-400);
     // TODO test if it works across all browsers
     // Update: Safari doesn't apply a rounded border, is not
@@ -138,7 +142,7 @@ $hds-form-radio-control-size: 16px;
     grid-area: control;
 
     &:not(:only-child) {
-      margin-top: 2px; // the line height of the label is bigger than the icon size
+      margin-top: 2px; // the line height of the label is bigger than the control size
       margin-right: 8px;
     }
   }

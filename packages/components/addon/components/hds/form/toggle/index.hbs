@@ -1,21 +1,35 @@
-<div class={{this.classNames}}>
-  <div class="hds-form-toggle__control-wrapper">
+{{! TODO - which one to use? "bare" / "plain" / "pure" }}
+{{#if @bare}}
+  {{! likely will be extracted as standalone element (TBD how it's called) }}
+  <div class="hds-form-toggle-wrapper">
+    <input
+      type="checkbox"
+      class={{this.classNames}}
+      id={{this.id}}
+      role="switch"
+      aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
+      ...attributes
+    />
+    <div class="hds-form-toggle-facade"></div>
+  </div>
+{{else}}
+  <div class="hds-form-toggle-field">
     {{! likely will be extracted as standalone element (TBD how it's called) }}
-    <div class="hds-form-toggle-standalone">
+    <div class="hds-form-toggle-wrapper">
       <input
         type="checkbox"
-        class="hds-form-toggle-standalone__control"
+        class={{this.classNames}}
         id={{this.id}}
         role="switch"
         aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
         ...attributes
       />
-      <div class="hds-form-toggle-standalone__facade"></div>
+      <div class="hds-form-toggle-facade"></div>
     </div>
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-toggle__label"))}}
+    {{yield
+      (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-toggle__helper-text"))
+    }}
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-toggle__error"))}}
   </div>
-  <div class="hds-form-toggle__text-wrapper">
-    {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
-    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-    {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
-  </div>
-</div>
+{{/if}}
