@@ -7,7 +7,6 @@
       class={{this.classNames}}
       id={{this.id}}
       role="switch"
-      aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
       ...attributes
     />
     <div class="hds-form-toggle-facade"></div>
@@ -21,7 +20,7 @@
         class={{this.classNames}}
         id={{this.id}}
         role="switch"
-        aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
+        aria-describedby={{this.ariaDescribedBy}}
         ...attributes
       />
       <div class="hds-form-toggle-facade"></div>

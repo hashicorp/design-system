@@ -59,73 +59,52 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   <h4 class="dummy-h4">Content</h4>
-  <h5 class="dummy-h5">Label</h5>
+  <h5 class="dummy-h5">"Bare" control</h5>
   <div class="dummy-form-textarea-base-sample">
     <div>
-      <span class="dummy-text-small">Auto-generated id:</span>
+      <span class="dummy-text-small">Default</span>
       <br />
-      <Hds::Form::Textarea
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        as |C|
-      >
+      <Hds::Form::Textarea @bare={{true}} as |C|>
         <C.Label>Lorem ipsum dolor</C.Label>
       </Hds::Form::Textarea>
     </div>
     <div>
-      <span class="dummy-text-small">Custom id:</span>
+      <span class="dummy-text-small">With value</span>
       <br />
-      <Hds::Form::Textarea
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        @id="custom-id"
-        as |C|
-      >
+      <Hds::Form::Textarea @bare={{true}} @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
         <C.Label>Lorem ipsum dolor</C.Label>
       </Hds::Form::Textarea>
     </div>
   </div>
-  <h5 class="dummy-h5">Helper text</h5>
+  <h5 class="dummy-h5">"Field" control</h5>
   <div class="dummy-form-textarea-base-sample">
     <div>
-      <span class="dummy-text-small">Only helper text</span>
+      <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::Textarea
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        as |C|
-      >
-        <C.HelperText>This is the helper text</C.HelperText>
+      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
+        <C.Label>This is the label</C.Label>
       </Hds::Form::Textarea>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::Textarea
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        as |C|
-      >
+      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
         <C.Label>This is the label</C.Label>
         <C.HelperText>This is the helper text</C.HelperText>
       </Hds::Form::Textarea>
     </div>
-  </div>
-  <h5 class="dummy-h5">Error</h5>
-  <div class="dummy-form-textarea-base-sample">
     <div>
-      <span class="dummy-text-small">Only error</span>
+      <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Textarea
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        as |C|
-      >
+      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
+        <C.Label>This is the label</C.Label>
         <C.Error>This is the error</C.Error>
       </Hds::Form::Textarea>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Textarea
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        as |C|
-      >
+      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
         <C.Label>This is the label</C.Label>
         <C.HelperText>This is the helper text</C.HelperText>
         <C.Error>This is the error</C.Error>
@@ -140,10 +119,7 @@
       <div mock-state-value={{state}} mock-state-selector="textarea">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Textarea
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-          as |C|
-        >
+        <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
         </Hds::Form::Textarea>
       </div>
@@ -154,7 +130,7 @@
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Textarea
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
           disabled="disabled"
           as |C|
         >
@@ -168,7 +144,7 @@
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Textarea
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
           readonly="readonly"
           as |C|
         >
@@ -182,7 +158,7 @@
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Textarea
-          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
           @isInvalid={{true}}
           as |C|
         >

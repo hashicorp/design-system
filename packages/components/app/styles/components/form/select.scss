@@ -4,45 +4,57 @@
 // properties within each class are sorted alphabetically
 //
 
+// "BARE" CONTROL
+
 .hds-form-select {
-    border-color: var(--token-color-border-strong);
-    border-radius: 5px;
-    box-shadow: var(--hds-elevation-inset-box-shadow);
-    padding: 4px;
+  border-color: var(--token-color-border-strong);
+  border-radius: 5px;
+  box-shadow: var(--hds-elevation-inset-box-shadow);
+  padding: 4px;
 
-    // STATUS
+  // STATUS
 
-    &:hover,
-    &.mock-hover {
-      --border-color: var(--token-color-border-strong);
-    }
-
-    // focus (same for all the states)
-    // TODO add handling of focus-visible
-
-    &:focus,
-    &.mock-focus {
-      // TODO test if it works across all browsers
-      // Update: Safari doesn't apply a rounded border, is not
-      outline: 2px solid var(--token-color-focus-action-external);
-      outline-offset: 0px;
-    }
-
-    &:active,
-    &.mock-active {
-      border-color: var(--token-color-palette-blue-400);
-    }
-
-    // INVALID
-
-    &.hds-form-select--is-invalid {
-      border-color: var(--token-color-foreground-critical);
-    }
-
-    // DISABLED
-
-    &:disabled {
-      background-color: var(--token-color-surface-strong);
-      border-color: var(--token-color-border-primary);
-    }
+  &:hover,
+  &.mock-hover {
+    --border-color: var(--token-color-border-strong);
   }
+
+  // focus (same for all the states)
+  // TODO add handling of focus-visible
+
+  &:focus,
+  &.mock-focus {
+    // TODO test if it works across all browsers
+    // Update: Safari doesn't apply a rounded border, is not
+    outline: 2px solid var(--token-color-focus-action-external);
+    outline-offset: 0px;
+  }
+
+  &:active,
+  &.mock-active {
+    border-color: var(--token-color-palette-blue-400);
+  }
+
+  // DISABLED
+
+  &:disabled {
+    background-color: var(--token-color-surface-strong);
+    border-color: var(--token-color-border-primary);
+  }
+
+  // INVALID
+
+  &.hds-form-select--is-invalid {
+    border-color: var(--token-color-foreground-critical);
+  }
+}
+
+
+// "FIELD" CONTROL
+// see https://codepen.io/didoo/pen/xxYPNeY
+
+.hds-form-select-field {
+  display: grid;
+  gap: 8px;
+  width: max-content;
+}
