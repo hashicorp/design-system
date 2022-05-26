@@ -108,7 +108,7 @@
       <br />
       <div class="dummy-form-text-input-content-sample-with-custom-layout">
         <span>Some content</span>
-        <Hds::Form::TextInput value="Lorem ipsum dolor" />
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example1"/>
         <label for="my-custom-checkbox-example1">Custom label</label>
       </div>
     </div>
@@ -117,7 +117,7 @@
       <br />
       <div class="dummy-form-text-input-content-sample-with-custom-layout">
         <span>Some content</span>
-        <Hds::Form::TextInput value="Lorem ipsum dolor" as |C|>
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example2" as |C|>
           {{#if false}}
             <C.Label>Lorem ipsum dolor</C.Label>
           {{/if}}

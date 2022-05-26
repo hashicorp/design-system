@@ -1,15 +1,24 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 import { guid } from '../utils/guid';
+
 import { ID_PREFIX as ERROR_ID_PREFIX } from '../error';
 import { ID_PREFIX as HELPER_TEXT_ID_PREFIX } from '../helper-text';
 
-export default class HdsFormTextInputIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+// notice: we don't support all the possible HTML types, only a subset
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+export const DEFAULT_TYPE = 'text';
+export const TYPES = [
+  'text',
+  'email',
+  'password',
+  'date',
+  'time',
+  'url',
+  'search',
+];
 
+export default class HdsFormTextInputIndexComponent extends Component {
   /**
    * Sets the type of input
    *
@@ -18,7 +27,16 @@ export default class HdsFormTextInputIndexComponent extends Component {
    * @default 'text'
    */
   get type() {
-    return this.args.type ?? 'text';
+    let { type = DEFAULT_TYPE } = this.args;
+
+    assert(
+      `@type for "Hds::Form::TextInput" must be one of the following: ${TYPES.join(
+        ', '
+      )}, received: ${type}`,
+      TYPES.includes(type)
+    );
+
+    return type;
   }
 
   /**
