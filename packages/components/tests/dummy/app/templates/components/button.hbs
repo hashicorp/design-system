@@ -605,7 +605,13 @@
           <div>
             <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
             <br />
-            <Hds::Button @icon="plus" @text={{capitalize state}} @size={{size}} @color={{color}} class="is-{{state}}" />
+            <Hds::Button
+              @icon="plus"
+              @text={{capitalize state}}
+              @size={{size}}
+              @color={{color}}
+              mock-state-value={{state}}
+            />
           </div>
         {{/each}}
       {{/each}}
@@ -619,7 +625,7 @@
               @text={{capitalize state}}
               @color={{color}}
               @isFullWidth={{true}}
-              class="is-{{state}}"
+              mock-state-value={{state}}
             />
           </div>
         {{/each}}

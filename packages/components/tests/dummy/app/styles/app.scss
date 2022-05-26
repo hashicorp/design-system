@@ -1,8 +1,9 @@
-@import '@hashicorp/design-system-components';
+@import "@hashicorp/design-system-components";
 
+@import "./_layout.scss";
 @import "./_typography";
 
-// Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
+// Notice: this list can be automatically edited by the Ember blueprint, please don"t remove the start/end comments
 // START COMPONENT PAGES IMPORTS
 @import "./pages/db-alert";
 @import "./pages/db-badge";
@@ -24,202 +25,148 @@
 // END COMPONENT PAGES IMPORTS
 
 @import "./components/dummy-component-props";
-@import "./components/dummy-placeholder";
+@import "./components/dummy-footer";
 @import "./components/dummy-link-cta-button-banner";
+@import "./components/dummy-placeholder";
+@import "./components/dummy-sidebar";
 
-html {
-    box-sizing: border-box;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
+html {
+  box-sizing: border-box;
 }
 
 body.dummy-app {
-    background-color: #d9d9d9;
-    padding: 0;
-    max-width: 100%;
-    margin: 0 auto;
+  background-color: #d9d9d9;
+  color: black;
+  padding: 0;
+  margin: 0;
 
-    .dummy-app-wrapper {  //todo this should not be outside of landmark elements.
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        grid-template-columns: 100%; // necessary or when the content is larger than the page, it grows indefinitely!
+  .dummy-header {
+    background-color: black;
+    color: white;
 
-        .dummy-header {
-            width: 100%;
-            margin: 0;
-            display: flex;
-            background-color: black;
-            color: white;
-
-            h1.dummy-h1 {
-                margin:auto;
-                display: flex;
-                padding: 0.5rem 1rem;
-            }
-        }
-        .dummy-nav {
-            background-color: #f1f2f3;
-            display: flex;
-            margin: 0;
-            padding: 0 0 0 0.5rem;
-            width: 100%;
-            ul {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                li {
-                    padding: 0;
-                    margin: 0;
-                    a {
-                        border: 2px solid transparent;
-                        display: flex;
-                        gap: 0.5rem;
-                        justify-content: space-evenly;
-                        line-height: 1;
-                        min-width: fit-content;
-                        padding: 0.75rem;
-                        &:visited {
-                            color: blue;
-                        }
-                        &:hover {
-                            border: 2px dashed blue;
-                        }
-                    }
-                }
-            }
-        }
-
-        .dummy-main {
-            background-color: #fff;
-            padding: 2rem;
-            margin: 0 auto;
-            max-width: 100%;
-            min-height: 84.75vh;
-            width: calc(1024px + 2 * 2rem);
-        }
-
-        .dummy-footer {
-            background-color: #f1f2f3;
-            display: flex;
-            flex-flow: row wrap;
-            margin: auto;
-            padding: 0;
-            width: 100%;
-
-            .dummy-row-wrapper {
-                padding: 2rem;
-                margin: 0;
-                width: 100%;
-                max-width: 100%;
-                > * {
-                    max-width: 100%;
-                    white-space: wrap;
-                }
-                &.dummy-row-wrapper--last{
-                    background-color: black;
-                    color: white;
-                    padding: 0 0 0 2rem; // if there's not some padding, it collapses; can address in later refactor
-                    width: 100%;
-
-                    .dummy-paragraph {
-                        display: flex;
-                        flex-flow: row wrap;
-                        justify-content: flex-end;
-                        padding-top: 0;
-                        margin: 0;
-                        min-height: fit-content;
-                        .dummy-link {
-                            border: 1px solid transparent;
-                            align-content: center;
-                            color: white;
-                            display: flex;
-                            gap: 6px;
-                            margin: 0;
-                            padding: 1rem;
-                            text-decoration: none;
-                            width: fit-content;
-                            &:hover, &:focus {
-                                text-decoration: underline;
-                            }
-                        }
-                    }
-                }
-                .dummy-row {
-                    max-width: 100%;
-                    width: 1024px;
-                    margin: 0 auto;
-                    padding: 0;
-                }
-            }
-        }
+    .dummy-h1 {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
     }
+  }
+  .dummy-nav {
+    background-color: #f1f2f3;
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      li {
+        padding: 0;
+        margin: 0;
+        a {
+          border: 2px solid transparent;
+          display: flex;
+          gap: 0.5rem;
+          justify-content: space-evenly;
+          line-height: 1;
+          min-width: fit-content;
+          padding: 0.75rem;
+          &:visited {
+            color: blue;
+          }
+          &:hover {
+            border: 2px dashed blue;
+          }
+        }
+      }
+    }
+  }
+  .dummy-aside {
+    background-color: #ffffff;
+  }
+  .dummy-main {
+    background-color: #fff;
+    padding: 0 2rem 2rem;
+  }
+
+  .dummy-footer {
+    background-color: #f1f2f3;
+    flex-flow: row wrap;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+  }
 }
 
 .dummy-design-guidelines {
-    p {
-        color: #666;
-    }
+  p {
+    color: #666;
+  }
 
-    img {
-        max-width: 1280px;
-        height: auto;
-        width: 100%;
-    }
+  img {
+    width: 1280px;
+    height: auto;
+    max-width: 100%;
+  }
 }
 
 .dummy-divider {
-    margin: 4rem 0;
+  margin: 4rem 0;
+}
+.dummy-demo-border {
+  border: 1px solid red;
 }
 
 .dummy-example {
-    border: 1px solid pink;
-    border-radius: 4px;
-    padding: 16px;
+  border: 1px solid pink;
+  border-radius: 4px;
+  padding: 16px;
 
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
 }
 
 .dummy-code {
-    background-color: #eee;
-    border-radius: 3px;
-    font-family: courier, monospace;
-    padding: 0 3px;
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px;
 }
-
 
 .dummy-banner {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid #d6d8db;
-    border-radius: 0.25rem;
-    background-color: #e2e3e5;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d6d8db;
+  border-radius: 0.25rem;
+  background-color: #e2e3e5;
 
-    :first-child {
-        margin-top: 0;
-    }
+  :first-child {
+    margin-top: 0;
+  }
 }
 
-
 .dummy-banner--info {
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
 }
 
 .dummy-banner--alert {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }
 
 .dummy-link-section {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
@@ -229,10 +176,11 @@ body.dummy-app {
 // so we had to rely on this specific custom media query
 
 @media only percy {
-    header,
-    nav.dummy-nav,
-    footer,
-    main section:not([data-test-percy]) {
-        display: none;
-    }
+  header.dummy-header,
+  nav.dummy-nav,
+  aside,
+  footer,
+  main section:not([data-test-percy]) {
+    display: none !important;
+  }
 }
