@@ -35,16 +35,13 @@
 
   // INVALID
 
-  // TODO add handling of invalid state via a custom class
-  // TODO would make sense to use `:invalid` here? what would be the benefits?
   &.hds-form-text-input--is-invalid {
     border-color: var(--token-color-foreground-critical);
   }
 
   // DISABLED
 
-  // TODO would make sense to use `:disabled` here? what would be the benefits?
-  &[disabled] {
+  &:disabled {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
   }
