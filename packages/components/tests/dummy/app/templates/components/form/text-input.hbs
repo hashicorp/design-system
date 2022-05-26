@@ -145,20 +145,46 @@
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-text-input-states-grid">
-    {{#each @model.TYPES as |type|}}
-      <p class="dummy-paragraph dummy-form-text-input-states-grid__title">{{capitalize type}}</p>
-      {{#each @model.STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">{{capitalize state}}:</span>
-          <br />
-          <Hds::Form::TextInput
-            @type={{type}}
-            @value={{type}}
-            disabled={{if (eq state "disabled") "disabled" undefined}}
-            readonly={{if (eq state "readonly") "readonly" undefined}}
-          />
-        </div>
-      {{/each}}
+    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Base</h5>
+    {{#each @model.STATES as |state|}}
+      <div mock-state-value={{state}} mock-state-selector="input">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::TextInput>
+      </div>
+    {{/each}}
+    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Disabled</h5>
+    {{#each @model.STATES as |state|}}
+      <div mock-state-value={{state}} mock-state-selector="input">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" disabled="disabled" as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::TextInput>
+      </div>
+    {{/each}}
+    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Readonly</h5>
+    {{#each @model.STATES as |state|}}
+      <div mock-state-value={{state}} mock-state-selector="input">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" readonly="readonly" as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+        </Hds::Form::TextInput>
+      </div>
+    {{/each}}
+    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Invalid</h5>
+    {{#each @model.STATES as |state|}}
+      <div mock-state-value="{{state}}+invalid" mock-state-selector="input">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" @isInvalid={{true}} as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::TextInput>
+      </div>
     {{/each}}
   </div>
 

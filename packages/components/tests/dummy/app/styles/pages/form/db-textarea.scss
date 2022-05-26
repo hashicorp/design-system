@@ -9,5 +9,13 @@
   align-items: start;
   display: grid;
   grid-gap: 0rem 1rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+
+  .dummy-form-textarea-states-grid__title {
+    grid-column: 1 / 5;
+
+    &:first-child {
+      margin-top: 0.75rem;
+    }
+  }
 }

@@ -37,6 +37,9 @@ export default class HdsFormTextareaIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-textarea'];
 
+    // add typographic classes
+    classes.push('hds-typography-body-200', 'hds-font-weight-regular');
+
     // add a class based on the @xxx argument
     // classes.push(`hds-form-textarea--[variant]-${this.xxx}`);
 

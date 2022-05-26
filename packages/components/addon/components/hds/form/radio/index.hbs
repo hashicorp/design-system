@@ -1,18 +1,12 @@
 {{! TODO the layout implementation is temporary, it needs to be properly implemented but for now it'll do }}
 <div class={{this.classNames}}>
-  <div class="hds-form-radio__control-wrapper">
-    {{! likely will be extracted as standalone element (TBD how it's called) }}
-    <div class="hds-form-radio-standalone">
-      <input
-        type="radio"
-        class={{if @native "hds-form-radio-standalone__native" "hds-form-radio-standalone__control"}}
-        id={{this.id}}
-        aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
-        ...attributes
-      />
-      <div class="hds-form-radio-standalone__facade"></div>
-    </div>
-  </div>
+  <input
+    type="radio"
+    class="hds-form-radio-standalone__control"
+    id={{this.id}}
+    aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
+    ...attributes
+  />
   <div class="hds-form-radio__text-wrapper">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
     {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}

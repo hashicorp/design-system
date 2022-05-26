@@ -37,6 +37,9 @@ export default class HdsFormSelectIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-select'];
 
+    // add typographic classes
+    classes.push('hds-typography-body-200', 'hds-font-weight-regular');
+
     // add a class based on the @xxx argument
     // classes.push(`hds-form-select--[variant]-${this.xxx}`);
 

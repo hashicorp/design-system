@@ -4,3 +4,48 @@
 // properties within each class are sorted alphabetically
 //
 
+.hds-form-select {
+    border-color: var(--token-color-border-strong);
+    border-radius: 5px;
+    box-shadow: var(--hds-elevation-inset-box-shadow);
+    padding: 4px;
+
+    &:hover,
+    &.mock-hover {
+      --border-color: var(--token-color-border-strong);
+    }
+
+    // focus (same for all the states)
+    // TODO add handling of focus-visible
+
+    &:focus,
+    &.mock-focus {
+      // TODO test if it works across all browsers
+      // Update: Safari doesn't apply a rounded border, is not
+      outline: 2px solid var(--token-color-focus-action-external);
+      outline-offset: 0px;
+    }
+
+    // active
+
+    &:active,
+    &.mock-active {
+      border-color: var(--token-color-palette-blue-400);
+    }
+
+    // INVALID
+
+    // TODO add handling of invalid state via a custom class
+    // TODO would make sense to use `:invalid` here? what would be the benefits?
+    &.mock-invalid {
+      border-color: var(--token-color-foreground-critical);
+    }
+
+    // DISABLED
+
+    // TODO would make sense to use `:disabled` here? what would be the benefits?
+    &[disabled] {
+      background-color: var(--token-color-surface-strong);
+      border-color: var(--token-color-border-primary);
+    }
+  }

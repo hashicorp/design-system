@@ -146,27 +146,42 @@
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-select-states-grid">
+    <h5 class="dummy-h5 dummy-form-select-states-grid__title">Base</h5>
     {{#each @model.STATES as |state|}}
-      <div>
+      <div mock-state-value={{state}} mock-state-selector="select">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Select
-          disabled={{if (eq state "disabled") "disabled" undefined}}
-          readonly={{if (eq state "readonly") "readonly" undefined}}
-          as |C|
-        >
+        <Hds::Form::Select @value="Lorem ipsum dolor" as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
           <C.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>
           </C.Options>
         </Hds::Form::Select>
+      </div>
+    {{/each}}
+    <h5 class="dummy-h5 dummy-form-select-states-grid__title">Disabled</h5>
+    {{#each @model.STATES as |state|}}
+      <div mock-state-value={{state}} mock-state-selector="select">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Select
-          disabled={{if (eq state "disabled") "disabled" undefined}}
-          readonly={{if (eq state "readonly") "readonly" undefined}}
-          as |C|
-        >
+        <Hds::Form::Select @value="Lorem ipsum dolor" disabled="disabled" as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
+          <C.Options>
+            <option>Lorem ipsum dolor</option>
+            <option>Sine qua non est</option>
+          </C.Options>
+        </Hds::Form::Select>
+      </div>
+    {{/each}}
+    <h5 class="dummy-h5 dummy-form-select-states-grid__title">Invalid</h5>
+    {{#each @model.STATES as |state|}}
+      <div mock-state-value="{{state}}+invalid" mock-state-selector="select">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Form::Select @value="Lorem ipsum dolor" @isInvalid={{true}} as |C|>
+          <C.Label>Lorem ipsum dolor</C.Label>
+          <C.Error>This is the error</C.Error>
           <C.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>

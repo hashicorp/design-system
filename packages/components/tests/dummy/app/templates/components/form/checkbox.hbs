@@ -130,52 +130,7 @@
   <div class="dummy-form-checkbox-states-grid">
     <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Base</h5>
     {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector=".hds-form-checkbox-standalone__control">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Checkbox as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Checkbox>
-        <Hds::Form::Checkbox checked="checked" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Checkbox>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Disabled</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector=".hds-form-checkbox-standalone__control">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Checkbox disabled="disabled" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Checkbox>
-        <Hds::Form::Checkbox checked="checked" disabled="disabled" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Checkbox>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Invalid</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}+invalid" mock-state-selector=".hds-form-checkbox-standalone__control">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Checkbox @isInvalid={{true}} as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Checkbox>
-        <Hds::Form::Checkbox checked="checked" @isInvalid={{true}} as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Checkbox>
-      </div>
-    {{/each}}
-  </div>
-
-  <h4 class="dummy-h4">States (native styling)</h4>
-  <div class="dummy-form-checkbox-states-grid">
-    <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Base</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector=".hds-form-checkbox-standalone__native">
+      <div mock-state-value={{state}} mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Checkbox @native={{true}} as |C|>
@@ -188,7 +143,7 @@
     {{/each}}
     <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Disabled</h5>
     {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector=".hds-form-checkbox-standalone__native">
+      <div mock-state-value={{state}} mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Checkbox @native={{true}} disabled="disabled" as |C|>
@@ -201,7 +156,7 @@
     {{/each}}
     <h5 class="dummy-h5 dummy-form-checkbox-states-grid__title">Invalid</h5>
     {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}+invalid" mock-state-selector=".hds-form-checkbox-standalone__native">
+      <div mock-state-value="{{state}}+invalid" mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Checkbox @native={{true}} @isInvalid={{true}} as |C|>
