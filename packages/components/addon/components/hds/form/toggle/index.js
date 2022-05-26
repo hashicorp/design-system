@@ -37,8 +37,10 @@ export default class HdsFormToggleIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-toggle'];
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-form-toggle--[variant]-${this.xxx}`);
+    // add a class based on the @isInvalid argument
+    if (this.args.isInvalid) {
+      classes.push(`hds-form-toggle--is-invalid`);
+    }
 
     return classes.join(' ');
   }

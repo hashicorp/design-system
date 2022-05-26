@@ -122,10 +122,10 @@
       <div mock-state-value={{state}} mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Radio @native={{true}} as |C|>
+        <Hds::Form::Radio as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
         </Hds::Form::Radio>
-        <Hds::Form::Radio @native={{true}} checked="checked" as |C|>
+        <Hds::Form::Radio checked="checked" as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
         </Hds::Form::Radio>
       </div>
@@ -135,24 +135,24 @@
       <div mock-state-value={{state}} mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Radio @native={{true}} disabled="disabled" as |C|>
+        <Hds::Form::Radio disabled="disabled" as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
         </Hds::Form::Radio>
-        <Hds::Form::Radio @native={{true}} checked="checked" disabled="disabled" as |C|>
+        <Hds::Form::Radio checked="checked" disabled="disabled" as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
         </Hds::Form::Radio>
       </div>
     {{/each}}
     <h5 class="dummy-h5 dummy-form-radio-states-grid__title">Invalid</h5>
     {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}+invalid" mock-state-selector="input">
+      <div mock-state-value="{{state}}" mock-state-selector="input">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Radio @native={{true}} @isInvalid={{true}} as |C|>
+        <Hds::Form::Radio @isInvalid={{true}} as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
           <C.Error>This is the error</C.Error>
         </Hds::Form::Radio>
-        <Hds::Form::Radio @native={{true}} checked="checked" @isInvalid={{true}} as |C|>
+        <Hds::Form::Radio checked="checked" @isInvalid={{true}} as |C|>
           <C.Label>Lorem ipsum dolor</C.Label>
           <C.Error>This is the error</C.Error>
         </Hds::Form::Radio>

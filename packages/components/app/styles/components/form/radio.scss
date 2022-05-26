@@ -127,12 +127,10 @@ $hds-form-radio-control-size: 16px;
 
   // INVALID
 
-  // TODO add handling of invalid state via a custom class
-  // TODO would make sense to use `:invalid` here? what would be the benefits?
-  &.mock-invalid:not(:checked) {
+  .hds-form-radio--is-invalid &:not(:checked) {
     border-color: var(--token-color-foreground-critical);
   }
-  &.mock-invalid:checked {
+  .hds-form-radio--is-invalid &:checked {
     background-color: var(--token-color-surface-critical);
     border-color: var(--token-color-foreground-critical);
     color: var(--token-color-foreground-critical);

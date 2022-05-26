@@ -10,6 +10,8 @@
   box-shadow: var(--hds-elevation-inset-box-shadow);
   padding: 4px;
 
+  // STATUS
+
   &:hover,
   &.mock-hover {
     --border-color: var(--token-color-border-strong);
@@ -25,8 +27,6 @@
     outline: 2px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
   }
-
-  // active
 
   &:active,
   &.mock-active {

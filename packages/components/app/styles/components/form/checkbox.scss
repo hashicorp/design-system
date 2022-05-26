@@ -7,22 +7,14 @@
 $hds-form-checkbox-control-size: 16px;
 $hds-form-checkbox-control-border-radius: 3px;
 
-// FIELD
-
 .hds-form-checkbox {
-  display: flex;
   align-items: start;
+  display: flex;
 
-}
-
-// TODO add comment
-
-.hds-form-checkbox--standalone {
-  display: inline-block;
-}
-
-.hds-form-checkbox__control-wrapper {
-  flex: none;
+  // TODO add comment
+  &.hds-form-checkbox--standalone {
+    display: inline-block;
+  }
 }
 
 .hds-form-checkbox__text-wrapper {
@@ -39,6 +31,7 @@ $hds-form-checkbox-control-border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   display: block;
+  flex: none;
   height: $hds-form-checkbox-control-size;
   isolation: isolate; // used to create a new stacking context
   position: relative;
@@ -128,12 +121,10 @@ $hds-form-checkbox-control-border-radius: 3px;
 
   // INVALID
 
-  // TODO add handling of invalid state via a custom class
-  // TODO would make sense to use `:invalid` here? what would be the benefits?
-  &.mock-invalid:not(:checked) {
+  .hds-form-checkbox--is-invalid &:not(:checked) {
     border-color: var(--token-color-foreground-critical);
   }
-  &.mock-invalid:checked {
+  .hds-form-checkbox--is-invalid &:checked {
     background-color: var(--token-color-surface-critical);
     border-color: var(--token-color-foreground-critical);
     // notice: the "tick" color is hardcoded here!

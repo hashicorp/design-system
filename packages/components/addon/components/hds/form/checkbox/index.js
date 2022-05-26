@@ -37,12 +37,9 @@ export default class HdsFormCheckboxIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-form-checkbox'];
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-form-checkbox--[variant]-${this.xxx}`);
-
-    // add a class based on the @native argument
-    if (this.args.native) {
-      classes.push('hds-form-checkbox--use-native');
+    // add a class based on the @isInvalid argument
+    if (this.args.isInvalid) {
+      classes.push(`hds-form-checkbox--is-invalid`);
     }
 
     return classes.join(' ');

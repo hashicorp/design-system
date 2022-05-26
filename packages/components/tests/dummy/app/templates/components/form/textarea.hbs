@@ -178,7 +178,7 @@
     {{/each}}
     <h5 class="dummy-h5 dummy-form-textarea-states-grid__title">Invalid</h5>
     {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}+invalid" mock-state-selector="textarea">
+      <div mock-state-value="{{state}}" mock-state-selector="textarea">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <Hds::Form::Textarea
