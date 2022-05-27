@@ -57,40 +57,11 @@ body.dummy-app {
       padding: 0.5rem 1rem;
     }
   }
-  .dummy-nav {
-    background-color: #f1f2f3;
 
-    ul {
-      display: flex;
-      justify-content: flex-start;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      li {
-        padding: 0;
-        margin: 0;
-        a {
-          border: 2px solid transparent;
-          display: flex;
-          gap: 0.5rem;
-          justify-content: space-evenly;
-          line-height: 1;
-          min-width: fit-content;
-          padding: 0.75rem;
-          &:visited {
-            color: blue;
-          }
-          &:hover {
-            border: 2px dashed blue;
-          }
-        }
-      }
-    }
-  }
   .dummy-aside {
-    background-color: #ffffff;
+    background-color: #e5e6e7;
   }
+
   .dummy-main {
     background-color: #fff;
     padding: 0 2rem 2rem;
@@ -177,7 +148,6 @@ body.dummy-app {
 
 @media only percy {
   header,
-  nav,
   aside,
   footer,
   main section:not([data-test-percy]) {
