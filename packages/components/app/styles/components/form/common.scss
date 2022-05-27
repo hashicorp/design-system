@@ -1,0 +1,52 @@
+//
+// FORM > COMMON
+//
+// properties within each class are sorted alphabetically
+//
+
+
+// FIELD
+
+// "flag" layout (see https://codepen.io/didoo/pen/xxYPNeY)
+// used for checkbox, radio, toggle
+
+.hds-form-field--flag-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "control label"
+    "control helper-text"
+    "control error";
+  width: max-content;
+
+  .hds-form-field__control {
+    grid-area: control;
+
+    &:not(:only-child) {
+      margin-top: 2px; // the line height of the label is bigger than the control size
+      margin-right: 8px;
+    }
+  }
+
+  .hds-form-field__label {
+    grid-area: label;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-field__helper-text {
+    grid-area: helper-text;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-field__error {
+    grid-area: error;
+  }
+}

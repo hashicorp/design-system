@@ -48,12 +48,3 @@
     border-color: var(--token-color-foreground-critical);
   }
 }
-
-// "FIELD" CONTROL
-// see https://codepen.io/didoo/pen/xxYPNeY
-
-.hds-form-textarea-field {
-  display: grid;
-  gap: 8px;
-  width: max-content;
-}

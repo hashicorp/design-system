@@ -15,15 +15,7 @@
 @use "../components/card";
 @use "../components/disclosure";
 @use "../components/dropdown";
-@use "../components/form/checkbox";
-@use "../components/form/error";
-@use "../components/form/helper-text";
-@use "../components/form/label";
-@use "../components/form/radio";
-@use "../components/form/select";
-@use "../components/form/toggle";
-@use "../components/form/textarea";
-@use "../components/form/text-input";
+@use "../components/form"; // multiple components
 @use "../components/icon-tile";
 @use "../components/link/inline";
 @use "../components/link/standalone";

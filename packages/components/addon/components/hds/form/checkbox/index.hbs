@@ -2,18 +2,16 @@
 {{#if @bare}}
   <input type="checkbox" class={{this.classNames}} id={{this.id}} ...attributes />
 {{else}}
-  <div class="hds-form-checkbox-field">
+  <div class="hds-form-field--flag-layout">
     <input
       type="checkbox"
-      class={{this.classNames}}
+      class="{{this.classNames}} hds-form-field__control"
       id={{this.id}}
       aria-describedby={{this.ariaDescribedBy}}
       ...attributes
     />
-    {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-checkbox__label"))}}
-    {{yield
-      (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-checkbox__helper-text"))
-    }}
-    {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-checkbox__error"))}}
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-field__label"))}}
+    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-field__helper-text"))}}
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-field__error"))}}
   </div>
 {{/if}}
