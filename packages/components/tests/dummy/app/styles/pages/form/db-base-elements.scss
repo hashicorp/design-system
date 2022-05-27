@@ -1,1 +1,11 @@
 // FORM > BASE ELEMENTS
+
+.dummy-form-base-elements-label-with-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dummy-form-base-elements-max-width-sample {
+    max-width: 250px;
+}

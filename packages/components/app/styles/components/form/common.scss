@@ -14,6 +14,11 @@
   display: grid;
   gap: 8px;
   width: max-content;
+
+  // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+  .hds-form-helper-text + .hds-form-helper-text {
+    margin-top: -6px;
+  }
 }
 
 // "flag" layout (see https://codepen.io/didoo/pen/xxYPNeY)

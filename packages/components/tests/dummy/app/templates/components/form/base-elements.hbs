@@ -58,11 +58,52 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <h4 class="dummy-h4">Label</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::Label>This is a simple label </Hds::Form::Label>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
+  <Hds::Form::Label>This is a label <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::Label>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</span>
+  <Hds::Form::Label>This is a label
+    <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::Label>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code></span>
+  <Hds::Form::Label>
+    <div class="dummy-form-base-elements-label-with-badge">This is the label
+      <Hds::Badge @size="small" @text="Some badge" /></div>
+  </Hds::Form::Label>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Label>This is a very long label text that should go on multiple lines</Hds::Form::Label>
+  </div>
 
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Form::Label>This is the Hds::Form::Label component </Hds::Form::Label>
-  <Hds::Form::HelperText>This is the Hds::Form::HelperText component </Hds::Form::HelperText>
-  <Hds::Form::Error>This is the Hds::Form::Error component </Hds::Form::Error>
+  <h4 class="dummy-h4">Helper text</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
+  <Hds::Form::HelperText>This is a helper text with
+    <Hds::Link::Inline @route="index">a primary link</Hds::Link::Inline>
+    and then
+    <Hds::Link::Inline @route="index" @color="secondary">a secondary link</Hds::Link::Inline>.</Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. distinct paragraphs)</span>
+  <Hds::Form::HelperText>
+    <div class="dummy-form-base-elements-label-with-badge">A helper text may contain some <code>&lt;code&gt;</code> for example, or a <strong>&lt;strong&gt;</strong>.</div>
+  </Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::HelperText>This is a very long helper text that should go on multiple lines</Hds::Form::HelperText>
+  </div>
+
+  <h4 class="dummy-h4">Error</h4>
+  <Hds::Form::Error>This is the Hds::Form::Error component (TODO)</Hds::Form::Error>
 
 </section>
