@@ -2,7 +2,7 @@
 {{#if @bare}}
   <input type={{this.type}} class={{this.classNames}} id={{this.id}} value={{@value}} ...attributes />
 {{else}}
-  <div class="hds-form-text-input-field">
+  <div class="hds-form-field--vertical-layout">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
     {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
     <input
