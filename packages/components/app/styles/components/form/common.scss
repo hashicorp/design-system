@@ -7,6 +7,15 @@
 
 // FIELD
 
+// "vertical" layout
+// used for text-input, textarea, select
+
+.hds-form-field--vertical-layout {
+  display: grid;
+  gap: 8px;
+  width: max-content;
+}
+
 // "flag" layout (see https://codepen.io/didoo/pen/xxYPNeY)
 // used for checkbox, radio, toggle
 
