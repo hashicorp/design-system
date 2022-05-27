@@ -11,9 +11,7 @@
       ...attributes
     />
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-radio__label"))}}
-    {{yield
-      (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-radio__helper-text"))
-    }}
+    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-radio__helper-text"))}}
     {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-radio__error"))}}
   </div>
 {{/if}}
