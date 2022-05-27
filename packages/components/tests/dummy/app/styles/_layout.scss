@@ -42,13 +42,3 @@
 .dummy-footer {
   grid-area: footer;
 }
-
-.dummy-header,
-.dummy-footer {
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-}

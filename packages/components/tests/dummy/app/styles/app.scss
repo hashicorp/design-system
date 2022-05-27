@@ -49,11 +49,10 @@ body.dummy-app {
   .dummy-header {
     background-color: black;
     color: white;
+    text-align: center;
 
     .dummy-h1 {
-      display: flex;
-      justify-content: center;
-      margin-top: 0.75rem;
+      margin: 0.75rem auto;
       padding: 0.5rem 1rem;
     }
   }
@@ -65,14 +64,6 @@ body.dummy-app {
   .dummy-main {
     background-color: #fff;
     padding: 0 2rem 2rem;
-  }
-
-  .dummy-footer {
-    background-color: #f1f2f3;
-    flex-flow: row wrap;
-    margin: auto;
-    padding: 0;
-    width: 100%;
   }
 }
 
