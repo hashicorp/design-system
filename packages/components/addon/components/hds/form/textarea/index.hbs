@@ -1,10 +1,17 @@
-{{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
-{{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-<Textarea
-  @value={{@value}}
-  class={{this.classNames}}
-  id={{this.id}}
-  aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
-  ...attributes
-/>
-{{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
+{{! TODO - which one to use? "bare" / "plain" / "pure" }}
+{{#if @bare}}
+  <Textarea @value={{@value}} class={{this.classNames}} id={{this.id}} ...attributes />
+{{else}}
+  <div class="hds-form-textarea-field">
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
+    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
+    <Textarea
+      @value={{@value}}
+      class={{this.classNames}}
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
+      ...attributes
+    />
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
+  </div>
+{{/if}}

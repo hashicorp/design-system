@@ -82,7 +82,7 @@
       <div>
         <span class="dummy-text-small">{{capitalize type}}:</span>
         <br />
-        <Hds::Form::TextInput @type={{type}} @value={{type}} />
+        <Hds::Form::TextInput @type={{type}} @value={{type}} @bare={{true}} />
       </div>
     {{/each}}
   </div>
@@ -93,12 +93,12 @@
     <div>
       <span class="dummy-text-small">Default</span>
       <br />
-      <Hds::Form::TextInput />
+      <Hds::Form::TextInput @bare={{true}} />
     </div>
     <div>
       <span class="dummy-text-small">With value</span>
       <br />
-      <Hds::Form::TextInput value="Lorem ipsum dolor" />
+      <Hds::Form::TextInput value="Lorem ipsum dolor" @bare={{true}} />
     </div>
   </div>
   <br />
@@ -108,48 +108,18 @@
       <br />
       <div class="dummy-form-text-input-content-sample-with-custom-layout">
         <span>Some content</span>
-        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example1"/>
-        <label for="my-custom-checkbox-example1">Custom label</label>
-      </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">With Ember logic as child</span>
-      <br />
-      <div class="dummy-form-text-input-content-sample-with-custom-layout">
-        <span>Some content</span>
-        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example2" as |C|>
-          {{#if false}}
-            <C.Label>Lorem ipsum dolor</C.Label>
-          {{/if}}
-        </Hds::Form::TextInput>
-        <label for="my-custom-checkbox-example2">Custom label</label>
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example" @bare={{true}} />
+        <label for="my-custom-checkbox-example">Custom label</label>
       </div>
     </div>
   </div>
-  <h5 class="dummy-h5">Label</h5>
+  <h5 class="dummy-h5">"Field" control</h5>
   <div class="dummy-form-text-input-base-sample">
     <div>
-      <span class="dummy-text-small">Auto-generated id:</span>
+      <span class="dummy-text-small">Only label</span>
       <br />
       <Hds::Form::TextInput as |C|>
         <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::TextInput>
-    </div>
-    <div>
-      <span class="dummy-text-small">Custom id:</span>
-      <br />
-      <Hds::Form::TextInput @id="custom-id" as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::TextInput>
-    </div>
-  </div>
-  <h5 class="dummy-h5">Helper text</h5>
-  <div class="dummy-form-text-input-base-sample">
-    <div>
-      <span class="dummy-text-small">Only helper text</span>
-      <br />
-      <Hds::Form::TextInput as |C|>
-        <C.HelperText>This is the helper text</C.HelperText>
       </Hds::Form::TextInput>
     </div>
     <div>
@@ -160,13 +130,11 @@
         <C.HelperText>This is the helper text</C.HelperText>
       </Hds::Form::TextInput>
     </div>
-  </div>
-  <h5 class="dummy-h5">Error</h5>
-  <div class="dummy-form-text-input-base-sample">
     <div>
-      <span class="dummy-text-small">Only error</span>
+      <span class="dummy-text-small">Label + Error</span>
       <br />
       <Hds::Form::TextInput as |C|>
+        <C.Label>This is the label</C.Label>
         <C.Error>This is the error</C.Error>
       </Hds::Form::TextInput>
     </div>

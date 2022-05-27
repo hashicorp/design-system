@@ -1,14 +1,17 @@
-<div class={{this.classNames}}>
-  <input
-    type="radio"
-    class="hds-form-radio-standalone__control"
-    id={{this.id}}
-    aria-describedby={{if (has-block-params) this.ariaDescribedBy}}
-    ...attributes
-  />
-  <div class="hds-form-radio__text-wrapper">
-    {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
-    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id))}}
-    {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
+{{! TODO - which one to use? "bare" / "plain" / "pure" }}
+{{#if @bare}}
+  <input type="radio" class={{this.classNames}} id={{this.id}} ...attributes />
+{{else}}
+  <div class="hds-form-radio-field">
+    <input
+      type="radio"
+      class={{this.classNames}}
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
+      ...attributes
+    />
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-radio__label"))}}
+    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-radio__helper-text"))}}
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-radio__error"))}}
   </div>
-</div>
+{{/if}}

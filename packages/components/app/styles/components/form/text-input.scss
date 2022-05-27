@@ -4,6 +4,8 @@
 // properties within each class are sorted alphabetically
 //
 
+// "BARE" CONTROL
+
 .hds-form-text-input {
   border: 1px solid var(--token-color-border-strong);
   border-radius: 5px;
@@ -33,16 +35,26 @@
     border-color: var(--token-color-palette-blue-400);
   }
 
-  // INVALID
-
-  &.hds-form-text-input--is-invalid {
-    border-color: var(--token-color-foreground-critical);
-  }
-
   // DISABLED
 
   &:disabled {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
   }
+
+  // INVALID
+
+  &.hds-form-text-input--is-invalid {
+    border-color: var(--token-color-foreground-critical);
+  }
+}
+
+
+// "FIELD" CONTROL
+// see https://codepen.io/didoo/pen/xxYPNeY
+
+.hds-form-text-input-field {
+  display: grid;
+  gap: 8px;
+  width: max-content;
 }

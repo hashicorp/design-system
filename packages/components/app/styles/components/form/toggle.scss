@@ -10,56 +10,39 @@ $hds-form-toggle-control-width: 32px;
 $hds-form-toggle-control-height: 16px;
 $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
-// FIELD
+// "BARE" CONTROL
 
-.hds-form-toggle {
-  display: flex;
-  align-items: start;
-}
-
-.hds-form-toggle__control-wrapper {
-  flex: none;
-}
-
-.hds-form-toggle__text-wrapper {
-  flex: 1 0 auto;
-  margin-left: 0.5rem;
-}
-
-// STANDALONE CONTROL
-
-.hds-form-toggle-standalone {
-  position: relative;
+.hds-form-toggle-wrapper {
+  display: inline-block; // we emulate the behaviour of a checkbox/radiobutton control
   isolation: isolate; // used to create a new stacking context
-  // TODO display ??
+  position: relative;
 }
 
 // control (hidden)
 
-.hds-form-toggle-standalone__control {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  color: transparent;
-  opacity: 0;
+.hds-form-toggle {
   appearance: none;
+  background-color: transparent;
+  border: none;
+  bottom: 0;
+  color: transparent;
   cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 // facade (visible)
 
-.hds-form-toggle-standalone__facade {
+.hds-form-toggle-facade {
   border-radius: $hds-form-toggle-border-radius;
   border: 1px solid var(--border-color);
   display: block;
@@ -133,8 +116,10 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
   // focus (same for all the states)
   // TODO add handling of focus-visible
 
-  :focus + &,
-  .mock-focus + & {
+  :focus:not(:checked) + &,
+  :focus:checked + &,
+  .mock-focus:not(:checked) + &,
+  .mock-focus:checked + & {
     --border-color: var(--token-color-palette-blue-400);
 
     &::before {
@@ -155,6 +140,14 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
     --border-color: var(--token-color-palette-blue-500);
   }
 
+  // DISABLED
+
+  :disabled:not(:checked) + &,
+  :disabled:checked + & {
+    background-color: var(--token-color-surface-strong);
+    --border-color: var(--token-color-border-primary);
+  }
+
   // INVALID
 
   .hds-form-toggle--is-invalid :not(:checked) + & {
@@ -164,13 +157,49 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
     background-color: var(--token-color-palette-red-200);
     --border-color: var(--token-color-foreground-critical);
   }
+}
 
-  // DISABLED
+// "FIELD" CONTROL
+// see https://codepen.io/didoo/pen/xxYPNeY
 
-  :disabled:not(:checked) + &,
-  :disabled:checked + & {
-    background-color: var(--token-color-surface-strong);
-    --border-color: var(--token-color-border-primary);
+.hds-form-toggle-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "control label"
+    "control helper-text"
+    "control error";
+  width: max-content;
+
+  // notice: here we need to target the wrapper, not the control itself
+  .hds-form-toggle-wrapper {
+    grid-area: control;
+
+    &:not(:only-child) {
+      margin-top: 2px; // the line height of the label is bigger than the control size
+      margin-right: 8px;
+    }
   }
 
+  .hds-form-toggle__label {
+    grid-area: label;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-toggle__helper-text {
+    grid-area: helper-text;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-toggle__error {
+    grid-area: error;
+  }
 }
