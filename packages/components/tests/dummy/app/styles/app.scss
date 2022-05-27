@@ -176,8 +176,8 @@ body.dummy-app {
 // so we had to rely on this specific custom media query
 
 @media only percy {
-  header.dummy-header,
-  nav.dummy-nav,
+  header,
+  nav,
   aside,
   footer,
   main section:not([data-test-percy]) {
