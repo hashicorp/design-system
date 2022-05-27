@@ -1,5 +1,7 @@
 :root {
-  --content-width: calc(1024px + 2 * 8rem);
+  --aside-width: calc(200px + 1 * 2rem);
+  --main-width: calc(1024px + 2 * 2rem);
+  --content-width: calc(var(--aside-width) + var(--main-width));
 }
 
 .dummy-app {
@@ -21,8 +23,8 @@
     grid-template-rows: auto 1fr auto;
     grid-template-columns:
       1fr
-      minmax(12em, calc(var(--content-width) * 0.15))
-      minmax(30em, calc(var(--content-width) * 0.85))
+      minmax(12em, var(--aside-width))
+      minmax(30em, var(--main-width))
       1fr;
   }
 }
