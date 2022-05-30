@@ -82,7 +82,7 @@
       <div>
         <span class="dummy-text-small">{{capitalize type}}:</span>
         <br />
-        <Hds::Form::TextInput @type={{type}} @value={{type}} @bare={{true}} />
+        <Hds::Form::TextInput @type={{type}} @value={{type}} @basic={{true}} />
       </div>
     {{/each}}
   </div>
@@ -93,12 +93,12 @@
     <div>
       <span class="dummy-text-small">Default</span>
       <br />
-      <Hds::Form::TextInput @bare={{true}} />
+      <Hds::Form::TextInput @basic={{true}} />
     </div>
     <div>
       <span class="dummy-text-small">With value</span>
       <br />
-      <Hds::Form::TextInput value="Lorem ipsum dolor" @bare={{true}} />
+      <Hds::Form::TextInput value="Lorem ipsum dolor" @basic={{true}} />
     </div>
   </div>
   <br />
@@ -108,7 +108,7 @@
       <br />
       <div class="dummy-form-text-input-content-sample-with-custom-layout">
         <span>Some content</span>
-        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example" @bare={{true}} />
+        <Hds::Form::TextInput @value="Lorem ipsum dolor" @id="my-custom-checkbox-example" @basic={{true}} />
         <label for="my-custom-checkbox-example">Custom label</label>
       </div>
     </div>

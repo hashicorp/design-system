@@ -1,5 +1,4 @@
-{{! TODO - which one to use? "bare" / "plain" / "pure" }}
-{{#if @bare}}
+{{#if @basic}}
   <select class={{this.classNames}} id={{this.id}} ...attributes>
     {{yield (hash Options=(component "hds/form/select/options"))}}
   </select>
