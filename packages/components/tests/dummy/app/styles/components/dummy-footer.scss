@@ -5,14 +5,11 @@
 .dummy-footer__accessibility {
   margin: auto;
   max-width: var(--content-width);
+  padding: 0 2rem;
 
-  .dummy-title-small,
-  .dummy-paragraph,
-  .dummy-list {
-    padding: 0 2rem;
-  }
   .dummy-title-small {
     padding-top: 2rem;
+    margin-top: 0;
   }
   .dummy-list {
     list-style-position: inside;

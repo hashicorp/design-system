@@ -5,17 +5,8 @@
 }
 
 .dummy-app {
-  display: grid;
-  grid-template-areas:
-    'header header'
-    'nav nav'
-    'aside  aside'
-    'main main'
-    'footer footer';
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto 1fr auto;
-
   @media screen and (min-width: 40em) {
+    display: grid;
     grid-template-areas:
       'header header header header'
       '. aside main .'
