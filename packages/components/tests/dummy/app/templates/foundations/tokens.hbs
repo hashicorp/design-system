@@ -49,19 +49,6 @@
 
   {{#each-in this.groupedTokens as |category categoryList|}}
     <h4 class="dummy-h4">{{capitalize category}}</h4>
-    {{#if (eq category "color")}}
-      <div class="dummy-token__details-colors-notice">
-        <p class="dummy-paragraph">🚨 IMPORTANT 🚨</p>
-        <p class="dummy-paragraph">
-          We have recently updated the "semantic" color tokens (ie.
-          <code class="dummy-code">--token-color-success-foreground-primary</code>
-          has been renamed
-          <code class="dummy-code">--token-color-foreground-success</code>). The old design tokens are still available
-          but are deprecated (they are grayed out in the list below): check what is the new color token to use as
-          alternative, and if none is available please contact the design system team.
-        </p>
-      </div>
-    {{/if}}
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
         <DummyToken @token={{token}} />
