@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-05-26T13:28:38.561Z",
+  "lastRunTimeISO": "2022-05-31T19:48:52.201Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -6343,6 +6343,24 @@
       "fileName": "play-circle-16",
       "iconName": "play-circle",
       "description": "play, start, run, circle",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2005:66",
+      "fileName": "plug-24",
+      "iconName": "plug",
+      "description": "plug, plugin",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2005:71",
+      "fileName": "plug-16",
+      "iconName": "plug",
+      "description": "plug, plugin",
       "size": "16",
       "width": 16,
       "height": 16
