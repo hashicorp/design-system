@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.5.0
+
+### Minor Changes
+
+- [#329](https://github.com/hashicorp/design-system/pull/329) [`671640a4`](https://github.com/hashicorp/design-system/commit/671640a476ab4ae4e0dd84e5e00964475e95e870) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added "plug" outlined icon.
+
 ## 2.4.0
 
 ### Minor Changes
