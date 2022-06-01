@@ -1,22 +1,33 @@
 <li class={{this.classNames}}>
-  <Hds::Interactive
-    @current-when={{@current-when}}
-    @models={{hds-link-to-models @model @models}}
-    @query={{hds-link-to-query @query}}
-    @replace={{@replace}}
-    @route={{@route}}
-    @isRouteExternal={{@isRouteExternal}}
-    @href={{@href}}
-    @isHrefExternal={{@isHrefExternal}}
-    ...attributes
-  >
-    {{#if @icon}}
+  {{#if @isLoading}}
+    <div class="hds-dropdown-list-item__interactive-loading-wrapper" ...attributes>
       <div class="hds-dropdown-list-item__interactive-icon">
-        <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+        <FlightIcon @name="loading" @isInlineBlock={{false}} />
       </div>
-    {{/if}}
-    <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
-      {{this.text}}
+      <div class="hds-dropdown-list-item__interactive-text hds-typography-body-100 hds-font-weight-regular">
+        {{this.text}}
+      </div>
     </div>
-  </Hds::Interactive>
+  {{else}}
+    <Hds::Interactive
+      @current-when={{@current-when}}
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @replace={{@replace}}
+      @route={{@route}}
+      @isRouteExternal={{@isRouteExternal}}
+      @href={{@href}}
+      @isHrefExternal={{@isHrefExternal}}
+      ...attributes
+    >
+      {{#if @icon}}
+        <div class="hds-dropdown-list-item__interactive-icon">
+          <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+        </div>
+      {{/if}}
+      <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
+        {{this.text}}
+      </div>
+    </Hds::Interactive>
+  {{/if}}
 </li>
