@@ -4,28 +4,192 @@
 
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview">§</a> Overview</h3>
-
+  <p class="dummy-paragraph">In this page we collect a few "base" elements that are used to build/compose the "form"
+    fields. They can also be used to build custom fields (in very specific cases).</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Label</code>
+      is the label associated with the form control
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::HelperText</code>
+      is an optional extra text used to help the user understand what the field is intended for
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Error</code>
+      is the error message shown to the user in case of failed validation of the field
+    </li>
+  </ul>
 </section>
 
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api">§</a> Component API</h3>
+
+  <h4 class="dummy-h4">Form::Label</h4>
   <p class="dummy-paragraph" id="component-api-form-label">
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
-
-
+    <dt>fieldId <code>string</code></dt>
+    <dd>
+      <p>The ID of the form control associated with the label. This is used to populate the
+        <code class="dummy-code">for</code>
+        attribute of the
+        <code class="dummy-code">&lt;label&gt;</code>
+        element.</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the
+        <code class="dummy-code">&lt;label&gt;</code>
+        element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
   </dl>
+
+  <h4 class="dummy-h4">Form::HelperText</h4>
+  <p class="dummy-paragraph" id="component-api-form-helper-text">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-helper-text">
+    <dt>fieldId <code>string</code></dt>
+    <dd>
+      <p>The ID of the form control associated with the helper text. This is used to populate the
+        <code class="dummy-code">id</code>
+        HTML attribute (with a
+        <code class="dummy-code">helper-text-</code>
+        prefix) of the element. This HelperText ID can then be referenced in the
+        <code class="dummy-code">aria-describedby</code>
+        attribute of the form control.</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Form::Error</h4>
+  <p class="dummy-paragraph" id="component-api-form-helper-error">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-error">
+    <dl>🚧 TODO 🚧</dl>
+  </dl>
+
 </section>
 
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+
+  <h4 class="dummy-h4">Form::Label</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component and a
+    <code class="dummy-code">fieldId</code>
+    argument (the ID of the form control associated with the label):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Label @fieldId="control-ID">My label</Hds::Form::Label>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Label @fieldId="control-ID">My label</Hds::Form::Label>
+  <p class="dummy-paragraph">
+    There may be cases in which the label needs to contain more than just text. In this case it's possible to pass
+    structured content to it (it's just yielded in output):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Label @fieldId="control-ID">
+        <span>Some text</span>
+        <Hds::Badge @size="small" @text="Some badge" />
+      </Hds::Form::Label>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Label @fieldId="control-ID">
+    <span>Some text</span>
+    <Hds::Badge @size="small" @text="Some badge" />
+  </Hds::Form::Label>
+  <p class="dummy-paragraph">
+    <strong>Important:</strong>
+    in this case, while the correct text styling is applied to the component's container, the layout/organization of the
+    content inside the component is left to the consumer.</p>
+
+  <h4 class="dummy-h4">Form::HelperText</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component and a
+    <code class="dummy-code">fieldId</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::HelperText @fieldId="control-ID">This is some helper text</Hds::Form::HelperText>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::HelperText @fieldId="control-ID">This is some helper text</Hds::Form::HelperText>
+  <p class="dummy-paragraph"><em>Notice: the
+      <code class="dummy-code">fieldId</code>
+      value will be used to generate an ID, prefixed with
+      <code class="dummy-code">helper-text-</code>, so that this ID can be referenced in the
+      <code class="dummy-code">aria-describedby</code>
+      attribute of the form control. If no
+      <code class="dummy-code">fieldId</code>
+      is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</em></p>
+  <p class="dummy-paragraph">
+    There may be cases in which the helper text needs to contain more than just text. In this case it's possible to pass
+    structured content to it (it's just yielded in output):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::HelperText @fieldId="control-ID">
+        Some text with a
+        <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
+        <code>some code</code> and a <strong>strong</strong>
+      </Hds::Form::HelperText>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::HelperText @fieldId="control-ID">
+    Some text with a
+    <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
+    <code>some code</code>
+    and a
+    <strong>strong</strong>
+  </Hds::Form::HelperText>
+  <p class="dummy-paragraph">
+    <strong>Important:</strong>
+    in this case, while the correct text styling is applied to the component's container, the layout/organization of the
+    content inside the component is left to the consumer.</p>
+
+  <h4 class="dummy-h4">Form::Error</h4>
   <p class="dummy-paragraph">🚧 TODO 🚧</p>
+
 </section>
 
 <section>
-  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a> Design
-    guidelines</h3>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
   <p class="dummy-paragraph">🚧 TODO 🚧</p>
   {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
   {{!
@@ -61,7 +225,7 @@
   <span class="dummy-text-small">With structured content (eg. a
     <code>flex</code>
     layout and a
-    <code>&lt;Badge&gt;</code></span>
+    <code>&lt;Badge&gt;</code>)</span>
   <Hds::Form::Label>
     <div class="dummy-form-base-elements-label-with-badge">This is the label
       <Hds::Badge @size="small" @text="Some badge" /></div>
@@ -84,7 +248,10 @@
   <br />
   <span class="dummy-text-small">With structured content (eg. distinct paragraphs)</span>
   <Hds::Form::HelperText>
-    <div class="dummy-form-base-elements-label-with-badge">A helper text may contain some <code>&lt;code&gt;</code> for example, or a <strong>&lt;strong&gt;</strong>.</div>
+    A helper text may contain some
+    <code>&lt;code&gt;</code>
+    for example, or a
+    <strong>&lt;strong&gt;</strong>.
   </Hds::Form::HelperText>
   <br />
   <span class="dummy-text-small">With text that spans multiple lines</span>
