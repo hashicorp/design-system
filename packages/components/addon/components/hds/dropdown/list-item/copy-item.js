@@ -38,14 +38,13 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
 
   @action
   async copyCode() {
-    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
-    await navigator.clipboard.writeText(this.args.text);
-    const result = await navigator.clipboard.readText();
+    let copyText = await this.args.text;
+    // execCommand is supposedly deprecated but it's also what Firefox says to do in this situation so we'll try it
+    await document.execCommand('copy', false, copyText || '');
 
-    if (result === this.args.text) {
+    if (copyText === this.args.text) {
       this.isSuccess = true;
-      // console.log(`result is ${result}`);
-
+      console.log(`success: ${this.isSuccess}; copied text: ${copyText}`);
       // make it fade back to the default state
       setTimeout(() => {
         this.isSuccess = false;
