@@ -1,8 +1,5 @@
-<aside class="dummy-aside">
+<aside class="dummy-aside" {{did-insert this.didInsert}}>
   <ul class="dummy-aside__list dummy-list">
     <li><LinkTo @route="index"><FlightIcon @name="arrow-left" @isInlineBlock={{false}} /> Component list</LinkTo></li>
-    {{#each this.sections as |section|}}
-      <li><a href="{{section.fragment}}">{{section.title}}</a></li>
-    {{/each}}
   </ul>
 </aside>

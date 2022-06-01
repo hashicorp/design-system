@@ -1,36 +1,19 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class DummySidebarComponent extends Component {
-  sections = [
-    {
-      title: 'Overview',
-      fragment: '',
-      icon: 'collections',
-    },
-    {
-      title: 'Component API',
-      fragment: '#component-api',
-      icon: 'hammer',
-    },
-    {
-      title: 'How to use',
-      fragment: '#how-to-use',
-      icon: 'wrench',
-    },
-    {
-      title: 'Design guidelines',
-      fragment: '#design-guidelines',
-      icon: 'monitor',
-    },
-    {
-      title: 'Accessibility',
-      fragment: '#accessibility',
-      icon: 'globe',
-    },
-    {
-      title: 'Showcase',
-      fragment: '#showcase',
-      icon: 'camera',
-    },
-  ];
+  @action
+  didInsert(element) {
+    this.element = element;
+    const asideList = this.element.querySelector('ul');
+    document
+      .querySelectorAll('a.dummy-link-section')
+      .forEach(function (anchor) {
+        const item = document.createElement('li');
+        const href = anchor.attributes.href.value;
+        const text = anchor.parentNode.innerText.replace(/^§\s+/, '');
+        item.innerHTML = `<a href="${href}"> ${text}</a>`;
+        asideList.appendChild(item);
+      });
+  }
 }

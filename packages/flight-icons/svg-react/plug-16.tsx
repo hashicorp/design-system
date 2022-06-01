@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconRewind16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconPlug16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -26,7 +26,7 @@ export const IconRewind16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M7.074 3.364A1.25 1.25 0 019 4.416v1.806l4.039-2.795A1.25 1.25 0 0115 4.454v7.092a1.25 1.25 0 01-1.961 1.027L9 9.778v1.806a1.25 1.25 0 01-1.926 1.051L1.5 9.051a1.25 1.25 0 010-2.103l5.575-3.584zM2.637 8L7.5 11.126V4.874L2.637 8zm6.43 0l4.433 3.069V4.93L9.068 8z"
+                    d="M6.88 1.82a1.598 1.598 0 00-2.26 0 6.403 6.403 0 00-.269 8.768l-2.106 2.106a.75.75 0 001.06 1.061l2.108-2.107a6.403 6.403 0 008.753-.283 1.598 1.598 0 000-2.26L12.561 7.5l1.72-1.72a.75.75 0 00-1.061-1.06L11.5 6.44 9.56 4.5l1.72-1.72a.75.75 0 00-1.06-1.06L8.5 3.44 6.88 1.82zm-1.2 1.06a.098.098 0 01.14 0l7.285 7.286c.039.038.039.1 0 .138a4.902 4.902 0 01-6.932 0l-.492-.492a4.902 4.902 0 010-6.932z"
                     clipRule="evenodd"
                 />
             </svg>

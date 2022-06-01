@@ -308,47 +308,47 @@
 
   <p class="dummy-paragraph">hover</p>
   <Hds::Breadcrumb>
-    <Hds::Breadcrumb::Item @text="Level one" @icon="org" @hover={{true}} />
-    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" @hover={{true}} />
-    <Hds::Breadcrumb::Truncation @hover={{true}}>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="hover" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" mock-state-value="hover" mock-state-selector="a" />
+    <Hds::Breadcrumb::Truncation mock-state-value="hover" mock-state-selector="button">
       <Hds::Breadcrumb::Item @text="Sub-level one" />
       <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
       <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
       <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
     </Hds::Breadcrumb::Truncation>
-    <Hds::Breadcrumb::Item @text="Level four" @hover={{true}} />
-    <Hds::Breadcrumb::Item @text="Level five" @hover={{true}} />
-    <Hds::Breadcrumb::Item @text="Current" @current={{true}} @hover={{true}} />
+    <Hds::Breadcrumb::Item @text="Level four" mock-state-value="hover" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Level five" mock-state-value="hover" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="hover" mock-state-selector="a" />
   </Hds::Breadcrumb>
 
   <p class="dummy-paragraph">active</p>
   <Hds::Breadcrumb>
-    <Hds::Breadcrumb::Item @text="Level one" @icon="org" @active={{true}} />
-    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" @active={{true}} />
-    <Hds::Breadcrumb::Truncation @active={{true}}>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="active" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" mock-state-value="active" mock-state-selector="a" />
+    <Hds::Breadcrumb::Truncation mock-state-value="active" mock-state-selector="button">
       <Hds::Breadcrumb::Item @text="Sub-level one" />
       <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
       <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
       <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
     </Hds::Breadcrumb::Truncation>
-    <Hds::Breadcrumb::Item @text="Level four" @active={{true}} />
-    <Hds::Breadcrumb::Item @text="Level five" @active={{true}} />
-    <Hds::Breadcrumb::Item @text="Current" @current={{true}} @active={{true}} />
+    <Hds::Breadcrumb::Item @text="Level four" mock-state-value="active" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Level five" mock-state-value="active" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="active" mock-state-selector="a" />
   </Hds::Breadcrumb>
 
   <p class="dummy-paragraph">focus</p>
   <Hds::Breadcrumb>
-    <Hds::Breadcrumb::Item @text="Level one" @icon="org" @focus={{true}} />
-    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" @focus={{true}} />
-    <Hds::Breadcrumb::Truncation @focus={{true}}>
+    <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="focus" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Level two" @icon="folder" mock-state-value="focus" mock-state-selector="a" />
+    <Hds::Breadcrumb::Truncation mock-state-value="focus" mock-state-selector="button">
       <Hds::Breadcrumb::Item @text="Sub-level one" />
       <Hds::Breadcrumb::Item @text="Sub-level two with a very long string that we may want to trim somehow" />
       <Hds::Breadcrumb::Item @text="Sub-level with icon" @icon="org" />
       <Hds::Breadcrumb::Item @text="Another sub-level with icon" @icon="folder" />
     </Hds::Breadcrumb::Truncation>
-    <Hds::Breadcrumb::Item @text="Level four" @focus={{true}} />
-    <Hds::Breadcrumb::Item @text="Level five" @focus={{true}} />
-    <Hds::Breadcrumb::Item @text="Current" @current={{true}} @focus={{true}} />
+    <Hds::Breadcrumb::Item @text="Level four" mock-state-value="focus" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Level five" mock-state-value="focus" mock-state-selector="a" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="focus" mock-state-selector="a" />
   </Hds::Breadcrumb>
 
   <h4 class="dummy-h4">Truncation options</h4>

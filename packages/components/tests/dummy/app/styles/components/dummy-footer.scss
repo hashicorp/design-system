@@ -1,44 +1,45 @@
 .dummy-footer {
-  .dummy-row {
-    &.dummy-row--first {
-      .dummy-title-small,
-      .dummy-paragraph,
-      .dummy-list {
-        padding: 0 2rem;
-      }
-      .dummy-title-small {
-        padding-top: 2rem;
-      }
-      .dummy-list {
-        list-style-position: inside;
-        padding-bottom: 2rem;
-      }
-    }
-    &.dummy-row--last {
-      background-color: black;
-      color: white;
-      width: 100%;
-      .dummy-paragraph {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        .dummy-link {
-          border: 1px solid transparent;
-          align-content: center;
-          color: white;
-          display: flex;
-          gap: 6px;
-          margin: 0;
-          padding: 1rem;
-          text-decoration: none;
-          width: fit-content;
+  background-color: #f1f2f3;
+}
 
-          &:hover,
-          &:focus {
-            text-decoration: underline;
-          }
-        }
+.dummy-footer__accessibility {
+  margin: auto;
+  max-width: var(--content-width);
+  padding: 0 2rem;
+
+  .dummy-title-small {
+    padding-top: 2rem;
+    margin-top: 0;
+  }
+  .dummy-list {
+    list-style-position: inside;
+    padding-bottom: 2rem;
+  }
+}
+
+.dummy-footer__github {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+
+  .dummy-paragraph {
+    margin: 0;
+
+    .dummy-link {
+      border: 1px solid transparent;
+      align-content: center;
+      color: white;
+      display: flex;
+      gap: 6px;
+      margin: 0;
+      padding: 1rem;
+      text-decoration: none;
+      width: fit-content;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
       }
     }
   }

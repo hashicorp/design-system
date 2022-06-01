@@ -702,6 +702,8 @@ export { IconPlay24 } from './play-24';
 export { IconPlay16 } from './play-16';
 export { IconPlayCircle24 } from './play-circle-24';
 export { IconPlayCircle16 } from './play-circle-16';
+export { IconPlug24 } from './plug-24';
+export { IconPlug16 } from './plug-16';
 export { IconPlus24 } from './plus-24';
 export { IconPlus16 } from './plus-16';
 export { IconPlusCircle24 } from './plus-circle-24';

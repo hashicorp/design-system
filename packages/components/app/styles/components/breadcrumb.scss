@@ -77,7 +77,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     text-decoration-color: transparent;
 
     &:hover,
-    &.is-hover {
+    &.mock-hover {
         color: var(--token-color-palette-neutral-600);
 
         > .hds-breadcrumb__text {
@@ -89,7 +89,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     @include hds-focus-ring-basic();
 
     &:active,
-    &.is-active {
+    &.mock-active {
         color: var(--token-color-foreground-secondary);
 
         > .hds-breadcrumb__text {
@@ -155,7 +155,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     width: $hds-breadcrumb-item-height;
 
     &:hover,
-    &.is-hover {
+    &.mock-hover {
         border-color: var(--token-color-border-strong);
         color: var(--token-color-foreground-faint);
     }
@@ -164,13 +164,13 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     @include hds-focus-ring-basic();
 
     &:focus,
-    &.is-focus {
+    &.mock-focus {
         background-color: transparent;
         border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
     }
 
     &:active,
-    &.is-active {
+    &.mock-active {
         background-color: var(--token-color-surface-interactive-active);
         border-color: var(--token-color-border-strong);
         color: var(--token-color-foreground-primary);
