@@ -1,12 +1,6 @@
 import Component from '@glimmer/component';
 
 export default class HdsFormLabelIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames

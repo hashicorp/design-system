@@ -2,12 +2,6 @@ import Component from '@glimmer/component';
 export const ID_PREFIX = 'error-';
 
 export default class HdsFormErrorIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
-
   /**
    * Determines the unique ID to assign to the element
    * @method id
@@ -31,9 +25,6 @@ export default class HdsFormErrorIndexComponent extends Component {
 
     // add typographic classes
     classes.push('hds-typography-body-100', 'hds-font-weight-medium');
-
-    // add a class based on the @xxx argument
-    // classes.push(`hds-form-error--[variant]-${this.xxx}`);
 
     return classes.join(' ');
   }
