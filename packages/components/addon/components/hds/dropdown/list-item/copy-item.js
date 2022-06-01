@@ -39,12 +39,15 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   @action
   async copyCode() {
     let copyText = await this.args.text;
+    // https://codepen.io/chrisdavidmills/full/gzYjag/
     // execCommand is supposedly deprecated but it's also what Firefox says to do in this situation so we'll try it
-    await document.execCommand('copy', false, copyText || '');
+    // also execCommand is synchronous so we can't await it
+    document.execCommand('copy', false, copyText || '');
 
     if (copyText === this.args.text) {
       this.isSuccess = true;
-      console.log(`success: ${this.isSuccess}; copied text: ${copyText}`);
+      // if you un-comment the next line you'll see what you expect in the browser when you visit the showcase for this component.
+      // console.log(`success: ${this.isSuccess}; copied text: ${copyText}`);
       // make it fade back to the default state
       setTimeout(() => {
         this.isSuccess = false;
