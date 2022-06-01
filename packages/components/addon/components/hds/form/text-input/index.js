@@ -43,6 +43,7 @@ export default class HdsFormTextInputIndexComponent extends Component {
    * Calculates the unique ID to assign to the form control
    */
   get id() {
+    // TODO! discuss with ALex Jurubita: we may need to accept an @id (or @fieldId/@controlId) argument, in case the consumers need to pass a specific/pre-defined ID for some reasons
     return guid(this);
   }
 
