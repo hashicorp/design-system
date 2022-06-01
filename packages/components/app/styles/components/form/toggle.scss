@@ -150,10 +150,10 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
   // INVALID
 
-  .hds-form-toggle--is-invalid :not(:checked) + & {
+  .hds-form-toggle--is-invalid:not(:checked) + & {
     --border-color: var(--token-color-foreground-critical);
   }
-  .hds-form-toggle--is-invalid :checked + & {
+  .hds-form-toggle--is-invalid:checked + & {
     background-color: var(--token-color-palette-red-200);
     --border-color: var(--token-color-foreground-critical);
   }
