@@ -31,7 +31,7 @@ jobs:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release
         env:
-          # Token setup in Dhaulagiri's account
+          # Token setup in hashibot-hds' account
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          # Token setup in Dhaulagiri's account
+          # Token setup in hashibot-hds' account
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
