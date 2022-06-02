@@ -24,12 +24,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: 'npm'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Lint
-        run: yarn run lint
+        run: npm run lint
         working-directory: packages/flight-website
 
   test:
@@ -42,12 +41,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: 'npm'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Run Tests
-        run: yarn run test:ember:percy
+        run: npm run test:ember:percy
         working-directory: packages/flight-website
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBSITE }}

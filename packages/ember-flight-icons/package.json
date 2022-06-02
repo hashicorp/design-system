@@ -32,7 +32,8 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test"
+    "test:ember:percy": "percy exec ember test",
+    "test:ember:try": "ember try:one"
   },
   "dependencies": {
     "@hashicorp/flight-icons": "^2.5.0",
@@ -65,7 +66,7 @@
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^4.3.0",
     "ember-template-lint-plugin-prettier": "^4.0.0",
-    "ember-try": "^2.0.0",
+    "ember-try": "^1.4.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-ember": "^10.5.9",

@@ -14,21 +14,20 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: 'npm'
   
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Sync icons
         env:
           # this is Brian's personal access token
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }} 
-        run: yarn sync
+        run: npm run sync
         working-directory: packages/flight-icons
 
       - name: Build icons
-        run: yarn build
+        run: npm run build
         working-directory: packages/flight-icons
 
       - name: Open a PR

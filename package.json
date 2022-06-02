@@ -11,6 +11,6 @@
     "@changesets/cli": "^2.22.0"
   },
   "scripts": {
-    "release": "yarn changeset publish"
+    "release": "npm changeset publish"
   }
 }

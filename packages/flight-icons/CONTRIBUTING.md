@@ -2,7 +2,7 @@
 
 ## Linting
 
-* `yarn run lint`
+* `npm run lint`
 
 ## TypeChecking
 

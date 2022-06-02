@@ -20,16 +20,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache-dependency-path: yarn.lock
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: yarn
+        run: npm ci
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
+          publish: npm run release
         env:
           # Token setup in hashibot-hds' account
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}

@@ -24,15 +24,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: 'npm'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Lint
-        run: yarn run lint
+        run: npm run lint
         working-directory: packages/ember-flight-icons
       - name: Run Tests
-        run: yarn run test:ember:percy
+        run: npm run test:ember:percy
         working-directory: packages/ember-flight-icons
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
@@ -46,12 +45,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: npm
       - name: Install Dependencies
-        run: yarn install --no-lockfile --non-interactive
+        run: npm install --no-shrinkwrap
       - name: Run Tests
-        run: yarn run test:ember:percy
+        run: npm run test:ember:percy
         working-directory: packages/ember-flight-icons
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
@@ -80,12 +78,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: npm
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Run Tests
         working-directory: packages/ember-flight-icons
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: npm run test:ember:try ${{ matrix.try-scenario }}
         env:
           PERCY_ENABLE: 0 

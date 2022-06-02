@@ -28,7 +28,7 @@ Flight icons in different formats (SVG/SVG Sprite/React)
 
 ### `packages/flight-website`
 
-The dedicated `flight-icons` website (it has its own Yarn workspace).
+The dedicated `flight-icons` website (it has its own npm workspace).
 
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
 
@@ -40,25 +40,11 @@ Design tokens
 - website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
-## Using ember install in the monorepo
-
-Run this command from the monorepo root:
-
-```bash
-yarn workspace <workspace-npm-package> run ember install <npm-package>
-```
-
-e.g. `yarn workspace @hashicorp/design-system-components run ember install ember-a11y-refocus`
-
-🚨 Note: Since we use Yarn 1, this command will install a `yarn.lock` at `packages/components`. Please manually delete that file!
-
 ## Contributing
 
 ### Workspaces
 
-This monorepo uses [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) to manage dependencies for all packages. New packages should be added directly to the relevant workspace's `package.json` file (such as `design-system/packages/flight-icons`) and then run `yarn` in the workspace root (`design-system`).
-
-Note: package folders such as `packages/flight-icons` should not contain a `yarn.lock` file. If one is accidentally created, please remove it and ensure you run `yarn` from the root of the monorepo.
+This monorepo uses [npm workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces) to manage dependencies for all packages. New packages can be added directly to the relevant workspace's `package.json` file (such as `design-system/packages/flight-icons`) and then run `npm` either in that directory or in the workspace root (`design-system`).
 
 ### Changesets
 
@@ -67,7 +53,7 @@ This project uses [changesets](https://github.com/changesets/changesets) to mana
 To create a changeset, run and follow the prompts in your terminal:
 
 ```bash
-yarn changeset
+npm run changeset
 ```
 
 See the [changeset docs](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) for more information.
@@ -83,7 +69,7 @@ Release PRs are created and automatically updated on every PR merge by the [chan
 You can simulate the versioning experience locally with this command:
 
 ```bash
-yarn changeset version
+npm run changeset version
 ```
 
 In order for this step to complete successfully you'll need to create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
