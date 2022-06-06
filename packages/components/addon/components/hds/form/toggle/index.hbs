@@ -1,7 +1,7 @@
 {{#if @basic}}
   {{! likely will be extracted as standalone element (TBD how it's called) }}
   <div class="hds-form-toggle-wrapper">
-    <input type="checkbox" class={{this.classNames}} id={{this.id}} role="switch" ...attributes />
+    <input type="checkbox" class={{this.classNames}} ...attributes id={{this.id}} role="switch" />
     <div class="hds-form-toggle-facade"></div>
   </div>
 {{else}}
@@ -11,10 +11,10 @@
       <input
         type="checkbox"
         class="{{this.classNames}}"
+        ...attributes
         id={{this.id}}
         role="switch"
         aria-describedby={{this.ariaDescribedBy}}
-        ...attributes
       />
       <div class="hds-form-toggle-facade"></div>
     </div>

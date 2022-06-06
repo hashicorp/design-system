@@ -1,5 +1,5 @@
 {{#if @basic}}
-  <input type={{this.type}} class={{this.classNames}} id={{this.id}} value={{@value}} ...attributes />
+  <input type={{this.type}} class={{this.classNames}} value={{@value}} ...attributes id={{this.id}} />
 {{else}}
   <div class="hds-form-field--vertical-layout">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
@@ -7,10 +7,10 @@
     <input
       type={{this.type}}
       class={{this.classNames}}
-      id={{this.id}}
       value={{@value}}
-      aria-describedby={{this.ariaDescribedBy}}
       ...attributes
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
     />
     {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
   </div>

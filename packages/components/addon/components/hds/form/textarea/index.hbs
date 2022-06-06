@@ -1,5 +1,5 @@
 {{#if @basic}}
-  <Textarea @value={{@value}} class={{this.classNames}} id={{this.id}} ...attributes />
+  <Textarea @value={{@value}} class={{this.classNames}} ...attributes id={{this.id}} />
 {{else}}
   <div class="hds-form-field--vertical-layout">
     {{yield (hash Label=(component "hds/form/label" fieldId=this.id))}}
@@ -7,9 +7,9 @@
     <Textarea
       @value={{@value}}
       class={{this.classNames}}
+      ...attributes
       id={{this.id}}
       aria-describedby={{this.ariaDescribedBy}}
-      ...attributes
     />
     {{yield (hash Error=(component "hds/form/error" fieldId=this.id))}}
   </div>
