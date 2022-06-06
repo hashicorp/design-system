@@ -12,8 +12,12 @@ export default class HdsFormLabelIndexComponent extends Component {
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-semibold');
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-form-label--[variant]-${this.xxx}`);
+    // add a class based on the @extraClass argument
+    // notice: this will *not* be documented for public use
+    // the reason for this is that the contextual component declarations don't pass attributes to the component
+    if (this.args._extraClass) {
+      classes.push(this.args._extraClass);
+    }
 
     return classes.join(' ');
   }

@@ -9,8 +9,10 @@
       aria-describedby={{this.ariaDescribedBy}}
       ...attributes
     />
-    {{yield (hash Label=(component "hds/form/label" fieldId=this.id class="hds-form-field__label"))}}
-    {{yield (hash HelperText=(component "hds/form/helper-text" fieldId=this.id class="hds-form-field__helper-text"))}}
-    {{yield (hash Error=(component "hds/form/error" fieldId=this.id class="hds-form-field__error"))}}
+    {{yield (hash Label=(component "hds/form/label" fieldId=this.id _extraClass="hds-form-field__label"))}}
+    {{yield
+      (hash HelperText=(component "hds/form/helper-text" fieldId=this.id _extraClass="hds-form-field__helper-text"))
+    }}
+    {{yield (hash Error=(component "hds/form/error" fieldId=this.id _extraClass="hds-form-field__error"))}}
   </div>
 {{/if}}
