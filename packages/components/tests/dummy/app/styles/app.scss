@@ -148,6 +148,15 @@ body.dummy-app {
   text-decoration: none;
 }
 
+.dummy-npm-version {
+  @include dummyFontFamily();
+  color: #ccc;
+  display: inline-flex;
+  font-size: 1rem;
+  gap: 1rem;
+  line-height: 1.2;
+}
+
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".
 // see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css

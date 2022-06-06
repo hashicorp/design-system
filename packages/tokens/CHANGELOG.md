@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 0.8.1
+
+### Patch Changes
+
+- [#327](https://github.com/hashicorp/design-system/pull/327) [`a46fc035`](https://github.com/hashicorp/design-system/commit/a46fc03570f51e8375b15571ddcb10e62ba446fb) Thanks [@didoo](https://github.com/didoo)! - removed deprecated design tokens for old semantic colors
+
 ## 0.8.0
 
 ### Minor Changes

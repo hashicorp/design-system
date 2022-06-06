@@ -1,5 +1,12 @@
 # @hashicorp/design-system-components
 
+## 0.12.3
+
+### Patch Changes
+
+- Updated dependencies [[`a46fc035`](https://github.com/hashicorp/design-system/commit/a46fc03570f51e8375b15571ddcb10e62ba446fb)]:
+  - @hashicorp/design-system-tokens@0.8.1
+
 ## 0.12.2
 
 ### Patch Changes

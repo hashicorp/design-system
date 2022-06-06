@@ -220,6 +220,13 @@
     <dd>
       <p>Acceptable value: any Flight icon name.</p>
     </dd>
+    <dt>isLoading <code>boolean</code></dt>
+    <dd>
+      <p>This controls if the item is in "loading" state.</p>
+      <p>Default: <span class="default">false</span></p>
+      <p><em>Notice: when in this state, the item is not actually interactive, but you can pass the other expected
+          arguments for the item (they're simply ignored).</em></p>
+    </dd>
     <dt>href</dt>
     <dd>
       <p>This is the URL parameter that is passed down to the
@@ -434,12 +441,12 @@
     @code='
       &lt;Hds::Dropdown as |dd|&gt;
         &lt;dd.ToggleButton @text="Text Toggle" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Item One" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Item Two" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Item Three" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Item Four" /&gt;
+        &lt;dd.Interactive @route="..." @text="Item One" /&gt;
+        &lt;dd.Interactive @route="..." @text="Item Two" /&gt;
+        &lt;dd.Interactive @route="..." @text="Item Three" /&gt;
+        &lt;dd.Interactive @route="..." @text="Item Four" /&gt;
         &lt;dd.Separator /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+        &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
       &lt;/Hds::Dropdown&gt;
     '
   />
@@ -518,7 +525,7 @@
   <p class="dummy-paragraph">
     Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and destructive
     (critical) links. This is the only use case where it is acceptable to use
-    <code class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;"</code>.
+    <code class="dummy-code">&commat;hasChevron=&lbrace;&lbrace;false&rbrace;&rbrace;</code>.
   </p>
   <p class="dummy-paragraph">Note that
     <code class="dummy-code">toggleText</code>
@@ -533,10 +540,11 @@
     @code='
       &lt;Hds::Dropdown as |dd|&gt;
         &lt;dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron=\{{false}} /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Create" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Read" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Update" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+        &lt;dd.Interactive @route="..." @text="Create" /&gt;
+        &lt;dd.Interactive @route="..." @text="Read" /&gt;
+        &lt;dd.Interactive @route="..." @text="Update" /&gt;
+        &lt;dd.Separator /&gt;
+        &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
       &lt;/Hds::Dropdown&gt;
     '
   />
@@ -566,6 +574,7 @@
             <dd.Interactive @route="components.dropdown" @text="Create" />
             <dd.Interactive @route="components.dropdown" @text="Read" />
             <dd.Interactive @route="components.dropdown" @text="Update" />
+            <dd.Separator />
             <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </td>
@@ -579,6 +588,72 @@
         <td>Row 4, cell 1</td>
         <td>Row 4, cell 2</td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h5 class="dummy-h5">With a loading "interactive" item</h5>
+  <p class="dummy-paragraph">
+    Example: there may be use cases when it's necessary to put an item in a "loading" state while the app performs some
+    operations (eg. checking asynchronously the user's permission to execute a certain operation, once the toggle has
+    been clicked).</p>
+  <p class="dummy-paragraph">
+    In that case the argument
+    <code class="dummy-code">&commat;isLoading=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    can be passed to the item: this will show a "loading" icon (even if an argument
+    <code class="dummy-code">@icon</code>
+    is provided) and set the item as non-interactive until the value of
+    <code class="dummy-code">@isLoading</code>
+    is set to
+    <code class="dummy-code">false</code>
+    again.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      &lt;Hds::Dropdown as |dd|&gt;
+        &lt;dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron=\{{false}} /&gt;
+        &lt;dd.Interactive @route="..." @isLoading=\{{true}} @text="Edit cluster" @color="action" @icon="edit" /&gt;
+        &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
+      &lt;/Hds::Dropdown&gt;
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Rendered in a table cell:</p>
+  <table class="dummy-table dummy-dropdown-table-demo">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cluster ABC</td>
+        <td>Running</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Cluster XYZ</td>
+        <td>Idle</td>
+        <td>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+            <dd.Interactive
+              @route="components.dropdown"
+              @isLoading={{true}}
+              @text="Edit cluster"
+              @color="action"
+              @icon="edit"
+            />
+            <dd.Separator />
+            <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -602,8 +677,8 @@
         &lt;dd.Title @text="Signed In" /&gt;
         &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
         &lt;dd.Separator /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+        &lt;dd.Interactive @route="..." @text="Settings and Preferences" /&gt;
+        &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
       &lt;/Hds::Dropdown&gt;
     '
   />
@@ -663,8 +738,8 @@
         &lt;dd.Title @text="Signed In" /&gt;
         &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
         &lt;dd.Separator /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Settings and Preferences" /&gt;
-        &lt;dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" /&gt;
+        &lt;dd.Interactive @route="..." @text="Settings and Preferences" /&gt;
+        &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
       &lt;/Hds::Dropdown&gt;
     '
   />
@@ -1022,6 +1097,8 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} mock-state-value={{state}} />
         {{/each}}
+        <Hds::Dropdown::ListItem::Separator />
+        <Hds::Dropdown::ListItem::Interactive @text="loading" @color={{color}} @isLoading={{true}} />
       </ul>
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
@@ -1032,6 +1109,13 @@
             mock-state-value={{state}}
           />
         {{/each}}
+        <Hds::Dropdown::ListItem::Separator />
+        <Hds::Dropdown::ListItem::Interactive
+          @icon={{if (eq color "critical") "trash" "settings"}}
+          @text="loading with icon"
+          @color={{color}}
+          @isLoading={{true}}
+        />
       </ul>
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
