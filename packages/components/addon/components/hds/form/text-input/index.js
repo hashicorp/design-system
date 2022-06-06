@@ -1,9 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guid } from '../utils/guid';
-
-import { ID_PREFIX as ERROR_ID_PREFIX } from '../error';
-import { ID_PREFIX as HELPER_TEXT_ID_PREFIX } from '../helper-text';
+import { describedBy } from '../utils/describedby';
 
 // notice: we don't support all the possible HTML types, only a subset
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
@@ -53,10 +51,7 @@ export default class HdsFormTextInputIndexComponent extends Component {
    * @return {string} The "aria-describedby" attribute to apply to the component.
    */
   get ariaDescribedBy() {
-    let describedBy = [];
-    describedBy.push(`${HELPER_TEXT_ID_PREFIX}${this.id}`);
-    describedBy.push(`${ERROR_ID_PREFIX}${this.id}`);
-    return describedBy.join(' ');
+    return describedBy(this);
   }
 
   /**
