@@ -8,16 +8,8 @@
 .dummy-form-checkbox-grid-sample {
   align-items: start;
   display: grid;
-  grid-gap: 0rem 1rem;
+  grid-gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
-
-  .dummy-form-checkbox-grid-sample__title {
-    grid-column: 1 / 5;
-
-    &:first-child {
-      margin-top: 0.75rem;
-    }
-  }
 }
 
 .dummy-form-checkbox-states-subgrid {
@@ -25,10 +17,4 @@
   grid-gap: 0.5rem 1rem;
   grid-template-columns: 1fr 1fr;
   width: min-content;
-}
-
-.dummy-form-checkbox-divider {
-  margin: 0.5rem 1rem;
-  border: none;
-  border-bottom: 1px dashed #EEE;
 }
