@@ -1,0 +1,23 @@
+//
+// FORM > GROUP
+//
+// properties within each class are sorted alphabetically
+//
+
+.hds-form-group { // notice: this is a <fieldset> element
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.hds-form-group__legend { // notice: this is a <legend> element
+  margin: 0 0 4px 0;
+  padding: 0;
+}
+
+.hds-form-group__legend + .hds-form-group__control-fields-wrapper {
+  .hds-form-label {
+    font-weight: var(--token-typography-font-weight-regular);
+  }
+}

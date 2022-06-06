@@ -106,6 +106,58 @@
       </Hds::Form::Checkbox>
     </div>
   </div>
+  <h5 class="dummy-h5">"Group" of controls</h5>
+  <div class="dummy-form-checkbox-base-sample">
+    <div>
+      <span class="dummy-text-small">With legend</span>
+      <br />
+      <Hds::Form::Checkbox::Group as |G|>
+        <G.Legend>This is the legend of the group</G.Legend>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #1</C.Label>
+        </G.Checkbox>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #2</C.Label>
+        </G.Checkbox>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #3</C.Label>
+        </G.Checkbox>
+      </Hds::Form::Checkbox::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without legend</span>
+      <br />
+      <Hds::Form::Checkbox::Group as |G|>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #1</C.Label>
+        </G.Checkbox>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #2</C.Label>
+        </G.Checkbox>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #3</C.Label>
+        </G.Checkbox>
+      </Hds::Form::Checkbox::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without legend (with helper text)</span>
+      <br />
+      <Hds::Form::Checkbox::Group as |G|>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #1</C.Label>
+          <C.HelperText>Helper text for control #1</C.HelperText>
+        </G.Checkbox>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #2</C.Label>
+          <C.HelperText>Helper text for control #2</C.HelperText>
+        </G.Checkbox>
+        <G.Checkbox as |C|>
+          <C.Label>Label of control #3</C.Label>
+          <C.HelperText>Helper text for control #3</C.HelperText>
+        </G.Checkbox>
+      </Hds::Form::Checkbox::Group>
+    </div>
+  </div>
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-checkbox-states-grid">
