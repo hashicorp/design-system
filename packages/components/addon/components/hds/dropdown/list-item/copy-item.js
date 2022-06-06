@@ -38,7 +38,7 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
 
   @action
   async copyCode() {
-    let copyText = await this.args.text;
+    let copyText = this.args.text;
     // https://codepen.io/chrisdavidmills/full/gzYjag/
     // execCommand is supposedly deprecated but it's also what Firefox says to do in this situation so we'll try it
     // also execCommand is synchronous so we can't await it
