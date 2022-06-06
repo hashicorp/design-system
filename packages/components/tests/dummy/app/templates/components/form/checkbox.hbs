@@ -66,12 +66,12 @@
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <div class="dummy-form-checkbox-states-subgrid" mock-state-value={{state}} mock-state-selector="input">
-          <Hds::Form::Checkbox::Field />
-          <Hds::Form::Checkbox::Field checked="checked" />
-          <Hds::Form::Checkbox::Field disabled="disabled" />
-          <Hds::Form::Checkbox::Field checked="checked" disabled="disabled" />
-          <Hds::Form::Checkbox::Field @isInvalid={{true}} />
-          <Hds::Form::Checkbox::Field checked="checked" @isInvalid={{true}} />
+          <Hds::Form::Checkbox::Base />
+          <Hds::Form::Checkbox::Base checked="checked" />
+          <Hds::Form::Checkbox::Base disabled="disabled" />
+          <Hds::Form::Checkbox::Base checked="checked" disabled="disabled" />
+          <Hds::Form::Checkbox::Base @isInvalid={{true}} />
+          <Hds::Form::Checkbox::Base checked="checked" @isInvalid={{true}} />
         </div>
       </div>
     {{/each}}
@@ -90,12 +90,13 @@
   </div>
 
   <h4 class="dummy-h4">"Field" control</h4>
+  <h5 class="dummy-h5">Content</h5>
   <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
       <Hds::Form::Checkbox::Field as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
+        <C.Label>This is the label text</C.Label>
       </Hds::Form::Checkbox::Field>
     </div>
     <div>
@@ -124,7 +125,75 @@
       </Hds::Form::Checkbox::Field>
     </div>
   </div>
-  <h5 class="dummy-h5">"Group" of controls</h5>
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-checkbox-grid-sample">
+    <div>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: block</code></span>
+      <br />
+      <div class="dummy-form-checkbox-containers-list-item__block">
+        <Hds::Form::Checkbox::Field as |C|>
+          <C.Label>This is the label</C.Label>
+          <C.HelperText>This is the helper text</C.HelperText>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::Checkbox::Field>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: flex</code></span>
+      <br />
+      <div class="dummy-form-checkbox-containers-list-item__flex">
+        <Hds::Form::Checkbox::Field as |C|>
+          <C.Label>This is the label</C.Label>
+          <C.HelperText>This is the helper text</C.HelperText>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::Checkbox::Field>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: grid</code></span>
+      <br />
+      <div class="dummy-form-checkbox-containers-list-item__grid">
+        <Hds::Form::Checkbox::Field as |C|>
+          <C.Label>This is the label</C.Label>
+          <C.HelperText>This is the helper text</C.HelperText>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::Checkbox::Field>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="dummy-form-checkbox-grid-sample">
+    <div>
+      <div class="dummy-form-checkbox-containers-list-item__block">
+        <Hds::Form::Checkbox::Field as |C|>
+          <C.Label>This is the label text that should go on multiple lines</C.Label>
+          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
+          <C.Error>This is the error text that should go on multiple lines</C.Error>
+        </Hds::Form::Checkbox::Field>
+      </div>
+    </div>
+    <div>
+      <div class="dummy-form-checkbox-containers-list-item__flex">
+        <Hds::Form::Checkbox::Field as |C|>
+          <C.Label>This is the label text that should go on multiple lines</C.Label>
+          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
+          <C.Error>This is the error text that should go on multiple lines</C.Error>
+        </Hds::Form::Checkbox::Field>
+      </div>
+    </div>
+    <div>
+      <div class="dummy-form-checkbox-containers-list-item__grid">
+        <Hds::Form::Checkbox::Field as |C|>
+          <C.Label>This is the label text that should go on multiple lines</C.Label>
+          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
+          <C.Error>This is the error text that should go on multiple lines</C.Error>
+        </Hds::Form::Checkbox::Field>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">"Group" of controls</h4>
+  <h5 class="dummy-h5">Content</h5>
   <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">With legend</span>
