@@ -5,5 +5,8 @@ export function describedBy(element) {
   let describedBy = [];
   describedBy.push(`${HELPER_TEXT_ID_PREFIX}${element.id}`);
   describedBy.push(`${ERROR_ID_PREFIX}${element.id}`);
+  if (element.args.ariaDescribedBy) {
+    describedBy.push(element.args.ariaDescribedBy);
+  }
   return describedBy.join(' ');
 }
