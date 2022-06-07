@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-05-31T19:48:52.201Z",
+  "lastRunTimeISO": "2022-06-06T19:41:09.031Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2982,6 +2982,24 @@
       "height": 16
     },
     {
+      "id": "2033:66",
+      "fileName": "clock-filled-24",
+      "iconName": "clock-filled",
+      "description": "clock, time, activity",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2033:74",
+      "fileName": "clock-filled-16",
+      "iconName": "clock-filled",
+      "description": "clock, time, activity",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:938",
       "fileName": "cloud-24",
       "iconName": "cloud",
@@ -5730,6 +5748,24 @@
       "id": "350:2685",
       "fileName": "minus-square-16",
       "iconName": "minus-square",
+      "description": "minus, remove, delete, square",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2036:66",
+      "fileName": "minus-square-fill-24",
+      "iconName": "minus-square-fill",
+      "description": "minus, remove, delete, square",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2036:69",
+      "fileName": "minus-square-fill-16",
+      "iconName": "minus-square-fill",
       "description": "minus, remove, delete, square",
       "size": "16",
       "width": 16,
