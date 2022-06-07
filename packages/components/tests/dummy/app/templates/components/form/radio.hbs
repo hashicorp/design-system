@@ -45,111 +45,339 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  <h4 class="dummy-h4">Content</h4>
-  <h5 class="dummy-h5">"Basic" control</h5>
+  <h4 class="dummy-h4">"Basic" control</h4>
+  <h5 class="dummy-h6">Interaction status</h5>
   <div class="dummy-form-radio-base-sample">
     <div>
       <span class="dummy-text-small">Unchecked</span>
       <br />
-      <Hds::Form::Radio @basic={{true}} />
+      <Hds::Form::Radio::Base />
     </div>
     <div>
       <span class="dummy-text-small">Checked</span>
       <br />
-      <Hds::Form::Radio checked="checked" @basic={{true}} />
+      <Hds::Form::Radio::Base checked="checked" />
     </div>
   </div>
-  <br />
+  <h5 class="dummy-h6">States (Base / Disabled / Invalid)</h5>
+  <div class="dummy-form-radio-grid-sample">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <div class="dummy-form-radio-states-subgrid" mock-state-value={{state}} mock-state-selector="input">
+          <Hds::Form::Radio::Base />
+          <Hds::Form::Radio::Base checked="checked" />
+          <Hds::Form::Radio::Base disabled="disabled" />
+          <Hds::Form::Radio::Base checked="checked" disabled="disabled" />
+          <Hds::Form::Radio::Base @isInvalid={{true}} />
+          <Hds::Form::Radio::Base checked="checked" @isInvalid={{true}} />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <h5 class="dummy-h6">Custom layout</h5>
   <div class="dummy-form-radio-base-sample">
     <div>
       <span class="dummy-text-small">With custom layout</span>
       <br />
-      <div>
-        <span>Some content</span>
-        <Hds::Form::Radio id="my-custom-radio-example" @basic={{true}} />
-        <label for="my-custom-radio-example">Custom label</label>
+      <div class="dummy-form-radio-custom-layout">
+        <label>
+          <strong>Some content</strong>
+          <span>Some other content content</span>
+          <div class="dummy-form-radio-custom-layout__control-wrapper">
+            <Hds::Form::Radio::Base id="my-custom-radio-example" />
+          </div>
+        </label>
       </div>
     </div>
   </div>
-  <h5 class="dummy-h5">"Field" control</h5>
-  <div class="dummy-form-radio-base-sample">
+
+  <h4 class="dummy-h4">"Field" control</h4>
+  <h5 class="dummy-h5">Content</h5>
+  <div class="dummy-form-radio-grid-sample">
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::Radio as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::Radio>
+      <Hds::Form::Radio::Field as |C|>
+        <C.Label>This is the label text</C.Label>
+      </Hds::Form::Radio::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::Radio as |C|>
+      <Hds::Form::Radio::Field checked="checked" as |C|>
         <C.Label>This is the label</C.Label>
         <C.HelperText>This is the helper text</C.HelperText>
-      </Hds::Form::Radio>
+      </Hds::Form::Radio::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Radio as |C|>
+      <Hds::Form::Radio::Field @isInvalid={{true}} as |C|>
         <C.Label>This is the label</C.Label>
         <C.Error>This is the error</C.Error>
-      </Hds::Form::Radio>
+      </Hds::Form::Radio::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Radio as |C|>
+      <Hds::Form::Radio::Field @isInvalid={{true}} checked="checked" as |C|>
         <C.Label>This is the label</C.Label>
         <C.HelperText>This is the helper text</C.HelperText>
         <C.Error>This is the error</C.Error>
-      </Hds::Form::Radio>
+      </Hds::Form::Radio::Field>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-radio-grid-sample">
+    <div>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: block</code></span>
+      <br />
+      <div class="dummy-form-radio-containers-list-item__block">
+        <Hds::Form::Radio::Field as |C|>
+          <C.Label>This is the label</C.Label>
+          <C.HelperText>This is the helper text</C.HelperText>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::Radio::Field>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: flex</code></span>
+      <br />
+      <div class="dummy-form-radio-containers-list-item__flex">
+        <Hds::Form::Radio::Field as |C|>
+          <C.Label>This is the label</C.Label>
+          <C.HelperText>This is the helper text</C.HelperText>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::Radio::Field>
+      </div>
+    </div>
+    <div>
+      <span class="dummy-text-small">Parent with <code class="dummy-code">display: grid</code></span>
+      <br />
+      <div class="dummy-form-radio-containers-list-item__grid">
+        <Hds::Form::Radio::Field as |C|>
+          <C.Label>This is the label</C.Label>
+          <C.HelperText>This is the helper text</C.HelperText>
+          <C.Error>This is the error</C.Error>
+        </Hds::Form::Radio::Field>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="dummy-form-radio-grid-sample">
+    <div>
+      <div class="dummy-form-radio-containers-list-item__block">
+        <Hds::Form::Radio::Field as |C|>
+          <C.Label>This is the label text that should go on multiple lines</C.Label>
+          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
+          <C.Error>This is the error text that should go on multiple lines</C.Error>
+        </Hds::Form::Radio::Field>
+      </div>
+    </div>
+    <div>
+      <div class="dummy-form-radio-containers-list-item__flex">
+        <Hds::Form::Radio::Field as |C|>
+          <C.Label>This is the label text that should go on multiple lines</C.Label>
+          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
+          <C.Error>This is the error text that should go on multiple lines</C.Error>
+        </Hds::Form::Radio::Field>
+      </div>
+    </div>
+    <div>
+      <div class="dummy-form-radio-containers-list-item__grid">
+        <Hds::Form::Radio::Field as |C|>
+          <C.Label>This is the label text that should go on multiple lines</C.Label>
+          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
+          <C.Error>This is the error text that should go on multiple lines</C.Error>
+        </Hds::Form::Radio::Field>
+      </div>
     </div>
   </div>
 
-  <h4 class="dummy-h4">States</h4>
-  <div class="dummy-form-radio-states-grid">
-    <h5 class="dummy-h5 dummy-form-radio-states-grid__title">Base</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Radio as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Radio>
-        <Hds::Form::Radio checked="checked" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Radio>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-radio-states-grid__title">Disabled</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Radio disabled="disabled" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Radio>
-        <Hds::Form::Radio checked="checked" disabled="disabled" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Radio>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-radio-states-grid__title">Invalid</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}" mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Radio @isInvalid={{true}} as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Radio>
-        <Hds::Form::Radio checked="checked" @isInvalid={{true}} as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Radio>
-      </div>
-    {{/each}}
+  <h4 class="dummy-h4">"Group" of controls</h4>
+  <h5 class="dummy-h5">Vertical layout</h5>
+  <div class="dummy-form-radio-grid-sample">
+    <div>
+      <span class="dummy-text-small">With legend</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #1</C.Label>
+        </G.Radio::Field>
+        <G.Radio::Field checked="checked" as |C|>
+          <C.Label>Label of control #2</C.Label>
+        </G.Radio::Field>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #3</C.Label>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With legend / With helper text</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #1</C.Label>
+          <C.HelperText>Helper text for control #1</C.HelperText>
+        </G.Radio::Field>
+        <G.Radio::Field checked="checked" as |C|>
+          <C.Label>Label of control #2</C.Label>
+          <C.HelperText>Helper text for control #2</C.HelperText>
+        </G.Radio::Field>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #3</C.Label>
+          <C.HelperText>Helper text for control #3</C.HelperText>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without legend</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #1</C.Label>
+        </G.Radio::Field>
+        <G.Radio::Field checked="checked" as |C|>
+          <C.Label>Label of control #2</C.Label>
+        </G.Radio::Field>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #3</C.Label>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without Legend / With helper text</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #1</C.Label>
+          <C.HelperText>Helper text for control #1</C.HelperText>
+        </G.Radio::Field>
+        <G.Radio::Field checked="checked" as |C|>
+          <C.Label>Label of control #2</C.Label>
+          <C.HelperText>Helper text for control #2</C.HelperText>
+        </G.Radio::Field>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #3</C.Label>
+          <C.HelperText>Helper text for control #3</C.HelperText>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Error ("field" level)</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Radio::Field @isInvalid={{true}} as |C|>
+          <C.Label>Label of control #1</C.Label>
+          <C.Error>Error for control #1</C.Error>
+        </G.Radio::Field>
+        <G.Radio::Field @isInvalid={{true}} checked="checked" as |C|>
+          <C.Label>Label of control #2</C.Label>
+          <C.HelperText>Helper text for control #2</C.HelperText>
+          <C.Error>Error for control #2</C.Error>
+        </G.Radio::Field>
+        <G.Radio::Field as |C|>
+          <C.Label>Label of control #3</C.Label>
+          <C.HelperText>Helper text for control #3</C.HelperText>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Error ("group" level)</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Radio::Field @isInvalid={{true}} as |C|>
+          <C.Label>Label of control #1</C.Label>
+        </G.Radio::Field>
+        <G.Radio::Field checked="checked" @isInvalid={{true}} as |C|>
+          <C.Label>Label of control #2</C.Label>
+          <C.HelperText>Helper text for control #2</C.HelperText>
+        </G.Radio::Field>
+        <G.Radio::Field @isInvalid={{true}} as |C|>
+          <C.Label>Label of control #3</C.Label>
+          <C.HelperText>Helper text for control #3</C.HelperText>
+        </G.Radio::Field>
+        <G.Error>Error for the group</G.Error>
+      </Hds::Form::Radio::Group>
+    </div>
+  </div>
+
+  <h5 class="dummy-h5">Horizontal layout</h5>
+  <span class="dummy-text-small">With legend</span>
+  <br />
+  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.Radio::Field as |C|>
+      <C.Label>Label of control #1</C.Label>
+    </G.Radio::Field>
+    <G.Radio::Field checked="checked" as |C|>
+      <C.Label>Label of control #2</C.Label>
+    </G.Radio::Field>
+    <G.Radio::Field as |C|>
+      <C.Label>Label of control #3</C.Label>
+    </G.Radio::Field>
+  </Hds::Form::Radio::Group>
+  <br />
+  <span class="dummy-text-small">Without legend</span>
+  <br />
+  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+    <G.Radio::Field as |C|>
+      <C.Label>Label of control #1</C.Label>
+    </G.Radio::Field>
+    <G.Radio::Field checked="checked" as |C|>
+      <C.Label>Label of control #2</C.Label>
+    </G.Radio::Field>
+    <G.Radio::Field as |C|>
+      <C.Label>Label of control #3</C.Label>
+    </G.Radio::Field>
+  </Hds::Form::Radio::Group>
+  <br />
+  <span class="dummy-text-small">With error</span>
+  <br />
+  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.Radio::Field @isInvalid={{true}} as |C|>
+      <C.Label>Label of control #1</C.Label>
+    </G.Radio::Field>
+    <G.Radio::Field checked="checked" @isInvalid={{true}} as |C|>
+      <C.Label>Label of control #2</C.Label>
+    </G.Radio::Field>
+    <G.Radio::Field @isInvalid={{true}} as |C|>
+      <C.Label>Label of control #3</C.Label>
+    </G.Radio::Field>
+    <G.Error>Error for the group</G.Error>
+  </Hds::Form::Radio::Group>
+  <br />
+  <span class="dummy-text-small">With controls on multiple lines</span>
+  <br />
+  <div class="dummy-form-radio-max-width-container">
+    <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+      <G.Legend>Lorem ipsum dolor</G.Legend>
+      <G.Radio::Field as |C|>
+        <C.Label>Sit amet</C.Label>
+      </G.Radio::Field>
+      <G.Radio::Field checked="checked" as |C|>
+        <C.Label>Consectetur adipiscing</C.Label>
+      </G.Radio::Field>
+      <G.Radio::Field as |C|>
+        <C.Label>Elit</C.Label>
+      </G.Radio::Field>
+      <G.Radio::Field as |C|>
+        <C.Label>Pellentesque erat</C.Label>
+      </G.Radio::Field>
+      <G.Radio::Field as |C|>
+        <C.Label>Lacinia</C.Label>
+      </G.Radio::Field>
+      <G.Radio::Field checked="checked" as |C|>
+        <C.Label>At magna</C.Label>
+      </G.Radio::Field>
+    </Hds::Form::Radio::Group>
   </div>
 
 </section>
