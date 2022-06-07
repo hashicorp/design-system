@@ -212,6 +212,19 @@
         <C.Error>This is the error</C.Error>
       </Hds::Form::TextInput>
     </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Errors</span>
+      <br />
+      <Hds::Form::TextInput @id="custom-id" @ariaDescribedBy="custom-describedby" as |C|>
+        <C.Label>This is the label</C.Label>
+        <C.HelperText>This is the helper text</C.HelperText>
+        <C.Error as |error|>
+          {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
+            <error.message>{{message}}</error.message>
+          {{/each}}
+        </C.Error>
+      </Hds::Form::TextInput>
+    </div>
   </div>
 
   <h4 class="dummy-h4">States</h4>
