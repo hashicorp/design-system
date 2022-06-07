@@ -5,6 +5,22 @@
 //
 
 .hds-form-error {
-    color: var(--token-color-foreground-critical-on-surface);
-    display: block;
+  align-items: flex-start;
+  color: var(--token-color-foreground-critical-on-surface);
+  display: flex;
+}
+
+.hds-form-error__icon {
+  flex: none;
+  height: 14px;
+  margin: 2px 8px 2px 0;
+  width: 14px;
+}
+
+.hds-form-error__content {
+  flex: 1 1 auto;
+}
+
+.hds-form-error__message {
+  margin: 0;
 }

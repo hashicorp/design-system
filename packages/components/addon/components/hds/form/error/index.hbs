@@ -1,3 +1,11 @@
 <div class={{this.classNames}} id={{this.id}} ...attributes>
-  {{yield}}
+  <FlightIcon
+    class="hds-form-error__icon"
+    @name="alert-diamond-fill"
+    @size="16"
+    @color="var(--token-color-foreground-critical-on-surface)"
+  />
+  <div class="hds-form-error__content">
+    {{yield (hash message=(component "hds/form/error/message"))}}
+  </div>
 </div>
