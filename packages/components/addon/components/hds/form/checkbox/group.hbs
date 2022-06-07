@@ -1,5 +1,4 @@
-{{! TODO should the class "hds-form-group" have " a different name? }}
-<fieldset class="hds-form-group">
+<fieldset class={{this.classNames}}>
   {{yield (hash Legend=(component "hds/form/legend" _contextualClass="hds-form-group__legend"))}}
   <div class="hds-form-group__control-fields-wrapper">
     {{yield

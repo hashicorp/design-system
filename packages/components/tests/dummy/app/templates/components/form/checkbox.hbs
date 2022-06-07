@@ -193,7 +193,7 @@
   </div>
 
   <h4 class="dummy-h4">"Group" of controls</h4>
-  <h5 class="dummy-h5">Content</h5>
+  <h5 class="dummy-h5">Content / Vertical layout</h5>
   <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">With legend</span>
@@ -303,5 +303,51 @@
       </Hds::Form::Checkbox::Group>
     </div>
   </div>
+
+  <h5 class="dummy-h5">Content / Horizontal layout</h5>
+  <span class="dummy-text-small">With legend</span>
+  <br />
+  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.Checkbox::Field as |C|>
+      <C.Label>Label of control #1</C.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field checked="checked" as |C|>
+      <C.Label>Label of control #2</C.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |C|>
+      <C.Label>Label of control #3</C.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
+  <br>
+  <span class="dummy-text-small">Without legend</span>
+  <br />
+  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+    <G.Checkbox::Field as |C|>
+      <C.Label>Label of control #1</C.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field checked="checked" as |C|>
+      <C.Label>Label of control #2</C.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |C|>
+      <C.Label>Label of control #3</C.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
+  <br />
+  <span class="dummy-text-small">With error</span>
+  <br />
+  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.Checkbox::Field @isInvalid={{true}} as |C|>
+      <C.Label>Label of control #1</C.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field checked="checked" @isInvalid={{true}} as |C|>
+      <C.Label>Label of control #2</C.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field @isInvalid={{true}} as |C|>
+      <C.Label>Label of control #3</C.Label>
+    </G.Checkbox::Field>
+    <G.Error>Error for the group</G.Error>
+  </Hds::Form::Checkbox::Group>
 
 </section>

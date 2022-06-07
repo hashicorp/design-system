@@ -16,18 +16,29 @@
   padding: 0;
 }
 
-// TODO
-// - discuss with Alex Jurubita: is this the "best" way to do it?
-// - discuss with Christian Veight: what are the design specs
-.hds-form-group__legend + .hds-form-group__control-fields-wrapper {
-  .hds-form-label {
-    font-weight: var(--token-typography-font-weight-regular);
+.hds-form-group__control-fields-wrapper {
+  .hds-form-group__legend + & {
+    .hds-form-label {
+      // TODO
+      // - discuss with Alex Jurubita: is this the "best" way to do it?
+      // - discuss with Christian Veight: what are the design specs
+      font-weight: var(--token-typography-font-weight-regular);
+    }
   }
 }
 
-.hds-form-group__control-field {
-  & + & {
+.hds-form-group--layout-vertical {
+  .hds-form-group__control-field + .hds-form-group__control-field {
     margin-top: 16px;
+  }
+}
+
+.hds-form-group--layout-horizontal {
+  .hds-form-group__control-fields-wrapper {
+    display: flex;
+  }
+  .hds-form-group__control-field + .hds-form-group__control-field {
+    margin-left: 16px;
   }
 }
 
