@@ -23,7 +23,7 @@
 
 ## 0.12.0
 
-### Minor Changes
+### Minor Changes (Some Breaking)
 
 - [#217](https://github.com/hashicorp/design-system/pull/217) [`210edd17`](https://github.com/hashicorp/design-system/commit/210edd17431e6e3097260aed0df5a8902f93b7f7) Thanks [@didoo](https://github.com/didoo)! - # Interactive
 
@@ -68,25 +68,24 @@
 
 ## 0.11.0
 
-### Minor Changes
+### Minor Changes (Some Breaking)
 
 - [#245](https://github.com/hashicorp/design-system/pull/245) [`c6de1018`](https://github.com/hashicorp/design-system/commit/c6de101880ec1c21971e3775e1a21b6cb9e69757) Thanks [@didoo](https://github.com/didoo)! - - Added `Alert` component
   - Added `Toast` component
+- [#259](https://github.com/hashicorp/design-system/pull/259) [`478b3069`](https://github.com/hashicorp/design-system/commit/478b3069e800cf2ccefba9b5475c72b024e25d16) Thanks [@didoo](https://github.com/didoo)! - - removed autofocus on first item for `Disclosure` component (and as a result also for `Breadcrumb` and `Dropdown` components)  (🚨 Breaking)
+  - updated focus state treatment for `Dropdown` component  (🚨 Breaking)
 
 ### Patch Changes
 
-- [#259](https://github.com/hashicorp/design-system/pull/259) [`478b3069`](https://github.com/hashicorp/design-system/commit/478b3069e800cf2ccefba9b5475c72b024e25d16) Thanks [@didoo](https://github.com/didoo)! - - removed autofocus on first item for `Disclosure` component (and as a result also for `Breadcrumb` and `Dropdown` components)
-  - updated focus state treatment for `Dropdown` component
-
-* [#225](https://github.com/hashicorp/design-system/pull/225) [`f1f07179`](https://github.com/hashicorp/design-system/commit/f1f0717952b3e6b41676135cf00e77a6e55579ec) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - update to ember-keyboard@8.1.0 in packages/components
+- [#225](https://github.com/hashicorp/design-system/pull/225) [`f1f07179`](https://github.com/hashicorp/design-system/commit/f1f0717952b3e6b41676135cf00e77a6e55579ec) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - update to ember-keyboard@8.1.0 in packages/components
 
 - [#265](https://github.com/hashicorp/design-system/pull/265) [`79bc3e99`](https://github.com/hashicorp/design-system/commit/79bc3e99cd5cc6cb60fc82286d5726c0d0ffbd82) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - npx ember-cli-update@4.3.0 dependency updates
 
-* [#253](https://github.com/hashicorp/design-system/pull/253) [`21786983`](https://github.com/hashicorp/design-system/commit/21786983d4ebbb3f38a72d4d105504169bfeda78) Thanks [@MelSumner](https://github.com/MelSumner)! - bugfix for icon size in copy-item component
+- [#253](https://github.com/hashicorp/design-system/pull/253) [`21786983`](https://github.com/hashicorp/design-system/commit/21786983d4ebbb3f38a72d4d105504169bfeda78) Thanks [@MelSumner](https://github.com/MelSumner)! - bugfix for icon size in copy-item component
 
 ## 0.10.0
 
-### Minor Changes
+### Minor Changes (Some Breaking)
 
 - [#200](https://github.com/hashicorp/design-system/pull/200) [`a8072537`](https://github.com/hashicorp/design-system/commit/a8072537542791398d375cde4a7a85c2955c66da) Thanks [@didoo](https://github.com/didoo)! - Updated Dropdown component:
 
@@ -94,8 +93,8 @@
   - fixed issue with `list-item/interactive` height
   - added handling of dynamic `width` for the list
   - exposed an `onClose` event
-  - removed the default icon for `toggle/icon`
-  - removed icon requirement from the `critical` list item
+  - removed the default icon for `toggle/icon` (🚨 Breaking)
+  - removed icon requirement from the `critical` list item (🚨 Breaking)
   - updated the documentation and integration tests
   - some code refactorings, reorganizations and cleanups
 
@@ -137,9 +136,9 @@
 
 ## 0.7.0
 
-### Minor Changes
+### Minor Changes (Some Breaking) 
 
-- [#150](https://github.com/hashicorp/design-system/pull/150) [`c236c159`](https://github.com/hashicorp/design-system/commit/c236c159f7d7ec6edc661710963f5733eb961edf) Thanks [@didoo](https://github.com/didoo)! - removed “box-sizing“ declarations from the components (we assume the consumers codebase already have set it to “border-box“ by default
+- [#150](https://github.com/hashicorp/design-system/pull/150) [`c236c159`](https://github.com/hashicorp/design-system/commit/c236c159f7d7ec6edc661710963f5733eb961edf) Thanks [@didoo](https://github.com/didoo)! - removed “box-sizing“ declarations from the components (we assume the consumers codebase already have set it to “border-box“ by default (🚨 Breaking)
 
 ## 0.6.0
 
@@ -160,9 +159,9 @@
 
 ## 0.5.0
 
-### Minor Changes
+### Minor Changes (Some Breaking)
 
-- [#127](https://github.com/hashicorp/design-system/pull/127) [`fa13190f`](https://github.com/hashicorp/design-system/commit/fa13190f1058f172898221aa1e1913965bfa53e9) Thanks [@didoo](https://github.com/didoo)! - removed the “isDisabled“ prop from the “Button” component; added instructions for developers to manually add it themselves if needed.
+- [#127](https://github.com/hashicorp/design-system/pull/127) [`fa13190f`](https://github.com/hashicorp/design-system/commit/fa13190f1058f172898221aa1e1913965bfa53e9) Thanks [@didoo](https://github.com/didoo)! - removed the “isDisabled“ prop from the “Button” component; added instructions for developers to manually add it themselves if needed. (🚨 Breaking)
 
 ### Patch Changes
 
