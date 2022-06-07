@@ -30,7 +30,7 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
-    <dt>fieldId <code>string</code></dt>
+    <dt>controlId <code>string</code></dt>
     <dd>
       <p>The ID of the form control associated with the label. This is used to populate the
         <code class="dummy-code">for</code>
@@ -55,7 +55,7 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-helper-text">
-    <dt>fieldId <code>string</code></dt>
+    <dt>controlId <code>string</code></dt>
     <dd>
       <p>The ID of the form control associated with the helper text. This is used to populate the
         <code class="dummy-code">id</code>
@@ -91,19 +91,19 @@
   <h4 class="dummy-h4">Form::Label</h4>
   <p class="dummy-paragraph">
     The most basic invocation just needs a text passed to the component and a
-    <code class="dummy-code">fieldId</code>
+    <code class="dummy-code">controlId</code>
     argument (the ID of the form control associated with the label):
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Label @fieldId="control-ID">My label</Hds::Form::Label>
+      <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Label @fieldId="control-ID">My label</Hds::Form::Label>
+  <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
   <p class="dummy-paragraph">
     There may be cases in which the label needs to contain more than just text. In this case it's possible to pass
     structured content to it (it's just yielded in output):
@@ -112,7 +112,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Label @fieldId="control-ID">
+      <Hds::Form::Label @controlId="control-ID">
         <span>Some text</span>
         <Hds::Badge @size="small" @text="Some badge" />
       </Hds::Form::Label>
@@ -120,7 +120,7 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Label @fieldId="control-ID">
+  <Hds::Form::Label @controlId="control-ID">
     <span>Some text</span>
     <Hds::Badge @size="small" @text="Some badge" />
   </Hds::Form::Label>
@@ -132,26 +132,26 @@
   <h4 class="dummy-h4">Form::HelperText</h4>
   <p class="dummy-paragraph">
     The most basic invocation just needs a text passed to the component and a
-    <code class="dummy-code">fieldId</code>
+    <code class="dummy-code">controlId</code>
     argument:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::HelperText @fieldId="control-ID">This is some helper text</Hds::Form::HelperText>
+      <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::HelperText @fieldId="control-ID">This is some helper text</Hds::Form::HelperText>
+  <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
   <p class="dummy-paragraph"><em>Notice: the
-      <code class="dummy-code">fieldId</code>
+      <code class="dummy-code">controlId</code>
       value will be used to generate an ID, prefixed with
       <code class="dummy-code">helper-text-</code>, so that this ID can be referenced in the
       <code class="dummy-code">aria-describedby</code>
       attribute of the form control. If no
-      <code class="dummy-code">fieldId</code>
+      <code class="dummy-code">controlId</code>
       is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</em></p>
   <p class="dummy-paragraph">
     There may be cases in which the helper text needs to contain more than just text. In this case it's possible to pass
@@ -161,7 +161,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::HelperText @fieldId="control-ID">
+      <Hds::Form::HelperText @controlId="control-ID">
         Some text with a
         <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
         <code>some code</code> and a <strong>strong</strong>
@@ -170,7 +170,7 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::HelperText @fieldId="control-ID">
+  <Hds::Form::HelperText @controlId="control-ID">
     Some text with a
     <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
     <code>some code</code>
@@ -185,26 +185,26 @@
   <h4 class="dummy-h4">Form::Error</h4>
   <p class="dummy-paragraph">
     The most basic invocation just needs a text passed to the component and a
-    <code class="dummy-code">fieldId</code>
+    <code class="dummy-code">controlId</code>
     argument:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Error @fieldId="control-ID">This is a simple error message</Hds::Form::Error>
+      <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
     '
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Error @fieldId="control-ID">This is a simple error message</Hds::Form::Error>
+  <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
   <p class="dummy-paragraph"><em>Notice: the
-      <code class="dummy-code">fieldId</code>
+      <code class="dummy-code">controlId</code>
       value will be used to generate an ID, prefixed with
       <code class="dummy-code">error-</code>, so that this ID can be referenced in the
       <code class="dummy-code">aria-describedby</code>
       attribute of the form control. If no
-      <code class="dummy-code">fieldId</code>
+      <code class="dummy-code">controlId</code>
       is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</em></p>
   <p class="dummy-paragraph">
     There may be cases in which the error is made of multiple messages. In this case it's possible to iterate over an
@@ -215,7 +215,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Error @fieldId="control-ID" as |error|>
+      <Hds::Form::Error @controlId="control-ID" as |error|>
         \{{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
           <error.message>\{{message}}</error.message>
         \{{/each}}
@@ -225,7 +225,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Error @fieldId="control-ID" as |error|>
+  <Hds::Form::Error @controlId="control-ID" as |error|>
     {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
       <error.message>{{message}}</error.message>
     {{/each}}

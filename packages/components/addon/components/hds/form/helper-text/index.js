@@ -5,12 +5,12 @@ export default class HdsFormHelperTextIndexComponent extends Component {
   /**
    * Determines the unique ID to assign to the element
    * @method id
-   * @return {(string|boolean)} The "id" attribute to apply to the element or false, if no fieldId is provided
+   * @return {(string|boolean)} The "id" attribute to apply to the element or false, if no controlId is provided
    */
   get id() {
-    let { fieldId } = this.args;
-    if (fieldId) {
-      return `${ID_PREFIX}${fieldId}`;
+    let { controlId } = this.args;
+    if (controlId) {
+      return `${ID_PREFIX}${controlId}`;
     }
     return false;
   }
