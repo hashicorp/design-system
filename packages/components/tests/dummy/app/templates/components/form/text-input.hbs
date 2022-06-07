@@ -172,59 +172,35 @@
   </div>
   <h5 class="dummy-h6">States</h5>
   <div class="dummy-form-text-input-grid-sample">
-    {{#each @model.STATES as |state|}}
-      <div>
-        <span class="dummy-text-small">Base / {{capitalize state}}:</span>
-        <br />
-        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
-          <Hds::Form::TextInput::Base />
-          <Hds::Form::TextInput::Base placeholder="Placeholder" />
-          <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
-        </div>
-      </div>
-    {{/each}}
-  </div>
-  <br />
-  <div class="dummy-form-text-input-grid-sample">
-    {{#each @model.STATES as |state|}}
-      <div>
-        <span class="dummy-text-small">Disabled / {{capitalize state}}:</span>
-        <br />
-        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
-          <Hds::Form::TextInput::Base disabled="disabled" />
-          <Hds::Form::TextInput::Base disabled="disabled" placeholder="Placeholder" />
-          <Hds::Form::TextInput::Base disabled="disabled" @value="Lorem ipsum dolor" />
-        </div>
-      </div>
-    {{/each}}
-  </div>
-  <br />
-  <div class="dummy-form-text-input-grid-sample">
-    {{#each @model.STATES as |state|}}
-      <div>
-        <span class="dummy-text-small">Readonly / {{capitalize state}}:</span>
-        <br />
-        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
-          <Hds::Form::TextInput::Base readonly="readonly" />
-          <Hds::Form::TextInput::Base readonly="readonly" placeholder="Placeholder" />
-          <Hds::Form::TextInput::Base readonly="readonly" @value="Lorem ipsum dolor" />
-        </div>
-      </div>
-    {{/each}}
-  </div>
-  <br />
-  <div class="dummy-form-text-input-grid-sample">
-    {{#each @model.STATES as |state|}}
-      <div>
-        <span class="dummy-text-small">Invalid / {{capitalize state}}:</span>
-        <br />
-        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
-          <Hds::Form::TextInput::Base @isInvalid={{true}} />
-          <Hds::Form::TextInput::Base @isInvalid={{true}} placeholder="Placeholder" />
-          <Hds::Form::TextInput::Base @isInvalid={{true}} @value="Lorem ipsum dolor" />
-        </div>
-      </div>
-    {{/each}}
+    {{#let (array "base" "disabled" "readonly" "invalid") as |variants|}}
+      {{#each variants as |variant|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
+            <br />
+            <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
+              <Hds::Form::TextInput::Base
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                placeholder="Placeholder"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                @value="Lorem ipsum dolor"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+            </div>
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/let}}
   </div>
   <h5 class="dummy-h6">Custom layout</h5>
   <div class="dummy-form-text-input-base-sample">
