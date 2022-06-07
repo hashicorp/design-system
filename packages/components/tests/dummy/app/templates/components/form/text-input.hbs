@@ -141,7 +141,26 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  <h4 class="dummy-h4">Types (native)</h4>
+  <h4 class="dummy-h4">"Base" control</h4>
+  <h5 class="dummy-h6">Interaction status</h5>
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">Default</span>
+      <br />
+      <Hds::Form::TextInput::Base />
+    </div>
+    <div>
+      <span class="dummy-text-small">With placeholder</span>
+      <br />
+      <Hds::Form::TextInput::Base placeholder="Lorem ipsum dolor" />
+    </div>
+    <div>
+      <span class="dummy-text-small">With value</span>
+      <br />
+      <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
+    </div>
+  </div>
+  <h5 class="dummy-h5">Types (native)</h5>
   <div class="dummy-form-text-input-types-grid">
     {{#each @model.TYPES as |type|}}
       <div>
@@ -151,54 +170,122 @@
       </div>
     {{/each}}
   </div>
-
-  <h4 class="dummy-h4">Content</h4>
-  <h5 class="dummy-h5">"Base" control</h5>
-  <div class="dummy-form-text-input-base-sample">
-    <div>
-      <span class="dummy-text-small">Default</span>
-      <br />
-      <Hds::Form::TextInput::Base />
-    </div>
-    <div>
-      <span class="dummy-text-small">With value</span>
-      <br />
-      <Hds::Form::TextInput::Base value="Lorem ipsum dolor" />
-    </div>
+  <h5 class="dummy-h6">States</h5>
+  <div class="dummy-form-text-input-grid-sample">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">Base / {{capitalize state}}:</span>
+        <br />
+        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
+          <Hds::Form::TextInput::Base />
+          <Hds::Form::TextInput::Base placeholder="Placeholder" />
+          <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
+        </div>
+      </div>
+    {{/each}}
   </div>
   <br />
+  <div class="dummy-form-text-input-grid-sample">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">Disabled / {{capitalize state}}:</span>
+        <br />
+        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
+          <Hds::Form::TextInput::Base disabled="disabled" />
+          <Hds::Form::TextInput::Base disabled="disabled" placeholder="Placeholder" />
+          <Hds::Form::TextInput::Base disabled="disabled" @value="Lorem ipsum dolor" />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <br />
+  <div class="dummy-form-text-input-grid-sample">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">Readonly / {{capitalize state}}:</span>
+        <br />
+        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
+          <Hds::Form::TextInput::Base readonly="readonly" />
+          <Hds::Form::TextInput::Base readonly="readonly" placeholder="Placeholder" />
+          <Hds::Form::TextInput::Base readonly="readonly" @value="Lorem ipsum dolor" />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <br />
+  <div class="dummy-form-text-input-grid-sample">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">Invalid / {{capitalize state}}:</span>
+        <br />
+        <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
+          <Hds::Form::TextInput::Base @isInvalid={{true}} />
+          <Hds::Form::TextInput::Base @isInvalid={{true}} placeholder="Placeholder" />
+          <Hds::Form::TextInput::Base @isInvalid={{true}} @value="Lorem ipsum dolor" />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <h5 class="dummy-h6">Custom layout</h5>
   <div class="dummy-form-text-input-base-sample">
     <div>
       <span class="dummy-text-small">With custom layout</span>
       <br />
-      <div class="dummy-form-text-input-content-sample-with-custom-layout">
-        <span>Some content</span>
-        <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" @id="my-custom-checkbox-example" />
-        <label for="my-custom-checkbox-example">Custom label</label>
+      <div class="dummy-form-text-input-custom-layout">
+        <label for="my-custom-text-input-example">Custom label</label>
+        <Hds::Form::TextInput::Base id="my-custom-text-input-example" @value="Lorem ipsum dolor" />
+        <span class="dummy-form-text-input-custom-layout__prepend-text">Some content</span>
       </div>
     </div>
   </div>
-  <h5 class="dummy-h5">"Field" control</h5>
-  <div class="dummy-form-text-input-base-sample">
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-text-input-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-text-input-sublist">
+            <div class="dummy-form-text-input-containers__{{display}}">
+              <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
+            </div>
+            <div class="dummy-form-text-input-containers__block">
+              <Hds::Form::TextInput::Base @type="date" />
+            </div>
+            <div class="dummy-form-text-input-containers__block">
+              <Hds::Form::TextInput::Base @type="time" />
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+  <h4 class="dummy-h4">"Field" control</h4>
+  <h5 class="dummy-h5">Content</h5>
+  <div class="dummy-form-text-input-grid-sample">
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>Lorem ipsum dolor</F.Label>
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>This is the label</F.Label>
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::TextInput::Field>
     </div>
+  </div>
+  <br />
+  <div class="dummy-form-text-input-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::TextInput::Field as |F|>
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label</F.Label>
         <F.Error>This is the error</F.Error>
       </Hds::Form::TextInput::Field>
@@ -206,7 +293,7 @@
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::TextInput::Field as |F|>
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error>This is the error</F.Error>
@@ -215,61 +302,44 @@
     <div>
       <span class="dummy-text-small">Label + Helper text + Errors</span>
       <br />
-      <Hds::Form::TextInput::Field @id="custom-id" @ariaDescribedBy="custom-describedby" as |F|>
+      <Hds::Form::TextInput::Field as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        <F.Error as |error|>
-          {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
-            <error.message>{{message}}</error.message>
-          {{/each}}
+        <F.Error as |E|>
+          <E.message>First error message</E.message>
+          <E.message>Second error message</E.message>
         </F.Error>
       </Hds::Form::TextInput::Field>
     </div>
   </div>
-
-  <h4 class="dummy-h4">States</h4>
-  <div class="dummy-form-text-input-states-grid">
-    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Base</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-        </Hds::Form::TextInput::Field>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Disabled</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" disabled="disabled" as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-        </Hds::Form::TextInput::Field>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Readonly</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" readonly="readonly" as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-        </Hds::Form::TextInput::Field>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-text-input-states-grid__title">Invalid</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}" mock-state-selector="input">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-          <F.Error>This is the error</F.Error>
-        </Hds::Form::TextInput::Field>
-      </div>
-    {{/each}}
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-text-input-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-text-input-containers__{{display}}">
+            <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::TextInput::Field>
+          </div>
+          <br />
+          <div class="dummy-form-text-input-containers__{{display}}">
+            <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+              <F.Label>This is the label text that should go on multiple lines</F.Label>
+              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+              <F.Error as |E|>
+                <E.message>This is the first error text</E.message>
+                <E.message>This is the second error text that should go on multiple lines</E.message>
+              </F.Error>
+            </Hds::Form::TextInput::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
   </div>
 
 </section>
