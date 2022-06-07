@@ -51,13 +51,12 @@
     <div>
       <span class="dummy-text-small">Default</span>
       <br />
-      <Hds::Form::Select @basic={{true}} as |C|>
+      <Hds::Form::Select::Base as |C|>
         <C.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
         </C.Options>
-
-      </Hds::Form::Select>
+      </Hds::Form::Select::Base>
     </div>
   </div>
   <br />
@@ -67,12 +66,12 @@
       <br />
       <div>
         <span>Some content</span>
-        <Hds::Form::Select id="my-custom-select-example" @basic={{true}} as |C|>
+        <Hds::Form::Select::Base id="my-custom-select-example" as |C|>
           <C.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>
           </C.Options>
-        </Hds::Form::Select>
+        </Hds::Form::Select::Base>
         <label for="my-custom-select-example">Custom label</label>
       </div>
     </div>
@@ -82,50 +81,50 @@
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::Select as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-        <C.Options>
+      <Hds::Form::Select::Field as |F|>
+        <F.Label>Lorem ipsum dolor</F.Label>
+        <F.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
-        </C.Options>
-      </Hds::Form::Select>
+        </F.Options>
+      </Hds::Form::Select::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::Select as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
-        <C.Options>
+      <Hds::Form::Select::Field as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
-        </C.Options>
-      </Hds::Form::Select>
+        </F.Options>
+      </Hds::Form::Select::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Select as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.Options>
+      <Hds::Form::Select::Field as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
-        </C.Options>
-        <C.Error>This is the error</C.Error>
-      </Hds::Form::Select>
+        </F.Options>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Select::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Select as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
-        <C.Options>
+      <Hds::Form::Select::Field as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
-        </C.Options>
-        <C.Error>This is the error</C.Error>
-      </Hds::Form::Select>
+        </F.Options>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Select::Field>
     </div>
   </div>
 
@@ -136,13 +135,13 @@
       <div mock-state-value={{state}} mock-state-selector="select">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Select @value="Lorem ipsum dolor" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Options>
+        <Hds::Form::Select::Field @value="Lorem ipsum dolor" as |F|>
+          <F.Label>Lorem ipsum dolor</F.Label>
+          <F.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>
-          </C.Options>
-        </Hds::Form::Select>
+          </F.Options>
+        </Hds::Form::Select::Field>
       </div>
     {{/each}}
     <h5 class="dummy-h5 dummy-form-select-states-grid__title">Disabled</h5>
@@ -150,13 +149,13 @@
       <div mock-state-value={{state}} mock-state-selector="select">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Select @value="Lorem ipsum dolor" disabled="disabled" as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Options>
+        <Hds::Form::Select::Field @value="Lorem ipsum dolor" disabled="disabled" as |F|>
+          <F.Label>Lorem ipsum dolor</F.Label>
+          <F.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>
-          </C.Options>
-        </Hds::Form::Select>
+          </F.Options>
+        </Hds::Form::Select::Field>
       </div>
     {{/each}}
     <h5 class="dummy-h5 dummy-form-select-states-grid__title">Invalid</h5>
@@ -164,14 +163,14 @@
       <div mock-state-value="{{state}}" mock-state-selector="select">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Select @value="Lorem ipsum dolor" @isInvalid={{true}} as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Error>This is the error</C.Error>
-          <C.Options>
+        <Hds::Form::Select::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+          <F.Label>Lorem ipsum dolor</F.Label>
+          <F.Error>This is the error</F.Error>
+          <F.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sine qua non est</option>
-          </C.Options>
-        </Hds::Form::Select>
+          </F.Options>
+        </Hds::Form::Select::Field>
       </div>
     {{/each}}
   </div>
