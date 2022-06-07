@@ -5,17 +5,51 @@
   gap: 2rem;
 }
 
-.dummy-form-radio-states-grid {
+.dummy-form-radio-grid-sample {
   align-items: start;
   display: grid;
-  grid-gap: 0rem 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
-  .dummy-form-radio-states-grid__title {
-    grid-column: 1 / 5;
+.dummy-form-radio-states-subgrid {
+  display: grid;
+  grid-gap: 0.5rem 1rem;
+  grid-template-columns: 1fr 1fr;
+  width: min-content;
+}
 
-    &:first-child {
-      margin-top: 0.75rem;
-    }
+.dummy-form-radio-containers-list-item__block {
+  display: block;
+}
+
+.dummy-form-radio-containers-list-item__flex {
+  display: flex;
+}
+
+.dummy-form-radio-containers-list-item__grid {
+  display: grid;
+}
+
+.dummy-form-radio-max-width-container {
+  width: 450px;
+}
+
+.dummy-form-radio-custom-layout {
+  border: 1px solid #999;
+
+  strong, span {
+    display: block;
+    padding: 0 10px;
+    margin: 10px 0;
   }
+
+  .dummy-form-radio-custom-layout__control-wrapper {
+    background-color: #E4E4E4;
+    border-top: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
 }

@@ -259,7 +259,7 @@
 
   <h4 class="dummy-h4">Label</h4>
   <span class="dummy-text-small">With simple text</span>
-  <Hds::Form::Label>This is a simple label </Hds::Form::Label>
+  <Hds::Form::Label>This is a simple label</Hds::Form::Label>
   <br />
   <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
   <Hds::Form::Label>This is a label <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::Label>
@@ -320,5 +320,31 @@
       <error.message>{{message}}</error.message>
     {{/each}}
   </Hds::Form::Error>
+
+  <h4 class="dummy-h4">Legend</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::Legend>This is a simple legend</Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
+  <Hds::Form::Legend>This is a legend
+    <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</span>
+  <Hds::Form::Legend>This is a legend
+    <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>)</span>
+  <Hds::Form::Legend>
+    <div class="dummy-form-base-elements-legend-with-badge">This is the legend
+      <Hds::Badge @size="small" @text="Some badge" /></div>
+  </Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Legend>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
+  </div>
 
 </section>

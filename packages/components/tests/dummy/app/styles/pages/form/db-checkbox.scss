@@ -5,17 +5,32 @@
   gap: 2rem;
 }
 
-.dummy-form-checkbox-states-grid {
+.dummy-form-checkbox-grid-sample {
   align-items: start;
   display: grid;
-  grid-gap: 0rem 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
-  .dummy-form-checkbox-states-grid__title {
-    grid-column: 1 / 5;
+.dummy-form-checkbox-states-subgrid {
+  display: grid;
+  grid-gap: 0.5rem 1rem;
+  grid-template-columns: 1fr 1fr;
+  width: min-content;
+}
 
-    &:first-child {
-      margin-top: 0.75rem;
-    }
-  }
+.dummy-form-checkbox-containers-list-item__block {
+  display: block;
+}
+
+.dummy-form-checkbox-containers-list-item__flex {
+  display: flex;
+}
+
+.dummy-form-checkbox-containers-list-item__grid {
+  display: grid;
+}
+
+.dummy-form-checkbox-max-width-container {
+  width: 450px;
 }

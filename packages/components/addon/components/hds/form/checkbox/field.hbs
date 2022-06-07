@@ -1,0 +1,14 @@
+<div class={{this.classNames}}>
+  <Hds::Form::Checkbox::Base
+    class="hds-form-field__control"
+    @isInvalid={{@isInvalid}}
+    ...attributes
+    id={{this.id}}
+    aria-describedby={{this.ariaDescribedBy}}
+  />
+  {{yield (hash Label=(component "hds/form/label" fieldId=this.id _contextualClass="hds-form-field__label"))}}
+  {{yield
+    (hash HelperText=(component "hds/form/helper-text" fieldId=this.id _contextualClass="hds-form-field__helper-text"))
+  }}
+  {{yield (hash Error=(component "hds/form/error" fieldId=this.id _contextualClass="hds-form-field__error"))}}
+</div>

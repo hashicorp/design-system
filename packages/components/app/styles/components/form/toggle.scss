@@ -12,7 +12,7 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
 // "BARE" CONTROL
 
-.hds-form-toggle-wrapper {
+.hds-form-toggle {
   display: inline-block; // we emulate the behaviour of a checkbox/radiobutton control
   isolation: isolate; // used to create a new stacking context
   position: relative;
@@ -20,7 +20,7 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
 // control (hidden)
 
-.hds-form-toggle {
+.hds-form-toggle__control {
   appearance: none;
   background-color: transparent;
   border: none;
@@ -42,7 +42,7 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
 // facade (visible)
 
-.hds-form-toggle-facade {
+.hds-form-toggle__facade {
   border-radius: $hds-form-toggle-border-radius;
   border: 1px solid var(--border-color);
   display: block;
@@ -150,10 +150,10 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
   // INVALID
 
-  .hds-form-toggle--is-invalid:not(:checked) + & {
+  .hds-form-toggle--is-invalid :not(:checked) + & {
     --border-color: var(--token-color-foreground-critical);
   }
-  .hds-form-toggle--is-invalid:checked + & {
+  .hds-form-toggle--is-invalid :checked + & {
     background-color: var(--token-color-palette-red-200);
     --border-color: var(--token-color-foreground-critical);
   }

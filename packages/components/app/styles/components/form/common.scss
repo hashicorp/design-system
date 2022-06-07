@@ -13,7 +13,10 @@
 .hds-form-field--vertical-layout {
   display: grid;
   gap: 4px;
-  width: max-content;
+
+  .hds-form-field__label {
+    width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
+  }
 
   // special case: if there are multiple helper text lines, we want to reduce the spacing between them
   .hds-form-helper-text + .hds-form-helper-text {
@@ -33,7 +36,6 @@
     "control label"
     "control helper-text"
     "control error";
-  width: max-content;
 
   .hds-form-field__control {
     grid-area: control;
@@ -46,6 +48,7 @@
 
   .hds-form-field__label {
     grid-area: label;
+    width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
 
     &:not(:last-child) {
       margin-bottom: 4px;
@@ -64,3 +67,11 @@
     grid-area: error;
   }
 }
+
+
+
+// Debug (please don't remove)
+//
+// .hds-form-field__label { background-color: #00ff00; }
+// .hds-form-field__helper-text { background-color: #0000ff; }
+// .hds-form-field__error { background-color: #ff0000; }
