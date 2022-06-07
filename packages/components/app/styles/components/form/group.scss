@@ -36,9 +36,12 @@
 .hds-form-group--layout-horizontal {
   .hds-form-group__control-fields-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -4px;
   }
-  .hds-form-group__control-field + .hds-form-group__control-field {
-    margin-left: 16px;
+  .hds-form-group__control-field {
+    margin-right: 16px;
+    margin-bottom: 4px;
   }
 }
 

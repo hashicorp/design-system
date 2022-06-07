@@ -193,7 +193,7 @@
   </div>
 
   <h4 class="dummy-h4">"Group" of controls</h4>
-  <h5 class="dummy-h5">Content / Vertical layout</h5>
+  <h5 class="dummy-h5">Vertical layout</h5>
   <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">With legend</span>
@@ -304,7 +304,7 @@
     </div>
   </div>
 
-  <h5 class="dummy-h5">Content / Horizontal layout</h5>
+  <h5 class="dummy-h5">Horizontal layout</h5>
   <span class="dummy-text-small">With legend</span>
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
@@ -319,7 +319,7 @@
       <C.Label>Label of control #3</C.Label>
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
-  <br>
+  <br />
   <span class="dummy-text-small">Without legend</span>
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
@@ -349,5 +349,31 @@
     </G.Checkbox::Field>
     <G.Error>Error for the group</G.Error>
   </Hds::Form::Checkbox::Group>
+  <br />
+  <span class="dummy-text-small">With controls on multiple lines</span>
+  <br />
+  <div class="dummy-form-checkbox-max-width-container">
+    <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+      <G.Legend>Lorem ipsum dolor</G.Legend>
+      <G.Checkbox::Field as |C|>
+        <C.Label>Sit amet</C.Label>
+      </G.Checkbox::Field>
+      <G.Checkbox::Field checked="checked" as |C|>
+        <C.Label>Consectetur adipiscing</C.Label>
+      </G.Checkbox::Field>
+      <G.Checkbox::Field as |C|>
+        <C.Label>Elit</C.Label>
+      </G.Checkbox::Field>
+      <G.Checkbox::Field as |C|>
+        <C.Label>Pellentesque erat</C.Label>
+      </G.Checkbox::Field>
+      <G.Checkbox::Field as |C|>
+        <C.Label>Lacinia</C.Label>
+      </G.Checkbox::Field>
+      <G.Checkbox::Field checked="checked" as |C|>
+        <C.Label>At magna</C.Label>
+      </G.Checkbox::Field>
+    </Hds::Form::Checkbox::Group>
+  </div>
 
 </section>
