@@ -40,16 +40,24 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   async copyCode() {
     // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
     await navigator.clipboard.writeText(this.args.text);
-    const result = await navigator.clipboard.readText();
 
-    if (result === this.args.text) {
+    if (navigator.clipboard.readText) {
+      const result = await navigator.clipboard.readText();
+
+      if (result === this.args.text) {
+        this.isSuccess = true;
+      }
+    } else {
+      // assume that it works so Firefox can show the success state
+      // doesn't confirm that you'll get the correct pasted text
+      // but we accept this as a reasonable tradeoff
+      // since users can always copy/paste manually.
       this.isSuccess = true;
-      // console.log(`result is ${result}`);
-
-      // make it fade back to the default state
-      setTimeout(() => {
-        this.isSuccess = false;
-      }, 1000);
     }
+
+    // make it fade back to the default state
+    setTimeout(() => {
+      this.isSuccess = false;
+    }, 1000);
   }
 }
