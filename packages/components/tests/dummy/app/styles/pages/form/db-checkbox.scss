@@ -41,3 +41,10 @@
 .dummy-form-checkbox-max-width-container {
   width: 450px;
 }
+
+.dummy-form-checkbox-custom-layout {
+  align-items: center;
+  display: flex;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  gap: 0.5rem;
+}

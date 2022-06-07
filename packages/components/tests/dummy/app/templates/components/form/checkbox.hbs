@@ -238,10 +238,10 @@
     <div>
       <span class="dummy-text-small">With custom layout</span>
       <br />
-      <div>
-        <span>Some content</span>
-        <Hds::Form::Checkbox::Base id="my-custom-checkbox-example" />
+      <div class="dummy-form-checkbox-custom-layout">
         <label for="my-custom-checkbox-example">Custom label</label>
+        <Hds::Form::Checkbox::Base id="my-custom-checkbox-example" />
+        <span>Some extra content</span>
       </div>
     </div>
   </div>
@@ -252,101 +252,78 @@
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::Checkbox::Field as |C|>
-        <C.Label>This is the label text</C.Label>
+      <Hds::Form::Checkbox::Field as |F|>
+        <F.Label>This is the label text</F.Label>
       </Hds::Form::Checkbox::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::Checkbox::Field checked="checked" as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
+      <Hds::Form::Checkbox::Field checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Checkbox::Field>
     </div>
+  </div>
+  <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Checkbox::Field @isInvalid={{true}} as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.Error>This is the error</C.Error>
+      <Hds::Form::Checkbox::Field @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
       </Hds::Form::Checkbox::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Checkbox::Field @isInvalid={{true}} checked="checked" as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
-        <C.Error>This is the error</C.Error>
+      <Hds::Form::Checkbox::Field @isInvalid={{true}} checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Checkbox::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Errors</span>
+      <br />
+      <Hds::Form::Checkbox::Field @isInvalid={{true}} checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error as |E|>
+          <E.message>First error message</E.message>
+          <E.message>Second error message</E.message>
+        </F.Error>
       </Hds::Form::Checkbox::Field>
     </div>
   </div>
   <h5 class="dummy-h5">Containers</h5>
   <div class="dummy-form-checkbox-containers">
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: block</code></span>
-      <br />
-      <div class="dummy-form-checkbox-containers__block">
-        <Hds::Form::Checkbox::Field as |C|>
-          <C.Label>This is the label</C.Label>
-          <C.HelperText>This is the helper text</C.HelperText>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Checkbox::Field>
-      </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: flex</code></span>
-      <br />
-      <div class="dummy-form-checkbox-containers__flex">
-        <Hds::Form::Checkbox::Field as |C|>
-          <C.Label>This is the label</C.Label>
-          <C.HelperText>This is the helper text</C.HelperText>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Checkbox::Field>
-      </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: grid</code></span>
-      <br />
-      <div class="dummy-form-checkbox-containers__grid">
-        <Hds::Form::Checkbox::Field as |C|>
-          <C.Label>This is the label</C.Label>
-          <C.HelperText>This is the helper text</C.HelperText>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Checkbox::Field>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="dummy-form-checkbox-containers">
-    <div>
-      <div class="dummy-form-checkbox-containers__block">
-        <Hds::Form::Checkbox::Field as |C|>
-          <C.Label>This is the label text that should go on multiple lines</C.Label>
-          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
-          <C.Error>This is the error text that should go on multiple lines</C.Error>
-        </Hds::Form::Checkbox::Field>
-      </div>
-    </div>
-    <div>
-      <div class="dummy-form-checkbox-containers__flex">
-        <Hds::Form::Checkbox::Field as |C|>
-          <C.Label>This is the label text that should go on multiple lines</C.Label>
-          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
-          <C.Error>This is the error text that should go on multiple lines</C.Error>
-        </Hds::Form::Checkbox::Field>
-      </div>
-    </div>
-    <div>
-      <div class="dummy-form-checkbox-containers__grid">
-        <Hds::Form::Checkbox::Field as |C|>
-          <C.Label>This is the label text that should go on multiple lines</C.Label>
-          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
-          <C.Error>This is the error text that should go on multiple lines</C.Error>
-        </Hds::Form::Checkbox::Field>
-      </div>
-    </div>
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-checkbox-containers__{{display}}">
+            <Hds::Form::Checkbox::Field as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Checkbox::Field>
+          </div>
+          <br />
+          <div class="dummy-form-checkbox-containers__{{display}}">
+            <Hds::Form::Checkbox::Field as |F|>
+              <F.Label>This is the label text that should go on multiple lines</F.Label>
+              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+              <F.Error as |E|>
+                <E.message>This is the first error text</E.message>
+                <E.message>This is the second error text that should go on multiple lines</E.message>
+              </F.Error>
+            </Hds::Form::Checkbox::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
   </div>
 
   <h4 class="dummy-h4">"Group" of controls</h4>
@@ -357,14 +334,14 @@
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
+        <G.Checkbox::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
     </div>
@@ -373,17 +350,17 @@
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
-          <C.HelperText>Helper text for control #1</C.HelperText>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
+        <G.Checkbox::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
     </div>
@@ -391,14 +368,14 @@
       <span class="dummy-text-small">Without legend</span>
       <br />
       <Hds::Form::Checkbox::Group as |G|>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
+        <G.Checkbox::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
     </div>
@@ -406,17 +383,17 @@
       <span class="dummy-text-small">Without Legend / With helper text</span>
       <br />
       <Hds::Form::Checkbox::Group as |G|>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
-          <C.HelperText>Helper text for control #1</C.HelperText>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
+        <G.Checkbox::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
     </div>
@@ -425,18 +402,18 @@
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #1</C.Label>
-          <C.Error>Error for control #1</C.Error>
+        <G.Checkbox::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.Error>Error for control #1</F.Error>
         </G.Checkbox::Field>
-        <G.Checkbox::Field @isInvalid={{true}} checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
-          <C.Error>Error for control #2</C.Error>
+        <G.Checkbox::Field @isInvalid={{true}} checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
+          <F.Error>Error for control #2</F.Error>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
     </div>
@@ -445,16 +422,16 @@
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #1</C.Label>
+        <G.Checkbox::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
+        <G.Checkbox::Field checked="checked" @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Checkbox::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
         <G.Error>Error for the group</G.Error>
       </Hds::Form::Checkbox::Group>
@@ -466,28 +443,28 @@
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Checkbox::Field as |C|>
-      <C.Label>Label of control #1</C.Label>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field checked="checked" as |C|>
-      <C.Label>Label of control #2</C.Label>
+    <G.Checkbox::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field as |C|>
-      <C.Label>Label of control #3</C.Label>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
   <br />
   <span class="dummy-text-small">Without legend</span>
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
-    <G.Checkbox::Field as |C|>
-      <C.Label>Label of control #1</C.Label>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field checked="checked" as |C|>
-      <C.Label>Label of control #2</C.Label>
+    <G.Checkbox::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field as |C|>
-      <C.Label>Label of control #3</C.Label>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
   <br />
@@ -495,14 +472,14 @@
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Checkbox::Field @isInvalid={{true}} as |C|>
-      <C.Label>Label of control #1</C.Label>
+    <G.Checkbox::Field @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #1</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field checked="checked" @isInvalid={{true}} as |C|>
-      <C.Label>Label of control #2</C.Label>
+    <G.Checkbox::Field checked="checked" @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field @isInvalid={{true}} as |C|>
-      <C.Label>Label of control #3</C.Label>
+    <G.Checkbox::Field @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
     <G.Error>Error for the group</G.Error>
   </Hds::Form::Checkbox::Group>
@@ -512,23 +489,23 @@
   <div class="dummy-form-checkbox-max-width-container">
     <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
       <G.Legend>Lorem ipsum dolor</G.Legend>
-      <G.Checkbox::Field as |C|>
-        <C.Label>Sit amet</C.Label>
+      <G.Checkbox::Field as |F|>
+        <F.Label>Sit amet</F.Label>
       </G.Checkbox::Field>
-      <G.Checkbox::Field checked="checked" as |C|>
-        <C.Label>Consectetur adipiscing</C.Label>
+      <G.Checkbox::Field checked="checked" as |F|>
+        <F.Label>Consectetur adipiscing</F.Label>
       </G.Checkbox::Field>
-      <G.Checkbox::Field as |C|>
-        <C.Label>Elit</C.Label>
+      <G.Checkbox::Field as |F|>
+        <F.Label>Elit</F.Label>
       </G.Checkbox::Field>
-      <G.Checkbox::Field as |C|>
-        <C.Label>Pellentesque erat</C.Label>
+      <G.Checkbox::Field as |F|>
+        <F.Label>Pellentesque erat</F.Label>
       </G.Checkbox::Field>
-      <G.Checkbox::Field as |C|>
-        <C.Label>Lacinia</C.Label>
+      <G.Checkbox::Field as |F|>
+        <F.Label>Lacinia</F.Label>
       </G.Checkbox::Field>
-      <G.Checkbox::Field checked="checked" as |C|>
-        <C.Label>At magna</C.Label>
+      <G.Checkbox::Field checked="checked" as |F|>
+        <F.Label>At magna</F.Label>
       </G.Checkbox::Field>
     </Hds::Form::Checkbox::Group>
   </div>

@@ -99,101 +99,78 @@
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::Radio::Field as |C|>
-        <C.Label>This is the label text</C.Label>
+      <Hds::Form::Radio::Field as |F|>
+        <F.Label>This is the label text</F.Label>
       </Hds::Form::Radio::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::Radio::Field checked="checked" as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
+      <Hds::Form::Radio::Field checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Radio::Field>
     </div>
+  </div>
+  <div class="dummy-form-radio-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Radio::Field @isInvalid={{true}} as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.Error>This is the error</C.Error>
+      <Hds::Form::Radio::Field @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
       </Hds::Form::Radio::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Radio::Field @isInvalid={{true}} checked="checked" as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
-        <C.Error>This is the error</C.Error>
+      <Hds::Form::Radio::Field @isInvalid={{true}} checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Radio::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Errors</span>
+      <br />
+      <Hds::Form::Radio::Field @isInvalid={{true}} checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error as |E|>
+          <E.message>First error message</E.message>
+          <E.message>Second error message</E.message>
+        </F.Error>
       </Hds::Form::Radio::Field>
     </div>
   </div>
   <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-radio-grid-sample">
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: block</code></span>
-      <br />
-      <div class="dummy-form-radio-containers-list-item__block">
-        <Hds::Form::Radio::Field as |C|>
-          <C.Label>This is the label</C.Label>
-          <C.HelperText>This is the helper text</C.HelperText>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Radio::Field>
-      </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: flex</code></span>
-      <br />
-      <div class="dummy-form-radio-containers-list-item__flex">
-        <Hds::Form::Radio::Field as |C|>
-          <C.Label>This is the label</C.Label>
-          <C.HelperText>This is the helper text</C.HelperText>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Radio::Field>
-      </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: grid</code></span>
-      <br />
-      <div class="dummy-form-radio-containers-list-item__grid">
-        <Hds::Form::Radio::Field as |C|>
-          <C.Label>This is the label</C.Label>
-          <C.HelperText>This is the helper text</C.HelperText>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Radio::Field>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="dummy-form-radio-grid-sample">
-    <div>
-      <div class="dummy-form-radio-containers-list-item__block">
-        <Hds::Form::Radio::Field as |C|>
-          <C.Label>This is the label text that should go on multiple lines</C.Label>
-          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
-          <C.Error>This is the error text that should go on multiple lines</C.Error>
-        </Hds::Form::Radio::Field>
-      </div>
-    </div>
-    <div>
-      <div class="dummy-form-radio-containers-list-item__flex">
-        <Hds::Form::Radio::Field as |C|>
-          <C.Label>This is the label text that should go on multiple lines</C.Label>
-          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
-          <C.Error>This is the error text that should go on multiple lines</C.Error>
-        </Hds::Form::Radio::Field>
-      </div>
-    </div>
-    <div>
-      <div class="dummy-form-radio-containers-list-item__grid">
-        <Hds::Form::Radio::Field as |C|>
-          <C.Label>This is the label text that should go on multiple lines</C.Label>
-          <C.HelperText>This is the helper text that should go on multiple lines</C.HelperText>
-          <C.Error>This is the error text that should go on multiple lines</C.Error>
-        </Hds::Form::Radio::Field>
-      </div>
-    </div>
+  <div class="dummy-form-radio-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-radio-containers__{{display}}">
+            <Hds::Form::Radio::Field as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Radio::Field>
+          </div>
+          <br />
+          <div class="dummy-form-radio-containers__{{display}}">
+            <Hds::Form::Radio::Field as |F|>
+              <F.Label>This is the label text that should go on multiple lines</F.Label>
+              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+              <F.Error as |E|>
+                <E.message>This is the first error text</E.message>
+                <E.message>This is the second error text that should go on multiple lines</E.message>
+              </F.Error>
+            </Hds::Form::Radio::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
   </div>
 
   <h4 class="dummy-h4">"Group" of controls</h4>
@@ -204,14 +181,14 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
+        <G.Radio::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -220,17 +197,17 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
-          <C.HelperText>Helper text for control #1</C.HelperText>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
+        <G.Radio::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -238,14 +215,14 @@
       <span class="dummy-text-small">Without legend</span>
       <br />
       <Hds::Form::Radio::Group as |G|>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
+        <G.Radio::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -253,17 +230,17 @@
       <span class="dummy-text-small">Without Legend / With helper text</span>
       <br />
       <Hds::Form::Radio::Group as |G|>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #1</C.Label>
-          <C.HelperText>Helper text for control #1</C.HelperText>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
+        <G.Radio::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -272,18 +249,18 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #1</C.Label>
-          <C.Error>Error for control #1</C.Error>
+        <G.Radio::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.Error>Error for control #1</F.Error>
         </G.Radio::Field>
-        <G.Radio::Field @isInvalid={{true}} checked="checked" as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
-          <C.Error>Error for control #2</C.Error>
+        <G.Radio::Field @isInvalid={{true}} checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
+          <F.Error>Error for control #2</F.Error>
         </G.Radio::Field>
-        <G.Radio::Field as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Radio::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -292,16 +269,16 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #1</C.Label>
+        <G.Radio::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #2</C.Label>
-          <C.HelperText>Helper text for control #2</C.HelperText>
+        <G.Radio::Field checked="checked" @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field @isInvalid={{true}} as |C|>
-          <C.Label>Label of control #3</C.Label>
-          <C.HelperText>Helper text for control #3</C.HelperText>
+        <G.Radio::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
         <G.Error>Error for the group</G.Error>
       </Hds::Form::Radio::Group>
@@ -313,28 +290,28 @@
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Radio::Field as |C|>
-      <C.Label>Label of control #1</C.Label>
+    <G.Radio::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" as |C|>
-      <C.Label>Label of control #2</C.Label>
+    <G.Radio::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field as |C|>
-      <C.Label>Label of control #3</C.Label>
+    <G.Radio::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
   <span class="dummy-text-small">Without legend</span>
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
-    <G.Radio::Field as |C|>
-      <C.Label>Label of control #1</C.Label>
+    <G.Radio::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" as |C|>
-      <C.Label>Label of control #2</C.Label>
+    <G.Radio::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field as |C|>
-      <C.Label>Label of control #3</C.Label>
+    <G.Radio::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
@@ -342,14 +319,14 @@
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Radio::Field @isInvalid={{true}} as |C|>
-      <C.Label>Label of control #1</C.Label>
+    <G.Radio::Field @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" @isInvalid={{true}} as |C|>
-      <C.Label>Label of control #2</C.Label>
+    <G.Radio::Field checked="checked" @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field @isInvalid={{true}} as |C|>
-      <C.Label>Label of control #3</C.Label>
+    <G.Radio::Field @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
     <G.Error>Error for the group</G.Error>
   </Hds::Form::Radio::Group>
@@ -359,23 +336,23 @@
   <div class="dummy-form-radio-max-width-container">
     <Hds::Form::Radio::Group @layout="horizontal" as |G|>
       <G.Legend>Lorem ipsum dolor</G.Legend>
-      <G.Radio::Field as |C|>
-        <C.Label>Sit amet</C.Label>
+      <G.Radio::Field as |F|>
+        <F.Label>Sit amet</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field checked="checked" as |C|>
-        <C.Label>Consectetur adipiscing</C.Label>
+      <G.Radio::Field checked="checked" as |F|>
+        <F.Label>Consectetur adipiscing</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field as |C|>
-        <C.Label>Elit</C.Label>
+      <G.Radio::Field as |F|>
+        <F.Label>Elit</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field as |C|>
-        <C.Label>Pellentesque erat</C.Label>
+      <G.Radio::Field as |F|>
+        <F.Label>Pellentesque erat</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field as |C|>
-        <C.Label>Lacinia</C.Label>
+      <G.Radio::Field as |F|>
+        <F.Label>Lacinia</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field checked="checked" as |C|>
-        <C.Label>At magna</C.Label>
+      <G.Radio::Field checked="checked" as |F|>
+        <F.Label>At magna</F.Label>
       </G.Radio::Field>
     </Hds::Form::Radio::Group>
   </div>

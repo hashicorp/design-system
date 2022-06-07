@@ -19,15 +19,22 @@
   width: min-content;
 }
 
-.dummy-form-radio-containers-list-item__block {
+.dummy-form-radio-containers {
+  align-items: start;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dummy-form-radio-containers__block {
   display: block;
 }
 
-.dummy-form-radio-containers-list-item__flex {
+.dummy-form-radio-containers__flex {
   display: flex;
 }
 
-.dummy-form-radio-containers-list-item__grid {
+.dummy-form-radio-containers__grid {
   display: grid;
 }
 
@@ -40,6 +47,7 @@
 
   strong, span {
     display: block;
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
     padding: 0 10px;
     margin: 10px 0;
   }
@@ -51,5 +59,4 @@
     justify-content: center;
     padding: 10px;
   }
-
 }
