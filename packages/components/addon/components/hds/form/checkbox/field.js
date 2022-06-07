@@ -29,7 +29,7 @@ export default class HdsFormCheckboxFieldComponent extends Component {
     // we just need a class for the layout
     let classes = ['hds-form-field--flag-layout'];
 
-    // add a class based on the @contextualClass argument
+    // add a class based on the @_contextualClass argument
     // notice: this will *not* be documented for public use
     // the reason for this is that the contextual component declarations don't pass attributes to the component
     if (this.args._contextualClass) {
