@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import { guid } from '../utils/guid';
 import { describedBy } from '../utils/describedby';
 
-export default class HdsFormTextareaIndexComponent extends Component {
+export default class HdsFormTextareaFieldComponent extends Component {
   /**
    * Calculates the unique ID to assign to the form control
    */
@@ -26,14 +26,14 @@ export default class HdsFormTextareaIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-form-textarea'];
+    // we just need a class for the layout
+    let classes = ['hds-form-field--vertical-layout'];
 
-    // add typographic classes
-    classes.push('hds-typography-body-200', 'hds-font-weight-regular');
-
-    // add a class based on the @isInvalid argument
-    if (this.args.isInvalid) {
-      classes.push(`hds-form-textarea--is-invalid`);
+    // add a class based on the @_contextualClass argument
+    // notice: this will *not* be documented for public use
+    // the reason for this is that the contextual component declarations don't pass attributes to the component
+    if (this.args._contextualClass) {
+      classes.push(this.args._contextualClass);
     }
 
     return classes.join(' ');

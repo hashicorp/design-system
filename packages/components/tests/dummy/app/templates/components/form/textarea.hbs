@@ -51,16 +51,12 @@
     <div>
       <span class="dummy-text-small">Default</span>
       <br />
-      <Hds::Form::Textarea @basic={{true}} as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::Textarea>
+      <Hds::Form::Textarea::Base />
     </div>
     <div>
       <span class="dummy-text-small">With value</span>
       <br />
-      <Hds::Form::Textarea @basic={{true}} @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
-        <C.Label>Lorem ipsum dolor</C.Label>
-      </Hds::Form::Textarea>
+      <Hds::Form::Textarea::Base @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." />
     </div>
   </div>
   <h5 class="dummy-h5">"Field" control</h5>
@@ -68,34 +64,34 @@
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
-      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
-        <C.Label>This is the label</C.Label>
-      </Hds::Form::Textarea>
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |F|>
+        <F.Label>This is the label</F.Label>
+      </Hds::Form::Textarea::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text</span>
       <br />
-      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
-      </Hds::Form::Textarea>
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Textarea::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.Error>This is the error</C.Error>
-      </Hds::Form::Textarea>
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Textarea::Field>
     </div>
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
-        <C.Label>This is the label</C.Label>
-        <C.HelperText>This is the helper text</C.HelperText>
-        <C.Error>This is the error</C.Error>
-      </Hds::Form::Textarea>
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Textarea::Field>
     </div>
   </div>
 
@@ -106,9 +102,9 @@
       <div mock-state-value={{state}} mock-state-selector="textarea">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Textarea @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |C|>
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Textarea>
+        <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco." as |F|>
+          <F.Label>Lorem ipsum dolor</F.Label>
+        </Hds::Form::Textarea::Field>
       </div>
     {{/each}}
     <h5 class="dummy-h5 dummy-form-textarea-states-grid__title">Disabled</h5>
@@ -116,13 +112,13 @@
       <div mock-state-value={{state}} mock-state-selector="textarea">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Textarea
+        <Hds::Form::Textarea::Field
           @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
           disabled="disabled"
-          as |C|
+          as |F|
         >
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Textarea>
+          <F.Label>Lorem ipsum dolor</F.Label>
+        </Hds::Form::Textarea::Field>
       </div>
     {{/each}}
     <h5 class="dummy-h5 dummy-form-textarea-states-grid__title">Readonly</h5>
@@ -130,13 +126,13 @@
       <div mock-state-value={{state}} mock-state-selector="textarea">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Textarea
+        <Hds::Form::Textarea::Field
           @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
           readonly="readonly"
-          as |C|
+          as |F|
         >
-          <C.Label>Lorem ipsum dolor</C.Label>
-        </Hds::Form::Textarea>
+          <F.Label>Lorem ipsum dolor</F.Label>
+        </Hds::Form::Textarea::Field>
       </div>
     {{/each}}
     <h5 class="dummy-h5 dummy-form-textarea-states-grid__title">Invalid</h5>
@@ -144,14 +140,14 @@
       <div mock-state-value="{{state}}" mock-state-selector="textarea">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Form::Textarea
+        <Hds::Form::Textarea::Field
           @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco."
           @isInvalid={{true}}
-          as |C|
+          as |F|
         >
-          <C.Label>Lorem ipsum dolor</C.Label>
-          <C.Error>This is the error</C.Error>
-        </Hds::Form::Textarea>
+          <F.Label>Lorem ipsum dolor</F.Label>
+          <F.Error>This is the error</F.Error>
+        </Hds::Form::Textarea::Field>
       </div>
     {{/each}}
   </div>

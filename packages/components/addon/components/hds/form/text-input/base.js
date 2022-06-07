@@ -14,7 +14,7 @@ export const TYPES = [
   'search',
 ];
 
-export default class HdsFormTextInputIndexComponent extends Component {
+export default class HdsFormTextInputBaseComponent extends Component {
   /**
    * Sets the type of input
    *
