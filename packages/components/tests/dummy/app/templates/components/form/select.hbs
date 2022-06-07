@@ -45,8 +45,8 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  <h4 class="dummy-h4">Content</h4>
-  <h5 class="dummy-h5">"Base" control</h5>
+  <h4 class="dummy-h4">"Base" control</h4>
+  <h5 class="dummy-h6">Interaction status</h5>
   <div class="dummy-form-select-base-sample">
     <div>
       <span class="dummy-text-small">Default</span>
@@ -59,12 +59,37 @@
       </Hds::Form::Select::Base>
     </div>
   </div>
-  <br />
+  <h5 class="dummy-h6">States</h5>
+  <div class="dummy-form-select-grid-sample">
+    {{#let (array "base" "disabled" "invalid") as |variants|}}
+      {{#each variants as |variant|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
+            <br />
+            <div class="dummy-form-select-sublist" mock-state-value={{state}} mock-state-selector="select">
+              <Hds::Form::Select::Field
+                disabled={{if (eq variant "disabled") "disabled"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+                as |F|
+              >
+                <F.Options>
+                  <option>Lorem ipsum dolor</option>
+                  <option>Sine qua non est</option>
+                </F.Options>
+              </Hds::Form::Select::Field>
+            </div>
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/let}}
+  </div>
+  <h5 class="dummy-h6">Custom layout</h5>
   <div class="dummy-form-select-base-sample">
     <div>
       <span class="dummy-text-small">With custom layout</span>
       <br />
-      <div>
+      <div class="dummy-form-select-custom-layout">
         <span>Some content</span>
         <Hds::Form::Select::Base id="my-custom-select-example" as |C|>
           <C.Options>
@@ -76,8 +101,29 @@
       </div>
     </div>
   </div>
-  <h5 class="dummy-h5">"Field" control</h5>
-  <div class="dummy-form-select-base-sample">
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-select-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-select-containers__{{display}}">
+            <Hds::Form::Select::Base as |C|>
+              <C.Options>
+                <option>Lorem ipsum dolor</option>
+                <option>Sine qua non est</option>
+              </C.Options>
+            </Hds::Form::Select::Base>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+  <h4 class="dummy-h4">"Field" control</h4>
+  <h5 class="dummy-h5">Content</h5>
+  <div class="dummy-form-select-grid-sample">
     <div>
       <span class="dummy-text-small">Only label</span>
       <br />
@@ -101,6 +147,9 @@
         </F.Options>
       </Hds::Form::Select::Field>
     </div>
+  </div>
+  <br />
+  <div class="dummy-form-select-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
@@ -126,53 +175,44 @@
         <F.Error>This is the error</F.Error>
       </Hds::Form::Select::Field>
     </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Errors</span>
+      <br />
+      <Hds::Form::Select::Field as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </F.Options>
+        <F.Error as |E|>
+          <E.message>First error message</E.message>
+          <E.message>Second error message</E.message>
+        </F.Error>
+      </Hds::Form::Select::Field>
+    </div>
   </div>
-
-  <h4 class="dummy-h4">States</h4>
-  <div class="dummy-form-select-states-grid">
-    <h5 class="dummy-h5 dummy-form-select-states-grid__title">Base</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="select">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Select::Field @value="Lorem ipsum dolor" as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-          <F.Options>
-            <option>Lorem ipsum dolor</option>
-            <option>Sine qua non est</option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-select-states-grid__title">Disabled</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value={{state}} mock-state-selector="select">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Select::Field @value="Lorem ipsum dolor" disabled="disabled" as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-          <F.Options>
-            <option>Lorem ipsum dolor</option>
-            <option>Sine qua non est</option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-      </div>
-    {{/each}}
-    <h5 class="dummy-h5 dummy-form-select-states-grid__title">Invalid</h5>
-    {{#each @model.STATES as |state|}}
-      <div mock-state-value="{{state}}" mock-state-selector="select">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <Hds::Form::Select::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
-          <F.Label>Lorem ipsum dolor</F.Label>
-          <F.Error>This is the error</F.Error>
-          <F.Options>
-            <option>Lorem ipsum dolor</option>
-            <option>Sine qua non est</option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-      </div>
-    {{/each}}
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-select-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-select-containers__{{display}}">
+            <Hds::Form::Select::Field as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Options>
+                <option>Lorem ipsum dolor</option>
+                <option>Sine qua non est</option>
+              </F.Options>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Select::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
   </div>
 
 </section>
