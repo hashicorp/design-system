@@ -1,5 +1,6 @@
 <fieldset class={{this.classNames}}>
   {{yield (hash Legend=(component "hds/form/legend" _contextualClass="hds-form-group__legend"))}}
+  {{yield (hash HelperText=(component "hds/form/helper-text" _contextualClass="hds-form-group__helper-text"))}}
   <div class="hds-form-group__control-fields-wrapper">
     {{yield (hash Radio::Field=(component "hds/form/radio/field" _contextualClass="hds-form-group__control-field"))}}
   </div>

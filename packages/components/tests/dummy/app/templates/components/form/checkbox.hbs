@@ -398,18 +398,17 @@
       </Hds::Form::Checkbox::Group>
     </div>
     <div>
-      <span class="dummy-text-small">Error ("field" level)</span>
+      <span class="dummy-text-small">With helper text at group level</span>
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field @isInvalid={{true}} as |F|>
+        <G.HelperText>Helper text for the group</G.HelperText>
+        <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
-          <F.Error>Error for control #1</F.Error>
         </G.Checkbox::Field>
-        <G.Checkbox::Field @isInvalid={{true}} checked="checked" as |F|>
+        <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-          <F.Error>Error for control #2</F.Error>
         </G.Checkbox::Field>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #3</F.Label>
@@ -418,7 +417,7 @@
       </Hds::Form::Checkbox::Group>
     </div>
     <div>
-      <span class="dummy-text-small">Error ("group" level)</span>
+      <span class="dummy-text-small">With error at group level</span>
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -468,7 +467,23 @@
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
   <br />
-  <span class="dummy-text-small">With error</span>
+  <span class="dummy-text-small">With helper text at group level</span>
+  <br />
+  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.HelperText>Helper text for the group</G.HelperText>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
+  <br />
+  <span class="dummy-text-small">With error at group level</span>
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
