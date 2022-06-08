@@ -38,15 +38,20 @@
 }
 
 .dummy-form-textarea-custom-layout {
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
   width: 500px;
 
   .dummy-form-textarea-custom-layout__heading {
     background-color: #E4E4E4;
     border: 1px solid #999;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
     display: flex;
     justify-content: space-between;
     padding: 10px;
   }
+
   .dummy-form-textarea-custom-layout__control {
     width: 100%;
     border-top-left-radius: 0;
