@@ -245,18 +245,17 @@
       </Hds::Form::Radio::Group>
     </div>
     <div>
-      <span class="dummy-text-small">Error ("field" level)</span>
+      <span class="dummy-text-small">With helper text at group level</span>
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field @isInvalid={{true}} as |F|>
+        <G.HelperText>Helper text for the group</G.HelperText>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
-          <F.Error>Error for control #1</F.Error>
         </G.Radio::Field>
-        <G.Radio::Field @isInvalid={{true}} checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-          <F.Error>Error for control #2</F.Error>
         </G.Radio::Field>
         <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
@@ -265,7 +264,7 @@
       </Hds::Form::Radio::Group>
     </div>
     <div>
-      <span class="dummy-text-small">Error ("group" level)</span>
+      <span class="dummy-text-small">With error at group level</span>
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -315,7 +314,23 @@
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
-  <span class="dummy-text-small">With error</span>
+  <span class="dummy-text-small">With helper text at group level</span>
+  <br />
+  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.HelperText>Helper text for the group</G.HelperText>
+    <G.Radio::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Radio::Field>
+    <G.Radio::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Radio::Field>
+    <G.Radio::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Radio::Field>
+  </Hds::Form::Radio::Group>
+  <br />
+  <span class="dummy-text-small">With error at group level</span>
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>

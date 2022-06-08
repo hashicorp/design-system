@@ -255,18 +255,17 @@
       </Hds::Form::Toggle::Group>
     </div>
     <div>
-      <span class="dummy-text-small">Error ("field" level)</span>
+      <span class="dummy-text-small">With helper text at group level</span>
       <br />
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field @isInvalid={{true}} as |F|>
+        <G.HelperText>Helper text for the group</G.HelperText>
+        <G.Toggle::Field as |F|>
           <F.Label>Label of control #1</F.Label>
-          <F.Error>Error for control #1</F.Error>
         </G.Toggle::Field>
-        <G.Toggle::Field @isInvalid={{true}} checked="checked" as |F|>
+        <G.Toggle::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-          <F.Error>Error for control #2</F.Error>
         </G.Toggle::Field>
         <G.Toggle::Field as |F|>
           <F.Label>Label of control #3</F.Label>
@@ -275,7 +274,7 @@
       </Hds::Form::Toggle::Group>
     </div>
     <div>
-      <span class="dummy-text-small">Error ("group" level)</span>
+      <span class="dummy-text-small">With error at group level</span>
       <br />
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -325,7 +324,23 @@
     </G.Toggle::Field>
   </Hds::Form::Toggle::Group>
   <br />
-  <span class="dummy-text-small">With error</span>
+  <span class="dummy-text-small">With helper text at group level</span>
+  <br />
+  <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.HelperText>Helper text for the group</G.HelperText>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Toggle::Field>
+  </Hds::Form::Toggle::Group>
+  <br />
+  <span class="dummy-text-small">With error at group level</span>
   <br />
   <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
