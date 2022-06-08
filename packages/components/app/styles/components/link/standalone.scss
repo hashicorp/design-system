@@ -19,6 +19,7 @@ $hds-link-standalone-border-width: 1px;
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
   display: flex;
   font-family: var(--token-typography-font-stack-text);
+  font-weight: var(--token-typography-font-weight-medium);
   justify-content: center;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
