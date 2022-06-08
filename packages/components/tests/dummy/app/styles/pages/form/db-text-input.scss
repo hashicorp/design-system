@@ -19,12 +19,6 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.dummy-form-text-input-sublist {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .dummy-form-text-input-containers {
   align-items: start;
   display: grid;
@@ -42,6 +36,13 @@
 
 .dummy-form-text-input-containers__grid {
   display: grid;
+}
+
+.dummy-form-text-input-sublist {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .dummy-form-text-input-custom-layout {

@@ -37,6 +37,13 @@
   display: grid;
 }
 
+.dummy-form-select-sublist {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .dummy-form-select-custom-layout {
   align-items: center;
   display: flex;
