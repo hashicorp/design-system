@@ -13,6 +13,7 @@
 .hds-form-field--vertical-layout {
   display: grid;
   gap: 4px;
+  width: 100%; // we want the input element to fill the parent container
 
   .hds-form-field__label {
     width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
