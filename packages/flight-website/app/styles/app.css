@@ -7,7 +7,7 @@
 @import "./typography.css";
 @import "./prism.css";
 
-@import "./components/ds-nav.css";
+@import "./components/ds-header.css";
 @import "./components/ds-footer.css";
 @import "./components/ds-icon-grid.css";
 
