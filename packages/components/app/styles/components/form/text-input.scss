@@ -15,7 +15,38 @@
 
   &[type="date"],
   &[type="time"] {
+
+    // browsers set a specific width for these controls, we want to keep it
     width: initial;
+
+    // show the native icon dimmed if disabled (hidden in Chrome)
+    &[disabled]::-webkit-calendar-picker-indicator,
+    &:disabled::-webkit-calendar-picker-indicator {
+        visibility: visible;
+        opacity: 0.5;
+    }
+
+    // show the icon if readonly
+    &[readonly]::-webkit-calendar-picker-indicator {
+        visibility: visible;
+    }
+  }
+
+  // we override the default icon with the Flight corresponding one
+  // notice: the original in Chrome has two assets, one for light and one for dark mode, and uses a special syntax, but apparently it doesn't work if used in a stylesheet
+  &[type="date"] {
+    &::-webkit-calendar-picker-indicator {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%23000'/%3e%3c/svg%3e");
+      background-position: center center;
+      background-size: 16px;
+    }
+  }
+  &[type="time"] {
+    &::-webkit-calendar-picker-indicator {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23000'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath fill-rule='evenodd' d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e");
+      background-position: center center;
+      background-size: 16px;
+    }
   }
 
   // STATUS
