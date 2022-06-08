@@ -184,6 +184,8 @@ export { IconAlignLeft24 } from './align-left-24';
 export { IconAlignLeft16 } from './align-left-16';
 export { IconAlignRight24 } from './align-right-24';
 export { IconAlignRight16 } from './align-right-16';
+export { IconApi24 } from './api-24';
+export { IconApi16 } from './api-16';
 export { IconArchive24 } from './archive-24';
 export { IconArchive16 } from './archive-16';
 export { IconArrowDown24 } from './arrow-down-24';
