@@ -1,5 +1,8 @@
 import Component from '@glimmer/component';
 
+import { guid } from '../utils/guid';
+import { describedBy } from '../utils/describedby';
+
 export default class HdsFormFieldsetIndexComponent extends Component {
   /**
    * Sets the layout of the group
@@ -10,6 +13,22 @@ export default class HdsFormFieldsetIndexComponent extends Component {
    */
   get layout() {
     return this.args.layout ?? 'vertical';
+  }
+
+  /**
+   * Calculates the unique ID to assign to the fieldset
+   */
+  get id() {
+    return guid(this);
+  }
+
+  /**
+   * Get the array of IDs for elements that relate to this fieldset.
+   * @method ariaDescribedBy
+   * @return {string} The "aria-describedby" attribute to apply to the component.
+   */
+  get ariaDescribedBy() {
+    return describedBy(this);
   }
 
   /**
