@@ -46,13 +46,19 @@
 
 .dummy-form-text-input-custom-layout {
   display: flex;
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
   align-items: center;
 
   label {
     margin-right: 10px;
   }
 
-  .dummy-form-text-input-custom-layout__prepend-text {
+  input {
+    flex: 1 1 0; // is a direct child of a flexbox and has a width of 100% so it blows up
+  }
+
+  .dummy-form-text-input-custom-layout__append-text {
     background-color: #E4E4E4;
     border: 1px solid #999;
     border-radius: 0 5px 5px 0;

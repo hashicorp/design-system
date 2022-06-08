@@ -38,18 +38,17 @@
 }
 
 .dummy-form-select-custom-layout {
-  width: 500px;
+  align-items: center;
+  display: flex;
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
+  gap: 10px;
 
-  .dummy-form-select-custom-layout__heading {
-    background-color: #E4E4E4;
-    border: 1px solid #999;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+  select {
+    flex: 1 1 0; // is a direct child of a flexbox and has a width of 100% so it blows up
   }
-  .dummy-form-select-custom-layout__control {
-    width: 100%;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+
+  button {
+    align-self: stretch;
   }
 }
