@@ -1,5 +1,18 @@
 # @hashicorp/design-system-components
 
+## 0.12.4
+
+### Patch Changes
+
+- [#343](https://github.com/hashicorp/design-system/pull/343) [`a74711c8`](https://github.com/hashicorp/design-system/commit/a74711c8c0de6843625781488ed94521c7f8cb7c) Thanks [@MelSumner](https://github.com/MelSumner)! - Fixes copy-item bug in FireFox
+
+* [#328](https://github.com/hashicorp/design-system/pull/328) [`32b36ab1`](https://github.com/hashicorp/design-system/commit/32b36ab132b3356923ef6d1f3f36c2f7036e852c) Thanks [@didoo](https://github.com/didoo)! - updated `font-weight` to `medium` for `Link::Standalone` component (to be in sync with design specs)
+
+- [#319](https://github.com/hashicorp/design-system/pull/319) [`7c96344f`](https://github.com/hashicorp/design-system/commit/7c96344f3c83baecc56daac6dfdddb809c161c1f) Thanks [@didoo](https://github.com/didoo)! - updated the `Hds::Dropdown::ListItem::Interactive` to support the `isLoading` state
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.8
+
 ## 0.12.3
 
 ### Patch Changes
@@ -72,8 +85,8 @@
 
 - [#245](https://github.com/hashicorp/design-system/pull/245) [`c6de1018`](https://github.com/hashicorp/design-system/commit/c6de101880ec1c21971e3775e1a21b6cb9e69757) Thanks [@didoo](https://github.com/didoo)! - - Added `Alert` component
   - Added `Toast` component
-- [#259](https://github.com/hashicorp/design-system/pull/259) [`478b3069`](https://github.com/hashicorp/design-system/commit/478b3069e800cf2ccefba9b5475c72b024e25d16) Thanks [@didoo](https://github.com/didoo)! - - removed autofocus on first item for `Disclosure` component (and as a result also for `Breadcrumb` and `Dropdown` components)  (🚨 Breaking)
-  - updated focus state treatment for `Dropdown` component  (🚨 Breaking)
+- [#259](https://github.com/hashicorp/design-system/pull/259) [`478b3069`](https://github.com/hashicorp/design-system/commit/478b3069e800cf2ccefba9b5475c72b024e25d16) Thanks [@didoo](https://github.com/didoo)! - - removed autofocus on first item for `Disclosure` component (and as a result also for `Breadcrumb` and `Dropdown` components) (🚨 Breaking)
+  - updated focus state treatment for `Dropdown` component (🚨 Breaking)
 
 ### Patch Changes
 
@@ -136,7 +149,7 @@
 
 ## 0.7.0
 
-### Minor Changes (Some Breaking) 
+### Minor Changes (Some Breaking)
 
 - [#150](https://github.com/hashicorp/design-system/pull/150) [`c236c159`](https://github.com/hashicorp/design-system/commit/c236c159f7d7ec6edc661710963f5733eb961edf) Thanks [@didoo](https://github.com/didoo)! - removed “box-sizing“ declarations from the components (we assume the consumers codebase already have set it to “border-box“ by default (🚨 Breaking)
 
