@@ -5,14 +5,13 @@ import { describedBy } from '../utils/describedby';
 
 export default class HdsFormFieldIndexComponent extends Component {
   /**
-   * Sets the layout of the group
+   * Sets the layout of the field
    *
    * @param layout
    * @type {enum}
-   * @default 'vertical'
    */
-  get fieldLayout() {
-    return this.args.fieldLayout ?? 'vertical';
+  get layout() {
+    return this.args.layout;
   }
 
   /**
@@ -37,8 +36,11 @@ export default class HdsFormFieldIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    // we just need a class for the layout
-    let classes = [`hds-form-field--${this.fieldLayout}-layout`];
+    let classes = [];
+
+    if (this.args.layout) {
+      classes.push(`hds-form-field--${this.layout}-layout`);
+    }
 
     // add a class based on the @_contextualClass argument
     // notice: this will *not* be documented for public use

@@ -1,16 +1,12 @@
-<div class={{this.classNames}}>
-  {{yield (hash Label=(component "hds/form/label" controlId=this.id _contextualClass="hds-form-field__label"))}}
-  {{yield
-    (hash
-      HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text")
-    )
-  }}
-  <Hds::Form::Textarea::Base
-    @value={{@value}}
-    @isInvalid={{@isInvalid}}
-    ...attributes
-    id={{this.id}}
-    aria-describedby={{this.ariaDescribedBy}}
-  />
-  {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-field__error"))}}
-</div>
+<Hds::Form::Field @layout="vertical" as |F|>
+  {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
+  <F.TextControl as |C|>
+    <Hds::Form::Textarea::Base
+      @value={{@value}}
+      @isInvalid={{@isInvalid}}
+      ...attributes
+      id={{C.id}}
+      aria-describedby={{C.ariaDescribedBy}}
+    />
+  </F.TextControl>
+</Hds::Form::Field>

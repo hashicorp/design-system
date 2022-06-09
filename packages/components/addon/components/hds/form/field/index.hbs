@@ -1,33 +1,13 @@
 <div class={{this.classNames}}>
-  {{#if (eq @fieldType "checkbox") }}
-    <Hds::Form::Checkbox::Base
-      class="hds-form-field__control"
-      @isInvalid={{@isInvalid}}
-      ...attributes
-      id={{this.id}}
-      aria-describedby={{this.ariaDescribedBy}}
-    />
-  {{else if (eq @fieldType "radio") }}
-    <Hds::Form::Radio::Base
-      class="hds-form-field__control"
-      @isInvalid={{@isInvalid}}
-      ...attributes
-      id={{this.id}}
-      aria-describedby={{this.ariaDescribedBy}}
-    />
-  {{else if (eq @fieldType "toggle") }}
-    <Hds::Form::Toggle::Base
-      {{! template-lint-disable no-capital-arguments }}
-      @_wrapperClass="hds-form-field__control"
-      @isInvalid={{@isInvalid}}
-      ...attributes
-      id={{this.id}}
-      aria-describedby={{this.ariaDescribedBy}}
-    />
-  {{/if}}
+  {{! OptionControls: radio, checkbox, toggle }}
+  {{yield (hash OptionControl=(component "hds/yield" isInvalid=this.isInvalid id=this.id))}}
   {{yield (hash Label=(component "hds/form/label" controlId=this.id _contextualClass="hds-form-field__label"))}}
   {{yield
-    (hash HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text"))
+    (hash
+      HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text")
+    )
   }}
+  {{! TextControls: select, text-input, textarea }}
+  {{yield (hash TextControl=(component "hds/yield" isInvalid=this.isInvalid id=this.id))}}
   {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-field__error"))}}
 </div>

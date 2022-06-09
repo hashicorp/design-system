@@ -1,8 +1,3 @@
 <Hds::Form::Fieldset @layout={{@layout}} ...attributes as |F|>
-  {{yield (hash
-    Legend=F.Legend
-    HelperText=F.HelperText
-    Radio::Field=F.Radio
-    Error=F.Error
-  )}}
+  {{yield (hash Legend=F.Legend HelperText=F.HelperText Radio::Field=F.Radio Error=F.Error)}}
 </Hds::Form::Fieldset>

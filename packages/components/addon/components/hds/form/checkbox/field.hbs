@@ -1,12 +1,12 @@
-<Hds::Form::Field
-  @isInvalid={{@isInvalid}}
-  @fieldType="checkbox"
-  @fieldLayout="flag"
-  ...attributes
-as |F|>
-  {{yield (hash
-    Label=F.Label
-    HelperText=F.HelperText
-    Error=F.Error
-  )}}
+<Hds::Form::Field @layout="flag" as |F|>
+  <F.OptionControl as |C|>
+    <Hds::Form::Checkbox::Base
+      class="hds-form-field__control"
+      @isInvalid={{@isInvalid}}
+      ...attributes
+      id={{C.id}}
+      aria-describedby={{C.ariaDescribedBy}}
+    />
+  </F.OptionControl>
+  {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
 </Hds::Form::Field>
