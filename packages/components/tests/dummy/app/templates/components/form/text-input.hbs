@@ -196,6 +196,20 @@
                 readonly={{if (eq variant "readonly") "readonly"}}
                 @isInvalid={{if (eq variant "invalid") true}}
               />
+              <Hds::Form::TextInput::Base
+                @type="date"
+                @value="Lorem ipsum dolor"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                @type="time"
+                @value="Lorem ipsum dolor"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
             </div>
           </div>
         {{/each}}
