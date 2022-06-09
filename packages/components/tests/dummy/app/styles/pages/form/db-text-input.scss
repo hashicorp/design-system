@@ -36,13 +36,13 @@
 
 .dummy-form-text-input-containers__grid {
   display: grid;
+  justify-items: start;
 }
 
 .dummy-form-text-input-sublist {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  > * + * {
+    margin-top: 0.5rem;
+  }
 }
 
 .dummy-form-text-input-custom-layout {

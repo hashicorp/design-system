@@ -13,6 +13,7 @@
 .hds-form-field--vertical-layout {
   display: grid;
   gap: 4px;
+  justify-items: start;
   width: 100%; // we want the input element to fill the parent container
 
   .hds-form-field__label {
@@ -37,6 +38,7 @@
     "control label"
     "control helper-text"
     "control error";
+  justify-items: start;
 
   .hds-form-field__control {
     grid-area: control;
