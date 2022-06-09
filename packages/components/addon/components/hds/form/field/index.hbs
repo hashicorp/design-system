@@ -1,5 +1,5 @@
 <div class={{this.classNames}}>
-  {{#if (eq @type "checkbox") }}
+  {{#if (eq @fieldType "checkbox") }}
     <Hds::Form::Checkbox::Base
       class="hds-form-field__control"
       @isInvalid={{@isInvalid}}
@@ -7,7 +7,7 @@
       id={{this.id}}
       aria-describedby={{this.ariaDescribedBy}}
     />
-  {{else if (eq @type "radio") }}
+  {{else if (eq @fieldType "radio") }}
     <Hds::Form::Radio::Base
       class="hds-form-field__control"
       @isInvalid={{@isInvalid}}
@@ -15,7 +15,7 @@
       id={{this.id}}
       aria-describedby={{this.ariaDescribedBy}}
     />
-  {{else if (eq @type "toggle") }}
+  {{else if (eq @fieldType "toggle") }}
     <Hds::Form::Toggle::Base
       {{! template-lint-disable no-capital-arguments }}
       @_wrapperClass="hds-form-field__control"

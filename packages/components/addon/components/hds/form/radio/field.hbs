@@ -1,16 +1,11 @@
-<div class={{this.classNames}}>
-  <Hds::Form::Radio::Base
-    class="hds-form-field__control"
-    @isInvalid={{@isInvalid}}
-    ...attributes
-    id={{this.id}}
-    aria-describedby={{this.ariaDescribedBy}}
-  />
-  {{yield (hash Label=(component "hds/form/label" controlId=this.id _contextualClass="hds-form-field__label"))}}
-  {{yield
-    (hash
-      HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text")
-    )
-  }}
-  {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-field__error"))}}
-</div>
+<Hds::Form::Field
+  @isInvalid={{@isInvalid}}
+  @fieldType="radio"
+  ...attributes
+as |F|>
+  {{yield (hash
+    Label=F.Label
+    HelperText=F.HelperText
+    Error=F.Error
+  )}}
+</Hds::Form::Field>
