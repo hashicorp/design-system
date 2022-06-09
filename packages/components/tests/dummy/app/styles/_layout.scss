@@ -12,6 +12,7 @@
       '. aside main .'
       'footer footer footer footer';
     grid-template-rows: auto 1fr auto;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     grid-template-columns:
       1fr
       minmax(12em, var(--aside-width))
