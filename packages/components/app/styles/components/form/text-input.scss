@@ -20,7 +20,7 @@
 
   &:hover,
   &.mock-hover {
-    --border-color: var(--token-color-palette-neutral-500);
+    border-color: var(--token-color-palette-neutral-500);
   }
 
   // focus (same for all the states)
