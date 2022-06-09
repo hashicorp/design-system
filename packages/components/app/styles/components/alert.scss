@@ -23,6 +23,8 @@
   .hds-alert--type-compact & {
     height: 14px;
     width: 14px;
+    margin-right: 8px;
+    margin-top: 2px; // notice: the icon size for the "compact" type is 14px, not 20px, so this 2px extra are needed to reach the exact same height as the "description" text line-height
   }
 }
 
@@ -171,11 +173,6 @@
 }
 
 .hds-alert--type-compact {
-  .hds-alert__icon {
-    margin-right: 8px;
-    margin-top: 2px; // notice: the icon size for the "compact" type is 14px, not 20px, so this 2px extra are needed to reach the exact same height as the "description" text line-height
-  }
-
   // extra safety
   .hds-alert__title {
     display: none;
