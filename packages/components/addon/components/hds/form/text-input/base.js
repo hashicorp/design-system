@@ -8,10 +8,10 @@ export const TYPES = [
   'text',
   'email',
   'password',
-  'date',
-  'time',
   'url',
   'search',
+  'date',
+  'time',
 ];
 
 export default class HdsFormTextInputBaseComponent extends Component {

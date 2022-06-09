@@ -8,7 +8,9 @@
   />
   {{yield (hash Label=(component "hds/form/label" controlId=this.id _contextualClass="hds-form-field__label"))}}
   {{yield
-    (hash HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text"))
+    (hash
+      HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text")
+    )
   }}
   {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-field__error"))}}
 </div>
