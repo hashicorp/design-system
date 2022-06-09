@@ -23,15 +23,19 @@
 .dummy-header {
   grid-area: header;
 }
+
 .dummy-aside {
   grid-area: aside;
 }
+
 .dummy-main {
   grid-area: aside/aside/main/main;
 }
+
 .dummy-aside + .dummy-main {
   grid-area: main;
 }
+
 .dummy-footer {
   grid-area: footer;
 }

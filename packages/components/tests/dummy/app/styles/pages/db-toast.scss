@@ -31,8 +31,9 @@
 }
 
 .dummy-toast-sample-custom-actions__text {
-  @include dummyFontFamily();
+  @include dummyFontFamily;
   @include dummyFontSize(0.8rem);
+
   display: block;
   color: #999;
   margin-top: 1rem;

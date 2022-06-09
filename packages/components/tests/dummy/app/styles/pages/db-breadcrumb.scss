@@ -1,26 +1,26 @@
 // BREADCRUMB
 
 .dummy-breadcrumb-max-width-container-small {
-    width: 350px;
-    outline: 1px dotted lightgray;
+  width: 350px;
+  outline: 1px dotted lightgray;
 
-    & + & {
-        margin-top: 20px;
-    }
+  & + & {
+    margin-top: 20px;
+  }
 }
 
 .dummy-breadcrumb-max-width-container-large {
-    max-width: 900px;
-    outline: 1px dotted lightgray;
+  max-width: 900px;
+  outline: 1px dotted lightgray;
 
-    & + & {
-        margin-top: 20px;
-    }
+  & + & {
+    margin-top: 20px;
+  }
 }
 
 .dummy-breadcrumb-sample-with-truncation-dropdown {
-    min-height: 200px;
-    outline: 1px dotted lightgray;
-    width: fit-content;
-    padding-right: 50px;
+  min-height: 200px;
+  outline: 1px dotted lightgray;
+  width: fit-content;
+  padding-right: 50px;
 }

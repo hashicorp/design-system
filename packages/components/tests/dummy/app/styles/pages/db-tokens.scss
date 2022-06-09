@@ -1,122 +1,124 @@
 // TOKENS
 
 .dummy-tokens-list {
-    max-width: 600px;
-    width: 100%;
+  max-width: 600px;
+  width: 100%;
 }
 
 .dummy-token {
-    @include dummyFontFamily();
-    border-top: 1px dotted #ccc;
-    font-size: 1rem;
-    line-height: 1;
+  @include dummyFontFamily;
 
-    &:last-child {
-        border-bottom: 1px dotted #ccc;
-    }
+  border-top: 1px dotted #ccc;
+  font-size: 1rem;
+  line-height: 1;
 
-    &.dummy-token--is-expanded {
-        background-color: #fafafa;
-    }
+  &:last-child {
+    border-bottom: 1px dotted #ccc;
+  }
+
+  &.dummy-token--is-expanded {
+    background-color: #fafafa;
+  }
 }
 
-.dummy-token__summary { // it's a button
-    align-items: center;
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    font-size: inherit;
-    font-family: inherit;
-    padding: 10px 30px 10px 10px;
-    position: relative;
-    text-align: left;
-    width: 100%;
+.dummy-token__summary {
+  // it's a button
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 10px 30px 10px 10px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+
+  &::after {
+    content: '▲';
+    height: 30px;
+    line-height: 30px;
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    transform: rotate(180deg);
+    width: 30px;
+  }
+
+  .dummy-token--is-expanded & {
+    background-color: #eceff1;
 
     &::after {
-        content: '▲';
-        height: 30px;
-        line-height: 30px;
-        opacity: 0.3;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        transform: rotate(180deg);
-        width: 30px;
-   }
-
-   .dummy-token--is-expanded & {
-        background-color: #eceff1;
-
-        &::after {
-            transform: none;
-        }
+      transform: none;
     }
+  }
 }
 
 .dummy-token__name {
-    color: #000000;
-    flex: 1 0 60%;
-    margin: 0;
-    min-width: 0;
-    padding: 5px 20px 5px 0;
+  color: #000;
+  flex: 1 0 60%;
+  margin: 0;
+  min-width: 0;
+  padding: 5px 20px 5px 0;
 
-    .dummy-token--is-deprecated & {
-        color: #cccccc;
-        text-decoration: line-through;
-    }
+  .dummy-token--is-deprecated & {
+    color: #ccc;
+    text-decoration: line-through;
+  }
 }
 
 .dummy-token__asterisk {
-    font-size: 0.8125rem;
-    opacity: 0.5;
+  font-size: 0.8125rem;
+  opacity: 0.5;
 }
 
 .dummy-token__value {
-    color: #666666;
-    display: flex;
+  color: #666;
+  display: flex;
 }
 
 .dummy-token__color {
-    background-color: currentColor;
-    box-shadow: inset 0 0 1px 0 rgb(0 0 0 / 25%);
-    height: 20px;
-    margin-right: 10px;
-    width: 20px;
+  background-color: currentcolor;
+  box-shadow: inset 0 0 1px 0 rgb(0 0 0 / 25%);
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
 }
 
 .dummy-token__details {
-    display: none;
+  display: none;
 
-    .dummy-token--is-expanded & {
-        display: block;
-
-   }
+  .dummy-token--is-expanded & {
+    display: block;
+  }
 }
 
 .dummy-token__details-table {
-    font-family: monospace;
-    font-size: 0.9rem;
-    padding: 10px 10px 10px 15px;
-    text-align: left;
-    width: 100%;
+  font-family: monospace;
+  font-size: 0.9rem;
+  padding: 10px 10px 10px 15px;
+  text-align: left;
+  width: 100%;
 
-    th {
-        color: #666;
-        font-style: italic;
-        font-weight: 500;
-        padding: 5px 0 5px 0;
-        width: 150px;
-    }
+  th {
+    color: #666;
+    font-style: italic;
+    font-weight: 500;
+    padding: 5px 0;
+    width: 150px;
+  }
 
-    td {
-        padding: 5px 0 5px 0;
-    }
+  td {
+    padding: 5px 0;
+  }
 }
 
 .dummy-token__comment {
-    @include dummyFontFamily();
-    font-size: 0.9em;
+  @include dummyFontFamily;
+
+  font-size: 0.9em;
 }

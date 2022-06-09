@@ -6,7 +6,7 @@
 //
 //
 
-@use "../mixins/focus-ring" as *;
+@use '../mixins/focus-ring' as *;
 
 $hds-breadcrumb-item-height: 28px;
 $hds-breadcrumb-item-border-radius: 5px;
@@ -14,179 +14,181 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 // MAIN CONTAINER (NAV)
 .hds-breadcrumb {
-    position: relative;
+  position: relative;
 }
 
 // LIST (OL)
 
 .hds-breadcrumb__list {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    .hds-breadcrumb--items-can-wrap & {
-        flex-wrap: wrap;
-    }
+  .hds-breadcrumb--items-can-wrap & {
+    flex-wrap: wrap;
+  }
 }
 
 .hds-breadcrumb__sublist {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 // ITEM (LI)
 
 .hds-breadcrumb__item {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    min-width: 0;
-    position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+  position: relative;
 
-    .hds-breadcrumb__list > & {
-        &:not(:last-child)::after {
-            color: var(--token-color-palette-neutral-300);
-            content: "/";
-            padding: 0 8px;
-        }
+  .hds-breadcrumb__list > & {
+    &:not(:last-child)::after {
+      color: var(--token-color-palette-neutral-300);
+      content: '/';
+      padding: 0 8px;
     }
+  }
 
-    .hds-breadcrumb__sublist > & + & {
-        margin-top: 4px;
-    }
+  .hds-breadcrumb__sublist > & + & {
+    margin-top: 4px;
+  }
 }
 
 .hds-breadcrumb__item--is-truncation {
-    flex: none; // needed to avoid that the "flex" parent collapses the truncation element (it happens with very long strings and no-wrapping)
+  flex: none; // needed to avoid that the "flex" parent collapses the truncation element (it happens with very long strings and no-wrapping)
 }
 
 // LINK (A)
 
 .hds-breadcrumb__link {
-    align-items: center;
-    border-radius: $hds-breadcrumb-item-border-radius;
-    color: var(--token-color-foreground-faint);
-    display: flex;
-    flex-direction: row;
-    margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
-    min-width: 0;
-    padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-    // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
-    text-decoration-color: transparent;
+  align-items: center;
+  border-radius: $hds-breadcrumb-item-border-radius;
+  color: var(--token-color-foreground-faint);
+  display: flex;
+  flex-direction: row;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
+  min-width: 0;
+  padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
 
-    &:hover,
-    &.mock-hover {
-        color: var(--token-color-palette-neutral-600);
+  // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
+  text-decoration-color: transparent;
 
-        > .hds-breadcrumb__text {
-            text-decoration-color: currentColor;
-        }
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-palette-neutral-600);
+
+    > .hds-breadcrumb__text {
+      text-decoration-color: currentcolor;
     }
+  }
 
-    // we apply the focus directly to the element, without using a pseudo-element
-    @include hds-focus-ring-basic();
+  // we apply the focus directly to the element, without using a pseudo-element
+  @include hds-focus-ring-basic;
 
-    &:active,
-    &.mock-active {
-        color: var(--token-color-foreground-secondary);
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-secondary);
 
-        > .hds-breadcrumb__text {
-            text-decoration-color: currentColor;
-        }
+    > .hds-breadcrumb__text {
+      text-decoration-color: currentcolor;
     }
+  }
 }
 
 // CURRENT
 
 .hds-breadcrumb__current {
-    align-items: center;
-    color: var(--token-color-foreground-strong);
-    display: flex;
-    flex-direction: row;
-    margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
-    min-width: 0;
-    padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
+  align-items: center;
+  color: var(--token-color-foreground-strong);
+  display: flex;
+  flex-direction: row;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
+  min-width: 0;
+  padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
 }
 
 // SUB-ELEMENTS
 
 .hds-breadcrumb__icon {
-    flex: none;
-    margin-right: 6px;
-    height: 13px;
-    width: 13px;
+  flex: none;
+  margin-right: 6px;
+  height: 13px;
+  width: 13px;
 }
 
 .hds-breadcrumb__text {
-    font-family: var(--token-typography-font-stack-text);
-    font-size: 0.8125rem; // 13px
-    line-height: 1rem; // 16px
-    overflow: hidden;
-    // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
-    padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  font-family: var(--token-typography-font-stack-text);
+  font-size: 0.8125rem; // 13px
+  line-height: 1rem; // 16px
+  overflow: hidden;
 
-    .hds-breadcrumb__sublist & {
-        white-space: normal;
-    }
+  // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
+  padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .hds-breadcrumb__sublist & {
+    white-space: normal;
+  }
 }
 
 // TRUNCATION
 
 .hds-breadcrumb__truncation-toggle {
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid transparent; // We need this to be transparent for a11y
-    border-radius: $hds-breadcrumb-item-border-radius;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent; // We need this to be transparent for a11y
+  border-radius: $hds-breadcrumb-item-border-radius;
+  color: var(--token-color-foreground-faint);
+  cursor: pointer;
+  display: flex;
+  flex: none;
+  height: $hds-breadcrumb-item-height;
+  justify-content: center;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
+  outline: none; // TODO check with @melanie
+  padding: 0;
+  width: $hds-breadcrumb-item-height;
+
+  &:hover,
+  &.mock-hover {
+    border-color: var(--token-color-border-strong);
     color: var(--token-color-foreground-faint);
-    cursor: pointer;
-    display: flex;
-    flex: none;
-    height: $hds-breadcrumb-item-height;
-    justify-content: center;
-    margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
-    outline: none; // TODO check with @melanie
-    padding: 0;
-    width: $hds-breadcrumb-item-height;
+  }
 
-    &:hover,
-    &.mock-hover {
-        border-color: var(--token-color-border-strong);
-        color: var(--token-color-foreground-faint);
-    }
+  // we apply the focus directly to the element, without using a pseudo-element
+  @include hds-focus-ring-basic;
 
-    // we apply the focus directly to the element, without using a pseudo-element
-    @include hds-focus-ring-basic();
+  &:focus,
+  &.mock-focus {
+    background-color: transparent;
+    border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
+  }
 
-    &:focus,
-    &.mock-focus {
-        background-color: transparent;
-        border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
-    }
-
-    &:active,
-    &.mock-active {
-        background-color: var(--token-color-surface-interactive-active);
-        border-color: var(--token-color-border-strong);
-        color: var(--token-color-foreground-primary);
-    }
+  &:active,
+  &.mock-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+    color: var(--token-color-foreground-primary);
+  }
 }
 
 .hds-breadcrumb__truncation-content {
-    background-color: var(--token-color-surface-primary);
-    border-radius: 6px;
-    box-shadow: var(--token-surface-high-box-shadow);
-    left: -$hds-breadcrumb-item-visual-horizontal-padding;
-    margin-top: 4px;
-    max-width: 200px; // by design
-    padding: 6px 12px;
-    position: absolute;
-    top: 100%;
-    width: max-content;
-    z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
+  background-color: var(--token-color-surface-primary);
+  border-radius: 6px;
+  box-shadow: var(--token-surface-high-box-shadow);
+  left: -$hds-breadcrumb-item-visual-horizontal-padding;
+  margin-top: 4px;
+  max-width: 200px; // by design
+  padding: 6px 12px;
+  position: absolute;
+  top: 100%;
+  width: max-content;
+  z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
 }

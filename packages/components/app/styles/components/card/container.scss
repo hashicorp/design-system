@@ -5,9 +5,7 @@
 //
 //
 
-
-$hds-card-container-levels: ( 'base', 'mid', 'high' );
-
+$hds-card-container-levels: ('base', 'mid', 'high');
 $hds-card-container-border-radius: 6px;
 
 .hds-card__container {
@@ -15,7 +13,6 @@ $hds-card-container-border-radius: 6px;
   border-radius: $hds-card-container-border-radius;
   position: relative;
 }
-
 
 // BACKGROUND
 
@@ -26,7 +23,6 @@ $hds-card-container-border-radius: 6px;
 .hds-card__container--background-neutral-secondary {
   background-color: var(--token-color-surface-faint);
 }
-
 
 // OVERFLOW
 
