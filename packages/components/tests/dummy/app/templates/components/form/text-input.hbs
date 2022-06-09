@@ -9,23 +9,32 @@
 
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api">§</a> Component API</h3>
-  <p class="dummy-paragraph" id="component-api-form-text-input">
-    Here is the API for the component:
-  </p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input">
-    <dt>basic <code>boolean</code></dt>
-    <dd>
-      <p>Controls if the generated control is
-        <strong>"basic"</strong>
-        (only the
-        <code class="dummy-code">&lt;Input&gt;</code>
-        control) or a
-        <strong>"field"</strong>
-        (this is the default: the
-        <code class="dummy-code">&lt;Input&gt;</code>
-        control, with label, helper text and error, plus a wrapping container).</p>
-      <p>Default: <span class="default">false</span></p>
-    </dd>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Form::TextInput</code>
+    component has different variants, with their own APIs:</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::TextInput::Base</code>
+      - the "basic" component: just the
+      <code class="dummy-code">&lt;input&gt;</code>
+      control
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::TextInput::Field</code>
+      - the "field" parent component: the
+      <code class="dummy-code">&lt;input&gt;</code>
+      control, with label, helper text and error messaging (in a wrapping container)
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::TextInput::Group</code>
+      - the "group" parent component: a
+      <code class="dummy-code">&lt;legend&gt;</code>
+      (optional), a list of fields, and error messaging
+    </li>
+  </ul>
+  <h4 class="dummy-h4">TextInput::Base</h4>
+  <p class="dummy-paragraph" id="component-api-form-checkbox-base">Here is the API for the "base" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox-base">
     <dt>type <code>enum</code></dt>
     <dd>
       <p>
@@ -55,24 +64,121 @@
       <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;input&gt;</code>
+          has a
+          <code class="dummy-code">width</code>
+          of
+          <code class="dummy-code">100%</code>
+          applied to it, so it fills the parent container. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width.</em></p>
+    </dd>
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
       <p><em>Notice: the attributes will be applied to the
-          <code class="dummy-code">&lt;Input&gt;</code>
-          element, both for the "field" and "basic". This means you can use all the standard Ember techniques for event
-          handling, validation, etc.</em></p>
+          <code class="dummy-code">&lt;input&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">readonly</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
     </dd>
   </dl>
-
-  <h4 class="dummy-h4">Contextual components</h4>
-  <p class="dummy-paragraph" id="contextual-components-alert">Label, helper text and error content are passed into the
-    control as yielded components, using the
+  <h4 class="dummy-h4">TextInput::Field</h4>
+  <p class="dummy-paragraph" id="component-api-form-checkbox-field">Here is the API for the "field" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox-field">
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the native HTML
+        <code class="dummy-code">type</code>
+        of the
+        <code class="dummy-code">&lt;input&gt;</code>. This list covers all the official types (see
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
+          target="_blank"
+          rel="noopener noreferrer"
+        >MDN documentation</a>)
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        {{#each @model.TYPES as |type|}}
+          <li class={{if (eq type "text") "default"}}>{{type}}</li>
+        {{/each}}
+      </ol>
+    </dd>
+    <dt>value <code>string|number|date</code></dt>
+    <dd>
+      <p>The input control's value</p>
+    </dd>
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;input&gt;</code>
+          has a
+          <code class="dummy-code">width</code>
+          of
+          <code class="dummy-code">100%</code>
+          applied to it, so it fills the parent container. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width. This width will be applied
+          <strong>only</strong>
+          to the control, not the other elements of the field.</em></p>
+    </dd>
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>The input control's ID attribute</p>
+      <p><em>Notice: by default the ID is automatically generated by the component; use this argument if you need to
+          pass a custom ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>ariaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">aria-describedby</code>
+          attribute is automatically generated by the component, using the IDs of the helper text and errors (if they're
+          present); use this argument if you need to pass an extra ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element. This means you can use all the standard Ember techniques for event handling, validation, etc.</em></p>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-checkbox-field-contextual-components">Label, helper text and error
+    content are passed to the field as yielded components, using the
     <code class="dummy-code">Label</code>,
     <code class="dummy-code">HelperText</code>,
     <code class="dummy-code">Error</code>
     keys.</p>
-  <dl class="dummy-component-props" aria-labelledby="contextual-components-alert">
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox-field-contextual-components">
     <dt>&lt;[C].Label&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>
