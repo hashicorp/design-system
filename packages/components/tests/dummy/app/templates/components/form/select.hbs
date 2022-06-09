@@ -108,13 +108,25 @@
         <div>
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
-          <div class="dummy-form-select-containers__{{display}}">
-            <Hds::Form::Select::Base as |C|>
-              <C.Options>
-                <option>Lorem ipsum dolor</option>
-                <option>Sine qua non est</option>
-              </C.Options>
-            </Hds::Form::Select::Base>
+          <div class="dummy-form-select-sublist">
+            <div class="dummy-form-select-containers__{{display}}">
+              <Hds::Form::Select::Base as |C|>
+                <C.Options>
+                  <option>Default width</option>
+                  <option>Lorem ipsum dolor</option>
+                  <option>Sine qua non est</option>
+                </C.Options>
+              </Hds::Form::Select::Base>
+            </div>
+            <div class="dummy-form-select-containers__{{display}}">
+              <Hds::Form::Select::Base @width="248px" as |C|>
+                <C.Options>
+                  <option>Custom width</option>
+                  <option>Lorem ipsum dolor</option>
+                  <option>Sine qua non est</option>
+                </C.Options>
+              </Hds::Form::Select::Base>
+            </div>
           </div>
         </div>
       {{/each}}

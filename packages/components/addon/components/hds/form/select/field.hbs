@@ -1,7 +1,15 @@
-<div class="hds-form-field--vertical-layout">
+<div class={{this.classNames}}>
   {{yield (hash Label=(component "hds/form/label" controlId=this.id))}}
   {{yield (hash HelperText=(component "hds/form/helper-text" controlId=this.id))}}
-  <Hds::Form::Select::Base ...attributes id={{this.id}} aria-describedby={{this.ariaDescribedBy}} as |S|>
+  <Hds::Form::Select::Base
+    @value={{@value}}
+    @isInvalid={{@isInvalid}}
+    @width={{@width}}
+    ...attributes
+    id={{this.id}}
+    aria-describedby={{this.ariaDescribedBy}}
+    as |S|
+  >
     {{yield (hash Options=S.Options)}}
   </Hds::Form::Select::Base>
   {{yield (hash Error=(component "hds/form/error" controlId=this.id))}}

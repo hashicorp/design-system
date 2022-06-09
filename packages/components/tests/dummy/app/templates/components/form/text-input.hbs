@@ -237,12 +237,15 @@
           <br />
           <div class="dummy-form-text-input-sublist">
             <div class="dummy-form-text-input-containers__{{display}}">
-              <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
+              <Hds::Form::TextInput::Base @value="Default width" />
             </div>
-            <div class="dummy-form-text-input-containers__block">
+            <div class="dummy-form-text-input-containers__{{display}}">
+              <Hds::Form::TextInput::Base @value="Custom width" @width="248px" />
+            </div>
+            <div class="dummy-form-text-input-containers__{{display}}">
               <Hds::Form::TextInput::Base @type="date" />
             </div>
-            <div class="dummy-form-text-input-containers__block">
+            <div class="dummy-form-text-input-containers__{{display}}">
               <Hds::Form::TextInput::Base @type="time" />
             </div>
           </div>
@@ -310,15 +313,14 @@
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
           <div class="dummy-form-text-input-containers__{{display}}">
-            <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+            <Hds::Form::TextInput::Field @value="Default width" as |F|>
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
-              <F.Error>This is the error</F.Error>
             </Hds::Form::TextInput::Field>
           </div>
           <br />
           <div class="dummy-form-text-input-containers__{{display}}">
-            <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+            <Hds::Form::TextInput::Field @value="Custom width" @width="120px" as |F|>
               <F.Label>This is the label text that should go on multiple lines</F.Label>
               <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
               <F.Error as |E|>
