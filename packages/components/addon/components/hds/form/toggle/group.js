@@ -17,7 +17,6 @@ export default class HdsFormToggleGroupComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  // TODO should the class "hds-form-group" have " a different name?
   get classNames() {
     // we just need a class for the layout
     let classes = ['hds-form-group'];
