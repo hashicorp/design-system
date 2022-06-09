@@ -128,6 +128,16 @@
     <strong>Important:</strong>
     in this case, while the correct text styling is applied to the component's container, the layout/organization of the
     content inside the component is left to the consumer.</p>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><span aria-hidden="true">⚠️</span>
+    The
+    <code class="dummy-code">&lt;label&gt;</code>
+    element is linked via
+    <code class="dummy-code">for</code>
+    attribute to the
+    <code class="dummy-code">&lt;input/select/textarea&gt;</code>
+    elements. This means it becomes an interactive element, and for this reasons it's not possible to have links inside
+    it (nested interactive elements are not accessible).
+  </p>
 
   <h4 class="dummy-h4">Form::HelperText</h4>
   <p class="dummy-paragraph">
@@ -261,13 +271,6 @@
   <span class="dummy-text-small">With simple text</span>
   <Hds::Form::Label>This is a simple label</Hds::Form::Label>
   <br />
-  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
-  <Hds::Form::Label>This is a label <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::Label>
-  <br />
-  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</span>
-  <Hds::Form::Label>This is a label
-    <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::Label>
-  <br />
   <span class="dummy-text-small">With structured content (eg. a
     <code>flex</code>
     layout and a
@@ -287,12 +290,14 @@
   <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
   <br />
   <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
-  <Hds::Form::HelperText>This is a helper text with
-    <Hds::Link::Inline @route="index">a primary link</Hds::Link::Inline>
-    and then
-    <Hds::Link::Inline @route="index" @color="secondary">a secondary link</Hds::Link::Inline>.</Hds::Form::HelperText>
+  <Hds::Form::HelperText>This is a helper text
+    <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::HelperText>
   <br />
-  <span class="dummy-text-small">With structured content (eg. distinct paragraphs)</span>
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</span>
+  <Hds::Form::HelperText>This is a helper text
+    <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. HTML tags)</span>
   <Hds::Form::HelperText>
     A helper text may contain some
     <code>&lt;code&gt;</code>
