@@ -1,0 +1,33 @@
+<div class={{this.classNames}}>
+  {{#if (eq @type "checkbox") }}
+    <Hds::Form::Checkbox::Base
+      class="hds-form-field__control"
+      @isInvalid={{@isInvalid}}
+      ...attributes
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
+    />
+  {{else if (eq @type "radio") }}
+    <Hds::Form::Radio::Base
+      class="hds-form-field__control"
+      @isInvalid={{@isInvalid}}
+      ...attributes
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
+    />
+  {{else if (eq @type "toggle") }}
+    <Hds::Form::Toggle::Base
+      {{! template-lint-disable no-capital-arguments }}
+      @_wrapperClass="hds-form-field__control"
+      @isInvalid={{@isInvalid}}
+      ...attributes
+      id={{this.id}}
+      aria-describedby={{this.ariaDescribedBy}}
+    />
+  {{/if}}
+  {{yield (hash Label=(component "hds/form/label" controlId=this.id _contextualClass="hds-form-field__label"))}}
+  {{yield
+    (hash HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-field__helper-text"))
+  }}
+  {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-field__error"))}}
+</div>
