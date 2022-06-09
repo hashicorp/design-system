@@ -7,24 +7,26 @@
 // "BARE" CONTROL
 
 .hds-form-select {
-  border-color: var(--token-color-border-strong);
+  border: 1px solid var(--token-color-palette-neutral-400);
   border-radius: 5px;
   box-shadow: var(--hds-elevation-inset-box-shadow);
-  padding: 4px;
+  font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  line-height: var(--token-typography-body-200-line-height);
+  padding: 7px;
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    --border-color: var(--token-color-border-strong);
+    border-color: var(--token-color-palette-neutral-500);
   }
 
   // focus (same for all the states)
   // TODO add handling of focus-visible
-
   &:focus,
   &.mock-focus {
-    // TODO test if it works across all browsers
+    border-color: var(--token-color-focus-action-internal);
     // Update: Safari doesn't apply a rounded border, is not
     outline: 2px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
@@ -32,7 +34,8 @@
 
   &:active,
   &.mock-active {
-    border-color: var(--token-color-palette-blue-400);
+    background-color: var(--token-color-surface-interactive-disabled);
+    border-color: var(--token-color-border-primary);
   }
 
   // DISABLED

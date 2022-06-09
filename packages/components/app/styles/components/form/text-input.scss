@@ -7,11 +7,58 @@
 // "BARE" CONTROL
 
 .hds-form-text-input {
-  border: 1px solid var(--token-color-border-strong);
+  border: 1px solid var(--token-color-palette-neutral-400);
   border-radius: 5px;
   box-shadow: var(--hds-elevation-inset-box-shadow);
-  padding: 4px;
+  font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  line-height: var(--token-typography-body-200-line-height);
+  padding: 7px;
   width: 100%;
+
+  // STATUS
+
+  &:hover,
+  &.mock-hover {
+    --border-color: var(--token-color-palette-neutral-500);
+  }
+
+  // focus (same for all the states)
+  // TODO add handling of focus-visible
+  &:focus,
+  &.mock-focus {
+    border-color: var(--token-color-focus-action-internal);
+    // Update: Safari doesn't apply a rounded border, is not
+    outline: 2px solid var(--token-color-focus-action-external);
+    outline-offset: 0px;
+  }
+
+  &:active,
+  &.mock-active {
+    border-color: var(--token-color-focus-action-internal);
+  }
+
+  // DISABLED
+
+  &:disabled {
+    background-color: var(--token-color-surface-interactive-disabled);
+    border-color: var(--token-color-border-primary);
+  }
+
+  // INVALID
+
+  &.hds-form-text-input--is-invalid {
+    border-color: var(--token-color-foreground-critical);
+  }
+}
+
+
+
+// "TYPE" CUSTOMIZATION
+
+.hds-form-text-input {
+
+  // DATE/TIME
 
   &[type="date"],
   &[type="time"] {
@@ -36,52 +83,25 @@
   // notice: the original in Chrome has two assets, one for light and one for dark mode, and uses a special syntax, but apparently it doesn't work if used in a stylesheet
   &[type="date"] {
     &::-webkit-calendar-picker-indicator {
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%23000'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e");
       background-position: center center;
       background-size: 16px;
     }
   }
   &[type="time"] {
     &::-webkit-calendar-picker-indicator {
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23000'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath fill-rule='evenodd' d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e");
       background-position: center center;
       background-size: 16px;
     }
   }
 
-  // STATUS
-
-  &:hover,
-  &.mock-hover {
-    --border-color: var(--token-color-border-strong);
-  }
-
-  // focus (same for all the states)
-  // TODO add handling of focus-visible
-
-  &:focus,
-  &.mock-focus {
-    // TODO test if it works across all browsers
-    // Update: Safari doesn't apply a rounded border, is not
-    outline: 2px solid var(--token-color-focus-action-external);
-    outline-offset: 0px;
-  }
-
-  &:active,
-  &.mock-active {
-    border-color: var(--token-color-palette-blue-400);
-  }
-
-  // DISABLED
-
-  &:disabled {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
-  }
-
-  // INVALID
-
-  &.hds-form-text-input--is-invalid {
-    border-color: var(--token-color-foreground-critical);
+  // SEARCH
+  &[type="search"] {
+    padding-left: 32px;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e");
+    background-position: 7px 50%;
+    background-size: 16px;
+    background-repeat: no-repeat;
   }
 }
