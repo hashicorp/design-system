@@ -5,6 +5,17 @@ import { describedBy } from '../utils/describedby';
 
 export default class HdsFormFieldIndexComponent extends Component {
   /**
+   * Sets the layout of the group
+   *
+   * @param layout
+   * @type {enum}
+   * @default 'vertical'
+   */
+  get fieldLayout() {
+    return this.args.fieldLayout ?? 'vertical';
+  }
+
+  /**
    * Calculates the unique ID to assign to the form control
    */
   get id() {
@@ -27,7 +38,7 @@ export default class HdsFormFieldIndexComponent extends Component {
    */
   get classNames() {
     // we just need a class for the layout
-    let classes = ['hds-form-field--flag-layout'];
+    let classes = [`hds-form-field--${this.fieldLayout}-layout`];
 
     // add a class based on the @_contextualClass argument
     // notice: this will *not* be documented for public use

@@ -2,9 +2,9 @@
   {{yield (hash Legend=(component "hds/form/legend" _contextualClass="hds-form-group__legend"))}}
   {{yield (hash HelperText=(component "hds/form/helper-text" controlId=this.id _contextualClass="hds-form-group__helper-text"))}}
   <div class="hds-form-group__control-fields-wrapper">
-    {{yield (hash Checkbox=(component "hds/form/field" fieldType="checkbox" _contextualClass="hds-form-group__control-field"))}}
-    {{yield (hash Radio=(component "hds/form/field" fieldType="radio" _contextualClass="hds-form-group__control-field"))}}
-    {{yield (hash Toggle=(component "hds/form/field" fieldType="toggle" _contextualClass="hds-form-group__control-field"))}}
+    {{yield (hash Checkbox=(component "hds/form/field" fieldType="checkbox" fieldLayout="flag" _contextualClass="hds-form-group__control-field"))}}
+    {{yield (hash Radio=(component "hds/form/field" fieldType="radio" fieldLayout="flag" _contextualClass="hds-form-group__control-field"))}}
+    {{yield (hash Toggle=(component "hds/form/field" fieldType="toggle" fieldLayout="flag" _contextualClass="hds-form-group__control-field"))}}
   </div>
   {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-group__error"))}}
 </fieldset>
