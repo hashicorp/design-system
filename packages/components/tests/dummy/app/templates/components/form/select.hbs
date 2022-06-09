@@ -9,11 +9,196 @@
 
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api">§</a> Component API</h3>
-  <p class="dummy-paragraph" id="component-api-form-select">
-    Here is the API for the component:
-  </p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-form-select">
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Form::Select</code>
+    component has different variants, with their own APIs:</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Select::Base</code>
+      - the "basic" component: just the
+      <code class="dummy-code">&lt;select&gt;</code>
+      control
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Select::Field</code>
+      - the "field" parent component: the
+      <code class="dummy-code">&lt;select&gt;</code>
+      control, with label, helper text and error messaging (in a wrapping container)
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Select::Group</code>
+      - the "group" parent component: a
+      <code class="dummy-code">&lt;legend&gt;</code>
+      (optional), a list of fields, and error messaging
+    </li>
+  </ul>
+  <h4 class="dummy-h4">Form::Select::Base</h4>
+  <p class="dummy-paragraph" id="component-api-form-text-select-base">Here is the API for the "base" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-select-base">
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;select&gt;</code>
+          has an intrinsic width based on its content. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;select&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;select&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">readonly</code>,
+          <code class="dummy-code">required</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
+    </dd>
   </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-text-select-base-contextual-components">Select's options are passed
+    to the field as yielded components, using the
+    <code class="dummy-code">Options</code>
+    key.</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-select-base-contextual-components">
+    <dt>&lt;[C].Options&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the
+        <code class="dummy-code">&lt;select&gt;</code>
+        element.</p>
+      <p>The content needs to be a set of native HTML <code class="dummy-code">&lt;option&gt;</code> elements.</p>
+    </dd>
+  </dl>
+  <h4 class="dummy-h4">Form::Select::Field</h4>
+  <p class="dummy-paragraph" id="component-api-form-text-select-field">Here is the API for the "field" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-select-field">
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;select&gt;</code>
+          has an intrinsic width based on its content. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width. This width will be applied
+          <strong>only</strong>
+          to the control, not the other elements of the field.</em></p>
+    </dd>
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>The select control's ID attribute</p>
+      <p><em>Notice: by default the ID is automatically generated by the component; use this argument if you need to
+          pass a custom ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>ariaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">aria-describedby</code>
+          attribute is automatically generated by the component, using the IDs of the helper text and errors (if they're
+          present); use this argument if you need to pass an extra ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;select&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;select&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">readonly</code>,
+          <code class="dummy-code">required</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-text-select-field-contextual-components">Options, label, helper text
+    and error content are passed to the field as yielded components, using the
+    <code class="dummy-code">Options</code>,
+    <code class="dummy-code">Label</code>,
+    <code class="dummy-code">HelperText</code>,
+    <code class="dummy-code">Error</code>
+    keys.</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-select-field-contextual-components">
+    <dt>&lt;[C].Options&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the
+        <code class="dummy-code">&lt;select&gt;</code>
+        element.</p>
+      <p>The content needs to be a set of native HTML <code class="dummy-code">&lt;option&gt;</code> elements.</p>
+    </dd>
+    <dt>&lt;[C].Label&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Label</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">for</code>
+          attribute of the label is automatically generated, using the
+          <code class="dummy-code">controlId</code>
+          value of the control.</em></p>
+    </dd>
+    <dt>&lt;[C].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::HelperText</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated, using the
+          <code class="dummy-code">controlId</code>
+          value of the control.</em></p>
+    </dd>
+    <dt>&lt;[C].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>🚧 TODO 🚧</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
+        component.</p>
+    </dd>
+  </dl>
+
 </section>
 
 <section>

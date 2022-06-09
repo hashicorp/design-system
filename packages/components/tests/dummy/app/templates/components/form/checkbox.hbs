@@ -58,7 +58,7 @@
             href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
             rel="noopener noreferrer"
           >see whole list here</a>) and some examples of Ember modifiers:
-          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "click" [do something]&rcub;&rcub;</code>,
           <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>.
         </em></p>
     </dd>
@@ -89,8 +89,23 @@
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
       <p><em>Notice: the attributes will be applied to the
-          <code class="dummy-code">&lt;input&gt;</code>
-          element. This means you can use all the standard Ember techniques for event handling, validation, etc.</em></p>
+          <code class="dummy-code">&lt;input type="checkbox"&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;input type="checkbox"&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">checked</code>,
+          <code class="dummy-code">disabled</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "click" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>.
+        </em></p>
     </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>

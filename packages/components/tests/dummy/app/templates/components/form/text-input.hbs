@@ -33,8 +33,8 @@
     </li>
   </ul>
   <h4 class="dummy-h4">Form::TextInput::Base</h4>
-  <p class="dummy-paragraph" id="component-api-form-checkbox-base">Here is the API for the "base" component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox-base">
+  <p class="dummy-paragraph" id="component-api-form-text-input-base">Here is the API for the "base" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input-base">
     <dt>type <code>enum</code></dt>
     <dd>
       <p>
@@ -57,7 +57,7 @@
     </dd>
     <dt>value <code>string|number|date</code></dt>
     <dd>
-      <p>The input control's value</p>
+      <p>The input control's value.</p>
     </dd>
     <dt>isInvalid <code>boolean</code></dt>
     <dd>
@@ -91,7 +91,8 @@
           <code class="dummy-code">value</code>,
           <code class="dummy-code">placeholder</code>,
           <code class="dummy-code">disabled</code>,
-          <code class="dummy-code">readonly</code>
+          <code class="dummy-code">readonly</code>,
+          <code class="dummy-code">required</code>
           (<a
             href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
             rel="noopener noreferrer"
@@ -103,8 +104,8 @@
     </dd>
   </dl>
   <h4 class="dummy-h4">Form::TextInput::Field</h4>
-  <p class="dummy-paragraph" id="component-api-form-checkbox-field">Here is the API for the "field" component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox-field">
+  <p class="dummy-paragraph" id="component-api-form-text-input-field">Here is the API for the "field" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input-field">
     <dt>type <code>enum</code></dt>
     <dd>
       <p>
@@ -127,7 +128,7 @@
     </dd>
     <dt>value <code>string|number|date</code></dt>
     <dd>
-      <p>The input control's value</p>
+      <p>The input control's value.</p>
     </dd>
     <dt>isInvalid <code>boolean</code></dt>
     <dd>
@@ -168,17 +169,35 @@
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
       <p><em>Notice: the attributes will be applied to the
           <code class="dummy-code">&lt;input&gt;</code>
-          element. This means you can use all the standard Ember techniques for event handling, validation, etc.</em></p>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">readonly</code>,
+          <code class="dummy-code">required</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
     </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
-  <p class="dummy-paragraph" id="component-api-form-checkbox-field-contextual-components">Label, helper text and error
+  <p class="dummy-paragraph" id="component-api-form-text-input-field-contextual-components">Label, helper text and error
     content are passed to the field as yielded components, using the
     <code class="dummy-code">Label</code>,
     <code class="dummy-code">HelperText</code>,
     <code class="dummy-code">Error</code>
     keys.</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-form-checkbox-field-contextual-components">
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input-field-contextual-components">
     <dt>&lt;[C].Label&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>

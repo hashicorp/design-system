@@ -1,5 +1,6 @@
 <div class={{this.classNames}}>
   <Hds::Form::Toggle::Base
+    {{! NOTICE: we need to use this special argument to pass a class to the wrapping element, because the ...attributes is applied to the control }}
     {{! template-lint-disable no-capital-arguments }}
     @_wrapperClass="hds-form-field__control"
     @isInvalid={{@isInvalid}}

@@ -7,7 +7,7 @@
 // "BARE" CONTROL
 
 .hds-form-textarea {
-  border-color: var(--token-color-border-strong);
+  border: 1px solid var(--token-color-palette-neutral-400);
   border-radius: 5px;
   box-shadow: var(--hds-elevation-inset-box-shadow);
   font-family: var(--token-typography-body-200-font-family);
@@ -21,29 +21,28 @@
 
   &:hover,
   &.mock-hover {
-    --border-color: var(--token-color-border-strong);
+    border-color: var(--token-color-palette-neutral-500);
   }
 
   // focus (same for all the states)
   // TODO add handling of focus-visible
-
   &:focus,
   &.mock-focus {
-    // TODO test if it works across all browsers
-    // Update: Safari doesn't apply a rounded border, is not
+    border-color: var(--token-color-focus-action-internal);
+    // TODO: Safari doesn't apply a rounded border
     outline: 2px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
   }
 
   &:active,
   &.mock-active {
-    border-color: var(--token-color-palette-blue-400);
+    border-color: var(--token-color-focus-action-internal);
   }
 
   // DISABLED
 
   &:disabled {
-    background-color: var(--token-color-surface-strong);
+    background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
   }
 

@@ -77,7 +77,7 @@ $hds-form-checkbox-control-border-radius: 3px;
   &.mock-focus:not(:checked) {
     border-color: var(--token-color-palette-blue-400);
     // TODO test if it works across all browsers
-    // Update: Safari doesn't apply a rounded border, is not
+    // TODO: Safari doesn't apply a rounded border
     outline: 2px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
 

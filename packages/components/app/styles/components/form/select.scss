@@ -28,7 +28,7 @@
   &:focus,
   &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
-    // Update: Safari doesn't apply a rounded border, is not
+    // TODO: Safari doesn't apply a rounded border
     outline: 2px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
   }
