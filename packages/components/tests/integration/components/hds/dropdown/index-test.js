@@ -34,7 +34,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
         <dd.Description @text="description" id="test-list-item-description" />
-        <dd.Generic id="test-list-item-generic" />
+        <dd.Generic>
+          <div id="test-list-item-generic" />
+        </dd.Generic>
         <dd.Interactive @route="components.dropdown" @text="interactive" id="test-list-item-interactive" />
         <dd.Separator id="test-list-item-separator" />
         <dd.Title @text="title" id="test-list-item-title" />
