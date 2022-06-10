@@ -26,11 +26,11 @@ export default class HdsFormHelperTextIndexComponent extends Component {
     // add typographic classes
     classes.push('hds-typography-body-100', 'hds-font-weight-regular');
 
-    // add a class based on the @_contextualClass argument
+    // add a class based on the @contextualClass argument
     // notice: this will *not* be documented for public use
     // the reason for this is that the contextual component declarations don't pass attributes to the component
-    if (this.args._contextualClass) {
-      classes.push(this.args._contextualClass);
+    if (this.args.contextualClass) {
+      classes.push(this.args.contextualClass);
     }
 
     return classes.join(' ');
