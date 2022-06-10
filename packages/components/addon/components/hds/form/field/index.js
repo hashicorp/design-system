@@ -51,7 +51,7 @@ export default class HdsFormFieldIndexComponent extends Component {
     let classes = [];
 
     if (this.args.layout) {
-      classes.push(`hds-form-field--${this.layout}-layout`);
+      classes.push(`hds-form-field--layout-${this.layout}`);
     }
 
     // add a class based on the @contextualClass argument

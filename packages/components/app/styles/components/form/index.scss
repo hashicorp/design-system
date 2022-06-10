@@ -2,11 +2,13 @@
 // FORM > INDEX
 //
 
-@use "./common";
 
 @use "./label";
 @use "./helper-text";
 @use "./error";
+@use "./field";
+@use "./legend";
+@use "./group";
 
 @use "./text-input";
 @use "./textarea";
@@ -14,6 +16,3 @@
 @use "./checkbox";
 @use "./radio";
 @use "./toggle";
-
-@use "./legend";
-@use "./group";
