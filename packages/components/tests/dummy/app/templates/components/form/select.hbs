@@ -350,7 +350,7 @@
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Select::Field as |F|>
+      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.Options>
           <option>Lorem ipsum dolor</option>
@@ -362,7 +362,7 @@
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Select::Field as |F|>
+      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Options>
@@ -375,7 +375,7 @@
     <div>
       <span class="dummy-text-small">Label + Helper text + Errors</span>
       <br />
-      <Hds::Form::Select::Field as |F|>
+      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Options>
@@ -397,7 +397,7 @@
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
           <div class="dummy-form-select-containers__{{display}}">
-            <Hds::Form::Select::Field as |F|>
+            <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
               <F.Options>

@@ -311,7 +311,11 @@
     <div>
       <span class="dummy-text-small">Label + Error</span>
       <br />
-      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+      <Hds::Form::Textarea::Field
+        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        @isInvalid={{true}}
+        as |F|
+      >
         <F.Label>This is the label</F.Label>
         <F.Error>This is the error</F.Error>
       </Hds::Form::Textarea::Field>
@@ -319,7 +323,11 @@
     <div>
       <span class="dummy-text-small">Label + Helper text + Error</span>
       <br />
-      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+      <Hds::Form::Textarea::Field
+        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        @isInvalid={{true}}
+        as |F|
+      >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error>This is the error</F.Error>
@@ -328,7 +336,7 @@
     <div>
       <span class="dummy-text-small">Label + Helper text + Errors</span>
       <br />
-      <Hds::Form::Textarea::Field as |F|>
+      <Hds::Form::Textarea::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error as |E|>
@@ -346,7 +354,11 @@
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
           <div class="dummy-form-textarea-containers__{{display}}">
-            <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+            <Hds::Form::Textarea::Field
+              @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+              @isInvalid={{true}}
+              as |F|
+            >
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
               <F.Error>This is the error</F.Error>

@@ -3,16 +3,27 @@ import Component from '@glimmer/component';
 import { guid } from '../utils/guid';
 import { describedBy } from '../utils/describedby';
 
-export default class HdsFormToggleFieldComponent extends Component {
+export default class HdsFormFieldsetIndexComponent extends Component {
   /**
-   * Calculates the unique ID to assign to the form control
+   * Sets the layout of the group
+   *
+   * @param layout
+   * @type {enum}
+   * @default 'vertical'
+   */
+  get layout() {
+    return this.args.layout ?? 'vertical';
+  }
+
+  /**
+   * Calculates the unique ID to assign to the fieldset
    */
   get id() {
     return guid(this);
   }
 
   /**
-   * Get the array of IDs for elements that relate to this form control.
+   * Get the array of IDs for elements that relate to this fieldset.
    * @method ariaDescribedBy
    * @return {string} The "aria-describedby" attribute to apply to the component.
    */
@@ -27,14 +38,10 @@ export default class HdsFormToggleFieldComponent extends Component {
    */
   get classNames() {
     // we just need a class for the layout
-    let classes = ['hds-form-field--flag-layout'];
+    let classes = ['hds-form-group'];
 
-    // add a class based on the @_contextualClass argument
-    // notice: this will *not* be documented for public use
-    // the reason for this is that the contextual component declarations don't pass attributes to the component
-    if (this.args._contextualClass) {
-      classes.push(this.args._contextualClass);
-    }
+    // add a class based on the @layout argument
+    classes.push(`hds-form-group--layout-${this.layout}`);
 
     return classes.join(' ');
   }
