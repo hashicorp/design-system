@@ -1,6 +1,6 @@
 <div class={{this.classNames}}>
   {{! OptionControls: radio, checkbox, toggle }}
-  {{yield (hash OptionControl=(component "hds/yield" isInvalid=this.isInvalid id=this.id))}}
+  {{yield (hash OptionControl=(component "hds/yield") isInvalid=this.isInvalid id=this.id)}}
   {{yield (hash Label=(component "hds/form/label" controlId=this.id _contextualClass="hds-form-field__label"))}}
   {{yield
     (hash
@@ -8,6 +8,6 @@
     )
   }}
   {{! TextControls: select, text-input, textarea }}
-  {{yield (hash TextControl=(component "hds/yield" isInvalid=this.isInvalid id=this.id))}}
+  {{yield (hash TextControl=(component "hds/yield") isInvalid=this.isInvalid id=this.id)}}
   {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-field__error"))}}
 </div>
