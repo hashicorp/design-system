@@ -1,17 +1,29 @@
 import Component from '@glimmer/component';
 
+import { assert } from '@ember/debug';
 import { guid } from '../utils/guid';
 import { describedBy } from '../utils/describedby';
+
+export const LAYOUT_TYPES = ['vertical', 'flag'];
 
 export default class HdsFormFieldIndexComponent extends Component {
   /**
    * Sets the layout of the field
    *
    * @param layout
-   * @type {enum}
+   * @type {string}
    */
   get layout() {
-    return this.args.layout;
+    let { layout } = this.args;
+
+    assert(
+      `@type for "Hds::Form::Field" must be one of the following: ${LAYOUT_TYPES.join(
+        ', '
+      )}, received: ${layout}`,
+      LAYOUT_TYPES.includes(layout)
+    );
+
+    return layout;
   }
 
   /**
