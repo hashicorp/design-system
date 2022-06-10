@@ -1,16 +1,16 @@
 <Hds::Form::Field @layout="vertical" as |F|>
   {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
-  <F.TextControl as |C|>
+  <F.Control>
     <Hds::Form::Select::Base
       @value={{@value}}
       @isInvalid={{@isInvalid}}
       @width={{@width}}
       ...attributes
-      id={{C.id}}
-      aria-describedby={{C.ariaDescribedBy}}
+      id={{F.id}}
+      aria-describedby={{F.ariaDescribedBy}}
       as |S|
     >
       {{yield (hash Options=S.Options)}}
     </Hds::Form::Select::Base>
-  </F.TextControl>
+  </F.Control>
 </Hds::Form::Field>
