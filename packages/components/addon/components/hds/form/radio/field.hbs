@@ -1,4 +1,4 @@
-<Hds::Form::Field @layout="flag" as |F|>
+<Hds::Form::Field @layout="flag" @contextualClass={{@contextualClass}} as |F|>
   {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
     <Hds::Form::Radio::Base
