@@ -163,11 +163,11 @@ body.dummy-app {
 // notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
 // so we had to rely on this specific custom media query
 
-@media only percy {
+// @media only percy {
   header,
   aside,
   footer,
   main section:not([data-test-percy]) {
     display: none !important;
   }
-}
+// }
