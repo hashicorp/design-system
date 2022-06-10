@@ -8,7 +8,6 @@
   <div class="hds-form-group__control-fields-wrapper">
     {{yield (hash Checkbox=(component "hds/form/checkbox/field" contextualClass="hds-form-group__control-field"))}}
     {{yield (hash Radio=(component "hds/form/radio/field" contextualClass="hds-form-group__control-field"))}}
-    {{yield (hash Toggle=(component "hds/form/toggle/field" contextualClass="hds-form-group__control-field"))}}
   </div>
   {{yield (hash Error=(component "hds/form/error" controlId=this.id _contextualClass="hds-form-group__error"))}}
 </fieldset>
