@@ -330,35 +330,6 @@
       </Hds::Form::Checkbox::Field>
     </div>
   </div>
-  <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-checkbox-containers">
-    {{#let (array "block" "flex" "grid") as |displays|}}
-      {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-form-checkbox-containers__{{display}}">
-            <Hds::Form::Checkbox::Field as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Error>This is the error</F.Error>
-            </Hds::Form::Checkbox::Field>
-          </div>
-          <br />
-          <div class="dummy-form-checkbox-containers__{{display}}">
-            <Hds::Form::Checkbox::Field as |F|>
-              <F.Label>This is the label text that should go on multiple lines</F.Label>
-              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-              <F.Error as |E|>
-                <E.message>This is the first error text</E.message>
-                <E.message>This is the second error text that should go on multiple lines</E.message>
-              </F.Error>
-            </Hds::Form::Checkbox::Field>
-          </div>
-        </div>
-      {{/each}}
-    {{/let}}
-  </div>
 
   <h4 class="dummy-h4">"Group" of controls</h4>
   <h5 class="dummy-h5">Vertical layout</h5>
@@ -436,17 +407,15 @@
       <br />
       <Hds::Form::Checkbox::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.HelperText>Helper text for the group</G.HelperText>
+        <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Checkbox::Field>
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #3</F.Label>
-          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
     </div>
@@ -460,13 +429,11 @@
         </G.Checkbox::Field>
         <G.Checkbox::Field checked="checked" @isInvalid={{true}} as |F|>
           <F.Label>Label of control #2</F.Label>
-          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
         <G.Checkbox::Field @isInvalid={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
-        <G.Error>Error for the group</G.Error>
+        <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Checkbox::Group>
     </div>
   </div>
@@ -505,7 +472,7 @@
   <br />
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.HelperText>Helper text for the group</G.HelperText>
+    <G.HelperText>Helper text for the entire group</G.HelperText>
     <G.Checkbox::Field as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Checkbox::Field>
@@ -530,7 +497,7 @@
     <G.Checkbox::Field @isInvalid={{true}} as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
-    <G.Error>Error for the group</G.Error>
+    <G.Error>Error for the entire group</G.Error>
   </Hds::Form::Checkbox::Group>
   <br />
   <span class="dummy-text-small">With controls on multiple lines</span>

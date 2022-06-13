@@ -334,35 +334,6 @@
       </Hds::Form::Radio::Field>
     </div>
   </div>
-  <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-radio-containers">
-    {{#let (array "block" "flex" "grid") as |displays|}}
-      {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-form-radio-containers__{{display}}">
-            <Hds::Form::Radio::Field as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Error>This is the error</F.Error>
-            </Hds::Form::Radio::Field>
-          </div>
-          <br />
-          <div class="dummy-form-radio-containers__{{display}}">
-            <Hds::Form::Radio::Field as |F|>
-              <F.Label>This is the label text that should go on multiple lines</F.Label>
-              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-              <F.Error as |E|>
-                <E.message>This is the first error text</E.message>
-                <E.message>This is the second error text that should go on multiple lines</E.message>
-              </F.Error>
-            </Hds::Form::Radio::Field>
-          </div>
-        </div>
-      {{/each}}
-    {{/let}}
-  </div>
 
   <h4 class="dummy-h4">"Group" of controls</h4>
   <h5 class="dummy-h5">Vertical layout</h5>
@@ -372,13 +343,28 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-01" as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |F|>
+        <G.Radio::Field name="control-vertical-01" checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-01" as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without legend</span>
+      <br />
+      <Hds::Form::Radio::Group as |G|>
+        <G.Radio::Field name="control-vertical-02" as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Radio::Field>
+        <G.Radio::Field name="control-vertical-02" checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Radio::Field>
+        <G.Radio::Field name="control-vertical-02" as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -388,32 +374,17 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-03" as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |F|>
+        <G.Radio::Field name="control-vertical-03" checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-03" as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
-        </G.Radio::Field>
-      </Hds::Form::Radio::Group>
-    </div>
-    <div>
-      <span class="dummy-text-small">Without legend</span>
-      <br />
-      <Hds::Form::Radio::Group as |G|>
-        <G.Radio::Field as |F|>
-          <F.Label>Label of control #1</F.Label>
-        </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |F|>
-          <F.Label>Label of control #2</F.Label>
-        </G.Radio::Field>
-        <G.Radio::Field as |F|>
-          <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -421,15 +392,15 @@
       <span class="dummy-text-small">Without Legend / With helper text</span>
       <br />
       <Hds::Form::Radio::Group as |G|>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-04" as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |F|>
+        <G.Radio::Field name="control-vertical-04" checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-04" as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
@@ -440,17 +411,15 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.HelperText>Helper text for the group</G.HelperText>
-        <G.Radio::Field as |F|>
+        <G.HelperText>Helper text for the entire group</G.HelperText>
+        <G.Radio::Field name="control-vertical-05" as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" as |F|>
+        <G.Radio::Field name="control-vertical-05" checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field as |F|>
+        <G.Radio::Field name="control-vertical-05" as |F|>
           <F.Label>Label of control #3</F.Label>
-          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </div>
@@ -459,18 +428,16 @@
       <br />
       <Hds::Form::Radio::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field @isInvalid={{true}} as |F|>
+        <G.Radio::Field name="control-vertical-06" @isInvalid={{true}} as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field checked="checked" @isInvalid={{true}} as |F|>
+        <G.Radio::Field name="control-vertical-06" checked="checked" @isInvalid={{true}} as |F|>
           <F.Label>Label of control #2</F.Label>
-          <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field @isInvalid={{true}} as |F|>
+        <G.Radio::Field name="control-vertical-06" @isInvalid={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
-        <G.Error>Error for the group</G.Error>
+        <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Radio::Group>
     </div>
   </div>
@@ -480,13 +447,13 @@
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Radio::Field as |F|>
+    <G.Radio::Field name="control-horizontal-01" as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" as |F|>
+    <G.Radio::Field name="control-horizontal-01" checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    <G.Radio::Field name="control-horizontal-01" as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -494,13 +461,13 @@
   <span class="dummy-text-small">Without legend</span>
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
-    <G.Radio::Field as |F|>
+    <G.Radio::Field name="control-horizontal-02" as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" as |F|>
+    <G.Radio::Field name="control-horizontal-02" checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    <G.Radio::Field name="control-horizontal-02" as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -509,14 +476,14 @@
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.HelperText>Helper text for the group</G.HelperText>
-    <G.Radio::Field as |F|>
+    <G.HelperText>Helper text for the entire group</G.HelperText>
+    <G.Radio::Field name="control-horizontal-03" as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" as |F|>
+    <G.Radio::Field name="control-horizontal-03" checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    <G.Radio::Field name="control-horizontal-03" as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -525,16 +492,16 @@
   <br />
   <Hds::Form::Radio::Group @layout="horizontal" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Radio::Field @isInvalid={{true}} as |F|>
+    <G.Radio::Field name="control-horizontal-04" @isInvalid={{true}} as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field checked="checked" @isInvalid={{true}} as |F|>
+    <G.Radio::Field name="control-horizontal-04" checked="checked" @isInvalid={{true}} as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field @isInvalid={{true}} as |F|>
+    <G.Radio::Field name="control-horizontal-04" @isInvalid={{true}} as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
-    <G.Error>Error for the group</G.Error>
+    <G.Error>Error for the entire group</G.Error>
   </Hds::Form::Radio::Group>
   <br />
   <span class="dummy-text-small">With controls on multiple lines</span>
@@ -542,22 +509,22 @@
   <div class="dummy-form-radio-max-width-container">
     <Hds::Form::Radio::Group @layout="horizontal" as |G|>
       <G.Legend>Lorem ipsum dolor</G.Legend>
-      <G.Radio::Field as |F|>
+      <G.Radio::Field name="dummy-form-control-max-width" as |F|>
         <F.Label>Sit amet</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field checked="checked" as |F|>
+      <G.Radio::Field name="control-max-width" checked="checked" as |F|>
         <F.Label>Consectetur adipiscing</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field as |F|>
+      <G.Radio::Field name="control-max-width" as |F|>
         <F.Label>Elit</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field as |F|>
+      <G.Radio::Field name="control-max-width" as |F|>
         <F.Label>Pellentesque erat</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field as |F|>
+      <G.Radio::Field name="control-max-width" as |F|>
         <F.Label>Lacinia</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field checked="checked" as |F|>
+      <G.Radio::Field name="control-max-width" as |F|>
         <F.Label>At magna</F.Label>
       </G.Radio::Field>
     </Hds::Form::Radio::Group>
