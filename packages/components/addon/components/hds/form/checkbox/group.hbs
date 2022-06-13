@@ -1,3 +1,10 @@
 <Hds::Form::Fieldset @layout={{@layout}} ...attributes as |F|>
-  {{yield (hash Legend=F.Legend HelperText=F.HelperText Checkbox::Field=F.Checkbox Error=F.Error)}}
+  {{yield (hash Legend=F.Legend)}}
+  {{yield (hash HelperText=F.HelperText)}}
+  <F.Control>
+    {{yield
+      (hash Checkbox::Field=(component "hds/form/checkbox/field" contextualClass="hds-form-group__control-field"))
+    }}
+  </F.Control>
+  {{yield (hash Error=F.Error)}}
 </Hds::Form::Fieldset>
