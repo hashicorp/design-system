@@ -1,4 +1,4 @@
-<div class={{this.classNames}}>
+<div class={{this.classNames}} ...attributes>
   {{yield (hash Label=(component "hds/form/label" controlId=this.id contextualClass="hds-form-field__label"))}}
   {{yield
     (hash HelperText=(component "hds/form/helper-text" controlId=this.id contextualClass="hds-form-field__helper-text"))
