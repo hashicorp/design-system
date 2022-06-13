@@ -4,7 +4,7 @@
     (hash HelperText=(component "hds/form/helper-text" controlId=this.id contextualClass="hds-form-group__helper-text"))
   }}
   <div class="hds-form-group__control-fields-wrapper">
-    {{yield (hash Control=(component "hds/yield" contextualClass="hds-form-group__control-field"))}}
+    {{yield (hash Control=(component "hds/yield"))}}
   </div>
   {{yield (hash Error=(component "hds/form/error" controlId=this.id contextualClass="hds-form-group__error"))}}
 </fieldset>
