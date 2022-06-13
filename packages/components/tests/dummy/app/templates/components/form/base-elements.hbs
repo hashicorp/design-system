@@ -285,6 +285,10 @@
     <Hds::Form::Label>This is a very long label text that should go on multiple lines</Hds::Form::Label>
   </div>
 
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
   <h4 class="dummy-h4">Helper text</h4>
   <span class="dummy-text-small">With simple text</span>
   <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
@@ -310,6 +314,10 @@
     <Hds::Form::HelperText>This is a very long helper text that should go on multiple lines</Hds::Form::HelperText>
   </div>
 
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
   <h4 class="dummy-h4">Error</h4>
   <span class="dummy-text-small">With simple text</span>
   <Hds::Form::Error>This is a simple error message</Hds::Form::Error>
@@ -325,6 +333,10 @@
       <error.message>{{message}}</error.message>
     {{/each}}
   </Hds::Form::Error>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
 
   <h4 class="dummy-h4">Legend</h4>
   <span class="dummy-text-small">With simple text</span>
@@ -352,338 +364,402 @@
     <Hds::Form::Legend>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
   </div>
 
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
   <h4 class="dummy-h4">Field</h4>
-  <h5 class="dummy-h5">Layout</h5>
-  <div class="dummy-form-base-elements-grid-sample">
+  <button id="dummy-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>{{if
+      this.showHighlight
+      "Hide"
+      "Show"
+    }}
+    layout highlight</button>
+  <div class="{{if this.showHighlight 'dummy-form-base-elements-layout-highlight'}}">
+    <h5 class="dummy-h5">Layout</h5>
+    <div class="dummy-form-base-elements-grid-sample">
+      {{#let (array "vertical" "flag") as |layouts|}}
+        {{#each layouts as |layout|}}
+          <div>
+            <span class="dummy-text-small">"{{layout}}" layout</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Field>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
+    <br />
     {{#let (array "vertical" "flag") as |layouts|}}
       {{#each layouts as |layout|}}
-        <div>
-          <span class="dummy-text-small">"{{layout}}" layout</span>
-          <br />
-          <Hds::Form::Field @layout={{layout}} as |F|>
-            <F.Label>This is the label</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-            <F.Control>
-              {{#if (eq layout "vertical")}}
-                <DummyPlaceholder
-                  @text="control"
-                  @width="100%"
-                  @height="32"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-              {{#if (eq layout "flag")}}
-                <DummyPlaceholder
-                  @text="✔"
-                  @width="16"
-                  @height="16"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-            </F.Control>
-            <F.Error>This is the error</F.Error>
-          </Hds::Form::Field>
+        <h5 class="dummy-h5">Content / "{{layout}}" layout</h5>
+        <div class="dummy-form-base-elements-grid-sample">
+          <div>
+            <span class="dummy-text-small">Only label</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+            </Hds::Form::Field>
+          </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+            </Hds::Form::Field>
+          </div>
+        </div>
+        <div class="dummy-form-base-elements-grid-sample">
+          <div>
+            <span class="dummy-text-small">Label + Error</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Field>
+          </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text + Error</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Field>
+          </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text + Errors</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error as |E|>
+                <E.message>First error message</E.message>
+                <E.message>Second error message</E.message>
+              </F.Error>
+            </Hds::Form::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+
+    {{#let (array "vertical" "flag") as |layouts|}}
+      {{#each layouts as |layout|}}
+        <h5 class="dummy-h5">Containers / "{{layout}}" layout</h5>
+        <div class="dummy-form-base-elements-containers">
+          {{#let (array "block" "flex" "grid") as |displays|}}
+            {{#each displays as |display|}}
+              <div>
+                <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Field @layout={{layout}} as |F|>
+                    <F.Label>This is the label</F.Label>
+                    <F.HelperText>This is the helper text</F.HelperText>
+                    <F.Control>
+                      {{#if (eq layout "vertical")}}
+                        <DummyPlaceholder
+                          @text="control"
+                          @width="100%"
+                          @height="32"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                      {{#if (eq layout "flag")}}
+                        <DummyPlaceholder
+                          @text="✔"
+                          @width="16"
+                          @height="16"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                    </F.Control>
+                    <F.Error>This is the error</F.Error>
+                  </Hds::Form::Field>
+                </div>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Field @layout={{layout}} as |F|>
+                    <F.Label>This is the label text that should go on multiple lines</F.Label>
+                    <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                    <F.Control>
+                      {{#if (eq layout "vertical")}}
+                        <DummyPlaceholder
+                          @text="control"
+                          @width="100%"
+                          @height="32"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                      {{#if (eq layout "flag")}}
+                        <DummyPlaceholder
+                          @text="✔"
+                          @width="16"
+                          @height="16"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                    </F.Control>
+                    <F.Error as |E|>
+                      <E.message>This is the first error text</E.message>
+                      <E.message>This is the second error text that should go on multiple lines</E.message>
+                    </F.Error>
+                  </Hds::Form::Field>
+                </div>
+              </div>
+            {{/each}}
+          {{/let}}
         </div>
       {{/each}}
     {{/let}}
   </div>
-  <br />
-  {{#let (array "vertical" "flag") as |layouts|}}
-    {{#each layouts as |layout|}}
-      <h5 class="dummy-h5">Content / "{{layout}}" layout</h5>
-      <div class="dummy-form-base-elements-grid-sample">
-        <div>
-          <span class="dummy-text-small">Only label</span>
-          <br />
-          <Hds::Form::Field @layout={{layout}} as |F|>
-            <F.Label>This is the label text</F.Label>
-            <F.Control>
-              {{#if (eq layout "vertical")}}
-                <DummyPlaceholder
-                  @text="control"
-                  @width="100%"
-                  @height="32"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-              {{#if (eq layout "flag")}}
-                <DummyPlaceholder
-                  @text="✔"
-                  @width="16"
-                  @height="16"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-            </F.Control>
-          </Hds::Form::Field>
-        </div>
-        <div>
-          <span class="dummy-text-small">Label + Helper text</span>
-          <br />
-          <Hds::Form::Field @layout={{layout}} as |F|>
-            <F.Label>This is the label text</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-            <F.Control>
-              {{#if (eq layout "vertical")}}
-                <DummyPlaceholder
-                  @text="control"
-                  @width="100%"
-                  @height="32"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-              {{#if (eq layout "flag")}}
-                <DummyPlaceholder
-                  @text="✔"
-                  @width="16"
-                  @height="16"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-            </F.Control>
-          </Hds::Form::Field>
-        </div>
-      </div>
-      <div class="dummy-form-base-elements-grid-sample">
-        <div>
-          <span class="dummy-text-small">Label + Error</span>
-          <br />
-          <Hds::Form::Field @layout={{layout}} as |F|>
-            <F.Label>This is the label</F.Label>
-            <F.Control>
-              {{#if (eq layout "vertical")}}
-                <DummyPlaceholder
-                  @text="control"
-                  @width="100%"
-                  @height="32"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-              {{#if (eq layout "flag")}}
-                <DummyPlaceholder
-                  @text="✔"
-                  @width="16"
-                  @height="16"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-            </F.Control>
-            <F.Error>This is the error</F.Error>
-          </Hds::Form::Field>
-        </div>
-        <div>
-          <span class="dummy-text-small">Label + Helper text + Error</span>
-          <br />
-          <Hds::Form::Field @layout={{layout}} as |F|>
-            <F.Label>This is the label</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-            <F.Control>
-              {{#if (eq layout "vertical")}}
-                <DummyPlaceholder
-                  @text="control"
-                  @width="100%"
-                  @height="32"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-              {{#if (eq layout "flag")}}
-                <DummyPlaceholder
-                  @text="✔"
-                  @width="16"
-                  @height="16"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-            </F.Control>
-            <F.Error>This is the error</F.Error>
-          </Hds::Form::Field>
-        </div>
-        <div>
-          <span class="dummy-text-small">Label + Helper text + Errors</span>
-          <br />
-          <Hds::Form::Field @layout={{layout}} as |F|>
-            <F.Label>This is the label</F.Label>
-            <F.HelperText>This is the helper text</F.HelperText>
-            <F.Control>
-              {{#if (eq layout "vertical")}}
-                <DummyPlaceholder
-                  @text="control"
-                  @width="100%"
-                  @height="32"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-              {{#if (eq layout "flag")}}
-                <DummyPlaceholder
-                  @text="✔"
-                  @width="16"
-                  @height="16"
-                  @background="#eee"
-                  class="hds-form-field__control"
-                />
-              {{/if}}
-            </F.Control>
-            <F.Error as |E|>
-              <E.message>First error message</E.message>
-              <E.message>Second error message</E.message>
-            </F.Error>
-          </Hds::Form::Field>
-        </div>
-      </div>
-    {{/each}}
-  {{/let}}
 
-  {{#let (array "vertical" "flag") as |layouts|}}
-    {{#each layouts as |layout|}}
-      <h5 class="dummy-h5">Containers / "{{layout}}" layout</h5>
-      <div class="dummy-form-base-elements-containers">
-        {{#let (array "block" "flex" "grid") as |displays|}}
-          {{#each displays as |display|}}
-            <div>
-              <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-              <br />
-              <div class="dummy-form-base-elements-containers__{{display}}">
-                <Hds::Form::Field @layout={{layout}} as |F|>
-                  <F.Label>This is the label</F.Label>
-                  <F.HelperText>This is the helper text</F.HelperText>
-                  <F.Control>
-                    {{#if (eq layout "vertical")}}
-                      <DummyPlaceholder
-                        @text="control"
-                        @width="100%"
-                        @height="32"
-                        @background="#eee"
-                        class="hds-form-field__control"
-                      />
-                    {{/if}}
-                    {{#if (eq layout "flag")}}
-                      <DummyPlaceholder
-                        @text="✔"
-                        @width="16"
-                        @height="16"
-                        @background="#eee"
-                        class="hds-form-field__control"
-                      />
-                    {{/if}}
-                  </F.Control>
-                  <F.Error>This is the error</F.Error>
-                </Hds::Form::Field>
-              </div>
-              <br />
-              <div class="dummy-form-base-elements-containers__{{display}}">
-                <Hds::Form::Field @layout={{layout}} as |F|>
-                  <F.Label>This is the label text that should go on multiple lines</F.Label>
-                  <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-                  <F.Control>
-                    {{#if (eq layout "vertical")}}
-                      <DummyPlaceholder
-                        @text="control"
-                        @width="100%"
-                        @height="32"
-                        @background="#eee"
-                        class="hds-form-field__control"
-                      />
-                    {{/if}}
-                    {{#if (eq layout "flag")}}
-                      <DummyPlaceholder
-                        @text="✔"
-                        @width="16"
-                        @height="16"
-                        @background="#eee"
-                        class="hds-form-field__control"
-                      />
-                    {{/if}}
-                  </F.Control>
-                  <F.Error as |E|>
-                    <E.message>This is the first error text</E.message>
-                    <E.message>This is the second error text that should go on multiple lines</E.message>
-                  </F.Error>
-                </Hds::Form::Field>
-              </div>
-            </div>
-          {{/each}}
-        {{/let}}
-      </div>
-    {{/each}}
-  {{/let}}
+  {{! ###################### }}
 
-  <h5 class="dummy-h5">Containers / highlight layout</h5>
-  <div class="dummy-form-base-elements-containers dummy-form-base-elements-layout-highlight">
-    {{#let (array "block" "flex" "grid") as |displays|}}
-      {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          {{#let (array "vertical" "flag") as |layouts|}}
-            {{#each layouts as |layout|}}
-              <br />
-              <div class="dummy-form-base-elements-containers__{{display}}">
-                <Hds::Form::Field @layout={{layout}} as |F|>
-                  <F.Label>This is the label</F.Label>
-                  <F.HelperText>This is the helper text</F.HelperText>
-                  <F.Control>
-                    {{#if (eq layout "vertical")}}
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Fieldset</h4>
+  <button id="dummy-toggle-highlight-2" type="button" {{on "click" this.toggleHighlight}}>{{if
+      this.showHighlight
+      "Hide"
+      "Show"
+    }}
+    layout highlight</button>
+  <div class="{{if this.showHighlight 'dummy-form-base-elements-layout-highlight'}}">
+    <h5 class="dummy-h5">Layout</h5>
+    <div class="dummy-form-base-elements-fieldset-layout">
+      {{#let (array "vertical" "horizontal") as |layouts|}}
+        {{#each layouts as |layout|}}
+          <div>
+            <span class="dummy-text-small">"{{layout}}" layout</span>
+            <br />
+            <Hds::Form::Fieldset @layout={{layout}} as |F|>
+              <F.Legend>This is the legend</F.Legend>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                <DummyPlaceholder
+                  @text="field"
+                  @width="120"
+                  @height="32"
+                  @background="#eee"
+                  class="hds-form-group__control-field"
+                />
+              </F.Control>
+              <F.Control>
+                <DummyPlaceholder
+                  @text="field"
+                  @width="120"
+                  @height="32"
+                  @background="#eee"
+                  class="hds-form-group__control-field"
+                />
+              </F.Control>
+              <F.Control>
+                <DummyPlaceholder
+                  @text="field"
+                  @width="120"
+                  @height="32"
+                  @background="#eee"
+                  class="hds-form-group__control-field"
+                />
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Fieldset>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
+    {{#let (array "vertical" "horizontal") as |layouts|}}
+      {{#each layouts as |layout|}}
+        <h5 class="dummy-h5">Containers / "{{layout}}" layout</h5>
+        <div class="dummy-form-base-elements-containers">
+          {{#let (array "block" "flex" "grid") as |displays|}}
+            {{#each displays as |display|}}
+              <div>
+                <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Fieldset @layout={{layout}} as |F|>
+                    <F.Legend>This is the legend</F.Legend>
+                    <F.HelperText>This is the helper text</F.HelperText>
+                    <F.Control>
                       <DummyPlaceholder
-                        @text="control"
-                        @width="100%"
+                        @text="field"
+                        @width="120"
                         @height="32"
                         @background="#eee"
-                        class="hds-form-field__control"
+                        class="hds-form-group__control-field"
                       />
-                    {{/if}}
-                    {{#if (eq layout "flag")}}
+                    </F.Control>
+                    <F.Control>
                       <DummyPlaceholder
-                        @text="✔"
-                        @width="16"
-                        @height="16"
-                        @background="#eee"
-                        class="hds-form-field__control"
-                      />
-                    {{/if}}
-                  </F.Control>
-                  <F.Error>This is the error</F.Error>
-                </Hds::Form::Field>
-              </div>
-              <br />
-              <div class="dummy-form-base-elements-containers__{{display}}">
-                <Hds::Form::Field @layout={{layout}} as |F|>
-                  <F.Label>This is the label text that should go on multiple lines</F.Label>
-                  <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-                  <F.Control>
-                    {{#if (eq layout "vertical")}}
-                      <DummyPlaceholder
-                        @text="control"
-                        @width="100%"
+                        @text="field"
+                        @width="120"
                         @height="32"
                         @background="#eee"
-                        class="hds-form-field__control"
+                        class="hds-form-group__control-field"
                       />
-                    {{/if}}
-                    {{#if (eq layout "flag")}}
+                    </F.Control>
+                    <F.Error>This is the error</F.Error>
+                  </Hds::Form::Fieldset>
+                </div>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Fieldset @layout={{layout}} as |F|>
+                    <F.Legend>This is the legend text that should go on multiple lines</F.Legend>
+                    <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                    <F.Control>
                       <DummyPlaceholder
-                        @text="✔"
-                        @width="16"
-                        @height="16"
+                        @text="field"
+                        @width="120"
+                        @height="32"
                         @background="#eee"
-                        class="hds-form-field__control"
+                        class="hds-form-group__control-field"
                       />
-                    {{/if}}
-                  </F.Control>
-                  <F.Error as |E|>
-                    <E.message>This is the first error text</E.message>
-                    <E.message>This is the second error text that should go on multiple lines</E.message>
-                  </F.Error>
-                </Hds::Form::Field>
+                    </F.Control>
+                    <F.Control>
+                      <DummyPlaceholder
+                        @text="field"
+                        @width="120"
+                        @height="32"
+                        @background="#eee"
+                        class="hds-form-group__control-field"
+                      />
+                    </F.Control>
+                    <F.Error as |E|>
+                      <E.message>This is the first error text</E.message>
+                      <E.message>This is the second error text that should go on multiple lines</E.message>
+                    </F.Error>
+                  </Hds::Form::Fieldset>
+                </div>
               </div>
             {{/each}}
           {{/let}}

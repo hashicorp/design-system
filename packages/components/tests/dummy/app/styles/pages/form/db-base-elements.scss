@@ -43,10 +43,22 @@
   justify-items: start;
 }
 
+.dummy-form-base-elements-fieldset-layout {
+  display: flex;
+  gap: 3rem;
+}
+
 .dummy-form-base-elements-layout-highlight {
-    .hds-form-field--vertical-layout,
-    .hds-form-field--flag-layout { outline: 2px dashed #e3f2fd; }
-    .hds-form-field__label { background-color: #e3f2fd; }
-    .hds-form-field__helper-text { background-color: #e8f5e9; }
-    .hds-form-field__error { background-color: #ffebee; }
+  .hds-form-field--layout-vertical,
+  .hds-form-field--layout-flag { outline: 2px dashed #e3f2fd; }
+  .hds-form-field__label { background-color: #e3f2fd; }
+  .hds-form-field__helper-text { background-color: #e8f5e9; }
+  .hds-form-field__error { background-color: #ffebee; }
+  .hds-form-group--layout-vertical,
+  .hds-form-group--layout-horizontal {
+    outline: 2px dashed #e3f2fd;
+    .hds-form-legend { background-color: #fff8e1; }
+    .hds-form-helper-text { background-color: #e8f5e9; }
+    .hds-form-error { background-color: #ffebee; }
+  }
 }

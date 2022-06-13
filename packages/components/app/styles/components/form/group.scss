@@ -12,16 +12,13 @@
 }
 
 .hds-form-group__legend { // notice: this is a <legend> element
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   padding: 0;
 }
 
 .hds-form-group__control-fields-wrapper {
   .hds-form-group__legend + & {
     .hds-form-label {
-      // TODO
-      // - discuss with Alex Jurubita: is this the "best" way to do it?
-      // - discuss with Christian Veight: what are the design specs
       font-weight: var(--token-typography-font-weight-regular);
     }
   }
