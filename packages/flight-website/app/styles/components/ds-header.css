@@ -1,15 +1,18 @@
+header.ds-header {
+  @apply
+  flex
+  flex-nowrap
+  items-center
+  justify-between
+  md:px-32
+  sm:px-4
+}
+
 header.ds-header nav.ds-nav {
-  @apply 
-  flex 
+  @apply
+  flex
+  justify-start
   h-16
-  justify-start 
-  min-w-full
-  max-w-7xl 
-  mx-auto 
-  md:pr-8
-  md:pl-32
-  sm:px-4 
-  shadow;
 }
 
 header.ds-header nav.ds-nav ul.ds-ul {
