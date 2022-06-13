@@ -10,12 +10,19 @@
   border: 1px solid var(--token-color-palette-neutral-400);
   border-radius: 5px;
   box-shadow: var(--hds-elevation-inset-box-shadow);
+  color: var(--token-color-foreground-primary);
   font-family: var(--token-typography-body-200-font-family);
   font-size: var(--token-typography-body-200-font-size);
   line-height: var(--token-typography-body-200-line-height);
   padding: 4px 8px;
   width: 100%;
   max-width: 100%;
+
+  // PLACEHOLDER
+
+  ::placeholder {
+    color: var(--token-color-foreground-faint);
+  }
 
   // STATUS
 
