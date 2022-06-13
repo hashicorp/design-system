@@ -1,9 +1,7 @@
 <div class={{this.classNames}}>
   {{yield (hash Label=(component "hds/form/label" controlId=this.id contextualClass="hds-form-field__label"))}}
   {{yield
-    (hash
-      HelperText=(component "hds/form/helper-text" controlId=this.id contextualClass="hds-form-field__helper-text")
-    )
+    (hash HelperText=(component "hds/form/helper-text" controlId=this.id contextualClass="hds-form-field__helper-text"))
   }}
   {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
   {{yield (hash Error=(component "hds/form/error" controlId=this.id contextualClass="hds-form-field__error"))}}
