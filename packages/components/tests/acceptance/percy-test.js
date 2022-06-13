@@ -14,14 +14,14 @@ module('Acceptance | Percy test', function (hooks) {
   }
 
   test('Take percy snapshots', async function (assert) {
-    await visit('/foundations/elevation');
-    await percySnapshot('Elevation');
-
     await visit('/foundations/colors');
     await percySnapshot('Colors');
 
     await visit('/foundations/typography');
     await percySnapshot('Typography');
+
+    await visit('/foundations/elevation');
+    await percySnapshot('Elevation');
 
     await visit('/foundations/focus-ring');
     await percySnapshot('FocusRing');
@@ -32,14 +32,17 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/badge');
     await percySnapshot('Badge');
 
-    await visit('/components/button');
-    await percySnapshot('Button');
-
     await visit('/components/breadcrumb');
     await percySnapshot('Breadcrumb');
 
+    await visit('/components/button');
+    await percySnapshot('Button');
+
     await visit('/components/card');
     await percySnapshot('Card');
+
+    await visit('/components/dropdown');
+    await percySnapshot('Dropdown');
 
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
