@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import { guid } from '../utils/guid';
+import { getElementId } from '../utils/getElementId';
 import { describedBy } from '../utils/describedby';
 
 export default class HdsFormFieldsetIndexComponent extends Component {
@@ -19,7 +19,7 @@ export default class HdsFormFieldsetIndexComponent extends Component {
    * Calculates the unique ID to assign to the fieldset
    */
   get id() {
-    return guid(this);
+    return getElementId(this);
   }
 
   /**

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 import { assert } from '@ember/debug';
-import { guid } from '../utils/guid';
+import { getElementId } from '../utils/getElementId';
 import { describedBy } from '../utils/describedby';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
@@ -30,7 +30,7 @@ export default class HdsFormFieldIndexComponent extends Component {
    * Calculates the unique ID to assign to the form control
    */
   get id() {
-    return guid(this);
+    return getElementId(this);
   }
 
   /**
