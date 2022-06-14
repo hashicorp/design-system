@@ -78,6 +78,31 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
   });
+  test('it automatically provides all the ID relations between the elements with a custom @id', async function (assert) {
+    assert.expect(4);
+    await render(
+      hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" @id="my-custom-id" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          <F.Control><pre class="hds-form-field__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Error>This is the error</F.Error>
+        </Hds::Form::Field>`
+    );
+    let controlId = 'my-custom-id';
+    assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
+    assert
+      .dom('.hds-form-field__helper-text')
+      .hasAttribute('id', `helper-text-${controlId}`);
+    assert
+      .dom('.hds-form-field__control')
+      .hasAttribute(
+        'aria-describedby',
+        `helper-text-${controlId} error-${controlId}`
+      );
+    assert
+      .dom('.hds-form-field__error')
+      .hasAttribute('id', `error-${controlId}`);
+  });
 
   // ATTRIBUTES
 
