@@ -53,6 +53,19 @@
       <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;textarea&gt;</code>
+          has a
+          <code class="dummy-code">width</code>
+          of
+          <code class="dummy-code">100%</code>
+          applied to it, so it fills the parent container. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width.</em></p>
+    </dd>
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
@@ -280,7 +293,11 @@
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
           <div class="dummy-form-textarea-containers__{{display}}">
-            <Hds::Form::Textarea::Base @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" />
+            <Hds::Form::Textarea::Base @value="Default width" />
+          </div>
+          <br />
+          <div class="dummy-form-textarea-containers__{{display}}">
+            <Hds::Form::Textarea::Base @value="Custom width" @width="248px" />
           </div>
         </div>
       {{/each}}
@@ -354,11 +371,15 @@
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
           <div class="dummy-form-textarea-containers__{{display}}">
-            <Hds::Form::Textarea::Field
-              @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-              @isInvalid={{true}}
-              as |F|
-            >
+            <Hds::Form::Textarea::Field @value="Default width" @isInvalid={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Textarea::Field>
+          </div>
+          <br />
+          <div class="dummy-form-textarea-containers__{{display}}">
+            <Hds::Form::Textarea::Field @value="Custom width" @width="248px" @isInvalid={{true}} as |F|>
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
               <F.Error>This is the error</F.Error>
