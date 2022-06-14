@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 
 import { assert } from '@ember/debug';
-import { guid } from '../utils/guid';
-import { describedBy } from '../utils/describedby';
+import { getElementId } from '../utils/getElementId';
+import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
@@ -30,7 +30,7 @@ export default class HdsFormFieldIndexComponent extends Component {
    * Calculates the unique ID to assign to the form control
    */
   get id() {
-    return guid(this);
+    return getElementId(this);
   }
 
   /**
@@ -39,7 +39,7 @@ export default class HdsFormFieldIndexComponent extends Component {
    * @return {string} The "aria-describedby" attribute to apply to the component.
    */
   get ariaDescribedBy() {
-    return describedBy(this);
+    return getAriaDescribedBy(this);
   }
 
   /**

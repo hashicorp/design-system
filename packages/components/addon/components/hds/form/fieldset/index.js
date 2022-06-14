@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
-import { guid } from '../utils/guid';
-import { describedBy } from '../utils/describedby';
+import { getElementId } from '../utils/getElementId';
+import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 
 export default class HdsFormFieldsetIndexComponent extends Component {
   /**
@@ -19,7 +19,7 @@ export default class HdsFormFieldsetIndexComponent extends Component {
    * Calculates the unique ID to assign to the fieldset
    */
   get id() {
-    return guid(this);
+    return getElementId(this);
   }
 
   /**
@@ -28,7 +28,7 @@ export default class HdsFormFieldsetIndexComponent extends Component {
    * @return {string} The "aria-describedby" attribute to apply to the component.
    */
   get ariaDescribedBy() {
-    return describedBy(this);
+    return getAriaDescribedBy(this);
   }
 
   /**

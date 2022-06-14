@@ -1,6 +1,6 @@
 import { guidFor } from '@ember/object/internals';
 
-export function guid(element) {
+export function getElementId(element) {
   // use @id arg, if provided
   if (element.args.id) {
     return element.args.id;
