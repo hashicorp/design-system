@@ -1,91 +1,102 @@
 @use 'sass:math';
 
 @mixin dummyFontFamily() {
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @mixin dummyFontSize($size) {
-    font-size: $size;
-    margin-bottom: math.div($size, 4);
+  font-size: $size;
+  margin-bottom: math.div($size, 4);
 
-    &:not(:first-child) {
-        margin-top: $size;
-    }
+  &:not(:first-child) {
+    margin-top: $size;
+  }
 }
 
 // TYPOGRAPHY
 
 .dummy-h1 {
-    @include dummyFontFamily();
-    @include dummyFontSize(3rem);
-    font-weight: 700;
-    line-height: 1.2;
+  @include dummyFontFamily;
+  @include dummyFontSize(3rem);
+
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .dummy-h2 {
-    @include dummyFontFamily();
-    @include dummyFontSize(2.5rem);
-    font-weight: 600;
-    line-height: 1.2;
-    margin-top: 0.75rem; // makes it seem balanced visually with sidebar
+  @include dummyFontFamily;
+  @include dummyFontSize(2.5rem);
+
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 0.75rem; // makes it seem balanced visually with sidebar
 }
 
 .dummy-h3 {
-    @include dummyFontFamily();
-    @include dummyFontSize(2rem);
-    font-weight: 600;
-    line-height: 1.2;
+  @include dummyFontFamily;
+  @include dummyFontSize(2rem);
+
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .dummy-h4 {
-    @include dummyFontFamily();
-    @include dummyFontSize(1.5rem);
-    font-weight: 500;
-    line-height: 1.2;
+  @include dummyFontFamily;
+  @include dummyFontSize(1.5rem);
+
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .dummy-h5 {
-    @include dummyFontFamily();
-    @include dummyFontSize(1.25rem);
-    font-weight: 500;
-    line-height: 1.2;
+  @include dummyFontFamily;
+  @include dummyFontSize(1.25rem);
+
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .dummy-h6 {
-    @include dummyFontFamily();
-    @include dummyFontSize(1.125rem);
-    font-weight: 500;
-    line-height: 1.2;
+  @include dummyFontFamily;
+  @include dummyFontSize(1.125rem);
+
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .dummy-paragraph {
-    @include dummyFontFamily();
-    @include dummyFontSize(1rem);
-    line-height: 1.2;
+  @include dummyFontFamily;
+  @include dummyFontSize(1rem);
+
+  line-height: 1.2;
 }
 
 .dummy-title-small {
-    @include dummyFontFamily();
-    @include dummyFontSize(1rem);
-    font-weight: bold;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    text-transform: uppercase;
+  @include dummyFontFamily;
+  @include dummyFontSize(1rem);
+
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .dummy-text-small {
-    @include dummyFontFamily();
-    font-size: 0.8rem;
-    line-height: 2;
+  @include dummyFontFamily;
+
+  font-size: 0.8rem;
+  line-height: 2;
 }
 
 .dummy-list {
-    @include dummyFontFamily();
-    @include dummyFontSize(1rem);
-    line-height: 1.5;
+  @include dummyFontFamily;
+  @include dummyFontSize(1rem);
+
+  line-height: 1.5;
 }
 
 .dummy-table {
-    @include dummyFontFamily();
-    @include dummyFontSize(1rem);
+  @include dummyFontFamily;
+  @include dummyFontSize(1rem);
 }

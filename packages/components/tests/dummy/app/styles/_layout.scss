@@ -12,6 +12,7 @@
       '. aside main .'
       'footer footer footer footer';
     grid-template-rows: auto 1fr auto;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     grid-template-columns:
       1fr
       minmax(12em, var(--aside-width))
@@ -23,15 +24,19 @@
 .dummy-header {
   grid-area: header;
 }
+
 .dummy-aside {
   grid-area: aside;
 }
+
 .dummy-main {
   grid-area: aside/aside/main/main;
 }
+
 .dummy-aside + .dummy-main {
   grid-area: main;
 }
+
 .dummy-footer {
   grid-area: footer;
 }
