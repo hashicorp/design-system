@@ -19,6 +19,18 @@
       <code class="dummy-code">Form::Error</code>
       is the error message shown to the user in case of failed validation of the field
     </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Legend</code>
+      is the legend associated to the fieldset
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Field</code>
+      is the generic container for control, label, helper text and error messaging
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Fieldset</code>
+      is the generic container to group multiple fields with label, helper text and error messaging
+    </li>
   </ul>
 </section>
 
@@ -81,6 +93,23 @@
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-helper-error">
     <dt>🚧 TODO 🚧</dt>
+  </dl>
+
+  <h4 class="dummy-h4">Form::Legend</h4>
+  <p class="dummy-paragraph" id="component-api-form-legend">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the
+        <code class="dummy-code">&lt;legend&gt;</code>
+        element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
   </dl>
 
 </section>
@@ -240,6 +269,45 @@
       <Error.Message>{{message}}</Error.Message>
     {{/each}}
   </Hds::Form::Error>
+
+  <h4 class="dummy-h4">Form::Legend</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Legend>My legend</Hds::Form::Legend>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Legend>My legend</Hds::Form::Legend>
+  <p class="dummy-paragraph">
+    There may be cases in which the legend needs to contain more than just text. In this case it's possible to pass
+    structured content to it (it's just yielded in output):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Legend>
+        <span>Some text</span>
+        <Hds::Badge @size="small" @text="Some badge" />
+      </Hds::Form::Legend>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Legend>
+    <span>Some text</span>
+    <Hds::Badge @size="small" @text="Some badge" />
+  </Hds::Form::Legend>
+  <p class="dummy-paragraph">
+    <strong>Important:</strong>
+    in this case, while the correct text styling is applied to the component's container, the layout/organization of the
+    content inside the component is left to the consumer.</p>
 
 </section>
 
