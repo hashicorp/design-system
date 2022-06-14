@@ -225,9 +225,9 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Error @controlId="control-ID" as |error|>
+      <Hds::Form::Error @controlId="control-ID" as |Error|>
         \{{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
-          <error.message>\{{message}}</error.message>
+          <Error.Message>\{{message}}</Error.Message>
         \{{/each}}
       </Hds::Form::Error>
     '
@@ -235,9 +235,9 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Error @controlId="control-ID" as |error|>
+  <Hds::Form::Error @controlId="control-ID" as |Error|>
     {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
-      <error.message>{{message}}</error.message>
+      <Error.Message>{{message}}</Error.Message>
     {{/each}}
   </Hds::Form::Error>
 
@@ -328,9 +328,9 @@
   </div>
   <br />
   <span class="dummy-text-small">With multiple error messages</span>
-  <Hds::Form::Error as |error|>
+  <Hds::Form::Error as |Error|>
     {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
-      <error.message>{{message}}</error.message>
+      <Error.Message>{{message}}</Error.Message>
     {{/each}}
   </Hds::Form::Error>
 
@@ -558,8 +558,8 @@
                 {{/if}}
               </F.Control>
               <F.Error as |E|>
-                <E.message>First error message</E.message>
-                <E.message>Second error message</E.message>
+                <E.Message>First error message</E.Message>
+                <E.Message>Second error message</E.Message>
               </F.Error>
             </Hds::Form::Field>
           </div>
@@ -629,8 +629,8 @@
                       {{/if}}
                     </F.Control>
                     <F.Error as |E|>
-                      <E.message>This is the first error text</E.message>
-                      <E.message>This is the second error text that should go on multiple lines</E.message>
+                      <E.Message>This is the first error text</E.Message>
+                      <E.Message>This is the second error text that should go on multiple lines</E.Message>
                     </F.Error>
                   </Hds::Form::Field>
                 </div>
@@ -755,8 +755,8 @@
                       />
                     </F.Control>
                     <F.Error as |E|>
-                      <E.message>This is the first error text</E.message>
-                      <E.message>This is the second error text that should go on multiple lines</E.message>
+                      <E.Message>This is the first error text</E.Message>
+                      <E.Message>This is the second error text that should go on multiple lines</E.Message>
                     </F.Error>
                   </Hds::Form::Fieldset>
                 </div>

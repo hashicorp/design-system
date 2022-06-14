@@ -42,7 +42,7 @@ module('Integration | Component | hds/form/error/index', function (hooks) {
   test('it renders multiple error messages as contextual components', async function (assert) {
     assert.expect(2);
     await render(
-      hbs`<Hds::Form::Error id="test-form-error" as |E|><E.message>First error message</E.message><E.message>Second error message</E.message></Hds::Form::Error>`
+      hbs`<Hds::Form::Error id="test-form-error" as |E|><E.Message>First error message</E.Message><E.Message>Second error message</E.Message></Hds::Form::Error>`
     );
     assert
       .dom('#test-form-error .hds-form-error__message')
