@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import { assert } from '@ember/debug';
 import { getElementId } from '../utils/getElementId';
-import { describedBy } from '../utils/describedby';
+import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
@@ -39,7 +39,7 @@ export default class HdsFormFieldIndexComponent extends Component {
    * @return {string} The "aria-describedby" attribute to apply to the component.
    */
   get ariaDescribedBy() {
-    return describedBy(this);
+    return getAriaDescribedBy(this);
   }
 
   /**
