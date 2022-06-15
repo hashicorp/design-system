@@ -1,9 +1,18 @@
 import Component from '@glimmer/component';
-
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 import { getElementId } from '../utils/getElementId';
 import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 
 export default class HdsFormFieldsetIndexComponent extends Component {
+  @tracked ariaDescribedBy;
+
+  @action
+  didInsert(element) {
+    this.HTMLElement = element;
+    this.ariaDescribedBy = getAriaDescribedBy(this);
+  }
+
   /**
    * Sets the layout of the group
    *
@@ -20,15 +29,6 @@ export default class HdsFormFieldsetIndexComponent extends Component {
    */
   get id() {
     return getElementId(this);
-  }
-
-  /**
-   * Get the array of IDs for elements that relate to this fieldset.
-   * @method ariaDescribedBy
-   * @return {string} The "aria-describedby" attribute to apply to the component.
-   */
-  get ariaDescribedBy() {
-    return getAriaDescribedBy(this);
   }
 
   /**
