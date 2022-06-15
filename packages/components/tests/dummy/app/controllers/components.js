@@ -1,7 +1,8 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
-function replaceDummyStates() {
+function replaceMockStates() {
   document.querySelectorAll('[mock-state-value]').forEach((element) => {
     let targets;
     if (element.attributes['mock-state-selector']) {
@@ -18,10 +19,19 @@ function replaceDummyStates() {
     });
   });
 }
-
 export default class ComponentsController extends Controller {
+  @service router;
+
   constructor() {
     super(...arguments);
-    scheduleOnce('afterRender', this, replaceDummyStates);
+    this.router.on('routeDidChange', this, 'routeDidChange');
+  }
+
+  routeDidChange() {
+    scheduleOnce('afterRender', this, replaceMockStates);
+  }
+
+  willDestroy() {
+    this.router.off('routeDidChange', this, 'routeDidChange');
   }
 }
