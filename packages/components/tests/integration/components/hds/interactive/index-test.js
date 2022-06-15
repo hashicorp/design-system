@@ -62,7 +62,7 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('#test-interactive').doesNotHaveAttribute('rel');
   });
 
-  // ATTRIBUTES
+  // SPLATTRIBUTES
 
   test('it should spread all the attributes passed to the <button> element', async function (assert) {
     assert.expect(3);
