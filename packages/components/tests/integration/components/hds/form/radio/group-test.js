@@ -34,13 +34,27 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     assert.dom('.hds-form-group__legend').exists();
     assert.dom('.hds-form-group__legend').hasText('This is the legend');
     assert.dom('.hds-form-group__helper-text').exists();
-    assert.dom('.hds-form-group__helper-text').hasText('This is the group helper text');
-    assert.dom('.hds-form-group__control-fields-wrapper .hds-form-field__label').exists();
-    assert.dom('.hds-form-group__control-fields-wrapper .hds-form-field__helper-text').exists();
-    assert.dom('.hds-form-group__control-fields-wrapper .hds-form-field__control').exists();
+    assert
+      .dom('.hds-form-group__helper-text')
+      .hasText('This is the group helper text');
+    assert
+      .dom('.hds-form-group__control-fields-wrapper .hds-form-field__label')
+      .exists();
+    assert
+      .dom(
+        '.hds-form-group__control-fields-wrapper .hds-form-field__helper-text'
+      )
+      .exists();
+    assert
+      .dom('.hds-form-group__control-fields-wrapper .hds-form-field__control')
+      .exists();
     assert.dom('.hds-form-group__control-fields-wrapper input').isChecked();
-    assert.dom('.hds-form-group__control-fields-wrapper input').hasValue('abc123');
-    assert.dom('.hds-form-group__control-fields-wrapper .hds-form-field__error').exists();
+    assert
+      .dom('.hds-form-group__control-fields-wrapper input')
+      .hasValue('abc123');
+    assert
+      .dom('.hds-form-group__control-fields-wrapper .hds-form-field__error')
+      .exists();
     assert.dom('.hds-form-group__error').exists();
     assert.dom('.hds-form-group__error').hasText('This is the group error');
   });
