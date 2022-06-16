@@ -42,8 +42,7 @@
     "ember-cli-sass": "^10.0.1",
     "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
-    "sass": "^1.43.4",
-    "sinon": "^14.0.0"
+    "sass": "^1.43.4"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
