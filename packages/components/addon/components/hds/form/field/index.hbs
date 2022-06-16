@@ -1,8 +1,21 @@
-<div class={{this.classNames}} ...attributes {{did-insert this.didInsert}}>
+<div class={{this.classNames}} ...attributes>
   {{yield (hash Label=(component "hds/form/label" controlId=this.id contextualClass="hds-form-field__label"))}}
   {{yield
-    (hash HelperText=(component "hds/form/helper-text" controlId=this.id contextualClass="hds-form-field__helper-text"))
+    (hash
+      HelperText=(component
+        "hds/form/helper-text"
+        controlId=this.id
+        onInsert=this.appendDescriptors
+        contextualClass="hds-form-field__helper-text"
+      )
+    )
   }}
   {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
-  {{yield (hash Error=(component "hds/form/error" controlId=this.id contextualClass="hds-form-field__error"))}}
+  {{yield
+    (hash
+      Error=(component
+        "hds/form/error" controlId=this.id onInsert=this.appendDescriptors contextualClass="hds-form-field__error"
+      )
+    )
+  }}
 </div>

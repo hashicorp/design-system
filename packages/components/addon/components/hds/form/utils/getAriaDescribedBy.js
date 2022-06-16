@@ -1,23 +1,11 @@
-import { ID_PREFIX as ERROR_ID_PREFIX } from '../error';
-import { ID_PREFIX as HELPER_TEXT_ID_PREFIX } from '../helper-text';
-
 export function getAriaDescribedBy(element) {
   let ariaDescribedBy = [];
 
-  if (element.HTMLElement) {
-    let helperText = element.HTMLElement.querySelector(
-      `#${HELPER_TEXT_ID_PREFIX}${element.id}`
+  // append descriptor's IDs, if provided
+  if (element.descriptors) {
+    element.descriptors.forEach((descriptor) =>
+      ariaDescribedBy.push(descriptor)
     );
-    let error = element.HTMLElement.querySelector(
-      `#${ERROR_ID_PREFIX}${element.id}`
-    );
-
-    if (helperText) {
-      ariaDescribedBy.push(`${HELPER_TEXT_ID_PREFIX}${element.id}`);
-    }
-    if (error) {
-      ariaDescribedBy.push(`${ERROR_ID_PREFIX}${element.id}`);
-    }
   }
 
   // append @ariaDescribedBy arg, if provided
