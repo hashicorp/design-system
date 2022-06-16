@@ -2,7 +2,6 @@ import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import sinon from 'sinon';
 
 module('Integration | Component | hds/interactive/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -131,10 +130,12 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('button#test-interactive').hasAttribute('type', 'submit');
   });
   test('it should dispatch a click event when pressing space key on a link', async function (assert) {
-    await render(hbs`<Hds::Interactive @href="#" id="test-interactive"/>`);
-    var interactiveComponent = document.querySelector('#test-interactive');
-    var keyUpSpy = sinon.spy(interactiveComponent, 'click');
-    await triggerKeyEvent(interactiveComponent, 'keyup', ' ');
-    assert.true(keyUpSpy.calledOnce);
+    let clicked = false;
+    this.set('clickHandler', () => (clicked = true));
+    await render(
+      hbs`<div {{on "click" this.clickHandler}}><Hds::Interactive @href="javascript:;" id="test-interactive"/></div>`
+    );
+    await triggerKeyEvent('#test-interactive', 'keyup', ' ');
+    assert.ok(clicked);
   });
 });
