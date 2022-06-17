@@ -213,6 +213,26 @@
         <code class="dummy-code">Checkbox::Field</code>
         component above.</p>
     </dd>
+    <dt>&lt;[F].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::HelperText</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[F].Control&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a very simple container that yields its content. It is used to forward the "field" control inside the
+        fields' "group" control wrapper.</p>
+      <p><em>Notice: you can pass all the controls to a single
+          <code class="dummy-code">&lt;Control&gt;</code>
+          container, or you can have one control per container.</em></p>
+    </dd>
     <dt>&lt;[C].Error&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the "error" block (at group level).</p>
