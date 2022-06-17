@@ -12,7 +12,7 @@ export default class HdsFormFieldIndexComponent extends Component {
   @tracked descriptors = [];
 
   @action
-  appendDescriptors(element) {
+  appendDescriptor(element) {
     this.descriptors.push(element.id);
     this.ariaDescribedBy = getAriaDescribedBy(this);
   }
