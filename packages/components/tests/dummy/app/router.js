@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('dropdown');
     this.route('form', function () {
       this.route('base-elements');
+      this.route('text-input');
     });
     this.route('icon-tile');
     this.route('link', function () {
