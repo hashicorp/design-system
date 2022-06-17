@@ -106,7 +106,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
   });
 
-  // SPLATTRIBUTES
+  // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
     assert.expect(3);
