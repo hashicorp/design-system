@@ -3,9 +3,7 @@ export function getAriaDescribedBy(element) {
 
   // append descriptor's IDs, if provided
   if (element.descriptors) {
-    element.descriptors.forEach((descriptor) =>
-      ariaDescribedBy.push(descriptor)
-    );
+    ariaDescribedBy.concat(element.descriptors);
   }
 
   // append @extraAriaDescribedBy arg, if provided
