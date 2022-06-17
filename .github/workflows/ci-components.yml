@@ -27,29 +27,10 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Lint
         run: yarn run lint
         working-directory: packages/components
-      - name: Run Tests
-        run: yarn run test:ember:percy
-        working-directory: packages/components
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
-
-  floating:
-    name: "Floating Dependencies"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
-      - name: Install Dependencies
-        run: yarn install --no-lockfile --non-interactive
       - name: Run Tests
         run: yarn run test:ember:percy
         working-directory: packages/components
@@ -65,7 +46,7 @@ jobs:
       fail-fast: false
       matrix:
         try-scenario:
-          - ember-lts-3.24
+         # - ember-lts-3.24
           - ember-lts-3.28
           - ember-release
           - ember-beta
@@ -79,13 +60,14 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Tests
         working-directory: packages/components
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: yarn ember try:one ${{ matrix.try-scenario }}
         env:
           PERCY_ENABLE: 0
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false

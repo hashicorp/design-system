@@ -40,7 +40,23 @@ Design tokens
 - website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
-## Using ember install in the monorepo
+## Contributing
+
+### Workspaces
+
+This monorepo uses [yarn workspaces](https://yarnpkg.com/features/workspaces/) to manage dependencies for all packages.
+
+#### Adding new packages
+
+Run this command from the monorepo root:
+
+```bash
+yarn workspace <workspace-npm-package> add --dev <npm-package>
+```
+
+e.g. `yarn workspace @hashicorp/design-system-components add --dev ember-cli-flash`
+
+#### Using ember install in the monorepo
 
 Run this command from the monorepo root:
 
@@ -49,16 +65,6 @@ yarn workspace <workspace-npm-package> run ember install <npm-package>
 ```
 
 e.g. `yarn workspace @hashicorp/design-system-components run ember install ember-a11y-refocus`
-
-🚨 Note: Since we use Yarn 1, this command will install a `yarn.lock` at `packages/components`. Please manually delete that file!
-
-## Contributing
-
-### Workspaces
-
-This monorepo uses [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) to manage dependencies for all packages. New packages should be added directly to the relevant workspace's `package.json` file (such as `design-system/packages/flight-icons`) and then run `yarn` in the workspace root (`design-system`).
-
-Note: package folders such as `packages/flight-icons` should not contain a `yarn.lock` file. If one is accidentally created, please remove it and ensure you run `yarn` from the root of the monorepo.
 
 ### Changesets
 

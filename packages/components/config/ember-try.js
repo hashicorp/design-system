@@ -5,6 +5,13 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 module.exports = async function () {
   return {
+    useYarn: true,
+    // override this to avoid ember-try trying to use `--no-lockfile` which
+    // doesn't exist in yarn3
+    // see https://github.com/ember-cli/ember-try/issues/741
+    buildManagerOptions() {
+      return [''];
+    },
     scenarios: [
       {
         name: 'ember-lts-3.24',

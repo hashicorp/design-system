@@ -2,7 +2,6 @@
   "name": "@hashicorp/design-system",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
   "workspaces": [
     "./packages/*"
   ],
@@ -12,5 +11,6 @@
   },
   "scripts": {
     "release": "yarn changeset publish"
-  }
+  },
+  "packageManager": "yarn@3.2.1"
 }
