@@ -466,8 +466,15 @@
       <code class="dummy-code">controlId</code>
       is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</em></p>
   <p class="dummy-paragraph">
-    There may be cases in which the helper text needs to contain more than just text. In this case it's possible to pass
-    structured content to it (it's just yielded in output):
+    There may be some cases in which the helper text needs to contain more than just text. Note that interactive
+    elements in text (associated with the input through
+    <code class="dummy-code">aria-describedby</code>) will not be read out as interactive elements to users with screen
+    readers; only the text itself will be read. As such, it is recommended to have a screen-reader only message that
+    informs the user that some help text includes link, and extra keyboard exploration may be required.
+  </p>
+  <p class="dummy-paragraph">
+    Use the block form of the component to nest additional components as desired. Note that the correct text styling
+    will be applied to the component itself, but the nested components will need to have styling applied. For example:
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -476,7 +483,7 @@
       <Hds::Form::HelperText @controlId="control-ID">
         Some text with a
         <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
-        <code>some code</code> and a <strong>strong</strong>
+        or <code>some formatted code</code> or a <strong>strong message</strong>.
       </Hds::Form::HelperText>
     '
   />
@@ -484,15 +491,11 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Form::HelperText @controlId="control-ID">
     Some text with a
-    <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
-    <code>some code</code>
-    and a
-    <strong>strong</strong>
+    <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>, or
+    <code>some formatted code</code>
+    or a
+    <strong>strong message</strong>.
   </Hds::Form::HelperText>
-  <p class="dummy-paragraph">
-    <strong>Important:</strong>
-    in this case, while the correct text styling is applied to the component's container, the layout/organization of the
-    content inside the component is left to the consumer.</p>
 
   <h4 class="dummy-h4">Form::Error</h4>
   <p class="dummy-paragraph">
