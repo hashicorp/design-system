@@ -22,6 +22,7 @@
 @import "./pages/db-toast";
 @import "./pages/db-tokens";
 @import "./pages/db-typography";
+@import "./pages/form/db-base-elements";
 // END COMPONENT PAGES IMPORTS
 
 @import "./components/dummy-component-props";
@@ -90,7 +91,7 @@ body.dummy-app {
 }
 
 .dummy-divider {
-  margin: 4rem 0;
+  margin: 2rem 0;
 }
 .dummy-demo-border {
   border: 1px solid red;
@@ -115,7 +116,7 @@ body.dummy-app {
 
 .dummy-banner {
   padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
   border: 1px solid #d6d8db;
   border-radius: 0.25rem;
   background-color: #e2e3e5;
