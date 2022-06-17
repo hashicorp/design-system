@@ -8,9 +8,9 @@ export function getAriaDescribedBy(element) {
     );
   }
 
-  // append @ariaDescribedBy arg, if provided
-  if (element.args.ariaDescribedBy) {
-    ariaDescribedBy.push(element.args.ariaDescribedBy);
+  // append @extraAriaDescribedBy arg, if provided
+  if (element.args.extraAriaDescribedBy) {
+    ariaDescribedBy.push(element.args.extraAriaDescribedBy);
   }
   return ariaDescribedBy.join(' ');
 }
