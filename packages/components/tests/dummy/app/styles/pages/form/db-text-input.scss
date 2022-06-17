@@ -1,0 +1,72 @@
+// FORM > TEXT-INPUT
+
+.dummy-form-text-input-base-sample {
+  display: flex;
+  gap: 2rem;
+}
+
+.dummy-form-text-input-types-grid {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.dummy-form-text-input-grid-sample {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem 3rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dummy-form-text-input-containers {
+  align-items: start;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dummy-form-text-input-containers__block {
+  display: block;
+}
+
+.dummy-form-text-input-containers__flex {
+  display: flex;
+}
+
+.dummy-form-text-input-containers__grid {
+  display: grid;
+  justify-items: start;
+}
+
+.dummy-form-text-input-sublist {
+  > * + * {
+    margin-top: 0.5rem;
+  }
+}
+
+.dummy-form-text-input-custom-layout {
+  display: flex;
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
+  align-items: center;
+
+  label {
+    margin-right: 10px;
+  }
+
+  input {
+    flex: 1 1 0; // is a direct child of a flexbox and has a width of 100% so it blows up
+  }
+
+  .dummy-form-text-input-custom-layout__append-text {
+    background-color: #E4E4E4;
+    border: 1px solid #999;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    align-self: stretch;
+    margin-left: -10px;
+  }
+}
