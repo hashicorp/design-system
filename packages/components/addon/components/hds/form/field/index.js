@@ -1,12 +1,22 @@
 import Component from '@glimmer/component';
-
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 import { getElementId } from '../utils/getElementId';
 import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
 export default class HdsFormFieldIndexComponent extends Component {
+  @tracked ariaDescribedBy;
+  @tracked descriptors = [];
+
+  @action
+  appendDescriptor(element) {
+    this.descriptors.push(element.id);
+    this.ariaDescribedBy = getAriaDescribedBy(this);
+  }
+
   /**
    * Sets the layout of the field
    *
@@ -31,15 +41,6 @@ export default class HdsFormFieldIndexComponent extends Component {
    */
   get id() {
     return getElementId(this);
-  }
-
-  /**
-   * Get the array of IDs for elements that relate to this form control.
-   * @method ariaDescribedBy
-   * @return {string} The "aria-describedby" attribute to apply to the component.
-   */
-  get ariaDescribedBy() {
-    return getAriaDescribedBy(this);
   }
 
   /**

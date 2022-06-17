@@ -1,10 +1,23 @@
 <fieldset class={{this.classNames}} id={{this.id}} ...attributes aria-describedby={{this.ariaDescribedBy}}>
   {{yield (hash Legend=(component "hds/form/legend" contextualClass="hds-form-group__legend"))}}
   {{yield
-    (hash HelperText=(component "hds/form/helper-text" controlId=this.id contextualClass="hds-form-group__helper-text"))
+    (hash
+      HelperText=(component
+        "hds/form/helper-text"
+        controlId=this.id
+        onInsert=this.appendDescriptor
+        contextualClass="hds-form-group__helper-text"
+      )
+    )
   }}
   <div class="hds-form-group__control-fields-wrapper">
     {{yield (hash Control=(component "hds/yield"))}}
   </div>
-  {{yield (hash Error=(component "hds/form/error" controlId=this.id contextualClass="hds-form-group__error"))}}
+  {{yield
+    (hash
+      Error=(component
+        "hds/form/error" controlId=this.id onInsert=this.appendDescriptor contextualClass="hds-form-group__error"
+      )
+    )
+  }}
 </fieldset>
