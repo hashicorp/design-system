@@ -335,27 +335,27 @@
     </dd>
     <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
     <dd>
-      <dd>
-        <p>It is a container that yields its content inside the "error" block (at group level).</p>
-        <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
-          style).</p>
-        <dl class="dummy-component-props">
-          <dt>[E].Message <code>yielded component</code></dt>
-          <dd>
-            <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-              individual items using
-              <code class="dummy-code">Error.Message</code>.
-            </p>
-          </dd>
-        </dl>
-        <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
-        <p><em>Notice: the
+      <p>It is a container that yields its content inside the "error" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+
+      <dl class="dummy-component-props">
+        <dt>[E].Message <code>yielded component</code></dt>
+        <dd>
+          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+            individual items using
+            <code class="dummy-code">Error.Message</code>.</p>
+          <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
+          <p><em>Note:</em>
+            the
             <code class="dummy-code">id</code>
             attribute of the
             <code class="dummy-code">Error</code>
-            element is automatically generated.</em></p>
-      </dd>
+            element is automatically generated.</p>
+        </dd>
+      </dl>
     </dd>
+
     <dt>[F].id <code>function</code></dt>
     <dd>
       <p>returns the unique "id" attribute for the control element (generated automatically, unless provided using the
@@ -430,15 +430,15 @@
     <strong>Important:</strong>
     in this case, while the correct text styling is applied to the component's container, the layout/organization of the
     content inside the component is left to the consumer.</p>
-  <p class="dummy-banner dummy-banner--info dummy-paragraph"><span aria-hidden="true">⚠️</span>
-    The
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: The
     <code class="dummy-code">&lt;label&gt;</code>
     element is linked via
     <code class="dummy-code">for</code>
     attribute to the
     <code class="dummy-code">&lt;input/select/textarea&gt;</code>
-    elements. This means it becomes an interactive element, and for this reasons it's not possible to have links inside
-    it (nested interactive elements are not accessible).
+    elements. This means it becomes an interactive element, and for this reason it's not possible to have links inside
+    it (nested interactive elements cannot be reached by a user with assistive technology).
   </p>
 
   <h4 class="dummy-h4">Form::HelperText</h4>
@@ -457,14 +457,15 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
-  <p class="dummy-paragraph"><em>Notice: the
-      <code class="dummy-code">controlId</code>
-      value will be used to generate an ID, prefixed with
-      <code class="dummy-code">helper-text-</code>, so that this ID can be referenced in the
-      <code class="dummy-code">aria-describedby</code>
-      attribute of the form control. If no
-      <code class="dummy-code">controlId</code>
-      is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</em></p>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: the
+    <code class="dummy-code">controlId</code>
+    value will be used to generate an ID, prefixed with
+    <code class="dummy-code">helper-text-</code>, so that this ID can be referenced in the
+    <code class="dummy-code">aria-describedby</code>
+    attribute of the form control. If no
+    <code class="dummy-code">controlId</code>
+    is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</p>
   <p class="dummy-paragraph">
     There may be some cases in which the helper text needs to contain more than just text. First, it is important to
     note that interactive elements in text (associated with the input through
@@ -514,14 +515,15 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
-  <p class="dummy-paragraph"><em>Notice: the
-      <code class="dummy-code">controlId</code>
-      value will be used to generate an ID, prefixed with
-      <code class="dummy-code">error-</code>, so that this ID can be referenced in the
-      <code class="dummy-code">aria-describedby</code>
-      attribute of the form control. If no
-      <code class="dummy-code">controlId</code>
-      is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</em></p>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: the
+    <code class="dummy-code">controlId</code>
+    value will be used to generate an ID, prefixed with
+    <code class="dummy-code">error-</code>, so that this ID can be referenced in the
+    <code class="dummy-code">aria-describedby</code>
+    attribute of the form control. If no
+    <code class="dummy-code">controlId</code>
+    is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</p>
   <p class="dummy-paragraph">
     There may be cases in which the error is made of multiple messages. In this case it's possible to iterate over an
     collection of error messages:
@@ -587,12 +589,11 @@
     content inside the component is left to the consumer.</p>
 
   <h4 class="dummy-h4">Form::Field</h4>
-  <div class="dummy-banner dummy-banner--info">
-    <p class="dummy-paragraph"><strong>⚠️ Notice ⚠️</strong>: it's very unlikely that you will ever need to use this
-      component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use
-      it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any
-      case an example of how it can be used, but there are many more possible variants to it.</p>
-  </div>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />Note: it's very unlikely that
+    you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If
+    for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and
+    guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants
+    to it.</p>
   <p class="dummy-paragraph">
     The more general invocation for this component sees a set of contextual components passed to it, a control (in this
     case a text input) and a
@@ -651,12 +652,11 @@
       in this case the layout/styling of the content inside the "control" container is left to the consumer.</em></p>
 
   <h4 class="dummy-h4">Form::Fieldset</h4>
-  <div class="dummy-banner dummy-banner--info">
-    <p class="dummy-paragraph"><strong>⚠️ Notice ⚠️</strong>: it's very unlikely that you will ever need to use this
-      component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use
-      it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any
-      case an example of how it can be used, but there are many more possible variants to it.</p>
-  </div>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />Note: it's very unlikely that
+    you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If
+    for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and
+    guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants
+    to it.</p>
   <p class="dummy-paragraph">
     The more general invocation for this component sees a set of contextual components passed to it, one or more fields
     (in this case radio buttons within a label), a
