@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 0.12.5
+
+### Patch Changes
+
+- [#391](https://github.com/hashicorp/design-system/pull/391) [`0d8515f0`](https://github.com/hashicorp/design-system/commit/0d8515f06ae15b9955a15e9cafa97dc1d4c87cee) Thanks [@didoo](https://github.com/didoo)! - Fixed bug in `Link::Standalone` and `Link::Inline` components that added `target="_blank"` and `rel="noopener noreferrer”` attributes in any case/condition.
+
+* [#354](https://github.com/hashicorp/design-system/pull/354) [`e7997ee6`](https://github.com/hashicorp/design-system/commit/e7997ee68d7d8b104243c8b6129db1030a3cea57) Thanks [@didoo](https://github.com/didoo)! - small update to the `yield` helper component - this is used in `Alert` and `Toast` but the changes should have no impact
+
 ## 0.12.4
 
 ### Patch Changes
