@@ -63,6 +63,31 @@ module('Integration | Component | hds/link/inline', function (hooks) {
     assert.dom('#test-link > span').hasText('test');
   });
 
+  // TARGET/REL ATTRIBUTES
+
+  test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
+    assert.expect(2);
+    await render(hbs`<Hds::Link::Inline @href="/" id="test-link" />`);
+    assert.dom('#test-link').hasAttribute('target', '_blank');
+    assert.dom('#test-link').hasAttribute('rel', 'noopener noreferrer');
+  });
+  test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Link::Inline @href="/" id="test-link" target="test-target" rel="test-rel" />`
+    );
+    assert.dom('#test-link').hasAttribute('target', 'test-target');
+    assert.dom('#test-link').hasAttribute('rel', 'test-rel');
+  });
+  test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Link::Inline @href="/" @isHrefExternal={{false}} id="test-link" />`
+    );
+    assert.dom('#test-link').doesNotHaveAttribute('target');
+    assert.dom('#test-link').doesNotHaveAttribute('rel');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if both @href and @route are not defined', async function (assert) {
@@ -79,13 +104,13 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
     const errorMessage =
-      '@color for "Hds::Link::Standalone" must be one of the following: primary, secondary; received: foo';
+      '@color for "Hds::Link::Inline" must be one of the following: primary, secondary; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" @href="/" @color="foo" />`
+      hbs`<Hds::Link::Inline @icon="film" @text="watch video" @href="/" @color="foo" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
