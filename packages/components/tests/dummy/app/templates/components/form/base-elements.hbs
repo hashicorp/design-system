@@ -335,19 +335,20 @@
     </dd>
     <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
     <dd>
-        <p>It is a container that yields its content inside the "error" block (at group level).</p>
-        <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
-          style).</p>
+      <p>It is a container that yields its content inside the "error" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
     </dd>
 
     <dt class="dummy-component-props">[E].Message <code>yielded component</code></dt>
     <dd>
       <ul class="dummy-list">
         <li>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-        individual items using
-        <code class="dummy-code">Error.Message</code>.</li>
+          individual items using
+          <code class="dummy-code">Error.Message</code>.</li>
         <li>For details about its API check the <code class="dummy-code">Form::Error</code> component.</li>
-        <li><em>Note:</em> the
+        <li><em>Note:</em>
+          the
           <code class="dummy-code">id</code>
           attribute of the
           <code class="dummy-code">Error</code>
@@ -430,14 +431,14 @@
     in this case, while the correct text styling is applied to the component's container, the layout/organization of the
     content inside the component is left to the consumer.</p>
   <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
-    The
+    Note: The
     <code class="dummy-code">&lt;label&gt;</code>
     element is linked via
     <code class="dummy-code">for</code>
     attribute to the
     <code class="dummy-code">&lt;input/select/textarea&gt;</code>
-    elements. This means it becomes an interactive element, and for this reasons it's not possible to have links inside
-    it (nested interactive elements are not accessible).
+    elements. This means it becomes an interactive element, and for this reason it's not possible to have links inside
+    it (nested interactive elements cannot be reached by a user with assistive technology).
   </p>
 
   <h4 class="dummy-h4">Form::HelperText</h4>
@@ -651,12 +652,11 @@
       in this case the layout/styling of the content inside the "control" container is left to the consumer.</em></p>
 
   <h4 class="dummy-h4">Form::Fieldset</h4>
-  <div class="dummy-banner dummy-banner--info">
-    <p class="dummy-paragraph"><strong>⚠️ Notice ⚠️</strong>: it's very unlikely that you will ever need to use this
-      component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use
-      it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any
-      case an example of how it can be used, but there are many more possible variants to it.</p>
-  </div>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />Note: it's very unlikely that
+    you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If
+    for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and
+    guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants
+    to it.</p>
   <p class="dummy-paragraph">
     The more general invocation for this component sees a set of contextual components passed to it, one or more fields
     (in this case radio buttons within a label), a
