@@ -1,0 +1,51 @@
+// FORM > CHECKBOX
+
+.dummy-form-checkbox-base-sample {
+  display: flex;
+  gap: 2rem;
+}
+
+.dummy-form-checkbox-grid-sample {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dummy-form-checkbox-states-subgrid {
+  display: grid;
+  grid-gap: 0.5rem 1rem;
+  grid-template-columns: 1fr 1fr;
+  width: min-content;
+}
+
+.dummy-form-checkbox-containers {
+  align-items: start;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dummy-form-checkbox-containers__block {
+  display: block;
+}
+
+.dummy-form-checkbox-containers__flex {
+  display: flex;
+}
+
+.dummy-form-checkbox-containers__grid {
+  display: grid;
+  justify-items: start;
+}
+
+.dummy-form-checkbox-max-width-container {
+  width: 450px;
+}
+
+.dummy-form-checkbox-custom-layout {
+  align-items: center;
+  display: flex;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  gap: 0.5rem;
+}

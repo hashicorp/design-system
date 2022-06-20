@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('dropdown');
     this.route('form', function () {
       this.route('base-elements');
+      this.route('checkbox');
       this.route('text-input');
       this.route('textarea');
       this.route('select');
