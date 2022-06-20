@@ -76,6 +76,33 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     assert.dom('#test-link').hasText('Copy to clipboard');
   });
 
+  // TARGET/REL ATTRIBUTES
+
+  test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" />`
+    );
+    assert.dom('#test-link').hasAttribute('target', '_blank');
+    assert.dom('#test-link').hasAttribute('rel', 'noopener noreferrer');
+  });
+  test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" target="test-target" rel="test-rel" />`
+    );
+    assert.dom('#test-link').hasAttribute('target', 'test-target');
+    assert.dom('#test-link').hasAttribute('rel', 'test-rel');
+  });
+  test('it should render a <a> link without "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" @isHrefExternal={{false}} id="test-link" />`
+    );
+    assert.dom('#test-link').doesNotHaveAttribute('target');
+    assert.dom('#test-link').doesNotHaveAttribute('rel');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if both @href and @route are not defined', async function (assert) {
