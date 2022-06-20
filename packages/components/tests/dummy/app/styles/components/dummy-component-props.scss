@@ -42,16 +42,18 @@
             padding: 0;
             list-style: none;
 
+            li {
+                // display: inline-block;
+                flex: 0 0 auto;
+                padding: 0.125rem 0.25rem;
+                border-radius: 4px;
+                background-color: #E4E4E4;
+    
+            }
         }
+        
 
-        li {
-            // display: inline-block;
-            flex: 0 0 auto;
-            padding: 0.125rem 0.25rem;
-            border-radius: 4px;
-            background-color: #E4E4E4;
-
-        }
+        
 
         .default {
             display: inline-block;
