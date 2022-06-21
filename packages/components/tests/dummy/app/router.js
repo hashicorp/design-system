@@ -25,6 +25,7 @@ Router.map(function () {
       this.route('base-elements');
       this.route('text-input');
       this.route('textarea');
+      this.route('select');
     });
     this.route('icon-tile');
     this.route('link', function () {
