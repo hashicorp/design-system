@@ -7,10 +7,11 @@
       )
     }}
   </:toggle>
-  <:content>
+  <:content as |c|>
     <ul class={{this.listClassNames}} {{style width=@width}}>
       {{yield
         (hash
+          close=c.close
           CopyItem=(component "hds/dropdown/list-item/copy-item")
           Description=(component "hds/dropdown/list-item/description")
           Generic=(component "hds/dropdown/list-item/generic")

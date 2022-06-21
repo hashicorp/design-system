@@ -91,6 +91,21 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown ul').hasStyle({ width: '248px' });
   });
 
+  // CLOSE DISCLOSED CONTENT ON CLICK
+
+  test('it should hide the content when an interactive element triggers `close`', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown @width="248px" id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Interactive @route="components.dropdown" @text="interactive" id="test-list-item-interactive" {{on "click" dd.close}} />
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown #test-list-item-interactive').exists();
+    await click('#test-list-item-interactive');
+    assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
+  });
+
   // SPLATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
