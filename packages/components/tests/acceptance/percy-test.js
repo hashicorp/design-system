@@ -51,6 +51,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/text-input');
     await percySnapshot('Form - TextInput');
 
+    await visit('/components/form/textarea');
+    await percySnapshot('Form - Textarea');
+
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
 
