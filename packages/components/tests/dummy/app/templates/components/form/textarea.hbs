@@ -1,0 +1,409 @@
+{{page-title "Form::Textarea Component"}}
+
+<h2 class="dummy-h2">Form::Textarea</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Form::Textarea</code>
+    component is based on the Ember
+    <a href="https://guides.emberjs.com/release/components/built-in-components/" rel="noopener noreferrer"><code
+        class="dummy-code"
+      >Textarea</code>
+      built-in component</a>.</p>
+  <p class="dummy-paragraph">This component has different variants, with their own APIs:</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Textarea::Base</code>
+      - the "basic" component: the
+      <code class="dummy-code">&lt;Textarea&gt;</code>
+      Ember component
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Textarea::Field</code>
+      - the "field" parent component: the
+      <code class="dummy-code">&lt;Textarea&gt;</code>
+      Ember component, with label, helper text and error messaging (in a wrapping container)
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Textarea::Group</code>
+      - the "group" parent component: a
+      <code class="dummy-code">&lt;legend&gt;</code>
+      (optional), a list of fields, and error messaging
+    </li>
+  </ul>
+  <h4 class="dummy-h4">Form::Textarea::Base</h4>
+  <p class="dummy-paragraph">The "base" component under the hood uses the Ember
+    <code class="dummy-code">Textarea</code>
+    built-in component. Please refer to the
+    <a
+      href="https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/Textarea?anchor=Textarea"
+      rel="noopener noreferrer"
+    ><code class="dummy-code">Textarea</code> API documentation</a>
+    for more details.</p>
+  <p class="dummy-paragraph" id="component-api-form-textarea-base">In addition this component provides this extra API:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-textarea-base">
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;textarea&gt;</code>
+          has a
+          <code class="dummy-code">width</code>
+          of
+          <code class="dummy-code">100%</code>
+          applied to it, so it fills the parent container. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;textarea&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;textarea&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">required</code>,
+          <code class="dummy-code">readonly</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
+    </dd>
+  </dl>
+  <h4 class="dummy-h4">Form::Textarea::Field</h4>
+  <p class="dummy-paragraph" id="component-api-form-textarea-field">Here is the API for the "field" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-textarea-field">
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>The input control's ID attribute</p>
+      <p><em>Notice: by default the ID is automatically generated by the component; use this argument if you need to
+          pass a custom ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>ariaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">aria-describedby</code>
+          attribute is automatically generated by the component, using the IDs of the helper text and errors (if they're
+          present); use this argument if you need to pass an extra ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;textarea&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;textarea&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">required</code>,
+          <code class="dummy-code">readonly</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-textarea-field-contextual-components">Label, helper text and error
+    content are passed to the field as yielded components, using the
+    <code class="dummy-code">Label</code>,
+    <code class="dummy-code">HelperText</code>,
+    <code class="dummy-code">Error</code>
+    keys.</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-textarea-field-contextual-components">
+    <dt>&lt;[C].Label&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Label</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">for</code>
+          attribute of the label is automatically generated, using the
+          <code class="dummy-code">controlId</code>
+          value of the control.</em></p>
+    </dd>
+    <dt>&lt;[C].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::HelperText</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated, using the
+          <code class="dummy-code">controlId</code>
+          value of the control.</em></p>
+    </dd>
+    <dt>&lt;[C].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "error" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <dl class="dummy-component-props">
+        <dt>[E].Message <code>yielded component</code></dt>
+        <dd>
+          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+            individual items using
+            <code class="dummy-code">Error.Message</code>.
+          </p>
+        </dd>
+      </dl>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the
+          <code class="dummy-code">Error</code>
+          element is automatically generated.</em></p>
+    </dd>
+  </dl>
+
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+  {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
+  {{!
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
+    </p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/form-textareaa-design-usage.png" alt="" role="none" />
+  </div>
+  }}
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">"Base" control</h4>
+  <h5 class="dummy-h6">Interaction status</h5>
+  <div class="dummy-form-textarea-base-sample">
+    <div>
+      <span class="dummy-text-small">Default</span>
+      <br />
+      <Hds::Form::Textarea::Base />
+    </div>
+    <div>
+      <span class="dummy-text-small">With placeholder</span>
+      <br />
+      <Hds::Form::Textarea::Base placeholder="Lorem ipsum dolor" />
+    </div>
+    <div>
+      <span class="dummy-text-small">With value</span>
+      <br />
+      <Hds::Form::Textarea::Base @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" />
+    </div>
+  </div>
+  <h5 class="dummy-h6">States</h5>
+  <div class="dummy-form-textarea-grid-sample">
+    {{#let (array "base" "disabled" "readonly" "invalid") as |variants|}}
+      {{#each variants as |variant|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
+            <br />
+            <div class="dummy-form-textarea-sublist" mock-state-value={{state}} mock-state-selector="textarea">
+              <Hds::Form::Textarea::Base
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::Textarea::Base
+                placeholder="Placeholder"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::Textarea::Base
+                @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+            </div>
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/let}}
+  </div>
+  <h5 class="dummy-h6">Custom layout</h5>
+  <div class="dummy-form-textarea-base-sample">
+    <div>
+      <span class="dummy-text-small">With custom layout</span>
+      <br />
+      <div class="dummy-form-textarea-custom-layout">
+        <div class="dummy-form-textarea-custom-layout__heading">
+          <label for="my-custom-textare-example">Custom label</label>
+          <span>Some content</span>
+        </div>
+        <Hds::Form::Textarea::Base
+          id="my-custom-textare-example"
+          class="dummy-form-textarea-custom-layout__control"
+          @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        />
+      </div>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-textarea-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-textarea-containers__{{display}}">
+            <Hds::Form::Textarea::Base @value="Default width" />
+          </div>
+          <br />
+          <div class="dummy-form-textarea-containers__{{display}}">
+            <Hds::Form::Textarea::Base @value="Custom width" @width="248px" />
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+  <h4 class="dummy-h4">"Field" control</h4>
+  <h5 class="dummy-h5">Content</h5>
+  <div class="dummy-form-textarea-grid-sample">
+    <div>
+      <span class="dummy-text-small">Only label</span>
+      <br />
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::Textarea::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text</span>
+      <br />
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Textarea::Field>
+    </div>
+  </div>
+  <br />
+  <div class="dummy-form-textarea-grid-sample">
+    <div>
+      <span class="dummy-text-small">Label + Error</span>
+      <br />
+      <Hds::Form::Textarea::Field
+        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Textarea::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Error</span>
+      <br />
+      <Hds::Form::Textarea::Field
+        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Textarea::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Errors</span>
+      <br />
+      <Hds::Form::Textarea::Field @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error as |E|>
+          <E.Message>First error message</E.Message>
+          <E.Message>Second error message</E.Message>
+        </F.Error>
+      </Hds::Form::Textarea::Field>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-textarea-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-textarea-containers__{{display}}">
+            <Hds::Form::Textarea::Field @value="Default width" @isInvalid={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Textarea::Field>
+          </div>
+          <br />
+          <div class="dummy-form-textarea-containers__{{display}}">
+            <Hds::Form::Textarea::Field @value="Custom width" @width="248px" @isInvalid={{true}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Textarea::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+</section>
