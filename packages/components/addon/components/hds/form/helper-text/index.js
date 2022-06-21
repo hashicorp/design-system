@@ -1,18 +1,36 @@
 import Component from '@glimmer/component';
 export const ID_PREFIX = 'helper-text-';
 
+const NOOP = () => {};
+
 export default class HdsFormHelperTextIndexComponent extends Component {
   /**
    * Determines the unique ID to assign to the element
    * @method id
-   * @return {(string|boolean)} The "id" attribute to apply to the element or false, if no controlId is provided
+   * @return {(string|boolean)} The "id" attribute to apply to the element or null, if no controlId is provided
    */
   get id() {
     let { controlId } = this.args;
     if (controlId) {
       return `${ID_PREFIX}${controlId}`;
     }
-    return false;
+    return null;
+  }
+
+  /**
+   * @param onInsert
+   * @type {function}
+   * @default () => {}
+   */
+  get onInsert() {
+    let { onInsert } = this.args;
+
+    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
+    if (typeof onInsert === 'function') {
+      return onInsert;
+    } else {
+      return NOOP;
+    }
   }
 
   /**
