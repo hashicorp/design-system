@@ -96,4 +96,26 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
     assert.dom('.hds-disclosure__content').doesNotExist();
     assert.dom('a#test-disclosure-link').doesNotExist();
   });
+
+  // CLOSE DISCLOSED CONTENT ON CLICK
+
+  test('it should hide the "content" when an interactive element triggers `close`', async function (assert) {
+    assert.expect(4);
+    await render(hbs`
+      <Hds::Disclosure id="test-disclosure">
+        <:toggle as |t|>
+          <button type="button" id="test-disclosure-button" {{on "click" t.onClickToggle}} />
+        </:toggle>
+        <:content as |c|>
+          <a id="test-disclosure-link" href="#" {{on "click" c.close}}>test</a>
+        </:content>
+      </Hds::Disclosure>
+    `);
+    await click('button#test-disclosure-button');
+    assert.dom('.hds-disclosure__content').exists();
+    assert.dom('a#test-disclosure-link').exists();
+    await click('a#test-disclosure-link');
+    assert.dom('.hds-disclosure__content').doesNotExist();
+    assert.dom('a#test-disclosure-link').doesNotExist();
+  });
 });

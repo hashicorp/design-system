@@ -31,6 +31,10 @@
     <dd>
       <p>This is a named block where to pass the actual content that is shown/hidden upon toggling.</p>
     </dd>
+    <dt>[:content].close <code> function</code></dt>
+    <dd>
+      <p>Function that can be called to programmatically close the dropdown.</p>
+    </dd>
     <dt>onClose <code>function</code></dt>
     <dd>
       <p>Callback function invoked when the dropdown is closed (if provided).</p>
@@ -133,13 +137,13 @@
       <:toggle as |t|>
         <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
       </:toggle>
-      <:content>
+      <:content as |c|>
         <ul class="dummy-disclosure-content-list-of-links">
           <li>
             <a href="https://google.com">Link to Google</a>
           </li>
           <li>
-            <a href="https://apple.com">Link with a much longer text</a>
+            <a href="https://apple.com" {{on "click" c.close}}>Link to Apple (closes the disclosed content on click)</a>
           </li>
         </ul>
       </:content>
@@ -156,13 +160,13 @@
       <:toggle as |t|>
         <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onClickToggle}} />
       </:toggle>
-      <:content>
+      <:content as |c|>
         <ul class="dummy-disclosure-content-list-of-links">
           <li>
             <a href="https://google.com">Link to Google</a>
           </li>
           <li>
-            <a href="https://apple.com">Link with a much longer text</a>
+            <a href="https://apple.com" {{on "click" c.close}}>Link to Apple (closes the disclosed content on click)</a>
           </li>
         </ul>
       </:content>
@@ -181,13 +185,13 @@
           <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" {{on "click" t.onClickToggle}} />
         </div>
       </:toggle>
-      <:content>
+      <:content as |c|>
         <ul class="dummy-disclosure-content-list-of-links">
           <li>
             <a href="https://google.com">Link to Google</a>
           </li>
           <li>
-            <a href="https://apple.com">Link with a much longer text</a>
+            <a href="https://apple.com" {{on "click" c.close}}>Link to Apple (closes the disclosed content on click)</a>
           </li>
         </ul>
       </:content>
