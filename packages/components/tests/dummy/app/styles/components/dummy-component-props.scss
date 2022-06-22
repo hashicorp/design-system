@@ -1,64 +1,64 @@
 // DUMMY COMPONENT PROPS
 
 .dummy-component-props {
-    font-family: monaco, Consolas, "Lucida Console", monospace;
-    font-size: 0.9rem;
-    line-height: 1.2;
-    max-width: 64rem;
+  font-family: monaco, Consolas, 'Lucida Console', monospace;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  max-width: 64rem;
 
-    dt {
-        color: #1F69FF;
-        font-size: 1rem;
-        font-weight: 700;
-        margin: 1.25rem 0 0.5rem 0;
+  dt {
+    color: #1f69ff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1.25rem 0 0.5rem 0;
 
-        code {
-            color: #666666;
-            font-weight: 500;
-        }
+    code {
+      color: #666666;
+      font-weight: 500;
+    }
+  }
+
+  dd {
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0 0 0 1rem;
+
+    p {
+      margin: 0;
     }
 
-    dd {
-        border-left: 1px solid #ccc;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin: 0;
-        padding: 0 0 0 1rem;
-
-        p {
-            margin: 0;
-        }
-
-        p + p {
-            margin-top: 0.125rem;
-        }
-
-        ol {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-
-            li {
-                flex: 0 0 auto;
-                padding: 0.125rem 0.25rem;
-                border-radius: 4px;
-                background-color: #E4E4E4;
-            }
-        }
-
-        .default {
-            display: inline-block;
-            padding: 0.125rem 0.25rem;
-            border-radius: 4px;
-            font-weight: 700;
-            color: #0C56E9;
-            background-color: #CCE3FE;
-        }
+    p + p {
+      margin-top: 0.125rem;
     }
+
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        flex: 0 0 auto;
+        padding: 0.125rem 0.25rem;
+        border-radius: 4px;
+        background-color: #e4e4e4;
+      }
+    }
+
+    .default {
+      display: inline-block;
+      padding: 0.125rem 0.25rem;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #0c56e9;
+      background-color: #cce3fe;
+    }
+  }
 
   // nested props blocks
 
