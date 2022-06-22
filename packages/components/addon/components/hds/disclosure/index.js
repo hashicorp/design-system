@@ -29,20 +29,20 @@ export default class HdsDisclosureComponent extends Component {
       !event.relatedTarget || // click or tap a non-related target (e.g. outside the element)
       !this.element.contains(event.relatedTarget) // move focus to a target outside the element
     ) {
-      this.deactivate();
+      this.close();
     }
   }
 
   @action
   onKeyUp(event) {
     if (event.key === 'Escape') {
-      this.deactivate();
+      this.close();
       this.toggleRef.focus();
     }
   }
 
   @action
-  deactivate() {
+  close() {
     if (this.isOpen) {
       this.isOpen = false;
     }
