@@ -17,15 +17,6 @@
     width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
   }
 
-  .hds-form-field__control {
-    &:not(:first-child) {
-      margin-top: 8px;
-    }
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
-  }
-
   .hds-form-field__helper-text {
     &:not(:first-child) {
       margin-top: 4px;
@@ -34,6 +25,15 @@
     // special case: if there are multiple helper text lines, we want to reduce the spacing between them
     & + .hds-form-helper-text {
       margin-top: 2px;
+    }
+  }
+
+  .hds-form-field__control {
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 8px;
     }
   }
 }
@@ -54,15 +54,6 @@
     "control error";
   justify-items: start;
 
-  .hds-form-field__control {
-    grid-area: control;
-
-    &:not(:only-child) {
-      margin-top: 2px; // the line height of the label is bigger than the control size
-      margin-right: 8px;
-    }
-  }
-
   .hds-form-field__label {
     grid-area: label;
     width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
@@ -71,6 +62,15 @@
   .hds-form-field__helper-text {
     grid-area: helper-text;
     margin-top: 4px;
+  }
+
+  .hds-form-field__control {
+    grid-area: control;
+
+    &:not(:only-child) {
+      margin-top: 2px; // the line height of the label is bigger than the control size
+      margin-right: 8px;
+    }
   }
 
   .hds-form-field__error {
