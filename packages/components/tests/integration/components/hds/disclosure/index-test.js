@@ -104,18 +104,18 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
     await render(hbs`
       <Hds::Disclosure id="test-disclosure">
         <:toggle as |t|>
-          <button type="button" id="test-disclosure-button" {{on "click" t.onClickToggle}} />
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
         </:toggle>
         <:content as |c|>
-          <a id="test-disclosure-link" href="#" {{on "click" c.close}}>test</a>
+          <button id="test-content-button" {{on "click" c.close}}>test</button>
         </:content>
       </Hds::Disclosure>
     `);
-    await click('button#test-disclosure-button');
+    await click('button#test-toggle-button');
     assert.dom('.hds-disclosure__content').exists();
-    assert.dom('a#test-disclosure-link').exists();
-    await click('a#test-disclosure-link');
+    assert.dom('button#test-content-button').exists();
+    await click('button#test-content-button');
     assert.dom('.hds-disclosure__content').doesNotExist();
-    assert.dom('a#test-disclosure-link').doesNotExist();
+    assert.dom('button#test-content-button').doesNotExist();
   });
 });
