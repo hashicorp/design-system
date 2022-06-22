@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.13.0
+
+### Minor Changes
+
+- [#399](https://github.com/hashicorp/design-system/pull/399) [`62e3077e`](https://github.com/hashicorp/design-system/commit/62e3077e5cf40e93852e9fa3489d3d1970d45070) Thanks [@alex-ju](https://github.com/alex-ju)! - Enable programmatic close on dropdown component
+
 ## 0.12.5
 
 ### Patch Changes
