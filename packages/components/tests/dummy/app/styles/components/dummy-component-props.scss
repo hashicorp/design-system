@@ -59,4 +59,12 @@
             background-color: #CCE3FE;
         }
     }
+
+  // nested props blocks
+
+  .dummy-component-props {
+    dt:first-child {
+      margin-top: 0;
+    }
+  }
 }
