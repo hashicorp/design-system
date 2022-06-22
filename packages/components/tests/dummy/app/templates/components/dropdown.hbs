@@ -448,7 +448,7 @@
         &lt;dd.Interactive @route="..." @text="Item One" /&gt;
         &lt;dd.Interactive @route="..." @text="Item Two" /&gt;
         &lt;dd.Interactive @route="..." @text="Item Three" /&gt;
-        &lt;dd.Interactive @route="..." @text="Item Four (closes on click)" \{{on "click" dd.close}} /&gt;
+        &lt;dd.Interactive @text="Item Four (closes on click)" \{{on "click" dd.close}} /&gt;
         &lt;dd.Separator /&gt;
         &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
       &lt;/Hds::Dropdown&gt;
@@ -466,7 +466,7 @@
           <dd.Interactive @route="components.dropdown" @text="Item One" />
           <dd.Interactive @route="components.dropdown" @text="Item Two" />
           <dd.Interactive @route="components.dropdown" @text="Item Three" />
-          <dd.Interactive @route="components.dropdown" @text="Item Four (closes on click)" {{on "click" dd.close}} />
+          <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
           <dd.Separator />
           <dd.Interactive @route="components.dropdown" @text="Delete" @color="critical" @icon="trash" />
         </Hds::Dropdown>

@@ -95,9 +95,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it should hide the content when an interactive element triggers `close`', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown @width="248px" id="test-dropdown" as |dd|>
+      <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @route="components.dropdown" @text="interactive" id="test-list-item-interactive" {{on "click" dd.close}} />
+        <dd.Interactive @text="interactive" id="test-list-item-interactive" {{on "click" dd.close}} />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
