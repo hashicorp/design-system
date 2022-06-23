@@ -1,0 +1,71 @@
+//
+// FORM > TEXTAREA
+//
+// properties within each class are sorted alphabetically
+//
+
+// "BASE" CONTROL
+
+.hds-form-textarea {
+  border: 1px solid var(--token-color-palette-neutral-400);
+  border-radius: 5px;
+  box-shadow: var(--hds-elevation-inset-box-shadow);
+  color: var(--token-color-foreground-primary);
+  font-family: var(--token-typography-body-200-font-family);
+  font-size: var(--token-typography-body-200-font-size);
+  line-height: var(--token-typography-body-200-line-height);
+  padding: 4px 8px;
+  resize: vertical;
+  width: 100%;
+  max-width: 100%;
+
+  // PLACEHOLDER
+
+  ::placeholder {
+    color: var(--token-color-foreground-faint);
+  }
+
+  // STATUS
+
+  &:hover,
+  &.mock-hover {
+    border-color: var(--token-color-palette-neutral-500);
+  }
+
+  // focus (same for all the states)
+  // TODO add handling of focus-visible
+  &:focus,
+  &.mock-focus {
+    border-color: var(--token-color-focus-action-internal);
+    // TODO: Safari doesn't apply a rounded border
+    outline: 2px solid var(--token-color-focus-action-external);
+    outline-offset: 0px;
+  }
+
+  &:active,
+  &.mock-active {
+    border-color: var(--token-color-focus-action-internal);
+  }
+
+  // READONLY
+
+  &:read-only,
+  &[readonly] {
+    background-color: var(--token-color-surface-strong);
+    border-color: var(--token-color-palette-neutral-400);
+  }
+
+  // DISABLED
+
+  &:disabled,
+  &[disabled] {
+    background-color: var(--token-color-surface-interactive-disabled);
+    border-color: var(--token-color-border-primary);
+  }
+
+  // INVALID
+
+  &.hds-form-textarea--is-invalid {
+    border-color: var(--token-color-foreground-critical);
+  }
+}
