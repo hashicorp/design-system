@@ -1,0 +1,63 @@
+// FORM > RADIO
+
+.dummy-form-radio-base-sample {
+  display: flex;
+  gap: 2rem;
+}
+
+.dummy-form-radio-grid-sample {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dummy-form-radio-states-subgrid {
+  display: grid;
+  grid-gap: 0.5rem 1rem;
+  grid-template-columns: 1fr 1fr;
+  width: min-content;
+}
+
+.dummy-form-radio-containers {
+  align-items: start;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dummy-form-radio-containers__block {
+  display: block;
+}
+
+.dummy-form-radio-containers__flex {
+  display: flex;
+}
+
+.dummy-form-radio-containers__grid {
+  display: grid;
+  justify-items: start;
+}
+
+.dummy-form-radio-max-width-container {
+  width: 450px;
+}
+
+.dummy-form-radio-custom-layout {
+  border: 1px solid #999;
+
+  strong, span {
+    display: block;
+    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    padding: 0 10px;
+    margin: 10px 0;
+  }
+
+  .dummy-form-radio-custom-layout__control-wrapper {
+    background-color: #E4E4E4;
+    border-top: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+}

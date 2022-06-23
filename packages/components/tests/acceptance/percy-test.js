@@ -51,6 +51,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/checkbox');
     await percySnapshot('Form - Checkbox');
 
+    await visit('/components/form/radio');
+    await percySnapshot('Form - Radio');
+
     await visit('/components/form/text-input');
     await percySnapshot('Form - TextInput');
 
