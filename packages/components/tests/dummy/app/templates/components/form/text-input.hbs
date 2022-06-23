@@ -1,0 +1,635 @@
+{{page-title "Form::TextInput Component"}}
+
+<h2 class="dummy-h2">Form::TextInput</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Form::TextInput</code>
+    component has two different variants, with their own APIs:</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::TextInput::Base</code>
+      - the "basic" component: just the
+      <code class="dummy-code">&lt;input&gt;</code>
+      control
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::TextInput::Field</code>
+      - the "field" parent component: the
+      <code class="dummy-code">&lt;input&gt;</code>
+      control, with label, helper text and error messaging (in a wrapping container)
+    </li>
+  </ul>
+  <h4 class="dummy-h4">Form::TextInput::Base</h4>
+  <p class="dummy-paragraph" id="component-api-form-text-input-base">Here is the API for the "base" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input-base">
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the native HTML
+        <code class="dummy-code">type</code>
+        of the
+        <code class="dummy-code">&lt;input&gt;</code>. This list covers all the official types (see
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
+          target="_blank"
+          rel="noopener noreferrer"
+        >MDN documentation</a>)
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        {{#each @model.TYPES as |type|}}
+          <li class={{if (eq type "text") "default"}}>{{type}}</li>
+        {{/each}}
+      </ol>
+    </dd>
+    <dt>value <code>string|number|date</code></dt>
+    <dd>
+      <p>The input control's value.</p>
+    </dd>
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;input&gt;</code>
+          has a
+          <code class="dummy-code">width</code>
+          of
+          <code class="dummy-code">100%</code>
+          applied to it, so it fills the parent container. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">readonly</code>,
+          <code class="dummy-code">required</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
+    </dd>
+  </dl>
+  <h4 class="dummy-h4">Form::TextInput::Field</h4>
+  <p class="dummy-paragraph" id="component-api-form-text-input-field">Here is the API for the "field" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input-field">
+    <dt>type <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the native HTML
+        <code class="dummy-code">type</code>
+        of the
+        <code class="dummy-code">&lt;input&gt;</code>. This list covers all the official types (see
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
+          target="_blank"
+          rel="noopener noreferrer"
+        >MDN documentation</a>)
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        {{#each @model.TYPES as |type|}}
+          <li class={{if (eq type "text") "default"}}>{{type}}</li>
+        {{/each}}
+      </ol>
+    </dd>
+    <dt>value <code>string|number|date</code></dt>
+    <dd>
+      <p>The input control's value.</p>
+    </dd>
+    <dt>isInvalid <code>boolean</code></dt>
+    <dd>
+      <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">&lt;input&gt;</code>
+          has a
+          <code class="dummy-code">width</code>
+          of
+          <code class="dummy-code">100%</code>
+          applied to it, so it fills the parent container. If a
+          <code class="dummy-code">@width</code>
+          parameter is provided then the control will have a fixed width. This width will be applied
+          <strong>only</strong>
+          to the control, not the other elements of the field.</em></p>
+    </dd>
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>The input control's ID attribute</p>
+      <p><em>Notice: by default the ID is automatically generated by the component; use this argument if you need to
+          pass a custom ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>ariaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">aria-describedby</code>
+          attribute is automatically generated by the component, using the IDs of the helper text and errors (if they're
+          present); use this argument if you need to pass an extra ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+      <p><em>Notice: the attributes will be applied to the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element. This means you can use all the standard HTML attributes of the
+          <code class="dummy-code">&lt;input&gt;</code>
+          element and all the usual Ember techniques for event handling, validation, etc.</em></p>
+      <p><em>Some examples of HTML attributes that you will likely use:
+          <code class="dummy-code">id</code>,
+          <code class="dummy-code">name</code>,
+          <code class="dummy-code">value</code>,
+          <code class="dummy-code">placeholder</code>,
+          <code class="dummy-code">disabled</code>,
+          <code class="dummy-code">readonly</code>,
+          <code class="dummy-code">required</code>
+          (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes"
+            rel="noopener noreferrer"
+          >see whole list here</a>) and some examples of Ember modifiers:
+          <code class="dummy-code">&lcub;&lcub;on "input" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "change" [do something]&rcub;&rcub;</code>,
+          <code class="dummy-code">&lcub;&lcub;on "blur" [do something]&rcub;&rcub;</code>.
+        </em></p>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-text-input-field-contextual-components">Label, helper text and error
+    content are passed to the field as yielded components, using the
+    <code class="dummy-code">Label</code>,
+    <code class="dummy-code">HelperText</code>,
+    <code class="dummy-code">Error</code>
+    keys.</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-text-input-field-contextual-components">
+    <dt>&lt;[F].Label&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Label</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">for</code>
+          attribute of the label is automatically generated, using the
+          <code class="dummy-code">controlId</code>
+          value of the control.</em></p>
+    </dd>
+    <dt>&lt;[F].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::HelperText</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated, using the
+          <code class="dummy-code">controlId</code>
+          value of the control.</em></p>
+    </dd>
+    <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "error" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <dl class="dummy-component-props">
+        <dt>[E].Message <code>yielded component</code></dt>
+        <dd>
+          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+            individual items using
+            <code class="dummy-code">Error.Message</code>.
+          </p>
+        </dd>
+      </dl>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the
+          <code class="dummy-code">Error</code>
+          element is automatically generated.</em></p>
+    </dd>
+  </dl>
+
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+  {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
+  {{!
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
+    </p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/form-text-input-design-usage.png" alt="" role="none" />
+  </div>
+  }}
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">This component was designed with WCAG conformance as a requirement. As such, the
+    <code class="dummy-code">Form::TextInput::Base</code>
+    is conditionally conformant; that is, it is not conformant until it has an accessible name. The other components are
+    conformant; please report any conformance issues that you find.</p>
+  <h4 class="dummy-h4">
+    Applicable WCAG Success Criteria (Reference)
+  </h4>
+  <p class="dummy-paragraph">
+    This section is for reference only, some descriptions have been truncated for brevity. This component intends to
+    conform to the following WCAG success criteria:
+  </p>
+  <ul class="dummy-list">
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.1 Info and Relationships (A):</a>
+      Information, structure, and relationships conveyed through presentation can be programmatically determined or are
+      available in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.2 Meaningful Sequence (A):</a>
+      When the sequence in which content is presented affects its meaning, a correct reading sequence can be
+      programmatically determined.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/orientation"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.4 Orientation (AA):</a>
+      Content does not restrict its view and operation to a single display orientation, such as portrait or landscape.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.5 Identify Input Purpose(AA):</a>
+      The purpose of each input field collecting information about the user can be programmatically determined when the
+      input field serves a purpose identified in the Input Purposes for User Interface Components section; and the
+      content is implemented using technologies with support for identifying the expected meaning for form input data.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.1 Use of Color (A):</a>
+      Color is not used as the only visual means of conveying information, indicating an action, prompting a response,
+      or distinguishing a visual element.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.3 Contrast Minimum (AA):</a>
+      The visual presentation of text and images of text has a contrast ratio of at least 4.5:1</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.4 Resize Text (AA):</a>
+      Except for captions and images of text, text can be resized without assistive technology up to 200 percent without
+      loss of content or functionality.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow" rel="noopener noreferrer" target="_blank">1.4.10
+        Reflow (AA):</a>
+      Content can be presented without loss of information or functionality, and without requiring scrolling in two
+      dimensions</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.11 Non-text Contrast (AA):</a>
+      The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s): user
+      interface components; graphical objects.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.12 Text Spacing (AA):</a>
+      no loss of content or functionality occurs by setting all of the following and by changing no other style
+      property: line height set to 1.5; spacing following paragraphs set to at least 2x the font size; letter-spacing
+      set at least 0.12x of the font size, word spacing set to at least 0.16 times the font size.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.13 Content on Hover or Focus (AA):</a>
+      Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible
+      and then hidden, the following are true: dismissible, hoverable, persistent (see link)</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.2.1 Timing Adjustable (A):</a>
+      if there are time limitations set by the content, one of the following should be true: turn off, adjust, extend,
+      real-time exception, essential exception, 20 hour exception.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.6 Headings and Labels (AA):</a>
+      Headings and labels describe topic or purpose.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.7 Focus Visible (AA):</a>
+      Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-focus" rel="noopener noreferrer" target="_blank">3.2.1
+        On Focus (A):</a>
+      When any user interface component receives focus, it does not initiate a change of context.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-input" rel="noopener noreferrer" target="_blank">3.2.2
+        On Input (A):</a>
+      Changing the setting of any user interface component does not automatically cause a change of context unless the
+      user has been advised of the behavior before using the component.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.2.4 Consistent Identification (AA):</a>
+      Components that have the same functionality within a set of Web pages are identified consistently.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.1 Error Identification (A):</a>
+      If an input error is automatically detected, the item that is in error is identified and the error is described to
+      the user in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.2 Labels or Instructions (A):</a>
+      Labels or instructions are provided when content requires user input.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.3 Error Suggestion (AA):</a>
+      If an input error is automatically detected and suggestions for correction are known, then the suggestions are
+      provided to the user, unless it would jeopardize the security or purpose of the content.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.4 Error Prevention (Legal, Financial, Data) (AA):</a>
+      For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete
+      user-controllable data in data storage systems, or that submit user test responses, at least one of the following
+      is true: submissions are reversible, data is checked and user is provided an opportunity to correct them, a
+      mechanism is available for reviewing, confirming and correcting the information before finalizing the submission.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing" rel="noopener noreferrer" target="_blank">4.1.1
+        Parsing (A):</a>
+      In content implemented using markup languages, elements have complete start and end tags, elements are nested
+      according to their specifications, elements do not contain duplicate attributes, and any IDs are unique.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value"
+        rel="noopener noreferrer"
+        target="_blank"
+      >4.1.2 Name, Role, Value (A):</a>
+      For all user interface components, the name and role can be programmatically determined; states, properties, and
+      values that can be set by the user can be programmatically set; and notification of changes to these items is
+      available to user agents, including assistive technologies.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/" rel="noopener noreferrer" target="_blank">4.1.3 Status
+        Messages (AA):</a>
+      In content implemented using markup languages, status messages can be programmatically determined through role or
+      properties such that they can be presented to the user by assistive technologies without receiving focus.</li>
+  </ul>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">"Base" control</h4>
+  <h5 class="dummy-h6">Interaction status</h5>
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">Default</span>
+      <br />
+      <Hds::Form::TextInput::Base />
+    </div>
+    <div>
+      <span class="dummy-text-small">With placeholder</span>
+      <br />
+      <Hds::Form::TextInput::Base placeholder="Lorem ipsum dolor" />
+    </div>
+    <div>
+      <span class="dummy-text-small">With value</span>
+      <br />
+      <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
+    </div>
+  </div>
+  <h5 class="dummy-h5">Types (native)</h5>
+  <div class="dummy-form-text-input-types-grid">
+    {{#each @model.TYPES as |type|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize type}}:</span>
+        <br />
+        <Hds::Form::TextInput::Base @type={{type}} @value={{type}} />
+      </div>
+    {{/each}}
+  </div>
+  <h5 class="dummy-h6">States</h5>
+  <div class="dummy-form-text-input-grid-sample">
+    {{#let (array "base" "disabled" "readonly" "invalid") as |variants|}}
+      {{#each variants as |variant|}}
+        {{#each @model.STATES as |state|}}
+          <div>
+            <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
+            <br />
+            <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
+              <Hds::Form::TextInput::Base
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                placeholder="Placeholder"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                @value="Lorem ipsum dolor"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                @type="date"
+                @value="Lorem ipsum dolor"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+              <Hds::Form::TextInput::Base
+                @type="time"
+                @value="Lorem ipsum dolor"
+                disabled={{if (eq variant "disabled") "disabled"}}
+                readonly={{if (eq variant "readonly") "readonly"}}
+                @isInvalid={{if (eq variant "invalid") true}}
+              />
+            </div>
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/let}}
+  </div>
+  <h5 class="dummy-h6">Custom layout</h5>
+  <div class="dummy-form-text-input-base-sample">
+    <div>
+      <span class="dummy-text-small">With custom layout</span>
+      <br />
+      <div class="dummy-form-text-input-custom-layout">
+        <label for="my-custom-text-input-example">Custom label</label>
+        <Hds::Form::TextInput::Base id="my-custom-text-input-example" @value="Lorem ipsum dolor" />
+        <span class="dummy-form-text-input-custom-layout__append-text">Some content</span>
+      </div>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-text-input-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-text-input-sublist">
+            <div class="dummy-form-text-input-containers__{{display}}">
+              <Hds::Form::TextInput::Base @value="Default width" />
+            </div>
+            <div class="dummy-form-text-input-containers__{{display}}">
+              <Hds::Form::TextInput::Base @value="Custom width" @width="248px" />
+            </div>
+            <div class="dummy-form-text-input-containers__{{display}}">
+              <Hds::Form::TextInput::Base @type="date" />
+            </div>
+            <div class="dummy-form-text-input-containers__{{display}}">
+              <Hds::Form::TextInput::Base @type="time" />
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+  <h4 class="dummy-h4">"Field" control</h4>
+  <h5 class="dummy-h5">Content</h5>
+  <div class="dummy-form-text-input-grid-sample">
+    <div>
+      <span class="dummy-text-small">Only label</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::TextInput::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </div>
+  </div>
+  <br />
+  <div class="dummy-form-text-input-grid-sample">
+    <div>
+      <span class="dummy-text-small">Label + Error</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::TextInput::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Error</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::TextInput::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Helper text + Errors</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error as |E|>
+          <E.Message>First error message</E.Message>
+          <E.Message>Second error message</E.Message>
+        </F.Error>
+      </Hds::Form::TextInput::Field>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-text-input-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-text-input-containers__{{display}}">
+            <Hds::Form::TextInput::Field @value="Default width" as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+            </Hds::Form::TextInput::Field>
+          </div>
+          <br />
+          <div class="dummy-form-text-input-containers__{{display}}">
+            <Hds::Form::TextInput::Field @value="Custom width" @width="120px" @isInvalid={{true}} as |F|>
+              <F.Label>This is the label text that should go on multiple lines</F.Label>
+              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+              <F.Error as |E|>
+                <E.Message>This is the first error text</E.Message>
+                <E.Message>This is the second error text that should go on multiple lines</E.Message>
+              </F.Error>
+            </Hds::Form::TextInput::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+</section>
