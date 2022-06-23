@@ -16,7 +16,7 @@
         class="dummy-code"
       >Textarea</code>
       built-in component</a>.</p>
-  <p class="dummy-paragraph">This component has different variants, with their own APIs:</p>
+  <p class="dummy-paragraph">This component has two different variants, with their own APIs:</p>
   <ul>
     <li class="dummy-paragraph">
       <code class="dummy-code">Form::Textarea::Base</code>
@@ -29,12 +29,6 @@
       - the "field" parent component: the
       <code class="dummy-code">&lt;Textarea&gt;</code>
       Ember component, with label, helper text and error messaging (in a wrapping container)
-    </li>
-    <li class="dummy-paragraph">
-      <code class="dummy-code">Form::Textarea::Group</code>
-      - the "group" parent component: a
-      <code class="dummy-code">&lt;legend&gt;</code>
-      (optional), a list of fields, and error messaging
     </li>
   </ul>
   <h4 class="dummy-h4">Form::Textarea::Base</h4>
@@ -148,7 +142,7 @@
     <code class="dummy-code">Error</code>
     keys.</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-textarea-field-contextual-components">
-    <dt>&lt;[C].Label&gt; <code>yielded component</code></dt>
+    <dt>&lt;[F].Label&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
@@ -162,7 +156,7 @@
           <code class="dummy-code">controlId</code>
           value of the control.</em></p>
     </dd>
-    <dt>&lt;[C].HelperText&gt; <code>yielded component</code></dt>
+    <dt>&lt;[F].HelperText&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the "helper text" block.</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
@@ -176,7 +170,7 @@
           <code class="dummy-code">controlId</code>
           value of the control.</em></p>
     </dd>
-    <dt>&lt;[C].Error&gt; <code>yielded component</code></dt>
+    <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the "error" block.</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
