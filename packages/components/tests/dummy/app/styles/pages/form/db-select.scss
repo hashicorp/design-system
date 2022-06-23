@@ -1,0 +1,62 @@
+// FORM > SELECT
+
+.dummy-form-select-base-sample {
+  display: flex;
+  gap: 2rem;
+}
+
+.dummy-form-select-grid-sample {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem 3rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dummy-form-select-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dummy-form-select-containers {
+  align-items: start;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dummy-form-select-containers__block {
+  display: block;
+}
+
+.dummy-form-select-containers__flex {
+  display: flex;
+}
+
+.dummy-form-select-containers__grid {
+  display: grid;
+  justify-items: start;
+}
+
+.dummy-form-select-sublist {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dummy-form-select-custom-layout {
+  align-items: center;
+  display: flex;
+  font-family: Verdana, sans-serif;
+  font-size: 0.8em;
+  gap: 10px;
+
+  select {
+    flex: 1 1 0; // is a direct child of a flexbox and has a width of 100% so it blows up
+  }
+
+  button {
+    align-self: stretch;
+  }
+}
