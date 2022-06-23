@@ -47,9 +47,18 @@
     border-color: var(--token-color-focus-action-internal);
   }
 
+  // READONLY
+
+  &:read-only,
+  &[readonly] {
+    background-color: var(--token-color-surface-strong);
+    border-color: var(--token-color-palette-neutral-400);
+  }
+
   // DISABLED
 
-  &:disabled {
+  &:disabled,
+  &[disabled] {
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
   }
