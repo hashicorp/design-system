@@ -1,0 +1,1406 @@
+{{page-title "Form / Base elements"}}
+
+<h2 class="dummy-h2">Form / Base elements</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph">In this page we collect a few "base" elements that are used to build/compose the "form"
+    fields. They can also be used to build custom fields (in very specific cases).</p>
+  <ul>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Label</code>
+      is the label associated with the form control
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::HelperText</code>
+      is an optional extra text used to help the user understand what the field is intended for
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Error</code>
+      is the error message shown to the user in case of failed validation of the field
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Legend</code>
+      is the legend associated to the fieldset
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Field</code>
+      is the generic container for control, label, helper text and error messaging
+    </li>
+    <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Fieldset</code>
+      is the generic container to group multiple fields with label, helper text and error messaging
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+
+  <h4 class="dummy-h4">Form::Label</h4>
+  <p class="dummy-paragraph" id="component-api-form-label">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
+    <dt>controlId <code>string</code></dt>
+    <dd>
+      <p>The ID of the form control associated with the label. This is used to populate the
+        <code class="dummy-code">for</code>
+        attribute of the
+        <code class="dummy-code">&lt;label&gt;</code>
+        element.</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the
+        <code class="dummy-code">&lt;label&gt;</code>
+        element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Form::HelperText</h4>
+  <p class="dummy-paragraph" id="component-api-form-helper-text">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-helper-text">
+    <dt>controlId <code>string</code></dt>
+    <dd>
+      <p>The ID of the form control associated with the helper text. This is used to populate the
+        <code class="dummy-code">id</code>
+        HTML attribute (with a
+        <code class="dummy-code">helper-text-</code>
+        prefix) of the element. This HelperText ID can then be referenced in the
+        <code class="dummy-code">aria-describedby</code>
+        attribute of the form control.</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Form::Error</h4>
+  <p class="dummy-paragraph" id="component-api-form-helper-error">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-helper-error">
+    <dt>controlId <code>string</code></dt>
+    <dd>
+      <p>The ID of the form control associated with the error. This is used to populate the
+        <code class="dummy-code">id</code>
+        HTML attribute (with an
+        <code class="dummy-code">error-</code>
+        prefix) of the element. This Error ID can then be referenced in the
+        <code class="dummy-code">aria-describedby</code>
+        attribute of the form control.</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Form::Legend</h4>
+  <p class="dummy-paragraph" id="component-api-form-legend">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the
+        <code class="dummy-code">&lt;legend&gt;</code>
+        element.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Form::Field</h4>
+  <p class="dummy-paragraph" id="component-api-form-field">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-field">
+    <dt>layout <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the layout of the component. "Vertical" layout is used for
+        <code class="dummy-code">TextInput</code>,
+        <code class="dummy-code">Textarea</code>
+        and
+        <code class="dummy-code">Select</code>
+        fields. "Flag" layout is used for
+        <code class="dummy-code">Checkbox</code>,
+        <code class="dummy-code">Radio</code>
+        and
+        <code class="dummy-code">Toggle</code>
+        fields.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>vertical</li>
+        <li>flag</li>
+      </ol>
+    </dd>
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>The control's ID attribute</p>
+      <p><em>Notice: by default the ID is automatically generated by the component; use this argument if you need to
+          pass a custom ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>extraAriaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">aria-describedby</code>
+          attribute is automatically generated by the component, using the IDs of the helper text and errors (if they're
+          present); use this argument if you need to pass extra IDs for specific reasons you may have.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-base-elements-field-contextual-components">Control, label, helper
+    text and error content are passed to the field as yielded components, using the
+    <code class="dummy-code">Label</code>,
+    <code class="dummy-code">HelperText</code>,
+    <code class="dummy-code">Control</code>,
+    <code class="dummy-code">Error</code>
+    keys.</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-base-elements-field-contextual-components">
+    <dt>&lt;[F].Label&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the <code class="dummy-code">&lt;label&gt;</code> element.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <code class="dummy-code">Form::Label</code>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">for</code>
+          attribute of the label is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[F].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <code class="dummy-code">Form::HelperText</code>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[F].Control&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a very simple container that yields its content. It is used to forward the "base" control inside the
+        "field" control wrapper.</p>
+      <p>The
+        <code class="dummy-code">Control</code>
+        yielded component exposes two hashed arguments:</p>
+      <dl class="dummy-component-props">
+        <dt>[C].id <code>string</code></dt>
+        <dd>
+          <p>returns the unique "id" attribute for the control element (generated automatically, unless provided using
+            the
+            <code class="dummy-code">@id</code>
+            argument described above).
+          </p>
+        </dd>
+        <dt>[C].ariaDescribedBy <code>string</code></dt>
+        <dd>
+          <p>returns the "aria-describedby" attribute for the control element (generated automatically, based on the
+            presence of the
+            <code class="dummy-code">HelperText</code>
+            an/or the
+            <code class="dummy-code">Error</code>
+            elements in the field, plus the optional
+            <code class="dummy-code">@extraAriaDescribedBy</code>
+            argument described above).</p>
+        </dd>
+      </dl>
+    </dd>
+    <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "error" block.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <dl class="dummy-component-props">
+        <dt>[E].Message <code>yielded component</code></dt>
+        <dd>
+          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+            individual items using
+            <code class="dummy-code">Error.Message</code>.
+          </p>
+        </dd>
+      </dl>
+      <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the
+          <code class="dummy-code">Error</code>
+          element is automatically generated.</em></p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Form::Fieldset</h4>
+  <p class="dummy-paragraph" id="component-api-form-fieldset">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-field">
+    <dt>layout <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the layout of the field controls in the component.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">vertical</li>
+        <li>horizontal</li>
+      </ol>
+    </dd>
+    <dt>id <code>string</code></dt>
+    <dd>
+      <p>The fieldset's ID attribute</p>
+      <p><em>Notice: by default the ID is automatically generated by the component; use this argument if you need to
+          pass a custom ID for specific reasons you may have.</em></p>
+    </dd>
+    <dt>extraAriaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
+      <p><em>Notice: by default the
+          <code class="dummy-code">aria-describedby</code>
+          attribute is automatically generated by the component, using the IDs of the helper text and errors (if they're
+          present); use this argument if you need to pass extra IDs for specific reasons you may have.</em></p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-base-elements-fieldset-contextual-components">Control, label, helper
+    text and error content are passed to the field as yielded components, using the
+    <code class="dummy-code">Label</code>,
+    <code class="dummy-code">HelperText</code>,
+    <code class="dummy-code">Control</code>,
+    <code class="dummy-code">Error</code>
+    keys. The component exposes also two hashed methods,
+    <code class="dummy-code">id</code>
+    and
+    <code class="dummy-code">ariaDescribedBy</code>
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-base-elements-fieldset-contextual-components">
+    <dt>&lt;[F].Legend&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the
+        <code class="dummy-code">&lt;legend&gt;</code>
+        element.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <code class="dummy-code">Form::Legend</code>
+        component.</p>
+    </dd>
+    <dt>&lt;[F].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <code class="dummy-code">Form::HelperText</code>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[F].Control&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a very simple container that yields its content. It is used to forward the "field" control inside the
+        fields' "group" control wrapper.</p>
+      <p><em>Notice: you can pass all the controls to a single
+          <code class="dummy-code">&lt;Control&gt;</code>
+          container, or you can have one control per container.</em></p>
+    </dd>
+    <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "error" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+
+      <dl class="dummy-component-props">
+        <dt>[E].Message <code>yielded component</code></dt>
+        <dd>
+          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+            individual items using
+            <code class="dummy-code">Error.Message</code>.</p>
+          <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
+          <p><em>Note:</em>
+            the
+            <code class="dummy-code">id</code>
+            attribute of the
+            <code class="dummy-code">Error</code>
+            element is automatically generated.</p>
+        </dd>
+      </dl>
+    </dd>
+
+    <dt>[F].id <code>function</code></dt>
+    <dd>
+      <p>returns the unique "id" attribute for the control element (generated automatically, unless provided using the
+        <code class="dummy-code">@id</code>
+        argument described above).
+      </p>
+    </dd>
+    <dt>[F].ariaDescribedBy <code>function</code></dt>
+    <dd>
+      <p>returns the "aria-describedby" attribute for the control element (generated automatically, based on the
+        presence of the
+        <code class="dummy-code">HelperText</code>
+        an/or the
+        <code class="dummy-code">Error</code>
+        elements in the field, plus the optional
+        <code class="dummy-code">@extraAriaDescribedBy</code>
+        argument described above).</p>
+    </dd>
+  </dl>
+
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+
+  <p class="dummy-paragraph">
+    The base form elements collected in this page are used internally as building blocks for the "field" and "group"
+    controls, but can also be used in special cases when you need to implement custom layouts or controls in forms.
+    Unless strictly needed, we
+    <strong>strongly</strong>
+    suggest to use the pre-defined "field" and "group" controls provided by the system (you can find them in the other
+    "form" documentation pages).
+  </p>
+
+  <h4 class="dummy-h4">Form::Label</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component and a
+    <code class="dummy-code">controlId</code>
+    argument (the ID of the form control associated with the label):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
+  <p class="dummy-paragraph">
+    There may be cases in which the label needs to contain more than just text. In this case it's possible to pass
+    structured content to it (it's just yielded in output):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Label @controlId="control-ID">
+        <span>Some text</span>
+        <Hds::Badge @size="small" @text="Some badge" />
+      </Hds::Form::Label>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Label @controlId="control-ID">
+    <span>Some text</span>
+    <Hds::Badge @size="small" @text="Some badge" />
+  </Hds::Form::Label>
+  <p class="dummy-paragraph">
+    <strong>Important:</strong>
+    in this case, while the correct text styling is applied to the component's container, the layout/organization of the
+    content inside the component is left to the consumer.</p>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: The
+    <code class="dummy-code">&lt;label&gt;</code>
+    element is linked via
+    <code class="dummy-code">for</code>
+    attribute to the
+    <code class="dummy-code">&lt;input/select/textarea&gt;</code>
+    elements. This means it becomes an interactive element, and for this reason it's not possible to have links inside
+    it (nested interactive elements cannot be reached by a user with assistive technology).
+  </p>
+
+  <h4 class="dummy-h4">Form::HelperText</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component and a
+    <code class="dummy-code">controlId</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: the
+    <code class="dummy-code">controlId</code>
+    value will be used to generate an ID, prefixed with
+    <code class="dummy-code">helper-text-</code>, so that this ID can be referenced in the
+    <code class="dummy-code">aria-describedby</code>
+    attribute of the form control. If no
+    <code class="dummy-code">controlId</code>
+    is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</p>
+  <p class="dummy-paragraph">
+    There may be some cases in which the helper text needs to contain more than just text. First, it is important to
+    note that interactive elements in text (associated with the input through
+    <code class="dummy-code">aria-describedby</code>) will not be read out as interactive elements to users with screen
+    readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that
+    informs the user that some help text includes link, and additional keyboard exploration may be required.
+  </p>
+  <p class="dummy-paragraph">
+    To implement additional nested components within the helper text, use the block form of the component. Note that the
+    correct text styling will be applied to the component itself, but the nested components may need additional styling.
+    For example:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::HelperText @controlId="control-ID">
+        Some text with a
+        <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
+        or <code>some formatted code</code> or a <strong>strong message</strong>.
+      </Hds::Form::HelperText>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::HelperText @controlId="control-ID">
+    Some text with a
+    <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>, or
+    <code>some formatted code</code>
+    or a
+    <strong>strong message</strong>.
+  </Hds::Form::HelperText>
+
+  <h4 class="dummy-h4">Form::Error</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component and a
+    <code class="dummy-code">controlId</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: the
+    <code class="dummy-code">controlId</code>
+    value will be used to generate an ID, prefixed with
+    <code class="dummy-code">error-</code>, so that this ID can be referenced in the
+    <code class="dummy-code">aria-describedby</code>
+    attribute of the form control. If no
+    <code class="dummy-code">controlId</code>
+    is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).</p>
+  <p class="dummy-paragraph">
+    There may be cases in which the error is made of multiple messages. In this case it's possible to iterate over a
+    collection of error messages:
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Error @controlId="control-ID" as |Error|>
+        \{{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
+          <Error.Message>\{{message}}</Error.Message>
+        \{{/each}}
+      </Hds::Form::Error>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Error @controlId="control-ID" as |Error|>
+    {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
+      <Error.Message>{{message}}</Error.Message>
+    {{/each}}
+  </Hds::Form::Error>
+
+  <h4 class="dummy-h4">Form::Legend</h4>
+  <p class="dummy-paragraph">
+    The most basic invocation just needs a text passed to the component:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Form::Legend>My legend</Hds::Form::Legend>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Legend>My legend</Hds::Form::Legend>
+  <p class="dummy-paragraph">
+    There may be cases in which the legend needs to contain more than just text. In this case it's possible to pass
+    structured content to it (it's just yielded in output):
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Legend>
+        <span>Some text</span>
+        <Hds::Badge @size="small" @text="Some badge" />
+      </Hds::Form::Legend>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Legend>
+    <span>Some text</span>
+    <Hds::Badge @size="small" @text="Some badge" />
+  </Hds::Form::Legend>
+  <p class="dummy-paragraph">
+    <strong>Important:</strong>
+    in this case, while the correct text styling is applied to the component's container, the layout/organization of the
+    content inside the component is left to the consumer.</p>
+
+  <h4 class="dummy-h4">Form::Field</h4>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />Note: it's very unlikely that
+    you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If
+    for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and
+    guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants
+    to it.</p>
+  <p class="dummy-paragraph">
+    The more general invocation for this component sees a set of contextual components passed to it, a control (in this
+    case a text input) and a
+    <code class="dummy-code">@layout</code>
+    argument provided, and a few hashed values passed back to the control:
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Field @layout="vertical" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Control>
+          // add your control here
+          <input
+            type="email"
+            id=\{{F.id}}
+            value="jane.doe@email.com"
+            class="my-custom-class"
+            aria-describedby=\{{F.ariaDescribedBy}}
+          />
+        </F.Control>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Field>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Field @layout="vertical" as |F|>
+    <F.Label>This is the label</F.Label>
+    <F.HelperText>This is the helper text</F.HelperText>
+    <F.Control>
+      {{! add your control here }}
+      <input
+        type="email"
+        id={{F.id}}
+        value="jane.doe@email.com"
+        class="my-custom-class"
+        aria-describedby={{F.ariaDescribedBy}}
+      />
+    </F.Control>
+    <F.Error>This is the error</F.Error>
+  </Hds::Form::Field>
+  <p class="dummy-paragraph">Depending on the context/need, one may want to pass just the label, or the label
+    <em>and</em>
+    the helper text, while the error message is likely conditional to the validation of the input provided by the user.</p>
+  <p class="dummy-paragraph">Note also how the arguments
+    <code class="dummy-code">id</code>
+    and
+    <code class="dummy-code">ariaDescribedBy</code>, automatically generated by the component, are passed back to the
+    control.</p>
+  <p class="dummy-paragraph"><em><strong>Important:</strong>
+      in this case the layout/styling of the content inside the "control" container is left to the consumer.</em></p>
+
+  <h4 class="dummy-h4">Form::Fieldset</h4>
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />Note: it's very unlikely that
+    you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If
+    for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and
+    guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants
+    to it.</p>
+  <p class="dummy-paragraph">
+    The more general invocation for this component sees a set of contextual components passed to it, one or more fields
+    (in this case radio buttons within a label), a
+    <code class="dummy-code">@layout</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Form::Fieldset @layout="horizontal" as |F|>
+        <F.Legend>This is the legend</F.Legend>
+        <F.HelperText>This is the helper text</F.HelperText>
+        // add your fields here
+        <F.Control>
+          <label for="my-group-checkbox1" class="my-custom-class">
+            <input type="checkbox" id="my-group-checkbox1" checked="checked" />
+            selection #1
+          </label>
+        </F.Control>
+        <F.Control>
+          <label for="my-group-checkbox2" class="my-custom-class">
+            <input type="checkbox" id="my-group-checkbox2" />
+            selection #2
+          </label>
+        </F.Control>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Fieldset>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Fieldset @layout="horizontal" as |F|>
+    <F.Legend>This is the legend</F.Legend>
+    <F.HelperText>This is the helper text</F.HelperText>
+    {{! add your control here }}
+    <F.Control>
+      <label for="my-group-checkbox1" class="my-custom-class">
+        <input type="checkbox" id="my-group-checkbox1" checked="checked" />
+        selection #1
+      </label>
+    </F.Control>
+    <F.Control>
+      <label for="my-group-checkbox2" class="my-custom-class">
+        <input type="checkbox" id="my-group-checkbox2" />
+        selection #2
+      </label>
+    </F.Control>
+    <F.Error>This is the error</F.Error>
+  </Hds::Form::Fieldset>
+  <p class="dummy-paragraph">Depending on the context/need, one may want to pass just the legend, just the helper text,
+    both or none, while the error message is likely conditional to the validation of the inputs provided by the user.</p>
+  <p class="dummy-paragraph"><em><strong>Important:</strong>
+      in this case the layout/styling of the content inside the "control" container is left to the consumer.</em></p>
+
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+  {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
+  {{!
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
+    </p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/form-label-design-usage.png" alt="" role="none" />
+  </div>
+  }}
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">Since these are the base elements, they are conditionally conformant; that is, they are not
+    conformant until used with the elements that will make them conformant.</p>
+  <h4 class="dummy-h4">
+    Applicable WCAG Success Criteria (Reference)
+  </h4>
+  <p class="dummy-paragraph">
+    This section is for reference only, some descriptions have been truncated for brevity. This component intends to
+    conform to the following WCAG success criteria:
+  </p>
+  <ul class="dummy-list">
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.1 Info and Relationships (A):</a>
+      Information, structure, and relationships conveyed through presentation can be programmatically determined or are
+      available in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.2 Meaningful Sequence (A):</a>
+      When the sequence in which content is presented affects its meaning, a correct reading sequence can be
+      programmatically determined.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/orientation"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.4 Orientation (AA):</a>
+      Content does not restrict its view and operation to a single display orientation, such as portrait or landscape.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.5 Identify Input Purpose(AA):</a>
+      The purpose of each input field collecting information about the user can be programmatically determined when the
+      input field serves a purpose identified in the Input Purposes for User Interface Components section; and the
+      content is implemented using technologies with support for identifying the expected meaning for form input data.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.1 Use of Color (A):</a>
+      Color is not used as the only visual means of conveying information, indicating an action, prompting a response,
+      or distinguishing a visual element.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.3 Contrast Minimum (AA):</a>
+      The visual presentation of text and images of text has a contrast ratio of at least 4.5:1</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.4 Resize Text (AA):</a>
+      Except for captions and images of text, text can be resized without assistive technology up to 200 percent without
+      loss of content or functionality.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow" rel="noopener noreferrer" target="_blank">1.4.10
+        Reflow (AA):</a>
+      Content can be presented without loss of information or functionality, and without requiring scrolling in two
+      dimensions</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.11 Non-text Contrast (AA):</a>
+      The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s): user
+      interface components; graphical objects.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.12 Text Spacing (AA):</a>
+      no loss of content or functionality occurs by setting all of the following and by changing no other style
+      property: line height set to 1.5; spacing following paragraphs set to at least 2x the font size; letter-spacing
+      set at least 0.12x of the font size, word spacing set to at least 0.16 times the font size.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.13 Content on Hover or Focus (AA):</a>
+      Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible
+      and then hidden, the following are true: dismissible, hoverable, persistent (see link)</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.2.1 Timing Adjustable (A):</a>
+      if there are time limitations set by the content, one of the following should be true: turn off, adjust, extend,
+      real-time exception, essential exception, 20 hour exception.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.6 Headings and Labels (AA):</a>
+      Headings and labels describe topic or purpose.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.7 Focus Visible (AA):</a>
+      Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-focus" rel="noopener noreferrer" target="_blank">3.2.1
+        On Focus (A):</a>
+      When any user interface component receives focus, it does not initiate a change of context.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-input" rel="noopener noreferrer" target="_blank">3.2.2
+        On Input (A):</a>
+      Changing the setting of any user interface component does not automatically cause a change of context unless the
+      user has been advised of the behavior before using the component.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.2.4 Consistent Identification (AA):</a>
+      Components that have the same functionality within a set of Web pages are identified consistently.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.1 Error Identification (A):</a>
+      If an input error is automatically detected, the item that is in error is identified and the error is described to
+      the user in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.2 Labels or Instructions (A):</a>
+      Labels or instructions are provided when content requires user input.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.3 Error Suggestion (AA):</a>
+      If an input error is automatically detected and suggestions for correction are known, then the suggestions are
+      provided to the user, unless it would jeopardize the security or purpose of the content.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.4 Error Prevention (Legal, Financial, Data) (AA):</a>
+      For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete
+      user-controllable data in data storage systems, or that submit user test responses, at least one of the following
+      is true: submissions are reversible, data is checked and user is provided an opportunity to correct them, a
+      mechanism is available for reviewing, confirming and correcting the information before finalizing the submission.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing" rel="noopener noreferrer" target="_blank">4.1.1
+        Parsing (A):</a>
+      In content implemented using markup languages, elements have complete start and end tags, elements are nested
+      according to their specifications, elements do not contain duplicate attributes, and any IDs are unique.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value"
+        rel="noopener noreferrer"
+        target="_blank"
+      >4.1.2 Name, Role, Value (A):</a>
+      For all user interface components, the name and role can be programmatically determined; states, properties, and
+      values that can be set by the user can be programmatically set; and notification of changes to these items is
+      available to user agents, including assistive technologies.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/" rel="noopener noreferrer" target="_blank">4.1.3 Status
+        Messages (AA):</a>
+      In content implemented using markup languages, status messages can be programmatically determined through role or
+      properties such that they can be presented to the user by assistive technologies without receiving focus.</li>
+  </ul>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">Label</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::Label>This is a simple label</Hds::Form::Label>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>)</span>
+  <Hds::Form::Label>
+    <div class="dummy-form-base-elements-label-with-badge">This is the label
+      <Hds::Badge @size="small" @text="Some badge" /></div>
+  </Hds::Form::Label>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Label>This is a very long label text that should go on multiple lines</Hds::Form::Label>
+  </div>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Helper text</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
+  <Hds::Form::HelperText>This is a helper text
+    <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</span>
+  <Hds::Form::HelperText>This is a helper text
+    <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. HTML tags)</span>
+  <Hds::Form::HelperText>
+    A helper text may contain some
+    <code>&lt;code&gt;</code>
+    for example, or a
+    <strong>&lt;strong&gt;</strong>.
+  </Hds::Form::HelperText>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::HelperText>This is a very long helper text that should go on multiple lines</Hds::Form::HelperText>
+  </div>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Error</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::Error>This is a simple error message</Hds::Form::Error>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Error>This is a very long error message that should span on multiple lines</Hds::Form::Error>
+  </div>
+  <br />
+  <span class="dummy-text-small">With multiple error messages</span>
+  <Hds::Form::Error as |Error|>
+    {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
+      <Error.Message>{{message}}</Error.Message>
+    {{/each}}
+  </Hds::Form::Error>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Legend</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::Legend>This is a simple legend</Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code></span>
+  <Hds::Form::Legend>This is a legend
+    <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</span>
+  <Hds::Form::Legend>This is a legend
+    <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>)</span>
+  <Hds::Form::Legend>
+    <div class="dummy-form-base-elements-legend-with-badge">This is the legend
+      <Hds::Badge @size="small" @text="Some badge" /></div>
+  </Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Legend>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
+  </div>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Field</h4>
+  <button id="dummy-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>{{if
+      this.showHighlight
+      "Hide"
+      "Show"
+    }}
+    layout highlight</button>
+  <div class="{{if this.showHighlight 'dummy-form-base-elements-layout-highlight'}}">
+    <h5 class="dummy-h5">Layout</h5>
+    <div class="dummy-form-base-elements-grid-sample">
+      {{#let (array "vertical" "flag") as |layouts|}}
+        {{#each layouts as |layout|}}
+          <div>
+            <span class="dummy-text-small">"{{layout}}" layout</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Field>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
+    <br />
+    {{#let (array "vertical" "flag") as |layouts|}}
+      {{#each layouts as |layout|}}
+        <h5 class="dummy-h5">Content / "{{layout}}" layout</h5>
+        <div class="dummy-form-base-elements-grid-sample">
+          <div>
+            <span class="dummy-text-small">Only label</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+            </Hds::Form::Field>
+          </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+            </Hds::Form::Field>
+          </div>
+        </div>
+        <br />
+        <div class="dummy-form-base-elements-grid-sample">
+          <div>
+            <span class="dummy-text-small">Label + Error</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Field>
+          </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text + Error</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Field>
+          </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text + Errors</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+              <F.Error as |E|>
+                <E.Message>First error message</E.Message>
+                <E.Message>Second error message</E.Message>
+              </F.Error>
+            </Hds::Form::Field>
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+
+    {{#let (array "vertical" "flag") as |layouts|}}
+      {{#each layouts as |layout|}}
+        <h5 class="dummy-h5">Containers / "{{layout}}" layout</h5>
+        <div class="dummy-form-base-elements-containers">
+          {{#let (array "block" "flex" "grid") as |displays|}}
+            {{#each displays as |display|}}
+              <div>
+                <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Field @layout={{layout}} as |F|>
+                    <F.Label>This is the label</F.Label>
+                    <F.HelperText>This is the helper text</F.HelperText>
+                    <F.Control>
+                      {{#if (eq layout "vertical")}}
+                        <DummyPlaceholder
+                          @text="control"
+                          @width="100%"
+                          @height="32"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                      {{#if (eq layout "flag")}}
+                        <DummyPlaceholder
+                          @text="✔"
+                          @width="16"
+                          @height="16"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                    </F.Control>
+                    <F.Error>This is the error</F.Error>
+                  </Hds::Form::Field>
+                </div>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Field @layout={{layout}} as |F|>
+                    <F.Label>This is the label text that should go on multiple lines</F.Label>
+                    <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                    <F.Control>
+                      {{#if (eq layout "vertical")}}
+                        <DummyPlaceholder
+                          @text="control"
+                          @width="100%"
+                          @height="32"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                      {{#if (eq layout "flag")}}
+                        <DummyPlaceholder
+                          @text="✔"
+                          @width="16"
+                          @height="16"
+                          @background="#eee"
+                          class="hds-form-field__control"
+                        />
+                      {{/if}}
+                    </F.Control>
+                    <F.Error as |E|>
+                      <E.Message>This is the first error text</E.Message>
+                      <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                    </F.Error>
+                  </Hds::Form::Field>
+                </div>
+              </div>
+            {{/each}}
+          {{/let}}
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Fieldset</h4>
+  <button id="dummy-toggle-highlight-2" type="button" {{on "click" this.toggleHighlight}}>{{if
+      this.showHighlight
+      "Hide"
+      "Show"
+    }}
+    layout highlight</button>
+  <div class="{{if this.showHighlight 'dummy-form-base-elements-layout-highlight'}}">
+    <h5 class="dummy-h5">Layout</h5>
+    <div class="dummy-form-base-elements-fieldset-layout">
+      {{#let (array "vertical" "horizontal") as |layouts|}}
+        {{#each layouts as |layout|}}
+          <div>
+            <span class="dummy-text-small">"{{layout}}" layout</span>
+            <br />
+            <Hds::Form::Fieldset @layout={{layout}} as |F|>
+              <F.Legend>This is the legend</F.Legend>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                <DummyPlaceholder
+                  @text="field"
+                  @width="120"
+                  @height="32"
+                  @background="#eee"
+                  class="hds-form-group__control-field"
+                />
+              </F.Control>
+              <F.Control>
+                <DummyPlaceholder
+                  @text="field"
+                  @width="120"
+                  @height="32"
+                  @background="#eee"
+                  class="hds-form-group__control-field"
+                />
+              </F.Control>
+              <F.Control>
+                <DummyPlaceholder
+                  @text="field"
+                  @width="120"
+                  @height="32"
+                  @background="#eee"
+                  class="hds-form-group__control-field"
+                />
+              </F.Control>
+              <F.Error>This is the error</F.Error>
+            </Hds::Form::Fieldset>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
+    {{#let (array "vertical" "horizontal") as |layouts|}}
+      {{#each layouts as |layout|}}
+        <h5 class="dummy-h5">Containers / "{{layout}}" layout</h5>
+        <div class="dummy-form-base-elements-containers">
+          {{#let (array "block" "flex" "grid") as |displays|}}
+            {{#each displays as |display|}}
+              <div>
+                <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Fieldset @layout={{layout}} as |F|>
+                    <F.Legend>This is the legend</F.Legend>
+                    <F.HelperText>This is the helper text</F.HelperText>
+                    <F.Control>
+                      <DummyPlaceholder
+                        @text="field"
+                        @width="120"
+                        @height="32"
+                        @background="#eee"
+                        class="hds-form-group__control-field"
+                      />
+                    </F.Control>
+                    <F.Control>
+                      <DummyPlaceholder
+                        @text="field"
+                        @width="120"
+                        @height="32"
+                        @background="#eee"
+                        class="hds-form-group__control-field"
+                      />
+                    </F.Control>
+                    <F.Error>This is the error</F.Error>
+                  </Hds::Form::Fieldset>
+                </div>
+                <br />
+                <div class="dummy-form-base-elements-containers__{{display}}">
+                  <Hds::Form::Fieldset @layout={{layout}} as |F|>
+                    <F.Legend>This is the legend text that should go on multiple lines</F.Legend>
+                    <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                    <F.Control>
+                      <DummyPlaceholder
+                        @text="field"
+                        @width="120"
+                        @height="32"
+                        @background="#eee"
+                        class="hds-form-group__control-field"
+                      />
+                    </F.Control>
+                    <F.Control>
+                      <DummyPlaceholder
+                        @text="field"
+                        @width="120"
+                        @height="32"
+                        @background="#eee"
+                        class="hds-form-group__control-field"
+                      />
+                    </F.Control>
+                    <F.Error as |E|>
+                      <E.Message>This is the first error text</E.Message>
+                      <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                    </F.Error>
+                  </Hds::Form::Fieldset>
+                </div>
+              </div>
+            {{/each}}
+          {{/let}}
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
+</section>
