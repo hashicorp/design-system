@@ -48,6 +48,9 @@ module('Acceptance | Percy test', function (hooks) {
     await click('button#dummy-toggle-highlight');
     await percySnapshot('Form - Base elements');
 
+    await visit('/components/form/checkbox');
+    await percySnapshot('Form - Checkbox');
+
     await visit('/components/form/text-input');
     await percySnapshot('Form - TextInput');
 
