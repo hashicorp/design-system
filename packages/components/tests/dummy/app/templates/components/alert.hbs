@@ -268,7 +268,7 @@
     If needed, you can pass only
     <code class="dummy-code">title</code>
     or only
-    <code class="dummy-code">text</code>.
+    <code class="dummy-code">description</code>.
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock
@@ -283,7 +283,7 @@
     @language="markup"
     @code='
       <Hds::Alert @type="inline" as |A|>
-        <A.Title>Title here</A.Title>
+        <A.Description>Description here</A.Description>
       </Hds::Alert>
     '
   />
@@ -438,7 +438,7 @@
         <A.Title>Title here</A.Title>
         <A.Description>Description here</A.Description>
         <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
-        <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+        <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." />
         <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" @href="#" />
       </Hds::Alert>
     '
