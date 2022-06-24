@@ -102,6 +102,23 @@
       <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
   </div>
 
+  <h5 class="dummy-h5">Containers</h5>
+  <div class="dummy-form-text-input-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-form-text-input-containers__{{display}}">
+            <Hds::Badge @text="Only text" />
+            <Hds::Badge @icon="activity" @text="Text + icon" />
+            <Hds::Badge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+
   <h4 class="dummy-h4">Size</h4>
   <div class="dummy-badge-base-sample">
     {{#each @model.BADGE_SIZES as |size|}}
