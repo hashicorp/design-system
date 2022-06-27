@@ -1,11 +1,21 @@
 export function getAriaDescribedBy(element) {
-  // initialize the array using the descriptors' IDs, if they exist
-  let ariaDescribedBy = element.descriptors ?? [];
+  let ariaDescribedBy = [];
+
+  // append descriptor's IDs, if provided
+  if (element.descriptors) {
+    element.descriptors.forEach((descriptor) =>
+      ariaDescribedBy.push(descriptor)
+    );
+  }
 
   // append @extraAriaDescribedBy arg, if provided
   if (element.args.extraAriaDescribedBy) {
     ariaDescribedBy.push(element.args.extraAriaDescribedBy);
   }
 
-  return ariaDescribedBy.join(' ');
+  if (ariaDescribedBy.length) {
+    return ariaDescribedBy.join(' ');
+  } else {
+    return null;
+  }
 }

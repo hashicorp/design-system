@@ -5,7 +5,7 @@ import { getElementId } from '../utils/getElementId';
 import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 
 export default class HdsFormFieldsetIndexComponent extends Component {
-  @tracked ariaDescribedBy;
+  @tracked ariaDescribedBy = getAriaDescribedBy(this);
   @tracked descriptors = [];
 
   @action

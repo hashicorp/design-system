@@ -8,7 +8,7 @@ import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
 export default class HdsFormFieldIndexComponent extends Component {
-  @tracked ariaDescribedBy;
+  @tracked ariaDescribedBy = getAriaDescribedBy(this);
   @tracked descriptors = [];
 
   @action

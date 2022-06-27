@@ -70,7 +70,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     assert.expect(4);
     await render(
-      hbs`<Hds::Form::Select::Field as |F|>
+      hbs`<Hds::Form::Select::Field @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
@@ -87,7 +87,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
       .dom('.hds-form-field__control')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId}`
+        `helper-text-${controlId} error-${controlId} extra`
       );
     assert
       .dom('.hds-form-field__error')
