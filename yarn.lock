@@ -1431,7 +1431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:^2.22.0":
+"@changesets/cli@npm:^2.23.0":
   version: 2.23.0
   resolution: "@changesets/cli@npm:2.23.0"
   dependencies:
@@ -2109,7 +2109,7 @@ __metadata:
   resolution: "@hashicorp/design-system@workspace:."
   dependencies:
     "@changesets/changelog-github": ^0.4.4
-    "@changesets/cli": ^2.22.0
+    "@changesets/cli": ^2.23.0
   languageName: unknown
   linkType: soft
 
