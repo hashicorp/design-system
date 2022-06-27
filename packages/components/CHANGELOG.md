@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.12.7
+
+### Patch Changes
+
+- [#406](https://github.com/hashicorp/design-system/pull/406) [`3c3f49b9`](https://github.com/hashicorp/design-system/commit/3c3f49b950fe7c0c9fa9732d9a8534d3b73e69fd) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix badge vertical alignment
+
 ## 0.12.6
 
 ### Patch Changes
