@@ -54,7 +54,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     assert.expect(3);
     await render(
-      hbs`<Hds::Form::Fieldset @layout="vertical" as |F|>
+      hbs`<Hds::Form::Fieldset @layout="vertical" @extraAriaDescribedBy="extra" as |F|>
           <F.Legend>This is the legend</F.Legend>
           <F.HelperText>This is the group helper text</F.HelperText>
           <F.Control><pre class="hds-form-group__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
@@ -71,7 +71,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       .dom('fieldset')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${fieldsetId} error-${fieldsetId}`
+        `helper-text-${fieldsetId} error-${fieldsetId} extra`
       );
     assert
       .dom('.hds-form-group__error')
