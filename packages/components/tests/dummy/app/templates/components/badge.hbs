@@ -103,16 +103,18 @@
   </div>
 
   <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-text-input-containers">
+  <div class="dummy-badge-containers">
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <div>
           <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
           <br />
-          <div class="dummy-form-text-input-containers__{{display}}">
-            <Hds::Badge @text="Only text" />
-            <Hds::Badge @icon="activity" @text="Text + icon" />
-            <Hds::Badge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
+          <div class="dummy-badge-containers__{{display}}">
+            <Hds::Badge @text="Only text" /><Hds::Badge @icon="activity" @text="Text + icon" /><Hds::Badge
+              @icon="activity"
+              @text="Only icon"
+              @isIconOnly={{true}}
+            />
           </div>
         </div>
       {{/each}}
