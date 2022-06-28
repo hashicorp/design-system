@@ -141,6 +141,13 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert').hasAttribute('role', 'alert');
   });
 
+  test('it should render with an `alertdialog` role when actions are provided', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {

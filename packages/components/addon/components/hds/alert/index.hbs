@@ -1,11 +1,11 @@
-<div class={{this.classNames}} role="alert" aria-live="polite" ...attributes>
+<div class={{this.classNames}} role={{this.role}} aria-live="polite" aria-describedby="content" ...attributes>
   {{#if this.icon}}
     <div class="hds-alert__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} @isInlineBlock={{false}} />
     </div>
   {{/if}}
 
-  <div class="hds-alert__content">
+  <div class="hds-alert__content" {{did-insert this.didInsertContent}}>
     <div class="hds-alert__text">
       {{yield (hash Title=(component "hds/alert/title"))}}
       {{yield (hash Description=(component "hds/alert/description"))}}
