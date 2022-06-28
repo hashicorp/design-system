@@ -41,6 +41,7 @@
   &:disabled {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
+    cursor: not-allowed;
   }
 
   // INVALID
