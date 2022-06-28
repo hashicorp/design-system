@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.12.8
+
+### Patch Changes
+
+- [#400](https://github.com/hashicorp/design-system/pull/400) [`d87d622b`](https://github.com/hashicorp/design-system/commit/d87d622b0f1f8829a0d5e6a48cfcd8ad8ff6f425) Thanks [@alex-ju](https://github.com/alex-ju)! - Determine alert component's role based on the presence of interactive elements
+
 ## 0.12.7
 
 ### Patch Changes
