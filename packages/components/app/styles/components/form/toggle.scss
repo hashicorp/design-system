@@ -163,6 +163,17 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
     background-color: var(--token-color-palette-red-400);
   }
 
+  // TODO add handling of focus-visible
+  .hds-form-toggle--is-invalid :focus:not(:checked) + &,
+  .hds-form-toggle--is-invalid .mock-focus:not(:checked) + &,
+  .hds-form-toggle--is-invalid :focus:checked + &,
+  .hds-form-toggle--is-invalid .mock-focus:checked + & {
+    --border-color: var(--token-color-focus-critical-internal);
+    &::before {
+      border-color: var(--token-color-focus-critical-external);
+    }
+  }
+
   .hds-form-toggle--is-invalid :active:not(:checked) + &,
   .hds-form-toggle--is-invalid .mock-active:not(:checked) + &,
   .hds-form-toggle--is-invalid :active:checked + &,

@@ -46,6 +46,18 @@
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: var(--token-color-foreground-critical);
+    border-color: #C00005; // TODO convert to form-controls design token
+
+    &:hover,
+    &.mock-hover {
+      border-color: #940004; // TODO convert to form-controls design token
+    }
+
+    // TODO add handling of focus-visible
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-critical-internal);
+      outline-color: var(--token-color-focus-critical-external);
+    }
   }
 }
