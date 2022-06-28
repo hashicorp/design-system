@@ -74,8 +74,8 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
   // used for the focus
 
   &::before {
-    $border-width: 2px;
-    $shift: $border-width + 1px; // we need to take in account also the border width of the parent
+    $border-width: 3px;
+    $shift: $border-width + 2px; // we need to take in account also the border width of the parent
     border-radius: $hds-form-toggle-border-radius + $border-width;
     border-width: $border-width;
     bottom: -$shift;

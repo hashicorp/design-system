@@ -56,8 +56,8 @@ $hds-form-checkbox-control-border-radius: 3px;
   &.mock-focus:checked,
   &.mock-focus:not(:checked) {
     border-color: var(--token-color-palette-blue-400);
-    outline: 2px solid var(--token-color-focus-action-external);
-    outline-offset: 0px;
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
   }
 
   // active
