@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
 
 export const TYPES = ['page', 'inline', 'compact'];
 export const DEFAULT_COLOR = 'neutral';
@@ -19,6 +21,8 @@ export const MAPPING_COLORS_TO_ICONS = {
 };
 
 export default class HdsAlertIndexComponent extends Component {
+  @tracked role = 'alert';
+
   constructor() {
     super(...arguments);
 
@@ -124,5 +128,13 @@ export default class HdsAlertIndexComponent extends Component {
     classes.push(`hds-alert--color-${this.color}`);
 
     return classes.join(' ');
+  }
+
+  @action
+  didInsertContent(element) {
+    let actions = element.querySelectorAll('button, a');
+    if (actions.length) {
+      this.role = 'alertdialog';
+    }
   }
 }
