@@ -56,8 +56,7 @@
 
   // DISABLED
 
-  &:disabled,
-  &[disabled] {
+  &:disabled {
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
@@ -99,7 +98,6 @@
     width: initial;
 
     // show the native icon dimmed if disabled (hidden in Chrome)
-    &[disabled]::-webkit-calendar-picker-indicator,
     &:disabled::-webkit-calendar-picker-indicator {
         visibility: visible;
         opacity: 0.5;
