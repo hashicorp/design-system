@@ -5,11 +5,11 @@
   gap: 2rem;
 }
 
-.dummy-form-radio-grid-sample {
-  align-items: start;
+.dummy-form-radio-states-grid {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 1rem 5rem;
+  grid-template-columns: repeat(3, 1fr);
+  width: fit-content;
 }
 
 .dummy-form-radio-states-subgrid {
@@ -17,6 +17,13 @@
   grid-gap: 0.6rem 1rem;
   grid-template-columns: 1fr 1fr;
   width: min-content;
+}
+
+.dummy-form-radio-grid-sample {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem 5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .dummy-form-radio-containers {

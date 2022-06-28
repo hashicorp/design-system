@@ -264,25 +264,28 @@
   </div>
   <h5 class="dummy-h6">States</h5>
   <div class="dummy-form-select-grid-sample">
-    {{#let (array "base" "disabled" "invalid") as |variants|}}
+    {{#let (array "base" "invalid" "disabled") as |variants|}}
       {{#each variants as |variant|}}
         {{#each @model.STATES as |state|}}
-          <div>
-            <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
-            <br />
-            <div class="dummy-form-select-sublist" mock-state-value={{state}} mock-state-selector="select">
-              <Hds::Form::Select::Field
-                disabled={{if (eq variant "disabled") "disabled"}}
-                @isInvalid={{if (eq variant "invalid") true}}
-                as |F|
-              >
-                <F.Options>
-                  <option>Lorem ipsum dolor</option>
-                  <option>Sine qua non est</option>
-                </F.Options>
-              </Hds::Form::Select::Field>
+          {{! template-lint-disable simple-unless }}
+          {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+            <div>
+              <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
+              <br />
+              <div class="dummy-form-select-sublist" mock-state-value={{state}} mock-state-selector="select">
+                <Hds::Form::Select::Field
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  @isInvalid={{if (eq variant "invalid") true}}
+                  as |F|
+                >
+                  <F.Options>
+                    <option>Lorem ipsum dolor</option>
+                    <option>Sine qua non est</option>
+                  </F.Options>
+                </Hds::Form::Select::Field>
+              </div>
             </div>
-          </div>
+          {{/unless}}
         {{/each}}
       {{/each}}
     {{/let}}
