@@ -5,7 +5,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/form/t
 export default class ComponentsFormTextInputRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
-    const STATES = ['default', 'hover', 'active', 'focus'];
+    const STATES = ['default', 'hover', 'focus'];
     return {
       TYPES,
       STATES,

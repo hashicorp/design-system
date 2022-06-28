@@ -295,7 +295,7 @@
     </div>
   </div>
   <h5 class="dummy-h6">States (Base / Disabled / Invalid)</h5>
-  <div class="dummy-form-radio-grid-sample">
+  <div class="dummy-form-radio-states-grid">
     {{#each @model.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
@@ -303,10 +303,13 @@
         <div class="dummy-form-radio-states-subgrid" mock-state-value={{state}} mock-state-selector="input">
           <Hds::Form::Radio::Base aria-label="Radio" />
           <Hds::Form::Radio::Base checked="checked" aria-label="Checked radio" />
-          <Hds::Form::Radio::Base disabled="disabled" aria-label="Disabled radio" />
-          <Hds::Form::Radio::Base checked="checked" disabled="disabled" aria-label="Checked, disabled radio" />
           <Hds::Form::Radio::Base @isInvalid={{true}} aria-label="Invalid radio" />
           <Hds::Form::Radio::Base checked="checked" @isInvalid={{true}} aria-label="Checked, invalid radio" />
+          {{! template-lint-disable simple-unless }}
+          {{#unless (eq state "focus")}}
+            <Hds::Form::Radio::Base disabled="disabled" aria-label="Disabled radio" />
+            <Hds::Form::Radio::Base checked="checked" disabled="disabled" aria-label="Checked, disabled radio" />
+          {{/unless}}
         </div>
       </div>
     {{/each}}
@@ -347,6 +350,7 @@
       </Hds::Form::Radio::Field>
     </div>
   </div>
+  <br />
   <div class="dummy-form-radio-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>

@@ -295,7 +295,7 @@
     </div>
   </div>
   <h5 class="dummy-h6">States (Base / Disabled / Invalid)</h5>
-  <div class="dummy-form-checkbox-grid-sample">
+  <div class="dummy-form-checkbox-states-grid">
     {{#each @model.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
@@ -303,10 +303,13 @@
         <div class="dummy-form-checkbox-states-subgrid" mock-state-value={{state}} mock-state-selector="input">
           <Hds::Form::Checkbox::Base aria-label="Checkbox" />
           <Hds::Form::Checkbox::Base checked="checked" aria-label="Checked checkbox" />
-          <Hds::Form::Checkbox::Base disabled="disabled" aria-label="Disabled checkbox" />
-          <Hds::Form::Checkbox::Base checked="checked" disabled="disabled" aria-label="Checked, disabled checkbox" />
           <Hds::Form::Checkbox::Base @isInvalid={{true}} aria-label="Invalid checkbox" />
           <Hds::Form::Checkbox::Base checked="checked" @isInvalid={{true}} aria-label="Checked, invalid checkbox" />
+          {{! template-lint-disable simple-unless }}
+          {{#unless (eq state "focus")}}
+            <Hds::Form::Checkbox::Base disabled="disabled" aria-label="Disabled checkbox" />
+            <Hds::Form::Checkbox::Base checked="checked" disabled="disabled" aria-label="Checked, disabled checkbox" />
+          {{/unless}}
         </div>
       </div>
     {{/each}}
@@ -343,6 +346,7 @@
       </Hds::Form::Checkbox::Field>
     </div>
   </div>
+  <br />
   <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>

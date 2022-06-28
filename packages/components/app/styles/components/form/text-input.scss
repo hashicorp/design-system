@@ -39,11 +39,6 @@
     outline-offset: 0px;
   }
 
-  &:active,
-  &.mock-active {
-    border-color: var(--token-color-focus-action-internal);
-  }
-
   // READONLY
 
   &:read-only,

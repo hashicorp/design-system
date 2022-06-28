@@ -208,7 +208,7 @@
     </div>
   </div>
   <h5 class="dummy-h6">States (Base / Disabled / Invalid)</h5>
-  <div class="dummy-form-toggle-grid-sample">
+  <div class="dummy-form-toggle-states-grid">
     {{#each @model.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
@@ -216,10 +216,13 @@
         <div class="dummy-form-toggle-states-subgrid" mock-state-value={{state}} mock-state-selector="input">
           <Hds::Form::Toggle::Base aria-label="Toggle" />
           <Hds::Form::Toggle::Base checked="checked" aria-label="Checked toggle" />
-          <Hds::Form::Toggle::Base disabled="disabled" aria-label="Disabled toggle" />
-          <Hds::Form::Toggle::Base checked="checked" disabled="disabled" aria-label="Checked, disabled toggle" />
           <Hds::Form::Toggle::Base @isInvalid={{true}} aria-label="Invalid toggle" />
           <Hds::Form::Toggle::Base checked="checked" @isInvalid={{true}} aria-label="Checked, invalid toggle" />
+          {{! template-lint-disable simple-unless }}
+          {{#unless (eq state "focus")}}
+            <Hds::Form::Toggle::Base disabled="disabled" aria-label="Disabled toggle" />
+            <Hds::Form::Toggle::Base checked="checked" disabled="disabled" aria-label="Checked, disabled toggle" />
+          {{/unless}}
         </div>
       </div>
     {{/each}}
@@ -256,6 +259,7 @@
       </Hds::Form::Toggle::Field>
     </div>
   </div>
+  <br />
   <div class="dummy-form-toggle-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Error</span>

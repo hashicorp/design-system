@@ -60,16 +60,6 @@ $hds-form-checkbox-control-border-radius: 3px;
     outline-offset: 1px;
   }
 
-  // active
-
-  &:active:not(:checked),
-  &.mock-active:not(:checked),
-  &:active:checked,
-  &.mock-active:checked {
-    background-color: var(--token-color-palette-blue-400);
-    border-color: var(--token-color-palette-blue-400);
-  }
-
   // INVALID
 
   &.hds-form-checkbox--is-invalid:not(:checked) {
@@ -87,23 +77,6 @@ $hds-form-checkbox-control-border-radius: 3px;
   &.hds-form-checkbox--is-invalid:hover:checked,
   &.hds-form-checkbox--is-invalid.mock-hover:checked {
     background-color: var(--token-color-palette-red-300);
-    border-color: var(--token-color-palette-red-400);
-  }
-
-  // TODO add handling of focus-visible
-  &.hds-form-checkbox--is-invalid:focus:not(:checked),
-  &.hds-form-checkbox--is-invalid.mock-focus:not(:checked),
-  &.hds-form-checkbox--is-invalid:focus:checked,
-  &.hds-form-checkbox--is-invalid.mock-focus:checked {
-    border-color: var(--token-color-focus-critical-internal);
-    outline-color: var(--token-color-focus-critical-external);
-  }
-
-  &.hds-form-checkbox--is-invalid:active:not(:checked),
-  &.hds-form-checkbox--is-invalid.mock-active:not(:checked),
-  &.hds-form-checkbox--is-invalid:active:checked,
-  &.hds-form-checkbox--is-invalid.mock-active:checked {
-    background-color: var(--token-color-palette-red-400);
     border-color: var(--token-color-palette-red-400);
   }
 

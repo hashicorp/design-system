@@ -30,12 +30,6 @@
     outline-offset: 0px;
   }
 
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-surface-interactive-disabled);
-    border-color: var(--token-color-border-primary);
-  }
-
   // DISABLED
 
   &:disabled {

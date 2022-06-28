@@ -247,32 +247,35 @@
   </div>
   <h5 class="dummy-h6">States</h5>
   <div class="dummy-form-textarea-grid-sample">
-    {{#let (array "base" "disabled" "readonly" "invalid") as |variants|}}
+    {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
       {{#each variants as |variant|}}
         {{#each @model.STATES as |state|}}
-          <div>
-            <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
-            <br />
-            <div class="dummy-form-textarea-sublist" mock-state-value={{state}} mock-state-selector="textarea">
-              <Hds::Form::Textarea::Base
-                disabled={{if (eq variant "disabled") "disabled"}}
-                readonly={{if (eq variant "readonly") "readonly"}}
-                @isInvalid={{if (eq variant "invalid") true}}
-              />
-              <Hds::Form::Textarea::Base
-                placeholder="Placeholder"
-                disabled={{if (eq variant "disabled") "disabled"}}
-                readonly={{if (eq variant "readonly") "readonly"}}
-                @isInvalid={{if (eq variant "invalid") true}}
-              />
-              <Hds::Form::Textarea::Base
-                @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-                disabled={{if (eq variant "disabled") "disabled"}}
-                readonly={{if (eq variant "readonly") "readonly"}}
-                @isInvalid={{if (eq variant "invalid") true}}
-              />
+          {{! template-lint-disable simple-unless }}
+          {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+            <div>
+              <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
+              <br />
+              <div class="dummy-form-textarea-sublist" mock-state-value={{state}} mock-state-selector="textarea">
+                <Hds::Form::Textarea::Base
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  readonly={{if (eq variant "readonly") "readonly"}}
+                  @isInvalid={{if (eq variant "invalid") true}}
+                />
+                <Hds::Form::Textarea::Base
+                  placeholder="Placeholder"
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  readonly={{if (eq variant "readonly") "readonly"}}
+                  @isInvalid={{if (eq variant "invalid") true}}
+                />
+                <Hds::Form::Textarea::Base
+                  @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  readonly={{if (eq variant "readonly") "readonly"}}
+                  @isInvalid={{if (eq variant "invalid") true}}
+                />
+              </div>
             </div>
-          </div>
+          {{/unless}}
         {{/each}}
       {{/each}}
     {{/let}}
