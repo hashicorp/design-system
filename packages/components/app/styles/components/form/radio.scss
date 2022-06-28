@@ -55,8 +55,8 @@ $hds-form-radio-control-size: 16px;
   &.mock-focus:checked,
   &.mock-focus:not(:checked) {
     border-color: var(--token-color-palette-blue-400);
-    outline: 2px solid var(--token-color-focus-action-external);
-    outline-offset: 0px;
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
   }
 
   // active
@@ -89,6 +89,15 @@ $hds-form-radio-control-size: 16px;
     border-color: var(--token-color-palette-red-400);
   }
 
+  // TODO add handling of focus-visible
+  &.hds-form-radio--is-invalid:focus:not(:checked),
+  &.hds-form-radio--is-invalid.mock-focus:not(:checked),
+  &.hds-form-radio--is-invalid:focus:checked,
+  &.hds-form-radio--is-invalid.mock-focus:checked {
+    border-color: var(--token-color-focus-critical-internal);
+    outline-color: var(--token-color-focus-critical-external);
+  }
+
   &.hds-form-radio--is-invalid:active:not(:checked),
   &.hds-form-radio--is-invalid.mock-active:not(:checked),
   &.hds-form-radio--is-invalid:active:checked,
@@ -103,6 +112,8 @@ $hds-form-radio-control-size: 16px;
   &.hds-form-checkbox--is-invalid:disabled:not(:checked) {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-border-primary);
+    box-shadow: none;
+    cursor: not-allowed;
   }
   &:disabled:checked,
   &.hds-form-checkbox--is-invalid:disabled:checked {
@@ -111,5 +122,6 @@ $hds-form-radio-control-size: 16px;
     box-shadow: none;
     // notice: the "dot" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23656a76'/%3e%3c/svg%3e");
+    cursor: not-allowed;
   }
 }

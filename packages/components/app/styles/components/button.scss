@@ -33,13 +33,10 @@ $hds-button-focus-border-width: 3px;
 
   // This covers all of the browsers and focus scenarios (due to the custom focus design).
   &:disabled,
-  &[disabled],
   &.mock-disabled,
   &:disabled:focus,
-  &[disabled]:focus,
   &.mock-disabled:focus,
   &:disabled:hover,
-  &[disabled]:hover,
   &.mock-disabled:hover {
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
@@ -258,13 +255,10 @@ $size-props: (
   }
 
   &:disabled,
-  &[disabled],
   &.mock-disabled,
   &:disabled:focus,
-  &[disabled]:focus,
   &.mock-disabled:focus,
   &:disabled:hover,
-  &[disabled]:hover,
   &.mock-disabled:hover {
     background-color: transparent;
     border-color: transparent;
