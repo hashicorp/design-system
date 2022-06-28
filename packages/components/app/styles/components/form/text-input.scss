@@ -7,11 +7,12 @@
 // "BASE" CONTROL
 
 .hds-form-text-input {
+  background-color: var(--token-color-surface-primary);
   border: 1px solid var(--token-color-palette-neutral-400);
   border-radius: 5px;
   box-shadow: var(--hds-elevation-inset-box-shadow);
   color: var(--token-color-foreground-strong);
-  padding: 7px;
+  padding: 7px; // we have to take into account the border
   width: 100%;
   max-width: 100%;
 

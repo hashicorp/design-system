@@ -9,8 +9,8 @@
 .hds-form-select {
   border: 1px solid var(--token-color-palette-neutral-400);
   border-radius: 5px;
-  color: var(--token-color-foreground-primary);
-  padding: 7px;
+  color: var(--token-color-foreground-strong);
+  padding: 7px; // we have to take into account the border
   max-width: 100%;
 
   // STATUS
