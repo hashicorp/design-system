@@ -49,6 +49,7 @@
   &[readonly] {
     background-color: var(--token-color-surface-strong);
     border-color: var(--token-color-palette-neutral-400);
+    box-shadow: none;
     color: var(--token-color-foreground-primary);
   }
 
@@ -58,6 +59,7 @@
   &[disabled] {
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
+    box-shadow: none;
     color: var(--token-color-foreground-disabled);
   }
 
