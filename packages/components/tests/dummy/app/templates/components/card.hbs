@@ -110,6 +110,18 @@
         <DummyPlaceholder @text={{level}} @width="200" @height="200" @background="transparent" />
       </Hds::Card::Container>
     {{/each}}
+    <p class="dummy-paragraph dummy-card-sample-grid__title">"levelHover"</p>
+    {{#each @model.CONTAINER_HOVER_LEVELS as |level|}}
+      <Hds::Card::Container @levelHover={{level}} mock-state-value="hover">
+        <DummyPlaceholder @text={{level}} @width="200" @height="100" @background="transparent" />
+      </Hds::Card::Container>
+    {{/each}}
+    <p class="dummy-paragraph dummy-card-sample-grid__title">"levelActive"</p>
+    {{#each @model.CONTAINER_ACTIVE_LEVELS as |level|}}
+      <Hds::Card::Container @levelActive={{level}} mock-state-value="active">
+        <DummyPlaceholder @text={{level}} @width="200" @height="100" @background="transparent" />
+      </Hds::Card::Container>
+    {{/each}}
   </div>
 
   <h4 class="dummy-h4">Border:</h4>
@@ -143,6 +155,23 @@
         <DummyPlaceholder @text="visible" @width="200" @height="200" @background="#e1f5fe" />
         <div class="dummy-card-overflow__content-absolute"></div>
       </div>
+    </Hds::Card::Container>
+  </div>
+
+  <h4 class="dummy-h4">Interaction:</h4>
+  <p class="dummy-paragraph">Change of state (Normal → Hover → Active)</p>
+  <div class="dummy-card-base-sample">
+    <Hds::Card::Container @level="base" @levelHover="mid" @levelActive="base">
+      <DummyPlaceholder @text="base → mid → base" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+    <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid">
+      <DummyPlaceholder @text="mid → high → mid" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+    <Hds::Card::Container @hasBorder={{true}} @level="base" @levelHover="mid" @levelActive="base">
+      <DummyPlaceholder @text="base → mid → base" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+    <Hds::Card::Container @hasBorder={{true}} @level="mid" @levelHover="high" @levelActive="mid">
+      <DummyPlaceholder @text="mid → high → mid" @width="200" @height="200" @background="transparent" />
     </Hds::Card::Container>
   </div>
 </section>
