@@ -5,6 +5,8 @@ export const DEFAULT_LEVEL = 'base';
 export const DEFAULT_BACKGROUND = 'neutral-primary';
 export const DEFAULT_OVERFLOW = 'hidden';
 export const LEVELS = ['base', 'mid', 'high'];
+export const HOVER_LEVELS = ['base', 'mid', 'high'];
+export const ACTIVE_LEVELS = ['base', 'mid', 'high'];
 export const BACKGROUNDS = ['neutral-primary', 'neutral-secondary'];
 export const OVERFLOWS = ['hidden', 'visible'];
 
@@ -28,6 +30,50 @@ export default class HdsCardContainerComponent extends Component {
     );
 
     return level;
+  }
+
+  /**
+   * Sets the "elevation" level for the component on ":hover" state
+   * Accepted values: base, mid, high
+   *
+   * @param levelHover
+   * @type {string}
+   */
+  get levelHover() {
+    let { levelHover } = this.args;
+
+    if (levelHover) {
+      assert(
+        `@levelHover for "Hds::CardContainer" must be one of the following: ${HOVER_LEVELS.join(
+          ', '
+        )}, received: ${levelHover}`,
+        HOVER_LEVELS.includes(levelHover)
+      );
+    }
+
+    return levelHover;
+  }
+
+  /**
+   * Sets the "elevation" level for the component on ":active" state
+   * Accepted values: base, mid, high
+   *
+   * @param levelActive
+   * @type {string}
+   */
+  get levelActive() {
+    let { levelActive } = this.args;
+
+    if (levelActive) {
+      assert(
+        `@levelActive for "Hds::CardContainer" must be one of the following: ${ACTIVE_LEVELS.join(
+          ', '
+        )}, received: ${levelActive}`,
+        ACTIVE_LEVELS.includes(levelActive)
+      );
+    }
+
+    return levelActive;
   }
 
   /**
@@ -80,10 +126,26 @@ export default class HdsCardContainerComponent extends Component {
   get classNames() {
     let classes = ['hds-card__container'];
 
-    // add an "elevation" class helper based on the @level and @hasBorder arguments
+    // add "elevation" classes based on the @level and @hasBorder arguments
     classes.push(
-      `hds-${this.args.hasBorder ? 'surface' : 'elevation'}-${this.level}`
+      `hds-card__container--level-${
+        this.args.hasBorder ? 'surface' : 'elevation'
+      }-${this.level}`
     );
+    if (this.levelHover) {
+      classes.push(
+        `hds-card__container--hover-level-${
+          this.args.hasBorder ? 'surface' : 'elevation'
+        }-${this.levelHover}`
+      );
+    }
+    if (this.levelActive) {
+      classes.push(
+        `hds-card__container--active-level-${
+          this.args.hasBorder ? 'surface' : 'elevation'
+        }-${this.levelActive}`
+      );
+    }
 
     // add a class based on the @background argument
     classes.push(`hds-card__container--background-${this.background}`);
