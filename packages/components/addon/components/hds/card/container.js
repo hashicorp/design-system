@@ -23,7 +23,7 @@ export default class HdsCardContainerComponent extends Component {
     let { level = DEFAULT_LEVEL } = this.args;
 
     assert(
-      `@level for "Hds::CardContainer" must be one of the following: ${LEVELS.join(
+      `@level for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
         ', '
       )}, received: ${level}`,
       LEVELS.includes(level)
@@ -44,7 +44,7 @@ export default class HdsCardContainerComponent extends Component {
 
     if (levelHover) {
       assert(
-        `@levelHover for "Hds::CardContainer" must be one of the following: ${HOVER_LEVELS.join(
+        `@levelHover for "Hds::Card::Container" must be one of the following: ${HOVER_LEVELS.join(
           ', '
         )}, received: ${levelHover}`,
         HOVER_LEVELS.includes(levelHover)
@@ -66,7 +66,7 @@ export default class HdsCardContainerComponent extends Component {
 
     if (levelActive) {
       assert(
-        `@levelActive for "Hds::CardContainer" must be one of the following: ${ACTIVE_LEVELS.join(
+        `@levelActive for "Hds::Card::Container" must be one of the following: ${ACTIVE_LEVELS.join(
           ', '
         )}, received: ${levelActive}`,
         ACTIVE_LEVELS.includes(levelActive)
@@ -88,7 +88,7 @@ export default class HdsCardContainerComponent extends Component {
     let { background = DEFAULT_BACKGROUND } = this.args;
 
     assert(
-      `@background for "Hds::CardContainer" must be one of the following: ${BACKGROUNDS.join(
+      `@background for "Hds::Card::Container" must be one of the following: ${BACKGROUNDS.join(
         ', '
       )}, received: ${background}`,
       BACKGROUNDS.includes(background)
@@ -109,7 +109,7 @@ export default class HdsCardContainerComponent extends Component {
     let { overflow = DEFAULT_OVERFLOW } = this.args;
 
     assert(
-      `@overflow for "Hds::CardContainer" must be one of the following: ${OVERFLOWS.join(
+      `@overflow for "Hds::Card::Container" must be one of the following: ${OVERFLOWS.join(
         ', '
       )}, received: ${overflow}`,
       OVERFLOWS.includes(overflow)
