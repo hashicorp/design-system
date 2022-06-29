@@ -10,9 +10,9 @@
     <dd>
       <p>This controls the level of elevation ("shadow" visual effect). Acceptable values:</p>
       <ol>
-        <li class="default">base</li>
-        <li>mid</li>
-        <li>high</li>
+        {{#each @model.CONTAINER_LEVELS as |level|}}
+          <li class={{if (eq level @model.CONTAINER_DEFAULT_LEVEL) "default"}}>{{level}}</li>
+        {{/each}}
       </ol>
       <p><em>Notice:
           <code class="dummy-code">low</code>
@@ -20,22 +20,38 @@
           <code class="dummy-code">higher</code>
           are not correct values for this component (by design).</em></p>
     </dd>
+    <dt>levelHover <code>enum</code></dt>
+    <dd>
+      <p>This controls the level of elevation on <code class="dummy-code">:hover</code> state. Acceptable values:</p>
+      <ol>
+        {{#each @model.CONTAINER_HOVER_LEVELS as |level|}}
+          <li>{{level}}</li>
+        {{/each}}
+      </ol>
+    </dd>
+    <dt>levelActive <code>enum</code></dt>
+    <dd>
+      <p>This controls the level of elevation on <code class="dummy-code">:active</code> state. Acceptable values:</p>
+      <ol>
+        {{#each @model.CONTAINER_ACTIVE_LEVELS as |level|}}
+          <li>{{level}}</li>
+        {{/each}}
+      </ol>
+    </dd>
     <dt>background <code>enum</code></dt>
     <dd>
       <p>This controls the background color. Acceptable values:</p>
       <ol>
         <li class="default">neutral-primary</li>
         <li>neutral-secondary</li>
-      </ol>
-      <p><em>Notice: later we may decide/need to add more colors, but for now we have found only these two use cases.</em></p>
+      </ol>      <p><em>Notice: later we may decide/need to add more colors, but for now we have found only these two use cases.</em></p>
     </dd>
     <dt>hasBorder <code>boolean</code></dt>
     <dd>
       <p>This controls if the card has a visual "edge", an external border (technically is an extra 1px shadow on top of
         the other drop shadows).</p>
       <p><em>Notice: the color of the border is pre-defined. If you need a custom border you have to wrap your content
-          in an element and assign the border to it (in that case, remember to inherit the border radius).</em></p>
-    </dd>
+          in an element and assign the border to it (in that case, remember to inherit the border radius).</em></p>    </dd>
     <dt>overflow <code>enum</code></dt>
     <dd>
       <p>This controls if the main wrapper (who has a border-radius applied) has overflow = visible or hidden. We expect
