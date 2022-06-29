@@ -44,14 +44,16 @@
       <ol>
         <li class="default">neutral-primary</li>
         <li>neutral-secondary</li>
-      </ol>      <p><em>Notice: later we may decide/need to add more colors, but for now we have found only these two use cases.</em></p>
+      </ol>
+      <p><em>Notice: later we may decide/need to add more colors, but for now we have found only these two use cases.</em></p>
     </dd>
     <dt>hasBorder <code>boolean</code></dt>
     <dd>
       <p>This controls if the card has a visual "edge", an external border (technically is an extra 1px shadow on top of
         the other drop shadows).</p>
       <p><em>Notice: the color of the border is pre-defined. If you need a custom border you have to wrap your content
-          in an element and assign the border to it (in that case, remember to inherit the border radius).</em></p>    </dd>
+          in an element and assign the border to it (in that case, remember to inherit the border radius).</em></p>
+    </dd>
     <dt>overflow <code>enum</code></dt>
     <dd>
       <p>This controls if the main wrapper (who has a border-radius applied) has overflow = visible or hidden. We expect
@@ -103,8 +105,9 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-  <h4 class="dummy-h4">Level:</h4>
-  <div class="dummy-card-base-sample">
+  <h4 class="dummy-h4">Elevation:</h4>
+  <div class="dummy-card-sample-grid">
+    <p class="dummy-paragraph dummy-card-sample-grid__title">"level"</p>
     {{#each @model.CONTAINER_LEVELS as |level|}}
       <Hds::Card::Container @level={{level}}>
         <DummyPlaceholder @text={{level}} @width="200" @height="200" @background="transparent" />
