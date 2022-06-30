@@ -141,11 +141,35 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert').hasAttribute('role', 'alert');
   });
 
-  test('it should render with an `alertdialog` role when actions are provided', async function (assert) {
+  test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when title and actions are provided', async function (assert) {
+    assert.expect(2);
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title>This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    let title = this.element.querySelector('#test-alert .hds-alert__title');
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', title.id);
+  });
+
+  test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when description and actions are provided', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Description>This is the title</A.Description><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    let description = this.element.querySelector(
+      '#test-alert .hds-alert__description'
     );
     assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', description.id);
+  });
+
+  test('it should render with an `alertdialog` role and `aria-labelledby` when title and actions are provided', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title id="custom-id">This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', 'custom-id');
   });
 
   // ASSERTIONS

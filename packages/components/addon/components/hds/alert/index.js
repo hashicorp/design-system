@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 
 export const TYPES = ['page', 'inline', 'compact'];
@@ -20,8 +21,13 @@ export const MAPPING_COLORS_TO_ICONS = {
   critical: 'alert-diamond',
 };
 
+const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
+const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
+const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
+
 export default class HdsAlertIndexComponent extends Component {
   @tracked role = 'alert';
+  @tracked ariaLabelledBy;
 
   constructor() {
     super(...arguments);
@@ -131,10 +137,23 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   @action
-  didInsertContent(element) {
-    let actions = element.querySelectorAll('button, a');
+  didInsert(element) {
+    let actions = element.querySelectorAll(
+      `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
+    );
     if (actions.length) {
       this.role = 'alertdialog';
+    }
+
+    // `alertdialog` must have an accessible name so we use either the
+    // title or the description as label for the alert
+    let label =
+      element.querySelector(TITLE_ELEMENT_SELECTOR) ||
+      element.querySelector(DESCRIPTION_ELEMENT_SELECTOR);
+    if (label) {
+      let labelId = label.getAttribute('id') || guidFor(element);
+      label.setAttribute('id', labelId);
+      this.ariaLabelledBy = labelId;
     }
   }
 }
