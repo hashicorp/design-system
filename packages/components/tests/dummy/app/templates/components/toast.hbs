@@ -220,8 +220,8 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="critical" @ariaLabelledBy="title-01" @onDismiss=\{{...}} as |T|>
-        <T.Title id="title-01">Title here</T.Title>
+      <Hds::Toast @color="critical" @onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
         <T.Description>Description here</T.Description>
         <T.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
         <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
@@ -231,8 +231,8 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="critical" @ariaLabelledBy="title-02" @onDismiss={{this.noop}} as |T|>
-    <T.Title id="title-02">Title here</T.Title>
+  <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
     <T.Description>Description here</T.Description>
     <T.Button @text="Your action" @color="secondary" />
     <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
@@ -248,8 +248,8 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @ariaLabelledBy="title-03" onDismiss=\{{...}} as |T|>
-        <T.Title id="title-03">Title here</T.Title>
+      <Hds::Toast @color="success" onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
         <T.Description>
           The description can contain
           \{{#if true}}conditional logic\{{/if}}, Ember components, and HTML tags, like
@@ -266,8 +266,8 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" @ariaLabelledBy="title-04" onDismiss={{this.noop}} as |T|>
-    <T.Title id="title-04">Title here</T.Title>
+  <Hds::Toast @color="success" onDismiss={{this.noop}} as |T|>
+    <T.Title>Title here</T.Title>
     <T.Description>
       The description can contain
       {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
@@ -295,8 +295,8 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" @ariaLabelledBy="title-05" onDismiss=\{{...}} as |T|>
-        <T.Title id="title-05">Title here</T.Title>
+      <Hds::Toast @color="success" onDismiss=\{{...}} as |T|>
+        <T.Title>Title here</T.Title>
         <T.Description>First line of description.</T.Description>
         <T.Description>Second line of description.</T.Description>
       </Hds::Toast>
@@ -518,8 +518,8 @@
       </Hds::Toast>
     </div>
     <div class="dummy-toast-sample-grid__column">
-      <Hds::Toast @color="success" @ariaLabelledBy="title-06" @onDismiss={{this.noop}} as |T|>
-        <T.Title id="title-06">A toast with a rich description (HTML)</T.Title>
+      <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+        <T.Title>A toast with a rich description (HTML)</T.Title>
         <T.Description>Using the
           <code>A.Description</code>
           contextual component it's possible to have content that contains HTML tags, like
@@ -555,13 +555,13 @@
 
   <h4 class="dummy-h4">Actions</h4>
   <div class="dummy-toast-sample-grid dummy-toast-sample-grid--wide-content">
-    <Hds::Toast @color="warning" @ariaLabelledBy="title-07" @onDismiss={{this.noop}} as |T|>
-      <T.Title id="title-07">Action passed as yielded component</T.Title>
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Action passed as yielded component</T.Title>
       <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</T.Description>
       <T.Button @text="Action" @color="secondary" />
     </Hds::Toast>
-    <Hds::Toast @color="warning" @ariaLabelledBy="title-08" @onDismiss={{this.noop}} as |T|>
-      <T.Title id="title-08">With multiple actions passed as yielded components</T.Title>
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
+      <T.Title>With multiple actions passed as yielded components</T.Title>
       <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</T.Description>
       <T.Button @text="Secondary" @color="secondary" />
       <T.Button @icon="plus" @text="Tertiary" @color="tertiary" />

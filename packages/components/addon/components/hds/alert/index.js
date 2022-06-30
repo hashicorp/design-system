@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 
 export const TYPES = ['page', 'inline', 'compact'];
@@ -22,6 +23,7 @@ export const MAPPING_COLORS_TO_ICONS = {
 
 export default class HdsAlertIndexComponent extends Component {
   @tracked role = 'alert';
+  @tracked ariaLabelledBy;
 
   constructor() {
     super(...arguments);
@@ -131,13 +133,23 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   @action
-  didInsertContent(element) {
-    let actions = element.querySelectorAll('button, a');
+  didInsert(element) {
+    let actions = element.querySelectorAll(
+      '.hds-alert__content button,.hds-alert__content a'
+    );
     if (actions.length) {
       this.role = 'alertdialog';
+
+      let title = element.querySelector('.hds-alert__title');
+      if (title) {
+        let titleId = title.getAttribute('id') || guidFor(element);
+        title.setAttribute('id', titleId);
+        this.ariaLabelledBy = titleId;
+      }
+
       assert(
-        `"Hds::Alert" requires either @ariaLabel or @ariaLabelledBy when it contains interactive elements`,
-        this.args.ariaLabel || this.args.ariaLabelledBy
+        `"Hds::Alert" requires either "Hds::Alert::Title" or "@ariaLabel" when it contains interactive elements`,
+        this.args.ariaLabel || this.ariaLabelledBy
       );
     }
   }

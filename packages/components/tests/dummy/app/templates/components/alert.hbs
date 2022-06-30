@@ -434,8 +434,8 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @ariaLabelledBy="title-01" as |A|>
-        <A.Title id="title-01">Title here</A.Title>
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title>Title here</A.Title>
         <A.Description>Description here</A.Description>
         <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
         <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." />
@@ -446,8 +446,8 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @ariaLabelledBy="title-02" as |A|>
-    <A.Title id="title-02">Title here</A.Title>
+  <Hds::Alert @type="inline" as |A|>
+    <A.Title>Title here</A.Title>
     <A.Description>Description here</A.Description>
     <A.Button @text="Your action" @color="secondary" />
     <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
@@ -464,8 +464,8 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @color="success" @ariaLabelledBy="title-03" as |A|>
-        <A.Title id="title-03">Title here</A.Title>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>Title here</A.Title>
         <A.Description>
           The description can contain
           \{{#if true}}conditional logic\{{/if}}, Ember components, and HTML tags, like
@@ -482,8 +482,8 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Alert @type="inline" @color="success" @ariaLabelledBy="title-04" as |A|>
-    <A.Title id="title-04">Title here</A.Title>
+  <Hds::Alert @type="inline" @color="success" as |A|>
+    <A.Title>Title here</A.Title>
     <A.Description>
       The description can contain
       {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
@@ -757,8 +757,8 @@
       </Hds::Alert>
     </div>
     <div class="dummy-alert-sample-grid__column">
-      <Hds::Alert @type="inline" @color="success" @ariaLabelledBy="title-05" as |A|>
-        <A.Title id="title-05">An alert with a rich description (HTML)</A.Title>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>An alert with a rich description (HTML)</A.Title>
         <A.Description>Using the
           <code>A.Description</code>
           contextual component it's possible to have content that contains HTML tags, like
@@ -794,20 +794,20 @@
 
   <h4 class="dummy-h4">Actions</h4>
   <div class="dummy-alert-sample-grid dummy-alert-sample-grid--wide-content">
-    <Hds::Alert @type="inline" @color="warning" @ariaLabelledBy="title-06" as |A|>
-      <A.Title id="title-06">Action passed as yielded component</A.Title>
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+      <A.Title>Action passed as yielded component</A.Title>
       <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       <A.Button @text="Action" @color="secondary" />
     </Hds::Alert>
-    <Hds::Alert @type="inline" @color="warning" @ariaLabelledBy="title-07" as |A|>
-      <A.Title id="title-07">With multiple actions passed as yielded components</A.Title>
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+      <A.Title>With multiple actions passed as yielded components</A.Title>
       <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       <A.Button @text="Secondary" @color="secondary" />
       <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
       <A.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
     </Hds::Alert>
-    <Hds::Alert @type="inline" @color="warning" @ariaLabelledBy="title-08" as |A|>
-      <A.Title id="title-08">With actions and custom content</A.Title>
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+      <A.Title>With actions and custom content</A.Title>
       <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
         et dolore magna aliqua.</A.Description>
       <A.Button @text="Action" @color="secondary" />

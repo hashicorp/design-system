@@ -3,7 +3,8 @@
   role={{this.role}}
   aria-live="polite"
   aria-label={{@ariaLabel}}
-  aria-labelledby={{@ariaLabelledBy}}
+  aria-labelledby={{this.ariaLabelledBy}}
+  {{did-insert this.didInsert}}
   ...attributes
 >
   {{#if this.icon}}
@@ -12,7 +13,7 @@
     </div>
   {{/if}}
 
-  <div class="hds-alert__content" {{did-insert this.didInsertContent}}>
+  <div class="hds-alert__content">
     <div class="hds-alert__text">
       {{yield (hash Title=(component "hds/alert/title"))}}
       {{yield (hash Description=(component "hds/alert/description"))}}
