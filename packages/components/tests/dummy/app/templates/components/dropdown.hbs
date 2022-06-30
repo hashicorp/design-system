@@ -89,6 +89,24 @@
     <dt>close <code>function</code></dt>
     <dd>
       <p>Function that can be called to programmatically close the dropdown.</p>
+      <p><em>Notice: if this function is invoked using an
+          <code class="dummy-code">&lcub;&lcub;on click&rcub;&rcub;</code>
+          modifier applied to the
+          <code class="dummy-code">ListItem::Interactive</code>
+          element, there is a quirk behaviour of the Ember
+          <code class="dummy-code">&lt;LinkTo&gt;</code>
+          component that will require some workaround to have the events executed in the right order (this happens only
+          if it has a
+          <code class="dummy-code">@route</code>
+          argument).
+          <a href="https://github.com/jgwhite" target="_blank" rel="noopener noreferrer">Jamie White</a>
+          has detailed the issue and a possible solution
+          <a
+            href="https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772"
+            target="_blank"
+            rel="noopener noreferrer"
+          >in this GitHub comment</a>.
+        </em></p>
     </dd>
     <dt>onClose <code>function</code></dt>
     <dd>
