@@ -5,8 +5,6 @@ export const DEFAULT_LEVEL = 'base';
 export const DEFAULT_BACKGROUND = 'neutral-primary';
 export const DEFAULT_OVERFLOW = 'hidden';
 export const LEVELS = ['base', 'mid', 'high'];
-export const HOVER_LEVELS = ['base', 'mid', 'high'];
-export const ACTIVE_LEVELS = ['base', 'mid', 'high'];
 export const BACKGROUNDS = ['neutral-primary', 'neutral-secondary'];
 export const OVERFLOWS = ['hidden', 'visible'];
 
@@ -44,10 +42,10 @@ export default class HdsCardContainerComponent extends Component {
 
     if (levelHover) {
       assert(
-        `@levelHover for "Hds::Card::Container" must be one of the following: ${HOVER_LEVELS.join(
+        `@levelHover for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
           ', '
         )}, received: ${levelHover}`,
-        HOVER_LEVELS.includes(levelHover)
+        LEVELS.includes(levelHover)
       );
     }
 
@@ -66,10 +64,10 @@ export default class HdsCardContainerComponent extends Component {
 
     if (levelActive) {
       assert(
-        `@levelActive for "Hds::Card::Container" must be one of the following: ${ACTIVE_LEVELS.join(
+        `@levelActive for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
           ', '
         )}, received: ${levelActive}`,
-        ACTIVE_LEVELS.includes(levelActive)
+        LEVELS.includes(levelActive)
       );
     }
 
