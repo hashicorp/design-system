@@ -1,4 +1,11 @@
-<div class={{this.classNames}} role={{this.role}} aria-live="polite" ...attributes>
+<div
+  class={{this.classNames}}
+  role={{this.role}}
+  aria-live="polite"
+  aria-label={{@ariaLabel}}
+  aria-labelledby={{@ariaLabelledBy}}
+  ...attributes
+>
   {{#if this.icon}}
     <div class="hds-alert__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} @isInlineBlock={{false}} />

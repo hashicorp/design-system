@@ -135,6 +135,10 @@ export default class HdsAlertIndexComponent extends Component {
     let actions = element.querySelectorAll('button, a');
     if (actions.length) {
       this.role = 'alertdialog';
+      assert(
+        `"Hds::Alert" requires either @ariaLabel or @ariaLabelledBy when it contains interactive elements`,
+        this.args.ariaLabel || this.args.ariaLabelledBy
+      );
     }
   }
 }
