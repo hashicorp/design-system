@@ -75,7 +75,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render rich HTML when the "description" contextual component contains HTML tags', async function (assert) {
     assert.expect(8);
     await render(
-      hbs`<Hds::Alert @type="inline" @ariaLabel="Alert" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`
     );
     assert.dom('.hds-alert__description strong').exists().hasText('strong');
     assert.dom('.hds-alert__description em').exists().hasText('em');
@@ -88,7 +88,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
     assert.expect(5);
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" @ariaLabel="Alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions button')
@@ -101,7 +101,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
     assert.expect(5);
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" @ariaLabel="Alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" /></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions a')
@@ -141,11 +141,35 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert').hasAttribute('role', 'alert');
   });
 
-  test('it should render with an `alertdialog` role when actions are provided', async function (assert) {
+  test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when title and actions are provided', async function (assert) {
+    assert.expect(2);
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" @ariaLabel="Alert" as |A|><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title>This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    let title = this.element.querySelector('#test-alert .hds-alert__title');
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', title.id);
+  });
+
+  test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when description and actions are provided', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Description>This is the title</A.Description><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    let description = this.element.querySelector(
+      '#test-alert .hds-alert__description'
     );
     assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', description.id);
+  });
+
+  test('it should render with an `alertdialog` role and `aria-labelledby` when title and actions are provided', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title id="custom-id">This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', 'custom-id');
   });
 
   // ASSERTIONS
@@ -182,18 +206,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Alert @type="inline" @color="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-  test('it should throw an assertion when it contains interactive elements and no "Hds::Alert::Title" or "@ariaLabel" are provided', async function (assert) {
-    const errorMessage =
-      '"Hds::Alert" requires either "Hds::Alert::Title" or "@ariaLabel" when it contains interactive elements';
-    assert.expect(1);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    hbs`<Hds::Alert id="test-alert" as |A|><A.Button @text="I am a button" @size="small" /></Hds::Alert>`;
     assert.throws(function () {
       throw new Error(errorMessage);
     });

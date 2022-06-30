@@ -21,6 +21,10 @@ export const MAPPING_COLORS_TO_ICONS = {
   critical: 'alert-diamond',
 };
 
+const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
+const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
+const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
+
 export default class HdsAlertIndexComponent extends Component {
   @tracked role = 'alert';
   @tracked ariaLabelledBy;
@@ -135,22 +139,21 @@ export default class HdsAlertIndexComponent extends Component {
   @action
   didInsert(element) {
     let actions = element.querySelectorAll(
-      '.hds-alert__content button,.hds-alert__content a'
+      `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
     if (actions.length) {
       this.role = 'alertdialog';
+    }
 
-      let title = element.querySelector('.hds-alert__title');
-      if (title) {
-        let titleId = title.getAttribute('id') || guidFor(element);
-        title.setAttribute('id', titleId);
-        this.ariaLabelledBy = titleId;
-      }
-
-      assert(
-        `"Hds::Alert" requires either "Hds::Alert::Title" or "@ariaLabel" when it contains interactive elements`,
-        this.args.ariaLabel || this.ariaLabelledBy
-      );
+    // `alertdialog` must have an accessible name so we use either the
+    // title or the description as label for the alert
+    let label =
+      element.querySelector(TITLE_ELEMENT_SELECTOR) ||
+      element.querySelector(DESCRIPTION_ELEMENT_SELECTOR);
+    if (label) {
+      let labelId = label.getAttribute('id') || guidFor(element);
+      label.setAttribute('id', labelId);
+      this.ariaLabelledBy = labelId;
     }
   }
 }
