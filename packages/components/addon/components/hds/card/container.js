@@ -21,13 +21,57 @@ export default class HdsCardContainerComponent extends Component {
     let { level = DEFAULT_LEVEL } = this.args;
 
     assert(
-      `@level for "Hds::CardContainer" must be one of the following: ${LEVELS.join(
+      `@level for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
         ', '
       )}, received: ${level}`,
       LEVELS.includes(level)
     );
 
     return level;
+  }
+
+  /**
+   * Sets the "elevation" level for the component on ":hover" state
+   * Accepted values: base, mid, high
+   *
+   * @param levelHover
+   * @type {string}
+   */
+  get levelHover() {
+    let { levelHover } = this.args;
+
+    if (levelHover) {
+      assert(
+        `@levelHover for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
+          ', '
+        )}, received: ${levelHover}`,
+        LEVELS.includes(levelHover)
+      );
+    }
+
+    return levelHover;
+  }
+
+  /**
+   * Sets the "elevation" level for the component on ":active" state
+   * Accepted values: base, mid, high
+   *
+   * @param levelActive
+   * @type {string}
+   */
+  get levelActive() {
+    let { levelActive } = this.args;
+
+    if (levelActive) {
+      assert(
+        `@levelActive for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
+          ', '
+        )}, received: ${levelActive}`,
+        LEVELS.includes(levelActive)
+      );
+    }
+
+    return levelActive;
   }
 
   /**
@@ -42,7 +86,7 @@ export default class HdsCardContainerComponent extends Component {
     let { background = DEFAULT_BACKGROUND } = this.args;
 
     assert(
-      `@background for "Hds::CardContainer" must be one of the following: ${BACKGROUNDS.join(
+      `@background for "Hds::Card::Container" must be one of the following: ${BACKGROUNDS.join(
         ', '
       )}, received: ${background}`,
       BACKGROUNDS.includes(background)
@@ -63,7 +107,7 @@ export default class HdsCardContainerComponent extends Component {
     let { overflow = DEFAULT_OVERFLOW } = this.args;
 
     assert(
-      `@overflow for "Hds::CardContainer" must be one of the following: ${OVERFLOWS.join(
+      `@overflow for "Hds::Card::Container" must be one of the following: ${OVERFLOWS.join(
         ', '
       )}, received: ${overflow}`,
       OVERFLOWS.includes(overflow)
@@ -80,10 +124,26 @@ export default class HdsCardContainerComponent extends Component {
   get classNames() {
     let classes = ['hds-card__container'];
 
-    // add an "elevation" class helper based on the @level and @hasBorder arguments
+    // add "elevation" classes based on the @level and @hasBorder arguments
     classes.push(
-      `hds-${this.args.hasBorder ? 'surface' : 'elevation'}-${this.level}`
+      `hds-card__container--level-${
+        this.args.hasBorder ? 'surface' : 'elevation'
+      }-${this.level}`
     );
+    if (this.levelHover) {
+      classes.push(
+        `hds-card__container--hover-level-${
+          this.args.hasBorder ? 'surface' : 'elevation'
+        }-${this.levelHover}`
+      );
+    }
+    if (this.levelActive) {
+      classes.push(
+        `hds-card__container--active-level-${
+          this.args.hasBorder ? 'surface' : 'elevation'
+        }-${this.levelActive}`
+      );
+    }
 
     // add a class based on the @background argument
     classes.push(`hds-card__container--background-${this.background}`);

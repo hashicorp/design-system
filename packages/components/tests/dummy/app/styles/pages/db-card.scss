@@ -1,28 +1,55 @@
 // CARD
 
+.dummy-card-how-to-custom-layout {
+  .my-custom-class-to-set-the-card-layout {
+    width: 300px;
+  }
+  .my-custom-class-to-set-the-content-layout {
+    padding: 40px;
+    text-align: center;
+  }
+}
+
+.dummy-card-sample-grid {
+  align-items: start;
+  background-color: #fafafa;
+  display: grid;
+  grid-gap: 0 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem;
+  width: fit-content;
+
+  .dummy-card-sample-grid__title {
+    grid-column: 1 / 4;
+    margin: 2rem 0 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
 .dummy-card-base-sample {
-    align-items: flex-start;
-    background-color: #FAFAFA;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    min-width: fit-content;
-    padding: 2rem;
-    width: fit-content;
+  align-items: flex-start;
+  background-color: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem 2rem;
+  min-width: fit-content;
+  padding: 2rem;
+  width: fit-content;
 }
 
 .dummy-card-overflow__wrapper-relative {
-    position: relative;
+  position: relative;
 }
 
 .dummy-card-overflow__content-absolute {
-    background-color: #3f51b5;
-    border-radius: 8px;
-    height: 20px;
-    position: absolute;
-    right: -20px;
-    top: 20px;
-    width: 30px;
+  background-color: #3f51b5;
+  border-radius: 8px;
+  height: 20px;
+  position: absolute;
+  right: -20px;
+  top: 20px;
+  width: 30px;
 }
