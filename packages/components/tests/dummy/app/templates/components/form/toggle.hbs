@@ -162,6 +162,87 @@
           element is automatically generated.</em></p>
     </dd>
   </dl>
+  <h4 class="dummy-h4">Form::Toggle::Group</h4>
+  <p class="dummy-paragraph" id="component-api-form-toggle-group">Here is the API for the "group" component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-toggle-group">
+    <dt>layout <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the layout of group.
+      </p>
+
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">vertical</li>
+        <li>horizontal</li>
+      </ol>
+    </dd>
+  </dl>
+  <h5 class="dummy-h5">Contextual components</h5>
+  <p class="dummy-paragraph" id="component-api-form-toggle-group-contextual-components">Legend, group of fields and
+    error content are passed to the group as yielded components, using the
+    <code class="dummy-code">Legend</code>,
+    <code class="dummy-code">Toggle::Field</code>,
+    <code class="dummy-code">Error</code>
+    keys.</p>
+  <p class="dummy-paragraph"><em>Notice: the group of elements is automatically wrapped in a
+      <code class="dummy-code">&lt;fieldset&gt;</code>
+      element.</em></p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-toggle-group-contextual-components">
+    <dt>&lt;[G].Legend&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is an (optional) container that yields its content inside the
+        <code class="dummy-code">&lt;legend&gt;</code>
+        element.</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Legend</code></LinkTo>
+        component.</p>
+    </dd>
+    <dt>&lt;[G].HelperText&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "helper text" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::HelperText</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[G].Toggle::Field&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is used to yield one or more fields inside the group.</p>
+      <p>For details about its API check the
+        <code class="dummy-code">Toggle::Field</code>
+        component above.</p>
+    </dd>
+    <dt>&lt;[G].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "error" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+      <dl class="dummy-component-props">
+        <dt>[E].Message <code>yielded component</code></dt>
+        <dd>
+          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+            individual items using
+            <code class="dummy-code">Error.Message</code>.
+          </p>
+        </dd>
+      </dl>
+      <p>For details about its API check the
+        <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
+        component.</p>
+      <p><em>Notice: the
+          <code class="dummy-code">id</code>
+          attribute of the
+          <code class="dummy-code">Error</code>
+          element is automatically generated.</em></p>
+    </dd>
+  </dl>
 </section>
 
 <section>
