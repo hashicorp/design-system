@@ -373,4 +373,246 @@
     </div>
   </div>
 
+  <h4 class="dummy-h4">"Group" of controls</h4>
+  <h5 class="dummy-h5">Vertical layout / Single field</h5>
+  <div class="dummy-form-toggle-grid-sample">
+    <div>
+      <span class="dummy-text-small">With legend</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>This is the label</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With legend / With helper text</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With helper text at group level</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.HelperText>Helper text for the entire group</G.HelperText>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>This is the label</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With error at group level</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field @isInvalid={{true}} checked="checked" as |F|>
+          <F.Label>This is the label</F.Label>
+        </G.Toggle::Field>
+        <G.Error>Error for the entire group</G.Error>
+      </Hds::Form::Toggle::Group>
+    </div>
+  </div>
+
+  <h5 class="dummy-h5">Vertical layout / Multiple fields</h5>
+  <div class="dummy-form-toggle-grid-sample">
+    <div>
+      <span class="dummy-text-small">With legend</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With legend / With helper text</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without legend</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">Without Legend / With helper text</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With helper text at group level</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.HelperText>Helper text for the entire group</G.HelperText>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With error at group level</span>
+      <br />
+      <Hds::Form::Toggle::Group as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field @isInvalid={{true}} as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Toggle::Field>
+        <G.Error>Error for the entire group</G.Error>
+      </Hds::Form::Toggle::Group>
+    </div>
+  </div>
+
+  <h5 class="dummy-h5">Horizontal layout</h5>
+  <span class="dummy-text-small">With legend</span>
+  <br />
+  <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Toggle::Field>
+  </Hds::Form::Toggle::Group>
+  <br />
+  <span class="dummy-text-small">Without legend</span>
+  <br />
+  <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Toggle::Field>
+  </Hds::Form::Toggle::Group>
+  <br />
+  <span class="dummy-text-small">With helper text at group level</span>
+  <br />
+  <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.HelperText>Helper text for the entire group</G.HelperText>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field checked="checked" as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Toggle::Field>
+  </Hds::Form::Toggle::Group>
+  <br />
+  <span class="dummy-text-small">With error at group level</span>
+  <br />
+  <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
+    <G.Legend>Legend of the group</G.Legend>
+    <G.Toggle::Field @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #1</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field checked="checked" @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #2</F.Label>
+    </G.Toggle::Field>
+    <G.Toggle::Field @isInvalid={{true}} as |F|>
+      <F.Label>Label of control #3</F.Label>
+    </G.Toggle::Field>
+    <G.Error>Error for the entire group</G.Error>
+  </Hds::Form::Toggle::Group>
+  <br />
+  <span class="dummy-text-small">With controls on multiple lines</span>
+  <br />
+  <div class="dummy-form-checkbox-max-width-container">
+    <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
+      <G.Legend>Lorem ipsum dolor</G.Legend>
+      <G.Toggle::Field as |F|>
+        <F.Label>Sit amet</F.Label>
+      </G.Toggle::Field>
+      <G.Toggle::Field checked="checked" as |F|>
+        <F.Label>Consectetur adipiscing</F.Label>
+      </G.Toggle::Field>
+      <G.Toggle::Field as |F|>
+        <F.Label>Elit</F.Label>
+      </G.Toggle::Field>
+      <G.Toggle::Field as |F|>
+        <F.Label>Pellentesque erat</F.Label>
+      </G.Toggle::Field>
+      <G.Toggle::Field as |F|>
+        <F.Label>Lacinia</F.Label>
+      </G.Toggle::Field>
+      <G.Toggle::Field checked="checked" as |F|>
+        <F.Label>At magna</F.Label>
+      </G.Toggle::Field>
+    </Hds::Form::Toggle::Group>
+  </div>
+
 </section>
