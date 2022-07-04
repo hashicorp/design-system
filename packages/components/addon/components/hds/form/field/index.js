@@ -10,6 +10,7 @@ export const LAYOUT_TYPES = ['vertical', 'flag'];
 export default class HdsFormFieldIndexComponent extends Component {
   @tracked ariaDescribedBy = getAriaDescribedBy(this);
   @tracked descriptors = [];
+  @tracked isRequired = this.args.isRequired;
 
   @action
   appendDescriptor(element) {
