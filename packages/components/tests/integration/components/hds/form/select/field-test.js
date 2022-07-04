@@ -94,6 +94,19 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
       .hasAttribute('id', `error-${controlId}`);
   });
 
+  // REQUIRED
+
+  test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Select::Field @isRequired={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+          </Hds::Form::Select::Field>`
+    );
+    assert.dom('label .hds-badge').exists();
+    assert.dom('label .hds-badge').hasText('Required');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {

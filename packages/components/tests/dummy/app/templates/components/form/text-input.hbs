@@ -129,6 +129,11 @@
       <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>isRequired <code>boolean</code></dt>
+    <dd>
+      <p>It appends a badge to the label text to indicate user input is required.</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
     <dt>width <code>string</code></dt>
     <dd>
       <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
@@ -581,6 +586,16 @@
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
         </F.Error>
+      </Hds::Form::TextInput::Field>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Required</h5>
+  <div class="dummy-form-text-input-grid-sample">
+    <div>
+      <span class="dummy-text-small">Label + Required</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
     </div>
   </div>
