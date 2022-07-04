@@ -188,6 +188,11 @@
       <p>It appends a badge to the legend text to indicate user input is required.</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>isOptional <code>boolean</code></dt>
+    <dd>
+      <p>It appends "(Optional)" to the legend text to indicate user input is not required.</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
   <p class="dummy-paragraph" id="component-api-form-checkbox-group-contextual-components">Legend, group of fields and
@@ -706,12 +711,28 @@
     </Hds::Form::Checkbox::Group>
   </div>
 
-  <h5 class="dummy-h5">Required</h5>
+  <h5 class="dummy-h5">Required and optional</h5>
   <div class="dummy-form-checkbox-grid-sample">
     <div>
       <span class="dummy-text-small">With legend + Required</span>
       <br />
       <Hds::Form::Checkbox::Group @isRequired={{true}} as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Checkbox::Field>
+        <G.Checkbox::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Checkbox::Field>
+        <G.Checkbox::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Checkbox::Field>
+      </Hds::Form::Checkbox::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With legend + Optional</span>
+      <br />
+      <Hds::Form::Checkbox::Group @isOptional={{true}} as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
