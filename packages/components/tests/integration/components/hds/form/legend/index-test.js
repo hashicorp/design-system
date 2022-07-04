@@ -44,7 +44,7 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
       .hasText('This is an HTML element inside the legend');
   });
 
-  // REQUIRED
+  // REQUIRED AND OPTIONAL
 
   test('it renders a required badge if @isRequired is true', async function (assert) {
     assert.expect(2);
@@ -53,6 +53,18 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
     );
     assert.dom('#test-form-legend > .hds-badge').exists();
     assert.dom('#test-form-legend .hds-badge').hasText('Required');
+  });
+  test('it renders an optional indicator if @isOptional is true', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Legend id="test-form-legend" @isOptional="true">This is the legend</Hds::Form::Legend>`
+    );
+    assert
+      .dom('#test-form-legend > .hds-form-legend__optional-indicator')
+      .exists();
+    assert
+      .dom('#test-form-legend .hds-form-legend__optional-indicator')
+      .hasText('(Optional)');
   });
 
   // ATTRIBUTES

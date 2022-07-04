@@ -1,4 +1,5 @@
 <legend class={{this.classNames}} ...attributes>
   {{yield}}
   {{#if @isRequired}}<Hds::Badge @size="small" @text="Required" />{{/if}}
+  {{#if @isOptional}}<span class="hds-form-legend__optional-indicator">(Optional)</span>{{/if}}
 </legend>
