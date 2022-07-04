@@ -78,6 +78,19 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       .hasAttribute('id', `error-${fieldsetId}`);
   });
 
+  // REQUIRED
+
+  test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Fieldset @isRequired={{true}} as |F|>
+          <F.Legend>This is the legend</F.Legend>
+        </Hds::Form::Fieldset>`
+    );
+    assert.dom('legend .hds-badge').exists();
+    assert.dom('legend .hds-badge').hasText('Required');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {

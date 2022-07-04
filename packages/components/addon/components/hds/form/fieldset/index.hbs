@@ -1,5 +1,7 @@
 <fieldset class={{this.classNames}} id={{this.id}} ...attributes aria-describedby={{this.ariaDescribedBy}}>
-  {{yield (hash Legend=(component "hds/form/legend" contextualClass="hds-form-group__legend"))}}
+  {{yield
+    (hash Legend=(component "hds/form/legend" isRequired=this.isRequired contextualClass="hds-form-group__legend"))
+  }}
   {{yield
     (hash
       HelperText=(component
