@@ -1,3 +1,4 @@
 <label class={{this.classNames}} for={{@controlId}} ...attributes>
   {{yield}}
+  {{#if @isRequired}}<Hds::Badge @size="small" @text="Required" />{{/if}}
 </label>

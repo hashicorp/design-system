@@ -145,3 +145,11 @@ $size-props: (
     }
   }
 }
+
+.hds-form-label {
+  .hds-badge {
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 4px;
+  }
+}
