@@ -44,6 +44,17 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
       .hasText('This is an HTML element inside the legend');
   });
 
+  // REQUIRED
+
+  test('it renders a required badge if @isRequired is true', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Legend id="test-form-legend" @isRequired="true">This is the legend</Hds::Form::Legend>`
+    );
+    assert.dom('#test-form-legend > .hds-badge').exists();
+    assert.dom('#test-form-legend .hds-badge').hasText('Required');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {

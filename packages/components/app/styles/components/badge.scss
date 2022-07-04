@@ -146,7 +146,8 @@ $size-props: (
   }
 }
 
-.hds-form-label {
+.hds-form-label,
+.hds-form-legend {
   .hds-badge {
     display: inline-block;
     vertical-align: baseline;

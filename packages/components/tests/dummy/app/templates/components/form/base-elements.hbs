@@ -122,6 +122,11 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
+    <dt>isRequired <code>boolean</code></dt>
+    <dd>
+      <p>It appends a badge to the legend text to indicate user input is required.</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
     <dt>"yield"</dt>
     <dd>
       <p>Elements passed as children of this component are yielded inside the
@@ -585,6 +590,23 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Form::Legend>My legend</Hds::Form::Legend>
+  <p class="dummy-paragraph">
+    Pass in a
+    <code class="dummy-code">isRequired</code>
+    argument when the user input is required for the associated form controls:
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Form::Legend @isRequired=\{{true}}>My legend</Hds::Form::Legend>
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Legend @isRequired={{true}}>My legend</Hds::Form::Legend>
   <p class="dummy-paragraph">
     There may be cases in which the legend needs to contain more than just text. In this case it's possible to pass
     structured content to it (it's just yielded in output):
