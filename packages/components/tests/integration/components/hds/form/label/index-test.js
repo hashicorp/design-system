@@ -40,7 +40,7 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
       .hasText('This is an HTML element inside the label');
   });
 
-  // REQUIRED
+  // REQUIRED AND OPTIONAL
 
   test('it renders a required badge if @isRequired is true', async function (assert) {
     assert.expect(2);
@@ -49,6 +49,18 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     );
     assert.dom('#test-form-label > .hds-badge').exists();
     assert.dom('#test-form-label .hds-badge').hasText('Required');
+  });
+  test('it renders an optional indicator if @isOptional is true', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Label @isOptional="true" id="test-form-label">This is the label</Hds::Form::Label>`
+    );
+    assert
+      .dom('#test-form-label > .hds-form-label__optional-indicator')
+      .exists();
+    assert
+      .dom('#test-form-label .hds-form-label__optional-indicator')
+      .hasText('(Optional)');
   });
 
   // ATTRIBUTES
