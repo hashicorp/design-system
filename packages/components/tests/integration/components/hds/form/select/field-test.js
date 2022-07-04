@@ -94,7 +94,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
       .hasAttribute('id', `error-${controlId}`);
   });
 
-  // REQUIRED
+  // REQUIRED AND OPTIONAL
 
   test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
     assert.expect(2);
@@ -105,6 +105,18 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     );
     assert.dom('label .hds-badge').exists();
     assert.dom('label .hds-badge').hasText('Required');
+  });
+  test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Select::Field @isOptional={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+          </Hds::Form::Select::Field>`
+    );
+    assert.dom('label .hds-form-label__optional-indicator').exists();
+    assert
+      .dom('label .hds-form-label__optional-indicator')
+      .hasText('(Optional)');
   });
 
   // ATTRIBUTES

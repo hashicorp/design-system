@@ -116,6 +116,11 @@
       <p>It appends a badge to the label text to indicate user input is required.</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>isOptional <code>boolean</code></dt>
+    <dd>
+      <p>It appends "(Optional)" to the label text to indicate user input is not required.</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
     <dt>extraAriaDescribedBy <code>string</code></dt>
     <dd>
       <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
@@ -542,12 +547,23 @@
       </Hds::Form::Select::Field>
     </div>
   </div>
-  <h5 class="dummy-h5">Required</h5>
+  <h5 class="dummy-h5">Required and optional</h5>
   <div class="dummy-form-select-grid-sample">
     <div>
       <span class="dummy-text-small">Label + Required</span>
       <br />
       <Hds::Form::Select::Field @isRequired={{true}} as |F|>
+        <F.Label>Lorem ipsum dolor</F.Label>
+        <F.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </F.Options>
+      </Hds::Form::Select::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Optional</span>
+      <br />
+      <Hds::Form::Select::Field @isOptional={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.Options>
           <option>Lorem ipsum dolor</option>
