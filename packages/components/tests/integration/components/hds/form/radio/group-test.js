@@ -66,6 +66,22 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     assert.dom('.hds-form-group__error').doesNotExist();
   });
 
+  // REQUIRED
+
+  test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Radio::Group @isRequired={{true}} as |G|>
+            <G.Legend>This is the legend</G.Legend>
+            <G.Radio::Field checked="checked" @value="abc123" as |F|>
+              <F.Label>This is the control label</F.Label>
+            </G.Radio::Field>
+        </Hds::Form::Radio::Group>`
+    );
+    assert.dom('legend .hds-badge').exists();
+    assert.dom('legend .hds-badge').hasText('Required');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
