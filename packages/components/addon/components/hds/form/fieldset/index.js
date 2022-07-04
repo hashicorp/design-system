@@ -8,6 +8,7 @@ export default class HdsFormFieldsetIndexComponent extends Component {
   @tracked ariaDescribedBy = getAriaDescribedBy(this);
   @tracked descriptors = [];
   @tracked isRequired = this.args.isRequired;
+  @tracked isOptional = this.args.isOptional;
 
   @action
   appendDescriptor(element) {

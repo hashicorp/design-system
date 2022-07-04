@@ -78,7 +78,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       .hasAttribute('id', `error-${fieldsetId}`);
   });
 
-  // REQUIRED
+  // REQUIRED AND OPTIONAL
 
   test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
     assert.expect(2);
@@ -89,6 +89,18 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     );
     assert.dom('legend .hds-badge').exists();
     assert.dom('legend .hds-badge').hasText('Required');
+  });
+  test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Fieldset @isOptional={{true}} as |F|>
+          <F.Legend>This is the legend</F.Legend>
+        </Hds::Form::Fieldset>`
+    );
+    assert.dom('legend .hds-form-legend__optional-indicator').exists();
+    assert
+      .dom('legend .hds-form-legend__optional-indicator')
+      .hasText('(Optional)');
   });
 
   // ATTRIBUTES
