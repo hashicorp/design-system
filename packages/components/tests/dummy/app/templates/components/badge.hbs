@@ -86,8 +86,7 @@
   </div>
 </section>
 
-<section data-test-percy>
-  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+<DummySection::Showcase @id="showcase">
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-badge-base-sample">
     <Hds::Badge @text="Only text" />
@@ -160,7 +159,7 @@
       {{/each}}
     </div>
   {{/each}}
-</section>
+</DummySection::Showcase>
 
 {{! ###################### }}
 
@@ -229,8 +228,8 @@
   </p>
 </section>
 
-<section data-test-percy>
-  <h3 class="dummy-h3" id="bc-showcase"><a href="#bc-showcase" class="dummy-link-section">§</a> Showcase</h3>
+<DummySection::Showcase
+ @id="bc-showcase">
 
   <h4 class="dummy-h4">Content</h4>
   <div class="dummy-badge-base-sample">
@@ -272,4 +271,4 @@
       {{/each}}
     </div>
   {{/each}}
-</section>
+</DummySection::Showcase>
