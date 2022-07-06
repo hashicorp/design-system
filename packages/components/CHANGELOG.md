@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.12.10
+
+### Patch Changes
+
+- [#428](https://github.com/hashicorp/design-system/pull/428) [`599dca97`](https://github.com/hashicorp/design-system/commit/599dca971fba57b613f9a17588ebe0e569aafe4c) Thanks [@didoo](https://github.com/didoo)! - Fixed issue with "disabled" visual state for "Hds::Button" when is a link
+
 ## 0.12.9
 
 ### Patch Changes
