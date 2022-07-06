@@ -1,0 +1,11 @@
+<section data-test-percy aria-hidden="true">
+  <h3 class="dummy-h3" id={{or @id "showcase"}}><a href="#{{or @id 'showcase'}}" class="dummy-link-section">§</a>
+    {{or @title "Showcase"}}</h3>
+  <div class="dummy-banner dummy-banner--info" data-test-section-showcase-not-accessible>
+    <p class="dummy-paragraph"><strong>Notice</strong>: if you inspect the source code for this section, you may see
+      that some of the following examples are not necesssarily full compliant from an accessibility perspective. That's
+      because they're meant to be visual-only examples. If you have any doubt or question about it, please contact the
+      HDS team.</p>
+  </div>
+  {{yield}}
+</section>
