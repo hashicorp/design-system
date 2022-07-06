@@ -1,5 +1,5 @@
 <label class={{this.classNames}} for={{@controlId}} ...attributes>
   {{yield}}
-  {{#if @isRequired}}<Hds::Badge @size="small" @color="neutral" @text="Required" />{{/if}}
-  {{#if @isOptional}}<span class="hds-form-label__optional-indicator">(Optional)</span>{{/if}}
+  {{#if @isRequired}}<Hds::Form::RequiredIndicator />{{/if}}
+  {{#if @isOptional}}<Hds::Form::OptionalIndicator />{{/if}}
 </label>

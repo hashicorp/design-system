@@ -78,8 +78,8 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             </G.Radio::Field>
         </Hds::Form::Radio::Group>`
     );
-    assert.dom('legend .hds-badge').exists();
-    assert.dom('legend .hds-badge').hasText('Required');
+    assert.dom('legend .hds-form-required-indicator').exists();
+    assert.dom('legend .hds-form-required-indicator').hasText('Required');
   });
   test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
     assert.expect(2);
@@ -91,10 +91,8 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             </G.Radio::Field>
           </Hds::Form::Radio::Group>`
     );
-    assert.dom('legend .hds-form-legend__optional-indicator').exists();
-    assert
-      .dom('legend .hds-form-legend__optional-indicator')
-      .hasText('(Optional)');
+    assert.dom('legend .hds-form-optional-indicator').exists();
+    assert.dom('legend .hds-form-optional-indicator').hasText('(Optional)');
   });
 
   // ATTRIBUTES

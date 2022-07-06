@@ -10,9 +10,3 @@
   max-width: 100%;
   width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
 }
-
-.hds-form-label__optional-indicator {
-  color: var(--token-color-foreground-faint);
-  font-weight: var(--token-typography-font-weight-regular);
-  margin-left: 4px;
-}

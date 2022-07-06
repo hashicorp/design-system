@@ -110,8 +110,8 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
             <F.Label>This is the label</F.Label>
           </Hds::Form::TextInput::Field>`
     );
-    assert.dom('label .hds-badge').exists();
-    assert.dom('label .hds-badge').hasText('Required');
+    assert.dom('label .hds-form-required-indicator').exists();
+    assert.dom('label .hds-form-required-indicator').hasText('Required');
   });
   test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
     assert.expect(2);
@@ -120,10 +120,8 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
             <F.Label>This is the label</F.Label>
           </Hds::Form::TextInput::Field>`
     );
-    assert.dom('label .hds-form-label__optional-indicator').exists();
-    assert
-      .dom('label .hds-form-label__optional-indicator')
-      .hasText('(Optional)');
+    assert.dom('label .hds-form-optional-indicator').exists();
+    assert.dom('label .hds-form-optional-indicator').hasText('(Optional)');
   });
 
   // ATTRIBUTES
