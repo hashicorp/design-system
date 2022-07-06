@@ -32,11 +32,19 @@ $hds-button-focus-border-width: 3px;
   }
 
   // This covers all of the browsers and focus scenarios (due to the custom focus design).
+  //
+  // IMPORTANT: we need to use also the [disabled] selector because if the "disabled" attribute is applied to a "Button as link",
+  // the ":disabled" pseudo-selector is not applied to the element in the browser (rightly) because a link can't be disabled
+  // but from the product perspective there may be use cases where they need to have a "Button as link" that looks disabled anyway
+  //
   &:disabled,
+  &[disabled],
   &.mock-disabled,
   &:disabled:focus,
+  &[disabled]:focus,
   &.mock-disabled:focus,
   &:disabled:hover,
+  &[disabled]:hover,
   &.mock-disabled:hover {
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
@@ -254,11 +262,19 @@ $size-props: (
     }
   }
 
+  //
+  // IMPORTANT: we need to use also the [disabled] selector because if the "disabled" attribute is applied to a "Button as link",
+  // the ":disabled" pseudo-selector is not applied to the element in the browser (rightly) because a link can't be disabled
+  // but from the product perspective there may be use cases where they need to have a "Button as link" that looks disabled anyway
+  //
   &:disabled,
+  &[disabled],
   &.mock-disabled,
   &:disabled:focus,
+  &[disabled]:focus,
   &.mock-disabled:focus,
   &:disabled:hover,
+  &[disabled]:hover,
   &.mock-disabled:hover {
     background-color: transparent;
     border-color: transparent;

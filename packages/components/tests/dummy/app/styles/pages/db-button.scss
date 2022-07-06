@@ -22,6 +22,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+
+    .hds-button + .hds-button {
+        margin-top: 8px;
+    }
 }
 
 .dummy-button-states-grid {
