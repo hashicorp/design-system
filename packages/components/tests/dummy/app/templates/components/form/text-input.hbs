@@ -272,8 +272,10 @@
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">This component was designed with WCAG conformance as a requirement. As such, the
     <code class="dummy-code">Form::TextInput::Base</code>
-    is conditionally conformant; that is, it is not conformant until it has an accessible name. The other components are
-    conformant; please report any conformance issues that you find.</p>
+    is conditionally conformant; that is, it is not conformant until it has an accessible name. However, the
+    <code class="dummy-code">Form::TextInput::Field</code>
+    component is the one that developers should use in most cases, and it is conformant when used as directed. Please
+    report any conformance issues that you find.</p>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
   </h4>
@@ -350,20 +352,6 @@
       property: line height set to 1.5; spacing following paragraphs set to at least 2x the font size; letter-spacing
       set at least 0.12x of the font size, word spacing set to at least 0.16 times the font size.</li>
     <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus"
-        rel="noopener noreferrer"
-        target="_blank"
-      >1.4.13 Content on Hover or Focus (AA):</a>
-      Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible
-      and then hidden, the following are true: dismissible, hoverable, persistent (see link)</li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable"
-        rel="noopener noreferrer"
-        target="_blank"
-      >2.2.1 Timing Adjustable (A):</a>
-      if there are time limitations set by the content, one of the following should be true: turn off, adjust, extend,
-      real-time exception, essential exception, 20 hour exception.</li>
-    <li><a
         href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels"
         rel="noopener noreferrer"
         target="_blank"
@@ -401,22 +389,6 @@
         target="_blank"
       >3.3.2 Labels or Instructions (A):</a>
       Labels or instructions are provided when content requires user input.</li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion"
-        rel="noopener noreferrer"
-        target="_blank"
-      >3.3.3 Error Suggestion (AA):</a>
-      If an input error is automatically detected and suggestions for correction are known, then the suggestions are
-      provided to the user, unless it would jeopardize the security or purpose of the content.</li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention"
-        rel="noopener noreferrer"
-        target="_blank"
-      >3.3.4 Error Prevention (Legal, Financial, Data) (AA):</a>
-      For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete
-      user-controllable data in data storage systems, or that submit user test responses, at least one of the following
-      is true: submissions are reversible, data is checked and user is provided an opportunity to correct them, a
-      mechanism is available for reviewing, confirming and correcting the information before finalizing the submission.</li>
     <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing" rel="noopener noreferrer" target="_blank">4.1.1
         Parsing (A):</a>
       In content implemented using markup languages, elements have complete start and end tags, elements are nested
@@ -429,10 +401,6 @@
       For all user interface components, the name and role can be programmatically determined; states, properties, and
       values that can be set by the user can be programmatically set; and notification of changes to these items is
       available to user agents, including assistive technologies.</li>
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/" rel="noopener noreferrer" target="_blank">4.1.3 Status
-        Messages (AA):</a>
-      In content implemented using markup languages, status messages can be programmatically determined through role or
-      properties such that they can be presented to the user by assistive technologies without receiving focus.</li>
   </ul>
 </section>
 
