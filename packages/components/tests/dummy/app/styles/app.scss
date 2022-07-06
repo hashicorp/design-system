@@ -171,7 +171,8 @@ body.dummy-app {
   header,
   aside,
   footer,
-  main section:not([data-test-percy]) {
+  main section:not([data-test-percy]),
+  section[data-test-percy] [data-test-section-showcase-not-accessible] {
     display: none !important;
   }
 }
