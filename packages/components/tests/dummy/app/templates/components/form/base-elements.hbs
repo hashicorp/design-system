@@ -949,31 +949,74 @@
   <span class="dummy-text-small">With simple text</span>
   <Hds::Form::Label>This is a simple label</Hds::Form::Label>
   <br />
-  <span class="dummy-text-small">With required badge</span>
+  <span class="dummy-text-small">With required indicator</span>
   <Hds::Form::Label @isRequired={{true}}>This is the label</Hds::Form::Label>
   <br />
-  <span class="dummy-text-small">With optional hint</span>
+  <span class="dummy-text-small">With optional indicator</span>
   <Hds::Form::Label @isOptional={{true}}>This is the label</Hds::Form::Label>
   <br />
   <span class="dummy-text-small">With structured content (eg. a
     <code>flex</code>
     layout and a
-    <code>&lt;Badge&gt;</code>)</span>
+    <code>&lt;Badge&gt;</code>)
+  </span>
   <Hds::Form::Label>
     <div class="dummy-form-base-elements-label-with-badge">This is the label
       <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
     </div>
   </Hds::Form::Label>
   <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>) and required indicator
+  </span>
+  <div class="dummy-form-base-elements-label-with-badge">
+    <Hds::Form::Label @isRequired={{true}}>
+      This is the label
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </Hds::Form::Label>
+  </div>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>) and optional indicator
+  </span>
+  <div class="dummy-form-base-elements-label-with-badge">
+    <Hds::Form::Label @isOptional={{true}}>
+      This is the label
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </Hds::Form::Label>
+  </div>
+  <br />
   <span class="dummy-text-small">With text that spans multiple lines</span>
   <div class="dummy-form-base-elements-max-width-sample">
     <Hds::Form::Label>This is a very long label text that should go on multiple lines</Hds::Form::Label>
   </div>
   <br />
-  <span class="dummy-text-small">With text that spans multiple lines</span>
+  <span class="dummy-text-small">With text that spans multiple lines and required indicator</span>
   <div class="dummy-form-base-elements-max-width-sample">
-    <Hds::Form::Label @isRequired={{true}}>This is a very long label on multiple lines</Hds::Form::Label>
+    <Hds::Form::Label @isRequired={{true}}>This is a very long label text that should go on multiple lines</Hds::Form::Label>
   </div>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines and required indicator</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Label @isOptional={{true}}>This is a very long label text that should go on multiple lines</Hds::Form::Label>
+  </div>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines, structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>) and required indicator
+  </span>
+  <div class="dummy-form-base-elements-max-width-sample dummy-form-base-elements-label-with-badge">
+    <Hds::Form::Label @isRequired={{true}}>
+      This is a very long label text that should go on multiple lines
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </Hds::Form::Label>
+  </div>
+  <br />
 
   {{! ###################### }}
 
@@ -1040,18 +1083,72 @@
   <Hds::Form::Legend>This is a legend
     <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::Legend>
   <br />
+  <span class="dummy-text-small">With required indicator</span>
+  <Hds::Form::Legend @isRequired={{true}}>This is a simple legend</Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With optional indicator</span>
+  <Hds::Form::Legend @isOptional={{true}}>This is a simple legend</Hds::Form::Legend>
+  <br />
   <span class="dummy-text-small">With structured content (eg. a
     <code>flex</code>
     layout and a
-    <code>&lt;Badge&gt;</code>)</span>
+    <code>&lt;Badge&gt;</code>)
+  </span>
   <Hds::Form::Legend>
     <div class="dummy-form-base-elements-legend-with-badge">This is the legend
-      <Hds::Badge @size="small" @text="Some badge" @color="highlight" /></div>
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </div>
   </Hds::Form::Legend>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>) and required indicator
+  </span>
+  <div class="dummy-form-base-elements-legend-with-badge">
+    <Hds::Form::Legend @isRequired={{true}}>
+      This is the legend
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </Hds::Form::Legend>
+  </div>
+  <br />
+  <span class="dummy-text-small">With structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>) and optional indicator
+  </span>
+  <div class="dummy-form-base-elements-legend-with-badge">
+    <Hds::Form::Legend @isOptional={{true}}>
+      This is the legend
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </Hds::Form::Legend>
+  </div>
   <br />
   <span class="dummy-text-small">With text that spans multiple lines</span>
   <div class="dummy-form-base-elements-max-width-sample">
     <Hds::Form::Legend>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
+  </div>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines and required indicator</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Legend @isRequired={{true}}>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
+  </div>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines and optional indicator</span>
+  <div class="dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Legend @isOptional={{true}}>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
+  </div>
+  <br />
+  <span class="dummy-text-small">With text that spans multiple lines, structured content (eg. a
+    <code>flex</code>
+    layout and a
+    <code>&lt;Badge&gt;</code>) and required indicator
+  </span>
+  <div class="dummy-form-base-elements-legend-with-badge dummy-form-base-elements-max-width-sample">
+    <Hds::Form::Legend @isRequired={{true}}>
+      This is a very long legend text that should go on multiple lines
+      <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
+    </Hds::Form::Legend>
   </div>
 
   {{! ###################### }}
