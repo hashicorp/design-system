@@ -7,8 +7,6 @@ import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
 export default class HdsFormFieldsetIndexComponent extends Component {
   @tracked ariaDescribedBy = getAriaDescribedBy(this);
   @tracked descriptors = [];
-  @tracked isRequired = this.args.isRequired;
-  @tracked isOptional = this.args.isOptional;
 
   @action
   appendDescriptor(element) {
@@ -47,5 +45,23 @@ export default class HdsFormFieldsetIndexComponent extends Component {
     classes.push(`hds-form-group--layout-${this.layout}`);
 
     return classes.join(' ');
+  }
+
+  /**
+   * @param isRequired
+   * @type {boolean}
+   * @default false
+   */
+  get isRequired() {
+    return this.args.isRequired || false;
+  }
+
+  /**
+   * @param isOptional
+   * @type {boolean}
+   * @default false
+   */
+  get isOptional() {
+    return this.args.isOptional || false;
   }
 }

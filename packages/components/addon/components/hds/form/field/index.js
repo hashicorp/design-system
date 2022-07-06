@@ -10,8 +10,6 @@ export const LAYOUT_TYPES = ['vertical', 'flag'];
 export default class HdsFormFieldIndexComponent extends Component {
   @tracked ariaDescribedBy = getAriaDescribedBy(this);
   @tracked descriptors = [];
-  @tracked isRequired = this.args.isRequired;
-  @tracked isOptional = this.args.isOptional;
 
   @action
   appendDescriptor(element) {
@@ -64,5 +62,23 @@ export default class HdsFormFieldIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  /**
+   * @param isRequired
+   * @type {boolean}
+   * @default false
+   */
+  get isRequired() {
+    return this.args.isRequired || false;
+  }
+
+  /**
+   * @param isOptional
+   * @type {boolean}
+   * @default false
+   */
+  get isOptional() {
+    return this.args.isOptional || false;
   }
 }
