@@ -103,7 +103,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   // REQUIRED AND OPTIONAL
 
-  test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
+  test('it should append an indicator to the label text and set the required attribute when user input is required', async function (assert) {
     assert.expect(3);
     await render(
       hbs`<Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
@@ -114,7 +114,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('label .hds-form-required-indicator').hasText('Required');
     assert.dom('input[required]').exists();
   });
-  test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
+  test('it should append an indicator to the label text when user input is optional', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::TextInput::Field @isOptional={{true}} as |F|>

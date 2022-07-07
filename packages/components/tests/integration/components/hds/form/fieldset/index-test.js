@@ -80,7 +80,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
 
   // REQUIRED AND OPTIONAL
 
-  test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
+  test('it should append an indicator to the legend text when user input is required', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::Fieldset @isRequired={{true}} as |F|>
@@ -90,7 +90,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert.dom('legend .hds-form-required-indicator').exists();
     assert.dom('legend .hds-form-required-indicator').hasText('Required');
   });
-  test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
+  test('it should append an indicator to the legend text when user input is optional', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::Fieldset @isOptional={{true}} as |F|>

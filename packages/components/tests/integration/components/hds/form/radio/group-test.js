@@ -68,7 +68,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
 
   // REQUIRED AND OPTIONAL
 
-  test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
+  test('it should append an indicator to the legend text and set the required attribute when user input is required', async function (assert) {
     assert.expect(3);
     await render(
       hbs`<Hds::Form::Radio::Group @isRequired={{true}} as |G|>
@@ -82,7 +82,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     assert.dom('legend .hds-form-required-indicator').hasText('Required');
     assert.dom('input[required]').exists();
   });
-  test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
+  test('it should append an indicator to the legend text when user input is optional', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::Radio::Group @isOptional={{true}} as |G|>

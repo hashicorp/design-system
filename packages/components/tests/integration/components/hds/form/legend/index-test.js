@@ -46,7 +46,7 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
 
   // REQUIRED AND OPTIONAL
 
-  test('it renders a required badge if @isRequired is true', async function (assert) {
+  test('it appends an indicator to the legend text when user input is required', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::Legend id="test-form-legend" @isRequired="true">This is the legend</Hds::Form::Legend>`
@@ -56,7 +56,7 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
       .dom('#test-form-legend .hds-form-required-indicator')
       .hasText('Required');
   });
-  test('it renders an optional indicator if @isOptional is true', async function (assert) {
+  test('it appends an indicator to the legend text when user input is optional', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::Legend id="test-form-legend" @isOptional="true">This is the legend</Hds::Form::Legend>`
