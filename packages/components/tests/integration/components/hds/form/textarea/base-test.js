@@ -24,6 +24,17 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
     assert.dom('#test-form-textarea').hasValue('abc123');
   });
 
+  // ROWS
+
+  test('it should render the textarea with the default number of rows', async function (assert) {
+    await render(hbs`<Hds::Form::Textarea::Base />`);
+    assert.dom('textarea').hasAttribute('rows', '4');
+  });
+  test('it should render the textarea with a custom number of rows', async function (assert) {
+    await render(hbs`<Hds::Form::Textarea::Base rows="2" />`);
+    assert.dom('textarea').hasAttribute('rows', '2');
+  });
+
   // INVALID
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
