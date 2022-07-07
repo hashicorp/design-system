@@ -18,6 +18,7 @@
       ...attributes
       id={{F.id}}
       aria-describedby={{F.ariaDescribedBy}}
+      required={{if @isRequired "required" null}}
     />
   </F.Control>
 </Hds::Form::Field>

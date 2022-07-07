@@ -4,7 +4,11 @@
   {{yield (hash HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
     {{yield
-      (hash Checkbox::Field=(component "hds/form/checkbox/field" contextualClass="hds-form-group__control-field"))
+      (hash
+        Checkbox::Field=(component
+          "hds/form/checkbox/field" contextualClass="hds-form-group__control-field" isRequired=@isRequired
+        )
+      )
     }}
   </F.Control>
 </Hds::Form::Fieldset>

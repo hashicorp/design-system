@@ -69,7 +69,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
   // REQUIRED AND OPTIONAL
 
   test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
-    assert.expect(2);
+    assert.expect(3);
     await render(
       hbs`<Hds::Form::Checkbox::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
@@ -80,6 +80,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     );
     assert.dom('legend .hds-form-required-indicator').exists();
     assert.dom('legend .hds-form-required-indicator').hasText('Required');
+    assert.dom('input[required]').exists();
   });
   test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
     assert.expect(2);

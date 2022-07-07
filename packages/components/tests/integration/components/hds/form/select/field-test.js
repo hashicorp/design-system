@@ -97,7 +97,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
   // REQUIRED AND OPTIONAL
 
   test('it should render a required badge if the @isRequired prop is declared', async function (assert) {
-    assert.expect(2);
+    assert.expect(3);
     await render(
       hbs`<Hds::Form::Select::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
@@ -105,6 +105,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     );
     assert.dom('label .hds-form-required-indicator').exists();
     assert.dom('label .hds-form-required-indicator').hasText('Required');
+    assert.dom('select[required]').exists();
   });
   test('it should render an optional indicator if the @isOptional prop is declared', async function (assert) {
     assert.expect(2);

@@ -3,6 +3,12 @@
   {{yield (hash Legend=F.Legend isRequired=F.isRequired isOptional=F.isOptional)}}
   {{yield (hash HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
-    {{yield (hash Radio::Field=(component "hds/form/radio/field" contextualClass="hds-form-group__control-field"))}}
+    {{yield
+      (hash
+        Radio::Field=(component
+          "hds/form/radio/field" contextualClass="hds-form-group__control-field" isRequired=@isRequired
+        )
+      )
+    }}
   </F.Control>
 </Hds::Form::Fieldset>
