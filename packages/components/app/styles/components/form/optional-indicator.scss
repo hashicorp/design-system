@@ -6,5 +6,8 @@
 
 .hds-form-optional-indicator {
   color: var(--token-color-foreground-faint);
+  // notice: here we're using the same line-height as the "label" element for correct vertical alignment
+  line-height: var(--token-typography-body-200-font-size);
+  font-size: var(--token-typography-body-100-font-size);
   font-weight: var(--token-typography-font-weight-regular);
 }
