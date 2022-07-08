@@ -47,20 +47,16 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     await render(
       hbs`<Hds::Form::Label @isRequired="true" id="test-form-label">This is the label</Hds::Form::Label>`
     );
-    assert.dom('#test-form-label .hds-form-required-indicator').exists();
-    assert
-      .dom('#test-form-label .hds-form-required-indicator')
-      .hasText('Required');
+    assert.dom('#test-form-label .hds-badge').exists();
+    assert.dom('#test-form-label .hds-badge').hasText('Required');
   });
   test('it appends an indicator to the label text when user input is optional', async function (assert) {
     assert.expect(2);
     await render(
       hbs`<Hds::Form::Label @isOptional="true" id="test-form-label">This is the label</Hds::Form::Label>`
     );
-    assert.dom('#test-form-label > .hds-form-optional-indicator').exists();
-    assert
-      .dom('#test-form-label .hds-form-optional-indicator')
-      .hasText('(Optional)');
+    assert.dom('#test-form-label > .hds-form-indicator').exists();
+    assert.dom('#test-form-label .hds-form-indicator').hasText('(Optional)');
   });
 
   // ATTRIBUTES

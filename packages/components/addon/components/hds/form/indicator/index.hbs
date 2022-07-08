@@ -1,0 +1,6 @@
+{{#if @isOptional}}
+  <span class="hds-form-indicator">(Optional)</span>
+{{/if}}
+{{#if @isRequired}}
+  <Hds::Badge @size="small" @color="neutral" @text="Required" />
+{{/if}}

@@ -103,8 +103,8 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
             <F.Label>This is the label</F.Label>
           </Hds::Form::Select::Field>`
     );
-    assert.dom('label .hds-form-required-indicator').exists();
-    assert.dom('label .hds-form-required-indicator').hasText('Required');
+    assert.dom('label .hds-badge').exists();
+    assert.dom('label .hds-badge').hasText('Required');
     assert.dom('select[required]').exists();
   });
   test('it should append an indicator to the label text when user input is optional', async function (assert) {
@@ -114,8 +114,8 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
             <F.Label>This is the label</F.Label>
           </Hds::Form::Select::Field>`
     );
-    assert.dom('label .hds-form-optional-indicator').exists();
-    assert.dom('label .hds-form-optional-indicator').hasText('(Optional)');
+    assert.dom('label .hds-form-indicator').exists();
+    assert.dom('label .hds-form-indicator').hasText('(Optional)');
   });
 
   // ATTRIBUTES

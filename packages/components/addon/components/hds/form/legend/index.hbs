@@ -1,5 +1,4 @@
 <legend class={{this.classNames}} ...attributes>
   {{yield}}
-  {{#if @isRequired}}<Hds::Form::RequiredIndicator />{{/if}}
-  {{#if @isOptional}}<Hds::Form::OptionalIndicator />{{/if}}
+  <Hds::Form::Indicator @isRequired={{@isRequired}} @isOptional={{@isOptional}} />
 </legend>

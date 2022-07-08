@@ -87,8 +87,8 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
           <F.Legend>This is the legend</F.Legend>
         </Hds::Form::Fieldset>`
     );
-    assert.dom('legend .hds-form-required-indicator').exists();
-    assert.dom('legend .hds-form-required-indicator').hasText('Required');
+    assert.dom('legend .hds-badge').exists();
+    assert.dom('legend .hds-badge').hasText('Required');
   });
   test('it should append an indicator to the legend text when user input is optional', async function (assert) {
     assert.expect(2);
@@ -97,8 +97,8 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
           <F.Legend>This is the legend</F.Legend>
         </Hds::Form::Fieldset>`
     );
-    assert.dom('legend .hds-form-optional-indicator').exists();
-    assert.dom('legend .hds-form-optional-indicator').hasText('(Optional)');
+    assert.dom('legend .hds-form-indicator').exists();
+    assert.dom('legend .hds-form-indicator').hasText('(Optional)');
   });
 
   // ATTRIBUTES
