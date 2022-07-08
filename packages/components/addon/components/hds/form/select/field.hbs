@@ -17,7 +17,7 @@
       ...attributes
       id={{F.id}}
       aria-describedby={{F.ariaDescribedBy}}
-      required={{if @isRequired "required" null}}
+      required={{@isRequired}}
       as |S|
     >
       {{yield (hash Options=S.Options)}}
