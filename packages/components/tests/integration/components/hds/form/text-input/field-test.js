@@ -112,7 +112,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     );
     assert.dom('label .hds-form-required-indicator').exists();
     assert.dom('label .hds-form-required-indicator').hasText('Required');
-    assert.dom('input[required]').exists();
+    assert.dom('input').hasAttribute('required');
   });
   test('it should append an indicator to the label text when user input is optional', async function (assert) {
     assert.expect(2);

@@ -80,7 +80,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     );
     assert.dom('legend .hds-form-required-indicator').exists();
     assert.dom('legend .hds-form-required-indicator').hasText('Required');
-    assert.dom('input[required]').exists();
+    assert.dom('input').hasAttribute('required');
   });
   test('it should append an indicator to the legend text when user input is optional', async function (assert) {
     assert.expect(2);
