@@ -5,7 +5,7 @@
 //
 
 .hds-form-label {
-  color: var(--token-color-foreground-strong);
+  color: var(--token-form-label-foreground-color);
   display: block;
   max-width: 100%;
   width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
