@@ -7,9 +7,10 @@
 // "BASE" CONTROL
 
 .hds-form-select {
-  border: 1px solid var(--token-color-palette-neutral-400);
-  border-radius: 5px;
-  color: var(--token-color-foreground-strong);
+  background-color: var(--token-form-control-background-color-default);
+  border: 1px solid var(--token-form-control-border-color-default);
+  border-radius: var(--token-form-control-border-radius);
+  color: var(--token-form-control-foreground-color-default);
   padding: 7px; // we have to take into account the border
   max-width: 100%;
 
@@ -17,15 +18,15 @@
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-color-palette-neutral-500);
+    border-color: var(--token-form-control-border-color-default-hover);
   }
 
   // focus (same for all the states)
-  // TODO add handling of focus-visible
+
   &:focus,
   &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
-    // TODO: Safari doesn't apply a rounded border
+    // Notice: Safari doesn't apply a rounded border
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
   }
@@ -33,22 +34,22 @@
   // DISABLED
 
   &:disabled {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
+    background-color: var(--token-form-control-background-color-disabled);
+    border-color: var(--token-form-control-border-color-disabled);
+    color: var(--token-form-control-foreground-color-disabled);
     cursor: not-allowed;
   }
 
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: #C00005; // TODO convert to form-controls design token
+    border-color: var(--token-form-control-border-color-critical);
 
     &:hover,
     &.mock-hover {
-      border-color: #940004; // TODO convert to form-controls design token
+      border-color: var(--token-form-control-border-color-critical-hover);
     }
 
-    // TODO add handling of focus-visible
     &:focus,
     &.mock-focus {
       border-color: var(--token-color-focus-critical-internal);
