@@ -20,6 +20,10 @@
       is the error message shown to the user in case of failed validation of the field
     </li>
     <li class="dummy-paragraph">
+      <code class="dummy-code">Form::Indicator</code>
+      is the indicator for "Required" or "Optional" user inputs
+    </li>
+    <li class="dummy-paragraph">
       <code class="dummy-code">Form::Legend</code>
       is the legend associated to the fieldset
     </li>
@@ -52,12 +56,18 @@
     </dd>
     <dt>isRequired <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the label text when user input is required.</p>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the label text when user input is required.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>isOptional <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the label text when user input is optional.</p>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the label text when user input is optional.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>"yield"</dt>
@@ -97,6 +107,29 @@
     </dd>
   </dl>
 
+  <h4 class="dummy-h4">Form::Indicator</h4>
+  <p class="dummy-paragraph" id="component-api-form-indicator">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-indicator">
+    <dt>isRequired <code>boolean</code></dt>
+    <dd>
+      <p>Shows the
+        <code class="dummy-code">Required</code>
+        indicator.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>isOptional <code>boolean</code></dt>
+    <dd>
+      <p>Shows the
+        <code class="dummy-code">Optional</code>
+        indicator.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+  </dl>
+
   <h4 class="dummy-h4">Form::Error</h4>
   <p class="dummy-paragraph" id="component-api-form-helper-error">
     Here is the API for the component:
@@ -129,12 +162,18 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-form-label">
     <dt>isRequired <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the legend text when user input is required.</p>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the label text when user input is required.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>isOptional <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the legend text when user input is optional.</p>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the label text when user input is optional.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>"yield"</dt>
@@ -189,12 +228,18 @@
     </dd>
     <dt>isRequired <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the label text when user input is required.</p>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the label text when user input is required.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>isOptional <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the label text when user input is optional.</p>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the label text when user input is optional.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>...attributes</dt>
@@ -316,12 +361,18 @@
     </dd>
     <dt>isRequired <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the legend text when user input is required.</p>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the label text when user input is required.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>isOptional <code>boolean</code></dt>
     <dd>
-      <p>Appends an indicator to the legend text when user input is optional.</p>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the label text when user input is optional.
+      </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
     <dt>...attributes</dt>
@@ -572,6 +623,50 @@
     or a
     <strong>strong message</strong>.
   </Hds::Form::HelperText>
+
+  <h4 class="dummy-h4">Form::Indicator</h4>
+  <p class="dummy-paragraph">
+    To render a
+    <code class="dummy-code">Required</code>
+    indicator provide a
+    <code class="dummy-code">@isRequired</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Form::Indicator @isRequired=\{{true}} />
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Indicator @isRequired={{true}} />
+  <p class="dummy-paragraph">
+    To render instead an
+    <code class="dummy-code">Optional</code>
+    indicator provide a
+    <code class="dummy-code">@isOptional</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Form::Indicator @isOptional=\{{true}} />
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Form::Indicator @isOptional={{true}} />
+
+  <p class="dummy-paragraph"><em>Notice: if no
+      <code class="dummy-code">@isRequired/@isOptional</code>
+      argument is provided, the component will not render anything.</em></p>
 
   <h4 class="dummy-h4">Form::Error</h4>
   <p class="dummy-paragraph">
@@ -1051,6 +1146,29 @@
 
   <hr class="dummy-divider" />
 
+  <h4 class="dummy-h4">Indicator</h4>
+  <div class="dummy-form-base-elements-base-sample">
+    <div>
+      <span class="dummy-text-small">isRequired</span>
+      <br />
+      <Hds::Form::Indicator @isRequired={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">isOptional</span>
+      <br />
+      <Hds::Form::Indicator @isOptional={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">No arguments</span>
+      <br />
+      <Hds::Form::Indicator />
+    </div>
+  </div>
+
+  {{! ###################### }}
+
+  <hr class="dummy-divider" />
+
   <h4 class="dummy-h4">Error</h4>
   <span class="dummy-text-small">With simple text</span>
   <Hds::Form::Error>This is a simple error message</Hds::Form::Error>
@@ -1259,6 +1377,34 @@
               </F.Control>
             </Hds::Form::Field>
           </div>
+          <div>
+            <span class="dummy-text-small">Label + Helper text + Indicator</span>
+            <br />
+            <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <DummyPlaceholder
+                    @text="control"
+                    @width="100%"
+                    @height="32"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <DummyPlaceholder
+                    @text="✔"
+                    @width="16"
+                    @height="16"
+                    @background="#eee"
+                    class="hds-form-field__control"
+                  />
+                {{/if}}
+              </F.Control>
+            </Hds::Form::Field>
+          </div>
         </div>
         <br />
         <div class="dummy-form-base-elements-grid-sample">
@@ -1365,7 +1511,7 @@
                 <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
                 <br />
                 <div class="dummy-form-base-elements-containers__{{display}}">
-                  <Hds::Form::Field @layout={{layout}} as |F|>
+                  <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Label>This is the label</F.Label>
                     <F.HelperText>This is the helper text</F.HelperText>
                     <F.Control>
@@ -1393,7 +1539,7 @@
                 </div>
                 <br />
                 <div class="dummy-form-base-elements-containers__{{display}}">
-                  <Hds::Form::Field @layout={{layout}} as |F|>
+                  <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Label>This is the label text that should go on multiple lines</F.Label>
                     <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
                     <F.Control>
@@ -1495,7 +1641,7 @@
                 <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
                 <br />
                 <div class="dummy-form-base-elements-containers__{{display}}">
-                  <Hds::Form::Fieldset @layout={{layout}} as |F|>
+                  <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Legend>This is the legend</F.Legend>
                     <F.HelperText>This is the helper text</F.HelperText>
                     <F.Control>
@@ -1521,7 +1667,7 @@
                 </div>
                 <br />
                 <div class="dummy-form-base-elements-containers__{{display}}">
-                  <Hds::Form::Fieldset @layout={{layout}} as |F|>
+                  <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Legend>This is the legend text that should go on multiple lines</F.Legend>
                     <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
                     <F.Control>
