@@ -5,7 +5,7 @@
 //
 
 .hds-form-legend {
-  color: var(--token-color-foreground-strong);
+  color: var(--token-form-label-foreground-color); // same color as "label"
   display: block;
 
   // if a "badge" element (included the 'required' indicator) is child of the legend
