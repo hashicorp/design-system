@@ -63,4 +63,22 @@ export default class HdsFormFieldIndexComponent extends Component {
 
     return classes.join(' ');
   }
+
+  /**
+   * @param isRequired
+   * @type {boolean}
+   * @default false
+   */
+  get isRequired() {
+    return this.args.isRequired || false;
+  }
+
+  /**
+   * @param isOptional
+   * @type {boolean}
+   * @default false
+   */
+  get isOptional() {
+    return this.args.isOptional || false;
+  }
 }

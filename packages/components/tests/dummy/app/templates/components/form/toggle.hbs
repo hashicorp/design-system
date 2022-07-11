@@ -177,6 +177,24 @@
         <li>horizontal</li>
       </ol>
     </dd>
+    <dt>isRequired <code>boolean</code></dt>
+    <dd>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the legend text and sets the
+        <code class="dummy-code">required</code>
+        attribute on the controls when user input is required.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>isOptional <code>boolean</code></dt>
+    <dd>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the legend text when user input is optional.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
   <p class="dummy-paragraph" id="component-api-form-toggle-group-contextual-components">Legend, group of fields and
@@ -591,7 +609,7 @@
   <br />
   <span class="dummy-text-small">With controls on multiple lines</span>
   <br />
-  <div class="dummy-form-checkbox-max-width-container">
+  <div class="dummy-form-toggle-max-width-container">
     <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
       <G.Legend>Lorem ipsum dolor</G.Legend>
       <G.Toggle::Field as |F|>
@@ -614,5 +632,39 @@
       </G.Toggle::Field>
     </Hds::Form::Toggle::Group>
   </div>
-
+  <h5 class="dummy-h5">Required and optional</h5>
+  <div class="dummy-form-toggle-grid-sample">
+    <div>
+      <span class="dummy-text-small">With legend + Required</span>
+      <br />
+      <Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With legend + Optional</span>
+      <br />
+      <Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Toggle::Field>
+        <G.Toggle::Field as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Toggle::Field>
+      </Hds::Form::Toggle::Group>
+    </div>
+  </div>
 </section>

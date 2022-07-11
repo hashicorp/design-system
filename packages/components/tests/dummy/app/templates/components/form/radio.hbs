@@ -183,6 +183,24 @@
         <li>horizontal</li>
       </ol>
     </dd>
+    <dt>isRequired <code>boolean</code></dt>
+    <dd>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the legend text and sets the
+        <code class="dummy-code">required</code>
+        attribute on the controls when user input is required.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>isOptional <code>boolean</code></dt>
+    <dd>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the legend text when user input is optional.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
   <p class="dummy-paragraph" id="component-api-form-radio-group-contextual-components">Legend, group of fields and error
@@ -578,4 +596,39 @@
     </Hds::Form::Radio::Group>
   </div>
 
+  <h5 class="dummy-h5">Required and optional</h5>
+  <div class="dummy-form-radio-grid-sample">
+    <div>
+      <span class="dummy-text-small">With legend + Required</span>
+      <br />
+      <Hds::Form::Radio::Group @isRequired={{true}} as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Radio::Field name="control-horizontal-01" as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Radio::Field>
+        <G.Radio::Field name="control-horizontal-01" checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Radio::Field>
+        <G.Radio::Field name="control-horizontal-01" as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+    <div>
+      <span class="dummy-text-small">With legend + Optional</span>
+      <br />
+      <Hds::Form::Radio::Group @isOptional={{true}} as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.Radio::Field name="control-horizontal-01" as |F|>
+          <F.Label>Label of control #1</F.Label>
+        </G.Radio::Field>
+        <G.Radio::Field name="control-horizontal-01" checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+        </G.Radio::Field>
+        <G.Radio::Field name="control-horizontal-01" as |F|>
+          <F.Label>Label of control #3</F.Label>
+        </G.Radio::Field>
+      </Hds::Form::Radio::Group>
+    </div>
+  </div>
 </section>

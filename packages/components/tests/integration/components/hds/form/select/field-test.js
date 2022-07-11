@@ -94,6 +94,30 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
       .hasAttribute('id', `error-${controlId}`);
   });
 
+  // REQUIRED AND OPTIONAL
+
+  test('it should append an indicator to the label text and set the required attribute when user input is required', async function (assert) {
+    assert.expect(3);
+    await render(
+      hbs`<Hds::Form::Select::Field @isRequired={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+          </Hds::Form::Select::Field>`
+    );
+    assert.dom('label .hds-form-indicator').exists();
+    assert.dom('label .hds-form-indicator').hasText('Required');
+    assert.dom('select').hasAttribute('required');
+  });
+  test('it should append an indicator to the label text when user input is optional', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Select::Field @isOptional={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+          </Hds::Form::Select::Field>`
+    );
+    assert.dom('label .hds-form-indicator').exists();
+    assert.dom('label .hds-form-indicator').hasText('(Optional)');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {

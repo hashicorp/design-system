@@ -129,6 +129,24 @@
       <p>It applies an "invalid" appearance to the control (<em>notice: this does _not_ modify its logical validity</em>).</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>isRequired <code>boolean</code></dt>
+    <dd>
+      <p>Appends a
+        <code class="dummy-code">Required</code>
+        indicator next to the label text and sets the
+        <code class="dummy-code">required</code>
+        attribute on the control when user input is required.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>isOptional <code>boolean</code></dt>
+    <dd>
+      <p>Appends an
+        <code class="dummy-code">Optional</code>
+        indicator next to the label text when user input is optional.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
     <dt>width <code>string</code></dt>
     <dd>
       <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
@@ -581,6 +599,23 @@
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
         </F.Error>
+      </Hds::Form::TextInput::Field>
+    </div>
+  </div>
+  <h5 class="dummy-h5">Required and optional</h5>
+  <div class="dummy-form-text-input-grid-sample">
+    <div>
+      <span class="dummy-text-small">Label + Required</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::TextInput::Field>
+    </div>
+    <div>
+      <span class="dummy-text-small">Label + Optional</span>
+      <br />
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
     </div>
   </div>

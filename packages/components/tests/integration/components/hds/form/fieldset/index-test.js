@@ -78,6 +78,29 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
       .hasAttribute('id', `error-${fieldsetId}`);
   });
 
+  // REQUIRED AND OPTIONAL
+
+  test('it should append an indicator to the legend text when user input is required', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Fieldset @isRequired={{true}} as |F|>
+          <F.Legend>This is the legend</F.Legend>
+        </Hds::Form::Fieldset>`
+    );
+    assert.dom('legend .hds-form-indicator').exists();
+    assert.dom('legend .hds-form-indicator').hasText('Required');
+  });
+  test('it should append an indicator to the legend text when user input is optional', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Fieldset @isOptional={{true}} as |F|>
+          <F.Legend>This is the legend</F.Legend>
+        </Hds::Form::Fieldset>`
+    );
+    assert.dom('legend .hds-form-indicator').exists();
+    assert.dom('legend .hds-form-indicator').hasText('(Optional)');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {

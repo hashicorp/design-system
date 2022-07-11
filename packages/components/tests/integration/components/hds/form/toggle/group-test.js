@@ -66,6 +66,36 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
     assert.dom('.hds-form-group__error').doesNotExist();
   });
 
+  // REQUIRED AND OPTIONAL
+
+  test('it should append an indicator to the legend text and set the required attribute when user input is required', async function (assert) {
+    assert.expect(3);
+    await render(
+      hbs`<Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
+            <G.Legend>This is the legend</G.Legend>
+            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
+              <F.Label>This is the control label</F.Label>
+            </G.Toggle::Field>
+          </Hds::Form::Toggle::Group>`
+    );
+    assert.dom('legend .hds-form-indicator').exists();
+    assert.dom('legend .hds-form-indicator').hasText('Required');
+    assert.dom('input').hasAttribute('required');
+  });
+  test('it should append an indicator to the legend text when user input is optional', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
+            <G.Legend>This is the legend</G.Legend>
+            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
+              <F.Label>This is the control label</F.Label>
+            </G.Toggle::Field>
+          </Hds::Form::Toggle::Group>`
+    );
+    assert.dom('legend .hds-form-indicator').exists();
+    assert.dom('legend .hds-form-indicator').hasText('(Optional)');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {

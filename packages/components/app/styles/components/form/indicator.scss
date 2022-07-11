@@ -1,0 +1,15 @@
+//
+// FORM > INDICATOR
+//
+// properties within each class are sorted alphabetically
+//
+
+// Used for the 'optional' indicator
+.hds-form-indicator--optional {
+  color: var(--token-color-foreground-faint);
+  font-family: var(--token-typography-font-stack-text);
+  font-size: var(--token-typography-body-100-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  // notice: here we're using the same line-height as the label/legend text to have the right vertical alignment
+  line-height: var(--token-typography-body-200-font-size);
+}

@@ -44,6 +44,25 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
       .hasText('This is an HTML element inside the legend');
   });
 
+  // REQUIRED AND OPTIONAL
+
+  test('it appends an indicator to the legend text when user input is required', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Legend id="test-form-legend" @isRequired="true">This is the legend</Hds::Form::Legend>`
+    );
+    assert.dom('#test-form-legend .hds-form-indicator').exists();
+    assert.dom('#test-form-legend .hds-form-indicator').hasText('Required');
+  });
+  test('it appends an indicator to the legend text when user input is optional', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Legend id="test-form-legend" @isOptional="true">This is the legend</Hds::Form::Legend>`
+    );
+    assert.dom('#test-form-legend > .hds-form-indicator').exists();
+    assert.dom('#test-form-legend .hds-form-indicator').hasText('(Optional)');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {

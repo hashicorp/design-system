@@ -7,4 +7,12 @@
 .hds-form-legend {
   color: var(--token-color-foreground-strong);
   display: block;
+
+  // if a "badge" element (included the 'required' indicator) is child of the legend
+  // we need to make sure that it correctly aligns with the legend text because the
+  // "Hds::Badge" component has "vertical-align: middle" applied to it
+  // and this mess up the vertical alignment (increasing the container's height too)
+  .hds-badge {
+    vertical-align: initial;
+  }
 }
