@@ -94,7 +94,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     );
     assert.dom('label .hds-badge').exists();
     assert.dom('label .hds-badge').hasText('Required');
-    assert.dom('textarea[required]').exists();
+    assert.dom('textarea').hasAttribute('required');
   });
   test('it should append an indicator to the label text when user input is optional', async function (assert) {
     assert.expect(2);
