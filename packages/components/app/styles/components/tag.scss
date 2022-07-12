@@ -9,6 +9,7 @@ $hds-tag-border-radius: 20px;
 
 .hds-tag {
   align-items: stretch;
+  background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-tag-border-radius;
   color: var(--token-color-foreground-primary);
