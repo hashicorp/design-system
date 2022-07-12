@@ -26,13 +26,6 @@ module('Integration | Component | hds/form/radio/field', function (hooks) {
     assert.dom('input').hasValue('abc123');
   });
 
-  // INVALID
-
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Field @isInvalid={{true}} />`);
-    assert.dom('input').hasClass('hds-form-radio--is-invalid');
-  });
-
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
