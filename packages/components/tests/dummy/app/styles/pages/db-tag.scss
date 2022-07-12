@@ -1,0 +1,51 @@
+// TAG
+
+.dummy-tag-states-grid {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);;
+  margin: 0;
+  padding: 0;
+}
+
+.dummy-tag-base-sample {
+    align-items: flex-start;
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    min-width: fit-content;
+    padding: 0.125rem;
+}
+
+.dummy-tag-containers {
+  align-items: start;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dummy-tag-containers__block {
+  display: block;
+
+  .hds-tag {
+    margin:0 0 0.5rem 0;
+  }
+}
+
+.dummy-tag-containers__flex {
+  display: flex;
+
+  .hds-tag {
+    margin:0 0.25rem 0.5rem 0;
+  }
+}
+
+.dummy-tag-containers__grid {
+  display: grid;
+  justify-items: start;
+
+  .hds-tag {
+    margin:0 0.25rem 0.5rem 0;
+  }
+}

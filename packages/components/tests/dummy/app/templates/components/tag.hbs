@@ -1,0 +1,98 @@
+{{page-title "Tag component"}}
+
+<h2 class="dummy-h2">Tag</h2>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-tag">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-tag">
+    <dt>text <code>string</code></dt>
+    <dd>
+      <p>The text of the tag; or link text when the
+        <em>@route</em>
+        or
+        <em>@href</em>
+        are set.</p>
+      <p><em>If no text value is defined an error will be thrown.</em></p>
+    </dd>
+    <dt>onDismiss <code>function</code></dt>
+    <dd>
+      <p>
+        The tag can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
+      </p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Tag @text="My text tag" @onDismiss=\{{ your function here }} />
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+  <h4 class="dummy-h4">Content</h4>
+  <div class="dummy-tag-base-sample">
+    <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+    <Hds::Tag @text="My text tag" />
+    <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
+    <Hds::Tag @text="My link tag" @route="components.tag" />
+  </div>
+  <div class="dummy-tag-base-sample">
+    <p>This is a paragraph: <Hds::Tag @text="My text tag" /></p>
+  </div>
+
+  <h4 class="dummy-h4">States</h4>
+  <div class="dummy-tag-states-grid">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <Hds::Tag @text="My tag" @onDismiss={{this.noop}} @route="components.tag" mock-state-value={{state}} />
+        <Hds::Tag @text="My tag" @route="components.tag" mock-state-value={{state}} />
+      </div>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Containers</h4>
+  <div class="dummy-tag-containers">
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <div>
+          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
+          <br />
+          <div class="dummy-tag-containers__{{display}}">
+            <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+            <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+            <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+          </div>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
+</section>
