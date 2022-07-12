@@ -1,0 +1,106 @@
+//
+// TAG COMPONENT
+//
+// properties within each class are sorted alphabetically
+//
+//
+
+$hds-tag-border-radius: 20px;
+
+.hds-tag {
+  align-items: stretch;
+  border: 1px solid var(--token-color-border-strong);
+  border-radius: $hds-tag-border-radius;
+  color: var(--token-color-foreground-primary);
+  display: inline-flex;
+  font-family: var(--token-typography-font-stack-text);
+  font-size: 0.8125rem; // 13px
+  font-weight: var(--token-typography-font-weight-medium);
+  line-height: 1rem; // 16px
+  vertical-align: middle;
+}
+
+.hds-tag__dismiss {
+  flex: 0 0 auto;
+  border-radius: $hds-tag-border-radius 0 0 $hds-tag-border-radius;
+  border: none; // reset default button border
+  margin: 0; // reset default button margin
+  padding: 6px 4px 6px 6px;
+
+  .flight-icon {
+    height: 12px;
+    width: 12px;
+  }
+}
+
+.hds-tag__text {
+  border-radius: $hds-tag-border-radius;
+  flex: 1 0 0;
+  padding: 4px 8px;
+}
+
+.hds-tag__link {
+  border-radius: $hds-tag-border-radius;
+  color: var(--token-color-foreground-action);
+  flex: 1 0 0;
+  padding: 4px 8px;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active,
+  &.mock-active{
+    color: var(--token-color-foreground-action-active);
+  }
+}
+
+.hds-tag__dismiss ~ .hds-tag__text,
+.hds-tag__dismiss ~ .hds-tag__link {
+  border-radius: 0 $hds-tag-border-radius $hds-tag-border-radius 0;
+  padding-left: 4px;
+}
+
+.hds-tag__dismiss,
+.hds-tag__link {
+  background-color: var(--token-color-surface-faint);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--token-color-surface-interactive-hover);
+  }
+
+  &:active {
+    background-color: var(--token-color-surface-interactive-active);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 1px var(--token-color-focus-action-internal), 0px 0px 0px 4px var(--token-color-focus-action-external);
+    outline-color: transparent; // prevent default outline as we use box-shadow for custom styling
+    outline-style: solid;
+    z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+}
+
+// mock classes are applied at the component level
+.mock-hover {
+  .hds-tag__link {
+    background-color: var(--token-color-surface-interactive-hover);
+  }
+}
+
+.mock-active {
+  .hds-tag__link {
+    background-color: var(--token-color-surface-interactive-active);
+  }
+}
+
+.mock-focus {
+  .hds-tag__link {
+    box-shadow: 0px 0px 0px 1px var(--token-color-focus-action-internal), 0px 0px 0px 4px var(--token-color-focus-action-external);
+    outline-color: transparent; // prevent default outline as we use box-shadow for custom styling
+    outline-style: solid;
+    z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+}
