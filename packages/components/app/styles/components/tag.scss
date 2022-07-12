@@ -27,11 +27,11 @@ $hds-tag-border-radius: 13px;
   border: none; // reset default button border
   margin: 0; // reset default button margin
   padding: 6px 4px 6px 6px;
+}
 
-  .flight-icon {
-    height: 12px;
-    width: 12px;
-  }
+.hds-tag__dismiss-icon {
+  height: 12px;
+  width: 12px;
 }
 
 .hds-tag__text {
