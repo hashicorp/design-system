@@ -8,6 +8,13 @@
   padding: 0;
 }
 
+.dummy-tag-states-subgrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
 .dummy-tag-base-sample {
     align-items: flex-start;
     display: flex;

@@ -67,37 +67,18 @@ $hds-tag-border-radius: 20px;
   background-color: var(--token-color-surface-faint);
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &.mock-hover {
     background-color: var(--token-color-surface-interactive-hover);
   }
 
-  &:active {
+  &:active,
+  &.mock-active{
     background-color: var(--token-color-surface-interactive-active);
   }
 
-  &:focus {
-    box-shadow: 0px 0px 0px 1px var(--token-color-focus-action-internal), 0px 0px 0px 4px var(--token-color-focus-action-external);
-    outline-color: transparent; // prevent default outline as we use box-shadow for custom styling
-    outline-style: solid;
-    z-index: 1; // ensures focus is not obscured by adjacent elements
-  }
-}
-
-// mock classes are applied at the component level
-.mock-hover {
-  .hds-tag__link {
-    background-color: var(--token-color-surface-interactive-hover);
-  }
-}
-
-.mock-active {
-  .hds-tag__link {
-    background-color: var(--token-color-surface-interactive-active);
-  }
-}
-
-.mock-focus {
-  .hds-tag__link {
+  &:focus,
+  &.mock-focus {
     box-shadow: 0px 0px 0px 1px var(--token-color-focus-action-internal), 0px 0px 0px 4px var(--token-color-focus-action-external);
     outline-color: transparent; // prevent default outline as we use box-shadow for custom styling
     outline-style: solid;
