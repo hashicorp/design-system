@@ -73,8 +73,23 @@
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
-        <Hds::Tag @text="My tag" @onDismiss={{this.noop}} @route="components.tag" mock-state-value={{state}} />
-        <Hds::Tag @text="My tag" @route="components.tag" mock-state-value={{state}} />
+        <div class="dummy-tag-states-subgrid">
+          <Hds::Tag
+            @text="My tag"
+            @onDismiss={{this.noop}}
+            @route="components.tag"
+            mock-state-value={{state}}
+            mock-state-selector="button"
+          />
+          <Hds::Tag
+            @text="My tag"
+            @onDismiss={{this.noop}}
+            @route="components.tag"
+            mock-state-value={{state}}
+            mock-state-selector="a"
+          />
+          <Hds::Tag @text="My tag" @route="components.tag" mock-state-value={{state}} mock-state-selector="a" />
+        </div>
       </div>
     {{/each}}
   </div>
