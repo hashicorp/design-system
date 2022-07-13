@@ -1,0 +1,36 @@
+//
+// STEPPER > STEPPER-INDICATOR
+//
+// properties within each class are sorted alphabetically
+//
+
+.hds-stepper-indicator {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    font-family: var(--token-typography-font-stack-text);
+    font-weight: var(--token-typography-font-weight-medium);
+
+    &__svg-container {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    &__indicator-status {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        text-align: center;
+    }
+}
+
