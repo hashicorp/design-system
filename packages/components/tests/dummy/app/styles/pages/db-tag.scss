@@ -42,6 +42,7 @@
 
 .dummy-tag-containers__flex {
   display: flex;
+  flex-wrap: wrap;
 
   .hds-tag {
     margin:0 0.25rem 0.5rem 0;
