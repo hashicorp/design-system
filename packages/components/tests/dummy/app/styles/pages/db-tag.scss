@@ -6,6 +6,10 @@
   grid-template-columns: repeat(4, 1fr);;
   margin: 0;
   padding: 0;
+
+  .dummy-tag-states-grid__title {
+      grid-column: 1 / 5;
+  }
 }
 
 .dummy-tag-states-subgrid {

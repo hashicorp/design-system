@@ -15,6 +15,14 @@
         are set.</p>
       <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
+    </dd>
     <dt>onDismiss <code>function</code></dt>
     <dd>
       <p>
@@ -77,20 +85,46 @@
           <Hds::Tag
             @text="My tag"
             @onDismiss={{this.noop}}
-            @route="components.tag"
             mock-state-value={{state}}
             mock-state-selector="button"
           />
-          <Hds::Tag
-            @text="My tag"
-            @onDismiss={{this.noop}}
-            @route="components.tag"
-            mock-state-value={{state}}
-            mock-state-selector="a"
-          />
-          <Hds::Tag @text="My tag" @route="components.tag" mock-state-value={{state}} mock-state-selector="a" />
         </div>
       </div>
+    {{/each}}
+
+    {{#each @model.COLORS as |color|}}
+      <h5 class="dummy-h5 dummy-tag-states-grid__title">{{capitalize color}}</h5>
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{capitalize state}}:</span>
+          <br />
+          <div class="dummy-tag-states-subgrid">
+            <Hds::Tag
+              @color={{color}}
+              @text="My link tag"
+              @onDismiss={{this.noop}}
+              @route="components.tag"
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
+            <Hds::Tag
+              @color={{color}}
+              @text="My link tag"
+              @onDismiss={{this.noop}}
+              @route="components.tag"
+              mock-state-value={{state}}
+              mock-state-selector="a"
+            />
+            <Hds::Tag
+              @color={{color}}
+              @text="My link tag"
+              @route="components.tag"
+              mock-state-value={{state}}
+              mock-state-selector="a"
+            />
+          </div>
+        </div>
+      {{/each}}
     {{/each}}
   </div>
 
