@@ -1,10 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tag/index', function (hooks) {
   setupRenderingTest(hooks);
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it renders the default tag with text', async function (assert) {
     await render(hbs`<Hds::Tag @text="My tag" />`);
@@ -29,5 +32,34 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     assert
       .dom('button.hds-tag__dismiss')
       .hasAttribute('aria-label', 'Dismiss My tag');
+  });
+
+  // COLOR
+
+  test('it should render the primary color as the default if no @color prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Tag @text="My text tag" @href="/" id="test-link-tag"/>`
+    );
+    assert.dom('#test-link-tag').hasClass('hds-tag--color-primary');
+  });
+  test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Tag @text="My text tag" @href="/" @color="secondary" id="test-link-tag"/>`
+    );
+    assert.dom('#test-link-tag').hasClass('hds-tag--color-secondary');
+  });
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+    const errorMessage =
+      '@color for "Hds::Tag" must be one of the following: primary, secondary; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Tag @text="My text tag" @href="/" @color="foo" id="test-link-tag"/>`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });

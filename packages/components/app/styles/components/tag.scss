@@ -36,27 +36,11 @@ $hds-tag-border-radius: 13px;
   width: 12px;
 }
 
-.hds-tag__text {
-  border-radius: inherit;
-  flex: 1 0 0;
-  padding: 4px 8px;
-}
-
+.hds-tag__text,
 .hds-tag__link {
   border-radius: inherit;
-  color: var(--token-color-foreground-action);
   flex: 1 0 0;
   padding: 4px 8px;
-
-  &:hover,
-  &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
-  }
-
-  &:active,
-  &.mock-active{
-    color: var(--token-color-foreground-action-active);
-  }
 }
 
 .hds-tag__dismiss ~ .hds-tag__text,
@@ -65,6 +49,8 @@ $hds-tag-border-radius: 13px;
   border-bottom-left-radius: 0;
   padding-left: 4px;
 }
+
+// INTERACTIVE ELEMENTS
 
 .hds-tag__dismiss,
 .hds-tag__link {
@@ -87,5 +73,29 @@ $hds-tag-border-radius: 13px;
     outline-color: transparent; // prevent default outline as we use box-shadow for custom styling
     outline-style: solid;
     z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+}
+
+// COLORS
+
+.hds-tag--color-primary {
+  .hds-tag__link {
+    color: var(--token-color-foreground-action);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active,
+    &.mock-active{
+      color: var(--token-color-foreground-action-active);
+    }
+  }
+}
+
+.hds-tag--color-secondary {
+  .hds-tag__link {
+    color: var(--token-color-foreground-strong);
   }
 }
