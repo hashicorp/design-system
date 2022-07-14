@@ -255,22 +255,35 @@
         <code>&lt;a&gt;</code>
         element.</p>
     </dd>
+    <dt>isHrefExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>This controls if the
+        <code>&lt;a&gt;</code>
+        link is external and so for security reasons we need to add the
+        <code>target="_blank"</code>
+        and
+        <code>rel="noopener noreferrer"</code>
+        attributes to it.</p>
+    </dd>
     <dt>route/models/model/query/current-when/replace</dt>
     <dd>
       <p>These are the parameters that are passed down as arguments to the
+        <code>&lt;LinkTo/LinkToExternal&gt;</code>
+        component.</p>
+    </dd>
+    <dt>isRouteExternal <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>This controls if the "LinkTo" is external to the Ember engine (<a
+          href="https://ember-engines.com/docs/link-to-external"
+          target="_blank"
+          rel="noopener noreferrer"
+        >more details here</a>) in which case it will use a
+        <code>&lt;LinkToExternal&gt;</code>
+        instead of a simple
         <code>&lt;LinkTo&gt;</code>
-        component. For more details about these parameters see the
-        <a
-          href="https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Ember documentation</a>
-        or the
-        <a
-          href="https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/input?anchor=LinkTo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >LinkTo component API specs</a>.</p>
+        for the @route.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -359,9 +372,7 @@
       list item component internally uses the generic
       <code class="dummy-code">Hds::Interactive</code>
       component. For more details about how this low-level component works please refer to
-      {{! TODO: add route "utilities.interactive" when available }}
-      <LinkTo @route="index">its documentation page</LinkTo>
-      (soon available).</em></p>
+      <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</em></p>
 
   <h5 class="dummy-h5">Basic use</h5>
   <p class="dummy-paragraph">If you don't pass a
@@ -404,15 +415,29 @@
     '
   />
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph"><em>Notice: in this case the component automatically adds the HTML attributes
-      <code class="dummy-code">target="_blank"</code>
-      and
-      <code class="dummy-code">rel="noopener noreferrer"</code>
-      to the
-      <code class="dummy-code">&lt;a&gt;</code>
-      element (but their values can be overwritten passing those attributes to the component, as
-      <code class="dummy-code">...attributes</code>).</em>
-  </p>
+  <p class="dummy-paragraph">⚠️
+    <strong>Important</strong>: when using the
+    <code class="dummy-code">@href</code>
+    argument the component adds by default the attributes
+    <code class="dummy-code">target="_blank"</code>
+    and
+    <code class="dummy-code">rel="noopener noreferrer"</code>
+    to the
+    <code class="dummy-code">&lt;a&gt;</code>
+    element (because this is the most common use case: internal links are generally handled using a
+    <code class="dummy-code">@route</code>
+    argument). If the
+    <code class="dummy-code">href</code>
+    points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass
+    <code class="dummy-code">@isHrefExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    to the component and it will not add the
+    <code class="dummy-code">target</code>
+    and
+    <code class="dummy-code">rel</code>
+    attributes (but you can pass yours if needed, using the
+    <code class="dummy-code">...attributes</code>
+    spreading. For more details see the
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
 
   <h5 class="dummy-h5">With @route</h5>
   <p class="dummy-paragraph">If you pass a
@@ -442,9 +467,7 @@
     <code class="dummy-code">&lt;LinkTo&gt;</code>
     for the
     <code class="dummy-code">@route</code>. For more details see the
-    {{! TODO: add route "utilities.interactive" when available }}
-    <LinkTo @route="index">Hds::Interactive component</LinkTo>
-    (soon available)</p>
+    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo></p>
   <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
       <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
       components are supported (eg.
