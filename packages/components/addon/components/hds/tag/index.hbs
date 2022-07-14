@@ -15,11 +15,13 @@
       @isRouteExternal={{@isRouteExternal}}
       @href={{@href}}
       @isHrefExternal={{@isHrefExternal}}
+      title="{{this.text}}"
+      {{style maxWidth=@maxWidth}}
     >
       {{this.text}}
     </Hds::Interactive>
   {{else}}
-    <span class="hds-tag__text">
+    <span class="hds-tag__text" title="{{this.text}}" {{style maxWidth=@maxWidth}}>
       {{this.text}}
     </span>
   {{/if}}

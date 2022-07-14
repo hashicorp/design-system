@@ -6,6 +6,7 @@
 //
 
 $hds-tag-border-radius: 13px;
+$hds-tag-text-max-width: 120px;
 
 .hds-tag {
   align-items: stretch;
@@ -40,6 +41,10 @@ $hds-tag-border-radius: 13px;
   border-radius: inherit;
   flex: 1 0 0;
   padding: 4px 8px;
+  max-width: $hds-tag-text-max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hds-tag__link {
@@ -47,6 +52,10 @@ $hds-tag-border-radius: 13px;
   color: var(--token-color-foreground-action);
   flex: 1 0 0;
   padding: 4px 8px;
+  max-width: $hds-tag-text-max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   &:hover,
   &.mock-hover {
