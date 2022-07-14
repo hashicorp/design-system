@@ -1,13 +1,19 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug'
 
-export const DEFAULT_STATUS = 'incomplete';
-export const DEFAULT_NUMBER = '1';
+// export const DEFAULT_STATUS = 'incomplete'
+// export const DEFAULT_TYPE = 'step'
+// export const DEFAULT_NUMBER = '1'
 
-export const STATUS = [
+export const STATUSES = [
   'incomplete',
   'inProgress',
   'complete',
+]
+
+export const TYPES = [
+  'step',
+  'task'
 ]
 
 export default class HdsStepperStepperIndicatorIndexComponent extends Component {
@@ -19,26 +25,50 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
 
   get status() {
-    let { status = DEFAULT_STATUS } = this.args
+    let { status = 'incomplete' } = this.args
 
     assert(
-      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUS.join(', ')}, received: ${status}`,
-      STATUS.includes(status)
+      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUSES.join(', ')}, received: ${status}`,
+      STATUSES.includes(status)
     )
 
     return status
   }
 
   /**
-   * @param number
+   * @param stepNumber
    * @type {string}
    * @default '1'
    */
 
-  get number() {
-    let { number = DEFAULT_NUMBER } = this.args;
+  get stepNumber() {
+    let { stepNumber = '1' } = this.args;
 
-    return number
+    return stepNumber
+  }
+
+  /**
+   * @param type
+   * @type {string}
+   * @default 'step'
+   */
+
+  get type() {
+    let { type = 'step' } = this.args
+
+    return type
+  }
+
+  /**
+   * @param isProcessing
+   * @type {boolean}
+   * @default false
+   */
+
+  get isProcessing() {
+    let { isProcessing = false } = this.args
+
+    return isProcessing
   }
 
   /**

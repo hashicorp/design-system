@@ -61,6 +61,11 @@
   {{! ADD YOUR CONTENT HERE }}
 
   {{! This below is just an example of invocation, to get started }}
-  <Hds::Stepper::StepperIndicator @number="2">This is the Hds::Stepper::StepperIndicator component </Hds::Stepper::StepperIndicator>
+  <Hds::Stepper::StepperIndicator
+    @type='step'
+    @status='complete'
+    @stepNumber='3'
+    @isProcessing={{true}}
+  />
 
 </section>
