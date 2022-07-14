@@ -38,6 +38,11 @@
 
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">
+    Use tags to indicate an object's categorization, i.e., for filtering. Use a
+    <LinkTo @route="components.badge">badge</LinkTo>
+    instead for static metadata, status, or to indicate a new feature.
+  </p>
   <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -82,12 +87,7 @@
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
         <div class="dummy-tag-states-subgrid">
-          <Hds::Tag
-            @text="My tag"
-            @onDismiss={{this.noop}}
-            mock-state-value={{state}}
-            mock-state-selector="button"
-          />
+          <Hds::Tag @text="My tag" @onDismiss={{this.noop}} mock-state-value={{state}} mock-state-selector="button" />
         </div>
       </div>
     {{/each}}
