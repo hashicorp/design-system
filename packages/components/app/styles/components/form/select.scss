@@ -11,6 +11,7 @@
   border: 1px solid var(--token-form-control-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   color: var(--token-form-control-foreground-color-default);
+  box-shadow: var(--token-elevation-low-box-shadow);
   padding: 7px; // we have to take into account the border
   max-width: 100%;
 
@@ -38,6 +39,7 @@
     border-color: var(--token-form-control-border-color-disabled);
     color: var(--token-form-control-foreground-color-disabled);
     cursor: not-allowed;
+    box-shadow: none;
   }
 
   // INVALID
