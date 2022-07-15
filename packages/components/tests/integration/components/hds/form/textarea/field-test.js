@@ -33,6 +33,21 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('textarea').hasClass('hds-form-textarea--is-invalid');
   });
 
+  // WIDTH & HEIGHT
+
+  test('it should render the textarea control with a fixed width if a @width value is passed', async function (assert) {
+    await render(hbs`
+      <Hds::Form::Textarea::Field @width="248px" />
+    `);
+    assert.dom('textarea').hasStyle({ width: '248px' });
+  });
+  test('it should render the textarea control with a fixed height if a @height value is passed', async function (assert) {
+    await render(hbs`
+      <Hds::Form::Textarea::Field @height="248px" />
+    `);
+    assert.dom('textarea').hasStyle({ height: '248px' });
+  });
+
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
