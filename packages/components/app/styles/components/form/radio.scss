@@ -13,25 +13,25 @@
   background-size: 12px 12px;
   border-radius: 50%;
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--token-form-radio-border-width);
   cursor: pointer;
-  height: var(--token-form-checkbox-size); // same as checkbox
+  height: var(--token-form-radio-size);
   margin: 0;
   padding: 0;
-  width: var(--token-form-checkbox-size);
+  width: var(--token-form-radio-size);
 
   // STATUS
 
   // base (default)
 
   &:not(:checked) {
-    background-color: var(--token-form-control-background-color-default);
-    border-color: var(--token-form-control-border-color-default);
+    background-color: var(--token-form-control-base-surface-color-default);
+    border-color: var(--token-form-control-base-border-color-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
   &:checked {
-    background-color: var(--token-form-control-background-color-checked);
-    border-color: var(--token-form-control-border-color-checked);
+    background-color: var(--token-form-control-checked-surface-color-default);
+    border-color: var(--token-form-control-checked-border-color-default);
     // notice: the "dot" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e");
   }
@@ -40,26 +40,19 @@
 
   &:hover:not(:checked),
   &.mock-hover:not(:checked) {
-    background-color: var(--token-form-control-background-color-default-hover);
-    border-color: var(--token-form-control-border-color-default-hover);
+    background-color: var(--token-form-control-base-surface-color-hover);
+    border-color: var(--token-form-control-base-border-color-hover);
   }
   &:hover:checked,
   &.mock-hover:checked {
-    background-color: var(--token-form-control-background-color-checked-hover);
-    border-color: var(--token-form-control-border-color-checked-hover);
+    background-color: var(--token-form-control-checked-border-color-default);
+    border-color: var(--token-form-control-checked-border-color-hover);
   }
 
-  // focus
+  // focus (same for all the states)
 
-  &:focus:not(:checked),
-  &.mock-focus:not(:checked) {
-    border-color: var(--token-form-control-border-color-default);;
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 1px;
-  }
-  &:focus:checked,
-  &.mock-focus:checked {
-    border-color: var(--token-form-control-border-color-checked);
+  &:focus,
+  &.mock-focus {
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 1px;
   }
@@ -67,14 +60,14 @@
   // DISABLED
 
   &:disabled:not(:checked) {
-    background-color: var(--token-form-control-background-color-disabled);
-    border-color: var(--token-form-control-border-color-disabled);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
   }
   &:disabled:checked {
-    background-color: var(--token-form-control-background-color-disabled);
-    border-color: var(--token-form-control-border-color-disabled);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
     // notice: the "dot" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e");

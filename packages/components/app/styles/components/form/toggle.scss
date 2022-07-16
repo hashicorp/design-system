@@ -4,11 +4,6 @@
 // properties within each class are sorted alphabetically
 //
 
-@use "sass:math";
-
-$hds-form-toggle-control-width: 32px;
-$hds-form-toggle-control-height: 16px; // for the other controls we use "--token-form-checkbox-size" but in this case we need a Sass variable to do math operations on it
-$hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
 // "BASE" CONTROL
 
@@ -47,41 +42,55 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 // facade (visible)
 
 .hds-form-toggle__facade {
+  // notice: the "tick" color is hardcoded here!
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: 2px 50%;
   background-size: 12px 12px;
-  border-radius: $hds-form-toggle-border-radius;
+  border-radius: calc(var(--token-form-toggle-height) / 2);
   // notice: we want to share the border color between the "thumb" and the "track" so we use a local CSS prop for this
-  border: 1px solid var(--border-color);
+  border: var(--token-form-radio-border-width) solid var(--border-color);
   display: block;
-  height: $hds-form-toggle-control-height;
+  height: var(--token-form-toggle-height);
   position: relative;
-  width: $hds-form-toggle-control-width;
-  transition: background 0.2s;
+  width: var(--token-form-toggle-width);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: all;
+    transition-duration: var(--token-form-toggle-transition-duration);
+    transition-timing-function: var(--token-form-toggle-transition-timing-function);
+  }
 
   // used for the "thumb"
 
   &::after {
-    background-color: #fff;
+    background-color: var(--token-form-control-base-surface-color-default);
     border-radius: 50%;
-    border: 1px solid var(--border-color);
-    width: $hds-form-toggle-control-height;
-    height: $hds-form-toggle-control-height;
+    border: var(--token-form-radio-border-width) solid var(--border-color);
+    width: var(--token-form-toggle-thumb-size);
+    height: var(--token-form-toggle-thumb-size);
     content: '';
-    left: -1px;
+    left: calc(var(--token-form-radio-border-width) * -1);
     position: absolute;
     transform: translate3d(0, 0, 0);
-    transition: transform 0.2s cubic-bezier(0.68, -0.2, 0.265, 1.15), border-color 0.2s ease-in;
-    top: -1px;
+    top: calc(var(--token-form-radio-border-width) * -1);;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-property: all;
+      transition-duration: var(--token-form-toggle-transition-duration);
+      transition-timing-function: var(--token-form-toggle-transition-timing-function);
+    }
   }
 
   // used for the focus
 
   &::before {
-    $border-width: 3px;
-    $shift: $border-width + 2px; // we need to take in account also the border width of the parent
-    border-radius: $hds-form-toggle-border-radius + $border-width;
-    border-width: $border-width;
+    // notice: to avoid too many nested calc() operation, we have decided to compute directly the values in Sass
+    $outline-width: 3px;
+    $outline-offset: 1px;
+    $shift: $outline-width + $outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
+    border-radius: calc(var(--token-form-toggle-height) / 2 + $outline-width + $outline-offset);
+    border-width: $outline-width;
     bottom: -$shift;
     content: "";
     left: -$shift;
@@ -96,18 +105,16 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
   // base (default)
 
   :not(:checked) + & {
-    --border-color: var(--token-form-control-border-color-default);
+    --border-color: var(--token-form-control-base-border-color-default);
     background-color: var(--token-color-surface-strong); // not like the other controls!
   }
   :checked + & {
-    --border-color: var(--token-form-control-border-color-checked);
-    background-color: var(--token-form-control-background-color-checked);
-    // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
+    --border-color: var(--token-form-control-checked-border-color-default);
+    background-color: var(--token-form-control-checked-surface-color-default);
 
     &::after {
-      $shift: $hds-form-toggle-control-width - $hds-form-toggle-control-height;
-      transform: translate3d($shift, 0, 0);
+      $translation: calc(var(--token-form-toggle-width) - var(--token-form-toggle-thumb-size));
+      transform: translate3d($translation, 0, 0);
     }
   }
 
@@ -115,32 +122,21 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
   :hover:not(:checked) + &,
   .mock-hover:not(:checked) + & {
-    --border-color: var(--token-form-control-border-color-default-hover);
+    --border-color: var(--token-form-control-base-border-color-hover);
   }
   :hover:checked + &,
   .mock-hover:checked + & {
-    --border-color: var(--token-form-control-border-color-checked-hover);
-    background-color: var(--token-form-control-background-color-checked-hover);
+    --border-color: var(--token-form-control-checked-border-color-hover);
+    background-color: var(--token-form-control-checked-border-color-default);
   }
 
   // focus (same for all the states)
 
-  :focus:not(:checked) + &,
-  .mock-focus:not(:checked) + & {
-    --border-color: var(--token-form-control-border-color-default);
-
+  :focus + &,
+  .mock-focus + & {
     &::before {
       border-style: solid;
-      border-color: var( --token-color-focus-action-external);
-    }
-  }
-  :focus:checked + &,
-  .mock-focus:checked + & {
-    --border-color: var(--token-form-control-border-color-checked);
-
-    &::before {
-      border-style: solid;
-      border-color: var( --token-color-focus-action-external);
+      border-color: var(--token-color-focus-action-external);
     }
   }
 
@@ -148,8 +144,8 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
   :disabled:not(:checked) + &,
   :disabled:checked + & {
-    background-color: var(--token-form-control-background-color-disabled);
-    --border-color: var(--token-form-control-border-color-disabled);
+    --border-color: var(--token-form-control-disabled-border-color);
+    background-color: var(--token-form-control-disabled-surface-color);
     // notice: the "tick" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e");
   }
