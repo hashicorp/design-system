@@ -66,15 +66,13 @@
 
   // DISABLED
 
-  &:disabled:not(:checked),
-  &.hds-form-checkbox--is-invalid:disabled:not(:checked) {
+  &:disabled:not(:checked) {
     background-color: var(--token-form-control-background-color-disabled);
     border-color: var(--token-form-control-border-color-disabled);
     box-shadow: none;
     cursor: not-allowed;
   }
-  &:disabled:checked,
-  &.hds-form-checkbox--is-invalid:disabled:checked {
+  &:disabled:checked {
     background-color: var(--token-form-control-background-color-disabled);
     border-color: var(--token-form-control-border-color-disabled);
     box-shadow: none;
