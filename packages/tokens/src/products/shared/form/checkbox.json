@@ -1,0 +1,20 @@
+{
+    "form": {
+        "checkbox": {
+            "size": {
+                "value": "16",
+                "type": "size"
+            },
+            "border": {
+                "radius": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                }
+            }
+        }
+    }
+}

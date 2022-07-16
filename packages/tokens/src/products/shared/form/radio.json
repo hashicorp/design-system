@@ -1,0 +1,16 @@
+{
+    "form": {
+        "radio": {
+            "size": {
+                "value": "16",
+                "type": "size"
+            },
+            "border": {
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                }
+            }
+        }
+    }
+}

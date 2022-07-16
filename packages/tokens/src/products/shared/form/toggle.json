@@ -1,0 +1,38 @@
+{
+    "form": {
+        "toggle": {
+            "width": {
+                "value": "32",
+                "type": "size"
+            },
+            "height": {
+                "value": "16",
+                "type": "size"
+            },
+            "border": {
+                "radius": {
+                    "value": "3",
+                    "type": "size"
+                },
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                }
+            },
+            "transition": {
+                "duration": {
+                    "value": "0.2",
+                    "type": "time",
+                    "unit": "s"
+                },
+                "timing-function": {
+                    "value": "cubic-bezier(0.68, -0.2, 0.265, 1.15)"
+                }
+            },
+            "thumb-size": {
+                "value": "{form.toggle.height.value}",
+                "type": "size"
+            }
+        }
+    }
+}
