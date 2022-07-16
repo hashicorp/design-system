@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 30 May 2022 11:19:24 GMT
+ * Generated on Sat, 16 Jul 2022 13:03:27 GMT
  */
 
 :root {
@@ -176,6 +176,46 @@
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4566, 0px 2px 3px 0px #3b3d4580, 0px 12px 24px 0px #3b3d4599;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-form-label-color: #0c0c0e;
+  --token-form-legend-color: #0c0c0e;
+  --token-form-helper-text-color: #656a76;
+  --token-form-error-message-color: #c00005;
+  --token-form-error-icon-size: 14px;
+  --token-form-checkbox-size: 16px;
+  --token-form-checkbox-border-radius: 3px;
+  --token-form-checkbox-border-width: 1px;
+  --token-form-control-base-foreground-color: #0c0c0e;
+  --token-form-control-base-placeholder-color: #656a76;
+  --token-form-control-base-surface-color-default: #ffffff;
+  --token-form-control-base-surface-color-hover: #f1f2f3;
+  --token-form-control-base-surface-color-strong: #FF00FF;
+  --token-form-control-base-border-color-default: #8c909c;
+  --token-form-control-base-border-color-hover: #656a76;
+  --token-form-control-checked-foreground-color: #ffffff;
+  --token-form-control-checked-surface-color-default: #1060ff;
+  --token-form-control-checked-surface-color-hover: #0c56e9;
+  --token-form-control-checked-border-color-default: #0c56e9;
+  --token-form-control-checked-border-color-hover: #0046d1;
+  --token-form-control-invalid-border-color-default: #c00005;
+  --token-form-control-invalid-border-color-hover: #940004;
+  --token-form-control-readonly-foreground-color: #3b3d45;
+  --token-form-control-readonly-surface-color: #f1f2f3;
+  --token-form-control-readonly-border-color: #656a761a;
+  --token-form-control-disabled-foreground-color: #8c909c;
+  --token-form-control-disabled-surface-color: #fafafa;
+  --token-form-control-disabled-border-color: #656a7633;
+  --token-form-control-padding: 7px; /* Notice: we have to take in account the border, so it's 1px less than in Figma. */
+  --token-form-control-border-radius: 5px;
+  --token-form-control-border-width: 1px;
+  --token-form-radio-size: 16px;
+  --token-form-radio-border-width: 1px;
+  --token-form-toggle-width: 32px;
+  --token-form-toggle-height: 16px;
+  --token-form-toggle-border-radius: 3px;
+  --token-form-toggle-border-width: 1px;
+  --token-form-toggle-transition-duration: 0.2s;
+  --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
+  --token-form-toggle-thumb-size: 16px;
   --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-font-stack-code: ui-monospace, Menlo, Consolas, monospace;
