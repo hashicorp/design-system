@@ -55,9 +55,19 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(
-      hbs`<Hds::Tag @text="My text tag" @href="/" @color="foo" id="test-link-tag"/>`
-    );
+    await render(hbs`<Hds::Tag @text="My text tag" @href="/" @color="foo"/>`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @color is provided without @href or @route', async function (assert) {
+    const errorMessage =
+      '@color can only be applied to "Hds::Tag" along with either @href or @route';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Tag @text="My text tag" @color="foo"/>`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });

@@ -40,16 +40,22 @@ export default class HdsTagIndexComponent extends Component {
    * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
-
-    assert(
-      `@color for "Hds::Tag" must be one of the following: ${COLORS.join(
-        ', '
-      )}; received: ${color}`,
-      COLORS.includes(color)
-    );
-
-    return color;
+    if (this.args.href || this.args.route) {
+      let { color = DEFAULT_COLOR } = this.args;
+      assert(
+        `@color for "Hds::Tag" must be one of the following: ${COLORS.join(
+          ', '
+        )}; received: ${color}`,
+        COLORS.includes(color)
+      );
+      return color;
+    } else if (this.args.color) {
+      assert(
+        '@color can only be applied to "Hds::Tag" along with either @href or @route',
+        this.args.href || this.args.route
+      );
+    }
+    return false;
   }
 
   /**
@@ -61,7 +67,9 @@ export default class HdsTagIndexComponent extends Component {
     let classes = ['hds-tag'];
 
     // add a class based on the @color argument
-    classes.push(`hds-tag--color-${this.color}`);
+    if (this.color) {
+      classes.push(`hds-tag--color-${this.color}`);
+    }
 
     return classes.join(' ');
   }
