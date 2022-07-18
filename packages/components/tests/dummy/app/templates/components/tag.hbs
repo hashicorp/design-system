@@ -15,14 +15,6 @@
         are set.</p>
       <p><em>If no text value is defined an error will be thrown.</em></p>
     </dd>
-    <dt>color <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">primary</li>
-        <li>secondary</li>
-      </ol>
-    </dd>
     <dt>href</dt>
     <dd>
       <p>This is the URL parameter that is passed down to the
@@ -60,6 +52,19 @@
         instead of a simple
         <code>&lt;LinkTo&gt;</code>
         for the @route.</p>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>Sets the color of a link and it is allowed only when
+        <em>@route</em>
+        or
+        <em>@href</em>
+        are set.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">primary</li>
+        <li>secondary</li>
+      </ol>
     </dd>
     <dt>onDismiss <code>function</code></dt>
     <dd>
