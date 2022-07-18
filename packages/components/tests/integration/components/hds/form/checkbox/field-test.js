@@ -26,13 +26,6 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
     assert.dom('input').hasValue('abc123');
   });
 
-  // INVALID
-
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::Checkbox::Field @isInvalid={{true}} />`);
-    assert.dom('input').hasClass('hds-form-checkbox--is-invalid');
-  });
-
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {

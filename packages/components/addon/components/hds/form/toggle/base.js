@@ -9,11 +9,6 @@ export default class HdsFormToggleBaseComponent extends Component {
   get classNames() {
     let classes = ['hds-form-toggle'];
 
-    // add a class based on the @isInvalid argument
-    if (this.args.isInvalid) {
-      classes.push(`hds-form-toggle--is-invalid`);
-    }
-
     // add a class based on the @_wrapperClass argument
     // we need to use this special argument to pass a class to the wrapping element, because the ...attributes is applied to the control
     // notice: this will *not* be documented for public use

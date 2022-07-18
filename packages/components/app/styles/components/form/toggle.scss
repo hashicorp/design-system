@@ -147,9 +147,7 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
   // DISABLED
 
   :disabled:not(:checked) + &,
-  :disabled:checked + &,
-  .hds-form-toggle--is-invalid :disabled:not(:checked) + &,
-  .hds-form-toggle--is-invalid :disabled:checked + & {
+  :disabled:checked + & {
     background-color: var(--token-form-control-background-color-disabled);
     --border-color: var(--token-form-control-border-color-disabled);
     // notice: the "tick" color is hardcoded here!
