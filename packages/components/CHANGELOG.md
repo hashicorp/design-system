@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.12.12
+
+### Patch Changes
+
+- [#456](https://github.com/hashicorp/design-system/pull/456) [`d0634a62`](https://github.com/hashicorp/design-system/commit/d0634a622b50c18d713afdc2fdb97a8e7a4df6af) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix computation error on disclosure utility
+
 ## 0.12.11
 
 ### Patch Changes
