@@ -81,6 +81,8 @@
     <LinkTo @route="components.badge">badge</LinkTo>
     instead for static metadata, status, or to indicate a new feature.
   </p>
+
+  <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -92,6 +94,54 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">In this case, since no
+    <code class="dummy-code">@href</code>
+    or
+    <code class="dummy-code">@route</code>
+    argument is provided it will render the tag as plain text.
+  </p>
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">
+    There are two available colors for a link:
+    <code class="dummy-code">primary</code>
+    and
+    <code class="dummy-code">secondary</code>. The default is
+    <code class="dummy-code">primary</code>.
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Tag @color="primary" @text="My link tag" @route="components.tag" @onDismiss=\{{ your function here }} />
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tag @color="primary" @text="My link tag" @route="components.tag" @onDismiss={{this.noop}} />
+  <Hds::Tag @color="secondary" @text="My link tag" @route="components.tag" @onDismiss={{this.noop}} />
+
+  <h4 class="dummy-h4">Dismiss</h4>
+  <p class="dummy-paragraph">
+    In most cases the tag needs to be dismissable. If you don't provide a callback function to the
+    <code class="dummy-code">onDismiss</code>
+    argument the "dismiss/remove" button will not be rendered.
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Tag @color="primary" @text="My link tag" @route="components.tag" />
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tag @text="My link tag" @route="components.tag" />
 </section>
 
 <section>
