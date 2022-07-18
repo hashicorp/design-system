@@ -1,0 +1,41 @@
+//
+// FORM > TOKENS
+//
+// TODO: this will be removed once we define the correct component-level tokens for the "form controls" component
+//
+
+:root {
+  // INPUT / DEFAULT
+  --token-form-control-foreground-color-default: var(--token-color-foreground-strong);
+  --token-form-control-background-color-default: var(--token-color-surface-interactive);
+  --token-form-control-background-color-default-hover: var(--token-color-surface-interactive-hover);
+  --token-form-control-border-color-default: #8c909c;
+  --token-form-control-border-color-default-hover: #656a76;
+  // INPUT / CHECKED
+  --token-form-control-background-color-checked: #1060FF;
+  --token-form-control-background-color-checked-hover: #0C56E9;
+  --token-form-control-border-color-checked: #0C56E9;
+  --token-form-control-border-color-checked-hover: #0046D1;
+  // INPUT / READONLY
+  --token-form-control-foreground-color-readonly: var(--token-color-foreground-primary);
+  --token-form-control-background-color-readonly: var(--token-color-surface-strong);
+  --token-form-control-border-color-readonly: var(--token-color-border-faint);
+  // INPUT / DISABLED
+  --token-form-control-foreground-color-disabled: var(--token-color-foreground-disabled);
+  --token-form-control-background-color-disabled: var(--token-color-surface-interactive-disabled);
+  --token-form-control-border-color-disabled: var(--token-color-border-primary);
+  // INPUT / INVALID
+  --token-form-control-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-form-control-border-color-critical: #c00005;
+  --token-form-control-border-color-critical-hover: #940004;
+  // INPUT / PLACEHOLDER
+  --token-form-control-placeholder-color: var(--token-color-foreground-faint);
+  // INPUT / BORDER SIZING
+  --token-form-control-border-radius: 5px;
+  // LABEL/HELPER-TEXT
+  --token-form-label-foreground-color: var(--token-color-foreground-strong);
+  --token-form-helper-text-foreground-color: var(--token-color-foreground-faint);
+  // CHECKBOX
+  --token-form-checkbox-size: 16px;
+  --token-form-checkbox-border-radius: 3px;
+}
