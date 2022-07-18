@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
 
 export default class HdsDisclosureComponent extends Component {
   @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the Disclosure opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef;
-  @tracked isToggleClicked;
 
   @action
   didInsert(element) {
@@ -18,12 +18,7 @@ export default class HdsDisclosureComponent extends Component {
     if (!this.toggleRef) {
       this.toggleRef = event.currentTarget;
     }
-    // we're using an explicit conditional statement to toggle the `isOpen` property to avoid a backtracking rerender assertion caused by setting and getting a `@tracked` property in the same computation
-    if (this.isOpen) {
-      this.isOpen = false;
-    } else {
-      this.isOpen = true;
-    }
+    this.isOpen = !this.isOpen;
     // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see b8abfcf)
     this.toggleRef.focus();
   }
@@ -48,12 +43,13 @@ export default class HdsDisclosureComponent extends Component {
 
   @action
   close() {
-    if (this.isOpen) {
+    // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
+    schedule('afterRender', () => {
       this.isOpen = false;
-    }
-    // we call the "onClose" callback if it exists (and is a function)
-    if (this.args.onClose && typeof this.args.onClose === 'function') {
-      this.args.onClose();
-    }
+      // we call the "onClose" callback if it exists (and is a function)
+      if (this.args.onClose && typeof this.args.onClose === 'function') {
+        this.args.onClose();
+      }
+    });
   }
 }
