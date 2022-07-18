@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 0.12.11
+
+### Patch Changes
+
+- [#426](https://github.com/hashicorp/design-system/pull/426) [`ff236b25`](https://github.com/hashicorp/design-system/commit/ff236b2530dae122c011abf88baf2059a7871427) Thanks [@didoo](https://github.com/didoo)! - Updated font-weight to "medium" for "Badge" and "BadgeCount" components
+
 ## 0.12.10
 
 ### Patch Changes
