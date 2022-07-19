@@ -28,10 +28,10 @@
 
     p {
       margin: 0;
-    }
 
-    p + p {
-      margin-top: 0.125rem;
+      + p {
+        margin-top: 0.125rem;
+      }
     }
 
     ol {
@@ -49,15 +49,28 @@
         background-color: #e4e4e4;
       }
     }
+  }
 
-    .default {
-      display: inline-block;
-      padding: 0.125rem 0.25rem;
-      border-radius: 4px;
-      font-weight: 700;
-      color: #0c56e9;
-      background-color: #cce3fe;
-    }
+  // "Tags"
+  .default,
+  .required {
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    padding: 0.125rem 0.25rem;
+  }
+
+  .default {
+    color: #0c56e9;
+    background-color: #cce3fe;
+  }
+
+  .required {
+    background-color: pink;
+    background-color: var(--token-color-surface-critical);
+    border: 1px solid var(--token-color-border-critical);
+    color: var(--token-color-foreground-critical-on-surface);
+    font-size: 0.9rem; // Note: Duplicated from parent: .dummy-component-props
   }
 
   // nested props blocks
