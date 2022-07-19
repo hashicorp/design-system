@@ -1,0 +1,38 @@
+{{page-title "Docs"}}
+
+<DocfyOutput @scope="docs" as |node|>
+  <ul>
+    {{#each node.pages as |page|}}
+      <li>
+        <DocfyLink @to={{page.url}}>
+          {{page.title}}
+        </DocfyLink>
+      </li>
+    {{/each}}
+  </ul>
+</DocfyOutput>
+
+<div>
+  {{outlet}}
+</div>
+
+<DocfyPreviousAndNextPage as |previous next|>
+  <div>
+    {{#if previous}}
+      Previous:
+
+      <DocfyLink @to={{previous.url}}>
+        {{previous.title}}
+      </DocfyLink>
+    {{/if}}
+  </div>
+  <div>
+    {{#if next}}
+      Next:
+
+      <DocfyLink @to={{next.url}}>
+        {{next.title}}
+      </DocfyLink>
+    {{/if}}
+  </div>
+</DocfyPreviousAndNextPage>
