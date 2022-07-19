@@ -82,6 +82,13 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     // add a class based on the @xxx argument
     // classes.push(`hds-stepper-stepper-indicator--[variant]-${this.xxx}`);
 
+    // Based on the @status arg
+    classes.push(`status-${this.status}`);
+
+    if (this.isProcessing === true) {
+      classes.push(`hds-stepper-indicator--isProcessing`);
+    }
+
     return classes.join(' ');
   }
 }
