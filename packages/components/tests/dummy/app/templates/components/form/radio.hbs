@@ -178,6 +178,13 @@
         <li>horizontal</li>
       </ol>
     </dd>
+    <dt>name <code>string</code></dt>
+    <dd>
+      <p>Sets the
+        <code class="dummy-code">name</code>
+        attribute for each form control within the group.
+      </p>
+    </dd>
     <dt>isRequired <code>boolean</code></dt>
     <dd>
       <p>Appends a
@@ -300,18 +307,18 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group as |G|>
+      <Hds::Form::Radio::Group @name="datacenter-demo1" as |G|>
         <G.Legend>Choose datacenter</G.Legend>
-        <G.Radio::Field name="datacenter-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>DC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>SF1</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -320,18 +327,18 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group as |G|>
+  <Hds::Form::Radio::Group @name="datacenter-demo1" as |G|>
     <G.Legend>Choose datacenter</G.Legend>
-    <G.Radio::Field name="datacenter-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>DC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>SF1</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -365,18 +372,18 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+      <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo2" as |G|>
         <G.Legend>Choose datacenter</G.Legend>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>DC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>SF1</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -385,18 +392,18 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo2" as |G|>
     <G.Legend>Choose datacenter</G.Legend>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>DC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>SF1</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -408,19 +415,19 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+      <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
         <G.Legend>Choose datacenter</G.Legend>
         <G.HelperText>Select which datacenter to use for the initial setup.</G.HelperText>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>DC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo2" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>SF1</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -429,19 +436,19 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
     <G.Legend>Choose datacenter</G.Legend>
     <G.HelperText>Select which datacenter to use for the initial setup.</G.HelperText>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>DC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>SF1</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -465,16 +472,16 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+      <Hds::Form::Radio::Group @layout="horizontal" @name="method-demo1" as |G|>
         <G.Legend>Method <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
         <G.HelperText>Choose which HTTP method to use for the communication channel. See <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline> for more details.</G.HelperText>
-        <G.Radio::Field name="method-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>POST</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="method-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>GET</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="method-demo1" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>PUT</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -483,18 +490,18 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="method-demo1" as |G|>
     <G.Legend>Method <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
     <G.HelperText>Choose which HTTP method to use for the communication channel. See
       <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline>
       for more details.</G.HelperText>
-    <G.Radio::Field name="method-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>POST</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="method-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>GET</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="method-demo1" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>PUT</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -519,50 +526,50 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group @isRequired=\{{true}} @layout="horizontal" as |G|>
+      <Hds::Form::Radio::Group @isRequired=\{{true}} @layout="horizontal" @name="method-demo2" as |G|>
         <G.Legend>Method</G.Legend>
         <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
-        <G.Radio::Field name="method-demo2" as |F|><F.Label>POST</F.Label></G.Radio::Field>
-        <G.Radio::Field name="method-demo2" as |F|><F.Label>GET</F.Label></G.Radio::Field>
-        <G.Radio::Field name="method-demo2" as |F|><F.Label>PUT</F.Label></G.Radio::Field>
+        <G.Radio::Field as |F|><F.Label>POST</F.Label></G.Radio::Field>
+        <G.Radio::Field as |F|><F.Label>GET</F.Label></G.Radio::Field>
+        <G.Radio::Field as |F|><F.Label>PUT</F.Label></G.Radio::Field>
       </Hds::Form::Radio::Group>
       <br />
-      <Hds::Form::Radio::Group @isOptional=\{{true}} @layout="horizontal" as |G|>
+      <Hds::Form::Radio::Group @isOptional=\{{true}} @layout="horizontal" @name="method-demo3" as |G|>
         <G.Legend>Method</G.Legend>
         <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
-        <G.Radio::Field name="method-demo3" as |F|><F.Label>POST</F.Label></G.Radio::Field>
-        <G.Radio::Field name="method-demo3" as |F|><F.Label>GET</F.Label></G.Radio::Field>
-        <G.Radio::Field name="method-demo3" as |F|><F.Label>PUT</F.Label></G.Radio::Field>
+        <G.Radio::Field as |F|><F.Label>POST</F.Label></G.Radio::Field>
+        <G.Radio::Field as |F|><F.Label>GET</F.Label></G.Radio::Field>
+        <G.Radio::Field as |F|><F.Label>PUT</F.Label></G.Radio::Field>
       </Hds::Form::Radio::Group>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group @isRequired={{true}} @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @isRequired={{true}} @layout="horizontal" @name="method-demo2" as |G|>
     <G.Legend>Methods</G.Legend>
     <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
-    <G.Radio::Field name="method-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>POST</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="method-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>GET</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="method-demo2" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>PUT</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
-  <Hds::Form::Radio::Group @isOptional={{true}} @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @isOptional={{true}} @layout="horizontal" @name="method-demo3" as |G|>
     <G.Legend>Methods</G.Legend>
     <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
-    <G.Radio::Field name="method-demo3" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>POST</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="method-demo3" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>GET</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="method-demo3" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>PUT</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
@@ -587,18 +594,18 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+      <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo4" as |G|>
         <G.Legend>Choose datacenter</G.Legend>
-        <G.Radio::Field name="datacenter-demo4" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo4" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>DC1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo4" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>NYC2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo4" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>SF1</F.Label>
         </G.Radio::Field>
         <G.Error>Error: you need to choose at least one datacenter.</G.Error>
@@ -608,18 +615,18 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo4" as |G|>
     <G.Legend>Choose datacenter</G.Legend>
-    <G.Radio::Field name="datacenter-demo4" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo4" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>DC1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo4" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>NYC2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo4" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>SF1</F.Label>
     </G.Radio::Field>
     <G.Error>Error: you need to choose at least one datacenter.</G.Error>
@@ -647,21 +654,21 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Radio::Group @layout="vertical" as |G|>
+      <Hds::Form::Radio::Group @layout="vertical" @name="datacenter-demo5" as |G|>
         <G.Legend>Choose datacenter</G.Legend>
-        <G.Radio::Field name="datacenter-demo5" @id="datacenter-NYC1" checked @value="NYC1" \{{on "change" myAction}} as |F|>
+        <G.Radio::Field @id="datacenter-NYC1" checked @value="NYC1" \{{on "change" myAction}} as |F|>
           <F.Label>NYC1</F.Label>
           <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo5" @id="datacenter-DC1" @value="DC1" \{{on "change" myAction}} as |F|>
+        <G.Radio::Field @id="datacenter-DC1" @value="DC1" \{{on "change" myAction}} as |F|>
           <F.Label>DC1</F.Label>
           <F.HelperText>CoreSite- K Street</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo5" @id="datacenter-NYC2" @value="NYC2" \{{on "change" myAction}} as |F|>
+        <G.Radio::Field @id="datacenter-NYC2" @value="NYC2" \{{on "change" myAction}} as |F|>
           <F.Label>NYC1</F.Label>
           <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="datacenter-demo5" @id="datacenter-SF1" @value="SF1" \{{on "change" myAction}} as |F|>
+        <G.Radio::Field @id="datacenter-SF1" @value="SF1" \{{on "change" myAction}} as |F|>
           <F.Label>SF1</F.Label>
           <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
         </G.Radio::Field>
@@ -671,28 +678,21 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Radio::Group @layout="vertical" as |G|>
+  <Hds::Form::Radio::Group @layout="vertical" @name="datacenter-demo5" as |G|>
     <G.Legend>Choose datacenter</G.Legend>
-    <G.Radio::Field
-      name="datacenter-demo5"
-      @id="datacenter-NYC1"
-      checked
-      @value="NYC1"
-      {{on "change" this.noop}}
-      as |F|
-    >
+    <G.Radio::Field @id="datacenter-NYC1" checked @value="NYC1" {{on "change" this.noop}} as |F|>
       <F.Label>NYC1</F.Label>
       <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo5" @id="datacenter-DC1" @value="DC1" {{on "change" this.noop}} as |F|>
+    <G.Radio::Field @id="datacenter-DC1" @value="DC1" {{on "change" this.noop}} as |F|>
       <F.Label>DC1</F.Label>
       <F.HelperText>CoreSite- K Street</F.HelperText>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo5" @id="datacenter-NYC2" @value="NYC2" {{on "change" this.noop}} as |F|>
+    <G.Radio::Field @id="datacenter-NYC2" @value="NYC2" {{on "change" this.noop}} as |F|>
       <F.Label>NYC1</F.Label>
       <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
     </G.Radio::Field>
-    <G.Radio::Field name="datacenter-demo5" @id="datacenter-SF1" @value="SF1" {{on "change" this.noop}} as |F|>
+    <G.Radio::Field @id="datacenter-SF1" @value="SF1" {{on "change" this.noop}} as |F|>
       <F.Label>SF1</F.Label>
       <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
     </G.Radio::Field>
@@ -912,15 +912,15 @@
     <div>
       <span class="dummy-text-small">With legend</span>
       <br />
-      <Hds::Form::Radio::Group as |G|>
+      <Hds::Form::Radio::Group @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field name="control-vertical-01" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-01" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-01" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -928,14 +928,14 @@
     <div>
       <span class="dummy-text-small">Without legend</span>
       <br />
-      <Hds::Form::Radio::Group as |G|>
-        <G.Radio::Field name="control-vertical-02" as |F|>
+      <Hds::Form::Radio::Group @name="control-vertical-02" as |G|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-02" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-02" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -943,17 +943,17 @@
     <div>
       <span class="dummy-text-small">With legend / With helper text</span>
       <br />
-      <Hds::Form::Radio::Group as |G|>
+      <Hds::Form::Radio::Group @name="control-vertical-03" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field name="control-vertical-03" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-03" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-03" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
@@ -962,16 +962,16 @@
     <div>
       <span class="dummy-text-small">Without Legend / With helper text</span>
       <br />
-      <Hds::Form::Radio::Group as |G|>
-        <G.Radio::Field name="control-vertical-04" as |F|>
+      <Hds::Form::Radio::Group @name="control-vertical-04" as |G|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-04" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-04" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Radio::Field>
@@ -980,16 +980,16 @@
     <div>
       <span class="dummy-text-small">With helper text at group level</span>
       <br />
-      <Hds::Form::Radio::Group as |G|>
+      <Hds::Form::Radio::Group @name="control-vertical-05" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
-        <G.Radio::Field name="control-vertical-05" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-05" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-vertical-05" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -997,7 +997,7 @@
     <div>
       <span class="dummy-text-small">With error at group level</span>
       <br />
-      <Hds::Form::Radio::Group as |G|>
+      <Hds::Form::Radio::Group @name="control-vertical-06" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Radio::Field name="control-vertical-06" as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -1016,52 +1016,52 @@
   <h5 class="dummy-h5">Horizontal layout</h5>
   <span class="dummy-text-small">With legend</span>
   <br />
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-01" as |G|>
     <G.Legend>Legend of the group</G.Legend>
-    <G.Radio::Field name="control-horizontal-01" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="control-horizontal-01" checked="checked" as |F|>
+    <G.Radio::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="control-horizontal-01" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
   <span class="dummy-text-small">Without legend</span>
   <br />
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
-    <G.Radio::Field name="control-horizontal-02" as |F|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-02" as |G|>
+    <G.Radio::Field as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="control-horizontal-02" checked="checked" as |F|>
+    <G.Radio::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="control-horizontal-02" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
   <span class="dummy-text-small">With helper text at group level</span>
   <br />
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-03" as |G|>
     <G.Legend>Legend of the group</G.Legend>
     <G.HelperText>Helper text for the entire group</G.HelperText>
-    <G.Radio::Field name="control-horizontal-03" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="control-horizontal-03" checked="checked" as |F|>
+    <G.Radio::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Radio::Field>
-    <G.Radio::Field name="control-horizontal-03" as |F|>
+    <G.Radio::Field as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Radio::Field>
   </Hds::Form::Radio::Group>
   <br />
   <span class="dummy-text-small">With error at group level</span>
   <br />
-  <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+  <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-04" as |G|>
     <G.Legend>Legend of the group</G.Legend>
     <G.Radio::Field name="control-horizontal-04" as |F|>
       <F.Label>Label of control #1</F.Label>
@@ -1078,24 +1078,24 @@
   <span class="dummy-text-small">With controls on multiple lines</span>
   <br />
   <div class="dummy-form-radio-max-width-container">
-    <Hds::Form::Radio::Group @layout="horizontal" as |G|>
+    <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-05" as |G|>
       <G.Legend>Lorem ipsum dolor</G.Legend>
-      <G.Radio::Field name="dummy-form-control-max-width" as |F|>
+      <G.Radio::Field as |F|>
         <F.Label>Sit amet</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field name="control-max-width" checked="checked" as |F|>
+      <G.Radio::Field checked="checked" as |F|>
         <F.Label>Consectetur adipiscing</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field name="control-max-width" as |F|>
+      <G.Radio::Field as |F|>
         <F.Label>Elit</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field name="control-max-width" as |F|>
+      <G.Radio::Field as |F|>
         <F.Label>Pellentesque erat</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field name="control-max-width" as |F|>
+      <G.Radio::Field as |F|>
         <F.Label>Lacinia</F.Label>
       </G.Radio::Field>
-      <G.Radio::Field name="control-max-width" as |F|>
+      <G.Radio::Field as |F|>
         <F.Label>At magna</F.Label>
       </G.Radio::Field>
     </Hds::Form::Radio::Group>
@@ -1106,15 +1106,15 @@
     <div>
       <span class="dummy-text-small">With legend + Required</span>
       <br />
-      <Hds::Form::Radio::Group @isRequired={{true}} as |G|>
+      <Hds::Form::Radio::Group @isRequired={{true}} @name="control-required" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field name="control-horizontal-01" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-horizontal-01" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-horizontal-01" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
@@ -1122,15 +1122,15 @@
     <div>
       <span class="dummy-text-small">With legend + Optional</span>
       <br />
-      <Hds::Form::Radio::Group @isOptional={{true}} as |G|>
+      <Hds::Form::Radio::Group @isOptional={{true}} @name="control-optional" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Radio::Field name="control-horizontal-01" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-horizontal-01" checked="checked" as |F|>
+        <G.Radio::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Radio::Field>
-        <G.Radio::Field name="control-horizontal-01" as |F|>
+        <G.Radio::Field as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
