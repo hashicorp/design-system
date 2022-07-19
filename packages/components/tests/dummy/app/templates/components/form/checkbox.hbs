@@ -173,6 +173,13 @@
         <li>horizontal</li>
       </ol>
     </dd>
+    <dt>name <code>string</code></dt>
+    <dd>
+      <p>Sets the
+        <code class="dummy-code">name</code>
+        attribute for each form control within the group.
+      </p>
+    </dd>
     <dt>isRequired <code>boolean</code></dt>
     <dd>
       <p>Appends a
@@ -583,8 +590,8 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code="
-      <Hds::Form::Checkbox::Group as |G|>
+    @code='
+      <Hds::Form::Checkbox::Group @name="datacenter-demo1" as |G|>
         <G.Legend>Valid datacenters</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>NYC1</F.Label>
@@ -599,12 +606,12 @@
           <F.Label>SF1</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
-    "
+    '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group as |G|>
+  <Hds::Form::Checkbox::Group @name="datacenter-demo1" as |G|>
     <G.Legend>Valid datacenters</G.Legend>
     <G.Checkbox::Field as |F|>
       <F.Label>NYC1</F.Label>
@@ -644,7 +651,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+      <Hds::Form::Checkbox::Group @layout="horizontal" @name="datacenter-demo2" as |G|>
         <G.Legend>Valid datacenters</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>NYC1</F.Label>
@@ -664,7 +671,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @layout="horizontal" @name="datacenter-demo2" as |G|>
     <G.Legend>Valid datacenters</G.Legend>
     <G.Checkbox::Field as |F|>
       <F.Label>NYC1</F.Label>
@@ -686,8 +693,8 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code="
-      <Hds::Form::Checkbox::Group as |G|>
+    @code='
+      <Hds::Form::Checkbox::Group @name="methods-demo1" as |G|>
         <G.Legend>Methods</G.Legend>
         <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
         <G.Checkbox::Field checked as |F|>
@@ -700,12 +707,12 @@
           <F.Label>PUT</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
-    "
+    '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group as |G|>
+  <Hds::Form::Checkbox::Group @name="methods-demo1" as |G|>
     <G.Legend>Methods</G.Legend>
     <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
     <G.Checkbox::Field checked as |F|>
@@ -738,7 +745,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
         <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
         <G.HelperText>All methods are applied by default unless specified. See <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline> for more details.</G.HelperText>
         <G.Checkbox::Field checked as |F|>
@@ -756,7 +763,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group as |G|>
+  <Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
     <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
     <G.HelperText>All methods are applied by default unless specified. See
       <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline>
@@ -792,7 +799,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Checkbox::Group @isRequired=\{{true}} @layout="horizontal" as |G|>
+      <Hds::Form::Checkbox::Group @isRequired=\{{true}} @layout="horizontal" @name="methods-demo3" as |G|>
         <G.Legend>Methods</G.Legend>
         <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
         <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
@@ -800,7 +807,7 @@
         <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
       <br />
-      <Hds::Form::Checkbox::Group @isOptional=\{{true}} @layout="horizontal" as |G|>
+      <Hds::Form::Checkbox::Group @isOptional=\{{true}} @layout="horizontal" @name="methods-demo4" as |G|>
         <G.Legend>Methods</G.Legend>
         <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
         <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
@@ -812,7 +819,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="methods-demo3" as |G|>
     <G.Legend>Methods</G.Legend>
     <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
     <G.Checkbox::Field checked as |F|>
@@ -826,7 +833,7 @@
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
   <br />
-  <Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="methods-demo4" as |G|>
     <G.Legend>Methods</G.Legend>
     <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
     <G.Checkbox::Field checked as |F|>
@@ -860,7 +867,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+      <Hds::Form::Checkbox::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
         <G.Legend>Valid datacenters</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>NYC1</F.Label>
@@ -881,7 +888,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
     <G.Legend>Valid datacenters</G.Legend>
     <G.Checkbox::Field as |F|>
       <F.Label>NYC1</F.Label>
@@ -920,7 +927,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
+      <Hds::Form::Checkbox::Group @layout="vertical" @name="datacenter-demo4" as |G|>
         <G.Legend>Valid datacenters</G.Legend>
         <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" \{{on "change" myAction}} as |F|>
           <F.Label>NYC1</F.Label>
@@ -944,7 +951,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
+  <Hds::Form::Checkbox::Group @layout="vertical" @name="datacenter-demo4" as |G|>
     <G.Legend>Valid datacenters</G.Legend>
     <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.noop}} as |F|>
       <F.Label>NYC1</F.Label>
@@ -1297,7 +1304,7 @@
     <div>
       <span class="dummy-text-small">With legend</span>
       <br />
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -1313,7 +1320,7 @@
     <div>
       <span class="dummy-text-small">With legend / With helper text</span>
       <br />
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="control-vertical-02" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -1332,7 +1339,7 @@
     <div>
       <span class="dummy-text-small">Without legend</span>
       <br />
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="control-vertical-03" as |G|>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.Checkbox::Field>
@@ -1347,7 +1354,7 @@
     <div>
       <span class="dummy-text-small">Without Legend / With helper text</span>
       <br />
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="control-vertical-04" as |G|>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
@@ -1365,7 +1372,7 @@
     <div>
       <span class="dummy-text-small">With helper text at group level</span>
       <br />
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="control-vertical-05" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.Checkbox::Field as |F|>
@@ -1382,7 +1389,7 @@
     <div>
       <span class="dummy-text-small">With error at group level</span>
       <br />
-      <Hds::Form::Checkbox::Group as |G|>
+      <Hds::Form::Checkbox::Group @name="control-vertical-06" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -1401,7 +1408,7 @@
   <h5 class="dummy-h5">Horizontal layout</h5>
   <span class="dummy-text-small">With legend</span>
   <br />
-  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-01" as |G|>
     <G.Legend>Legend of the group</G.Legend>
     <G.Checkbox::Field as |F|>
       <F.Label>Label of control #1</F.Label>
@@ -1416,7 +1423,7 @@
   <br />
   <span class="dummy-text-small">Without legend</span>
   <br />
-  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-02" as |G|>
     <G.Checkbox::Field as |F|>
       <F.Label>Label of control #1</F.Label>
     </G.Checkbox::Field>
@@ -1430,7 +1437,7 @@
   <br />
   <span class="dummy-text-small">With helper text at group level</span>
   <br />
-  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-03" as |G|>
     <G.Legend>Legend of the group</G.Legend>
     <G.HelperText>Helper text for the entire group</G.HelperText>
     <G.Checkbox::Field as |F|>
@@ -1446,7 +1453,7 @@
   <br />
   <span class="dummy-text-small">With error at group level</span>
   <br />
-  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-04" as |G|>
     <G.Legend>Legend of the group</G.Legend>
     <G.Checkbox::Field as |F|>
       <F.Label>Label of control #1</F.Label>
@@ -1463,7 +1470,7 @@
   <span class="dummy-text-small">With controls on multiple lines</span>
   <br />
   <div class="dummy-form-checkbox-max-width-container">
-    <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+    <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-05" as |G|>
       <G.Legend>Lorem ipsum dolor</G.Legend>
       <G.Checkbox::Field as |F|>
         <F.Label>Sit amet</F.Label>
@@ -1491,7 +1498,7 @@
     <div>
       <span class="dummy-text-small">With legend + Required</span>
       <br />
-      <Hds::Form::Checkbox::Group @isRequired={{true}} as |G|>
+      <Hds::Form::Checkbox::Group @isRequired={{true}} @name="control-required" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -1507,7 +1514,7 @@
     <div>
       <span class="dummy-text-small">With legend + Optional</span>
       <br />
-      <Hds::Form::Checkbox::Group @isOptional={{true}} as |G|>
+      <Hds::Form::Checkbox::Group @isOptional={{true}} @name="control-optional" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.Checkbox::Field as |F|>
           <F.Label>Label of control #1</F.Label>

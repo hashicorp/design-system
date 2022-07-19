@@ -82,10 +82,10 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
     assert.expect(3);
     await render(
-      hbs`<Hds::Form::Checkbox::Field checked="checked" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Checkbox::Field checked="checked" class="my-class" name="my-name" data-test />`
     );
     assert.dom('input').hasClass('my-class');
-    assert.dom('input').hasAttribute('data-test1');
-    assert.dom('input').hasAttribute('data-test2', 'test');
+    assert.dom('input').hasAttribute('name', 'my-name');
+    assert.dom('input').hasAttribute('data-test');
   });
 });
