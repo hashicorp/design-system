@@ -42,11 +42,10 @@
 // facade (visible)
 
 .hds-form-toggle__facade {
-  // notice: the "tick" color is hardcoded here!
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
+  background-image: var(--token-form-toggle-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: 2px 50%;
-  background-size: 12px 12px;
+  background-position: var(--token-form-toggle-background-image-position-x) 50%;
+  background-size: var(--token-form-toggle-background-image-size) var(--token-form-toggle-background-image-size);
   border-radius: calc(var(--token-form-toggle-height) / 2);
   // notice: we want to share the border color between the "thumb" and the "track" so we use a local CSS prop for this
   border: var(--token-form-radio-border-width) solid var(--border-color);
@@ -146,7 +145,6 @@
   :disabled:checked + & {
     --border-color: var(--token-form-control-disabled-border-color);
     background-color: var(--token-form-control-disabled-surface-color);
-    // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e");
+    background-image: var(--token-form-toggle-background-image-data-url-disabled);
   }
 }

@@ -953,6 +953,24 @@
                 </div>
                 <div>
                   <Hds::Form::TextInput::Base
+                    @type="password"
+                    @value="Lorem ipsum dolor"
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    readonly={{if (eq variant "readonly") "readonly"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                  />
+                </div>
+                <div>
+                  <Hds::Form::TextInput::Base
+                    @type="search"
+                    @value="Lorem ipsum dolor"
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    readonly={{if (eq variant "readonly") "readonly"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                  />
+                </div>
+                <div>
+                  <Hds::Form::TextInput::Base
                     @type="date"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
