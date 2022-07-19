@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 19 Jul 2022 10:49:42 GMT
+ * Generated on Tue, 19 Jul 2022 13:19:57 GMT
  */
 
 :root {
@@ -186,8 +186,8 @@
   --token-form-checkbox-background-image-size: 12px;
   --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
-  --token-form-control-base-foreground-color: #0c0c0e;
-  --token-form-control-base-placeholder-color: #656a76;
+  --token-form-control-base-foreground-value-color: #0c0c0e;
+  --token-form-control-base-foreground-placeholder-color: #656a76;
   --token-form-control-base-surface-color-default: #ffffff;
   --token-form-control-base-surface-color-hover: #f1f2f3;
   --token-form-control-base-surface-color-strong: #FF00FF;

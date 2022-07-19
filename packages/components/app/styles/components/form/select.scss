@@ -15,7 +15,7 @@
   background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
-  color: var(--token-form-control-base-foreground-color);
+  color: var(--token-form-control-base-foreground-value-color);
   box-shadow: var(--token-elevation-low-box-shadow);
   padding: var( --token-form-control-padding);
   padding-right: calc(var( --token-form-control-padding) + 24px); // extra space for the icon

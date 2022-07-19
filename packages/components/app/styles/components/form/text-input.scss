@@ -11,7 +11,7 @@
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
-  color: var(--token-form-control-base-foreground-color);
+  color: var(--token-form-control-base-foreground-value-color);
   padding: var( --token-form-control-padding);
   width: 100%;
   max-width: 100%;
@@ -19,7 +19,7 @@
   // PLACEHOLDER
 
   ::placeholder {
-    color: var(--token-form-control-base-placeholder-color);
+    color: var(--token-form-control-base-foreground-placeholder-color);
   }
 
   // STATUS
