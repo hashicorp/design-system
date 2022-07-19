@@ -24,12 +24,6 @@
                         "value": "{color.surface.interactive-hover.value}",
                         "type": "color",
                         "group": "components"
-                    },
-                    "strong": {
-                        "value": "#FF00FF",
-                        "type": "color",
-                        "group": "components",
-                        "TODO!!!!!!!!!": "discuss with designers and find a semantic name for this"
                     }
                 },
                 "border-color": {

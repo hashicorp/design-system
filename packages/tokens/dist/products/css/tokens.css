@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 19 Jul 2022 13:19:57 GMT
+ * Generated on Tue, 19 Jul 2022 13:53:00 GMT
  */
 
 :root {
@@ -190,7 +190,6 @@
   --token-form-control-base-foreground-placeholder-color: #656a76;
   --token-form-control-base-surface-color-default: #ffffff;
   --token-form-control-base-surface-color-hover: #f1f2f3;
-  --token-form-control-base-surface-color-strong: #FF00FF;
   --token-form-control-base-border-color-default: #8c909c;
   --token-form-control-base-border-color-hover: #656a76;
   --token-form-control-checked-foreground-color: #ffffff;
@@ -227,6 +226,7 @@
   --token-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
   --token-form-toggle-width: 32px;
   --token-form-toggle-height: 16px;
+  --token-form-toggle-base-surface-color-default: #f1f2f3; /* the toggle has a different base surface color, compared to the other controls */
   --token-form-toggle-border-radius: 3px;
   --token-form-toggle-border-width: 1px;
   --token-form-toggle-background-image-size: 12px;
