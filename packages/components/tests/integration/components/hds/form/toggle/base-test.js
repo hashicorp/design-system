@@ -19,15 +19,6 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
     assert.dom('#test-form-toggle').hasClass('hds-form-toggle__control');
   });
 
-  // INVALID
-
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Toggle::Base id="test-form-toggle" @isInvalid={{true}} />`
-    );
-    assert.dom('.hds-form-toggle').hasClass('hds-form-toggle--is-invalid');
-  });
-
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
