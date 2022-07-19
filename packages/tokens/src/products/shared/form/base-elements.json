@@ -31,7 +31,7 @@
             }
         },
         "error": {
-            "message-color": {
+            "color": {
                 "value": "{color.palette.red-300.value}",
                 "type": "color",
                 "group": "components"
