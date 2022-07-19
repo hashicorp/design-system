@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sat, 16 Jul 2022 14:15:33 GMT
+ * Generated on Tue, 19 Jul 2022 10:28:57 GMT
  */
 
 :root {
@@ -179,6 +179,7 @@
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
+  --token-form-indicator-optional-color: #656a76;
   --token-form-error-message-color: #c00005;
   --token-form-error-icon-size: 14px;
   --token-form-checkbox-size: 16px;

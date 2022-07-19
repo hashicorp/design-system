@@ -21,6 +21,15 @@
                 "group": "components"
             }
         },
+        "indicator": {
+            "optional": {
+                "color": {
+                    "value": "{color.foreground.faint.value}",
+                    "type": "color",
+                    "group": "components"
+                }
+            }
+        },
         "error": {
             "message-color": {
                 "value": "{color.palette.red-300.value}",
