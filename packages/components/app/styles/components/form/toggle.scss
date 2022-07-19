@@ -7,7 +7,7 @@
 @use "sass:math";
 
 $hds-form-toggle-control-width: 32px;
-$hds-form-toggle-control-height: 16px;
+$hds-form-toggle-control-height: 16px; // for the other controls we use "--token-form-checkbox-size" but in this case we need a Sass variable to do math operations on it
 $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
 // "BASE" CONTROL
@@ -71,7 +71,7 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
     left: -1px;
     position: absolute;
     transform: translate3d(0, 0, 0);
-    transition: transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1), border-color 0.2s ease-in;
+    transition: transform 0.2s cubic-bezier(0.68, -0.2, 0.265, 1.15), border-color 0.2s ease-in;
     top: -1px;
   }
 
@@ -96,12 +96,12 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
   // base (default)
 
   :not(:checked) + & {
-    --border-color: var(--token-color-palette-neutral-400);
-    background-color: var(--token-color-surface-primary);
+    --border-color: var(--token-form-control-border-color-default);
+    background-color: var(--token-color-surface-strong); // not like the other controls!
   }
   :checked + & {
-    --border-color: var(--token-color-palette-blue-300);
-    background-color: var(--token-color-palette-blue-200);
+    --border-color: var(--token-form-control-border-color-checked);
+    background-color: var(--token-form-control-background-color-checked);
     // notice: the "tick" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
 
@@ -115,21 +115,28 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
 
   :hover:not(:checked) + &,
   .mock-hover:not(:checked) + & {
-    --border-color: var(--token-color-palette-neutral-500);
+    --border-color: var(--token-form-control-border-color-default-hover);
   }
   :hover:checked + &,
   .mock-hover:checked + & {
-    --border-color: var(--token-color-palette-blue-400);
-    background-color: var(--token-color-palette-blue-300);
+    --border-color: var(--token-form-control-border-color-checked-hover);
+    background-color: var(--token-form-control-background-color-checked-hover);
   }
 
   // focus (same for all the states)
 
   :focus:not(:checked) + &,
+  .mock-focus:not(:checked) + & {
+    --border-color: var(--token-form-control-border-color-default);
+
+    &::before {
+      border-style: solid;
+      border-color: var( --token-color-focus-action-external);
+    }
+  }
   :focus:checked + &,
-  .mock-focus:not(:checked) + &,
   .mock-focus:checked + & {
-    --border-color: var(--token-color-palette-blue-400);
+    --border-color: var(--token-form-control-border-color-checked);
 
     &::before {
       border-style: solid;
@@ -137,34 +144,12 @@ $hds-form-toggle-border-radius: math.div($hds-form-toggle-control-height, 2);
     }
   }
 
-  // INVALID
-
-  .hds-form-toggle--is-invalid :not(:checked) + & {
-    --border-color: var(--token-color-palette-red-300);
-  }
-  .hds-form-toggle--is-invalid :checked + & {
-    background-color: var(--token-color-palette-red-200);
-    --border-color: var(--token-color-palette-red-300);
-  }
-
-  .hds-form-toggle--is-invalid :hover:not(:checked) + &,
-  .hds-form-toggle--is-invalid .mock-hover:not(:checked) + & {
-    --border-color: var(--token-color-palette-red-400);
-  }
-  .hds-form-toggle--is-invalid :hover:checked + &,
-  .hds-form-toggle--is-invalid .mock-hover:checked + & {
-    --border-color: var(--token-color-palette-red-300);
-    background-color: var(--token-color-palette-red-400);
-  }
-
   // DISABLED
 
   :disabled:not(:checked) + &,
-  :disabled:checked + &,
-  .hds-form-toggle--is-invalid :disabled:not(:checked) + &,
-  .hds-form-toggle--is-invalid :disabled:checked + & {
-    background-color: var(--token-color-surface-strong);
-    --border-color: var(--token-color-border-primary);
+  :disabled:checked + & {
+    background-color: var(--token-form-control-background-color-disabled);
+    --border-color: var(--token-form-control-border-color-disabled);
     // notice: the "tick" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e");
   }

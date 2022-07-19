@@ -15,15 +15,6 @@ module('Integration | Component | hds/form/radio/base', function (hooks) {
     assert.dom('#test-form-radio').hasClass('hds-form-radio');
   });
 
-  // INVALID
-
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Radio::Base id="test-form-radio" @isInvalid={{true}} />`
-    );
-    assert.dom('#test-form-radio').hasClass('hds-form-radio--is-invalid');
-  });
-
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {

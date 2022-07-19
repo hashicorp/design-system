@@ -4,8 +4,6 @@
 // properties within each class are sorted alphabetically
 //
 
-$hds-form-checkbox-control-size: 16px;
-$hds-form-checkbox-control-border-radius: 3px;
 
 // "BASE" CONTROL
 
@@ -13,27 +11,27 @@ $hds-form-checkbox-control-border-radius: 3px;
   appearance: none;
   background-position: center center;
   background-size: 12px 12px;
-  border-radius: $hds-form-checkbox-control-border-radius;
+  border-radius: var(--token-form-checkbox-border-radius);
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
-  height: $hds-form-checkbox-control-size;
+  height: var(--token-form-checkbox-size);
   margin: 0;
   padding: 0;
-  width: $hds-form-checkbox-control-size;
+  width: var(--token-form-checkbox-size);
 
   // STATUS
 
   // base (default)
 
   &:not(:checked) {
-    background-color: var(--token-color-surface-primary);
-    border-color: var(--token-color-palette-neutral-400);
+    background-color: var(--token-form-control-background-color-default);
+    border-color: var(--token-form-control-border-color-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
   &:checked {
-    background-color: var(--token-color-palette-blue-200);
-    border-color: var(--token-color-palette-blue-300);
+    background-color: var(--token-form-control-background-color-checked);
+    border-color: var(--token-form-control-border-color-checked);
     // notice: the "tick" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
   }
@@ -42,52 +40,41 @@ $hds-form-checkbox-control-border-radius: 3px;
 
   &:hover:not(:checked),
   &.mock-hover:not(:checked) {
-    border-color: var(--token-color-palette-neutral-500);
+    background-color: var(--token-form-control-background-color-default-hover);
+    border-color: var(--token-form-control-border-color-default-hover);
   }
   &:hover:checked,
   &.mock-hover:checked {
-    background-color: var(--token-color-palette-blue-300);
-    border-color: var(--token-color-palette-blue-400);
+    background-color: var(--token-form-control-background-color-checked-hover);
+    border-color: var(--token-form-control-border-color-checked-hover);
   }
 
-  // focus (same for all the states)
+  // focus
+
   &:focus:not(:checked),
-  &:focus:checked,
-  &.mock-focus:checked,
   &.mock-focus:not(:checked) {
-    border-color: var(--token-color-palette-blue-400);
+    border-color: var(--token-form-control-border-color-default);
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
+  }
+  &:focus:checked,
+  &.mock-focus:checked {
+    border-color: var(--token-form-control-border-color-checked);
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 1px;
   }
 
-  // INVALID
-
-  &.hds-form-checkbox--is-invalid:not(:checked) {
-    border-color: var(--token-color-palette-red-300);
-  }
-  &.hds-form-checkbox--is-invalid:checked {
-    background-color: var(--token-color-palette-red-200);
-    border-color: var(--token-color-palette-red-300);
-  }
-
-  &.hds-form-checkbox--is-invalid:hover:not(:checked),
-  &.hds-form-checkbox--is-invalid.mock-hover:not(:checked) {
-    border-color: var(--token-color-palette-red-400);
-  }
-  &.hds-form-checkbox--is-invalid:hover:checked,
-  &.hds-form-checkbox--is-invalid.mock-hover:checked {
-    background-color: var(--token-color-palette-red-300);
-    border-color: var(--token-color-palette-red-400);
-  }
-
   // DISABLED
 
-  &:disabled:not(:checked),
-  &:disabled:checked,
-  &.hds-form-checkbox--is-invalid:disabled:not(:checked),
-  &.hds-form-checkbox--is-invalid:disabled:checked {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
+  &:disabled:not(:checked) {
+    background-color: var(--token-form-control-background-color-disabled);
+    border-color: var(--token-form-control-border-color-disabled);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  &:disabled:checked {
+    background-color: var(--token-form-control-background-color-disabled);
+    border-color: var(--token-form-control-border-color-disabled);
     box-shadow: none;
     // notice: the "tick" color is hardcoded here!
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e");

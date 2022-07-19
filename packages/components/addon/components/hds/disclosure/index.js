@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
 
 export default class HdsDisclosureComponent extends Component {
   @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the Disclosure opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef;
-  @tracked isToggleClicked;
 
   @action
   didInsert(element) {
@@ -43,12 +43,13 @@ export default class HdsDisclosureComponent extends Component {
 
   @action
   close() {
-    if (this.isOpen) {
+    // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
+    schedule('afterRender', () => {
       this.isOpen = false;
-    }
-    // we call the "onClose" callback if it exists (and is a function)
-    if (this.args.onClose && typeof this.args.onClose === 'function') {
-      this.args.onClose();
-    }
+      // we call the "onClose" callback if it exists (and is a function)
+      if (this.args.onClose && typeof this.args.onClose === 'function') {
+        this.args.onClose();
+      }
+    });
   }
 }
