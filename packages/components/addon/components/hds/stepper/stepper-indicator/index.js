@@ -1,14 +1,9 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-<<<<<<< HEAD
-export const STATUSES = ["incomplete", "inProgress", "complete"];
-export const TYPES = ["step", "task"];
-=======
 export const DEFAULT_STATUS = 'incomplete';
 // TODO @Jory sort them logically
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
->>>>>>> eeecee4fd688acef6d85989513306afcee9e642b
 
 export default class HdsStepperStepperIndicatorIndexComponent extends Component {
   /**

@@ -16,9 +16,7 @@ module(
       await render(
         hbs`<Hds::Stepper::StepperIndicator id="test-stepper-indicator" />`
       );
-      assert
-        .dom('#test-stepper-indicator')
-        .hasClass('hds-stepper-indicator');
+      assert.dom('#test-stepper-indicator').hasClass('hds-stepper-indicator');
     });
   }
 );
