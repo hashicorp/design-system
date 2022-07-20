@@ -57,6 +57,7 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+<<<<<<< HEAD
   <h4 class="dummy-h4">Type::Step</h4>
   <h5 class="dummy-h5">Status</h5>
   <div class="dummy-stepper-indicator-sample">
@@ -128,6 +129,54 @@
       @stepNumber='4'
       @isInteractive={{false}}
     />
+=======
+  <h4 class="dummy-h4">Status</h4>
+  <h5 class="dummy-h5">Default</h5>
+  <div class="dummy-stepper-indicator-sample">
+    <div>
+      <span class="dummy-text-small">incomplete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="incomplete" @text="1" />
+    </div>
+    <div>
+      <span class="dummy-text-small">progress</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="progress" @text="2" />
+    </div>
+    <div>
+      <span class="dummy-text-small">processing</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="processing" @text="3" />
+    </div>
+    <div>
+      <span class="dummy-text-small">complete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="complete" @text="4" />
+    </div>
+  </div>
+  <h5 class="dummy-h5">Interactive</h5>
+  <div class="dummy-stepper-indicator-sample">
+    <div>
+      <span class="dummy-text-small">incomplete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="incomplete" @text="1" @isInteractive={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">progress</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="progress" @text="2" @isInteractive={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">processing</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="processing" @text="3" @isInteractive={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">complete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator @status="complete" @text="3" @isInteractive={{true}} />
+    </div>
+>>>>>>> eeecee4fd688acef6d85989513306afcee9e642b
   </div>
   <h4 class="dummy-h4">Type::Task</h4>
   <h5 class='dummy-h5'>Status</h5>
