@@ -4,6 +4,9 @@
 // properties within each class are sorted alphabetically
 //
 
+$hds-stepper-statuses: ( 'incomplete', 'complete', 'inProgress' );
+
+// Base stepper indicator styling
 .hds-stepper-indicator {
     width: 24px;
     height: 24px;
@@ -41,6 +44,7 @@
     }
 
     .flight-icon {
+        // Better way to resize the Flight icon? 
         width: 12px;
         height: 12px;
     }
@@ -49,6 +53,8 @@
         color: red !important;
     }
 }
+
+// Status
 
 // @status='complete'
 .hds-stepper-indicator--status-complete {
@@ -93,6 +99,7 @@
     }
 }
 
+// @status='incomplete'
 .hds-stepper-indicator--status-incomplete {
 
     .indicator-status {
@@ -127,6 +134,7 @@
     }
 }
 
+// @status='inProgress'
 .hds-stepper-indicator--status-inProgress {
     color: var(--token-color-foreground-high-contrast);
     
