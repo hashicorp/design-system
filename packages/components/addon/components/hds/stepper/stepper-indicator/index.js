@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
+export const DEFAULT_INTERACTIVE = false;
 // TODO @Jory sort them logically
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
@@ -32,7 +33,7 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
 
   get isInteractive() {
-    let { isInteractive = false } = this.args;
+    let { isInteractive = DEFAULT_INTERACTIVE } = this.args;
 
     return isInteractive;
   }
