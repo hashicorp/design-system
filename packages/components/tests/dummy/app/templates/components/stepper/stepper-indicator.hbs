@@ -57,27 +57,76 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-
-  {{! ADD YOUR CONTENT HERE }}
-
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Stepper::StepperIndicator
-    @type='step'
-    @status='complete'
-    @stepNumber='1'
-    @isProcessing={{false}}
-  />
-  <Hds::Stepper::StepperIndicator
-    @type='step'
-    @status='inProgress'
-    @stepNumber='2'
-    @isProcessing={{false}}
-  />
-  <Hds::Stepper::StepperIndicator
-    @type='step'
-    @status='incomplete'
-    @stepNumber='3'
-    @isProcessing={{false}}
-  />
-
+  <h4 class="dummy-h4">Status</h4>
+  <div class="dummy-stepper-indicator-sample">
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='incomplete'
+      @stepNumber='1'
+      @isProcessing={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='inProgress'
+      @stepNumber='2'
+      @isProcessing={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='complete'
+      @stepNumber='3'
+      @isProcessing={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='incomplete'
+      @stepNumber='4'
+      @isProcessing={{false}}
+      @isInteractive={{false}}
+    />
+  </div>
+  <h4 class="dummy-h4">isProcessing</h4>
+  <div class="dummy-stepper-indicator-sample">
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='inProgress'
+      @stepNumber='1'
+      @isProcessing={{true}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='inProgress'
+      @stepNumber='2'
+      @isProcessing={{true}}
+      @isInteractive={{false}}
+    />
+  </div>
+  <h4 class="dummy-h4">isInteractive::false</h4>
+  <div class="dummy-stepper-indicator-sample">
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='complete'
+      @stepNumber='1'
+      @isInteractive={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='inProgress'
+      @stepNumber='2'
+      @isProcessing={{true}}
+      @isInteractive={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='inProgress'
+      @stepNumber='3'
+      @isInteractive={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='step'
+      @status='incomplete'
+      @stepNumber='4'
+      @isInteractive={{false}}
+    />
+  </div>
 </section>

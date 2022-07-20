@@ -90,12 +90,12 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     classes.push(`hds-stepper-indicator--status-${this.status}`);
 
     // Based on boolean isProcessing arg
-    if (this.isProcessing) {
+    if (this.isProcessing === true) {
       classes.push(`hds-stepper-indicator--isProcessing`)
     };
 
     if (this.isInteractive) {
-      classes.push(`hds-stepper-indicator--isInteractive`)
+      classes.push(`isInteractive`)
     };
 
     return classes.join(" ");
