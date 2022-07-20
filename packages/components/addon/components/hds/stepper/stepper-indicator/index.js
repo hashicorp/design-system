@@ -1,38 +1,30 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug'
+import { assert } from '@ember/debug';
 
 // export const DEFAULT_STATUS = 'incomplete'
 // export const DEFAULT_TYPE = 'step'
 // export const DEFAULT_NUMBER = '1'
 
-export const STATUSES = [
-  'incomplete',
-  'inProgress',
-  'complete',
-]
+export const STATUSES = ["incomplete", "inProgress", "complete"];
 
-export const TYPES = [
-  'step',
-  'task'
-]
+export const TYPES = ["step", "task"];
 
 export default class HdsStepperStepperIndicatorIndexComponent extends Component {
-
   /**
    * @param status
    * @type {string}
-   * @default 'incomplete'
+   * @default "incomplete"
    */
 
   get status() {
-    let { status = 'incomplete' } = this.args
+    let { status = "incomplete" } = this.args;
 
     assert(
-      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUSES.join(', ')}, received: ${status}`,
+      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUSES.join(", ")}, received: ${status}`,
       STATUSES.includes(status)
-    )
+    );
 
-    return status
+    return status;
   }
 
   /**
@@ -42,21 +34,21 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
 
   get stepNumber() {
-    let { stepNumber = '1' } = this.args;
+    let { stepNumber = "1" } = this.args;
 
-    return stepNumber
+    return stepNumber;
   }
 
   /**
    * @param type
    * @type {string}
-   * @default 'step'
+   * @default "step"
    */
 
   get type() {
-    let { type = 'step' } = this.args
+    let { type = "step" } = this.args;
 
-    return type
+    return type;
   }
 
   /**
@@ -66,9 +58,9 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
 
   get isProcessing() {
-    let { isProcessing = false } = this.args
+    let { isProcessing = false } = this.args;
 
-    return isProcessing
+    return isProcessing;
   }
 
   /**
@@ -85,11 +77,11 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
 
   /**
    * Get the class names to apply to the component.
-   * @method classNames
+   * @method StepperIndicator#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-stepper-indicator'];
+    let classes = ["hds-stepper-indicator"];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-stepper-stepper-indicator--[variant]-${this.xxx}`);
@@ -98,14 +90,14 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     classes.push(`hds-stepper-indicator--status-${this.status}`);
 
     // Based on boolean isProcessing arg
-    if (this.isProcessing === true) {
-      classes.push(`hds-stepper-indicator--isProcessing`);
-    }
+    if (this.isProcessing) {
+      classes.push(`hds-stepper-indicator--isProcessing`)
+    };
 
-    if (this.isInteractive === true) {
-      classes.push(`isInteractive`);
-    }
+    if (this.isInteractive) {
+      classes.push(`hds-stepper-indicator--isInteractive`)
+    };
 
-    return classes.join(' ');
+    return classes.join(" ");
   }
 }
