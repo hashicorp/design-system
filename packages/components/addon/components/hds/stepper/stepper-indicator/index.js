@@ -81,21 +81,21 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ["hds-stepper-stepper-indicator"];
+    let classes = ["hds-stepper-indicator"];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-stepper-stepper-indicator--[variant]-${this.xxx}`);
 
     // Based on the @status arg
-    classes.push(`hds-stepper-stepper-indicator--status-${this.status}`);
+    classes.push(`hds-stepper-indicator--status-${this.status}`);
 
     // Based on boolean isProcessing arg
     if (this.isProcessing) {
-      classes.push(`hds-stepper-stepper-stepper-indicator--isProcessing`)
+      classes.push(`hds-stepper-indicator--isProcessing`)
     };
 
     if (this.isInteractive) {
-      classes.push(`hds-stepper-stepper-stepper-indicator--isInteractive`)
+      classes.push(`isInteractive`)
     };
 
     return classes.join(" ");

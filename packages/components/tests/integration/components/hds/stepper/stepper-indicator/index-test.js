@@ -14,11 +14,11 @@ module(
     });
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::StepperIndicator id="test-stepper-stepper-indicator" />`
+        hbs`<Hds::Stepper::StepperIndicator id="test-stepper-indicator" />`
       );
       assert
-        .dom('#test-stepper-stepper-indicator')
-        .hasClass('hds-stepper-stepper-indicator');
+        .dom('#test-stepper-indicator')
+        .hasClass('hds-stepper-indicator');
     });
   }
 );
