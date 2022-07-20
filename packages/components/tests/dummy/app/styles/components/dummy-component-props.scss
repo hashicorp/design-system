@@ -66,10 +66,9 @@
   }
 
   .required {
-    background-color: pink;
-    background-color: var(--token-color-surface-critical);
-    border: 1px solid var(--token-color-border-critical);
-    color: var(--token-color-foreground-critical-on-surface);
+    background-color: #fff5f5;
+    border: 1px solid #fbd4d4;
+    color: #c00005;
     font-size: 0.9rem; // Note: Duplicated from parent: .dummy-component-props
   }
 
