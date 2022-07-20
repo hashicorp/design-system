@@ -8,11 +8,11 @@ import { assert } from '@ember/debug';
  * The result of this helper should be passed into the `@models` argument of the `<LinkTo>` component:
  *
  * ```hbs
- * <LinkTo @models={{hds-link-to-models @model @models}} />
+ * <LinkTo @models={{hds/link-to-models @model @models}} />
  * ```
  */
 
-export function hdsLinkToModels([model, models]) {
+export function linkToModels([model, models]) {
   assert(
     'You cannot provide both the `@model` and `@models` arguments to the component.',
     !model || !models
@@ -27,4 +27,4 @@ export function hdsLinkToModels([model, models]) {
   }
 }
 
-export default helper(hdsLinkToModels);
+export default helper(linkToModels);

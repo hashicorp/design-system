@@ -11,8 +11,8 @@
   {{else}}
     <LinkTo
       class="hds-breadcrumb__link"
-      @models={{hds-link-to-models @model @models}}
-      @query={{hds-link-to-query @query}}
+      @models={{hds/link-to-models @model @models}}
+      @query={{hds/link-to-query @query}}
       @route={{@route}}
     >
       {{#if @icon}}

@@ -7,15 +7,15 @@ import { helper } from '@ember/component/helper';
  * The result of this helper should be passed into the `@query` argument of the `<LinkTo>` component:
  *
  * ```hbs
- * <LinkTo @query={{hds-link-to-query @query}} />
+ * <LinkTo @query={{hds/link-to-query @query}} />
  * ```
  */
 
 // this is a workaround for https://github.com/emberjs/ember.js/issues/19693
 // don't remove until we drop support for ember 3.27 and 3.28
 
-export function hdsLinkToQuery([query]) {
+export function linkToQuery([query]) {
   return query ?? {};
 }
 
-export default helper(hdsLinkToQuery);
+export default helper(linkToQuery);
