@@ -2,7 +2,8 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
-export const STATUSES = ['incomplete', 'inProgress', 'complete'];
+// TODO @Jory sort them logically
+export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
 export default class HdsStepperStepperIndicatorIndexComponent extends Component {
   /**
@@ -22,18 +23,6 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     );
 
     return status;
-  }
-
-  /**
-   * @param isProcessing
-   * @type {boolean}
-   * @default false
-   */
-
-  get isProcessing() {
-    let { isProcessing = false } = this.args;
-
-    return isProcessing;
   }
 
   /**

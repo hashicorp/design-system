@@ -8,166 +8,137 @@ $hds-stepper-indicator-size: 24px;
 
 // Base stepper indicator styling
 .hds-stepper-indicator {
-    width: $hds-stepper-indicator-size;
-    height: $hds-stepper-indicator-size;
-    font-family: var(--token-typography-font-stack-text);
-    font-weight: var(--token-typography-font-weight-medium);
-    position: relative;
+  width: $hds-stepper-indicator-size;
+  height: $hds-stepper-indicator-size;
+  font-family: var(--token-typography-font-stack-text);
+  font-weight: var(--token-typography-font-weight-medium);
+  position: relative;
 }
 
 .hds-stepper-indicator__svg-container {
-    width: 100%;
-    height: 100%;
+  // we can't use the elevation token here because is multi-value
+  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
+  height: 100%;
+  width: 100%;
+
+  path {
+    fill: var(--status-fill-color);
+    stroke: var(--status-stroke-color);
+  }
 }
 
-.hds-stepper-indicator__indicator-status {
-    // width: 100%;
-    // height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.hds-stepper-indicator__status {
+  // width: 100%;
+  // height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .hds-stepper-indicator__icon {
-    width: 12px;
-    height: 12px;
-    // we can't use the elevation token here because is multi-value
-    filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
+  color: var(--status-text-color);
+  width: 12px;
+  height: 12px;
 }
 
 .hds-stepper-indicator__text {
-    font-family: var(--token-typography-font-stack-text);
-    font-weight: var(--token-typography-font-weight-medium);
-    font-size: 0.8125rem;
-    text-align: center;
-    user-select: none;
-    width: 20px;
-    overflow: hidden;
-    white-space: nowrap;
+  color: var(--status-text-color);
+  font-family: var(--token-typography-font-stack-text);
+  font-weight: var(--token-typography-font-weight-medium);
+  font-size: 0.8125rem;
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+  width: 20px;
 }
 
-// Status
+// STATUS
+
+// Non-interactive (default)
 
 // @status='complete'
 .hds-stepper-indicator--status-complete {
-
-    .hds-stepper-indicator__indicator-status {
-        color: var(--token-color-foreground-action);
-    }
-
-    .hds-stepper-indicator__svg-container svg path {
-        fill: var(--token-color-surface-action);
-        stroke: var(--token-color-palette-blue-200);
-    }
-
-    &:hover {
-        .hds-stepper-indicator__indicator-status {
-            color: var(--token-color-foreground-action-hover);
-        }
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-palette-blue-100);
-            stroke: var(--token-color-palette-blue-300);
-        }
-    }
-
-    &:active {
-        .hds-stepper-indicator__indicator-status {
-            color: var(--token-color-foreground-action-active);
-        }
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-palette-blue-100);
-            stroke: var(--token-color-palette-blue-400);
-        }
-    }
-
-    &:not(.hds-stepper-indicator--is-interactive) {
-        .hds-stepper-indicator__indicator-status {
-            color: var(--token-color-foreground-high-contrast);
-        }
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-palette-neutral-700);
-            stroke: var(--token-color-palette-neutral-700);
-        }
-    }
+  --status-text-color: var(--token-color-foreground-high-contrast);
+  --status-fill-color: var(--token-color-palette-neutral-700);
+  --status-stroke-color: var(--token-color-palette-neutral-700);
 }
 
 // @status='incomplete'
 .hds-stepper-indicator--status-incomplete {
-
-    .hds-stepper-indicator__indicator-status {
-        color: var(--token-color-foreground-primary);
-    }
-
-    .hds-stepper-indicator__svg-container svg path {
-        fill: var(--token-color-surface-faint);
-        stroke: var(--token-color-border-strong);
-    }
-
-    &:hover {
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-surface-primary);
-        }
-    }
-
-    &:active {
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-surface-interactive-active);
-        }
-    }
-
-    &:not(.hds-stepper-indicator--is-interactive) {
-        .hds-stepper-indicator__indicator-status {
-            color: var(--token-color-foreground-strong);
-        }
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-surface-faint);
-            stroke: var(--token-color-foreground-strong);
-        }
-    }
+  --status-text-color: var(--token-color-foreground-strong);
+  --status-fill-color: var(--token-color-surface-faint);
+  --status-stroke-color: var(--token-color-foreground-strong);
 }
 
-// @status='inProgress'
-.hds-stepper-indicator--status-inProgress {
-    color: var(--token-color-foreground-high-contrast);
-
-    .hds-stepper-indicator__svg-container svg path {
-        fill: var(--token-color-palette-blue-200);
-        stroke: var(--token-color-palette-blue-300);
-    }
-
-    &:hover {
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-palette-blue-300);
-            stroke: var(--token-color-palette-blue-400);
-        }
-    }
-
-    &:active {
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-palette-blue-400);
-        }
-    }
-
-    &:not(.hds-stepper-indicator--is-interactive) {
-        .hds-stepper-indicator__indicator-status {
-            color: var(--token-color-foreground-high-contrast);
-        }
-        .hds-stepper-indicator__svg-container svg path {
-            fill: var(--token-color-palette-neutral-700);
-            stroke: var(--token-color-palette-neutral-700);
-        }
-    }
+// @status='progress'|'processing'
+.hds-stepper-indicator--status-progress,
+  .hds-stepper-indicator--status-processing {
+  --status-text-color: var(--token-color-foreground-high-contrast);
+  --status-fill-color: var(--token-color-palette-neutral-700);
+  --status-stroke-color: var(--token-color-palette-neutral-700);
 }
+
+// Interactive
 
 .hds-stepper-indicator--is-interactive {
-    &:hover {
-        cursor: pointer;
-    }
-}
+  cursor: pointer;
 
+  // @status='complete'
+  &.hds-stepper-indicator--status-complete {
+    --status-text-color: var(--token-color-foreground-action);
+    --status-fill-color: var(--token-color-surface-action);
+    --status-stroke-color: var(--token-color-palette-blue-200);
+
+    &:hover {
+      --status-text-color: var(--token-color-foreground-action-hover);
+      --status-fill-color: var(--token-color-palette-blue-100);
+      --status-stroke-color: var(--token-color-palette-blue-300);
+    }
+
+    &:active {
+      --status-text-color: var(--token-color-foreground-action-active);
+      --status-fill-color: var(--token-color-palette-blue-100);
+      --status-stroke-color: var(--token-color-palette-blue-400);
+    }
+  }
+
+  // @status='incomplete'
+  &.hds-stepper-indicator--status-incomplete {
+    --status-text-color: var(--token-color-foreground-primary);
+    --status-fill-color: var(--token-color-surface-faint);
+    --status-stroke-color: var(--token-color-border-strong);
+
+    &:hover {
+      --status-fill-color: var(--token-color-surface-primary);
+    }
+
+    &:active {
+      --status-fill-color: var(--token-color-surface-interactive-active);
+    }
+  }
+
+  // @status='progress'|'processing'
+  &.hds-stepper-indicator--status-progress,
+  &.hds-stepper-indicator--status-processing {
+    --status-text-color: var(--token-color-foreground-high-contrast);
+    --status-fill-color: var(--token-color-palette-blue-200);
+    --status-stroke-color: var(--token-color-palette-blue-300);
+
+    &:hover {
+      --status-fill-color: var(--token-color-surface-primary);
+      --status-fill-color: var(--token-color-palette-blue-300);
+      --status-stroke-color: var(--token-color-palette-blue-400);
+    }
+
+    &:active {
+      --status-fill-color: var(--token-color-palette-blue-400);
+    }
+  }
+}
