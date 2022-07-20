@@ -72,6 +72,18 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
   }
 
   /**
+   * @param isInteractive
+   * @type {boolean}
+   * @default true
+   */
+
+  get isInteractive() {
+    let { isInteractive = true } = this.args;
+
+    return isInteractive;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -83,10 +95,15 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     // classes.push(`hds-stepper-stepper-indicator--[variant]-${this.xxx}`);
 
     // Based on the @status arg
-    classes.push(`status-${this.status}`);
+    classes.push(`hds-stepper-indicator--status-${this.status}`);
 
+    // Based on boolean isProcessing arg
     if (this.isProcessing === true) {
       classes.push(`hds-stepper-indicator--isProcessing`);
+    }
+
+    if (this.isInteractive === true) {
+      classes.push(`isInteractive`);
     }
 
     return classes.join(' ');

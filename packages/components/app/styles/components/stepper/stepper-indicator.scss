@@ -37,37 +37,131 @@
         font-size: 0.8125rem;
         line-height: 24px;
         text-align: center;
+        user-select: none;
     }
 
     .flight-icon {
         width: 12px;
         height: 12px;
     }
+
+    .status-complete {
+        color: red !important;
+    }
 }
 
-.hds-stepper-indicator .status-complete {
+// @status='complete'
+.hds-stepper-indicator--status-complete {
+
+    .indicator-status {
+        color: var(--token-color-foreground-action);
+    }
+
+    .svg-container svg path {
+        fill: var(--token-color-surface-action);
+        stroke: var(--token-color-palette-blue-200);
+    }
+
     &:hover {
+        .indicator-status {
+            color: var(--token-color-foreground-action-hover);
+        }
+        .svg-container svg path {
+            fill: var(--token-color-palette-blue-100);
+            stroke: var(--token-color-palette-blue-300);
+        }
     }
 
     &:active {
+        .indicator-status {
+            color: var(--token-color-foreground-action-active);
+        }
+        .svg-container svg path {
+            fill: var(--token-color-palette-blue-100);
+            stroke: var(--token-color-palette-blue-400);
+        }
+    }
+
+    &:not(.isInteractive) {
+        .indicator-status {
+            color: var(--token-color-foreground-high-contrast);
+        }
+        .svg-container svg path {
+            fill: var(--token-color-palette-neutral-700);
+            stroke: var(--token-color-palette-neutral-700);
+        }
     }
 }
 
-.hds-stepper-indicator:has(.status-incomplete) {
+.hds-stepper-indicator--status-incomplete {
+
+    .indicator-status {
+        color: var(--token-color-foreground-primary);
+    }
+
+    .svg-container svg path {
+        fill: var(--token-color-surface-faint);
+        stroke: var(--token-color-border-strong); 
+    }
+
     &:hover {
+        .svg-container svg path {
+            fill: var(--token-color-surface-primary);
+        }
     }
 
     &:active {
+        .svg-container svg path {
+            fill: var(--token-color-surface-interactive-active);
+        }
+    }
+
+    &:not(.isInteractive) {
+        .indicator-status {
+            color: var(--token-color-foreground-strong);
+        }
+        .svg-container svg path {
+            fill: var(--token-color-surface-faint);
+            stroke: var(--token-color-foreground-strong);
+        }
     }
 }
 
-.hds-stepper-indicator:has(.status-inProgress) {
+.hds-stepper-indicator--status-inProgress {
     color: var(--token-color-foreground-high-contrast);
+    
+    .svg-container svg path {
+        fill: var(--token-color-palette-blue-200);
+        stroke: var(--token-color-palette-blue-300);
+    }
 
     &:hover {
+        .svg-container svg path {
+            fill: var(--token-color-palette-blue-300);
+            stroke: var(--token-color-palette-blue-400);
+        }
     }
 
     &:active {
+        .svg-container svg path {
+            fill: var(--token-color-palette-blue-400);
+        }
+    }
+
+    &:not(.isInteractive) {
+        .indicator-status {
+            color: var(--token-color-foreground-high-contrast);
+        }
+        .svg-container svg path {
+            fill: var(--token-color-palette-neutral-700);
+            stroke: var(--token-color-palette-neutral-700);
+        }
+    }
+}
+
+.isInteractive {
+    &:hover {
+        cursor: pointer;
     }
 }
 

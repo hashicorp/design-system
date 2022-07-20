@@ -63,7 +63,19 @@
   {{! This below is just an example of invocation, to get started }}
   <Hds::Stepper::StepperIndicator
     @type='step'
+    @status='complete'
+    @stepNumber='1'
+    @isProcessing={{false}}
+  />
+  <Hds::Stepper::StepperIndicator
+    @type='step'
     @status='inProgress'
+    @stepNumber='2'
+    @isProcessing={{false}}
+  />
+  <Hds::Stepper::StepperIndicator
+    @type='step'
+    @status='incomplete'
     @stepNumber='3'
     @isProcessing={{false}}
   />
