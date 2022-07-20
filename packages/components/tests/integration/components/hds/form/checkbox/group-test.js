@@ -29,7 +29,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
               <F.Error>This is the control error</F.Error>
             </G.Checkbox::Field>
             <G.Error>This is the group error</G.Error>
-        </Hds::Form::Checkbox::Group>`
+          </Hds::Form::Checkbox::Group>`
     );
     assert.dom('.hds-form-group__legend').exists();
     assert.dom('.hds-form-group__legend').hasText('This is the legend');
@@ -64,6 +64,29 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     assert.dom('.hds-form-group__legend').doesNotExist();
     assert.dom('.hds-form-group__helper-text').doesNotExist();
     assert.dom('.hds-form-group__error').doesNotExist();
+  });
+
+  // NAME
+
+  test('it renders the defined name on all controls within a group', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Checkbox::Group @name="datacenter-demo" as |G|>
+            <G.Legend>Choose datacenter</G.Legend>
+            <G.Checkbox::Field data-test="first-control" as |F|>
+              <F.Label>NYC1</F.Label>
+            </G.Checkbox::Field>
+            <G.Checkbox::Field data-test="second-control" as |F|>
+              <F.Label>DC1</F.Label>
+            </G.Checkbox::Field>
+          </Hds::Form::Checkbox::Group>`
+    );
+    assert
+      .dom('[data-test="first-control"]')
+      .hasAttribute('name', 'datacenter-demo');
+    assert
+      .dom('[data-test="second-control"]')
+      .hasAttribute('name', 'datacenter-demo');
   });
 
   // REQUIRED AND OPTIONAL
