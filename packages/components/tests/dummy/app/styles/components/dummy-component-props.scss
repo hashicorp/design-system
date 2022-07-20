@@ -51,25 +51,26 @@
     }
   }
 
-  // Indicators / Tags
-  .default,
-  .required {
+  // Indicator Tags
+  .default {
+    background-color: #cce3fe;
     border-radius: 4px;
+    color: #0c56e9;
     font-weight: 700;
     display: inline-block;
     padding: 0.125rem 0.25rem;
   }
 
-  .default {
-    color: #0c56e9;
-    background-color: #cce3fe;
-  }
-
   .required {
     background-color: #fff5f5;
     border: 1px solid #fbd4d4;
+    border-radius: 4px;
     color: #c00005;
+    font-family: monospace; // To match HTML "code" element's default font that it's used next to
     font-size: 0.9rem; // Note: Duplicated from parent: .dummy-component-props
+    font-weight: normal;
+    display: inline-block;
+    padding: 0.125rem 0.25rem;
   }
 
   // nested props blocks
