@@ -95,7 +95,7 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     };
 
     if (this.isInteractive) {
-      classes.push(`isInteractive`)
+      classes.push(`hds-stepper-indicator--isInteractive`)
     };
 
     return classes.join(" ");
