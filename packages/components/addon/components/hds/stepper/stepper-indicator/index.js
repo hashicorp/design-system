@@ -29,7 +29,7 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
   /**
    * @param isInteractive
    * @type {boolean}
-   * @default true
+   * @default false
    */
 
   get isInteractive() {
@@ -45,9 +45,6 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
   get classNames() {
     let classes = ['hds-stepper-indicator'];
-
-    // Based on the @type arg
-    classes.push(`hds-stepper-indicator--type-${this.type}`);
 
     // Based on the @status arg
     classes.push(`hds-stepper-indicator--status-${this.status}`);

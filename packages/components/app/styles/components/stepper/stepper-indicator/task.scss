@@ -4,3 +4,23 @@
 // properties within each class are sorted alphabetically
 //
 
+$hds-stepper-indicator-task-size: 16px;
+
+.hds-stepper-indicator-task {
+    width: $hds-stepper-indicator-task-size;
+    height: $hds-stepper-indicator-task-size;
+    position: relative;
+}
+
+.hds-stepper-indicator-task__icon {
+    color: var(--status-icon-color);
+}
+
+// Status
+
+// Non-interactive (default)
+
+// @status='incomplete'
+.hds-stepper-indicator-task--status-incomplete {
+    color: red;
+}
