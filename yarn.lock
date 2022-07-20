@@ -7992,6 +7992,7 @@ __metadata:
     ember-cli-dependency-checker: ^3.2.0
     ember-cli-htmlbars: ^6.0.1
     ember-cli-inject-live-reload: ^2.1.0
+    ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
     ember-data: ~4.3.0
@@ -8015,6 +8016,7 @@ __metadata:
     prettier: ^2.6.1
     qunit: ^2.18.0
     qunit-dom: ^2.0.0
+    sass: ^1.53.0
     webpack: ^5.70.0
   languageName: unknown
   linkType: soft
@@ -8579,6 +8581,18 @@ __metadata:
     broccoli-sass-source-maps: ^4.0.0
     ember-cli-version-checker: ^2.1.0
   checksum: 99eb9045b19c82851a90435df14b4ab4108ee0fd57a9e78d085c225a9d3dfb72bae8118707cf2f1a2d4d37abc2c40ad0dd95c0079f43d051ec90526448189ac3
+  languageName: node
+  linkType: hard
+
+"ember-cli-sass@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "ember-cli-sass@npm:11.0.1"
+  dependencies:
+    broccoli-funnel: ^2.0.1
+    broccoli-merge-trees: ^3.0.1
+    broccoli-sass-source-maps: ^4.0.0
+    ember-cli-version-checker: ^2.1.0
+  checksum: 5f690b60be6b0d49b542c89c4ee51d17798c2ddee1dfa0d28fd3e92bc5ebf16df522f5c799abf247f1bf6190f0c75cf6cc0560400db0f004606c2b6e5631f0de
   languageName: node
   linkType: hard
 
@@ -17348,6 +17362,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: 175a073c0e7b67d1baff6d3969431228002ece681886cebc2a354c241134ff120fda5c12a0465989966dacfb1ca518d85507304f4d4cd03d4a91d71dbc77d978
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.53.0":
+  version: 1.53.0
+  resolution: "sass@npm:1.53.0"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 4bcb0617d6a4d1f2c089a1cb5c32f65a9ee874b23559f2742fab07cf8478fb74ad20c0730cf9f93915d7dbfc258901f89970674228c3ac91c3883a0a62a0ddab
   languageName: node
   linkType: hard
 
