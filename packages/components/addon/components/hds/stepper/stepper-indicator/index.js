@@ -1,13 +1,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-// export const DEFAULT_STATUS = 'incomplete'
-// export const DEFAULT_TYPE = 'step'
-// export const DEFAULT_NUMBER = '1'
-
-export const STATUSES = ["incomplete", "inProgress", "complete"];
-
-export const TYPES = ["step", "task"];
+export const DEFAULT_STATUS = 'incomplete';
+export const STATUSES = ['incomplete', 'inProgress', 'complete'];
 
 export default class HdsStepperStepperIndicatorIndexComponent extends Component {
   /**
@@ -17,38 +12,16 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
 
   get status() {
-    let { status = "incomplete" } = this.args;
+    let { status = DEFAULT_STATUS } = this.args;
 
     assert(
-      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUSES.join(", ")}, received: ${status}`,
+      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUSES.join(
+        ', '
+      )}, received: ${status}`,
       STATUSES.includes(status)
     );
 
     return status;
-  }
-
-  /**
-   * @param stepNumber
-   * @type {string}
-   * @default '1'
-   */
-
-  get stepNumber() {
-    let { stepNumber = "1" } = this.args;
-
-    return stepNumber;
-  }
-
-  /**
-   * @param type
-   * @type {string}
-   * @default "step"
-   */
-
-  get type() {
-    let { type = "step" } = this.args;
-
-    return type;
   }
 
   /**
@@ -70,7 +43,7 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    */
 
   get isInteractive() {
-    let { isInteractive = true } = this.args;
+    let { isInteractive = false } = this.args;
 
     return isInteractive;
   }
@@ -81,23 +54,15 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ["hds-stepper-indicator"];
-
-    // add a class based on the @xxx argument
-    // classes.push(`hds-stepper-stepper-indicator--[variant]-${this.xxx}`);
+    let classes = ['hds-stepper-indicator'];
 
     // Based on the @status arg
     classes.push(`hds-stepper-indicator--status-${this.status}`);
 
-    // Based on boolean isProcessing arg
-    if (this.isProcessing === true) {
-      classes.push(`hds-stepper-indicator--isProcessing`)
-    };
-
     if (this.isInteractive) {
-      classes.push(`isInteractive`)
-    };
+      classes.push(`hds-stepper-indicator--is-interactive`);
+    }
 
-    return classes.join(" ");
+    return classes.join(' ');
   }
 }
