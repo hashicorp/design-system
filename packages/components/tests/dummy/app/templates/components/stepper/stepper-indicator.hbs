@@ -57,7 +57,8 @@
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-  <h4 class="dummy-h4">Status</h4>
+  <h4 class="dummy-h4">Type::Step</h4>
+  <h5 class="dummy-h5">Status</h5>
   <div class="dummy-stepper-indicator-sample">
     <Hds::Stepper::StepperIndicator
       @type='step'
@@ -84,7 +85,7 @@
       @isProcessing={{false}}
     />
   </div>
-  <h4 class="dummy-h4">isProcessing</h4>
+  <h5 class="dummy-h5">isProcessing</h5>
   <div class="dummy-stepper-indicator-sample">
     <Hds::Stepper::StepperIndicator
       @type='step'
@@ -100,7 +101,7 @@
       @isInteractive={{false}}
     />
   </div>
-  <h4 class="dummy-h4">isInteractive::false</h4>
+  <h5 class="dummy-h5">isInteractive::false</h5>
   <div class="dummy-stepper-indicator-sample">
     <Hds::Stepper::StepperIndicator
       @type='step'
@@ -125,6 +126,73 @@
       @type='step'
       @status='incomplete'
       @stepNumber='4'
+      @isInteractive={{false}}
+    />
+  </div>
+  <h4 class="dummy-h4">Type::Task</h4>
+  <h5 class='dummy-h5'>Status</h5>
+  <div class='dummy-stepper-indicator-sample'>
+    <Hds::Stepper::StepperIndicator
+      @type='task'
+      @status='complete'
+      @stepNumber='1'
+      @isInteractive={{true}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='task'
+      @status='inProgress'
+      @stepNumber='2'
+      @isInteractive={{true}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='task'
+      @status='incomplete'
+      @stepNumber='3'
+      @isInteractive={{true}}
+    />
+  </div>
+  <h5 class="dummy-h5">isProcessing</h5>
+  <div class="dummy-stepper-indicator-sample">
+    <Hds::Stepper::StepperIndicator
+      @type='task'
+      @status='inProgress'
+      @stepNumber='1'
+      @isInteractive={{true}}
+      @isProcessing={{true}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type='task'
+      @status='inProgress'
+      @stepNumber='1'
+      @isInteractive={{false}}
+      @isProcessing={{true}}
+    />
+  </div>
+  <h5 class="dummy-h5">isInteractive::false</h5>
+  <div class="dummy-stepper-indicator-sample">
+    <Hds::Stepper::StepperIndicator
+      @type="task"
+      @status="complete"
+      @stepNumber="1"
+      @isInteractive={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type="task"
+      @status="inProgress"
+      @stepNumber="2"
+      @isInteractive={{false}}
+      @isProcessing={{true}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type="task"
+      @status="inProgress"
+      @stepNumber="3"
+      @isInteractive={{false}}
+    />
+    <Hds::Stepper::StepperIndicator
+      @type="task"
+      @status="incomplete"
+      @stepNumber="4"
       @isInteractive={{false}}
     />
   </div>

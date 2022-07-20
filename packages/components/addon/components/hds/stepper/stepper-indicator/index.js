@@ -1,12 +1,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-// export const DEFAULT_STATUS = 'incomplete'
-// export const DEFAULT_TYPE = 'step'
-// export const DEFAULT_NUMBER = '1'
-
 export const STATUSES = ["incomplete", "inProgress", "complete"];
-
 export const TYPES = ["step", "task"];
 
 export default class HdsStepperStepperIndicatorIndexComponent extends Component {
@@ -86,6 +81,9 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
     // add a class based on the @xxx argument
     // classes.push(`hds-stepper-stepper-indicator--[variant]-${this.xxx}`);
 
+    // Based on the @type arg
+    classes.push(`hds-stepper-indicator--type-${this.type}`);
+
     // Based on the @status arg
     classes.push(`hds-stepper-indicator--status-${this.status}`);
 
@@ -94,8 +92,9 @@ export default class HdsStepperStepperIndicatorIndexComponent extends Component 
       classes.push(`hds-stepper-indicator--isProcessing`)
     };
 
+    // based on the boolean isInteractive arg
     if (this.isInteractive) {
-      classes.push(`hds-stepper-indicator--isInteractive`)
+      classes.push(`isInteractive`)
     };
 
     return classes.join(" ");
