@@ -4,18 +4,18 @@
 // properties within each class are sorted alphabetically
 //
 
-$hds-stepper-indicator-size: 24px;
+$hds-stepper-indicator-step-size: 24px;
 
 // Base stepper indicator styling
-.hds-stepper-indicator {
-  width: $hds-stepper-indicator-size;
-  height: $hds-stepper-indicator-size;
+.hds-stepper-indicator-step {
+  width: $hds-stepper-indicator-step-size;
+  height: $hds-stepper-indicator-step-size;
   font-family: var(--token-typography-font-stack-text);
   font-weight: var(--token-typography-font-weight-medium);
   position: relative;
 }
 
-.hds-stepper-indicator__svg-container {
+.hds-stepper-indicator-step__svg-container {
   filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
   height: 100%;
   width: 100%;
@@ -26,7 +26,7 @@ $hds-stepper-indicator-size: 24px;
   }
 }
 
-.hds-stepper-indicator__status {
+.hds-stepper-indicator-step__status {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,13 +38,13 @@ $hds-stepper-indicator-size: 24px;
   left: 0;
 }
 
-.hds-stepper-indicator__icon {
+.hds-stepper-indicator-step__icon {
   color: var(--status-text-color);
   width: 12px;
   height: 12px;
 }
 
-.hds-stepper-indicator__text {
+.hds-stepper-indicator-step__text {
   color: var(--status-text-color);
   font-family: var(--token-typography-font-stack-text);
   font-weight: var(--token-typography-font-weight-medium);
@@ -61,22 +61,22 @@ $hds-stepper-indicator-size: 24px;
 // Non-interactive (default)
 
 // @status='incomplete'
-.hds-stepper-indicator--status-incomplete {
+.hds-stepper-indicator-step--status-incomplete {
   --status-text-color: var(--token-color-foreground-strong);
   --status-fill-color: var(--token-color-surface-faint);
   --status-stroke-color: var(--token-color-foreground-strong);
 }
 
 // @status='progress'|'processing'
-.hds-stepper-indicator--status-progress,
-  .hds-stepper-indicator--status-processing {
+.hds-stepper-indicator-step--status-progress,
+  .hds-stepper-indicator-step--status-processing {
   --status-text-color: var(--token-color-foreground-high-contrast);
   --status-fill-color: var(--token-color-palette-neutral-700);
   --status-stroke-color: var(--token-color-palette-neutral-700);
 }
 
 // @status='complete'
-.hds-stepper-indicator--status-complete {
+.hds-stepper-indicator-step--status-complete {
   --status-text-color: var(--token-color-foreground-high-contrast);
   --status-fill-color: var(--token-color-palette-neutral-700);
   --status-stroke-color: var(--token-color-palette-neutral-700);
@@ -84,11 +84,11 @@ $hds-stepper-indicator-size: 24px;
 
 // Interactive
 
-.hds-stepper-indicator--is-interactive {
+.hds-stepper-indicator-step--is-interactive {
   cursor: pointer;
 
   // @status='incomplete'
-  &.hds-stepper-indicator--status-incomplete {
+  &.hds-stepper-indicator-step--status-incomplete {
     --status-text-color: var(--token-color-foreground-primary);
     --status-fill-color: var(--token-color-surface-faint);
     --status-stroke-color: var(--token-color-border-strong);
@@ -103,8 +103,8 @@ $hds-stepper-indicator-size: 24px;
   }
 
   // @status='progress'|'processing'
-  &.hds-stepper-indicator--status-progress,
-  &.hds-stepper-indicator--status-processing {
+  &.hds-stepper-indicator-step--status-progress,
+  &.hds-stepper-indicator-step--status-processing {
     --status-text-color: var(--token-color-foreground-high-contrast);
     --status-fill-color: var(--token-color-palette-blue-200);
     --status-stroke-color: var(--token-color-palette-blue-300);
@@ -121,7 +121,7 @@ $hds-stepper-indicator-size: 24px;
   }
 
   // @status='complete'
-  &.hds-stepper-indicator--status-complete {
+  &.hds-stepper-indicator-step--status-complete {
     --status-text-color: var(--token-color-foreground-action);
     --status-fill-color: var(--token-color-surface-action);
     --status-stroke-color: var(--token-color-palette-blue-200);
