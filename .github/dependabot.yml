@@ -17,7 +17,7 @@ updates:
     allow: 
       - dependency-name: "@percy/*"
   - package-ecosystem: "npm" 
-    directory: "packages/flight-website/" 
+    directory: "flight-website/" 
     versioning-strategy: increase
     schedule:
       interval: "weekly"
