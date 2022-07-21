@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug'
 
 export const DEFAULT_STATUS = "incomplete";
 export const DEFAULT_INTERACTIVE = false;
@@ -17,8 +18,9 @@ export default class HdsStepperStepperIndicatorTaskIndexComponent extends Compon
     let { status = DEFAULT_STATUS } = this.args;
 
     assert(
-      `@status for "Hds::Stepper::Indicator::Task" must be one of the following: ${STATUSES.join(', ')},
-      received: ${status}`,
+      `@status for "Hds::Stepper::Indicator::Task" must be one of the following: ${STATUSES.join(
+        ', '
+      )}, received: ${status}`,
       STATUSES.includes(status)
     );
 
@@ -32,9 +34,9 @@ export default class HdsStepperStepperIndicatorTaskIndexComponent extends Compon
    */
 
   get isInteractive() {
-    let { isInteractive = DEFAULT_INTERACTIVE } = this.args
+    let { isInteractive = DEFAULT_INTERACTIVE } = this.args;
 
-    return isInteractive
+    return isInteractive;
   }
 
   /**

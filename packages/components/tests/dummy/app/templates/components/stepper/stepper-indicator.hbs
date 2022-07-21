@@ -106,6 +106,15 @@
   </div>
   <h5 class="dummy-h5">Task</h5>
   <div class="dummy-stepper-indicator-sample">
-    <Hds::Stepper::StepperIndicator::Task @status="incomplete" />
+    <Hds::Stepper::StepperIndicator::Task @status="incomplete" @isInteractive={{false}} />
+    <Hds::Stepper::StepperIndicator::Task @status="progress" @isInteractive={{false}} />
+    <Hds::Stepper::StepperIndicator::Task @status="processing" @isInteractive={{false}} />
+    <Hds::Stepper::StepperIndicator::Task @status="complete" @isInteractive={{false}} />
+  </div>
+  <div class="dummy-stepper-indicator-sample">
+    <Hds::Stepper::StepperIndicator::Task @status="incomplete" @isInteractive={{true}} />
+    <Hds::Stepper::StepperIndicator::Task @status="progress" @isInteractive={{true}} />
+    <Hds::Stepper::StepperIndicator::Task @status="processing" @isInteractive={{true}} />
+    <Hds::Stepper::StepperIndicator::Task @status="complete" @isInteractive={{true}}  />
   </div>
 </section>
