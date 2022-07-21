@@ -36,11 +36,8 @@ Router.map(function () {
       this.route('standalone');
     });
     this.route('toast');
-
     this.route('stepper', function () {
-      this.route('stepper-indicator', function () {
-        this.route('task');
-      });
+      this.route('stepper-indicator');
     });
   });
   this.route('content', function () {

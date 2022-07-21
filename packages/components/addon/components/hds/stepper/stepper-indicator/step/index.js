@@ -6,7 +6,7 @@ export const DEFAULT_INTERACTIVE = false;
 // TODO @Jory sort them logically
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
-export default class HdsStepperStepperIndicatorIndexComponent extends Component {
+export default class HdsStepperStepperIndicatorStepIndexComponent extends Component {
   /**
    * @param status
    * @type {string}
