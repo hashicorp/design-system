@@ -47,6 +47,7 @@ export default class HdsStepperStepperIndicatorTaskIndexComponent extends Compon
   get classNames() {
     let classes = ['hds-stepper-indicator-task'];
 
+    // Based on the @status arg
     classes.push(`hds-stepper-indicator-task--status-${this.status}`);
 
     if (this.isInteractive) {
