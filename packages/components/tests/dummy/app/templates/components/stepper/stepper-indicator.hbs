@@ -104,17 +104,51 @@
       <Hds::Stepper::StepperIndicator @status="complete" @text="3" @isInteractive={{true}} />
     </div>
   </div>
-  <h5 class="dummy-h5">Task</h5>
+  <h4 class="dummy-h4">Task</h4>
+  <h5 class="dummy-h5">Default</h5>
   <div class="dummy-stepper-indicator-sample">
-    <Hds::Stepper::StepperIndicator::Task @status="incomplete" @isInteractive={{false}} />
-    <Hds::Stepper::StepperIndicator::Task @status="progress" @isInteractive={{false}} />
-    <Hds::Stepper::StepperIndicator::Task @status="processing" @isInteractive={{false}} />
-    <Hds::Stepper::StepperIndicator::Task @status="complete" @isInteractive={{false}} />
+    <div>
+      <span class="dummy-text-small">incomplete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="incomplete" @isInteractive={{false}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">progress</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="progress" @isInteractive={{false}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">processing</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="processing" @isInteractive={{false}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">complete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="complete" @isInteractive={{false}} />
+    </div>
   </div>
+  <h5 class="dummy-h5">Interactive</h5>
   <div class="dummy-stepper-indicator-sample">
-    <Hds::Stepper::StepperIndicator::Task @status="incomplete" @isInteractive={{true}} />
-    <Hds::Stepper::StepperIndicator::Task @status="progress" @isInteractive={{true}} />
-    <Hds::Stepper::StepperIndicator::Task @status="processing" @isInteractive={{true}} />
-    <Hds::Stepper::StepperIndicator::Task @status="complete" @isInteractive={{true}}  />
+    <div>
+      <span class="dummy-text-small">incomplete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="incomplete" @isInteractive={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">progress</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="progress" @isInteractive={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">processing</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="processing" @isInteractive={{true}} />
+    </div>
+    <div>
+      <span class="dummy-text-small">complete</span>
+      <br />
+      <Hds::Stepper::StepperIndicator::Task @status="complete" @isInteractive={{true}}  />
+    </div>
   </div>
 </section>
