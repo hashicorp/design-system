@@ -10,10 +10,10 @@
 .hds-form-checkbox {
   appearance: none;
   background-position: center center;
-  background-size: 12px 12px;
-  border-radius: var(--token-form-checkbox-border-radius);
+  background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
+  border-width: var(--token-form-checkbox-border-width);
   border-style: solid;
-  border-width: 1px;
+  border-radius: var(--token-form-checkbox-border-radius);
   cursor: pointer;
   height: var(--token-form-checkbox-size);
   margin: 0;
@@ -25,41 +25,33 @@
   // base (default)
 
   &:not(:checked) {
-    background-color: var(--token-form-control-background-color-default);
-    border-color: var(--token-form-control-border-color-default);
+    background-color: var(--token-form-control-base-surface-color-default);
+    border-color: var(--token-form-control-base-border-color-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
   &:checked {
-    background-color: var(--token-form-control-background-color-checked);
-    border-color: var(--token-form-control-border-color-checked);
-    // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e");
+    background-color: var(--token-form-control-checked-surface-color-default);
+    border-color: var(--token-form-control-checked-border-color-default);
+    background-image: var(--token-form-checkbox-background-image-data-url);
   }
 
   // hover
 
   &:hover:not(:checked),
   &.mock-hover:not(:checked) {
-    background-color: var(--token-form-control-background-color-default-hover);
-    border-color: var(--token-form-control-border-color-default-hover);
+    background-color: var(--token-form-control-base-surface-color-hover);
+    border-color: var(--token-form-control-base-border-color-hover);
   }
   &:hover:checked,
   &.mock-hover:checked {
-    background-color: var(--token-form-control-background-color-checked-hover);
-    border-color: var(--token-form-control-border-color-checked-hover);
+    background-color: var(--token-form-control-checked-border-color-default);
+    border-color: var(--token-form-control-checked-border-color-hover);
   }
 
-  // focus
+  // focus (same for all the states)
 
-  &:focus:not(:checked),
-  &.mock-focus:not(:checked) {
-    border-color: var(--token-form-control-border-color-default);
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 1px;
-  }
-  &:focus:checked,
-  &.mock-focus:checked {
-    border-color: var(--token-form-control-border-color-checked);
+  &:focus,
+  &.mock-focus {
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 1px;
   }
@@ -67,17 +59,16 @@
   // DISABLED
 
   &:disabled:not(:checked) {
-    background-color: var(--token-form-control-background-color-disabled);
-    border-color: var(--token-form-control-border-color-disabled);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
   }
   &:disabled:checked {
-    background-color: var(--token-form-control-background-color-disabled);
-    border-color: var(--token-form-control-border-color-disabled);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
-    // notice: the "tick" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e");
+    background-image: var(--token-form-checkbox-background-image-data-url-disabled);
     cursor: not-allowed;
   }
 }
