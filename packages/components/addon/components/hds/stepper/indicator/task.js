@@ -40,7 +40,7 @@ export default class HdsStepperIndicatorTaskIndexComponent extends Component {
 
   /**
    * Get the class names to apply to the component.
-   * @method classNames
+   * @method IndicatorTask#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
