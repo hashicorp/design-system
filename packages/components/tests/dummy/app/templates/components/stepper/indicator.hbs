@@ -73,7 +73,7 @@
     <div class="dummy-stepper-indicator-grid">
       {{#each @model.STATES as |state|}}
         <div>
-          <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
+          <span class="dummy-text-small">{{capitalize status}}:{{state}}</span>
           <br />
           <Hds::Stepper::Indicator::Step
             @status={{status}}
@@ -100,7 +100,7 @@
     <div class="dummy-stepper-indicator-grid">
       {{#each @model.STATES as |state|}}
         <div>
-          <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
+          <span class="dummy-text-small">{{capitalize status}}:{{state}}</span>
           <br />
           <Hds::Stepper::Indicator::Task
             @status={{status}}
