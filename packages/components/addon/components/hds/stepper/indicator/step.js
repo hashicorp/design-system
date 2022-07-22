@@ -3,7 +3,7 @@ import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
 export const DEFAULT_INTERACTIVE = false;
-// TODO @Jory sort them logically
+
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
 export default class HdsStepperIndicatorStepIndexComponent extends Component {
@@ -17,7 +17,7 @@ export default class HdsStepperIndicatorStepIndexComponent extends Component {
     let { status = DEFAULT_STATUS } = this.args;
 
     assert(
-      `@status for "Hds::Stepper::Indicator" must be one of the following: ${STATUSES.join(
+      `@status for "Hds::Stepper::Indicator::Step" must be one of the following: ${STATUSES.join(
         ', '
       )}, received: ${status}`,
       STATUSES.includes(status)

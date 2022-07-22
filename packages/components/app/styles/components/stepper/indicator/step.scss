@@ -93,11 +93,13 @@ $hds-stepper-indicator-step-size: 24px;
     --status-fill-color: var(--token-color-surface-faint);
     --status-stroke-color: var(--token-color-border-strong);
 
-    &:hover {
+    &:hover,
+    &.mock-hover {
       --status-fill-color: var(--token-color-surface-primary);
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
       --status-fill-color: var(--token-color-surface-interactive-active);
     }
   }
@@ -109,13 +111,15 @@ $hds-stepper-indicator-step-size: 24px;
     --status-fill-color: var(--token-color-palette-blue-200);
     --status-stroke-color: var(--token-color-palette-blue-300);
 
-    &:hover {
+    &:hover,
+    &.mock-hover {
       --status-fill-color: var(--token-color-surface-primary);
       --status-fill-color: var(--token-color-palette-blue-300);
       --status-stroke-color: var(--token-color-palette-blue-400);
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
       --status-fill-color: var(--token-color-palette-blue-400);
     }
   }
@@ -126,13 +130,15 @@ $hds-stepper-indicator-step-size: 24px;
     --status-fill-color: var(--token-color-surface-action);
     --status-stroke-color: var(--token-color-palette-blue-200);
 
-    &:hover {
+    &:hover,
+    &.mock-hover {
       --status-text-color: var(--token-color-foreground-action-hover);
       --status-fill-color: var(--token-color-palette-blue-100);
       --status-stroke-color: var(--token-color-palette-blue-300);
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
       --status-text-color: var(--token-color-foreground-action-active);
       --status-fill-color: var(--token-color-palette-blue-100);
       --status-stroke-color: var(--token-color-palette-blue-400);

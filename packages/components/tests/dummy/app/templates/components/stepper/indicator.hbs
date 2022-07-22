@@ -59,96 +59,55 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
   <h4 class="dummy-h4">Status</h4>
   <h5 class="dummy-h5">Default</h5>
-  <div class="dummy-stepper-indicator-sample">
+  <div class="dummy-stepper-indicator-grid">
+    {{#each @model.STATUSES as |status|}}
     <div>
-      <span class="dummy-text-small">incomplete</span>
+      <span class="dummy-text-small">{{capitalize status}}</span>
       <br />
-      <Hds::Stepper::Indicator::Step @status="incomplete" @text="1" />
+      <Hds::Stepper::Indicator::Step @status={{status}} @text="1" />
     </div>
-    <div>
-      <span class="dummy-text-small">progress</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="progress" @text="2" />
-    </div>
-    <div>
-      <span class="dummy-text-small">processing</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="processing" @text="3" />
-    </div>
-    <div>
-      <span class="dummy-text-small">complete</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="complete" @text="4" />
-    </div>
+    {{/each}}
   </div>
   <h5 class="dummy-h5">Interactive</h5>
-  <div class="dummy-stepper-indicator-sample">
-    <div>
-      <span class="dummy-text-small">incomplete</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="incomplete" @text="1" @isInteractive={{true}} />
+  {{#each @model.STATUSES as |status|}}
+    <div class="dummy-stepper-indicator-grid">
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
+          <br />
+          <Hds::Stepper::Indicator::Step
+            @status={{status}}
+            @text="1"
+            @isInteractive={{true}}
+            mock-state-value={{state}} />
+        </div>
+      {{/each}}
     </div>
-    <div>
-      <span class="dummy-text-small">progress</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="progress" @text="2" @isInteractive={{true}} />
-    </div>
-    <div>
-      <span class="dummy-text-small">processing</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="processing" @text="3" @isInteractive={{true}} />
-    </div>
-    <div>
-      <span class="dummy-text-small">complete</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status="complete" @text="3" @isInteractive={{true}} />
-    </div>
-  </div>
+  {{/each}}
   <h4 class="dummy-h4">Task</h4>
   <h5 class="dummy-h5">Default</h5>
-  <div class="dummy-stepper-indicator-sample">
+  <div class="dummy-stepper-indicator-grid">
+    {{#each @model.STATUSES as |status|}}
     <div>
-      <span class="dummy-text-small">incomplete</span>
+      <span class="dummy-text-small">{{capitalize status}}</span>
       <br />
-      <Hds::Stepper::Indicator::Task @status="incomplete" @isInteractive={{false}} />
+      <Hds::Stepper::Indicator::Task @status={{status}} @text="1" />
     </div>
-    <div>
-      <span class="dummy-text-small">progress</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="progress" @isInteractive={{false}} />
-    </div>
-    <div>
-      <span class="dummy-text-small">processing</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="processing" @isInteractive={{false}} />
-    </div>
-    <div>
-      <span class="dummy-text-small">complete</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="complete" @isInteractive={{false}} />
-    </div>
+    {{/each}}
   </div>
   <h5 class="dummy-h5">Interactive</h5>
-  <div class="dummy-stepper-indicator-sample">
-    <div>
-      <span class="dummy-text-small">incomplete</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="incomplete" @isInteractive={{true}} />
+  {{#each @model.STATUSES as |status|}}
+    <div class="dummy-stepper-indicator-grid">
+      {{#each @model.STATES as |state|}}
+        <div>
+          <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
+          <br />
+          <Hds::Stepper::Indicator::Task
+            @status={{status}}
+            @isInteractive={{true}}
+            mock-state-value={{state}} />
+        </div>
+      {{/each}}
     </div>
-    <div>
-      <span class="dummy-text-small">progress</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="progress" @isInteractive={{true}} />
-    </div>
-    <div>
-      <span class="dummy-text-small">processing</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="processing" @isInteractive={{true}} />
-    </div>
-    <div>
-      <span class="dummy-text-small">complete</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status="complete" @isInteractive={{true}} />
-    </div>
-  </div>
+  {{/each}}
 </section>
