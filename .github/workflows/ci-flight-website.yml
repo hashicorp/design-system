@@ -30,7 +30,7 @@ jobs:
         run: yarn install --immutable
       - name: Lint
         run: yarn run lint
-        working-directory: packages/flight-website
+        working-directory: flight-website
 
   test:
     name: "Test"
@@ -48,6 +48,6 @@ jobs:
         run: yarn install --immutable
       - name: Run Tests
         run: yarn run test:ember:percy
-        working-directory: packages/flight-website
+        working-directory: flight-website
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBSITE }}
