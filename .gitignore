@@ -2,6 +2,8 @@
 .DS_Store
 node_modules/
 
+*.code-workspace
+
 /yarn-error.log
 .yarn/*
 !.yarn/patches
