@@ -2030,7 +2030,7 @@ __metadata:
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/design-system-tokens": ^0.8.1
     "@hashicorp/ember-flight-icons": ^2.0.8
-    "@percy/cli": ^1.6.1
+    "@percy/cli": ^1.6.3
     "@percy/ember": ^3.0.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
@@ -2123,7 +2123,7 @@ __metadata:
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/flight-icons": ^2.6.0
-    "@percy/cli": ^1.6.1
+    "@percy/cli": ^1.6.3
     "@percy/ember": ^3.0.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
@@ -2535,117 +2535,117 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cli-build@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli-build@npm:1.6.1"
+"@percy/cli-build@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli-build@npm:1.6.3"
   dependencies:
-    "@percy/cli-command": 1.6.1
-  checksum: 3e54c00032c79b633789306e19a94af64ba8bf4de90c35d98c4b06f06493f696bf1713c701a32bb81039af59cb3de5c8b34bdad0097c028a8e7c18666ee9f5fe
+    "@percy/cli-command": 1.6.3
+  checksum: 4d90a803a7402d0c60b55a31c1c019dd982684f727be0551331155ef3bed6b0ac2ab85b8c019cc8d71c6362c1a9f70ce62cd19f450ae01c7f09d1790f6e7d6bd
   languageName: node
   linkType: hard
 
-"@percy/cli-command@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli-command@npm:1.6.1"
+"@percy/cli-command@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli-command@npm:1.6.3"
   dependencies:
-    "@percy/config": 1.6.1
-    "@percy/core": 1.6.1
-    "@percy/logger": 1.6.1
+    "@percy/config": 1.6.3
+    "@percy/core": 1.6.3
+    "@percy/logger": 1.6.3
   bin:
     percy-cli-readme: bin/readme.js
-  checksum: 73247e4686e23072c95f60be3beba4906e16e8b60abb45f69cdbf7644ab19c253b2404722044444398a6a69a56374833d1986e82514583e43c35620ab0d0d0e4
+  checksum: 335d524c05a595508f7b46e511f68eb1bda44f8f48f5e35e8d10d57a131a93951bb1dba6c2c3e466c1dd57f96fa956eb7ea4d0149302ccf7fbfb9bb13454a13f
   languageName: node
   linkType: hard
 
-"@percy/cli-config@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli-config@npm:1.6.1"
+"@percy/cli-config@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli-config@npm:1.6.3"
   dependencies:
-    "@percy/cli-command": 1.6.1
-  checksum: f9f0eaa161bf7ea29fe053fa96b325ebd4000f2aec82f1638ce3472e789dc3148655dbef4505a259304ed1b7472b928a7f4b34a28e34e6bc7a2558c7ba5ba22b
+    "@percy/cli-command": 1.6.3
+  checksum: eff9c8b74aa1d640e8bc33f5ed3cbbde6f9708cd5c33428bee94bd9917896621912ea9bad129520d0096d23ea89f6105de250c2b0e0ae93f7fbf2ef2f4134f8a
   languageName: node
   linkType: hard
 
-"@percy/cli-exec@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli-exec@npm:1.6.1"
+"@percy/cli-exec@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli-exec@npm:1.6.3"
   dependencies:
-    "@percy/cli-command": 1.6.1
+    "@percy/cli-command": 1.6.3
     cross-spawn: ^7.0.3
     which: ^2.0.2
-  checksum: 98ec6471bfae93cbcd4197ea4ab739d29bb9722560e28ef980da1ec541797c1f1249226c1c666b7346fc57c6e08ed6b538ce3f9cd2c07065f75d21ff91c46c4e
+  checksum: 796a19ff9af9ad389d7e945c626c0941f2ac98244d40e66f5ece246791dc161a82ca5b0eb71e327e556c195f476104ff3ee524d67617697145dbf479028adbf5
   languageName: node
   linkType: hard
 
-"@percy/cli-snapshot@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli-snapshot@npm:1.6.1"
+"@percy/cli-snapshot@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli-snapshot@npm:1.6.3"
   dependencies:
-    "@percy/cli-command": 1.6.1
+    "@percy/cli-command": 1.6.3
     yaml: ^2.0.0
-  checksum: 0ddfcf2d1c5c3f4f7697f9d92afe2e69c0acdda17733c6f397a2e742f297f95aadb2117b4ccef6c162ddf6f49ea39abd197f9a9cb35a0382b4268a11c0c8c555
+  checksum: 608aa140900f5cf3efbf13af42efbb6b6d600a24c3d5f162faf7771131fb6709b9dc9de58c643462096470545bfe20ad3eb746ef329a79166cdeb0b83b190e86
   languageName: node
   linkType: hard
 
-"@percy/cli-upload@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli-upload@npm:1.6.1"
+"@percy/cli-upload@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli-upload@npm:1.6.3"
   dependencies:
-    "@percy/cli-command": 1.6.1
+    "@percy/cli-command": 1.6.3
     fast-glob: ^3.2.11
     image-size: ^1.0.0
-  checksum: fe0b0c05d0b4122df33fa60e0d09da588398d2c8b9c7d7f783e0a2b11e306800723c8cb06b1638ebee962ec0408ded082cbee0a95ed0563d94f3dba05fe58a07
+  checksum: a29af77e01cc8339de8128c25b9a0658d5e0c16e1be81ea5ca90fee13661e9cb0a2e8ea54344c4706434115d4d62561c1eefdbaf3168e5d99cc21f7f607ed3ae
   languageName: node
   linkType: hard
 
-"@percy/cli@npm:^1.6.1":
-  version: 1.6.1
-  resolution: "@percy/cli@npm:1.6.1"
+"@percy/cli@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "@percy/cli@npm:1.6.3"
   dependencies:
-    "@percy/cli-build": 1.6.1
-    "@percy/cli-command": 1.6.1
-    "@percy/cli-config": 1.6.1
-    "@percy/cli-exec": 1.6.1
-    "@percy/cli-snapshot": 1.6.1
-    "@percy/cli-upload": 1.6.1
-    "@percy/client": 1.6.1
-    "@percy/logger": 1.6.1
+    "@percy/cli-build": 1.6.3
+    "@percy/cli-command": 1.6.3
+    "@percy/cli-config": 1.6.3
+    "@percy/cli-exec": 1.6.3
+    "@percy/cli-snapshot": 1.6.3
+    "@percy/cli-upload": 1.6.3
+    "@percy/client": 1.6.3
+    "@percy/logger": 1.6.3
   bin:
     percy: bin/run.cjs
-  checksum: ab899a728770946e35f897f828822cc401cb26bf99f2fded9d428e29a9c80e6021ad631adb95cca2eb90eac57470d65a190b35597d1bd444383a1792adda4056
+  checksum: 417d6c4b97743211cc1ce44088de89fb40386248bb7fd34536990fcc59916940be31acb5ff99f0ff6f764038f47db65ca423a27d8ebaceaa4426542692a43809
   languageName: node
   linkType: hard
 
-"@percy/client@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/client@npm:1.6.1"
+"@percy/client@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/client@npm:1.6.3"
   dependencies:
-    "@percy/env": 1.6.1
-    "@percy/logger": 1.6.1
-  checksum: 9aa57a6662483e9ba79502ac8dcea68b434f9cb5eff403ff9ec2bac2844c02e0f09bbc33c0eda27df3888cfff7591b07ca15826438bf945dce509e8fdb420a5a
+    "@percy/env": 1.6.3
+    "@percy/logger": 1.6.3
+  checksum: 9b353a8ab6c77326d857403d305f7307c85bf2623e9132243a9453d7f9044f63d66765fe7db61f705977416445dea9275d3211ca45ec479b8b845b366dfafd0e
   languageName: node
   linkType: hard
 
-"@percy/config@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/config@npm:1.6.1"
+"@percy/config@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/config@npm:1.6.3"
   dependencies:
-    "@percy/logger": 1.6.1
+    "@percy/logger": 1.6.3
     ajv: ^8.6.2
     cosmiconfig: ^7.0.0
     yaml: ^2.0.0
-  checksum: 2fd90f1d0e2037b58563c05065097535dfa2e4de4aa800691a25c5f82bee9ad936c35af336af1c0ba235aef4e043d9a57744c2255158ca4ba533921c2343ecfb
+  checksum: 4d90749bf5a6987a460c45daebda8e0c1e02600b5f7f7b79255ae2417eb63baa5fe58fd3fe644d2e6a75b3226a43b1335df9d9dddfe29ac1c56757c09737ee98
   languageName: node
   linkType: hard
 
-"@percy/core@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/core@npm:1.6.1"
+"@percy/core@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/core@npm:1.6.3"
   dependencies:
-    "@percy/client": 1.6.1
-    "@percy/config": 1.6.1
-    "@percy/dom": 1.6.1
-    "@percy/logger": 1.6.1
+    "@percy/client": 1.6.3
+    "@percy/config": 1.6.3
+    "@percy/dom": 1.6.3
+    "@percy/logger": 1.6.3
     content-disposition: ^0.5.4
     cross-spawn: ^7.0.3
     extract-zip: ^2.0.1
@@ -2655,14 +2655,14 @@ __metadata:
     path-to-regexp: ^6.2.0
     rimraf: ^3.0.2
     ws: ^8.0.0
-  checksum: c3e13baa0024b1e229b0dc7c3e8b6cc4217a0c6780879e5be9ed448ea5a88de14d61e35b6fe6ab450a4f08bcc2604b33ebbd584924ac8fb99b97649a52bec920
+  checksum: 4398c4518229ed37805b69a6155e6d917ce0f8db0a669088aeafddf2196dc3c18f05b4eb174f2f53ac76867be570bc3632477cbc2e5d400a4217825eff63e9a7
   languageName: node
   linkType: hard
 
-"@percy/dom@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/dom@npm:1.6.1"
-  checksum: b2eca5c1fa06a597da03d91d4727eaa2c18cee7dfe9a9137ebfbe99e88eb4d1599c50533ad9047431c0c227be69fc6b668f350dd03a6a79fd4a6367160b9ba48
+"@percy/dom@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/dom@npm:1.6.3"
+  checksum: 5e1d317d29b227a1419ea35f3f2e6a11638de28751182966d267729d6388ce359b22de1807e01b30f31f599bc373e047feea24e9ca2d10d3e8cf4561780e2ee0
   languageName: node
   linkType: hard
 
@@ -2676,17 +2676,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/env@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/env@npm:1.6.1"
-  checksum: 8c7252a5ced2f7bc4e2b49ffcd670c89f59bfbd8ac0e798d1404d7829bc2bd5f69b67c70e4eb2248e4677e3fab77817e5bff64159f027e70ce03cc9a1f16d5fa
+"@percy/env@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/env@npm:1.6.3"
+  checksum: 063c7ebd72297e086a1dbd2327b7810d47368d6e6c210810516a1cb87c661f3c3c8c5ffa41c78ed28012f31eea8ea53a16e0e61911001b8a527410f1360f328a
   languageName: node
   linkType: hard
 
-"@percy/logger@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@percy/logger@npm:1.6.1"
-  checksum: 10fe091e68d51c658a93ffb8e6a239d2ab8e0c74f26aaaa297124e1ec9fe062ad898bcd18dffc25e4c722319692b8d7fdc5df62156ebc62b443eb8d023b53295
+"@percy/logger@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@percy/logger@npm:1.6.3"
+  checksum: c07c8042e8d2612e9c2fb24c37d0ae91add8cb9b98b65aac90f3ad2bd01c551fae5712effc37416101e783c6c835d2d0b914f70a3c40a777b7de699a85f5bcb3
   languageName: node
   linkType: hard
 
@@ -10143,7 +10143,7 @@ __metadata:
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/ember-flight-icons": ^2.0.8
     "@hashicorp/flight-icons": ^2.6.0
-    "@percy/cli": ^1.6.1
+    "@percy/cli": ^1.6.3
     "@percy/ember": ^3.0.0
     "@tailwindcss/forms": ^0.3.4
     "@tailwindcss/typography": ^0.4.1
