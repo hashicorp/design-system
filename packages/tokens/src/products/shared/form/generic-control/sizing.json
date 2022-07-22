@@ -1,0 +1,21 @@
+{
+    "form": {
+        "control": {
+            "padding": {
+                "value": "7",
+                "type": "size",
+                "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma."
+            },
+            "border": {
+                "radius": {
+                    "value": "5",
+                    "type": "size"
+                },
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                }
+            }
+        }
+    }
+}

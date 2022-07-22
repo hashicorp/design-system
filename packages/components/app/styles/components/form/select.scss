@@ -8,17 +8,17 @@
 
 .hds-form-select {
   appearance: none;
-  background-color: var(--token-form-control-background-color-default);
-  // notice: the icon color is hardcoded here!
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E");
-  background-position: right 7px top 9px; // we have to take into account the border
+  background-color: var(--token-form-control-base-surface-color-default);
+  background-image: var(--token-form-select-background-image-data-url);
+  background-position: right var(--token-form-select-background-image-position-right-x) top var(--token-form-select-background-image-position-top-y); // we have to take into account the border
   background-repeat: no-repeat;
-  background-size: 16px;
-  border: 1px solid var(--token-form-control-border-color-default);
+  background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+  border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
-  color: var(--token-form-control-foreground-color-default);
+  color: var(--token-form-control-base-foreground-value-color);
   box-shadow: var(--token-elevation-low-box-shadow);
-  padding: 7px 31px 7px 7px; // we have to take into account the border - 32px is to have space for the icon
+  padding: var( --token-form-control-padding);
+  padding-right: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
   max-width: 100%;
 
 
@@ -26,7 +26,7 @@
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-form-control-border-color-default-hover);
+    border-color: var(--token-form-control-base-border-color-hover);
   }
 
   // focus (same for all the states)
@@ -42,11 +42,10 @@
   // DISABLED
 
   &:disabled {
-    // notice: the icon color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%238C909C'/%3E%3C/svg%3E");
-    background-color: var(--token-form-control-background-color-disabled);
-    border-color: var(--token-form-control-border-color-disabled);
-    color: var(--token-form-control-foreground-color-disabled);
+    background-image: var(--token-form-select-background-image-data-url-disabled);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
+    color: var(--token-form-control-disabled-foreground-color);
     cursor: not-allowed;
     box-shadow: none;
   }
@@ -54,11 +53,11 @@
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: var(--token-form-control-border-color-critical);
+    border-color: var(--token-form-control-invalid-border-color-default);
 
     &:hover,
     &.mock-hover {
-      border-color: var(--token-form-control-border-color-critical-hover);
+      border-color: var(--token-form-control-invalid-border-color-hover);
     }
 
     &:focus,
