@@ -7,7 +7,7 @@
 $hds-stepper-indicator-task-statuses: ( "incomplete", "progress", "processing", "complete" );
 $hds-stepper-indicator-task-size: 16px;
 
-// Determine states and corresponding colors
+// Determine states and corresponding styles
 $status-props: (
     "incomplete": (
         "color-default": var(--token-color-palette-neutral-300),

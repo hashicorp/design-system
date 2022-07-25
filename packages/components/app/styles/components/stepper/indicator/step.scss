@@ -4,7 +4,48 @@
 // properties within each class are sorted alphabetically
 //
 
+$hds-stepper-indicator-step-statuses: ( "incomplete", "progress", "processing", "complete" );
 $hds-stepper-indicator-step-size: 24px;
+
+// Determine states and corresponding styles
+$status-props: (
+  "incomplete": (
+    "text-color-default": var(--token-color-foreground-primary),
+    "fill-color-default": var(--token-color-surface-faint),
+    "fill-color-hover": var(--token-color-surface-primary),
+    "fill-color-active": var(--token-color-surface-interactive-active),
+    "stroke-color-default": var(--token-color-border-strong),
+  ),
+  "progress": (
+    "text-color-default": var(--token-color-foreground-high-contrast),
+    "text-color-hover": var(--token-color-surface-primary),
+    "fill-color-default": var(--token-color-palette-blue-200),
+    "fill-color-hover": var(--token-color-palette-blue-300),
+    "fill-color-active": var(--token-color-palette-blue-400),
+    "stroke-color-default": var(--token-color-palette-blue-300),
+    "stroke-color-hover": var(--token-color-palette-blue-400),
+  ),
+  "processing": (
+    "text-color-default": var(--token-color-foreground-high-contrast),
+    "text-color-hover": var(--token-color-surface-primary),
+    "fill-color-default": var(--token-color-palette-blue-200),
+    "fill-color-hover": var(--token-color-palette-blue-300),
+    "fill-color-active": var(--token-color-palette-blue-400),
+    "stroke-color-default": var(--token-color-palette-blue-300),
+    "stroke-color-hover": var(--token-color-palette-blue-400),
+  ),
+  "complete": (
+    "text-color-default": var(--token-color-foreground-action),
+    "text-color-hover": var(--token-color-foreground-action-hover),
+    "text-color-active": var(--token-color-foreground-action-active),
+    "fill-color-default": var(--token-color-surface-action),
+    "fill-color-hover": var(--token-color-palette-blue-100),
+    "fill-color-active": var(--token-color-palette-blue-100),
+    "stroke-color-default": var(--token-color-palette-blue-200),
+    "stroke-color-hover": var(--token-color-palette-blue-300),
+    "stroke-color-active": var(--token-color-palette-blue-400),
+  )
+);
 
 // Base stepper indicator styling
 .hds-stepper-indicator-step {
@@ -86,61 +127,47 @@ $hds-stepper-indicator-step-size: 24px;
 .hds-stepper-indicator-step--is-interactive {
   cursor: pointer;
 
-  // @status='incomplete'
-  &.hds-stepper-indicator-step--status-incomplete {
-    --status-text-color: var(--token-color-foreground-primary);
-    --status-fill-color: var(--token-color-surface-faint);
-    --status-stroke-color: var(--token-color-border-strong);
+  @each $status in $hds-stepper-indicator-step-statuses {
+    // For each status set the text, svg fill, and svg stroke color based on $status-props
+    &.hds-stepper-indicator-step--status-#{$status} {
+      .hds-stepper-indicator-step__text,
+      .hds-stepper-indicator-step__icon {
+        color: map-get($status-props, $status, "text-color-default");
+      }
+      .hds-stepper-indicator-step__svg-container {
+        path {
+          fill: map-get($status-props, $status, "fill-color-default");
+          stroke: map-get($status-props, $status, "stroke-color-default");
+        };
+      }
 
-    &:hover,
-    &.mock-hover {
-      --status-fill-color: var(--token-color-surface-primary);
-    }
+      &:hover,
+      &.mock-hover {
+        .hds-stepper-indicator-step__text,
+        .hds-stepper-indicator-step__icon {
+          color: map-get($status-props, $status, "text-color-hover");
+        }
+        .hds-stepper-indicator-step__svg-container {
+          path {
+            fill: map-get($status-props, $status, "fill-color-hover");
+            stroke: map-get($status-props, $status, "stroke-color-hover");
+          };
+        }
+      }
 
-    &:active,
-    &.mock-active {
-      --status-fill-color: var(--token-color-surface-interactive-active);
-    }
-  }
-
-  // @status='progress'|'processing'
-  &.hds-stepper-indicator-step--status-progress,
-  &.hds-stepper-indicator-step--status-processing {
-    --status-text-color: var(--token-color-foreground-high-contrast);
-    --status-fill-color: var(--token-color-palette-blue-200);
-    --status-stroke-color: var(--token-color-palette-blue-300);
-
-    &:hover,
-    &.mock-hover {
-      --status-fill-color: var(--token-color-surface-primary);
-      --status-fill-color: var(--token-color-palette-blue-300);
-      --status-stroke-color: var(--token-color-palette-blue-400);
-    }
-
-    &:active,
-    &.mock-active {
-      --status-fill-color: var(--token-color-palette-blue-400);
-    }
-  }
-
-  // @status='complete'
-  &.hds-stepper-indicator-step--status-complete {
-    --status-text-color: var(--token-color-foreground-action);
-    --status-fill-color: var(--token-color-surface-action);
-    --status-stroke-color: var(--token-color-palette-blue-200);
-
-    &:hover,
-    &.mock-hover {
-      --status-text-color: var(--token-color-foreground-action-hover);
-      --status-fill-color: var(--token-color-palette-blue-100);
-      --status-stroke-color: var(--token-color-palette-blue-300);
-    }
-
-    &:active,
-    &.mock-active {
-      --status-text-color: var(--token-color-foreground-action-active);
-      --status-fill-color: var(--token-color-palette-blue-100);
-      --status-stroke-color: var(--token-color-palette-blue-400);
+      &:active,
+      &.mock-active {
+        .hds-stepper-indicator-step__text,
+        .hds-stepper-indicator-step__icon {
+          color: map-get($status-props, $status, "text-color-active");
+        }
+        .hds-stepper-indicator-step__svg-container {
+          path {
+            fill: map-get($status-props, $status, "fill-color-active");
+            stroke: map-get($status-props, $status, "stroke-color-active");
+          };
+        }
+      }
     }
   }
 }
