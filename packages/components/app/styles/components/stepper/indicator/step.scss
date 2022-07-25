@@ -141,11 +141,9 @@ $status-props: (
       .hds-stepper-indicator-step__icon {
         color: map-get($status-props, $status, "text-color-default");
       }
-      .hds-stepper-indicator-step__svg-container {
-        path {
-          fill: map-get($status-props, $status, "fill-color-default");
-          stroke: map-get($status-props, $status, "stroke-color-default");
-        };
+      .hds-stepper-indicator-step__svg-container path {
+        fill: map-get($status-props, $status, "fill-color-default");
+        stroke: map-get($status-props, $status, "stroke-color-default");
       }
       
       &:hover,
