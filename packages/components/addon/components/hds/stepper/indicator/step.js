@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
-export const DEFAULT_INTERACTIVE = false;
 
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
@@ -32,7 +31,9 @@ export default class HdsStepperIndicatorStepIndexComponent extends Component {
    * @default false
    */
 
-  isInteractive = this.args.isInteractive;
+  get isInteractive() {
+    return this.args.isInteractive || false
+  }
 
   /**
    * Get the class names to apply to the component.
