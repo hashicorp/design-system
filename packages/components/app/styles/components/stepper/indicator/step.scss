@@ -28,7 +28,6 @@ $hds-stepper-indicator-step-size: 24px;
 
 .hds-stepper-indicator-step__status {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -69,7 +68,7 @@ $hds-stepper-indicator-step-size: 24px;
 
 // @status='progress'|'processing'
 .hds-stepper-indicator-step--status-progress,
-  .hds-stepper-indicator-step--status-processing {
+.hds-stepper-indicator-step--status-processing {
   --status-text-color: var(--token-color-foreground-high-contrast);
   --status-fill-color: var(--token-color-palette-neutral-700);
   --status-stroke-color: var(--token-color-palette-neutral-700);
