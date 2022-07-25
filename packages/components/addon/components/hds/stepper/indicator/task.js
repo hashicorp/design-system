@@ -32,7 +32,7 @@ export default class HdsStepperIndicatorTaskIndexComponent extends Component {
    * @default false
    */
 
-   isInteractive = this.args.isInteractive
+  isInteractive = this.args.isInteractive;
 
   /**
    * Get the class names to apply to the component.

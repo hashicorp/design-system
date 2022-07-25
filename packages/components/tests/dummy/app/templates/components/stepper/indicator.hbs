@@ -61,11 +61,11 @@
   <h5 class="dummy-h5">Default</h5>
   <div class="dummy-stepper-indicator-grid">
     {{#each @model.STATUSES as |status|}}
-    <div>
-      <span class="dummy-text-small">{{capitalize status}}</span>
-      <br />
-      <Hds::Stepper::Indicator::Step @status={{status}} @text="1" />
-    </div>
+      <div>
+        <span class="dummy-text-small">{{capitalize status}}</span>
+        <br />
+        <Hds::Stepper::Indicator::Step @status={{status}} @text="1" />
+      </div>
     {{/each}}
   </div>
   <h5 class="dummy-h5">Interactive</h5>
@@ -79,7 +79,8 @@
             @status={{status}}
             @text="1"
             @isInteractive={{true}}
-            mock-state-value={{state}} />
+            mock-state-value={{state}}
+          />
         </div>
       {{/each}}
     </div>
@@ -88,11 +89,11 @@
   <h5 class="dummy-h5">Default</h5>
   <div class="dummy-stepper-indicator-grid">
     {{#each @model.STATUSES as |status|}}
-    <div>
-      <span class="dummy-text-small">{{capitalize status}}</span>
-      <br />
-      <Hds::Stepper::Indicator::Task @status={{status}} @text="1" />
-    </div>
+      <div>
+        <span class="dummy-text-small">{{capitalize status}}</span>
+        <br />
+        <Hds::Stepper::Indicator::Task @status={{status}} @text="1" />
+      </div>
     {{/each}}
   </div>
   <h5 class="dummy-h5">Interactive</h5>
@@ -102,10 +103,7 @@
         <div>
           <span class="dummy-text-small">{{capitalize status}}:{{state}}</span>
           <br />
-          <Hds::Stepper::Indicator::Task
-            @status={{status}}
-            @isInteractive={{true}}
-            mock-state-value={{state}} />
+          <Hds::Stepper::Indicator::Task @status={{status}} @isInteractive={{true}} mock-state-value={{state}} />
         </div>
       {{/each}}
     </div>
