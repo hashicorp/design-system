@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-06-08T13:13:42.328Z",
+  "lastRunTimeISO": "2022-07-25T22:05:54.695Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -192,6 +192,42 @@
       "height": 16
     },
     {
+      "id": "707:89",
+      "fileName": "auth0-24",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:92",
+      "fileName": "auth0-16",
+      "iconName": "auth0",
+      "description": "auth0",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "707:83",
+      "fileName": "auth0-color-24",
+      "iconName": "auth0-color",
+      "description": "auth0",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "707:86",
+      "fileName": "auth0-color-16",
+      "iconName": "auth0-color",
+      "description": "auth0",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:74",
       "fileName": "aws-24",
       "iconName": "aws",
@@ -223,6 +259,42 @@
       "fileName": "aws-color-16",
       "iconName": "aws-color",
       "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:74",
+      "fileName": "aws-cloudwatch-24",
+      "iconName": "aws-cloudwatch",
+      "description": "amazon, aws, cloudwatch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:76",
+      "fileName": "aws-cloudwatch-16",
+      "iconName": "aws-cloudwatch",
+      "description": "amazon, aws, cloudwatch",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:81",
+      "fileName": "aws-cloudwatch-color-24",
+      "iconName": "aws-cloudwatch-color",
+      "description": "amazon, aws, cloudwatch",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:96",
+      "fileName": "aws-cloudwatch-color-16",
+      "iconName": "aws-cloudwatch-color",
+      "description": "amazon, aws, cloudwatch",
       "size": "16",
       "width": 16,
       "height": 16
@@ -264,37 +336,37 @@
       "height": 16
     },
     {
-      "id": "707:89",
-      "fileName": "auth0-24",
-      "iconName": "auth0",
-      "description": "auth0",
+      "id": "2372:114",
+      "fileName": "aws-s3-24",
+      "iconName": "aws-s3",
+      "description": "amazon, aws, s3",
       "size": "24",
       "width": 24,
       "height": 24
     },
     {
-      "id": "707:92",
-      "fileName": "auth0-16",
-      "iconName": "auth0",
-      "description": "auth0",
+      "id": "2372:121",
+      "fileName": "aws-s3-16",
+      "iconName": "aws-s3",
+      "description": "amazon, aws, s3",
       "size": "16",
       "width": 16,
       "height": 16
     },
     {
-      "id": "707:83",
-      "fileName": "auth0-color-24",
-      "iconName": "auth0-color",
-      "description": "auth0",
+      "id": "2372:126",
+      "fileName": "aws-s3-color-24",
+      "iconName": "aws-s3-color",
+      "description": "amazon, aws, s3",
       "size": "24",
       "width": 24,
       "height": 24
     },
     {
-      "id": "707:86",
-      "fileName": "auth0-color-16",
-      "iconName": "auth0-color",
-      "description": "auth0",
+      "id": "2372:141",
+      "fileName": "aws-s3-color-16",
+      "iconName": "aws-s3-color",
+      "description": "amazon, aws, s3",
       "size": "16",
       "width": 16,
       "height": 16
@@ -336,6 +408,78 @@
       "height": 16
     },
     {
+      "id": "2372:160",
+      "fileName": "azure-vms-24",
+      "iconName": "azure-vms",
+      "description": "azure, microsoft, aks",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:162",
+      "fileName": "azure-vms-16",
+      "iconName": "azure-vms",
+      "description": "azure, microsoft, aks",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:167",
+      "fileName": "azure-vms-color-24",
+      "iconName": "azure-vms-color",
+      "description": "azure, microsoft, aks",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:185",
+      "fileName": "azure-vms-color-16",
+      "iconName": "azure-vms-color",
+      "description": "azure, microsoft, aks",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:206",
+      "fileName": "azure-blob-storage-24",
+      "iconName": "azure-blob-storage",
+      "description": "vantage",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:208",
+      "fileName": "azure-blob-storage-16",
+      "iconName": "azure-blob-storage",
+      "description": "vantage",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:213",
+      "fileName": "azure-blob-storage-color-24",
+      "iconName": "azure-blob-storage-color",
+      "description": "vantage",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:224",
+      "fileName": "azure-blob-storage-color-16",
+      "iconName": "azure-blob-storage-color",
+      "description": "vantage",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:119",
       "fileName": "azure-devops-24",
       "iconName": "azure-devops",
@@ -367,6 +511,42 @@
       "fileName": "azure-devops-color-16",
       "iconName": "azure-devops-color",
       "description": "azure, microsoft",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:238",
+      "fileName": "azure-vms-24",
+      "iconName": "azure-vms",
+      "description": "azure, microsoft, vms",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:253",
+      "fileName": "azure-vms-16",
+      "iconName": "azure-vms",
+      "description": "azure, microsoft, vms",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:258",
+      "fileName": "azure-vms-color-24",
+      "iconName": "azure-vms-color",
+      "description": "azure, microsoft, vms",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:267",
+      "fileName": "azure-vms-color-16",
+      "iconName": "azure-vms-color",
+      "description": "azure, microsoft, vms",
       "size": "16",
       "width": 16,
       "height": 16
@@ -408,6 +588,78 @@
       "height": 16
     },
     {
+      "id": "2372:280",
+      "fileName": "bridgecrew-24",
+      "iconName": "bridgecrew",
+      "description": "bridgecrew",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:282",
+      "fileName": "bridgecrew-16",
+      "iconName": "bridgecrew",
+      "description": "bridgecrew",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:288",
+      "fileName": "bridgecrew-color-24",
+      "iconName": "bridgecrew-color",
+      "description": "bridgecrew",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:296",
+      "fileName": "bridgecrew-color-16",
+      "iconName": "bridgecrew-color",
+      "description": "bridgecrew",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:312",
+      "fileName": "cisco-24",
+      "iconName": "cisco",
+      "description": "cisco",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:314",
+      "fileName": "cisco-16",
+      "iconName": "cisco",
+      "description": "cisco",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:319",
+      "fileName": "cisco-color-24",
+      "iconName": "cisco-color",
+      "description": "cisco",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:321",
+      "fileName": "cisco-color-16",
+      "iconName": "cisco-color",
+      "description": "cisco",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "855:282",
       "fileName": "codepen-24",
       "iconName": "codepen",
@@ -439,6 +691,78 @@
       "fileName": "codepen-color-16",
       "iconName": "codepen-color",
       "description": "codepen",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:326",
+      "fileName": "datadog-24",
+      "iconName": "datadog",
+      "description": "datadog",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:328",
+      "fileName": "datadog-16",
+      "iconName": "datadog",
+      "description": "datadog",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:333",
+      "fileName": "datadog-color-24",
+      "iconName": "datadog-color",
+      "description": "datadog",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:335",
+      "fileName": "datadog-color-16",
+      "iconName": "datadog-color",
+      "description": "datadog",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:341",
+      "fileName": "digital-ocean-24",
+      "iconName": "digital-ocean",
+      "description": "digital, ocean",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:343",
+      "fileName": "digital-ocean-16",
+      "iconName": "digital-ocean",
+      "description": "digital, ocean",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:348",
+      "fileName": "digital-ocean-color-24",
+      "iconName": "digital-ocean-color",
+      "description": "digital, ocean",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:350",
+      "fileName": "digital-ocean-color-16",
+      "iconName": "digital-ocean-color",
+      "description": "digital, ocean",
       "size": "16",
       "width": 16,
       "height": 16
@@ -696,6 +1020,114 @@
       "height": 16
     },
     {
+      "id": "2372:355",
+      "fileName": "grafana-24",
+      "iconName": "grafana",
+      "description": "grafana",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:357",
+      "fileName": "grafana-16",
+      "iconName": "grafana",
+      "description": "grafana",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:362",
+      "fileName": "grafana-color-24",
+      "iconName": "grafana-color",
+      "description": "grafana",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:364",
+      "fileName": "grafana-color-16",
+      "iconName": "grafana-color",
+      "description": "grafana",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:369",
+      "fileName": "helm-24",
+      "iconName": "helm",
+      "description": "helm",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:371",
+      "fileName": "helm-16",
+      "iconName": "helm",
+      "description": "helm",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:376",
+      "fileName": "helm-color-24",
+      "iconName": "helm-color",
+      "description": "helm",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:378",
+      "fileName": "helm-color-16",
+      "iconName": "helm-color",
+      "description": "helm",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:384",
+      "fileName": "infracost-24",
+      "iconName": "infracost",
+      "description": "infracost",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:386",
+      "fileName": "infracost-16",
+      "iconName": "infracost",
+      "description": "infracost",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:391",
+      "fileName": "infracost-color-24",
+      "iconName": "infracost-color",
+      "description": "infracost",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:396",
+      "fileName": "infracost-color-16",
+      "iconName": "infracost-color",
+      "description": "infracost",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:283",
       "fileName": "kubernetes-24",
       "iconName": "kubernetes",
@@ -727,6 +1159,42 @@
       "fileName": "kubernetes-color-16",
       "iconName": "kubernetes-color",
       "description": "kubernetes, k8s",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:404",
+      "fileName": "lightlytics-color-24",
+      "iconName": "lightlytics-color",
+      "description": "lightlytics",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:406",
+      "fileName": "lightlytics-color-16",
+      "iconName": "lightlytics-color",
+      "description": "lightlytics",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:411",
+      "fileName": "lightlytics-color-24",
+      "iconName": "lightlytics-color",
+      "description": "lightlytics",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:416",
+      "fileName": "lightlytics-color-16",
+      "iconName": "lightlytics-color",
+      "description": "lightlytics",
       "size": "16",
       "width": 16,
       "height": 16
@@ -768,6 +1236,42 @@
       "height": 16
     },
     {
+      "id": "2372:424",
+      "fileName": "linode-24",
+      "iconName": "linode",
+      "description": "linode",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:426",
+      "fileName": "linode-16",
+      "iconName": "linode",
+      "description": "linode",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:431",
+      "fileName": "linode-color-24",
+      "iconName": "linode-color",
+      "description": "linode",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:449",
+      "fileName": "linode-color-16",
+      "iconName": "linode-color",
+      "description": "linode",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:304",
       "fileName": "microsoft-24",
       "iconName": "microsoft",
@@ -799,6 +1303,42 @@
       "fileName": "microsoft-color-16",
       "iconName": "microsoft-color",
       "description": "microsoft, ms, windows",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:471",
+      "fileName": "microsoft-teams-24",
+      "iconName": "microsoft-teams",
+      "description": "microsoft, teams",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:473",
+      "fileName": "microsoft-teams-16",
+      "iconName": "microsoft-teams",
+      "description": "microsoft, teams",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:478",
+      "fileName": "microsoft-teams-color-24",
+      "iconName": "microsoft-teams-color",
+      "description": "microsoft, teams",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:494",
+      "fileName": "microsoft-teams-color-16",
+      "iconName": "microsoft-teams-color",
+      "description": "microsoft, teams",
       "size": "16",
       "width": 16,
       "height": 16
@@ -912,6 +1452,42 @@
       "height": 16
     },
     {
+      "id": "2372:513",
+      "fileName": "saml-24",
+      "iconName": "saml",
+      "description": "saml",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:515",
+      "fileName": "saml-16",
+      "iconName": "saml",
+      "description": "saml",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2372:520",
+      "fileName": "saml-color-24",
+      "iconName": "saml-color",
+      "description": "saml",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2372:522",
+      "fileName": "saml-color-16",
+      "iconName": "saml-color",
+      "description": "saml",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:375",
       "fileName": "slack-24",
       "iconName": "slack",
@@ -943,6 +1519,78 @@
       "fileName": "slack-color-16",
       "iconName": "slack-color",
       "description": "slack, salesforce",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2373:527",
+      "fileName": "snyk-24",
+      "iconName": "snyk",
+      "description": "snyk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2373:529",
+      "fileName": "snyk-16",
+      "iconName": "snyk",
+      "description": "snyk",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2373:534",
+      "fileName": "snyk-color-24",
+      "iconName": "snyk-color",
+      "description": "snyk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2373:562",
+      "fileName": "snyk-color-16",
+      "iconName": "snyk-color",
+      "description": "snyk",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2373:594",
+      "fileName": "splunk-24",
+      "iconName": "splunk",
+      "description": "splunk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2373:596",
+      "fileName": "splunk-16",
+      "iconName": "splunk",
+      "description": "splunk",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2373:601",
+      "fileName": "splunk-color-24",
+      "iconName": "splunk-color",
+      "description": "splunk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2373:603",
+      "fileName": "splunk-color-16",
+      "iconName": "splunk-color",
+      "description": "splunk",
       "size": "16",
       "width": 16,
       "height": 16
@@ -1015,6 +1663,42 @@
       "fileName": "twitter-color-16",
       "iconName": "twitter-color",
       "description": "twitter",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2373:608",
+      "fileName": "vantage-24",
+      "iconName": "vantage",
+      "description": "vantage",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2373:610",
+      "fileName": "vantage-16",
+      "iconName": "vantage",
+      "description": "vantage",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2373:615",
+      "fileName": "vantage-color-24",
+      "iconName": "vantage-color",
+      "description": "vantage",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2373:617",
+      "fileName": "vantage-color-16",
+      "iconName": "vantage-color",
+      "description": "vantage",
       "size": "16",
       "width": 16,
       "height": 16
