@@ -32,7 +32,7 @@ export default class HdsStepperIndicatorStepIndexComponent extends Component {
    */
 
   get isInteractive() {
-    return this.args.isInteractive || false
+    return this.args.isInteractive || false;
   }
 
   /**
