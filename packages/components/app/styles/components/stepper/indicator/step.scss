@@ -7,7 +7,91 @@
 $hds-stepper-indicator-step-statuses: ( "incomplete", "progress", "processing", "complete" );
 $hds-stepper-indicator-step-size: 24px;
 
-// Determine states and corresponding styles
+// Base stepper indicator styling
+.hds-stepper-indicator-step {
+  width: $hds-stepper-indicator-step-size;
+  height: $hds-stepper-indicator-step-size;
+  position: relative;
+}
+
+.hds-stepper-indicator-step__svg-container {
+  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
+  height: 100%;
+  width: 100%;
+}
+
+.hds-stepper-indicator-step__status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hds-stepper-indicator-step__icon {
+  width: 12px;
+  height: 12px;
+}
+
+.hds-stepper-indicator-step__text {
+  font-family: var(--token-typography-font-stack-text);
+  font-weight: var(--token-typography-font-weight-medium);
+  font-size: 0.8125rem;
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+  width: 20px;
+}
+
+// STATUS
+
+// Non-interactive (default)
+
+// Non-interactive props that correspond with status
+$non-interactive-props: (
+  "incomplete": (
+    "text-color": var(--token-color-foreground-strong),
+    "fill-color": var(--token-color-surface-faint),
+    "stroke-color": var(--token-color-foreground-strong),
+  ),
+  "progress": (
+    "text-color": var(--token-color-foreground-high-contrast),
+    "fill-color": var(--token-color-palette-neutral-700),
+    "stroke-color": var(--token-color-palette-neutral-700),
+  ),
+  "processing": (
+    "text-color": var(--token-color-foreground-high-contrast),
+    "fill-color": var(--token-color-palette-neutral-700),
+    "stroke-color": var(--token-color-palette-neutral-700),
+  ),
+  "complete": (
+    "text-color": var(--token-color-foreground-high-contrast),
+    "fill-color": var(--token-color-palette-neutral-700),
+    "stroke-color": var(--token-color-palette-neutral-700),
+  )
+);
+
+@each $status in $hds-stepper-indicator-step-statuses {
+  // For each status of the non-interactive variant, set the text color, svg fill, and svg stroke colors based on $non-interactive-props
+  .hds-stepper-indicator-step--status-#{$status} {
+    .hds-stepper-indicator-step__text,
+    .hds-stepper-indicator-step__icon {
+      color: map-get($non-interactive-props, $status, "text-color");
+    };
+    .hds-stepper-indicator-step__svg-container path {
+      fill: map-get($non-interactive-props, $status, "fill-color");
+      stroke: map-get($non-interactive-props, $status, "stroke-color");
+    }
+  }
+}
+
+// Interactive
+
+// Determine states/status and corresponding styles
 $status-props: (
   "incomplete": (
     "text-color-default": var(--token-color-foreground-primary),
@@ -47,87 +131,10 @@ $status-props: (
   )
 );
 
-// Base stepper indicator styling
-.hds-stepper-indicator-step {
-  width: $hds-stepper-indicator-step-size;
-  height: $hds-stepper-indicator-step-size;
-  font-family: var(--token-typography-font-stack-text);
-  font-weight: var(--token-typography-font-weight-medium);
-  position: relative;
-}
-
-.hds-stepper-indicator-step__svg-container {
-  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
-  height: 100%;
-  width: 100%;
-
-  path {
-    fill: var(--status-fill-color);
-    stroke: var(--status-stroke-color);
-  }
-}
-
-.hds-stepper-indicator-step__status {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.hds-stepper-indicator-step__icon {
-  color: var(--status-text-color);
-  width: 12px;
-  height: 12px;
-}
-
-.hds-stepper-indicator-step__text {
-  color: var(--status-text-color);
-  font-family: var(--token-typography-font-stack-text);
-  font-weight: var(--token-typography-font-weight-medium);
-  font-size: 0.8125rem;
-  overflow: hidden;
-  text-align: center;
-  user-select: none;
-  white-space: nowrap;
-  width: 20px;
-}
-
-// STATUS
-
-// Non-interactive (default)
-
-// @status='incomplete'
-.hds-stepper-indicator-step--status-incomplete {
-  --status-text-color: var(--token-color-foreground-strong);
-  --status-fill-color: var(--token-color-surface-faint);
-  --status-stroke-color: var(--token-color-foreground-strong);
-}
-
-// @status='progress'|'processing'
-.hds-stepper-indicator-step--status-progress,
-.hds-stepper-indicator-step--status-processing {
-  --status-text-color: var(--token-color-foreground-high-contrast);
-  --status-fill-color: var(--token-color-palette-neutral-700);
-  --status-stroke-color: var(--token-color-palette-neutral-700);
-}
-
-// @status='complete'
-.hds-stepper-indicator-step--status-complete {
-  --status-text-color: var(--token-color-foreground-high-contrast);
-  --status-fill-color: var(--token-color-palette-neutral-700);
-  --status-stroke-color: var(--token-color-palette-neutral-700);
-}
-
-// Interactive
-
 .hds-stepper-indicator-step--is-interactive {
   cursor: pointer;
-
-  @each $status in $hds-stepper-indicator-step-statuses {
+  
+  @each $status in $hds-stepper-indicator-step-statuses {    
     // For each status set the text, svg fill, and svg stroke color based on $status-props
     &.hds-stepper-indicator-step--status-#{$status} {
       .hds-stepper-indicator-step__text,
@@ -140,7 +147,7 @@ $status-props: (
           stroke: map-get($status-props, $status, "stroke-color-default");
         };
       }
-
+      
       &:hover,
       &.mock-hover {
         .hds-stepper-indicator-step__text,
@@ -154,7 +161,7 @@ $status-props: (
           };
         }
       }
-
+      
       &:active,
       &.mock-active {
         .hds-stepper-indicator-step__text,
