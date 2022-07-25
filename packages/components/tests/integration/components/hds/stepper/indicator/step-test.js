@@ -20,14 +20,5 @@ module(
         .dom('#test-stepper-indicator-step')
         .hasClass('hds-stepper-indicator-step');
     });
-
-    // STATUS
-
-    test('it should render incomplete status if no status is declared', async function (assert) {
-      await render(
-        hbs`<Hds::Stepper::Indicator::Step @text="1" />`
-      );
-      assert.dom('#test-stepper-indicator-step').hasClass('hds-stepper-indicator-step__status-incomplete');
-    });
   }
 );
