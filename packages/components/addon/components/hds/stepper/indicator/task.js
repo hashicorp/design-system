@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
-export const DEFAULT_INTERACTIVE = false;
 
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
