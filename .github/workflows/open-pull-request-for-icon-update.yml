@@ -18,7 +18,7 @@ jobs:
           cache-dependency-path: yarn.lock
   
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Sync icons
         env:
