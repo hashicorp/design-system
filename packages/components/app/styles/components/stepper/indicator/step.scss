@@ -84,11 +84,6 @@ $non-interactive-props: (
 @each $status in $hds-stepper-indicator-step-statuses {
   // For each status of the non-interactive variant, set the text color, svg fill, and svg stroke colors based on $non-interactive-props
   .hds-stepper-indicator-step--status-#{$status} {
-    // NOTE: doesn't seem like you can use a map function with a variable
-    // --status-text-color: map-get($non-interactive-props, $status, "text-color");
-    // --status-fill-color: map-get($non-interactive-props, $status, "fill-color");
-    // --status-stroke-color: map-get($non-interactive-props, $status, "stroke-color");
-
     .hds-stepper-indicator-step__text,
     .hds-stepper-indicator-step__icon {
       color: map-get($non-interactive-props, $status, "text-color");
