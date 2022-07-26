@@ -7,10 +7,19 @@
     through a multi-step flow or feature, and in certain circumstances acts as a navigational device between steps. It
     is generally assembled as part of a larger stepper pattern.</p>
   <p class="dummy-paragraph">
-    As of this writing the HDS team publishes two separate (but related) <code class="dummy-code">Stepper::Indicator</code> components that serve different hierarchal purposes.
+    As of this writing the HDS team publishes two separate (but related)
+    <code class="dummy-code">Stepper::Indicator</code>
+    components that serve different hierarchal purposes.
     <ol>
-      <li>The <code class="dummy-code">Indicator::Step</code> component: used in higher-order step-based flows that contain multiple steps that a user must complete sequentially.</li>
-      <li>The <code class="dummy-code">Indicator::Task</code> component: used either on it's own to denote smaller task-oriented flows or in combination with the <code class="dummy-code">Step</code> indicator to list multiple tasks within a step.</li>
+      <li>The
+        <code class="dummy-code">Indicator::Step</code>
+        component: used in higher-order step-based flows that contain multiple steps that a user must complete
+        sequentially.</li>
+      <li>The
+        <code class="dummy-code">Indicator::Task</code>
+        component: used either on it's own to denote smaller task-oriented flows or in combination with the
+        <code class="dummy-code">Step</code>
+        indicator to list multiple tasks within a step.</li>
     </ol>
   </p>
 </section>
@@ -34,8 +43,11 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>isInteractive <code>boolean</code></dt>
     <dd>
-      <p>Default: <span class='default'>true</span></p>
-      <p>By default the <code class="dummy-code">Indicator::Step</code> is not interactive and has no hover state. Usage for this variant is generally recommended for onboarding-type sequences or list-item steps.</p>
+      <p>Default: <span class="default">true</span></p>
+      <p>By default the
+        <code class="dummy-code">Indicator::Step</code>
+        is not interactive and has no hover state. Usage for this variant is generally recommended for onboarding-type
+        sequences or list-item steps.</p>
     </dd>
   </dl>
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
@@ -61,7 +73,7 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>isInteractive <code>boolean</code></dt>
     <dd>
-      <p>Default: <span class='default'>true</span></p>
+      <p>Default: <span class="default">true</span></p>
     </dd>
   </dl>
 </section>
@@ -173,8 +185,8 @@
 <section>
   <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
     Design guidelines</h3>
-    <p class="dummy-paragraph">🚧 TODO 🚧</p>
-    
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+
   {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
   {{!
   <div class="dummy-design-guidelines">
@@ -189,31 +201,80 @@
 
 <section>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">These criteria while relevant in the application of the
+    <code class="dummy-code">Stepper::Indicator</code>
+    components, are best applied in the context of a larger step or task
+    <strong>pattern</strong>
+    and should be adhered to as such.</p>
   <h4 class="dummy-h4">Applicable WCAG Success Criteria (Reference)</h4>
-  <p class="dummy-paragraph">These criteria while relevant in the application of the <code class="dummy-code">Stepper::Indicator</code> components, are best applied in the context of a larger step or task <strong>pattern</strong> and should be adhered to as such.</p>
   <ul class="dummy-list">
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" rel="noopener noreferrer" target="_blank">1.3.1: Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.</li>
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" rel="noopener noreferrer" target="_blank">1.4.1: Use of Color:</a> Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.</li>
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html" rel="noopener noreferrer" target="_blank">1.4.11: Non-Text Contrast:</a> The visual presentation of the user interface components and graphical objects have a contrast ratio of at least 3:1 against adjacent color(s).
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.1: Info and Relationships:</a>
+      Information, structure, and relationships conveyed through presentation can be programmatically determined or are
+      available in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.1: Use of Color:</a>
+      Color is not used as the only visual means of conveying information, indicating an action, prompting a response,
+      or distinguishing a visual element.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.11: Non-Text Contrast:</a>
+      The visual presentation of the user interface components and graphical objects have a contrast ratio of at least
+      3:1 against adjacent color(s).
     </li>
     <li>
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard" rel="noopener noreferrer" target="_blank">2.1.1: Timing Adjustable:</a> For each time limit that is set by the content, at least one of the following is true:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard" rel="noopener noreferrer" target="_blank">2.1.1:
+        Timing Adjustable:</a>
+      For each time limit that is set by the content, at least one of the following is true:
       <ul class="dummy-list">
         <li>Turn off: The user is allowed to turn off the time limit before encountering it; or</li>
-        <li>Adjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; orExtend: The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and the user is allowed to extend the time limit at least ten times; or</li>
-        <li>Real-time Exception: The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or</li>
+        <li>Adjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at
+          least ten times the length of the default setting; orExtend: The user is warned before time expires and given
+          at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and
+          the user is allowed to extend the time limit at least ten times; or</li>
+        <li>Real-time Exception: The time limit is a required part of a real-time event (for example, an auction), and
+          no alternative to the time limit is possible; or</li>
         <li>Essential Exception: The time limit is essential and extending it would invalidate the activity; or</li>
         <li>20 Hour Exception: The time limit is longer than 20 hours.</li>
       </ul>
     </li>
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" rel="noopener noreferrer" target="_blank">2.2.2: Pause, Stop, Hide:</a> For moving, blinking, scrolling, or auto-updating information, all of the following are true:
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.2.2: Pause, Stop, Hide:</a>
+      For moving, blinking, scrolling, or auto-updating information, all of the following are true:
       <ul class="dummy-list">
-        <li><strong>Moving, blinking, scrolling:</strong> For any moving, blinking, or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and</li>
-        <li><strong>Auto-updating:</strong> For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.</li>
+        <li><strong>Moving, blinking, scrolling:</strong>
+          For any moving, blinking, or scrolling information that (1) starts automatically, (2) lasts more than five
+          seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause,
+          stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and</li>
+        <li><strong>Auto-updating:</strong>
+          For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other
+          content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the
+          update unless the auto-updating is part of an activity where it is essential.</li>
       </ul>
     </li>
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible" rel="noopener noreferrer" target="_blank">2.4.7: Focus Visible:</a> Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</li>
-    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html" rel="noopener noreferrer" target="_blank">3.3.2: Labels or Instructions:</a> Labels or instructions are provided when content requires user input.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.7: Focus Visible:</a>
+      Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.2: Labels or Instructions:</a>
+      Labels or instructions are provided when content requires user input.</li>
   </ul>
 </section>
 
