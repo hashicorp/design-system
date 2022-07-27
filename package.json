@@ -11,7 +11,8 @@
     "@changesets/cli": "^2.23.0"
   },
   "scripts": {
-    "release": "yarn changeset publish"
+    "release": "yarn changeset publish",
+    "version": "yarn changeset version && yarn install --mode update-lockfile"
   },
   "packageManager": "yarn@3.2.1"
 }
