@@ -29,9 +29,8 @@
     @language="markup"
     @code='
       <Hds::ButtonSet>
-        <Hds::Button @text="Button 1" />
-        <Hds::Button @text="Button 2" />
-        <Hds::Button @text="Button 3" />
+        <Hds::Button @text="Submit" type="submit" />
+        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
       </Hds::ButtonSet>
     '
   />
@@ -52,10 +51,9 @@
         rel="noopener noreferrer"
       >Figma UI Kit</a>
     </p>
-    {{!
-    <br />
-    <img class="dummy-figma-docs" src="/assets/images/button-set-design-usage.png" alt="" role="none" />
-    }}
+    <div class="dummy-paragraph">
+      <img class="dummy-figma-docs" src="/assets/images/button-set-design-usage.png" alt="" role="none" />
+    </div>
   </div>
 </section>
 
@@ -70,8 +68,7 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   <Hds::ButtonSet>
-    <Hds::Button @text="Button 1" />
-    <Hds::Button @text="Button 2" />
-    <Hds::Button @text="Button 3" />
+    <Hds::Button @text="Submit" type="submit" />
+    <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
   </Hds::ButtonSet>
 </section>
