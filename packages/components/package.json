@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "0.12.14",
+  "version": "0.12.15",
   "description": "HashiCorp Design System Components",
   "keywords": [
     "hashicorp",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@hashicorp/design-system-tokens": "^0.8.1",
-    "@hashicorp/ember-flight-icons": "^2.0.9",
+    "@hashicorp/ember-flight-icons": "^2.0.10",
     "ember-auto-import": "^2.4.1",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
