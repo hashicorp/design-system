@@ -66,18 +66,18 @@ $non-interactive-props: (
   ),
   "progress": (
     "text-color": var(--token-color-foreground-high-contrast),
-    "fill-color": var(--token-color-palette-neutral-700),
-    "stroke-color": var(--token-color-palette-neutral-700),
+    "fill-color": var(--token-color-foreground-strong),
+    "stroke-color": var(--token-color-foreground-strong),
   ),
   "processing": (
     "text-color": var(--token-color-foreground-high-contrast),
-    "fill-color": var(--token-color-palette-neutral-700),
-    "stroke-color": var(--token-color-palette-neutral-700),
+    "fill-color": var(--token-color-foreground-strong),
+    "stroke-color": var(--token-color-foreground-strong),
   ),
   "complete": (
     "text-color": var(--token-color-foreground-high-contrast),
-    "fill-color": var(--token-color-palette-neutral-700),
-    "stroke-color": var(--token-color-palette-neutral-700),
+    "fill-color": var(--token-color-foreground-strong),
+    "stroke-color": var(--token-color-foreground-strong),
   )
 );
 
@@ -100,38 +100,38 @@ $non-interactive-props: (
 $status-props: (
   "incomplete": (
     "text-color-default": var(--token-color-foreground-primary),
-    "fill-color-default": var(--token-color-surface-faint),
-    "fill-color-hover": var(--token-color-surface-primary),
-    "fill-color-active": var(--token-color-surface-interactive-active),
+    "fill-color-default": var(--token-color-surface-interactive),
     "stroke-color-default": var(--token-color-border-strong),
+    "fill-color-hover": var(--token-color-surface-interactive-hover),
+    "fill-color-active": var(--token-color-surface-interactive-active),
   ),
   "progress": (
     "text-color-default": var(--token-color-foreground-high-contrast),
-    "text-color-hover": var(--token-color-surface-primary),
     "fill-color-default": var(--token-color-palette-blue-200),
-    "fill-color-hover": var(--token-color-palette-blue-300),
-    "fill-color-active": var(--token-color-palette-blue-400),
     "stroke-color-default": var(--token-color-palette-blue-300),
+    "fill-color-hover": var(--token-color-palette-blue-300),
     "stroke-color-hover": var(--token-color-palette-blue-400),
+    "fill-color-active": var(--token-color-palette-blue-400),
+    "stroke-color-active": var(--token-color-palette-blue-400),
   ),
   "processing": (
     "text-color-default": var(--token-color-foreground-high-contrast),
-    "text-color-hover": var(--token-color-surface-primary),
     "fill-color-default": var(--token-color-palette-blue-200),
-    "fill-color-hover": var(--token-color-palette-blue-300),
-    "fill-color-active": var(--token-color-palette-blue-400),
     "stroke-color-default": var(--token-color-palette-blue-300),
+    "fill-color-hover": var(--token-color-palette-blue-300),
     "stroke-color-hover": var(--token-color-palette-blue-400),
+    "fill-color-active": var(--token-color-palette-blue-400),
+    "stroke-color-active": var(--token-color-palette-blue-400),
   ),
   "complete": (
-    "text-color-default": var(--token-color-foreground-action),
-    "text-color-hover": var(--token-color-foreground-action-hover),
-    "text-color-active": var(--token-color-foreground-action-active),
-    "fill-color-default": var(--token-color-surface-action),
+    "text-color-default": var(--token-color-palette-blue-200),
+    "fill-color-default": var(--token-color-palette-blue-50),
+    "stroke-color-default": var(--token-color-palette-blue-300),
+    "text-color-hover": var(--token-color-palette-blue-300),
     "fill-color-hover": var(--token-color-palette-blue-100),
+    "stroke-color-hover": var(--token-color-palette-blue-400),
+    "text-color-active": var(--token-color-palette-blue-400),
     "fill-color-active": var(--token-color-palette-blue-100),
-    "stroke-color-default": var(--token-color-palette-blue-200),
-    "stroke-color-hover": var(--token-color-palette-blue-300),
     "stroke-color-active": var(--token-color-palette-blue-400),
   )
 );
