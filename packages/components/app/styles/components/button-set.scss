@@ -8,6 +8,6 @@
     display: flex;
 
     > * + * {
-        margin-inline-start: 16px !important;
+        margin-inline-start: 16px;
     }
 }

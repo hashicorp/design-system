@@ -10,8 +10,20 @@ module('Integration | Component | hds/button-set/index', function (hooks) {
     await render(hbs`<Hds::ButtonSet />`);
     assert.dom(this.element).exists();
   });
+
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::ButtonSet id="test-button-set" />`);
     assert.dom('#test-button-set').hasClass('hds-button-set');
+  });
+
+  test('it should render a child button component', async function (assert) {
+    await render(
+      hbs`
+        <Hds::ButtonSet id="test-button-set">
+          <Hds::Button @text="test button" />
+        </Hds::ButtonSet>
+      `
+    );
+    assert.dom('#test-button-set .hds-button').exists();
   });
 });
