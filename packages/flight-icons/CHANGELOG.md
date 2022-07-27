@@ -1,5 +1,50 @@
 # @hashicorp/flight-icons
 
+## 2.8.0
+
+### Minor Changes
+
+- [#481](https://github.com/hashicorp/design-system/pull/481) [`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new Service icons to Flight
+
+  - aws-cloudwatch
+  - aws-cloudwatch-color
+  - aws-s3
+  - aws-s3-color
+  - azure-aks
+  - azure-aks-color
+  - azure-blob-storage
+  - azure-blob-storage-color
+  - azure-vms
+  - azure-vms-color
+  - bridgecrew
+  - bridgecrew-color
+  - cisco
+  - cisco-color
+  - datadog
+  - datadog-color
+  - digital-ocean
+  - digital-ocean-color
+  - grafana
+  - grafana-color
+  - helm
+  - helm-color
+  - infracost
+  - infracost-color
+  - lightlytics
+  - lightlytics-color
+  - linode
+  - linode-color
+  - microsoft-teams
+  - microsoft-teams-color
+  - saml
+  - saml-color
+  - snyk
+  - snyk-color
+  - splunk
+  - splunk-color
+  - vantage
+  - vantage-color
+
 ## 2.7.0
 
 ### Minor Changes
