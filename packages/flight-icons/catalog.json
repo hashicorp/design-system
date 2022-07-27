@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-07-25T22:05:54.695Z",
+  "lastRunTimeISO": "2022-07-27T19:41:04.968Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -447,7 +447,7 @@
       "id": "2372:206",
       "fileName": "azure-blob-storage-24",
       "iconName": "azure-blob-storage",
-      "description": "vantage",
+      "description": "microsoft, azure, blob, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -456,7 +456,7 @@
       "id": "2372:208",
       "fileName": "azure-blob-storage-16",
       "iconName": "azure-blob-storage",
-      "description": "vantage",
+      "description": "microsoft, azure, blob, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -465,7 +465,7 @@
       "id": "2372:213",
       "fileName": "azure-blob-storage-color-24",
       "iconName": "azure-blob-storage-color",
-      "description": "vantage",
+      "description": "microsoft, azure, blob, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -474,7 +474,7 @@
       "id": "2372:224",
       "fileName": "azure-blob-storage-color-16",
       "iconName": "azure-blob-storage-color",
-      "description": "vantage",
+      "description": "microsoft, azure, blob, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -1165,8 +1165,8 @@
     },
     {
       "id": "2372:404",
-      "fileName": "lightlytics-color-24",
-      "iconName": "lightlytics-color",
+      "fileName": "lightlytics-24",
+      "iconName": "lightlytics",
       "description": "lightlytics",
       "size": "24",
       "width": 24,
@@ -1174,8 +1174,8 @@
     },
     {
       "id": "2372:406",
-      "fileName": "lightlytics-color-16",
-      "iconName": "lightlytics-color",
+      "fileName": "lightlytics-16",
+      "iconName": "lightlytics",
       "description": "lightlytics",
       "size": "16",
       "width": 16,
