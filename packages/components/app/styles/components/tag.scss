@@ -7,7 +7,8 @@
 
 @use "../mixins/focus-ring" as *;
 
-$hds-tag-border-radius: 13px;
+// we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
+$hds-tag-border-radius: 50px;
 
 .hds-tag {
   align-items: stretch;
