@@ -1,13 +1,4 @@
 <div class={{this.classNames}} ...attributes role="listitem" aria-label={{@status}}>
-  {{!-- {{#if (eq @status "incomplete")}}
-    <FlightIcon class="hds-stepper-indicator-task__icon" @name="circle" @size="16" />
-  {{else if (eq @status "progress")}}
-    <FlightIcon class="hds-stepper-indicator-task__icon" @name="circle-half" @size="16" />
-  {{else if (eq @status "processing")}}
-    <FlightIcon class="hds-stepper-indicator-task__icon" @name="loading" @size="16" />
-  {{else if (eq @status "complete")}}
-    <FlightIcon class="hds-stepper-indicator-task__icon" @name="check-circle" @size="16" />
-  {{/if}} --}}
   <FlightIcon class="hds-stepper-indicator-task__icon" @name={{this.iconName}} @size="16" />
 </div>
 
