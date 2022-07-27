@@ -76,9 +76,6 @@ The engineering checklist has six parts: creating the feature branch, component 
 ### Component Creation
 
 - [ ] create new branch from main for the component (`git checkout -b USER/COMPONENT-NAME`)
-  - Note: There is no standardized branch naming convention.
-  - Suggestion: Use Jira ticket number together with a brief description. (Including the ticket number may allow us to automatically link branches to tickets and PRs in the future.)
-  - Example Branch Name: "hds-123-fix-typo".
 - [ ] create new component using a blueprint
   - `ember generate hds-component COMPONENT-NAME`
   - if it's a child component, then `hds/COMPONENT_NAME/CHILD_NAME`
