@@ -28,7 +28,7 @@ jobs:
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          version: yarn version
           publish: yarn release
         env:
           # Token setup in hashibot-hds' account

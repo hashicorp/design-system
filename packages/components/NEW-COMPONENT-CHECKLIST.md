@@ -139,4 +139,5 @@ Pre-review request checks:
 When ready for review:
 
 - [ ] add situationally appropriate reviewers
-- [ ] added instructions for reviewers in your PR, letting them know what kind of review you need
+- [ ] add instructions for reviewers in your PR, letting them know what kind of review you need
+- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root)
