@@ -77,7 +77,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
       .dom('.hds-form-field__control')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra `
+        `helper-text-${controlId} error-${controlId} extra`
       );
     assert
       .dom('.hds-form-field__error')

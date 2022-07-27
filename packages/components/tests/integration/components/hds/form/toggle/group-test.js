@@ -71,7 +71,7 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
       hbs`<Hds::Form::Toggle::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Toggle::Field checked="checked" @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
@@ -96,7 +96,7 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
       .dom('input')
       .hasAttribute(
         'aria-describedby',
-        `${fieldHelperTextId} ${fieldErrorId} extra ${groupHelperTextId} ${groupErrorId}`
+        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`
       );
   });
 

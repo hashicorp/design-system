@@ -1,4 +1,4 @@
-<fieldset class={{this.classNames}} id={{this.id}} ...attributes>
+<fieldset class={{this.classNames}} id={{this.id}} {{did-insert this.setAriaDescribedBy}} ...attributes>
   {{yield
     (hash
       Legend=(component
