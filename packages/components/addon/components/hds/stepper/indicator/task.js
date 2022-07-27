@@ -39,14 +39,20 @@ export default class HdsStepperIndicatorTaskIndexComponent extends Component {
    * @type {string}
    */
 
-  get iconName() { 
-    let status = this.args.status
+  get iconName() {
+    let status = this.args.status;
 
     // Check the status using a ternary operator and returning a icon name value
-    const value = (status === 'incomplete') ? 'circle' :
-      (status === 'progress') ? 'circle-half' :
-      (status === 'processing') ? 'loading' :
-      (status === 'complete') ? 'check-circle' : null
+    const value =
+      status === 'incomplete'
+        ? 'circle'
+        : status === 'progress'
+        ? 'circle-half'
+        : status === 'processing'
+        ? 'loading'
+        : status === 'complete'
+        ? 'check-circle'
+        : null;
 
     return value;
   }
