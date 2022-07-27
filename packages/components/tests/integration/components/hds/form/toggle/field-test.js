@@ -78,7 +78,7 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} error-${controlId} extra `
       );
     assert
       .dom('.hds-form-field__error')

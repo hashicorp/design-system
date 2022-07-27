@@ -14,7 +14,7 @@
       name={{@name}}
       ...attributes
       id={{F.id}}
-      aria-describedby={{F.ariaDescribedBy}}
+      aria-describedby={{concat F.ariaDescribedBy " " @groupAriaDescribedBy}}
       required={{@isRequired}}
     />
   </F.Control>
