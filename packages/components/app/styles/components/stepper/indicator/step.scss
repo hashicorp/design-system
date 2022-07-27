@@ -9,9 +9,9 @@ $hds-stepper-indicator-step-size: 24px;
 
 // Base stepper indicator styling
 .hds-stepper-indicator-step {
-  width: $hds-stepper-indicator-step-size;
   height: $hds-stepper-indicator-step-size;
   position: relative;
+  width: $hds-stepper-indicator-step-size;
 }
 
 .hds-stepper-indicator-step__svg-container {
@@ -25,9 +25,9 @@ $hds-stepper-indicator-step-size: 24px;
 }
 
 .hds-stepper-indicator-step__status {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   position: absolute;
   top: 0;
   right: 0;
@@ -36,12 +36,13 @@ $hds-stepper-indicator-step-size: 24px;
 }
 
 .hds-stepper-indicator-step__icon {
+  color: --status-text-color;
   width: 12px;
   height: 12px;
-  color: --status-text-color;
 }
 
 .hds-stepper-indicator-step__text {
+  color: --status-text-color;
   font-family: var(--token-typography-font-stack-text);
   font-weight: var(--token-typography-font-weight-medium);
   font-size: 0.8125rem;
@@ -50,7 +51,6 @@ $hds-stepper-indicator-step-size: 24px;
   user-select: none;
   white-space: nowrap;
   width: 20px;
-  color: --status-text-color;
 }
 
 // STATUS
@@ -84,8 +84,7 @@ $non-interactive-props: (
 @each $status in $hds-stepper-indicator-step-statuses {
   // For each status of the non-interactive variant, set the text color, svg fill, and svg stroke colors based on $non-interactive-props
   .hds-stepper-indicator-step--status-#{$status} {
-    .hds-stepper-indicator-step__text,
-    .hds-stepper-indicator-step__icon {
+    .hds-stepper-indicator-step__status {
       color: map-get($non-interactive-props, $status, "text-color");
     };
     .hds-stepper-indicator-step__svg-container path {
@@ -143,8 +142,7 @@ $status-props: (
   @each $status in $hds-stepper-indicator-step-statuses {    
     // For each status set the text, svg fill, and svg stroke color based on $status-props
     &.hds-stepper-indicator-step--status-#{$status} {
-      .hds-stepper-indicator-step__text,
-      .hds-stepper-indicator-step__icon {
+      .hds-stepper-indicator-step__status {
         color: map-get($status-props, $status, "text-color-default");
       }
       .hds-stepper-indicator-step__svg-container path {
@@ -154,8 +152,7 @@ $status-props: (
       
       &:hover,
       &.mock-hover {
-        .hds-stepper-indicator-step__text,
-        .hds-stepper-indicator-step__icon {
+        .hds-stepper-indicator-step__status {
           color: map-get($status-props, $status, "text-color-hover");
         }
         .hds-stepper-indicator-step__svg-container {
@@ -168,8 +165,7 @@ $status-props: (
       
       &:active,
       &.mock-active {
-        .hds-stepper-indicator-step__text,
-        .hds-stepper-indicator-step__icon {
+        .hds-stepper-indicator-step__status {
           color: map-get($status-props, $status, "text-color-active");
         }
         .hds-stepper-indicator-step__svg-container {

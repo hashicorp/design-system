@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
-
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
 
 export default class HdsStepperIndicatorStepIndexComponent extends Component {
