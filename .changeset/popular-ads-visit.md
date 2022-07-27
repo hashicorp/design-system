@@ -1,0 +1,44 @@
+---
+"@hashicorp/flight-icons": minor
+---
+
+Add new Service icons to Flight
+
+- aws-cloudwatch
+- aws-cloudwatch-color
+- aws-s3
+- aws-s3-color
+- azure-aks
+- azure-aks-color
+- azure-blob-storage
+- azure-blob-storage-color
+- azure-vms
+- azure-vms-color
+- bridgecrew
+- bridgecrew-color
+- cisco
+- cisco-color
+- datadog
+- datadog-color
+- digital-ocean
+- digital-ocean-color
+- grafana
+- grafana-color
+- helm
+- helm-color
+- infracost
+- infracost-color
+- lightlytics
+- lightlytics-color
+- linode
+- linode-color
+- microsoft-teams
+- microsoft-teams-color
+- saml
+- saml-color
+- snyk
+- snyk-color
+- splunk
+- splunk-color
+- vantage
+- vantage-color
