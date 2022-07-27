@@ -1,5 +1,5 @@
 ---
-"@hashicorp/flight-icons": patch
+"@hashicorp/flight-icons": minor
 ---
 
 Add new Service icons to Flight
