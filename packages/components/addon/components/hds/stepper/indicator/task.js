@@ -3,7 +3,6 @@ import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
-export const ICONS = ['circle', 'circle-half', 'loading', 'check-circle'];
 export const MAPPING_STATUS_TO_ICONS = {
   incomplete: 'circle',
   progress: 'circle-half',
