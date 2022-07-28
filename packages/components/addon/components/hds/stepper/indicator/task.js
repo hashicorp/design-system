@@ -3,18 +3,13 @@ import { assert } from '@ember/debug';
 
 export const DEFAULT_STATUS = 'incomplete';
 export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
-export const ICONS = [
-  'circle',
-  'circle-half',
-  'loading',
-  'check-circle',
-];
+export const ICONS = ['circle', 'circle-half', 'loading', 'check-circle'];
 export const MAPPING_STATUS_TO_ICONS = {
   incomplete: 'circle',
   progress: 'circle-half',
   processing: 'loading',
   complete: 'check-circle',
-};  
+};
 
 export default class HdsStepperIndicatorTaskIndexComponent extends Component {
   /**
@@ -52,7 +47,7 @@ export default class HdsStepperIndicatorTaskIndexComponent extends Component {
    */
 
   get iconName() {
-    return MAPPING_STATUS_TO_ICONS[this.status]
+    return MAPPING_STATUS_TO_ICONS[this.status];
   }
 
   /**
