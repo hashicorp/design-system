@@ -44,6 +44,13 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     assert.dom('select').hasClass('hds-form-select--is-invalid');
   });
 
+  // ID
+
+  test('it should render the select control with a custom @id', async function (assert) {
+    await render(hbs`<Hds::Form::Select::Field @id="my-input" />`);
+    assert.dom('select').hasAttribute('id', 'my-input');
+  });
+
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
