@@ -637,17 +637,17 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Select::Field name="infrastructure" multiple size="4" as |F|>
+      <Hds::Form::Select::Field name="infrastructure" multiple size="8" as |F|>
         <F.Label>Target infrastructure</F.Label>
         <F.Options>
           <optgroup label="Most common">
             <option value="Kubernetes">Kubernetes</option>
             <option value="AWS">AWS</option>
-            <option value="Azure">Azure</option>
+            <option value="Azure" disabled>Azure</option>
           </optgroup>
           <optgroup label="Others">
-            <option value="Alibaba">Alibaba</option>
-            <option value="CloudWise">CloudWise</option>
+            <option value="Alibaba" selected>Alibaba</option>
+            <option value="CloudWise" selected>CloudWise</option>
             <option value="SWA">SWA</option>
             <option value="Other">Other</option>
           </optgroup>
@@ -658,17 +658,17 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Form::Select::Field name="infrastructure" multiple size="4" as |F|>
+  <Hds::Form::Select::Field name="infrastructure" multiple size="8" as |F|>
     <F.Label>Target infrastructure</F.Label>
     <F.Options>
       <optgroup label="Most common">
         <option value="Kubernetes">Kubernetes</option>
         <option value="AWS">AWS</option>
-        <option value="Azure">Azure</option>
+        <option value="Azure" disabled>Azure</option>
       </optgroup>
       <optgroup label="Others">
-        <option value="Alibaba">Alibaba</option>
-        <option value="CloudWise">CloudWise</option>
+        <option value="Alibaba" selected>Alibaba</option>
+        <option value="CloudWise" selected>CloudWise</option>
         <option value="SWA">SWA</option>
         <option value="Other">Other</option>
       </optgroup>
