@@ -1,11 +1,11 @@
 ---
-order: 2
+order: 1
 ---
 
 # Basic use
 
 The most basic invocation requires text to be passed:
 
-```hbs template
+```hbs
 <Hds::Button @text='Copy to clipboard' />
 ```

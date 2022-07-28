@@ -1,8 +1,7 @@
 ---
-order: 1
+order: 2
+category: components
 title: Button
 ---
 
 # Button
-
-Hello!
