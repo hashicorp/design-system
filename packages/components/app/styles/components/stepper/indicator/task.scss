@@ -11,8 +11,8 @@ $hds-stepper-indicator-task-size: 16px;
 $status-props: (
     "incomplete": (
         "color-default": var(--token-color-palette-neutral-300),
-        "color-hover": var(--token-color-palette-blue-200),
-        "color-active": var(--token-color-palette-blue-300),
+        "color-hover": var(--token-color-palette-blue-300),
+        "color-active": var(--token-color-palette-blue-400),
     ),
     "progress": (
         "color-default": var(--token-color-palette-blue-200),
@@ -21,6 +21,8 @@ $status-props: (
     ),
     "processing": (
         "color-default": var(--token-color-palette-blue-200),
+        "color-hover": var(--token-color-palette-blue-300),
+        "color-active": var(--token-color-palette-blue-400),
     ),
     "complete": (
         "color-default": var(--token-color-palette-green-200),
