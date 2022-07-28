@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('badge');
     this.route('breadcrumb');
     this.route('button');
+    this.route('button-set');
     this.route('card');
     this.route('dropdown');
     this.route('form', function () {
@@ -36,8 +37,9 @@ Router.map(function () {
       this.route('standalone');
     });
     this.route('toast');
-    this.route('button-set');
+    this.route('stepper');
     this.route('tag');
+    this.route('toast');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

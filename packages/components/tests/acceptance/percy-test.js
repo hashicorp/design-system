@@ -78,6 +78,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/toast');
     await percySnapshot('Toast');
 
+    await visit('/components/stepper');
+    await percySnapshot('Stepper - Indicator');
+
     assert.ok(true);
   });
 });
