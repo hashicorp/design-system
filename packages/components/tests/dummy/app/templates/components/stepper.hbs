@@ -6,6 +6,8 @@
   <p class="dummy-paragraph">A stepper indictor helps the user maintain context and directionality when advancing
     through a multi-step flow or feature, and in certain circumstances acts as a navigational device between steps. It
     is generally assembled as part of a larger stepper pattern.</p>
+  <p>For practical accesibility purposes, consider a stepper (the whole component) to be a list of items, with each step
+    being a list item.</p>
   <p class="dummy-paragraph">
     As of this writing the HDS team publishes two separate (but related)
     <code class="dummy-code">Stepper::Indicator</code>
@@ -17,7 +19,7 @@
         sequentially.</li>
       <li>The
         <code class="dummy-code">Indicator::Task</code>
-        component: used either on it's own to denote smaller task-oriented flows or in combination with the
+        component: used either on its own to denote smaller task-oriented flows or in combination with the
         <code class="dummy-code">Step</code>
         indicator to list multiple tasks within a step.</li>
     </ol>
@@ -35,7 +37,7 @@
     <code class="dummy-code">hover</code>,
     <code class="dummy-code">active</code>, and
     <code class="dummy-code">focus</code>.</p>
-  <h4 class="dummy-h4">Stepper::Indicator::Step</h4>
+  <h4 class="dummy-h4" id="component-api-stepper-indicator">Stepper::Indicator::Step</h4>
   <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Indicator::Step</code> component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>status <code>enum</code></dt>
@@ -48,8 +50,6 @@
         <li>complete</li>
       </ol>
     </dd>
-  </dl>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>isInteractive <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
@@ -58,16 +58,14 @@
         is not interactive and has no hover state. Usage for this variant is generally recommended for onboarding-type
         sequences or list-item steps.</p>
     </dd>
-  </dl>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>text <code>string</code></dt>
     <dd>
       <p>Generally corresponds with the numerical value of the index of the item in an array of multiple steps.</p>
     </dd>
   </dl>
-  <h4 class="dummy-h4">Stepper::Indicator::Task</h4>
+  <h4 class="dummy-h4" id="component-api-stepper-indicator-task">Stepper::Indicator::Task</h4>
   <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Indicator::Task</code> component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
+  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator-task">
     <dt>status <code>enum</code></dt>
     <dd>
       <p>Acceptable values:</p>
@@ -78,8 +76,6 @@
         <li>complete</li>
       </ol>
     </dd>
-  </dl>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>isInteractive <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
@@ -106,7 +102,9 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" />
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" />
+  </Hds::Stepper>
   <h5 class="dummy-h5">Adding interactivity</h5>
   <CodeBlock
     @language="markup"
@@ -115,8 +113,11 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating status</h5>
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" @isInteractive={{true}} />
+  </Hds::Stepper>
+
+  <h5 class="dummy-h5">Indicating status</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -124,8 +125,11 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="progress" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating processing</h5>
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Step @text="1" @status="progress" @isInteractive={{true}} />
+  </Hds::Stepper>
+
+  <h5 class="dummy-h5">Indicating processing</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -133,7 +137,10 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="processing" @isInteractive={{true}} />
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Step @text="1" @status="processing" @isInteractive={{true}} />
+  </Hds::Stepper>
+
   <h5 class="dummy-h5">Rendering a complete step</h5>
   <CodeBlock
     @language="markup"
@@ -142,8 +149,12 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="complete" @isInteractive={{true}} />
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Step @text="1" @status="complete" @isInteractive={{true}} />
+  </Hds::Stepper>
+
   <h4 class="dummy-h4">Stepper::Indicator::Task</h4>
+
   <h5 class="dummy-h5">Basic use</h5>
   <CodeBlock
     @language="markup"
@@ -152,7 +163,9 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="incomplete" />
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Task @status="incomplete" />
+  </Hds::Stepper>
   <h5 class="dummy-h5">Adding interactivity</h5>
   <CodeBlock
     @language="markup"
@@ -161,8 +174,11 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="incomplete" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating status</h5>
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Task @status="incomplete" @isInteractive={{true}} />
+  </Hds::Stepper>
+
+  <h5 class="dummy-h5">Indicating status</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -170,8 +186,11 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="progress" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating processing</h5>
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Task @status="progress" @isInteractive={{true}} />
+  </Hds::Stepper>
+
+  <h5 class="dummy-h5">Indicating processing</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -179,7 +198,10 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="processing" @isInteractive={{true}} />
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Task @status="processing" @isInteractive={{true}} />
+  </Hds::Stepper>
+
   <h5 class="dummy-h5">Rendering a complete task</h5>
   <CodeBlock
     @language="markup"
@@ -188,7 +210,9 @@
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="complete" @isInteractive={{true}} />
+  <Hds::Stepper>
+    <Hds::Stepper::Indicator::Task @status="complete" @isInteractive={{true}} />
+  </Hds::Stepper>
 </section>
 
 <section>
@@ -210,12 +234,19 @@
 
 <section>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
-  <p class="dummy-paragraph">These criteria while relevant in the application of the
+  <p class="dummy-paragraph">The
     <code class="dummy-code">Stepper::Indicator</code>
-    components, are best applied in the context of a larger step or task
-    <strong>pattern</strong>
-    and should be adhered to as such.</p>
+    components are not WCAG-conformant on their own. In order to meet conformance requirements, the following steps must
+    be taken:</p>
+  <ol class="dummy-list">
+    <li>They must be wrapped in a div element with the role of list applied</li>
+    <li>They must be given a meaningful name. The desired outcome: if there were two steppers on the same page, each
+      step should have a uniquely meaningful name so that the user can differentiate.</li>
+  </ol>
+
   <h4 class="dummy-h4">Applicable WCAG Success Criteria (Reference)</h4>
+  <p class="dummy-paragraph">Once the Stepper is completely composed, authors should ensure that the following WCAG
+    Success Criteria are met:</p>
   <ul class="dummy-list">
     <li><a
         href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
@@ -296,7 +327,9 @@
       <div>
         <span class="dummy-text-small">{{capitalize status}}</span>
         <br />
-        <Hds::Stepper::Indicator::Step @status={{status}} @text="1" />
+        <Hds::Stepper>
+          <Hds::Stepper::Indicator::Step @status={{status}} @text="1" />
+        </Hds::Stepper>
       </div>
     {{/each}}
   </div>
@@ -307,12 +340,14 @@
         <div>
           <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
           <br />
-          <Hds::Stepper::Indicator::Step
-            @status={{status}}
-            @text="1"
-            @isInteractive={{true}}
-            mock-state-value={{state}}
-          />
+          <Hds::Stepper>
+            <Hds::Stepper::Indicator::Step
+              @status={{status}}
+              @text="1"
+              @isInteractive={{true}}
+              mock-state-value={{state}}
+            />
+          </Hds::Stepper>
         </div>
       {{/each}}
     </div>
@@ -324,7 +359,9 @@
       <div>
         <span class="dummy-text-small">{{capitalize status}}</span>
         <br />
-        <Hds::Stepper::Indicator::Task @status={{status}} @text="1" />
+        <Hds::Stepper>
+          <Hds::Stepper::Indicator::Task @status={{status}} @text="1" />
+        </Hds::Stepper>
       </div>
     {{/each}}
   </div>
@@ -335,7 +372,9 @@
         <div>
           <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
           <br />
-          <Hds::Stepper::Indicator::Task @status={{status}} @isInteractive={{true}} mock-state-value={{state}} />
+          <Hds::Stepper>
+            <Hds::Stepper::Indicator::Task @status={{status}} @isInteractive={{true}} mock-state-value={{state}} />
+          </Hds::Stepper>
         </div>
       {{/each}}
     </div>
