@@ -79,6 +79,7 @@ The engineering checklist has six parts: creating the feature branch, component 
 - [ ] create new component using a blueprint
   - `ember generate hds-component COMPONENT-NAME`
   - if it's a child component, then `hds/COMPONENT_NAME/CHILD_NAME`
+  - (Note: Many of the below mentioned files will be automatically generated.)
 - [ ] **component template**
   - use semantic HTML
   - the component should have a css class that is the same as the component (e.g. `hds/button` should have a class name of `hds-button` on the component, and additional CSS classes should start with this same class name.

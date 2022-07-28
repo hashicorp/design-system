@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('badge');
     this.route('breadcrumb');
     this.route('button');
+    this.route('button-set');
     this.route('card');
     this.route('dropdown');
     this.route('form', function () {

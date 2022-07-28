@@ -1,0 +1,13 @@
+//
+// BUTTON-SET
+//
+// properties within each class are sorted alphabetically
+//
+
+.hds-button-set {
+    display: flex;
+
+    > * + * {
+        margin-left: 16px;
+    }
+}
