@@ -1,0 +1,15 @@
+// STEPPER > STEPPER-INDICATOR
+
+.dummy-stepper-indicator-sample {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.dummy-stepper-indicator-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    margin: 0;
+    padding: 0.5rem 0;
+}
