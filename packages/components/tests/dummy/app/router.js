@@ -37,6 +37,7 @@ Router.map(function () {
     });
     this.route('toast');
     this.route('button-set');
+    this.route('tag');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

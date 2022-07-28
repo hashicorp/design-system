@@ -48,6 +48,13 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('textarea').hasStyle({ height: '248px' });
   });
 
+  // ID
+
+  test('it should render the textarea control with a custom @id', async function (assert) {
+    await render(hbs`<Hds::Form::Textarea::Field @id="my-textarea" />`);
+    assert.dom('textarea').hasAttribute('id', 'my-textarea');
+  });
+
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {

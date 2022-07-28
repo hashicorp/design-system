@@ -25,7 +25,7 @@ export const IconGoogleColor24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill="#4285F4"
-                    d="M21.804 12.23c0-.68-.055-1.363-.173-2.032H12.2v3.85h5.4a4.63 4.63 0 01-1.998 3.04v2.498h3.222c1.893-1.742 2.98-4.314 2.98-7.356z"
+                    d="M21.804 12.23c0-.68-.055-1.363-.173-2.032H12.2v3.85h5.4a4.629 4.629 0 01-1.998 3.04v2.498h3.222c1.893-1.742 2.98-4.314 2.98-7.356z"
                 />
                 <path
                     fill="#34A853"

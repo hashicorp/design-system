@@ -51,6 +51,13 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('input').hasStyle({ width: '248px' });
   });
 
+  // ID
+
+  test('it should render the input with a custom @id', async function (assert) {
+    await render(hbs`<Hds::Form::TextInput::Field @id="my-input" />`);
+    assert.dom('input').hasAttribute('id', 'my-input');
+  });
+
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
