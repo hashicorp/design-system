@@ -9,7 +9,8 @@
     An Alert is an element intended for
     <strong>system-generated messages</strong>. It is a live region with important, usually time-sensitive information.
     The use of this alert component will cause immediate notifications for users with assistive technology. Since alerts
-    are not required to receive focus, it should not be required that the user close the alert.</p>
+    are not required to receive focus, it should not be required that the user close the alert.
+  </p>
   <p class="dummy-paragraph">For messages that are the result of a user's actions see the
     <LinkTo @route="components.toast">Toast</LinkTo>
     component.
@@ -82,7 +83,11 @@
   <p class="dummy-paragraph" id="component-api-alert">Here is the API for the component:</p>
 
   <dl class="dummy-component-props" aria-labelledby="component-api-alert">
-    <dt>type <code>enum</code></dt>
+    <dt>
+      type
+      <code>enum</code>
+      <strong class="required">required</strong>
+    </dt>
     <dd>
       <p>
         Sets the type of alert.

@@ -64,14 +64,25 @@ StyleDictionaryPackage.registerTransform({
     }
 });
 
+StyleDictionaryPackage.registerTransform({
+    name: 'time/seconds', // notice: the name is an override of an existing predefined method
+    type: 'value',
+    matcher: function (token) {
+        return token.type === 'time' && token.value.match(/^[\d.]+$/);
+    },
+    transformer: function (token) {
+        return `${token.value}s`;
+    },
+});
+
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'color/css', 'color/with-alpha']
+    transforms: ['attribute/cti', 'name/cti/kebab', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerFormat({

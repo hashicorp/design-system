@@ -7,25 +7,34 @@
 // "BASE" CONTROL
 
 .hds-form-select {
-  border: 1px solid var(--token-color-palette-neutral-400);
-  border-radius: 5px;
-  color: var(--token-color-foreground-strong);
-  padding: 7px; // we have to take into account the border
+  appearance: none;
+  background-color: var(--token-form-control-base-surface-color-default);
+  background-image: var(--token-form-select-background-image-data-url);
+  background-position: right var(--token-form-select-background-image-position-right-x) top var(--token-form-select-background-image-position-top-y); // we have to take into account the border
+  background-repeat: no-repeat;
+  background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+  border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+  border-radius: var(--token-form-control-border-radius);
+  color: var(--token-form-control-base-foreground-value-color);
+  box-shadow: var(--token-elevation-low-box-shadow);
+  padding: var( --token-form-control-padding);
+  padding-right: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
   max-width: 100%;
+
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-color-palette-neutral-500);
+    border-color: var(--token-form-control-base-border-color-hover);
   }
 
   // focus (same for all the states)
-  // TODO add handling of focus-visible
+
   &:focus,
   &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
-    // TODO: Safari doesn't apply a rounded border
+    // Notice: Safari doesn't apply a rounded border
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
   }
@@ -33,22 +42,24 @@
   // DISABLED
 
   &:disabled {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
+    background-image: var(--token-form-select-background-image-data-url-disabled);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
+    color: var(--token-form-control-disabled-foreground-color);
     cursor: not-allowed;
+    box-shadow: none;
   }
 
   // INVALID
 
   &.hds-form-select--is-invalid {
-    border-color: #C00005; // TODO convert to form-controls design token
+    border-color: var(--token-form-control-invalid-border-color-default);
 
     &:hover,
     &.mock-hover {
-      border-color: #940004; // TODO convert to form-controls design token
+      border-color: var(--token-form-control-invalid-border-color-hover);
     }
 
-    // TODO add handling of focus-visible
     &:focus,
     &.mock-focus {
       border-color: var(--token-color-focus-critical-internal);

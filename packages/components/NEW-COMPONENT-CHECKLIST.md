@@ -76,11 +76,9 @@ The engineering checklist has six parts: creating the feature branch, component 
 ### Component Creation
 
 - [ ] create new branch from main for the component (`git checkout -b USER/COMPONENT-NAME`)
-- [ ] create new component
-  - `ember generate component hds/COMPONENT-NAME/index --gc` (the component won't need to be invoked with index, it's just to put all the files in the correct place)
-  - tip: if you forget to generate the backing class (via `--gc`), you can add it with `ember generate component-class hds/COMPONENT-NAME/index`.
-  - if it's a child component, then `hds/COMPONENT_NAME/CHILD_NAME` instead of `index`
-  - tip: if you need to destroy a component and start over again, `ember destroy component hds/COMPONENT-NAME/index` will remove the component and the related files as appropriate.
+- [ ] create new component using a blueprint
+  - `ember generate hds-component COMPONENT-NAME`
+  - if it's a child component, then `hds/COMPONENT_NAME/CHILD_NAME`
 - [ ] **component template**
   - use semantic HTML
   - the component should have a css class that is the same as the component (e.g. `hds/button` should have a class name of `hds-button` on the component, and additional CSS classes should start with this same class name.
@@ -140,4 +138,5 @@ Pre-review request checks:
 When ready for review:
 
 - [ ] add situationally appropriate reviewers
-- [ ] added instructions for reviewers in your PR, letting them know what kind of review you need
+- [ ] add instructions for reviewers in your PR, letting them know what kind of review you need
+- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root)

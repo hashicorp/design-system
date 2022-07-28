@@ -4,97 +4,71 @@
 // properties within each class are sorted alphabetically
 //
 
-$hds-form-radio-control-size: 16px;
 
 // "BASE" CONTROL
 
 .hds-form-radio {
   appearance: none;
   background-position: center center;
-  background-size: 12px 12px;
+  background-size: var(--token-form-radio-background-image-size) var(--token-form-radio-background-image-size);
   border-radius: 50%;
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--token-form-radio-border-width);
   cursor: pointer;
-  height: $hds-form-radio-control-size;
+  height: var(--token-form-radio-size);
   margin: 0;
   padding: 0;
-  width: $hds-form-radio-control-size;
+  width: var(--token-form-radio-size);
 
   // STATUS
 
   // base (default)
 
   &:not(:checked) {
-    background-color: var(--token-color-surface-primary);
-    border-color: var(--token-color-palette-neutral-400);
+    background-color: var(--token-form-control-base-surface-color-default);
+    border-color: var(--token-form-control-base-border-color-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
   &:checked {
-    background-color: var(--token-color-palette-blue-200);
-    border-color: var(--token-color-palette-blue-300);
-    // notice: the "dot" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e");
+    background-color: var(--token-form-control-checked-surface-color-default);
+    border-color: var(--token-form-control-checked-border-color-default);
+    background-image: var(--token-form-radio-background-image-data-url);
   }
 
   // hover
 
   &:hover:not(:checked),
   &.mock-hover:not(:checked) {
-    border-color: var(--token-color-palette-neutral-500);
+    background-color: var(--token-form-control-base-surface-color-hover);
+    border-color: var(--token-form-control-base-border-color-hover);
   }
   &:hover:checked,
   &.mock-hover:checked {
-    background-color: var(--token-color-palette-blue-300);
-    border-color: var(--token-color-palette-blue-400);
+    background-color: var(--token-form-control-checked-border-color-default);
+    border-color: var(--token-form-control-checked-border-color-hover);
   }
 
   // focus (same for all the states)
-  &:focus:not(:checked),
-  &:focus:checked,
-  &.mock-focus:checked,
-  &.mock-focus:not(:checked) {
-    border-color: var(--token-color-palette-blue-400);
+
+  &:focus,
+  &.mock-focus {
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 1px;
   }
 
-  // INVALID
-
-  &.hds-form-radio--is-invalid:not(:checked) {
-    border-color: var(--token-color-palette-red-300);
-  }
-  &.hds-form-radio--is-invalid:checked {
-    background-color: var(--token-color-palette-red-200);
-    border-color: var(--token-color-palette-red-300);
-  }
-
-  &.hds-form-radio--is-invalid:hover:not(:checked),
-  &.hds-form-radio--is-invalid.mock-hover:not(:checked) {
-    border-color: var(--token-color-palette-red-400);
-  }
-  &.hds-form-radio--is-invalid:hover:checked,
-  &.hds-form-radio--is-invalid.mock-hover:checked {
-    background-color: var(--token-color-palette-red-300);
-    border-color: var(--token-color-palette-red-400);
-  }
-
   // DISABLED
 
-  &:disabled:not(:checked),
-  &.hds-form-checkbox--is-invalid:disabled:not(:checked) {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
+  &:disabled:not(:checked) {
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
     cursor: not-allowed;
   }
-  &:disabled:checked,
-  &.hds-form-checkbox--is-invalid:disabled:checked {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-border-primary);
+  &:disabled:checked {
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
-    // notice: the "dot" color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23656a76'/%3e%3c/svg%3e");
+    background-image: var(--token-form-radio-background-image-data-url-disabled);
     cursor: not-allowed;
   }
 }

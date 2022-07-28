@@ -27,11 +27,11 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
     assert.dom('input').hasValue('abc123');
   });
 
-  // INVALID
+  // ID
 
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Field @isInvalid={{true}} />`);
-    assert.dom('.hds-form-toggle').hasClass('hds-form-toggle--is-invalid');
+  test('it should render the input with a custom @id', async function (assert) {
+    await render(hbs`<Hds::Form::Toggle::Field @id="my-input" />`);
+    assert.dom('input').hasAttribute('id', 'my-input');
   });
 
   // YIELDED (CONTEXTUAL) COMPONENTS

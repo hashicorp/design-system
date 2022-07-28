@@ -7,69 +7,67 @@
 // "BASE" CONTROL
 
 .hds-form-text-input {
-  background-color: var(--token-color-surface-primary);
-  border: 1px solid var(--token-color-palette-neutral-400);
-  border-radius: 5px;
+  background-color: var(--token-form-control-base-surface-color-default);
+  border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+  border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
-  color: var(--token-color-foreground-strong);
-  padding: 7px; // we have to take into account the border
+  color: var(--token-form-control-base-foreground-value-color);
+  padding: var( --token-form-control-padding);
   width: 100%;
   max-width: 100%;
 
   // PLACEHOLDER
 
   ::placeholder {
-    color: var(--token-color-foreground-faint);
+    color: var(--token-form-control-base-foreground-placeholder-color);
   }
 
   // STATUS
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-color-palette-neutral-500);
+    border-color: var(--token-form-control-base-border-color-hover);
   }
 
   // focus (same for all the states)
-  // TODO add handling of focus-visible
+
   &:focus,
   &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
-    // TODO: Safari doesn't apply a rounded border
+    // Notice: Safari doesn't apply a rounded border
     outline: 3px solid var(--token-color-focus-action-external);
     outline-offset: 0px;
   }
 
   // READONLY
 
-  &:read-only,
-  &[readonly] {
-    background-color: var(--token-color-surface-strong);
-    border-color: var(--token-color-palette-neutral-400);
+  &:read-only {
+    background-color: var(--token-form-control-readonly-surface-color);
+    border-color: var(--token-form-control-readonly-border-color);
     box-shadow: none;
-    color: var(--token-color-foreground-primary);
+    color: var(--token-form-control-readonly-foreground-color);
   }
 
   // DISABLED
 
   &:disabled {
-    background-color: var(--token-color-surface-interactive-disabled);
-    border-color: var(--token-color-border-primary);
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
-    color: var(--token-color-foreground-disabled);
+    color: var(--token-form-control-disabled-foreground-color);
     cursor: not-allowed;
   }
 
   // INVALID
 
   &.hds-form-text-input--is-invalid {
-    border-color: #C00005; // TODO convert to form-controls design token
+    border-color: var(--token-form-control-invalid-border-color-default);
 
     &:hover,
     &.mock-hover {
-      border-color: #940004; // TODO convert to form-controls design token
+      border-color: var(--token-form-control-invalid-border-color-hover);
     }
 
-    // TODO add handling of focus-visible
     &:focus,
     &.mock-focus {
       border-color: var(--token-color-focus-critical-internal);
@@ -94,13 +92,14 @@
 
     // show the native icon dimmed if disabled (hidden in Chrome)
     &:disabled::-webkit-calendar-picker-indicator {
-        visibility: visible;
-        opacity: 0.5;
+      visibility: visible;
+      opacity: 0.5;
     }
 
     // show the icon if readonly
+    // notice: don't change the "[readonly]" selector to ":readonly" because it's needed to overwrite the specificity in Chrome
     &[readonly]::-webkit-calendar-picker-indicator {
-        visibility: visible;
+      visibility: visible;
     }
   }
 
@@ -108,37 +107,34 @@
   // notice: the original in Chrome has two assets, one for light and one for dark mode, and uses a special syntax, but apparently it doesn't work if used in a stylesheet
   &[type="date"] {
     &::-webkit-calendar-picker-indicator {
-      // notice: the icon color is hardcoded here!
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e");
+      background-image: var(--token-form-text-input-background-image-data-url-date);
       background-position: center center;
-      background-size: 16px;
+      background-size: var(--token-form-text-input-background-image-size);
     }
   }
   &[type="time"] {
     &::-webkit-calendar-picker-indicator {
-      // notice: the icon color is hardcoded here!
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e");
+      background-image: var(--token-form-text-input-background-image-data-url-time);
       background-position: center center;
-      background-size: 16px;
+      background-size: var(--token-form-text-input-background-image-size);
     }
   }
 
   // SEARCH
   &[type="search"] {
-    padding-left: 32px;
-    // notice: the icon color is hardcoded here!
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e");
-    background-position: 7px 50%;
-    background-size: 16px;
+    padding-left: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
+    background-image: var(--token-form-text-input-background-image-data-url-search);
+    background-position: var(--token-form-text-input-background-image-position-x) 50%;
+    background-size: var(--token-form-text-input-background-image-size);
     background-repeat: no-repeat;
 
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e");
+      background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
       background-position: center center;
-      background-size: 16px;
-      height: 16px;
-      width: 16px;
+      background-size: var(--token-form-text-input-background-image-size);
+      height: var(--token-form-text-input-background-image-size);
+      width: var(--token-form-text-input-background-image-size);
     }
   }
 }

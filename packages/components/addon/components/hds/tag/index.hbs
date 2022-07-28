@@ -1,0 +1,26 @@
+<span class={{this.classNames}} ...attributes>
+  {{#if this.onDismiss}}
+    <button class="hds-tag__dismiss" type="button" aria-label="Dismiss {{this.text}}" {{on "click" this.onDismiss}}>
+      <FlightIcon class="hds-tag__dismiss-icon" @name="x" @size="16" @isInlineBlock={{false}} />
+    </button>
+  {{/if}}
+  {{#if (or @href @route)}}
+    <Hds::Interactive
+      class="hds-tag__link"
+      @current-when={{@current-when}}
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @replace={{@replace}}
+      @route={{@route}}
+      @isRouteExternal={{@isRouteExternal}}
+      @href={{@href}}
+      @isHrefExternal={{@isHrefExternal}}
+    >
+      {{this.text}}
+    </Hds::Interactive>
+  {{else}}
+    <span class="hds-tag__text">
+      {{this.text}}
+    </span>
+  {{/if}}
+</span>

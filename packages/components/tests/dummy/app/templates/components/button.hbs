@@ -27,7 +27,11 @@
         <li>critical</li>
       </ol>
     </dd>
-    <dt>text <code>string</code></dt>
+    <dt>
+      text
+      <code>string</code>
+      <strong class="required">required</strong>
+    </dt>
     <dd>
       <p>The text of the button or value of <em>aria-label</em> if <em>isIconOnly</em> is set to <em>true</em>.</p>
       <p><em>If no text value is defined an error will be thrown.</em></p>
@@ -60,12 +64,14 @@
     </dd>
     <dt>isIconOnly <code>boolean</code></dt>
     <dd>
+      <p>Default: <span class="default">false</span></p>
       <p>This indicates if the button will only contain an icon.</p>
       <p><em>Notice: an internal check is in place to ensure that accessible text is still applied to the component.</em></p>
     </dd>
     <dt>isFullWidth <code>boolean</code></dt>
     <dd>
-      <p>This indicates that a button should take up the full width of the parent container. The default is false.</p>
+      <p>Default: <span class="default">false</span></p>
+      <p>This indicates that a button should take up the full width of the parent container.</p>
     </dd>
     <dt>href</dt>
     <dd>
@@ -267,11 +273,10 @@
     <code class="dummy-code">reset</code>. The default
     <code class="dummy-code">type</code>
     for the button is
-    <code class="dummy-code">button</code>. If the button is used inside of a form, its
+    <code class="dummy-code">submit</code>. To prevent a button from submitting a form, set
     <code class="dummy-code">type</code>
-    should be
-    <code class="dummy-code">submit</code>. To use a different value, declare a different value for
-    <code class="dummy-code">type</code>:
+    to
+    <code class="dummy-code">button</code>.
   </p>
   {{! prettier-ignore-start }}
   <CodeBlock

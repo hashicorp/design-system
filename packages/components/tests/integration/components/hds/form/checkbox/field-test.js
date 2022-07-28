@@ -26,11 +26,11 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
     assert.dom('input').hasValue('abc123');
   });
 
-  // INVALID
+  // ID
 
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::Checkbox::Field @isInvalid={{true}} />`);
-    assert.dom('input').hasClass('hds-form-checkbox--is-invalid');
+  test('it should render the input with a custom @id', async function (assert) {
+    await render(hbs`<Hds::Form::Checkbox::Field @id="my-input" />`);
+    assert.dom('input').hasAttribute('id', 'my-input');
   });
 
   // YIELDED (CONTEXTUAL) COMPONENTS
@@ -86,13 +86,15 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
 
   // ATTRIBUTES
 
-  test('it should spread all the attributes passed to the component on the input', async function (assert) {
-    assert.expect(3);
+  // we have added an extra assertion for the "name" attribute here, even if not strictly necessary, to make sure is not overwritten in any way
+  test('it should spread all the attributes (including "name") passed to the component on the input', async function (assert) {
+    assert.expect(4);
     await render(
-      hbs`<Hds::Form::Checkbox::Field checked="checked" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Checkbox::Field checked="checked" class="my-class" data-test1 data-test2="test" name="test-name" />`
     );
     assert.dom('input').hasClass('my-class');
     assert.dom('input').hasAttribute('data-test1');
     assert.dom('input').hasAttribute('data-test2', 'test');
+    assert.dom('input').hasAttribute('name', 'test-name');
   });
 });

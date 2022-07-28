@@ -33,7 +33,7 @@ export const IconGoogleColor16 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="#FBBC04"
-                    d="M4.187 9.341a4.17 4.17 0 010-2.68V4.858H1.849a6.97 6.97 0 000 6.287l2.338-1.803z"
+                    d="M4.187 9.342a4.17 4.17 0 010-2.68V4.859H1.849a6.97 6.97 0 000 6.286l2.338-1.803z"
                 />
                 <path
                     fill="#EA4335"

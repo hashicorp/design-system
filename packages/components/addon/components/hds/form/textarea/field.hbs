@@ -3,6 +3,7 @@
   @extraAriaDescribedBy={{@extraAriaDescribedBy}}
   @isRequired={{@isRequired}}
   @isOptional={{@isOptional}}
+  @id={{@id}}
   as |F|
 >
   {{! Notice: the order of the elements is not relevant here, because is controlled at "Hds::Form::Field" component level }}
@@ -14,6 +15,7 @@
       @value={{@value}}
       @isInvalid={{@isInvalid}}
       @width={{@width}}
+      @height={{@height}}
       ...attributes
       id={{F.id}}
       aria-describedby={{F.ariaDescribedBy}}

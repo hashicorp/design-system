@@ -35,8 +35,9 @@ Router.map(function () {
       this.route('inline');
       this.route('standalone');
     });
-    this.route('toast');
     this.route('stepper');
+    this.route('tag');
+    this.route('toast');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

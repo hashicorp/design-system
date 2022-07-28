@@ -15,15 +15,6 @@ module('Integration | Component | hds/form/checkbox/base', function (hooks) {
     assert.dom('#test-form-checkbox').hasClass('hds-form-checkbox');
   });
 
-  // INVALID
-
-  test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Checkbox::Base id="test-form-checkbox" @isInvalid={{true}} />`
-    );
-    assert.dom('#test-form-checkbox').hasClass('hds-form-checkbox--is-invalid');
-  });
-
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {

@@ -1,5 +1,19 @@
 # @hashicorp/ember-flight-icons
 
+## 2.0.10
+
+### Patch Changes
+
+- Updated dependencies [[`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652)]:
+  - @hashicorp/flight-icons@2.8.0
+
+## 2.0.9
+
+### Patch Changes
+
+- Updated dependencies [[`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729)]:
+  - @hashicorp/flight-icons@2.7.0
+
 ## 2.0.8
 
 ### Patch Changes

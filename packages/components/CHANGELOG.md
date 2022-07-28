@@ -1,5 +1,37 @@
 # @hashicorp/design-system-components
 
+## 0.12.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.10
+
+## 0.12.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.9
+
+## 0.12.13
+
+### Patch Changes
+
+- [#461](https://github.com/hashicorp/design-system/pull/461) [`71465b37`](https://github.com/hashicorp/design-system/commit/71465b377b5ff4f47eca2bcfb096df9f082b23cb) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix computation error on disclosure (take 2)
+
+## 0.12.12
+
+### Patch Changes
+
+- [#456](https://github.com/hashicorp/design-system/pull/456) [`d0634a62`](https://github.com/hashicorp/design-system/commit/d0634a622b50c18d713afdc2fdb97a8e7a4df6af) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix computation error on disclosure utility
+
+## 0.12.11
+
+### Patch Changes
+
+- [#426](https://github.com/hashicorp/design-system/pull/426) [`ff236b25`](https://github.com/hashicorp/design-system/commit/ff236b2530dae122c011abf88baf2059a7871427) Thanks [@didoo](https://github.com/didoo)! - Updated font-weight to "medium" for "Badge" and "BadgeCount" components
+
 ## 0.12.10
 
 ### Patch Changes

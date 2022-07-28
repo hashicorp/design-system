@@ -6,15 +6,15 @@
 
 .hds-form-error {
   align-items: flex-start;
-  color: var(--token-color-foreground-critical-on-surface);
+  color: var(--token-form-error-color);
   display: flex;
 }
 
 .hds-form-error__icon {
   flex: none;
-  height: 14px;
+  height: var(--token-form-error-icon-size);
   margin: 2px 8px 2px 0;
-  width: 14px;
+  width: var(--token-form-error-icon-size);
 }
 
 .hds-form-error__content {
