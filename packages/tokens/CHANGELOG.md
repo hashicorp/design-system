@@ -1,5 +1,23 @@
 # @hashicorp/design-system-tokens
 
+## 1.0.0
+
+### Major Changes
+
+- [#447](https://github.com/hashicorp/design-system/pull/447) [`0b1e9855`](https://github.com/hashicorp/design-system/commit/0b1e985586b8f531a6208ea5ce25ac74faa77dda) Thanks [@didoo](https://github.com/didoo)! - # Form controls components
+
+  - Added the form **`TextInput`** controls (`Base`, `Field`)
+  - Added the form **`Textarea`** controls (`Base`, `Field`)
+  - Added the form **`Select`** controls (`Base`, `Field`)
+  - Added the form **`Checkbox`** controls (`Base`, `Field`, `Group`)
+  - Added the form **`Radio`** controls (`Base`, `Field`, `Group`)
+  - Added the form **`Toggle`** controls (`Base`, `Field`, `Group`)
+  - Added the form "base" low-level elements: **`Label`**, **`HelperText`**, **`Error`**, **`Legend`**, **`Field`**, **`Fieldset`**
+
+  # Design tokens
+
+  - added specific design tokens for the `form controls` components
+
 ## 0.8.1
 
 ### Patch Changes

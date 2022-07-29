@@ -1,5 +1,36 @@
 # @hashicorp/design-system-components
 
+## 1.0.0
+
+### Major Changes
+
+- [#447](https://github.com/hashicorp/design-system/pull/447) [`0b1e9855`](https://github.com/hashicorp/design-system/commit/0b1e985586b8f531a6208ea5ce25ac74faa77dda) Thanks [@didoo](https://github.com/didoo)! - # Form controls components
+
+  - Added the form **`TextInput`** controls (`Base`, `Field`)
+  - Added the form **`Textarea`** controls (`Base`, `Field`)
+  - Added the form **`Select`** controls (`Base`, `Field`)
+  - Added the form **`Checkbox`** controls (`Base`, `Field`, `Group`)
+  - Added the form **`Radio`** controls (`Base`, `Field`, `Group`)
+  - Added the form **`Toggle`** controls (`Base`, `Field`, `Group`)
+  - Added the form "base" low-level elements: **`Label`**, **`HelperText`**, **`Error`**, **`Legend`**, **`Field`**, **`Fieldset`**
+
+  # Design tokens
+
+  - added specific design tokens for the `form controls` components
+
+### Minor Changes
+
+- [#470](https://github.com/hashicorp/design-system/pull/470) [`96d47264`](https://github.com/hashicorp/design-system/commit/96d4726404664f301df0352a1fdbc4b6b6e9cb88) Thanks [@jorytindall](https://github.com/jorytindall)! - Added Stepper component structure and step/task components
+
+* [#486](https://github.com/hashicorp/design-system/pull/486) [`3ea2ad55`](https://github.com/hashicorp/design-system/commit/3ea2ad55b2ec9c579e2154ac4bb820f06a231e9f) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new ButtonSet component to standardize button spacing
+
+- [#443](https://github.com/hashicorp/design-system/pull/443) [`7756c855`](https://github.com/hashicorp/design-system/commit/7756c8554114564eccb2b08872ceabff02351682) Thanks [@alex-ju](https://github.com/alex-ju)! - Add tag component
+
+### Patch Changes
+
+- Updated dependencies [[`0b1e9855`](https://github.com/hashicorp/design-system/commit/0b1e985586b8f531a6208ea5ce25ac74faa77dda)]:
+  - @hashicorp/design-system-tokens@1.0.0
+
 ## 0.12.15
 
 ### Patch Changes
