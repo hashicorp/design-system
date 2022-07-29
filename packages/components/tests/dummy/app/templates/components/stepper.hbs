@@ -1,23 +1,29 @@
 {{page-title "Stepper Component"}}
 
+
 <h2 class="dummy-h2">Stepper Component</h2>
+
+<DummyStepperIndicatorBanner />
+
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
-  <p class="dummy-paragraph">A stepper indictor helps the user maintain context and directionality when advancing
+  <p class="dummy-paragraph">A stepper indicator helps the user maintain context and directionality when advancing
     through a multi-step flow or feature, and in certain circumstances acts as a navigational device between steps. It
     is generally assembled as part of a larger stepper pattern.</p>
+  <p class="dummy-paragraph">For practical accessibility purposes, consider a stepper (the whole component) to be a list
+    of items, with each step being a list item.</p>
   <p class="dummy-paragraph">
     As of this writing the HDS team publishes two separate (but related)
-    <code class="dummy-code">Stepper::Indicator</code>
-    components that serve different hierarchal purposes.
+    <code class="dummy-code">Stepper Indicator</code>
+    components that serve different hierarchical purposes.
     <ol>
       <li>The
-        <code class="dummy-code">Indicator::Step</code>
+        <code class="dummy-code">Stepper::Step::Indicator</code>
         component: used in higher-order step-based flows that contain multiple steps that a user must complete
         sequentially.</li>
       <li>The
-        <code class="dummy-code">Indicator::Task</code>
-        component: used either on it's own to denote smaller task-oriented flows or in combination with the
+        <code class="dummy-code">Stepper::Task::Indicator</code>
+        component: used either on its own to denote smaller task-oriented flows or in combination with the
         <code class="dummy-code">Step</code>
         indicator to list multiple tasks within a step.</li>
     </ol>
@@ -29,14 +35,13 @@
   <p class="dummy-banner dummy-banner--info dummy-paragraph">
     <strong>Note:</strong>
     Since the
-    <code class="dummy-code">Stepper::Indicator</code>
-    components are meant to be assembled into larger stepper item patterns, the indicator components are meant to have
-    their interactive states tied to the larger pattern. This includes
+    <code class="dummy-code">indicator</code>
+    components are meant to be assembled into larger stepper item patterns, the component's interactive states should be tied to the larger pattern. This includes
     <code class="dummy-code">hover</code>,
     <code class="dummy-code">active</code>, and
     <code class="dummy-code">focus</code>.</p>
-  <h4 class="dummy-h4">Stepper::Step::Indicator</h4>
-  <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Indicator::Step</code> component:</p>
+  <h4 class="dummy-h4" id="component-api-stepper-indicator">Stepper::Step::Indicator</h4>
+  <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Step::Indicator</code> component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>status <code>enum</code></dt>
     <dd>
@@ -48,8 +53,6 @@
         <li>complete</li>
       </ol>
     </dd>
-  </dl>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>isInteractive <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
@@ -58,15 +61,13 @@
         is not interactive and has no hover state. Usage for this variant is generally recommended for onboarding-type
         sequences or list-item steps.</p>
     </dd>
-  </dl>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>text <code>string</code></dt>
     <dd>
       <p>Generally corresponds with the numerical value of the index of the item in an array of multiple steps.</p>
     </dd>
   </dl>
-  <h4 class="dummy-h4">Stepper::Task::Indicator</h4>
-  <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Indicator::Task</code> component:</p>
+  <h4 class="dummy-h4" id="component-api-stepper-indicator-task">Stepper::Task::Indicator</h4>
+  <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Task::Indicator</code> component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>status <code>enum</code></dt>
     <dd>
@@ -78,8 +79,6 @@
         <li>complete</li>
       </ol>
     </dd>
-  </dl>
-  <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>isInteractive <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
@@ -116,7 +115,7 @@
   />
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating status</h5>
+  <h5 class="dummy-h5">Indicating status</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -125,7 +124,7 @@
   />
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Stepper::Step::Indicator @text="1" @status="progress" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating processing</h5>
+  <h5 class="dummy-h5">Indicating processing</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -162,7 +161,7 @@
   />
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Stepper::Task::Indicator @status="incomplete" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating status</h5>
+  <h5 class="dummy-h5">Indicating status</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -171,7 +170,7 @@
   />
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Stepper::Task::Indicator @status="progress" @isInteractive={{true}} />
-  <h5 class="dummy-h5">Notating processing</h5>
+  <h5 class="dummy-h5">Indicating processing</h5>
   <CodeBlock
     @language="markup"
     @code='
@@ -210,12 +209,15 @@
 
 <section>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
-  <p class="dummy-paragraph">These criteria while relevant in the application of the
-    <code class="dummy-code">Stepper::Indicator</code>
-    components, are best applied in the context of a larger step or task
-    <strong>pattern</strong>
-    and should be adhered to as such.</p>
+  <p class="dummy-paragraph">The 
+    <code class="dummy-code">Stepper Indicator</code>
+    components are not WCAG-conformant on their own. In order to meet conformance requirements, the following steps must be taken:</p>
+    <ol class="dummy-list">
+      <li>They must be wrapped in a <code class="dummy-code">div</code> element with the role of list applied</li>
+      <li>They must be given a meaningful name. The desired outcome: if there were two steppers on the same page, each step should have a uniquely meaningful name so that the user can differentiate.</li>
+    </ol>
   <h4 class="dummy-h4">Applicable WCAG Success Criteria (Reference)</h4>
+  <p class="dummy-paragraph">Once the Stepper is completely composed, authors should ensure that the following WCAG Success Criteria are met:</p>
   <ul class="dummy-list">
     <li><a
         href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
