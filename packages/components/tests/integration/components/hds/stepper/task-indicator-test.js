@@ -9,12 +9,12 @@ module(
     setupRenderingTest(hooks);
 
     test('it renders the task indicator', async function (assert) {
-      await render(hbs`<Hds::Stepper::Indicator::Task @status="incomplete" />`);
+      await render(hbs`<Hds::Stepper::Task::Indicator @status="incomplete" />`);
       assert.dom(this.element).exists();
     });
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Indicator::Task id="test-stepper-indicator-task" @status="incomplete" />`
+        hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="incomplete" />`
       );
       assert
         .dom('#test-stepper-indicator-task')
@@ -25,7 +25,7 @@ module(
 
     test('it should render the non-interactive variant by default', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Indicator::Task id="test-stepper-indicator-task" @status="incomplete" />`
+        hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="incomplete" />`
       );
       assert
         .dom('#test-stepper-indicator-task')
@@ -34,7 +34,7 @@ module(
 
     test('it should render the interactive variant if passed the isInteractive property', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Indicator::Task id="test-stepper-indicator-task" @status="incomplete" @isInteractive={{true}} />`
+        hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="incomplete" @isInteractive={{true}} />`
       );
       assert
         .dom('#test-stepper-indicator-task')
@@ -47,7 +47,7 @@ module(
 
     test('it should render the correct task status if the @status="incomplete" prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Indicator::Task id="test-stepper-indicator-task" @status="incomplete" />`
+        hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="incomplete" />`
       );
       assert
         .dom('#test-stepper-indicator-task')
@@ -58,7 +58,7 @@ module(
 
     test('it should render the correct status if the @status="incomplete" prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Indicator::Task id="test-stepper-indicator-task" @status="incomplete" @isInteractive={{true}} />`
+        hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="incomplete" @isInteractive={{true}} />`
       );
       assert
         .dom('#test-stepper-indicator-task')
@@ -70,7 +70,7 @@ module(
 
     test('it should render a flight icon for any of the variants', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Indicator::Task id="test-stepper-indicator-task" @status="processing" />`
+        hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="processing" />`
       );
       assert
         .dom(this.element.querySelector('.flight-icon.flight-icon-loading'))

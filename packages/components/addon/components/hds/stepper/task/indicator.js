@@ -21,7 +21,7 @@ export default class HdsStepperIndicatorTaskIndexComponent extends Component {
     let { status = DEFAULT_STATUS } = this.args;
 
     assert(
-      `@status for "Hds::Stepper::Indicator::Task" must be one of the following: ${STATUSES.join(
+      `@status for "Hds::Stepper::Task::Indicator" must be one of the following: ${STATUSES.join(
         ', '
       )}, received: ${status}`,
       STATUSES.includes(status)
