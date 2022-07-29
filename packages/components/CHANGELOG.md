@@ -30,10 +30,6 @@ This release signifies the first major release of the HashiCorp Design System. M
   - Added the form **`Toggle`** controls (`Base`, `Field`, `Group`)
   - Added the form "base" low-level elements: **`Label`**, **`HelperText`**, **`Error`**, **`Legend`**, **`Field`**, **`Fieldset`**
 
-#### Design tokens
-
-  - added specific design tokens for the `form controls` components
-
 ### Patch Changes
 
 - Updated dependencies [[`0b1e9855`](https://github.com/hashicorp/design-system/commit/0b1e985586b8f531a6208ea5ce25ac74faa77dda)]:

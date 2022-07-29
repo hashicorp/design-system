@@ -4,19 +4,11 @@
 
 ### Major Changes
 
-- [#447](https://github.com/hashicorp/design-system/pull/447) [`0b1e9855`](https://github.com/hashicorp/design-system/commit/0b1e985586b8f531a6208ea5ce25ac74faa77dda) Thanks [@didoo](https://github.com/didoo)! - # Form controls components
+This release signifies the first major release of the HashiCorp Design System. Moving forward we expect to respect [SemVer](https://semver.org/) as we make additional changes to the design system.
 
-  - Added the form **`TextInput`** controls (`Base`, `Field`)
-  - Added the form **`Textarea`** controls (`Base`, `Field`)
-  - Added the form **`Select`** controls (`Base`, `Field`)
-  - Added the form **`Checkbox`** controls (`Base`, `Field`, `Group`)
-  - Added the form **`Radio`** controls (`Base`, `Field`, `Group`)
-  - Added the form **`Toggle`** controls (`Base`, `Field`, `Group`)
-  - Added the form "base" low-level elements: **`Label`**, **`HelperText`**, **`Error`**, **`Legend`**, **`Field`**, **`Fieldset`**
+### Minor Changes
 
-  # Design tokens
-
-  - added specific design tokens for the `form controls` components
+- added specific design tokens for the `form controls` components
 
 ## 0.8.1
 
