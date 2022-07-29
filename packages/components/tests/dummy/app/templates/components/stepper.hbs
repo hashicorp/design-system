@@ -35,7 +35,7 @@
     <code class="dummy-code">hover</code>,
     <code class="dummy-code">active</code>, and
     <code class="dummy-code">focus</code>.</p>
-  <h4 class="dummy-h4">Stepper::Indicator::Step</h4>
+  <h4 class="dummy-h4">Stepper::Step::Indicator</h4>
   <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Indicator::Step</code> component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>status <code>enum</code></dt>
@@ -65,7 +65,7 @@
       <p>Generally corresponds with the numerical value of the index of the item in an array of multiple steps.</p>
     </dd>
   </dl>
-  <h4 class="dummy-h4">Stepper::Indicator::Task</h4>
+  <h4 class="dummy-h4">Stepper::Task::Indicator</h4>
   <p class="dummy-paragraph">Here is the API for the <code class="dummy-code">Indicator::Task</code> component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-stepper-indicator">
     <dt>status <code>enum</code></dt>
@@ -97,98 +97,98 @@
     and
     <code class="dummy-code">task</code>
     which can be used in conjunction, or separately depending on hierarchical needs or requirements.</p>
-  <h4 class="dummy-h4">Stepper::Indicator::Step</h4>
+  <h4 class="dummy-h4">Stepper::Step::Indicator</h4>
   <h5 class="dummy-h5">Basic use</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" />
+      <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" />
+  <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" />
   <h5 class="dummy-h5">Adding interactivity</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" @isInteractive={{true}} />
+      <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="incomplete" @isInteractive={{true}} />
+  <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" @isInteractive={{true}} />
   <h5 class="dummy-h5">Notating status</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Step @text="1" @status="progress" @isInteractive={{true}} />
+      <Hds::Stepper::Step::Indicator @text="1" @status="progress" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="progress" @isInteractive={{true}} />
+  <Hds::Stepper::Step::Indicator @text="1" @status="progress" @isInteractive={{true}} />
   <h5 class="dummy-h5">Notating processing</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Step @text="1" @status="processing" @isInteractive={{true}} />
+      <Hds::Stepper::Step::Indicator @text="1" @status="processing" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="processing" @isInteractive={{true}} />
+  <Hds::Stepper::Step::Indicator @text="1" @status="processing" @isInteractive={{true}} />
   <h5 class="dummy-h5">Rendering a complete step</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Step @text="1" @status="complete" @isInteractive={{true}} />
+      <Hds::Stepper::Step::Indicator @text="1" @status="complete" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Step @text="1" @status="complete" @isInteractive={{true}} />
-  <h4 class="dummy-h4">Stepper::Indicator::Task</h4>
+  <Hds::Stepper::Step::Indicator @text="1" @status="complete" @isInteractive={{true}} />
+  <h4 class="dummy-h4">Stepper::Task::Indicator</h4>
   <h5 class="dummy-h5">Basic use</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Task @status="incomplete" />
+      <Hds::Stepper::Task::Indicator @status="incomplete" />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="incomplete" />
+  <Hds::Stepper::Task::Indicator @status="incomplete" />
   <h5 class="dummy-h5">Adding interactivity</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Task @status="incomplete" @isInteractive={{true}} />
+      <Hds::Stepper::Task::Indicator @status="incomplete" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="incomplete" @isInteractive={{true}} />
+  <Hds::Stepper::Task::Indicator @status="incomplete" @isInteractive={{true}} />
   <h5 class="dummy-h5">Notating status</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Task @status="progress" @isInteractive={{true}} />
+      <Hds::Stepper::Task::Indicator @status="progress" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="progress" @isInteractive={{true}} />
+  <Hds::Stepper::Task::Indicator @status="progress" @isInteractive={{true}} />
   <h5 class="dummy-h5">Notating processing</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Task @status="processing" @isInteractive={{true}} />
+      <Hds::Stepper::Task::Indicator @status="processing" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="processing" @isInteractive={{true}} />
+  <Hds::Stepper::Task::Indicator @status="processing" @isInteractive={{true}} />
   <h5 class="dummy-h5">Rendering a complete task</h5>
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Stepper::Indicator::Task @status="complete" @isInteractive={{true}} />
+      <Hds::Stepper::Task::Indicator @status="complete" @isInteractive={{true}} />
     '
   />
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Stepper::Indicator::Task @status="complete" @isInteractive={{true}} />
+  <Hds::Stepper::Task::Indicator @status="complete" @isInteractive={{true}} />
 </section>
 
 <section>
@@ -296,7 +296,7 @@
       <div>
         <span class="dummy-text-small">{{capitalize status}}</span>
         <br />
-        <Hds::Stepper::Indicator::Step @status={{status}} @text="1" />
+        <Hds::Stepper::Step::Indicator @status={{status}} @text="1" />
       </div>
     {{/each}}
   </div>
@@ -307,7 +307,7 @@
         <div>
           <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
           <br />
-          <Hds::Stepper::Indicator::Step
+          <Hds::Stepper::Step::Indicator
             @status={{status}}
             @text="1"
             @isInteractive={{true}}
@@ -324,7 +324,7 @@
       <div>
         <span class="dummy-text-small">{{capitalize status}}</span>
         <br />
-        <Hds::Stepper::Indicator::Task @status={{status}} @text="1" />
+        <Hds::Stepper::Task::Indicator @status={{status}} @text="1" />
       </div>
     {{/each}}
   </div>
@@ -335,7 +335,7 @@
         <div>
           <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
           <br />
-          <Hds::Stepper::Indicator::Task @status={{status}} @isInteractive={{true}} mock-state-value={{state}} />
+          <Hds::Stepper::Task::Indicator @status={{status}} @isInteractive={{true}} mock-state-value={{state}} />
         </div>
       {{/each}}
     </div>
