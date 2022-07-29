@@ -3095,6 +3095,55 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hashicorp/ember-flight-icons@^2.0.10, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+  version: 0.0.0-use.local
+  resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
+  dependencies:
+    "@ember/optional-features": ^2.0.0
+    "@ember/test-helpers": ^2.8.1
+    "@embroider/test-setup": ^1.8.3
+    "@glimmer/component": ^1.1.2
+    "@glimmer/tracking": ^1.1.2
+    "@hashicorp/flight-icons": ^2.11.0
+    "@percy/cli": ^1.11.0
+    "@percy/ember": ^4.0.0
+    babel-eslint: ^10.1.0
+    broccoli-asset-rev: ^3.0.0
+    ember-auto-import: ^2.4.2
+    ember-cli: ~4.7.0
+    ember-cli-babel: ^7.26.11
+    ember-cli-dependency-checker: ^3.3.1
+    ember-cli-htmlbars: ^6.1.0
+    ember-cli-inject-live-reload: ^2.1.0
+    ember-cli-sri: ^2.1.1
+    ember-cli-terser: ^4.0.2
+    ember-disable-prototype-extensions: ^1.1.3
+    ember-load-initializers: ^2.1.2
+    ember-page-title: ^7.0.0
+    ember-qunit: ^5.1.5
+    ember-resolver: ^8.0.3
+    ember-source: ~4.7.0
+    ember-source-channel-url: ^3.0.0
+    ember-template-lint: ^4.14.0
+    ember-template-lint-plugin-prettier: ^4.0.0
+    ember-try: ^2.0.0
+    eslint: ^7.32.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-ember: ^11.0.6
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-qunit: ^7.3.1
+    loader.js: ^4.7.0
+    npm-run-all: ^4.1.5
+    prettier: ^2.7.1
+    qunit: ^2.19.1
+    qunit-dom: ^2.0.0
+    webpack: ^5.74.0
+  peerDependencies:
+    ember-test-selectors: ^6.0.0
+  languageName: unknown
+  linkType: soft
+
 "@hashicorp/ember-flight-icons@^3.0.0, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
@@ -9373,6 +9422,7 @@ __metadata:
     "@ember/test-helpers": ^2.6.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
+    "@hashicorp/ember-flight-icons": "workspace:^"
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.4.1
@@ -9394,6 +9444,7 @@ __metadata:
     ember-resolver: ^8.0.3
     ember-source: ~4.3.0
     ember-template-lint: ^4.3.0
+    ember-truth-helpers: ^3.1.1
     ember-welcome-page: ^6.2.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.5.0
@@ -11204,6 +11255,15 @@ __metadata:
   dependencies:
     ember-cli-babel: ^7.22.1
   checksum: 2848f30eb35046be4d5c4ae6ab36aa374d860ba37dbd6f529467182ead80166e2fc881f615f3fa0b25fd2ecf73e237c6f61e67bd182149776240d9ee3852a343
+  languageName: node
+  linkType: hard
+
+"ember-truth-helpers@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "ember-truth-helpers@npm:3.1.1"
+  dependencies:
+    ember-cli-babel: ^7.22.1
+  checksum: 6f3a779ae714cec543b39ca93caa98121e65046e48929e1890aa24b2592c4e90a703148694bae9d7ca9bfc68d9ae1f7e00392f0f288158ee962aefbae1f3c0b0
   languageName: node
   linkType: hard
 

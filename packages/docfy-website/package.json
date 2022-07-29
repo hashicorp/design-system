@@ -69,5 +69,9 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@hashicorp/ember-flight-icons": "workspace:^",
+    "ember-truth-helpers": "^3.1.1"
   }
 }
