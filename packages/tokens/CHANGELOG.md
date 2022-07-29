@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 1.0.0
+
+### Major Changes
+
+This release signifies the first major release of the HashiCorp Design System. Moving forward we expect to respect [SemVer](https://semver.org/) as we make additional changes to the design system.
+
+### Minor Changes
+
+- added specific design tokens for the `form controls` components
+
 ## 0.8.1
 
 ### Patch Changes
