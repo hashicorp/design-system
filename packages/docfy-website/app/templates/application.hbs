@@ -1,3 +1,12 @@
 {{page-title "HDS Design System"}}
 
 {{outlet}}
+
+<DocfyPreviousAndNextPage as |previous next|>
+    {{#if previous}}
+        <DocfyLink @to={{previous.url}}>{{previous.title}}</DocfyLink>
+    {{/if}}
+    {{#if next}}
+        <DocfyLink @to={{next.url}}>{{next.title}}</DocfyLink>
+    {{/if}}
+</DocfyPreviousAndNextPage>
