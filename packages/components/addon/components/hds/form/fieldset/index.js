@@ -2,16 +2,20 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '../utils/getElementId';
-import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
+import { setAriaDescribedBy } from '../utils/setAriaDescribedBy';
 
 export default class HdsFormFieldsetIndexComponent extends Component {
-  @tracked ariaDescribedBy = getAriaDescribedBy(this);
+  @tracked ariaDescribedBy = this.args.extraAriaDescribedBy;
   @tracked descriptors = [];
 
   @action
   appendDescriptor(element) {
     this.descriptors.push(element.id);
-    this.ariaDescribedBy = getAriaDescribedBy(this);
+  }
+
+  @action
+  setAriaDescribedBy() {
+    setAriaDescribedBy(this);
   }
 
   /**

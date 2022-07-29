@@ -51,10 +51,10 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert.dom('#test-form-fieldset .hds-form-group__error').exists();
     assert.dom('.hds-form-group__error').hasText('This is the group error');
   });
-  test('it automatically provides all the ID relations between the elements', async function (assert) {
-    assert.expect(3);
+  test('it automatically provides IDs for helper text and error', async function (assert) {
+    assert.expect(2);
     await render(
-      hbs`<Hds::Form::Fieldset @layout="vertical" @extraAriaDescribedBy="extra" as |F|>
+      hbs`<Hds::Form::Fieldset @layout="vertical" as |F|>
           <F.Legend>This is the legend</F.Legend>
           <F.HelperText>This is the group helper text</F.HelperText>
           <F.Control><pre class="hds-form-group__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
@@ -67,12 +67,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert
       .dom('.hds-form-group__helper-text')
       .hasAttribute('id', `helper-text-${fieldsetId}`);
-    assert
-      .dom('fieldset')
-      .hasAttribute(
-        'aria-describedby',
-        `helper-text-${fieldsetId} error-${fieldsetId} extra`
-      );
     assert
       .dom('.hds-form-group__error')
       .hasAttribute('id', `error-${fieldsetId}`);

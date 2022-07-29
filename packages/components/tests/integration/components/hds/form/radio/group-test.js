@@ -65,6 +65,40 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     assert.dom('.hds-form-group__helper-text').doesNotExist();
     assert.dom('.hds-form-group__error').doesNotExist();
   });
+  test('it automatically provides all the ID relations between the elements', async function (assert) {
+    assert.expect(1);
+    await render(
+      hbs`<Hds::Form::Radio::Group as |G|>
+            <G.Legend>This is the legend</G.Legend>
+            <G.HelperText>This is the group helper text</G.HelperText>
+            <G.Radio::Field checked="checked" @value="abc123" as |F|>
+              <F.Label>This is the control label</F.Label>
+              <F.HelperText>This is the control helper text</F.HelperText>
+              <F.Error>This is the control error</F.Error>
+            </G.Radio::Field>
+            <G.Error>This is the group error</G.Error>
+          </Hds::Form::Radio::Group>`
+    );
+    // the IDs are dynamically generated
+    let groupHelperText = this.element.querySelector(
+      '.hds-form-group__helper-text'
+    );
+    let groupHelperTextId = groupHelperText.id;
+    let groupError = this.element.querySelector('.hds-form-group__error');
+    let groupErrorId = groupError.id;
+    let fieldHelperText = this.element.querySelector(
+      '.hds-form-field__helper-text'
+    );
+    let fieldHelperTextId = fieldHelperText.id;
+    let fieldError = this.element.querySelector('.hds-form-field__error');
+    let fieldErrorId = fieldError.id;
+    assert
+      .dom('input')
+      .hasAttribute(
+        'aria-describedby',
+        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`
+      );
+  });
 
   // NAME
 

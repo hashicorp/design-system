@@ -6,7 +6,10 @@
     {{yield
       (hash
         Toggle::Field=(component
-          "hds/form/toggle/field" contextualClass="hds-form-group__control-field" isRequired=@isRequired
+          "hds/form/toggle/field"
+          contextualClass="hds-form-group__control-field"
+          isRequired=@isRequired
+          extraAriaDescribedBy=F.ariaDescribedBy
         )
       )
     }}

@@ -1,4 +1,4 @@
-<fieldset class={{this.classNames}} id={{this.id}} ...attributes aria-describedby={{this.ariaDescribedBy}}>
+<fieldset class={{this.classNames}} id={{this.id}} {{did-insert this.setAriaDescribedBy}} ...attributes>
   {{yield
     (hash
       Legend=(component
@@ -17,7 +17,7 @@
     )
   }}
   <div class="hds-form-group__control-fields-wrapper">
-    {{yield (hash Control=(component "hds/yield"))}}
+    {{yield (hash Control=(component "hds/yield") ariaDescribedBy=this.ariaDescribedBy)}}
   </div>
   {{yield
     (hash

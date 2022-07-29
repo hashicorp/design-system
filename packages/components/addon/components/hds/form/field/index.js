@@ -3,18 +3,26 @@ import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { getElementId } from '../utils/getElementId';
-import { getAriaDescribedBy } from '../utils/getAriaDescribedBy';
+import { setAriaDescribedBy } from '../utils/setAriaDescribedBy';
+import { schedule } from '@ember/runloop';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
 export default class HdsFormFieldIndexComponent extends Component {
-  @tracked ariaDescribedBy = getAriaDescribedBy(this);
+  @tracked ariaDescribedBy = this.args.extraAriaDescribedBy;
   @tracked descriptors = [];
 
   @action
   appendDescriptor(element) {
     this.descriptors.push(element.id);
-    this.ariaDescribedBy = getAriaDescribedBy(this);
+  }
+
+  @action
+  setAriaDescribedBy() {
+    // we schedule this afterRender to capture all descriptors registered onInsert
+    schedule('afterRender', () => {
+      setAriaDescribedBy(this);
+    });
   }
 
   /**

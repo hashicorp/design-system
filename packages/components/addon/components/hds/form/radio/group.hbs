@@ -13,7 +13,11 @@
     {{yield
       (hash
         Radio::Field=(component
-          "hds/form/radio/field" contextualClass="hds-form-group__control-field" isRequired=@isRequired name=@name
+          "hds/form/radio/field"
+          contextualClass="hds-form-group__control-field"
+          isRequired=@isRequired
+          name=@name
+          extraAriaDescribedBy=F.ariaDescribedBy
         )
       )
     }}
