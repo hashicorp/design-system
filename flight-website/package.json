@@ -34,7 +34,7 @@
     "@glimmer/tracking": "^1.0.4",
     "@hashicorp/ember-flight-icons": "^2.0.10",
     "@hashicorp/flight-icons": "^2.8.0",
-    "@percy/cli": "^1.6.3",
+    "@percy/cli": "^1.7.2",
     "@percy/ember": "^3.0.1",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
