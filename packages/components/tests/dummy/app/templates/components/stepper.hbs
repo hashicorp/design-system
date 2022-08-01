@@ -1,14 +1,14 @@
-{{page-title "Stepper Component"}}
+{{page-title "Stepper Indicator Component"}}
 
-<h2 class="dummy-h2">Stepper Component</h2>
+<h2 class="dummy-h2">Stepper Indicator Component</h2>
 
 <DummyStepperIndicatorBanner />
 
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
   <p class="dummy-paragraph">A stepper indicator helps the user maintain context and directionality when advancing
-    through a multi-step flow or feature, and in certain circumstances acts as a navigational device between steps. It
-    is generally assembled as part of a larger stepper pattern.</p>
+    through a multi-step flow or feature, and in certain circumstances, could act as a navigational device between
+    steps. It is generally assembled as part of a larger stepper pattern.</p>
   <p class="dummy-paragraph">For practical accessibility purposes, consider a stepper (the whole component) to be a list
     of items, with each step being a list item.</p>
   <p class="dummy-paragraph">
@@ -211,85 +211,11 @@
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
   <p class="dummy-paragraph">The
     <code class="dummy-code">Stepper Indicator</code>
-    components are not WCAG-conformant on their own. In order to meet conformance requirements, the following steps must
-    be taken:</p>
-  <ol class="dummy-list">
-    <li>They must be wrapped in a <code class="dummy-code">div</code> element with the role of list applied</li>
-    <li>They must be given a meaningful name. The desired outcome: if there were two steppers on the same page, each
-      step should have a uniquely meaningful name so that the user can differentiate.</li>
-  </ol>
+    components are not WCAG-conformant on their own.</p>
   <h4 class="dummy-h4">Applicable WCAG Success Criteria (Reference)</h4>
-  <p class="dummy-paragraph">Once the Stepper is completely composed, authors should ensure that the following WCAG
-    Success Criteria are met:</p>
-  <ul class="dummy-list">
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >1.3.1: Info and Relationships:</a>
-      Information, structure, and relationships conveyed through presentation can be programmatically determined or are
-      available in text.</li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >1.4.1: Use of Color:</a>
-      Color is not used as the only visual means of conveying information, indicating an action, prompting a response,
-      or distinguishing a visual element.</li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >1.4.11: Non-Text Contrast:</a>
-      The visual presentation of the user interface components and graphical objects have a contrast ratio of at least
-      3:1 against adjacent color(s).
-    </li>
-    <li>
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard" rel="noopener noreferrer" target="_blank">2.1.1:
-        Timing Adjustable:</a>
-      For each time limit that is set by the content, at least one of the following is true:
-      <ul class="dummy-list">
-        <li>Turn off: The user is allowed to turn off the time limit before encountering it; or</li>
-        <li>Adjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at
-          least ten times the length of the default setting; orExtend: The user is warned before time expires and given
-          at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and
-          the user is allowed to extend the time limit at least ten times; or</li>
-        <li>Real-time Exception: The time limit is a required part of a real-time event (for example, an auction), and
-          no alternative to the time limit is possible; or</li>
-        <li>Essential Exception: The time limit is essential and extending it would invalidate the activity; or</li>
-        <li>20 Hour Exception: The time limit is longer than 20 hours.</li>
-      </ul>
-    </li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >2.2.2: Pause, Stop, Hide:</a>
-      For moving, blinking, scrolling, or auto-updating information, all of the following are true:
-      <ul class="dummy-list">
-        <li><strong>Moving, blinking, scrolling:</strong>
-          For any moving, blinking, or scrolling information that (1) starts automatically, (2) lasts more than five
-          seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause,
-          stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and</li>
-        <li><strong>Auto-updating:</strong>
-          For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other
-          content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the
-          update unless the auto-updating is part of an activity where it is essential.</li>
-      </ul>
-    </li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible"
-        rel="noopener noreferrer"
-        target="_blank"
-      >2.4.7: Focus Visible:</a>
-      Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</li>
-    <li><a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >3.3.2: Labels or Instructions:</a>
-      Labels or instructions are provided when content requires user input.</li>
-  </ul>
+  <p class="dummy-paragraph">There is no specific WCAG Success Criteria applicable to the stepper indicator on its own.
+    Since we are only providing the stepper indicator and not the entire stepper (at this time), authors are responsible
+    to ensure WCAG conformance is met in any components they build.</p>
 </section>
 
 <section data-test-percy>
