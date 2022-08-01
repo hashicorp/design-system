@@ -2676,6 +2676,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@percy/ember@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@percy/ember@npm:3.0.1"
+  dependencies:
+    "@percy/sdk-utils": ^1.6.4
+    ember-cli-babel: ^7.26.11
+  checksum: 3ea7c2bab481cb96280d2920a79daa2235fee1edbc4c61102c388069aaf750114ab26697d3bf839d3fe47b21b70db20146fb94865ff1dc1cba3d5811bf2099e5
+  languageName: node
+  linkType: hard
+
 "@percy/env@npm:1.6.3":
   version: 1.6.3
   resolution: "@percy/env@npm:1.6.3"
@@ -2694,6 +2704,13 @@ __metadata:
   version: 1.3.1
   resolution: "@percy/sdk-utils@npm:1.3.1"
   checksum: daeb36773831b272adfb471cc714e02c9b414759625e25b78be6bd0439a9c92ff8ca8e925afd6ec26aa3917605bef1db285e05a2f59c8bf264caced8afaf635c
+  languageName: node
+  linkType: hard
+
+"@percy/sdk-utils@npm:^1.6.4":
+  version: 1.7.2
+  resolution: "@percy/sdk-utils@npm:1.7.2"
+  checksum: af12d21ca6b34593a223b7d52d248eb83fb1bc628b4961688c1cdd3af10bbcd839521781ce2296ded1d6953f1edfc50116614d6478fb59e47bc1d2885aabd00c
   languageName: node
   linkType: hard
 
@@ -10144,7 +10161,7 @@ __metadata:
     "@hashicorp/ember-flight-icons": ^2.0.10
     "@hashicorp/flight-icons": ^2.8.0
     "@percy/cli": ^1.6.3
-    "@percy/ember": ^3.0.0
+    "@percy/ember": ^3.0.1
     "@tailwindcss/forms": ^0.3.4
     "@tailwindcss/typography": ^0.4.1
     babel-eslint: ^10.1.0
