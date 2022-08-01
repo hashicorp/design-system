@@ -6,7 +6,7 @@
 
 Design System components in Ember.js
 
-- npm package: **@hashicorp/design-system-components**
+- npm package: `@hashicorp/design-system-components`
 - website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app)
 - more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md).
 
@@ -14,7 +14,7 @@ Design System components in Ember.js
 
 Ember.js addon with `<FlightIcon />` component
 
-- npm package: **@hashicorp/ember-flight-icons**
+- npm package: `@hashicorp/ember-flight-icons`
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
 - more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember.js addon.
 
@@ -30,7 +30,7 @@ Flight icons in different formats (SVG/SVG Sprite/React)
 
 Design tokens
 
-- npm package: **@hashicorp/design-system-tokens**
+- npm package: `@hashicorp/design-system-tokens`
 - website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
