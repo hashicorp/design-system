@@ -8,7 +8,7 @@ Design System components in Ember.js
 
 - npm package: **@hashicorp/design-system-components**
 - website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app)
-- more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
+- more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md).
 
 ### `packages/ember-flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
 
@@ -16,7 +16,7 @@ Ember.js addon with `<FlightIcon />` component
 
 - npm package: **@hashicorp/ember-flight-icons**
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
-- more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember addon.
+- more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember.js addon.
 
 ### `packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
@@ -39,7 +39,7 @@ Design tokens
 The dedicated `flight-icons` website (it has its own Yarn workspace).
 
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
-
+- more info: see [flight-website/README](flight-website/README.md) for details on how to build and test this Ember.js application
 
 ## Contributing
 
