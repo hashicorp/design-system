@@ -7,7 +7,7 @@
 Design System components in Ember.js
 
 - NPM package: **@hashicorp/design-system-components** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
-- website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app) 
+- website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app)
 - more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
 
 ### `packages/ember-flight-icons`
@@ -26,12 +26,6 @@ Flight icons in different formats (SVG/SVG Sprite/React)
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
 - more info: see [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
-### `packages/flight-website`
-
-The dedicated `flight-icons` website (it has its own Yarn workspace).
-
-- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
-
 ### `packages/tokens`
 
 Design tokens
@@ -39,6 +33,13 @@ Design tokens
 - NPM package: **@hashicorp/design-system-tokens** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens)
 - website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
+
+### `flight-website`
+
+The dedicated `flight-icons` website (it has its own Yarn workspace).
+
+- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+
 
 ## Contributing
 
