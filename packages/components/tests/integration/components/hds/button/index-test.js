@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Integration | Component | hds/button/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -113,6 +114,19 @@ module('Integration | Component | hds/button/index', function (hooks) {
       hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
     );
     assert.dom('#test-button').hasAttribute('type', 'button');
+  });
+
+  test('it should pass available a11y automation tests', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" id="test-button" />`
+    );
+
+    let axeOptions = {
+      runOnly: ['wcag21a', 'wcag21aa', 'best-practice'],
+    };
+    await a11yAudit('#test-button', axeOptions);
+
+    assert.ok(true, 'a11y automation audit passed');
   });
 
   // OTHER
