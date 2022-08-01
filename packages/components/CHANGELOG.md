@@ -6,6 +6,8 @@
 
 This release signifies the first major release of the HashiCorp Design System. Moving forward we expect to respect [SemVer](https://semver.org/) as we make additional changes to the design system.
 
+**Note:** Even though this is a major version bump, there should not be any breaking changes from the last minor releases.
+
 ### Minor Changes
 
 #### Stepper component
