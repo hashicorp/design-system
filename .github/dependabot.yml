@@ -9,18 +9,3 @@ updates:
       interval: "weekly"
     allow: 
       - dependency-name: "@percy/*"
-  - package-ecosystem: "npm" 
-    directory: "packages/ember-flight-icons/" 
-    versioning-strategy: increase
-    schedule:
-      interval: "weekly"
-    allow: 
-      - dependency-name: "@percy/*"
-  - package-ecosystem: "npm" 
-    directory: "flight-website/" 
-    versioning-strategy: increase
-    schedule:
-      interval: "weekly"
-    allow: 
-      - dependency-name: "@percy/*"
-
