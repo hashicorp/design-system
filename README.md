@@ -8,7 +8,7 @@ Design System components in Ember.js
 
 - npm package: `@hashicorp/design-system-components`
 - website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app)
-- more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md).
+- more info: see [components/README](packages/components/README.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md).
 
 ### `packages/ember-flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
 
