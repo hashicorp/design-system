@@ -2,35 +2,35 @@
 
 ## Packages
 
-### `packages/components`
+### `packages/components` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
 
 Design System components in Ember.js
 
-- NPM package: **@hashicorp/design-system-components** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
+- npm package: **@hashicorp/design-system-components**
 - website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app)
 - more info: see [components/README](packages/components/CONTRIBUTING.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md) for more info.
 
-### `packages/ember-flight-icons`
+### `packages/ember-flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
 
 Ember.js addon with `<FlightIcon />` component
 
-- NPM package: **@hashicorp/ember-flight-icons** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
+- npm package: **@hashicorp/ember-flight-icons**
 - website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
 - more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember addon.
 
-### `packages/flight-icons`
+### `packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
+- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
 
 Flight icons in different formats (SVG/SVG Sprite/React)
 
-- NPM package: `@hashicorp/flight-icons` - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
-- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+- npm package: `@hashicorp/flight-icons`
 - more info: see [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts, that export the assets from Figma and generate a bundle of standalone SVG files.
 
-### `packages/tokens`
+### `packages/tokens` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens)
 
 Design tokens
 
-- NPM package: **@hashicorp/design-system-tokens** - [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens)
+- npm package: **@hashicorp/design-system-tokens**
 - website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
 
@@ -83,7 +83,7 @@ Note: If you want to ignore a changestep bump in terminal (e.g. major bump for s
 
 ### Releasing
 
-Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR – titled `Version Packages` – can be approved and merged to `main`, and the changes will be released to NPM automatically.
+Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR – titled `Version Packages` – can be approved and merged to `main`, and the changes will be released to npm automatically.
 
 #### Local testing of versioning
 
