@@ -57,6 +57,7 @@
 .hds-alert__description {
   color: var(--token-color-foreground-primary);
   font-weight: var(--token-typography-font-weight-regular);
+  word-break: break-word;
 
   .hds-alert__title + & {
     margin-top: 4px;
