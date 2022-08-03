@@ -3,7 +3,7 @@
 module.exports = {
   plugins: [
     'ember-template-lint-plugin-prettier',
-    '@hashicorp/design-system-components/lib/template-lint-rules/custom-rules',
+    './lib/template-lint-rules/custom-rules',
   ],
   extends: [
     'recommended',
