@@ -1,4 +1,4 @@
-import requireButtonText from './lib/template-lint-rules/require-button-text.js';
+import requireButtonText from './require-button-text.js';
 
 export default {
   // Name of plugin
@@ -11,7 +11,7 @@ export default {
 
   // Define configurations for this plugin that can be extended by the base configuration
   configurations: {
-    default: {
+    recommended: {
       rules: {
         'require-button-text': true,
       },
