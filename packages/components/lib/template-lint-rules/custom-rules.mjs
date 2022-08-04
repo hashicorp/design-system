@@ -1,4 +1,4 @@
-import requireButtonText from './require-button-text.js';
+import requireButtonText from './require-button-text.mjs';
 
 export default {
   // Name of plugin
@@ -8,6 +8,7 @@ export default {
   rules: {
     'require-button-text': requireButtonText,
   },
+  ignore: ['../blueprints/**'],
 
   // Define configurations for this plugin that can be extended by the base configuration
   configurations: {
@@ -16,5 +17,6 @@ export default {
         'require-button-text': true,
       },
     },
+    ignore: ['./blueprints/**'],
   },
 };
