@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-08-05T13:42:38.415Z",
+  "lastRunTimeISO": "2022-08-05T14:08:54.429Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -409,8 +409,8 @@
     },
     {
       "id": "2372:160",
-      "fileName": "azure-vms-24",
-      "iconName": "azure-vms",
+      "fileName": "azure-aks-24",
+      "iconName": "azure-aks",
       "description": "azure, microsoft, aks",
       "size": "24",
       "width": 24,
@@ -418,8 +418,8 @@
     },
     {
       "id": "2372:162",
-      "fileName": "azure-vms-16",
-      "iconName": "azure-vms",
+      "fileName": "azure-aks-16",
+      "iconName": "azure-aks",
       "description": "azure, microsoft, aks",
       "size": "16",
       "width": 16,
@@ -427,8 +427,8 @@
     },
     {
       "id": "2372:167",
-      "fileName": "azure-vms-color-24",
-      "iconName": "azure-vms-color",
+      "fileName": "azure-aks-color-24",
+      "iconName": "azure-aks-color",
       "description": "azure, microsoft, aks",
       "size": "24",
       "width": 24,
@@ -436,8 +436,8 @@
     },
     {
       "id": "2372:185",
-      "fileName": "azure-vms-color-16",
-      "iconName": "azure-vms-color",
+      "fileName": "azure-aks-color-16",
+      "iconName": "azure-aks-color",
       "description": "azure, microsoft, aks",
       "size": "16",
       "width": 16,
