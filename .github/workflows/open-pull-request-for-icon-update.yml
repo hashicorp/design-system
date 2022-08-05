@@ -34,6 +34,7 @@ jobs:
       - name: Open a PR
         uses: peter-evans/create-pull-request@v3
         with:
+          branch: 'hds-icon-export'
           commit-message: 'sync & build of flight icons'
           title: 'Updated export of icons from Figma'
           body: ''
