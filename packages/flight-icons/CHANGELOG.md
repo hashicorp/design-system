@@ -1,5 +1,13 @@
 # @hashicorp/flight-icons
 
+## 2.9.0
+
+### Minor Changes
+
+- [#524](https://github.com/hashicorp/design-system/pull/524) [`f2b3398e`](https://github.com/hashicorp/design-system/commit/f2b3398e3056ae39fa35b1f9c81ddc0b2100073d) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
+  - Add service icons for azure-aks
+  - Update css exports to include recently added service icons
+
 ## 2.8.0
 
 ### Minor Changes

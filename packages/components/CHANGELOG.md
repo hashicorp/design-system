@@ -1,5 +1,18 @@
 # @hashicorp/design-system-components
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.11
+
+## 1.0.1
+
+### Patch Changes
+
+- [#516](https://github.com/hashicorp/design-system/pull/516) [`a81a3580`](https://github.com/hashicorp/design-system/commit/a81a35806504f6a7b7f9dfdf0e8a5ddbef0f47fc) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix text wrapping in alert description
+
 ## 1.0.0 🎉
 
 ### Major Changes
@@ -15,9 +28,11 @@ This release signifies the first major release of the HashiCorp Design System. M
 - [#470](https://github.com/hashicorp/design-system/pull/470) [`96d47264`](https://github.com/hashicorp/design-system/commit/96d4726404664f301df0352a1fdbc4b6b6e9cb88) Thanks [@jorytindall](https://github.com/jorytindall)! - Added Stepper component structure and step/task components
 
 #### ButtonSet component
-* [#486](https://github.com/hashicorp/design-system/pull/486) [`3ea2ad55`](https://github.com/hashicorp/design-system/commit/3ea2ad55b2ec9c579e2154ac4bb820f06a231e9f) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new ButtonSet component to standardize button spacing
+
+- [#486](https://github.com/hashicorp/design-system/pull/486) [`3ea2ad55`](https://github.com/hashicorp/design-system/commit/3ea2ad55b2ec9c579e2154ac4bb820f06a231e9f) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new ButtonSet component to standardize button spacing
 
 #### Tag component
+
 - [#443](https://github.com/hashicorp/design-system/pull/443) [`7756c855`](https://github.com/hashicorp/design-system/commit/7756c8554114564eccb2b08872ceabff02351682) Thanks [@alex-ju](https://github.com/alex-ju) & [@agendelHC](https://github.com/agendelHC)! - Add tag component
 
 #### Form controls components

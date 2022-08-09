@@ -14,5 +14,5 @@
     "release": "yarn changeset publish",
     "version": "yarn changeset version && yarn install --mode update-lockfile"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.2"
 }
