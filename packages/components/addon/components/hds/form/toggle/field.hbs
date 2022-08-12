@@ -12,10 +12,10 @@
       {{! template-lint-disable no-capital-arguments }}
       @_wrapperClass="hds-form-field__control"
       @value={{@value}}
+      required={{@isRequired}}
       ...attributes
       id={{F.id}}
       aria-describedby={{F.ariaDescribedBy}}
-      required={{@isRequired}}
     />
   </F.Control>
 </Hds::Form::Field>

@@ -124,6 +124,16 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
   });
+  test('it should not append an indicator to the label text when the required attribute is set', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Select::Field required as |F|>
+            <F.Label>This is the label</F.Label>
+          </Hds::Form::Select::Field>`
+    );
+    assert.dom('select').hasAttribute('required');
+    assert.dom('label .hds-form-indicator').doesNotExist();
+  });
 
   // ATTRIBUTES
 
