@@ -1719,7 +1719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/test-waiters@npm:^3.0.0":
+"@ember/test-waiters@npm:^2.4.3 || ^3.0.0, @ember/test-waiters@npm:^3.0.0":
   version: 3.0.2
   resolution: "@ember/test-waiters@npm:3.0.2"
   dependencies:
@@ -2035,6 +2035,7 @@ __metadata:
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-a11y-refocus: ^2.1.0
+    ember-a11y-testing: ^5.0.0
     ember-auto-import: ^2.4.1
     ember-cli: ~4.3.0
     ember-cli-babel: ^7.26.11
@@ -2697,6 +2698,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@scalvert/ember-setup-middleware-reporter@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@scalvert/ember-setup-middleware-reporter@npm:0.1.1"
+  dependencies:
+    "@types/fs-extra": ^9.0.12
+    body-parser: ^1.19.0
+    errorhandler: ^1.5.1
+    fs-extra: ^10.0.0
+  checksum: 4015fc0ede7d72a2a8a5e334c63fb7f570c89d2f53d45cdb453dd85e3de48734a5d083b4cf0cadf70a3b5e71ee7aca020b45d5798e8a6334db1f72aa7ab72cb4
+  languageName: node
+  linkType: hard
+
 "@simple-dom/interface@npm:^1.4.0":
   version: 1.4.0
   resolution: "@simple-dom/interface@npm:1.4.0"
@@ -3036,7 +3049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^9.0.13":
+"@types/fs-extra@npm:^9.0.12, @types/fs-extra@npm:^9.0.13":
   version: 9.0.13
   resolution: "@types/fs-extra@npm:9.0.13"
   dependencies:
@@ -3759,7 +3772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"accepts@npm:~1.3.4, accepts@npm:~1.3.5, accepts@npm:~1.3.8":
+"accepts@npm:~1.3.4, accepts@npm:~1.3.5, accepts@npm:~1.3.7, accepts@npm:~1.3.8":
   version: 1.3.8
   resolution: "accepts@npm:1.3.8"
   dependencies:
@@ -4453,6 +4466,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axe-core@npm:^4.3.5":
+  version: 4.4.3
+  resolution: "axe-core@npm:4.4.3"
+  checksum: c3ea000d9ace3ba0bc747c8feafc24b0de62a0f7d93021d0f77b19c73fca15341843510f6170da563d51535d6cfb7a46c5fc0ea36170549dbb44b170208450a2
+  languageName: node
+  linkType: hard
+
 "axios@npm:^0.21.1, axios@npm:~0.21.4":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
@@ -4948,7 +4968,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:1.20.0":
+"body-parser@npm:1.20.0, body-parser@npm:^1.19.0, body-parser@npm:^1.19.1":
   version: 1.20.0
   resolution: "body-parser@npm:1.20.0"
   dependencies:
@@ -7797,6 +7817,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-a11y-testing@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-a11y-testing@npm:5.0.0"
+  dependencies:
+    "@ember/test-waiters": ^2.4.3 || ^3.0.0
+    "@scalvert/ember-setup-middleware-reporter": ^0.1.1
+    axe-core: ^4.3.5
+    body-parser: ^1.19.1
+    broccoli-persistent-filter: ^3.1.2
+    ember-auto-import: ^2.2.4
+    ember-cli-babel: ^7.26.8
+    ember-cli-typescript: ^4.2.1
+    ember-cli-version-checker: ^5.1.2
+    ember-destroyable-polyfill: ^2.0.1
+    fs-extra: ^10.0.0
+    validate-peer-dependencies: ^2.0.0
+  peerDependencies:
+    "@ember/test-helpers": ^2.0.0
+    qunit: ">= 2"
+  peerDependenciesMeta:
+    qunit:
+      optional: true
+  checksum: b7f8c191de180ff47c9786b9c461bf20a0df19e2850306f06cf00188030860cc8a29f5ddc1f673ccd7e116075fec27babe621f6849af6f5780a3da1b7fcc00b2
+  languageName: node
+  linkType: hard
+
 "ember-auto-import@npm:^1.11.3":
   version: 1.12.2
   resolution: "ember-auto-import@npm:1.12.2"
@@ -7834,7 +7880,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.1.0, ember-auto-import@npm:^2.2.0, ember-auto-import@npm:^2.4.1":
+"ember-auto-import@npm:^2.1.0, ember-auto-import@npm:^2.2.0, ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.1":
   version: 2.4.2
   resolution: "ember-auto-import@npm:2.4.2"
   dependencies:
@@ -7889,7 +7935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.26.8, ember-cli-babel@npm:^7.7.3":
   version: 7.26.11
   resolution: "ember-cli-babel@npm:7.26.11"
   dependencies:
@@ -8254,7 +8300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^4.1.0":
+"ember-cli-typescript@npm:^4.1.0, ember-cli-typescript@npm:^4.2.1":
   version: 4.2.1
   resolution: "ember-cli-typescript@npm:4.2.1"
   dependencies:
@@ -8460,7 +8506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-destroyable-polyfill@npm:^2.0.2, ember-destroyable-polyfill@npm:^2.0.3":
+"ember-destroyable-polyfill@npm:^2.0.1, ember-destroyable-polyfill@npm:^2.0.2, ember-destroyable-polyfill@npm:^2.0.3":
   version: 2.0.3
   resolution: "ember-destroyable-polyfill@npm:2.0.3"
   dependencies:
@@ -9026,6 +9072,16 @@ __metadata:
   dependencies:
     string-template: ~0.2.1
   checksum: 9c790d20a386947acfeabb0d1c39173efe8e5a38cb732b5f06c11a25c23ce8ac4dafbb7aa240565e034580a49aba0703e743d0274c6228500ddf947a1b998568
+  languageName: node
+  linkType: hard
+
+"errorhandler@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "errorhandler@npm:1.5.1"
+  dependencies:
+    accepts: ~1.3.7
+    escape-html: ~1.0.3
+  checksum: 73b7abb08fb751107e9bebecc33c40c0641a54be8bda8e4a045f3f5cb7b805041927fef5629ea39b1737799eb52fe2499ca531f11ac51b0294ccc4667d72cb91
   languageName: node
   linkType: hard
 
@@ -16012,7 +16068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-package-path@npm:^4.0.1, resolve-package-path@npm:^4.0.3":
+"resolve-package-path@npm:^4.0.0, resolve-package-path@npm:^4.0.1, resolve-package-path@npm:^4.0.3":
   version: 4.0.3
   resolution: "resolve-package-path@npm:4.0.3"
   dependencies:
@@ -18574,6 +18630,16 @@ __metadata:
     resolve-package-path: ^3.1.0
     semver: ^7.3.2
   checksum: a48f4841ff87edf1c0b3dd6e49d197169d654d6206495714ba687112fc30136674c1f0d44d89b935cf15aeb7692024a268af78c6c9ca0a1dad08e72cc7118566
+  languageName: node
+  linkType: hard
+
+"validate-peer-dependencies@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "validate-peer-dependencies@npm:2.1.0"
+  dependencies:
+    resolve-package-path: ^4.0.0
+    semver: ^7.3.2
+  checksum: 72b2cde7f0b4b968c71cadb0b2b0fd5fc8bf5936de61bc7fc28949f2563dcc7ff839067be4c6fac5e4dbad707e98d07a685f89937e92df61ae3d74dadbaac1a8
   languageName: node
   linkType: hard
 
