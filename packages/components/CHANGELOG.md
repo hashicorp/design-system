@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.0.3
+
+### Patch Changes
+
+- [#529](https://github.com/hashicorp/design-system/pull/529) [`b956be8f`](https://github.com/hashicorp/design-system/commit/b956be8fcb3692d184603a2a40e0c42df0461ff5) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix `required` attribute on form fields
+
 ## 1.0.2
 
 ### Patch Changes
