@@ -15,10 +15,10 @@
       @value={{@value}}
       @isInvalid={{@isInvalid}}
       @width={{@width}}
+      required={{@isRequired}}
       ...attributes
       id={{F.id}}
       aria-describedby={{F.ariaDescribedBy}}
-      required={{@isRequired}}
       as |S|
     >
       {{yield (hash Options=S.Options)}}
