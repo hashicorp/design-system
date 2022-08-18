@@ -1,0 +1,186 @@
+{{page-title "Gutters Component"}}
+
+<h2 class="dummy-h2">Gutters</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview">
+    <a href="#overview" class="dummy-link-section">§</a>
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">
+    Use to add consistent vertical or horizontal “gutter” spacing between child elements.
+  </p>
+  <p class="dummy-paragraph">
+    (Similar to
+    <a href="https://every-layout.dev/layouts/stack/" target="_blank" rel="noopener noreferrer">“The Stack” pattern from
+      “Every Layout”</a>
+    and
+    <a href="/components/button-set/">"Hds::ButtonSet"</a>.)
+  </p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api">
+    <a href="#component-api" class="dummy-link-section">§</a>
+    Component API
+  </h3>
+
+  <p class="dummy-paragraph" id="component-api-gutters">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-gutters">
+    <dt>spacing</dt>
+    <dd>
+      <p>Choose from either a preset spacing scale or else set a custom css unit spacing size.</p>
+      <p>
+        <strong class="dummy-paragraph">Spacing scale:</strong>
+        "xxs", "xs", "sm", "md", "lg", "xl", "xxl"<br />
+        (Spacing scale values map to a
+        <a
+          href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2008%3A3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >loose spacing scale in HDS</a>.)
+      </p>
+      <p>
+        <strong class="dummy-paragraph">Supported CSS units:</strong>
+        "px", "rem", "em", "%"<br />
+        (Negative values are not supported.)
+      </p>
+      <p class="dummy-paragraph">Default spacing size = "md"</p>
+    </dd>
+
+    <dt>direction</dt>
+    <dd>
+      <p>vertical, horizontal (Default, if any, to be determined)</p>
+    </dd>
+
+    <dt>TOOD: tag/inline/block</dt>
+    <dd>
+      <p>Needs more thought. (To prevent invalid markup, users would be able to choose between using a div tag (the
+        default) or a span tag.)</p>
+    </dd>
+
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use">
+    <a href="#how-to-use" class="dummy-link-section">§</a>
+    How to use
+  </h3>
+
+  <h4 class="dummy-h4">Basic example with no custom spacing size set:</h4>
+  <p class="dummy-paragraph">(The default "md" spacing size will be rendered.)</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Gutters @direction="horizontal">
+        <Hds::Button @text="Submit" type="submit" />
+        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+      </Hds::Gutters>
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">Example using a spacing value from the preset scale:</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Gutters @direction="vertical" @spacing="xxl">
+        <section>Child element #1</section>
+        <section>Child element #2</section>
+        <section>Child element #3</section>
+      </Hds::Gutters>
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">Example using a custom CSS unit spacing value:</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Gutters @direction="horizontal" @spacing=".5em">
+        <FlightIcon @name="alert-octagon" />
+        <span>Uh oh! Something happened.</span>
+      </Hds::Gutters>
+    '
+  />
+  {{! prettier-ignore-end }}
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines">
+    <a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines
+  </h3>
+
+  {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2008%3A3"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a>
+    </p>
+  </div>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase">
+    <a href="#showcase" class="dummy-link-section">§</a>
+    Showcase
+  </h3>
+
+  <h4 class="dummy-h4">Gutters with horizontal spacing</h4>
+
+  <h4 class="dummy-h5">Horizontal default spacing:</h4>
+  <Hds::Gutters @direction="horizontal">
+    <Hds::Button @text="Submit" type="submit" />
+    <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+  </Hds::Gutters>
+
+  <h5 class="dummy-h5">Horizontal “xxs” spacing:</h5>
+  <Hds::Gutters @direction="horizontal" @spacing="xxs">
+    <Hds::Tag @text="My text tag" />
+    <Hds::Tag @text="My text tag" />
+    <Hds::Tag @text="My text tag" />
+  </Hds::Gutters>
+  <p class="dummy-paragraph">
+    (Note: Tags should actually be laid out using flexbox or css grid styles instead in most cases to allow them to wrap
+    if necessary.)
+  </p>
+
+  <h4 class="dummy-h4">Gutters with vertical spacing</h4>
+
+  <h5 class="dummy-h5">Vertical “lg” spacing:</h5>
+  <Hds::Gutters @direction="vertical" @spacing="lg">
+    <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder="true">
+      <DummyPlaceholder @text="[Your content here]" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+
+    <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder="true">
+      <DummyPlaceholder @text="[Your content here]" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+  </Hds::Gutters>
+
+  <h5 class="dummy-h5">Vertical spacing using a custom CSS unit of “2.5rem”:</h5>
+  <Hds::Gutters @direction="vertical" @spacing="2.5rem">
+    <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder="true">
+      <DummyPlaceholder @text="[Your content here]" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+
+    <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder="true">
+      <DummyPlaceholder @text="[Your content here]" @width="200" @height="200" @background="transparent" />
+    </Hds::Card::Container>
+  </Hds::Gutters>
+</section>

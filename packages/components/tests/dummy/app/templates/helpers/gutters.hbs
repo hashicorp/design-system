@@ -1,0 +1,201 @@
+{{page-title "Gutters Helpers"}}
+
+<h2 class="dummy-h2">Gutters helpers</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview">
+    <a href="#overview" class="dummy-link-section">§</a>
+    Overview
+  </h3>
+
+  <p class="dummy-paragraph">
+    Gutters CSS helper classes can be used to add consistent vertical or horizontal “gutter” spacing between child
+    elements.
+  </p>
+  <p class="dummy-paragraph">
+    (Similar to
+    <a href="https://every-layout.dev/layouts/stack/" target="_blank" rel="noopener noreferrer">“The Stack” pattern from
+      “Every Layout”</a>
+    and
+    <a href="/components/button-set/">"Hds::ButtonSet"</a>.)
+  </p>
+  <p class="dummy-paragraph">
+    Using Gutters CSS helper classes gives you flexibility in applying spacing styles to the elements of your choice so
+    that you can choose more appropriate semantic elements. However, "Gutters" is also available as the
+    <a href="/components/gutters/">“Hds::Gutters” Ember component</a>
+    if you prefer.
+  </p>
+</section>
+
+<section class="dummy-paragraph">
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+
+  <p>
+    <strong>Add the CSS helper classes to a parent element or component to set spacing between nested child elements.</strong>
+  </p>
+
+  <h4 class="dummy-h4" id="helper-gutters-primary-classes">Primary CSS helper classes</h4>
+  <dl class="dummy-component-props" aria-labelledby="helper-gutters-primary-classes">
+    <dt>.hds-gutters-horizontal</dt>
+    <dd>Set vertical gutter spacing between child elements. Uses a default spacing size of “md”.</dd>
+
+    <dt>.hds-gutters-vertical</dt>
+    <dd>Set horizontal gutter spacing between child elements. Uses a default spacing size of “md”.</dd>
+  </dl>
+
+  <h4 class="dummy-h4" id="helper-gutters-modifier-classes">CSS modifier classes</h4>
+  <p>Use the modifier classes in addition to the primary classes to override the default spacing size.</p>
+  <dl class="dummy-component-props" aria-labelledby="helper-gutters-modifier-classes">
+    <dt>.hds-child-spacing-xxs</dt>
+    <dd>Override the default spacing size to use “xxs” size instead.</dd>
+
+    <dt>.hds-child-spacing-xs</dt>
+    <dd>Override the default spacing size to use “xs” size instead.</dd>
+
+    <dt>.hds-child-spacing-sm</dt>
+    <dd>Override the default spacing size to use “sm” size instead.</dd>
+
+    <dt>.hds-child-spacing-md</dt>
+    <dd>The default spacing size is “md” so you should not need to add this modifier. It is included for completeness.</dd>
+
+    <dt>.hds-child-spacing-lg</dt>
+    <dd>Override the default spacing size to use “lg” size instead.</dd>
+
+    <dt>.hds-child-spacing-xl</dt>
+    <dd>Override the default spacing size to use “xl” size instead.</dd>
+
+    <dt>.hds-child-spacing-xxl</dt>
+    <dd>Override the default spacing size to use “xxl” size instead.</dd>
+  </dl>
+
+  <h4 class="dummy-h4" id="helper-gutters-custom-spacing">CSS custom property</h4>
+  <p>If none of the preset spacing sizes meet your needs, you may use an inline style to set a custom spacing size.</p>
+  <dl class="dummy-component-props" aria-labelledby="helper-gutters-custom-spacing">
+    <dt>--hds-spacing</dt>
+    <dd>
+      <p>
+        Use this CSS custom property within an HTML style attribute to set a custom spacing size using any valid CSS
+        unit. Negative values are not supported.
+      </p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4" id="helper-gutters-spacing-scale">Preset spacing scale:</h4>
+  <p>
+    The spacing scale values map to a
+    <a
+      href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2008%3A3"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      loose spacing scale in HDS
+    </a>. Abbreviations are based on English words vs. numbers for ease in quick comprehension and visualization.
+    Abbrevations use all letters instead of a mix of letters and numbers both for consistency and to adhere to variable
+    naming practices which forbid starting variables names with a number (This is not actually true for CSS custom
+    property but it is true for JavaScript variables for instance).
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="helper-gutters-spacing-scale">
+    <dt>xxs</dt>
+    <dd><p>An abbreviation for “eXtra eXtra Small”.</p></dd>
+
+    <dt>xs</dt>
+    <dd><p>An abbreviation for “eXtra Small”.</p></dd>
+
+    <dt>sm</dt>
+    <dd><p>An abbreviation for “SMall”.</p></dd>
+
+    <dt>md</dt>
+    <dd><p>An abbreviation for “MeDium”. This is the default “Gutters” spacing size.</p></dd>
+
+    <dt>lg</dt>
+    <dd><p>An abbreviation for “LarGe”.</p></dd>
+
+    <dt>xl</dt>
+    <dd><p>An abbreviation for “eXtra LarGe”.</p></dd>
+
+    <dt>xxl</dt>
+    <dd><p>An abbreviation for “eXtra eXtra LarGe”.</p></dd>
+  </dl>
+
+  <h4 class="dummy-h4">Example code</h4>
+  <h5 class="dummy-h5">Set vertical spacing between elements</h5>
+  <h6 class="dummy-h6">Using default “md” vertical spacing:</h6>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <ul class="hds-gutters-vertical">
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+      </ul>
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <h6 class="dummy-h6">Using “lg” spacing size from the preset scale:</h6>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <ul class="hds-gutters-vertical hds-child-spacing-lg">
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+      </ul>
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <h6 class="dummy-h6">Using a custom spacing size:</h6>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <ul class="hds-gutters-vertical" style="--hds-spacing: 2.5rem">
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+      </ul>
+    '
+  />
+  {{! prettier-ignore-end }}
+
+  <h5 class="dummy-h5">Set horizontal spacing between elements</h5>
+  <h6 class="dummy-h6">Using default “md” horizontal spacing:</h6>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <p class="hds-gutters-horizontal">
+        <span>Child 1</span>
+        <span>Child 2</span>
+        <span>Child 3</span>
+      </p>
+    '
+  />
+  {{! prettier-ignore-end }}
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase">
+    <a href="#showcase" class="dummy-link-section">§</a>
+    Showcase
+  </h3>
+
+  <h4 class="dummy-h4">Gutters with vertical spacing</h4>
+
+  <h4 class="dummy-h5">Vertical default spacing:</h4>
+  <ul class="hds-gutters-vertical">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+
+  <h4 class="dummy-h4">Gutters with “lg” size horizontal spacing:</h4>
+  <div class="hds-gutters-horizontal hds-child-spacing-lg">
+    <span>Child 1</span>
+    <span>Child 2</span>
+    <span>Child 3</span>
+  </div>
+</section>

@@ -39,6 +39,7 @@ Router.map(function () {
     this.route('stepper');
     this.route('tag');
     this.route('toast');
+    this.route('gutters');
   });
   this.route('content', function () {
     this.route('writing-guidelines');
@@ -46,5 +47,8 @@ Router.map(function () {
   this.route('utilities', function () {
     this.route('disclosure');
     this.route('interactive');
+  });
+  this.route('helpers', function () {
+    this.route('gutters');
   });
 });
