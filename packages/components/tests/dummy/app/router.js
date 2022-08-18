@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('button-set');
     this.route('card');
     this.route('dropdown');
+    this.route('empty-state');
     this.route('form', function () {
       this.route('base-elements');
       this.route('checkbox');

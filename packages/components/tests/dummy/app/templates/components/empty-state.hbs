@@ -1,0 +1,83 @@
+{{page-title "Card component"}}
+
+<h2 class="dummy-h2">EmptyState</h2>
+<p class="dummy-paragraph">The EmptyState component provides a means to arrange simple content in UI views that
+  communicate a lack of data to end users.</p>
+<p class="dummy-paragraph">This component will display as a centered block within its parent component.</p>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph">Here is the API for the component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api">
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">The EmptyState component is a block-yielding component that contains three child
+    components: a header, body and footer. Each child component is also a block yield. While none of the child
+    components are explicitly required, use of at least the header or body components are recommended.</p>
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::EmptyState as |E|>
+        <E.Header>Meaningful Header Text</E.Header>
+        <E.Body>Body text content that provides a meaningful message to the end user.</E.Body>
+        <E.Footer>Footer Content - text, or a link or maybe even a (secondary) button.</E.Footer>
+      </Hds::EmptyState>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::EmptyState as |E|>
+    <E.Header>Meaningful Header Text</E.Header>
+    <E.Body>Body text content that provides a meaningful message to the end user</E.Body>
+    <E.Footer>Footer Content - text, or a link or maybe even a (secondary) button.</E.Footer>
+  </Hds::EmptyState>
+
+  <h4 class="dummy-h4">Header and Body</h4>
+  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::EmptyState as |E|>
+        <E.Header>Header Text</E.Header>
+        <E.Body>Body Text</E.Body>
+      </Hds::EmptyState>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::EmptyState as |E|>
+    <E.Header>Header Text</E.Header>
+    <E.Body>Body Text</E.Body>
+  </Hds::EmptyState>
+</section>
+
+<section>
+  <div class="dummy-design-guidelines">
+    <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+      Design guidelines</h3>
+    <p class="dummy-paragraph">To be released at a future date.</p>
+  </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">This component and its child components are rendered as blocks for developers to place
+    content into. Developers should ensure that the content is conformant with WCAG 2.1 AA Success Criteria.</p>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+  <h4 class="dummy-h4">Basic use:</h4>
+  <Hds::EmptyState as |E|>
+    <E.Header>Meaningful Header Text</E.Header>
+    <E.Body>Body text content that provides a meaningful message to the end user</E.Body>
+    <E.Footer>Footer Content - text, or a link or maybe even a (secondary) button.</E.Footer>
+  </Hds::EmptyState>
+</section>
