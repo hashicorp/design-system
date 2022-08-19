@@ -1,0 +1,24 @@
+//
+// AVATAR
+//
+// properties within each class are sorted alphabetically
+//
+
+.hds-avatar {
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+
+  img {
+    border-radius: 2px;
+    height: inherit;
+    width: inherit;
+  }
+
+  svg {
+    display: inline-block;
+  }
+}

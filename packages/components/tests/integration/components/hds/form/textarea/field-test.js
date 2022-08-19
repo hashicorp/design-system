@@ -128,6 +128,16 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
   });
+  test('it should not append an indicator to the label text when the required attribute is set', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<Hds::Form::Textarea::Field required as |F|>
+            <F.Label>This is the label</F.Label>
+          </Hds::Form::Textarea::Field>`
+    );
+    assert.dom('textarea').hasAttribute('required');
+    assert.dom('label .hds-form-indicator').doesNotExist();
+  });
 
   // ATTRIBUTES
 
