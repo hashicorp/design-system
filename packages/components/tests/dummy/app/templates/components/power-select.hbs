@@ -1,0 +1,67 @@
+{{page-title "PowerSelect Component"}}
+
+<h2 class="dummy-h2">PowerSelect</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+
+  <p class="dummy-paragraph">
+    A showcase with custom styles applied to the
+    <a target="_blank" rel="noopener noreferrer" href="https://ember-power-select.com/">ember-power-select addon</a>.
+  </p>
+
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">States</h4>
+  <p class="dummy-text-small">Default</p>
+
+  {{! This below is just an example of invocation, to get started }}
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  <p class="dummy-text-small">Focus</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        class="mock-focus"
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  <p class="dummy-text-small">Disabled</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @disabled={{true}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+</section>

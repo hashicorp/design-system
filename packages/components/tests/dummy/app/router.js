@@ -38,6 +38,7 @@ Router.map(function () {
       this.route('inline');
       this.route('standalone');
     });
+    this.route('power-select');
     this.route('stepper');
     this.route('tag');
     this.route('toast');
