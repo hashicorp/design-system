@@ -1,4 +1,4 @@
 <label class={{this.classNames}} for={{@controlId}} ...attributes>
-  {{yield}}
+  {{yield}}{{#if (or @isRequired @isOptional)}}&nbsp;{{/if}}
   <Hds::Form::Indicator @isRequired={{@isRequired}} @isOptional={{@isOptional}} />
 </label>
