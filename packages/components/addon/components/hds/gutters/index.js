@@ -47,6 +47,8 @@ export default class HdsGuttersIndexComponent extends Component {
     if (SPACING_SIZES.includes(spacing)) {
       return spacing;
     }
+
+    return undefined;
   }
 
   /**
@@ -72,6 +74,8 @@ export default class HdsGuttersIndexComponent extends Component {
         return htmlSafe(`--hds-spacing: ${spacing}`);
       }
     }
+
+    return undefined;
   }
 
   /**
