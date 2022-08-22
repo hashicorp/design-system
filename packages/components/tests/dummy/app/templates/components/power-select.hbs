@@ -6,7 +6,7 @@
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">
-    A showcase with custom styles applied to the
+    A showcase with custom styles applied as overrides to the
     <a target="_blank" rel="noopener noreferrer" href="https://ember-power-select.com/">ember-power-select addon</a>.
   </p>
 
@@ -66,6 +66,9 @@
   </div>
 
   <h4 class="dummy-h4">Search</h4>
+  <p class="dummy-text-small">When used with the
+    <code class="dummy-code">@searchEnabled</code>
+    argument, the input will be styled automatically.</p>
   <div class="dummy-power-select-container">
     <div class="hds-power-select">
       <PowerSelect
@@ -74,6 +77,27 @@
         @onChange={{this.noop}}
         @renderInPlace={{true}}
         @searchEnabled={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">After options block</h4>
+  <p class="dummy-text-small">To consistently style the
+    <code class="dummy-code">@afterOptionsComponent</code>
+    use the
+    <code class="dummy-code">hds-power-select_after-options</code>
+    class on the outermost element.</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @afterOptionsComponent={{"power-select/after-options"}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
         as |option|
       >
         {{option}}
