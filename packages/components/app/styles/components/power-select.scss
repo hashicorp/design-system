@@ -69,7 +69,59 @@
   }
 
   .ember-power-select-search {
-    padding: 8px 12px 20px;
+    padding: 8px 12px 14px;
+
+    .ember-power-select-search-input {
+      background-color: var(--token-form-control-base-surface-color-default);
+      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+      border-radius: var(--token-form-control-border-radius);
+      box-shadow: var(--hds-elevation-inset-box-shadow);
+      color: var(--token-form-control-base-foreground-value-color);
+      padding: var( --token-form-control-padding);
+      width: 100%;
+      max-width: 100%;
+      line-height: 1rem;
+
+      // PLACEHOLDER
+
+      ::placeholder {
+        color: var(--token-form-control-base-foreground-placeholder-color);
+      }
+
+      // STATUS
+
+      &:hover,
+      &.mock-hover {
+        border-color: var(--token-form-control-base-border-color-hover);
+      }
+
+      // focus (same for all the states)
+
+      &:focus,
+      &.mock-focus {
+        border-color: var(--token-color-focus-action-internal);
+        // Notice: Safari doesn't apply a rounded border
+        outline: 3px solid var(--token-color-focus-action-external);
+        outline-offset: 0px;
+      }
+
+      &[type="search"] {
+        padding-left: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
+        background-image: var(--token-form-text-input-background-image-data-url-search);
+        background-position: var(--token-form-text-input-background-image-position-x) 50%;
+        background-size: var(--token-form-text-input-background-image-size);
+        background-repeat: no-repeat;
+
+        &::-webkit-search-cancel-button {
+          -webkit-appearance: none;
+          background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+          background-position: center center;
+          background-size: var(--token-form-text-input-background-image-size);
+          height: var(--token-form-text-input-background-image-size);
+          width: var(--token-form-text-input-background-image-size);
+        }
+      }
+    }
   }
 
   .ember-power-select-group-name {

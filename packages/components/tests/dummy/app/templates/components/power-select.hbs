@@ -64,4 +64,20 @@
       </PowerSelect>
     </div>
   </div>
+
+  <h4 class="dummy-h4">Search</h4>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        @searchEnabled={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
 </section>
