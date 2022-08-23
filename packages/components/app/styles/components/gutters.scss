@@ -36,7 +36,7 @@ $default-spacing: var(--hds-spacing-md); // set as Sass variable to not expose
   }
 }
 
-.hds-child-spacing {
+.hds-gutters-spacing {
   &-xxs {> * {--hds-spacing: var(--hds-spacing-xxs);}}
   &-xs {> * {--hds-spacing: var(--hds-spacing-xs);}}
   &-sm {> * {--hds-spacing: var(--hds-spacing-sm);}}

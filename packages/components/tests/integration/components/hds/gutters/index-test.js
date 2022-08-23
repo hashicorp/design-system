@@ -35,7 +35,7 @@ module('Integration | Component | hds/gutters/index', function (hooks) {
     `);
     assert
       .dom('#test-gutters')
-      .doesNotHaveClass('[hds-child-spacing]')
+      .doesNotHaveClass('[hds-gutters-spacing]')
       .doesNotHaveAttribute('style');
   });
 
@@ -48,7 +48,7 @@ module('Integration | Component | hds/gutters/index', function (hooks) {
     `);
     assert
       .dom('#test-gutters')
-      .hasClass('hds-child-spacing-xl')
+      .hasClass('hds-gutters-spacing-xl')
       .doesNotHaveAttribute('style');
   });
 
@@ -61,7 +61,7 @@ module('Integration | Component | hds/gutters/index', function (hooks) {
     `);
     assert
       .dom('#test-gutters')
-      .doesNotHaveClass('[hds-child-spacing]')
+      .doesNotHaveClass('[hds-gutters-spacing]')
       .hasAttribute('style', '--hds-spacing: 2rem');
   });
 

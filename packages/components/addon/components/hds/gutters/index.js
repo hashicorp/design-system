@@ -100,7 +100,7 @@ export default class HdsGuttersIndexComponent extends Component {
 
     // add a class based on the @spacing argument
     if (this.presetSpacing) {
-      classes.push(`hds-child-spacing-${this.presetSpacing}`);
+      classes.push(`hds-gutters-spacing-${this.presetSpacing}`);
     }
 
     return classes.join(' ');
