@@ -13,7 +13,6 @@ export default class HdsGuttersIndexComponent extends Component {
    * Accepted values: 'horizontal', 'vertical'
    * @param direction
    * @type {string}
-   * @default ? // TODO: Determine if a default should be set & if so which value
    */
   get direction() {
     let { direction } = this.args;
