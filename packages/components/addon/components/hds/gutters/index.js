@@ -5,7 +5,7 @@ import { assert } from '@ember/debug';
 export const DIRECTIONS = ['horizontal', 'vertical'];
 export const SPACING_SIZES = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
-const regEx = /^((\d+)|(\d+\.\d+)|(\.\d+))(px|rem|em|%)$/;
+const regEx = /^-?((\d+)|(\d+\.\d+)|(\.\d+))(px|rem|em|%)$/;
 
 export default class HdsGuttersIndexComponent extends Component {
   /**
@@ -62,7 +62,7 @@ export default class HdsGuttersIndexComponent extends Component {
 
   /**
    * Get the inline custom spacing style to apply to the item.
-   * Accepted values: '1px', '2.4rem', '3em', '2%', etc. (only positive numbers)
+   * Accepted values: '1px', '2.4rem', '3em', '2%', etc.
    * @param spacing
    * @method customSpacing
    * @type {string} The "style" attribute to apply to the item.
