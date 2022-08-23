@@ -71,10 +71,12 @@
       <p>vertical, horizontal</p>
     </dd>
 
-    <dt>TOOD: tag/inline/block</dt>
+    <dt>
+      isSpan
+      <code>boolean</code>
+    </dt>
     <dd>
-      <p>Needs more thought. (To prevent invalid markup, users would be able to choose between using a div tag (the
-        default) or a span tag.)</p>
+      <p>To prevent invalid markup, users can choose to render component as a span tag instead of the default div tag.</p>
     </dd>
 
     <dt>...attributes</dt>
@@ -130,6 +132,22 @@
     '
   />
   {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">Example using span tag instead of default div to maintain valid markup:</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <p>
+        <Hds::Gutters @direction="horizontal" @spacing="xs" @isSpan="true">
+          <Hds::Tag @text="My text tag" />
+          <Hds::Tag @text="My text tag" />
+          <Hds::Tag @text="My text tag" />
+        </Hds::Gutters>
+      </p>
+    '
+  />
+  {{! prettier-ignore-end }}
 </section>
 
 <section>
@@ -164,12 +182,14 @@
     <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
   </Hds::Gutters>
 
-  <h5 class="dummy-h5">Horizontal “xxs” spacing:</h5>
-  <Hds::Gutters @direction="horizontal" @spacing="xxs">
-    <Hds::Tag @text="My text tag" />
-    <Hds::Tag @text="My text tag" />
-    <Hds::Tag @text="My text tag" />
-  </Hds::Gutters>
+  <h5 class="dummy-h5">Horizontal “xs” spacing, using span tag as parent instead of div:</h5>
+  <p>
+    <Hds::Gutters @direction="horizontal" @spacing="xs" @isSpan="true">
+      <Hds::Tag @text="My text tag" />
+      <Hds::Tag @text="My text tag" />
+      <Hds::Tag @text="My text tag" />
+    </Hds::Gutters>
+  </p>
   <p class="dummy-paragraph">
     (Note: Tags should actually be laid out using flexbox or css grid styles instead in most cases to allow them to wrap
     if necessary.)

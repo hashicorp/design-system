@@ -1,3 +1,9 @@
-<div class={{this.classNames}} style={{this.customSpacing}} ...attributes>
-  {{yield}}
-</div>
+{{#if this.isSpan}}
+  <span class={{this.classNames}} style={{this.customSpacing}} ...attributes>
+    {{yield}}
+  </span>
+{{else}}
+  <div class={{this.classNames}} style={{this.customSpacing}} ...attributes>
+    {{yield}}
+  </div>
+{{/if}}

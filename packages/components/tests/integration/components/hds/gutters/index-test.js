@@ -64,4 +64,16 @@ module('Integration | Component | hds/gutters/index', function (hooks) {
       .doesNotHaveClass('[hds-child-spacing]')
       .hasAttribute('style', '--hds-spacing: 2rem');
   });
+
+  test('if isSpan is passed, it should render as a span tag', async function (assert) {
+    await render(hbs`
+      <Hds::Gutters @direction="horizontal" @isSpan="true" id="test-gutters">
+        <span>child 1</span>
+        <span>child 2</span>
+      </Hds::Gutters>
+    `);
+    assert
+    .dom('#test-gutters')
+    .hasTagName('span');
+  });
 });

@@ -9,6 +9,16 @@ const regEx = /^((\d+)|(\d+\.\d+)|(\.\d+))(px|rem|em|%)$/;
 
 export default class HdsGuttersIndexComponent extends Component {
   /**
+   * @param isSpan
+   * @type {boolean}
+   * @default false
+   * @description Indicates whether component should use a span tag instead of the default div tag.
+   */
+  get isSpan() {
+    return this.args.isSpan ?? false;
+  }
+
+  /**
    * Get the direction for the component
    * Accepted values: 'horizontal', 'vertical'
    * @param direction
