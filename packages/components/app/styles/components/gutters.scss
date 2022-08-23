@@ -7,13 +7,13 @@
 // Loose spacing scale, move out to centralize for re-use:
 // (See: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2008%3A3)
 :root {
-  --hds-spacing-xxs: 4px;
-  --hds-spacing-xs: 8px;
-  --hds-spacing-sm: 12px;
-  --hds-spacing-md: 16px;
-  --hds-spacing-lg: 24px;
-  --hds-spacing-xl: 36px;
-  --hds-spacing-xxl: 48px;
+  --hds-spacing-xxs: 4px; // xxs
+  --hds-spacing-xs: 8px; // xs
+  --hds-spacing-sm: 12px; // sm
+  --hds-spacing-md: 16px; // md
+  --hds-spacing-lg: 24px; // lg
+  --hds-spacing-xl: 36px; // xl
+  --hds-spacing-xxl: 48px; // xxl
 }
 
 // TODO: Determine best default spacing size
