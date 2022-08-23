@@ -20,23 +20,19 @@
 $default-spacing: var(--hds-spacing-md); // set as Sass variable to not expose
 
 .hds-gutters {
-  // vertical (make default ?): (Find out most common use cases)
-  // &:not([class*="hds-gutters-horizontal"]), // yes/ no?
+  // vertical:
   &-vertical {
-    > * {
-      &:not(li) {display: block;}
-      
-      + * {margin-top: var(--hds-spacing, $default-spacing);}
-    }
+    display: flex;
+    flex-direction: column;
+
+    > * + * {margin-top: var(--hds-spacing, $default-spacing);}
   }
   
   // horizontal:
   &-horizontal {
-      > * {
-          display: inline-block;
+    display: flex; // style repeated so vertical & horizontal classes can be used independently of parent class
 
-          + * {margin-left: var(--hds-spacing, $default-spacing);}
-      }
+    > * + * {margin-left: var(--hds-spacing, $default-spacing);}
   }
 }
 

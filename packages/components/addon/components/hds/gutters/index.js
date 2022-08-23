@@ -86,13 +86,13 @@ export default class HdsGuttersIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-gutters'];
 
+    // add a class based on the @direction argument
+    classes.push(`hds-gutters-${this.direction}`);
+
     // add a class based on the @spacing argument
     if (this.presetSpacing) {
       classes.push(`hds-child-spacing-${this.presetSpacing}`);
     }
-
-    // add a class based on the @direction argument
-    classes.push(`hds-gutters-${this.direction}`);
 
     return classes.join(' ');
   }

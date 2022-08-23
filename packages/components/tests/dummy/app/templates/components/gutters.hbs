@@ -30,12 +30,24 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-gutters">
-    <dt>spacing</dt>
+    <dt>
+      spacing
+      <code>string</code>
+    </dt>
     <dd>
       <p>Choose from either a preset spacing scale or else set a custom css unit spacing size.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>xxs</li>
+        <li>xs</li>
+        <li>sm</li>
+        <li class="default">md</li>
+        <li>lg</li>
+        <li>xl</li>
+        <li>xxl</li>
+        <li>custom css unit value</li>
+      </ol>
       <p>
-        <strong class="dummy-paragraph">Spacing scale:</strong>
-        "xxs", "xs", "sm", "md", "lg", "xl", "xxl"<br />
         (Spacing scale values map to a
         <a
           href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2008%3A3"
@@ -48,12 +60,15 @@
         "px", "rem", "em", "%"<br />
         (Negative values are not supported.)
       </p>
-      <p class="dummy-paragraph">Default spacing size = "md"</p>
     </dd>
 
-    <dt>direction</dt>
+    <dt>
+      direction
+      <code>string</code>
+      <strong class="required">required</strong>
+    </dt>
     <dd>
-      <p>vertical, horizontal (Default, if any, to be determined)</p>
+      <p>vertical, horizontal</p>
     </dd>
 
     <dt>TOOD: tag/inline/block</dt>
