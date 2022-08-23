@@ -41,6 +41,7 @@ Router.map(function () {
       this.route('standalone');
     });
     this.route('stepper');
+    this.route('table');
     this.route('tag');
     this.route('toast');
   });
