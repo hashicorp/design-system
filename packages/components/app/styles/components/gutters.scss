@@ -4,3 +4,48 @@
 // properties within each class are sorted alphabetically
 //
 
+// Loose spacing scale, move out to centralize for re-use:
+// (See: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2008%3A3)
+:root {
+  --hds-spacing-xxs: 4px;
+  --hds-spacing-xs: 8px;
+  --hds-spacing-sm: 12px;
+  --hds-spacing-md: 16px;
+  --hds-spacing-lg: 24px;
+  --hds-spacing-xl: 36px;
+  --hds-spacing-xxl: 48px;
+}
+
+// TODO: Determine best default spacing size
+$default-spacing: var(--hds-spacing-md); // set as Sass variable to not expose
+
+.hds-gutters {
+  // vertical (make default ?): (Find out most common use cases)
+  // &:not([class*="hds-gutters-horizontal"]), // yes/ no?
+  &-vertical {
+    > * {
+      &:not(li) {display: block;}
+      
+      + * {margin-top: var(--hds-spacing, $default-spacing);}
+    }
+  }
+  
+  // horizontal:
+  &-horizontal {
+      > * {
+          display: inline-block;
+
+          + * {margin-left: var(--hds-spacing, $default-spacing);}
+      }
+  }
+}
+
+.hds-child-spacing {
+  &-xxs {> * {--hds-spacing: var(--hds-spacing-xxs);}}
+  &-xs {> * {--hds-spacing: var(--hds-spacing-xs);}}
+  &-sm {> * {--hds-spacing: var(--hds-spacing-sm);}}
+  &-md {> * {--hds-spacing: var(--hds-spacing-md);}}
+  &-lg {> * {--hds-spacing: var(--hds-spacing-lg);}}
+  &-xl {> * {--hds-spacing: var(--hds-spacing-xl);}}
+  &-xxl {> * {--hds-spacing: var(--hds-spacing-xxl);}}
+}
