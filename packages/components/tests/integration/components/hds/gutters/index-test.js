@@ -72,8 +72,6 @@ module('Integration | Component | hds/gutters/index', function (hooks) {
         <span>child 2</span>
       </Hds::Gutters>
     `);
-    assert
-    .dom('#test-gutters')
-    .hasTagName('span');
+    assert.dom('#test-gutters').hasTagName('span');
   });
 });
