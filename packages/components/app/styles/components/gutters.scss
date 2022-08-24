@@ -19,21 +19,17 @@
 // TODO: Determine best default spacing size
 $default-spacing: var(--hds-spacing-md); // set as Sass variable to not expose
 
-.hds-gutters {
-  // vertical:
-  &-vertical {
-    display: flex;
-    flex-direction: column;
+.hds-gutters-vertical {
+  display: flex;
+  flex-direction: column;
 
-    > * + * {margin-top: var(--hds-spacing, $default-spacing);}
-  }
-  
-  // horizontal:
-  &-horizontal {
-    display: flex; // style repeated so vertical & horizontal classes can be used independently of parent class
+  > * + * {margin-top: var(--hds-spacing, $default-spacing);}
+}
 
-    > * + * {margin-left: var(--hds-spacing, $default-spacing);}
-  }
+.hds-gutters-horizontal {
+  display: flex;
+
+  > * + * {margin-left: var(--hds-spacing, $default-spacing);}
 }
 
 .hds-gutters-spacing {
