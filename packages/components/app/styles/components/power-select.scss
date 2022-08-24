@@ -133,6 +133,7 @@
   }
 
   .ember-power-select-selected-item {
+    margin-left: 0;
     line-height: normal;
     display: block;
   }
@@ -170,6 +171,45 @@
       color: inherit;
       background-color: var(--token-color-surface-action);
       border: var(--token-form-control-border-width) solid var(--token-color-palette-blue-300);
+    }
+  }
+
+  .ember-power-select-multiple-trigger {
+    background-image: var(--token-form-select-background-image-data-url);
+    padding-top: calc(var( --token-form-control-padding) - 3px);
+    padding-bottom: calc(var( --token-form-control-padding) - 3px);
+    padding-left: 20px;
+  }
+
+  .ember-power-select-multiple-option {
+    align-items: stretch;
+    background-color: var(--token-color-surface-interactive);
+    border: 1px solid var(--token-color-border-strong);
+    border-radius: 50px;
+    color: var(--token-color-foreground-primary);
+    display: inline-flex;
+    font-family: var(--token-typography-font-stack-text);
+    font-size: 0.8125rem; // 13px
+    font-weight: var(--token-typography-font-weight-medium);
+    line-height: 1rem; // 16px
+    vertical-align: middle;
+    padding: 3px 10px 5px 10px;
+    float: none;
+    margin: 4px 4px 4px 0;
+  }
+
+  .ember-power-select-multiple-remove-btn {
+    border-radius: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none; // reset default button border
+    margin: 0; // reset default button margin
+    font-size: 1rem;
+    font-weight: 300;
+    margin-right: 4px;
+
+    &:not(:hover) {
+      opacity: 1;
     }
   }
 

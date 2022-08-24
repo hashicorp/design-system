@@ -104,4 +104,19 @@
       </PowerSelect>
     </div>
   </div>
+
+  <h4 class="dummy-h4">Multiple selection</h4>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelectMultiple
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelectMultiple>
+    </div>
+  </div>
 </section>

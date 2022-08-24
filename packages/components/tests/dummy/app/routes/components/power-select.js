@@ -11,6 +11,7 @@ export default class ComponentsPowerSelectRoute extends Route {
       'Frankfurt (eu-central-1)',
     ];
     const SELECTED = ['Oregon (us-west-2)'];
-    return { OPTIONS, SELECTED };
+    const SELECTEDMULTIPLE = ['Oregon (us-west-2)', 'N. Virginia (us-east-1)', 'Ireland (eu-west-1)'];
+    return { OPTIONS, SELECTED, SELECTEDMULTIPLE };
   }
 }
