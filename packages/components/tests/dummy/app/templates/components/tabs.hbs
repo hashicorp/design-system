@@ -1,0 +1,198 @@
+{{page-title "Tabs Component"}}
+
+<h2 class="dummy-h2">Tabs</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph">
+    Tabs allow users to navigate between different views within the same context and at the same level of hierarchy, ie.
+    UI vs CLI, macOS vs Windows vs Linux, etc.
+  </p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph" id="component-api-tabs">
+    Here is the API for the component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-tabs">
+
+    {{! ADD YOUR CONTENT HERE }}
+
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use">
+    <a href="#how-to-use" class="dummy-link-section">§</a>
+    How to use
+  </h3>
+
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <p>TODO: Add code here</p>
+    "
+  />
+  {{! prettier-ignore-end }}
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines">
+    <a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines
+  </h3>
+
+  <div>
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=16384%3A46484"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a>
+    </p>
+    <div class="dummy-paragraph">
+      <img
+        class="dummy-figma-docs"
+        src="/assets/images/tabs-design-usage.png"
+        alt=""
+        role="none"
+        width="791"
+        height="803"
+      />
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility">
+    <a href="#accessibility" class="dummy-link-section">§</a>
+    Accessibility
+  </h3>
+
+  <h4 class="dummy-h4">Some reading:</h4>
+  <ul class="dummy-list">
+    <li><a
+        href="https://inclusive-components.design/tabbed-interfaces/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Inclusive Components: Tabbed Interfaces</a></li>
+    <li><a
+        href="https://dequeuniversity.com/library/aria/tabpanel"
+        target="_blank"
+        rel="noopener noreferrer"
+      >https://dequeuniversity.com/library/aria/tabpanel</a></li>
+    <li><a
+        href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel"
+        target="_blank"
+        rel="noopener noreferrer"
+      >https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel</a></li>
+  </ul>
+
+  <h4 class="dummy-h4">Checklist/important considerations:</h4>
+  <ul class="dummy-list">
+    <li>The element that serves as the container for the set of tabs has <code>role tablist</code>.</li>
+    <li>Each element that serves as a tab has
+      <code>role tab</code>
+      and is contained within the element with
+      <code>role tablist</code>.</li>
+    <li>Each element that contains the content panel for a <code>tab</code> has <code>role tabpanel</code>.</li>
+    <li>If the tab list has a visible label, the element with
+      <code>role tablist</code>
+      has
+      <code>aria-labelledby</code>
+      set to a value that refers to the labeling element. Otherwise, the
+      <code>tablist</code>
+      element has a label provided by
+      <code>aria-label</code>.</li>
+    <li>Each element with
+      <code>role tab</code>
+      has the property
+      <code>aria-controls</code>
+      referring to its associated
+      <code>tabpanel</code>
+      element.</li>
+    <li>The active
+      <code>tab</code>
+      element has the state
+      <code>aria-selected</code>
+      set to
+      <code>true</code>
+      and all other
+      <code>tab</code>
+      elements have it set to
+      <code>false</code>.</li>
+    <li>Each element with
+      <code>role tabpanel</code>
+      has the attribute
+      <code>aria-labelledby</code>
+      referring to its associated
+      <code>tab</code>
+      element.</li>
+  </ul>
+
+  <h4 class="dummy-h4">Keyboard interactions</h4>
+  <ul class="dummy-list">
+    <li>
+      <kbd>TAB</kbd>
+      <ul>
+        <li>When focus moves into the tab list, places focus on the active tab element.</li>
+        <li>When the tab list contains the focus, moves focus to the next element in the page tab sequence. This could
+          mean an interactive element inside of the active tabpanel, or the next interactive element on the page
+          (outside of the tab element completely.</li>
+      </ul>
+    </li>
+    <li>
+      When focus is on a tab element (assuming a horizontal tab list):
+      <ul>
+        <li><kbd>LEFT ARROW</kbd>: moves focus to the previous tab. If focus is on the first tab, moves focus to the
+          last tab.</li>
+        <li><kbd>RIGHT ARROW</kbd>: Moves focus to the next tab. If focus is on the last tab element, moves focus to the
+          first tab.</li>
+        <li><kbd>SPACE</kbd> or <kbd>ENTER</kbd>: Activates the tab (to display the tabpanel content)</li>
+        <li>
+          Optional features:
+          <ul>
+            <li><kbd>HOME</kbd>: Moves focus to the first tab element in the tab list</li>
+            <li><kbd>END</kbd>: Moves focus to the last tab element in the tab list</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4 class="dummy-h4">Relevant WCAG</h4>
+  <p class="dummy-paragraph">The relevant WCAG 2.1 AA Success Criteria are listed here.</p>
+
+  <ul class="dummy-list">
+    <li>1.3.1
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">Info and Relationships (A)</a></li>
+    <li>1.3.2
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html">Meaningful Sequence (A)</a></li>
+    <li>1.4.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">Use of Color (A)</a></li>
+    <li>1.4.3 <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">Contrast Minimum (AA)</a></li>
+    <li>1.4.4 <a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html">Resize Text (AA)</a></li>
+    <li>1.4.10 <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">Reflow (AA)</a></li>
+    <li>1.4.11
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">Non-text Contrast (AA)</a></li>
+    <li>1.4.12 <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html">Text Spacing (AA)</a></li>
+    <li>1.4.13
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html">Content on Hover or Focus
+        (AA)</a></li>
+    <li>2.1.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html">Keyboard (A)</a></li>
+    <li>2.1.2 <a href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html">No Keyboard Trap (A)</a></li>
+    <li>2.4.6
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html">Headings and Labels (AA)</a></li>
+    <li>2.4.7 <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">Focus Visible (AA)</a></li>
+    <li>3.2.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/on-focus.html">On Focus (A)</a></li>
+    <li>4.1.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html">Parsing (A)</a></li>
+    <li>4.1.2 <a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html">Name, Role, Value (A)</a></li>
+  </ul>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <Hds::Tabs>This is the Hds::Tabs component </Hds::Tabs>
+</section>
