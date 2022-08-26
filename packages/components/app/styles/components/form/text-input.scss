@@ -129,6 +129,7 @@
     background-repeat: no-repeat;
 
     &::-webkit-search-cancel-button {
+      // stylelint-disable-next-line property-no-vendor-prefix
       -webkit-appearance: none;
       background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
       background-position: center center;
