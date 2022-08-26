@@ -176,7 +176,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     &:focus,
     &.mock-focus {
       // TODO this focus is just way too complex
-      background-color:  var(--token-color-surface-action);
+      background-color: var(--token-color-surface-action);
       border-color: var(--token-color-focus-action-internal);
     }
 
