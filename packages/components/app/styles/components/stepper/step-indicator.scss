@@ -138,8 +138,8 @@ $status-props: (
 
 .hds-stepper-indicator-step--is-interactive {
   cursor: pointer;
-  
-  @each $status in $hds-stepper-indicator-step-statuses {    
+
+  @each $status in $hds-stepper-indicator-step-statuses {
     // For each status set the text, svg fill, and svg stroke color based on $status-props
     &.hds-stepper-indicator-step--status-#{$status} {
       .hds-stepper-indicator-step__status {
@@ -149,7 +149,7 @@ $status-props: (
         fill: map-get($status-props, $status, "fill-color-default");
         stroke: map-get($status-props, $status, "stroke-color-default");
       }
-      
+
       &:hover,
       &.mock-hover {
         .hds-stepper-indicator-step__status {
@@ -162,7 +162,7 @@ $status-props: (
           }
         }
       }
-      
+
       &:active,
       &.mock-active {
         .hds-stepper-indicator-step__status {
