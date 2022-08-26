@@ -2,3 +2,25 @@
 <div class={{this.classNames}} ...attributes>
   {{yield}}
 </div>
+
+{{!
+Component Structure:
+
+Tabs
+  TabList
+    Tab
+      Content:
+        FlightIcon (optional)
+        text content (required)
+        BadgeCount (optional)
+      Args:
+        isSelected (boolean, default = false) // Select first tab by default?
+        hasIcon (boolean, default = false)
+        hasCount (boolean, default = false)
+    Tab (2+ required)
+    ...
+    ScrollNavigation (displays if more tabs than fit container)
+  TabPanel
+  TabPabel
+  ...
+ }}
