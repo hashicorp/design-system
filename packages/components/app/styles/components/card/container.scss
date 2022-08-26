@@ -28,12 +28,14 @@ $hds-card-container-border-radius: 6px;
       box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
     }
   }
+
   @each $level in $hds-card-container-levels {
     .hds-card__container--hover-level-#{$style}-#{$level}:hover,
     .hds-card__container--hover-level-#{$style}-#{$level}.mock-hover {
       box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
     }
   }
+
   @each $level in $hds-card-container-levels {
     .hds-card__container--active-level-#{$style}-#{$level}:active,
     .hds-card__container--active-level-#{$style}-#{$level}.mock-active {
