@@ -9,61 +9,61 @@ $hds-stepper-indicator-task-size: 16px;
 
 // Determine states and corresponding styles
 $status-props: (
-    "incomplete": (
-        "color-default": var(--token-color-palette-neutral-300),
-        "color-hover": var(--token-color-palette-blue-300),
-        "color-active": var(--token-color-palette-blue-400),
-    ),
-    "progress": (
-        "color-default": var(--token-color-palette-blue-200),
-        "color-hover": var(--token-color-palette-blue-300),
-        "color-active": var(--token-color-palette-blue-400),
-    ),
-    "processing": (
-        "color-default": var(--token-color-palette-blue-200),
-        "color-hover": var(--token-color-palette-blue-300),
-        "color-active": var(--token-color-palette-blue-400),
-    ),
-    "complete": (
-        "color-default": var(--token-color-palette-green-200),
-        "color-hover": var(--token-color-palette-green-300),
-        "color-active": var(--token-color-palette-green-400),
-    )
+  "incomplete": (
+    "color-default": var(--token-color-palette-neutral-300),
+    "color-hover": var(--token-color-palette-blue-300),
+    "color-active": var(--token-color-palette-blue-400),
+  ),
+  "progress": (
+    "color-default": var(--token-color-palette-blue-200),
+    "color-hover": var(--token-color-palette-blue-300),
+    "color-active": var(--token-color-palette-blue-400),
+  ),
+  "processing": (
+    "color-default": var(--token-color-palette-blue-200),
+    "color-hover": var(--token-color-palette-blue-300),
+    "color-active": var(--token-color-palette-blue-400),
+  ),
+  "complete": (
+    "color-default": var(--token-color-palette-green-200),
+    "color-hover": var(--token-color-palette-green-300),
+    "color-active": var(--token-color-palette-green-400),
+  )
 );
 
 // Base styling for indicator::task
 .hds-stepper-indicator-task {
-    align-items: center;
-    color: var(--token-color-foreground-strong);
-    display: flex;
-    height: $hds-stepper-indicator-task-size;
-    justify-content: center;
-    position: relative;
-    width: $hds-stepper-indicator-task-size;
+  align-items: center;
+  color: var(--token-color-foreground-strong);
+  display: flex;
+  height: $hds-stepper-indicator-task-size;
+  justify-content: center;
+  position: relative;
+  width: $hds-stepper-indicator-task-size;
 }
 
 .hds-stepper-indicator-task__icon {
-    height: 12px;
-    width: 12px;
+  height: 12px;
+  width: 12px;
 }
 
 .hds-stepper-indicator-task--is-interactive {
-    cursor: pointer;
+  cursor: pointer;
 
-    @each $status in $hds-stepper-indicator-task-statuses {
-        // For each status set the icon color based on the $status-props
-        &.hds-stepper-indicator-task--status-#{$status} {
-            color: map-get($status-props, $status, "color-default");
-            &:hover, 
-            &.mock-hover { 
-                color: map-get($status-props, $status, "color-hover");
-            };
-            &:active,
-            &.mock-active {
-                color: map-get($status-props, $status, "color-active");
-            };
-        }
+  @each $status in $hds-stepper-indicator-task-statuses {
+    // For each status set the icon color based on the $status-props
+    &.hds-stepper-indicator-task--status-#{$status} {
+      color: map-get($status-props, $status, "color-default");
+      &:hover,
+      &.mock-hover {
+        color: map-get($status-props, $status, "color-hover");
+      };
+      &:active,
+      &.mock-active {
+        color: map-get($status-props, $status, "color-active");
+      };
     }
+  }
 }
 
 
