@@ -86,7 +86,7 @@ $non-interactive-props: (
   .hds-stepper-indicator-step--status-#{$status} {
     .hds-stepper-indicator-step__status {
       color: map-get($non-interactive-props, $status, "text-color");
-    };
+    }
     .hds-stepper-indicator-step__svg-hexagon path {
       fill: map-get($non-interactive-props, $status, "fill-color");
       stroke: map-get($non-interactive-props, $status, "stroke-color");
@@ -159,7 +159,7 @@ $status-props: (
           path {
             fill: map-get($status-props, $status, "fill-color-hover");
             stroke: map-get($status-props, $status, "stroke-color-hover");
-          };
+          }
         }
       }
       
@@ -172,7 +172,7 @@ $status-props: (
           path {
             fill: map-get($status-props, $status, "fill-color-active");
             stroke: map-get($status-props, $status, "stroke-color-active");
-          };
+          }
         }
       }
     }

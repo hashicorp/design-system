@@ -72,7 +72,7 @@
     left: calc(var(--token-form-radio-border-width) * -1);
     position: absolute;
     transform: translate3d(0, 0, 0);
-    top: calc(var(--token-form-radio-border-width) * -1);;
+    top: calc(var(--token-form-radio-border-width) * -1);
 
     @media (prefers-reduced-motion: no-preference) {
       transition-property: all;

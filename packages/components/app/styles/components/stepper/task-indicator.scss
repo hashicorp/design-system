@@ -57,11 +57,11 @@ $status-props: (
       &:hover,
       &.mock-hover {
         color: map-get($status-props, $status, "color-hover");
-      };
+      }
       &:active,
       &.mock-active {
         color: map-get($status-props, $status, "color-active");
-      };
+      }
     }
   }
 }
