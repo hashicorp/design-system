@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
+export const IconStep16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,10 +13,10 @@ export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
+                width={16}
+                height={16}
                 fill="none"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
@@ -26,7 +26,7 @@ export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M12 1a.75.75 0 01.673.418l2.992 6.065 6.694.978a.75.75 0 01.414 1.28l-4.842 4.717 1.143 6.665a.75.75 0 01-1.089.79L12 18.766l-5.985 3.149a.75.75 0 01-1.089-.79l1.143-6.666-4.842-4.717a.75.75 0 01.414-1.28l6.694-.978 2.992-6.065A.75.75 0 0112 1zm0 2.445L9.505 8.5a.75.75 0 01-.564.41l-5.58.816 4.037 3.933a.75.75 0 01.216.664l-.952 5.556 4.989-2.625a.75.75 0 01.698 0l4.99 2.625-.953-5.556a.75.75 0 01.216-.664l4.037-3.933-5.58-.816a.75.75 0 01-.564-.41L12 3.445z"
+                    d="M12.25 14a.75.75 0 000-1.5h-3a1.75 1.75 0 01-1.75-1.75v-.25a1.75 1.75 0 001.75-1.75v-1.5A1.75 1.75 0 007.5 5.5V2.75a.75.75 0 00-1.5 0V5.5a1.75 1.75 0 00-1.75 1.75v1.5c0 .966.784 1.75 1.75 1.75v.25A3.25 3.25 0 009.25 14h3zm-6.5-6.75A.25.25 0 016 7h1.5a.25.25 0 01.25.25v1.5A.25.25 0 017.5 9H6a.25.25 0 01-.25-.25v-1.5z"
                     clipRule="evenodd"
                 />
             </svg>

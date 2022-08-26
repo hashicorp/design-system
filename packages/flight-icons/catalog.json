@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-08-05T14:08:54.429Z",
+  "lastRunTimeISO": "2022-08-26T20:57:26.415Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -1411,6 +1411,42 @@
       "fileName": "oracle-color-16",
       "iconName": "oracle-color",
       "description": "oracle, oracle cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2517:66",
+      "fileName": "opa-24",
+      "iconName": "opa",
+      "description": "opa, open, policy, agent",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2517:70",
+      "fileName": "opa-16",
+      "iconName": "opa",
+      "description": "opa, open, policy, agent",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2517:77",
+      "fileName": "opa-color-24",
+      "iconName": "opa-color",
+      "description": "opa, open, policy, agent",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2517:81",
+      "fileName": "opa-color-16",
+      "iconName": "opa-color",
+      "description": "opa, open, policy, agent",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7050,6 +7086,24 @@
       "height": 16
     },
     {
+      "id": "2518:93",
+      "fileName": "pipeline-24",
+      "iconName": "pipeline",
+      "description": "pipeline",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2518:97",
+      "fileName": "pipeline-16",
+      "iconName": "pipeline",
+      "description": "pipeline",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:3113",
       "fileName": "play-24",
       "iconName": "play",
@@ -8179,6 +8233,24 @@
       "fileName": "star-off-16",
       "iconName": "star-off",
       "description": "star, favorite, off, disabled",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2519:77",
+      "fileName": "step-24",
+      "iconName": "step",
+      "description": "step, pipeline",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2519:80",
+      "fileName": "step-16",
+      "iconName": "step",
+      "description": "step, pipeline",
       "size": "16",
       "width": 16,
       "height": 16
