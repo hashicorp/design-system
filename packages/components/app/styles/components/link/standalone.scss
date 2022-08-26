@@ -89,7 +89,7 @@ $size-props: (
     color: var(--token-color-foreground-action-hover);
 
     .hds-link-standalone__text {
-      text-decoration-color: #4E81E8; // custom color by design
+      text-decoration-color: #4e81e8; // custom color by design
     }
   }
 
@@ -98,7 +98,7 @@ $size-props: (
     color: var(--token-color-foreground-action-active);
 
     .hds-link-standalone__text {
-      text-decoration-color: #396ED6; // custom color by design
+      text-decoration-color: #396ed6; // custom color by design
     }
 
     &::before {
@@ -113,7 +113,7 @@ $size-props: (
   &:hover,
   &.mock-hover {
     .hds-link-standalone__text {
-      text-decoration-color: #4D4D4F; // custom color by design
+      text-decoration-color: #4d4d4f; // custom color by design
     }
   }
 
@@ -122,7 +122,7 @@ $size-props: (
     color: var(--token-color-foreground-primary);
 
     .hds-link-standalone__text {
-      text-decoration-color: #6E7075; // custom color by design
+      text-decoration-color: #6e7075; // custom color by design
     }
 
     &::before {
