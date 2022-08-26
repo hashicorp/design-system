@@ -37,7 +37,7 @@
     border-color: var(--token-color-focus-action-internal);
     // Notice: Safari doesn't apply a rounded border
     outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0px;
+    outline-offset: 0;
   }
 
   // READONLY

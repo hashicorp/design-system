@@ -262,7 +262,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     // and also has a background color, so we can't use the existing focus-ring mixins
     &::after {
       border-radius: 5px;
-      bottom: 0px;
+      bottom: 0;
       content: '';
       left: 10px;
       position: absolute;

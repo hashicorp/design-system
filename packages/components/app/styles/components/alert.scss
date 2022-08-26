@@ -185,7 +185,7 @@
 
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-faint);
-    box-shadow: 0px 1px 0px 0px var(--token-color-palette-alpha-300);
+    box-shadow: 0 1px 0 0 var(--token-color-palette-alpha-300);
   }
 
   &.hds-alert--type-inline {
@@ -207,7 +207,7 @@
 
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-highlight);
-    box-shadow: 0px 1px 0px 0px var(--token-color-border-highlight);
+    box-shadow: 0 1px 0 0 var(--token-color-border-highlight);
   }
 
   &.hds-alert--type-inline {
@@ -224,7 +224,7 @@
 
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-success);
-    box-shadow: 0px 1px 0px 0px var(--token-color-border-success);
+    box-shadow: 0 1px 0 0 var(--token-color-border-success);
   }
 
   &.hds-alert--type-inline {
@@ -241,7 +241,7 @@
 
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-warning);
-    box-shadow: 0px 1px 0px 0px var(--token-color-border-warning);
+    box-shadow: 0 1px 0 0 var(--token-color-border-warning);
   }
 
   &.hds-alert--type-inline {
@@ -258,7 +258,7 @@
 
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-critical);
-    box-shadow: 0px 1px 0px 0px var(--token-color-border-critical);
+    box-shadow: 0 1px 0 0 var(--token-color-border-critical);
   }
 
   &.hds-alert--type-inline {
