@@ -1,5 +1,14 @@
 # @hashicorp/design-system-components
 
+## 1.0.4
+
+### Patch Changes
+
+- [#534](https://github.com/hashicorp/design-system/pull/534) [`65cde6ad`](https://github.com/hashicorp/design-system/commit/65cde6ad63c370fd9f0f6984cb7e974e4d3a9030) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix label indicator for assistive technologies
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@2.0.12
+
 ## 1.0.3
 
 ### Patch Changes
