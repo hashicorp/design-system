@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
+export const IconPipeline16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,10 +13,10 @@ export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
+                width={16}
+                height={16}
                 fill="none"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
@@ -26,7 +26,7 @@ export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M12 1a.75.75 0 01.673.418l2.992 6.065 6.694.978a.75.75 0 01.414 1.28l-4.842 4.717 1.143 6.665a.75.75 0 01-1.089.79L12 18.766l-5.985 3.149a.75.75 0 01-1.089-.79l1.143-6.666-4.842-4.717a.75.75 0 01.414-1.28l6.694-.978 2.992-6.065A.75.75 0 0112 1zm0 2.445L9.505 8.5a.75.75 0 01-.564.41l-5.58.816 4.037 3.933a.75.75 0 01.216.664l-.952 5.556 4.989-2.625a.75.75 0 01.698 0l4.99 2.625-.953-5.556a.75.75 0 01.216-.664l4.037-3.933-5.58-.816a.75.75 0 01-.564-.41L12 3.445z"
+                    d="M2.75 2.5A1.75 1.75 0 001 4.25v1C1 6.216 1.784 7 2.75 7h1a1.75 1.75 0 001.732-1.5H6.5a.75.75 0 01.75.75v3.5A2.25 2.25 0 009.5 12h1.018c.121.848.85 1.5 1.732 1.5h1A1.75 1.75 0 0015 11.75v-1A1.75 1.75 0 0013.25 9h-1a1.75 1.75 0 00-1.732 1.5H9.5a.75.75 0 01-.75-.75v-3.5A2.25 2.25 0 006.5 4H5.482A1.75 1.75 0 003.75 2.5h-1zM2.5 4.25A.25.25 0 012.75 4h1a.25.25 0 01.25.25v1a.25.25 0 01-.25.25h-1a.25.25 0 01-.25-.25v-1zm9.75 6.25a.25.25 0 00-.25.25v1c0 .138.112.25.25.25h1a.25.25 0 00.25-.25v-1a.25.25 0 00-.25-.25h-1z"
                     clipRule="evenodd"
                 />
             </svg>
