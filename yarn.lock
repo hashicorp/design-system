@@ -2029,7 +2029,7 @@ __metadata:
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/design-system-tokens": ^1.0.0
-    "@hashicorp/ember-flight-icons": ^2.0.11
+    "@hashicorp/ember-flight-icons": ^2.0.12
     "@percy/cli": ^1.10.0
     "@percy/ember": ^3.0.1
     babel-eslint: ^10.1.0
@@ -2114,7 +2114,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^2.0.11, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^2.0.12, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -2123,7 +2123,7 @@ __metadata:
     "@embroider/test-setup": ^1.5.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@hashicorp/flight-icons": ^2.9.0
+    "@hashicorp/flight-icons": ^2.10.0
     "@percy/cli": ^1.10.0
     "@percy/ember": ^3.0.1
     babel-eslint: ^10.1.0
@@ -2164,7 +2164,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@^2.9.0, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@^2.10.0, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
@@ -10208,8 +10208,8 @@ __metadata:
     "@ember/test-helpers": ^2.6.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@hashicorp/ember-flight-icons": ^2.0.11
-    "@hashicorp/flight-icons": ^2.9.0
+    "@hashicorp/ember-flight-icons": ^2.0.12
+    "@hashicorp/flight-icons": ^2.10.0
     "@percy/cli": ^1.10.0
     "@percy/ember": ^3.0.1
     "@tailwindcss/forms": ^0.3.4
