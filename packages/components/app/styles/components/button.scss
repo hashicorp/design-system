@@ -7,7 +7,6 @@
 //
 
 $hds-button-sizes: ( 'small', 'medium', 'large' );
-
 $hds-button-border-radius: 5px;
 $hds-button-border-width: 1px;
 $hds-button-focus-border-width: 3px;
@@ -94,7 +93,7 @@ $hds-button-focus-border-width: 3px;
     margin-left: 0.375rem;
   }
 
-  & +.hds-button__icon {
+  & + .hds-button__icon {
     margin-left: 0.375rem;
   }
 }
@@ -112,18 +111,18 @@ $size-props: (
     "icon-size": 0.75rem, // 12px
   ),
   "medium": (
-      "font-size": 0.875rem, // 14px
-      "line-height": 1rem,// 16px
-      "min-height": 2.25rem, // 36px
-      "padding": 0.5625rem 0.9375rem, // 9px 15px - here we're taking into account the 1px border
-      "icon-size": 1rem, // 16px
+    "font-size": 0.875rem, // 14px
+    "line-height": 1rem,// 16px
+    "min-height": 2.25rem, // 36px
+    "padding": 0.5625rem 0.9375rem, // 9px 15px - here we're taking into account the 1px border
+    "icon-size": 1rem, // 16px
   ),
   "large": (
-      "font-size": 1rem, //16px
-      "line-height": 1.5rem, // 24px
-      "min-height": 3rem, // 48px
-      "padding": 0.6875rem 1.1875rem, // 11px 19px - here we're taking into account the 1px border
-      "icon-size": 1.5rem, // 24px
+    "font-size": 1rem, // 16px
+    "line-height": 1.5rem, // 24px
+    "min-height": 3rem, // 48px
+    "padding": 0.6875rem 1.1875rem, // 11px 19px - here we're taking into account the 1px border
+    "icon-size": 1.5rem, // 24px
   )
 );
 

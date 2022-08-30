@@ -12,7 +12,7 @@
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
   color: var(--token-form-control-base-foreground-value-color);
-  padding: var( --token-form-control-padding);
+  padding: var(--token-form-control-padding);
   width: 100%;
   max-width: 100%;
 
@@ -36,7 +36,7 @@
     border-color: var(--token-color-focus-action-internal);
     // Notice: Safari doesn't apply a rounded border
     outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0px;
+    outline-offset: 0;
   }
 
   // READONLY
@@ -75,7 +75,6 @@
     }
   }
 }
-
 
 
 // "TYPE" CUSTOMIZATION
@@ -122,13 +121,14 @@
 
   // SEARCH
   &[type="search"] {
-    padding-left: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
+    padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
     background-image: var(--token-form-text-input-background-image-data-url-search);
     background-position: var(--token-form-text-input-background-image-position-x) 50%;
     background-size: var(--token-form-text-input-background-image-size);
     background-repeat: no-repeat;
 
     &::-webkit-search-cancel-button {
+      // stylelint-disable-next-line property-no-vendor-prefix
       -webkit-appearance: none;
       background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
       background-position: center center;

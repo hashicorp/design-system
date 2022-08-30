@@ -17,8 +17,8 @@
   border-radius: var(--token-form-control-border-radius);
   color: var(--token-form-control-base-foreground-value-color);
   box-shadow: var(--token-elevation-low-box-shadow);
-  padding: var( --token-form-control-padding);
-  padding-right: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
+  padding: var(--token-form-control-padding);
+  padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
   max-width: 100%;
 
 
@@ -36,7 +36,7 @@
     border-color: var(--token-color-focus-action-internal);
     // Notice: Safari doesn't apply a rounded border
     outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0px;
+    outline-offset: 0;
   }
 
   // DISABLED
