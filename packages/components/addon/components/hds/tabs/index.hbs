@@ -1,60 +1,55 @@
 <div class={{this.classNames}} ...attributes>
   {{!-- {{yield}} --}}
 
-  {{!-- Hds-TabList --}}
+  {{! Hds-TabList }}
   <div class="hds-tab-list">
-    <ul 
-      class="hds-tab-list__list"
-      role="tablist"
-    >
-      {{!-- Hds-Tab --}}
-      <li 
-        class="hds-tab"
-        role="presentation"
-      >
-        <a 
-          role="tab" 
-          href="#section1" 
-          id="tab1" 
-          {{!-- aria-selected="true"  TODO: Set by arg: "isSelected" --}}
-          {{!-- tabindex="-1"  TODO: Set if not aria-selected ("isSelected") --}}
+    <ul class="hds-tab-list__list" role="tablist">
+      {{! Hds-Tab }}
+      <li class="hds-tab" role="presentation">
+        <a
+          role="tab"
+          href="#section1"
+          id="tab1"
+          {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
+          {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected") }}
         >
-          Tab 1 {{this.isSelected}}
+          Tab 1
+          {{this.isSelected}}
         </a>
       </li>
-      <li 
-        class="hds-tab"
-        role="presentation"
-      >
-        <a 
+      <li class="hds-tab" role="presentation">
+        <a
           role="tab"
-          href="#section2" 
+          href="#section2"
           id="tab2"
-          {{!-- aria-selected="true"  TODO: Set by arg: "isSelected" --}}
-          {{!-- tabindex="-1"  TODO: Set if not aria-selected ("isSelected"), Focus will be added by JS --}}
+          {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
+          {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected"), Focus will be added by JS }}
         >
-          Tab 2 {{this.isSelected}}
+          Tab 2
+          {{this.isSelected}}
         </a>
       </li>
     </ul>
   </div>
 
-  {{!-- Hds-TabPanel --}}
-  <section 
+  {{! Hds-TabPanel }}
+  <section
     class="hds-tab-panel"
-    role="tabpanel" 
-    id="section1" 
+    role="tabpanel"
+    id="section1"
     aria-labelledby="tab1"
-    {{!-- hidden --}} {{!-- TODO: set by arg --}}
+    {{! hidden }}
+    {{! TODO: set by arg }}
   >
     Tab 1 Content
   </section>
-  <section 
+  <section
     class="hds-tab-panel"
-    role="tabpanel" 
-    id="section2" 
+    role="tabpanel"
+    id="section2"
     aria-labelledby="tab2"
-    {{!-- hidden --}} {{!-- TODO: set by arg --}}
+    {{! hidden }}
+    {{! TODO: set by arg }}
   >
     Tab 2 Content
   </section>
