@@ -1,9 +1,69 @@
 //
 // TABS
 //
-// properties within each class are sorted alphabetically
-//
 
-.hds-tabs {
-  // outline: 2px dotted red;
+$indicator-height: 3px;
+
+.hds-tabs {}
+
+// Sub-components:
+// TODO: MOVE!
+.hds-tab-list {
+  font-family: var(--token-typography-body-200-font-family);
+  font-weight: var(--token-typography-font-weight-medium);
+  padding-bottom: ($indicator-height / 2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+
+  // Un-nest after moving
+  .hds-tab-list__list {
+    border-bottom: 1px solid var(--token-color-border-primary);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+}
+
+.hds-tab {
+  padding: 3px 6px;
+  position: relative; // temporary: for positioning temp indicator
+
+  // temporary indicator
+  &:hover:after {
+    background: var(--token-color-foreground-action);
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: $indicator-height;
+    margin-bottom: -($indicator-height / 2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  a {
+    color: var(--token-color-foreground-primary);
+    border-radius: var(--token-form-control-border-radius);
+    text-decoration: none;
+    display: block;
+    padding: 3px 6px;
+
+    &:hover {
+      color: var(--token-color-foreground-action);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: var(--token-focus-ring-action-box-shadow);
+    }
+  }
+}
+
+.hds-tab-panel {
+  &:not(:target) {
+    display: none;
+  }
 }
