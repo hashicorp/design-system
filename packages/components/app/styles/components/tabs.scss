@@ -11,8 +11,6 @@ $indicator-height: 3px;
 // Sub-components:
 // TODO: MOVE!
 .hds-tab-list {
-  font-family: var(--token-typography-body-200-font-family);
-  font-weight: var(--token-typography-font-weight-medium);
   padding-bottom: round(calc($indicator-height / 2));
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
