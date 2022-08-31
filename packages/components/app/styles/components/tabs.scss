@@ -37,11 +37,10 @@ $indicator-height: 3px;
     content: "";
     display: block;
     height: $indicator-height;
-    margin-bottom: round(calc($indicator-height / 2 * -1));
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: round(calc($indicator-height / 2 * -1));
   }
 
   a {
