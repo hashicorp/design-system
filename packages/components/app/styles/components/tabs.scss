@@ -2,6 +2,8 @@
 // TABS
 //
 
+@use "../mixins/focus-ring" as *;
+
 $indicator-height: 3px;
 
 .hds-tabs {}
@@ -44,6 +46,7 @@ $indicator-height: 3px;
   }
 
   a {
+    @include hds-focus-ring-with-pseudo-element();
     color: var(--token-color-foreground-primary);
     border-radius: var(--token-form-control-border-radius);
     text-decoration: none;
@@ -52,11 +55,6 @@ $indicator-height: 3px;
 
     &:hover {
       color: var(--token-color-foreground-action-hover);
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
 }
