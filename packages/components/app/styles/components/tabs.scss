@@ -27,7 +27,6 @@ $indicator-height: 3px;
 }
 
 .hds-tab {
-  padding: 3px 6px;
   position: relative; // for positioning temp indicator
 
   // temporary indicator
@@ -44,12 +43,12 @@ $indicator-height: 3px;
   }
 
   a {
-    @include hds-focus-ring-with-pseudo-element();
+    @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
     color: var(--token-color-foreground-primary);
     border-radius: var(--token-form-control-border-radius);
     text-decoration: none;
     display: block;
-    padding: 3px 6px;
+    padding: 8px 12px;
 
     &:hover {
       color: var(--token-color-foreground-action-hover);
