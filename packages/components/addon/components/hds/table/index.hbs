@@ -1,3 +1,15 @@
-<div class={{this.classNames}} ...attributes>
-  {{yield}}
-</div>
+<table class="hds-table" data-test-table ...attributes>
+  <thead class="hds-table__thead" data-test-table-head>
+    <tr>
+      {{yield
+        (hash SortBy=(component "hds/table/sort-by" currentField=@sortProperty sortDescending=this.sortDescending))
+        to="head"
+      }}
+    </tr>
+  </thead>
+  <tbody class="hds-table__tbody" data-test-table-body>
+    {{#each @model as |row|}}
+      {{yield row to="body"}}
+    {{/each}}
+  </tbody>
+</table>
