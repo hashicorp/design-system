@@ -2,8 +2,7 @@ import Component from '@glimmer/component';
 
 /**
  *
- * `Hds::Table` renders an HTML table styled using the `hds-table` class. It is primarily used to reduce
- * boilerplate, drive consistency, and hook into column sorting logic.
+ * `Hds::Table` renders an HTML table styled using the `hds-table` class.
  *
  *
  * ```
@@ -27,37 +26,37 @@ import Component from '@glimmer/component';
  * to represent column headers.
  *
  * It also yields a single contextual component, `SortBy` which applies the `@sortProperty` and
- * `@sortDescending` args from the `Table` component. This way only `@field` needs to be set to
+ * `@sortDescending` args from the `HdsTable` component. This way only `@field` needs to be set to
  * determine the visual state and the generated anchor href.
  *
  *
  * ## :body named block
  *
  * This represents the `tbody` of the table. It yields `n` number of times where `n` is equal to
- * the length of the `@model` arg provided to `Table`. The yield happens directly in the `tbody`
+ * the length of the `@model` arg provided to `HdsTable`. The yield happens directly in the `tbody`
  * element to allow for multiple `tr`s for a single record. The yielded value is the exact record
  * from the `@model` array.
  *
- * @class Table
+ * @class HdsTable
  */
 export default class HdsTableIndexComponent extends Component {
   /**
    * Sets the data source that gets yielded by the `:body` named block.
    * @argument model
-   * @type {?array}
+   * @type {array}
    */
   /**
    * Specifies which field the `@model` is sorted by. This **does not perform a sort**.
    * It is only used to set states on the contextual `SortBy` components.
    * @argument sortProperty
-   * @type {?string}
+   * @type {string}
    */
   /**
    * Specifies which direction the `@model` is sorted. Descending when `true`, ascending when
    * `false`. This **does not perform a sort**. It is only used to set states on the
    * contextual `SortBy` components.
    * @argument sortDescending
-   * @type {?boolean}
+   * @type {boolean}
    */
 
   // Convenience getter since all query params are strings.
