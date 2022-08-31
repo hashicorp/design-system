@@ -59,8 +59,19 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   {{! ADD YOUR CONTENT HERE }}
-
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Table>This is the Hds::Table component </Hds::Table>
-
+  <h4 class="dummy-h4">Static Table (non-sortable)</h4>
+  <Hds::Table @model={{this.model}}>
+    <:head>
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Release Year</th>
+    </:head>
+    <:body as |row|>
+      <tr>
+        <td>{{row.artist}}</td>
+        <td>{{row.album}}</td>
+        <td>{{row.year}}</td>
+      </tr>
+    </:body>
+  </Hds::Table>
 </section>
