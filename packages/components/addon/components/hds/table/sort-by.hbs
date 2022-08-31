@@ -1,0 +1,21 @@
+<th
+  class={{class-names
+    "sortable"
+    (if this.isActive "is-active")
+    (if (and this.isActive this.sortDescending) "sort-descending")
+    (if (and this.isActive (not this.sortDescending)) "sort-ascending")
+  }}
+  ...attributes
+  data-test-sort-by={{@field}}
+>
+  <LinkTo @query={{hash sortby=@field sortdescending=(if this.isActive (not this.sortDescending) true)}}>
+    <span class="sortby-label">
+      {{yield}}
+    </span>
+    {{#if (and this.isActive this.sortDescending)}}
+      <FlightIcon @name="arrow-down" />
+    {{else if (and this.isActive (not this.sortDescending))}}
+      <FlightIcon @name="arrow-up" />
+    {{/if}}
+  </LinkTo>
+</th>

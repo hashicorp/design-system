@@ -3,4 +3,45 @@
 //
 // properties within each class are sorted alphabetically
 //
+.hds-table {
+  border-collapse: collapse;
+  border-radius: 6px;
+  border-spacing: 0;
+  border: 1px solid var(--token-color-border-primary);
+  font-family:var(--token-typography-font-stack-text);
+  font-size: var(--token-typography-body-200-font-size);
+  line-height: var(--token-typography-body-200-line-height);
+  width: 100%;
+}
+.hds-table__thead {
+  border-bottom: 1px solid var(--token-color-border-primary);
+  
+  th {
+    background-color: var(--token-color-surface-strong);
+    color: var(--token-color-foreground-strong);
+    font-weight: var(--token-typography-font-weight-semibold);
+    padding: 8px 16px;
+    text-align: left;
 
+    &:text-right {
+      text-align: right;
+    }
+  }
+}
+.hds-table__tbody {
+  background-color: var(--token-color-surface-primary);
+  color: var(--token-color-foreground-primary);
+  font-weight: var(--token-typography-font-weight-regular);
+
+
+  tr {
+    border-bottom: 1px solid var(--token-color-border-primary);
+
+    &:nth-child(odd) {
+      background-color: var(--token-color-surface-faint);
+    }
+  }
+  td {
+    padding: 12px 16px;
+  }
+}
