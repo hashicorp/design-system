@@ -74,4 +74,19 @@
       </tr>
     </:body>
   </Hds::Table>
+  <h4 class="dummy-h4">Sortable Table</h4>
+  <Hds::Table @model={{this.model}} @sortProperty={{this.sortby}} @sortDescending={{false}}>
+    <:head as |h|>
+      <h.SortBy @field="artist">Artist</h.SortBy>
+      <h.SortBy @field="album">Album</h.SortBy>
+      <h.SortBy @field="year">Release Year</h.SortBy>
+    </:head>
+    <:body as |row|>
+      <tr>
+        <td>{{row.artist}}</td>
+        <td>{{row.album}}</td>
+        <td>{{row.year}}</td>
+      </tr>
+    </:body>
+  </Hds::Table>
 </section>

@@ -23,8 +23,22 @@
     padding: 8px 16px;
     text-align: left;
 
-    &:text-right {
+    &.sortable {
+      padding: 0; //we're taking it out here because we need it on the interactive content instead
+    }
+
+    &.text-right { // for num support
       text-align: right;
+    }
+    a { // might refactor this to a button TBH
+      align-items: center;
+      display: flex;
+      padding: 8px 16px;
+      text-decoration: none;
+
+      svg { // in case they don't use flight icons
+        margin-left: 8px;
+      }
     }
   }
 }
