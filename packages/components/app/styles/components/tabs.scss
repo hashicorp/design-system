@@ -12,9 +12,9 @@ $indicator-height: 3px;
 // TODO: MOVE!
 .hds-tab-list {
   padding-bottom: round(calc($indicator-height / 2));
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
+  // overflow-x: auto;
+  // -webkit-overflow-scrolling: touch;
+  // white-space: nowrap; // move
 
   // Un-nest after moving
   .hds-tab-list__list {
@@ -28,7 +28,7 @@ $indicator-height: 3px;
 
 .hds-tab {
   padding: 3px 6px;
-  position: relative; // temporary: for positioning temp indicator
+  position: relative; // for positioning temp indicator
 
   // temporary indicator
   &:first-child:after {
