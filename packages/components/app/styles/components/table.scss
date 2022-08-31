@@ -32,11 +32,29 @@
     }
     a { // might refactor this to a button TBH
       align-items: center;
+      border: 3px solid transparent;
       display: flex;
       padding: 8px 16px;
       text-decoration: none;
 
+      &:visited {
+        color: var(--token-color-foreground-strong);
+      }
+      &:hover {
+        background-color: var(--token-color-palette-neutral-200);
+        color: var(--token-color-foreground-strong);
+      }
+      &:focus, &:focus-visible {
+        border-color: var(--token-color-focus-action-external);
+        color: var(--token-color-foreground-strong);
+      }
+      &:active {
+        background-color: var(--token-color-palette-neutral-300);
+        color: var(--token-color-foreground-strong);
+      }
+
       svg { // in case they don't use flight icons
+        color: var(--token-color-focus-action-external);
         margin-left: 8px;
       }
     }
