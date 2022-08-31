@@ -2,12 +2,12 @@ import Component from '@glimmer/component';
 
 /**
  *
- * `Table` renders an HTML table styled using the `pdsTable` class. It is primarily used to reduce
+ * `Hds::Table` renders an HTML table styled using the `hds-table` class. It is primarily used to reduce
  * boilerplate, drive consistency, and hook into column sorting logic.
  *
  *
  * ```
- * <Table @model={{this.data}} @sortProperty="name" @sortDescending={{false}}>
+ * <Hds::Table @model={{this.model}} @sortProperty="name" @sortDescending={{false}}>
  *   <:head as |h|>
  *     <h.SortBy @field="name">Name</h.SortBy>
  *     <th>Unsortable Data</th>
@@ -15,10 +15,10 @@ import Component from '@glimmer/component';
  *   <:body as |row|>
  *     <tr>
  *       <td>{{row.name}}</td>
- *       <td>{{row.complex}} {{row.data}} {{row.goes.here}}</td>
+ *       <td>{{row.data}}</td>
  *     </tr>
  *   </:body>
- * </Table>
+ * </Hds::Table>
  * ```
  *
  * ## :head named block
