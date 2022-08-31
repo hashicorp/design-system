@@ -11,7 +11,7 @@ $indicator-height: 3px;
 .hds-tab-list {
   font-family: var(--token-typography-body-200-font-family);
   font-weight: var(--token-typography-font-weight-medium);
-  padding-bottom: ($indicator-height / 2);
+  padding-bottom: round(calc($indicator-height / 2));
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
@@ -31,13 +31,13 @@ $indicator-height: 3px;
   position: relative; // temporary: for positioning temp indicator
 
   // temporary indicator
-  &:hover:after {
+  &:first-child:after {
     background: var(--token-color-foreground-action);
     border-radius: 3px;
     content: "";
     display: block;
     height: $indicator-height;
-    margin-bottom: -($indicator-height / 2);
+    margin-bottom: round(calc($indicator-height / 2 * -1));
     position: absolute;
     left: 0;
     right: 0;
