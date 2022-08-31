@@ -33,6 +33,7 @@
     a { // might refactor this to a button TBH
       align-items: center;
       border: 3px solid transparent;
+      color: var(--token-color-foreground-strong);
       display: flex;
       padding: 8px 16px;
       text-decoration: none;
