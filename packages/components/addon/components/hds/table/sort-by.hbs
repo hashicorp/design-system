@@ -1,10 +1,7 @@
 <th
-  class={{class-names
-    "sortable"
-    (if this.isActive "is-active")
-    (if (and this.isActive this.sortDescending) "sort-descending")
-    (if (and this.isActive (not this.sortDescending)) "sort-ascending")
-  }}
+  class="sortable {{if this.isActive 'is-active'}}
+    {{if (and this.isActive this.sortDescending) 'sort-descending'}}
+    {{if (and this.isActive (not this.sortDescending)) 'sort-ascending'}}"
   ...attributes
   data-test-sort-by={{@field}}
 >
