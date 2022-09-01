@@ -1,9 +1,63 @@
 //
 // TABS
 //
-// properties within each class are sorted alphabetically
-//
 
-.hds-tabs {
-  // outline: 2px dotted red;
+@use "../mixins/focus-ring" as *;
+
+$indicator-height: 3px;
+
+.hds-tabs {}
+
+// Sub-components:
+// TODO: MOVE!
+.hds-tab-list {
+  padding-bottom: round(calc($indicator-height / 2));
+  // overflow-x: auto;
+  // -webkit-overflow-scrolling: touch;
+  // white-space: nowrap; // move
+
+  // Un-nest after moving
+  .hds-tab-list__list {
+    border-bottom: 1px solid var(--token-color-border-primary);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+}
+
+.hds-tab {
+  position: relative; // for positioning temp indicator
+
+  // temporary indicator
+  &:first-child:after {
+    background: var(--token-color-foreground-action);
+    border-radius: 3px;
+    content: "";
+    display: block;
+    height: $indicator-height;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: round(calc($indicator-height / 2 * -1));
+  }
+
+  a {
+    @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
+    color: var(--token-color-foreground-primary);
+    border-radius: var(--token-form-control-border-radius);
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+  }
+}
+
+.hds-tab-panel {
+  &:not(:target) {
+    display: none;
+  }
 }
