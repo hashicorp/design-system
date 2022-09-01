@@ -3404,6 +3404,7 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-qunit: ^7.2.0
     loader.js: ^4.7.0
+    mdx-embed: ^1.0.0
     npm-run-all: ^4.1.5
     prettier: ^2.6.1
     qunit: ^2.18.0
@@ -17858,6 +17859,18 @@ __metadata:
   version: 1.0.1
   resolution: "mdurl@npm:1.0.1"
   checksum: 71731ecba943926bfbf9f9b51e28b5945f9411c4eda80894221b47cc105afa43ba2da820732b436f0798fd3edbbffcd1fc1415843c41a87fea08a41cc1e3d02b
+  languageName: node
+  linkType: hard
+
+"mdx-embed@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "mdx-embed@npm:1.0.0"
+  peerDependencies:
+    "@mdx-js/mdx": ^1.6.16
+    "@mdx-js/react": ^1.6.16
+    react: ^16.9.0
+    react-dom: ^16.9.0
+  checksum: 59af0df877beae45d8e396df91a32bc21a661c136d46964f5be007cdbf157650d9f2136146acb3fe2c8ea38cfd9c773cffa53ab89bf6d8ab63179e92acbc2937
   languageName: node
   linkType: hard
 

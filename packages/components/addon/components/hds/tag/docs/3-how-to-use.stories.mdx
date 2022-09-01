@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { hbs } from 'ember-cli-htmlbars';
+
+<Meta title="Components/Tag/How to use" />
+
+# Tag / How to use
+
+Use tags to indicate an object's categorization, i.e., for filtering. Use a <a href="#">badge</a> instead for static metadata, status, or to indicate a new feature.
+
+## Basic use
+Invocation of the component would look something like this:
+<!-- had to comment it out using the backtick because the @[] args trigger an error -->
+`<CodeBlock @language="markup" @code='<Hds::Tag @text="My text tag" @onDismiss=\{{ your function here }} />' />`
+Renders to:
+<Hds::Tag @text="My text tag" />
