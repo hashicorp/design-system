@@ -2078,7 +2078,6 @@ __metadata:
     qunit: ^2.18.0
     qunit-dom: ^2.0.0
     sass: ^1.43.4
-    version-bump-prompt: ^6.1.0
     webpack: ^5.70.0
   languageName: unknown
   linkType: soft
@@ -2289,36 +2288,6 @@ __metadata:
     "@jridgewell/resolve-uri": ^3.0.3
     "@jridgewell/sourcemap-codec": ^1.4.10
   checksum: e38254e830472248ca10a6ed1ae75af5e8514f0680245a5e7b53bc3c030fd8691d4d3115d80595b45d3badead68269769ed47ecbbdd67db1343a11f05700e75a
-  languageName: node
-  linkType: hard
-
-"@jsdevtools/ez-spawn@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "@jsdevtools/ez-spawn@npm:3.0.4"
-  dependencies:
-    call-me-maybe: ^1.0.1
-    cross-spawn: ^7.0.3
-    string-argv: ^0.3.1
-    type-detect: ^4.0.8
-  checksum: 3f105f4dfb2d809ab058c7b71ae950a90211b17827c83d674f616e1a4d99c10707d9bf15eeba5ac3e3121cc0b309768b72f0088e48b42c779b005511544933dd
-  languageName: node
-  linkType: hard
-
-"@jsdevtools/version-bump-prompt@npm:6.1.0":
-  version: 6.1.0
-  resolution: "@jsdevtools/version-bump-prompt@npm:6.1.0"
-  dependencies:
-    "@jsdevtools/ez-spawn": ^3.0.4
-    command-line-args: ^5.1.1
-    detect-indent: ^6.0.0
-    detect-newline: ^3.1.0
-    globby: ^11.0.1
-    inquirer: ^7.3.3
-    log-symbols: ^4.0.0
-    semver: ^7.3.2
-  bin:
-    bump: bin/bump.js
-  checksum: 9fc12d25881e9d959c93aed42c71dc339943d33b6731e6983c84b53e30fb5e72a26a65a723799711dc2b8c6b21abbf3a7eb89cb1ea4db634a6a4b18c44b00730
   languageName: node
   linkType: hard
 
@@ -4249,13 +4218,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-back@npm:^3.0.1, array-back@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "array-back@npm:3.1.0"
-  checksum: 7205004fcd0f9edd926db921af901b083094608d5b265738d0290092f9822f73accb468e677db74c7c94ef432d39e5ed75a7b1786701e182efb25bbba9734209
-  languageName: node
-  linkType: hard
-
 "array-equal@npm:^1.0.0":
   version: 1.0.0
   resolution: "array-equal@npm:1.0.0"
@@ -6055,13 +6017,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"call-me-maybe@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "call-me-maybe@npm:1.0.1"
-  checksum: d19e9d6ac2c6a83fb1215718b64c5e233f688ebebb603bdfe4af59cde952df1f2b648530fab555bf290ea910d69d7d9665ebc916e871e0e194f47c2e48e4886b
-  languageName: node
-  linkType: hard
-
 "callsites@npm:^3.0.0, callsites@npm:^3.1.0":
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
@@ -6643,18 +6598,6 @@ __metadata:
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
   checksum: 98aa2c2418ad87dedf25d781be69dc5fc5908e279d9d30c34d8b702e586a0474605b3a189511482b9d5ed0d20c867515d22749537f7bc546256c6014f3ebdcec
-  languageName: node
-  linkType: hard
-
-"command-line-args@npm:^5.1.1":
-  version: 5.2.1
-  resolution: "command-line-args@npm:5.2.1"
-  dependencies:
-    array-back: ^3.1.0
-    find-replace: ^3.0.0
-    lodash.camelcase: ^4.3.0
-    typical: ^4.0.0
-  checksum: e759519087be3cf2e86af8b9a97d3058b4910cd11ee852495be881a067b72891f6a32718fb685ee6d41531ab76b2b7bfb6602f79f882cd4b7587ff1e827982c7
   languageName: node
   linkType: hard
 
@@ -7564,7 +7507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-newline@npm:3.1.0, detect-newline@npm:^3.1.0":
+"detect-newline@npm:3.1.0":
   version: 3.1.0
   resolution: "detect-newline@npm:3.1.0"
   checksum: ae6cd429c41ad01b164c59ea36f264a2c479598e61cba7c99da24175a7ab80ddf066420f2bec9a1c57a6bead411b4655ff15ad7d281c000a89791f48cbe939e7
@@ -10021,15 +9964,6 @@ __metadata:
   version: 1.1.1
   resolution: "find-index@npm:1.1.1"
   checksum: 02bb296389021b6126198f87bf5306450359cac8a1332140091ae6968a9b0859d6da7257d2b06012780ea269a0673f2c2945b57fdf0342da339fb48cebea7fd1
-  languageName: node
-  linkType: hard
-
-"find-replace@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "find-replace@npm:3.0.0"
-  dependencies:
-    array-back: ^3.0.1
-  checksum: 6b04bcfd79027f5b84aa1dfe100e3295da989bdac4b4de6b277f4d063e78f5c9e92ebc8a1fec6dd3b448c924ba404ee051cc759e14a3ee3e825fa1361025df08
   languageName: node
   linkType: hard
 
@@ -12773,13 +12707,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "lodash.camelcase@npm:4.3.0"
-  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
-  languageName: node
-  linkType: hard
-
 "lodash.castarray@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.castarray@npm:4.4.0"
@@ -13006,7 +12933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"log-symbols@npm:^4.0.0, log-symbols@npm:^4.1.0":
+"log-symbols@npm:^4.1.0":
   version: 4.1.0
   resolution: "log-symbols@npm:4.1.0"
   dependencies:
@@ -17203,13 +17130,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string-argv@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "string-argv@npm:0.3.1"
-  checksum: efbd0289b599bee808ce80820dfe49c9635610715429c6b7cc50750f0437e3c2f697c81e5c390208c13b5d5d12d904a1546172a88579f6ee5cbaaaa4dc9ec5cf
-  languageName: node
-  linkType: hard
-
 "string-template@npm:~0.2.1":
   version: 0.2.1
   resolution: "string-template@npm:0.2.1"
@@ -18187,13 +18107,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-detect@npm:^4.0.8":
-  version: 4.0.8
-  resolution: "type-detect@npm:4.0.8"
-  checksum: 62b5628bff67c0eb0b66afa371bd73e230399a8d2ad30d852716efcc4656a7516904570cd8631a49a3ce57c10225adf5d0cbdcb47f6b0255fe6557c453925a15
-  languageName: node
-  linkType: hard
-
 "type-fest@npm:^0.11.0":
   version: 0.11.0
   resolution: "type-fest@npm:0.11.0"
@@ -18286,13 +18199,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 137d18a77f52254a284960b16ab53d0619f57b69b5d585804b8413f798a1175ce3e774fb95e6a101868577aafe357d8fcfc9171f0dc9fc0c210e9ae59d107cc0
-  languageName: node
-  linkType: hard
-
-"typical@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "typical@npm:4.0.0"
-  checksum: a242081956825328f535e6195a924240b34daf6e7fdb573a1809a42b9f37fb8114fa99c7ab89a695e0cdb419d4149d067f6723e4b95855ffd39c6c4ca378efb3
   languageName: node
   linkType: hard
 
@@ -18658,17 +18564,6 @@ __metadata:
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
-  languageName: node
-  linkType: hard
-
-"version-bump-prompt@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "version-bump-prompt@npm:6.1.0"
-  dependencies:
-    "@jsdevtools/version-bump-prompt": 6.1.0
-  bin:
-    bump: bump.js
-  checksum: ba4ef5e6fa8466b4331351db6e1d79a3fe8dc355fd36519bc2c7d5b9c53804cdb1925d3a6604fbb406d7571c2c1f6336241b7ca427ab163fa052c292dcabd9b6
   languageName: node
   linkType: hard
 
