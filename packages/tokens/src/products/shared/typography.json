@@ -204,6 +204,34 @@
                 "value": "1.23",
                 "comment": "16px"
             }
+        },
+        "code-200": {
+            "font-family": {
+                "value": "{typography.font-stack.code.value}"
+            },
+            "font-size": {
+                "value": "14",
+                "type": "font-size",
+                "comment": "14px/0.875rem"
+            },
+            "line-height": {
+                "value": "1.125",
+                "comment": "18px"
+            }
+        },
+        "code-300": {
+            "font-family": {
+                "value": "{typography.font-stack.code.value}"
+            },
+            "font-size": {
+                "value": "16",
+                "type": "font-size",
+                "comment": "16px/1rem"
+            },
+            "line-height": {
+                "value": "1.25",
+                "comment": "20px"
+            }
         }
     }
 }
