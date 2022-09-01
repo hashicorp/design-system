@@ -3,6 +3,20 @@
 <h2 class="dummy-h2">Badge</h2>
 
 <section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph"><code class="dummy-code">Badge</code>
+    are concise, non-interactive labels that represent metadata. It should be used:</p>
+  <ul>
+    <li class="dummy-paragraph">to indicate status, such as “Running”, “Applied”, “Errored”, etc</li>
+    <li class="dummy-paragraph">as feature flags, such as “In Preview”, “Beta”, “New”, etc</li>
+    <li class="dummy-paragraph">for categorizations, such as Product Lines and Account Levels</li>
+    <li class="dummy-paragraph">for keyboard shortcut hints, such as “Esc”</li>
+  </ul>
+  <p class="dummy-paragraph"><em>Notice: for collection enumeration or version number, use
+      <a href="#bc-overview">BadgeCount</a>.</em></p>
+</section>
+
+<section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph" id="component-api-badge">Here is the API for the component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-badge">
@@ -167,6 +181,15 @@
 <hr class="dummy-divider" />
 
 <h2 class="dummy-h2">BadgeCount</h2>
+
+<section>
+  <h3 class="dummy-h3" id="bc-overview"><a href="#bc-overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph"><code class="dummy-code">BadgeCount</code>
+    is a numeric label used to display things like version number and collection enumeration in tabs.</p>
+  <p class="dummy-paragraph"><em>Notice: don’t use
+      <code class="dummy-code">BadgeCount</code>
+      for anything non-numeric, except version numbers (ie. “v1.2.0”).</em></p>
+</section>
 
 <section>
   <h3 class="dummy-h3" id="bc-component-api"><a href="#bc-component-api" class="dummy-link-section">§</a>
