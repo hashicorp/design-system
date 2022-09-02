@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+import { assert, warn } from '@ember/debug';
 
 // only some font-weight and style + font-weight combinations are allowed (per design specs)
 export const AVAILABLE_WEIGHTS = ['regular', 'medium', 'semibold', 'bold'];
@@ -101,14 +101,27 @@ export default class HdsTextIndexComponent extends Component {
     if (weight === undefined) {
       // as default we choose the lowest weight available for that size
       weight = AVAILABLE_SIZE_WEIGHT_COMBINATIONS[this.size][0];
+    } else {
+      assert(
+        `@weight for "Hds::Text" must be one of the following: ${AVAILABLE_WEIGHTS.join(
+          ', '
+        )}, received: ${weight}`,
+        AVAILABLE_WEIGHTS.includes(weight)
+      );
+      warn(
+        `@weight for "Hds::Text" with @size="${
+          this.size
+        }" must be one of the following: ${AVAILABLE_SIZE_WEIGHT_COMBINATIONS[
+          this.size
+        ].join(
+          ', '
+        )}, received: "${weight}". (If you need a specific size/weight combination not yet supported please speak with the Design System team.)`,
+        AVAILABLE_SIZE_WEIGHT_COMBINATIONS[this.size].includes(weight),
+        {
+          id: 'ember-debug.hds.text-wrong-size-weight-combination',
+        }
+      );
     }
-
-    assert(
-      `@weight for "Hds::Text" must be one of the following: ${AVAILABLE_WEIGHTS.join(
-        ', '
-      )}, received: ${weight}`,
-      AVAILABLE_WEIGHTS.includes(weight)
-    );
 
     return weight;
   }
