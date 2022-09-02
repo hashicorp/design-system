@@ -9,7 +9,7 @@
     </ul>
   </div>
 
-  {{yield (hash TabPanel=(component "hds/tabs/tab-panel"))}}
+  {{yield (hash Panel=(component "hds/tabs/panel"))}}
 </div>
 
 {{! Temporary comment for rough planning purposes only.
@@ -31,6 +31,6 @@ Hds::Tabs
     Hds::Tabs.Tab (2+ required)
     ...
     ScrollNavigation (displays if more tabs than fit container)
-  Hds::Tabs.TabPanel (2+ required, same # as Tab components)
+  Hds::Tabs.Panel (2+ required, same # as Tab components)
   ...
  }}
