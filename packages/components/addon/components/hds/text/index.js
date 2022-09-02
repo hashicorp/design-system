@@ -81,7 +81,7 @@ export default class HdsTextIndexComponent extends Component {
     assert(
       `@size for "Hds::Text" must be one of the following: ${ACCEPTED_SIZES.join(
         ', '
-      )}, received: ${size}`,
+      )}; received: ${size}`,
       ACCEPTED_SIZES.includes(size)
     );
 
@@ -106,7 +106,7 @@ export default class HdsTextIndexComponent extends Component {
       assert(
         `@weight for "Hds::Text" must be one of the following: ${AVAILABLE_WEIGHTS.join(
           ', '
-        )}, received: ${weight}`,
+        )}; received: ${weight}`,
         AVAILABLE_WEIGHTS.includes(weight)
       );
       warn(
@@ -116,7 +116,7 @@ export default class HdsTextIndexComponent extends Component {
           this.size
         ].join(
           ', '
-        )}, received: "${weight}". (If you need a specific size/weight combination not yet supported please speak with the Design System team.)`,
+        )}; received: "${weight}". (If you need a specific size/weight combination not yet supported please speak with the Design System team.)`,
         AVAILABLE_SIZE_WEIGHT_COMBINATIONS[this.size].includes(weight),
         {
           id: 'ember-debug.hds.text-wrong-size-weight-combination',
@@ -141,7 +141,7 @@ export default class HdsTextIndexComponent extends Component {
       assert(
         `@align for "Hds::Text" must be one of the following: ${ALIGNS.join(
           ', '
-        )}, received: ${align}`,
+        )}; received: ${align}`,
         ALIGNS.includes(align)
       );
     }
