@@ -235,6 +235,7 @@
   </div>
 
   <h4 class="dummy-h4">Color</h4>
+  <h5 class="dummy-h5">Pre-defined colors</h5>
   <div class="dummy-text-color-sample">
     {{#each @model.AVAILABLE_COLORS as |color|}}
       <div class="dummy-text-color-sample__container dummy-text-color-sample__container--{{color}}">
@@ -243,6 +244,24 @@
         </Hds::Text>
       </div>
     {{/each}}
+  </div>
+  <h5 class="dummy-h5">Custom colors</h5>
+  <div class="dummy-text-color-sample">
+    <div class="dummy-text-color-sample__container">
+      <Hds::Text @size="body-200" @color="#FF0000">
+        Text with "#FF0000" color
+      </Hds::Text>
+    </div>
+    <div class="dummy-text-color-sample__container">
+      <Hds::Text @size="body-200" @color="var(--token-color-palette-purple-400)">
+        Text with "token-color-palette-purple-400" color
+      </Hds::Text>
+    </div>
+    {{!-- <div class="dummy-text-color-sample__container">
+      <Hds::Text @size="body-200" @color="!@£">
+        Text with non-valid color
+      </Hds::Text>
+    </div> --}}
   </div>
 
 </section>

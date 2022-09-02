@@ -136,25 +136,36 @@ export default class HdsTextIndexComponent extends Component {
   }
 
   /**
-   * Sets the color of the text
+   * Sets the color of the text as pre-defined value
    * Accepted values: see AVAILABLE_COLORS
    *
    * @param color
    * @type {string}
    */
-  get color() {
+  get predefinedColor() {
     let { color } = this.args;
 
-    if (color) {
-      assert(
-        `@color for "Hds::Text" must be one of the following: ${AVAILABLE_COLORS.join(
-          ', '
-        )}, received: ${color}`,
-        AVAILABLE_COLORS.includes(color)
-      );
+    if (AVAILABLE_COLORS.includes(color)) {
+      return color;
+    } else {
+      return undefined;
     }
+  }
 
-    return color;
+  /**
+   * Sets the color of the text as custom value (via inline style)
+   *
+   * @param color
+   * @type {string}
+   */
+  get customColor() {
+    let { color } = this.args;
+
+    if (!AVAILABLE_COLORS.includes(color)) {
+      return color;
+    } else {
+      return undefined;
+    }
   }
 
   /**
@@ -178,9 +189,9 @@ export default class HdsTextIndexComponent extends Component {
       classes.push(`hds-text--align-${this.align}`);
     }
 
-    // Add a class based on the @color argument
-    if (this.color) {
-      classes.push(`hds-text--color-${this.color}`);
+    // Add a class based on the @color argument (if pre-defined)
+    if (this.predefinedColor) {
+      classes.push(`hds-text--color-${this.predefinedColor}`);
     }
 
     return classes.join(' ');
