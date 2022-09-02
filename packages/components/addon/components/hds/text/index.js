@@ -4,9 +4,10 @@ import { assert, warn } from '@ember/debug';
 // only some font-weight and style + font-weight combinations are allowed (per design specs)
 export const AVAILABLE_WEIGHTS = ['regular', 'medium', 'semibold', 'bold'];
 export const AVAILABLE_SIZE_WEIGHT_COMBINATIONS = {
+  // notice: the first weight in the array is considered the "default"
   'display-500': ['bold'],
-  'display-400': ['medium', 'semibold', 'bold'],
-  'display-300': ['medium', 'semibold', 'bold'],
+  'display-400': ['bold', 'semibold', 'medium'],
+  'display-300': ['bold', 'semibold', 'medium'],
   'display-200': ['semibold'],
   'display-100': ['medium'],
   'body-300': ['regular', 'medium', 'semibold'],
