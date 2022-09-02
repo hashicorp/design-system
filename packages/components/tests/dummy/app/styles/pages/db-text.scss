@@ -24,9 +24,17 @@
   gap: 0.5rem;
 
   .dummy-text-align-sample__container {
-    // padding: 1rem;
-    // outline: 1px dotted #ddd;
     flex-grow: 1;
   }
 }
 
+.dummy-text-color-sample {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+
+  .dummy-text-color-sample__container--high-contrast {
+    background: #999;
+  }
+}

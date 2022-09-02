@@ -16,7 +16,28 @@ export const AVAILABLE_SIZE_WEIGHT_COMBINATIONS = {
   'code-200': ['regular'],
   'code-100': ['regular'],
 };
-export const AVAILABLE_TAGS = [];
+export const AVAILABLE_COLORS = [
+  'primary',
+  'strong',
+  'faint',
+  'disabled',
+  'high-contrast',
+  'action',
+  'action-hover',
+  'action-active',
+  'highlight',
+  'highlight-on-surface',
+  'highlight-high-contrast',
+  'success',
+  'success-on-surface',
+  'success-high-contrast',
+  'warning',
+  'warning-on-surface',
+  'warning-high-contrast',
+  'critical',
+  'critical-on-surface',
+  'critical-high-contrast',
+];
 
 export const MAPPING_SIZE_TO_TAG = {
   'display-500': 'h1',
@@ -67,29 +88,7 @@ export default class HdsTextIndexComponent extends Component {
   }
 
   /**
-   * Sets the alignment for the text
-   * Accepted values: see ALIGNS
-   *
-   * @param align
-   * @type {string}
-   */
-  get align() {
-    let { align } = this.args;
-
-    if (align) {
-      assert(
-        `@align for "Hds::Text" must be one of the following: ${ALIGNS.join(
-          ', '
-        )}, received: ${align}`,
-        ALIGNS.includes(align)
-      );
-    }
-
-    return align;
-  }
-
-  /**
-   * Sets the weight for the text
+   * Sets the weight of the text
    * Accepted values: see AVAILABLE_WEIGHTS
    *
    * @param weight
@@ -115,6 +114,50 @@ export default class HdsTextIndexComponent extends Component {
   }
 
   /**
+   * Sets the alignment of the text
+   * Accepted values: see ALIGNS
+   *
+   * @param align
+   * @type {string}
+   */
+  get align() {
+    let { align } = this.args;
+
+    if (align) {
+      assert(
+        `@align for "Hds::Text" must be one of the following: ${ALIGNS.join(
+          ', '
+        )}, received: ${align}`,
+        ALIGNS.includes(align)
+      );
+    }
+
+    return align;
+  }
+
+  /**
+   * Sets the color of the text
+   * Accepted values: see AVAILABLE_COLORS
+   *
+   * @param color
+   * @type {string}
+   */
+  get color() {
+    let { color } = this.args;
+
+    if (color) {
+      assert(
+        `@color for "Hds::Text" must be one of the following: ${AVAILABLE_COLORS.join(
+          ', '
+        )}, received: ${color}`,
+        AVAILABLE_COLORS.includes(color)
+      );
+    }
+
+    return color;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method #classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -133,6 +176,11 @@ export default class HdsTextIndexComponent extends Component {
     // Add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-text--align-${this.align}`);
+    }
+
+    // Add a class based on the @color argument
+    if (this.color) {
+      classes.push(`hds-text--color-${this.color}`);
     }
 
     return classes.join(' ');

@@ -35,7 +35,7 @@
       <p>Acceptable values:</p>
       <ol>
         {{#each @model.SIZES as |size|}}
-          <li class={{if (eq size @model.DEFAULT_SIZE) "default"}}>{{size}}</li>
+          <li>{{size}}</li>
         {{/each}}
       </ol>
     </dd>
@@ -224,21 +224,25 @@
 
   <h4 class="dummy-h4">Align</h4>
   <div class="dummy-text-align-sample">
-    <div class="dummy-text-align-sample__container">
-      <Hds::Text @size="body-200" @align="left">
-        Left aligned text
-      </Hds::Text>
-    </div>
-    <div class="dummy-text-align-sample__container">
-      <Hds::Text @size="body-200" @align="center">
-        Center aligned text
-      </Hds::Text>
-    </div>
-    <div class="dummy-text-align-sample__container">
-      <Hds::Text @size="body-200" @align="right">
-        Right aligned text
-      </Hds::Text>
-    </div>
+    {{#each @model.ALIGNS as |align|}}
+      <div class="dummy-text-align-sample__container">
+        <Hds::Text @size="body-200" @align={{align}}>
+          {{capitalize align}}
+          aligned text
+        </Hds::Text>
+      </div>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Color</h4>
+  <div class="dummy-text-color-sample">
+    {{#each @model.AVAILABLE_COLORS as |color|}}
+      <div class="dummy-text-color-sample__container dummy-text-color-sample__container--{{color}}">
+        <Hds::Text @size="body-200" @color={{color}}>
+          Text with "{{color}}" color
+        </Hds::Text>
+      </div>
+    {{/each}}
   </div>
 
 </section>

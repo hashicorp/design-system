@@ -5,14 +5,32 @@
 //
 //
 
-.hds-text--align-left {
-  text-align: left;
-}
 
-.hds-text--align-center {
-  text-align: center;
-}
+// ALIGN
+.hds-text--align-left { text-align: left; }
+.hds-text--align-center { text-align: center; }
+.hds-text--align-right { text-align: right; }
 
-.hds-text--align-right {
-  text-align: right;
-}
+// COLOR
+
+.hds-text--color-primary { color: var(--token-color-foreground-primary); }
+.hds-text--color-strong { color: var(--token-color-foreground-strong); }
+.hds-text--color-faint { color: var(--token-color-foreground-faint); }
+.hds-text--color-disabled { color: var(--token-color-foreground-disabled); }
+.hds-text--color-high-contrast { color: var(--token-color-foreground-high-contrast); }
+.hds-text--color-action { color: var(--token-color-foreground-action); }
+.hds-text--color-action-hover { color: var(--token-color-foreground-action-hover); }
+.hds-text--color-action-active { color: var(--token-color-foreground-action-active); }
+.hds-text--color-highlight { color: var(--token-color-foreground-highlight); }
+.hds-text--color-highlight-on-surface { color: var(--token-color-foreground-highlight-on-surface); }
+.hds-text--color-highlight-high-contrast { color: var(--token-color-foreground-highlight-high-contrast); }
+.hds-text--color-success { color: var(--token-color-foreground-success); }
+.hds-text--color-success-on-surface { color: var(--token-color-foreground-success-on-surface); }
+.hds-text--color-success-high-contrast { color: var(--token-color-foreground-success-high-contrast); }
+.hds-text--color-warning { color: var(--token-color-foreground-warning); }
+.hds-text--color-warning-on-surface { color: var(--token-color-foreground-warning-on-surface); }
+.hds-text--color-warning-high-contrast { color: var(--token-color-foreground-warning-high-contrast); }
+.hds-text--color-critical { color: var(--token-color-foreground-critical); }
+.hds-text--color-critical-on-surface { color: var(--token-color-foreground-critical-on-surface); }
+.hds-text--color-critical-high-contrast { color: var(--token-color-foreground-critical-high-contrast); }
+
