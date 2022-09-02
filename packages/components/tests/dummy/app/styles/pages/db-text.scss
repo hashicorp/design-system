@@ -1,0 +1,32 @@
+// TEXT
+
+.dummy-text-component-api-defaults {
+  flex-direction: column;
+  align-items: start;
+}
+
+.dummy-text-size-sample {
+  .dummy-h6 {
+      color: #999;
+      margin-top: 1rem;
+  }
+}
+
+.dummy-text-tag-sample {
+  align-items: flex-start;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.dummy-text-align-sample {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.5rem;
+
+  .dummy-text-align-sample__container {
+    // padding: 1rem;
+    // outline: 1px dotted #ddd;
+    flex-grow: 1;
+  }
+}
+

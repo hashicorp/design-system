@@ -1,26 +1,21 @@
 import Controller from '@ember/controller';
-
 import {
-  FONT_FAMILIES,
-  FONT_WEIGHTS,
-  DISPLAY_STYLES,
-  BODY_STYLES,
-  CODE_STYLES,
-  STYLES_COMBINATIONS,
-} from '../../routes/foundations/typography';
+  AVAILABLE_WEIGHTS,
+  AVAILABLE_SIZE_WEIGHT_COMBINATIONS,
+} from '@hashicorp/design-system-components/components/hds/text';
 
 export default class TypographyController extends Controller {
   get families() {
-    return [...FONT_FAMILIES];
+    return ['sans-display', 'sans-text', 'mono-code'];
   }
   get weights() {
-    return [...FONT_WEIGHTS];
+    return AVAILABLE_WEIGHTS;
   }
   get styles() {
-    return [...DISPLAY_STYLES, ...BODY_STYLES, ...CODE_STYLES];
+    return Object.keys(AVAILABLE_SIZE_WEIGHT_COMBINATIONS);
   }
   get stylesCombinations() {
-    return STYLES_COMBINATIONS;
+    return AVAILABLE_SIZE_WEIGHT_COMBINATIONS;
   }
   get csshelpers() {
     const helpers = [];

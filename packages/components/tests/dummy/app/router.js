@@ -42,6 +42,7 @@ Router.map(function () {
     });
     this.route('stepper');
     this.route('tag');
+    this.route('text');
     this.route('toast');
   });
   this.route('content', function () {

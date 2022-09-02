@@ -28,10 +28,11 @@
 
     p {
       margin: 0;
+    }
 
-      + p {
-        margin-top: 0.125rem;
-      }
+    ol + p,
+    p + p {
+      margin-top: 0.125rem;
     }
 
     ol {

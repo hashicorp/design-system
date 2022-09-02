@@ -143,13 +143,15 @@
   {{/each}}
 
   <h4 class="dummy-h4">Styles</h4>
-  <p class="dummy-paragraph"><em>Notice: we are showing only the combinations of
+  <p class="dummy-banner dummy-paragraph"><em>Notice: we are showing only the combinations of
+      <code class="dummy-code">font-family</code>
+      +
       <code class="dummy-code">font-size</code>
       ("style") and
       <code class="dummy-code">font-weight</code>
       that the design system
       <strong>suggests</strong>
-      to use.</em></p>
+      to use. If you need a different combination please speak with the Design System team.</em></p>
   <div class="dummy-typography-sample dummy-typography-sample--style">
     {{#each-in this.stylesCombinations as |style weights|}}
       <h5 class="dummy-h5">{{style}}</h5>
