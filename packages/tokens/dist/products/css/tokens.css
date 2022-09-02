@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 19 Jul 2022 13:53:00 GMT
+ * Generated on Thu, 01 Sep 2022 22:06:03 GMT
  */
 
 :root {
@@ -272,4 +272,10 @@
   --token-typography-code-100-font-family: ui-monospace, Menlo, Consolas, monospace;
   --token-typography-code-100-font-size: 0.8125rem; /* 13px/0.8125rem */
   --token-typography-code-100-line-height: 1.23; /* 16px */
+  --token-typography-code-200-font-family: ui-monospace, Menlo, Consolas, monospace;
+  --token-typography-code-200-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-code-200-line-height: 1.125; /* 18px */
+  --token-typography-code-300-font-family: ui-monospace, Menlo, Consolas, monospace;
+  --token-typography-code-300-font-size: 1rem; /* 16px/1rem */
+  --token-typography-code-300-line-height: 1.25; /* 20px */
 }

@@ -10,7 +10,7 @@ export const DISPLAY_STYLES = [
   'display-100',
 ];
 export const BODY_STYLES = ['body-300', 'body-200', 'body-100'];
-export const CODE_STYLES = ['code-100'];
+export const CODE_STYLES = ['code-300', 'code-200', 'code-100'];
 // we add all the allowed combinations here, per design specs
 export const STYLES_COMBINATIONS = {
   'display-500': ['bold'],
@@ -21,8 +21,9 @@ export const STYLES_COMBINATIONS = {
   'body-300': ['regular', 'medium', 'semibold'],
   'body-200': ['regular', 'medium', 'semibold'],
   'body-100': ['regular', 'medium', 'semibold'],
-  // TODO! ask @heather what are the conditions here
-  'code-100': ['regular', 'medium', 'semibold', 'bold'],
+  'code-300': ['regular', 'bold'],
+  'code-200': ['regular', 'bold'],
+  'code-100': ['regular', 'bold'],
 };
 
 export default class FoundationsElevationRoute extends Route {
