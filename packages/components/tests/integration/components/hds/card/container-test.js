@@ -82,7 +82,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @level is provided', async function (assert) {
     const errorMessage =
-      '@level for "Hds::Card::Container" must be one of the following: base, mid, high, received: foo';
+      '@level for "Hds::Card::Container" must be one of the following: base, mid, high; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -94,7 +94,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @levelHover is provided', async function (assert) {
     const errorMessage =
-      '@levelHover for "Hds::Card::Container" must be one of the following: base, mid, high, received: foo';
+      '@levelHover for "Hds::Card::Container" must be one of the following: base, mid, high; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -106,7 +106,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @levelActive is provided', async function (assert) {
     const errorMessage =
-      '@levelActive for "Hds::Card::Container" must be one of the following: base, mid, high, received: foo';
+      '@levelActive for "Hds::Card::Container" must be one of the following: base, mid, high; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

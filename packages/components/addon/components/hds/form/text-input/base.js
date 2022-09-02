@@ -28,7 +28,7 @@ export default class HdsFormTextInputBaseComponent extends Component {
     assert(
       `@type for "Hds::Form::TextInput" must be one of the following: ${TYPES.join(
         ', '
-      )}, received: ${type}`,
+      )}; received: ${type}`,
       TYPES.includes(type)
     );
 
