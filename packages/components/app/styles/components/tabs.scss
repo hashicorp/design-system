@@ -9,14 +9,14 @@ $indicator-height: 3px;
 .hds-tabs {}
 
 // Sub-components:
-// TODO: MOVE?
+// NOTE: hds-tab-list is still part of parent component may separate into child later as needed. Will consider renaming class then
 .hds-tab-list {
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
   // white-space: nowrap; // move
 
-  // Un-nest?
+  // Un-nest? (Note: may rename later, this part of structure could still be changed as things evolve)
   .hds-tab-list__list {
     border-bottom: 1px solid var(--token-color-border-primary);
     list-style: none;
