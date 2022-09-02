@@ -194,5 +194,13 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  <Hds::Tabs />
+  <Hds::Tabs as |T|>
+    <T.Tab id="tab1" href="#section1">One</T.Tab>
+    <T.Tab id="tab2" href="#section2">Two</T.Tab>
+    <T.Tab id="tab3" href="#section3">Three</T.Tab>
+
+    <T.Panel id="section1" aria-labelledby="tab1">Content one</T.Panel>
+    <T.Panel id="section2" aria-labelledby="tab2">Content two</T.Panel>
+    <T.Panel id="section3" aria-labelledby="tab3">Content three</T.Panel>
+  </Hds::Tabs>
 </section>

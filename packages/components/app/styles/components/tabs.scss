@@ -9,27 +9,28 @@ $indicator-height: 3px;
 .hds-tabs {}
 
 // Sub-components:
-// TODO: MOVE!
+// NOTE: hds-tab-list is still part of parent component may separate into child later as needed. Will consider renaming class then
 .hds-tab-list {
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
   // white-space: nowrap; // move
-
-  // Un-nest after moving
-  .hds-tab-list__list {
-    border-bottom: 1px solid var(--token-color-border-primary);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
 }
 
-.hds-tab {
+// (Note: may rename later, this part of structure could still be changed as things evolve)
+.hds-tab-list__list {
+  border-bottom: 1px solid var(--token-color-border-primary);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.hds-tabs__tab {
   position: relative; // for positioning temp indicator
 
   // temporary indicator
+  /* TODO: refactor
   &:first-child:after {
     background: var(--token-color-foreground-action);
     border-radius: 3px;
@@ -41,6 +42,7 @@ $indicator-height: 3px;
     right: 0;
     bottom: round(calc($indicator-height / 2 * -1));
   }
+  */
 
   a {
     @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
@@ -56,7 +58,7 @@ $indicator-height: 3px;
   }
 }
 
-.hds-tab-panel {
+.hds-tabs__panel {
   &:not(:target) {
     display: none;
   }

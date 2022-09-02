@@ -2,68 +2,24 @@
 {{! template-lint-disable require-context-role }}
 
 <div class={{this.classNames}} ...attributes>
-  {{!-- {{yield}} --}}
-
   {{! Hds-TabList }}
   <div class="hds-tab-list hds-typography-body-200">
     <ul class="hds-tab-list__list" role="tablist">
-      {{! Hds-Tab }}
-      <li class="hds-tab" role="presentation">
-        <a
-          role="tab"
-          href="#section1"
-          id="tab1"
-          {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
-          {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected") }}
-        >
-          Tab 1
-        </a>
-      </li>
-      <li class="hds-tab" role="presentation">
-        <a
-          role="tab"
-          href="#section2"
-          id="tab2"
-          {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
-          {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected"), Focus will be added by JS }}
-        >
-          Tab 2
-        </a>
-      </li>
+      {{yield (hash Tab=(component "hds/tabs/tab"))}}
     </ul>
   </div>
 
-  {{! Hds-TabPanel }}
-  <section
-    class="hds-tab-panel"
-    role="tabpanel"
-    id="section1"
-    aria-labelledby="tab1"
-    {{! hidden }}
-    {{! TODO: set by arg }}
-  >
-    Tab 1 Content
-  </section>
-  <section
-    class="hds-tab-panel"
-    role="tabpanel"
-    id="section2"
-    aria-labelledby="tab2"
-    {{! hidden }}
-    {{! TODO: set by arg }}
-  >
-    Tab 2 Content
-  </section>
+  {{yield (hash Panel=(component "hds/tabs/panel"))}}
 </div>
 
 {{! Temporary comment for rough planning purposes only.
 Not meant to represent literal final implementations. Comment will be deleted eventually.
 
 Component Structure:
-
-Tabs
-  TabList
-    Tab
+-----------------------
+Hds::Tabs
+  Hds::Tabs.TabList
+    Hds::Tabs.Tab
       Content:
         FlightIcon (optional)
         text content (required)
@@ -72,10 +28,9 @@ Tabs
         isSelected (boolean, default = false) // Select first tab by default?
         hasIcon (boolean, default = false)
         hasCount (boolean, default = false)
-    Tab (2+ required)
+    Hds::Tabs.Tab (2+ required)
     ...
     ScrollNavigation (displays if more tabs than fit container)
-  TabPanel
-  TabPabel
+  Hds::Tabs.Panel (2+ required, same # as Tab components)
   ...
  }}
