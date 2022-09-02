@@ -1,8 +1,12 @@
+{{! template-lint-disable require-context-role }}
+{{! template-lint-disable no-invalid-role }}
+{{! template-lint-disable link-href-attributes }}
+
 {{! Hds-Tab }}
 <li class="hds-tab" role="presentation">
   <a
     role="tab"
-    {{!-- href="#section1" --}}
+    {{! href="#section1" }}
     {{!-- id={{id}} --}}
     {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
     {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected") }}
