@@ -15,15 +15,15 @@ $indicator-height: 3px;
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
   // white-space: nowrap; // move
+}
 
-  // Un-nest? (Note: may rename later, this part of structure could still be changed as things evolve)
-  .hds-tab-list__list {
-    border-bottom: 1px solid var(--token-color-border-primary);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
+// (Note: may rename later, this part of structure could still be changed as things evolve)
+.hds-tab-list__list {
+  border-bottom: 1px solid var(--token-color-border-primary);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
 
 .hds-tabs__tab {
