@@ -95,6 +95,7 @@
     "qunit-dom": "^2.0.0",
     "stylelint": "^14.11.0",
     "stylelint-config-prettier-scss": "0.0.1",
+    "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "version-bump-prompt": "^6.1.0",
