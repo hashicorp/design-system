@@ -9,3 +9,7 @@ title: Button - Component API
 ## How to use
 
 The button component is used to trigger an action or event. For accessibility, buttons should not be used to route to a URL.
+
+```hbs preview-template
+<Hds::Button @text="This is a basic button" @icon="clipboard-copy" />
+```
