@@ -8,31 +8,31 @@
 // "BASE" CONTROL
 
 .hds-form-toggle {
+  position: relative;
   display: inline-block; // we emulate the behaviour of a checkbox/radiobutton control
   isolation: isolate; // used to create a new stacking context
-  position: relative;
 }
 
 // control (hidden)
 
 .hds-form-toggle__control {
-  appearance: none;
-  background-color: transparent;
-  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
   bottom: 0;
-  color: transparent;
-  cursor: pointer;
+  left: 0;
+  z-index: 1;
   display: block;
   height: 100%;
-  left: 0;
   margin: 0;
-  opacity: 0;
-  outline: none;
   padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0;
+  appearance: none;
 
   &:disabled {
     cursor: not-allowed;
@@ -42,42 +42,42 @@
 // facade (visible)
 
 .hds-form-toggle__facade {
+  position: relative;
+  display: block;
+  width: var(--token-form-toggle-width);
+  height: var(--token-form-toggle-height);
   background-image: var(--token-form-toggle-background-image-data-url);
   background-repeat: no-repeat;
   background-position: var(--token-form-toggle-background-image-position-x) 50%;
   background-size: var(--token-form-toggle-background-image-size) var(--token-form-toggle-background-image-size);
-  border-radius: calc(var(--token-form-toggle-height) / 2);
   // notice: we want to share the border color between the "thumb" and the "track" so we use a local CSS prop for this
   border: var(--token-form-radio-border-width) solid var(--border-color);
-  display: block;
-  height: var(--token-form-toggle-height);
-  position: relative;
-  width: var(--token-form-toggle-width);
+  border-radius: calc(var(--token-form-toggle-height) / 2);
 
   @media (prefers-reduced-motion: no-preference) {
-    transition-property: all;
-    transition-duration: var(--token-form-toggle-transition-duration);
     transition-timing-function: var(--token-form-toggle-transition-timing-function);
+    transition-duration: var(--token-form-toggle-transition-duration);
+    transition-property: all;
   }
 
   // used for the "thumb"
 
   &::after {
-    background-color: var(--token-form-control-base-surface-color-default);
-    border-radius: 50%;
-    border: var(--token-form-radio-border-width) solid var(--border-color);
+    position: absolute;
+    top: calc(var(--token-form-radio-border-width) * -1);
+    left: calc(var(--token-form-radio-border-width) * -1);
     width: var(--token-form-toggle-thumb-size);
     height: var(--token-form-toggle-thumb-size);
-    content: "";
-    left: calc(var(--token-form-radio-border-width) * -1);
-    position: absolute;
+    background-color: var(--token-form-control-base-surface-color-default);
+    border: var(--token-form-radio-border-width) solid var(--border-color);
+    border-radius: 50%;
     transform: translate3d(0, 0, 0);
-    top: calc(var(--token-form-radio-border-width) * -1);
+    content: "";
 
     @media (prefers-reduced-motion: no-preference) {
-      transition-property: all;
-      transition-duration: var(--token-form-toggle-transition-duration);
       transition-timing-function: var(--token-form-toggle-transition-timing-function);
+      transition-duration: var(--token-form-toggle-transition-duration);
+      transition-property: all;
     }
   }
 
@@ -88,15 +88,15 @@
     $outline-width: 3px;
     $outline-offset: 1px;
     $shift: $outline-width + $outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
-    border-radius: calc(var(--token-form-toggle-height) / 2 + $outline-width + $outline-offset);
-    border-width: $outline-width;
+    position: absolute;
+    top: -$shift;
+    right: -$shift;
     bottom: -$shift;
-    content: "";
     left: -$shift;
     margin: auto;
-    position: absolute;
-    right: -$shift;
-    top: -$shift;
+    border-width: $outline-width;
+    border-radius: calc(var(--token-form-toggle-height) / 2 + $outline-width + $outline-offset);
+    content: "";
   }
 
   // STATUS
@@ -136,8 +136,8 @@
   :focus + &,
   .mock-focus + & {
     &::before {
-      border-style: solid;
       border-color: var(--token-color-focus-action-external);
+      border-style: solid;
     }
   }
 

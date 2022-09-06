@@ -8,17 +8,17 @@
 // "BASE" CONTROL
 
 .hds-form-checkbox {
-  appearance: none;
-  background-position: center center;
-  background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
-  border-width: var(--token-form-checkbox-border-width);
-  border-style: solid;
-  border-radius: var(--token-form-checkbox-border-radius);
-  cursor: pointer;
+  width: var(--token-form-checkbox-size);
   height: var(--token-form-checkbox-size);
   margin: 0;
   padding: 0;
-  width: var(--token-form-checkbox-size);
+  background-position: center center;
+  background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
+  border-style: solid;
+  border-width: var(--token-form-checkbox-border-width);
+  border-radius: var(--token-form-checkbox-border-radius);
+  cursor: pointer;
+  appearance: none;
 
   // STATUS
 
@@ -32,8 +32,8 @@
 
   &:checked {
     background-color: var(--token-form-control-checked-surface-color-default);
-    border-color: var(--token-form-control-checked-border-color-default);
     background-image: var(--token-form-checkbox-background-image-data-url);
+    border-color: var(--token-form-control-checked-border-color-default);
   }
 
   // hover
@@ -69,9 +69,9 @@
 
   &:disabled:checked {
     background-color: var(--token-form-control-disabled-surface-color);
+    background-image: var(--token-form-checkbox-background-image-data-url-disabled);
     border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
-    background-image: var(--token-form-checkbox-background-image-data-url-disabled);
     cursor: not-allowed;
   }
 }

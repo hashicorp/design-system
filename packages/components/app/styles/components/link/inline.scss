@@ -13,17 +13,17 @@
   &:focus,
   &.mock-focus,
   &:focus-visible {
+    text-decoration: none;
     outline: 2px solid var(--token-color-focus-action-internal);
     outline-offset: 1px;
-    text-decoration: none;
   }
 }
 
 .hds-link-inline__icon {
   display: inline-block;
+  width: 1em;
   height: 1em;
   vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
-  width: 1em;
 
   .hds-link-inline--icon-leading > & {
     margin-right: 0.25em;

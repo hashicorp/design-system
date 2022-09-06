@@ -9,15 +9,15 @@ $hds-stepper-indicator-step-size: 24px;
 
 // Base stepper indicator styling
 .hds-stepper-indicator-step {
-  height: $hds-stepper-indicator-step-size;
   position: relative;
   width: $hds-stepper-indicator-step-size;
+  height: $hds-stepper-indicator-step-size;
 }
 
 .hds-stepper-indicator-step__svg-hexagon {
-  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 5%));
-  height: 100%;
   width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 5%));
 
   path {
     fill: --status-fill-color;
@@ -26,32 +26,32 @@ $hds-stepper-indicator-step-size: 24px;
 }
 
 .hds-stepper-indicator-step__status {
-  align-items: center;
-  display: flex;
-  justify-content: center;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hds-stepper-indicator-step__icon {
-  color: --status-text-color;
   width: 12px;
   height: 12px;
+  color: --status-text-color;
 }
 
 .hds-stepper-indicator-step__text {
+  width: 20px;
+  overflow: hidden;
   color: --status-text-color;
-  font-family: var(--token-typography-font-stack-text);
   font-weight: var(--token-typography-font-weight-medium);
   font-size: 0.8125rem;
-  overflow: hidden;
+  font-family: var(--token-typography-font-stack-text);
+  white-space: nowrap;
   text-align: center;
   user-select: none;
-  white-space: nowrap;
-  width: 20px;
 }
 
 // STATUS

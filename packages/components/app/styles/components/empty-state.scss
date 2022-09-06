@@ -1,9 +1,9 @@
 .hds-empty-state {
-  color: var(--token-color-foreground-faint);
   display: block;
-  margin: 0 auto;
   max-width: 40ch;
+  margin: 0 auto;
   padding: 0;
+  color: var(--token-color-foreground-faint);
 
   > * {
     margin: 0;
@@ -12,8 +12,8 @@
 }
 
 .hds-empty-state__body {
-  font-size: 1rem;
   font-weight: 400;
+  font-size: 1rem;
   line-height: 1.5;
 
   + * {
@@ -22,7 +22,7 @@
 }
 
 .hds-empty-state__header {
-  font-size: 1.25rem;
   font-weight: 700;
+  font-size: 1.25rem;
   line-height: 1.2;
 }

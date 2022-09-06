@@ -12,12 +12,12 @@ $hds-badge-count-border-width: 1px;
 
 
 .hds-badge-count {
-  align-items: center;
-  border: $hds-badge-count-border-width solid transparent;
   display: inline-flex;
-  font-family: var(--token-typography-font-stack-text);
-  font-weight: var(--token-typography-font-weight-medium);
+  align-items: center;
   max-width: 100%;
+  font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-font-stack-text);
+  border: $hds-badge-count-border-width solid transparent;
 }
 
 // SIZE
@@ -49,11 +49,11 @@ $size-props: (
 
 @each $size in $hds-badge-count-sizes {
   .hds-badge-count--size-#{$size} {
-    border-radius: math.div(map-get($size-props, $size, "height"), 2);
-    font-size: map-get($size-props, $size, "font-size");
-    line-height: map-get($size-props, $size, "line-height");
     min-height: map-get($size-props, $size, "height");
     padding: calc(#{map-get($size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map-get($size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
+    font-size: map-get($size-props, $size, "font-size");
+    line-height: map-get($size-props, $size, "line-height");
+    border-radius: math.div(map-get($size-props, $size, "height"), 2);
   }
 }
 
@@ -62,36 +62,36 @@ $size-props: (
 
 .hds-badge-count--color-neutral {
   &.hds-badge-count--type-filled {
-    background-color: var(--token-color-surface-strong);
     color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-strong);
   }
 
   &.hds-badge-count--type-inverted {
-    background-color: var(--token-color-foreground-faint);
     color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-foreground-faint);
   }
 
   &.hds-badge-count--type-outlined {
+    color: var(--token-color-foreground-primary);
     background-color: transparent;
     border-color: var(--token-color-foreground-faint);
-    color: var(--token-color-foreground-primary);
   }
 }
 
 .hds-badge-count--color-neutral-dark-mode {
   &.hds-badge-count--type-filled {
-    background-color: var(--token-color-foreground-faint);
     color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-foreground-faint);
   }
 
   &.hds-badge-count--type-inverted {
-    background-color: var(--token-color-surface-faint);
     color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-faint);
   }
 
   &.hds-badge-count--type-outlined {
+    color: var(--token-color-foreground-high-contrast);
     background-color: transparent;
     border-color: var(--token-color-palette-neutral-100);
-    color: var(--token-color-foreground-high-contrast);
   }
 }

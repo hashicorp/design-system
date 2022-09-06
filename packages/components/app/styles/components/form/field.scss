@@ -46,14 +46,14 @@
 
 .hds-form-field--layout-flag {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto auto;
   grid-auto-flow: row;
   // stylelint-disable-next-line declaration-colon-space-after
   grid-template-areas:
     "control label"
     "control helper-text"
     "control error";
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto 1fr;
   justify-items: start;
 
   .hds-form-field__label {
@@ -76,8 +76,8 @@
   }
 
   .hds-form-field__error {
-    margin-top: 4px;
     grid-area: error;
+    margin-top: 4px;
   }
 }
 
