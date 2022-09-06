@@ -46,7 +46,7 @@
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@percy/cli": "^1.10.1",
-    "@percy/ember": "^3.0.1",
+    "@percy/ember": "^4.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.4.1",
