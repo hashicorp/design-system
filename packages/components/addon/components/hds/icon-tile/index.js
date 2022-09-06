@@ -32,7 +32,7 @@ export default class HdsIconTileIndexComponent extends Component {
     assert(
       `@size for "Hds::IconTile" must be one of the following: ${SIZES.join(
         ', '
-      )}, received: ${size}`,
+      )}; received: ${size}`,
       SIZES.includes(size)
     );
 
@@ -59,7 +59,7 @@ export default class HdsIconTileIndexComponent extends Component {
     assert(
       `@color for "Hds::IconTile" must be one of the following: ${COLORS.join(
         ', '
-      )}, received: ${color}`,
+      )}; received: ${color}`,
       COLORS.includes(color)
     );
 
@@ -112,7 +112,7 @@ export default class HdsIconTileIndexComponent extends Component {
       assert(
         `@logo for "Hds::IconTile" must be one of the following: ${PRODUCTS.join(
           ', '
-        )}, received: ${logo}`,
+        )}; received: ${logo}`,
         PRODUCTS.includes(logo)
       );
     }
