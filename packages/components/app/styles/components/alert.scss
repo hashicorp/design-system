@@ -69,7 +69,8 @@
     font-weight: var(--token-typography-font-weight-semibold);
   }
 
-  code, pre {
+  code,
+  pre {
     background-color: var(--token-color-surface-primary);
     border: 1px solid var(--token-color-palette-neutral-200);
     border-radius: 5px;
@@ -143,6 +144,7 @@
 
   &:active {
     color: var(--token-color-foreground-secondary);
+
     &::before {
       background-color: rgba(#dedfe3, 0.4);
       border: 1px solid var(--token-color-border-strong);
@@ -173,6 +175,7 @@
   // extra safety
   .hds-alert__title {
     display: none;
+
     & + .hds-alert__description {
       margin-top: 0;
     }
@@ -182,7 +185,6 @@
 // COLORS (& TYPES)
 
 .hds-alert--color-neutral {
-
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-faint);
     box-shadow: 0 1px 0 0 var(--token-color-palette-alpha-300);
@@ -204,7 +206,6 @@
 }
 
 .hds-alert--color-highlight {
-
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-highlight);
     box-shadow: 0 1px 0 0 var(--token-color-border-highlight);
@@ -215,13 +216,13 @@
     border-color: var(--token-color-border-highlight);
   }
 
-  .hds-alert__icon, .hds-alert__title {
+  .hds-alert__icon,
+  .hds-alert__title {
     color: var(--token-color-foreground-highlight-on-surface);
   }
 }
 
 .hds-alert--color-success {
-
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-success);
     box-shadow: 0 1px 0 0 var(--token-color-border-success);
@@ -232,13 +233,13 @@
     border-color: var(--token-color-border-success);
   }
 
-  .hds-alert__icon, .hds-alert__title {
+  .hds-alert__icon,
+  .hds-alert__title {
     color: var(--token-color-foreground-success-on-surface);
   }
 }
 
 .hds-alert--color-warning {
-
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-warning);
     box-shadow: 0 1px 0 0 var(--token-color-border-warning);
@@ -249,13 +250,13 @@
     border-color: var(--token-color-border-warning);
   }
 
-  .hds-alert__icon, .hds-alert__title {
+  .hds-alert__icon,
+  .hds-alert__title {
     color: var(--token-color-foreground-warning-on-surface);
   }
 }
 
 .hds-alert--color-critical {
-
   &.hds-alert--type-page {
     background-color: var(--token-color-surface-critical);
     box-shadow: 0 1px 0 0 var(--token-color-border-critical);
@@ -266,7 +267,8 @@
     border-color: var(--token-color-border-critical);
   }
 
-  .hds-alert__icon, .hds-alert__title {
+  .hds-alert__icon,
+  .hds-alert__title {
     color: var(--token-color-foreground-critical-on-surface);
   }
 }

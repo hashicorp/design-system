@@ -72,7 +72,7 @@
 
 .hds-form-select {
   &[multiple],
-  &[size]{
+  &[size] {
     background: none;
 
     option {
@@ -82,9 +82,11 @@
       &:hover {
         color: var(--token-color-foreground-action);
       }
+
       &:disabled {
         color: var(--token-color-foreground-disabled);
       }
+
       &:checked {
         color: var(--token-color-foreground-high-contrast);
         background: var(--token-color-palette-blue-200);

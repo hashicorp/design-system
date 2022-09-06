@@ -54,10 +54,12 @@ $status-props: (
     // For each status set the icon color based on the $status-props
     &.hds-stepper-indicator-task--status-#{$status} {
       color: map-get($status-props, $status, "color-default");
+
       &:hover,
       &.mock-hover {
         color: map-get($status-props, $status, "color-hover");
       }
+
       &:active,
       &.mock-active {
         color: map-get($status-props, $status, "color-active");

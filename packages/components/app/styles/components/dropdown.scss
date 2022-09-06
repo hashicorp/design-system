@@ -19,7 +19,7 @@
 //
 //
 
-@use '../mixins/focus-ring' as *;
+@use "../mixins/focus-ring" as *;
 
 $hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: 5px;
@@ -77,7 +77,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   margin-left: 4px;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform .3s;
+    transition: transform 0.3s;
   }
 
   .hds-dropdown-toggle-icon--is-open & {
@@ -95,7 +95,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
   }
 }
@@ -234,11 +234,11 @@ $hds-dropdown-toggle-border-radius: 5px;
     &:hover {
       cursor: pointer;
     }
-
   }
 
   // shared styles for links and buttons
-  a, button {
+  a,
+  button {
     align-items: center;
     border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
     display: flex;
@@ -251,7 +251,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     &::before {
       border-radius: 1px;
       bottom: 6px;
-      content: '';
+      content: "";
       left: 4px;
       position: absolute;
       top: 6px;
@@ -264,7 +264,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     &::after {
       border-radius: 5px;
       bottom: 0;
-      content: '';
+      content: "";
       left: 10px;
       position: absolute;
       right: 4px;
@@ -278,6 +278,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     &:hover,
     &.mock-hover {
       color: var(--current-color-hover);
+
       &::before {
         background-color: currentColor;
       }
@@ -287,6 +288,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     &:focus,
     &.mock-focus {
       color: var(--current-color-focus);
+
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
@@ -303,6 +305,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     // set focus for browsers that support ":focus-visible"
     &:focus-visible {
       color: var(--current-color-focus);
+
       &::after {
         background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
@@ -324,9 +327,11 @@ $hds-dropdown-toggle-border-radius: 5px;
     &:active,
     &.mock-active {
       color: var(--current-color-active);
+
       &::before {
         background-color: currentColor;
       }
+
       &::after {
         background-color: var(--current-background-color);
       }
@@ -343,13 +348,15 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item--color-action {
-  a, button {
+  a,
+  button {
     color: var(--token-color-foreground-primary);
 
     // assign the values to the local CSS variables used above
     --current-color-hover: var(--token-color-foreground-action-hover);
     --current-color-focus: var(--token-color-foreground-action-active);
     --current-color-active: var(--token-color-foreground-action-active);
+
     &::after {
       --current-background-color: var(--token-color-surface-action);
       --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
@@ -358,13 +365,15 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item--color-critical {
-  a, button {
+  a,
+  button {
     color: var(--token-color-foreground-critical);
 
     // assign the values to the local CSS variables used above
     --current-color-hover: var(--token-color-palette-red-300);
     --current-color-focus: var(--token-color-palette-red-400);
     --current-color-active: var(--token-color-palette-red-400);
+
     &::after {
       --current-background-color: var(--token-color-surface-critical);
       --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
@@ -394,7 +403,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   &::before {
     border-bottom: 1px solid var(--token-color-border-primary);
     bottom: 0;
-    content: '';
+    content: "";
     left: 6px;
     position: absolute;
     right: 6px;

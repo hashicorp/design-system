@@ -111,6 +111,7 @@
       background-size: var(--token-form-text-input-background-image-size);
     }
   }
+
   &[type="time"] {
     &::-webkit-calendar-picker-indicator {
       background-image: var(--token-form-text-input-background-image-data-url-time);
