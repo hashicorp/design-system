@@ -2031,7 +2031,7 @@ __metadata:
     "@hashicorp/design-system-tokens": ^1.0.0
     "@hashicorp/ember-flight-icons": ^2.0.12
     "@percy/cli": ^1.10.1
-    "@percy/ember": ^3.0.1
+    "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-a11y-refocus: ^2.1.0
@@ -2124,7 +2124,7 @@ __metadata:
     "@glimmer/tracking": ^1.0.4
     "@hashicorp/flight-icons": ^2.10.0
     "@percy/cli": ^1.10.1
-    "@percy/ember": ^3.0.1
+    "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.4.1
@@ -2647,13 +2647,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/ember@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@percy/ember@npm:3.0.1"
+"@percy/ember@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@percy/ember@npm:4.0.0"
   dependencies:
     "@percy/sdk-utils": ^1.6.4
     ember-cli-babel: ^7.26.11
-  checksum: 3ea7c2bab481cb96280d2920a79daa2235fee1edbc4c61102c388069aaf750114ab26697d3bf839d3fe47b21b70db20146fb94865ff1dc1cba3d5811bf2099e5
+  checksum: 8415efc7b6fd3582fa5700cc86230747491f4791997aeb25282af2b24f726841271486daa4a841a40cdacba8c555e9323080dccaec7e7b2f9a528d9d5a261543
   languageName: node
   linkType: hard
 
@@ -10145,7 +10145,7 @@ __metadata:
     "@hashicorp/ember-flight-icons": ^2.0.12
     "@hashicorp/flight-icons": ^2.10.0
     "@percy/cli": ^1.10.1
-    "@percy/ember": ^3.0.1
+    "@percy/ember": ^4.0.0
     "@tailwindcss/forms": ^0.3.4
     "@tailwindcss/typography": ^0.4.1
     babel-eslint: ^10.1.0
