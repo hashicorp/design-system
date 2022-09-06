@@ -17,37 +17,6 @@ module.exports = {
     // =============================
     // TO FIX:
     // =============================
-
-    // see: https://stylelint.io/user-guide/rules/list/color-hex-case/
-    'color-hex-case': 'lower',
-
-    // see: https://stylelint.io/user-guide/rules/list/declaration-colon-space-after/
-    'declaration-colon-space-after': 'always',
-
-    // see: https://stylelint.io/user-guide/rules/list/length-zero-no-unit/
-    'length-zero-no-unit': true,
-
-    // see: https://stylelint.io/user-guide/rules/list/no-eol-whitespace/
-    'no-eol-whitespace': true,
-
-    // see: https://stylelint.io/user-guide/rules/list/no-extra-semicolons/
-    'no-extra-semicolons': true,
-
-    // see: https://stylelint.io/user-guide/rules/list/no-missing-end-of-source-newline/
-    'no-missing-end-of-source-newline': true,
-
-    // see: https://stylelint.io/user-guide/rules/list/property-no-vendor-prefix/
-    'property-no-vendor-prefix': true,
-
-    // see: https://github.com/stylelint-scss/stylelint-scss/blob/master/src/rules/dollar-variable-empty-line-before/README.md
-    // 'scss/dollar-variable-empty-line-before': [use the default here],
-
-    // see: https://github.com/stylelint-scss/stylelint-scss/blob/master/src/rules/double-slash-comment-whitespace-inside/README.md
-    'scss/double-slash-comment-whitespace-inside': 'always',
-
-    // see: https://stylelint.io/user-guide/rules/list/selector-combinator-space-after/
-    'selector-combinator-space-after': 'always',
-
     // =============================
     // TO DISCUSS:
     // =============================
