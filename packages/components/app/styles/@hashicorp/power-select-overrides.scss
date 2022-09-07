@@ -5,26 +5,27 @@
 // and are meant to provide overrides through specificity
 //
 
+/* stylelint-disable selector-class-pattern */
 .hds-power-select {
-  font-family: var(--token-typography-font-stack-text);
   font-size: 0.875rem; // 14px
+  font-family: var(--token-typography-font-stack-text);
 
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
+    max-width: 100%;
+    min-height: 34px;
+    padding: calc(var(--token-form-control-padding) + 1px);
+    padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+    padding-left: 44px;
+    color: var(--token-form-control-base-foreground-value-color);
     background-color: var(--token-form-control-base-surface-color-default);
     background-image: var(--token-form-select-background-image-data-url), url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
-    background-position: right var(--token-form-select-background-image-position-right-x) center, top 8px left 20px;
     background-repeat: no-repeat;
+    background-position: right var(--token-form-select-background-image-position-right-x) center, top 8px left 20px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
     box-shadow: var(--token-elevation-low-box-shadow);
-    color: var(--token-form-control-base-foreground-value-color);
-    max-width: 100%;
-    min-height: 34px;
-    padding: calc(var( --token-form-control-padding) + 1px);
-    padding-left: 44px;
-    padding-right: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
 
     &:hover,
     &.mock-hover {
@@ -35,7 +36,7 @@
     &.mock-focus {
       border-color: var(--token-color-focus-action-internal);
       outline: 3px solid var(--token-color-focus-action-external);
-      outline-offset: 0px;
+      outline-offset: 0;
     }
 
     &[aria-expanded="true"] {
@@ -45,11 +46,11 @@
     }
 
     &[aria-disabled="true"] {
-      background-image: var(--token-form-select-background-image-data-url-disabled), url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%238c909c'/%3E%3C/svg%3E");
+      color: var(--token-form-control-disabled-foreground-color);
       background-color: var(--token-form-control-disabled-surface-color);
+      background-image: var(--token-form-select-background-image-data-url-disabled), url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%238c909c'/%3E%3C/svg%3E");
       border-color: var(--token-form-control-disabled-border-color);
       box-shadow: none;
-      color: var(--token-form-control-disabled-foreground-color);
       cursor: not-allowed;
     }
   }
@@ -61,11 +62,11 @@
   .ember-basic-select-dropdown,
   .ember-power-select-dropdown {
     &.ember-basic-dropdown-content--in-place {
-      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
-      box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
       margin-top: -3px;
+      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
     }
   }
 
@@ -73,15 +74,15 @@
     padding: 8px 12px 14px;
 
     .ember-power-select-search-input {
+      width: 100%;
+      max-width: 100%;
+      padding: var(--token-form-control-padding);
+      color: var(--token-form-control-base-foreground-value-color);
+      line-height: 1rem;
       background-color: var(--token-form-control-base-surface-color-default);
       border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
       border-radius: var(--token-form-control-border-radius);
       box-shadow: var(--hds-elevation-inset-box-shadow);
-      color: var(--token-form-control-base-foreground-value-color);
-      padding: var( --token-form-control-padding);
-      width: 100%;
-      max-width: 100%;
-      line-height: 1rem;
 
       // PLACEHOLDER
 
@@ -103,40 +104,40 @@
         border-color: var(--token-color-focus-action-internal);
         // Notice: Safari doesn't apply a rounded border
         outline: 3px solid var(--token-color-focus-action-external);
-        outline-offset: 0px;
+        outline-offset: 0;
       }
 
       &[type="search"] {
-        padding-left: calc(var( --token-form-control-padding) + 24px); // extra space for the icon
+        padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
         background-image: var(--token-form-text-input-background-image-data-url-search);
+        background-repeat: no-repeat;
         background-position: var(--token-form-text-input-background-image-position-x) 50%;
         background-size: var(--token-form-text-input-background-image-size);
-        background-repeat: no-repeat;
 
         &::-webkit-search-cancel-button {
-          -webkit-appearance: none;
+          width: var(--token-form-text-input-background-image-size);
+          height: var(--token-form-text-input-background-image-size);
           background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
           background-position: center center;
           background-size: var(--token-form-text-input-background-image-size);
-          height: var(--token-form-text-input-background-image-size);
-          width: var(--token-form-text-input-background-image-size);
+          appearance: none;
         }
       }
     }
   }
 
   .ember-power-select-group-name {
-    color: var(--token-color-foreground-faint);
-    font-family: var(--token-typography-body-300-font-family);
-    font-size: var(--token-typography-body-300-font-size);
-    font-weight: var(--token-typography-font-weight-medium);
     padding: 8px 16px;
+    color: var(--token-color-foreground-faint);
+    font-weight: var(--token-typography-font-weight-medium);
+    font-size: var(--token-typography-body-300-font-size);
+    font-family: var(--token-typography-body-300-font-family);
   }
 
   .ember-power-select-selected-item {
+    display: block;
     margin-left: 0;
     line-height: normal;
-    display: block;
   }
 
   .ember-power-select-options {
@@ -144,27 +145,27 @@
   }
 
   .ember-power-select-options[role="listbox"] {
-    overflow-y: auto;
-    overflow-x: clip;
     max-height: 36rem;
+    overflow-x: clip;
+    overflow-y: auto;
   }
 
   .ember-power-select-option {
+    display: block;
+    margin: 0 12px;
+    padding: 8px 8px 8px 32px;
+    line-height: normal;
     background: none;
     border: var(--token-form-control-border-width) solid transparent;
     border-radius: var(--token-form-control-border-radius);
-    display: block;
-    line-height: normal;
-    margin: 0 12px;
-    padding: 8px 8px 8px 32px;
 
     &[aria-selected="true"] {
+      color: var(--token-color-foreground-strong);
       background-color: inherit;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
-      background-position: top 8px left 8px;
       background-repeat: no-repeat;
+      background-position: top 8px left 8px;
       background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-      color: var(--token-color-foreground-strong);
     }
 
     &[aria-current="true"],
@@ -176,38 +177,38 @@
   }
 
   .ember-power-select-multiple-trigger {
-    background-image: var(--token-form-select-background-image-data-url);
-    padding-top: calc(var( --token-form-control-padding) - 3px);
-    padding-bottom: calc(var( --token-form-control-padding) - 3px);
+    padding-top: calc(var(--token-form-control-padding) - 3px);
+    padding-bottom: calc(var(--token-form-control-padding) - 3px);
     padding-left: 20px;
+    background-image: var(--token-form-select-background-image-data-url);
   }
 
   .ember-power-select-multiple-option {
+    display: inline-flex;
     align-items: stretch;
+    float: none;
+    margin: 4px 4px 4px 0;
+    padding: 3px 10px 5px 10px;
+    color: var(--token-color-foreground-primary);
+    font-weight: var(--token-typography-font-weight-medium);
+    font-size: 0.8125rem; // 13px
+    font-family: var(--token-typography-font-stack-text);
+    line-height: 1rem; // 16px
+    vertical-align: middle;
     background-color: var(--token-color-surface-interactive);
     border: 1px solid var(--token-color-border-strong);
     border-radius: 50px;
-    color: var(--token-color-foreground-primary);
-    display: inline-flex;
-    font-family: var(--token-typography-font-stack-text);
-    font-size: 0.8125rem; // 13px
-    font-weight: var(--token-typography-font-weight-medium);
-    line-height: 1rem; // 16px
-    vertical-align: middle;
-    padding: 3px 10px 5px 10px;
-    float: none;
-    margin: 4px 4px 4px 0;
   }
 
   .ember-power-select-multiple-remove-btn {
+    margin: 0; // reset default button margin
+    margin-right: 4px;
+    font-weight: 300;
+    font-size: 1rem;
+    border: none; // reset default button border
     border-radius: inherit;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border: none; // reset default button border
-    margin: 0; // reset default button margin
-    font-size: 1rem;
-    font-weight: 300;
-    margin-right: 4px;
 
     &:not(:hover) {
       opacity: 1;
@@ -215,10 +216,10 @@
   }
 
   .hds-power-select__after-options {
-    font-size: 0.8125rem; // 13px
     padding: 8px;
+    color: var(--token-color-foreground-primary);
+    font-size: 0.8125rem; // 13px
     background-color: var(--token-color-surface-faint);
     border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
-    color: var(--token-color-foreground-primary);
   }
 }
