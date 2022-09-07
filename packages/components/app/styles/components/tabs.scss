@@ -9,7 +9,7 @@ $indicator-height: 3px;
 .hds-tabs {}
 
 // Sub-components:
-// NOTE: hds-tab-list is still part of parent component may separate into child later as needed. Will consider renaming class then
+// NOTE: hds-tab-list is still part of parent component, may separate into child later as needed. Will consider re-naming class then
 .hds-tab-list {
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
@@ -60,6 +60,6 @@ $indicator-height: 3px;
 
 .hds-tabs__panel {
   &:not(:target) {
-    display: none;
+    // display: none;
   }
 }

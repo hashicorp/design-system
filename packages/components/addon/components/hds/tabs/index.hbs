@@ -5,32 +5,21 @@
   {{! Hds-TabList }}
   <div class="hds-tab-list hds-typography-body-200">
     <ul class="hds-tab-list__list" role="tablist">
-      {{yield (hash Tab=(component "hds/tabs/tab"))}}
+      {{yield
+        (hash Tab=(component "hds/tabs/tab" didInsertNode=this.didInsertTab panelIds=this.panelIds tabIds=this.tabIds))
+      }}
     </ul>
   </div>
 
-  {{yield (hash Panel=(component "hds/tabs/panel"))}}
+  {{yield
+    (hash
+      Panel=(component
+        "hds/tabs/panel"
+        didInsertNode=this.didInsertPanel
+        tabIds=this.tabIds
+        panelIds=this.panelIds
+        panelNodes=this.panelNodes
+      )
+    )
+  }}
 </div>
-
-{{! Temporary comment for rough planning purposes only.
-Not meant to represent literal final implementations. Comment will be deleted eventually.
-
-Component Structure:
------------------------
-Hds::Tabs
-  Hds::Tabs.TabList
-    Hds::Tabs.Tab
-      Content:
-        FlightIcon (optional)
-        text content (required)
-        BadgeCount (optional)
-      Args:
-        isSelected (boolean, default = false) // Select first tab by default?
-        hasIcon (boolean, default = false)
-        hasCount (boolean, default = false)
-    Hds::Tabs.Tab (2+ required)
-    ...
-    ScrollNavigation (displays if more tabs than fit container)
-  Hds::Tabs.Panel (2+ required, same # as Tab components)
-  ...
- }}

@@ -1,15 +1,18 @@
 {{! template-lint-disable require-context-role }}
 {{! template-lint-disable no-invalid-role }}
-{{! template-lint-disable link-href-attributes }}
 
-<li class="hds-tabs__tab" role="presentation">
+{{!-- DELETE ME {{! template-lint-disable link-href-attributes }} --}}
+
+<li class={{this.classNames}} role="presentation">
   <a
     role="tab"
-    {{! href="#section1" }}
-    {{!-- id={{id}} --}}
+    href={{concat "#" this.panelId}}
+    id={{this.tabId}}
+    {{! Used to label related Panel for a11y }}
     {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
     {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected") }}
     ...attributes
+    {{did-insert this.didInsertNode}}
   >
     {{yield}}
   </a>
