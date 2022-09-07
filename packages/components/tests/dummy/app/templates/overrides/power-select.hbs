@@ -6,9 +6,227 @@
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">
-    A showcase with custom styles applied as overrides to the
-    <a target="_blank" rel="noopener noreferrer" href="https://ember-power-select.com/">ember-power-select addon</a>.
+    <a target="_blank" rel="noopener noreferrer" href="https://ember-power-select.com/">PowerSelect</a>
+    is a popular Ember add-on aiming to overcome some limitations of the
+    <code class="dummy-code">&lt;select&gt;</code>
+    tag. HashiCorp Design System only provides style overrides for this add-on to keep it in line with other form
+    components.
   </p>
+
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />Note: These style overrides
+    assume the PowerSelect component is set up in your project using the default theme.</p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">
+    To use this component in your application follow
+    <a target="_blank" rel="noopener noreferrer" href="https://ember-power-select.com">the getting started guide on the
+      add-on website</a>
+    then add the PowerSelect overrides as shown below.
+  </p>
+
+  <h4 class="dummy-h4">Overrides import</h4>
+  <p class="dummy-paragraph">If you are already using
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/hashicorp/design-system/blob/main/packages/components/README.md"
+    >design-system-components</a>
+    in your project the overrides import would look something like this:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @code='
+      @import "@hashicorp/design-system-components";
+      @import "@hashicorp/power-select-overrides";
+    '
+  />
+
+  <p class="dummy-paragraph">If you are not yet using
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/hashicorp/design-system/blob/main/packages/components/README.md"
+    >design-system-components</a>
+    in your project but you want to use these PowerSelect custom styles you will need to add
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/hashicorp/design-system/blob/main/packages/tokens/README.md"
+    >design-system-tokens</a>
+    to your project.</p>
+
+  <h4 class="dummy-h4">Basic usage</h4>
+
+  <p class="dummy-paragraph">As these overrides rely on specificity, to apply them you need to wrap each PowerSelect
+    instance in an element with
+    <code class="dummy-code">hds-power-select</code>
+    class applied to it.</p>
+  <p class="dummy-paragraph">Invocation of the component with overrides would look something like this:</p>
+
+  <CodeBlock
+    @language="markup"
+    @code='
+    <div class="hds-power-select">
+      <PowerSelect
+        @options=\{{@model.OPTIONS}}
+        @selected=\{{@model.SELECTED}}
+        @onChange=\{{this.noop}}
+        @renderInPlace=\{{true}}
+        as |option|
+      >
+        \{{option}}
+      </PowerSelect>
+    </div>
+    '
+  />
+  <p class="dummy-paragraph">Renders to:</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">Search enabled</h4>
+
+  <p class="dummy-paragraph">When used with the
+    <code class="dummy-code">@searchEnabled</code>
+    argument, the input is automatically styled to resemble the
+    <LinkTo @route="components.form.text-input"><code class="dummy-code">Form::TextInput</code></LinkTo>
+    component.</p>
+
+  <CodeBlock
+    @language="markup"
+    @code='
+    <div class="hds-power-select">
+      <PowerSelect
+        @options=\{{@model.OPTIONS}}
+        @selected=\{{@model.SELECTED}}
+        @onChange=\{{this.noop}}
+        @renderInPlace=\{{true}}
+        @searchEnabled=\{{true}}
+        as |option|
+      >
+        \{{option}}
+      </PowerSelect>
+    </div>
+    '
+  />
+  <p class="dummy-paragraph">Renders to:</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        @searchEnabled={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">After options block</h4>
+  <p class="dummy-paragraph">To consistently style the
+    <code class="dummy-code">@afterOptionsComponent</code>
+    use the
+    <code class="dummy-code">hds-power-select__after-options</code>
+    class on the outermost element of the after options component.</p>
+
+  <CodeBlock
+    @language="markup"
+    @code='
+    <div class="hds-power-select">
+      <PowerSelect
+        @options=\{{@model.OPTIONS}}
+        @selected=\{{@model.SELECTED}}
+        @afterOptionsComponent=\{{"power-select/after-options"}}
+        @onChange=\{{this.noop}}
+        @renderInPlace=\{{true}}
+        as |option|
+      >
+        \{{option}}
+      </PowerSelect>
+    </div>
+    '
+  />
+  <p class="dummy-paragraph">Where
+    <code class="dummy-code">power-select/after-options.hbs</code>
+    would look like this:</p>
+  <CodeBlock
+    @language="markup"
+    @code='
+      <div class="hds-power-select__after-options">
+        5 results
+      </div>
+    '
+  />
+
+  <p class="dummy-paragraph">Renders to:</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @afterOptionsComponent={{component "power-select/after-options"}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">Multiple selection</h4>
+
+  <p class="dummy-paragraph">When multiple options are allowed the selected items are automatically styled to resemble
+    the
+    <LinkTo @route="components.tag"><code class="dummy-code">Tag</code></LinkTo>
+    component.</p>
+
+  <CodeBlock
+    @language="markup"
+    @code='
+    <div class="hds-power-select">
+      <PowerSelectMultiple
+        @options=\{{@model.OPTIONS}}
+        @selected=\{{@model.SELECTEDMULTIPLE}}
+        @onChange=\{{this.noop}}
+        @renderInPlace=\{{true}}
+        as |option|
+      >
+        \{{option}}
+      </PowerSelectMultiple>
+    </div>
+    '
+  />
+
+  <p class="dummy-paragraph">Renders to:</p>
+  <div class="dummy-power-select-container">
+    <div class="hds-power-select">
+      <PowerSelectMultiple
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelectMultiple>
+    </div>
+  </div>
 
 </section>
 
@@ -61,61 +279,6 @@
       >
         {{option}}
       </PowerSelect>
-    </div>
-  </div>
-
-  <h4 class="dummy-h4">Search</h4>
-  <p class="dummy-text-small">When used with the
-    <code class="dummy-code">@searchEnabled</code>
-    argument, the input will be styled automatically.</p>
-  <div class="dummy-power-select-container">
-    <div class="hds-power-select">
-      <PowerSelect
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @onChange={{this.noop}}
-        @renderInPlace={{true}}
-        @searchEnabled={{true}}
-        as |option|
-      >
-        {{option}}
-      </PowerSelect>
-    </div>
-  </div>
-
-  <h4 class="dummy-h4">After options block</h4>
-  <p class="dummy-text-small">To consistently style the
-    <code class="dummy-code">@afterOptionsComponent</code>
-    use the
-    <code class="dummy-code">hds-power-select_after-options</code>
-    class on the outermost element.</p>
-  <div class="dummy-power-select-container">
-    <div class="hds-power-select">
-      <PowerSelect
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @afterOptionsComponent={{"power-select/after-options"}}
-        @onChange={{this.noop}}
-        @renderInPlace={{true}}
-        as |option|
-      >
-        {{option}}
-      </PowerSelect>
-    </div>
-  </div>
-
-  <h4 class="dummy-h4">Multiple selection</h4>
-  <div class="dummy-power-select-container">
-    <div class="hds-power-select">
-      <PowerSelectMultiple
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTEDMULTIPLE}}
-        @onChange={{this.noop}}
-        @renderInPlace={{true}}
-        as |option|
-      >
-        {{option}}
-      </PowerSelectMultiple>
     </div>
   </div>
 </section>

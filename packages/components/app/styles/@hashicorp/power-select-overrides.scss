@@ -1,7 +1,8 @@
 //
 // POWER-SELECT
 //
-// properties within each class are sorted alphabetically
+// selectors is this file are defined to match original PowerSelect styles
+// and are meant to provide overrides through specificity
 //
 
 .hds-power-select {
@@ -213,7 +214,7 @@
     }
   }
 
-  .hds-power-select_after-options {
+  .hds-power-select__after-options {
     font-size: 0.8125rem; // 13px
     padding: 8px;
     background-color: var(--token-color-surface-faint);
