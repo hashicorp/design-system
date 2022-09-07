@@ -7,7 +7,7 @@
   ...attributes
   data-test-sort-by={{@field}}
 >
-  <button @query={{hash sortby=@field sortdescending=(if this.isActive (not this.sortDescending) true)}} type="button">
+  <LinkTo @query={{hash sortby=@field sortdescending=(if this.isActive (not this.sortDescending) true)}}>
     <span class="sortby-label">
       {{yield}}
     </span>
@@ -16,5 +16,5 @@
     {{else if (and this.isActive (not this.sortDescending))}}
       <FlightIcon @name="arrow-up" />
     {{/if}}
-  </button>
+  </LinkTo>
 </th>
