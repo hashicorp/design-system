@@ -17,6 +17,11 @@
     Overview
   </h3>
   <p class="dummy-paragraph">A table element is used to display tabular data.</p>
+  <p class="dummy-paragraph">There are two named blocks in this component: <code class="dummy-code">:head</code> and <code class="dummy-code">:body</code>.</p>
+  <h4 class="dummy-h4">:head named block</h4>
+  <p class="dummy-paragraph">This represents the <code class="dummy-code">thead</code> of the table. It yields within a single <code class="dummy-code">tr</code> element that is meant to represent column headers. It also yields a single contextual component, <code class="dummy-code">SortBy</code> which applies the <code class="dummy-code">@sortProperty</code> and <code class="dummy-code">@sortDescending</code> args from the <code class="dummy-code">HdsTable</code> component. This way, only <code class="dummy-code">@field</code> needs to be set to define an initial field to sort by.</p>
+  <h4 class="dummy-h4">:body named block</h4>
+  <p class="dummy-paragraph">This represents the <code class="dummy-code">tbody</code> of the table. It yields <code class="dummy-code">n</code> number of times where <code class="dummy-code">n</code> is equal to the length of the <code class="dummy-code">@model</code> arg provided to Table. The yield happens directly in the <code class="dummy-code">tbody</code> element to allow for multiple <code class="dummy-code">tr</code> elements for a single record. The yielded value is the exact record from the <code class="dummy-code">@model</code> array.</p>
 </section>
 <section>
   <h3 class="dummy-h3" id="component-api">
@@ -27,7 +32,13 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
-    {{! ADD YOUR CONTENT HERE }}
+    <dt>model <code>array</code></dt>
+    <dd><p>Sets the data source that gets yielded by the <code class="dummy-code">:body</code> named block.</p></dd>
+    <dt>sortProperty <code>string</code></dt>
+    <dd><p>Specifies which field the <code class="dummy-code">@model</code> is sorted by. This does not perform a sort; it is only used to set state on the contextual <code class="dummy-code">SortBy</code> components.
+    </p></dd>
+    <dt>sortDescending <code>boolean</code></dt>
+    <dd><p>Specifies which direction the <code class="dummy-code">@model</code> is sorted. Descending when <code class="dummy-code">true</code>, ascending when <code class="dummy-code">false</code>. This does not perform a sort. It is only used to set states on the contextual <code class="dummy-code">SortBy</code> components.</p></dd>
   </dl>
 </section>
 <section>
