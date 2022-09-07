@@ -1,12 +1,13 @@
 <th
-  class="sortable
+  scope="col"
+  class="hds-table__th--sortable
     {{if this.isActive 'is-active'}}
     {{if (and this.isActive this.sortDescending) 'sort-descending'}}
     {{if (and this.isActive (not this.sortDescending)) 'sort-ascending'}}"
   ...attributes
   data-test-sort-by={{@field}}
 >
-  <LinkTo @query={{hash sortby=@field sortdescending=(if this.isActive (not this.sortDescending) true)}}>
+  <button @query={{hash sortby=@field sortdescending=(if this.isActive (not this.sortDescending) true)}}>
     <span class="sortby-label">
       {{yield}}
     </span>
@@ -15,5 +16,5 @@
     {{else if (and this.isActive (not this.sortDescending))}}
       <FlightIcon @name="arrow-up" />
     {{/if}}
-  </LinkTo>
+  </button>
 </th>

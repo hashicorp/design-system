@@ -1,42 +1,6 @@
 import Component from '@glimmer/component';
 
 /**
- *
- * `Hds::Table` renders an HTML table styled using the `hds-table` class.
- *
- *
- * ```
- * <Hds::Table @model={{this.model}} @sortProperty="name" @sortDescending={{false}}>
- *   <:head as |h|>
- *     <h.SortBy @field="name">Name</h.SortBy>
- *     <th>Unsortable Data</th>
- *   </:head>
- *   <:body as |row|>
- *     <tr>
- *       <td>{{row.name}}</td>
- *       <td>{{row.data}}</td>
- *     </tr>
- *   </:body>
- * </Hds::Table>
- * ```
- *
- * ## :head named block
- *
- * This represents the `thead` of the table. It yields within a single `tr` that is meant
- * to represent column headers.
- *
- * It also yields a single contextual component, `SortBy` which applies the `@sortProperty` and
- * `@sortDescending` args from the `HdsTable` component. This way only `@field` needs to be set to
- * determine the visual state and the generated anchor href.
- *
- *
- * ## :body named block
- *
- * This represents the `tbody` of the table. It yields `n` number of times where `n` is equal to
- * the length of the `@model` arg provided to `HdsTable`. The yield happens directly in the `tbody`
- * element to allow for multiple `tr`s for a single record. The yielded value is the exact record
- * from the `@model` array.
- *
  * @class HdsTable
  */
 export default class HdsTableIndexComponent extends Component {
