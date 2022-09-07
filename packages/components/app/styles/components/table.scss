@@ -23,7 +23,7 @@
     padding: 8px 16px;
     text-align: left;
 
-    &.sortable {
+    &.hds-table__th--sortable {
       padding: 0; //we're taking it out here because we need it on the interactive content instead
     }
 
