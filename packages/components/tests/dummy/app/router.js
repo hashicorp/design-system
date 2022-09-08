@@ -18,6 +18,7 @@ Router.map(function () {
     this.route('alert');
     this.route('avatar');
     this.route('badge');
+    this.route('badge-count');
     this.route('breadcrumb');
     this.route('button');
     this.route('button-set');
