@@ -101,7 +101,7 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
-    @code="<Hds::Table @model=\{{this.model}} @sortProperty=\{{this.sortby}} @sortDescending=\{{false}}>
+    @code="<Hds::Table @model=\{{this.model}}>
     <:head>
       <th>Artist</th>
       <th>Album</th>
@@ -154,11 +154,11 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
-    @code="  <Hds::Table @model=\{{this.model}}>
-    <:head>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Release Year</th>
+    @code='<Hds::Table @model=\{{this.model}} @sortProperty=\{{this.sortby}} @sortDescending=\{{false}}>
+    <:head as |h|>
+      <h.SortBy @field="artist">Artist</h.SortBy>
+      <h.SortBy @field="album">Album</h.SortBy>
+      <h.SortBy @field="year">Release Year</h.SortBy>
     </:head>
     <:body as |row|>
       <tr>
@@ -167,7 +167,7 @@
         <td>\{{row.year}}</td>
       </tr>
     </:body>
-  </Hds::Table>"
+  </Hds::Table>'
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
