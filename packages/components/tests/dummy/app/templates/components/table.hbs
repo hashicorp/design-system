@@ -96,80 +96,117 @@
   <p class="dummy-paragraph">There are several types of tables, please be sure to choose the one that works best for
     your situation.</p>
   <h4 class="dummy-h4">Simple Table</h4>
-  <p class="dummy-paragraph">This is how you would invoke the simple table component:</p>
+  <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the model and insert
+    your own content into the
+    <code class="dummy-code">:head</code>
+    and
+    <code class="dummy-code">:body</code>
+    blocks. Here is an example of such an invocation in a template:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
     @code="<Hds::Table @model=\{{this.model}}>
-    <:head>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Release Year</th>
-    </:head>
-    <:body as |row|>
-      <tr>
-        <td>\{{row.artist}}</td>
-        <td>\{{row.album}}</td>
-        <td>\{{row.year}}</td>
-      </tr>
-    </:body>
-  </Hds::Table>"
+  <:head>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Release Year</th>
+  </:head>
+  <:body as |row|>
+    <tr>
+      <td>\{{row.artist}}</td>
+      <td>\{{row.album}}</td>
+      <td>\{{row.year}}</td>
+    </tr>
+  </:body>
+</Hds::Table>"
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <h4 class="dummy-h4">Table with sorting support</h4>
-  <p class="dummy-paragraph">
-    Here's what the controller could look like for the sorting on the table:
-  </p>
+  <p class="dummy-paragraph">Just for demonstration purposes: here is the model that provides the table data for this
+    page, which we've defined in this page's route:</p>
   {{! prettier-ignore-start }}
-  {{! template-lint-disable no-trailing-spaces }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="javascript"
-    @code="import Controller from'@ember/controller';
-      import { action } from'@ember/object';
-      import { tracked } from'@glimmer/tracking';
+    @code="import Route from '@ember/routing/route';
 
-      export default class TableController extends Controller {
-        @tracked sort ='name';
-        @tracked sortDirection ='asc';
-
-        @action
-        onSort(column) {
-          if (this.sort === column) {
-            this.sortDirection = this.sortDirection ==='asc' ?'desc' :'asc';
-          } else {
-            this.sort = column;
-            this.sortDirection ='asc';
-          }
-        }
-      }"
+export default class ComponentsTableRoute extends Route {
+  model() {
+    return [
+      { artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
+      { artist: 'The Beatles', album: 'Abbey Road', year: '1969' },
+      { artist: 'Melanie', album: 'Candles in the Rain', year: '1971' },
+      { artist: 'Bob Dylan', album: 'Bringing It All Back Home', year: '1965' },
+      { artist: 'James Taylor', album: 'Sweet Baby James', year: '1970' },
+      {
+        artist: 'Simon and Garfunkel',
+        album: 'Bridge Over Troubled Waters',
+        year: '1970',
+      },
+    ];
+  }
+}"
   />
-  {{! template-lint-enable no-trailing-spaces }}
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">Table with sorting support</h4>
+
   <p class="dummy-paragraph">
-    Then in the page template, invoke the table with sorting support:
+    If you want to have sortable table headers, you'll go one step further by defining the sorting functions/actions in
+    your app after invoking the table component in your template. Here's an example of the template invocation with
+    sorting support arguments defined:
   </p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
     @code='<Hds::Table @model=\{{this.model}} @sortProperty=\{{this.sortby}} @sortDescending=\{{false}}>
-    <:head as |h|>
-      <h.SortBy @field="artist">Artist</h.SortBy>
-      <h.SortBy @field="album">Album</h.SortBy>
-      <h.SortBy @field="year">Release Year</h.SortBy>
-    </:head>
-    <:body as |row|>
-      <tr>
-        <td>\{{row.artist}}</td>
-        <td>\{{row.album}}</td>
-        <td>\{{row.year}}</td>
-      </tr>
-    </:body>
-  </Hds::Table>'
+  <:head as |h|>
+    <h.SortBy @field="artist">Artist</h.SortBy>
+    <h.SortBy @field="album">Album</h.SortBy>
+    <h.SortBy @field="year">Release Year</h.SortBy>
+  </:head>
+  <:body as |row|>
+    <tr>
+      <td>\{{row.artist}}</td>
+      <td>\{{row.album}}</td>
+      <td>\{{row.year}}</td>
+    </tr>
+  </:body>
+</Hds::Table>'
   />
   {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">
+    While your own approach may vary, here's the controller that implements the sorting actions for the table on this
+    page::
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-trailing-spaces }}
+  <CodeBlock
+    @language="javascript"
+    @code="import Controller from'@ember/controller';
+import { action } from'@ember/object';
+import { tracked } from'@glimmer/tracking';
+
+export default class TableController extends Controller {
+  @tracked sort ='year';
+  @tracked sortDirection ='asc';
+
+  @action
+  onSort(column) {
+    if (this.sort === column) {
+      this.sortDirection = this.sortDirection ==='asc' ?'desc' :'asc';
+    } else {
+      this.sort = column;
+      this.sortDirection ='asc';
+    }
+  }
+}"
+  />
+  {{! template-lint-enable no-trailing-spaces }}
   {{! prettier-ignore-end }}
 </section>
 <section>
