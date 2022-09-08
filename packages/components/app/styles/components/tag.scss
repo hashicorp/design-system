@@ -11,47 +11,47 @@
 $hds-tag-border-radius: 50px;
 
 .hds-tag {
+  display: inline-flex;
   align-items: stretch;
+  color: var(--token-color-foreground-primary);
+  font-weight: var(--token-typography-font-weight-medium);
+  font-size: 0.8125rem; // 13px
+  font-family: var(--token-typography-font-stack-text);
+  line-height: 1rem; // 16px
+  vertical-align: middle;
   background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-tag-border-radius;
-  color: var(--token-color-foreground-primary);
-  display: inline-flex;
-  font-family: var(--token-typography-font-stack-text);
-  font-size: 0.8125rem; // 13px
-  font-weight: var(--token-typography-font-weight-medium);
-  line-height: 1rem; // 16px
-  vertical-align: middle;
 }
 
 .hds-tag__dismiss {
   flex: 0 0 auto;
+  margin: 0; // reset default button margin
+  padding: 6px 2px 6px 8px;
+  border: none; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border: none; // reset default button border
-  margin: 0; // reset default button margin
-  padding: 6px 2px 6px 8px;
 }
 
 .hds-tag__dismiss-icon {
-  color: var(--token-color-foreground-primary);
-  height: 12px;
   width: 12px;
+  height: 12px;
+  color: var(--token-color-foreground-primary);
 }
 
 .hds-tag__text,
 .hds-tag__link {
-  border-radius: inherit;
   flex: 1 0 0;
   padding: 3px 10px 5px 10px;
+  border-radius: inherit;
 }
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
+  padding: 3px 8px 5px 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding: 3px 8px 5px 6px;
 }
 
 // INTERACTIVE ELEMENTS

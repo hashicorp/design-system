@@ -13,11 +13,11 @@ $hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
 
 
 .hds-icon-tile {
-  border-radius: 4px;
-  border: $hds-icon-tile-border-width solid transparent;
-  box-shadow: $hds-icon-tile-box-shadow;
-  display: flex;
   position: relative;
+  display: flex;
+  border: $hds-icon-tile-border-width solid transparent;
+  border-radius: 4px;
+  box-shadow: $hds-icon-tile-box-shadow;
 }
 
 .hds-icon-tile__icon,
@@ -27,14 +27,14 @@ $hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
 }
 
 .hds-icon-tile__extra {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  display: flex;
+  box-sizing: content-box; // the border is outside
   background-color: var(--token-color-surface-primary);
   border: 1px solid var(--token-color-border-primary);
-  bottom: -6px;
   box-shadow: $hds-icon-tile-box-shadow;
-  box-sizing: content-box; // the border is outside
-  right: -6px;
-  display: flex;
-  position: absolute;
 }
 
 .hds-icon-tile__extra-icon {
@@ -83,24 +83,24 @@ $size-props: (
     border-radius: map-get($size-props, $size, "border-radius");
 
     .hds-icon-tile__icon {
-      height: map-get($size-props, $size, "icon-size");
       width: map-get($size-props, $size, "icon-size");
+      height: map-get($size-props, $size, "icon-size");
     }
 
     .hds-icon-tile__logo {
-      height: map-get($size-props, $size, "logo-size");
       width: map-get($size-props, $size, "logo-size");
+      height: map-get($size-props, $size, "logo-size");
     }
 
     .hds-icon-tile__extra {
-      border-radius: map-get($size-props, $size, "extra-border-radius");
-      height: map-get($size-props, $size, "extra-size");
       width: map-get($size-props, $size, "extra-size");
+      height: map-get($size-props, $size, "extra-size");
+      border-radius: map-get($size-props, $size, "extra-border-radius");
     }
 
     .hds-icon-tile__extra-icon {
-      height: map-get($size-props, $size, "extra-icon-size");
       width: map-get($size-props, $size, "extra-icon-size");
+      height: map-get($size-props, $size, "extra-icon-size");
     }
   }
 }
@@ -118,24 +118,24 @@ $size-props: (
 
 .hds-icon-tile--icon {
   &.hds-icon-tile--color-neutral {
+    color: var(--token-color-foreground-faint);
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
-    color: var(--token-color-foreground-faint);
   }
 
   @each $product in $hds-icon-tile-colors-products {
     @if ($product == "hcp") {
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
       &.hds-icon-tile--color-hcp {
+        color: var(--token-color-palette-#{$product}-brand);
         background-color: var(--token-color-surface-faint);
         border-color: var(--token-color-border-primary);
-        color: var(--token-color-palette-#{$product}-brand);
       }
     } @else {
       &.hds-icon-tile--color-#{$product} {
+        color: var(--token-color-#{$product}-foreground);
         background: linear-gradient(135deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
         border-color: var(--token-color-#{$product}-border);
-        color: var(--token-color-#{$product}-foreground);
       }
     }
   }

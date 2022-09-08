@@ -6,11 +6,11 @@
 //
 
 .hds-toast {
-  // we apply an elevation to the "alert/inline" element
-  box-shadow: var(--token-elevation-higher-box-shadow);
+  width: fit-content;
 
   // per design specs
   min-width: min(360px, 80vw);
   max-width: min(500px, 80vw);
-  width: fit-content;
+  // we apply an elevation to the "alert/inline" element
+  box-shadow: var(--token-elevation-higher-box-shadow);
 }

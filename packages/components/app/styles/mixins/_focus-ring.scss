@@ -27,20 +27,20 @@
 }
 
 @mixin hds-focus-ring-with-pseudo-element($top: 0, $right: 0, $bottom: 0, $left: 0, $radius: 5px, $color: action) {
-  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  position: relative;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
-  position: relative;
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &::before {
-    border-radius: $radius;
-    bottom: $bottom;
-    content: "";
-    left: $left;
     position: absolute;
-    right: $right;
     top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
     z-index: -1;
+    border-radius: $radius;
+    content: "";
   }
 
   // default focus for browsers that still rely on ":focus"

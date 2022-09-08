@@ -33,18 +33,18 @@ $status-props: (
 
 // Base styling for indicator::task
 .hds-stepper-indicator-task {
-  align-items: center;
-  color: var(--token-color-foreground-strong);
-  display: flex;
-  height: $hds-stepper-indicator-task-size;
-  justify-content: center;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: $hds-stepper-indicator-task-size;
+  height: $hds-stepper-indicator-task-size;
+  color: var(--token-color-foreground-strong);
 }
 
 .hds-stepper-indicator-task__icon {
-  height: 12px;
   width: 12px;
+  height: 12px;
 }
 
 .hds-stepper-indicator-task--is-interactive {
