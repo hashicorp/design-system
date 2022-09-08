@@ -27,6 +27,7 @@
 @use "../components/toast";
 // END COMPONENT CSS FILES IMPORTS
 
+// stylelint-disable-next-line selector-class-pattern
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */

@@ -48,6 +48,7 @@
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto auto;
   grid-auto-flow: row;
+  // stylelint-disable-next-line declaration-colon-space-after
   grid-template-areas:
     "control label"
     "control helper-text"
