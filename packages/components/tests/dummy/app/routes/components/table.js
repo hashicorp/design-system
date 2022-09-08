@@ -1,6 +1,11 @@
 import Route from '@ember/routing/route';
+import { tracked } from '@glimmer/tracking';
 
 export default class ComponentsTableRoute extends Route {
+  queryParams = ['sortby', 'sortdescending'];
+  @tracked sortby = 'year';
+  @tracked sortdescending = false;
+
   model() {
     return [
       { artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
@@ -14,5 +19,10 @@ export default class ComponentsTableRoute extends Route {
         year: '1970',
       },
     ];
+  }
+
+  get sortedRecords() {
+    const sorted = this.model.slice().sortBy(this.sortby || 'year');
+    return this.sortdescending ? sorted.reverse() : sorted;
   }
 }
