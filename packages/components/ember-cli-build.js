@@ -9,7 +9,11 @@ module.exports = function (defaults) {
       precision: 4,
       includePaths: [
         '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        '../../node_modules/ember-power-select/vendor',
       ],
+    },
+    'ember-power-select': {
+      theme: false,
     },
     'ember-prism': {
       components: ['markup', 'bash', 'markup-templating', 'handlebars'], //needs to be an array, or undefined.

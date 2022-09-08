@@ -49,4 +49,7 @@ Router.map(function () {
     this.route('disclosure');
     this.route('interactive');
   });
+  this.route('overrides', function () {
+    this.route('power-select');
+  });
 });
