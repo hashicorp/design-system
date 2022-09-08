@@ -2,7 +2,6 @@
 {{! template-lint-disable require-context-role }}
 
 <div class={{this.classNames}} ...attributes>
-  {{! Hds-TabList }}
   <div class="hds-tab-list hds-typography-body-200">
     <ul class="hds-tab-list__list" role="tablist">
       {{yield
@@ -13,13 +12,7 @@
 
   {{yield
     (hash
-      Panel=(component
-        "hds/tabs/panel"
-        didInsertNode=this.didInsertPanel
-        tabIds=this.tabIds
-        panelIds=this.panelIds
-        panelNodes=this.panelNodes
-      )
+      Panel=(component "hds/tabs/panel" didInsertNode=this.didInsertPanel tabIds=this.tabIds panelIds=this.panelIds)
     )
   }}
 </div>

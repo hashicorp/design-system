@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-// import { A } from '@ember/array';
+import { A } from '@ember/array';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
@@ -10,6 +10,14 @@ export default class HdsTabsIndexComponent extends Component {
    * @param tabId
    */
   tabId = 'tab-' + guidFor(this);
+
+  get nodeIndex() {
+    return A(this.args.tabIds).indexOf(this.tabId);
+  }
+
+  get panelId() {
+    return A(this.args.panelIds)[this.nodeIndex];
+  }
 
   @action
   didInsertNode(element) {
