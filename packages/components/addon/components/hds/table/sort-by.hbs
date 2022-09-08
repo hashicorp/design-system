@@ -15,6 +15,8 @@
       <FlightIcon @name="arrow-down" />
     {{else if (and this.isActive (not this.sortDescending))}}
       <FlightIcon @name="arrow-up" />
+    {{else}}
+      <FlightIcon @name="swap-vertical" />
     {{/if}}
   </LinkTo>
 </th>
