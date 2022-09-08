@@ -15,10 +15,6 @@
   be able to migrate to this component with little to no difficulty. Additionally, the data-test attributes have been
   left "as is" to avoid breaking your existing tests.
 </p>
-{{! ADD YOUR CONTENT BELOW }}
-{{! Please follow as much as possible what it's already done in other components. }}
-{{! You can start by copy&pasting it, if you want, and then adapt it according to your needs. }}
-{{! Once done, please remove these comments (they're created by the generator). }}
 <section>
   <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
@@ -177,37 +173,6 @@ export default class ComponentsTableRoute extends Route {
   </:body>
 </Hds::Table>'
   />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">
-    While your own approach may vary, here's the controller that implements the sorting actions for the table on this
-    page::
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-trailing-spaces }}
-  <CodeBlock
-    @language="javascript"
-    @code="import Controller from'@ember/controller';
-import { action } from'@ember/object';
-import { tracked } from'@glimmer/tracking';
-
-export default class TableController extends Controller {
-  @tracked sort ='year';
-  @tracked sortDirection ='asc';
-
-  @action
-  onSort(column) {
-    if (this.sort === column) {
-      this.sortDirection = this.sortDirection ==='asc' ?'desc' :'asc';
-    } else {
-      this.sort = column;
-      this.sortDirection ='asc';
-    }
-  }
-}"
-  />
-  {{! template-lint-enable no-trailing-spaces }}
-  {{! prettier-ignore-end }}
 </section>
 <section>
   <h3 class="dummy-h3" id="design-guidelines">
