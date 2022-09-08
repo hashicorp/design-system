@@ -67,7 +67,7 @@ $hds-tag-border-radius: 50px;
   }
 
   &:active,
-  &.mock-active{
+  &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
   }
 
@@ -90,7 +90,7 @@ $hds-tag-border-radius: 50px;
     }
 
     &:active,
-    &.mock-active{
+    &.mock-active {
       color: var(--token-color-foreground-action-active);
     }
   }

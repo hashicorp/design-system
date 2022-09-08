@@ -4,10 +4,10 @@
 // properties within each class are sorted alphabetically
 //
 
-@use 'sass:math';
+@use "sass:math";
 
-$hds-badge-count-types: ( 'flat','inverted','outlined' );
-$hds-badge-count-sizes: ( 'small', 'medium', 'large' );
+$hds-badge-count-types: ( "flat","inverted","outlined" );
+$hds-badge-count-sizes: ( "small", "medium", "large" );
 $hds-badge-count-border-width: 1px;
 
 
@@ -27,14 +27,14 @@ $size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px
     "height": 1.25rem,
-    "line-height": 1.23077, // 16px
+    "line-height": 1.2308, // 16px
     "padding-vertical": 0.125rem,
     "padding-horizontal": 0.5rem,
   ),
   "medium": (
     "font-size": 0.8125rem, // 13px
     "height": 1.5rem,
-    "line-height": 1.23077, // 16px
+    "line-height": 1.2308, // 16px
     "padding-vertical": 0.25rem,
     "padding-horizontal": 0.75rem,
   ),

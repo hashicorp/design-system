@@ -29,6 +29,7 @@
     border-color: var(--token-form-control-base-border-color-default);
     box-shadow: var(--hds-elevation-inset-box-shadow);
   }
+
   &:checked {
     background-color: var(--token-form-control-checked-surface-color-default);
     border-color: var(--token-form-control-checked-border-color-default);
@@ -42,6 +43,7 @@
     background-color: var(--token-form-control-base-surface-color-hover);
     border-color: var(--token-form-control-base-border-color-hover);
   }
+
   &:hover:checked,
   &.mock-hover:checked {
     background-color: var(--token-form-control-checked-border-color-default);
@@ -64,6 +66,7 @@
     box-shadow: none;
     cursor: not-allowed;
   }
+
   &:disabled:checked {
     background-color: var(--token-form-control-disabled-surface-color);
     border-color: var(--token-form-control-disabled-border-color);

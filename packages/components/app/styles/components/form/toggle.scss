@@ -68,7 +68,7 @@
     border: var(--token-form-radio-border-width) solid var(--border-color);
     width: var(--token-form-toggle-thumb-size);
     height: var(--token-form-toggle-thumb-size);
-    content: '';
+    content: "";
     left: calc(var(--token-form-radio-border-width) * -1);
     position: absolute;
     transform: translate3d(0, 0, 0);
@@ -107,6 +107,7 @@
     --border-color: var(--token-form-control-base-border-color-default);
     background-color: var(--token-form-toggle-base-surface-color-default); // this is specific for "toggle", is not like the other controls!
   }
+
   :checked + & {
     --border-color: var(--token-form-control-checked-border-color-default);
     background-color: var(--token-form-control-checked-surface-color-default);
@@ -123,6 +124,7 @@
   .mock-hover:not(:checked) + & {
     --border-color: var(--token-form-control-base-border-color-hover);
   }
+
   :hover:checked + &,
   .mock-hover:checked + & {
     --border-color: var(--token-form-control-checked-border-color-hover);

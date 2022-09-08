@@ -15,9 +15,10 @@ $hds-stepper-indicator-step-size: 24px;
 }
 
 .hds-stepper-indicator-step__svg-hexagon {
-  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 0.05));
+  filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 5%));
   height: 100%;
   width: 100%;
+
   path {
     fill: --status-fill-color;
     stroke: --status-stroke-color;
@@ -87,6 +88,7 @@ $non-interactive-props: (
     .hds-stepper-indicator-step__status {
       color: map-get($non-interactive-props, $status, "text-color");
     }
+
     .hds-stepper-indicator-step__svg-hexagon path {
       fill: map-get($non-interactive-props, $status, "fill-color");
       stroke: map-get($non-interactive-props, $status, "stroke-color");
@@ -145,6 +147,7 @@ $status-props: (
       .hds-stepper-indicator-step__status {
         color: map-get($status-props, $status, "text-color-default");
       }
+
       .hds-stepper-indicator-step__svg-hexagon path {
         fill: map-get($status-props, $status, "fill-color-default");
         stroke: map-get($status-props, $status, "stroke-color-default");
@@ -155,6 +158,7 @@ $status-props: (
         .hds-stepper-indicator-step__status {
           color: map-get($status-props, $status, "text-color-hover");
         }
+
         .hds-stepper-indicator-step__svg-hexagon {
           path {
             fill: map-get($status-props, $status, "fill-color-hover");
@@ -168,6 +172,7 @@ $status-props: (
         .hds-stepper-indicator-step__status {
           color: map-get($status-props, $status, "text-color-active");
         }
+
         .hds-stepper-indicator-step__svg-hexagon {
           path {
             fill: map-get($status-props, $status, "fill-color-active");

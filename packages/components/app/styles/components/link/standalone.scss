@@ -8,7 +8,7 @@
 
 @use "../../mixins/focus-ring" as *;
 
-$hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
+$hds-link-standalone-sizes: ( "small", "medium", "large" );
 $hds-link-standalone-focus-border-radius: 5px;
 $hds-link-standalone-border-width: 1px;
 
@@ -63,7 +63,6 @@ $size-props: (
 
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
-
     .hds-link-standalone__icon {
       height: map-get($size-props, $size, "icon-size");
       width: map-get($size-props, $size, "icon-size");

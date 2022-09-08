@@ -6,7 +6,7 @@
 //
 //
 
-$hds-button-sizes: ( 'small', 'medium', 'large' );
+$hds-button-sizes: ( "small", "medium", "large" );
 $hds-button-border-radius: 5px;
 $hds-button-border-width: 1px;
 $hds-button-focus-border-width: 3px;
@@ -76,7 +76,7 @@ $hds-button-focus-border-width: 3px;
       border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
       border: $hds-button-focus-border-width solid transparent;
       bottom: -$shift;
-      content: '';
+      content: "";
       left: -$shift;
       position: absolute;
       right: -$shift;
@@ -166,6 +166,7 @@ $size-props: (
     background-color: var(--token-color-palette-blue-200);
     border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-high-contrast);
+
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
@@ -186,6 +187,7 @@ $size-props: (
     border-color: var(--token-color-palette-blue-400);
     box-shadow: none;
     color: var(--token-color-foreground-high-contrast);
+
     &::before {
       border-color: transparent;
     }
@@ -211,6 +213,7 @@ $size-props: (
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-primary);
+
     &::before {
       border-color: var(--token-color-focus-action-external);
     }
@@ -222,6 +225,7 @@ $size-props: (
     border-color: var(--token-color-border-strong);
     box-shadow: none;
     color: var(--token-color-foreground-primary);
+
     &::before {
       border-color: transparent;
     }
@@ -245,6 +249,7 @@ $size-props: (
   &.mock-focus {
     border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-action);
+
     &::before {
       border-color: var(--token-color-focus-action-external);
     }
@@ -256,6 +261,7 @@ $size-props: (
     border-color: var(--token-color-border-strong);
     box-shadow: none;
     color: var(--token-color-foreground-action-active);
+
     &::before {
       border-color: transparent;
     }
@@ -303,6 +309,7 @@ $size-props: (
     background-color: var(--token-color-surface-critical);
     border-color: var(--token-color-focus-critical-internal);
     color: var(--token-color-foreground-critical-on-surface);
+
     &::before {
       border-color: var(--token-color-focus-critical-external);
     }
@@ -314,6 +321,7 @@ $size-props: (
     border-color: var(--token-color-palette-red-400);
     box-shadow: none;
     color: var(--token-color-foreground-high-contrast);
+
     &::before {
       border-color: transparent;
     }
