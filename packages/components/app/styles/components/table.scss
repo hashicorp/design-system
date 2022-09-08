@@ -30,7 +30,7 @@
     &.text-right { // for num support
       text-align: right;
     }
-    a { // might refactor this to a button TBH
+    a { // will refactor this to a button. Use Hds::Button?
       align-items: center;
       border: 3px solid transparent;
       color: var(--token-color-foreground-strong);
