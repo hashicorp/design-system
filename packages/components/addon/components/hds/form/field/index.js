@@ -37,7 +37,7 @@ export default class HdsFormFieldIndexComponent extends Component {
     assert(
       `@type for "Hds::Form::Field" must be one of the following: ${LAYOUT_TYPES.join(
         ', '
-      )}, received: ${layout}`,
+      )}; received: ${layout}`,
       LAYOUT_TYPES.includes(layout)
     );
 

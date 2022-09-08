@@ -23,7 +23,7 @@ export default class HdsStepperIndicatorTaskIndexComponent extends Component {
     assert(
       `@status for "Hds::Stepper::Task::Indicator" must be one of the following: ${STATUSES.join(
         ', '
-      )}, received: ${status}`,
+      )}; received: ${status}`,
       STATUSES.includes(status)
     );
 
