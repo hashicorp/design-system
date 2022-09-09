@@ -6,10 +6,11 @@
     role="tab"
     href={{concat "#" this.panelId}}
     id={{this.tabId}}
-    {{! aria-selected="true"  TODO: Set by arg: "isSelected" }}
-    {{! tabindex="-1"  TODO: Set if not aria-selected ("isSelected") }}
-    ...attributes
+    aria-selected={{if this.isSelected "true" "false"}}
+    tabindex={{unless this.isSelected "-1"}}
     {{did-insert this.didInsertNode}}
+    {{on "click" this.onClick}}
+    ...attributes
   >
     {{yield}}
   </a>

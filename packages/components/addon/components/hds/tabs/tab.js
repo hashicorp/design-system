@@ -19,12 +19,19 @@ export default class HdsTabsIndexComponent extends Component {
     return A(this.args.panelIds)[this.nodeIndex];
   }
 
+  get isSelected() {
+    return this.nodeIndex === this.args.selectedIndex;
+  }
+
   @action
   didInsertNode(element) {
     this.elementId = element.id;
-    if (typeof this.args.didInsertNode === 'function') {
-      this.args.didInsertNode(this.elementId, ...arguments);
-    }
+    this.args.didInsertNode(this.elementId, ...arguments);
+  }
+
+  @action
+  onClick() {
+    this.args.onClick(this.nodeIndex, ...arguments);
   }
 
   /**

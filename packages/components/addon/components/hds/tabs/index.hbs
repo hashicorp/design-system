@@ -5,14 +5,29 @@
   <div class="hds-tab-list hds-typography-body-200">
     <ul class="hds-tab-list__list" role="tablist">
       {{yield
-        (hash Tab=(component "hds/tabs/tab" didInsertNode=this.didInsertTab panelIds=this.panelIds tabIds=this.tabIds))
+        (hash
+          Tab=(component
+            "hds/tabs/tab"
+            didInsertNode=this.didInsertTab
+            onClick=this.handleClick
+            panelIds=this.panelIds
+            tabIds=this.tabIds
+            selectedIndex=this.selectedIndex
+          )
+        )
       }}
     </ul>
   </div>
 
   {{yield
     (hash
-      Panel=(component "hds/tabs/panel" didInsertNode=this.didInsertPanel tabIds=this.tabIds panelIds=this.panelIds)
+      Panel=(component
+        "hds/tabs/panel"
+        didInsertNode=this.didInsertPanel
+        tabIds=this.tabIds
+        panelIds=this.panelIds
+        selectedIndex=this.selectedIndex
+      )
     )
   }}
 </div>

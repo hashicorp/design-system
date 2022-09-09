@@ -14,6 +14,7 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked tabIds = A([]);
   @tracked panelNodes = A([]);
   @tracked panelIds = A([]);
+  @tracked selectedIndex = 0; // isSelected, 0 = default
 
   @action
   didInsertTab(tabId, element) {
@@ -25,6 +26,15 @@ export default class HdsTabsIndexComponent extends Component {
   didInsertPanel(panelId, element) {
     this.panelNodes = A([...this.panelNodes, element]);
     this.panelIds = A([...this.panelIds, panelId]);
+  }
+
+  @action
+  handleClick(index, e) {
+    this.setSelected(index, e);
+  }
+
+  setSelected(index) {
+    this.selectedIndex = index;
   }
 
   /**

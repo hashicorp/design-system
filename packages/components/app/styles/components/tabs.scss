@@ -57,9 +57,3 @@ $indicator-height: 3px;
     }
   }
 }
-
-.hds-tabs__panel {
-  &:not(:target) {
-    display: none;
-  }
-}
