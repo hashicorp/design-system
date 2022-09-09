@@ -5,7 +5,8 @@ module.exports = function (environment) {
     modulePrefix: 'dummy',
     environment,
     rootURL: '/',
-    locationType: 'history',
+    locationType: 'trailing-history',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,7 +22,13 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    emberTryScenario: process.env.EMBER_TRY_SCENARIO,
+
+    'field-guide': {
+      name: 'HashiCorp Design System',
+      copyright: 'HashiCorp 2022 ©',
+    },
+
+    historySupportMiddleware: true,
   };
 
   if (environment === 'development') {
