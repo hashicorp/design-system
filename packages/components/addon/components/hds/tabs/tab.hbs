@@ -10,6 +10,7 @@
     tabindex={{unless this.isSelected "-1"}}
     {{did-insert this.didInsertNode}}
     {{on "click" this.onClick}}
+    {{on "keyup" this.onKeyUp}}
     ...attributes
   >
     {{yield}}

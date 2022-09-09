@@ -34,6 +34,11 @@ export default class HdsTabsIndexComponent extends Component {
     this.args.onClick(this.nodeIndex, ...arguments);
   }
 
+  @action
+  onKeyUp() {
+    this.args.onKeyUp(this.nodeIndex, ...arguments);
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames
