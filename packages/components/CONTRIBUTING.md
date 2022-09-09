@@ -11,6 +11,15 @@
 * `yarn run lint`
 * `yarn run lint:fix`
 
+## Stylelinting
+
+* `yarn run lint:css`
+* `yarn run lint:css:fix`
+
+Notice: to have VSCode autofix the code on save, you have to:
+- install the [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+- in either the user or workspace settings add the entry `"source.fixAll.stylelint": true` to the `editor.codeActionsOnSave` option
+
 ## Running tests
 
 * `ember test` – Runs the test suite on the current Ember version
