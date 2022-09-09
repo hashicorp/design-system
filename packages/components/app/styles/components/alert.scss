@@ -8,8 +8,8 @@
 @use "../mixins/focus-ring" as *;
 
 .hds-alert {
-  display: flex;
   align-items: flex-start;
+  display: flex;
 }
 
 // ICON
