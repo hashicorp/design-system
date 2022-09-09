@@ -33,7 +33,8 @@ export default class HdsTabsIndexComponent extends Component {
     this.setSelected(index, e);
   }
 
-  setSelected(index) {
+  setSelected(index, e) {
+    e.preventDefault();
     this.selectedIndex = index;
   }
 
