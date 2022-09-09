@@ -6,24 +6,24 @@
 //
 //
 
-$hds-button-sizes: ( 'small', 'medium', 'large' );
+$hds-button-sizes: ( "small", "medium", "large" );
 $hds-button-border-radius: 5px;
 $hds-button-border-width: 1px;
 $hds-button-focus-border-width: 3px;
 
 
 .hds-button {
+  position: relative;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: auto;
+  font-family: var(--token-typography-font-stack-text);
   border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-button-border-radius;
-  display: flex;
-  font-family: var(--token-typography-font-stack-text);
-  isolation: isolate;
-  justify-content: center;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
-  position: relative;
-  width: auto;
+  isolation: isolate;
 
   // the <a> element behaves differently than a <button>
   @at-root a#{&} {
@@ -45,10 +45,10 @@ $hds-button-focus-border-width: 3px;
   &:disabled:hover,
   &[disabled]:hover,
   &.mock-disabled:hover {
+    color: var(--token-color-foreground-disabled);
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
-    color: var(--token-color-foreground-disabled);
     cursor: not-allowed;
 
     &::before {
@@ -73,15 +73,15 @@ $hds-button-focus-border-width: 3px;
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
       $shift: $hds-button-border-width + $hds-button-focus-border-width;
-      border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
-      border: $hds-button-focus-border-width solid transparent;
-      bottom: -$shift;
-      content: '';
-      left: -$shift;
       position: absolute;
-      right: -$shift;
       top: -$shift;
+      right: -$shift;
+      bottom: -$shift;
+      left: -$shift;
       z-index: -1;
+      border: $hds-button-focus-border-width solid transparent;
+      border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
+      content: "";
     }
   }
 }
@@ -132,8 +132,8 @@ $size-props: (
     padding: map-get($size-props, $size, "padding");
 
     .hds-button__icon {
-      height: map-get($size-props, $size, "icon-size");
       width: map-get($size-props, $size, "icon-size");
+      height: map-get($size-props, $size, "icon-size");
     }
 
     .hds-button__text {
@@ -148,44 +148,46 @@ $size-props: (
 // Note: the order of the pseuo-selectors need to stay the way they are; it doesn't match the Figma file but it's the correct order for browsers to render the styles correctly.
 
 .hds-button--color-primary {
+  color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-blue-200);
   border-color: var(--token-color-palette-blue-300);
   box-shadow: var(--token-elevation-low-box-shadow);
-  color: var(--token-color-foreground-high-contrast);
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-blue-300);
     border-color: var(--token-color-palette-blue-400);
-    color: var(--token-color-foreground-high-contrast);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
+    color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-blue-200);
     border-color: var(--token-color-focus-action-internal);
-    color: var(--token-color-foreground-high-contrast);
+
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
       // plus for the primary button we want to have a 2px gap between the button and the focus
       $shift: $hds-button-border-width + $hds-button-focus-border-width + 2px;
-      border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
-      border-color: var(--token-color-focus-action-external);
+      top: -$shift;
+      right: -$shift;
       bottom: -$shift;
       left: -$shift;
-      right: -$shift;
-      top: -$shift;
+      border-color: var(--token-color-focus-action-external);
+      border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
     }
   }
 
   &:active,
   &.mock-active {
+    color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-blue-400);
     border-color: var(--token-color-palette-blue-400);
     box-shadow: none;
-    color: var(--token-color-foreground-high-contrast);
+
     &::before {
       border-color: transparent;
     }
@@ -193,24 +195,25 @@ $size-props: (
 }
 
 .hds-button--color-secondary {
+  color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-border-strong);
   box-shadow: var(--token-elevation-low-box-shadow);
-  color: var(--token-color-foreground-primary);
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-primary);
     border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-primary);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
+    color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-faint);
     border-color: var(--token-color-focus-action-internal);
-    color: var(--token-color-foreground-primary);
+
     &::before {
       border-color: var(--token-color-focus-action-external);
     }
@@ -218,10 +221,11 @@ $size-props: (
 
   &:active,
   &.mock-active {
+    color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
     box-shadow: none;
-    color: var(--token-color-foreground-primary);
+
     &::before {
       border-color: transparent;
     }
@@ -229,22 +233,23 @@ $size-props: (
 }
 
 .hds-button--color-tertiary {
+  color: var(--token-color-foreground-action);
   background-color: transparent;
   border-color: transparent;
-  color: var(--token-color-foreground-action);
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
     background-color: var(--token-color-surface-primary);
     border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-action-hover);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
-    border-color: var(--token-color-focus-action-internal);
     color: var(--token-color-foreground-action);
+    border-color: var(--token-color-focus-action-internal);
+
     &::before {
       border-color: var(--token-color-focus-action-external);
     }
@@ -252,10 +257,11 @@ $size-props: (
 
   &:active,
   &.mock-active {
+    color: var(--token-color-foreground-action-active);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
     box-shadow: none;
-    color: var(--token-color-foreground-action-active);
+
     &::before {
       border-color: transparent;
     }
@@ -285,24 +291,25 @@ $size-props: (
 }
 
 .hds-button--color-critical {
+  color: var(--token-color-foreground-critical-on-surface);
   background-color: var(--token-color-surface-critical);
   border-color: var(--token-color-foreground-critical-on-surface);
   box-shadow: var(--token-elevation-low-box-shadow);
-  color: var(--token-color-foreground-critical-on-surface);
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-red-300);
     border-color: var(--token-color-palette-red-400);
-    color: var(--token-color-foreground-high-contrast);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
+    color: var(--token-color-foreground-critical-on-surface);
     background-color: var(--token-color-surface-critical);
     border-color: var(--token-color-focus-critical-internal);
-    color: var(--token-color-foreground-critical-on-surface);
+
     &::before {
       border-color: var(--token-color-focus-critical-external);
     }
@@ -310,10 +317,11 @@ $size-props: (
 
   &:active,
   &.mock-active {
+    color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-red-400);
     border-color: var(--token-color-palette-red-400);
     box-shadow: none;
-    color: var(--token-color-foreground-high-contrast);
+
     &::before {
       border-color: transparent;
     }
@@ -326,8 +334,8 @@ $size-props: (
 // we apply a visual treatment to alert the developer if a "href" HTML attribute is used (instead of the "@href" Ember argument)
 
 button.hds-button[href] {
-  background-color: red !important;
   color: white !important;
+  background-color: red !important;
   border: none;
 
   .hds-button__text,

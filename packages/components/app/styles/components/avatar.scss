@@ -5,17 +5,17 @@
 //
 
 .hds-avatar {
-  align-items: center;
-  box-sizing: border-box;
   display: inline-flex;
-  height: 32px;
+  align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 32px;
+  height: 32px;
 
   img {
-    border-radius: 2px;
-    height: inherit;
     width: inherit;
+    height: inherit;
+    border-radius: 2px;
   }
 
   svg {

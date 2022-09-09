@@ -6,14 +6,14 @@
 //
 
 
-$hds-card-container-style: ( 'surface', 'elevation' );
-$hds-card-container-levels: ( 'base', 'mid', 'high' );
+$hds-card-container-style: ( "surface", "elevation" );
+$hds-card-container-levels: ( "base", "mid", "high" );
 $hds-card-container-border-radius: 6px;
 
 .hds-card__container {
+  position: relative;
   background-color: #fff;
   border-radius: $hds-card-container-border-radius;
-  position: relative;
 }
 
 // LEVEL (elevation style as "drop" + "border" shadow effects)

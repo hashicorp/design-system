@@ -21,9 +21,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 .hds-breadcrumb__list {
   display: flex;
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 
   .hds-breadcrumb--items-can-wrap & {
     flex-wrap: wrap;
@@ -31,25 +31,25 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 }
 
 .hds-breadcrumb__sublist {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 // ITEM (LI)
 
 .hds-breadcrumb__item {
-  align-items: center;
+  position: relative;
   display: flex;
   flex-direction: row;
+  align-items: center;
   min-width: 0;
-  position: relative;
 
   .hds-breadcrumb__list > & {
     &:not(:last-child)::after {
+      padding: 0 8px;
       color: var(--token-color-palette-neutral-300);
       content: "/";
-      padding: 0 8px;
     }
   }
 
@@ -65,14 +65,14 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 // LINK (A)
 
 .hds-breadcrumb__link {
-  align-items: center;
-  border-radius: $hds-breadcrumb-item-border-radius;
-  color: var(--token-color-foreground-faint);
   display: flex;
   flex-direction: row;
-  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
+  align-items: center;
   min-width: 0;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
+  color: var(--token-color-foreground-faint);
+  border-radius: $hds-breadcrumb-item-border-radius;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
 
@@ -101,35 +101,35 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 // CURRENT
 
 .hds-breadcrumb__current {
-  align-items: center;
-  color: var(--token-color-foreground-strong);
   display: flex;
   flex-direction: row;
-  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
+  align-items: center;
   min-width: 0;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
+  color: var(--token-color-foreground-strong);
 }
 
 // SUB-ELEMENTS
 
 .hds-breadcrumb__icon {
   flex: none;
-  margin-right: 6px;
-  height: 13px;
   width: 13px;
+  height: 13px;
+  margin-right: 6px;
 }
 
 .hds-breadcrumb__text {
-  font-family: var(--token-typography-font-stack-text);
-  font-size: 0.8125rem; // 13px
-  line-height: 1rem; // 16px
-  overflow: hidden;
   // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
   padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.8125rem; // 13px
+  font-family: var(--token-typography-font-stack-text);
+  line-height: 1rem; // 16px
   white-space: nowrap;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  text-decoration-color: transparent;
 
   .hds-breadcrumb__sublist & {
     white-space: normal;
@@ -139,25 +139,25 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 // TRUNCATION
 
 .hds-breadcrumb__truncation-toggle {
+  display: flex;
+  flex: none;
   align-items: center;
+  justify-content: center;
+  width: $hds-breadcrumb-item-height;
+  height: $hds-breadcrumb-item-height;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
+  padding: 0;
+  color: var(--token-color-foreground-faint);
   background-color: transparent;
   border: 1px solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-breadcrumb-item-border-radius;
-  color: var(--token-color-foreground-faint);
-  cursor: pointer;
-  display: flex;
-  flex: none;
-  height: $hds-breadcrumb-item-height;
-  justify-content: center;
-  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
   outline: none; // TODO check with @melanie
-  padding: 0;
-  width: $hds-breadcrumb-item-height;
+  cursor: pointer;
 
   &:hover,
   &.mock-hover {
-    border-color: var(--token-color-border-strong);
     color: var(--token-color-foreground-faint);
+    border-color: var(--token-color-border-strong);
   }
 
   // we apply the focus directly to the element, without using a pseudo-element
@@ -171,22 +171,22 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:active,
   &.mock-active {
+    color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
-    color: var(--token-color-foreground-primary);
   }
 }
 
 .hds-breadcrumb__truncation-content {
+  position: absolute;
+  top: 100%;
+  left: -$hds-breadcrumb-item-visual-horizontal-padding;
+  z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
+  width: max-content;
+  max-width: 200px; // by design
+  margin-top: 4px;
+  padding: 6px 12px;
   background-color: var(--token-color-surface-primary);
   border-radius: 6px;
   box-shadow: var(--token-surface-high-box-shadow);
-  left: -$hds-breadcrumb-item-visual-horizontal-padding;
-  margin-top: 4px;
-  max-width: 200px; // by design
-  padding: 6px 12px;
-  position: absolute;
-  top: 100%;
-  width: max-content;
-  z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
 }
