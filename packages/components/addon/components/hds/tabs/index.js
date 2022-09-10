@@ -56,7 +56,6 @@ export default class HdsTabsIndexComponent extends Component {
   setSelected(index, e) {
     e.preventDefault();
     this.selectedIndex = index;
-    this.focus = e.type === 'keyup';
     this.tabNodes[index].focus();
   }
 
