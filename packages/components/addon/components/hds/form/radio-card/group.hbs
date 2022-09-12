@@ -1,0 +1,27 @@
+<Hds::Form::Fieldset
+  class="hds-form-group__radio-cards"
+  @layout="horizontal"
+  @name={{@name}}
+  @isRequired={{@isRequired}}
+  @isOptional={{@isOptional}}
+  ...attributes
+  as |F|
+>
+  {{! Notice: the order of the elements is not relevant here, because it's controlled at "Hds::Form::Fieldset" component level }}
+  {{yield (hash Legend=F.Legend isRequired=F.isRequired isOptional=F.isOptional)}}
+  {{yield (hash HelperText=F.HelperText Error=F.Error)}}
+  <F.Control>
+    {{yield
+      (hash
+        RadioCard=(component
+          "hds/form/radio-card"
+          contextualClass="hds-form-group__control-field"
+          name=@name
+          align=@align
+          controlPosition=@controlPosition
+          extraAriaDescribedBy=F.ariaDescribedBy
+        )
+      )
+    }}
+  </F.Control>
+</Hds::Form::Fieldset>
