@@ -21,8 +21,8 @@ $indicator-height: 3px;
 .hds-tab-list__list {
   padding: 0;
   list-style: none;
-  border-bottom: 1px solid var(--token-color-border-primary);
   display: flex;
+  border-bottom: 1px solid var(--token-color-border-primary);
   margin: 0;
 }
 
@@ -49,8 +49,8 @@ $indicator-height: 3px;
     @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
     color: var(--token-color-foreground-primary);
     text-decoration: none;
-    border-radius: var(--token-form-control-border-radius);
     display: block;
+    border-radius: var(--token-form-control-border-radius);
     padding: 8px 12px;
 
     &:hover {
