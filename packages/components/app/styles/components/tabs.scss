@@ -19,12 +19,11 @@ $indicator-height: 3px;
 
 // (Note: may rename later, this part of structure could still be changed as things evolve)
 .hds-tab-list__list {
-  padding: 0;
   display: flex;
-  list-style: none;
+  padding: 0;
   margin: 0;
+  list-style: none;
   border-bottom: 1px solid var(--token-color-border-primary);
-  
 }
 
 .hds-tabs__tab {
@@ -48,10 +47,10 @@ $indicator-height: 3px;
 
   a {
     @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
-    color: var(--token-color-foreground-primary);
     display: block;
-    text-decoration: none;
     padding: 8px 12px;
+    color: var(--token-color-foreground-primary);
+    text-decoration: none;
     border-radius: var(--token-form-control-border-radius);
 
     &:hover {
