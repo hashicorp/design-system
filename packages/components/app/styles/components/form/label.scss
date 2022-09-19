@@ -5,10 +5,10 @@
 //
 
 .hds-form-label {
-  color: var(--token-form-label-color);
   display: block;
-  max-width: 100%;
   width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
+  max-width: 100%;
+  color: var(--token-form-label-color);
 
   // if a "badge" element (included the 'required' indicator) is child of the label
   // we need to make sure that it correctly aligns with the label text because the

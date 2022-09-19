@@ -5,19 +5,19 @@
 //
 //
 
-$hds-badge-types: ( 'flat','inverted','outlined' );
-$hds-badge-colors-accents: ( 'highlight', 'success', 'warning', 'critical' );
-$hds-badge-sizes: ( 'small', 'medium', 'large' );
+$hds-badge-types: ( "flat","inverted","outlined" );
+$hds-badge-colors-accents: ( "highlight", "success", "warning", "critical" );
+$hds-badge-sizes: ( "small", "medium", "large" );
 $hds-badge-border-width: 1px;
 
 
 .hds-badge {
-  align-items: center;
-  border-radius: 5px;
-  border: $hds-badge-border-width solid transparent;
   display: inline-flex;
+  align-items: center;
   max-width: 100%;
   vertical-align: middle;
+  border: $hds-badge-border-width solid transparent;
+  border-radius: 5px;
 }
 
 .hds-badge__icon {
@@ -27,8 +27,8 @@ $hds-badge-border-width: 1px;
 
 .hds-badge__text {
   flex: 1 0 0;
-  font-family: var(--token-typography-font-stack-text);
   font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-font-stack-text);
 }
 
 
@@ -41,7 +41,7 @@ $size-props: (
     "gap": 0.25rem,
     "height": 1.25rem,
     "icon-size": 0.75rem,
-    "line-height": 1.23077, // 16px
+    "line-height": 1.2308, // 16px
     "padding-vertical": 0.125rem,
     "padding-horizontal": 0.375rem,
   ),
@@ -50,7 +50,7 @@ $size-props: (
     "gap": 0.25rem,
     "height": 1.5rem,
     "icon-size": 1rem,
-    "line-height": 1.23077, // 16px
+    "line-height": 1.2308, // 16px
     "padding-vertical": 0.25rem,
     "padding-horizontal": 0.5rem,
   ),
@@ -71,8 +71,8 @@ $size-props: (
     padding: calc(#{map-get($size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map-get($size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
 
     .hds-badge__icon {
-      height: map-get($size-props, $size, "icon-size");
       width: map-get($size-props, $size, "icon-size");
+      height: map-get($size-props, $size, "icon-size");
     }
 
     .hds-badge__text {
@@ -91,56 +91,56 @@ $size-props: (
 
 .hds-badge--color-neutral {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-surface-strong);
     color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-strong);
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-foreground-faint);
     color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-foreground-faint);
   }
 
   &.hds-badge--type-outlined {
+    color: var(--token-color-foreground-primary);
     background-color: transparent;
     border-color: var(--token-color-foreground-faint);
-    color: var(--token-color-foreground-primary);
   }
 }
 
 .hds-badge--color-neutral-dark-mode {
   &.hds-badge--type-filled {
-    background-color: var(--token-color-foreground-faint);
     color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-foreground-faint);
   }
 
   &.hds-badge--type-inverted {
-    background-color: var(--token-color-surface-faint);
     color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-faint);
   }
 
   &.hds-badge--type-outlined {
+    color: var(--token-color-foreground-high-contrast);
     background-color: transparent;
     border-color: var(--token-color-palette-neutral-100);
-    color: var(--token-color-foreground-high-contrast);
   }
 }
 
 @each $color in $hds-badge-colors-accents {
   .hds-badge--color-#{$color} {
     &.hds-badge--type-filled {
-      background-color: var(--token-color-surface-#{$color});
       color: var(--token-color-foreground-#{$color}-on-surface);
+      background-color: var(--token-color-surface-#{$color});
     }
 
     &.hds-badge--type-inverted {
-      background-color: var(--token-color-foreground-#{$color});
       color: var(--token-color-foreground-high-contrast);
+      background-color: var(--token-color-foreground-#{$color});
     }
 
     &.hds-badge--type-outlined {
+      color: var(--token-color-foreground-#{$color});
       background-color: transparent;
       border-color: currentColor;
-      color: var(--token-color-foreground-#{$color});
     }
   }
 }
