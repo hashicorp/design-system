@@ -20,8 +20,8 @@ $indicator-height: 3px;
 // (Note: may rename later, this part of structure could still be changed as things evolve)
 .hds-tab-list__list {
   display: flex;
-  padding: 0;
   margin: 0;
+  padding: 0;
   list-style: none;
   border-bottom: 1px solid var(--token-color-border-primary);
 }
