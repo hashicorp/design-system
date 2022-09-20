@@ -201,6 +201,17 @@
 
     <T.Panel>Content one</T.Panel>
     <T.Panel>Content 2</T.Panel>
-    <T.Panel>Content 3</T.Panel>
+    <T.Panel>Content 3!</T.Panel>
+  </Hds::Tabs>
+
+  <p class="dummy-paragraph"><strong>With custom isSelected value:</strong></p>
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab @isSelected="true">Three (I should be selected by default)</T.Tab>
+
+    <T.Panel>Content one</T.Panel>
+    <T.Panel>Content #2</T.Panel>
+    <T.Panel>Content #3: Show me first!</T.Panel>
   </Hds::Tabs>
 </section>
