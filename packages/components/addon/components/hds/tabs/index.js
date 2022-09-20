@@ -41,8 +41,7 @@ export default class HdsTabsIndexComponent extends Component {
   handleKeyUp(index, e) {
     const leftArrow = 37;
     const rightArrow = 39;
-    // const downArrow = 40;
-    // const upArrow = 38;
+    const downArrow = 40;
 
     if (e.keyCode === rightArrow) {
       if (index < this.tabIds.length - 1) {
@@ -54,6 +53,9 @@ export default class HdsTabsIndexComponent extends Component {
         index--;
         this.setSelected(index, e);
       }
+    } else if (e.keyCode === downArrow) {
+      e.preventDefault();
+      this.setSelectedPanelFocus(index, e);
     }
   }
 
@@ -66,6 +68,10 @@ export default class HdsTabsIndexComponent extends Component {
   setSelectedTabIndex(index) {
     this.selectedIndex = index;
     this.tabNodes[index].focus();
+  }
+
+  setSelectedPanelFocus(index) {
+    this.panelNodes[index].focus();
   }
 
   /**
