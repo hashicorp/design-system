@@ -48,8 +48,9 @@ export default class HdsTabsIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-tabs__tab'];
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-tabs--[variant]-${this.xxx}`);
+    if (this.isSelected) {
+      classes.push(`hds-tabs__tab--is-current`);
+    }
 
     return classes.join(' ');
   }
