@@ -77,15 +77,17 @@
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Card::Container @level="mid" @hasBorder="true">[Your content here]</Hds::Card::Container>
+      <Hds::Card::Container @level="mid" @hasBorder=\{{true}}>[Your content here]</Hds::Card::Container>
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Card::Container @level="mid" @hasBorder="true">[Your content here]</Hds::Card::Container>
+  <Hds::Card::Container @level="mid" @hasBorder={{true}}>[Your content here]</Hds::Card::Container>
   <p class="dummy-paragraph"><em>Notice: as you can see the layout of the card itself, and its content, is left to the
       consumer of the component. The
       <code class="dummy-code">Hds::Card::Container</code>
@@ -96,11 +98,12 @@
   </p>
   <p class="dummy-paragraph">In this example we apply custom classes to control the layout of the card and its content:</p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
       <div class="my-custom-class-to-set-the-card-layout">
-        <Hds::Card::Container @level="mid" @hasBorder="true">
+        <Hds::Card::Container @level="mid" @hasBorder=\{{true}}>
           <div class="my-custom-class-to-set-the-content-layout">
             [Your content here]
           </div>
@@ -108,11 +111,12 @@
       </div>
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <div class="dummy-card-how-to-custom-layout">
     <div class="my-custom-class-to-set-the-card-layout">
-      <Hds::Card::Container @level="mid" @hasBorder="true">
+      <Hds::Card::Container @level="mid" @hasBorder={{true}}>
         <div class="my-custom-class-to-set-the-content-layout">
           [Your content here]
         </div>
@@ -148,11 +152,12 @@
     <em>rest → hover → active</em>:
   </p>
   {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code='
       <div class="my-custom-class-to-set-the-card-layout">
-        <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder="true">
+        <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder=\{{true}}>
           <div class="my-custom-class-to-set-the-content-layout">
             [Your content here]
           </div>
@@ -160,11 +165,12 @@
       </div>
     '
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <div class="dummy-card-how-to-custom-layout">
     <div class="my-custom-class-to-set-the-card-layout">
-      <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder="true">
+      <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}}>
         <div class="my-custom-class-to-set-the-content-layout">
           [Your content here]
         </div>
