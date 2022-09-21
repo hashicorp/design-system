@@ -9,8 +9,8 @@ $indicator-height: 3px;
 // .hds-tabs {}
 
 // Sub-components:
-// NOTE: hds-tab-list is still part of parent component, may separate into child later as needed. Will consider re-naming class then
-.hds-tab-list {
+// NOTE: hds-tabs__tablist-wrapper is still part of parent component, may separate into child later as needed. Will consider re-naming class then
+.hds-tabs__tablist-wrapper {
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
@@ -18,7 +18,7 @@ $indicator-height: 3px;
 }
 
 // (Note: may rename later, this part of structure could still be changed as things evolve)
-.hds-tab-list__list {
+.hds-tabs__tablist {
   display: flex;
   margin: 0;
   padding: 0;

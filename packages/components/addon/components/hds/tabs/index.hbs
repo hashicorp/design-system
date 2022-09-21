@@ -2,8 +2,8 @@
 {{! template-lint-disable require-context-role }}
 
 <div class={{this.classNames}} ...attributes>
-  <div class="hds-tab-list">
-    <ul class="hds-tab-list__list" role="tablist">
+  <div class="hds-tabs__tablist-wrapper">
+    <ul class="hds-tabs__tablist" role="tablist">
       {{yield
         (hash
           Tab=(component
