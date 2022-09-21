@@ -15,6 +15,7 @@ export default class HdsTabsIndexComponent extends Component {
     this.tabNodes = A([...this.tabNodes, element]);
     this.tabIds = A([...this.tabIds, element.id]);
 
+    // Set a custom initially selected tab if provided:
     if (isSelected) {
       this.setSelectedTabIndex(this.tabIds.length - 1);
     }
@@ -28,7 +29,7 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   handleClick(index, e) {
-    this.setSelected(index, e);
+    this.selectTab(index, e);
   }
 
   @action
@@ -40,12 +41,12 @@ export default class HdsTabsIndexComponent extends Component {
     if (e.keyCode === rightArrow) {
       if (index < this.tabIds.length - 1) {
         index++;
-        this.setSelected(index, e);
+        this.selectTab(index, e);
       }
     } else if (e.keyCode === leftArrow) {
       if (index > 0) {
         index--;
-        this.setSelected(index, e);
+        this.selectTab(index, e);
       }
     } else if (e.keyCode === downArrow) {
       e.preventDefault();
@@ -53,14 +54,15 @@ export default class HdsTabsIndexComponent extends Component {
     }
   }
 
-  setSelected(index, e) {
-    e.preventDefault();
-    this.selectedIndex = index;
-    this.tabNodes[index].focus();
-  }
-
   setSelectedTabIndex(index) {
     this.selectedIndex = index;
+  }
+
+  // Select tab for keyboard & mouse navigation:
+  selectTab(index, e) {
+    e.preventDefault();
+    this.setSelectedTabIndex(index);
+    this.tabNodes[index].focus();
   }
 
   setSelectedPanelFocus(index) {
