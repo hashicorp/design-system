@@ -49,7 +49,7 @@ export default class HdsTabsIndexComponent extends Component {
     let classes = ['hds-tabs__tab'];
 
     if (this.isSelected) {
-      classes.push(`hds-tabs__tab--is-current`);
+      classes.push(`hds-tabs__tab--is-selected`);
     }
 
     return classes.join(' ');

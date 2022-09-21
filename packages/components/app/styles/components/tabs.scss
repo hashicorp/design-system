@@ -45,7 +45,7 @@ $indicator-height: 3px;
   }
   */
 
-  &.hds-tabs__tab--is-current > a {
+  &.hds-tabs__tab--is-selected > a {
     color: var(--token-color-foreground-action);
   }
 
