@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
 import { A } from '@ember/array';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
@@ -11,6 +12,7 @@ export default class HdsTabsIndexComponent extends Component {
    */
   tabId = 'tab-' + guidFor(this);
 
+  @cached
   get nodeIndex() {
     return A(this.args.tabIds).indexOf(this.tabId);
   }
