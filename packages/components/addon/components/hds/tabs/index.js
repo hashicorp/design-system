@@ -11,9 +11,9 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked selectedIndex = 0; // isSelected, 0 = default
 
   @action
-  didInsertTab(tabId, isSelected, element) {
+  didInsertTab(isSelected, element) {
     this.tabNodes = A([...this.tabNodes, element]);
-    this.tabIds = A([...this.tabIds, tabId]);
+    this.tabIds = A([...this.tabIds, element.id]);
 
     if (isSelected) {
       this.setSelectedTabIndex(this.tabIds.length - 1);

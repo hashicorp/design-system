@@ -25,9 +25,8 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   didInsertNode(element) {
-    this.elementId = element.id;
     let { isSelected } = this.args;
-    this.args.didInsertNode(this.elementId, isSelected, ...arguments);
+    this.args.didInsertNode(isSelected, ...arguments);
   }
 
   @action
