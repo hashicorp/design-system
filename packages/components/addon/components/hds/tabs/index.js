@@ -4,7 +4,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsTabsIndexComponent extends Component {
-
   @tracked tabNodes = A([]);
   @tracked tabIds = A([]);
   @tracked panelNodes = A([]);
@@ -62,7 +61,6 @@ export default class HdsTabsIndexComponent extends Component {
 
   setSelectedTabIndex(index) {
     this.selectedIndex = index;
-    this.tabNodes[index].focus();
   }
 
   setSelectedPanelFocus(index) {
