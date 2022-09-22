@@ -1,7 +1,6 @@
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/design-system-power-select-overrides";
-
-@import "./_layout.scss";
+@import "./_layout";
 @import "./_typography";
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
@@ -21,8 +20,8 @@
 @import "./pages/db-interactive";
 @import "./pages/db-link-inline";
 @import "./pages/db-link-standalone";
-@import "./pages/db-tabs";
 @import "./pages/db-power-select";
+@import "./pages/db-tabs";
 @import "./pages/db-tag";
 @import "./pages/db-toast";
 @import "./pages/db-tokens";
@@ -43,11 +42,11 @@
 @import "./components/dummy-link-cta-button-banner";
 @import "./components/dummy-placeholder";
 @import "./components/dummy-sidebar";
-@import "./components/dummy-stepper-indicator-banner.scss";
+@import "./components/dummy-stepper-indicator-banner";
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -56,17 +55,17 @@ html {
 }
 
 body.dummy-app {
-  background-color: #d9d9d9;
-  color: black;
-  padding: 0;
-  margin: 0;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: #d9d9d9;
 
   .dummy-header {
-    background-color: black;
+    padding: 0.75rem;
     color: white;
     text-align: center;
-    padding: 0.75rem;
+    background-color: black;
 
     .dummy-h1 {
       margin: 0 auto;
@@ -75,21 +74,21 @@ body.dummy-app {
   }
 
   .dummy-aside {
-    background-color: #fff;
     padding: 2rem 1rem;
+    background-color: #fff;
   }
 
   .dummy-main {
-    background-color: #fff;
     padding: 2rem;
+    background-color: #fff;
   }
 }
 
 .dummy-index {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   gap: 2rem;
+  justify-content: space-around;
 }
 
 .dummy-design-guidelines {
@@ -99,22 +98,23 @@ body.dummy-app {
 
   img {
     width: 1280px;
-    height: auto;
     max-width: 100%;
+    height: auto;
   }
 }
 
 .dummy-divider {
   margin: 2rem 0;
 }
+
 .dummy-demo-border {
   border: 1px solid red;
 }
 
 .dummy-example {
+  padding: 16px;
   border: 1px solid pink;
   border-radius: 4px;
-  padding: 16px;
 
   p {
     margin: 0;
@@ -122,18 +122,18 @@ body.dummy-app {
 }
 
 .dummy-code {
+  padding: 0 3px;
+  font-family: courier, monospace;
   background-color: #eee;
   border-radius: 3px;
-  font-family: courier, monospace;
-  padding: 0 3px;
 }
 
 .dummy-banner {
-  padding: 0.75rem 1.25rem;
   margin: 1rem auto;
+  padding: 0.75rem 1.25rem;
+  background-color: #e2e3e5;
   border: 1px solid #d6d8db;
   border-radius: 0.25rem;
-  background-color: #e2e3e5;
 
   :first-child {
     margin-top: 0;
@@ -162,10 +162,10 @@ body.dummy-app {
 
 .dummy-npm-version {
   @include dummyFontFamily();
-  color: #ccc;
   display: inline-flex;
-  font-size: 1rem;
   gap: 1rem;
+  color: #ccc;
+  font-size: 1rem;
   line-height: 1.2;
 }
 
