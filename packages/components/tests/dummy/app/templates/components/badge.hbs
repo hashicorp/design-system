@@ -13,7 +13,7 @@
     <li class="dummy-paragraph">for keyboard shortcut hints, such as “Esc”</li>
   </ul>
   <p class="dummy-paragraph"><em>Notice: for collection enumeration or version number, use
-      <a href="#bc-overview">BadgeCount</a>.</em></p>
+      <LinkTo @route="components.badge-count">BadgeCount</LinkTo>.</em></p>
 </section>
 
 <section>
@@ -100,6 +100,13 @@
   </div>
 </section>
 
+<section>
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
+    recommended, there should not be any accessibility issues with this component.
+  </p>
+</section>
+
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
   <h4 class="dummy-h4">Content</h4>
@@ -169,127 +176,6 @@
               @color={{color}}
               @isIconOnly={{true}}
             />
-          </div>
-        {{/each}}
-      {{/each}}
-    </div>
-  {{/each}}
-</section>
-
-{{! ###################### }}
-
-<hr class="dummy-divider" />
-
-<h2 class="dummy-h2">BadgeCount</h2>
-
-<section>
-  <h3 class="dummy-h3" id="bc-overview"><a href="#bc-overview" class="dummy-link-section">§</a> Overview</h3>
-  <p class="dummy-paragraph"><code class="dummy-code">BadgeCount</code>
-    is a numeric label used to display things like version number and collection enumeration in tabs.</p>
-  <p class="dummy-paragraph"><em>Notice: don’t use
-      <code class="dummy-code">BadgeCount</code>
-      for anything non-numeric, except version numbers (ie. “v1.2.0”).</em></p>
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="bc-component-api"><a href="#bc-component-api" class="dummy-link-section">§</a>
-    Component API</h3>
-  <p class="dummy-paragraph" id="component-api-badge-count">Here is the API for the component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-badge-count">
-    <dt>size <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>small</li>
-        <li class="default">medium</li>
-        <li>large</li>
-      </ol>
-    </dd>
-    <dt>type <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">filled</li>
-        <li>inverted</li>
-        <li>outlined</li>
-      </ol>
-    </dd>
-    <dt>color <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">neutral</li>
-        <li>neutral-dark-mode</li>
-      </ol>
-    </dd>
-    <dt>text <code>string</code></dt>
-    <dd>
-      <p>The text value that should go in the badge counter.</p>
-    </dd>
-    <dt>...attributes</dt>
-    <dd>
-      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-    </dd>
-  </dl>
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="bc-how-to-use"><a href="#bc-how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::BadgeCount @text="3" @size="large" @type="inverted" />
-    '
-  />
-  {{! prettier-ignore-end }}
-</section>
-<section>
-  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
-  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
-    recommended, there should not be any accessibility issues with this component.
-  </p>
-</section>
-
-<section data-test-percy>
-  <h3 class="dummy-h3" id="bc-showcase"><a href="#bc-showcase" class="dummy-link-section">§</a> Showcase</h3>
-
-  <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-badge-base-sample">
-    <Hds::BadgeCount @text="3" />
-    <Hds::BadgeCount @text="99+" />
-    <Hds::BadgeCount @text="v1.2.3" />
-  </div>
-  <div class="dummy-badge-base-sample">
-    <p>This is a paragraph: <Hds::BadgeCount @text="3" /></p>
-  </div>
-
-  <h4 class="dummy-h4">Size</h4>
-  <div class="dummy-badge-base-sample">
-    {{#each @model.BADGE_COUNT_SIZES as |size|}}
-      <Hds::BadgeCount @text={{capitalize size}} @size={{size}} />
-    {{/each}}
-  </div>
-
-  <h4 class="dummy-h4">Type</h4>
-  <div class="dummy-badge-base-sample">
-    {{#each @model.BADGE_COUNT_TYPES as |type|}}
-      <Hds::BadgeCount @text={{capitalize type}} @type={{type}} />
-    {{/each}}
-  </div>
-
-  <h4 class="dummy-h4">Color:</h4>
-  {{#each @model.BADGE_COUNT_COLORS as |color|}}
-    <p class="dummy-h6">{{capitalize color}}</p>
-    <div class="dummy-badge-color-grid">
-      {{#each @model.BADGE_COUNT_SIZES as |size|}}
-        {{#each @model.BADGE_COUNT_TYPES as |type|}}
-          <div
-            class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}}
-              dummy-badge-base-sample--color-{{color}}"
-          >
-            <Hds::BadgeCount @text="3" @size={{size}} @type={{type}} @color={{color}} />
           </div>
         {{/each}}
       {{/each}}

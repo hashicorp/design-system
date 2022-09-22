@@ -46,7 +46,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   // ASSERTIONS
 
   test('it should throw an assertion if @maxWidth is not in px/em', async function (assert) {
-    const errorMessage = `@maxWidth for "Hds::Breadcrumb::Item" must be a size as number in 'px' or in 'em' (eg. '200px' or '24em'), received: 123`;
+    const errorMessage = `@maxWidth for "Hds::Breadcrumb::Item" must be a size as number in 'px' or in 'em' (eg. '200px' or '24em'); received: 123`;
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

@@ -14,7 +14,7 @@ export default class HdsBreadcrumbItemComponent extends Component {
 
     if (maxWidth) {
       assert(
-        `@maxWidth for "Hds::Breadcrumb::Item" must be a size as number in 'px' or in 'em' (eg. '200px' or '24em'), received: ${maxWidth}`,
+        `@maxWidth for "Hds::Breadcrumb::Item" must be a size as number in 'px' or in 'em' (eg. '200px' or '24em'); received: ${maxWidth}`,
         maxWidth.match(/^\d+(px|em)$/)
       );
 

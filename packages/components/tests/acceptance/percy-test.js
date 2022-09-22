@@ -32,6 +32,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/badge');
     await percySnapshot('Badge');
 
+    await visit('components/badge-count');
+    await percySnapshot('BadgeCount');
+
     await visit('/components/breadcrumb');
     await percySnapshot('Breadcrumb');
 

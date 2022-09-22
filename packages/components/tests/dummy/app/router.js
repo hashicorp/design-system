@@ -18,6 +18,7 @@ Router.map(function () {
     this.route('alert');
     this.route('avatar');
     this.route('badge');
+    this.route('badge-count');
     this.route('breadcrumb');
     this.route('button');
     this.route('button-set');
@@ -49,5 +50,8 @@ Router.map(function () {
   this.route('utilities', function () {
     this.route('disclosure');
     this.route('interactive');
+  });
+  this.route('overrides', function () {
+    this.route('power-select');
   });
 });

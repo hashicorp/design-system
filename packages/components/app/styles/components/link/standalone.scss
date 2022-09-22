@@ -8,21 +8,21 @@
 
 @use "../../mixins/focus-ring" as *;
 
-$hds-link-standalone-sizes: ( 'small', 'medium', 'large' );
+$hds-link-standalone-sizes: ( "small", "medium", "large" );
 $hds-link-standalone-focus-border-radius: 5px;
 $hds-link-standalone-border-width: 1px;
 
 .hds-link-standalone {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-font-stack-text);
   background-color: transparent; // needs to exist for a11y
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
-  display: flex;
-  font-family: var(--token-typography-font-stack-text);
-  font-weight: var(--token-typography-font-weight-medium);
-  justify-content: center;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
-  width: fit-content;
 }
 
 .hds-link-standalone__text {
@@ -63,10 +63,9 @@ $size-props: (
 
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
-
     .hds-link-standalone__icon {
-      height: map-get($size-props, $size, "icon-size");
       width: map-get($size-props, $size, "icon-size");
+      height: map-get($size-props, $size, "icon-size");
     }
 
     .hds-link-standalone__text {

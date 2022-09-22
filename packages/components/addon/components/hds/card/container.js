@@ -23,7 +23,7 @@ export default class HdsCardContainerComponent extends Component {
     assert(
       `@level for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
         ', '
-      )}, received: ${level}`,
+      )}; received: ${level}`,
       LEVELS.includes(level)
     );
 
@@ -44,7 +44,7 @@ export default class HdsCardContainerComponent extends Component {
       assert(
         `@levelHover for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
           ', '
-        )}, received: ${levelHover}`,
+        )}; received: ${levelHover}`,
         LEVELS.includes(levelHover)
       );
     }
@@ -66,7 +66,7 @@ export default class HdsCardContainerComponent extends Component {
       assert(
         `@levelActive for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
           ', '
-        )}, received: ${levelActive}`,
+        )}; received: ${levelActive}`,
         LEVELS.includes(levelActive)
       );
     }
@@ -88,7 +88,7 @@ export default class HdsCardContainerComponent extends Component {
     assert(
       `@background for "Hds::Card::Container" must be one of the following: ${BACKGROUNDS.join(
         ', '
-      )}, received: ${background}`,
+      )}; received: ${background}`,
       BACKGROUNDS.includes(background)
     );
 
@@ -109,7 +109,7 @@ export default class HdsCardContainerComponent extends Component {
     assert(
       `@overflow for "Hds::Card::Container" must be one of the following: ${OVERFLOWS.join(
         ', '
-      )}, received: ${overflow}`,
+      )}; received: ${overflow}`,
       OVERFLOWS.includes(overflow)
     );
 

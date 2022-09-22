@@ -7,15 +7,15 @@
 // "BASE" CONTROL
 
 .hds-form-textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--token-form-control-padding);
+  color: var(--token-form-control-base-foreground-value-color);
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--hds-elevation-inset-box-shadow);
-  color: var(--token-form-control-base-foreground-value-color);
-  padding: var(--token-form-control-padding);
   resize: vertical;
-  width: 100%;
-  max-width: 100%;
 
   // PLACEHOLDER
 
@@ -43,19 +43,19 @@
   // READONLY
 
   &:read-only {
+    color: var(--token-form-control-disabled-foreground-color);
     background-color: var(--token-form-control-readonly-surface-color);
     border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
-    color: var(--token-form-control-disabled-foreground-color);
   }
 
   // DISABLED
 
   &:disabled {
+    color: var(--token-form-control-disabled-foreground-color);
     background-color: var(--token-form-control-disabled-surface-color);
     border-color: var(--token-form-control-disabled-border-color);
     box-shadow: none;
-    color: var(--token-form-control-disabled-foreground-color);
     cursor: not-allowed;
   }
 

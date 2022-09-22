@@ -117,7 +117,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   });
   test('it should throw an assertion if a wrong @logo value is passed', async function (assert) {
     const errorMessage =
-      '@logo for "Hds::IconTile" must be one of the following: boundary, consul, hcp, nomad, packer, terraform, vagrant, vault, waypoint, received: test';
+      '@logo for "Hds::IconTile" must be one of the following: boundary, consul, hcp, nomad, packer, terraform, vagrant, vault, waypoint; received: test';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
