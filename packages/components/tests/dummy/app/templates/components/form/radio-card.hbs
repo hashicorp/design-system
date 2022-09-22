@@ -39,6 +39,30 @@
     <dd>
       <p>The input control's disabled attribute</p>
     </dd>
+    <dt>controlPosition <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the position of the form control in relation to the card content.
+      </p>
+
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">bottom</li>
+        <li>left</li>
+      </ol>
+    </dd>
+    <dt>alignment <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the alignment of the card content.
+      </p>
+
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">left</li>
+        <li>center</li>
+      </ol>
+    </dd>
     <dt>extraAriaDescribedBy <code>string</code></dt>
     <dd>
       <p>An extra ID attribute to be added to the <code class="dummy-code">aria-describedby</code> HTML attribute.</p>
@@ -68,18 +92,17 @@
     </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
-  <p class="dummy-paragraph" id="component-api-form-radio-field-contextual-components"><code
+  <p class="dummy-paragraph" id="component-api-form-radio-card-contextual-components"><code
       class="dummy-code"
     >Icon</code>,
     <code class="dummy-code">Label</code>,
     <code class="dummy-code">Badge</code>,
-    <code class="dummy-code">Description</code>
-    and
+    <code class="dummy-code">Description</code>, and
     <code class="dummy-code">Generic</code>
     content are passed to the
     <code class="dummy-code">RadioCard</code>
-    as contextual components.</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-form-radio-field-contextual-components">
+    as contextual components in this order, regardless of the declaration order.</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-form-radio-card-contextual-components">
     <dt>&lt;[R].Icon&gt;</dt>
     <dd>
       <p>It yields an icon inside the card container.</p>
@@ -91,7 +114,13 @@
     </dd>
     <dt>&lt;[R].Label&gt; <code>yielded component</code></dt>
     <dd>
-      <p>It is a container that yields its content emphasised inside the card.</p>
+      <p>It is a container that yields its content emphasized inside the card.</p>
+      <dl class="dummy-component-props">
+        <dt>...attributes</dt>
+        <dd>
+          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+        </dd>
+      </dl>
     </dd>
     <dt>&lt;[R].Badge&gt;</dt>
     <dd>
@@ -104,11 +133,23 @@
     <dd>
       <p>It is a container that yields its content inside the card.</p>
       <p>The content can be a simple string or a more complex/structured one, in which case it inherits the text style.</p>
+      <dl class="dummy-component-props">
+        <dt>...attributes</dt>
+        <dd>
+          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+        </dd>
+      </dl>
     </dd>
     <dt>&lt;[R].Generic&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the card.</p>
       <p>The content does not inherit any styles and can be customized as desired.</p>
+      <dl class="dummy-component-props">
+        <dt>...attributes</dt>
+        <dd>
+          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+        </dd>
+      </dl>
     </dd>
   </dl>
 
@@ -129,7 +170,7 @@
         <li>left</li>
       </ol>
     </dd>
-    <dt>align <code>enum</code></dt>
+    <dt>alignment <code>enum</code></dt>
     <dd>
       <p>
         Sets the alignment of the card content.
@@ -158,17 +199,9 @@
       </p>
       <p>Default: <span class="default">false</span></p>
     </dd>
-    <dt>isOptional <code>boolean</code></dt>
-    <dd>
-      <p>Appends an
-        <code class="dummy-code">Optional</code>
-        indicator next to the legend text when user input is optional.
-      </p>
-      <p>Default: <span class="default">false</span></p>
-    </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
-  <p class="dummy-paragraph" id="component-api-form-radio-group-contextual-components">Legend, helper text, radio card
+  <p class="dummy-paragraph" id="component-api-form-radio-group-contextual-components">Legend, helper text, radio card,
     and error content are passed to the group as yielded components, using the
     <code class="dummy-code">Legend</code>,
     <code class="dummy-code">HelperText</code>,
@@ -545,7 +578,7 @@
 
   <h4 class="dummy-h4">Card alignment</h4>
   <span class="dummy-text-small">Left</span>
-  <Hds::Form::RadioCard::Group @name="radio-card-align-left" @align="left" as |G|>
+  <Hds::Form::RadioCard::Group @name="radio-card-align-left" @alignment="left" as |G|>
     <G.Legend>Group legend</G.Legend>
     {{#each @model.RADIOCARDS as |item|}}
       <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
@@ -558,7 +591,7 @@
   </Hds::Form::RadioCard::Group>
   <br />
   <span class="dummy-text-small">Center</span>
-  <Hds::Form::RadioCard::Group @name="radio-card-align-center" @align="center" as |G|>
+  <Hds::Form::RadioCard::Group @name="radio-card-align-center" @alignment="center" as |G|>
     <G.Legend>Group legend</G.Legend>
     {{#each @model.RADIOCARDS as |item|}}
       <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
