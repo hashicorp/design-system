@@ -52,6 +52,21 @@ module(
       assert.dom('#test-toggle-button').hasClass('hds-button--color-secondary');
     });
 
+    // SIZE
+
+    test('it should render the medium size as the default if no size is declared', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
+      );
+      assert.dom('#test-toggle-button').hasClass('hds-button--size-medium');
+    });
+    test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="small" id="test-toggle-button" />`
+      );
+      assert.dom('#test-toggle-button').hasClass('hds-button--size-small');
+    });
+
     // A11Y
 
     test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
