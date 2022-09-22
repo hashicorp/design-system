@@ -22,7 +22,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     );
     assert
       .dom('#test-radio-card-group')
-      .hasClass('hds-form-group__radio-cards');
+      .hasClass('hds-form-group--radio-cards');
   });
 
   // CONTEXTUAL COMPONENTS
@@ -82,12 +82,12 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       .hasAttribute('aria-describedby', `${groupHelperTextId} ${groupErrorId}`);
   });
 
-  // ARGUMENT FORWARDING: NAME, ALIGN, CONTROL POSITION
+  // ARGUMENT FORWARDING: NAME, ALIGNMENT, CONTROL POSITION
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     assert.expect(4);
     await render(
-      hbs`<Hds::Form::RadioCard::Group @name="test-name" @align="center" @controlPosition="left" as |G|>
+      hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
             <G.RadioCard data-test="first-control"/>

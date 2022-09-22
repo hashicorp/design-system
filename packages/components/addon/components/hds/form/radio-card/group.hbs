@@ -1,5 +1,5 @@
 <Hds::Form::Fieldset
-  class="hds-form-group__radio-cards"
+  class="hds-form-group--radio-cards"
   @layout="horizontal"
   @name={{@name}}
   @isRequired={{@isRequired}}
@@ -15,9 +15,8 @@
       (hash
         RadioCard=(component
           "hds/form/radio-card"
-          contextualClass="hds-form-group__control-field"
           name=@name
-          align=@align
+          alignment=@alignment
           controlPosition=@controlPosition
           extraAriaDescribedBy=F.ariaDescribedBy
         )

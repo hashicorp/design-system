@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/radio-card/index', function (hooks) {
@@ -28,6 +28,34 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('input').hasAttribute('name', 'name');
   });
 
+  // ASSERTIONS: ALIGNMENT, CONTROL POSITION
+
+  test('it should throw an assertion if an incorrect value for @alignment is provided', async function (assert) {
+    const errorMessage =
+      '@alignment for "Hds::Form::RadioCard" must be one of the following: left, center; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::RadioCard @alignment="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if an incorrect value for @controlPosition is provided', async function (assert) {
+    const errorMessage =
+      '@controlPosition for "Hds::Form::RadioCard" must be one of the following: bottom, left; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::RadioCard @controlPosition="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
   // CHECKED, DISABLED
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
@@ -52,7 +80,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
             <R.Generic><div class="custom">This is the custom content</div></R.Generic>
           </Hds::Form::RadioCard>`
     );
-    assert.dom('.flight-icon').exists();
+    assert.dom('.flight-icon-hexagon').exists();
     assert.dom('.hds-form-radio-card__label').exists();
     assert.dom('.hds-badge').exists();
     assert.dom('.hds-form-radio-card__description').exists();

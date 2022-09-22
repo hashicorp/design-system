@@ -47,21 +47,21 @@ export default class HdsFormRadioCardIndexComponent extends Component {
    * Sets the alignment of the content
    * Accepted values: left, center
    *
-   * @param align
+   * @param alignnment
    * @type {string}
    * @default 'left'
    */
-  get align() {
-    let { align = DEFAULT_ALIGNMENT } = this.args;
+  get alignment() {
+    let { alignment = DEFAULT_ALIGNMENT } = this.args;
 
     assert(
-      `@align for "Hds::Form::RadioCard" must be one of the following: ${ALIGNMENTS.join(
+      `@alignment for "Hds::Form::RadioCard" must be one of the following: ${ALIGNMENTS.join(
         ', '
-      )}; received: ${align}`,
-      ALIGNMENTS.includes(align)
+      )}; received: ${alignment}`,
+      ALIGNMENTS.includes(alignment)
     );
 
-    return align;
+    return alignment;
   }
 
   /**
@@ -82,8 +82,8 @@ export default class HdsFormRadioCardIndexComponent extends Component {
     // add a class based on the @controlPosition argument
     classes.push(`hds-form-radio-card--control-${this.controlPosition}`);
 
-    // add a class based on the @align argument
-    classes.push(`hds-form-radio-card--align-${this.align}`);
+    // add a class based on the @alignment argument
+    classes.push(`hds-form-radio-card--align-${this.alignment}`);
 
     return classes.join(' ');
   }
