@@ -22,7 +22,7 @@ export default class HdsTabsIndexComponent extends Component {
 
   // Determine if this tab is the selected tab:
   get isSelected() {
-    return this.nodeIndex === this.args.selectedIndex;
+    return this.nodeIndex === this.args.selectedTabIndex;
   }
 
   get isInitialTab() {

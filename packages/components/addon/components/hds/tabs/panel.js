@@ -21,7 +21,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   get isSelected() {
-    return this.nodeIndex === this.args.selectedIndex;
+    return this.nodeIndex === this.args.selectedTabIndex;
   }
 
   @action

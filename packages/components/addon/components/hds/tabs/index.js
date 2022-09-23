@@ -7,7 +7,7 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked tabIds = [];
   @tracked panelNodes = [];
   @tracked panelIds = [];
-  @tracked selectedIndex;
+  @tracked selectedTabIndex;
 
   @action
   didInsert() {
@@ -19,7 +19,7 @@ export default class HdsTabsIndexComponent extends Component {
         initialTabIndex = index;
       }
     });
-    this.selectedIndex = initialTabIndex;
+    this.selectedTabIndex = initialTabIndex;
   }
 
   @action
@@ -37,7 +37,7 @@ export default class HdsTabsIndexComponent extends Component {
   @action
   handleClick(index, e) {
     e.preventDefault();
-    this.selectedIndex = index;
+    this.selectedTabIndex = index;
   }
 
   @action
@@ -64,7 +64,7 @@ export default class HdsTabsIndexComponent extends Component {
   // Select tab for keyboard & mouse navigation:
   selectTab(index, e) {
     e.preventDefault();
-    this.selectedIndex = index;
+    this.selectedTabIndex = index;
     this.tabNodes[index].focus();
   }
 
