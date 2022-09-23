@@ -42,6 +42,7 @@ Router.map(function () {
     this.route('stepper');
     this.route('tag');
     this.route('toast');
+    this.route('mytestcomponent');
   });
   this.route('content', function () {
     this.route('writing-guidelines');
