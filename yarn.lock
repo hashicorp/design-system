@@ -2723,7 +2723,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^2.0.12, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^2.0.12, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -9624,6 +9624,18 @@ __metadata:
     broccoli-sass-source-maps: ^4.0.0
     ember-cli-version-checker: ^2.1.0
   checksum: 99eb9045b19c82851a90435df14b4ab4108ee0fd57a9e78d085c225a9d3dfb72bae8118707cf2f1a2d4d37abc2c40ad0dd95c0079f43d051ec90526448189ac3
+  languageName: node
+  linkType: hard
+
+"ember-cli-sass@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "ember-cli-sass@npm:11.0.1"
+  dependencies:
+    broccoli-funnel: ^2.0.1
+    broccoli-merge-trees: ^3.0.1
+    broccoli-sass-source-maps: ^4.0.0
+    ember-cli-version-checker: ^2.1.0
+  checksum: 5f690b60be6b0d49b542c89c4ee51d17798c2ddee1dfa0d28fd3e92bc5ebf16df522f5c799abf247f1bf6190f0c75cf6cc0560400db0f004606c2b6e5631f0de
   languageName: node
   linkType: hard
 
@@ -22885,6 +22897,7 @@ __metadata:
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/design-system-components": ^1.0.0
+    "@hashicorp/ember-flight-icons": "workspace:^"
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.4.2
@@ -22895,6 +22908,7 @@ __metadata:
     ember-cli-fastboot: ^3.3.2
     ember-cli-htmlbars: ^6.1.0
     ember-cli-inject-live-reload: ^2.1.0
+    ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
     ember-data: ~4.7.1
