@@ -35,6 +35,7 @@
   &:hover,
   &.mock-hover {
     box-shadow: var(--token-elevation-high-box-shadow);
+    transition: 0.2s;
   }
 
   &:focus-within,
