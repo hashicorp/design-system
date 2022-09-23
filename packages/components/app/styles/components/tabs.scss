@@ -29,24 +29,23 @@ $indicator-height: 3px;
 .hds-tabs__tab {
   position: relative; // for positioning temp indicator
 
-  // temporary indicator
+  &.hds-tabs__tab--is-selected {
+    /* temporary indicator TODO: refactor WIP */
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: round(calc($indicator-height / 2 * -1));
+      left: 0;
+      display: block;
+      height: $indicator-height;
+      background: var(--token-color-foreground-action);
+      border-radius: 3px;
+      content: "";
+    }
 
-  /* TODO: refactor
-  &:first-child:after {
-    background: var(--token-color-foreground-action);
-    border-radius: 3px;
-    content: "";
-    display: block;
-    height: $indicator-height;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: round(calc($indicator-height / 2 * -1));
-  }
-  */
-
-  &.hds-tabs__tab--is-selected > a {
-    color: var(--token-color-foreground-action);
+    > a {
+      color: var(--token-color-foreground-action);
+    }
   }
 
   > a {
