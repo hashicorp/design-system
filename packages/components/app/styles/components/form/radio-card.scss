@@ -11,13 +11,16 @@
   .hds-form-group__legend {
     margin-bottom: 12px;
   }
+
+  .hds-form-radio-card {
+    flex: 1;
+  }
 }
 
 // RadioCard
 
 .hds-form-radio-card {
   display: flex;
-  flex: 1;
   flex-direction: column;
   background-color: var(--token-color-surface-primary);
   border: 1px solid var(--token-color-border-primary);
