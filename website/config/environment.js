@@ -12,10 +12,28 @@ module.exports = function (environment) {
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
     },
+    'field-guide': {
+      name: 'Ember', // product name
+      // logo: '/ember-logo.png', // if you don't have a logo it will create one for you from the product name
+      copyright:
+        'Ember Field Guide is designed to document the [ember-styleguide](https://github.com/ember-learn/ember-styleguide) project. For more information view the readme',
+      social: [
+        {
+          name: 'github',
+          title: 'Ember Styleguide - Repository',
+          link: 'https://github.com/ember-learn/ember-styleguide',
+        },
+        {
+          name: 'twitter',
+          title: 'Ember Styleguide - Twitter',
+          link: 'https://twitter.com/emberjs',
+        },
+      ],
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
-      // when it is created
+      //
     },
   };
 
