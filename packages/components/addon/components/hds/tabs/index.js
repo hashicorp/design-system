@@ -37,7 +37,7 @@ export default class HdsTabsIndexComponent extends Component {
   @action
   handleClick(index, e) {
     e.preventDefault();
-    this.setSelectedTabIndex(index);
+    this.selectedIndex = index;
   }
 
   @action
@@ -61,14 +61,10 @@ export default class HdsTabsIndexComponent extends Component {
     }
   }
 
-  setSelectedTabIndex(index) {
-    this.selectedIndex = index;
-  }
-
   // Select tab for keyboard & mouse navigation:
   selectTab(index, e) {
     e.preventDefault();
-    this.setSelectedTabIndex(index);
+    this.selectedIndex = index;
     this.tabNodes[index].focus();
   }
 
