@@ -7,17 +7,25 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked tabIds = [];
   @tracked panelNodes = [];
   @tracked panelIds = [];
-  @tracked selectedIndex = 0;
+  @tracked selectedIndex;
 
   @action
-  didInsertTab(isSelected, element) {
-    this.tabNodes = [...this.tabNodes, element];
-    this.tabIds = [...this.tabIds, element.id];
+  didInsert() {
+    // default starting tab index
+    let initialTabIndex = 0;
 
-    // Set a custom initially selected tab if provided:
-    if (isSelected) {
-      this.setSelectedTabIndex(this.tabIds.length - 1);
-    }
+    this.tabNodes.forEach((tabElement, index) => {
+      if (tabElement.hasAttribute('data-is-selected')) {
+        initialTabIndex = index;
+      }
+    });
+    this.selectedIndex = initialTabIndex;
+  }
+
+  @action
+  didInsertTab(element) {
+   this.tabNodes = [...this.tabNodes, element];
+   this.tabIds = [...this.tabIds, element.id];
   }
 
   @action

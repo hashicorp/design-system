@@ -9,6 +9,7 @@
     id={{this.tabId}}
     aria-selected={{this.isSelected}}
     tabindex={{unless this.isSelected "-1"}}
+    data-is-selected={{this.isInitialTab}}
     {{did-insert this.didInsertNode}}
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
