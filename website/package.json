@@ -27,6 +27,7 @@
     "@ember/test-helpers": "^2.8.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@hashicorp/design-system-components": "^1.0.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.4.2",
@@ -69,7 +70,7 @@
   },
   "ember": {
     "edition": "octane"
-  }, 
+  },
   "fastbootDependencies": [
     "crypto"
   ]
