@@ -24,8 +24,8 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   didInsertTab(element) {
-   this.tabNodes = [...this.tabNodes, element];
-   this.tabIds = [...this.tabIds, element.id];
+    this.tabNodes = [...this.tabNodes, element];
+    this.tabIds = [...this.tabIds, element.id];
   }
 
   @action
