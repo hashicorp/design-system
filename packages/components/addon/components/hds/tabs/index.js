@@ -11,8 +11,8 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   didInsertTab(isSelected, element) {
-    this.tabNodes = [...this.tabNodes, element]
-    this.tabIds = [...this.tabIds, element.id]
+    this.tabNodes = [...this.tabNodes, element];
+    this.tabIds = [...this.tabIds, element.id];
 
     // Set a custom initially selected tab if provided:
     if (isSelected) {
