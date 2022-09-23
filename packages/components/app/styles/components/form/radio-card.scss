@@ -108,6 +108,7 @@
 }
 
 .hds-form-radio-card__label {
+  display: block;
   margin: 8px 0;
   color: var(--token-form-label-color);
 
@@ -117,6 +118,7 @@
 }
 
 .hds-form-radio-card__description {
+  display: block;
   margin-top: 12px;
   color: var(--token-form-helper-text-color);
 }

@@ -1,12 +1,12 @@
 <label class={{this.classNames}} {{did-insert this.setAriaDescribedBy}}>
-  <div class="hds-form-radio-card__content">
+  <span class="hds-form-radio-card__content">
     {{yield (hash Icon=(component "flight-icon" size="24"))}}
     {{yield (hash Label=(component "hds/form/radio-card/label"))}}
     {{yield (hash Badge=(component "hds/badge"))}}
     {{yield (hash Description=(component "hds/form/radio-card/description"))}}
     {{yield (hash Generic=(component "hds/yield"))}}
-  </div>
-  <div class="hds-form-radio-card__control-wrapper">
+  </span>
+  <span class="hds-form-radio-card__control-wrapper">
     <Hds::Form::Radio::Base
       class="hds-form-radio-card__control"
       @value={{@value}}
@@ -16,5 +16,5 @@
       aria-describedby={{this.ariaDescribedBy}}
       ...attributes
     />
-  </div>
+  </span>
 </label>
