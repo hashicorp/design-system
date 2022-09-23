@@ -1,5 +1,22 @@
 # @hashicorp/design-system-components
 
+## 1.1.0
+
+### Minor Changes
+
+- [#539](https://github.com/hashicorp/design-system/pull/539) [`5b548865`](https://github.com/hashicorp/design-system/commit/5b548865ed1000e5f51c22365a81c858576bd2bd) Thanks [@alex-ju](https://github.com/alex-ju)! - Add custom styles for `ember-power-select` add-on
+
+* [#577](https://github.com/hashicorp/design-system/pull/577) [`2f5a2c21`](https://github.com/hashicorp/design-system/commit/2f5a2c214c25be7fd91c2e73c88fb436f72dbd6f) Thanks [@alex-ju](https://github.com/alex-ju)! - Add small variant to `Hds::Dropdown::ToggleButton`
+
+### Patch Changes
+
+- [#545](https://github.com/hashicorp/design-system/pull/545) [`6d2a6298`](https://github.com/hashicorp/design-system/commit/6d2a6298c407a74a14a11b3426fd60d673d10954) Thanks [@didoo](https://github.com/didoo)! - Small cleanup (reformatting, linting) of the Sass files. Should have zero visual impact on the components.
+
+* [#565](https://github.com/hashicorp/design-system/pull/565) [`0f5247f0`](https://github.com/hashicorp/design-system/commit/0f5247f0f088ad35f877294089d0c69caaffdb37) Thanks [@didoo](https://github.com/didoo)! - added stylelint to the codebase and re-organized CSS declarations
+
+* Updated dependencies [[`0b245333`](https://github.com/hashicorp/design-system/commit/0b24533369ccc2d02aa5c6c8b8ba4f722e07d236)]:
+  - @hashicorp/design-system-tokens@1.0.1
+
 ## 1.0.4
 
 ### Patch Changes
