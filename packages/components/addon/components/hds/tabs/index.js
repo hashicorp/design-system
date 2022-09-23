@@ -1,19 +1,18 @@
 import Component from '@glimmer/component';
-import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsTabsIndexComponent extends Component {
-  @tracked tabNodes = A([]);
-  @tracked tabIds = A([]);
-  @tracked panelNodes = A([]);
-  @tracked panelIds = A([]);
-  @tracked selectedIndex = 0; // isSelected, 0 = default
+  @tracked tabNodes = [];
+  @tracked tabIds = [];
+  @tracked panelNodes = [];
+  @tracked panelIds = [];
+  @tracked selectedIndex = 0;
 
   @action
   didInsertTab(isSelected, element) {
-    this.tabNodes = A([...this.tabNodes, element]);
-    this.tabIds = A([...this.tabIds, element.id]);
+    this.tabNodes = [...this.tabNodes, element]
+    this.tabIds = [...this.tabIds, element.id]
 
     // Set a custom initially selected tab if provided:
     if (isSelected) {
@@ -23,13 +22,14 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   didInsertPanel(panelId, element) {
-    this.panelNodes = A([...this.panelNodes, element]);
-    this.panelIds = A([...this.panelIds, panelId]);
+    this.panelNodes = [...this.panelNodes, element];
+    this.panelIds = [...this.panelIds, panelId];
   }
 
   @action
   handleClick(index, e) {
-    this.selectTab(index, e);
+    e.preventDefault();
+    this.setSelectedTabIndex(index);
   }
 
   @action
@@ -49,7 +49,6 @@ export default class HdsTabsIndexComponent extends Component {
         this.selectTab(index, e);
       }
     } else if (e.keyCode === downArrow) {
-      e.preventDefault();
       this.setSelectedPanelFocus(index, e);
     }
   }
@@ -65,7 +64,8 @@ export default class HdsTabsIndexComponent extends Component {
     this.tabNodes[index].focus();
   }
 
-  setSelectedPanelFocus(index) {
+  setSelectedPanelFocus(index, e) {
+    e.preventDefault();
     this.panelNodes[index].focus();
   }
 
