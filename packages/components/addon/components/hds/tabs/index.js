@@ -35,42 +35,39 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  handleClick(index, e) {
+  handleClick(tabIndex, e) {
     e.preventDefault();
-    this.selectedTabIndex = index;
+    this.selectedTabIndex = tabIndex;
   }
 
   @action
-  handleKeyUp(index, e) {
+  handleKeyUp(tabIndex, e) {
     const leftArrow = 37;
     const rightArrow = 39;
     const downArrow = 40;
 
     if (e.keyCode === rightArrow) {
-      if (index < this.tabIds.length - 1) {
-        index++;
-        this.selectTab(index, e);
-      }
+      const nextTabIndex = (tabIndex + 1) % this.tabIds.length;
+      this.selectTab(nextTabIndex, e);
     } else if (e.keyCode === leftArrow) {
-      if (index > 0) {
-        index--;
-        this.selectTab(index, e);
-      }
+      const prevTabIndex =
+        (tabIndex + this.tabIds.length - 1) % this.tabIds.length;
+      this.selectTab(prevTabIndex, e);
     } else if (e.keyCode === downArrow) {
-      this.setSelectedPanelFocus(index, e);
+      this.setSelectedPanelFocus(tabIndex, e);
     }
   }
 
   // Select tab for keyboard & mouse navigation:
-  selectTab(index, e) {
+  selectTab(tabIndex, e) {
     e.preventDefault();
-    this.selectedTabIndex = index;
-    this.tabNodes[index].focus();
+    this.selectedTabIndex = tabIndex;
+    this.tabNodes[tabIndex].focus();
   }
 
-  setSelectedPanelFocus(index, e) {
+  setSelectedPanelFocus(tabIndex, e) {
     e.preventDefault();
-    this.panelNodes[index].focus();
+    this.panelNodes[tabIndex].focus();
   }
 
   /**
