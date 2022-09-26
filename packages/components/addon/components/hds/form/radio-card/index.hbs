@@ -1,4 +1,4 @@
-<label class={{this.classNames}} {{did-insert this.setAriaDescribedBy}}>
+<label class={{this.classNames}} {{did-insert this.setAriaDescribedBy}} {{style maxWidth=@maxWidth}}>
   <span class="hds-form-radio-card__content">
     {{yield (hash Icon=(component "flight-icon" size="24"))}}
     {{yield (hash Label=(component "hds/form/radio-card/label"))}}
