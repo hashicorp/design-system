@@ -53,7 +53,7 @@
     <dt>isSelected <code>boolean</code></dt>
     <dd>
       <p>Sets a custom initial tab to display when the page is loaded.</p>
-      <p>Default: <span class="default">false</span> (The first tab displays on page load by default.)</p>
+      <p>Default: <span class="default">false</span> (The first tab is selected on page load by default.)</p>
     </dd>
 
     <dt>...attributes</dt>
@@ -98,6 +98,9 @@
   {{! prettier-ignore-end }}
 
   <h4 class="dummy-h4">With a custom starting tab</h4>
+  <p class="dummy-paragraph">
+    Optionally, you can set a custom starting tab to display on page load. (By default the first tab is selected.)
+  </p>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
@@ -109,7 +112,7 @@
 
         <T.Panel>Content 1</T.Panel>
         <T.Panel>Content 2</T.Panel>
-        <T.Panel>Content 3, Show me first!</T.Panel>
+        <T.Panel>Content 3, I am displayed on page load!</T.Panel>
       </Hds::Tabs>
     '
   />
@@ -195,10 +198,10 @@
   <Hds::Tabs as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
-    <T.Tab @isSelected="true">Three (I should be selected by default)</T.Tab>
+    <T.Tab @isSelected="true">Three (I am selected on page load)</T.Tab>
 
     <T.Panel>Content one</T.Panel>
     <T.Panel>Content #2</T.Panel>
-    <T.Panel>Content #3: Show me first!</T.Panel>
+    <T.Panel>Content #3: I am displayed on page load!</T.Panel>
   </Hds::Tabs>
 </section>
