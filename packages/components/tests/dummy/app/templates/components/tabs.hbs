@@ -12,13 +12,65 @@
 
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
-  <p class="dummy-paragraph" id="component-api-tabs">
-    Here is the API for the component:
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Tabs</code>
+    component is composed by different parts, with their own APIs:
   </p>
+
+  <ul>
+    <li class="dummy-paragraph">
+      a
+      <code class="dummy-code">Tabs</code>
+      main “container”
+    </li>
+    <li class="dummy-paragraph">
+      multiple
+      <code class="dummy-code">Tab</code>
+      sub-components (individual Tabs)
+    </li>
+    <li class="dummy-paragraph">
+      multiple
+      <code class="dummy-code">Panel</code>
+      sub-components (individual Panels corresponding to each Tab)
+    </li>
+  </ul>
+
+  <h4 class="dummy-h4">Tabs</h4>
+  <p class="dummy-paragraph" id="component-api-tabs">Here is the API for the main (“container”) component:</p>
+
   <dl class="dummy-component-props" aria-labelledby="component-api-tabs">
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
 
-    {{! ADD YOUR CONTENT HERE }}
+  <h4 class="dummy-h4">Tabs::Tab</h4>
+  <p class="dummy-paragraph" id="component-api-tab">
+    Here is the API for the “Tab” component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-tab">
+    <dt>isSelected <code>boolean</code></dt>
+    <dd>
+      <p>Sets a custom initial tab to display when the page is loaded.</p>
+      <p>Default: <span class="default">false</span> (The first tab displays on page load by default.)</p>
+    </dd>
 
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Tabs::Panel</h4>
+  <p class="dummy-paragraph" id="component-api-panel">
+    Here is the API for the “Panel” component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-panel">
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
   </dl>
 </section>
 
@@ -27,13 +79,39 @@
     <a href="#how-to-use" class="dummy-link-section">§</a>
     How to use
   </h3>
-
+  <h4 class="dummy-h4">Basic use</h4>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code="
-      <p>TODO: Add code here</p>
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+        <T.Panel>Content 3</T.Panel>
+      </Hds::Tabs>
     "
+  />
+  {{! prettier-ignore-end }}
+
+  <h4 class="dummy-h4">With a custom starting tab</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab @isSelected="true">Three</T.Tab>
+
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+        <T.Panel>Content 3, Show me first!</T.Panel>
+      </Hds::Tabs>
+    '
   />
   {{! prettier-ignore-end }}
 </section>
@@ -70,97 +148,6 @@
     <a href="#accessibility" class="dummy-link-section">§</a>
     Accessibility
   </h3>
-
-  <h4 class="dummy-h4">Some reading:</h4>
-  <ul class="dummy-list">
-    <li><a
-        href="https://inclusive-components.design/tabbed-interfaces/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Inclusive Components: Tabbed Interfaces</a></li>
-    <li><a
-        href="https://dequeuniversity.com/library/aria/tabpanel"
-        target="_blank"
-        rel="noopener noreferrer"
-      >https://dequeuniversity.com/library/aria/tabpanel</a></li>
-    <li><a
-        href="https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel"
-        target="_blank"
-        rel="noopener noreferrer"
-      >https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel</a></li>
-  </ul>
-
-  <h4 class="dummy-h4">Checklist/important considerations:</h4>
-  <ul class="dummy-list">
-    <li>The element that serves as the container for the set of tabs has <code>role tablist</code>.</li>
-    <li>Each element that serves as a tab has
-      <code>role tab</code>
-      and is contained within the element with
-      <code>role tablist</code>.</li>
-    <li>Each element that contains the content panel for a <code>tab</code> has <code>role tabpanel</code>.</li>
-    <li>If the tab list has a visible label, the element with
-      <code>role tablist</code>
-      has
-      <code>aria-labelledby</code>
-      set to a value that refers to the labeling element. Otherwise, the
-      <code>tablist</code>
-      element has a label provided by
-      <code>aria-label</code>.</li>
-    <li>Each element with
-      <code>role tab</code>
-      has the property
-      <code>aria-controls</code>
-      referring to its associated
-      <code>tabpanel</code>
-      element.</li>
-    <li>The active
-      <code>tab</code>
-      element has the state
-      <code>aria-selected</code>
-      set to
-      <code>true</code>
-      and all other
-      <code>tab</code>
-      elements have it set to
-      <code>false</code>.</li>
-    <li>Each element with
-      <code>role tabpanel</code>
-      has the attribute
-      <code>aria-labelledby</code>
-      referring to its associated
-      <code>tab</code>
-      element.</li>
-  </ul>
-
-  <h4 class="dummy-h4">Keyboard interactions</h4>
-  <ul class="dummy-list">
-    <li>
-      <kbd>TAB</kbd>
-      <ul>
-        <li>When focus moves into the tab list, places focus on the active tab element.</li>
-        <li>When the tab list contains the focus, moves focus to the next element in the page tab sequence. This could
-          mean an interactive element inside of the active tabpanel, or the next interactive element on the page
-          (outside of the tab element completely.</li>
-      </ul>
-    </li>
-    <li>
-      When focus is on a tab element (assuming a horizontal tab list):
-      <ul>
-        <li><kbd>LEFT ARROW</kbd>: moves focus to the previous tab. If focus is on the first tab, moves focus to the
-          last tab.</li>
-        <li><kbd>RIGHT ARROW</kbd>: Moves focus to the next tab. If focus is on the last tab element, moves focus to the
-          first tab.</li>
-        <li><kbd>SPACE</kbd> or <kbd>ENTER</kbd>: Activates the tab (to display the tabpanel content)</li>
-        <li>
-          Optional features:
-          <ul>
-            <li><kbd>HOME</kbd>: Moves focus to the first tab element in the tab list</li>
-            <li><kbd>END</kbd>: Moves focus to the last tab element in the tab list</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
 
   <h4 class="dummy-h4">Relevant WCAG</h4>
   <p class="dummy-paragraph">The relevant WCAG 2.1 AA Success Criteria are listed here.</p>
