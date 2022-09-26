@@ -2,7 +2,30 @@
 
 .dummy-form-radio-card-states-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
   margin-bottom: 16px;
+}
+
+.dummy-form-radio-card-custom-content {
+  @include dummyFontFamily();
+  margin-bottom: 0;
+  padding-left: 0;
+  color: #3b3d45;
+  font-size: 13px;
+  line-height: 18px;
+
+  li {
+    padding: 8px 0 8px 24px;
+    list-style: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.78 5.22a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06l1.47 1.47 3.97-3.97a.75.75 0 011.06 0z' fill='%233b3d45'/%3E%3Cpath d='M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z' fill='%233b3d45'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 9px;
+    background-size: 16px;
+    border-bottom: 1px solid #ddd;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }

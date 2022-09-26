@@ -108,6 +108,10 @@
 .hds-form-radio-card__content {
   flex: 1;
   padding: 20px;
+
+  .hds-badge {
+    margin-bottom: 8px;
+  }
 }
 
 .hds-form-radio-card__label {
