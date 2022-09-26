@@ -20,7 +20,12 @@ export default class HdsTabsIndexComponent extends Component {
     return this.args.panelIds[this.nodeIndex];
   }
 
-  // Determine if this tab is the selected tab:
+  /**
+   * @param isSelected
+   * @type {boolean}
+   * @default false (1st tab is selected by default)
+   * @description Determines if the tab is the selected tab
+   */
   get isSelected() {
     return this.nodeIndex === this.args.selectedTabIndex;
   }
