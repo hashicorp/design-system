@@ -4,8 +4,7 @@
 
 .hds-form-group--radio-cards {
   .hds-form-group__control-fields-wrapper {
-    gap: 16px;
-    margin-bottom: initial;
+    margin: -8px;
   }
 
   .hds-form-group__legend {
@@ -14,6 +13,7 @@
 
   .hds-form-radio-card {
     flex: 1;
+    margin: 8px;
   }
 }
 
