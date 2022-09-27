@@ -9,6 +9,8 @@ export default class HdsTabsIndexComponent extends Component {
    *
    * @param panelId
    */
+  // TODO: switch to {{unique-id}} when we're able
+  // (https://github.com/emberjs/ember.js/blob/089a021b1b5c5f8ea1cb574fcd841a73af7b2031/packages/%40ember/-internals/glimmer/lib/helpers/unique-id.ts#L6)
   panelId = 'panel-' + guidFor(this);
 
   @cached

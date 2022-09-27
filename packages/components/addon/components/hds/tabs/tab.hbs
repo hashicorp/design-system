@@ -1,7 +1,7 @@
 {{! template-lint-disable require-context-role }}
 {{! template-lint-disable no-invalid-role }}
 
-<li class={{this.classNames}} role="presentation">
+<li class={{this.classNames}} role="presentation" ...attributes>
   <a
     role="tab"
     class="hds-typography-body-200 hds-font-weight-medium"
@@ -13,7 +13,6 @@
     {{did-insert this.didInsertNode}}
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
-    ...attributes
   >
     {{yield}}
   </a>

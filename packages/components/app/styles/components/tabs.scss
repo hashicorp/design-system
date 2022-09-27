@@ -53,6 +53,7 @@ $indicator-height: 3px;
     display: block;
     padding: 8px 12px;
     color: var(--token-color-foreground-primary);
+    white-space: nowrap;
     text-decoration: none;
     border-radius: var(--token-form-control-border-radius);
 
