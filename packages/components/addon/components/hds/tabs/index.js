@@ -35,8 +35,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  handleClick(tabIndex, e) {
-    e.preventDefault();
+  handleClick(tabIndex) {
     this.selectedTabIndex = tabIndex;
   }
 
