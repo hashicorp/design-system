@@ -6,11 +6,11 @@
 
 $indicator-height: 3px;
 
-.hds-tabs {}
+// .hds-tabs {}
 
 // Sub-components:
-// NOTE: hds-tab-list is still part of parent component may separate into child later as needed. Will consider renaming class then
-.hds-tab-list {
+// NOTE: hds-tabs__tablist-wrapper is still part of parent component, may separate into child later as needed. Will consider re-naming class then
+.hds-tabs__tablist-wrapper {
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
@@ -18,39 +18,44 @@ $indicator-height: 3px;
 }
 
 // (Note: may rename later, this part of structure could still be changed as things evolve)
-.hds-tab-list__list {
-  border-bottom: 1px solid var(--token-color-border-primary);
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.hds-tabs__tablist {
   display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--token-color-border-primary);
 }
 
 .hds-tabs__tab {
   position: relative; // for positioning temp indicator
 
-  // temporary indicator
-  /* TODO: refactor
-  &:first-child:after {
-    background: var(--token-color-foreground-action);
-    border-radius: 3px;
-    content: "";
-    display: block;
-    height: $indicator-height;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: round(calc($indicator-height / 2 * -1));
-  }
-  */
+  &.hds-tabs__tab--is-selected {
+    /* temporary indicator TODO: refactor WIP */
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: round(calc($indicator-height / 2 * -1));
+      left: 0;
+      display: block;
+      height: $indicator-height;
+      background: var(--token-color-foreground-action);
+      border-radius: 3px;
+      content: "";
+    }
 
-  a {
+    > a {
+      color: var(--token-color-foreground-action);
+    }
+  }
+
+  > a {
     @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
-    color: var(--token-color-foreground-primary);
-    border-radius: var(--token-form-control-border-radius);
-    text-decoration: none;
     display: block;
     padding: 8px 12px;
+    color: var(--token-color-foreground-primary);
+    white-space: nowrap;
+    text-decoration: none;
+    border-radius: var(--token-form-control-border-radius);
 
     &:hover {
       color: var(--token-color-foreground-action-hover);
@@ -58,8 +63,7 @@ $indicator-height: 3px;
   }
 }
 
+// TODO: Do we want to have a visibile focus style for the tabPanel or not?
 .hds-tabs__panel {
-  &:not(:target) {
-    display: none;
-  }
+  @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
 }

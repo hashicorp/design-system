@@ -1,36 +1,31 @@
-{{! template-lint-disable no-invalid-role }}
-{{! template-lint-disable require-context-role }}
-
-<div class={{this.classNames}} ...attributes>
-  {{! Hds-TabList }}
-  <div class="hds-tab-list hds-typography-body-200">
-    <ul class="hds-tab-list__list" role="tablist">
-      {{yield (hash Tab=(component "hds/tabs/tab"))}}
+<div class={{this.classNames}} {{did-insert this.didInsert}} ...attributes>
+  <div class="hds-tabs__tablist-wrapper">
+    <ul class="hds-tabs__tablist" role="tablist">
+      {{yield
+        (hash
+          Tab=(component
+            "hds/tabs/tab"
+            didInsertNode=this.didInsertTab
+            onClick=this.handleClick
+            onKeyUp=this.handleKeyUp
+            tabIds=this.tabIds
+            panelIds=this.panelIds
+            selectedTabIndex=this.selectedTabIndex
+          )
+        )
+      }}
     </ul>
   </div>
 
-  {{yield (hash Panel=(component "hds/tabs/panel"))}}
+  {{yield
+    (hash
+      Panel=(component
+        "hds/tabs/panel"
+        didInsertNode=this.didInsertPanel
+        tabIds=this.tabIds
+        panelIds=this.panelIds
+        selectedTabIndex=this.selectedTabIndex
+      )
+    )
+  }}
 </div>
-
-{{! Temporary comment for rough planning purposes only.
-Not meant to represent literal final implementations. Comment will be deleted eventually.
-
-Component Structure:
------------------------
-Hds::Tabs
-  Hds::Tabs.TabList
-    Hds::Tabs.Tab
-      Content:
-        FlightIcon (optional)
-        text content (required)
-        BadgeCount (optional)
-      Args:
-        isSelected (boolean, default = false) // Select first tab by default?
-        hasIcon (boolean, default = false)
-        hasCount (boolean, default = false)
-    Hds::Tabs.Tab (2+ required)
-    ...
-    ScrollNavigation (displays if more tabs than fit container)
-  Hds::Tabs.Panel (2+ required, same # as Tab components)
-  ...
- }}
