@@ -3,7 +3,20 @@ import { guidFor } from '@ember/object/internals';
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 
+import { iconNames } from '@hashicorp/flight-icons/svg';
+
 export default class FlightIconComponent extends Component {
+  constructor() {
+    super(...arguments);
+    if (!this.args.name) {
+      assert('Please provide to <FlightIcon> a value for @name');
+    } else if (!iconNames.includes(this.args.name)) {
+      assert(
+        `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://flight-hashicorp.vercel.app/`
+      );
+    }
+  }
+
   get contextRootURL() {
     const config = getOwner(this).resolveRegistration('config:environment');
     return config.rootURL || '/';
@@ -34,13 +47,6 @@ export default class FlightIconComponent extends Component {
    */
   get name() {
     return this.args.name;
-  }
-
-  constructor() {
-    super(...arguments);
-    if (!this.args.name) {
-      assert('Please provide a value to <FlightIcon> for @name');
-    }
   }
 
   /**
