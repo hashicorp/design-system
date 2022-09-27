@@ -28,34 +28,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('input').hasAttribute('name', 'name');
   });
 
-  // ASSERTIONS: ALIGNMENT, CONTROL POSITION
-
-  test('it should throw an assertion if an incorrect value for @alignment is provided', async function (assert) {
-    const errorMessage =
-      '@alignment for "Hds::Form::RadioCard" must be one of the following: left, center; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Form::RadioCard @alignment="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-
-  test('it should throw an assertion if an incorrect value for @controlPosition is provided', async function (assert) {
-    const errorMessage =
-      '@controlPosition for "Hds::Form::RadioCard" must be one of the following: bottom, left; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Form::RadioCard @controlPosition="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-
   // CHECKED, DISABLED
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
@@ -108,5 +80,33 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('input').hasClass('my-class');
     assert.dom('input').hasAttribute('data-test1');
     assert.dom('input').hasAttribute('data-test2', 'test');
+  });
+
+  // ASSERTIONS: ALIGNMENT, CONTROL POSITION
+
+  test('it should throw an assertion if an incorrect value for @alignment is provided', async function (assert) {
+    const errorMessage =
+      '@alignment for "Hds::Form::RadioCard" must be one of the following: left, center; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::RadioCard @alignment="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if an incorrect value for @controlPosition is provided', async function (assert) {
+    const errorMessage =
+      '@controlPosition for "Hds::Form::RadioCard" must be one of the following: bottom, left; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::RadioCard @controlPosition="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
