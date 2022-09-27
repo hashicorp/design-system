@@ -357,7 +357,21 @@
   </ul>
   <p class="dummy-paragraph">The
     <code class="dummy-code">@name</code>
-    argument offers an easy way to provide the same name for all the radio controls in a single place.</p>
+    argument offers an easy way to provide the same name for all the radio controls with a single declaration.
+  </p>
+
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: The
+    <code class="dummy-code">&lt;Hds::Form::RadioCard::Group&gt;</code>
+    component does not provide the logic for handling the mutually exclusive nature of radio controls (when a radio card
+    is checked, any other radio cards with the same name that were previously checked become unchecked). You can
+    implement this yourself in an
+    <code class="dummy-code">\{{on "change" this.onChange}}</code>
+    function or manage the
+    <code class="dummy-code">checked</code>
+    state of radio cards by updating the underlying data.
+
+  </p>
 
   <h5 class="dummy-h5">Custom content</h5>
   <p class="dummy-paragraph">You can define custom content using the
@@ -643,7 +657,7 @@
     {{/each}}
   </Hds::Form::RadioCard::Group>
   <br />
-<span class="dummy-text-small">With different content height</span>
+  <span class="dummy-text-small">With different content height</span>
   <Hds::Form::RadioCard::Group @name="radio-card-group-custom" as |G|>
     <G.Legend>Group legend</G.Legend>
     <G.RadioCard @checked="true" {{on "change" this.onChange}} as |R|>
