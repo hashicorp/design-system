@@ -643,6 +643,28 @@
     {{/each}}
   </Hds::Form::RadioCard::Group>
   <br />
+<span class="dummy-text-small">With different content height</span>
+  <Hds::Form::RadioCard::Group @name="radio-card-group-custom" as |G|>
+    <G.Legend>Group legend</G.Legend>
+    <G.RadioCard @checked="true" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card with normal label</R.Label>
+      <R.Badge @text="Badge" />
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card with long label that spans multiple lines</R.Label>
+      <R.Badge @text="Badge" />
+      <R.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna
+        eget, porttitor lobortis nulla.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard {{on "change" this.onChange}} as |R|>
+      <R.Label>Radio card without icon</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+  </Hds::Form::RadioCard::Group>
+  <br />
 
   <h4 class="dummy-h4">Control position</h4>
   <span class="dummy-text-small">Bottom</span>
