@@ -155,6 +155,14 @@
         <li>secondary</li>
       </ol>
     </dd>
+    <dt>size <code>enum</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">medium</li>
+        <li>small</li>
+      </ol>
+    </dd>
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
@@ -1000,6 +1008,17 @@
     <div>
       <span class="dummy-text-small">secondary</span>
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color="secondary" />
+    </div>
+  </div>
+  <br />
+  <div class="dummy-dropdown-toggle-button-sample">
+    <div>
+      <span class="dummy-text-small">primary small</span>
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" />
+    </div>
+    <div>
+      <span class="dummy-text-small">secondary small</span>
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" @color="secondary" />
     </div>
   </div>
   <h5 class="dummy-h5">Toggle::Icon</h5>

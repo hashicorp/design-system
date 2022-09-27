@@ -18,6 +18,7 @@
   @icon="chevron-down"
   @iconPosition="trailing"
   @color={{this.color}}
+  @size={{@size}}
   ...attributes
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
