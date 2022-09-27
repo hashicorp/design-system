@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { assert } from '@ember/debug';
 
 export default class HdsTabsIndexComponent extends Component {
   @tracked tabNodes = [];
@@ -13,13 +14,24 @@ export default class HdsTabsIndexComponent extends Component {
   didInsert() {
     // default starting tab index
     let initialTabIndex = 0;
+    let selectedCount = 0;
 
     this.tabNodes.forEach((tabElement, index) => {
       if (tabElement.hasAttribute('data-is-selected')) {
         initialTabIndex = index;
+        selectedCount++;
       }
     });
     this.selectedTabIndex = initialTabIndex;
+
+    assert('Only one tab may use isSelected argument', selectedCount <= 1);
+
+    assert('Tabs count must be 2 or greater', this.tabNodes.length >= 2);
+
+    assert(
+      'The number of Tabs must be equal to the number of Panels',
+      this.tabNodes.length === this.panelNodes.length
+    );
   }
 
   @action
