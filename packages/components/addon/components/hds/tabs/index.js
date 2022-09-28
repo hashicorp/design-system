@@ -26,8 +26,6 @@ export default class HdsTabsIndexComponent extends Component {
 
     assert('Only one tab may use isSelected argument', selectedCount <= 1);
 
-    assert('Tabs count must be 2 or greater', this.tabNodes.length >= 2);
-
     assert(
       'The number of Tabs must be equal to the number of Panels',
       this.tabNodes.length === this.panelNodes.length
