@@ -326,7 +326,7 @@ export default class ComponentsTableRoute extends Route {
     Showcase
   </h3>
   <h4 class="dummy-h4">
-    Static Table (non-sortable)
+    Static table (non-sortable) with model defined
   </h4>
   <Hds::Table @model={{this.model}}>
     <:head>
@@ -335,32 +335,15 @@ export default class ComponentsTableRoute extends Route {
       <th>Release Year</th>
     </:head>
     <:body as |row|>
-      <tr>
+      <Hds::Table::Row>
         <td>{{row.artist}}</td>
         <td>{{row.album}}</td>
         <td>{{row.year}}</td>
-      </tr>
+      </Hds::Table::Row>
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable Table
-  </h4>
-  <Hds::Table @model={{this.model}} @sortProperty={{this.sortby}} @sortDescending={{false}}>
-    <:head as |h|>
-      <h.SortBy @field="artist">Artist</h.SortBy>
-      <h.SortBy @field="album">Album</h.SortBy>
-      <h.SortBy @field="year">Release Year</h.SortBy>
-    </:head>
-    <:body as |row|>
-      <tr>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
-      </tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    No Model Defined
+    Static table with no model defined
   </h4>
   <Hds::Table>
     <:head>
@@ -383,6 +366,23 @@ export default class ComponentsTableRoute extends Route {
         <td>Cell Content</td>
         <td>Cell Content</td>
         <td>Cell Content</td>
+      </Hds::Table::Row>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table
+  </h4>
+  <Hds::Table @model={{this.model}} @sortProperty={{this.sortby}} @sortDescending={{false}}>
+    <:head as |h|>
+      <h.SortBy @field="artist">Artist</h.SortBy>
+      <h.SortBy @field="album">Album</h.SortBy>
+      <h.SortBy @field="year">Release Year</h.SortBy>
+    </:head>
+    <:body as |row|>
+      <Hds::Table::Row>
+        <td>{{row.artist}}</td>
+        <td>{{row.album}}</td>
+        <td>{{row.year}}</td>
       </Hds::Table::Row>
     </:body>
   </Hds::Table>
