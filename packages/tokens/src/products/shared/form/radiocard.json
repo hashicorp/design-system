@@ -1,0 +1,37 @@
+{
+    "form": {
+        "radiocard-group": {
+            "gap": {
+                "value": "16",
+                "type": "size"
+            }
+        },
+        "radiocard": {
+            "border": {
+                "width": {
+                    "value": "1",
+                    "type": "size"
+                },
+                "radius": {
+                    "value": "6",
+                    "type": "size"
+                }
+            },
+            "content-padding": {
+                "value": "24",
+                "type": "size"
+            },
+            "control-padding": {
+                "value": "8",
+                "type": "size"
+            },
+            "transition": {
+                "duration": {
+                    "value": "0.2",
+                    "type": "time",
+                    "unit": "s"
+                }
+            }
+        }
+    }
+}
