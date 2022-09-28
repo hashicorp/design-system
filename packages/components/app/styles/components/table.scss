@@ -14,6 +14,14 @@
   border-spacing: 0;
 }
 
+.hds-table--striped {
+  tbody {
+    tr:nth-child(odd) {
+      background-color: var(--token-color-surface-faint);
+    }
+  }
+}
+
 .hds-table__thead {
   border-bottom: 1px solid var(--token-color-border-primary);
 
@@ -69,13 +77,8 @@
   font-weight: var(--token-typography-font-weight-regular);
   background-color: var(--token-color-surface-primary);
 
-
   tr {
     border-bottom: 1px solid var(--token-color-border-primary);
-
-    &:nth-child(odd) {
-      background-color: var(--token-color-surface-faint);
-    }
   }
 
   td {
