@@ -2326,6 +2326,7 @@ __metadata:
     ember-a11y-refocus: ^2.1.0
     ember-a11y-testing: ^5.0.0
     ember-auto-import: ^2.4.1
+    ember-cached-decorator-polyfill: ^0.1.4
     ember-cli: ~4.3.0
     ember-cli-babel: ^7.26.11
     ember-cli-clipboard: ^0.16.0
@@ -8553,6 +8554,30 @@ __metadata:
     ember-style-modifier: ^0.8.0
     ember-truth-helpers: ^2.1.0 || ^3.0.0
   checksum: d6f00f202140d09a0c3d62d9104c5f63eb6b0f7228a17a3f2f9e37da66c82d6ba01503261ed886190ebb0afc3d737f6bc6ad609115528176bd81f72e5930508f
+  languageName: node
+  linkType: hard
+
+"ember-cache-primitive-polyfill@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "ember-cache-primitive-polyfill@npm:1.0.1"
+  dependencies:
+    ember-cli-babel: ^7.22.1
+    ember-cli-version-checker: ^5.1.1
+    ember-compatibility-helpers: ^1.2.1
+    silent-error: ^1.1.1
+  checksum: d0b091e940837e276364d14758d7149fb7b9e5eb99e271f97012f9b92952cf6854132195dc9c36b9fcd40d8495608e7044f9d6179f2f9e15003d9a4cbcf73b49
+  languageName: node
+  linkType: hard
+
+"ember-cached-decorator-polyfill@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "ember-cached-decorator-polyfill@npm:0.1.4"
+  dependencies:
+    "@glimmer/tracking": ^1.0.4
+    ember-cache-primitive-polyfill: ^1.0.1
+    ember-cli-babel: ^7.21.0
+    ember-cli-babel-plugin-helpers: ^1.1.1
+  checksum: 8f8228e8fe578a78045c00cfd9ffc124dd287e45908e912dba9823ba48a14c1cb7e15fce64f4a034b68edcf6987c51c0500fbab7825e982ea4708672b019780a
   languageName: node
   linkType: hard
 
