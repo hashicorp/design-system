@@ -1,6 +1,9 @@
 {{! template-lint-disable require-context-role }}
 {{! template-lint-disable no-invalid-role }}
 
+{{! Temporary: fix linter errors with using FlightIcon and BadgeCount inside role="tab" element }}
+{{! template-lint-disable require-presentational-children }}
+
 <li class={{this.classNames}} role="presentation" ...attributes>
   <a
     role="tab"
@@ -14,6 +17,12 @@
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
   >
+    {{#if this.hasIcon}}
+      <FlightIcon @name={{this.hasIcon}} />
+    {{/if}}
     {{yield}}
+    {{#if this.badgeCount}}
+      <Hds::BadgeCount @text={{this.badgeCount}} @size="small" />
+    {{/if}}
   </a>
 </li>

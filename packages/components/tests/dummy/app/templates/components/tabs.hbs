@@ -184,9 +184,21 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
+  <p class="dummy-paragraph"><strong>Basic usage:</strong></p>
   <Hds::Tabs as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>Content one <a href="#">Link to test tabbing</a></T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3!</T.Panel>
+  </Hds::Tabs>
+
+  <p class="dummy-paragraph"><strong>Using optional icon and badge count:</strong></p>
+  <Hds::Tabs as |T|>
+    <T.Tab @badgeCount="5">One</T.Tab>
+    <T.Tab @hasIcon="download">Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
     <T.Panel>Content one <a href="#">Link to test tabbing</a></T.Panel>

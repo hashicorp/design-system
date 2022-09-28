@@ -11,6 +11,28 @@ export default class HdsTabsIndexComponent extends Component {
    */
   tabId = 'tab-' + guidFor(this);
 
+  /**
+   * @param badgeCount
+   * @type {numeric string}
+   * @default null
+   * @description Determines if the tab displays a BadgeCount and its number (optional)
+   */
+  get badgeCount() {
+    let { badgeCount } = this.args;
+    return badgeCount;
+  }
+
+  /**
+   * @param hasIcon
+   * @type {string}
+   * @default null
+   * @description Determines if the tab displays a FlightIcon (optional)
+   */
+  get hasIcon() {
+    let { hasIcon } = this.args;
+    return hasIcon;
+  }
+
   @cached
   get nodeIndex() {
     return this.args.tabIds.indexOf(this.tabId);
