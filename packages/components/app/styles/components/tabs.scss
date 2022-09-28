@@ -6,36 +6,66 @@
 
 $indicator-height: 3px;
 
-// .hds-tabs {}
-
-// Sub-components:
-// NOTE: hds-tabs__tablist-wrapper is still part of parent component, may separate into child later as needed. Will consider re-naming class then
+// Tabs sub-components:
 .hds-tabs__tablist-wrapper {
-  padding-bottom: round(calc($indicator-height / 2));
-  // overflow-x: auto;
-  // -webkit-overflow-scrolling: touch;
-  // white-space: nowrap; // move
+  position: relative;
+
+  // Overflow gradients
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: $indicator-height;
+    z-index: 2;
+    width: 16px;
+    content: "";
+    pointer-events: none;
+  }
+
+  &::before { background: linear-gradient(to left, transparent, var(--token-color-surface-primary)); }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to right, transparent, var(--token-color-surface-primary));
+  }
 }
 
-// (Note: may rename later, this part of structure could still be changed as things evolve)
 .hds-tabs__tablist {
+  position: relative;
   display: flex;
   margin: 0;
   padding: 0;
+  overflow-x: auto;
+  white-space: nowrap;
   list-style: none;
-  border-bottom: 1px solid var(--token-color-border-primary);
+  -webkit-overflow-scrolling: touch;
+
+  // bottom border
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: floor(calc($indicator-height / 2));
+    left: 0;
+    z-index: 3;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--token-color-border-primary);
+    content: "";
+  }
 }
 
 .hds-tabs__tab {
-  position: relative; // for positioning temp indicator
+  position: relative; // for positioning indicator
 
   &.hds-tabs__tab--is-selected {
-    /* temporary indicator TODO: refactor WIP */
+    /* indicator TODO: refactor if needed for animation */
     &::after {
       position: absolute;
       right: 0;
-      bottom: round(calc($indicator-height / 2 * -1));
+      bottom: 0;
       left: 0;
+      z-index: 3;
       display: block;
       height: $indicator-height;
       background: var(--token-color-foreground-action);
@@ -43,13 +73,13 @@ $indicator-height: 3px;
       content: "";
     }
 
-    .hds-tabs__link {
+    .hds-tabs__tab-link {
       color: var(--token-color-foreground-action);
     }
   }
 }
 
-.hds-tabs__link {
+.hds-tabs__tab-link {
   @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
   display: block;
   padding: 8px 12px;

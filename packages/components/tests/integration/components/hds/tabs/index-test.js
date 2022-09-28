@@ -56,7 +56,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('.hds-tabs__tab:first-child')
       .hasClass('hds-tabs__tab--is-selected');
     assert
-      .dom('.hds-tabs__tab:first-child .hds-tabs__link')
+      .dom('.hds-tabs__tab:first-child .hds-tabs__tab-link')
       .hasAttribute('aria-selected');
     assert.dom('.hds-tabs__panel:first-of-type').doesNotHaveAttribute('hidden');
 
@@ -64,7 +64,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('.hds-tabs__tab:not(:first-child)')
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert
-      .dom('.hds-tabs__tab:not(:first-child) .hds-tabs__link')
+      .dom('.hds-tabs__tab:not(:first-child) .hds-tabs__tab-link')
       .doesNotHaveAttribute('aria-selected');
     assert.dom('.hds-tabs__panel:not(:first-of-type)').hasAttribute('hidden');
   });
@@ -82,7 +82,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('.hds-tabs__tab:nth-child(2)')
       .hasClass('hds-tabs__tab--is-selected');
     assert
-      .dom('.hds-tabs__tab:nth-child(2) .hds-tabs__link')
+      .dom('.hds-tabs__tab:nth-child(2) .hds-tabs__tab-link')
       .hasAttribute('aria-selected');
     assert
       .dom('.hds-tabs__panel:nth-of-type(2)')
@@ -92,7 +92,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('.hds-tabs__tab:not(:nth-child(2))')
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert
-      .dom('.hds-tabs__tab:not(:nth-child(2)) .hds-tabs__link')
+      .dom('.hds-tabs__tab:not(:nth-child(2)) .hds-tabs__tab-link')
       .doesNotHaveAttribute('aria-selected');
     assert.dom('.hds-tabs__panel:not(:nth-of-type(2))').hasAttribute('hidden');
   });
