@@ -4,67 +4,70 @@
 // properties within each class are sorted alphabetically
 //
 .hds-table {
-  border-collapse: collapse;
-  border-radius: 6px;
-  border-spacing: 0;
-  border: 1px solid var(--token-color-border-primary);
-  font-family:var(--token-typography-font-stack-text);
-  font-size: var(--token-typography-body-200-font-size);
-  line-height: var(--token-typography-body-200-line-height);
   width: 100%;
+  font-size: var(--token-typography-body-200-font-size);
+  font-family: var(--token-typography-font-stack-text);
+  line-height: var(--token-typography-body-200-line-height);
+  border: 1px solid var(--token-color-border-primary);
+  border-radius: 6px;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
+
 .hds-table__thead {
   border-bottom: 1px solid var(--token-color-border-primary);
-  
+
   th {
-    background-color: var(--token-color-surface-strong);
+    padding: 8px 16px;
     color: var(--token-color-foreground-strong);
     font-weight: var(--token-typography-font-weight-semibold);
-    padding: 8px 16px;
     text-align: left;
+    background-color: var(--token-color-surface-strong);
 
     &.hds-table__th--sortable {
-      padding: 0; //we're taking it out here because we need it on the interactive content instead
+      padding: 0; // we're taking it out here because we need it on the interactive content instead
     }
 
-    &.text-right { // for num support
-      text-align: right;
-    }
     a { // will refactor this to a button. Use Hds::Button?
-      align-items: center;
-      border: 3px solid transparent;
-      color: var(--token-color-foreground-strong);
       display: flex;
+      align-items: center;
       padding: 8px 16px;
+      color: var(--token-color-foreground-strong);
       text-decoration: none;
+      border: 3px solid transparent;
 
       &:visited {
         color: var(--token-color-foreground-strong);
       }
+
       &:hover {
+        color: var(--token-color-foreground-strong);
         background-color: var(--token-color-palette-neutral-200);
-        color: var(--token-color-foreground-strong);
       }
-      &:focus, &:focus-visible {
+
+      &:focus,
+      &:focus-visible {
+        color: var(--token-color-foreground-strong);
         border-color: var(--token-color-focus-action-external);
-        color: var(--token-color-foreground-strong);
       }
+
       &:active {
-        background-color: var(--token-color-palette-neutral-300);
         color: var(--token-color-foreground-strong);
+        background-color: var(--token-color-palette-neutral-300);
       }
 
       svg { // in case they don't use flight icons
-        color: var(--token-color-focus-action-external);
         margin-left: 8px;
+        color: var(--token-color-focus-action-external);
       }
     }
   }
 }
+
 .hds-table__tbody {
-  background-color: var(--token-color-surface-primary);
   color: var(--token-color-foreground-primary);
   font-weight: var(--token-typography-font-weight-regular);
+  background-color: var(--token-color-surface-primary);
 
 
   tr {
@@ -74,6 +77,7 @@
       background-color: var(--token-color-surface-faint);
     }
   }
+
   td {
     padding: 12px 16px;
   }
