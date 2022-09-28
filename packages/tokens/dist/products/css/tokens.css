@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Sep 2022 22:06:03 GMT
+ * Generated on Wed, 28 Sep 2022 11:15:46 GMT
  */
 
 :root {
@@ -213,6 +213,12 @@
   --token-form-radio-background-image-size: 12px;
   --token-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /* notice: the 'dot' color is hardcoded here! */
   --token-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dot' color is hardcoded here! */
+  --token-form-radiocard-group-gap: 16px;
+  --token-form-radiocard-border-width: 1px;
+  --token-form-radiocard-border-radius: 6px;
+  --token-form-radiocard-content-padding: 24px;
+  --token-form-radiocard-control-padding: 8px;
+  --token-form-radiocard-transition-duration: 0.2s;
   --token-form-select-background-image-size: 16px;
   --token-form-select-background-image-position-right-x: 7px;
   --token-form-select-background-image-position-top-y: 9px;
