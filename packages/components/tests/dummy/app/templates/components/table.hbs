@@ -386,21 +386,4 @@ export default class ComponentsTableRoute extends Route {
       </Hds::Table::Row>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">
-    Sortable table
-  </h4>
-  <Hds::Table @model={{this.model}} @sortProperty={{this.sortby}} @sortDescending={{false}}>
-    <:head as |h|>
-      <h.SortBy @field="artist">Artist</h.SortBy>
-      <h.SortBy @field="album">Album</h.SortBy>
-      <h.SortBy @field="year">Release Year</h.SortBy>
-    </:head>
-    <:body as |row|>
-      <Hds::Table::Row>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
-      </Hds::Table::Row>
-    </:body>
-  </Hds::Table>
 </section>
