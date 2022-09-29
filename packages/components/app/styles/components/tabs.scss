@@ -16,7 +16,7 @@ $indicator-height: 3px;
     position: absolute;
     top: 0;
     bottom: $indicator-height;
-    z-index: 2;
+    z-index: 1;
     width: 16px;
     content: "";
     pointer-events: none;
@@ -38,25 +38,17 @@ $indicator-height: 3px;
   overflow-x: auto;
   white-space: nowrap;
   list-style: none;
+  background: linear-gradient(to right, var(--token-color-border-primary), var(--token-color-border-primary)) repeat-x;
+  background-position: bottom floor(calc($indicator-height / 2)) right 0;
+  background-size: 20px 1px;
   -webkit-overflow-scrolling: touch;
-
-  // bottom border
-  &::before {
-    position: absolute;
-    right: 0;
-    bottom: floor(calc($indicator-height / 2));
-    left: 0;
-    z-index: 3;
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: var(--token-color-border-primary);
-    content: "";
-  }
 }
 
 .hds-tabs__tab {
   position: relative; // for positioning indicator
+
+  // prevent overflow gradients from overlaying focused tab
+  &:focus-within { z-index: 2; }
 
   &.hds-tabs__tab--is-selected {
     /* indicator TODO: refactor if needed for animation */
