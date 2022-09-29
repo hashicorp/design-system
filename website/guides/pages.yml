@@ -12,3 +12,21 @@
       url: "index"
     - title: "Editing"
       url: "editing"
+
+- title: "Tag"
+  url: 'tag'
+  pages:
+    - title: "Overview"
+      url: "1-overview"
+    - title: "API"
+      url: "2-api"
+    - title: "How to use"
+      url: "3-how-to-use"
+    - title: "Design guidelines"
+      url: "4-design-guidelines"
+    - title: "Design guidelines (iFrame)"
+      url: "5-design-guidelines-iframe"
+    - title: "Accessibility"
+      url: "6-accessibility"
+    - title: "Showcase"
+      url: "7-showcase"
