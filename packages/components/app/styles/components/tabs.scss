@@ -9,7 +9,6 @@ $indicator-height: 3px;
 // .hds-tabs {}
 
 // Sub-components:
-// NOTE: hds-tabs__tablist-wrapper is still part of parent component, may separate into child later as needed. Will consider re-naming class then
 .hds-tabs__tablist-wrapper {
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
@@ -17,7 +16,6 @@ $indicator-height: 3px;
   // white-space: nowrap; // move
 }
 
-// (Note: may rename later, this part of structure could still be changed as things evolve)
 .hds-tabs__tablist {
   display: flex;
   margin: 0;
@@ -27,10 +25,10 @@ $indicator-height: 3px;
 }
 
 .hds-tabs__tab {
-  position: relative; // for positioning temp indicator
+  position: relative; // for positioning indicator
 
   &.hds-tabs__tab--is-selected {
-    /* temporary indicator TODO: refactor WIP */
+    /* indicator TODO: refactor as needed for animation */
     &::after {
       position: absolute;
       right: 0;
