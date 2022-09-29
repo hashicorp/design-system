@@ -17,12 +17,12 @@
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
   >
-    {{#if this.hasIcon}}
-      <FlightIcon @name={{this.hasIcon}} />
+    {{#if @hasIcon}}
+      <FlightIcon @name={{@hasIcon}} />
     {{/if}}
     {{yield}}
-    {{#if this.badgeCount}}
-      <Hds::BadgeCount @text={{this.badgeCount}} @size="small" />
+    {{#if @badgeCount}}
+      <Hds::BadgeCount @text={{@badgeCount}} @size="small" />
     {{/if}}
   </a>
 </li>
