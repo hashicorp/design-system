@@ -17,8 +17,8 @@
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
   >
-    {{#if @hasIcon}}
-      <FlightIcon @name={{@hasIcon}} />
+    {{#if @icon}}
+      <FlightIcon @name={{@icon}} />
     {{/if}}
     {{yield}}
     {{#if @count}}

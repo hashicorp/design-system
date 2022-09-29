@@ -56,7 +56,7 @@
       <p>Accepts the text value that should go in the badge counter.</p>
     </dd>
 
-    <dt>hasIcon</dt>
+    <dt>icon</dt>
     <dd>
       <p>Displays an optional FlightIcon.</p>
       <p>Accepts the name of the FlightIcon.</p>
@@ -137,7 +137,7 @@
     @code='
       <Hds::Tabs as |T|>
         <T.Tab @count="5">One</T.Tab>
-        <T.Tab @hasIcon="download">Two</T.Tab>
+        <T.Tab @icon="download">Two</T.Tab>
         <T.Tab>Three</T.Tab>
 
         <T.Panel>Content one <a href="#">Link to test tabbing</a></T.Panel>
@@ -228,7 +228,7 @@
   <p class="dummy-paragraph"><strong>Using optional icon and badge count:</strong></p>
   <Hds::Tabs as |T|>
     <T.Tab @count="5">One</T.Tab>
-    <T.Tab @hasIcon="download">Two</T.Tab>
+    <T.Tab @icon="download">Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
     <T.Panel>Content one <a href="#">Link to test tabbing</a></T.Panel>
