@@ -18,11 +18,11 @@
     {{on "keyup" this.onKeyUp}}
   >
     {{#if @icon}}
-      <FlightIcon @name={{@icon}} />
+      <FlightIcon @name={{@icon}} class="hds-tabs__tab-icon" />
     {{/if}}
     <span>{{yield}}</span>
     {{#if @count}}
-      <Hds::BadgeCount @text={{@count}} @size="small" />
+      <Hds::BadgeCount @text={{@count}} @size="small" class="hds-tabs__tab-badge" />
     {{/if}}
   </a>
 </li>

@@ -53,19 +53,20 @@ $indicator-height: 3px;
     display: flex;
     align-items: center;
     height: 36px;
-    padding: 8px 12px;
+    padding: 0 12px;
     color: var(--token-color-foreground-primary);
     white-space: nowrap;
     text-decoration: none;
     border-radius: var(--token-form-control-border-radius);
-
-    > * + * { margin-left: 6px; }
 
     &:hover {
       color: var(--token-color-foreground-action-hover);
     }
   }
 }
+
+.hds-tabs__tab-icon { margin-right: 6px; }
+.hds-tabs__tab-badge { margin-left: 6px; }
 
 // TODO: Do we want to have a visibile focus style for the tabPanel or not?
 .hds-tabs__panel {
