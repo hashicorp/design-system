@@ -21,8 +21,8 @@
       <FlightIcon @name={{@hasIcon}} />
     {{/if}}
     {{yield}}
-    {{#if @badgeCount}}
-      <Hds::BadgeCount @text={{@badgeCount}} @size="small" />
+    {{#if @count}}
+      <Hds::BadgeCount @text={{@count}} @size="small" />
     {{/if}}
   </a>
 </li>

@@ -50,9 +50,9 @@
     Here is the API for the “Tab” component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-tab">
-    <dt>badgeCount <code>string</code></dt>
+    <dt>count <code>string</code></dt>
     <dd>
-      <p>Displays an optional badgeCount in the Tab.</p>
+      <p>Displays an optional count in the Tab.</p>
       <p>Accepts the text value that should go in the badge counter.</p>
     </dd>
 
@@ -130,13 +130,13 @@
   />
   {{! prettier-ignore-end }}
 
-  <h4 class="dummy-h4">With optional BadgeCount and Icon</h4>
+  <h4 class="dummy-h4">With optional Count and Icon</h4>
   {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
     @code='
       <Hds::Tabs as |T|>
-        <T.Tab @badgeCount="5">One</T.Tab>
+        <T.Tab @count="5">One</T.Tab>
         <T.Tab @hasIcon="download">Two</T.Tab>
         <T.Tab>Three</T.Tab>
 
@@ -227,7 +227,7 @@
 
   <p class="dummy-paragraph"><strong>Using optional icon and badge count:</strong></p>
   <Hds::Tabs as |T|>
-    <T.Tab @badgeCount="5">One</T.Tab>
+    <T.Tab @count="5">One</T.Tab>
     <T.Tab @hasIcon="download">Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
