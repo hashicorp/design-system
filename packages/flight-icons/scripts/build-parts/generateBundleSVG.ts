@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import cheerio  from 'cheerio';
+import { uniq } from 'lodash';
 
 import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
@@ -13,6 +14,9 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
     } catch (err) {
         console.error(err);
     }
+
+    // used to store the icons names and generate an index file
+    const allIcons = [];
 
     // process the SVG files
     for(const { fileName, iconName } of catalog.assets) {
@@ -33,8 +37,14 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
 
         // save the processed SVG files to the `svg/` directory
         await fs.writeFile(`${config.mainFolder}/svg/${fileName}.svg`, svgSource);
+
+        // add the icon name to the list of icons (notice: SVGs different in size have the same "iconName" value)
+        allIcons.push(`'${iconName}'`);
     }
 
     // add CSS used to animate "loading" and "running" icons
     await fs.writeFile(`${config.mainFolder}/svg/animation.css`, getCssForIconAnimation());
+
+    // generate an "index.js" file
+    await fs.writeFile(`${config.mainFolder}/svg/index.js`, `export const Icons = [ ${uniq(allIcons).join(', ')} ];`);
 }
