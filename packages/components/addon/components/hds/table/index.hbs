@@ -1,13 +1,11 @@
 <table class="hds-table {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
   <thead class="hds-table__thead" data-test-table-head>
-    <Hds::Table::Row>
-      {{yield to="head"}}
-    </Hds::Table::Row>
+    {{yield to="head"}}
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
     {{#if @model}}
-      {{#each @model as |row|}}
-        {{yield row to="body"}}
+      {{#each @model as |modelItemData|}}
+        {{yield modelItemData to="body"}}
       {{/each}}
     {{else}}
       {{yield to="body"}}
