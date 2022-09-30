@@ -20,12 +20,14 @@ $indicator-height: 3px;
   display: flex;
   margin: 0;
   padding: 0;
-  list-style: none;
   border-bottom: 1px solid var(--token-color-border-primary);
 }
 
 .hds-tabs__tab {
   position: relative; // for positioning indicator
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
   &.hds-tabs__tab--is-selected {
     /* indicator TODO: refactor as needed for animation */
@@ -47,7 +49,12 @@ $indicator-height: 3px;
   }
 
   .hds-tabs__tab-link {
-    @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
+    @include hds-focus-ring-with-pseudo-element(
+      $top: 4px,
+      $right: 6px,
+      $bottom: 4px,
+      $left: 6px
+    );
     display: flex;
     align-items: center;
     height: 36px;
@@ -57,11 +64,17 @@ $indicator-height: 3px;
     text-decoration: none;
     border-radius: var(--token-form-control-border-radius);
 
-    &:hover {
+    &:hover,
+    &.mock-hover {
       color: var(--token-color-foreground-action-hover);
     }
   }
 }
 
-.hds-tabs__tab-icon { margin-right: 6px; }
-.hds-tabs__tab-badge { margin-left: 6px; }
+.hds-tabs__tab-icon {
+  margin-right: 6px;
+}
+
+.hds-tabs__tab-badge {
+  margin-left: 6px;
+}
