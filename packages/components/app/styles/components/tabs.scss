@@ -65,8 +65,3 @@ $indicator-height: 3px;
 
 .hds-tabs__tab-icon { margin-right: 6px; }
 .hds-tabs__tab-badge { margin-left: 6px; }
-
-// TODO: Do we want to have a visibile focus style for the tabPanel or not?
-.hds-tabs__panel {
-  @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
-}

@@ -53,24 +53,24 @@ export default class HdsTabsIndexComponent extends Component {
   handleKeyUp(tabIndex, e) {
     const leftArrow = 37;
     const rightArrow = 39;
-    const downArrow = 40;
+    const enterKey =	13;
+    const spaceKey = 32;
 
     if (e.keyCode === rightArrow) {
       const nextTabIndex = (tabIndex + 1) % this.tabIds.length;
-      this.selectTab(nextTabIndex, e);
+      this.focusTab(nextTabIndex, e);
     } else if (e.keyCode === leftArrow) {
       const prevTabIndex =
         (tabIndex + this.tabIds.length - 1) % this.tabIds.length;
-      this.selectTab(prevTabIndex, e);
-    } else if (e.keyCode === downArrow) {
-      this.setSelectedPanelFocus(tabIndex, e);
+      this.focusTab(prevTabIndex, e);
+    } else if (e.keyCode === enterKey || e.keyCode === spaceKey) {
+      this.selectedTabIndex = tabIndex;
     }
   }
 
-  // Select tab for keyboard & mouse navigation:
-  selectTab(tabIndex, e) {
+  // Focus tab for keyboard & mouse navigation:
+  focusTab(tabIndex, e) {
     e.preventDefault();
-    this.selectedTabIndex = tabIndex;
     this.tabNodes[tabIndex].focus();
   }
 
