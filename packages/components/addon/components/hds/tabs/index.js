@@ -53,7 +53,7 @@ export default class HdsTabsIndexComponent extends Component {
   handleKeyUp(tabIndex, e) {
     const leftArrow = 37;
     const rightArrow = 39;
-    const enterKey =	13;
+    const enterKey = 13;
     const spaceKey = 32;
 
     if (e.keyCode === rightArrow) {
