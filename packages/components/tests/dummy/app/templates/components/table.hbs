@@ -330,9 +330,9 @@ export default class ComponentsTableRoute extends Route {
   </h4>
   <Hds::Table @model={{this.model}}>
     <:head>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Release Year</th>
+      <Hds::Table::Header @field="Artist" />
+      <Hds::Table::Header @field="Album" />
+      <Hds::Table::Header @field="Release Year" />
     </:head>
     <:body as |row|>
       <Hds::Table::Row>
@@ -347,9 +347,9 @@ export default class ComponentsTableRoute extends Route {
   </h4>
   <Hds::Table @model={{this.model}} @isStriped={{true}}>
     <:head>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Release Year</th>
+      <Hds::Table::Header>Artist</Hds::Table::Header>
+      <Hds::Table::Header>Album</Hds::Table::Header>
+      <Hds::Table::Header>Release Year</Hds::Table::Header>
     </:head>
     <:body as |row|>
       <Hds::Table::Row>
