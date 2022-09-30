@@ -6,17 +6,20 @@
   align-items: flex-start;
   min-width: fit-content;
   margin: 0;
-  list-style: none;
 
   .hds-tabs__tab {
     outline: 1px dotted #eee;
   }
 }
 
-
 .dummy-tab-base-sample-item {
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
+}
+
+.dummy-tab-ul-tab-wrapper {
+  display: contents;
+  list-style: none;
 }
