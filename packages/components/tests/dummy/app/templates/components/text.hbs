@@ -9,36 +9,8 @@
 
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
-  <p class="dummy-paragraph">The
-    <code class="dummy-code">Text</code>
-    component can be used directly as is, or via one of its specialized "style/size" variants:</p>
-  <ul>
-    <li class="dummy-paragraph">
-      <code class="dummy-code">Text::Display(500|400|300|200|100)</code>
-    </li>
-    <li class="dummy-paragraph">
-      <code class="dummy-code">Text::Body(300|200|100)</code>
-    </li>
-    <li class="dummy-paragraph">
-      <code class="dummy-code">Text::Code(300|200|100)</code>
-    </li>
-  </ul>
-
-  <h4 class="dummy-h4">Text</h4>
-  <p class="dummy-paragraph" id="component-api-text">Here is the API for the "base"
-    <code class="dummy-code">Text</code>
-    component:</p>
+  <p class="dummy-paragraph" id="component-api-text">Here is the API for the component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-text">
-    <dt>size <code>enum</code></dt>
-    <dd>
-      <p>The size ("style") for the text.</p>
-      <p>Acceptable values:</p>
-      <ol>
-        {{#each @model.SIZES as |size|}}
-          <li>{{size}}</li>
-        {{/each}}
-      </ol>
-    </dd>
     <dt>tag <code>enum</code></dt>
     <dd>
       <p>The html tag to use in the dynamic render of the component.</p>
@@ -66,6 +38,16 @@
         {{#each-in @model.MAPPING_SIZE_TO_TAG as |size tag|}}
           <li>{{size}} → &lt;{{tag}}&gt;</li>
         {{/each-in}}
+      </ol>
+    </dd>
+    <dt>size <code>enum</code></dt>
+    <dd>
+      <p>The size ("style") for the text.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        {{#each @model.SIZES as |size|}}
+          <li>{{size}}</li>
+        {{/each}}
       </ol>
     </dd>
     <dt>weight <code>enum</code></dt>
@@ -112,34 +94,6 @@
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
-
-  <h4 class="dummy-h4">Display[…] / Body[…] / Code[…]</h4>
-  <p class="dummy-paragraph" id="component-api-text-styles">The API for the specialized "style/size" variant components
-    is exactly the same as the "base"
-    <code class="dummy-code">Text</code>
-    component, apart from the
-    <code class="dummy-code">@size</code>
-    argument, which is implicity set by the variant itself (see above for more details on acceptable values and
-    defaults).</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-text-styles">
-    <dt>tag <code>enum</code></dt>
-    <dd>
-      <p>The html tag to use in the dynamic render of the component.</p>
-    </dd>
-    <dt>weight <code>enum</code></dt>
-    <dd>
-      <p>The weight of the text.</p>
-    </dd>
-    <dt>align <code>enum</code></dt>
-    <dd>
-      <p>The alignment of the text</p>
-    </dd>
-    <dt>...attributes</dt>
-    <dd>
-      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-    </dd>
-  </dl>
-
 </section>
 
 <section>
