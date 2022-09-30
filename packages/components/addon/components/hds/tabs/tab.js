@@ -13,11 +13,13 @@ export default class HdsTabsIndexComponent extends Component {
 
   @cached
   get nodeIndex() {
-    return this.args.tabIds.indexOf(this.tabId);
+    return this.args.tabIds ? this.args.tabIds.indexOf(this.tabId) : undefined;
   }
 
   get panelId() {
-    return this.args.panelIds[this.nodeIndex];
+    return this.nodeIndex !== undefined
+      ? this.args.panelIds[this.nodeIndex]
+      : undefined;
   }
 
   /**
@@ -27,7 +29,10 @@ export default class HdsTabsIndexComponent extends Component {
    * @description Determines if the tab is the selected tab
    */
   get isSelected() {
-    return this.nodeIndex === this.args.selectedTabIndex;
+    return (
+      this.nodeIndex !== undefined &&
+      this.nodeIndex === this.args.selectedTabIndex
+    );
   }
 
   get isInitialTab() {
@@ -37,17 +42,33 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   didInsertNode() {
-    this.args.didInsertNode(...arguments);
+    let { didInsertNode } = this.args;
+
+    if (typeof didInsertNode === 'function') {
+      didInsertNode(...arguments);
+    }
   }
 
   @action
   onClick() {
-    this.args.onClick(this.nodeIndex, ...arguments);
+    let { onClick } = this.args;
+
+    if (typeof onClick === 'function') {
+      onClick(this.nodeIndex, ...arguments);
+    } else {
+      return false;
+    }
   }
 
   @action
   onKeyUp() {
-    this.args.onKeyUp(this.nodeIndex, ...arguments);
+    let { onKeyUp } = this.args;
+
+    if (typeof onKeyUp === 'function') {
+      onKeyUp(this.nodeIndex, ...arguments);
+    } else {
+      return false;
+    }
   }
 
   /**

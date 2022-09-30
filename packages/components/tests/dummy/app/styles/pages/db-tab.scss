@@ -1,0 +1,22 @@
+// TAB
+
+.dummy-tab-base-sample {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  min-width: fit-content;
+  margin: 0;
+  list-style: none;
+
+  .hds-tabs__tab {
+    outline: 1px dotted #eee;
+  }
+}
+
+
+.dummy-tab-base-sample-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}

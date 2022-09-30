@@ -8,7 +8,7 @@
   <a
     role="tab"
     class="hds-tabs__tab-link hds-typography-body-200 hds-font-weight-medium"
-    href={{concat "#" this.panelId}}
+    href={{if this.panelId (concat "#" this.panelId)}}
     id={{this.tabId}}
     aria-selected={{this.isSelected}}
     tabindex={{unless this.isSelected "-1"}}

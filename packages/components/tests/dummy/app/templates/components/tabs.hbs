@@ -214,36 +214,90 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  <p class="dummy-paragraph"><strong>Basic usage:</strong></p>
+  <h4 class="dummy-h4">Tab</h4>
+
+  <h5 class="dummy-h6">Content</h5>
+  <div class="dummy-tab-base-sample">
+    <div>
+      <span class="dummy-text-small">Text only</span>
+      <br />
+      <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+    </div>
+    <div>
+      <span class="dummy-text-small">Icon + Text</span>
+      <br />
+      <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
+    </div>
+    <div>
+      <span class="dummy-text-small">Text + Counter</span>
+      <br />
+      <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
+    </div>
+    <div>
+      <span class="dummy-text-small">Icon + Text + Counter</span>
+      <br />
+      <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+    </div>
+  </div>
+
+  <h5 class="dummy-h6">States</h5>
+  <div class="dummy-tab-base-sample">
+    {{#each @model.TAG_STATES as |state|}}
+      <div class="dummy-tab-base-sample-item">
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <Hds::Tabs::Tab mock-state-value={{state}} mock-state-selector="a">Lorem ipsum</Hds::Tabs::Tab>
+        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value={{state}} mock-state-selector="a">Lorem ipsum</Hds::Tabs::Tab>
+      </div>
+    {{/each}}
+  </div>
+
+  <h4 class="dummy-h4">Panel</h4>
+  <h5 class="dummy-h6">Content</h5>
+  <Hds::Tabs::Panel><DummyPlaceholder
+      @text="Panel with generic content"
+      @height="50"
+      @background="#eee"
+    /></Hds::Tabs::Panel>
+
+  <h4 class="dummy-h4">Tabs</h4>
+  <h5 class="dummy-h6">Basic usage</h5>
   <Hds::Tabs as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
-    <T.Panel>Content one <a href="#">Link to test tabbing</a></T.Panel>
-    <T.Panel>Content 2</T.Panel>
-    <T.Panel>Content 3!</T.Panel>
+    <T.Panel><DummyPlaceholder @height="50" @background="#eee"><span>Content one with
+          <a href="#">link to test tabbing</a></span></DummyPlaceholder></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
-  <p class="dummy-paragraph"><strong>Using optional icon and badge count:</strong></p>
+  <h5 class="dummy-h6">With optional icon and badge count</h5>
   <Hds::Tabs as |T|>
     <T.Tab @count="5">One</T.Tab>
-    <T.Tab @icon="download">Two</T.Tab>
+    <T.Tab @icon="info">Two</T.Tab>
     <T.Tab>Three</T.Tab>
+    <T.Tab @icon="alert-triangle" @count="5">Four</T.Tab>
 
-    <T.Panel>Content one <a href="#">Link to test tabbing</a></T.Panel>
-    <T.Panel>Content 2</T.Panel>
-    <T.Panel>Content 3!</T.Panel>
+    <T.Panel><DummyPlaceholder @height="50" @background="#eee"><span>Content one with
+          <a href="#">link to test tabbing</a></span></DummyPlaceholder></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
-  <p class="dummy-paragraph"><strong>With custom isSelected value:</strong></p>
+  <h5 class="dummy-h6">With pre-selected tab</h5>
   <Hds::Tabs as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
-    <T.Tab @isSelected="true">Three (I am selected on page load)</T.Tab>
+    <T.Tab @isSelected="true">Three (selected on page load)</T.Tab>
 
-    <T.Panel>Content one</T.Panel>
-    <T.Panel>Content #2</T.Panel>
-    <T.Panel>Content #3: I am displayed on page load!</T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder
+        @text="Content three (displayed on page load)"
+        @height="50"
+        @background="#eee"
+      /></T.Panel>
   </Hds::Tabs>
 </section>
