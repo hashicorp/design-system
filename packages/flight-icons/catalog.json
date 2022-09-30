@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-08-26T20:57:26.415Z",
+  "lastRunTimeISO": "2022-09-29T21:59:30.161Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -331,6 +331,42 @@
       "fileName": "aws-ec2-color-16",
       "iconName": "aws-ec2-color",
       "description": "amazon, aws, ec2",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2651:93",
+      "fileName": "aws-lambda-24",
+      "iconName": "aws-lambda",
+      "description": "amazon, aws, lambda",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2651:96",
+      "fileName": "aws-lambda-16",
+      "iconName": "aws-lambda",
+      "description": "amazon, aws, lambda",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2651:84",
+      "fileName": "aws-lambda-color-24",
+      "iconName": "aws-lambda-color",
+      "description": "amazon, aws, lambda",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2651:87",
+      "fileName": "aws-lambda-color-16",
+      "iconName": "aws-lambda-color",
+      "description": "amazon, aws, lambda",
       "size": "16",
       "width": 16,
       "height": 16
@@ -1267,6 +1303,42 @@
       "fileName": "linode-color-16",
       "iconName": "linode-color",
       "description": "linode",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2660:433",
+      "fileName": "linux-24",
+      "iconName": "linux",
+      "description": "linux, os",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2660:436",
+      "fileName": "linux-16",
+      "iconName": "linux",
+      "description": "linux, os",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2668:66",
+      "fileName": "linux-color-24",
+      "iconName": "linux-color",
+      "description": "linux, os",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2668:79",
+      "fileName": "linux-color-16",
+      "iconName": "linux-color",
+      "description": "linux, os",
       "size": "16",
       "width": 16,
       "height": 16
