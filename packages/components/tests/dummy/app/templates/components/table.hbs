@@ -3,17 +3,7 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  This table component is the
-  <a
-    href="https://unofficial-design-system-search.vercel.app/?path=/docs/cloud-ui-storybook_table--static"
-    rel="noopener noreferrer"
-    target="_blank"
-  >Cloud-UI
-    <code class="dummy-code">&lt;Table&gt;</code>
-    component</a>
-  with a few adjustments for improved WCAG conformance. Users who already have this table component implemented should
-  be able to migrate to this component with little to no difficulty. Additionally, the data-test attributes have been
-  left "as is" to avoid breaking your existing tests.
+  This table component is a simple data table that supports using a data model...or not, to keep the use case flexible.
 </p>
 <section>
   <h3 class="dummy-h3" id="overview">
@@ -104,16 +94,18 @@
     @language="handlebars"
     @code="<Hds::Table @model=\{{this.model}}>
   <:head>
-    <th>Artist</th>
-    <th>Album</th>
-    <th>Release Year</th>
+    <Hds::Table::Row>
+      <Hds::Table::Th>Artist</Hds::Table::Th>
+      <Hds::Table::Th>Album</Hds::Table::Th>
+      <Hds::Table::Th>Release Year</Hds::Table::Th>
+    </Hds::Table::Row>
   </:head>
-  <:body as |row|>
-    <tr>
-      <td>\{{row.artist}}</td>
-      <td>\{{row.album}}</td>
-      <td>\{{row.year}}</td>
-    </tr>
+  <:body as |data|>
+    <Hds::Table::Row>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Row>
   </:body>
 </Hds::Table>"
   />
@@ -146,33 +138,6 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-
-  <h4 class="dummy-h4">Table with sorting support</h4>
-
-  <p class="dummy-paragraph">
-    If you want to have sortable table headers, you'll go one step further by defining the sorting functions/actions in
-    your app after invoking the table component in your template. Here's an example of the template invocation with
-    sorting support arguments defined:
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="handlebars"
-    @code='<Hds::Table @model=\{{this.model}} @sortProperty=\{{this.sortby}} @sortDescending=\{{false}}>
-  <:head as |h|>
-    <h.SortBy @field="artist">Artist</h.SortBy>
-    <h.SortBy @field="album">Album</h.SortBy>
-    <h.SortBy @field="year">Release Year</h.SortBy>
-  </:head>
-  <:body as |row|>
-    <tr>
-      <td>\{{row.artist}}</td>
-      <td>\{{row.album}}</td>
-      <td>\{{row.year}}</td>
-    </tr>
-  </:body>
-</Hds::Table>'
-  />
 </section>
 <section>
   <h3 class="dummy-h3" id="design-guidelines">
@@ -326,36 +291,21 @@ export default class ComponentsTableRoute extends Route {
     Showcase
   </h3>
   <h4 class="dummy-h4">
-    Static table (non-sortable) with model defined
+    Static table with model defined
   </h4>
   <Hds::Table @model={{this.model}}>
     <:head>
-      <Hds::Table::Header @field="Artist" />
-      <Hds::Table::Header @field="Album" />
-      <Hds::Table::Header @field="Release Year" />
-    </:head>
-    <:body as |row|>
       <Hds::Table::Row>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th> Album </Hds::Table::Th>
+        <Hds::Table::Th>Release Year</Hds::Table::Th>
       </Hds::Table::Row>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with striped rows
-  </h4>
-  <Hds::Table @model={{this.model}} @isStriped={{true}}>
-    <:head>
-      <Hds::Table::Header>Artist</Hds::Table::Header>
-      <Hds::Table::Header>Album</Hds::Table::Header>
-      <Hds::Table::Header>Release Year</Hds::Table::Header>
     </:head>
-    <:body as |row|>
+    <:body as |data|>
       <Hds::Table::Row>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
       </Hds::Table::Row>
     </:body>
   </Hds::Table>
@@ -364,9 +314,11 @@ export default class ComponentsTableRoute extends Route {
   </h4>
   <Hds::Table>
     <:head>
-      <th>Cell Header</th>
-      <th>Cell Header</th>
-      <th>Cell Header</th>
+      <tr>
+        <th>Cell Header</th>
+        <th>Cell Header</th>
+        <th>Cell Header</th>
+      </tr>
     </:head>
     <:body>
       <Hds::Table::Row>
@@ -383,6 +335,25 @@ export default class ComponentsTableRoute extends Route {
         <td>Cell Content</td>
         <td>Cell Content</td>
         <td>Cell Content</td>
+      </Hds::Table::Row>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table with striped rows
+  </h4>
+  <Hds::Table @model={{this.model}} @isStriped={{true}}>
+    <:head>
+      <Hds::Table::Row>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th>Album</Hds::Table::Th>
+        <Hds::Table::Th>Release Year</Hds::Table::Th>
+      </Hds::Table::Row>
+    </:head>
+    <:body as |data|>
+      <Hds::Table::Row>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
       </Hds::Table::Row>
     </:body>
   </Hds::Table>
