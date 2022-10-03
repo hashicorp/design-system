@@ -9611,6 +9611,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-math-helpers@npm:^2.18.2":
+  version: 2.18.2
+  resolution: "ember-math-helpers@npm:2.18.2"
+  dependencies:
+    broccoli-funnel: ^3.0.8
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.0.1
+  checksum: 00ce8a0a373df912f6d61d265f0353699e5d792c1365ac0732c0bbf570cd1919efa6ce7f76912770e56bf16333502561c19415876d365b5c0b3566afa439c403
+  languageName: node
+  linkType: hard
+
 "ember-maybe-in-element@npm:^2.0.3":
   version: 2.0.3
   resolution: "ember-maybe-in-element@npm:2.0.3"
@@ -9956,7 +9967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-truth-helpers@npm:^2.1.0 || ^3.0.0":
+"ember-truth-helpers@npm:^2.1.0 || ^3.0.0, ember-truth-helpers@npm:^3.1.1":
   version: 3.1.1
   resolution: "ember-truth-helpers@npm:3.1.1"
   dependencies:
@@ -21586,15 +21597,18 @@ __metadata:
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
+    ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
     ember-export-application-global: ^2.0.1
     ember-fetch: ^8.1.2
     ember-load-initializers: ^2.1.2
+    ember-math-helpers: ^2.18.2
     ember-page-title: ^7.0.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3
     ember-source: ~4.3.0
     ember-template-lint: ^4.3.0
+    ember-truth-helpers: ^3.1.1
     eslint: ^7.32.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-ember: ^10.5.9
