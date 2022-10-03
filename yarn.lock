@@ -10273,15 +10273,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-welcome-page@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "ember-welcome-page@npm:6.2.0"
-  dependencies:
-    "@embroider/addon-shim": ^1.5.0
-  checksum: 0f60f3f6c8a1d908539f9d01ab370634d74e9a46e6efa77b416634f84417c01ed5ae4fce16825a70fc64292853a7b4e990ae1c5153a41babc366298910b87a93
-  languageName: node
-  linkType: hard
-
 "emoji-regex@npm:^7.0.1":
   version: 7.0.3
   resolution: "emoji-regex@npm:7.0.3"
@@ -21910,7 +21901,6 @@ __metadata:
     ember-resolver: ^8.0.3
     ember-source: ~4.3.0
     ember-template-lint: ^4.3.0
-    ember-welcome-page: ^6.2.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-ember: ^10.5.9
