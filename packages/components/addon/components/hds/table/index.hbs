@@ -4,8 +4,8 @@
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
     {{#if @model}}
-      {{#each @model as |modelItemData|}}
-        {{yield modelItemData to="body"}}
+      {{#each @model as |record|}}
+        {{yield record to="body"}}
       {{/each}}
     {{else}}
       {{yield to="body"}}
