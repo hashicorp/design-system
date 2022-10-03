@@ -20,17 +20,7 @@
     <code class="dummy-code">thead</code>
     of the table. It yields within a single
     <code class="dummy-code">tr</code>
-    element that is meant to represent column headers. It also yields a single contextual component,
-    <code class="dummy-code">SortBy</code>
-    which applies the
-    <code class="dummy-code">@sortProperty</code>
-    and
-    <code class="dummy-code">@sortDescending</code>
-    args from the
-    <code class="dummy-code">HdsTable</code>
-    component. This way, only
-    <code class="dummy-code">@field</code>
-    needs to be set to define an initial field to sort by.</p>
+    element that is meant to represent column headers.</p>
   <h4 class="dummy-h4">:body named block</h4>
   <p class="dummy-paragraph">This represents the
     <code class="dummy-code">tbody</code>
@@ -59,22 +49,6 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
     <dt>model <code>array</code></dt>
     <dd><p>Sets the data source that gets yielded by the <code class="dummy-code">:body</code> named block.</p></dd>
-    <dt>sortProperty <code>string</code></dt>
-    <dd><p>Specifies which field the
-        <code class="dummy-code">@model</code>
-        is sorted by. This does not perform a sort; it is only used to set state on the contextual
-        <code class="dummy-code">SortBy</code>
-        components.
-      </p></dd>
-    <dt>sortDescending <code>boolean</code></dt>
-    <dd><p>Specifies which direction the
-        <code class="dummy-code">@model</code>
-        is sorted. Descending when
-        <code class="dummy-code">true</code>, ascending when
-        <code class="dummy-code">false</code>. This does not perform a sort. It is only used to set states on the
-        contextual
-        <code class="dummy-code">SortBy</code>
-        components.</p></dd>
   </dl>
 </section>
 <section>
@@ -111,8 +85,8 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Just for demonstration purposes: here is the model that provides the table data for this
-    page, which we've defined in this page's route:</p>
+  <p class="dummy-paragraph">For better documentation purposes, we imitated fetching data from an API and working with
+    that as our data model.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -120,24 +94,20 @@
     @code="import Route from '@ember/routing/route';
 
 export default class ComponentsTableRoute extends Route {
-  model() {
-    return [
-      { artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
-      { artist: 'The Beatles', album: 'Abbey Road', year: '1969' },
-      { artist: 'Melanie', album: 'Candles in the Rain', year: '1971' },
-      { artist: 'Bob Dylan', album: 'Bringing It All Back Home', year: '1965' },
-      { artist: 'James Taylor', album: 'Sweet Baby James', year: '1970' },
-      {
-        artist: 'Simon and Garfunkel',
-        album: 'Bridge Over Troubled Waters',
-        year: '1970',
-      },
-    ];
+  async model() {
+    let response = await fetch('/api/music.json');
+    let { data } = await response.json();
+
+    return data.map((model) => {
+      let { attributes } = model;
+      return { ...attributes };
+    });
   }
 }"
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
+  <p></p>
 </section>
 <section>
   <h3 class="dummy-h3" id="design-guidelines">
