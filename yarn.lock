@@ -2317,8 +2317,8 @@ __metadata:
     "@embroider/test-setup": ^1.5.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@hashicorp/design-system-tokens": ^1.0.1
-    "@hashicorp/ember-flight-icons": ^2.0.12
+    "@hashicorp/design-system-tokens": ^1.1.0
+    "@hashicorp/ember-flight-icons": ^3.0.0
     "@percy/cli": ^1.10.4
     "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
@@ -2376,7 +2376,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@^1.0.1, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@^1.1.0, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -2407,7 +2407,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^2.0.12, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^3.0.0, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -2416,7 +2416,7 @@ __metadata:
     "@embroider/test-setup": ^1.5.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@hashicorp/flight-icons": ^2.10.0
+    "@hashicorp/flight-icons": ^2.11.0
     "@percy/cli": ^1.10.4
     "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
@@ -2457,7 +2457,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@^2.10.0, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@^2.11.0, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
@@ -10873,8 +10873,8 @@ __metadata:
     "@ember/test-helpers": ^2.6.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@hashicorp/ember-flight-icons": ^2.0.12
-    "@hashicorp/flight-icons": ^2.10.0
+    "@hashicorp/ember-flight-icons": ^3.0.0
+    "@hashicorp/flight-icons": ^2.11.0
     "@percy/cli": ^1.10.4
     "@percy/ember": ^4.0.0
     "@tailwindcss/forms": ^0.3.4
