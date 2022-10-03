@@ -1,0 +1,52 @@
+name: CI - Website
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+env:
+  NODE_VERSION: '16.x'
+
+concurrency:
+   group: ci-website-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn run lint
+        working-directory: website
+
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Run Tests
+        run: yarn run test:ember
+        working-directory: website
+
