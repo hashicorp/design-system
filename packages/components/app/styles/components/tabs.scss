@@ -27,8 +27,13 @@ $indicator-height: 3px;
   position: relative; // for positioning indicator
   // adjust position to make indicator overlap tabs bottom border:
   bottom: round(calc($indicator-height / 2 * -1));
+  display: flex;
+  align-items: center;
+  height: 36px;
   margin: 0;
-  padding: 0;
+  padding: 0 12px;
+  white-space: nowrap;
+  text-decoration: none;
   list-style: none;
 
   &.hds-tabs__tab--is-selected {
@@ -45,34 +50,32 @@ $indicator-height: 3px;
       content: "";
     }
 
+    // indicator:
     &:hover::after { background-color: var(--token-color-foreground-action-hover); }
 
-    .hds-tabs__tab-link {
+    .hds-tabs__tab-button {
       color: var(--token-color-foreground-action);
     }
   }
+}
 
-  .hds-tabs__tab-link {
-    @include hds-focus-ring-with-pseudo-element(
-      $top: 6px,
-      $right: 6px,
-      $bottom: 6px,
-      $left: 6px
-    );
+.hds-tabs__tab-button {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: 6px,
+    $right: 6px,
+    $bottom: 6px,
+    $left: 6px,
+  );
+  position: static;
+  padding: 0;
+  color: var(--token-color-foreground-primary);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--token-form-control-border-radius);
 
-    display: flex;
-    align-items: center;
-    height: 36px;
-    padding: 0 12px;
-    color: var(--token-color-foreground-primary);
-    white-space: nowrap;
-    text-decoration: none;
-    border-radius: var(--token-form-control-border-radius);
-
-    &:hover,
-    &.mock-hover {
-      color: var(--token-color-foreground-action-hover);
-    }
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
   }
 }
 
