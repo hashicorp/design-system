@@ -79,6 +79,11 @@
 
 .hds-form-radio-card--align-center {
   text-align: center;
+
+  // stylelint-disable-next-line selector-class-pattern
+  .flight-icon {
+    margin: auto;
+  }
 }
 
 // CONTROL POSITION
