@@ -5,7 +5,8 @@ module.exports = function (environment) {
     modulePrefix: 'website',
     environment,
     rootURL: '/',
-    locationType: 'history',
+    locationType: 'trailing-history',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,6 +22,19 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+
+    'field-guide': {
+      name: 'Product Name',
+      copyright: 'This is the default copyright string - update before publishing',
+
+      social: [{
+        name: 'github',
+        title: 'Design System Documentation - Repository',
+        link: 'https://github.com/empress/field-guide?update-with-your-repo-url'
+      }]
+    },
+
+    historySupportMiddleware: true
   };
 
   if (environment === 'development') {
