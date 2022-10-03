@@ -6,94 +6,83 @@
 
 $indicator-height: 3px;
 
-// Tabs sub-components:
+// .hds-tabs {}
+
+// Sub-components:
 .hds-tabs__tablist-wrapper {
-  position: relative;
-
-  // Overflow gradients
-  &::before,
-  &::after {
-    position: absolute;
-    top: 0;
-    bottom: $indicator-height;
-    z-index: 2;
-    width: 16px;
-    content: "";
-    pointer-events: none;
-  }
-
-  &::before { background: linear-gradient(to left, transparent, var(--token-color-surface-primary)); }
-
-  &::after {
-    right: 0;
-    background: linear-gradient(to right, transparent, var(--token-color-surface-primary));
-  }
+  padding-bottom: round(calc($indicator-height / 2));
+  // overflow-x: auto;
+  // -webkit-overflow-scrolling: touch;
+  // white-space: nowrap; // move
 }
 
 .hds-tabs__tablist {
-  position: relative;
   display: flex;
   margin: 0;
   padding: 0;
-  overflow-x: auto;
-  white-space: nowrap;
-  list-style: none;
-  -webkit-overflow-scrolling: touch;
-
-  // bottom border
-  &::before {
-    position: absolute;
-    right: 0;
-    bottom: floor(calc($indicator-height / 2));
-    left: 0;
-    z-index: 3;
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: var(--token-color-border-primary);
-    content: "";
-  }
+  border-bottom: 1px solid var(--token-color-border-primary);
 }
 
 .hds-tabs__tab {
   position: relative; // for positioning indicator
+  // adjust position to make indicator overlap tabs bottom border:
+  bottom: round(calc($indicator-height / 2 * -1));
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin: 0;
+  padding: 0 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  list-style: none;
 
   &.hds-tabs__tab--is-selected {
-    /* indicator TODO: refactor if needed for animation */
+    /* indicator TODO: refactor as needed for animation */
     &::after {
       position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 3;
       display: block;
       height: $indicator-height;
-      background: var(--token-color-foreground-action);
+      background-color: var(--token-color-foreground-action);
       border-radius: 3px;
       content: "";
     }
 
-    .hds-tabs__tab-link {
+    // indicator:
+    &:hover::after { background-color: var(--token-color-foreground-action-hover); }
+
+    .hds-tabs__tab-button {
       color: var(--token-color-foreground-action);
     }
   }
 }
 
-.hds-tabs__tab-link {
-  @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
-  display: block;
-  padding: 8px 12px;
+.hds-tabs__tab-button {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: 6px,
+    $right: 6px,
+    $bottom: 6px,
+    $left: 6px,
+  );
+  position: static;
+  padding: 0;
   color: var(--token-color-foreground-primary);
-  white-space: nowrap;
-  text-decoration: none;
+  background-color: transparent;
+  border: none;
   border-radius: var(--token-form-control-border-radius);
 
-  &:hover {
+  &:hover,
+  &.mock-hover {
     color: var(--token-color-foreground-action-hover);
   }
 }
 
-// TODO: Do we want to have a visibile focus style for the tabPanel or not?
-.hds-tabs__panel {
-  @include hds-focus-ring-with-pseudo-element($top: 4px, $right: 6px, $bottom: 4px, $left: 6px);
+.hds-tabs__tab-icon {
+  margin-right: 6px;
+}
+
+.hds-tabs__tab-badge {
+  margin-left: 6px;
 }

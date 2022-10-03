@@ -15,11 +15,15 @@ export default class HdsTabsIndexComponent extends Component {
 
   @cached
   get nodeIndex() {
-    return this.args.panelIds.indexOf(this.panelId);
+    return this.args.panelIds
+      ? this.args.panelIds.indexOf(this.panelId)
+      : undefined;
   }
 
   get tabId() {
-    return this.args.tabIds[this.nodeIndex];
+    return this.nodeIndex !== undefined
+      ? this.args.tabIds[this.nodeIndex]
+      : undefined;
   }
 
   get isSelected() {
@@ -28,9 +32,11 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   didInsertNode(element) {
-    this.elementId = element.id;
-    if (typeof this.args.didInsertNode === 'function') {
-      this.args.didInsertNode(this.elementId, ...arguments);
+    let { didInsertNode } = this.args;
+
+    if (typeof didInsertNode === 'function') {
+      this.elementId = element.id;
+      didInsertNode(this.elementId, ...arguments);
     }
   }
 

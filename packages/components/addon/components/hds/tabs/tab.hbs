@@ -2,10 +2,14 @@
 {{! template-lint-disable no-invalid-role }}
 
 <li class={{this.classNames}} role="presentation" ...attributes>
-  <a
+  {{#if @icon}}
+    <FlightIcon @name={{@icon}} class="hds-tabs__tab-icon" />
+  {{/if}}
+
+  <button
+    class="hds-tabs__tab-button hds-typography-body-200 hds-font-weight-medium"
     role="tab"
-    class="hds-tabs__tab-link hds-typography-body-200 hds-font-weight-medium"
-    href={{concat "#" this.panelId}}
+    type="button"
     id={{this.tabId}}
     aria-selected={{this.isSelected}}
     tabindex={{unless this.isSelected "-1"}}
@@ -15,5 +19,9 @@
     {{on "keyup" this.onKeyUp}}
   >
     {{yield}}
-  </a>
+  </button>
+
+  {{#if @count}}
+    <Hds::BadgeCount @text={{@count}} @size="small" class="hds-tabs__tab-badge" />
+  {{/if}}
 </li>
