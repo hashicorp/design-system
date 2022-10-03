@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | flight-icon', function (hooks) {
@@ -115,5 +115,29 @@ module('Integration | Component | flight-icon', function (hooks) {
     );
     assert.dom('svg > g').hasAttribute('role');
   });
-  // TODO: there should be an error if an icon name is not provided
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @name is not provided', async function (assert) {
+    const errorMessage = `Please provide to <FlightIcon> a value for @name`;
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<FlightIcon />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if the icon @name does not exist', async function (assert) {
+    const errorMessage = `The icon @name "abc" provided to <FlightIcon> is not correct. Please verify it exists on https://flight-hashicorp.vercel.app/`;
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<FlightIcon @name="abc" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
 });

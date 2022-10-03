@@ -1,5 +1,13 @@
 # @hashicorp/flight-icons
 
+## 2.11.0
+
+### Minor Changes
+
+- [#580](https://github.com/hashicorp/design-system/pull/580) [`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc) Thanks [@didoo](https://github.com/didoo)! - updated SVG icons generation to include JS file with list of icon names
+
+* [#593](https://github.com/hashicorp/design-system/pull/593) [`382fce2d`](https://github.com/hashicorp/design-system/commit/382fce2d063e8ff31849f28d68a138537354c68e) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added AWS Lambda and Linux icons
+
 ## 2.10.0
 
 ### Minor Changes

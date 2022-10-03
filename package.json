@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "workspaces": [
     "./packages/*",
-    "./flight-website"
+    "./flight-website",
+    "./website"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
