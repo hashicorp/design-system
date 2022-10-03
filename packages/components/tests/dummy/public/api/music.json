@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "musician",
+      "attributes": {
+        "artist": "Nick Drake",
+        "album": "Pink Moon",
+        "year": "1972"
+      }
+    },
+    {
+      "id": "2",
+      "type": "musician",
+      "attributes": {
+        "artist": "The Beatles",
+        "album": "Abbey Road",
+        "year": "1969"
+      }
+    },
+    {
+      "id": "3",
+      "type": "musician",
+      "attributes": {
+        "artist": "Melanie",
+        "album": "Candles in the Rain",
+        "year": "1971"
+      }
+    },
+    {
+      "id": "4",
+      "type": "musician",
+      "attributes": {
+        "artist": "Bob Dylan",
+        "album": "Bringing It All Back Home",
+        "year": "1965"
+      }
+    },
+    {
+      "id": "5",
+      "type": "musician",
+      "attributes": {
+        "artist": "James Taylor",
+        "album": "Sweet Baby James",
+        "year": "1970"
+      }
+    },
+    {
+      "id": "6",
+      "type": "musician",
+      "attributes": {
+        "artist": "Simon and Garfunkel",
+        "album": "Bridge Over Troubled Waters",
+        "year": "1970"
+      }
+    }
+  ]
+}
