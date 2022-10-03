@@ -1,5 +1,19 @@
 # @hashicorp/design-system-components
 
+## 1.2.0
+
+### Minor Changes
+
+- [#576](https://github.com/hashicorp/design-system/pull/576) [`ab821911`](https://github.com/hashicorp/design-system/commit/ab821911e8d7f99b2b70e41e06f3fe8f681f9c8f) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `RadioCard` component
+
+### Patch Changes
+
+- [#586](https://github.com/hashicorp/design-system/pull/586) [`55ec4246`](https://github.com/hashicorp/design-system/commit/55ec424615505733159ac420284c47758f0667a3) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - make ember-truth-helpers a dependency
+
+- Updated dependencies [[`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc), [`258c06d9`](https://github.com/hashicorp/design-system/commit/258c06d952d41696bb8c5b4bab19eb46e4612cdc)]:
+  - @hashicorp/ember-flight-icons@3.0.0
+  - @hashicorp/design-system-tokens@1.1.0
+
 ## 1.1.0
 
 ### Minor Changes

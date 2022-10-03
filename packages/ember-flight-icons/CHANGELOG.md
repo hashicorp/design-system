@@ -1,5 +1,16 @@
 # @hashicorp/ember-flight-icons
 
+## 3.0.0
+
+### Major Changes
+
+- [#580](https://github.com/hashicorp/design-system/pull/580) [`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc) Thanks [@didoo](https://github.com/didoo)! - updated the Ember `FlightIcon` component to throw an error if a non-existing icon name is used
+
+### Patch Changes
+
+- Updated dependencies [[`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc), [`382fce2d`](https://github.com/hashicorp/design-system/commit/382fce2d063e8ff31849f28d68a138537354c68e)]:
+  - @hashicorp/flight-icons@2.11.0
+
 ## 2.0.12
 
 ### Patch Changes

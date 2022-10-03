@@ -652,7 +652,9 @@
       <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
         <R.Icon @name="hexagon" />
         <R.Label>{{item.label}}</R.Label>
-        <R.Generic>{{item.generic}}</R.Generic>
+        <R.Generic>
+          <DummyPlaceholder @text={{item.generic}} @height="50" @background="#eee" />
+        </R.Generic>
       </G.RadioCard>
     {{/each}}
   </Hds::Form::RadioCard::Group>

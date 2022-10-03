@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.1.0
+
+### Minor Changes
+
+- [#584](https://github.com/hashicorp/design-system/pull/584) [`258c06d9`](https://github.com/hashicorp/design-system/commit/258c06d952d41696bb8c5b4bab19eb46e4612cdc) Thanks [@didoo](https://github.com/didoo)! - added specific design tokens for the `RadioCard` component
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "HashiCorp Design System Components",
   "keywords": [
     "hashicorp",
@@ -36,8 +36,8 @@
     "test:ember:percy": "percy exec ember test"
   },
   "dependencies": {
-    "@hashicorp/design-system-tokens": "^1.0.1",
-    "@hashicorp/ember-flight-icons": "^2.0.12",
+    "@hashicorp/design-system-tokens": "^1.1.0",
+    "@hashicorp/ember-flight-icons": "^3.0.0",
     "ember-auto-import": "^2.4.1",
     "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-cli-babel": "^7.26.11",
@@ -65,7 +65,6 @@
     "ember-cli-dependency-checker": "^3.3.0",
     "ember-cli-deprecation-workflow": "^2.1.0",
     "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-markdown-it-templates": "^0.0.3",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-string-helpers": "^6.1.0",
     "ember-cli-terser": "^4.0.2",
@@ -100,7 +99,6 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
-    "version-bump-prompt": "^6.1.0",
     "webpack": "^5.70.0"
   },
   "engines": {
