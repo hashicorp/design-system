@@ -72,5 +72,9 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@hashicorp/design-system-components": "workspace:^",
+    "@hashicorp/ember-flight-icons": "workspace:^"
   }
 }

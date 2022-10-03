@@ -2358,7 +2358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hashicorp/design-system-components@workspace:packages/components":
+"@hashicorp/design-system-components@workspace:^, @hashicorp/design-system-components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-components@workspace:packages/components"
   dependencies:
@@ -21584,6 +21584,7 @@ __metadata:
     "@ember/test-helpers": ^2.6.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
+    "@hashicorp/design-system-components": "workspace:^"
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.4.1
