@@ -1,22 +1,32 @@
 import Component from '@glimmer/component';
-import { assert, warn } from '@ember/debug';
+import { assert } from '@ember/debug';
 
-// only some font-weight and style + font-weight combinations are allowed (per design specs)
-export const AVAILABLE_WEIGHTS = ['regular', 'medium', 'semibold', 'bold'];
-export const AVAILABLE_SIZE_WEIGHT_COMBINATIONS = {
-  // notice: the first weight in the array is considered the "default"
-  'display-500': ['bold'],
-  'display-400': ['bold', 'semibold', 'medium'],
-  'display-300': ['bold', 'semibold', 'medium'],
-  'display-200': ['semibold'],
-  'display-100': ['medium'],
-  'body-300': ['regular', 'medium', 'semibold'],
-  'body-200': ['regular', 'medium', 'semibold'],
-  'body-100': ['regular', 'medium', 'semibold'],
-  'code-300': ['regular'],
-  'code-200': ['regular'],
-  'code-100': ['regular'],
-};
+// notice: only some font-weight and style + font-weight combinations are allowed (per design specs)
+// see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192
+export const AVAILABLE_VARIANTS = [
+  'display/500/bold',
+  'display/400/medium',
+  'display/400/semibold',
+  'display/400/bold',
+  'display/300/medium',
+  'display/300/semibold',
+  'display/300/bold',
+  'display/200/semibold',
+  'display/100/medium',
+  'body/300/regular',
+  'body/300/medium',
+  'body/300/semibold',
+  'body/200/regular',
+  'body/200/medium',
+  'body/200/semibold',
+  'body/100/regular',
+  'body/100/medium',
+  'body/100/semibold',
+  'code/300/regular',
+  'code/200/regular',
+  'code/100/regular',
+];
+
 export const AVAILABLE_COLORS = [
   'primary',
   'strong',
@@ -40,96 +50,69 @@ export const AVAILABLE_COLORS = [
   'critical-high-contrast',
 ];
 
-export const MAPPING_SIZE_TO_TAG = {
-  'display-500': 'h1',
-  'display-400': 'h2',
-  'display-300': 'h3',
-  'display-200': 'h4',
-  'display-100': 'h5',
-  'body-300': 'p',
-  'body-200': 'p',
-  'body-100': 'p',
-  'code-300': 'code',
-  'code-200': 'code',
-  'code-100': 'code',
+export const MAPPING_STYLE_TO_TAG = {
+  'display/500': 'h1',
+  'display/400': 'h2',
+  'display/300': 'h3',
+  'display/200': 'h4',
+  'display/100': 'h5',
+  'body/300': 'p',
+  'body/200': 'p',
+  'body/100': 'p',
+  'code/300': 'code',
+  'code/200': 'code',
+  'code/100': 'code',
 };
-export const ALIGNS = ['left', 'center', 'right'];
+export const AVAILABLE_ALIGNS = ['left', 'center', 'right'];
 
 export default class HdsTextIndexComponent extends Component {
   /**
-   * Get a tag to render based on:
-   * - the `@tag` argument passed or
-   * - the `@size` prop (via mapping)
+   * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
+   *
    * @method #tag
    * @return {string} The html tag to use in the dynamic render of the component
    */
   get tag() {
-    return this.args.tag || MAPPING_SIZE_TO_TAG[this.size];
-  }
-
-  /**
-   * Sets the size (style) for the text
-   *
-   * @param size
-   * @type {string}
-   */
-  get size() {
-    let { size } = this.args;
-
-    const ACCEPTED_SIZES = Object.keys(MAPPING_SIZE_TO_TAG);
-
-    assert(
-      `@size for "Hds::Text" must be one of the following: ${ACCEPTED_SIZES.join(
-        ', '
-      )}; received: ${size}`,
-      ACCEPTED_SIZES.includes(size)
+    return (
+      this.args.tag ||
+      MAPPING_STYLE_TO_TAG[`${this.variant.group}/${this.variant.size}`]
     );
-
-    return size;
   }
 
   /**
-   * Sets the weight of the text
-   * Accepted values: see AVAILABLE_WEIGHTS
+   * Sets the "variant" (style) for the text
+   * Accepted values: see AVAILABLE_VARIANTS
    *
-   * @param weight
    * @type {string}
+   *
+   * @param variant
    */
-  get weight() {
-    let { weight } = this.args;
+  get variant() {
+    let { variant } = this.args;
 
-    // if @weight is not provided, we use a default depending on the @size argument
-    if (weight === undefined) {
-      // as default we choose the lowest weight available for that size
-      weight = AVAILABLE_SIZE_WEIGHT_COMBINATIONS[this.size][0];
-    } else {
-      assert(
-        `@weight for "Hds::Text" must be one of the following: ${AVAILABLE_WEIGHTS.join(
-          ', '
-        )}; received: ${weight}`,
-        AVAILABLE_WEIGHTS.includes(weight)
-      );
-      warn(
-        `@weight for "Hds::Text" with @size="${
-          this.size
-        }" must be one of the following: ${AVAILABLE_SIZE_WEIGHT_COMBINATIONS[
-          this.size
-        ].join(
-          ', '
-        )}; received: "${weight}". (If you need a specific size/weight combination not yet supported please speak with the Design System team.)`,
-        AVAILABLE_SIZE_WEIGHT_COMBINATIONS[this.size].includes(weight),
-        {
-          id: 'ember-debug.hds.text-wrong-size-weight-combination',
-        }
-      );
+    if (variant) {
+      variant = variant.toLowerCase();
     }
 
-    return weight;
+    assert(
+      `@variant for "Hds::Text" must be one of the following: ${AVAILABLE_VARIANTS.join(
+        ', '
+      )}; received: ${variant}`,
+      AVAILABLE_VARIANTS.includes(variant)
+    );
+
+    const [, group, size, weight] = variant.match(/^(\w+)\/(\w+)\/(\w+)$/);
+
+    return {
+      group,
+      size,
+      weight,
+    };
   }
 
   /**
    * Sets the alignment of the text
-   * Accepted values: see ALIGNS
+   * Accepted values: see AVAILABLE_ALIGNS
    *
    * @param align
    * @type {string}
@@ -139,10 +122,10 @@ export default class HdsTextIndexComponent extends Component {
 
     if (align) {
       assert(
-        `@align for "Hds::Text" must be one of the following: ${ALIGNS.join(
+        `@align for "Hds::Text" must be one of the following: ${AVAILABLE_ALIGNS.join(
           ', '
         )}; received: ${align}`,
-        ALIGNS.includes(align)
+        AVAILABLE_ALIGNS.includes(align)
       );
     }
 
@@ -190,12 +173,12 @@ export default class HdsTextIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-text'];
 
-    // Add a helper class based on the @size argument
-    classes.push(`hds-typography-${this.size}`);
+    // Add a helper class based on the variant size
+    classes.push(`hds-typography-${this.variant.group}-${this.variant.size}`);
 
-    // Add a helper class based on the @weight argument
-    if (this.weight) {
-      classes.push(`hds-font-weight-${this.weight}`);
+    // Add a helper class based on the variant weight
+    if (this.variant.weight) {
+      classes.push(`hds-font-weight-${this.variant.weight}`);
     }
 
     // Add a class based on the @align argument

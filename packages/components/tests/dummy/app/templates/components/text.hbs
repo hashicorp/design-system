@@ -11,6 +11,24 @@
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph" id="component-api-text">Here is the API for the component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-text">
+    <dt>variant <code>enum</code></dt>
+    <dd>
+      <p>The variant ("style") for the text.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        {{#each @model.AVAILABLE_VARIANTS as |variant|}}
+          <li>{{variant}}</li>
+        {{/each}}
+      </ol>
+      <p><em>Notice: only only certain combinations of "size" and "weight" are recommended; if you need a different
+          combination please speak with the Design System team.</em></p>
+      <p><em>You can find the design specs on typography in
+          <a
+            href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192"
+            target="_blank"
+            rel="noopener noreferrer"
+          >the "core" Figma library</a></em></p>
+    </dd>
     <dt>tag <code>enum</code></dt>
     <dd>
       <p>The html tag to use in the dynamic render of the component.</p>
@@ -32,47 +50,11 @@
       <p>Notice: the default value, if no
         <code class="dummy-code">@tag</code>
         argument is provided, depends on the
-        <code class="dummy-code">@size</code>
+        <code class="dummy-code">@variant</code>
         argument:</p>
       <ol class="dummy-text-component-api-defaults">
-        {{#each-in @model.MAPPING_SIZE_TO_TAG as |size tag|}}
+        {{#each-in @model.MAPPING_STYLE_TO_TAG as |size tag|}}
           <li>{{size}} → &lt;{{tag}}&gt;</li>
-        {{/each-in}}
-      </ol>
-    </dd>
-    <dt>size <code>enum</code></dt>
-    <dd>
-      <p>The size ("style") for the text.</p>
-      <p>Acceptable values:</p>
-      <ol>
-        {{#each @model.SIZES as |size|}}
-          <li>{{size}}</li>
-        {{/each}}
-      </ol>
-    </dd>
-    <dt>weight <code>enum</code></dt>
-    <dd>
-      <p>The weight of the text.</p>
-      <p>Acceptable values:</p>
-      <ol>
-        {{#each @model.AVAILABLE_WEIGHTS as |weight|}}
-          <li>{{weight}}</li>
-        {{/each}}
-      </ol>
-      <p>Notice: only certain combinations of
-        <code class="dummy-code">@size</code>
-        and
-        <code class="dummy-code">@weight</code>
-        are recommended; please refer to the examples below to see which one are approved. If you need a different
-        combination please speak with the Design System team.</p>
-      <p>Notice: the default value, if no
-        <code class="dummy-code">@weight</code>
-        argument is provided, depends on the
-        <code class="dummy-code">@size</code>
-        argument:</p>
-      <ol class="dummy-text-component-api-defaults">
-        {{#each-in @model.DEFAULT_WEIGHTS as |size weight|}}
-          <li>{{size}} → {{weight}}</li>
         {{/each-in}}
       </ol>
     </dd>
@@ -81,7 +63,7 @@
       <p>The alignment of the text</p>
       <p>Acceptable values:</p>
       <ol>
-        {{#each @model.ALIGNS as |align|}}
+        {{#each @model.AVAILABLE_ALIGNS as |align|}}
           <li>{{align}}</li>
         {{/each}}
       </ol>
@@ -135,10 +117,10 @@
 
   <h4 class="dummy-h4">Size</h4>
   <div class="dummy-text-size-sample">
-    {{#each-in @model.AVAILABLE_SIZE_WEIGHT_COMBINATIONS as |size weights|}}
-      <h5 class="dummy-h6">{{size}}</h5>
+    {{#each-in @model.AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS as |group_size weights|}}
+      <h5 class="dummy-h6">{{group_size}}</h5>
       {{#each weights as |weight|}}
-        <Hds::Text @size={{size}} @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text>
+        <Hds::Text @variant={{(concat group_size "/" weight)}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text>
       {{/each}}
     {{/each-in}}
   </div>
@@ -146,41 +128,27 @@
   <h4 class="dummy-h4">Tag</h4>
   <div class="dummy-text-tag-sample">
     <div>
-      <Hds::Text @size="display-200" @tag="h1">Display200 applied to an &lt;h1&gt; tag</Hds::Text>
-      <Hds::Text @size="display-200" @tag="p">Display200 applied to a &lt;p&gt; tag</Hds::Text>
-      <Hds::Text @size="display-200" @tag="div">Display200 applied to a &lt;div&gt; tag</Hds::Text>
+      <Hds::Text @variant="display/200/semibold" @tag="h1">Display200 applied to an &lt;h1&gt; tag</Hds::Text>
+      <Hds::Text @variant="display/200/semibold" @tag="p">Display200 applied to a &lt;p&gt; tag</Hds::Text>
+      <Hds::Text @variant="display/200/semibold" @tag="div">Display200 applied to a &lt;div&gt; tag</Hds::Text>
     </div>
     <div>
-      <Hds::Text @size="body-200" @tag="h1">Body200 applied to an &lt;h1&gt; tag</Hds::Text>
-      <Hds::Text @size="body-200" @tag="p">Body200 applied to a &lt;p&gt; tag</Hds::Text>
-      <Hds::Text @size="body-200" @tag="div">Body200 applied to a &lt;div&gt; tag</Hds::Text>
+      <Hds::Text @variant="body/200/regular" @tag="h1">Body200 applied to an &lt;h1&gt; tag</Hds::Text>
+      <Hds::Text @variant="body/200/regular" @tag="p">Body200 applied to a &lt;p&gt; tag</Hds::Text>
+      <Hds::Text @variant="body/200/regular" @tag="div">Body200 applied to a &lt;div&gt; tag</Hds::Text>
     </div>
     <div>
-      <Hds::Text @size="code-200" @tag="code">Code200 applied to an &lt;code&gt; tag</Hds::Text>
-      <Hds::Text @size="code-200" @tag="pre">Code200 applied to a &lt;pre&gt; tag</Hds::Text>
-      <Hds::Text @size="code-200" @tag="span">Code200 applied to a &lt;span&gt; tag</Hds::Text>
+      <Hds::Text @variant="code/200/regular" @tag="code">Code200 applied to an &lt;code&gt; tag</Hds::Text>
+      <Hds::Text @variant="code/200/regular" @tag="pre">Code200 applied to a &lt;pre&gt; tag</Hds::Text>
+      <Hds::Text @variant="code/200/regular" @tag="span">Code200 applied to a &lt;span&gt; tag</Hds::Text>
     </div>
   </div>
 
-  <h4 class="dummy-h4">Weight</h4>
-  <Hds::Text @size="body-200" @weight="regular">
-    Regular text
-  </Hds::Text>
-  <Hds::Text @size="body-200" @weight="medium">
-    Medium text
-  </Hds::Text>
-  <Hds::Text @size="body-200" @weight="semibold">
-    Semibold text
-  </Hds::Text>
-  <Hds::Text @size="body-200" @weight="bold">
-    Bold text
-  </Hds::Text>
-
   <h4 class="dummy-h4">Align</h4>
   <div class="dummy-text-align-sample">
-    {{#each @model.ALIGNS as |align|}}
+    {{#each @model.AVAILABLE_ALIGNS as |align|}}
       <div class="dummy-text-align-sample__container">
-        <Hds::Text @size="body-200" @align={{align}}>
+        <Hds::Text @variant="body/200/regular" @align={{align}}>
           {{capitalize align}}
           aligned text
         </Hds::Text>
@@ -193,7 +161,7 @@
   <div class="dummy-text-color-sample">
     {{#each @model.AVAILABLE_COLORS as |color|}}
       <div class="dummy-text-color-sample__container dummy-text-color-sample__container--{{color}}">
-        <Hds::Text @size="body-200" @color={{color}}>
+        <Hds::Text @variant="body/200/regular" @color={{color}}>
           Text with "{{color}}" color
         </Hds::Text>
       </div>
@@ -202,12 +170,12 @@
   <h5 class="dummy-h5">Custom colors</h5>
   <div class="dummy-text-color-sample">
     <div class="dummy-text-color-sample__container">
-      <Hds::Text @size="body-200" @color="#FF0000">
+      <Hds::Text @variant="body/200/regular" @color="#FF0000">
         Text with "#FF0000" color
       </Hds::Text>
     </div>
     <div class="dummy-text-color-sample__container">
-      <Hds::Text @size="body-200" @color="var(--token-color-palette-purple-400)">
+      <Hds::Text @variant="body/200/regular" @color="var(--token-color-palette-purple-400)">
         Text with "token-color-palette-purple-400" color
       </Hds::Text>
     </div>

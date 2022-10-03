@@ -1,21 +1,13 @@
 import Controller from '@ember/controller';
-import {
-  AVAILABLE_WEIGHTS,
-  AVAILABLE_SIZE_WEIGHT_COMBINATIONS,
-} from '@hashicorp/design-system-components/components/hds/text';
+import { AVAILABLE_VARIANTS } from '@hashicorp/design-system-components/components/hds/text';
 
 export default class TypographyController extends Controller {
   get families() {
     return ['sans-display', 'sans-text', 'mono-code'];
   }
   get weights() {
-    return AVAILABLE_WEIGHTS;
-  }
-  get styles() {
-    return Object.keys(AVAILABLE_SIZE_WEIGHT_COMBINATIONS);
-  }
-  get stylesCombinations() {
-    return AVAILABLE_SIZE_WEIGHT_COMBINATIONS;
+    // we could infer this array but it's easier to manually maintain this
+    return ['regular', 'medium', 'semibold', 'bold'];
   }
   get csshelpers() {
     const helpers = [];
@@ -27,9 +19,22 @@ export default class TypographyController extends Controller {
       helpers.push(`.hds-font-weight-${weight}`);
     });
     helpers.push('');
-    this.styles.forEach((style) => {
-      helpers.push(`.hds-typography-${style}`);
+    AVAILABLE_VARIANTS.forEach((variant) => {
+      const [, group, size] = variant.match(/^(\w+)\/(\w+)\/(\w+)$/);
+      helpers.push(`.hds-typography-${group}-${size}`);
     });
     return `${helpers.join('\n')}`;
+  }
+  get stylesCombinations() {
+    const AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS = {};
+
+    AVAILABLE_VARIANTS.forEach((variant) => {
+      const [, group, size, weight] = variant.match(/^(\w+)\/(\w+)\/(\w+)$/);
+      if (!AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS[`${group}-${size}`]) {
+        AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS[`${group}-${size}`] = [];
+      }
+      AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS[`${group}-${size}`].push(weight);
+    });
+    return AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS;
   }
 }
