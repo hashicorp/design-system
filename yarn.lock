@@ -9117,6 +9117,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-cli-sass@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "ember-cli-sass@npm:11.0.1"
+  dependencies:
+    broccoli-funnel: ^2.0.1
+    broccoli-merge-trees: ^3.0.1
+    broccoli-sass-source-maps: ^4.0.0
+    ember-cli-version-checker: ^2.1.0
+  checksum: 5f690b60be6b0d49b542c89c4ee51d17798c2ddee1dfa0d28fd3e92bc5ebf16df522f5c799abf247f1bf6190f0c75cf6cc0560400db0f004606c2b6e5631f0de
+  languageName: node
+  linkType: hard
+
 "ember-cli-showdown@npm:^6.0.0":
   version: 6.0.1
   resolution: "ember-cli-showdown@npm:6.0.1"
@@ -21595,6 +21607,7 @@ __metadata:
     ember-cli-fastboot: ^3.3.2
     ember-cli-htmlbars: ^6.0.1
     ember-cli-inject-live-reload: ^2.1.0
+    ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
     ember-export-application-global: ^2.0.1
