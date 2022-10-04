@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = {
   extends: ['../packages/components/.stylelintrc'],
   rules: {
@@ -10,5 +9,5 @@ module.exports = {
       '^(hds|doc)-(?<block>(?:[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)(?<element>(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*))?(?<modifier>(?:--[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)?$|^mock-(?:[a-z][a-z0-9]*)$',
       { resolveNestedSelectors: true },
     ],
-  }
+  },
 };
