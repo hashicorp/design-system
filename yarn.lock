@@ -8167,7 +8167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-select@npm:^4.3.0":
+"css-select@npm:^4.2.1, css-select@npm:^4.3.0":
   version: 4.3.0
   resolution: "css-select@npm:4.3.0"
   dependencies:
@@ -16018,6 +16018,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-html-markdown@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "node-html-markdown@npm:1.2.0"
+  dependencies:
+    node-html-parser: ^5.3.3
+  checksum: 77589c6261ff70a6162c7e431f64c7cfdefdcce415f5da92219eb61f2efe98a00e733f2c42106fb6b7d9e14da1869b080e5574931d25e961775869bf1c1ed54d
+  languageName: node
+  linkType: hard
+
+"node-html-parser@npm:^5.3.3":
+  version: 5.4.2
+  resolution: "node-html-parser@npm:5.4.2"
+  dependencies:
+    css-select: ^4.2.1
+    he: 1.2.0
+  checksum: 2d2391147c83b402786eeab95d23ea4e24ca8608e0e70a2823bfd4f2a248be13a8cc31acfd55a0109e051131e4f0c17d7ada8d999ce70ff2e342ab0110f5da59
+  languageName: node
+  linkType: hard
+
 "node-int64@npm:^0.4.0":
   version: 0.4.0
   resolution: "node-int64@npm:0.4.0"
@@ -22001,6 +22020,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.39.0
     fs-extra: ^10.1.0
     glob: ^8.0.3
+    node-html-markdown: ^1.2.0
     ts-node: ^10.9.1
     turndown: ^7.1.1
     typescript: ^4.8.4
