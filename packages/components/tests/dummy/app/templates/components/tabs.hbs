@@ -250,28 +250,24 @@
   <div class="dummy-tab-base-sample">
     <div>
       <span class="dummy-text-small">Text only</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </div>
     <div>
       <span class="dummy-text-small">Icon + Text</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </div>
     <div>
       <span class="dummy-text-small">Text + Counter</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </div>
     <div>
       <span class="dummy-text-small">Icon + Text + Counter</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
@@ -284,10 +280,10 @@
       <div class="dummy-tab-base-sample-item">
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <ul class="dummy-tab-ul-tab-wrapper">
-          <Hds::Tabs::Tab mock-state-value={{state}} mock-state-selector="a">Lorem ipsum</Hds::Tabs::Tab>
+          <Hds::Tabs::Tab mock-state-value={{state}} mock-state-selector="*">Lorem ipsum</Hds::Tabs::Tab>
         </ul>
         <ul class="dummy-tab-ul-tab-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value={{state}} mock-state-selector="a">Lorem ipsum</Hds::Tabs::Tab>
+          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value={{state}} mock-state-selector="*">Lorem ipsum</Hds::Tabs::Tab>
         </ul>
       </div>
     {{/each}}

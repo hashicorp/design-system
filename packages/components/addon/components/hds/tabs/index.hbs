@@ -1,3 +1,5 @@
+{{! template-lint-disable no-invalid-role }}
+
 <div class={{this.classNames}} {{did-insert this.didInsert}} ...attributes>
   <div class="hds-tabs__tablist-wrapper">
     <ul class="hds-tabs__tablist" role="tablist">
@@ -14,6 +16,7 @@
           )
         )
       }}
+      <li class="hds-tabs__tab-indicator" role="presentation"></li>
     </ul>
   </div>
 
