@@ -19616,32 +19616,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-prettier-scss@npm:0.0.1":
-  version: 0.0.1
-  resolution: "stylelint-config-prettier-scss@npm:0.0.1"
-  dependencies:
-    stylelint-config-prettier: ">=9.0.3"
-  peerDependencies:
-    stylelint: ">=11.0.0"
-  bin:
-    stylelint-config-prettier-scss: bin/check.js
-    stylelint-config-prettier-scss-check: bin/check.js
-  checksum: b6ca7cfdf4548dc917d4d5b2394b276cc9f4999e45cbc69340d92808273abc4be489744384c13f53430b9fcd3355e242be6e5c7e493e577c42715e0b635297c6
-  languageName: node
-  linkType: hard
-
-"stylelint-config-prettier@npm:>=9.0.3":
-  version: 9.0.3
-  resolution: "stylelint-config-prettier@npm:9.0.3"
-  peerDependencies:
-    stylelint: ">=11.0.0"
-  bin:
-    stylelint-config-prettier: bin/check.js
-    stylelint-config-prettier-check: bin/check.js
-  checksum: 9ff3f719daf3865878615ba52c31de6ef0a0d25d41cb58c41afe2f1c459a838997ff912cc4a5b4d401f92e2193667ff4d140b6d303cf8192e894b5cb454c41b9
-  languageName: node
-  linkType: hard
-
 "stylelint-config-rational-order@npm:^0.1.2":
   version: 0.1.2
   resolution: "stylelint-config-rational-order@npm:0.1.2"
@@ -21604,6 +21578,9 @@ __metadata:
     prettier: ^2.6.1
     qunit: ^2.18.0
     qunit-dom: ^2.0.0
+    stylelint: ^14.11.0
+    stylelint-config-rational-order: ^0.1.2
+    stylelint-config-standard-scss: ^5.0.0
     webpack: ^5.70.0
   languageName: unknown
   linkType: soft
