@@ -60,6 +60,7 @@ body {
   padding: 0.5em 0;
 }
 
+// stylelint-disable-next-line selector-class-pattern
 .active .doc-toc-item {
   box-sizing: border-box;
   background-color: #f0f0f0;
@@ -74,13 +75,11 @@ body {
   background-color: #f0f0f0;
 }
 
-.doc-wrapper .home-link {
-
+.doc-wrapper .doc-home-link {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-
   padding-bottom: 1em;
   color: inherit;
   font-size: 1.2em;
@@ -140,10 +139,11 @@ body {
 
 .doc-socials li {
   display: inline-block;
+  margin: 0;
   padding: 0;
-  marign: 0;
 }
 
+// stylelint-disable-next-line selector-class-pattern
 .self-executing-code-block {
   border-color: #ccc;
   border-style: solid;
@@ -151,6 +151,7 @@ body {
   border-radius: 3px;
 }
 
+// stylelint-disable-next-line selector-class-pattern
 .self-executing-code-block pre {
   margin: 0;
   padding: 10px;
@@ -160,7 +161,6 @@ body {
 }
 
 .doc-show-sidenav {
-
   position: absolute;
   top: 5px;
   left: 5px;
