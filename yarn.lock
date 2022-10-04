@@ -2418,10 +2418,8 @@ __metadata:
     qunit-dom: ^2.0.0
     sass: ^1.43.4
     stylelint: ^14.11.0
-    stylelint-config-prettier-scss: 0.0.1
     stylelint-config-rational-order: ^0.1.2
     stylelint-config-standard-scss: ^5.0.0
-    stylelint-prettier: ^2.0.0
     webpack: ^5.70.0
   languageName: unknown
   linkType: soft
@@ -19709,18 +19707,6 @@ __metadata:
   peerDependencies:
     stylelint: ^9.10.1 || ^10.0.0
   checksum: 2fbd7362bef4bf68444d1eae176e2e67c057200fa7b9f7d3085d921aa42607f9312ad86e6e475560a3b591324b5d88b3cab70bdd3e5b877dc347e139ed8f747a
-  languageName: node
-  linkType: hard
-
-"stylelint-prettier@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "stylelint-prettier@npm:2.0.0"
-  dependencies:
-    prettier-linter-helpers: ^1.0.0
-  peerDependencies:
-    prettier: ">=2.0.0"
-    stylelint: ">=14.0.0"
-  checksum: 6ce7628517a492e0c2e6104f654c9bc710f1aaf035c8b5274e187b68e8d510e70bae5ded2cb65df76aa01096460b9dfe02f844fea13bfba7e3dcca13baec2ff4
   languageName: node
   linkType: hard
 
