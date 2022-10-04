@@ -1,9 +1,9 @@
 {{! template-lint-configure no-inline-styles {"allowDynamicStyles": true} }}
 
-<ul class="field-guide-toc">
+<ul class="doc-toc">
   {{#each this.sortedTocs as |toc|}}
     {{#if toc.pages}}
-      <li class="field-guide-toc-item">
+      <li class="doc-toc-item">
         <span style={{this.leftPadStyle}}>
           {{capitalize toc.title}}
         </span>
@@ -11,7 +11,7 @@
       </li>
     {{else}}
       <LinkTo @route="show" @model={{toc.id}}>
-        <li class="field-guide-toc-item field-guide-toc-item-link" style={{this.leftPadStyle}}>
+        <li class="doc-toc-item doc-toc-item-link" style={{this.leftPadStyle}}>
           {{capitalize toc.title}}
         </li>
       </LinkTo>

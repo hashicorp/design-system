@@ -6,11 +6,11 @@
     margin: 0;
   }
 
-  .field-guide-wrapper {
+  .doc-wrapper {
     min-height: 100vh;
   }
 
-  .field-guide-wrapper .field-guide-sidenav {
+  .doc-wrapper .doc-sidenav {
     transition: margin-left 0.5s ease;
     background: white;
     width: 241px;
@@ -31,25 +31,25 @@
 
   }
 
-  .field-guide-logo {
+  .doc-logo {
     max-width: 50%;
     margin-bottom: .5em;
   }
 
-  .field-guide-fake-logo {
+  .doc-fake-logo {
     font-size: 40px;
     font-family: 'Fredericka the Great', cursive;
     text-align: center;
     margin-bottom: .5em;
   }
 
-  .field-guide-table-of-contents {
+  .doc-table-of-contents {
     overflow: hidden;
     overflow-y: auto;
     width: 100%;
   }
 
-  .field-guide-toc {
+  .doc-toc {
     list-style-image: none;
     list-style-type: none;
     list-style-position: outside;
@@ -58,25 +58,25 @@
     width: 100%;
   }
 
-  .field-guide-toc-item {
+  .doc-toc-item {
     padding: .5em 0;
   }
 
-  .active .field-guide-toc-item {
+  .active .doc-toc-item {
     background-color: #F0F0F0;
     border-left: 5px solid #777;
     box-sizing: border-box;
   }
 
-  .field-guide-toc-item-link a {
+  .doc-toc-item-link a {
     color: inherit;
   }
 
-  .field-guide-toc-item-link:hover {
+  .doc-toc-item-link:hover {
     background-color: #F0F0F0;
   }
 
-  .field-guide-wrapper .home-link {
+  .doc-wrapper .home-link {
     font-size: 1.2em;
     text-decoration: none;
     color: inherit;
@@ -92,7 +92,7 @@
     align-items: center;
   }
 
-  .field-guide-wrapper-full-height {
+  .doc-wrapper-full-height {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -100,12 +100,12 @@
 
   }
 
-  .field-guide-wrapper-full-height > main {
+  .doc-wrapper-full-height > main {
     margin-left: 241px;
     padding: 2em 4em;
   }
 
-  .field-guide-footer {
+  .doc-footer {
     margin-left: 241px;
     background-color: #F0F0F0;
     padding: 1em 2em;
@@ -113,11 +113,11 @@
     justify-content: space-between;
   }
 
-  .field-guide-footer-info {
+  .doc-footer-info {
     flex-grow: 1;
   }
 
-  .field-guide-footer-right {
+  .doc-footer-right {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -125,23 +125,23 @@
     flex-grow: 0;
   }
 
-  .field-guide-socials img {
+  .doc-socials img {
     max-width: 20px;
     margin-left: 0.7em;
     height: auto;
   }
 
-  .field-guide-socials a {
+  .doc-socials a {
     text-decoration: none;
   }
 
-  .field-guide-socials {
+  .doc-socials {
     margin: 0;
     padding: 0 0 .6em 0;
     text-align: right;
   }
 
-  .field-guide-socials li {
+  .doc-socials li {
     display: inline-block;
     padding: 0;
     marign: 0;
@@ -162,7 +162,7 @@
     margin: 0;
   }
 
-  .field-guide-show-sidenav {
+  .doc-show-sidenav {
     display: none;
 
     position: absolute;
@@ -179,24 +179,24 @@
   }
 
   @media screen and (max-width: 950px) {
-    .field-guide-wrapper-full-height > main {
+    .doc-wrapper-full-height > main {
       margin-left: 0px;
     }
 
-    .field-guide-wrapper .field-guide-sidenav {
+    .doc-wrapper .doc-sidenav {
       width: 241px;
       margin-left: -241px;
     }
 
-    .field-guide-footer {
+    .doc-footer {
       margin-left: 0px;
     }
 
-    .field-guide-show-sidenav {
+    .doc-show-sidenav {
       display: inherit;
     }
 
-    .field-guide-sidenav-always-show {
+    .doc-sidenav-always-show {
       margin-left: 0 !important;
     }
   }
