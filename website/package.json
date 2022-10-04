@@ -41,6 +41,7 @@
     "ember-cli-fastboot": "^3.3.2",
     "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-cli-sass": "^11.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-export-application-global": "^2.0.1",
@@ -58,7 +59,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-qunit": "^7.2.0",
     "field-guide": "^2.4.0",
-    "field-guide-default-template": "^3.0.0",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prember": "^1.1.1",
@@ -72,5 +72,12 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@hashicorp/design-system-components": "workspace:^",
+    "@hashicorp/ember-flight-icons": "workspace:^",
+    "ember-cli-string-helpers": "^6.1.0",
+    "ember-math-helpers": "^2.18.2",
+    "ember-truth-helpers": "^3.1.1"
   }
 }

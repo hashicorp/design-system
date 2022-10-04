@@ -1,3 +1,3 @@
 # Welcome
 
-Welcome to Field Guide 🎉
+Welcome to the HashiCorp Design System (HDS) 🎉

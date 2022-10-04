@@ -2358,7 +2358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hashicorp/design-system-components@workspace:packages/components":
+"@hashicorp/design-system-components@workspace:^, @hashicorp/design-system-components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-components@workspace:packages/components"
   dependencies:
@@ -2457,7 +2457,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^3.0.0, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^3.0.0, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -8677,18 +8677,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-angle-bracket-invocation-polyfill@npm:^3.0.1":
-  version: 3.0.2
-  resolution: "ember-angle-bracket-invocation-polyfill@npm:3.0.2"
-  dependencies:
-    ember-cli-babel: ^7.0.0
-    ember-cli-version-checker: ^2.1.2
-    ember-compatibility-helpers: ^1.0.2
-    silent-error: ^1.1.1
-  checksum: 5489e1fef9f658735800c0c9ab60546e422129281e59f7689d9223a83f5acd076b29f16bba5f58cd4ba9c2a74649448d9e54227649a4bc44879403f8537779af
-  languageName: node
-  linkType: hard
-
 "ember-assign-helper@npm:^0.4.0":
   version: 0.4.0
   resolution: "ember-assign-helper@npm:0.4.0"
@@ -9117,6 +9105,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-cli-sass@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "ember-cli-sass@npm:11.0.1"
+  dependencies:
+    broccoli-funnel: ^2.0.1
+    broccoli-merge-trees: ^3.0.1
+    broccoli-sass-source-maps: ^4.0.0
+    ember-cli-version-checker: ^2.1.0
+  checksum: 5f690b60be6b0d49b542c89c4ee51d17798c2ddee1dfa0d28fd3e92bc5ebf16df522f5c799abf247f1bf6190f0c75cf6cc0560400db0f004606c2b6e5631f0de
+  languageName: node
+  linkType: hard
+
 "ember-cli-showdown@npm:^6.0.0":
   version: 6.0.1
   resolution: "ember-cli-showdown@npm:6.0.1"
@@ -9420,7 +9420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-compatibility-helpers@npm:^1.0.2, ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.4, ember-compatibility-helpers@npm:^1.2.5":
+"ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.4, ember-compatibility-helpers@npm:^1.2.5":
   version: 1.2.6
   resolution: "ember-compatibility-helpers@npm:1.2.6"
   dependencies:
@@ -9608,6 +9608,17 @@ __metadata:
     ember-cli-babel: ^7.13.0
     ember-cli-typescript: ^2.0.2
   checksum: 104b38cb4b755894b65d39ab94f316bdb1b571884b8e52118ced0bfeb06de8e3e7685dcc4579fd8dae57fc6c62e2e50df042e782e960565e05a4cf4eaf6db337
+  languageName: node
+  linkType: hard
+
+"ember-math-helpers@npm:^2.18.2":
+  version: 2.18.2
+  resolution: "ember-math-helpers@npm:2.18.2"
+  dependencies:
+    broccoli-funnel: ^3.0.8
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.0.1
+  checksum: 00ce8a0a373df912f6d61d265f0353699e5d792c1365ac0732c0bbf570cd1919efa6ce7f76912770e56bf16333502561c19415876d365b5c0b3566afa439c403
   languageName: node
   linkType: hard
 
@@ -9956,7 +9967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-truth-helpers@npm:^2.1.0 || ^3.0.0":
+"ember-truth-helpers@npm:^2.1.0 || ^3.0.0, ember-truth-helpers@npm:^3.1.1":
   version: 3.1.1
   resolution: "ember-truth-helpers@npm:3.1.1"
   dependencies:
@@ -11040,18 +11051,6 @@ __metadata:
   dependencies:
     pend: ~1.2.0
   checksum: c8585fd5713f4476eb8261150900d2cb7f6ff2d87f8feb306ccc8a1122efd152f1783bdb2b8dc891395744583436bfd8081d8e63ece0ec8687eeefea394d4ff2
-  languageName: node
-  linkType: hard
-
-"field-guide-default-template@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "field-guide-default-template@npm:3.0.0"
-  dependencies:
-    broccoli-funnel: ^3.0.3
-    ember-angle-bracket-invocation-polyfill: ^3.0.1
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
-  checksum: fb23c842748ccb4ee6fedf536be0b194972d19eed211bceb22809202bfad566db7b57b075666f16a45560b9f8f2dcadec611e3a03b1d7260949349e0e276473a
   languageName: node
   linkType: hard
 
@@ -21584,6 +21583,8 @@ __metadata:
     "@ember/test-helpers": ^2.6.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
+    "@hashicorp/design-system-components": "workspace:^"
+    "@hashicorp/ember-flight-icons": "workspace:^"
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.4.1
@@ -21594,16 +21595,20 @@ __metadata:
     ember-cli-fastboot: ^3.3.2
     ember-cli-htmlbars: ^6.0.1
     ember-cli-inject-live-reload: ^2.1.0
+    ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
+    ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
     ember-export-application-global: ^2.0.1
     ember-fetch: ^8.1.2
     ember-load-initializers: ^2.1.2
+    ember-math-helpers: ^2.18.2
     ember-page-title: ^7.0.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3
     ember-source: ~4.3.0
     ember-template-lint: ^4.3.0
+    ember-truth-helpers: ^3.1.1
     eslint: ^7.32.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-ember: ^10.5.9
@@ -21611,7 +21616,6 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-qunit: ^7.2.0
     field-guide: ^2.4.0
-    field-guide-default-template: ^3.0.0
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prember: ^1.1.1
