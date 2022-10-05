@@ -39,21 +39,19 @@ $indicator-height: 3px;
   list-style: none;
 
   &:hover,
-  .mock-hover:not(.hds-badge-count) {
+  .mock-hover {
     color: var(--token-color-foreground-action);
   }
 
   &.hds-tabs__tab--is-selected {
     color: var(--token-color-foreground-action);
 
-    &:hover,
-    .mock-hover:not(.hds-badge-count) {
+    &:hover {
       color: var(--token-color-foreground-action-hover);
-    }
 
-    &:hover ~ .hds-tabs__tab-indicator,
-    .mock-hover:not(.hds-badge-count) .hds-tabs__tab-indicator {
-      background: var(--token-color-foreground-action-hover);
+      & ~ .hds-tabs__tab-indicator {
+        background: var(--token-color-foreground-action-hover);
+      }
     }
   }
 }
