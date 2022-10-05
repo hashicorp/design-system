@@ -20,8 +20,7 @@
 @use "../components/empty-state";
 @use "../components/form"; // multiple components
 @use "../components/icon-tile";
-@use "../components/link/inline";
-@use "../components/link/standalone";
+@use "../components/link"; // multiple components
 @use "../components/stepper";
 @use "../components/tabs";
 @use "../components/tag";

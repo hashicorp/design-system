@@ -1,0 +1,198 @@
+/**
+ * This is the only resetting we will do. Any other resets need to come from
+ * the addon itself. We recommend implementing normalize.css
+ */
+body {
+  margin: 0;
+}
+
+.doc-wrapper {
+  min-height: 100vh;
+}
+
+.doc-wrapper .doc-sidenav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 241px;
+
+  padding-top: 2em;
+  background: white;
+
+  border-right-color: #ddd;
+  border-right-width: 1px;
+  border-right-style: solid;
+  transition: margin-left 0.5s ease;
+}
+
+.doc-logo {
+  max-width: 50%;
+  margin-bottom: 0.5em;
+}
+
+.doc-fake-logo {
+  margin-bottom: 0.5em;
+  font-size: 40px;
+  font-family: "Fredericka the Great", cursive;
+  text-align: center;
+}
+
+.doc-table-of-contents {
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.doc-toc {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-position: outside;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+.doc-toc-item {
+  padding: 0.5em 0;
+}
+
+// stylelint-disable-next-line selector-class-pattern
+.active .doc-toc-item {
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  border-left: 5px solid #777;
+}
+
+.doc-toc-item-link a {
+  color: inherit;
+}
+
+.doc-toc-item-link:hover {
+  background-color: #f0f0f0;
+}
+
+.doc-wrapper .doc-home-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1em;
+  color: inherit;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-bottom-color: #ddd;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.doc-wrapper-full-height {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.doc-wrapper-full-height > main {
+  margin-left: 241px;
+  padding: 2em 4em;
+}
+
+.doc-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 241px;
+  padding: 1em 2em;
+  background-color: #f0f0f0;
+}
+
+.doc-footer-info {
+  flex-grow: 1;
+}
+
+.doc-footer-right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.doc-socials img {
+  max-width: 20px;
+  height: auto;
+  margin-left: 0.7em;
+}
+
+.doc-socials a {
+  text-decoration: none;
+}
+
+.doc-socials {
+  margin: 0;
+  padding: 0 0 0.6em 0;
+  text-align: right;
+}
+
+.doc-socials li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+// stylelint-disable-next-line selector-class-pattern
+.self-executing-code-block {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+// stylelint-disable-next-line selector-class-pattern
+.self-executing-code-block pre {
+  margin: 0;
+  padding: 10px;
+  border-color: #ccc;
+  border-width: 1px;
+  border-top-style: solid;
+}
+
+.doc-show-sidenav {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background: none;
+  border: none;
+  outline: inherit;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+  .doc-wrapper-full-height > main {
+    margin-left: 0;
+  }
+
+  .doc-wrapper .doc-sidenav {
+    width: 241px;
+    margin-left: -241px;
+  }
+
+  .doc-footer {
+    margin-left: 0;
+  }
+
+  .doc-show-sidenav {
+    display: inherit;
+  }
+
+  .doc-sidenav-always-show {
+    margin-left: 0 !important;
+  }
+}
