@@ -8,10 +8,10 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
 
   test('it renders the component', async function (assert) {
     await render(hbs`
-      <Hds::Tabs id="test-tabs" as |T|>
-        <T.Tab data-test="tab">One</T.Tab>
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
         <T.Tab>Two</T.Tab>
-        <T.Panel data-test="panel">Content 1</T.Panel>
+        <T.Panel>Content 1</T.Panel>
         <T.Panel>Content 2</T.Panel>
       </Hds::Tabs>
   `);

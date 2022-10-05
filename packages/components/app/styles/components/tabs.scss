@@ -6,13 +6,9 @@
 
 $indicator-height: 3px;
 
-.hds-tabs {
-  --indicatior-left-pos: 0;
-  --indicatior-width: 3em;
-}
-
 // Sub-components:
 .hds-tabs__tablist-wrapper {
+  position: relative;
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
@@ -39,7 +35,7 @@ $indicator-height: 3px;
   list-style: none;
 
   &:hover,
-  .mock-hover {
+  &.mock-hover {
     color: var(--token-color-foreground-action);
   }
 
@@ -80,17 +76,15 @@ $indicator-height: 3px;
   margin-left: 6px;
 }
 
-.hds-tabs__tablist-wrapper { position: relative; }
-
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
   // adjust position to make indicator overlap tabs bottom border:
   bottom: floor(calc($indicator-height / 2));
-  left: var(--indicatior-left-pos);
+  left: var(--indicator-left-pos);
   z-index: 10;
   display: block;
-  width: var(--indicatior-width);
+  width: var(--indicator-width);
   height: $indicator-height;
   background-color: var(--token-color-foreground-action);
   border-radius: 3px;
