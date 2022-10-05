@@ -8,7 +8,6 @@ $indicator-height: 3px;
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
-  position: relative;
   padding-bottom: round(calc($indicator-height / 2));
   // overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
@@ -16,16 +15,25 @@ $indicator-height: 3px;
 }
 
 .hds-tabs__tablist {
+  position: relative;
   display: flex;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid var(--token-color-border-primary);
+
+  // bottom gray border:
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: floor(calc($indicator-height / 2));
+    left: 0;
+    display: block;
+    border-top: 1px solid var(--token-color-border-primary);
+    content: "";
+  }
 }
 
 .hds-tabs__tab {
   position: relative;
-  // adjust tab position so focused tab outline sits right above indicator:
-  bottom: round(calc($indicator-height / 2 * -1));
   display: flex;
   align-items: center;
   height: 36px;
@@ -81,8 +89,8 @@ $indicator-height: 3px;
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
-  // adjust position to make indicator overlap tabs bottom border:
-  bottom: floor(calc($indicator-height / 2));
+  bottom: $indicator-height;
+  bottom: 0;
   left: var(--indicator-left-pos);
   z-index: 10;
   display: block;
