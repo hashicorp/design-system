@@ -24,6 +24,8 @@ $indicator-height: 3px;
 
 .hds-tabs__tab {
   position: relative;
+  // adjust tab position so focused tab outline sits right above indicator:
+  bottom: round(calc($indicator-height / 2 * -1));
   display: flex;
   align-items: center;
   height: 36px;
