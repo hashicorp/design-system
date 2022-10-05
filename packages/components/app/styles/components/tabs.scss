@@ -89,7 +89,6 @@ $indicator-height: 3px;
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
-  bottom: $indicator-height;
   bottom: 0;
   left: var(--indicator-left-pos);
   z-index: 10;
