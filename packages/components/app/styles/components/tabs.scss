@@ -6,8 +6,6 @@
 
 $indicator-height: 3px;
 
-// .hds-tabs {}
-
 // Sub-components:
 .hds-tabs__tablist-wrapper {
   padding-bottom: round(calc($indicator-height / 2));
@@ -17,44 +15,49 @@ $indicator-height: 3px;
 }
 
 .hds-tabs__tablist {
+  position: relative;
   display: flex;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid var(--token-color-border-primary);
+
+  // bottom gray border:
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: floor(calc($indicator-height / 2));
+    left: 0;
+    display: block;
+    border-top: 1px solid var(--token-color-border-primary);
+    content: "";
+  }
 }
 
 .hds-tabs__tab {
-  position: relative; // for positioning indicator
-  // adjust position to make indicator overlap tabs bottom border:
-  bottom: round(calc($indicator-height / 2 * -1));
+  position: relative;
   display: flex;
   align-items: center;
   height: 36px;
   margin: 0;
   padding: 0 12px;
+  color: var(--token-color-foreground-primary);
   white-space: nowrap;
   text-decoration: none;
   list-style: none;
 
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action);
+  }
+
   &.hds-tabs__tab--is-selected {
-    /* indicator TODO: refactor as needed for animation */
-    &::after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: block;
-      height: $indicator-height;
-      background-color: var(--token-color-foreground-action);
-      border-radius: 3px;
-      content: "";
-    }
+    color: var(--token-color-foreground-action);
 
-    // indicator:
-    &:hover::after { background-color: var(--token-color-foreground-action-hover); }
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
 
-    .hds-tabs__tab-button {
-      color: var(--token-color-foreground-action);
+      & ~ .hds-tabs__tab-indicator {
+        background: var(--token-color-foreground-action-hover);
+      }
     }
   }
 }
@@ -68,15 +71,11 @@ $indicator-height: 3px;
   );
   position: static;
   padding: 0;
-  color: var(--token-color-foreground-primary);
+  color: inherit;
   background-color: transparent;
   border: none;
   border-radius: var(--token-form-control-border-radius);
-
-  &:hover,
-  &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
-  }
+  cursor: pointer;
 }
 
 .hds-tabs__tab-icon {
@@ -85,4 +84,24 @@ $indicator-height: 3px;
 
 .hds-tabs__tab-badge {
   margin-left: 6px;
+}
+
+.hds-tabs__tab-indicator {
+  position: absolute;
+  right: 0;
+  bottom: $indicator-height;
+  bottom: 0;
+  left: var(--indicator-left-pos);
+  z-index: 10;
+  display: block;
+  width: var(--indicator-width);
+  height: $indicator-height;
+  background-color: var(--token-color-foreground-action);
+  border-radius: 3px;
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+    transition-duration: 0.6s;
+    transition-property: left, width;
+  }
 }

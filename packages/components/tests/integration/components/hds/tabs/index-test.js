@@ -7,7 +7,14 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::Tabs />`);
+    await render(hbs`
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+      </Hds::Tabs>
+  `);
     assert.dom(this.element).exists();
   });
 

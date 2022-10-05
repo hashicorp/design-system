@@ -23,6 +23,7 @@ export default class HdsTabsIndexComponent extends Component {
       }
     });
     this.selectedTabIndex = initialTabIndex;
+    this.setTabIndicator(initialTabIndex);
 
     assert('Only one tab may use isSelected argument', selectedCount <= 1);
 
@@ -47,6 +48,7 @@ export default class HdsTabsIndexComponent extends Component {
   @action
   handleClick(tabIndex) {
     this.selectedTabIndex = tabIndex;
+    this.setTabIndicator(tabIndex);
   }
 
   @action
@@ -77,6 +79,18 @@ export default class HdsTabsIndexComponent extends Component {
   setSelectedPanelFocus(tabIndex, e) {
     e.preventDefault();
     this.panelNodes[tabIndex].focus();
+  }
+
+  setTabIndicator(tabIndex) {
+    const tabElem = this.tabNodes[tabIndex];
+    const tabsParentElem = tabElem.closest('.hds-tabs');
+
+    const tabLeftPos = tabElem.parentNode.offsetLeft;
+    const tabWidth = tabElem.parentNode.offsetWidth;
+
+    // Set CSS custom properties for indicator
+    tabsParentElem.style.setProperty('--indicator-left-pos', tabLeftPos + 'px');
+    tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
   }
 
   /**

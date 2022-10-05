@@ -194,6 +194,7 @@
       >Figma UI Kit</a>
     </p>
     <div class="dummy-paragraph">
+      {{! TODO: Update & replace image }}
       <img
         class="dummy-figma-docs"
         src="/assets/images/tabs-design-usage.png"
@@ -245,33 +246,30 @@
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
   <h4 class="dummy-h4">Tab</h4>
+  {{! TODO: Add toggle to outline individual Tab components to show layout. See Fomr/Base-Elements }}
 
   <h5 class="dummy-h6">Content</h5>
   <div class="dummy-tab-base-sample">
     <div>
       <span class="dummy-text-small">Text only</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </div>
     <div>
       <span class="dummy-text-small">Icon + Text</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </div>
     <div>
       <span class="dummy-text-small">Text + Counter</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </div>
     <div>
       <span class="dummy-text-small">Icon + Text + Counter</span>
-      <br />
       <ul class="dummy-tab-ul-tab-wrapper">
         <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
@@ -280,17 +278,33 @@
 
   <h5 class="dummy-h6">States</h5>
   <div class="dummy-tab-base-sample">
-    {{#each @model.TAG_STATES as |state|}}
-      <div class="dummy-tab-base-sample-item">
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <ul class="dummy-tab-ul-tab-wrapper">
-          <Hds::Tabs::Tab mock-state-value={{state}} mock-state-selector="a">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-        <ul class="dummy-tab-ul-tab-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value={{state}} mock-state-selector="a">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </div>
-    {{/each}}
+    <div class="dummy-tab-base-sample-item">
+      <span class="dummy-text-small">Default:</span>
+      <ul class="dummy-tab-ul-tab-wrapper">
+        <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+      <ul class="dummy-tab-ul-tab-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </div>
+    <div class="dummy-tab-base-sample-item">
+      <span class="dummy-text-small">Hover:</span>
+      <ul class="dummy-tab-ul-tab-wrapper">
+        <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+      <ul class="dummy-tab-ul-tab-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </div>
+    <div class="dummy-tab-base-sample-item">
+      <span class="dummy-text-small">Focus:</span>
+      <ul class="dummy-tab-ul-tab-wrapper">
+        <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+      <ul class="dummy-tab-ul-tab-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </div>
   </div>
 
   <h4 class="dummy-h4">Panel</h4>
