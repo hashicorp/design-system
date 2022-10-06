@@ -7,12 +7,12 @@ export default class HdsTableTableSortableComponent extends Component {
   }
 
   @action
-  setSortBy(columns) {
-    if (this.args.sortBy === columns) {
+  setSortBy(column) {
+    if (this.args.sortBy === column) {
       //invert the sort order
       this.args.setSortOrder(this.args.sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
-      this.args.setSortBy(columns);
+      this.args.setSortBy(column);
       this.args.setSortOrder('asc');
     }
 
