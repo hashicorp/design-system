@@ -342,12 +342,14 @@ export default class ComponentsTableRoute extends Route {
     @setSortOrder={{this.setSortOrder}}
     @columns={{array "artist" "album" "release year"}}
   >
-    <:body as |data|>
-      <Hds::Table::Row>
-        <td>{{data.artist}}</td>
-        <td>{{data.album}}</td>
-        <td>{{data.year}}</td>
-      </Hds::Table::Row>
+    <:body>
+      {{#let this.model.attributes as |item|}}
+        <Hds::Table::Row>
+          <td>{{item.artist}}</td>
+          <td>{{item.album}}</td>
+          <td>{{item.year}}</td>
+        </Hds::Table::Row>
+      {{/let}}
     </:body>
   </Hds::Table::TableSortable>
   {{! <h4 class="dummy-h4">
