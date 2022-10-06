@@ -11,6 +11,8 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
+    "generate": "yarn prepare",
+    "prepare": "rm -fr source && mkdir source && mkdir source/original && cp -r ../packages/components/tests/dummy/app/templates/* source/original",
     "convert:turndown": "ts-node --transpile-only ./turndown/convert",
     "convert:nhm": "ts-node --transpile-only ./nhm/convert"
   },
