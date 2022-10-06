@@ -1,6 +1,6 @@
 <table class="hds-table {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
   <thead class="hds-table__thead" data-test-table-head>
-    {{yield to="head"}}
+    {{yield (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th")) to="head"}}
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
     {{#if @model}}

@@ -36,12 +36,14 @@
       padding: 0; // we're taking it out here because we need it on the interactive content instead
     }
 
-    a { // will refactor this to a button. Use Hds::Button?
+    button { // will refactor this to a button. Use Hds::Button?
       display: flex;
       align-items: center;
+      width: 100%;
       padding: 8px 16px;
       color: var(--token-color-foreground-strong);
       text-decoration: none;
+      background-color: transparent;
       border: 3px solid transparent;
 
       &:visited {
