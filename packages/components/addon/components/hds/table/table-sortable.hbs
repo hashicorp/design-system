@@ -10,11 +10,9 @@
     </tr>
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
-    <Hds::Table::Row>
-      {{#each (sort-by this.sort @model) as |record|}}
-        {{yield record to="body"}}
-      {{/each}}
-    </Hds::Table::Row>
+    {{#each (sort-by this.sort @model) as |data|}}
+      {{yield data to="body"}}
+    {{/each}}
   </tbody>
 </table>
 <div id="a11y-notification" class="sr-only" role="region" aria-live="polite"></div>
