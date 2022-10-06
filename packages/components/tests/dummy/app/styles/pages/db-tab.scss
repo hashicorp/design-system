@@ -19,3 +19,8 @@
   display: contents;
   list-style: none;
 }
+
+.dummy-tabs-layout-highlight {
+  .hds-tabs__tab { outline: 1px dashed #78909c; }
+}
+
