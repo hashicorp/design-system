@@ -41,6 +41,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/button');
     await percySnapshot('Button');
 
+    await visit('/components/button-set');
+    await percySnapshot('ButtonSet');
+
     await visit('/components/card');
     await percySnapshot('Card');
 
@@ -56,6 +59,9 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/components/form/radio');
     await percySnapshot('Form - Radio');
+
+    await visit('/components/form/radio-card');
+    await percySnapshot('Form - RadioCard');
 
     await visit('/components/form/select');
     await percySnapshot('Form - Select');
@@ -78,11 +84,17 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
+    await visit('/components/tag');
+    await percySnapshot('Tag');
+
     await visit('/components/toast');
     await percySnapshot('Toast');
 
     await visit('/components/stepper');
     await percySnapshot('Stepper - Indicator');
+
+    await visit('/overrides/power-select');
+    await percySnapshot('PowerSelect');
 
     assert.ok(true);
   });
