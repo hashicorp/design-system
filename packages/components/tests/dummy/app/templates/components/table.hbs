@@ -3,17 +3,7 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  This table component is the
-  <a
-    href="https://unofficial-design-system-search.vercel.app/?path=/docs/cloud-ui-storybook_table--static"
-    rel="noopener noreferrer"
-    target="_blank"
-  >Cloud-UI
-    <code class="dummy-code">&lt;Table&gt;</code>
-    component</a>
-  with a few adjustments for improved WCAG conformance. Users who already have this table component implemented should
-  be able to migrate to this component with little to no difficulty. Additionally, the data-test attributes have been
-  left "as is" to avoid breaking your existing tests.
+  This is a simple, flexible table component.
 </p>
 <section>
   <h3 class="dummy-h3" id="overview">
@@ -30,17 +20,7 @@
     <code class="dummy-code">thead</code>
     of the table. It yields within a single
     <code class="dummy-code">tr</code>
-    element that is meant to represent column headers. It also yields a single contextual component,
-    <code class="dummy-code">SortBy</code>
-    which applies the
-    <code class="dummy-code">@sortProperty</code>
-    and
-    <code class="dummy-code">@sortDescending</code>
-    args from the
-    <code class="dummy-code">HdsTable</code>
-    component. This way, only
-    <code class="dummy-code">@field</code>
-    needs to be set to define an initial field to sort by.</p>
+    element that is meant to represent column headers.</p>
   <h4 class="dummy-h4">:body named block</h4>
   <p class="dummy-paragraph">This represents the
     <code class="dummy-code">tbody</code>
@@ -68,23 +48,9 @@
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
     <dt>model <code>array</code></dt>
-    <dd><p>Sets the data source that gets yielded by the <code class="dummy-code">:body</code> named block.</p></dd>
-    <dt>sortProperty <code>string</code></dt>
-    <dd><p>Specifies which field the
-        <code class="dummy-code">@model</code>
-        is sorted by. This does not perform a sort; it is only used to set state on the contextual
-        <code class="dummy-code">SortBy</code>
-        components.
-      </p></dd>
-    <dt>sortDescending <code>boolean</code></dt>
-    <dd><p>Specifies which direction the
-        <code class="dummy-code">@model</code>
-        is sorted. Descending when
-        <code class="dummy-code">true</code>, ascending when
-        <code class="dummy-code">false</code>. This does not perform a sort. It is only used to set states on the
-        contextual
-        <code class="dummy-code">SortBy</code>
-        components.</p></dd>
+    <dd><p>If defined, sets the data source that gets yielded by the
+        <code class="dummy-code">:body</code>
+        named block.</p></dd>
   </dl>
 </section>
 <section>
@@ -104,23 +70,25 @@
     @language="handlebars"
     @code="<Hds::Table @model=\{{this.model}}>
   <:head>
-    <th>Artist</th>
-    <th>Album</th>
-    <th>Release Year</th>
+    <Hds::Table::Row>
+      <Hds::Table::Th>Artist</Hds::Table::Th>
+      <Hds::Table::Th>Album</Hds::Table::Th>
+      <Hds::Table::Th>Release Year</Hds::Table::Th>
+    </Hds::Table::Row>
   </:head>
-  <:body as |row|>
-    <tr>
-      <td>\{{row.artist}}</td>
-      <td>\{{row.album}}</td>
-      <td>\{{row.year}}</td>
-    </tr>
+  <:body as |data|>
+    <Hds::Table::Row>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Row>
   </:body>
 </Hds::Table>"
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Just for demonstration purposes: here is the model that provides the table data for this
-    page, which we've defined in this page's route:</p>
+  <p class="dummy-paragraph">For better documentation purposes, we imitated fetching data from an API and working with
+    that as our data model.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -128,51 +96,19 @@
     @code="import Route from '@ember/routing/route';
 
 export default class ComponentsTableRoute extends Route {
-  model() {
-    return [
-      { artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
-      { artist: 'The Beatles', album: 'Abbey Road', year: '1969' },
-      { artist: 'Melanie', album: 'Candles in the Rain', year: '1971' },
-      { artist: 'Bob Dylan', album: 'Bringing It All Back Home', year: '1965' },
-      { artist: 'James Taylor', album: 'Sweet Baby James', year: '1970' },
-      {
-        artist: 'Simon and Garfunkel',
-        album: 'Bridge Over Troubled Waters',
-        year: '1970',
-      },
-    ];
+  async model() {
+    let response = await fetch('/api/music.json');
+    let { data } = await response.json();
+
+    return data.map((model) => {
+      let { attributes } = model;
+      return { ...attributes };
+    });
   }
 }"
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-
-  <h4 class="dummy-h4">Table with sorting support</h4>
-
-  <p class="dummy-paragraph">
-    If you want to have sortable table headers, you'll go one step further by defining the sorting functions/actions in
-    your app after invoking the table component in your template. Here's an example of the template invocation with
-    sorting support arguments defined:
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="handlebars"
-    @code='<Hds::Table @model=\{{this.model}} @sortProperty=\{{this.sortby}} @sortDescending=\{{false}}>
-  <:head as |h|>
-    <h.SortBy @field="artist">Artist</h.SortBy>
-    <h.SortBy @field="album">Album</h.SortBy>
-    <h.SortBy @field="year">Release Year</h.SortBy>
-  </:head>
-  <:body as |row|>
-    <tr>
-      <td>\{{row.artist}}</td>
-      <td>\{{row.album}}</td>
-      <td>\{{row.year}}</td>
-    </tr>
-  </:body>
-</Hds::Table>'
-  />
 </section>
 <section>
   <h3 class="dummy-h3" id="design-guidelines">
@@ -326,36 +262,21 @@ export default class ComponentsTableRoute extends Route {
     Showcase
   </h3>
   <h4 class="dummy-h4">
-    Static table (non-sortable) with model defined
+    Static table with model defined
   </h4>
   <Hds::Table @model={{this.model}}>
     <:head>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Release Year</th>
-    </:head>
-    <:body as |row|>
       <Hds::Table::Row>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th> Album </Hds::Table::Th>
+        <Hds::Table::Th>Release Year</Hds::Table::Th>
       </Hds::Table::Row>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with striped rows
-  </h4>
-  <Hds::Table @model={{this.model}} @isStriped={{true}}>
-    <:head>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Release Year</th>
     </:head>
-    <:body as |row|>
+    <:body as |data|>
       <Hds::Table::Row>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
       </Hds::Table::Row>
     </:body>
   </Hds::Table>
@@ -364,9 +285,11 @@ export default class ComponentsTableRoute extends Route {
   </h4>
   <Hds::Table>
     <:head>
-      <th>Cell Header</th>
-      <th>Cell Header</th>
-      <th>Cell Header</th>
+      <tr>
+        <th>Cell Header</th>
+        <th>Cell Header</th>
+        <th>Cell Header</th>
+      </tr>
     </:head>
     <:body>
       <Hds::Table::Row>
@@ -387,19 +310,21 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table
+    Static table with striped rows
   </h4>
-  <Hds::Table @model={{this.model}} @sortProperty={{this.sortby}} @sortDescending={{false}}>
-    <:head as |h|>
-      <h.SortBy @field="artist">Artist</h.SortBy>
-      <h.SortBy @field="album">Album</h.SortBy>
-      <h.SortBy @field="year">Release Year</h.SortBy>
-    </:head>
-    <:body as |row|>
+  <Hds::Table @model={{this.model}} @isStriped={{true}}>
+    <:head>
       <Hds::Table::Row>
-        <td>{{row.artist}}</td>
-        <td>{{row.album}}</td>
-        <td>{{row.year}}</td>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th>Album</Hds::Table::Th>
+        <Hds::Table::Th>Release Year</Hds::Table::Th>
+      </Hds::Table::Row>
+    </:head>
+    <:body as |data|>
+      <Hds::Table::Row>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
       </Hds::Table::Row>
     </:body>
   </Hds::Table>
