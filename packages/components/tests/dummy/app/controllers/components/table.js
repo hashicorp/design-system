@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class HdsTableTableSortableController extends Controller {
+export default class ComponentsTableController extends Controller {
   @tracked sortBy = '';
   @tracked sortOrder = 'asc';
   queryParams = ['sortBy', 'sortOrder'];
