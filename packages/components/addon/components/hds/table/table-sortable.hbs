@@ -1,0 +1,15 @@
+<table class="hds-table {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
+  <thead class="hds-table__thead" data-test-table-head>
+    <tr>
+      <Hds::Table::ThSort @columns={{@columns}} @sortBy={{@sortBy}} @sortOrder={{@sortOrder}} @setSortBy={{this.setSortBy}} />
+    </tr>
+  </thead>
+  <tbody class="hds-table__tbody" data-test-table-body>
+    <Hds::Table::Row>
+      {{#each (sort-by this.sort @model) as |record|}}
+        {{yield record to="body"}}
+      {{/each}}
+    </Hds::Table::Row>
+  </tbody>
+</table>
+<div id="a11y-notification" class="sr-only" role="region" aria-live="polite"></div>
