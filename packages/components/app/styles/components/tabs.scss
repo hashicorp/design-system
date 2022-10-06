@@ -8,10 +8,19 @@ $indicator-height: 3px;
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
+  position: relative;
   padding-bottom: round(calc($indicator-height / 2));
-  // overflow-x: auto;
-  // -webkit-overflow-scrolling: touch;
-  // white-space: nowrap; // move
+
+  // bottom gray border:
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: $indicator-height;
+    left: 0;
+    display: block;
+    border-top: 1px solid var(--token-color-border-primary);
+    content: "";
+  }
 }
 
 .hds-tabs__tablist {
@@ -20,16 +29,9 @@ $indicator-height: 3px;
   margin: 0;
   padding: 0;
 
-  // bottom gray border:
-  &::before {
-    position: absolute;
-    right: 0;
-    bottom: floor(calc($indicator-height / 2));
-    left: 0;
-    display: block;
-    border-top: 1px solid var(--token-color-border-primary);
-    content: "";
-  }
+  // WIP: Overflow nav behavior
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hds-tabs__tab {
