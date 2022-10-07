@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tabs/index', function (hooks) {
@@ -95,6 +95,35 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('[data-test="NOT selected tab"] .hds-tabs__tab-button')
       .doesNotHaveAttribute('aria-selected');
     assert.dom('[data-test="NOT selected panel"]').hasAttribute('hidden');
+  });
+
+  test('it should select the clicked tab and display the associated panel', async function (assert) {
+    await render(hbs`
+      <Hds::Tabs as |T|>
+        <T.Tab data-test="NOT clicked tab">One</T.Tab>
+        <T.Tab data-test="clicked tab">Two</T.Tab>
+        <T.Panel data-test="NOT clicked tab panel">Content 1</T.Panel>
+        <T.Panel data-test="clicked tab panel">Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
+    await click('[data-test="clicked tab"] .hds-tabs__tab-button');
+    assert
+      .dom('[data-test="clicked tab"]')
+      .hasClass('hds-tabs__tab--is-selected');
+    assert
+      .dom('[data-test="clicked tab"] .hds-tabs__tab-button')
+      .hasAttribute('aria-selected');
+    assert
+      .dom('[data-test="clicked tab panel"]')
+      .doesNotHaveAttribute('hidden');
+
+    assert
+      .dom('[data-test="NOT clicked tab"]')
+      .doesNotHaveClass('hds-tabs__tab--is-selected');
+    assert
+      .dom('[data-test="NOT clicked tab"] .hds-tabs__tab-button')
+      .doesNotHaveAttribute('aria-selected');
+    assert.dom('[data-test="NOT clicked tab panel"]').hasAttribute('hidden');
   });
 
   test('it should render an icon when passed into a tab', async function (assert) {
