@@ -9,13 +9,12 @@ $indicator-height: 3px;
 // Sub-components:
 .hds-tabs__tablist-wrapper {
   position: relative;
-  padding-bottom: round(calc($indicator-height / 2));
 
   // bottom gray border:
   &::before {
     position: absolute;
     right: 0;
-    bottom: $indicator-height;
+    bottom: floor($indicator-height / 2);
     left: 0;
     display: block;
     border-top: 1px solid var(--token-color-border-primary);
@@ -28,8 +27,6 @@ $indicator-height: 3px;
   display: flex;
   margin: 0;
   padding: 0;
-
-  // WIP: Overflow nav behavior
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
