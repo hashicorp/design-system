@@ -14,7 +14,7 @@ $indicator-height: 3px;
   &::before {
     position: absolute;
     right: 0;
-    bottom: floor($indicator-height / 2);
+    bottom: floor(calc($indicator-height / 2));
     left: 0;
     display: block;
     border-top: 1px solid var(--token-color-border-primary);
@@ -81,7 +81,7 @@ $indicator-height: 3px;
   margin-right: 6px;
 }
 
-.hds-tabs__tab-badge {
+.hds-tabs__tab-count {
   margin-left: 6px;
 }
 

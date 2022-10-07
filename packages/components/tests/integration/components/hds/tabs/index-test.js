@@ -73,13 +73,13 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
 
   test('it should select the specified tab and display the associated panel', async function (assert) {
     await render(hbs`
-    <Hds::Tabs as |T|>
-      <T.Tab data-test="NOT selected tab">One</T.Tab>
-      <T.Tab @isSelected="true" data-test="selected tab">Two</T.Tab>
-      <T.Panel data-test="NOT selected panel">Content 1</T.Panel>
-      <T.Panel data-test="selected panel">Content 2</T.Panel>
-    </Hds::Tabs>
-  `);
+      <Hds::Tabs as |T|>
+        <T.Tab data-test="NOT selected tab">One</T.Tab>
+        <T.Tab @isSelected="true" data-test="selected tab">Two</T.Tab>
+        <T.Panel data-test="NOT selected panel">Content 1</T.Panel>
+        <T.Panel data-test="selected panel">Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
     assert
       .dom('[data-test="selected tab"]')
       .hasClass('hds-tabs__tab--is-selected');
@@ -95,5 +95,29 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .dom('[data-test="NOT selected tab"] .hds-tabs__tab-button')
       .doesNotHaveAttribute('aria-selected');
     assert.dom('[data-test="NOT selected panel"]').hasAttribute('hidden');
+  });
+
+  test('it should render an icon when passed into a tab', async function (assert) {
+    await render(hbs`
+      <Hds::Tabs as |T|>
+        <T.Tab @icon="info">One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
+    assert.dom('.hds-tabs__tab-icon').exists();
+  });
+
+  test('it should render a count when passed into a tab', async function (assert) {
+    await render(hbs`
+      <Hds::Tabs as |T|>
+        <T.Tab @count="5">One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
+    assert.dom('.hds-tabs__tab-count').exists();
   });
 });
