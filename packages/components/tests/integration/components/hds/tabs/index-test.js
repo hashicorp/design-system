@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render } from '@ember/test-helpers';
+import { click, focus, render, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tabs/index', function (hooks) {
@@ -44,6 +44,8 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assert.dom('.hds-tabs__tab').exists({ count: 2 });
     assert.dom('.hds-tabs__panel').exists({ count: 2 });
   });
+
+  // Test tab and panel selection and display:
 
   test('it should select the first tab and display the first panel by default', async function (assert) {
     await render(hbs`
@@ -125,6 +127,43 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .doesNotHaveAttribute('aria-selected');
     assert.dom('[data-test="NOT clicked tab panel"]').hasAttribute('hidden');
   });
+
+  // Test keyboard controls:
+
+  test('it should focus tabs and navigate through them using left and right arrow keys', async function (assert) {
+    const leftArrowKey = 37;
+    const rightArrowKey = 39;
+
+    await render(hbs`
+      <Hds::Tabs as |T|>
+        <T.Tab data-test="first tab">One</T.Tab>
+        <T.Tab data-test="secound tab">Two</T.Tab>
+        <T.Panel data-test="first panel">Content 1</T.Panel>
+        <T.Panel data-test="secound panel">Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
+    // focus 2nd tab:
+    await focus('[data-test="secound tab"] .hds-tabs__tab-button');
+    // navigate to the previous (1st) tab using right arrow key:
+    await triggerKeyEvent(
+      '[data-test="secound tab"] .hds-tabs__tab-button',
+      'keyup',
+      rightArrowKey
+    );
+    // test that the navigated to tab is now focused:
+    assert.dom('[data-test="first tab"] .hds-tabs__tab-button').isFocused();
+
+    // navigate back to the next (2nd) tab using left arrow key:
+    await triggerKeyEvent(
+      '[data-test="first tab"] .hds-tabs__tab-button',
+      'keyup',
+      leftArrowKey
+    );
+    // test that the navigated to tab is now focused:
+    assert.dom('[data-test="secound tab"] .hds-tabs__tab-button').isFocused();
+  });
+
+  // Test Tab options:
 
   test('it should render an icon when passed into a tab', async function (assert) {
     await render(hbs`
