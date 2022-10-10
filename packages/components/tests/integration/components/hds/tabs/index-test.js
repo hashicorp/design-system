@@ -175,6 +175,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       </Hds::Tabs>
     `);
     assert.dom('.hds-tabs__tab-icon').exists();
+    assert.dom('.hds-tabs__tab-icon').hasAttribute('data-test-icon', 'info');
   });
 
   test('it should render a count when passed into a tab', async function (assert) {
