@@ -39,6 +39,8 @@
   <p class="dummy-paragraph" id="component-api-tabs">Here is the API for the main (“container”) component:</p>
 
   <dl class="dummy-component-props" aria-labelledby="component-api-tabs">
+    <dt>onTabClick <code>function</code></dt>
+    <dd>Pass an optional function which is called when a Tab is clicked.</dd>
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
@@ -182,6 +184,24 @@
     <T.Panel>Content 2</T.Panel>
     <T.Panel>Content 3!</T.Panel>
   </Hds::Tabs>
+
+  <h4 class="dummy-h4">Pass in a function that gets called when a tab is clicked</h4>
+  {{! prettier-ignore-end }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Tabs @onTabClick=\{{this.logClickedTab}} as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+
+        <T.Panel>Content one</T.Panel>
+        <T.Panel>Content two</T.Panel>
+        <T.Panel>Content three</T.Panel>
+      </Hds::Tabs>
+    '
+  />
+  {{! prettier-ignore-end }}
 </section>
 
 <section>
@@ -377,5 +397,18 @@
     <T.Panel><DummyPlaceholder @text="Content eight" @height="50" @background="#eee" /></T.Panel>
     <T.Panel><DummyPlaceholder @text="Content nine" @height="50" @background="#eee" /></T.Panel>
     <T.Panel><DummyPlaceholder @text="Content ten" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+
+  <h5 class="dummy-h6">Call a passed function when a tab is clicked</h5>
+  <p class="dummy-paragraph">Logs the tab id to the console</p>
+
+  <Hds::Tabs @onTabClick={{this.logClickedTab}} as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 </section>

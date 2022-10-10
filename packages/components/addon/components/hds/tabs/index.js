@@ -56,6 +56,11 @@ export default class HdsTabsIndexComponent extends Component {
       block: 'nearest',
       inline: 'nearest',
     });
+
+    if (typeof this.args.onTabClick === 'function') {
+      const tabElem = this.tabNodes[tabIndex];
+      this.args.onTabClick(tabElem, ...arguments);
+    }
   }
 
   @action
