@@ -22,7 +22,7 @@ export default class HdsTableTableSortableComponent extends Component {
     const currentColHeading = event.target;
     const currColHeadingText = currentColHeading.textContent;
 
-    const liveRegion = document.querySelector('#a11y-notification');
+    const liveRegion = document.querySelector(`#${this.a11yMessageId}`);
     liveRegion.textContent = `Sorted by ${currColHeadingText} ${this.args.sortOrder}ending`;
     setTimeout(function () {
       liveRegion.textContent = '';
