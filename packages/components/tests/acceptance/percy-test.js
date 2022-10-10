@@ -47,6 +47,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/card');
     await percySnapshot('Card');
 
+    await visit('/components/dialog');
+    await percySnapshot('Dialog');
+
     await visit('/components/dropdown');
     await percySnapshot('Dropdown');
 
