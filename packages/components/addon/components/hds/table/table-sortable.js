@@ -1,7 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class HdsTableTableSortableComponent extends Component {
+  a11yMessageId = 'table-a11y-message-' + guidFor(this);
+
   get sort() {
     return `${this.args.sortBy}:${this.args.sortOrder}`;
   }
