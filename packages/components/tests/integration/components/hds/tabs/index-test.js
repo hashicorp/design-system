@@ -163,6 +163,58 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assert.dom('[data-test="secound tab"] .hds-tabs__tab-button').isFocused();
   });
 
+  test('It should display the associated panel when a focused tab is activated', async function (assert) {
+    const enterKey = 13;
+    const spaceKey = 32;
+
+    await render(hbs`
+      <Hds::Tabs as |T|>
+        <T.Tab data-test="first tab">One</T.Tab>
+        <T.Tab data-test="secound tab">Two</T.Tab>
+        <T.Panel data-test="first panel">Content 1</T.Panel>
+        <T.Panel data-test="secound panel">Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
+
+    // focus 2nd tab:
+    await focus('[data-test="secound tab"] .hds-tabs__tab-button');
+    // activate the tab using the enterKey:
+    await triggerKeyEvent(
+      '[data-test="secound tab"] .hds-tabs__tab-button',
+      'keyup',
+      enterKey
+    );
+    // test that the tab and panel have been activated:
+    assert
+      .dom('[data-test="secound tab"]')
+      .hasClass('hds-tabs__tab--is-selected');
+    assert
+      .dom('[data-test="secound tab"] .hds-tabs__tab-button')
+      .hasAttribute('aria-selected');
+    assert
+      .dom('[data-test="secound panel"]')
+      .doesNotHaveAttribute('hidden');
+
+      // focus 1st tab:
+    await focus('[data-test="first tab"] .hds-tabs__tab-button');
+    // activate the tab using the spaceKey:
+    await triggerKeyEvent(
+      '[data-test="first tab"] .hds-tabs__tab-button',
+      'keyup',
+      spaceKey
+    );
+    // test that the tab and panel have been activated:
+    assert
+      .dom('[data-test="first tab"]')
+      .hasClass('hds-tabs__tab--is-selected');
+    assert
+      .dom('[data-test="first tab"] .hds-tabs__tab-button')
+      .hasAttribute('aria-selected');
+    assert
+      .dom('[data-test="first panel"]')
+      .doesNotHaveAttribute('hidden');
+  });
+
   // Test Tab options:
 
   test('it should render an icon when passed into a tab', async function (assert) {
