@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('button');
     this.route('button-set');
     this.route('card');
+    this.route('dialog');
     this.route('dropdown');
     this.route('empty-state');
     this.route('form', function () {
