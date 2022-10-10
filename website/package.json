@@ -33,6 +33,8 @@
     "@ember/test-helpers": "^2.8.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@hashicorp/design-system-components": "workspace:^",
+    "@hashicorp/ember-flight-icons": "workspace:^",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.4.2",
@@ -45,14 +47,17 @@
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-sass": "^11.0.1",
     "ember-cli-sri": "^2.1.1",
+    "ember-cli-string-helpers": "^6.1.0",
     "ember-cli-terser": "^4.0.2",
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
+    "ember-math-helpers": "^2.18.2",
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
     "ember-source": "~4.7.0",
     "ember-template-lint": "^4.14.0",
+    "ember-truth-helpers": "^3.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-ember": "^11.0.6",
@@ -76,12 +81,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "dependencies": {
-    "@hashicorp/design-system-components": "workspace:^",
-    "@hashicorp/ember-flight-icons": "workspace:^",
-    "ember-cli-string-helpers": "^6.1.0",
-    "ember-math-helpers": "^2.18.2",
-    "ember-truth-helpers": "^3.1.1"
   }
 }
