@@ -8,17 +8,7 @@ $indicator-height: 3px;
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
-  padding-bottom: round(calc($indicator-height / 2));
-  // overflow-x: auto;
-  // -webkit-overflow-scrolling: touch;
-  // white-space: nowrap; // move
-}
-
-.hds-tabs__tablist {
   position: relative;
-  display: flex;
-  margin: 0;
-  padding: 0;
 
   // bottom gray border:
   &::before {
@@ -30,6 +20,15 @@ $indicator-height: 3px;
     border-top: 1px solid var(--token-color-border-primary);
     content: "";
   }
+}
+
+.hds-tabs__tablist {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hds-tabs__tab {
@@ -82,14 +81,13 @@ $indicator-height: 3px;
   margin-right: 6px;
 }
 
-.hds-tabs__tab-badge {
+.hds-tabs__tab-count {
   margin-left: 6px;
 }
 
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
-  bottom: $indicator-height;
   bottom: 0;
   left: var(--indicator-left-pos);
   z-index: 10;

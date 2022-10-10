@@ -49,6 +49,13 @@ export default class HdsTabsIndexComponent extends Component {
   handleClick(tabIndex) {
     this.selectedTabIndex = tabIndex;
     this.setTabIndicator(tabIndex);
+
+    // Scroll Tab into view if it's out of view
+    this.tabNodes[tabIndex].parentNode.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
+    });
   }
 
   @action
