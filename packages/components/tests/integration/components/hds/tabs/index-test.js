@@ -188,5 +188,6 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       </Hds::Tabs>
     `);
     assert.dom('.hds-tabs__tab-count').exists();
+    assert.dom('.hds-tabs__tab-count').hasText('5');
   });
 });
