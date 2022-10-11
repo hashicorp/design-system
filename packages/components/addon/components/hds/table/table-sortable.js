@@ -19,11 +19,8 @@ export default class HdsTableTableSortableComponent extends Component {
       this.args.setSortOrder('asc');
     }
 
-    const currentColHeading = event.target;
-    const currColHeadingText = currentColHeading.textContent;
-
     const liveRegion = document.querySelector(`#${this.a11yMessageId}`);
-    liveRegion.textContent = `Sorted by ${currColHeadingText} ${this.args.sortOrder}ending`;
+    liveRegion.textContent = `Sorted by ${column} ${this.args.sortOrder}ending`;
     setTimeout(function () {
       liveRegion.textContent = '';
     }, 2000);
