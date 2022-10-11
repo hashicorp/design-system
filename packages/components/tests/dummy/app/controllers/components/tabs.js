@@ -9,4 +9,10 @@ export default class TabsController extends Controller {
   toggleHighlight() {
     this.showHighlight = !this.showHighlight;
   }
+
+  @action
+  logClickedTab(event) {
+    const tabId = event.target.id;
+    console.log(`Tab with ID "${tabId}" clicked!`);
+  }
 }

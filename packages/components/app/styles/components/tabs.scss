@@ -68,6 +68,7 @@ $indicator-height: 3px;
     $bottom: 6px,
     $left: 6px,
   );
+
   position: static;
   padding: 0;
   color: inherit;
@@ -75,6 +76,13 @@ $indicator-height: 3px;
   border: none;
   border-radius: var(--token-form-control-border-radius);
   cursor: pointer;
+
+  // Expand click target area
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+  }
 }
 
 .hds-tabs__tab-icon {
