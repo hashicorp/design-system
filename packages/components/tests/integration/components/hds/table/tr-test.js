@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/table/row', function (hooks) {
+module('Integration | Component | hds/table/tr', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Hds::Table::Row />`);
+    await render(hbs`<Hds::Table::Tr />`);
 
     assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
-      <Hds::Table::Row>
+      <Hds::Table::Tr>
         template block text
-      </Hds::Table::Row>
+      </Hds::Table::Tr>
     `);
 
     assert.dom(this.element).hasText('template block text');

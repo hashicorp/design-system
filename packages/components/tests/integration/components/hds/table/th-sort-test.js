@@ -13,14 +13,5 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     await render(hbs`<Hds::Table::ThSort />`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Hds::Table::ThSort>
-        template block text
-      </Hds::Table::ThSort>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

@@ -1,9 +1,5 @@
 {{#each @columns as |column|}}
-  <th
-    scope="col"
-    class="hds-table__th hds-table__th--sortable"
-    aria-sort={{if (eq column @sortBy) (concat @sortOrder "ending")}}
-  >
+  <th scope="col" class="hds-table__th-sort" aria-sort={{if (eq column @sortBy) (concat @sortOrder "ending")}}>
     <button type="button" {{on "click" (fn @setSortBy column)}}>
       {{column}}
       {{#if (and (eq column @sortBy) (eq @sortOrder "asc"))}}

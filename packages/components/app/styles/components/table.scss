@@ -1,9 +1,9 @@
 //
 // TABLE
 //
-// properties within each class are sorted alphabetically
 //
-.hds-table {
+.hds-table,
+.hds-table-sortable {
   width: 100%;
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-font-stack-text);
