@@ -55,18 +55,22 @@
     <dt>count <code>string</code></dt>
     <dd>
       <p>
-        Displays an optional <a href="/components/badge-count" target="_blank" rel="noopener noreferrer">BadgeCount</a> in the Tab.
+        Displays an optional
+        <a href="/components/badge-count" target="_blank" rel="noopener noreferrer">BadgeCount</a>
+        in the Tab.
       </p>
       <p>
-        Accepts the text value that should go in the 
+        Accepts the text value that should go in the
         <a href="/components/badge-count" target="_blank" rel="noopener noreferrer">BadgeCount</a>.
       </p>
     </dd>
 
     <dt>icon</dt>
     <dd>
-      <p>Displays an optional <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">FlightIcon</a>.</p>
-      <p>Accepts the name of the <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">FlightIcon</a>.</p>
+      <p>Displays an optional
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">FlightIcon</a>.</p>
+      <p>Accepts the name of the
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">FlightIcon</a>.</p>
     </dd>
 
     <dt>isSelected <code>boolean</code></dt>
@@ -186,10 +190,11 @@
   </Hds::Tabs>
 
   <h4 class="dummy-h4">Pass in a function that gets called when a tab is clicked</h4>
-  {{! prettier-ignore-end }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  {{! prettier-ignore-start }}
   <CodeBlock
     @language="markup"
-    @code='
+    @code="
       <Hds::Tabs @onTabClick=\{{this.logClickedTab}} as |T|>
         <T.Tab>One</T.Tab>
         <T.Tab>Two</T.Tab>
@@ -199,7 +204,7 @@
         <T.Panel>Content two</T.Panel>
         <T.Panel>Content three</T.Panel>
       </Hds::Tabs>
-    '
+    "
   />
   {{! prettier-ignore-end }}
 </section>

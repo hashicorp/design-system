@@ -191,11 +191,9 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assert
       .dom('[data-test="secound tab"] .hds-tabs__tab-button')
       .hasAttribute('aria-selected');
-    assert
-      .dom('[data-test="secound panel"]')
-      .doesNotHaveAttribute('hidden');
+    assert.dom('[data-test="secound panel"]').doesNotHaveAttribute('hidden');
 
-      // focus 1st tab:
+    // focus 1st tab:
     await focus('[data-test="first tab"] .hds-tabs__tab-button');
     // activate the tab using the spaceKey:
     await triggerKeyEvent(
@@ -210,9 +208,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assert
       .dom('[data-test="first tab"] .hds-tabs__tab-button')
       .hasAttribute('aria-selected');
-    assert
-      .dom('[data-test="first panel"]')
-      .doesNotHaveAttribute('hidden');
+    assert.dom('[data-test="first panel"]').doesNotHaveAttribute('hidden');
   });
 
   // Test Tab options:
