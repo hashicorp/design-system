@@ -5,6 +5,7 @@ import {
   AVAILABLE_COLORS,
   AVAILABLE_ALIGNS,
   MAPPING_STYLE_TO_TAG,
+  MAPPING_TAG_TO_STYLE,
 } from '@hashicorp/design-system-components/components/hds/text';
 
 export default class ComponentsTextRoute extends Route {
@@ -24,6 +25,7 @@ export default class ComponentsTextRoute extends Route {
       AVAILABLE_COLORS,
       AVAILABLE_ALIGNS,
       MAPPING_STYLE_TO_TAG,
+      MAPPING_TAG_TO_STYLE,
       AVAILABLE_GROUP_SIZE_WEIGHT_COMBINATIONS,
     };
   }

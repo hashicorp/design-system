@@ -63,6 +63,18 @@ export const MAPPING_STYLE_TO_TAG = {
   'code/200': 'code',
   'code/100': 'code',
 };
+
+export const MAPPING_TAG_TO_STYLE = {
+  'h1': 'display/500/bold',
+  'h2': 'display/400/semibold',
+  'h3': 'display/300/semibold',
+  'h4': 'display/200/semibold',
+  'h5': 'display/100/medium',
+  'p': 'body/200/regular',
+  'code': 'code/200/regular',
+  'pre': 'code/200/regular',
+};
+
 export const AVAILABLE_ALIGNS = ['left', 'center', 'right'];
 
 export default class HdsTextIndexComponent extends Component {
@@ -88,26 +100,41 @@ export default class HdsTextIndexComponent extends Component {
    * @param variant
    */
   get variant() {
-    let { variant } = this.args;
+    let { tag, variant } = this.args;
 
     if (variant) {
       variant = variant.toLowerCase();
+
+      assert(
+        `@variant for "Hds::Text" must be one of the following: ${AVAILABLE_VARIANTS.join(
+          ', '
+        )}; received: ${variant}`,
+        AVAILABLE_VARIANTS.includes(variant)
+      );
+    } else if (tag) {
+      tag = tag.toLowerCase();
+      if (Object.keys(MAPPING_TAG_TO_STYLE).includes(tag)) {
+        variant = MAPPING_TAG_TO_STYLE[tag];
+      } else {
+        assert(
+          `You need to provide a @variant value for "Hds::Text" with @tag="${tag}"`
+        );
+      }
+    } else {
+      assert(
+        `You need to provide at least one of the @tag or @variant arguments to "Hds::Text"`
+      );
     }
 
-    assert(
-      `@variant for "Hds::Text" must be one of the following: ${AVAILABLE_VARIANTS.join(
-        ', '
-      )}; received: ${variant}`,
-      AVAILABLE_VARIANTS.includes(variant)
-    );
+    if (variant) {
+      const [, group, size, weight] = variant.match(/^(\w+)\/(\w+)\/(\w+)$/);
 
-    const [, group, size, weight] = variant.match(/^(\w+)\/(\w+)\/(\w+)$/);
-
-    return {
-      group,
-      size,
-      weight,
-    };
+      return {
+        group,
+        size,
+        weight,
+      };
+    }
   }
 
   /**

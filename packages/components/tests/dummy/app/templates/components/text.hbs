@@ -20,8 +20,18 @@
           <li>{{variant}}</li>
         {{/each}}
       </ol>
-      <p><em>Notice: only only certain combinations of "size" and "weight" are recommended; if you need a different
-          combination please speak with the Design System team.</em></p>
+      <p>Notice: the default value, if no
+        <code class="dummy-code">@variant</code>
+        argument is provided, depends on the
+        <code class="dummy-code">@tag</code>
+        argument:</p>
+      <ol class="dummy-text-component-api-defaults">
+        {{#each-in @model.MAPPING_TAG_TO_STYLE as |tag style|}}
+          <li>{{tag}} → {{style}}</li>
+        {{/each-in}}
+      </ol>
+      <p><em><strong>Important</strong>: only only certain combinations of "size" and "weight" are recommended; if you
+          need a different combination please speak with the Design System team.</em></p>
       <p><em>You can find the design specs on typography in
           <a
             href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192"
@@ -70,6 +80,25 @@
       <p>If no
         <code class="dummy-code">@align</code>
         argument is provided, the text will simply follow (inherit) the alignment of the parent container.</p>
+    </dd>
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>The color (foreground) to apply to the text.</p>
+      <p>Acceptable predefined values:</p>
+      <ol>
+        {{#each @model.AVAILABLE_COLORS as |color|}}
+          <li>{{color}}</li>
+        {{/each}}
+      </ol>
+      <p>It's also possible to provide a custom color using the same `@color` argument. For details on how to do it see
+        the
+        <a href="#how-to-use">"How to use</a>
+        section above.</p>
+      <p>If no
+        <code class="dummy-code">@color</code>
+        argument is provided, the text will simply inherit the
+        <code class="dummy-code">text-color</code>
+        of the parent container.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>

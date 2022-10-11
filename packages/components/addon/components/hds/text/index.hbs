@@ -14,8 +14,6 @@
   <p class={{this.classNames}} {{style color=this.customColor}} ...attributes>{{yield}}</p>
 {{else if (eq this.tag "span")}}
   <span class={{this.classNames}} {{style color=this.customColor}} ...attributes>{{yield}}</span>
-{{else if (eq this.tag "li")}}
-  <li class={{this.classNames}} {{style color=this.customColor}} ...attributes>{{yield}}</li>
 {{else if (eq this.tag "code")}}
   <code class={{this.classNames}} {{style color=this.customColor}} ...attributes>{{yield}}</code>
 {{else if (eq this.tag "pre")}}
