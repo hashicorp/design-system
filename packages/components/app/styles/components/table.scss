@@ -32,7 +32,7 @@
     text-align: left;
     background-color: var(--token-color-surface-strong);
 
-    &.hds-table__th--sortable {
+    &.hds-table__th-sort {
       padding: 0; // we're taking it out here because we need it on the interactive content instead
     }
 
