@@ -1,3 +1,5 @@
+// app/controllers/application.js
+
 import Controller from '@ember/controller';
 import { defaultValidator } from 'ember-a11y-refocus';
 

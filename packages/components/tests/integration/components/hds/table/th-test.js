@@ -23,4 +23,9 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
     assert.dom(this.element).hasText('template block text');
   });
+
+  test('it should render with a CSS class that matches the component name', async function (assert) {
+    await render(hbs`<Hds::Table::Th id="test-th" />`);
+    assert.dom('#test-th').hasClass('hds-table__th');
+  });
 });
