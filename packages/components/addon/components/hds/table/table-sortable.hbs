@@ -1,13 +1,13 @@
-<table class="hds-table {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
+<table class="hds-table-sortable {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
   <thead class="hds-table__thead" data-test-table-head>
-    <tr>
+    <Hds::Table::Tr>
       <Hds::Table::ThSort
         @columns={{@columns}}
         @sortBy={{@sortBy}}
         @sortOrder={{@sortOrder}}
         @setSortBy={{this.setSortBy}}
       />
-    </tr>
+    </Hds::Table::Tr>
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
     {{#each (sort-by this.sort @model) as |data|}}
