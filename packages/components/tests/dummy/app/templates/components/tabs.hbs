@@ -54,8 +54,15 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-tab">
     <dt>count <code>string</code></dt>
     <dd>
-      <p>Displays an optional "count" indicator in the tab. Accepts the text value that should go in the
-        <a href="/components/badge-count">BadgeCount</a>.</p>
+      <p>
+        Displays an optional
+        <a href="/components/badge-count" target="_blank" rel="noopener noreferrer">BadgeCount</a>
+        in the Tab.
+      </p>
+      <p>
+        Accepts the text value that should go in the
+        <a href="/components/badge-count" target="_blank" rel="noopener noreferrer">BadgeCount</a>.
+      </p>
     </dd>
 
     <dt>icon</dt>
@@ -180,6 +187,35 @@
     <T.Panel>Content 1</T.Panel>
     <T.Panel>Content 2</T.Panel>
     <T.Panel>Content 3!</T.Panel>
+  </Hds::Tabs>
+
+  <h4 class="dummy-h4">Pass in a function that gets called when a tab is clicked</h4>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Tabs @onClickTab=\{{this.logClickedTab}} as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+
+        <T.Panel>Content one</T.Panel>
+        <T.Panel>Content two</T.Panel>
+        <T.Panel>Content three</T.Panel>
+      </Hds::Tabs>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tabs @onClickTab="{{this.logClickedTab}}" as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>Content 1</T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3</T.Panel>
   </Hds::Tabs>
 </section>
 
