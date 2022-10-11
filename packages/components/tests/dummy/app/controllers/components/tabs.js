@@ -11,7 +11,8 @@ export default class TabsController extends Controller {
   }
 
   @action
-  logClickedTab(tabElem) {
-    console.log(`${tabElem.id} Tab clicked!`);
+  logClickedTab(event) {
+    const tabId = event.target.id;
+    console.log(`${tabId} Tab clicked!`);
   }
 }

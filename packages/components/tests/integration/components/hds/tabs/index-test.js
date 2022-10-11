@@ -137,16 +137,16 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await render(hbs`
       <Hds::Tabs as |T|>
         <T.Tab data-test="first tab">One</T.Tab>
-        <T.Tab data-test="secound tab">Two</T.Tab>
+        <T.Tab data-test="second tab">Two</T.Tab>
         <T.Panel data-test="first panel">Content 1</T.Panel>
-        <T.Panel data-test="secound panel">Content 2</T.Panel>
+        <T.Panel data-test="second panel">Content 2</T.Panel>
       </Hds::Tabs>
     `);
     // focus 2nd tab:
-    await focus('[data-test="secound tab"] .hds-tabs__tab-button');
+    await focus('[data-test="second tab"] .hds-tabs__tab-button');
     // navigate to the previous (1st) tab using right arrow key:
     await triggerKeyEvent(
-      '[data-test="secound tab"] .hds-tabs__tab-button',
+      '[data-test="second tab"] .hds-tabs__tab-button',
       'keyup',
       rightArrowKey
     );
@@ -160,7 +160,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       leftArrowKey
     );
     // test that the navigated to tab is now focused:
-    assert.dom('[data-test="secound tab"] .hds-tabs__tab-button').isFocused();
+    assert.dom('[data-test="second tab"] .hds-tabs__tab-button').isFocused();
   });
 
   test('It should display the associated panel when a focused tab is activated', async function (assert) {
@@ -170,28 +170,28 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await render(hbs`
       <Hds::Tabs as |T|>
         <T.Tab data-test="first tab">One</T.Tab>
-        <T.Tab data-test="secound tab">Two</T.Tab>
+        <T.Tab data-test="second tab">Two</T.Tab>
         <T.Panel data-test="first panel">Content 1</T.Panel>
-        <T.Panel data-test="secound panel">Content 2</T.Panel>
+        <T.Panel data-test="second panel">Content 2</T.Panel>
       </Hds::Tabs>
     `);
 
     // focus 2nd tab:
-    await focus('[data-test="secound tab"] .hds-tabs__tab-button');
+    await focus('[data-test="second tab"] .hds-tabs__tab-button');
     // activate the tab using the enterKey:
     await triggerKeyEvent(
-      '[data-test="secound tab"] .hds-tabs__tab-button',
+      '[data-test="second tab"] .hds-tabs__tab-button',
       'keyup',
       enterKey
     );
     // test that the tab and panel have been activated:
     assert
-      .dom('[data-test="secound tab"]')
+      .dom('[data-test="second tab"]')
       .hasClass('hds-tabs__tab--is-selected');
     assert
-      .dom('[data-test="secound tab"] .hds-tabs__tab-button')
+      .dom('[data-test="second tab"] .hds-tabs__tab-button')
       .hasAttribute('aria-selected');
-    assert.dom('[data-test="secound panel"]').doesNotHaveAttribute('hidden');
+    assert.dom('[data-test="second panel"]').doesNotHaveAttribute('hidden');
 
     // focus 1st tab:
     await focus('[data-test="first tab"] .hds-tabs__tab-button');

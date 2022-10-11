@@ -46,7 +46,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  handleClick(tabIndex) {
+  handleClick(tabIndex, event) {
     this.selectedTabIndex = tabIndex;
     this.setTabIndicator(tabIndex);
 
@@ -57,9 +57,8 @@ export default class HdsTabsIndexComponent extends Component {
       inline: 'nearest',
     });
 
-    if (typeof this.args.onTabClick === 'function') {
-      const tabElem = this.tabNodes[tabIndex];
-      this.args.onTabClick(tabElem, ...arguments);
+    if (typeof this.args.onClickTab === 'function') {
+      this.args.onClickTab(event);
     }
   }
 
