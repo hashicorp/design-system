@@ -13,14 +13,10 @@ module('Integration | Component | hds/table/table-sortable', function (hooks) {
     await render(hbs`<Hds::Table::TableSortable />`);
 
     assert.dom(this.element).hasText('');
+  });
 
-    // Template block usage:
-    await render(hbs`
-      <Hds::Table::TableSortable>
-        template block text
-      </Hds::Table::TableSortable>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+  test('it should render with a CSS class that matches the component name', async function (assert) {
+    await render(hbs`<Hds::Table::TableSortable id="test-table-sort" />`);
+    assert.dom('#test-table-sort').hasClass('hds-table-sortable');
   });
 });
