@@ -219,7 +219,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Tabs @onClickTab="{{this.logClickedTab}}" as |T|>
+  <Hds::Tabs @onClickTab={{this.logClickedTab}} as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
     <T.Tab>Three</T.Tab>
