@@ -457,8 +457,6 @@ export default class ApplicationController extends Controller {
     @model={{this.model}}
     @sortBy={{this.sortBy}}
     @sortOrder={{this.sortOrder}}
-    @setSortBy={{this.setSortBy}}
-    @setSortOrder={{this.setSortOrder}}
     @columns={{array "artist" "album" "release year"}}
   >
     <:body as |item|>
@@ -476,15 +474,13 @@ export default class ApplicationController extends Controller {
     @model={{this.model}}
     @sortBy={{this.sortBy}}
     @sortOrder={{this.sortOrder}}
-    @setSortBy={{this.setSortBy}}
-    @setSortOrder={{this.setSortOrder}}
     @columns={{array "musician" "record" "year"}}
   >
-    <:body as |item|>
+    <:body as |data|>
       <Hds::Table::Tr>
-        <td>{{item.artist}}</td>
-        <td>{{item.album}}</td>
-        <td>{{item.year}}</td>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
       </Hds::Table::Tr>
     </:body>
   </Hds::Table::TableSortable>
