@@ -88,7 +88,7 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">For better documentation purposes, we imitated fetching data from an API and working with
+  <p class="dummy-paragraph">For documentation purposes, we imitated fetching data from an API and working with
     that as our data model.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -111,16 +111,7 @@ export default class ComponentsTableRoute extends Route {
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <h4 class="dummy-h4">Sortable Table</h4>
-  <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different. You will need to
-    do three things:</p>
-  <ol class="dummy-list">
-    <li>invoke the component in the page template.</li>
-    <li>have the data model ready in the route (in these examples, we have demonstrated an API fetch).</li>
-    <li>If using
-      <a href="https://github.com/ember-a11y/ember-a11y-refocus">ember-a11y-refocus</a>, customize the definition of a
-      route change in your application controller.
-    </li>
-  </ol>
+  <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
   <p class="dummy-paragraph">1. Invoke the component, noting that you can use
     <a
       href="https://guides.emberjs.com/release/components/helper-functions/#toc_the-array-helper"
@@ -168,31 +159,6 @@ export default class ComponentsTableRoute extends Route {
       let { attributes } = model;
       return { ...attributes };
     });
-  }
-}"
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">3. If using ember-a11y-refocus,
-    <a href="https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change">customize
-      the definition of a route change</a>
-    in your application controller so that the focus will stay on the sortable interactive element:</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="javascript"
-    @code="// app/controllers/application.js
-
-import Controller from '@ember/controller';
-import { defaultValidator } from 'ember-a11y-refocus';
-
-export default class ApplicationController extends Controller {
-  transitionValidator(transition) {
-    if (transition.to.queryParams.sortBy) {
-      return false;
-    } else {
-      return defaultValidator(transition);
-    }
   }
 }"
   />
@@ -447,11 +413,11 @@ export default class ApplicationController extends Controller {
     @sortOrder={{this.sortOrder}}
     @columns={{array "musician" "record" "year"}}
   >
-    <:body as |data|>
+    <:body as |item|>
       <Hds::Table::Tr>
-        <td>{{data.artist}}</td>
-        <td>{{data.album}}</td>
-        <td>{{data.year}}</td>
+        <td>{{item.artist}}</td>
+        <td>{{item.album}}</td>
+        <td>{{item.year}}</td>
       </Hds::Table::Tr>
     </:body>
   </Hds::Table::TableSortable>
