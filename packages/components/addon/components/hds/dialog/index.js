@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../form/utils/getElementId';
 
@@ -8,6 +9,11 @@ export const SIZES = ['small', 'regular', 'large'];
 export const TYPES = ['neutral', 'warning', 'critical'];
 
 export default class HdsDialogIndexComponent extends Component {
+  @action
+  setupDialog(element) {
+    element.showModal();
+  }
+
   /**
    * Sets the size of the dialog
    * Accepted values: small, regular, large
