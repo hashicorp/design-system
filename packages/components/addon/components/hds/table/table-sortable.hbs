@@ -2,14 +2,12 @@
   <thead class="hds-table__thead" data-test-table-head>
     <Hds::Table::Tr>
       {{#each @columns as |column|}}
-
         <Hds::Table::ThSort
           @text={{column}}
           @sortBy={{this.sortBy}}
           @sortOrder={{this.sortOrder}}
           @setSortBy={{this.setSortBy}}
         />
-
       {{/each}}
     </Hds::Table::Tr>
   </thead>
