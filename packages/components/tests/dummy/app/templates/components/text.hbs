@@ -4,7 +4,11 @@
 
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
-  <p class="dummy-paragraph">TODO</p>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Hds::Text</code>
+    component has been created to simplify the way in which developers can apply typographic styles to their UI-related
+    code. There is no equivalent component in Figma – typographic definitions are applied via "styles", not components –
+    so this should be considered a "helper component" for developers.</p>
 </section>
 
 <section>
@@ -90,8 +94,9 @@
           <li>{{color}}</li>
         {{/each}}
       </ol>
-      <p>It's also possible to provide a custom color using the same `@color` argument. For details on how to do it see
-        the
+      <p>It's also possible to provide a custom color using the same
+        <code class="dummy-code">@color</code>
+        argument. For details on how to do it see the
         <a href="#how-to-use">"How to use</a>
         section above.</p>
       <p>If no
@@ -99,6 +104,12 @@
         argument is provided, the text will simply inherit the
         <code class="dummy-code">text-color</code>
         of the parent container.</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>Elements passed as children of this component are yielded inside the
+        <code class="dummy-code">@tag</code>
+        element.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -109,28 +120,174 @@
 
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">The suggested way to apply a typographic style ("variant") to a UI element is using the
+    <strong>Hds::Text</strong>
+    component.</p>
+  <p class="dummy-paragraph">In those cases where it's not possible to use that component, or a specific combination of
+    <em>font-family/font-size/line-height/font-weight</em>
+    is needed, it's possible to use typographic
+    <strong>design tokens</strong>
+    (CSS variables) or
+    <strong>CSS helper classes</strong>
+    to achieve the desired result. Refer to the documentation page for the
+    <a href="/foundations/typography">Typography</a>
+    foundations for more details on how to use it.
+  </p>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">The most basic invocation is done providing a
+    <code class="dummy-code">@tag</code>
+    argument to specify the HTML tag to use and a
+    <code class="dummy-code">@variant</code>
+    argument to specify the "style" (<code class="dummy-code">group/size/weight</code>) that needs to be applied to it</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Text @tag="h3" @variant="display/200/semibold">This is a "h3" tag styled as "display/200/semibold"</Hds::Text>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Text @tag="h3" @variant="display/200/semibold">This is a "h3" tag styled as "display/200/semibold"</Hds::Text>
+  <p class="dummy-paragraph"><em>Notice: not all tags are supported; for the list of supported
+      <code class="dummy-code">@tag</code>
+      arguments see the
+      <a href="#component-api">Component API</a>
+      section.</em></p>
+  <p class="dummy-paragraph"><em><strong>Important</strong>: if the
+      <code class="dummy-code">@tag</code>
+      argument provided does not match one of the supported ones, the component will fall back to use a
+      <code class="dummy-code">&lt;div&gt;</code>
+      tag.</em></p>
+
+  <p class="dummy-paragraph">If no
+    <code class="dummy-code">@tag</code>
+    argument is provided, the component will automatically assign one based on the
+    <code class="dummy-code">@variant</code>
+    argument:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Text @variant="body/200/semibold">This is a "p" tag styled as "body/200/semibold"</Hds::Text>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Text @variant="body/200/semibold">This is a "p" tag styled as "body/200/semibold"</Hds::Text>
+  <p class="dummy-paragraph"><em>Notice: for the list of default associations
+      <code class="dummy-code">@variant → @tag</code>
+      see the
+      <a href="#component-api">Component API</a>
+      section.</em></p>
+
+  <p class="dummy-paragraph">In a similar way, if no
+    <code class="dummy-code">@variant</code>
+    argument is provided, the component will automatically assign one based on the
+    <code class="dummy-code">@tag</code>
+    argument:</p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Text @tag="code">This is a "code" tag that will be styled as "code/200/regular"</Hds::Text>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Text @tag="code">This is a "code" tag that will be styled as "code/200/regular"</Hds::Text>
+  <p class="dummy-paragraph"><em>Notice: for the list of default associations
+      <code class="dummy-code">@tag → @variant</code>
+      see the
+      <a href="#component-api">Component API</a>
+      section.</em></p>
+
+  <h4 class="dummy-h4">Text alignment</h4>
+  <p class="dummy-paragraph">You can use the
+    <code class="dummy-code">@align</code>
+    argument to change the alignment of the text:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Text @tag="p" @variant="body/300/regular" @align="center">This is a "p" tag styled as "body/300/regular" and "center" aligned</Hds::Text>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Text @tag="p" @variant="body/300/regular" @align="center">This is a "p" tag styled as "body/300/regular" and
+    "center" aligned</Hds::Text>
+  <p class="dummy-paragraph"><em>Notice: by default, if no
+      <code class="dummy-code">@align</code>
+      argument is provided, the text simply follows (inherits) the alignment of the parent container.</em></p>
+
+  <h4 class="dummy-h4">Color</h4>
+  <p class="dummy-paragraph">You can apply a pre-defined "foreground" color to the text using the
+    <code class="dummy-code">@color</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Text @tag="p" @variant="body/300/regular" @color="highlight">This is a "p" tag styled as "body/300/regular" and with a "highlight" color</Hds::Text>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Text @tag="p" @variant="body/300/regular" @color="highlight">This is a "p" tag styled as "body/300/regular" and
+    with a "highlight" color</Hds::Text>
+  <p class="dummy-paragraph">It is also possible to apply a "custom" color to the text providing a valid CSS
+    <code class="dummy-code">text-color</code>
+    style to the
+    <code class="dummy-code">@color</code>
+    argument:
+  </p>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Text @tag="p" @color="var(--token-color-palette-purple-400)">This is a "p" tag with "var(--token-color-palette-purple-400)" color</Hds::Text>
+      <Hds::Text @tag="p" @color="rebeccapurple">This is a "p" tag with "rebeccapurple" color</Hds::Text>
+      <Hds::Text @tag="p" @color="rgb(55, 0, 154)">This is a "p" tag with "rgb(55, 0, 154)" color</Hds::Text>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Text @tag="p" @color="var(--token-color-palette-purple-400)">This is a "p" tag with
+    "var(--token-color-palette-purple-400)" color</Hds::Text>
+  <Hds::Text @tag="p" @color="rebeccapurple">This is a "p" tag with "rebeccapurple" color</Hds::Text>
+  <Hds::Text @tag="p" @color="rgb(55, 0, 154)">This is a "p" tag with "rgb(55, 0, 154)" color</Hds::Text>
+
+  <p class="dummy-paragraph"><em>Notice: by default, if no
+      <code class="dummy-code">@color</code>
+      argument is provided, the text simply inherits the
+      <code class="dummy-code">text-color</code>
+      of the parent container.</em></p>
 
 </section>
 
 <section>
   <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
     Design guidelines</h3>
-  <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph">
-      <a
-        href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Figma UI Kit</a>
-    </p>
-  </div>
+  <p class="dummy-paragraph">There is no equivalent
+    <code class="dummy-code">Hds::Text</code>
+    component in Figma, because typography in Figma is applied via "styles" (they correspond to the
+    <code class="dummy-code">@variant</code>
+    argument). You can see the available styles in the
+    <a
+      href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Figma "Core" UI Kit</a>.
+  </p>
 </section>
 
 <section>
   <h3 class="dummy-h3" id="writing-guidelines"><a href="#writing-guidelines" class="dummy-link-section">§</a>
-    Writing Guidelines</h3>
+    Writing guidelines</h3>
   <p class="dummy-paragraph">HashiCorp has general writing guidelines for copy standards e.g. capitalization and
     punctuation.</p>
   <p class="dummy-paragraph">

@@ -21,7 +21,11 @@ export default class TypographyController extends Controller {
     helpers.push('');
     AVAILABLE_VARIANTS.forEach((variant) => {
       const [, group, size] = variant.match(/^(\w+)\/(\w+)\/(\w+)$/);
-      helpers.push(`.hds-typography-${group}-${size}`);
+      const helperClass = `.hds-typography-${group}-${size}`;
+      console.log(helperClass, !helpers.indexOf(helperClass), helpers.length, helpers);
+      if(helpers.indexOf(helperClass) < 0) {
+        helpers.push(helperClass);
+      }
     });
     return `${helpers.join('\n')}`;
   }
