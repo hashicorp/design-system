@@ -1,16 +1,20 @@
 <table class="hds-table-sortable {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
   <thead class="hds-table__thead" data-test-table-head>
     <Hds::Table::Tr>
-      <Hds::Table::ThSort
-        @columns={{@columns}}
-        @sortBy={{@sortBy}}
-        @sortOrder={{@sortOrder}}
-        @setSortBy={{this.setSortBy}}
-      />
+      {{#each @columns as |column|}}
+
+        <Hds::Table::ThSort
+          @text={{column}}
+          @sortBy={{this.sortBy}}
+          @sortOrder={{this.sortOrder}}
+          @setSortBy={{this.setSortBy}}
+        />
+
+      {{/each}}
     </Hds::Table::Tr>
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
-    {{#each (sort-by this.sort @model) as |data|}}
+    {{#each (sort-by this.getSortCriteria @model) as |data|}}
       {{yield data to="body"}}
     {{/each}}
   </tbody>
