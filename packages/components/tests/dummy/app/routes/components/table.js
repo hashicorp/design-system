@@ -7,7 +7,10 @@ export default class ComponentsTableRoute extends Route {
 
     return data.map((model) => {
       let { id, attributes } = model;
-      return { id, ...attributes };
+      // maybe ?
+      let keys = Object.keys(attributes);
+
+      return { id, keys, ...attributes };
     });
   }
 }
