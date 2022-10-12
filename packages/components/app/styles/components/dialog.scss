@@ -6,7 +6,6 @@
 
 .hds-dialog {
   flex-direction: column;
-  width: min(600px, 95vw);
   padding: 0;
   background: var(--token-color-surface-primary);
   border: 1px solid rgba(59, 61, 69, 40%); // --token-color-border-strong;
@@ -89,4 +88,16 @@
   border-top: 1px solid var(--token-color-border-primary);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
+}
+
+.hds-dialog--size-small {
+  width: min(400px, 95vw);
+}
+
+.hds-dialog--size-regular {
+  width: min(600px, 95vw);
+}
+
+.hds-dialog--size-large {
+  width: min(800px, 95vw);
 }
