@@ -26,8 +26,6 @@
   flex: none;
   align-items: flex-start;
   padding: 12px 24px;
-  background: var(--token-color-surface-faint);
-  border-bottom: 1px solid var(--token-color-border-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
@@ -39,7 +37,6 @@
 
 .hds-dialog__title {
   flex-grow: 1;
-  color: var(--token-color-foreground-strong);
   font-weight: var(--token-typography-font-weight-semibold);
   font-size: var(--token-typography-display-200-font-size);
   font-family: var(--token-typography-display-200-font-family);
@@ -100,4 +97,28 @@
 
 .hds-dialog--size-large {
   width: min(800px, 95vw);
+}
+
+.hds-dialog--type-neutral {
+  .hds-dialog__header {
+    color: var(--token-color-foreground-strong);
+    background: var(--token-color-surface-faint);
+    border-bottom: 1px solid var(--token-color-border-primary);
+  }
+}
+
+.hds-dialog--type-warning {
+  .hds-dialog__header {
+    color: var(--token-color-foreground-warning-on-surface);
+    background: var(--token-color-surface-warning);
+    border-bottom: 1px solid var(--token-color-border-warning);
+  }
+}
+
+.hds-dialog--type-critical {
+  .hds-dialog__header {
+    color: var(--token-color-foreground-critical-on-surface);
+    background: var(--token-color-surface-critical);
+    border-bottom: 1px solid var(--token-color-border-critical);
+  }
 }
