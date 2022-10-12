@@ -57,6 +57,7 @@ export default class HdsTabsIndexComponent extends Component {
       inline: 'nearest',
     });
 
+        // invoke the callback function if it's provided as argument
     if (typeof this.args.onClickTab === 'function') {
       this.args.onClickTab(event);
     }
