@@ -11,7 +11,13 @@ export const TYPES = ['neutral', 'warning', 'critical'];
 export default class HdsDialogIndexComponent extends Component {
   @action
   setupDialog(element) {
+    this.element = element;
     element.showModal();
+  }
+
+  @action
+  closeDialog() {
+    this.element.close();
   }
 
   /**

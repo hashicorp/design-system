@@ -5,7 +5,7 @@
   <span class="hds-dialog__title" id={{@id}}>
     {{yield}}
   </span>
-  <button class="hds-dialog__dismiss" type="button" aria-label="Dismiss">
+  <button class="hds-dialog__dismiss" type="button" aria-label="Dismiss" {{on "click" @closeDialog}}>
     <FlightIcon @name="x" @size="16" @isInlineBlock={{false}} />
   </button>
 </div>
