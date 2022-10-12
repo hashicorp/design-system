@@ -11,7 +11,6 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
     assert.dom('#test-form-toggle').exists();
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    assert.expect(3);
     await render(hbs`<Hds::Form::Toggle::Base id="test-form-toggle" />`);
     // Notice: the "toggle" component has a slightly different DOM structure than the other form controls
     assert.dom('.hds-form-toggle').exists();
@@ -22,7 +21,6 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Toggle::Base id="test-form-toggle" class="my-class" data-test1 data-test2="test" />`
     );

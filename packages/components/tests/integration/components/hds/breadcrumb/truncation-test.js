@@ -31,7 +31,6 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
       .doesNotExist();
   });
   test('it should yield (and render) the content', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation"><a id="test-breadcrumb-truncation-link" href="#">test</a></Hds::Breadcrumb::Truncation>`
     );
@@ -44,7 +43,6 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
   // A11Y
 
   test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
     );

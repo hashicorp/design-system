@@ -23,7 +23,6 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   // ICON
 
   test('it should render the icon in the trailing position by default', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Link::Inline @href="/" @icon="film" id="test-link">watch video</Hds::Link::Inline>`
     );
@@ -55,7 +54,6 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   // YIELDING
 
   test('it should yield the children of the <a> element', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Link::Inline @href="/" id="test-link"><span>test</span></Hds::Link::Inline>`
     );
@@ -66,13 +64,11 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   // TARGET/REL ATTRIBUTES
 
   test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
-    assert.expect(2);
     await render(hbs`<Hds::Link::Inline @href="/" id="test-link" />`);
     assert.dom('#test-link').hasAttribute('target', '_blank');
     assert.dom('#test-link').hasAttribute('rel', 'noopener noreferrer');
   });
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Link::Inline @href="/" id="test-link" target="test-target" rel="test-rel" />`
     );
@@ -80,7 +76,6 @@ module('Integration | Component | hds/link/inline', function (hooks) {
     assert.dom('#test-link').hasAttribute('rel', 'test-rel');
   });
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Link::Inline @href="/" @isHrefExternal={{false}} id="test-link" />`
     );

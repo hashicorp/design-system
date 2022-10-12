@@ -16,7 +16,6 @@ module(
     });
 
     test('it should render the "list-item/separator" as a <li> element with a CSS class that matches the component name', async function (assert) {
-      assert.expect(3);
       await render(
         hbs`<Hds::Dropdown::ListItem::Separator @text="separator" id="test-list-item-separator" />`
       );

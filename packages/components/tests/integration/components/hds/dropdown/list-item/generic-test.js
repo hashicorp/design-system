@@ -14,7 +14,6 @@ module(
     });
 
     test('it should render the "list-item/generic" as a <li> element with a CSS class that matches the component name', async function (assert) {
-      assert.expect(3);
       await render(
         hbs`<Hds::Dropdown::ListItem::Generic id="test-list-item-generic" />`
       );
@@ -28,7 +27,6 @@ module(
     // CONTENT
 
     test('it should render the yielded content', async function (assert) {
-      assert.expect(2);
       await render(
         hbs`<Hds::Dropdown::ListItem::Generic><pre>test</pre></Hds::Dropdown::ListItem::Generic>`
       );

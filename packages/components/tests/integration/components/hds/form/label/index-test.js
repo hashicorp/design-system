@@ -30,7 +30,6 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     assert.dom('#test-form-label').hasText('This is the label');
   });
   test('it renders a label with the yielded content', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Label id="test-form-label"><pre>This is an HTML element inside the label</pre></Hds::Form::Label>`
     );
@@ -43,7 +42,6 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
   // REQUIRED AND OPTIONAL
 
   test('it appends an indicator to the label text when user input is required', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Label @isRequired={{true}} id="test-form-label">This is the label</Hds::Form::Label>`
     );
@@ -51,7 +49,6 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     assert.dom('#test-form-label .hds-form-indicator').hasText('Required');
   });
   test('it appends an indicator to the label text when user input is optional', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Label @isOptional={{true}} id="test-form-label">This is the label</Hds::Form::Label>`
     );
@@ -68,7 +65,6 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     assert.dom('#test-form-label').hasAttribute('for', 'my-control-id');
   });
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Label id="test-form-label" class="my-class" data-test1 data-test2="test" />`
     );

@@ -18,7 +18,6 @@ module('Integration | Component | hds/form/checkbox/base', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Checkbox::Base id="test-form-checkbox" class="my-class" data-test1 data-test2="test" />`
     );

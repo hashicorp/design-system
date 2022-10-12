@@ -22,7 +22,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
   // NAME, VALUE
 
   test('it should render the input with the arguments provided', async function (assert) {
-    assert.expect(2);
     await render(hbs`<Hds::Form::RadioCard @name="name" @value="value" />`);
     assert.dom('input').hasValue('value');
     assert.dom('input').hasAttribute('name', 'name');
@@ -31,7 +30,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
   // CHECKED, DISABLED
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" />`
     );
@@ -42,7 +40,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
   // CONTEXTUAL COMPONENTS
 
   test('it renders the contextual components', async function (assert) {
-    assert.expect(5);
     await render(
       hbs`<Hds::Form::RadioCard as |R|>
             <R.Icon @name="hexagon"/>
@@ -59,7 +56,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('.custom').exists();
   });
   test('it does not render the contextual components if not provided', async function (assert) {
-    assert.expect(5);
     await render(hbs`<Hds::Form::RadioCard />`);
     assert.dom('.flight-icon').doesNotExist();
     assert.dom('.hds-form-radio-card__label').doesNotExist();
@@ -71,7 +67,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
-    assert.expect(5);
     await render(
       hbs`<Hds::Form::RadioCard id="my-id" name="my-name" class="my-class" data-test1 data-test2="test" />`
     );
