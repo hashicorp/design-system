@@ -104,15 +104,4 @@ export default class HdsTabsIndexComponent extends Component {
     tabsParentElem.style.setProperty('--indicator-left-pos', tabLeftPos + 'px');
     tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
   }
-
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-tabs'];
-
-    return classes.join(' ');
-  }
 }
