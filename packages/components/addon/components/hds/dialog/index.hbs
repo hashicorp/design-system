@@ -1,5 +1,5 @@
-<dialog class={{this.classNames}} ...attributes>
-  {{yield (hash Header=(component "hds/dialog/header"))}}
+<dialog class={{this.classNames}} ...attributes aria-labelledby={{this.id}}>
+  {{yield (hash Header=(component "hds/dialog/header" id=this.id))}}
   {{yield (hash Body=(component "hds/dialog/body"))}}
   {{yield (hash Footer=(component "hds/dialog/footer"))}}
 </dialog>

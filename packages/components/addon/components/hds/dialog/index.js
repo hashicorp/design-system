@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { getElementId } from '../form/utils/getElementId';
 
 export const DEFAULT_SIZE = 'regular';
 export const DEFAULT_TYPE = 'neutral';
@@ -47,6 +48,13 @@ export default class HdsDialogIndexComponent extends Component {
     );
 
     return type;
+  }
+
+  /**
+   * Calculates the unique ID to assign to the title
+   */
+  get id() {
+    return getElementId(this);
   }
 
   /**

@@ -2,7 +2,7 @@
   {{#if @icon}}
     <FlightIcon class="hds-dialog__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
   {{/if}}
-  <span class="hds-dialog__title">
+  <span class="hds-dialog__title" id={{@id}}>
     {{yield}}
   </span>
   <button class="hds-dialog__dismiss" type="button" aria-label="Dismiss">
