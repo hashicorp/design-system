@@ -4,8 +4,6 @@
 
 @use "../mixins/focus-ring" as *;
 
-$indicator-height: 3px;
-
 // Sub-components:
 .hds-tabs__tablist-wrapper {
   position: relative;
@@ -14,10 +12,10 @@ $indicator-height: 3px;
   &::before {
     position: absolute;
     right: 0;
-    bottom: floor(calc($indicator-height / 2));
+    bottom: calc((var(--token-tabs-indicator-height) - var(--token-tabs-divider-height)) / 2);
     left: 0;
     display: block;
-    border-top: 1px solid var(--token-color-border-primary);
+    border-top: var(--token-tabs-divider-height) solid var(--token-color-border-primary);
     content: "";
   }
 }
@@ -35,9 +33,9 @@ $indicator-height: 3px;
   position: relative;
   display: flex;
   align-items: center;
-  height: 36px;
+  height: var(--token-tabs-tab-height);
   margin: 0;
-  padding: 0 12px;
+  padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
   color: var(--token-color-foreground-primary);
   white-space: nowrap;
   text-decoration: none;
@@ -63,10 +61,10 @@ $indicator-height: 3px;
 
 .hds-tabs__tab-button {
   @include hds-focus-ring-with-pseudo-element(
-    $top: 6px,
-    $right: 6px,
-    $bottom: 6px,
-    $left: 6px,
+    $top: var(--token-tabs-tab-focus-inset),
+    $right: var(--token-tabs-tab-focus-inset),
+    $bottom: var(--token-tabs-tab-focus-inset),
+    $left: var(--token-tabs-tab-focus-inset),
   );
 
   position: static;
@@ -74,7 +72,7 @@ $indicator-height: 3px;
   color: inherit;
   background-color: transparent;
   border: none;
-  border-radius: var(--token-form-control-border-radius);
+  border-radius: var(--token-tabs-tab-border-radius);
   cursor: pointer;
 
   // Expand click target area
@@ -86,28 +84,30 @@ $indicator-height: 3px;
 }
 
 .hds-tabs__tab-icon {
-  margin-right: 6px;
+  margin-right: var(--token-tabs-tab-gutter);
 }
 
 .hds-tabs__tab-count {
-  margin-left: 6px;
+  margin-left: var(--token-tabs-tab-gutter);
 }
 
 .hds-tabs__tab-indicator {
   position: absolute;
   right: 0;
   bottom: 0;
+  // notice: this custom prop is set dynamically via JavaScript
   left: var(--indicator-left-pos);
   z-index: 10;
   display: block;
+  // notice: this custom prop is set dynamically via JavaScript
   width: var(--indicator-width);
-  height: $indicator-height;
+  height: var(--token-tabs-indicator-height);
   background-color: var(--token-color-foreground-action);
-  border-radius: 3px;
+  border-radius: var(--token-tabs-indicator-height);
 
   @media screen and (prefers-reduced-motion: no-preference) {
-    transition-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
-    transition-duration: 0.6s;
+    transition-timing-function: var(--token-tabs-indicator-transition-function);
+    transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
   }
 }
