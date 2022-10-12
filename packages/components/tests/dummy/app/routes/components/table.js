@@ -6,8 +6,8 @@ export default class ComponentsTableRoute extends Route {
     let { data } = await response.json();
 
     return data.map((model) => {
-      let { attributes } = model;
-      return { ...attributes };
+      let { id, attributes } = model;
+      return { id, ...attributes };
     });
   }
 }
