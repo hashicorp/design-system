@@ -320,7 +320,7 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with model defined
   </h4>
-  <Hds::Table @model={{this.model}}>
+  <Hds::Table @model={{this.model.data}}>
     <:head>
       <Hds::Table::Tr>
         <Hds::Table::Th>Artist</Hds::Table::Th>
@@ -368,7 +368,7 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with striped rows
   </h4>
-  <Hds::Table @model={{this.model}} @isStriped={{true}}>
+  <Hds::Table @model={{this.model.data}} @isStriped={{true}}>
     <:head>
       <Hds::Table::Tr>
         <Hds::Table::Th>Artist</Hds::Table::Th>
@@ -391,10 +391,10 @@ export default class ComponentsTableRoute extends Route {
     Sortable table (all columns sortable)
   </h4>
   <Hds::Table::TableSortable
-    @model={{this.model}}
+    @model={{this.model.data}}
     @sortBy={{this.sortBy}}
     @sortOrder={{this.sortOrder}}
-    @columns={{array "artist" "album" "year"}}
+    @columns={{this.model.columns}}
   >
     <:body as |folkData|>
       <Hds::Table::Tr>
