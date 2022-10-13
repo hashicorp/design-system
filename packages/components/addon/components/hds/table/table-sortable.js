@@ -8,6 +8,7 @@ export default class HdsTableTableSortableComponent extends Component {
 
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
+  @tracked sortedMessageText = '';
 
   get getSortCriteria() {
     return `${this.sortBy}:${this.sortOrder}`;
@@ -22,14 +23,6 @@ export default class HdsTableTableSortableComponent extends Component {
       this.sortBy = column;
       this.sortOrder = 'asc';
     }
-
-    const currentColHeading = event.target;
-    const currColHeadingText = currentColHeading.textContent;
-
-    const liveRegion = document.querySelector(`#${this.a11yMessageId}`);
-    liveRegion.textContent = `Sorted by ${currColHeadingText} ${this.sortOrder}ending`;
-    setTimeout(function () {
-      liveRegion.textContent = '';
-    }, 2000);
+    this.sortedMessageText = `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
   }
 }
