@@ -18,7 +18,6 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   // NAMED YIELDS
 
   test('it renders the "toggle" sub-components', async function (assert) {
-    assert.expect(2);
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
@@ -29,7 +28,6 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-toggle-icon').exists();
   });
   test('it renders the "list-item" sub-components', async function (assert) {
-    assert.expect(6);
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
@@ -109,7 +107,6 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Dropdown id="test-dropdown" class="my-class" data-test1 data-test2="test" />`
     );

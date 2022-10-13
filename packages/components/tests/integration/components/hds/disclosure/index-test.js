@@ -24,7 +24,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
   // TOGGLE + CONTENT
 
   test('it should render the "toggle" block but not the "content', async function (assert) {
-    assert.expect(3);
     await render(hbs`
       <Hds::Disclosure>
         <:toggle>
@@ -37,7 +36,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
     assert.dom('.hds-disclosure__content').doesNotExist();
   });
   test('it should render the "content" when the "toggle" is clicked', async function (assert) {
-    assert.expect(2);
     await render(hbs`
       <Hds::Disclosure>
         <:toggle as |t|>
@@ -56,7 +54,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
   // ESCAPE KEY
 
   test('it should hide the "content" when the "toggle" is deactivated via "Escape"', async function (assert) {
-    assert.expect(4);
     await render(hbs`
       <Hds::Disclosure id="test-disclosure">
         <:toggle as |t|>
@@ -78,7 +75,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
   // FOCUS OUT
 
   test('it should hide the "content" when the focus is moved outside', async function (assert) {
-    assert.expect(4);
     await render(hbs`
       <Hds::Disclosure id="test-disclosure">
         <:toggle as |t|>
@@ -100,7 +96,6 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
   // CLOSE DISCLOSED CONTENT ON CLICK
 
   test('it should hide the "content" when an interactive element triggers `close`', async function (assert) {
-    assert.expect(4);
     await render(hbs`
       <Hds::Disclosure id="test-disclosure">
         <:toggle as |t|>

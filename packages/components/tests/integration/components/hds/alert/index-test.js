@@ -30,7 +30,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render an icon by default depending on the type and color', async function (assert) {
     // here we don't test all the possible combinations, only some of them as precaution
-    assert.expect(6);
     await render(hbs`<Hds::Alert @type="inline" />`);
     assert.dom('.flight-icon-info').exists();
     await render(hbs`<Hds::Alert @type="compact" />`);
@@ -46,7 +45,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
 
   test('if an icon is declared, the icon should render in the component and override the default one', async function (assert) {
-    assert.expect(2);
     await render(hbs`<Hds::Alert @type="inline" @icon="clipboard-copy" />`);
     assert.dom('.flight-icon-clipboard-copy').exists();
     await render(hbs`<Hds::Alert @type="compact" @icon="clipboard-copy" />`);
@@ -73,7 +71,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom(this.element).hasText('This is the description');
   });
   test('it should render rich HTML when the "description" contextual component contains HTML tags', async function (assert) {
-    assert.expect(8);
     await render(
       hbs`<Hds::Alert @type="inline" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`
     );
@@ -86,7 +83,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // ACTIONS
 
   test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
-    assert.expect(5);
     await render(
       hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
     );
@@ -99,7 +95,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       .hasText('I am a button');
   });
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
-    assert.expect(5);
     await render(
       hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" /></Hds::Alert>`
     );
@@ -115,7 +110,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   // GENERIC
 
   test('it should render any content passed to the "generic" contextual component', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`
     );
@@ -142,7 +136,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
 
   test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when title and actions are provided', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title>This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
     );
@@ -152,7 +145,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
 
   test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when description and actions are provided', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Description>This is the title</A.Description><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
     );
@@ -164,7 +156,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
 
   test('it should render with an `alertdialog` role and `aria-labelledby` when title and actions are provided', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title id="custom-id">This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
     );

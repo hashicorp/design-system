@@ -27,7 +27,6 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     assert.dom('#test-breadcrumb-item > a').exists();
   });
   test('it should not render a if @current is true', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @current={{true}} />`
     );
@@ -35,7 +34,6 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     assert.dom('#test-breadcrumb-item .hds-breadcrumb__current').exists();
   });
   test('it should render the item with icon and text if @icon and @text are provided', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @icon="activity" />`
     );

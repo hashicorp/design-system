@@ -28,7 +28,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   // CONTEXTUAL COMPONENTS
 
   test('it renders the contextual components', async function (assert) {
-    assert.expect(8);
     await render(
       hbs`<Hds::Form::RadioCard::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
@@ -50,7 +49,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     assert.dom('.hds-form-group__error').hasText('This is the group error');
   });
   test('it does not render the contextual components if not provided', async function (assert) {
-    assert.expect(3);
     await render(hbs`<Hds::Form::RadioCard::Group />`);
     assert.dom('.hds-form-group__legend').doesNotExist();
     assert.dom('.hds-form-group__helper-text').doesNotExist();
@@ -60,7 +58,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   // ACCESSIBILITY
 
   test('it automatically provides all the ID relations between the elements', async function (assert) {
-    assert.expect(1);
     await render(
       hbs`<Hds::Form::RadioCard::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
@@ -85,7 +82,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   // ARGUMENT FORWARDING: NAME, ALIGNMENT, CONTROL POSITION
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
-    assert.expect(4);
     await render(
       hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" as |G|>
             <G.Legend>This is the legend</G.Legend>
@@ -110,7 +106,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   // REQUIRED AND OPTIONAL
 
   test('it should append an indicator to the legend text when user input is required', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::RadioCard::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
@@ -121,7 +116,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     assert.dom('legend .hds-form-indicator').hasText('Required');
   });
   test('it should append an indicator to the legend text when user input is optional', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::RadioCard::Group @isOptional={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
@@ -135,7 +129,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group" class="my-class" data-test1 data-test2="test" />`
     );

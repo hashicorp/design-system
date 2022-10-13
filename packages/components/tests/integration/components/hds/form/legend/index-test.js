@@ -34,7 +34,6 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
     assert.dom('#test-form-legend').hasText('This is the legend');
   });
   test('it renders a legend with the yielded content', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Legend id="test-form-legend"><pre>This is an HTML element inside the legend</pre></Hds::Form::Legend>`
     );
@@ -47,7 +46,6 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
   // REQUIRED AND OPTIONAL
 
   test('it appends an indicator to the legend text when user input is required', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Legend id="test-form-legend" @isRequired={{true}}>This is the legend</Hds::Form::Legend>`
     );
@@ -55,7 +53,6 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
     assert.dom('#test-form-legend .hds-form-indicator').hasText('Required');
   });
   test('it appends an indicator to the legend text when user input is optional', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Legend id="test-form-legend" @isOptional={{true}}>This is the legend</Hds::Form::Legend>`
     );
@@ -66,7 +63,6 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Legend id="test-form-legend" class="my-class" data-test1 data-test2="test" />`
     );

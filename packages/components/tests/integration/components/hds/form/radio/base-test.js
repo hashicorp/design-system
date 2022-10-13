@@ -18,7 +18,6 @@ module('Integration | Component | hds/form/radio/base', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Radio::Base id="test-form-radio" class="my-class" data-test1 data-test2="test" />`
     );

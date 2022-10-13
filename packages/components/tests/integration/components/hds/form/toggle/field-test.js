@@ -37,7 +37,6 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
-    assert.expect(4);
     await render(
       hbs`<Hds::Form::Toggle::Field as |F|>
           <F.Label>This is the label</F.Label>
@@ -51,14 +50,12 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    assert.expect(3);
     await render(hbs`<Hds::Form::Toggle::Field />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
-    assert.expect(4);
     await render(
       hbs`<Hds::Form::Toggle::Field @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
@@ -88,7 +85,6 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Toggle::Field checked="checked" class="my-class" data-test1 data-test2="test" />`
     );

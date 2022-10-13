@@ -25,7 +25,6 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
   // A11Y
 
   test('it should render with the correct semantic tags and aria attributes', async function (assert) {
-    assert.expect(3);
     await render(hbs`<Hds::Breadcrumb id="test-breadcrumb" />`);
     assert.dom('#test-breadcrumb').hasTagName('nav');
     assert.dom('#test-breadcrumb').hasAria('label', 'breadcrumbs');
