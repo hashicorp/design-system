@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export default class HdsTableThSortComponent extends Component {
   get isActiveSortColumn() {
-    return this.args.text === this.args.sortBy;
+    return this.args.sortKey === this.args.sortBy;
   }
 
   get ariaSort() {
