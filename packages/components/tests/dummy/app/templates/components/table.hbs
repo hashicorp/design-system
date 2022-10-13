@@ -88,8 +88,8 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">For documentation purposes, we imitated fetching data from an API and working with
-    that as our data model.</p>
+  <p class="dummy-paragraph">For documentation purposes, we imitated fetching data from an API and working with that as
+    our data model.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -112,36 +112,32 @@ export default class ComponentsTableRoute extends Route {
   {{! prettier-ignore-end }}
   <h4 class="dummy-h4">Sortable Table</h4>
   <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
-  <p class="dummy-paragraph">1. Invoke the component, noting that you can use
-    <a
-      href="https://guides.emberjs.com/release/components/helper-functions/#toc_the-array-helper"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Ember's array helper</a>
-    to pass an array for the columns:</p>
+  <p class="dummy-paragraph">1. Invoke the component.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
     @code="<!-- app/templates/components/table.hbs -->
 
-<Hds::Table::TableSortable @model=\{{this.model}}
+<Hds::Table::TableSortable
+  @model=\{{this.model.data}}
   @sortBy=\{{this.sortBy}}
   @sortOrder=\{{this.sortOrder}}
-  @columns=\{{array 'artist' 'album' 'release year'}}
+  @columns=\{{this.model.columns}}
 >
-  <:body as |data|>
+  <:body as |folkData|>
     <Hds::Table::Tr>
-      <td>\{{data.artist}}</td>
-      <td>\{{data.album}}</td>
-      <td>\{{data.year}}</td>
+      <td>\{{folkData.artist}}</td>
+      <td>\{{folkData.album}}</td>
+      <td>\{{folkData.year}}</td>
     </Hds::Table::Tr>
   </:body>
-</Hds::Table>"
+</Hds::Table::TableSortable>"
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">2. Fetch the data model</p>
+  <p class="dummy-paragraph">2. Fetch the data model (this is just an example of what the shape could look like, you can
+    customize it to suit your needs)</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -149,16 +145,25 @@ export default class ComponentsTableRoute extends Route {
     @code="// app/routes/components/table.js
 
 import Route from '@ember/routing/route';
+import { capitalize } from '@ember/string';
 
 export default class ComponentsTableRoute extends Route {
   async model() {
-    let response = await fetch('/api/music.json');
+    let response = await fetch('/api/folk.json');
     let { data } = await response.json();
 
-    return data.map((model) => {
-      let { attributes } = model;
-      return { ...attributes };
+    // make sure the variable is declared outside of the loop
+    // so we can return it in the model response
+    let columns;
+    let dataResponse = data.map((model) => {
+      let { id, attributes } = model;
+      columns = Object.keys(attributes);
+      return { id, ...attributes };
     });
+    columns = columns.map((column) => {
+      return { key: column, label: capitalize(column) };
+    });
+    return { data: dataResponse, columns };
   }
 }"
   />
@@ -396,11 +401,11 @@ export default class ComponentsTableRoute extends Route {
     @sortOrder={{this.sortOrder}}
     @columns={{this.model.columns}}
   >
-    <:body as |folkData|>
+    <:body as |data|>
       <Hds::Table::Tr>
-        <td>{{folkData.artist}}</td>
-        <td>{{folkData.album}}</td>
-        <td>{{folkData.year}}</td>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
       </Hds::Table::Tr>
     </:body>
   </Hds::Table::TableSortable>
