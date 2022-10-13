@@ -3,7 +3,8 @@
     <Hds::Table::Tr>
       {{#each @columns as |column|}}
         <Hds::Table::ThSort
-          @text={{column}}
+          @text={{column.label}}
+          @sortKey={{column.key}}
           @sortBy={{this.sortBy}}
           @sortOrder={{this.sortOrder}}
           @setSortBy={{this.setSortBy}}
