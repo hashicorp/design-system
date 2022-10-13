@@ -15,7 +15,7 @@ export default class HdsTableThSortComponent extends Component {
 
   get icon() {
     if (this.isActiveSortColumn) {
-      return this.args.sortOrder === 'desc' ? 'arrow-up' : 'arrow-down';
+      return this.args.sortOrder === 'asc' ? 'arrow-up' : 'arrow-down';
     } else {
       return 'swap-vertical';
     }
