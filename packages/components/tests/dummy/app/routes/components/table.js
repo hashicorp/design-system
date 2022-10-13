@@ -19,6 +19,6 @@ export default class ComponentsTableRoute extends Route {
     });
     return { data: dataResponse, columns };
 
-    // second model goes here if we want to show a second table
+    // second model goes here if we want to have a second table
   }
 }
