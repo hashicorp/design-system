@@ -1,4 +1,11 @@
-<dialog class={{this.classNames}} ...attributes aria-labelledby={{this.id}} {{did-insert this.setupDialog}}>
+{{! template-lint-disable no-invalid-interactive }}
+<dialog
+  class={{this.classNames}}
+  ...attributes
+  aria-labelledby={{this.id}}
+  {{on "click" this.onClick}}
+  {{did-insert this.setupDialog}}
+>
   {{yield (hash Header=(component "hds/dialog/header" id=this.id closeDialog=this.closeDialog))}}
   {{yield (hash Body=(component "hds/dialog/body"))}}
   {{yield (hash Footer=(component "hds/dialog/footer"))}}
