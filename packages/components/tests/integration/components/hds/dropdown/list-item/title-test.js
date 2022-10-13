@@ -18,7 +18,6 @@ module(
     });
 
     test('it should render the "list-item/title" as a <li> element with a CSS class that matches the component name', async function (assert) {
-      assert.expect(3);
       await render(
         hbs`<Hds::Dropdown::ListItem::Title @text="title" id="test-list-item-title" />`
       );

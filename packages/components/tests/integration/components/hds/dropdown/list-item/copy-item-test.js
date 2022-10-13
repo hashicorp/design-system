@@ -20,7 +20,6 @@ module(
     });
 
     test('it should render the "list-item/copy-item" as a <li> element with a CSS class that matches the component name', async function (assert) {
-      assert.expect(3);
       await render(
         hbs`<Hds::Dropdown::ListItem::CopyItem @text="copy-item" id="test-list-item-copy-item" />`
       );

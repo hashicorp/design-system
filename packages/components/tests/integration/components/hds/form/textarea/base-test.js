@@ -47,7 +47,6 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Textarea::Base id="test-form-textarea" class="my-class" data-test1 data-test2="test" />`
     );

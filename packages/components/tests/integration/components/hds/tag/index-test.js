@@ -25,7 +25,6 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     assert.dom('button.hds-tag__dismiss').doesNotExist();
   });
   test('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
-    assert.expect(2);
     this.set('NOOP', () => {});
     await render(hbs`<Hds::Tag @text="My tag" @onDismiss={{this.NOOP}} />`);
     assert.dom('button.hds-tag__dismiss').exists();

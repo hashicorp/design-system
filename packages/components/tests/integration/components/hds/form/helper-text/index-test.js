@@ -32,7 +32,6 @@ module(
       assert.dom('#test-form-helper-text').hasText('This is the helper text');
     });
     test('it renders a helper text with the yielded content', async function (assert) {
-      assert.expect(2);
       await render(
         hbs`<Hds::Form::HelperText id="test-form-helper-text"><pre>This is an HTML element inside the helper text</pre></Hds::Form::HelperText>`
       );
@@ -51,7 +50,6 @@ module(
       assert.dom('#helper-text-my-control-id').exists();
     });
     test('it should spread all the attributes passed to the component', async function (assert) {
-      assert.expect(3);
       await render(
         hbs`<Hds::Form::HelperText id="test-form-helper-text" class="my-class" data-test1 data-test2="test" />`
       );

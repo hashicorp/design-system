@@ -29,7 +29,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
-    assert.expect(8);
     await render(
       hbs`<Hds::Form::Fieldset @layout="vertical" id="test-form-fieldset" as |F|>
           <F.Legend>This is the legend</F.Legend>
@@ -52,7 +51,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert.dom('.hds-form-group__error').hasText('This is the group error');
   });
   test('it automatically provides IDs for helper text and error', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Fieldset @layout="vertical" as |F|>
           <F.Legend>This is the legend</F.Legend>
@@ -75,7 +73,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
   // REQUIRED AND OPTIONAL
 
   test('it should append an indicator to the legend text when user input is required', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Fieldset @isRequired={{true}} as |F|>
           <F.Legend>This is the legend</F.Legend>
@@ -85,7 +82,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert.dom('legend .hds-form-indicator').hasText('Required');
   });
   test('it should append an indicator to the legend text when user input is optional', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Form::Fieldset @isOptional={{true}} as |F|>
           <F.Legend>This is the legend</F.Legend>
@@ -98,7 +94,6 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Form::Fieldset id="test-form-fieldset" class="my-class" data-test1 data-test2="test" />`
     );

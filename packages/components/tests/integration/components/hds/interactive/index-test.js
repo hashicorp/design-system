@@ -20,13 +20,11 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('#test-interactive').hasTagName('button');
   });
   test('it should render a <a> link if @href is passed', async function (assert) {
-    assert.expect(2);
     await render(hbs`<Hds::Interactive @href="#" id="test-interactive" />`);
     assert.dom('#test-interactive').hasTagName('a');
     assert.dom('#test-interactive').hasAttribute('href', '#');
   });
   test('it should render a <a> link if @route is passed', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Interactive @route="utilities.interactive" id="test-interactive" />`
     );
@@ -39,13 +37,11 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   // TARGET/REL ATTRIBUTES
 
   test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
-    assert.expect(2);
     await render(hbs`<Hds::Interactive @href="#" id="test-interactive" />`);
     assert.dom('#test-interactive').hasAttribute('target', '_blank');
     assert.dom('#test-interactive').hasAttribute('rel', 'noopener noreferrer');
   });
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Interactive @href="#" id="test-interactive" target="test-target" rel="test-rel" />`
     );
@@ -53,7 +49,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('#test-interactive').hasAttribute('rel', 'test-rel');
   });
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Interactive @href="#" @isHrefExternal={{false}} id="test-interactive" />`
     );
@@ -64,7 +59,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the <button> element', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Interactive id="test-interactive" class="my-class" data-test1 data-test2="test" />`
     );
@@ -73,7 +67,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('button#test-interactive').hasAttribute('data-test2', 'test');
   });
   test('it should spread all the attributes passed to the <a> element', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Interactive @href="#" id="test-interactive" class="my-class" data-test1 data-test2="test" />`
     );
@@ -82,7 +75,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('a#test-interactive').hasAttribute('data-test2', 'test');
   });
   test('it should spread all the attributes passed to the <LinkTo> element', async function (assert) {
-    assert.expect(3);
     await render(
       hbs`<Hds::Interactive @route="index" id="test-interactive" class="my-class" data-test1 data-test2="test" />`
     );
@@ -94,7 +86,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   // YIELDING
 
   test('it should yield the children of the <button> element', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Interactive id="test-interactive"><pre>test</pre></Hds::Interactive>`
     );
@@ -102,7 +93,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('button#test-interactive > pre').hasText('test');
   });
   test('it should yield the children of the <a> element', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Interactive @href="#" id="test-interactive"><pre>test</pre></Hds::Interactive>`
     );
@@ -110,7 +100,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('a#test-interactive > pre').hasText('test');
   });
   test('it should yield the children of the <LinkTo> element', async function (assert) {
-    assert.expect(2);
     await render(
       hbs`<Hds::Interactive @route="index" id="test-interactive"><pre>test</pre></Hds::Interactive>`
     );

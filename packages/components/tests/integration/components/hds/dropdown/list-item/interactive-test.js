@@ -24,7 +24,6 @@ module(
     });
 
     test('it should render the "list-item/interactive" as a <li> element with a CSS class that matches the component name', async function (assert) {
-      assert.expect(2);
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`
       );
