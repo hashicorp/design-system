@@ -16,6 +16,7 @@
     "identify-sections": "echo '\n==========\nIdentifying <section> blocks...\n' && node codemods/bin/cli.js identify-sections ./source/original/**/*.hbs",
     "split-files": "ts-node --transpile-only ./scripts/split-files",
     "refactor-codeblocks": "echo '\n==========\nRefactoring <CodeBlock> instances...\n' && node codemods/bin/cli.js refactor-codeblocks ./source/split-files/**/03_how-to-use.hbs",
+    "__preprocess-files": "ts-node --transpile-only ./scripts/preprocess-files",
     "copy-files-as-markdown": "ts-node --transpile-only ./scripts/copy-files-as-markdown",
     "copy-assets-folder": "rm -fr ../website/public/assets/images && cp -r ../packages/components/tests/dummy/public/assets/images ../website/public/assets/",
     "convert:turndown": "ts-node --transpile-only ./turndown/convert",
