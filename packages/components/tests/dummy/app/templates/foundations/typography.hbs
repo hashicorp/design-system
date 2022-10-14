@@ -92,9 +92,9 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">These are the <strong>CSS helper classes</strong> that you can use:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock @language="css" @code={{this.csshelpers}} />
-  {{! prettier-ignore-end }}
+  <DummyVarsList @items={{this.cssHelpers.families}} />
+  <DummyVarsList @items={{this.cssHelpers.weights}} />
+  <DummyVarsList @items={{this.cssHelpers.styles}} />
   <p class="dummy-paragraph">To use this classes you have to import the CSS file
     <code class="dummy-code">[products|devdot]/css/helpers/typography.css</code>
     from the

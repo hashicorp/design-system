@@ -1,0 +1,8 @@
+<ul class="dummy-vars-list">
+  {{#each @items as |item|}}
+    <li class="dummy-vars-list__item">
+      <code>{{item}}</code>
+      <CopyButton @clipboardText="{{item}}">Copy</CopyButton>
+    </li>
+  {{/each}}
+</ul>
