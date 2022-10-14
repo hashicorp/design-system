@@ -46,7 +46,7 @@ In the first terminal window (you should be be in the Cloud UI root):
 
 Everything should work and you should be able to do whatever you need to do in the Cloud UI codebase using your local HDS components (eg testing a new component, or checking the impact of a change in an existing one).
 
-**Don't forget**: once you've finished, better to reset the state of the Cloud UI project, to make sure that if you're doing some other tests not involving HDS components you're using the actual code that a user will see in production:
+**Don't forget**: once you've finished, it is better to reset the state of the Cloud UI project, to make sure that if you're doing some other tests not involving HDS components, you're using the actual code that a user will see in production:
 
 - go to the `node_modules/@hashicorp` folder of the Cloud UI repo
 - run `rm design-system-components` (no need for the `-fr` option, it's a symlink file not a folder)
