@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "classical",
+      "attributes": {
+        "composer": "Antonio Vivaldi",
+        "album": "The Four Seasons",
+        "year": "1725"
+      }
+    },
+    {
+      "id": "2",
+      "type": "classical",
+      "attributes": {
+        "composer": "Wolfgang Amadeus Mozart",
+        "album": "Eine kleine Nachtmusik",
+        "year": "1787"
+      }
+    },
+    {
+      "id": "3",
+      "type": "classical",
+      "attributes": {
+        "composer": "Ludwig van Beethoven",
+        "album": "Für Elise",
+        "year": "1810"
+      }
+    },
+    {
+      "id": "4",
+      "type": "classical",
+      "attributes": {
+        "composer": "J.S. Bach",
+        "album": "Toccata and Fugue in D minor",
+        "year": ""
+      }
+    },
+    {
+      "id": "5",
+      "type": "classical",
+      "attributes": {
+        "composer": "Carmen",
+        "album": "Bizet",
+        "year": "1875"
+      }
+    },
+    {
+      "id": "6",
+      "type": "classical",
+      "attributes": {
+        "composer": "Johann Strauss",
+        "album": "The Blue Danube",
+        "year": "1867"
+      }
+    }
+  ]
+}
