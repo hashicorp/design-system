@@ -11,8 +11,9 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "generate": "yarn prepare",
+    "generate": "yarn prepare && yarn identify-sections",
     "prepare": "rm -fr source && mkdir source && mkdir source/original && cp -r ../packages/components/tests/dummy/app/templates/* source/original",
+    "identify-sections": "echo '\n==========\nIdentifying <section> blocks...\n' && node codemods/bin/cli.js identify-sections ./source/original/**/*.hbs",
     "convert:turndown": "ts-node --transpile-only ./turndown/convert",
     "convert:nhm": "ts-node --transpile-only ./nhm/convert"
   },
@@ -22,6 +23,7 @@
     "@types/turndown": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "codemod-cli": "^3.2.0",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "node-html-markdown": "^1.2.0",
