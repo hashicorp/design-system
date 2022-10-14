@@ -28,9 +28,8 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">These are the <strong>CSS variables</strong> that you can use:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock @language="css" @code={{this.cssVariables}} />
-  {{! prettier-ignore-end }}
+  <DummyVarsList @items={{this.cssVariables.elevations}} />
+  <DummyVarsList @items={{this.cssVariables.surfaces}} />
   <p class="dummy-paragraph"><strong>🚨 IMPORTANT: 🚨</strong></p>
   <ul>
     <li class="dummy-paragraph">the "elevation" and "surface" CSS variables can be used
@@ -54,9 +53,8 @@
   />
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">These are the <strong>CSS helper classes</strong> that you can use:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock @language="css" @code={{this.cssHelpers}} />
-  {{! prettier-ignore-end }}
+  <DummyVarsList @items={{this.cssHelpers.elevations}} />
+  <DummyVarsList @items={{this.cssHelpers.surfaces}} />
   <p class="dummy-paragraph">To use this classes you have to import the CSS file
     <code class="dummy-code">[products|devdot]/css/helpers/elevation.css</code>
     from the

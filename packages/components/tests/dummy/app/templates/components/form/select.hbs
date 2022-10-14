@@ -789,7 +789,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Form::Select::Base aria-label="Target infrastructure" @isRequired=\{{true} \{{on "blur" myAction}} as |S|>
+      <Hds::Form::Select::Base aria-label="Target infrastructure" @isRequired=\{{true}} \{{on "blur" myAction}} as |S|>
         <S.Options>
           <option value="Kubernetes">Kubernetes</option>
           <option value="Other">Other</option>

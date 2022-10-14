@@ -22,19 +22,21 @@ export default class TypographyController extends Controller {
   get stylesCombinations() {
     return STYLES_COMBINATIONS;
   }
-  get csshelpers() {
-    const helpers = [];
+  get cssHelpers() {
+    const cssHelpers = {
+      families: [],
+      weights: [],
+      styles: [],
+    };
     this.families.forEach((family) => {
-      helpers.push(`.hds-font-family-${family}`);
+      cssHelpers.families.push(`.hds-font-family-${family}`);
     });
-    helpers.push('');
     this.weights.forEach((weight) => {
-      helpers.push(`.hds-font-weight-${weight}`);
+      cssHelpers.weights.push(`.hds-font-weight-${weight}`);
     });
-    helpers.push('');
     this.styles.forEach((style) => {
-      helpers.push(`.hds-typography-${style}`);
+      cssHelpers.styles.push(`.hds-typography-${style}`);
     });
-    return `${helpers.join('\n')}`;
+    return cssHelpers;
   }
 }
