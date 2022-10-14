@@ -11,8 +11,9 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "generate": "yarn prepare && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn copy-files-as-markdown && yarn copy-assets-folder",
-    "prepare": "rm -fr source && mkdir source && mkdir source/original && cp -r ../packages/components/tests/dummy/app/templates/* source/original",
+    "generate": "yarn prepare-source-folder && yarn copy-source-files && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn copy-files-as-markdown && yarn copy-assets-folder && yarn copy-extra-source-files",
+    "prepare-source-folder": "rm -fr source && mkdir source && mkdir source/original",
+    "copy-source-files": "cp -r ../packages/components/tests/dummy/app/templates/* source/original",
     "identify-sections": "echo '\n==========\nIdentifying <section> blocks...\n' && node codemods/bin/cli.js identify-sections ./source/original/**/*.hbs",
     "split-files": "ts-node --transpile-only ./scripts/split-files",
     "replace-linkto-with-a": "echo '\n==========\nReplacing <LinkTo> with <a> links...\n' && node codemods/bin/cli.js replace-linkto-with-a ./source/split-files/**/*.hbs",
@@ -20,6 +21,7 @@
     "__preprocess-files": "ts-node --transpile-only ./scripts/preprocess-files",
     "copy-files-as-markdown": "ts-node --transpile-only ./scripts/copy-files-as-markdown",
     "copy-assets-folder": "rm -fr ../website/public/assets/images && cp -r ../packages/components/tests/dummy/public/assets/images ../website/public/assets/",
+    "copy-extra-source-files": "cp -r ./moveover/* ../website/docs/",
     "convert:turndown": "ts-node --transpile-only ./turndown/convert",
     "convert:nhm": "ts-node --transpile-only ./nhm/convert"
   },
