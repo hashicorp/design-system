@@ -26,6 +26,10 @@ export default class HdsDialogIndexComponent extends Component {
 
   @action
   closeDialog() {
+    // we call the "onClose" callback if it exists (and is a function)
+    if (this.args.onClose && typeof this.args.onClose === 'function') {
+      this.args.onClose();
+    }
     this.element.close();
   }
 
