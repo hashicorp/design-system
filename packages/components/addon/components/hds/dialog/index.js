@@ -11,8 +11,20 @@ export const TYPES = ['neutral', 'warning', 'critical'];
 export default class HdsDialogIndexComponent extends Component {
   @action
   setupDialog(element) {
+    // Store a reference of the `<dialog>` element
     this.element = element;
-    element.showModal();
+
+    // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    this.element.addEventListener('close', () => {
+      if (this.args.onClose && typeof this.args.onClose === 'function') {
+        this.args.onClose();
+      }
+    });
+
+    // If the modal dialog is set to be open and it is not already open
+    if (this.args.isOpen && !this.element.open) {
+      this.openDialog();
+    }
   }
 
   @action
@@ -25,11 +37,19 @@ export default class HdsDialogIndexComponent extends Component {
   }
 
   @action
-  closeDialog() {
-    // we call the "onClose" callback if it exists (and is a function)
-    if (this.args.onClose && typeof this.args.onClose === 'function') {
-      this.args.onClose();
+  openDialog() {
+    // Make modal dialog visible using the native `showModal` method
+    this.element.showModal();
+
+    // Call "onOpen" callback function
+    if (this.args.onOpen && typeof this.args.onOpen === 'function') {
+      this.args.onOpen();
     }
+  }
+
+  @action
+  closeDialog() {
+    // Make modal dialog invisible using the native `close` method
     this.element.close();
   }
 
