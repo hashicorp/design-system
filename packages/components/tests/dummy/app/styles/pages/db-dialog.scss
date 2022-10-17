@@ -1,1 +1,10 @@
 // DIALOG
+
+.dummy-dialog-sample-item {
+  margin-bottom: 30px;
+
+  .hds-dialog[open] {
+    position: relative;
+    display: inline-block;
+  }
+}

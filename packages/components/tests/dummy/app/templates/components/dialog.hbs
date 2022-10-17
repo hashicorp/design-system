@@ -58,31 +58,116 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <h4 class="dummy-h4">Color</h4>
+  {{#each @model.COLORS as |color|}}
+    <p class="dummy-paragraph">{{capitalize color}}</p>
+    <br />
+    <div class="dummy-dialog-sample-item">
+      <Hds::Dialog open @color={{color}} id="dialog-example-{{color}}" as |D|>
+        <D.Header @icon="info" @tagline="Tagline">
+          {{capitalize color}}
+        </D.Header>
+        <D.Body><p class="hds-typography-body-300 hds-foreground-primary">Dialog content</p></D.Body>
+        <D.Footer>
+          <form method="dialog" aria-label="Form example {{color}}">
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="Confirm" @color={{if (eq color "critical") "critical"}} />
+              <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+              <Hds::Button type="submit" @text="Tertiary" @color="tertiary" @icon="plus" />
+            </Hds::ButtonSet>
+          </form>
+        </D.Footer>
+      </Hds::Dialog>
+    </div>
+  {{/each}}
+
+  <h4 class="dummy-h4">Size</h4>
+  {{#each @model.SIZES as |size|}}
+    <p class="dummy-paragraph">{{capitalize size}}</p>
+    <br />
+    <div class="dummy-dialog-sample-item">
+      <Hds::Dialog open @size={{size}} id="dialog-example-{{size}}" as |D|>
+        <D.Header @icon="info">
+          {{capitalize size}}
+        </D.Header>
+        <D.Body><p class="hds-typography-body-300 hds-foreground-primary">Dialog content</p></D.Body>
+        <D.Footer>
+          <form method="dialog" aria-label="Form example {{size}}">
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="Confirm" />
+              <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+            </Hds::ButtonSet>
+          </form>
+        </D.Footer>
+      </Hds::Dialog>
+    </div>
+  {{/each}}
 
   {{! This below is just an example of invocation, to get started }}
-  <Hds::Dialog as |D|>
-    <D.Header @icon="hexagon">
-      Why do you want to leave the beta?
-    </D.Header>
-    <D.Body>
-      <Hds::Form::Select::Field @width="100%" as |F|>
-        <F.Label>Select the primary reason</F.Label>
-        <F.Options>
-          <option></option>
-        </F.Options>
-      </Hds::Form::Select::Field>
-      <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-        <F.Label>Your feedback</F.Label>
-      </Hds::Form::Textarea::Field>
-    </D.Body>
-    <D.Footer>
-      <form method="dialog">
-        <Hds::ButtonSet>
-          <Hds::Button type="submit" @text="Leave Beta" />
+  <h4 class="dummy-h4">Invocation</h4>
+  <Hds::ButtonSet>
+    <Hds::Button
+      @text="Open basic dialog"
+      @color="secondary"
+      {{on "click" (fn this.activateModal "basicDialogActive")}}
+    />
+    <Hds::Button
+      @text="Open form dialog"
+      @color="secondary"
+      {{on "click" (fn this.activateModal "formDialogActive")}}
+    />
+  </Hds::ButtonSet>
+
+  {{#if this.basicDialogActive}}
+    <Hds::Dialog
+      id="invocation-basic-dialog"
+      @isOpen={{true}}
+      @onOpen={{this.noop}}
+      @onClose={{fn this.deactivateModal "basicDialogActive"}}
+      as |D|
+    >
+      <D.Header @icon="info">
+        Dialog title
+      </D.Header>
+      <D.Body><p class="hds-typography-body-300 hds-foreground-primary">Dialog content</p></D.Body>
+      <D.Footer>
+        <form method="dialog" aria-label="Dialog example basic invocation">
           <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-      </form>
-    </D.Footer>
-  </Hds::Dialog>
+        </form>
+      </D.Footer>
+    </Hds::Dialog>
+  {{/if}}
+
+  {{#if this.formDialogActive}}
+    <Hds::Dialog
+      id="invocation-form-dialog"
+      @isOpen={{true}}
+      @onOpen={{this.noop}}
+      @onClose={{fn this.deactivateModal "formDialogActive"}}
+      as |D|
+    >
+      <D.Header @icon="info">
+        Why do you want to leave the beta?
+      </D.Header>
+      <D.Body>
+        <Hds::Form::Select::Field @width="100%" as |F|>
+          <F.Label>Select the primary reason</F.Label>
+          <F.Options>
+            <option></option>
+          </F.Options>
+        </Hds::Form::Select::Field>
+        <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+          <F.Label>Your feedback</F.Label>
+        </Hds::Form::Textarea::Field>
+      </D.Body>
+      <D.Footer>
+        <form method="dialog" aria-label="Dialog example form invocation">
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Leave Beta" />
+            <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+          </Hds::ButtonSet>
+        </form>
+      </D.Footer>
+    </Hds::Dialog>
+  {{/if}}
 </section>
