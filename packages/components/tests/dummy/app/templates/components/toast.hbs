@@ -248,7 +248,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" onDismiss=\{{...}} as |T|>
+      <Hds::Toast @color="success" @onDismiss=\{{...}} as |T|>
         <T.Title>Title here</T.Title>
         <T.Description>
           The description can contain
@@ -266,7 +266,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" onDismiss={{this.noop}} as |T|>
+  <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
     <T.Title>Title here</T.Title>
     <T.Description>
       The description can contain
@@ -295,7 +295,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Toast @color="success" onDismiss=\{{...}} as |T|>
+      <Hds::Toast @color="success" @onDismiss=\{{...}} as |T|>
         <T.Title>Title here</T.Title>
         <T.Description>First line of description.</T.Description>
         <T.Description>Second line of description.</T.Description>
@@ -305,7 +305,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Toast @color="success" onDismiss={{this.noop}} as |T|>
+  <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
     <T.Title>Title here</T.Title>
     <T.Description>First line of description.</T.Description>
     <T.Description>Second line of description.</T.Description>
