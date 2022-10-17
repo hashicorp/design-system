@@ -46,7 +46,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  handleClick(tabIndex, event) {
+  onClick(tabIndex, event) {
     this.selectedTabIndex = tabIndex;
     this.setTabIndicator(tabIndex);
 
@@ -64,7 +64,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  handleKeyUp(tabIndex, e) {
+  onKeyUp(tabIndex, e) {
     const leftArrow = 37;
     const rightArrow = 39;
     const enterKey = 13;
