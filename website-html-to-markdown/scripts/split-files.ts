@@ -97,31 +97,31 @@ async function split() {
         switch (sectionID) {
           case 'overview':
             sectionTitle = 'Overview';
-            sectionFileName = '01_overview';
+            sectionFileName = '01--overview';
             break;
           case 'component-api':
             sectionTitle = 'Component API';
-            sectionFileName = '02_component-api';
+            sectionFileName = '02--component-api';
             break;
           case 'how-to-use':
             sectionTitle = 'How to use';
-            sectionFileName = '03_how-to-use';
+            sectionFileName = '03--how-to-use';
             break;
           case 'design-guidelines':
             sectionTitle = 'Design Guidelines';
-            sectionFileName = '04_design-guidelines';
+            sectionFileName = '04--design-guidelines';
             break;
           case 'accessibility':
             sectionTitle = 'Accessibility';
-            sectionFileName = '05_accessibility';
+            sectionFileName = '05--accessibility';
             break;
           case 'showcase':
             sectionTitle = 'Showcase';
-            sectionFileName = '06_showcase';
+            sectionFileName = '06--showcase';
             break;
           default:
             sectionTitle = `Generic #${genericCounter}`;
-            sectionFileName = `1${genericCounter}_generic`;
+            sectionFileName = `1${genericCounter}--generic`;
             break;
         }
 

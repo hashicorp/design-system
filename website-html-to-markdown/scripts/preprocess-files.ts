@@ -50,19 +50,19 @@ async function preprocess() {
       const hbsSource = await fs.readFile(filePath, 'utf8');
 
       switch (sectionName) {
-        case '01_overview':
+        case '01--overview':
           // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
-        case '02_component-api':
+        case '02--component-api':
           // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
-        case '03_how-to-use':
+        case '03--how-to-use':
             // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
-        case '04_design-guidelines':
+        case '04--design-guidelines':
           //
           break;
-        case '05_accessibility':
+        case '05--accessibility':
           // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
       }
