@@ -11,7 +11,7 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "generate": "yarn prepare-source-folder && yarn copy-source-files && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn preprocess-files && yarn rename-files-as-markdown && prepare-dest-folder && copy-markdown-files && yarn copy-assets-folder && yarn copy-extra-source-files",
+    "generate": "yarn prepare-source-folder && yarn copy-source-files && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn preprocess-files && yarn rename-files-as-markdown && yarn prettify-files && yarn prepare-dest-folder && yarn copy-markdown-files && yarn copy-assets-folder && yarn copy-extra-source-files",
     "prepare-source-folder": "rm -fr source && mkdir source && mkdir source/original",
     "copy-source-files": "cp -r ../packages/components/tests/dummy/app/templates/* source/original",
     "identify-sections": "echo '\n==========\nIdentifying <section> blocks...\n' && node codemods/bin/cli.js identify-sections ./source/original/**/*.hbs",
@@ -20,8 +20,9 @@
     "refactor-codeblocks": "echo '\n==========\nRefactoring <CodeBlock> instances...\n' && node codemods/bin/cli.js refactor-codeblocks ./source/split-files/**/03--how-to-use.hbs",
     "preprocess-files": "ts-node --transpile-only ./scripts/preprocess-files",
     "rename-files-as-markdown": "ts-node --transpile-only ./scripts/rename-files-as-markdown",
-    "prepare-dest-folder": "rm -fr ../website/docs/components && mkdir ../website/docs/components && rm -fr ../website/docs/content && mkdir ../website/docs/content && rm -fr ../website/docs/foundations && mkdir ../website/dofoundations/components && rm -fr ../website/docs/overrides && mkdir ../website/doverrides/components && rm -fr ../website/docs/utilities && mkdir ../websiteutilities/components",
-    "copy-markdown-files": "cp -r ./source/split-files/* ../website/docs/",
+    "prettify-files": "echo '\n==========\nPrettifying markdown files...\n' && npx prettier --loglevel warn --write source/split-files",
+    "prepare-dest-folder": "rm -fr ../website/docs/components && mkdir ../website/docs/components && rm -fr ../website/docs/content && mkdir ../website/docs/content && rm -fr ../website/docs/foundations && mkdir ../website/docs/foundations && rm -fr ../website/docs/overrides && mkdir ../website/docs/overrides&& rm -fr ../website/docs/utilities && mkdir ../website/docs/utilities",
+    "copy-markdown-files": "echo '\n==========\nCopying markdown files to `docs` folder...\n' && cp -r ./source/split-files/* ../website/docs/",
     "copy-assets-folder": "rm -fr ../website/public/assets/images && cp -r ../packages/components/tests/dummy/public/assets/images ../website/public/assets/",
     "copy-extra-source-files": "cp -r ./moveover/* ../website/docs/",
     "convert:turndown": "ts-node --transpile-only ./turndown/convert",
@@ -37,6 +38,7 @@
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "node-html-markdown": "^1.2.0",
+    "prettier": "2.7.1",
     "ts-node": "^10.9.1",
     "turndown": "^7.1.1",
     "typescript": "^4.8.4"
