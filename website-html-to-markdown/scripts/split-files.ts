@@ -3,21 +3,14 @@ import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 
-import { skipFilesList } from '../shared/skip-files-list.js';
-
 const sourceFolder = path.resolve(__dirname, '../source/original');
 const destFolder = path.resolve(__dirname, '../source/split-files');
 
 (async () => {
   try {
-    console.log(
-      `\n==========\n${chalk.cyan(
-        'Source files splitting...'
-      )}\n`
-    );
+    console.log(`\n==========\n${chalk.cyan('Source files splitting...')}\n`);
 
     await split();
-
   } catch (err) {
     console.error(err);
     process.exit(1);
@@ -45,7 +38,17 @@ async function split() {
       const fileRelativePath = path.relative(sourceFolder, filePath);
 
       // we need to skip some files...
-      if (skipFilesList.includes(fileRelativePath)) {
+      if (
+        [
+          'index.hbs',
+          'application.hbs',
+          'components.hbs',
+          'content.hbs',
+          'foundations.hbs',
+          'overrides.hbs',
+          'utilities.hbs',
+        ].includes(fileRelativePath)
+      ) {
         continue;
       }
 

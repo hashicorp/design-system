@@ -3,8 +3,6 @@ import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 
-import { replaceLinkToDocsPages } from './preprocess-files-parts/replaceLinkToDocsPages';
-
 const sourceFolder = path.resolve(__dirname, '../source/split-files');
 
 (async () => {
@@ -49,19 +47,16 @@ async function preprocess() {
 
       switch (sectionName) {
         case '01--overview':
-          // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
         case '02--component-api':
-          // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
         case '03--how-to-use':
-            // hbsSource = replaceLinkToDocsPages(hbsSource);
+
           break;
         case '04--design-guidelines':
           //
           break;
         case '05--accessibility':
-          // hbsSource = replaceLinkToDocsPages(hbsSource);
           break;
       }
 
