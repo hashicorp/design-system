@@ -1,9 +1,9 @@
 //
 // TABLE
 //
-// properties within each class are sorted alphabetically
 //
-.hds-table {
+.hds-table,
+.hds-table-sortable {
   width: 100%;
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-font-stack-text);
@@ -32,16 +32,18 @@
     text-align: left;
     background-color: var(--token-color-surface-strong);
 
-    &.hds-table__th--sortable {
+    &.hds-table__th-sort {
       padding: 0; // we're taking it out here because we need it on the interactive content instead
     }
 
-    a { // will refactor this to a button. Use Hds::Button?
+    button { // will refactor this to a button. Use Hds::Button?
       display: flex;
       align-items: center;
+      width: 100%;
       padding: 8px 16px;
       color: var(--token-color-foreground-strong);
       text-decoration: none;
+      background-color: transparent;
       border: 3px solid transparent;
 
       &:visited {
