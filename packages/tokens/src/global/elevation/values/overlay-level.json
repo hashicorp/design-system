@@ -24,7 +24,7 @@
                 },
                 "color": {
                     "value": "{elevation.color.strong.value}",
-                    "alpha": "0.50",
+                    "alpha": "0.25",
                     "type": "color",
                     "private": true
                 }
@@ -52,7 +52,7 @@
                 },
                 "color": {
                     "value": "{elevation.color.strong.value}",
-                    "alpha": "0.60",
+                    "alpha": "0.35",
                     "type": "color",
                     "private": true
                 }
@@ -65,7 +65,7 @@
                 },
                 "color": {
                     "value": "{elevation.color.strong.value}",
-                    "alpha": "0.40",
+                    "alpha": "0.25",
                     "type": "color",
                     "private": true
                 }
