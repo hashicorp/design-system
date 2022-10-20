@@ -35,6 +35,21 @@ export default class HdsTableIndexComponent extends Component {
     return `${this.sortBy}:${this.sortOrder}`;
   }
 
+  get isStriped() {
+    return this.args.isStriped ?? true;
+  }
+
+  get classNames() {
+    let classes = ['hds-table'];
+
+    // add a class based on the @isStriped argument
+    if (this.isStriped) {
+      classes.push('hds-table--striped');
+    }
+
+    return classes.join(' ');
+  }
+
   @action
   setSortBy(column) {
     if (this.sortBy === column) {

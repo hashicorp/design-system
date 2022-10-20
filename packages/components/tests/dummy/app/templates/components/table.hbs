@@ -372,9 +372,9 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Static table with striped rows
+    Static table with no striping
   </h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{true}}>
+  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
     <:head>
       <Hds::Table::Tr>
         <Hds::Table::Th>Artist</Hds::Table::Th>
