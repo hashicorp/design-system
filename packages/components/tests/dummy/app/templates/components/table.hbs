@@ -161,11 +161,11 @@ export default class ComponentsTableRoute extends Route {
   @sortOrder=\{{this.sortOrder}}
   @columns=\{{this.model.columns}}
 >
-  <:body as |folkData|>
+  <:body as |data|>
     <Hds::Table::Tr>
-      <td>\{{folkData.artist}}</td>
-      <td>\{{folkData.album}}</td>
-      <td>\{{folkData.year}}</td>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
     </Hds::Table::Tr>
   </:body>
 </Hds::Table>"
@@ -398,6 +398,24 @@ export default class ComponentsTableRoute extends Route {
     @sortBy={{this.sortBy}}
     @sortOrder={{this.sortOrder}}
     @columns={{this.model.columns}}
+  >
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table (only some columns sortable)
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{this.model.columns}}
+    @sortingKeys={{array "artist" "album"}}
+    @sortBy="artist"
+    @sortOrder="desc"
   >
     <:body as |data|>
       <Hds::Table::Tr>
