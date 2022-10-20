@@ -12,7 +12,6 @@ export default class HdsTableIndexComponent extends Component {
 
   get isSortableTable() {
     const { columns } = this.args;
-    console.log('isSortableTable', columns !== undefined);
     return columns !== undefined;
   }
 
