@@ -1,9 +1,29 @@
 <table class="hds-table {{if @isStriped 'hds-table--striped'}}" data-test-table ...attributes>
   <thead class="hds-table__thead" data-test-table-head>
-    {{yield (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th")) to="head"}}
+    {{#if this.isSortableTable}}
+      {{#each this.columns as |column|}}
+        {{#if column.isSortableColumn}}
+          <Hds::Table::ThSort
+            @text={{column.label}}
+            @sortKey={{column.key}}
+            @sortBy={{this.sortBy}}
+            @sortOrder={{this.sortOrder}}
+            @setSortBy={{this.setSortBy}}
+          />
+        {{else}}
+          <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
+        {{/if}}
+      {{/each}}
+    {{else}}
+      {{yield (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th")) to="head"}}
+    {{/if}}
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
-    {{#if @model}}
+    {{#if this.isSortableTable}}
+      {{#each (sort-by this.getSortCriteria @model) as |data|}}
+        {{yield data to="body"}}
+      {{/each}}
+    {{else if @model}}
       {{#each @model as |record|}}
         {{yield record to="body"}}
       {{/each}}
@@ -12,3 +32,6 @@
     {{/if}}
   </tbody>
 </table>
+{{#if this.isSortableTable}}
+  <div id={{this.a11yMessageId}} class="sr-only" role="region" aria-live="polite">{{this.sortedMessageText}}</div>
+{{/if}}
