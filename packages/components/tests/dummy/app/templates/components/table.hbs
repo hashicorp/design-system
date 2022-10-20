@@ -329,7 +329,7 @@ export default class ComponentsTableRoute extends Route {
   <Hds::Table @model={{this.model.data}}>
     <:head>
       <Hds::Table::Tr>
-        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th>Artist <Hds::Badge @text="New" @color="success" @type="outlined" /></Hds::Table::Th>
         <Hds::Table::Th>Album</Hds::Table::Th>
         <Hds::Table::Th>Release Year</Hds::Table::Th>
       </Hds::Table::Tr>
