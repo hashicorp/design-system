@@ -22,6 +22,15 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
     assert.dom('#test-breadcrumb').hasClass('hds-breadcrumb--items-can-wrap');
   });
 
+  test('it should dispatch a didInsert event when the component is rendered', async function (assert) {
+    let inserted = false;
+    this.set('didInsert', () => (inserted = true));
+    await render(
+      hbs`<Hds::Breadcrumb id="test-breadcrumb" @didInsert={{this.didInsert}} />`
+    );
+    assert.ok(inserted);
+  });
+
   // A11Y
 
   test('it should render with the correct semantic tags and aria attributes', async function (assert) {

@@ -22,6 +22,7 @@ function replaceMockStates() {
 
 export default class ComponentsController extends Controller {
   @service router;
+  @service fastboot;
 
   constructor() {
     super(...arguments);
@@ -29,7 +30,9 @@ export default class ComponentsController extends Controller {
   }
 
   routeDidChange() {
-    scheduleOnce('afterRender', this, replaceMockStates);
+    if (!this.fastboot.isFastBoot) {
+      scheduleOnce('afterRender', this, replaceMockStates);
+    }
   }
 
   willDestroy() {
