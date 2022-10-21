@@ -414,7 +414,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Alert @type="inline" @color="warning" @onDismiss=\{{ your function here }} as |A|>
+      <Hds::Alert @type="inline" @color="warning" @onDismiss=\{{this.noop}} as |A|>
         <A.Title>Title here</A.Title>
         <A.Description>Description here</A.Description>
       </Hds::Alert>
@@ -442,7 +442,7 @@
       <Hds::Alert @type="inline" as |A|>
         <A.Title>Title here</A.Title>
         <A.Description>Description here</A.Description>
-        <A.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
+        <A.Button @text="Your action" @color="secondary" @onClick=\{{this.noop}} />
         <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." />
         <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" @href="#" />
       </Hds::Alert>
