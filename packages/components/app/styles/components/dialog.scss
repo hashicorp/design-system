@@ -91,7 +91,7 @@
   width: min(400px, 95vw);
 }
 
-.hds-dialog--size-regular {
+.hds-dialog--size-medium {
   width: min(600px, 95vw);
 }
 
@@ -99,7 +99,7 @@
   width: min(800px, 95vw);
 }
 
-.hds-dialog--type-neutral {
+.hds-dialog--color-neutral {
   .hds-dialog__header {
     color: var(--token-color-foreground-strong);
     background: var(--token-color-surface-faint);
@@ -107,7 +107,7 @@
   }
 }
 
-.hds-dialog--type-warning {
+.hds-dialog--color-warning {
   .hds-dialog__header {
     color: var(--token-color-foreground-warning-on-surface);
     background: var(--token-color-surface-warning);
@@ -115,7 +115,7 @@
   }
 }
 
-.hds-dialog--type-critical {
+.hds-dialog--color-critical {
   .hds-dialog__header {
     color: var(--token-color-foreground-critical-on-surface);
     background: var(--token-color-surface-critical);

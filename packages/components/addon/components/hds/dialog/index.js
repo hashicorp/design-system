@@ -3,10 +3,10 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../form/utils/getElementId';
 
-export const DEFAULT_SIZE = 'regular';
-export const DEFAULT_TYPE = 'neutral';
-export const SIZES = ['small', 'regular', 'large'];
-export const TYPES = ['neutral', 'warning', 'critical'];
+export const DEFAULT_SIZE = 'medium';
+export const DEFAULT_COLOR = 'neutral';
+export const SIZES = ['small', 'medium', 'large'];
+export const COLORS = ['neutral', 'warning', 'critical'];
 
 export default class HdsDialogIndexComponent extends Component {
   @action
@@ -55,11 +55,11 @@ export default class HdsDialogIndexComponent extends Component {
 
   /**
    * Sets the size of the dialog
-   * Accepted values: small, regular, large
+   * Accepted values: small, medium, large
    *
    * @param size
    * @type {string}
-   * @default 'regular'
+   * @default 'medium'
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
@@ -75,24 +75,24 @@ export default class HdsDialogIndexComponent extends Component {
   }
 
   /**
-   * Sets the type of the dialog
+   * Sets the color of the dialog
    * Accepted values: neutral, warning, critical
    *
-   * @param type
+   * @param color
    * @type {string}
    * @default 'neutral'
    */
-  get type() {
-    let { type = DEFAULT_TYPE } = this.args;
+  get color() {
+    let { color = DEFAULT_COLOR } = this.args;
 
     assert(
-      `@type for "Hds::Dialog" must be one of the following: ${TYPES.join(
+      `@color for "Hds::Dialog" must be one of the following: ${COLORS.join(
         ', '
-      )}; received: ${type}`,
-      TYPES.includes(type)
+      )}; received: ${color}`,
+      COLORS.includes(color)
     );
 
-    return type;
+    return color;
   }
 
   /**
@@ -113,8 +113,8 @@ export default class HdsDialogIndexComponent extends Component {
     // add a class based on the @size argument
     classes.push(`hds-dialog--size-${this.size}`);
 
-    // add a class based on the @type argument
-    classes.push(`hds-dialog--type-${this.type}`);
+    // add a class based on the @color argument
+    classes.push(`hds-dialog--color-${this.color}`);
 
     return classes.join(' ');
   }
