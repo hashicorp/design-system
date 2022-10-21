@@ -18,12 +18,6 @@ export default class HdsTableIndexComponent extends Component {
     return columns !== undefined;
   }
 
-  /**
-   * @param isStriped
-   * @type {boolean}
-   * @default true
-   * @description Determines whether the table rows should have alternating background colors; defaults to true.
-   */
   get columns() {
     const { columns, sortingKeys } = this.args;
 
