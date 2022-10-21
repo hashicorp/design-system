@@ -98,7 +98,7 @@
 
 export default class ComponentsTableRoute extends Route {
   async model() {
-    let response = await fetch('/api/music.json');
+    let response = await fetch('/api/folk.json');
     let { data } = await response.json();
 
     return data.map((model) => {
@@ -329,8 +329,7 @@ export default class ComponentsTableRoute extends Route {
   <Hds::Table @model={{this.model.data}}>
     <:head>
       <Hds::Table::Tr>
-        <Hds::Table::Th>Artist
-          <Hds::Badge @text="New" @color="success" @type="outlined" @size="small" /></Hds::Table::Th>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
         <Hds::Table::Th>Album</Hds::Table::Th>
         <Hds::Table::Th>Release Year</Hds::Table::Th>
       </Hds::Table::Tr>
