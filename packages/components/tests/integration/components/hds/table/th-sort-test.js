@@ -14,11 +14,10 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     });
 
     await render(hbs`<Hds::Table::ThSort
-    @text="artist"
-    @sortBy="artist"
-    @sortOrder="asc"
-    @setSortBy={{this.setSortBy}}
-  />`);
+  @sortBy='artist'
+  @sortOrder='asc'
+  @setSortBy={{this.setSortBy}}
+>artist</Hds::Table::ThSort>`);
 
     assert.dom(this.element).hasText('artist');
   });
