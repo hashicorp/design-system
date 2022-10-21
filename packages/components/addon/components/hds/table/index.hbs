@@ -7,12 +7,13 @@
       {{#each this.columns as |column|}}
         {{#if column.isSortableColumn}}
           <Hds::Table::ThSort
-            @text={{column.label}}
             @sortKey={{column.key}}
             @sortBy={{this.sortBy}}
             @sortOrder={{this.sortOrder}}
             @setSortBy={{this.setSortBy}}
-          />
+          >
+            {{column.label}}
+          </Hds::Table::ThSort>
         {{else}}
           <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
         {{/if}}
