@@ -1,0 +1,113 @@
+//
+// TABS
+//
+
+@use "../mixins/focus-ring" as *;
+
+// Sub-components:
+.hds-tabs__tablist-wrapper {
+  position: relative;
+
+  // bottom gray border:
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: calc((var(--token-tabs-indicator-height) - var(--token-tabs-divider-height)) / 2);
+    left: 0;
+    display: block;
+    border-top: var(--token-tabs-divider-height) solid var(--token-color-border-primary);
+    content: "";
+  }
+}
+
+.hds-tabs__tablist {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hds-tabs__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--token-tabs-tab-height);
+  margin: 0;
+  padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
+  color: var(--token-color-foreground-primary);
+  white-space: nowrap;
+  text-decoration: none;
+  list-style: none;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action);
+  }
+
+  &.hds-tabs__tab--is-selected {
+    color: var(--token-color-foreground-action);
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+
+      & ~ .hds-tabs__tab-indicator {
+        background: var(--token-color-foreground-action-hover);
+      }
+    }
+  }
+}
+
+.hds-tabs__tab-button {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: var(--token-tabs-tab-focus-inset),
+    $right: var(--token-tabs-tab-focus-inset),
+    $bottom: var(--token-tabs-tab-focus-inset),
+    $left: var(--token-tabs-tab-focus-inset),
+  );
+
+  position: static;
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--token-tabs-tab-border-radius);
+  cursor: pointer;
+
+  // Expand click target area
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+  }
+}
+
+.hds-tabs__tab-icon {
+  margin-right: var(--token-tabs-tab-gutter);
+}
+
+.hds-tabs__tab-count {
+  margin-left: var(--token-tabs-tab-gutter);
+}
+
+.hds-tabs__tab-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  // notice: this custom prop is set dynamically via JavaScript
+  left: var(--indicator-left-pos);
+  z-index: 10;
+  display: block;
+  // notice: this custom prop is set dynamically via JavaScript
+  width: var(--indicator-width);
+  height: var(--token-tabs-indicator-height);
+  background-color: var(--token-color-foreground-action);
+  border-radius: var(--token-tabs-indicator-height);
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    transition-timing-function: var(--token-tabs-indicator-transition-function);
+    transition-duration: var(--token-tabs-indicator-transition-duration);
+    transition-property: left, width;
+  }
+}

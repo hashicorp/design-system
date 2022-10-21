@@ -1,0 +1,25 @@
+{{! template-lint-disable require-context-role no-invalid-role }}
+<li class={{this.classNames}} ...attributes role="presentation">
+  {{#if @icon}}
+    <FlightIcon @name={{@icon}} class="hds-tabs__tab-icon" />
+  {{/if}}
+
+  <button
+    class="hds-tabs__tab-button hds-typography-body-200 hds-font-weight-medium"
+    role="tab"
+    type="button"
+    id={{this.tabId}}
+    aria-selected={{this.isSelected}}
+    tabindex={{unless this.isSelected "-1"}}
+    data-is-selected={{this.isInitialTab}}
+    {{did-insert this.didInsertNode}}
+    {{on "click" this.onClick}}
+    {{on "keyup" this.onKeyUp}}
+  >
+    {{yield}}
+  </button>
+
+  {{#if @count}}
+    <Hds::BadgeCount @text={{@count}} @size="small" class="hds-tabs__tab-count" />
+  {{/if}}
+</li>

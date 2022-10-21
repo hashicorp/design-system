@@ -1,0 +1,11 @@
+<section
+  class="hds-tabs__panel"
+  ...attributes
+  role="tabpanel"
+  aria-labelledby={{this.tabId}}
+  id={{this.panelId}}
+  hidden={{(not this.isSelected)}}
+  {{did-insert this.didInsertNode}}
+>
+  {{yield}}
+</section>

@@ -1,0 +1,442 @@
+{{page-title "Tabs Component"}}
+
+<h2 class="dummy-h2">Tabs</h2>
+
+<section>
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph">
+    Tabs allow users to move between different views within the same context and at the same level of hierarchy, ie. UI
+    vs CLI, macOS vs Windows vs Linux, etc.
+  </p>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">Tabs</code>
+    component is composed of different parts, with their own APIs:
+  </p>
+
+  <ul>
+    <li class="dummy-paragraph">
+      a
+      <code class="dummy-code">Tabs</code>
+      main “container”
+    </li>
+    <li class="dummy-paragraph">
+      multiple
+      <code class="dummy-code">Tab</code>
+      sub-components (individual Tabs)
+    </li>
+    <li class="dummy-paragraph">
+      multiple
+      <code class="dummy-code">Panel</code>
+      sub-components (individual Panels corresponding to each Tab)
+    </li>
+  </ul>
+
+  <h4 class="dummy-h4">Tabs</h4>
+  <p class="dummy-paragraph" id="component-api-tabs">Here is the API for the main (“container”) component:</p>
+
+  <dl class="dummy-component-props" aria-labelledby="component-api-tabs">
+    <dt>onClickTab <code>function</code></dt>
+    <dd>Pass an optional function which is called when a Tab is clicked.</dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Tabs::Tab</h4>
+  <p class="dummy-paragraph" id="component-api-tab">
+    Here is the API for the “Tab” component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-tab">
+    <dt>count <code>string</code></dt>
+    <dd>
+      <p>
+        Displays an optional "count" indicator in the tab. Accepts the text value that should go in the
+        <a href="/components/badge-count">BadgeCount</a>.
+      </p>
+    </dd>
+
+    <dt>icon</dt>
+    <dd>
+      <p>
+        Displays an optional icon in the tab. Accepts the name of the
+        <a href="https://flight-hashicorp.vercel.app/">FlightIcon</a>.
+      </p>
+    </dd>
+
+    <dt>isSelected <code>boolean</code></dt>
+    <dd>
+      <p>Sets a custom initial tab to display when the page is loaded.</p>
+      <p>Default: <span class="default">false</span> (The first tab is selected on page load by default.)</p>
+    </dd>
+    <dt>"yield"</dt>
+    <dd>
+      <p>
+        Elements passed as children of this component are yielded inside a
+        <code class="dummy-code">&lt;button&gt;</code>
+        element.
+      </p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Tabs::Panel</h4>
+  <p class="dummy-paragraph" id="component-api-panel">
+    Here is the API for the “Panel” component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-panel">
+    <dt>"yield"</dt>
+    <dd>
+      <p>
+        Elements passed as children of this component are yielded inside a
+        <code class="dummy-code">&lt;section&gt;</code>
+        element.
+      </p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="how-to-use">
+    <a href="#how-to-use" class="dummy-link-section">§</a>
+    How to use
+  </h3>
+  <h4 class="dummy-h4">Basic use</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+        <T.Panel>Content 3</T.Panel>
+      </Hds::Tabs>
+    "
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>Content 1</T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3</T.Panel>
+  </Hds::Tabs>
+
+  <h4 class="dummy-h4">With a custom starting tab</h4>
+  <p class="dummy-paragraph">
+    Optionally, you can set a custom starting tab to display on page load. (By default the first tab is selected.)
+  </p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab @isSelected=\{{true}}>Three</T.Tab>
+
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+        <T.Panel>Content 3, I am displayed on page load.</T.Panel>
+      </Hds::Tabs>
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab @isSelected={{true}}>Three</T.Tab>
+
+    <T.Panel>Content 1</T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3, I am displayed on page load.</T.Panel>
+  </Hds::Tabs>
+
+  <h4 class="dummy-h4">With optional Count and Icon</h4>
+  {{! prettier-ignore-start }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Tabs as |T|>
+        <T.Tab @count="5">One</T.Tab>
+        <T.Tab @icon="download">Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+
+        <T.Panel>Content 1</T.Panel>
+        <T.Panel>Content 2</T.Panel>
+        <T.Panel>Content 3!</T.Panel>
+      </Hds::Tabs>
+    '
+  />
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tabs as |T|>
+    <T.Tab @count="5">One</T.Tab>
+    <T.Tab @icon="download">Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>Content 1</T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3!</T.Panel>
+  </Hds::Tabs>
+
+  <h4 class="dummy-h4">Pass in a function that gets called when a tab is clicked</h4>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Tabs @onClickTab=\{{this.logClickedTab}} as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+
+        <T.Panel>Content one</T.Panel>
+        <T.Panel>Content two</T.Panel>
+        <T.Panel>Content three</T.Panel>
+      </Hds::Tabs>
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Tabs @onClickTab={{this.logClickedTab}} as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>Content 1</T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3</T.Panel>
+  </Hds::Tabs>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="design-guidelines">
+    <a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines
+  </h3>
+
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=16384%3A46484"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a>
+    </p>
+    <img class="dummy-figma-docs" src="/assets/images/tabs-design-usage.png" alt="" role="none" />
+  </div>
+</section>
+
+<section>
+  <h3 class="dummy-h3" id="accessibility">
+    <a href="#accessibility" class="dummy-link-section">§</a>
+    Accessibility
+  </h3>
+
+  <h4 class="dummy-h4">Relevant WCAG</h4>
+  <p class="dummy-paragraph">The relevant WCAG 2.1 AA Success Criteria are listed here.</p>
+
+  <ul class="dummy-list">
+    <li>1.3.1
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">Info and Relationships (A)</a></li>
+    <li>1.3.2
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html">Meaningful Sequence (A)</a></li>
+    <li>1.4.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">Use of Color (A)</a></li>
+    <li>1.4.3 <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">Contrast Minimum (AA)</a></li>
+    <li>1.4.4 <a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html">Resize Text (AA)</a></li>
+    <li>1.4.10 <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">Reflow (AA)</a></li>
+    <li>1.4.11
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">Non-text Contrast (AA)</a></li>
+    <li>1.4.12 <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html">Text Spacing (AA)</a></li>
+    <li>1.4.13
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html">Content on Hover or Focus
+        (AA)</a></li>
+    <li>2.1.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html">Keyboard (A)</a></li>
+    <li>2.1.2 <a href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html">No Keyboard Trap (A)</a></li>
+    <li>2.4.6
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html">Headings and Labels (AA)</a></li>
+    <li>2.4.7 <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">Focus Visible (AA)</a></li>
+    <li>3.2.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/on-focus.html">On Focus (A)</a></li>
+    <li>4.1.1 <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html">Parsing (A)</a></li>
+    <li>4.1.2 <a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html">Name, Role, Value (A)</a></li>
+  </ul>
+</section>
+
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">Tab</h4>
+  <button id="dummy-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+  <div class="{{if this.showHighlight 'dummy-tabs-layout-highlight'}}">
+    <h5 class="dummy-h6">Content</h5>
+    <div class="dummy-tab-base-sample">
+      <div>
+        <span class="dummy-text-small">Text only</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+      <div>
+        <span class="dummy-text-small">Icon + Text</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+      <div>
+        <span class="dummy-text-small">Text + Counter</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+      <div>
+        <span class="dummy-text-small">Icon + Text + Counter</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+    </div>
+
+    <h5 class="dummy-h6">States</h5>
+    <div class="dummy-tab-base-sample">
+      <div class="dummy-tab-base-sample-item">
+        <span class="dummy-text-small">Default:</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+      <div class="dummy-tab-base-sample-item">
+        <span class="dummy-text-small">Hover:</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+      <div class="dummy-tab-base-sample-item">
+        <span class="dummy-text-small">Focus:</span>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+        <ul class="dummy-tab-ul-tab-wrapper">
+          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="dummy-h4">Panel</h4>
+  <h5 class="dummy-h6">Content</h5>
+  <Hds::Tabs::Panel>
+    <DummyPlaceholder @text="Panel with generic content" @height="50" @background="#eee" />
+  </Hds::Tabs::Panel>
+
+  <h4 class="dummy-h4">Tabs</h4>
+  <h5 class="dummy-h6">Basic usage</h5>
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>
+      <DummyPlaceholder @height="50" @background="#eee">
+        <span>Content one with <a href="#">link to test tabbing</a></span>
+      </DummyPlaceholder>
+    </T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+
+  <h5 class="dummy-h6">With optional icon and badge count</h5>
+  <Hds::Tabs as |T|>
+    <T.Tab @count="5">One</T.Tab>
+    <T.Tab @icon="info">Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+    <T.Tab @icon="alert-triangle" @count="5">Four</T.Tab>
+
+    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+
+  <h5 class="dummy-h6">With pre-selected tab</h5>
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab @isSelected={{true}}>Three (selected on page load)</T.Tab>
+
+    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel>
+      <DummyPlaceholder @text="Content three (displayed on page load)" @height="50" @background="#eee" />
+    </T.Panel>
+  </Hds::Tabs>
+
+  <h5 class="dummy-h6">With overflowing tabs</h5>
+  <Hds::Tabs as |T|>
+    <T.Tab>One one-thousand</T.Tab>
+    <T.Tab>Two one-thousand</T.Tab>
+    <T.Tab>Three one-thousand</T.Tab>
+    <T.Tab>Four one-thousand</T.Tab>
+    <T.Tab>Five one-thousand</T.Tab>
+    <T.Tab>Six one-thousand</T.Tab>
+    <T.Tab>Seven one-thousand</T.Tab>
+    <T.Tab>Eight one-thousand</T.Tab>
+    <T.Tab>Nine one-thousand</T.Tab>
+    <T.Tab>Ten one-thousand</T.Tab>
+
+    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content five" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content six" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content seven" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content eight" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content nine" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content ten" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+
+  <h5 class="dummy-h6">Call a passed function when a tab is clicked</h5>
+  <p class="dummy-paragraph">Logs the tab id to the console</p>
+
+  <Hds::Tabs @onClickTab={{this.logClickedTab}} as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+</section>

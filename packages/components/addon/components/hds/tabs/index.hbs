@@ -1,0 +1,33 @@
+{{! template-lint-disable no-invalid-role }}
+<div class="hds-tabs" {{did-insert this.didInsert}} ...attributes>
+  <div class="hds-tabs__tablist-wrapper">
+    <ul class="hds-tabs__tablist" role="tablist">
+      {{yield
+        (hash
+          Tab=(component
+            "hds/tabs/tab"
+            didInsertNode=this.didInsertTab
+            tabIds=this.tabIds
+            panelIds=this.panelIds
+            selectedTabIndex=this.selectedTabIndex
+            onClick=this.onClick
+            onKeyUp=this.onKeyUp
+          )
+        )
+      }}
+      <li class="hds-tabs__tab-indicator" role="presentation"></li>
+    </ul>
+  </div>
+
+  {{yield
+    (hash
+      Panel=(component
+        "hds/tabs/panel"
+        didInsertNode=this.didInsertPanel
+        tabIds=this.tabIds
+        panelIds=this.panelIds
+        selectedTabIndex=this.selectedTabIndex
+      )
+    )
+  }}
+</div>
