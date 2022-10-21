@@ -1,20 +1,29 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 
 export default class HdsTableIndexComponent extends Component {
-  a11yMessageId = 'table-a11y-message-' + guidFor(this);
-
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
   @tracked sortedMessageText = '';
 
+  /**
+   * @param isSortableTable
+   * @type {boolean}
+   * @default false
+   * @description Determines whether the table is sortable or not.
+   */
   get isSortableTable() {
     const { columns } = this.args;
     return columns !== undefined;
   }
 
+  /**
+   * @param isStriped
+   * @type {boolean}
+   * @default true
+   * @description Determines whether the table rows should have alternating background colors; defaults to true.
+   */
   get columns() {
     const { columns, sortingKeys } = this.args;
 
@@ -31,14 +40,25 @@ export default class HdsTableIndexComponent extends Component {
     return columns;
   }
 
-  get getSortCriteria() {
+  get _getSortCriteria() {
     return `${this.sortBy}:${this.sortOrder}`;
   }
 
+  /**
+   * @param isStriped
+   * @type {boolean}
+   * @default true
+   * @description Determines whether the table rows should have alternating background colors; defaults to true.
+   */
   get isStriped() {
     return this.args.isStriped ?? true;
   }
 
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
   get classNames() {
     let classes = ['hds-table'];
 
