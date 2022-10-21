@@ -8,9 +8,9 @@
   flex-direction: column;
   padding: 0;
   background: var(--token-color-surface-primary);
-  border: 1px solid rgba(59, 61, 69, 40%); // --token-color-border-strong;
+  border: none;
   border-radius: 10px;
-  box-shadow: var(--token-elevation-higher-box-shadow);
+  box-shadow: var(--token-surface-overlay-box-shadow);
 
   &[open] {
     display: flex;
