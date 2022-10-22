@@ -110,21 +110,21 @@ async function convert() {
           break;
         // DESIGN GUIDELINES
         case '04--design-guidelines.hbs':
-          // TODO!
           markdownContent = hbsSource;
           break;
         // ACCESSIBILITY
         case '05--accessibility.hbs':
+          turndownService.keep(['dummy-wcag-success-criteria-list']);
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // SHOWCASE
         case '06--showcase.hbs':
-          // TODO!
+          // we skip the showcase files for now
           markdownContent = hbsSource;
           break;
         // OTHER ("generic")
         default:
-          // TODO!
+          // we skip the generic files for now
           markdownContent = hbsSource;
           break;
       }
