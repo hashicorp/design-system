@@ -83,6 +83,13 @@
   border-top: 1px solid var(--token-color-border-primary);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
+
+  // Tertiary buttons must always be placed/aligned at the end of the row
+  .hds-button-set {
+    .hds-button--color-tertiary {
+      margin-left: auto;
+    }
+  }
 }
 
 .hds-dialog--size-small {
