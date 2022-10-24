@@ -73,13 +73,13 @@ module.exports = function ({ source /*, path */ }, { parse, visit }) {
           }
 
           let output = '';
-          output += `\n\n<CodeBlock>\n`;
+          // output += `\n\n<CodeBlock>\n\n<pre><code>\n`;
           output += `<!-- prettier-ignore-start -->\n`; // we add them back to avoid prettier to mess up the internal formatting of code blocks
           output += `\`\`\`${language || ''}\n`;
           output += `${code}\n`;
           output += `\`\`\`\n`;
           output += `<!-- prettier-ignore-end -->\n`;
-          output += `</CodeBlock>\n\n`;
+          // output += `</code></pre>\n\n</CodeBlock>\n\n`;
           return build.text(output);
         }
       },
