@@ -4,20 +4,22 @@
   {{/if}}
   <thead class="hds-table__thead" data-test-table-head>
     {{#if this.isSortableTable}}
-      {{#each this.columns as |column|}}
-        {{#if column.isSortableColumn}}
-          <Hds::Table::ThSort
-            @sortKey={{column.key}}
-            @sortBy={{this.sortBy}}
-            @sortOrder={{this.sortOrder}}
-            @setSortBy={{this.setSortBy}}
-          >
-            {{column.label}}
-          </Hds::Table::ThSort>
-        {{else}}
-          <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
-        {{/if}}
-      {{/each}}
+      <Hds::Table::Tr>
+        {{#each this.columns as |column|}}
+          {{#if column.isSortableColumn}}
+            <Hds::Table::ThSort
+              @sortKey={{column.key}}
+              @sortBy={{this.sortBy}}
+              @sortOrder={{this.sortOrder}}
+              @setSortBy={{this.setSortBy}}
+            >
+              {{column.label}}
+            </Hds::Table::ThSort>
+          {{else}}
+            <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
+          {{/if}}
+        {{/each}}
+      </Hds::Table::Tr>
     {{else}}
       {{yield (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th")) to="head"}}
     {{/if}}
