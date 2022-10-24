@@ -19,6 +19,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
     assert.dom(this.element).hasText('artist');
   });
+  test('it has the scope attribute, and it is set to column', async function (assert) {
+    await render(hbs`<Hds::Table::ThSort
+  @setSortBy={{this.setSortBy}}
+>artist</Hds::Table::ThSort>`);
+
+    assert.dom('[data-test-table-th-sort]').hasAttribute('scope', 'col');
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
