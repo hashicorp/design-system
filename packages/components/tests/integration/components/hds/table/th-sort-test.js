@@ -14,8 +14,6 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
-  @sortBy='artist'
-  @sortOrder='asc'
   @setSortBy={{this.setSortBy}}
 >artist</Hds::Table::ThSort>`);
 
@@ -24,8 +22,6 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
-  @sortBy='artist'
-  @sortOrder='asc'
   @setSortBy={{this.setSortBy}}
 >artist</Hds::Table::ThSort>`);
 
@@ -37,8 +33,16 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   @setSortBy={{this.setSortBy}}
 >artist</Hds::Table::ThSort>`);
 
-    assert
-      .dom(this.element.querySelector('.flight-icon.flight-icon-swap-vertical'))
-      .exists();
+    assert.dom('[data-test-icon="swap-vertical"]').exists();
+  });
+  test('if `@sortOrder` is set to asc, the arrow-up icon should be displayed', async function (assert) {
+    await render(hbs`<Hds::Table::ThSort
+  @sortBy='artist'
+  @sortKey='artist'
+  @sortOrder='asc'
+  @setSortBy={{this.setSortBy}}
+>artist</Hds::Table::ThSort>`);
+
+    assert.dom('[data-test-icon="arrow-up"]').exists();
   });
 });
