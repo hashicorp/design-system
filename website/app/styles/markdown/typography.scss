@@ -1,0 +1,90 @@
+@use "../typography/mixins.scss";
+
+.doc-markdown-content {
+
+  // HEADINGS
+
+  > h1 {
+    @include doc-font-style-h1 ();
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  > h2 {
+    @include doc-font-style-h2 ();
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  > h3 {
+    @include doc-font-style-h3 ();
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  > h4 {
+    @include doc-font-style-h4 ();
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  > h5 {
+    @include doc-font-style-h5 ();
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  > h6 {
+    @include doc-font-style-h6 ();
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    > code {
+      font-size: inherit;
+    }
+  }
+
+  // BODY COPY
+
+  > p,
+  > blockquote,
+  > ul,
+  > ol,
+  > dl,
+  > table,
+  > pre,
+  > details {
+    @include doc-font-style-body();
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  > blockquote {
+    padding: 0 16px;
+    border-left: 2px solid green;
+
+    @include doc-font-style-body();
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // CODE
+
+  > pre code,
+  > code {
+    @include doc-font-style-code ();
+  }
+}

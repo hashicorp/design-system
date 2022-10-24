@@ -1,10 +1,9 @@
-// HDS Components
+// HDS COMPONENTS
 
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/design-system-power-select-overrides";
 
 // Global declarations
-@import "global";
 @import "typography";
 
 // Pages declarations
@@ -13,6 +12,43 @@
 // "Doc" components
 @import "components/doc-table-of-contents";
 
+// Markdown
+@import "markdown";
+
+
+// GLOBALS
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+// TODO! move to another file once we have converted this to a "doc" custom component
+
+// stylelint-disable-next-line selector-class-pattern
+.self-executing-code-block {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+// stylelint-disable-next-line selector-class-pattern
+.self-executing-code-block pre {
+  margin: 0;
+  padding: 10px;
+  border-color: #ccc;
+  border-width: 1px;
+  border-top-style: solid;
+}
+
+
+// PERCY
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
 // that we want to exclude from the snapshots using their own "Percy-specific CSS".
