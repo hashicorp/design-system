@@ -32,15 +32,6 @@ export default class HdsDialogIndexComponent extends Component {
   }
 
   @action
-  onClick(event) {
-    // This may seem counterintuitive, but the <dialog> element is the target only when the backdrop is clicked
-    // otherwise the target would be a child of the <dialog>
-    if (event.target === this.element) {
-      this.closeDialog();
-    }
-  }
-
-  @action
   openDialog() {
     // Make modal dialog visible using the native `showModal` method
     this.element.showModal();

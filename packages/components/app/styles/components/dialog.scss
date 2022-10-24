@@ -17,8 +17,18 @@
   }
 
   &::backdrop {
-    background: rgba(12, 12, 14, 50%); // --token-color-palette-neutral-700
+    display: none;
   }
+}
+
+.hds-dialog__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--token-color-palette-neutral-700);
+  opacity: 0.5;
 }
 
 .hds-dialog__header {
