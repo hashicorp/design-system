@@ -1,0 +1,15 @@
+{{! template-lint-disable no-invalid-interactive }}
+{{#if this.isActive}}
+  <div class="hds-modal__overlay"></div>
+{{/if}}
+<dialog
+  class={{this.classNames}}
+  ...attributes
+  aria-labelledby={{this.id}}
+  {{did-insert this.setup}}
+  {{focus-trap isActive=this.isActive focusTrapOptions=(hash onDeactivate=this.close clickOutsideDeactivates=true)}}
+>
+  {{yield (hash Header=(component "hds/modal/header" id=this.id close=this.close))}}
+  {{yield (hash Body=(component "hds/modal/body"))}}
+  {{yield (hash Footer=(component "hds/modal/footer"))}}
+</dialog>

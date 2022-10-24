@@ -9,10 +9,10 @@ export const DEFAULT_COLOR = 'neutral';
 export const SIZES = ['small', 'medium', 'large'];
 export const COLORS = ['neutral', 'warning', 'critical'];
 
-export default class HdsDialogIndexComponent extends Component {
+export default class HdsModalIndexComponent extends Component {
   @tracked isActive = false;
   @action
-  setupDialog(element) {
+  setup(element) {
     // Store a reference of the `<dialog>` element
     this.element = element;
 
@@ -27,12 +27,12 @@ export default class HdsDialogIndexComponent extends Component {
 
     // If the modal dialog is set to be open and it is not already open
     if (this.args.isOpen && !this.element.open) {
-      this.openDialog();
+      this.open();
     }
   }
 
   @action
-  openDialog() {
+  open() {
     // Make modal dialog visible using the native `showModal` method
     this.element.showModal();
     this.isActive = true;
@@ -44,13 +44,13 @@ export default class HdsDialogIndexComponent extends Component {
   }
 
   @action
-  closeDialog() {
+  close() {
     // Make modal dialog invisible using the native `close` method
     this.element.close();
   }
 
   /**
-   * Sets the size of the dialog
+   * Sets the size of the modal dialog
    * Accepted values: small, medium, large
    *
    * @param size
@@ -61,7 +61,7 @@ export default class HdsDialogIndexComponent extends Component {
     let { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Dialog" must be one of the following: ${SIZES.join(
+      `@size for "Hds::Modal" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
@@ -71,7 +71,7 @@ export default class HdsDialogIndexComponent extends Component {
   }
 
   /**
-   * Sets the color of the dialog
+   * Sets the color of the modal dialog
    * Accepted values: neutral, warning, critical
    *
    * @param color
@@ -82,7 +82,7 @@ export default class HdsDialogIndexComponent extends Component {
     let { color = DEFAULT_COLOR } = this.args;
 
     assert(
-      `@color for "Hds::Dialog" must be one of the following: ${COLORS.join(
+      `@color for "Hds::Modal" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
       COLORS.includes(color)
@@ -104,13 +104,13 @@ export default class HdsDialogIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dialog'];
+    let classes = ['hds-modal'];
 
     // add a class based on the @size argument
-    classes.push(`hds-dialog--size-${this.size}`);
+    classes.push(`hds-modal--size-${this.size}`);
 
     // add a class based on the @color argument
-    classes.push(`hds-dialog--color-${this.color}`);
+    classes.push(`hds-modal--color-${this.color}`);
 
     return classes.join(' ');
   }

@@ -1,10 +1,10 @@
 //
-// DIALOG
+// MODAL
 //
 
 @use "../mixins/focus-ring" as *;
 
-.hds-dialog {
+.hds-modal {
   flex-direction: column;
   padding: 0;
   background: var(--token-color-surface-primary);
@@ -21,7 +21,7 @@
   }
 }
 
-.hds-dialog__overlay {
+.hds-modal__overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -31,7 +31,7 @@
   opacity: 0.5;
 }
 
-.hds-dialog__header {
+.hds-modal__header {
   display: flex;
   flex: none;
   align-items: flex-start;
@@ -40,17 +40,17 @@
   border-top-right-radius: inherit;
 }
 
-.hds-dialog__icon {
+.hds-modal__icon {
   flex: none;
   align-self: center;
   margin-right: 16px;
 }
 
-.hds-dialog__title {
+.hds-modal__title {
   flex-grow: 1;
 }
 
-.hds-dialog__dismiss {
+.hds-modal__dismiss {
   flex: none;
   align-self: center;
   margin-left: 16px;
@@ -79,14 +79,14 @@
   }
 }
 
-.hds-dialog__body {
+.hds-modal__body {
   flex: 1 1 auto;
   padding: 24px;
   overflow-y: scroll;
   overscroll-behavior: contain;
 }
 
-.hds-dialog__footer {
+.hds-modal__footer {
   flex: none;
   padding: 16px 24px;
   background: var(--token-color-surface-faint);
@@ -102,50 +102,50 @@
   }
 }
 
-.hds-dialog--size-small {
+.hds-modal--size-small {
   width: min(400px, 95vw);
 }
 
-.hds-dialog--size-medium {
+.hds-modal--size-medium {
   width: min(600px, 95vw);
 }
 
-.hds-dialog--size-large {
+.hds-modal--size-large {
   width: min(800px, 95vw);
 }
 
-.hds-dialog--color-neutral {
-  .hds-dialog__header {
+.hds-modal--color-neutral {
+  .hds-modal__header {
     color: var(--token-color-foreground-strong);
     background: var(--token-color-surface-faint);
     border-bottom: 1px solid var(--token-color-border-primary);
   }
 
-  .hds-dialog__tagline {
+  .hds-modal__tagline {
     color: var(--token-color-foreground-faint);
   }
 }
 
-.hds-dialog--color-warning {
-  .hds-dialog__header {
+.hds-modal--color-warning {
+  .hds-modal__header {
     color: var(--token-color-foreground-warning-on-surface);
     background: var(--token-color-surface-warning);
     border-bottom: 1px solid var(--token-color-border-warning);
   }
 
-  .hds-dialog__tagline {
+  .hds-modal__tagline {
     color: var(--token-color-foreground-warning-on-surface);
   }
 }
 
-.hds-dialog--color-critical {
-  .hds-dialog__header {
+.hds-modal--color-critical {
+  .hds-modal__header {
     color: var(--token-color-foreground-critical-on-surface);
     background: var(--token-color-surface-critical);
     border-bottom: 1px solid var(--token-color-border-critical);
   }
 
-  .hds-dialog__tagline {
+  .hds-modal__tagline {
     color: var(--token-color-foreground-critical-on-surface);
   }
 }

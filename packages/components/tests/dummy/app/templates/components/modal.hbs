@@ -1,6 +1,6 @@
-{{page-title "Dialog Component"}}
+{{page-title "Modal Component"}}
 
-<h2 class="dummy-h2">Dialog</h2>
+<h2 class="dummy-h2">Modal</h2>
 
 {{! ADD YOUR CONTENT BELOW }}
 {{! Please follow as much as possible what it's already done in other components. }}
@@ -16,10 +16,10 @@
 
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
-  <p class="dummy-paragraph" id="component-api-dialog">
+  <p class="dummy-paragraph" id="component-api-modal">
     Here is the API for the component:
   </p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-dialog">
+  <dl class="dummy-component-props" aria-labelledby="component-api-modal">
 
     {{! ADD YOUR CONTENT HERE }}
 
@@ -43,7 +43,7 @@
       <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
     </p>
     <br />
-    <img class="dummy-figma-docs" src="/assets/images/dialog-design-usage.png" alt="" role="none" />
+    <img class="dummy-figma-docs" src="/assets/images/modal-design-usage.png" alt="" role="none" />
   </div>
   }}
 </section>
@@ -62,13 +62,15 @@
   {{#each @model.COLORS as |color|}}
     <p class="dummy-paragraph">{{capitalize color}}</p>
     <br />
-    <div class="dummy-dialog-sample-item">
-      <Hds::Dialog open @color={{color}} id="dialog-example-{{color}}" as |D|>
-        <D.Header @icon="info" @tagline="Tagline">
+    <div class="dummy-modal-sample-item">
+      <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
+        <M.Header @icon="info" @tagline="Tagline">
           {{capitalize color}}
-        </D.Header>
-        <D.Body><p class="hds-typography-body-300 hds-foreground-primary">Dialog content</p></D.Body>
-        <D.Footer>
+        </M.Header>
+        <M.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+        </M.Body>
+        <M.Footer>
           <form method="dialog" aria-label="Form example {{color}}">
             <Hds::ButtonSet>
               <Hds::Button type="submit" @text="Confirm" @color={{if (eq color "critical") "critical"}} />
@@ -76,8 +78,8 @@
               <Hds::Button type="submit" @text="Tertiary" @color="tertiary" @icon="plus" />
             </Hds::ButtonSet>
           </form>
-        </D.Footer>
-      </Hds::Dialog>
+        </M.Footer>
+      </Hds::Modal>
     </div>
   {{/each}}
 
@@ -85,21 +87,23 @@
   {{#each @model.SIZES as |size|}}
     <p class="dummy-paragraph">{{capitalize size}}</p>
     <br />
-    <div class="dummy-dialog-sample-item">
-      <Hds::Dialog open @size={{size}} id="dialog-example-{{size}}" as |D|>
-        <D.Header @icon="info">
+    <div class="dummy-modal-sample-item">
+      <Hds::Modal open @size={{size}} id="modal-example-{{size}}" as |M|>
+        <M.Header @icon="info">
           {{capitalize size}}
-        </D.Header>
-        <D.Body><p class="hds-typography-body-300 hds-foreground-primary">Dialog content</p></D.Body>
-        <D.Footer>
+        </M.Header>
+        <M.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+        </M.Body>
+        <M.Footer>
           <form method="dialog" aria-label="Form example {{size}}">
             <Hds::ButtonSet>
               <Hds::Button type="submit" @text="Confirm" />
               <Hds::Button type="submit" @text="Cancel" @color="secondary" />
             </Hds::ButtonSet>
           </form>
-        </D.Footer>
-      </Hds::Dialog>
+        </M.Footer>
+      </Hds::Modal>
     </div>
   {{/each}}
 
@@ -107,49 +111,47 @@
   <h4 class="dummy-h4">Invocation</h4>
   <Hds::ButtonSet>
     <Hds::Button
-      @text="Open basic dialog"
+      @text="Open basic modal"
       @color="secondary"
-      {{on "click" (fn this.activateModal "basicDialogActive")}}
+      {{on "click" (fn this.activateModal "basicModalActive")}}
     />
-    <Hds::Button
-      @text="Open form dialog"
-      @color="secondary"
-      {{on "click" (fn this.activateModal "formDialogActive")}}
-    />
+    <Hds::Button @text="Open form modal" @color="secondary" {{on "click" (fn this.activateModal "formModalActive")}} />
   </Hds::ButtonSet>
 
-  {{#if this.basicDialogActive}}
-    <Hds::Dialog
-      id="invocation-basic-dialog"
+  {{#if this.basicModalActive}}
+    <Hds::Modal
+      id="invocation-basic-modal"
       @isOpen={{true}}
       @onOpen={{this.noop}}
-      @onClose={{fn this.deactivateModal "basicDialogActive"}}
-      as |D|
+      @onClose={{fn this.deactivateModal "basicModalActive"}}
+      as |M|
     >
-      <D.Header @icon="info">
-        Dialog title
-      </D.Header>
-      <D.Body><p class="hds-typography-body-300 hds-foreground-primary">Dialog content</p></D.Body>
-      <D.Footer>
-        <form method="dialog" aria-label="Dialog example basic invocation">
+      <M.Header @icon="info">
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer>
+        <form method="dialog" aria-label="Modal example basic invocation">
           <Hds::Button type="submit" @text="Cancel" @color="secondary" />
         </form>
-      </D.Footer>
-    </Hds::Dialog>
+      </M.Footer>
+    </Hds::Modal>
   {{/if}}
 
-  {{#if this.formDialogActive}}
-    <Hds::Dialog
-      id="invocation-form-dialog"
+  {{#if this.formModalActive}}
+    <Hds::Modal
+      id="invocation-form-modal"
       @isOpen={{true}}
       @onOpen={{this.noop}}
-      @onClose={{fn this.deactivateModal "formDialogActive"}}
-      as |D|
+      @onClose={{fn this.deactivateModal "formModalActive"}}
+      as |M|
     >
-      <D.Header @icon="info">
+      <M.Header @icon="info">
         Why do you want to leave the beta?
-      </D.Header>
-      <D.Body>
+      </M.Header>
+      <M.Body>
         <Hds::Form::Select::Field @width="100%" as |F|>
           <F.Label>Select the primary reason</F.Label>
           <F.Options>
@@ -159,15 +161,15 @@
         <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
           <F.Label>Your feedback</F.Label>
         </Hds::Form::Textarea::Field>
-      </D.Body>
-      <D.Footer>
-        <form method="dialog" aria-label="Dialog example form invocation">
+      </M.Body>
+      <M.Footer>
+        <form method="dialog" aria-label="Modal example form invocation">
           <Hds::ButtonSet>
             <Hds::Button type="submit" @text="Leave Beta" />
             <Hds::Button type="submit" @text="Cancel" @color="secondary" />
           </Hds::ButtonSet>
         </form>
-      </D.Footer>
-    </Hds::Dialog>
+      </M.Footer>
+    </Hds::Modal>
   {{/if}}
 </section>

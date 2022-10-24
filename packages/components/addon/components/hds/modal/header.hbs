@@ -1,0 +1,16 @@
+<div class="hds-modal__header" ...attributes>
+  {{#if @icon}}
+    <FlightIcon class="hds-modal__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
+  {{/if}}
+  <div class="hds-modal__title hds-typography-display-300 hds-font-weight-semibold" id={{@id}}>
+    {{#if @tagline}}
+      <div class="hds-modal__tagline hds-typography-body-100 hds-font-weight-regular">
+        {{@tagline}}
+      </div>
+    {{/if}}
+    {{yield}}
+  </div>
+  <button class="hds-modal__dismiss" type="button" aria-label="Dismiss" {{on "click" @close}}>
+    <FlightIcon @name="x" @size="16" @isInlineBlock={{false}} />
+  </button>
+</div>
