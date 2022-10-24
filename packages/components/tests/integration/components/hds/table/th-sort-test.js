@@ -34,6 +34,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
     assert.dom('[data-test-table-th-sort]').hasClass('hds-table__th-sort');
   });
+
   test('if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
   @sortBy='artist'
@@ -42,6 +43,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
     assert.dom('[data-test-icon="swap-vertical"]').exists();
   });
+
   test('if `@sortOrder` is set to asc, the arrow-up icon should be displayed', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
   @sortBy='artist'
