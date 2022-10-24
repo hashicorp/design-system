@@ -3,6 +3,11 @@
     <FlightIcon class="hds-dialog__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
   {{/if}}
   <div class="hds-dialog__title hds-typography-display-300 hds-font-weight-semibold" id={{@id}}>
+    {{#if @tagline}}
+      <div class="hds-dialog__tagline hds-typography-body-100 hds-font-weight-regular">
+        {{@tagline}}
+      </div>
+    {{/if}}
     {{yield}}
   </div>
   <button class="hds-dialog__dismiss" type="button" aria-label="Dismiss" {{on "click" @closeDialog}}>
