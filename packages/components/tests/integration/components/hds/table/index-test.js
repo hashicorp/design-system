@@ -10,8 +10,14 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await render(hbs`<Hds::Table />`);
     assert.dom(this.element).exists();
   });
+
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Table />`);
     assert.dom('[data-test-table]').hasClass('hds-table');
+  });
+
+  test('it should support splattributes', async function (assert) {
+    await render(hbs`<Hds::Table id="test-table" />`);
+    assert.dom('[data-test-table]').hasAttribute('id', 'test-table');
   });
 });
