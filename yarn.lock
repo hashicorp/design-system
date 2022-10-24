@@ -2052,17 +2052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/render-modifiers@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@ember/render-modifiers@npm:1.0.2"
-  dependencies:
-    ember-cli-babel: ^7.10.0
-    ember-modifier-manager-polyfill: ^1.1.0
-  checksum: 74220450d3a8635f1ce6c3d9ce5d7f4d8e7336e48a20b1e28b6acf9f671f0938855dff60a06eb1ad5700fadb42e2c0ffa3adef404788966da99db8ab393e9944
-  languageName: node
-  linkType: hard
-
-"@ember/render-modifiers@npm:^1.0.2 || ^2.0.0, @ember/render-modifiers@npm:^2.0.0, @ember/render-modifiers@npm:^2.0.4":
+"@ember/render-modifiers@npm:^2.0.0":
   version: 2.0.4
   resolution: "@ember/render-modifiers@npm:2.0.4"
   dependencies:
@@ -9821,7 +9811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier-manager-polyfill@npm:^1.1.0, ember-modifier-manager-polyfill@npm:^1.2.0":
+"ember-modifier-manager-polyfill@npm:^1.2.0":
   version: 1.2.0
   resolution: "ember-modifier-manager-polyfill@npm:1.2.0"
   dependencies:
