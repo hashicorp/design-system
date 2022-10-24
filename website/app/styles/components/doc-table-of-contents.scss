@@ -1,0 +1,24 @@
+.doc-table-of-contents {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-table-of-contents__item {
+  padding: 0.5rem 0;
+}
+
+.doc-table-of-contents__item--with-link {
+  a {
+    color: inherit;
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
