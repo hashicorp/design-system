@@ -5,6 +5,7 @@
   aria-labelledby={{this.id}}
   {{on "click" this.onClick}}
   {{did-insert this.setupDialog}}
+  {{focus-trap isActive=this.isActive}}
 >
   {{yield (hash Header=(component "hds/dialog/header" id=this.id closeDialog=this.closeDialog))}}
   {{yield (hash Body=(component "hds/dialog/body"))}}

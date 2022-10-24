@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../form/utils/getElementId';
+import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
@@ -9,6 +10,7 @@ export const SIZES = ['small', 'medium', 'large'];
 export const COLORS = ['neutral', 'warning', 'critical'];
 
 export default class HdsDialogIndexComponent extends Component {
+  @tracked isActive = false;
   @action
   setupDialog(element) {
     // Store a reference of the `<dialog>` element
@@ -16,6 +18,8 @@ export default class HdsDialogIndexComponent extends Component {
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', () => {
+      this.isActive = false;
+
       if (this.args.onClose && typeof this.args.onClose === 'function') {
         this.args.onClose();
       }
@@ -40,6 +44,7 @@ export default class HdsDialogIndexComponent extends Component {
   openDialog() {
     // Make modal dialog visible using the native `showModal` method
     this.element.showModal();
+    this.isActive = true;
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
