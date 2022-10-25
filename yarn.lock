@@ -17949,21 +17949,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:2.7.1, prettier@npm:^2.4.1, prettier@npm:^2.5.1, prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^1.19.1":
   version: 1.19.1
   resolution: "prettier@npm:1.19.1"
   bin:
     prettier: ./bin-prettier.js
   checksum: bc78219e0f8173a808f4c6c8e0a137dd8ebd4fbe013e63fe1a37a82b48612f17b8ae8e18a992adf802ee2cf7428f14f084e7c2846ca5759cf4013c6e54810e1f
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.4.1, prettier@npm:^2.5.1, prettier@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "prettier@npm:2.7.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 
@@ -22492,6 +22492,7 @@ __metadata:
     fs-extra: ^10.1.0
     glob: ^8.0.3
     node-html-markdown: ^1.2.0
+    prettier: 2.7.1
     ts-node: ^10.9.1
     turndown: ^7.1.1
     typescript: ^4.8.4
