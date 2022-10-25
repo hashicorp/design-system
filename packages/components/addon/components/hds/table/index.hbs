@@ -24,7 +24,7 @@
   </thead>
   <tbody class="hds-table__tbody" data-test-table-body>
     {{#if this.isSortableTable}}
-      {{#each (sort-by this._getSortCriteria @model) as |data|}}
+      {{#each (sort-by this.getSortCriteria @model) as |data|}}
         {{yield data to="body"}}
       {{/each}}
     {{else if @model}}
