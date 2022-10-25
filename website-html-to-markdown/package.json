@@ -1,0 +1,49 @@
+{
+  "name": "website-html-to-markdown",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Folder containing the scripts to run the html-to-markdown conversion scripts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "website-html-to-markdown"
+  },
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "scripts": {
+    "generate": "yarn prepare-temp-folder && yarn copy-source-files && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn enrich-wcag-lists && yarn preprocess-files && yarn convert-to-markdown && yarn prettify-files && yarn prepare-dest-folder && yarn copy-markdown-files && yarn copy-assets-folder && yarn copy-extra-temp-files && yarn cleanup-temp-folder",
+    "prepare-temp-folder": "rm -fr temp && mkdir temp && mkdir temp/original",
+    "copy-source-files": "cp -r ../packages/components/tests/dummy/app/templates/* temp/original",
+    "identify-sections": "echo '\n==========\nIdentifying <section> blocks...\n' && node codemods/bin/cli.js identify-sections ./temp/original/**/*.hbs",
+    "split-files": "ts-node --transpile-only ./scripts/split-files",
+    "replace-linkto-with-a": "echo '\n==========\nReplacing <LinkTo> with <a> links...\n' && node codemods/bin/cli.js replace-linkto-with-a ./temp/split-files/**/*.hbs",
+    "refactor-codeblocks": "echo '\n==========\nRefactoring <CodeBlock> instances...\n' && node codemods/bin/cli.js refactor-codeblocks ./temp/split-files/**/03--how-to-use.hbs",
+    "enrich-wcag-lists": "echo '\n==========\nEnriching WCAG lists...\n' && node codemods/bin/cli.js enrich-wcag-lists ./temp/split-files/**/05--accessibility.hbs",
+    "preprocess-files": "ts-node --transpile-only ./scripts/preprocess-files",
+    "convert-to-markdown": "ts-node --transpile-only ./scripts/convert-to-markdown",
+    "prettify-files": "echo '\n==========\nPrettifying markdown files...\n' && npx prettier --loglevel warn --write temp/split-files",
+    "prepare-dest-folder": "rm -fr ../website/docs/components && mkdir ../website/docs/components && rm -fr ../website/docs/content && mkdir ../website/docs/content && rm -fr ../website/docs/foundations && mkdir ../website/docs/foundations && rm -fr ../website/docs/overrides && mkdir ../website/docs/overrides&& rm -fr ../website/docs/utilities && mkdir ../website/docs/utilities",
+    "copy-markdown-files": "echo '\n==========\nCopying markdown files to `docs` folder...\n' && cp -r ./temp/markdown/* ../website/docs/",
+    "copy-assets-folder": "rm -fr ../website/public/assets/images && cp -r ../packages/components/tests/dummy/public/assets/images ../website/public/assets/",
+    "copy-extra-temp-files": "cp -r ./moveover/* ../website/docs/",
+    "cleanup-temp-folder": "rm -fr temp"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.8.1",
+    "@types/turndown": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "codemod-cli": "^3.2.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "node-html-markdown": "^1.2.0",
+    "prettier": "2.7.1",
+    "ts-node": "^10.9.1",
+    "turndown": "^7.1.1",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": "12.* || 14.* || >= 16"
+  }
+}

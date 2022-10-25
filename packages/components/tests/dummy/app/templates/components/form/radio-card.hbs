@@ -603,7 +603,7 @@
         <span class="dummy-text-small">{{capitalize state}}</span>
         <br />
         <div mock-state-value={{state}} mock-state-selector="label">
-          <Hds::Form::RadioCard {{on "change" this.onChange}} @disabled={{(eq state "disabled")}} as |R|>
+          <Hds::Form::RadioCard {{on "change" this.onChange}} @disabled={{eq state "disabled"}} as |R|>
             <R.Icon @name="hexagon" />
             <R.Label>Label</R.Label>
             <R.Description>Description</R.Description>
@@ -620,8 +620,8 @@
         <div mock-state-value={{state}} mock-state-selector="label">
           <Hds::Form::RadioCard
             {{on "change" this.onChange}}
-            @checked="true"
-            @disabled={{(eq state "disabled")}}
+            @checked={{true}}
+            @disabled={{eq state "disabled"}}
             as |R|
           >
             <R.Icon @name="hexagon" />
@@ -663,7 +663,7 @@
   <span class="dummy-text-small">With different content height</span>
   <Hds::Form::RadioCard::Group @name="radio-card-group-custom" as |G|>
     <G.Legend>Group legend</G.Legend>
-    <G.RadioCard @checked="true" {{on "change" this.onChange}} as |R|>
+    <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
       <R.Icon @name="hexagon" />
       <R.Label>Radio card with normal label</R.Label>
       <R.Badge @text="Badge" />

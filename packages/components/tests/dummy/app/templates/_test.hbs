@@ -1,0 +1,64 @@
+{{page-title "Form / Base elements"}}
+
+<h2 class="dummy-h2">Form / Base elements</h2>
+
+<section id="test" data-section="pippo">
+  <p>Test</p>
+</section>
+
+<section id="1" data-section="overview">
+  <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
+  <p class="dummy-paragraph">In this page we collect a few "base" elements that are used to build/compose the "form"
+    fields. They can also be used to build custom fields (in very specific cases).</p>
+</section>
+
+<section id="2" data-section="component-api">
+  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
+  <h4 class="dummy-h4">Form::Label</h4>
+  <p class="dummy-paragraph" id="component-api-form-label">
+    Here is the API for the component:
+  </p>
+</section>
+
+<section id="3" data-section="how-to-use">
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">
+    The base form elements collected in this page are used internally as building blocks for the "field" and "group"
+    controls, but can also be used in special cases when you need to implement custom layouts or controls in forms.
+    Unless strictly needed, we
+    <strong>strongly</strong>
+    suggest to use the pre-defined "field" and "group" controls provided by the system (you can find them in the other
+    "form" documentation pages).
+  </p>
+</section>
+
+<section id="4" data-section="design-guidelines">
+  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines</h3>
+  <p class="dummy-paragraph">🚧 TODO 🚧</p>
+  {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
+  {{!
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
+    </p>
+    <br />
+    <img class="dummy-figma-docs" src="/assets/images/form-label-design-usage.png" alt="" role="none" />
+  </div>
+  }}
+</section>
+
+<section id="5" data-section="accessibility">
+  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
+  <p class="dummy-paragraph">Since these are the base elements, they are conditionally conformant; that is, they are not
+    conformant until used in conjunction with the other components/elements that will make them conformant.</p>
+  <h4 class="dummy-h4">Known Issues</h4>
+</section>
+
+<section data-test-percy id="6" data-section="showcase">
+  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+
+  <h4 class="dummy-h4">Label</h4>
+  <span class="dummy-text-small">With simple text</span>
+  <Hds::Form::Label>This is a simple label</Hds::Form::Label>
+</section>
