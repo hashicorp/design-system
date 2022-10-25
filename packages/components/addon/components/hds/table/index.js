@@ -34,7 +34,7 @@ export default class HdsTableIndexComponent extends Component {
     return columns;
   }
 
-  get _getSortCriteria() {
+  get getSortCriteria() {
     return `${this.sortBy}:${this.sortOrder}`;
   }
 
