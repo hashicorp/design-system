@@ -1,0 +1,30 @@
+// GLOBALS
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+// TODO! move to another file once we have converted this to a "doc" custom component
+
+// stylelint-disable-next-line selector-class-pattern
+.self-executing-code-block {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+// stylelint-disable-next-line selector-class-pattern
+.self-executing-code-block pre {
+  margin: 0;
+  padding: 10px;
+  border-color: #ccc;
+  border-width: 1px;
+  border-top-style: solid;
+}
