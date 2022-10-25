@@ -15,14 +15,14 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   test('it renders', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
   @setSortBy={{this.setSortBy}}
->artist</Hds::Table::ThSort>`);
+>Artist</Hds::Table::ThSort>`);
 
-    assert.dom(this.element).hasText('artist');
+    assert.dom(this.element).hasText('Artist');
   });
   test('it has the scope attribute, and it is set to column', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
   @setSortBy={{this.setSortBy}}
->artist</Hds::Table::ThSort>`);
+>Artist</Hds::Table::ThSort>`);
 
     assert.dom('[data-test-table-th-sort]').hasAttribute('scope', 'col');
   });
@@ -30,7 +30,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Table::ThSort
   @setSortBy={{this.setSortBy}}
->artist</Hds::Table::ThSort>`);
+>Artist</Hds::Table::ThSort>`);
 
     assert.dom('[data-test-table-th-sort]').hasClass('hds-table__th-sort');
   });
@@ -50,7 +50,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   @sortKey='artist'
   @sortOrder='asc'
   @setSortBy={{this.setSortBy}}
->artist</Hds::Table::ThSort>`);
+>Artist</Hds::Table::ThSort>`);
 
     assert.dom('[data-test-icon="arrow-up"]').exists();
   });
