@@ -192,6 +192,75 @@ If a table is too wide, it should condense down and/or scroll horizontally.
 | Prince            | Purple Rain     | 1984 | Warner Brothers Records | Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal | Let's Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I'm a Star, Purple Rain |
 | Beastie Boys      | License to Ill  | 1986 | Mercury Records | noawardsbutthistablecelliswide | Rhymin & Stealin, The New Style, She's Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill |
 
+Normal markdown tables can contain only inline elements (and the content can be aligned too):
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| **col 3 is**  | right-aligned | $1600 |
+| col 2 is      | *centered*    |   $12 |
+| zebra stripes | ~~are neat~~  |    $1 |
+| `inline code` | can be added  |   too |
+
+<table role="table">
+    <thead>
+        <tr>
+            <th>Tables</th>
+            <th align="center">Are</th>
+            <th align="right">Cool</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>col 3 is</strong></td>
+            <td align="center">right-aligned</td>
+            <td align="right">$1600</td>
+        </tr>
+        <tr>
+            <td>col 2 is</td>
+            <td align="center"><em>centered</em></td>
+            <td align="right">$12</td>
+        </tr>
+        <tr>
+            <td>zebra stripes</td>
+            <td align="center"><del>are neat</del></td>
+            <td align="right">$1</td>
+        </tr>
+        <tr>
+            <td><code class="notranslate">inline code</code></td>
+            <td align="center">can be added</td>
+            <td align="right">too</td>
+        </tr>
+    </tbody>
+</table>
+
+If you need to use block elements inside a table, you have to use HTML code:
+
+<table>
+    <tr>
+        <td> Block type </td>
+        <td> Example </td>
+    </tr>
+    <tr>
+        <td> Code </td>
+        <td>
+            ```json
+            {
+            "id": 10,
+            "username": "marcoeidinger",
+            "created_at": "2021-02-097T20:45:26.433Z",
+            "updated_at": "2015-02-10T19:27:16.540Z"
+            }
+            ```
+        </td>
+    </tr>
+    <tr>
+        <td> Blackquote </td>
+        <td>
+            > blockquote text
+        </td>
+    </tr>
+</table>
+
 ----------------
 
 Code snippets like `var foo = "bar";` can be shown inline.
