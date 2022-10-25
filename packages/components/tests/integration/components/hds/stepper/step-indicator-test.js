@@ -84,9 +84,7 @@ module(
       await render(
         hbs`<Hds::Stepper::Step::Indicator id="test-stepper-indicator-step" @status="processing" />`
       );
-      assert
-        .dom(this.element.querySelector('.flight-icon.flight-icon-loading'))
-        .exists();
+      assert.dom('.flight-icon-loading').exists();
     });
   }
 );
