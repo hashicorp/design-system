@@ -1,10 +1,12 @@
 <div class="doc-markdown-content">
 
-Text can be **bold**, _italic_, or ~~strikethrough~~. [Links](https://github.com) should be blue with no underlines (unless hovered over).
+Text can be **bold**, _italic_, or ~~strikethrough~~, and can contain emoji like 👋 🙂 🚨 🚀.
 
-There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.
+Inline [links](https://github.com) should be styled according to the design specifications.
 
-There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.
+There should be whitespace between paragraphs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
+
+There should be whitespace between paragraphs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
 
 > There should be no margin above this first sentence.
 >
@@ -14,11 +16,11 @@ There should be whitespace between paragraphs. There should be whitespace betwee
 
 # Header 1
 
-This is a normal paragraph following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.
+This is a normal paragraph following a header. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
 
 ## Header 2
 
-> This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.
+> This is a blockquote following a header. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
 
 ### Header 3
 
@@ -52,56 +54,104 @@ There's a horizontal rule above and below this.
 
 ----------------
 
-Here is an unordered list:
+This is an unordered list (using `*`):
 
 * Salt-n-Pepa
 * Bel Biv DeVoe
 * Kid 'N Play
 
-And an ordered list:
+This is also an unordered list (using `-`):
+
+- Salt-n-Pepa
+- Bel Biv DeVoe
+- Kid 'N Play
+
+And this is also an unordered list (using `+`):
+
++ Salt-n-Pepa
++ Bel Biv DeVoe
++ Kid 'N Play
+
+This instad is an ordered list:
 
 1. Michael Jackson
 2. Michael Bolton
 3. Michael Bublé
 
-And an unordered task list:
+This is an ordered list that uses the same number for all the items:
 
-- [x] Create a sample markdown document
-- [x] Add task lists to it
-- [ ] Take a vacation
+1. Michael Jackson
+1. Michael Bolton
+1. Michael Bublé
 
-And a "mixed" task list:
+This is an ordered list that uses letters instead of numbers (doens't work):
 
-- [ ] Steal underpants
-- ?
-- [ ] Profit!
+A. Michael Jackson
+A. Michael Bolton
+A. Michael Bublé
 
-And a nested list:
+This is a nested list (using `*`):
 
 * Jackson 5
-  * Michael
-  * Tito
-  * Jackie
-  * Marlon
-  * Jermaine
+    * Michael
+    * Tito
+    * Jackie
+    * Marlon
+    * Jermaine
 * TMNT
-  * Leonardo
-  * Michelangelo
-  * Donatello
-  * Raphael
+    * Leonardo
+    * Michelangelo
+    * Donatello
+    * Raphael
 
-Definition lists can be used with HTML syntax. Definition terms are bold and italic.
+This is a nested list (using `-`):
 
-<dl>
-    <dt>Name</dt>
-    <dd>Godzilla</dd>
-    <dt>Born</dt>
-    <dd>1952</dd>
-    <dt>Birthplace</dt>
-    <dd>Japan</dd>
-    <dt>Color</dt>
-    <dd>Green</dd>
-</dl>
+- Jackson 5
+    - Michael
+    - Tito
+    - Jackie
+    - Marlon
+    - Jermaine
+- TMNT
+    - Leonardo
+    - Michelangelo
+    - Donatello
+    - Raphael
+
+This is a list with hanging indents:
+
+*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
+
+This is a list that contains other block elements:
+
+*   A normal list item
+*   A list item with a blockquote:
+
+    > This is a blockquote
+    > inside a list item.
+* A list item with a code block
+
+    ```js
+    var foo = 'bar';
+    console.log(foo);
+    ```
+
+----------------
+
+> This is a blockquote that contains other block elements
+>
+> #### A heading level 4
+> A normal paragraph
+> - A list
+> - with items
+>
+> ```
+> Some code snippet
+> ```
 
 ----------------
 
@@ -161,6 +211,11 @@ Small images should be shown at their actual size.
 Large images should always scale down and fit in the content container.
 
 ![](http://placekitten.com/g/1200/800/)
+
+Inline `<img>` images should be rendered at the defined size, without overflowing the container.
+
+<img width="400" alt="kittem" src="http://placekitten.com/g/300/200/">
+<img width="1200" alt="kittem" src="http://placekitten.com/g/1200/800/">
 
 
 </div>

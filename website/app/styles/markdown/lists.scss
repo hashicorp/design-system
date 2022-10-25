@@ -1,90 +1,25 @@
-// Base styles
-// stylelint-disable selector-no-qualifying-type
-
 .doc-markdown-content {
-  // Lists, Blockquotes & Such
-  ul,
-  ol {
 
-    padding-left: 2em;
+  // LISTS
 
-    &.no-list {
-      padding: 0;
-      list-style-type: none;
-    }
+  > ul,
+  > ol {
+    padding-left: 16px;
   }
 
-  ol[type="1"] {
-    list-style-type: decimal;
-  }
-
-  ol[type="a"] {
-    list-style-type: lower-alpha;
-  }
-
-  ol[type="i"] {
-    list-style-type: lower-roman;
-  }
-
-  // Reset <ol> style to decimal (HTML default) specifically for AsciiDoc
-  // <div><ol> construction (doesn't affect MarkDown)
-  div > ol:not([type]) {
-    list-style-type: decimal;
-  }
-
-  // Did someone complain about list spacing? Encourage them
-  // to create the spacing with their markdown formatting.
-  // List behavior should be controled by the markup, not the css.
-  //
-  // For lists with padding between items, use blank
-  // lines between items. This will generate paragraphs with
-  // padding to space things out.
-  //
-  // - item
-  //
-  // - item
-  //
-  // - item
-  //
-  // For list without padding, don't use blank lines.
-  //
-  // - item
-  // - item
-  // - item
-  //
-  // Modifying the css to emulate these behaviors merely brakes
-  // one case in the process of solving another. Don't change
-  // this unless it's really really a bug.
-  ul ul,
-  ul ol,
-  ol ol,
-  ol ul {
+  > ul ul,
+  > ul ol,
+  > ol ol,
+  > ol ul {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  li > p {
+  > ul > li > p {
     margin-top: $spacer-3;
   }
 
   li + li {
     margin-top: $em-spacer-3;
-  }
-
-  dl {
-    padding: 0;
-
-    dt {
-      margin-top: $spacer-3;
-      padding: 0;
-      font-weight: $font-weight-bold;
-      font-size: 1em;
-      font-style: italic;
-    }
-
-    dd {
-      margin-bottom: $spacer-3;
-      padding: 0 $spacer-3;
-    }
   }
 }
