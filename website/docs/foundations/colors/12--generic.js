@@ -1,8 +1,8 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 import TOKENS_RAW from '../../../../packages/tokens/dist/docs/products/tokens.json';
 
-export default Component.extend({
+export default class Colors extends Component {
   get colors() {
     const colors = {
       palette: {},
@@ -63,5 +63,5 @@ export default Component.extend({
     });
 
     return colors;
-  },
-});
+  }
+}
