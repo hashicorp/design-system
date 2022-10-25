@@ -5,8 +5,8 @@ import chalk from 'chalk';
 
 import TurndownService from 'turndown';
 
-const sourceFolder = path.resolve(__dirname, '../source/split-files');
-const destFolder = path.resolve(__dirname, '../source/markdown');
+const sourceFolder = path.resolve(__dirname, '../temp/split-files');
+const destFolder = path.resolve(__dirname, '../temp/markdown');
 
 (async () => {
   try {
@@ -45,10 +45,6 @@ async function convert() {
       const fileName = fileRelativePath.split('/').pop();
 
       // let's use a single file for testing
-      // if (fileRelativePath !== 'components/alert/03--how-to-use.hbs') {
-      //   continue;
-      // }
-
       // if (fileRelativePath !== 'components/alert/03--how-to-use.hbs') {
       //   continue;
       // }

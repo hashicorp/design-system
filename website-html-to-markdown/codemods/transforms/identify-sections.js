@@ -4,7 +4,7 @@
 //
 // ## Usage
 // - in the `website-html-to-markdown` folder run the command:
-//   `node codemods/bin/cli.js identify-sections ./source/**/*.hbs`
+//   `node codemods/bin/cli.js identify-sections ./temp/**/*.hbs`
 
 const getNodeAttributeValue = (node, attributeName) => {
   const foundAttributeWithName = node.attributes.find(

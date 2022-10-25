@@ -3,8 +3,8 @@ import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 
-const sourceFolder = path.resolve(__dirname, '../source/original');
-const destFolder = path.resolve(__dirname, '../source/split-files');
+const sourceFolder = path.resolve(__dirname, '../temp/original');
+const destFolder = path.resolve(__dirname, '../temp/split-files');
 
 (async () => {
   try {
