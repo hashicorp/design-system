@@ -7,7 +7,7 @@ export default class HdsTableThSortComponent extends Component {
 
   get ariaSort() {
     if (this.isActiveSortColumn) {
-      return this.args.sortBy === 'asc' ? 'ascending' : 'descending';
+      return this.args.sortOrder === 'asc' ? 'ascending' : 'descending';
     } else {
       return undefined;
     }
