@@ -54,20 +54,24 @@
   // BODY COPY
 
   > p,
-  > blockquote,
   > ul,
-  > ol,
-  > dl,
-  > table,
-  > pre,
-  > details {
+  > ol {
     @include doc-font-style-body();
     margin-top: 0;
     margin-bottom: 12px;
   }
 
-  > blockquote {
-    padding: 0 16px;
+  // top level element + nested elements (reasonably no more than two levels)
+  > blockquote,
+  > ul > li > blockquote,
+  > ol > li > blockquote,
+  > ul > li > ul > li > blockquote,
+  > ul > li > ol > li > blockquote,
+  > ol > li > ul > li > blockquote,
+  > ol > li > ol > li > blockquote {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 0 0 0 16px;
     border-left: 2px solid green;
 
     @include doc-font-style-body();
@@ -83,8 +87,10 @@
 
   // CODE
 
-  > pre code,
+  > pre > code,
   > code {
     @include doc-font-style-code ();
+    margin-top: 0;
+    margin-bottom: 12px;
   }
 }

@@ -118,6 +118,20 @@ This is a nested list (using `-`):
     - Donatello
     - Raphael
 
+This is a deeply nested list:
+
+*   Lorem ipsum dolor sit amet,
+    *   Consectetuer adipiscing elit.
+    *   Aliquam hendrerit mi posuere lectus.
+        *   Vestibulum enim wisi.
+        *   Viverra nec, fringilla.
+        *   In laoreet vitae risus.
+            *   Donec sit amet nisl.
+            *   Aliquam semper ipsum
+        *   Sit amet velit.
+    *   Suspendisse id sem consectetuer
+*   Libero luctus adipiscing.
+
 This is a list with hanging indents:
 
 *   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -125,6 +139,13 @@ This is a list with hanging indents:
     viverra nec, fringilla in, laoreet vitae, risus.
 *   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
     Suspendisse id sem consectetuer libero luctus adipiscing.
+
+This is a list with one item separated by a blank line (this will force it to wrap all the list items in `<p>` tags in the HTML output):
+
+*   Bird
+
+*   Magic
+*   Johnson
 
 This is a list that contains other block elements:
 
