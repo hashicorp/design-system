@@ -7,8 +7,8 @@
   font-style: normal;
   src:
     local("Gilmer Regular"),
-    url(/assets/fonts/gilmer-400-normal.woff2) format("woff2"),
-    url(/public/assets/fonts/gilmer-400-normal.woff) format("woff");
+    url("/assets/fonts/gilmer-400-normal.woff2") format("woff2"),
+    url("/public/assets/fonts/gilmer-400-normal.woff") format("woff");
 }
 
 @font-face {
@@ -18,8 +18,8 @@
   font-style: normal;
   src:
     local("Gilmer Medium"),
-    url(/assets/fonts/gilmer-500-normal.woff2) format("woff2"),
-    url(/public/assets/fonts/gilmer-500-normal.woff) format("woff");
+    url("/assets/fonts/gilmer-500-normal.woff2") format("woff2"),
+    url("/public/assets/fonts/gilmer-500-normal.woff") format("woff");
 }
 
 @font-face {
@@ -29,8 +29,8 @@
   font-style: normal;
   src:
     local("Gilmer Bold"),
-    url(/assets/fonts/gilmer-700-normal.woff2) format("woff2"),
-    url(/public/assets/fonts/gilmer-700-normal.woff) format("woff");
+    url("/assets/fonts/gilmer-700-normal.woff2") format("woff2"),
+    url("/public/assets/fonts/gilmer-700-normal.woff") format("woff");
 }
 
 @mixin doc-font-family($family) {
