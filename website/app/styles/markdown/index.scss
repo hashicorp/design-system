@@ -1,0 +1,9 @@
+// this is the main wrapper of markdown content
+@import "./root";
+
+// these are specific styling for HTML element (direct descendants only!)
+@import "./typography";
+@import "./lists";
+@import "./tables";
+@import "./other-elements";
+@import "./debug";
