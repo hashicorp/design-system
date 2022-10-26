@@ -35,7 +35,7 @@
   display: flex;
   flex: none;
   align-items: flex-start;
-  padding: 12px 24px;
+  padding: 16px 24px;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
@@ -48,6 +48,10 @@
 
 .hds-modal__title {
   flex-grow: 1;
+}
+
+.hds-modal__tagline {
+  margin-bottom: 4px;
 }
 
 .hds-modal__dismiss {
