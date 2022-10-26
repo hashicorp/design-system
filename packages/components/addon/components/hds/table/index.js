@@ -1,6 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { assert } from '@ember/debug';
+
+const DENSITIES = ['packed', 'default', 'spacious'];
+const DEFAULT_DENSITY = 'default';
 
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
@@ -48,15 +52,24 @@ export default class HdsTableIndexComponent extends Component {
     return this.args.isStriped ?? true;
   }
 
-  // values are still being decided by design. For now, we'll use packed, medium, and spacious. We've suggested "size" like we use for some of the other components like the button.
+  // values are still being decided by design. For now, we'll use packed, default, and spacious.
   /**
    * @param density
    * @type {string}
    * @default 'default'
-   * @description Determines the density of the table cells; defaults to 'medium'.
+   * @description Determines the density of the table cells; defaults to 'default'.
    */
   get density() {
-    return this.args.density ?? 'default';
+    let { density = DEFAULT_DENSITY } = this.args;
+
+    assert(
+      `@density for "Hds::Table" must be one of the following: ${DENSITIES.join(
+        ', '
+      )}; received: ${density}`,
+      DENSITIES.includes(density)
+    );
+
+    return density;
   }
 
   /**
