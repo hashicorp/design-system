@@ -1,25 +1,13 @@
-<h1>Avatar Component - How to use</h1>
+# Avatar Component - How to use
 
-<section data-section="how-to-use">
-  
+Default invocation:
 
-  <p class="dummy-paragraph">Default invocation:</p>
-  
-  <!-- prettier-ignore-start -->
 ```handlebars
 <Hds::Avatar />
 ```
-<!-- prettier-ignore-end -->
 
-  
-  <p class="dummy-paragraph">With an image src defined:</p>
-  
-  <!-- prettier-ignore-start -->
+With an image src defined:
+
 ```handlebars
 <Hds::Avatar @src="path/to/image" />
 ```
-<!-- prettier-ignore-end -->
-
-  
-
-</section>
