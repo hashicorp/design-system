@@ -10,7 +10,13 @@
 }
 
 .hds-modal {
+  z-index: 10;
+
   .hds-form-field--layout-vertical:first-child {
     margin-bottom: 20px;
   }
+}
+
+.hds-modal__overlay {
+  z-index: 10;
 }
