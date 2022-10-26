@@ -76,8 +76,8 @@
   </dl>
 
   <h4 class="dummy-h4">Contextual components</h4>
-  <p class="dummy-paragraph" id="contextual-components-modal">The title, the content of the modal dialog and the actions
-    are passed into the modal as yielded components, using the
+  <p class="dummy-paragraph" id="contextual-components-modal">The title, the content of the modal dialog, and the
+    actions are passed into the modal as yielded components, using the
     <code class="dummy-code">Header</code>,
     <code class="dummy-code">Body</code>,
     <code class="dummy-code">Footer</code>
@@ -131,7 +131,7 @@
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
 
   <h4 class="dummy-h4">Basic use</h4>
-  <p class="dummy-paragraph">The simplest way to invoke a modal is doing something like this:</p>
+  <p class="dummy-paragraph">The simplest way to invoke a modal is by doing something like this:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -172,6 +172,11 @@
       </M.Footer>
     </Hds::Modal>
   {{/if}}
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: When a modal dialog is open with the keyboard, the focus is automatically set to the first focusable element
+    inside the dialog, which is the "Dismiss" button. The action of this button has no effect on the system, so focusing
+    on it helps prevent users from accidentally confirming.
+  </p>
 
   <h4 class="dummy-h4">Form within a modal dialog</h4>
   {{! prettier-ignore-start }}
@@ -187,7 +192,7 @@
             Why do you want to leave the beta?
           </M.Header>
           <M.Body>
-            <Hds::Form::Select::Field @width="100%" as |F|>
+            <Hds::Form::Select::Field autofocus @width="100%" as |F|>
               <F.Label>Select the primary reason</F.Label>
               <F.Options>
                 <option></option>
@@ -198,12 +203,10 @@
             </Hds::Form::Textarea::Field>
           </M.Body>
           <M.Footer>
-            <form method="dialog" aria-label="Form modal">
-              <Hds::ButtonSet>
-                <Hds::Button type="submit" @text="Leave Beta" />
-                <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-              </Hds::ButtonSet>
-            </form>
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="Leave Beta" />
+              <Hds::Button type="submit" @text="Cancel" @color="secondary" \{{on "click" (fn this.deactivateModal "formModalActive")}} />
+            </Hds::ButtonSet>
           </M.Footer>
         </Hds::Modal>
       \{{/if}}
@@ -214,13 +217,14 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Button @text="Open form modal" @color="secondary" {{on "click" (fn this.activateModal "formModalActive")}} />
 
+  {{! template-lint-disable no-autofocus-attribute }}
   {{#if this.formModalActive}}
     <Hds::Modal id="form-modal" @isOpen={{true}} @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
       <M.Header>
         Why do you want to leave the beta?
       </M.Header>
       <M.Body>
-        <Hds::Form::Select::Field @width="100%" as |F|>
+        <Hds::Form::Select::Field autofocus @width="100%" as |F|>
           <F.Label>Select the primary reason</F.Label>
           <F.Options>
             <option></option>
@@ -231,15 +235,25 @@
         </Hds::Form::Textarea::Field>
       </M.Body>
       <M.Footer>
-        <form method="dialog" aria-label="Form modal">
-          <Hds::ButtonSet>
-            <Hds::Button type="submit" @text="Leave Beta" />
-            <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-          </Hds::ButtonSet>
-        </form>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Leave Beta" />
+          <Hds::Button
+            type="submit"
+            @text="Cancel"
+            @color="secondary"
+            {{on "click" (fn this.deactivateModal "formModalActive")}}
+          />
+        </Hds::ButtonSet>
       </M.Footer>
     </Hds::Modal>
   {{/if}}
+  {{! template-lint-enable no-autofocus-attribute }}
+  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
+    Note: If a modal dialog contains interactive elements, such as a form, the initial focus should be set on the first
+    input, which is the first focusable element within the form. This can be achieved by setting the
+    <code class="dummy-code">autofocus</code>
+    property on the first form element.
+  </p>
 </section>
 
 <section>
