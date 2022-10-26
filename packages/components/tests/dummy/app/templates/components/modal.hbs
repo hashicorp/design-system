@@ -49,14 +49,6 @@
         <li>critical</li>
       </ol>
     </dd>
-    <dt>isOpen <code>boolean</code></dt>
-    <dd>
-      <p>When set to
-        <code class="dummy-code">true</code>
-        the modal dialog is visible when added to the DOM.
-      </p>
-      <p>Default: <span class="default">false</span></p>
-    </dd>
     <dt>onOpen <code>function</code></dt>
     <dd>
       <p>
@@ -140,7 +132,7 @@
       <Hds::Button @text="Open basic modal" @color="secondary" \{{on "click" (fn this.activateModal "basicModalActive")}} />
 
       \{{#if this.basicModalActive}}
-        <Hds::Modal id="basic-modal" @isOpen=\{{true}} @onClose=\{{fn this.deactivateModal "basicModalActive"}} as |M|>
+        <Hds::Modal id="basic-modal" @onClose=\{{fn this.deactivateModal "basicModalActive"}} as |M|>
           <M.Header>
             Modal title
           </M.Header>
@@ -160,7 +152,7 @@
   <Hds::Button @text="Open basic modal" @color="secondary" {{on "click" (fn this.activateModal "basicModalActive")}} />
 
   {{#if this.basicModalActive}}
-    <Hds::Modal id="basic-modal" @isOpen={{true}} @onClose={{fn this.deactivateModal "basicModalActive"}} as |M|>
+    <Hds::Modal id="basic-modal" @onClose={{fn this.deactivateModal "basicModalActive"}} as |M|>
       <M.Header>
         Modal title
       </M.Header>
@@ -187,7 +179,7 @@
       <Hds::Button @text="Open form modal" @color="secondary" \{{on "click" (fn this.activateModal "formModalActive")}} />
 
       \{{#if this.formModalActive}}
-        <Hds::Modal id="form-modal" @isOpen=\{{true}} @onClose=\{{fn this.deactivateModal "formModalActive"}} as |M|>
+        <Hds::Modal id="form-modal" @onClose=\{{fn this.deactivateModal "formModalActive"}} as |M|>
           <M.Header>
             Why do you want to leave the beta?
           </M.Header>
@@ -219,7 +211,7 @@
 
   {{! template-lint-disable no-autofocus-attribute }}
   {{#if this.formModalActive}}
-    <Hds::Modal id="form-modal" @isOpen={{true}} @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
+    <Hds::Modal id="form-modal" @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
       <M.Header>
         Why do you want to leave the beta?
       </M.Header>

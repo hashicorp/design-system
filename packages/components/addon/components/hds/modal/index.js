@@ -26,7 +26,7 @@ export default class HdsModalIndexComponent extends Component {
     });
 
     // If the modal dialog is set to be open and it is not already open
-    if (this.args.isOpen && !this.element.open) {
+    if (!this.element.open) {
       this.open();
     }
   }
