@@ -1,28 +1,17 @@
-<h1>Colors - How to use</h1>
+# Colors - How to use
 
-<section data-section="how-to-use">
-  
-  <p class="dummy-paragraph">There are two different ways to apply a color to a UI element, via
-    <strong>design tokens</strong>
-    or via
-    <strong>CSS helper classes</strong>.</p>
-  <p class="dummy-paragraph">Which one to use will depend on the context: since both refer to the same design token
-    values, from the design system perspective there's no difference between the two methods (it's more of a preference
-    for the "consumer" codebase).</p>
+There are two different ways to apply a color to a UI element, via **design tokens** or via **CSS helper classes**.
 
-  <p class="dummy-paragraph">To see the full list of available design tokens (CSS variables) and CSS helpers for the
-    colors, look at the showcase of color palettes below.</p>
-  <p class="dummy-paragraph"><strong>👉 Notice:</strong>
-    at the moment the CSS helpers are available only for "semantic" colors. In the future we may make available helpers
-    for "palette" and "product/branding" colors, but for now for these colors you have to use the design tokens as CSS
-    variables.</p>
+Which one to use will depend on the context: since both refer to the same design token values, from the design system perspective there's no difference between the two methods (it's more of a preference for the "consumer" codebase).
 
-  <h4 class="dummy-h4">Design tokens</h4>
-  <p class="dummy-paragraph">You can use the color
-    <a href="../foundations/tokens">design tokens</a>
-    directly in your CSS definitions:</p>
-  
-  <!-- prettier-ignore-start -->
+To see the full list of available design tokens (CSS variables) and CSS helpers for the colors, look at the showcase of color palettes below.
+
+**👉 Notice:** at the moment the CSS helpers are available only for "semantic" colors. In the future we may make available helpers for "palette" and "product/branding" colors, but for now for these colors you have to use the design tokens as CSS variables.
+
+#### Design tokens
+
+You can use the color [design tokens](../foundations/tokens) directly in your CSS definitions:
+
 ```css
 .your-selector {
   color: var(--token-color-foreground-primary);
@@ -34,29 +23,15 @@
   }
 }
 ```
-<!-- prettier-ignore-end -->
 
-  
+#### CSS helper classes
 
-  <h4 class="dummy-h4">CSS helper classes</h4>
-  <p class="dummy-paragraph">You can use one of the predefined "color" CSS helper classes:</p>
-  
-  <!-- prettier-ignore-start -->
+You can use one of the predefined "color" CSS helper classes:
+
 ```handlebars
 <div class="hds-foreground-primary hds-surface-faint hds-border-strong">...</div>
 ```
-<!-- prettier-ignore-end -->
 
-  
-  <p class="dummy-paragraph">To use this classes you have to import the CSS file
-    <code class="dummy-code">[products|devdot]/css/helpers/colors.css</code>
-    from the
-    <code class="dummy-code">@hashicorp/design-system-tokens</code>
-    package.</p>
-  <p class="dummy-paragraph"><strong>👉 Notice: </strong>
-    when a "border-color" CSS helper is used on an element a
-    <code class="dummy-code">1px solid</code>
-    border is applied to it: if you need a different border
-    <code class="dummy-code">width/style</code>
-    you have to override it.</p>
-</section>
+To use this classes you have to import the CSS file `[products|devdot]/css/helpers/colors.css` from the `@hashicorp/design-system-tokens` package.
+
+**👉 Notice:** when a "border-color" CSS helper is used on an element a `1px solid` border is applied to it: if you need a different border `width/style` you have to override it.

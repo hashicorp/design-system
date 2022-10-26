@@ -25,7 +25,12 @@
         <span class="dummy-text-small">{{capitalize state}} selected</span>
         <br />
         <div mock-state-value={{state}} mock-state-selector="label">
-          <Hds::Form::RadioCard {{on "change" this.onChange}} @checked={{true}} @disabled={{eq state "disabled"}} as |R|>
+          <Hds::Form::RadioCard
+            {{on "change" this.onChange}}
+            @checked={{true}}
+            @disabled={{eq state "disabled"}}
+            as |R|
+          >
             <R.Icon @name="hexagon" />
             <R.Label>Label</R.Label>
             <R.Description>Description</R.Description>

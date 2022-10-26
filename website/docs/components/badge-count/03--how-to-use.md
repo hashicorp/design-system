@@ -1,14 +1,7 @@
-<h1>BadgeCount component - How to use</h1>
+# BadgeCount component - How to use
 
-<section data-section="how-to-use">
-  
-  <p class="dummy-paragraph">Invocation of the component would look something like this:</p>
-  
-  <!-- prettier-ignore-start -->
+Invocation of the component would look something like this:
+
 ```handlebars
 <Hds::BadgeCount @text="3" @size="large" @type="inverted" />
 ```
-<!-- prettier-ignore-end -->
-
-  
-</section>
