@@ -48,6 +48,17 @@ export default class HdsTableIndexComponent extends Component {
     return this.args.isStriped ?? true;
   }
 
+  // values are still being decided by design. For now, we'll use packed, medium, and spacious. We've suggested "size" like we use for some of the other components like the button.
+  /**
+   * @param density
+   * @type {string}
+   * @default 'default'
+   * @description Determines the density of the table cells; defaults to 'medium'.
+   */
+  get density() {
+    return this.args.density ?? 'default';
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames
@@ -59,6 +70,11 @@ export default class HdsTableIndexComponent extends Component {
     // add a class based on the @isStriped argument
     if (this.isStriped) {
       classes.push('hds-table--striped');
+    }
+
+    // add a class based on the @density argument
+    if (this.density) {
+      classes.push(`hds-table--${this.density}`);
     }
 
     return classes.join(' ');

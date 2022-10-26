@@ -343,6 +343,44 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
+    Static table styled as "packed"
+  </h4>
+  <Hds::Table @model={{this.model.data}} @density="packed">
+    <:head>
+      <Hds::Table::Tr>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th>Album</Hds::Table::Th>
+        <Hds::Table::Th>Release Year</Hds::Table::Th>
+      </Hds::Table::Tr>
+    </:head>
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table styled as "spacious"
+  </h4>
+  <Hds::Table @model={{this.model.data}} @density="spacious">
+    <:head>
+      <Hds::Table::Tr>
+        <Hds::Table::Th>Artist</Hds::Table::Th>
+        <Hds::Table::Th>Album</Hds::Table::Th>
+        <Hds::Table::Th>Release Year</Hds::Table::Th>
+      </Hds::Table::Tr>
+    </:head>
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
     Static table with no model defined
   </h4>
   <Hds::Table>
