@@ -13,11 +13,11 @@
 // ```
 // in this
 // ```
-// <CodeBlock data-language="markup">
-//   <Hds::Component>
+// <pre><code class="language-markup">
+//   &lt;Hds::Component&gt;
 //     ...
-//   </Hds::Component>
-// </CodeBlock>
+//   &lt;/Hds::Component&gt;
+// </code></pre>
 // ```
 //
 // ## Usage
@@ -72,14 +72,13 @@ module.exports = function ({ source /*, path */ }, { parse, visit }) {
             code = 'TODO - FIX ME!!'
           }
 
+          // HTMLEncode the code
+          code = code.replace(/[\u00A0-\u9999<>&]/gim, (c) => `&#${c.charCodeAt(0)};`);
+
           let output = '';
-          // output += `\n\n<CodeBlock>\n\n<pre><code>\n`;
-          output += `<!-- prettier-ignore-start -->\n`; // we add them back to avoid prettier to mess up the internal formatting of code blocks
-          output += `\`\`\`${language || ''}\n`;
+          output += `\n\n<pre><code ${language ? 'class="language-'+language+'"' : ''}>`;
           output += `${code}\n`;
-          output += `\`\`\`\n`;
-          output += `<!-- prettier-ignore-end -->\n`;
-          // output += `</code></pre>\n\n</CodeBlock>\n\n`;
+          output += `</code></pre>\n\n`;
           return build.text(output);
         }
       },
