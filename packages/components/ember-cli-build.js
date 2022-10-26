@@ -23,6 +23,8 @@ module.exports = function (defaults) {
   });
 
   app.import('app/styles/prism-dracula.css');
+  app.import('node_modules/dialog-polyfill/dist/dialog-polyfill.css');
+  app.import('node_modules/dialog-polyfill/dist/dialog-polyfill.js');
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`

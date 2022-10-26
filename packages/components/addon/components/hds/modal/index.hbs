@@ -1,7 +1,4 @@
 {{! template-lint-disable no-invalid-interactive }}
-{{#if this.isActive}}
-  <div class="hds-modal__overlay"></div>
-{{/if}}
 <dialog
   class={{this.classNames}}
   ...attributes
@@ -13,3 +10,6 @@
   {{yield (hash Body=(component "hds/modal/body"))}}
   {{yield (hash Footer=(component "hds/modal/footer"))}}
 </dialog>
+{{#if this.isActive}}
+  <div class="hds-modal__overlay"></div>
+{{/if}}

@@ -16,6 +16,13 @@ export default class HdsModalIndexComponent extends Component {
     // Store a reference of the `<dialog>` element
     this.element = element;
 
+    // Register `<dialog>` element for polyfilling
+    if (!element.showModal && window.dialogPolyfill) {
+      window.dialogPolyfill.registerDialog(element);
+      // This unscoped class is defined in the dialog polyfill: https://github.com/GoogleChrome/dialog-polyfill/blob/master/dist/dialog-polyfill.css#L33
+      element.classList.add('fixed');
+    }
+
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', () => {
       this.isActive = false;

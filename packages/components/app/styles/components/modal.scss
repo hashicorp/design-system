@@ -13,6 +13,7 @@
   box-shadow: var(--token-surface-overlay-box-shadow);
 
   &[open] {
+    position: fixed;
     display: flex;
   }
 

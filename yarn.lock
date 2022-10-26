@@ -3029,6 +3029,7 @@ __metadata:
     "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
+    dialog-polyfill: ^0.5.6
     ember-a11y-refocus: ^2.1.0
     ember-a11y-testing: ^5.0.0
     ember-auto-import: ^2.4.2
@@ -9492,6 +9493,13 @@ __metadata:
   bin:
     detective: bin/detective.js
   checksum: dc4601bbc6be850edb3c2dab7a0eaf5a6169a15ad201679c66d40ea1986df816eeaecd590047f15b0780285f3eeea13b82dca0d4c52a47e744a571e326a72dc9
+  languageName: node
+  linkType: hard
+
+"dialog-polyfill@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "dialog-polyfill@npm:0.5.6"
+  checksum: dde8d4b6a62b63b710e0d0d70b615d92ff08f3cb2b521e1f99b17e8220d9d55d0fdf9fc17fbe77b0ff1be817094e14b60c4c4bacd5456fba427ede48d2d90230
   languageName: node
   linkType: hard
 
