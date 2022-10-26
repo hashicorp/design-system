@@ -16,8 +16,38 @@
 
 .hds-table--striped {
   tbody {
-    tr:nth-child(odd) {
+    tr:nth-child(even) {
       background-color: var(--token-color-surface-faint);
+    }
+  }
+}
+
+.hds-table--packed {
+  tbody {
+    tr {
+      td {
+        padding: 4px 16px;
+      }
+    }
+  }
+}
+
+.hds-table--default {
+  tbody {
+    tr {
+      td {
+        padding: 12px 16px;
+      }
+    }
+  }
+}
+
+.hds-table--spacious {
+  tbody {
+    tr {
+      td {
+        padding: 20px 16px;
+      }
     }
   }
 }
@@ -25,23 +55,25 @@
 .hds-table__thead {
   border-bottom: 1px solid var(--token-color-border-primary);
 
-  th {
+  .hds-table__th,
+  .hds-table__th-sort {
     padding: 8px 16px;
     color: var(--token-color-foreground-strong);
     font-weight: var(--token-typography-font-weight-semibold);
     text-align: left;
     background-color: var(--token-color-surface-strong);
+  }
 
-    &.hds-table__th-sort {
-      padding: 0; // we're taking it out here because we need it on the interactive content instead
-    }
+  .hds-table__th-sort {
+    padding: 0; // we're taking it out here because we need it on the interactive content instead
 
-    button { // will refactor this to a button. Use Hds::Button?
+    button {
       display: flex;
       align-items: center;
       width: 100%;
       padding: 8px 16px;
       color: var(--token-color-foreground-strong);
+      font-weight: var(--token-typography-font-weight-semibold);
       text-decoration: none;
       background-color: transparent;
       border: 3px solid transparent;
@@ -53,6 +85,7 @@
       &:hover {
         color: var(--token-color-foreground-strong);
         background-color: var(--token-color-palette-neutral-200);
+        cursor: pointer;
       }
 
       &:focus,
@@ -68,7 +101,7 @@
 
       svg { // in case they don't use flight icons
         margin-left: 8px;
-        color: var(--token-color-focus-action-external);
+        color: var(--token-color-foreground-action);
       }
     }
   }
@@ -79,11 +112,7 @@
   font-weight: var(--token-typography-font-weight-regular);
   background-color: var(--token-color-surface-primary);
 
-  tr {
+  .hds-table__tr {
     border-bottom: 1px solid var(--token-color-border-primary);
-  }
-
-  td {
-    padding: 12px 16px;
   }
 }
