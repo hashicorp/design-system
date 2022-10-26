@@ -10,8 +10,8 @@
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
+  <p class="dummy-paragraph">Modals are used as an interstitial to request information or feedback from the user,
+    confirm a decision, or less frequently to provide additional context about a function or feature.</p>
 </section>
 
 <section>
@@ -20,17 +20,226 @@
     Here is the API for the component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-modal">
+    <dt>
+      size
+      <code>enum</code>
+    </dt>
+    <dd>
+      <p>
+        Sets the width of the modal.
+      </p>
 
-    {{! ADD YOUR CONTENT HERE }}
+      <p>Acceptable values:</p>
+      <ol>
+        <li>small</li>
+        <li class="default">medium</li>
+        <li>large</li>
+      </ol>
+    </dd>
 
+    <dt>color <code>enum</code></dt>
+    <dd>
+      <p>
+        Sets the color scheme for the modal header elements: icon, tagline and title.
+      </p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">neutral</li>
+        <li>warning</li>
+        <li>critical</li>
+      </ol>
+    </dd>
+    <dt>isOpen <code>boolean</code></dt>
+    <dd>
+      <p>When set to
+        <code class="dummy-code">true</code>
+        the modal dialog is visible when added to the DOM.
+      </p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>onOpen <code>function</code></dt>
+    <dd>
+      <p>
+        Callback function invoked when the modal is opened.
+      </p>
+    </dd>
+    <dt>onClose <code>function</code></dt>
+    <dd>
+      <p>
+        Callback function invoked when the modal is closed.
+      </p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Contextual components</h4>
+  <p class="dummy-paragraph" id="contextual-components-modal">The title, the content of the modal dialog and the actions
+    are passed into the modal as yielded components, using the
+    <code class="dummy-code">Header</code>,
+    <code class="dummy-code">Body</code>,
+    <code class="dummy-code">Footer</code>
+    keys.</p>
+  <dl class="dummy-component-props" aria-labelledby="contextual-components-modal">
+    <dt>&lt;[M].Header&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content as the title of the modal dialog.</p>
+      <p>It accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+      <dl class="dummy-component-props">
+        <dt>icon <code>string</code></dt>
+        <dd>
+          <p>Acceptable values: any
+            <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+              Flight</a>
+            icon name.</p>
+        </dd>
+        <dt>tagline <code>string</code></dt>
+        <dd>
+          <p>A string that helps the user maintain context when a modal dialog is open.</p>
+        </dd>
+        <dt>...attributes</dt>
+        <dd>
+          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+        </dd>
+      </dl>
+    </dd>
+    <dt>&lt;[M].Body&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is an unstyled, generic container that yields as the main content of the modal dialog.</p>
+      <p>It accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+    </dd>
+    <dt>&lt;[M].Footer&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content as the footer of the modal dialog.</p>
+      <p>We recommend using it exclusively for actions using the
+        <LinkTo @route="components.button-set"><code class="dummy-code">ButtonSet</code></LinkTo>
+        component. If a tertiary action is presented, it will always be aligned at the end of the row.</p>
+      <p>It accepts
+        <code class="dummy-code">...attributes</code>
+        spreading.</p>
+    </dd>
   </dl>
 </section>
 
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">The simplest way to invoke a modal is doing something like this:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Open basic modal" @color="secondary" \{{on "click" (fn this.activateModal "basicModalActive")}} />
 
+      \{{#if this.basicModalActive}}
+        <Hds::Modal id="basic-modal" @isOpen=\{{true}} @onClose=\{{fn this.deactivateModal "basicModalActive"}} as |M|>
+          <M.Header>
+            Modal title
+          </M.Header>
+          <M.Body>
+            <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+          </M.Body>
+          <M.Footer>
+            <Hds::Button type="submit" @text="Confirm" \{{on "click" (fn this.deactivateModal "basicModalActive")}} />
+          </M.Footer>
+        </Hds::Modal>
+      \{{/if}}
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Open basic modal" @color="secondary" {{on "click" (fn this.activateModal "basicModalActive")}} />
+
+  {{#if this.basicModalActive}}
+    <Hds::Modal id="basic-modal" @isOpen={{true}} @onClose={{fn this.deactivateModal "basicModalActive"}} as |M|>
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer>
+        <Hds::Button type="submit" @text="Confirm" {{on "click" (fn this.deactivateModal "basicModalActive")}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
+  <h4 class="dummy-h4">Form within a modal dialog</h4>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::Button @text="Open form modal" @color="secondary" \{{on "click" (fn this.activateModal "formModalActive")}} />
+
+      \{{#if this.formModalActive}}
+        <Hds::Modal id="form-modal" @isOpen=\{{true}} @onClose=\{{fn this.deactivateModal "formModalActive"}} as |M|>
+          <M.Header>
+            Why do you want to leave the beta?
+          </M.Header>
+          <M.Body>
+            <Hds::Form::Select::Field @width="100%" as |F|>
+              <F.Label>Select the primary reason</F.Label>
+              <F.Options>
+                <option></option>
+              </F.Options>
+            </Hds::Form::Select::Field>
+            <Hds::Form::Textarea::Field @isOptional=\{{true}} as |F|>
+              <F.Label>Your feedback</F.Label>
+            </Hds::Form::Textarea::Field>
+          </M.Body>
+          <M.Footer>
+            <form method="dialog" aria-label="Form modal">
+              <Hds::ButtonSet>
+                <Hds::Button type="submit" @text="Leave Beta" />
+                <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+              </Hds::ButtonSet>
+            </form>
+          </M.Footer>
+        </Hds::Modal>
+      \{{/if}}
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Button @text="Open form modal" @color="secondary" {{on "click" (fn this.activateModal "formModalActive")}} />
+
+  {{#if this.formModalActive}}
+    <Hds::Modal id="form-modal" @isOpen={{true}} @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
+      <M.Header>
+        Why do you want to leave the beta?
+      </M.Header>
+      <M.Body>
+        <Hds::Form::Select::Field @width="100%" as |F|>
+          <F.Label>Select the primary reason</F.Label>
+          <F.Options>
+            <option></option>
+          </F.Options>
+        </Hds::Form::Select::Field>
+        <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+          <F.Label>Your feedback</F.Label>
+        </Hds::Form::Textarea::Field>
+      </M.Body>
+      <M.Footer>
+        <form method="dialog" aria-label="Form modal">
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Leave Beta" />
+            <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+          </Hds::ButtonSet>
+        </form>
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
 </section>
 
 <section>
@@ -51,37 +260,201 @@
 <section>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
+  <h4 class="dummy-h4">
+    Applicable WCAG Success Criteria (Reference)
+  </h4>
+  <p class="dummy-paragraph">
+    This section is for reference only, some descriptions have been truncated for brevity. This component intends to
+    conform to the following WCAG success criteria:
+  </p>
+  <ul class="dummy-list">
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.1.1 Non-text Content (A):</a>
+      All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.1 Info and Relationships (A):</a>
+      Information, structure, and relationships conveyed through presentation can be programmatically determined or are
+      available in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.2 Meaningful Sequence (A):</a>
+      When the sequence in which content is presented affects its meaning, a correct reading sequence can be
+      programmatically determined.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/sensory-characteristics"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.3 Sensory Characteristics (A):</a>
+      Instructions provided for understanding and operating content do not rely solely on sensory characteristics of
+      components such as shape, color, size, visual location, orientation, or sound.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.3.5 Identify Input Purpose(AA):</a>
+      The purpose of each input field collecting information about the user can be programmatically determined when the
+      input field serves a purpose identified in the Input Purposes for User Interface Components section; and the
+      content is implemented using technologies with support for identifying the expected meaning for form input data.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.1 Use of Color (A):</a>
+      Color is not used as the only visual means of conveying information, indicating an action, prompting a response,
+      or distinguishing a visual element.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.3 Contrast Minimum (AA):</a>
+      The visual presentation of text and images of text has a contrast ratio of at least 4.5:1</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.4 Resize Text (AA):</a>
+      Except for captions and images of text, text can be resized without assistive technology up to 200 percent without
+      loss of content or functionality.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.5 Images of Text(AA):</a>
+      This is old. Don’t do this. Use text. Also a logo is not an image of text, so that’s fine.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow" rel="noopener noreferrer" target="_blank">1.4.10
+        Reflow (AA):</a>
+      Content can be presented without loss of information or functionality, and without requiring scrolling in two
+      dimensions</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.11 Non-text Contrast (AA):</a>
+      The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s): user
+      interface components; graphical objects.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.12 Text Spacing (AA):</a>
+      no loss of content or functionality occurs by setting all of the following and by changing no other style
+      property: line height set to 1.5; spacing following paragraphs set to at least 2x the font size; letter-spacing
+      set at least 0.12x of the font size, word spacing set to at least 0.16 times the font size.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus"
+        rel="noopener noreferrer"
+        target="_blank"
+      >1.4.13 Content on Hover or Focus (AA):</a>
+      Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible
+      and then hidden, the following are true: dismissible, hoverable, persistent (see link)</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard" rel="noopener noreferrer" target="_blank">2.1.1
+        Keyboard (A):</a>
+      All functionality of the content is operable through a keyboard interface.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.1.2 No Keyboard Trap (A):</a>
+      If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away
+      from that component using only a keyboard interface.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.1.4 Character Key Shortcuts (A):</a>
+      If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters),
+      punctuation, number, or symbol characters, then it should be able to be turned off, remapped, or active only on
+      focus.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/page-titled"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.2 Page Titled (A):</a>
+      Web pages have titles that describe topic or purpose.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.3 Focus Order (A):</a>
+      If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable
+      components receive focus in an order that preserves meaning and operability.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.6 Headings and Labels (AA):</a>
+      Headings and labels describe topic or purpose.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible"
+        rel="noopener noreferrer"
+        target="_blank"
+      >2.4.7 Focus Visible (AA):</a>
+      Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-focus" rel="noopener noreferrer" target="_blank">3.2.1
+        On Focus (A):</a>
+      When any user interface component receives focus, it does not initiate a change of context.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/on-input" rel="noopener noreferrer" target="_blank">3.2.2
+        On Input (A):</a>
+      Changing the setting of any user interface component does not automatically cause a change of context unless the
+      user has been advised of the behavior before using the component.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.1 Error Identification (A):</a>
+      If an input error is automatically detected, the item that is in error is identified and the error is described to
+      the user in text.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.2 Labels or Instructions (A):</a>
+      Labels or instructions are provided when content requires user input.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.3 Error Suggestion (AA):</a>
+      If an input error is automatically detected and suggestions for correction are known, then the suggestions are
+      provided to the user, unless it would jeopardize the security or purpose of the content.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data"
+        rel="noopener noreferrer"
+        target="_blank"
+      >3.3.4 Error Prevention (Legal, Financial, Data) (AA):</a>
+      For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete
+      user-controllable data in data storage systems, or that submit user test responses, at least one of the following
+      is true: submissions are reversible, data is checked and user is provided an opportunity to correct them, a
+      mechanism is available for reviewing, confirming and correcting the information before finalizing the submission..</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing" rel="noopener noreferrer" target="_blank">4.1.1
+        Parsing (A):</a>
+      In content implemented using markup languages, elements have complete start and end tags, elements are nested
+      according to their specifications, elements do not contain duplicate attributes, and any IDs are unique.</li>
+    <li><a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value"
+        rel="noopener noreferrer"
+        target="_blank"
+      >4.1.2 Name, Role, Value (A):</a>
+      For all user interface components, the name and role can be programmatically determined; states, properties, and
+      values that can be set by the user can be programmatically set; and notification of changes to these items is
+      available to user agents, including assistive technologies.</li>
+    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages" rel="noopener noreferrer" target="_blank">
+        4.1.3 Status Messages (AA):</a>
+      In content implemented using markup languages, status messages can be programmatically determined through role or
+      properties such that they can be presented to the user by assistive technologies without receiving focus.</li>
+  </ul>
 </section>
 
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-
-  <h4 class="dummy-h4">Color</h4>
-  {{#each @model.COLORS as |color|}}
-    <p class="dummy-paragraph">{{capitalize color}}</p>
-    <br />
-    <div class="dummy-modal-sample-item">
-      <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
-        <M.Header @icon="info" @tagline="Tagline">
-          {{capitalize color}}
-        </M.Header>
-        <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-        </M.Body>
-        <M.Footer>
-          <form method="dialog" aria-label="Form example {{color}}">
-            <Hds::ButtonSet>
-              <Hds::Button type="submit" @text="Confirm" @color={{if (eq color "critical") "critical"}} />
-              <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-              <Hds::Button type="submit" @text="Tertiary" @color="tertiary" @icon="plus" />
-            </Hds::ButtonSet>
-          </form>
-        </M.Footer>
-      </Hds::Modal>
-    </div>
-  {{/each}}
 
   <h4 class="dummy-h4">Size</h4>
   {{#each @model.SIZES as |size|}}
@@ -89,87 +462,202 @@
     <br />
     <div class="dummy-modal-sample-item">
       <Hds::Modal open @size={{size}} id="modal-example-{{size}}" as |M|>
-        <M.Header @icon="info">
-          {{capitalize size}}
+        <M.Header>
+          Title
         </M.Header>
         <M.Body>
           <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
         </M.Body>
         <M.Footer>
-          <form method="dialog" aria-label="Form example {{size}}">
-            <Hds::ButtonSet>
-              <Hds::Button type="submit" @text="Confirm" />
-              <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-            </Hds::ButtonSet>
-          </form>
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Confirm" />
+            <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+          </Hds::ButtonSet>
         </M.Footer>
       </Hds::Modal>
     </div>
   {{/each}}
 
-  {{! This below is just an example of invocation, to get started }}
-  <h4 class="dummy-h4">Invocation</h4>
-  <Hds::ButtonSet>
-    <Hds::Button
-      @text="Open basic modal"
-      @color="secondary"
-      {{on "click" (fn this.activateModal "basicModalActive")}}
-    />
-    <Hds::Button @text="Open form modal" @color="secondary" {{on "click" (fn this.activateModal "formModalActive")}} />
-  </Hds::ButtonSet>
+  <h4 class="dummy-h4">Color</h4>
+  {{#each @model.COLORS as |color|}}
+    <p class="dummy-paragraph">{{capitalize color}}</p>
+    <br />
+    <div class="dummy-modal-sample-item">
+      <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
+        <M.Header
+          @icon={{concat (if (eq color "warning") "alert-triangle") (if (eq color "critical") "alert-diamond")}}
+        >
+          Title
+        </M.Header>
+        <M.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+        </M.Body>
+        <M.Footer>
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Confirm" @color={{if (eq color "critical") "critical"}} />
+            <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+          </Hds::ButtonSet>
+        </M.Footer>
+      </Hds::Modal>
+    </div>
+  {{/each}}
 
-  {{#if this.basicModalActive}}
-    <Hds::Modal
-      id="invocation-basic-modal"
-      @isOpen={{true}}
-      @onOpen={{this.noop}}
-      @onClose={{fn this.deactivateModal "basicModalActive"}}
-      as |M|
-    >
+  <h4 class="dummy-h4">Title</h4>
+  <p class="dummy-paragraph">With icon</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-icon" as |M|>
       <M.Header @icon="info">
-        Modal title
+        Title
       </M.Header>
       <M.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
       </M.Body>
       <M.Footer>
-        <form method="dialog" aria-label="Modal example basic invocation">
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
           <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-        </form>
+        </Hds::ButtonSet>
       </M.Footer>
     </Hds::Modal>
-  {{/if}}
-
-  {{#if this.formModalActive}}
-    <Hds::Modal
-      id="invocation-form-modal"
-      @isOpen={{true}}
-      @onOpen={{this.noop}}
-      @onClose={{fn this.deactivateModal "formModalActive"}}
-      as |M|
-    >
-      <M.Header @icon="info">
-        Why do you want to leave the beta?
+  </div>
+  <p class="dummy-paragraph">With tagline</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-tagline" as |M|>
+      <M.Header @tagline="Tagline">
+        Title
       </M.Header>
       <M.Body>
-        <Hds::Form::Select::Field @width="100%" as |F|>
-          <F.Label>Select the primary reason</F.Label>
-          <F.Options>
-            <option></option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-        <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-          <F.Label>Your feedback</F.Label>
-        </Hds::Form::Textarea::Field>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
       </M.Body>
       <M.Footer>
-        <form method="dialog" aria-label="Modal example form invocation">
-          <Hds::ButtonSet>
-            <Hds::Button type="submit" @text="Leave Beta" />
-            <Hds::Button type="submit" @text="Cancel" @color="secondary" />
-          </Hds::ButtonSet>
-        </form>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+        </Hds::ButtonSet>
       </M.Footer>
     </Hds::Modal>
-  {{/if}}
+  </div>
+  <p class="dummy-paragraph">With tagline and icon</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-tagline-icon" as |M|>
+      <M.Header @tagline="Tagline" @icon="info">
+        Title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  </div>
+
+  <h4 class="dummy-h4">Content</h4>
+  <p class="dummy-paragraph">With basic style</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-basic-content" as |M|>
+      <M.Header @tagline="Tagline" @icon="info">
+        A very, very long title that spans multiple lines to test this element
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
+          JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
+          performance of our site. By using our website, you’re agreeing to our Privacy Policy and Cookie Policy.</p>
+        <br />
+        <p class="hds-typography-body-300 hds-foreground-primary">The categories below outline which companies and tools
+          we use for collecting data. To opt out of a category of data collection, set the toggle to “Off” and save your
+          preferences.</p>
+      </M.Body>
+      <M.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  </div>
+
+  <p class="dummy-paragraph">With generic content</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-generic-content" as |M|>
+      <M.Header>
+        Title
+      </M.Header>
+      <M.Body>
+        <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
+      </M.Body>
+      <M.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  </div>
+
+  <h4 class="dummy-h4">Actions</h4>
+  <p class="dummy-paragraph">One action</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-one-action" as |M|>
+      <M.Header>
+        Title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  </div>
+
+  <p class="dummy-paragraph">Two action</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-two-actions" as |M|>
+      <M.Header>
+        Title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  </div>
+
+  <p class="dummy-paragraph">Three action</p>
+  <br />
+  <div class="dummy-modal-sample-item">
+    <Hds::Modal open id="modal-example-three-actions" as |M|>
+      <M.Header>
+        Title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+          <Hds::Button type="submit" @text="Tertiary" @color="tertiary" @icon="plus" />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  </div>
 </section>

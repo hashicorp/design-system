@@ -8,3 +8,9 @@
     display: inline-block;
   }
 }
+
+.hds-modal {
+  .hds-form-field--layout-vertical:first-child {
+    margin-bottom: 20px;
+  }
+}
