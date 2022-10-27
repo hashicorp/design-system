@@ -52,12 +52,11 @@ export default class HdsTableIndexComponent extends Component {
     return this.args.isStriped ?? true;
   }
 
-  // values are still being decided by design. For now, we'll use packed, default, and spacious.
   /**
    * @param density
    * @type {string}
-   * @default 'default'
-   * @description Determines the density of the table cells; defaults to 'default'.
+   * @default 'medium'
+   * @description Determines the density of the table cells; options are "short", "medium" and "tall". If no density is defined, "medium" is used.
    */
   get density() {
     let { density = DEFAULT_DENSITY } = this.args;
