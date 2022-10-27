@@ -8,6 +8,7 @@
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-font-stack-text);
   line-height: var(--token-typography-body-200-line-height);
+  table-layout: fixed;
   border: 1px solid var(--token-color-border-primary);
   border-radius: 6px;
   border-collapse: collapse;
