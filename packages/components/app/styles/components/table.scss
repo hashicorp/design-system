@@ -2,6 +2,12 @@
 // TABLE
 //
 //
+
+$hds-table-border-radius: 6px; // table border radius
+$hds-table-border-width: 1px;
+$hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
+$hds-table-border-color: var(--token-color-border-primary);
+
 .hds-table,
 .hds-table-sortable {
   width: 100%;
@@ -9,9 +15,8 @@
   font-family: var(--token-typography-font-stack-text);
   line-height: var(--token-typography-body-200-line-height);
   table-layout: fixed;
-  border: 1px solid var(--token-color-border-primary);
-  border-radius: 6px;
-  border-collapse: collapse;
+  border: $hds-table-border-width solid $hds-table-border-color;
+  border-radius: $hds-table-border-radius;
   border-spacing: 0;
 }
 
@@ -23,10 +28,10 @@
   }
 }
 
+// DENSITY (ROW HEIGHT)
 .hds-table--density-short td {
   padding: 4px 16px;
 }
-
 
 .hds-table--density-medium td {
   padding: 12px 16px;
@@ -36,8 +41,27 @@
   padding: 20px 16px;
 }
 
+
 .hds-table__thead {
-  border-bottom: 1px solid var(--token-color-border-primary);
+  .hds-table__tr {
+    color: #0c0c0e;
+    background-color: #f1f2f3;
+
+    &:first-of-type {
+      border-top-left-radius: $hds-table-inner-border-radius;
+      border-top-right-radius: $hds-table-inner-border-radius;
+
+      th:first-child {
+        border-left: none;
+        border-top-left-radius: $hds-table-inner-border-radius;
+      }
+
+      th:last-child {
+        border-right: none;
+        border-top-right-radius: $hds-table-inner-border-radius;
+      }
+    }
+  }
 
   .hds-table__th,
   .hds-table__th-sort {
@@ -49,6 +73,10 @@
     line-height: 1.4;
     text-align: left;
     background-color: var(--token-color-surface-strong);
+    border-top: none;
+    border-right: $hds-table-border-width solid $hds-table-border-color;
+    border-bottom: $hds-table-border-width solid $hds-table-border-color;
+    border-left: none;
   }
 
   .hds-table__th-sort {
@@ -103,6 +131,36 @@
   background-color: var(--token-color-surface-primary);
 
   .hds-table__tr {
-    border-bottom: 1px solid var(--token-color-border-primary);
+    td {
+      border-top: none;
+      border-right: $hds-table-border-width solid $hds-table-border-color;
+      border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      border-left: none;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &:nth-of-type(2n) {
+      background-color: #f8f8f8;
+    }
+
+    &:last-of-type {
+      border-bottom-right-radius: $hds-table-inner-border-radius;
+      border-bottom-left-radius: $hds-table-inner-border-radius;
+
+      td {
+        border-bottom: none;
+      }
+
+      td:first-child {
+        border-bottom-left-radius: $hds-table-inner-border-radius;
+      }
+
+      td:last-child {
+        border-bottom-right-radius: $hds-table-inner-border-radius;
+      }
+    }
   }
 }
