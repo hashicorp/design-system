@@ -343,9 +343,9 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Static table styled as "packed"
+    Static table with density set to "short"
   </h4>
-  <Hds::Table @model={{this.model.data}} @density="packed">
+  <Hds::Table @model={{this.model.data}} @density="short">
     <:head>
       <Hds::Table::Tr>
         <Hds::Table::Th>Artist</Hds::Table::Th>
@@ -362,9 +362,9 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Static table styled as "spacious"
+    Static table with density set to "tall"
   </h4>
-  <Hds::Table @model={{this.model.data}} @density="spacious">
+  <Hds::Table @model={{this.model.data}} @density="tall">
     <:head>
       <Hds::Table::Tr>
         <Hds::Table::Th>Artist</Hds::Table::Th>

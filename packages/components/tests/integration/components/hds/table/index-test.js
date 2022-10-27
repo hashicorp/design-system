@@ -70,13 +70,13 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it should render with a CSS class appropriate for the @density value', async function (assert) {
-    await render(hbs`<Hds::Table @density="packed" />`);
-    assert.dom('[data-test-table]').hasClass('hds-table--density-packed');
+    await render(hbs`<Hds::Table @density="short" />`);
+    assert.dom('[data-test-table]').hasClass('hds-table--density-short');
   });
 
   test('it should render with a CSS class appropriate if no @density value is set', async function (assert) {
     await render(hbs`<Hds::Table />`);
-    assert.dom('[data-test-table]').hasClass('hds-table--density-default');
+    assert.dom('[data-test-table]').hasClass('hds-table--density-medium');
   });
 
   test('it should support splattributes', async function (assert) {
