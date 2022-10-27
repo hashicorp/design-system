@@ -87,7 +87,7 @@ export default class HdsTableIndexComponent extends Component {
 
     // add a class based on the @density argument
     if (this.density) {
-      classes.push(`hds-table--${this.density}`);
+      classes.push(`hds-table--density-${this.density}`);
     }
 
     return classes.join(' ');

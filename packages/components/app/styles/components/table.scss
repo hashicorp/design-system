@@ -22,34 +22,17 @@
   }
 }
 
-.hds-table--packed {
-  tbody {
-    tr {
-      td {
-        padding: 4px 16px;
-      }
-    }
-  }
+.hds-table--density-packed td {
+  padding: 4px 16px;
 }
 
-.hds-table--default {
-  tbody {
-    tr {
-      td {
-        padding: 12px 16px;
-      }
-    }
-  }
+
+.hds-table--density-default td {
+  padding: 12px 16px;
 }
 
-.hds-table--spacious {
-  tbody {
-    tr {
-      td {
-        padding: 20px 16px;
-      }
-    }
-  }
+.hds-table--density-spacious td {
+  padding: 20px 16px;
 }
 
 .hds-table__thead {
