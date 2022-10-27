@@ -3,7 +3,7 @@
 //
 //
 
-$hds-table-border-radius: 6px; // table border radius
+$hds-table-border-radius: 6px;
 $hds-table-border-width: 1px;
 $hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
 $hds-table-border-color: var(--token-color-border-primary);
@@ -51,11 +51,27 @@ $hds-table-border-color: var(--token-color-border-primary);
       th:first-child {
         border-left: none;
         border-top-left-radius: $hds-table-inner-border-radius;
+
+        button {
+          &:focus,
+          :focus-visible {
+            border-color: var(--token-color-focus-action-external);
+            border-top-left-radius: $hds-table-inner-border-radius;
+          }
+        }
       }
 
       th:last-child {
         border-right: none;
         border-top-right-radius: $hds-table-inner-border-radius;
+
+        button { // I don't like this, it feels weird to have declared in multiple places- open to ideas on how to organize this CSS so we don't have to repeat selectors like this.
+          &:focus,
+          :focus-visible {
+            border-color: var(--token-color-focus-action-external);
+            border-top-right-radius: $hds-table-inner-border-radius;
+          }
+        }
       }
     }
   }
@@ -92,6 +108,7 @@ $hds-table-border-color: var(--token-color-border-primary);
       text-decoration: none;
       background-color: transparent;
       border: 3px solid transparent;
+      border-radius: 0;
 
       &:visited {
         color: var(--token-color-foreground-strong);
@@ -107,6 +124,7 @@ $hds-table-border-color: var(--token-color-border-primary);
       &:focus-visible {
         color: var(--token-color-foreground-strong);
         border-color: var(--token-color-focus-action-external);
+        outline: 0; // I'm not sure what to do here because we'll need our outline style but you can't change the outline radius
       }
 
       &:active {
