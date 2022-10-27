@@ -3,8 +3,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 
-const DENSITIES = ['packed', 'default', 'spacious'];
-const DEFAULT_DENSITY = 'default';
+const DENSITIES = ['short', 'medium', 'tall'];
+const DEFAULT_DENSITY = 'medium';
 
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
