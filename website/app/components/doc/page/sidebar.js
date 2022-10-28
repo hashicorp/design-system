@@ -1,6 +1,17 @@
 import Component from '@glimmer/component';
 
 export default class DocPageSidebarComponent extends Component {
+  //
+  // this is a temporary function used to emulate the functionality
+  // that limits the content of the sidebar navigation to only the links
+  // related to the current "section".
+  //
+  // notice: it makes a lot of assumptions, and is not perfect but as
+  // initial way to test the information architecture and navigation does the trick
+  //
+  // we will implement a proper TOC generation and navigation once we will make a call
+  // on the tool/infrastructure to use for the website
+  //
   get navigationTree() {
     const { currentPath, currentRoute } = this.args;
 
