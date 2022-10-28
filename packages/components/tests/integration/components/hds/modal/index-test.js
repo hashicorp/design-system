@@ -1,10 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/modal/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it renders the component', async function (assert) {
     await render(
@@ -17,5 +21,172 @@ module('Integration | Component | hds/modal/index', function (hooks) {
       hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
     );
     assert.dom('#test-modal').hasClass('hds-modal');
+  });
+
+  // SIZE & COLOR
+
+  test('it should render the component with CSS classes that reflect the default vaules if no arguments provided', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.dom('#test-modal').hasClass('hds-modal--size-medium');
+    assert.dom('#test-modal').hasClass('hds-modal--color-neutral');
+  });
+
+  test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
+    await render(
+      hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.dom('#test-modal').hasClass('hds-modal--size-small');
+    assert.dom('#test-modal').hasClass('hds-modal--color-warning');
+  });
+
+  // CONTEXTUAL COMPONENTS
+
+  test('it renders the contextual components', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Body>Body</M.Body>
+            <M.Footer>Footer</M.Footer>
+          </Hds::Modal>`
+    );
+    assert.dom('.hds-modal').exists();
+    assert.dom('.hds-modal__header').exists();
+    assert.dom('.hds-modal__header').hasText('Title');
+    assert.dom('.hds-modal__body').exists();
+    assert.dom('.hds-modal__body').hasText('Body');
+    assert.dom('.hds-modal__footer').exists();
+    assert.dom('.hds-modal__footer').hasText('Footer');
+  });
+
+  // TITLE (ICON & TAGLINE)
+
+  test('it renders the title without icon and tagline if not provided', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>`
+    );
+    assert.dom('.hds-modal__title').exists();
+    assert.dom('.hds-modal__title').hasText('Title');
+    assert.dom('.hds-modal__icon').doesNotExist();
+    assert.dom('.hds-modal__tagline').doesNotExist();
+  });
+  test('it renders the title with icon and tagline if provided', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
+          </Hds::Modal>`
+    );
+    assert.dom('.hds-modal__title').exists();
+    assert.dom('.hds-modal__title').hasText('Tagline Title');
+    assert.dom('.hds-modal__icon.flight-icon-info').exists();
+    assert.dom('.hds-modal__tagline').exists();
+    assert.dom('.hds-modal__tagline').hasText('Tagline');
+  });
+
+  // DISMISS
+
+  test('it should always render the "dismiss" button', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.dom('button.hds-modal__dismiss').exists();
+  });
+  test('it should close the modal when the "dismiss" button is pressed', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.dom('#test-modal').isVisible();
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-modal').isNotVisible();
+  });
+
+  // ACCESSIBILITY
+
+  test('it uses the title as name for the dialog', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>`
+    );
+    assert.dom('.hds-modal__title').exists();
+    assert.dom('.hds-modal__title').hasText('Title');
+    assert.dom('.hds-modal__icon').doesNotExist();
+    assert.dom('.hds-modal__tagline').doesNotExist();
+    // the IDs are dynamically generated
+    let titleElement = this.element.querySelector('.hds-modal__title');
+    let titleElementId = titleElement.id;
+    assert.dom('dialog').hasAttribute('aria-labelledby', titleElementId);
+  });
+
+  // FOCUS MANAGEMENT
+
+  test('it sets initial focus on the dimiss button, as first focusable element', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>`
+    );
+    assert.dom('button.hds-modal__dismiss').isFocused();
+  });
+
+  // ATTRIBUTES
+
+  test('it should spread all the attributes passed to the component and subcomponents', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" class="modal-class" data-test-modal1 data-test-modal2="test" as |M|>
+            <M.Header id="test-modal-header" data-test-modal-header1 data-test-modal-header2="test-header">Title</M.Header>
+            <M.Body id="test-modal-body" data-test-modal-body1 data-test-modal-body2="test-body">Body</M.Body>
+            <M.Footer id="test-modal-footer" data-test-modal-footer1 data-test-modal-footer2="test-footer">Footer</M.Footer>
+          </Hds::Modal>`
+    );
+    assert.dom('#test-modal').hasClass('modal-class');
+    assert.dom('#test-modal').hasAttribute('data-test-modal1');
+    assert.dom('#test-modal').hasAttribute('data-test-modal2', 'test');
+    assert.dom('#test-modal-header').hasAttribute('data-test-modal-header1');
+    assert
+      .dom('#test-modal-header')
+      .hasAttribute('data-test-modal-header2', 'test-header');
+    assert.dom('#test-modal-body').hasAttribute('data-test-modal-body1');
+    assert
+      .dom('#test-modal-body')
+      .hasAttribute('data-test-modal-body2', 'test-body');
+    assert.dom('#test-modal-footer').hasAttribute('data-test-modal-footer1');
+    assert
+      .dom('#test-modal-footer')
+      .hasAttribute('data-test-modal-footer2', 'test-footer');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+    const errorMessage =
+      '@size for "Hds::Modal" must be one of the following: small, medium, large; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Modal @size="foo" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+    const errorMessage =
+      '@color for "Hds::Modal" must be one of the following: neutral, warning, critical; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Modal @color="foo" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
