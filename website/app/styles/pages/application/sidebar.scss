@@ -1,0 +1,21 @@
+// SIDE NAVIGATION
+
+$docs-page-sidebar-width: 241px;
+
+.doc-page-sidebar {
+  flex: none;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  width: $docs-page-sidebar-width;
+  padding: 2rem 0.5rem;
+  background: white;
+  border-right: 1px solid #ddd;
+}
+
+.doc-page-sidebar__table-of-contents {
+  // width: 100%;
+  // overflow: hidden;
+  // overflow-y: auto;
+}

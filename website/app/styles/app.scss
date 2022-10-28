@@ -7,9 +7,10 @@
 @import "typography";
 
 // Pages declarations
-@import "pages/doc-page-layout"; //
+@import "pages/application"; // main application frame
 
 // "Doc" components
+@import "components/doc-landing-callout-blocks";
 @import "components/doc-table-of-contents";
 
 // Markdown
@@ -26,6 +27,13 @@
 
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 // TODO! move to another file once we have converted this to a "doc" custom component
