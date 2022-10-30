@@ -2,6 +2,7 @@
 // TABLE
 //
 //
+@use "../mixins/focus-ring" as *;
 
 $hds-table-border-radius: 6px;
 $hds-table-border-width: 1px;
@@ -20,124 +21,131 @@ $hds-table-border-color: var(--token-color-border-primary);
   border-spacing: 0;
 }
 
-.hds-table--striped {
-  tbody {
-    tr:nth-child(even) {
-      background-color: var(--token-color-surface-faint);
-    }
-  }
-}
-
-// DENSITY (ROW HEIGHT)
-.hds-table--density-short td {
-  padding: 4px 16px;
-}
-
-.hds-table--density-medium td {
-  padding: 12px 16px;
-}
-
-.hds-table--density-tall td {
-  padding: 20px 16px;
-}
-
-
+// TABLE HEADER
 .hds-table__thead {
   .hds-table__tr {
     color: var(--token-color-foreground-strong);
     background-color: var(--token-color-surface-strong);
 
+    .hds-table__th,
+    .hds-table__th-sort {
+      height: 48px;
+      color: var(--token-color-foreground-strong);
+      font-weight: var(--token-typography-font-weight-semibold);
+      font-size: 14px;
+      line-height: 1.4;
+      text-align: left;
+      background-color: var(--token-color-surface-strong);
+      border-top: none;
+      border-right: $hds-table-border-width solid $hds-table-border-color;
+      border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      border-left: none;
+    }
+
+    .hds-table__th {
+      padding: 8px 16px;
+    }
+
+    .hds-table__th-sort {
+      padding: 0;
+
+      button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 48px;
+        margin: 0;
+        padding: 12px 16px;
+        font: inherit;
+        border: 1px solid transparent;
+        border-radius: $hds-table-border-radius;
+
+        &:visited {
+          color: var(--token-color-foreground-strong);
+        }
+
+        &:hover {
+          color: var(--token-color-foreground-strong);
+          background-color: var(--token-color-palette-neutral-200);
+          cursor: pointer;
+        }
+
+        &:focus,
+        &:focus-visible {
+          border: 1px solid var(--token-color-focus-action-external);
+          border-radius: 0;
+          border-top-left-radius: $hds-table-border-radius;
+          outline: 0;
+          box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
+        }
+
+        &:active {
+          color: var(--token-color-foreground-strong);
+          background-color: var(--token-color-palette-neutral-300);
+        }
+
+        svg { // in case they don't use flight icons
+          margin-left: 8px;
+          color: var(--token-color-foreground-action);
+        }
+      }
+    }
+
+    // BORDER RADIUS: TARGET FIRST AND LAST TH ELEMENTS IN THE ROW
     &:first-of-type {
       th:first-child {
         border-left: none;
         border-top-left-radius: $hds-table-inner-border-radius;
 
+        // IF SORTABLE, WILL CONTAIN A BUTTON FOR SORTING
         button {
           &:focus,
           :focus-visible {
-            border-color: var(--token-color-focus-action-external);
+            @include hds-focus-ring-basic();
             border-top-left-radius: $hds-table-inner-border-radius;
           }
         }
       }
 
+      // LAST TH IN THE ROW, BORDER RADIUS
       th:last-child {
         border-right: none;
         border-top-right-radius: $hds-table-inner-border-radius;
 
-        button { // I don't like this, it feels weird to have declared in multiple places- open to ideas on how to organize this CSS so we don't have to repeat selectors like this.
+        button {
           &:focus,
           :focus-visible {
-            border-color: var(--token-color-focus-action-external);
+            @include hds-focus-ring-basic();
             border-top-right-radius: $hds-table-inner-border-radius;
           }
         }
       }
     }
   }
+}
 
-  .hds-table__th,
-  .hds-table__th-sort {
-    height: 48px;
-    padding: 8px 16px;
-    color: var(--token-color-foreground-strong);
-    font-weight: var(--token-typography-font-weight-semibold);
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: left;
-    background-color: var(--token-color-surface-strong);
-    border-top: none;
-    border-right: $hds-table-border-width solid $hds-table-border-color;
-    border-bottom: $hds-table-border-width solid $hds-table-border-color;
-    border-left: none;
-  }
+// TABLE BODY
 
-  .hds-table__th-sort {
-    padding: 0; // we're taking it out here because we need it on the interactive content instead
-
-    button {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      padding: 8px 16px;
-      color: var(--token-color-foreground-strong);
-      font-weight: var(--token-typography-font-weight-semibold);
-      font-size: 14px;
-      line-height: 1.4;
-      text-decoration: none;
-      background-color: transparent;
-      border: 3px solid transparent;
-      border-radius: 0;
-
-      &:visited {
-        color: var(--token-color-foreground-strong);
-      }
-
-      &:hover {
-        color: var(--token-color-foreground-strong);
-        background-color: var(--token-color-palette-neutral-200);
-        cursor: pointer;
-      }
-
-      &:focus,
-      &:focus-visible {
-        color: var(--token-color-foreground-strong);
-        border-color: var(--token-color-focus-action-external);
-        outline: 0; // I'm not sure what to do here because we'll need our outline style but you can't change the outline radius
-      }
-
-      &:active {
-        color: var(--token-color-foreground-strong);
-        background-color: var(--token-color-palette-neutral-300);
-      }
-
-      svg { // in case they don't use flight icons
-        margin-left: 8px;
-        color: var(--token-color-foreground-action);
-      }
+// TABLE STRIPING ROWS
+.hds-table--striped {
+  .hds-table__tbody { // TBH this seems a little strict, if there are two tr's in a thead we have bigger problems
+    .hds-table__tr:nth-child(even) {
+      background-color: var(--token-color-surface-faint);
     }
   }
+}
+
+// TABLE DENSITY (TBODY ROW HEIGHT)
+.hds-table--density-short .hds-table__tbody td {
+  padding: 4px 16px;
+}
+
+.hds-table--density-medium .hds-table__tbody td {
+  padding: 12px 16px;
+}
+
+.hds-table--density-tall .hds-table__tbody td {
+  padding: 20px 16px;
 }
 
 .hds-table__tbody {
@@ -145,6 +153,7 @@ $hds-table-border-color: var(--token-color-border-primary);
     color: var(--token-color-foreground-primary);
     font-weight: var(--token-typography-font-weight-regular);
     background-color: var(--token-color-surface-primary);
+
 
     td {
       border-top: none;
@@ -157,10 +166,7 @@ $hds-table-border-color: var(--token-color-border-primary);
       }
     }
 
-    &:nth-of-type(2n) {
-      background-color: var(--token-color-surface-faint);
-    }
-
+    // BORDER RADIUS: TARGET FIRST AND LAST TD ELEMENTS IN THE LAST ROW
     &:last-of-type {
       td {
         border-bottom: none;
