@@ -55,6 +55,7 @@ $hds-table-border-color: var(--token-color-border-primary);
         margin: 0;
         padding: 12px 16px;
         font: inherit;
+        background-color: transparent;
         border: 1px solid transparent;
         border-radius: 0; // this has to be separately declared on the specific cells that need to be rounded
 
@@ -95,10 +96,7 @@ $hds-table-border-color: var(--token-color-border-primary);
 
         // IF SORTABLE, WILL CONTAIN A BUTTON FOR SORTING
         button {
-          &:focus,
-          :focus-visible {
-            border-top-left-radius: $hds-table-inner-border-radius;
-          }
+          border-top-left-radius: $hds-table-border-radius;
         }
       }
 
@@ -107,12 +105,8 @@ $hds-table-border-color: var(--token-color-border-primary);
         border-right: none;
         border-top-right-radius: $hds-table-inner-border-radius;
 
-        button {
-          &:focus,
-          :focus-visible {
-            border-top-left-radius: 0;
-            border-top-right-radius: $hds-table-inner-border-radius;
-          }
+        button { // so the background color and focus border will be correct
+          border-top-right-radius: $hds-table-border-radius;
         }
       }
     }
