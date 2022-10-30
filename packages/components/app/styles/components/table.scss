@@ -69,7 +69,7 @@ $hds-table-border-color: var(--token-color-border-primary);
         }
 
         &:focus,
-        &:focus-visible { //using the mixin doesn't work for this one, so we copy the styles
+        &:focus-visible { // using the mixin doesn't work for this one, so we copy the styles
           border: 1px solid var(--token-color-focus-action-external);
           outline: 0;
           box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
