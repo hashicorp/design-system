@@ -2,8 +2,6 @@
 // TABLE
 //
 //
-@use "../mixins/focus-ring" as *;
-
 $hds-table-border-radius: 6px;
 $hds-table-border-width: 1px;
 $hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
@@ -59,6 +57,7 @@ $hds-table-border-color: var(--token-color-border-primary);
         border: 1px solid transparent;
         border-radius: 0; // this has to be separately declared on the specific cells that need to be rounded
 
+
         &:visited {
           color: var(--token-color-foreground-strong);
         }
@@ -70,7 +69,7 @@ $hds-table-border-color: var(--token-color-border-primary);
         }
 
         &:focus,
-        &:focus-visible {
+        &:focus-visible { //using the mixin doesn't work for this one, so we copy the styles
           border: 1px solid var(--token-color-focus-action-external);
           outline: 0;
           box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
@@ -117,7 +116,7 @@ $hds-table-border-color: var(--token-color-border-primary);
 
 // TABLE STRIPING ROWS
 .hds-table--striped {
-  .hds-table__tbody { // TBH this seems a little strict, if there are two tr's in a thead we have bigger problems
+  .hds-table__tbody {
     .hds-table__tr:nth-child(even) {
       background-color: var(--token-color-surface-faint);
     }
