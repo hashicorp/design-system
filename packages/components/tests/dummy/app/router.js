@@ -44,6 +44,7 @@ Router.map(function () {
     this.route('tag');
     this.route('toast');
     this.route('tabs');
+    this.route('pagination');
   });
   this.route('content', function () {
     this.route('writing-guidelines');
