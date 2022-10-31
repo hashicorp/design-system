@@ -9111,53 +9111,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docfy-website@workspace:packages/docfy-website":
-  version: 0.0.0-use.local
-  resolution: "docfy-website@workspace:packages/docfy-website"
-  dependencies:
-    "@docfy/ember": ^0.5.0
-    "@ember/optional-features": ^2.0.0
-    "@ember/test-helpers": ^2.8.1
-    "@glimmer/component": ^1.1.2
-    "@glimmer/tracking": ^1.1.2
-    "@hashicorp/design-system-components": "workspace:^"
-    "@hashicorp/ember-flight-icons": "workspace:^"
-    babel-eslint: ^10.1.0
-    broccoli-asset-rev: ^3.0.0
-    ember-auto-import: ^2.4.2
-    ember-cli: ~4.7.0
-    ember-cli-app-version: ^5.0.0
-    ember-cli-babel: ^7.26.11
-    ember-cli-dependency-checker: ^3.3.1
-    ember-cli-htmlbars: ^6.1.0
-    ember-cli-inject-live-reload: ^2.1.0
-    ember-cli-sass: ^11.0.1
-    ember-cli-sri: ^2.1.1
-    ember-cli-terser: ^4.0.2
-    ember-fetch: ^8.1.2
-    ember-load-initializers: ^2.1.2
-    ember-page-title: ^7.0.0
-    ember-qunit: ^5.1.5
-    ember-resolver: ^8.0.3
-    ember-source: ~4.7.0
-    ember-template-lint: ^4.14.0
-    ember-truth-helpers: ^3.1.1
-    eslint: ^7.32.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-ember: ^11.0.6
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^7.3.1
-    loader.js: ^4.7.0
-    npm-run-all: ^4.1.5
-    prettier: ^2.7.1
-    qunit: ^2.19.1
-    qunit-dom: ^2.0.0
-    sass: ^1.53.0
-    webpack: ^5.74.0
-  languageName: unknown
-  linkType: soft
-
 "doctrine@npm:^3.0.0":
   version: 3.0.0
   resolution: "doctrine@npm:3.0.0"
@@ -23201,6 +23154,53 @@ __metadata:
   checksum: 320c41369a75051b19e18c63f408b3dcc481852e992f83d311771c5ec0f05f2946385e8ebef62030cf3587f0a3d2f12779ffdb191569a966847289ba7313f946
   languageName: node
   linkType: hard
+
+"website-docfy@workspace:website-docfy":
+  version: 0.0.0-use.local
+  resolution: "website-docfy@workspace:website-docfy"
+  dependencies:
+    "@docfy/ember": ^0.5.0
+    "@ember/optional-features": ^2.0.0
+    "@ember/test-helpers": ^2.8.1
+    "@glimmer/component": ^1.1.2
+    "@glimmer/tracking": ^1.1.2
+    "@hashicorp/design-system-components": "workspace:^"
+    "@hashicorp/ember-flight-icons": "workspace:^"
+    babel-eslint: ^10.1.0
+    broccoli-asset-rev: ^3.0.0
+    ember-auto-import: ^2.4.2
+    ember-cli: ~4.7.0
+    ember-cli-app-version: ^5.0.0
+    ember-cli-babel: ^7.26.11
+    ember-cli-dependency-checker: ^3.3.1
+    ember-cli-htmlbars: ^6.1.0
+    ember-cli-inject-live-reload: ^2.1.0
+    ember-cli-sass: ^11.0.1
+    ember-cli-sri: ^2.1.1
+    ember-cli-terser: ^4.0.2
+    ember-fetch: ^8.1.2
+    ember-load-initializers: ^2.1.2
+    ember-page-title: ^7.0.0
+    ember-qunit: ^5.1.5
+    ember-resolver: ^8.0.3
+    ember-source: ~4.7.0
+    ember-template-lint: ^4.14.0
+    ember-truth-helpers: ^3.1.1
+    eslint: ^7.32.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-ember: ^11.0.6
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-qunit: ^7.3.1
+    loader.js: ^4.7.0
+    npm-run-all: ^4.1.5
+    prettier: ^2.7.1
+    qunit: ^2.19.1
+    qunit-dom: ^2.0.0
+    sass: ^1.53.0
+    webpack: ^5.74.0
+  languageName: unknown
+  linkType: soft
 
 "website-html-to-markdown@workspace:website-html-to-markdown":
   version: 0.0.0-use.local

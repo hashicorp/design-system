@@ -1,5 +1,5 @@
-import Application from 'docfy-website/app';
-import config from 'docfy-website/config/environment';
+import Application from 'website-docfy/app';
+import config from 'website-docfy/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

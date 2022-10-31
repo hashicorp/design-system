@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'docfy-website',
+    modulePrefix: 'website-docfy',
     environment,
     rootURL: '/',
     locationType: 'history',
