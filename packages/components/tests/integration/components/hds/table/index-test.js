@@ -12,18 +12,22 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Table />`);
-    assert.dom('[data-test-table]').hasClass('hds-table');
+    await render(hbs`<Hds::Table id="data-test-table"/>`);
+    assert.dom('#data-test-table').hasClass('hds-table');
   });
 
   test('it should support splattributes', async function (assert) {
-    await render(hbs`<Hds::Table id="test-table" />`);
-    assert.dom('[data-test-table]').hasAttribute('id', 'test-table');
+    await render(
+      hbs`<Hds::Table id="data-test-table" aria-label="data test table" />`
+    );
+    assert
+      .dom('#data-test-table')
+      .hasAttribute('aria-label', 'data test table');
   });
 
   test('it should render the table with manual data passed and no model defined', async function (assert) {
     await render(hbs`
-      <Hds::Table>
+      <Hds::Table id="data-test-table">
         <:head>
           <Hds::Table::Tr>
             <Hds::Table::Th>Cell Header 1</Hds::Table::Th>
@@ -51,11 +55,9 @@ module('Integration | Component | hds/table/index', function (hooks) {
       </Hds::Table>
     `);
 
+    assert.dom('#data-test-table tr th:first-of-type').hasText('Cell Header 1');
     assert
-      .dom('[data-test-table] tr th:first-of-type')
-      .hasText('Cell Header 1');
-    assert
-      .dom('[data-test-table] tr td:first-of-type')
+      .dom('#data-test-table tr td:first-of-type')
       .hasText('Cell Content 1 1');
   });
 });
