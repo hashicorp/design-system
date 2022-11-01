@@ -5,3 +5,27 @@
 <p>Here we may want to show a list of callout blocks linking to "components" sub-pages like in Atlassian or Evergreen</p>
 
 <pre>How do we generate dynamically the list, without having to edit it manually?</pre>
+
+<DocfyOutput @scope="components" as |node|>
+  <ul>
+    {{#each node.pages as |page|}}
+      <li>
+        <DocfyLink @to={{page.url}}>
+          {{page.title}}
+        </DocfyLink>
+      </li>
+    {{/each}}
+  </ul>
+</DocfyOutput>
+
+<DocfyOutput @type="flat" as |pages|>
+  <ul class="list-disc list-inside space-y-2">
+    {{#each pages as |page|}}
+      <li>
+        <DocfyLink @to={{page.url}}>
+          {{page.title}}
+        </DocfyLink>
+     </li>
+    {{/each}}
+  </ul>
+</DocfyOutput>
