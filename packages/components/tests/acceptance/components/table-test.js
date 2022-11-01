@@ -1,15 +1,9 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, click } from '@ember/test-helpers';
+import { visit, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | components/table', function (hooks) {
   setupApplicationTest(hooks);
-
-  test('visiting /components/table', async function (assert) {
-    await visit('/components/table');
-
-    assert.strictEqual(currentURL(), '/components/table');
-  });
 
   test('the sortable table exists on the page', async function (assert) {
     await visit('/components/table');
