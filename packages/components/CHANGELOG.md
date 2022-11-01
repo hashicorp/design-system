@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.3.1
+
+### Patch Changes
+
+- [#663](https://github.com/hashicorp/design-system/pull/663) [`1397d52c`](https://github.com/hashicorp/design-system/commit/1397d52c4405bb768b8cf0e7db2e0503d48f8f00) Thanks [@nfagerlund](https://github.com/nfagerlund)! - Tabs::Panel: Regress modern helper syntax for 3.24 compatibility
+
 ## 1.3.0
 
 ### Minor Changes
