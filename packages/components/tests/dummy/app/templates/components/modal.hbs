@@ -2,16 +2,11 @@
 
 <h2 class="dummy-h2">Modal</h2>
 
-{{! ADD YOUR CONTENT BELOW }}
-{{! Please follow as much as possible what it's already done in other components. }}
-{{! You can start by copy&pasting it, if you want, and then adapt it according to your needs. }}
-{{! Once done, please remove these comments (they're created by the generator). }}
-
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
-  <p class="dummy-paragraph">Modals are used as an interstitial to request information or feedback from the user,
-    confirm a decision, or less frequently to provide additional context about a function or feature.</p>
+  <p class="dummy-paragraph">Modals are used to request information or feedback from the user, confirm a decision, or
+    less frequently to provide additional context about a function or feature.</p>
 </section>
 
 <section>
@@ -75,12 +70,12 @@
     <code class="dummy-code">Footer</code>
     keys.</p>
   <dl class="dummy-component-props" aria-labelledby="contextual-components-modal">
-    <dt>&lt;[M].Header&gt; <code>yielded component</code> <strong class="required">required</strong></dt>
+    <dt>&lt;[M].Header&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content as the title of the modal dialog.</p>
-      <p>It accepts
+      <p>It supports
         <code class="dummy-code">...attributes</code>
-        spreading.</p>
+      </p>
       <dl class="dummy-component-props">
         <dt>icon <code>string</code></dt>
         <dd>
@@ -91,7 +86,8 @@
         </dd>
         <dt>tagline <code>string</code></dt>
         <dd>
-          <p>A string that helps the user maintain context when a modal dialog is open.</p>
+          <p>A string that helps the user maintain context when a modal dialog is open. (Note: this is NOT the title
+            text, but a small piece of text above the title text.)</p>
         </dd>
         <dt>...attributes</dt>
         <dd>
@@ -102,9 +98,13 @@
     <dt>&lt;[M].Body&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is an unstyled, generic container that yields as the main content of the modal dialog.</p>
-      <p>It accepts
-        <code class="dummy-code">...attributes</code>
-        spreading.</p>
+      <p>This container gets a scrollbar when the yielded content exceeds the available space.</p>
+      <dl class="dummy-component-props">
+        <dt>...attributes</dt>
+        <dd>
+          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+        </dd>
+      </dl>
     </dd>
     <dt>&lt;[M].Footer&gt; <code>yielded component</code></dt>
     <dd>
@@ -112,15 +112,70 @@
       <p>We recommend using it exclusively for actions using the
         <LinkTo @route="components.button-set"><code class="dummy-code">ButtonSet</code></LinkTo>
         component. If a tertiary action is presented, it will always be aligned at the end of the row.</p>
-      <p>It accepts
-        <code class="dummy-code">...attributes</code>
-        spreading.</p>
+      <dl class="dummy-component-props">
+        <dt>...attributes</dt>
+        <dd>
+          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+        </dd>
+      </dl>
     </dd>
   </dl>
 </section>
 
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+
+  <h4 class="dummy-h4">Browser support</h4>
+  <p class="dummy-paragraph">
+    The
+    <code class="dummy-code">Hds::Modal</code>
+    component leverages the
+    <code class="dummy-code">&lt;dialog&gt;</code>
+    element which is currently supported by all major browser vendors. To ensure support on older browser versions (for
+    example, Safari 14 or Internet Explorer 11) we rely on
+    <a href="https://github.com/GoogleChrome/dialog-polyfill" rel="noopener noreferrer" target="_blank">a polyfill</a>.
+  </p>
+  <p class="dummy-paragraph">
+    The polyfill consists of two assets:
+    <ul>
+      <li><code class="dummy-code">node_modules/dialog-polyfill/dist/dialog-polyfill.css</code></li>
+      <li><code class="dummy-code">node_modules/dialog-polyfill/dist/dialog-polyfill.js</code></li>
+    </ul>
+    that should be added to your
+    <a
+      href="https://github.com/hashicorp/design-system/blob/main/packages/components/ember-cli-build.js"
+      rel="noopener noreferrer"
+      target="_blank"
+    ><code class="dummy-code">ember-cli-build.js</code></a>
+  </p>
+
+  <h4 class="dummy-h4">Page scroll</h4>
+  <p class="dummy-paragraph">
+    When an
+    <code class="dummy-code">Hds::Modal</code>
+    component is open the rest of the page becomes inert. However, scrolling at the page level is still available. To
+    make it clear to the users that the underlying elements are not interactive and to avoid confusion, we recommend
+    disabling the page scroll
+    <code class="dummy-code">onOpen</code>
+    and enabling it back
+    <code class="dummy-code">onClose</code>
+    (for example, by setting
+    <code class="dummy-code">overflow: hidden;</code>
+    and
+    <code class="dummy-code">overflow: auto;</code>
+    respectively).
+  </p>
+
+  <h4 class="dummy-h4">Positioning</h4>
+  <p class="dummy-paragraph">
+    As an overlaying component, the
+    <code class="dummy-code">Hds::Modal</code>
+    requires a high value on the z-axis. We are currently setting
+    <code class="dummy-code">50</code>
+    as a default value, but we recommend you review the
+    <code class="dummy-code">z-index</code>
+    values used across the project and either adjust them accordingly or increase this value by defining an override.
+  </p>
 
   <h4 class="dummy-h4">Basic use</h4>
   <p class="dummy-paragraph">The simplest way to invoke a modal is by doing something like this:</p>
@@ -129,7 +184,11 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Button @text="Open basic modal" @color="secondary" \{{on "click" (fn this.activateModal "basicModalActive")}} />
+      <Hds::Button
+        @text="Open basic modal"
+        @color="secondary"
+        \{{on "click" (fn this.activateModal "basicModalActive")}}
+      />
 
       \{{#if this.basicModalActive}}
         <Hds::Modal id="basic-modal" @onClose=\{{fn this.deactivateModal "basicModalActive"}} as |M|>
@@ -140,7 +199,11 @@
             <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
           </M.Body>
           <M.Footer>
-            <Hds::Button type="submit" @text="Confirm" \{{on "click" (fn this.deactivateModal "basicModalActive")}} />
+            <Hds::Button
+              type="submit"
+              @text="Confirm"
+              \{{on "click" (fn this.deactivateModal "basicModalActive")}}
+            />
           </M.Footer>
         </Hds::Modal>
       \{{/if}}
@@ -176,7 +239,11 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Button @text="Open form modal" @color="secondary" \{{on "click" (fn this.activateModal "formModalActive")}} />
+      <Hds::Button
+        @text="Open form modal"
+        @color="secondary"
+        \{{on "click" (fn this.activateModal "formModalActive")}}
+      />
 
       \{{#if this.formModalActive}}
         <Hds::Modal id="form-modal" @onClose=\{{fn this.deactivateModal "formModalActive"}} as |M|>
@@ -197,7 +264,12 @@
           <M.Footer>
             <Hds::ButtonSet>
               <Hds::Button type="submit" @text="Leave Beta" />
-              <Hds::Button type="submit" @text="Cancel" @color="secondary" \{{on "click" (fn this.deactivateModal "formModalActive")}} />
+              <Hds::Button
+                type="submit"
+                @text="Cancel"
+                @color="secondary"
+                \{{on "click" (fn this.deactivateModal "formModalActive")}}
+              />
             </Hds::ButtonSet>
           </M.Footer>
         </Hds::Modal>
