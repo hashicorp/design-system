@@ -1,0 +1,13 @@
+// DISMISS-BUTTON
+
+.dummy-dismiss-button-states-grid {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 0;
+
+  .hds-dismiss-button {
+    margin: 4px; // to compensate for the negative margin of the component
+  }
+}

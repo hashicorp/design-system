@@ -51,6 +51,7 @@ Router.map(function () {
   });
   this.route('utilities', function () {
     this.route('disclosure');
+    this.route('dismiss-button');
     this.route('interactive');
   });
   this.route('overrides', function () {
