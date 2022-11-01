@@ -1,5 +1,17 @@
 # @hashicorp/design-system-tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- [#629](https://github.com/hashicorp/design-system/pull/629) [`a079992f`](https://github.com/hashicorp/design-system/commit/a079992fbbed11812fcf4cdd4409a00fa2d246f1) Thanks [@didoo](https://github.com/didoo)! - added component-level design tokens for `Tabs` component
+
+* [#646](https://github.com/hashicorp/design-system/pull/646) [`ecbe26df`](https://github.com/hashicorp/design-system/commit/ecbe26df6bdbaf7b4f00c70d016eead0da9168f0) Thanks [@jorytindall](https://github.com/jorytindall)! - Updated the box-shadow values for overlay tokens.
+
+### Patch Changes
+
+- [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+
 ## 1.1.0
 
 ### Minor Changes

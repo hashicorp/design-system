@@ -2741,8 +2741,8 @@ __metadata:
     "@embroider/test-setup": ^1.8.3
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@hashicorp/design-system-tokens": ^1.1.0
-    "@hashicorp/ember-flight-icons": ^3.0.0
+    "@hashicorp/design-system-tokens": ^1.2.0
+    "@hashicorp/ember-flight-icons": ^3.0.1
     "@percy/cli": ^1.12.0
     "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
@@ -2798,7 +2798,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@^1.1.0, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@^1.2.0, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -2829,7 +2829,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^3.0.0, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^3.0.1, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -2838,7 +2838,7 @@ __metadata:
     "@embroider/test-setup": ^1.8.3
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@hashicorp/flight-icons": ^2.11.0
+    "@hashicorp/flight-icons": ^2.11.1
     "@percy/cli": ^1.12.0
     "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
@@ -2878,7 +2878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@^2.11.0, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@^2.11.1, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
@@ -12109,8 +12109,8 @@ __metadata:
     "@ember/test-helpers": ^2.8.1
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@hashicorp/ember-flight-icons": ^3.0.0
-    "@hashicorp/flight-icons": ^2.11.0
+    "@hashicorp/ember-flight-icons": ^3.0.1
+    "@hashicorp/flight-icons": ^2.11.1
     "@percy/cli": ^1.12.0
     "@percy/ember": ^4.0.0
     "@tailwindcss/forms": ^0.3.4
