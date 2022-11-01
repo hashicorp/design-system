@@ -3,6 +3,57 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+// we're using this for multiple tests so we'll declare context once and use it when we need it.
+const setData = (context) => {
+  context.set('model', [
+    {
+      id: '1',
+      type: 'folk',
+      artist: 'Nick Drake',
+      album: 'Pink Moon',
+      year: '1972',
+    },
+    {
+      id: '2',
+      type: 'folk',
+      artist: 'The Beatles',
+      album: 'Abbey Road',
+      year: '1969',
+    },
+    {
+      id: '3',
+      type: 'folk',
+      artist: 'Melanie',
+      album: 'Candles in the Rain',
+      year: '1971',
+    },
+  ]);
+  context.set('columns', [
+    { key: 'artist', label: 'Artist' },
+    { key: 'album', label: 'Album' },
+    { key: 'year', label: 'Year' },
+  ]);
+  context.set('sortBy', 'artist');
+};
+const renderSortableTable = async () => {
+  await render(hbs`
+  <Hds::Table
+        @model={{this.model}}
+        @sortBy={{this.sortBy}}
+        @columns={{this.columns}}
+        id="data-test-table"
+      >
+        <:body as |row|>
+          <Hds::Table::Tr>
+            <td>{{row.artist}}</td>
+            <td>{{row.album}}</td>
+            <td>{{row.year}}</td>
+          </Hds::Table::Tr>
+        </:body>
+      </Hds::Table>
+  `);
+};
+
 module('Integration | Component | hds/table/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -96,56 +147,24 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it should render a sortable table when appropriate', async function (assert) {
-    this.set('model', [
-      {
-        id: '1',
-        type: 'folk',
-        artist: 'Nick Drake',
-        album: 'Pink Moon',
-        year: '1972',
-      },
-      {
-        id: '2',
-        type: 'folk',
-        artist: 'The Beatles',
-        album: 'Abbey Road',
-        year: '1969',
-      },
-      {
-        id: '3',
-        type: 'folk',
-        artist: 'Melanie',
-        album: 'Candles in the Rain',
-        year: '1971',
-      },
-    ]);
-    this.set('columns', [
-      { key: 'artist', label: 'Artist' },
-      { key: 'album', label: 'Album' },
-      { key: 'year', label: 'Year' },
-    ]);
-    this.set('sortBy', 'artist');
+    setData(this);
 
-    await render(hbs`
-      <Hds::Table
-        @model={{this.model}}
-        @sortBy={{this.sortBy}}
-        @columns={{this.columns}}
-        id="data-test-table"
-      >
-        <:body as |row|>
-          <Hds::Table::Tr>
-            <td>{{row.artist}}</td>
-            <td>{{row.album}}</td>
-            <td>{{row.year}}</td>
-          </Hds::Table::Tr>
-        </:body>
-      </Hds::Table>
-    `);
+    await renderSortableTable();
 
     assert
       .dom('#data-test-table th:first-of-type')
       .hasClass('hds-table__th-sort');
     assert.dom('#data-test-table th:first-of-type').hasText('Artist');
+  });
+
+  test('it should render a sortable table with an empty caption', async function (assert) {
+    setData(this);
+
+    await renderSortableTable();
+
+    assert
+      .dom('#data-test-table th:first-of-type')
+      .hasClass('hds-table__th-sort');
+    assert.dom('#data-test-table caption').hasText('');
   });
 });
