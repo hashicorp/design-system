@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/table/index', function (hooks) {
@@ -93,5 +93,59 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert
       .dom('#data-test-table tr:last-of-type td:first-of-type')
       .hasText('3');
+  });
+
+  test('it should render a sortable table when appropriate', async function (assert) {
+    this.set('model', [
+      {
+        id: '1',
+        type: 'folk',
+        artist: 'Nick Drake',
+        album: 'Pink Moon',
+        year: '1972',
+      },
+      {
+        id: '2',
+        type: 'folk',
+        artist: 'The Beatles',
+        album: 'Abbey Road',
+        year: '1969',
+      },
+      {
+        id: '3',
+        type: 'folk',
+        artist: 'Melanie',
+        album: 'Candles in the Rain',
+        year: '1971',
+      },
+    ]);
+    this.set('columns', [
+      { key: 'artist', label: 'Artist' },
+      { key: 'album', label: 'Album' },
+      { key: 'year', label: 'Year' },
+    ]);
+    this.set('sortBy', 'artist');
+
+    await render(hbs`
+      <Hds::Table
+        @model={{this.model}}
+        @sortBy={{this.sortBy}}
+        @columns={{this.columns}}
+        id="data-test-table"
+      >
+        <:body as |row|>
+          <Hds::Table::Tr>
+            <td>{{row.artist}}</td>
+            <td>{{row.album}}</td>
+            <td>{{row.year}}</td>
+          </Hds::Table::Tr>
+        </:body>
+      </Hds::Table>
+    `);
+
+    assert
+      .dom('#data-test-table th:first-of-type')
+      .hasClass('hds-table__th-sort');
+    assert.dom('#data-test-table th:first-of-type').hasText('Artist');
   });
 });
