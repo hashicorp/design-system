@@ -84,8 +84,9 @@ async function convert() {
           //     return node.outerHTML;
           //   },
           // });
-          turndownService.keep(['dl']);
-          markdownContent = turndownService.turndown(hbsSource);
+          // turndownService.keep(['dl']);
+          // markdownContent = turndownService.turndown(hbsSource);
+          markdownContent = `# COMPONENT API - TODO\n`;
           break;
         // HOW TO USE
         case '03--how-to-use.hbs':
@@ -104,7 +105,7 @@ async function convert() {
         // SHOWCASE
         case '06--showcase.hbs':
           // we skip the showcase files for now
-          markdownContent = hbsSource;
+          markdownContent = `# SHOWCASE - TODO\n`;
           break;
         // OTHER ("generic")
         default:

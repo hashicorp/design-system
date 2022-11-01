@@ -22,10 +22,10 @@
     "preprocess-files": "ts-node --transpile-only ./scripts/preprocess-files",
     "convert-to-markdown": "ts-node --transpile-only ./scripts/convert-to-markdown",
     "prettify-files": "echo '\n==========\nPrettifying markdown files...\n' && npx prettier --loglevel warn --write temp/split-files",
-    "prepare-dest-folder": "rm -fr ../website/docs/components && mkdir ../website/docs/components && rm -fr ../website/docs/content && mkdir ../website/docs/content && rm -fr ../website/docs/foundations && mkdir ../website/docs/foundations && rm -fr ../website/docs/overrides && mkdir ../website/docs/overrides&& rm -fr ../website/docs/utilities && mkdir ../website/docs/utilities",
-    "copy-markdown-files": "echo '\n==========\nCopying markdown files to `docs` folder...\n' && cp -r ./temp/markdown/* ../website/docs/",
-    "copy-assets-folder": "rm -fr ../website/public/assets/images && cp -r ../packages/components/tests/dummy/public/assets/images ../website/public/assets/",
-    "copy-extra-temp-files": "cp -r ./moveover/* ../website/docs/",
+    "prepare-dest-folder": "rm -fr ../website-docfy/docs/components && mkdir ../website-docfy/docs/components && rm -fr ../website-docfy/docs/content && mkdir ../website-docfy/docs/content && rm -fr ../website-docfy/docs/foundations && mkdir ../website-docfy/docs/foundations && rm -fr ../website-docfy/docs/overrides && mkdir ../website-docfy/docs/overrides&& rm -fr ../website-docfy/docs/utilities && mkdir ../website-docfy/docs/utilities",
+    "copy-markdown-files": "echo '\n==========\nCopying markdown files to `docs` folder...\n' && cp -r ./temp/markdown/* ../website-docfy/docs/",
+    "copy-assets-folder": "rm -fr ../website-docfy/public/assets/images && cp -r ../packages/components/tests/dummy/public/assets/images ../website-docfy/public/assets/",
+    "copy-extra-temp-files": "cp -r ./moveover/* ../website-docfy/docs/",
     "cleanup-temp-folder": "rm -fr temp"
   },
   "devDependencies": {
