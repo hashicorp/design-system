@@ -1,0 +1,17 @@
+{{page-title "Components"}}
+
+<DocfyOutput @scope="components" as |node|>
+  <ul>
+    {{#each node.pages as |page|}}
+      <li>
+        <DocfyLink @to={{page.url}}>
+          {{page.title}}
+        </DocfyLink>
+      </li>
+    {{/each}}
+  </ul>
+</DocfyOutput>
+
+<div>
+  {{outlet}}
+</div>

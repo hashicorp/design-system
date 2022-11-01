@@ -1,0 +1,43 @@
+@font-face {
+  font-weight: 400;
+  font-family: gilmer-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("Gilmer Regular"),
+    url("/assets/fonts/gilmer-400-normal.woff2") format("woff2"),
+    url("/public/assets/fonts/gilmer-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: gilmer-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("Gilmer Medium"),
+    url("/assets/fonts/gilmer-500-normal.woff2") format("woff2"),
+    url("/public/assets/fonts/gilmer-500-normal.woff") format("woff");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: gilmer-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("Gilmer Bold"),
+    url("/assets/fonts/gilmer-700-normal.woff2") format("woff2"),
+    url("/public/assets/fonts/gilmer-700-normal.woff") format("woff");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: dejavu-sans-mono-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("DejaVu Sans Mono"),
+    url("/assets/fonts/dejavu_sans_mono-400-normal.woff2") format("woff2"),
+    url("/assets/fonts/dejavu_sans_mono-400-normal.woff") format("woff");
+}

@@ -8,5 +8,9 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
+  this.route('about');
+  this.route('foundations');
+  this.route('components');
+  this.route('patterns');
   addDocfyRoutes(this);
 });

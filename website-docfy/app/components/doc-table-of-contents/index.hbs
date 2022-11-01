@@ -1,0 +1,23 @@
+{{! template-lint-configure no-inline-styles {"allowDynamicStyles": true} }}
+
+<ul class='doc-table-of-contents'>
+  {{#each @navigationTree as |item|}}
+    {{#if item.pages}}
+      <li class='doc-table-of-contents__item'>
+        <span style={{this.leftPadStyle}}>
+          {{capitalize item.title}}
+        </span>
+        <DocTableOfContents @navigationTree={{item.pages}} @level={{add @level 1}} />
+      </li>
+    {{else}}
+      <li
+        class='doc-table-of-contents__item doc-table-of-contents__item--with-link'
+        style={{this.leftPadStyle}}
+      >
+        <LinkTo @route='show' @model={{item.id}}>
+          {{capitalize item.title}}
+        </LinkTo>
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>

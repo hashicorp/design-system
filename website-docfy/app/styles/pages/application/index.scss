@@ -1,0 +1,50 @@
+@import "./header";
+@import "./footer";
+@import "./sidebar";
+
+.doc-page-wrapper {
+  min-height: 100vh;
+}
+
+// CONTENT
+
+.doc-page-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  // min-height: 100vh;
+}
+
+// MAIN
+
+.doc-page-main {
+  flex: 1 0 auto;
+  // margin-left: $docs-page-sidenav-width;
+  padding: 2rem 4rem;
+}
+
+.doc-button-show-sidenav {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background: none;
+  border: none;
+  outline: inherit;
+  cursor: pointer;
+}
+
+
+// RESPONSIVENESS
+
+@media screen and (max-width: 950px) {
+  .doc-page-main {
+    margin-left: 0;
+  }
+
+  .doc-button-show-sidenav {
+    display: initial;
+  }
+}
