@@ -34,12 +34,14 @@ const setData = (context) => {
     { key: 'year', label: 'Year' },
   ]);
   context.set('sortBy', 'artist');
+  context.set('sortOrder', 'asc');
 };
 const renderSortableTable = async () => {
   await render(hbs`
   <Hds::Table
         @model={{this.model}}
         @sortBy={{this.sortBy}}
+        @sortOrder={{this.sortOrder}}
         @columns={{this.columns}}
         id="data-test-table"
       >
@@ -166,5 +168,47 @@ module('Integration | Component | hds/table/index', function (hooks) {
       .dom('#data-test-table th:first-of-type')
       .hasClass('hds-table__th-sort');
     assert.dom('#data-test-table caption').hasText('');
+  });
+
+  test('it sorts the rows asc by default when the sort button is clicked on an unsorted column', async function (assert) {
+    setData(this);
+
+    await renderSortableTable();
+
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
+  });
+
+  test('it updates the caption correctly after a sort has been performed', async function (assert) {
+    setData(this);
+
+    await renderSortableTable();
+
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+
+    assert.dom('#data-test-table caption').hasText('');
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
+    assert
+      .dom('#data-test-table caption')
+      .hasText('Sorted by artist descending');
+  });
+
+  test('it updates the `aria-sort` attribute value when a sort is performed', async function (assert) {
+    setData(this);
+
+    await renderSortableTable();
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert
+      .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
+      .hasAttribute('aria-sort', 'descending');
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert
+      .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
+      .hasAttribute('aria-sort', 'ascending');
   });
 });
