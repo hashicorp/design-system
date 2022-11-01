@@ -11,50 +11,6 @@ export const COLORS = ['neutral', 'warning', 'critical'];
 
 export default class HdsModalIndexComponent extends Component {
   @tracked isActive = false;
-  @action
-  setup(element) {
-    // Store a reference of the `<dialog>` element
-    this.element = element;
-
-    // Register `<dialog>` element for polyfilling
-    if (!element.showModal && window.dialogPolyfill) {
-      window.dialogPolyfill.registerDialog(element);
-      // This unscoped class is defined in the dialog polyfill: https://github.com/GoogleChrome/dialog-polyfill/blob/master/dist/dialog-polyfill.css#L33
-      element.classList.add('fixed');
-    }
-
-    // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    this.element.addEventListener('close', () => {
-      this.isActive = false;
-
-      if (this.args.onClose && typeof this.args.onClose === 'function') {
-        this.args.onClose();
-      }
-    });
-
-    // If the modal dialog is set to be open and it is not already open
-    if (!this.element.open) {
-      this.open();
-    }
-  }
-
-  @action
-  open() {
-    // Make modal dialog visible using the native `showModal` method
-    this.element.showModal();
-    this.isActive = true;
-
-    // Call "onOpen" callback function
-    if (this.args.onOpen && typeof this.args.onOpen === 'function') {
-      this.args.onOpen();
-    }
-  }
-
-  @action
-  close() {
-    // Make modal dialog invisible using the native `close` method
-    this.element.close();
-  }
 
   /**
    * Sets the size of the modal dialog
@@ -120,5 +76,50 @@ export default class HdsModalIndexComponent extends Component {
     classes.push(`hds-modal--color-${this.color}`);
 
     return classes.join(' ');
+  }
+
+  @action
+  setup(element) {
+    // Store a reference of the `<dialog>` element
+    this.element = element;
+
+    // Register `<dialog>` element for polyfilling
+    if (!element.showModal && window.dialogPolyfill) {
+      window.dialogPolyfill.registerDialog(element);
+      // This unscoped class is defined in the dialog polyfill: https://github.com/GoogleChrome/dialog-polyfill/blob/master/dist/dialog-polyfill.css#L33
+      element.classList.add('fixed');
+    }
+
+    // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    this.element.addEventListener('close', () => {
+      this.isActive = false;
+
+      if (this.args.onClose && typeof this.args.onClose === 'function') {
+        this.args.onClose();
+      }
+    });
+
+    // If the modal dialog is set to be open and it is not already open
+    if (!this.element.open) {
+      this.open();
+    }
+  }
+
+  @action
+  open() {
+    // Make modal dialog visible using the native `showModal` method
+    this.element.showModal();
+    this.isActive = true;
+
+    // Call "onOpen" callback function
+    if (this.args.onOpen && typeof this.args.onOpen === 'function') {
+      this.args.onOpen();
+    }
+  }
+
+  @action
+  close() {
+    // Make modal dialog invisible using the native `close` method
+    this.element.close();
   }
 }
