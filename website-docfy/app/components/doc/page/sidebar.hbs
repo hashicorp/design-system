@@ -1,5 +1,72 @@
-<aside class="doc-page-sidebar">
-  <nav class="doc-page-sidebar__table-of-contents">
-    {{this.navigationTree}}
+<aside class='doc-page-sidebar'>
+  <nav class='doc-page-sidebar__table-of-contents'>
+    <DocfyOutput as |node|>
+      <ul class='list-disc list-inside space-y-2'>
+        {{#each node.pages as |page|}}
+          <li>
+            <pre>page</pre>
+            <DocfyLink @to={{page.url}}>
+              {{page.title}}
+            </DocfyLink>
+          </li>
+        {{/each}}
+
+        {{#each node.children as |child|}}
+          <li class='block ml-4'>
+            <pre>child</pre>
+            <div class='py-2'>
+              {{child.label}}
+            </div>
+
+            <ul class='list-disc list-inside space-y-2'>
+              {{#each child.pages as |page|}}
+                <li>
+                  <pre>child page</pre>
+                  <DocfyLink @to={{page.url}}>
+                    {{page.title}}
+                  </DocfyLink>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/each}}
+      </ul>
+    </DocfyOutput>
+    <hr />
+    <DocfyOutput @type='nested' as |node|>
+      <ul>
+        {{#each node.pages as |page|}}
+          <li>
+            <DocfyLink @to={{page.url}}>
+              {{page.title}}
+            </DocfyLink>
+          </li>
+        {{/each}}
+
+        {{#each node.children as |child|}}
+          {{#let (get child.pages 0) as |page|}}
+            {{#if page}}
+              <li>
+                <DocfyLink @to={{page.url}}>
+                  {{child.label}}
+                </DocfyLink>
+              </li>
+            {{/if}}
+          {{/let}}
+        {{/each}}
+      </ul>
+    </DocfyOutput>
+    <hr />
+    <DocfyOutput @type='flat' as |pages|>
+      <ul class='list-disc list-inside space-y-2'>
+        {{#each pages as |page|}}
+          <li>
+            <DocfyLink @to={{page.url}}>
+              {{page.title}}
+            </DocfyLink>
+          </li>
+        {{/each}}
+      </ul>
+    </DocfyOutput>
   </nav>
 </aside>

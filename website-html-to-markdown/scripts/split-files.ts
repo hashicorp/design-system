@@ -36,6 +36,7 @@ async function split() {
     for (const filePath of files) {
       // get the relative path of the file, in relation to the "source" folder
       const fileRelativePath = path.relative(sourceFolder, filePath);
+      const fileParentCategory = fileRelativePath.split('/')[0];
 
       // we need to skip some files...
       if (
@@ -69,7 +70,7 @@ async function split() {
 
       const pageTitleMatchResults = hbsSource.match(/{{page-title "(.*)"}}/);
       const pageTitle = pageTitleMatchResults
-        ? pageTitleMatchResults[1]
+        ? pageTitleMatchResults[1].replace(' component', '')
         : 'no-page-title';
 
       // ===========================================================================
@@ -95,38 +96,57 @@ async function split() {
           ? sectionIDMatchResults[1]
           : `generic-${genericCounter}`;
 
+        let sectionOrder;
         let sectionTitle;
         let sectionFileName;
         switch (sectionID) {
           case 'overview':
+            sectionOrder = 1;
             sectionTitle = 'Overview';
-            sectionFileName = '01--overview';
+            sectionFileName = 'index';
             break;
           case 'component-api':
+            sectionOrder = 2;
             sectionTitle = 'Component API';
-            sectionFileName = '02--component-api';
+            sectionFileName = 'component-api';
             break;
           case 'how-to-use':
+            sectionOrder = 3;
             sectionTitle = 'How to use';
-            sectionFileName = '03--how-to-use';
+            sectionFileName = 'how-to-use';
             break;
           case 'design-guidelines':
+            sectionOrder = 4;
             sectionTitle = 'Design Guidelines';
-            sectionFileName = '04--design-guidelines';
+            sectionFileName = 'design-guidelines';
             break;
           case 'accessibility':
+            sectionOrder = 5;
             sectionTitle = 'Accessibility';
-            sectionFileName = '05--accessibility';
+            sectionFileName = 'accessibility';
             break;
           case 'showcase':
+            sectionOrder = 6;
             sectionTitle = 'Showcase';
-            sectionFileName = '06--showcase';
+            sectionFileName = 'showcase';
             break;
           default:
+            sectionOrder = 7;
             sectionTitle = `Generic #${genericCounter}`;
-            sectionFileName = `1${genericCounter}--generic`;
+            sectionFileName = `generic-${genericCounter}`;
             break;
         }
+
+        let frontmatter = '';
+        frontmatter += `---\n`;
+        frontmatter += `order: ${sectionOrder}\n`;
+        frontmatter += `title: ${pageTitle} - ${sectionTitle}\n`;
+        frontmatter += `category: ${fileParentCategory}\n`;
+        frontmatter += `---`;
+
+        let content = '';
+        content += `<h1>${pageTitle} - ${sectionTitle}</h1>\n\n`;
+        content += `${sectionContent}\n`
 
         // we use 'outputFile' instead of 'writeFile' to automatically create the sub-folders
         await fs.outputFile(
@@ -134,7 +154,14 @@ async function split() {
             '.hbs',
             ''
           )}/${sectionFileName}.hbs`,
-          `<h1>${pageTitle} - ${sectionTitle}</h1>\n\n${sectionContent}\n`
+          content
+        );
+        await fs.outputFile(
+          `${destFolder}/${fileRelativePath.replace(
+            '.hbs',
+            ''
+          )}/${sectionFileName}.frontmatter`,
+          frontmatter
         );
         genericCounter++;
       }

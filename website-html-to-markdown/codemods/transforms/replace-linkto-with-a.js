@@ -38,8 +38,7 @@ module.exports = function ({ source /*, path */ }, { parse, visit }) {
           if (route === 'index') {
             route = '/';
           } else {
-            // IMPORTANT: here we assume that the "index" page of a component is "01_overview", but this may not be true!
-            route = `/${route.replace(/\./g, '/')}/01_overview/`;
+            route = `/${route.replace(/\./g, '/')}/`;
           }
 
           // const outputAttrs = [...node.attributes];

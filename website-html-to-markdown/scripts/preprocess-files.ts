@@ -46,28 +46,26 @@ async function preprocess() {
       // ----------------------------
 
       switch (sectionName) {
-        case '01--overview':
+        case 'index':
           break;
-        case '02--component-api':
+        case 'component-api':
           break;
-        case '03--how-to-use':
-
+        case 'how-to-use':
           break;
-        case '04--design-guidelines':
-          //
+        case 'design-guidelines':
           break;
-        case '05--accessibility':
+        case 'accessibility':
           break;
       }
 
       // FILE SPECIFIC CHANGES
       // ----------------------------
 
-      if (fileRelativePath === 'components/tag/03--how-to-use.hbs') {
+      if (fileRelativePath === 'components/tag/how-to-use.hbs') {
         hbsSource = hbsSource.replace(/ your function here /g, 'this.yourOnDismissFunction');
         hbsSource = hbsSource.replace(/@route="components.tag"/g, '@href="#"');
       }
-      if (fileRelativePath === 'components/toast/03--how-to-use.hbs') {
+      if (fileRelativePath === 'components/toast/how-to-use.hbs') {
         hbsSource = hbsSource.replace('<Hds::Toast @onDismiss={{ your function here }} as |T|>', '<Hds::Toast @onDismiss={{this.yourOnDismissFunction}} as |T|>');
         hbsSource = hbsSource.replace(/@onDismiss=\{\{\.\.\.\}\}/g, '@onDismiss={{this.yourOnDismissFunction}}');
         hbsSource = hbsSource.replace('@onClick={{ your function here }}', '@onClick={{this.yourOnClickFunction}}');

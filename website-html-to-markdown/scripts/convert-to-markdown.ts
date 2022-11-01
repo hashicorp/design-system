@@ -45,7 +45,7 @@ async function convert() {
       const fileName = fileRelativePath.split('/').pop();
 
       // let's use a single file for testing
-      // if (fileRelativePath !== 'components/alert/03--how-to-use.hbs') {
+      // if (fileRelativePath !== 'components/alert/how-to-use.hbs') {
       //   continue;
       // }
 
@@ -64,11 +64,11 @@ async function convert() {
 
       switch (fileName) {
         // OVERVIEW
-        case '01--overview.hbs':
+        case 'index.hbs':
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // COMPONENT API
-        case '02--component-api.hbs':
+        case 'component-api.hbs':
           // turndownService.addRule('skip-dummy-component-props', {
           //   filter: function (node: HTMLElement) {
           //     const isRootNode =
@@ -89,21 +89,21 @@ async function convert() {
           markdownContent = `# COMPONENT API - TODO\n`;
           break;
         // HOW TO USE
-        case '03--how-to-use.hbs':
+        case 'how-to-use.hbs':
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // DESIGN GUIDELINES
-        case '04--design-guidelines.hbs':
+        case 'design-guidelines.hbs':
           // we skip the showcase files for now
           markdownContent = hbsSource;
           break;
         // ACCESSIBILITY
-        case '05--accessibility.hbs':
+        case 'accessibility.hbs':
           turndownService.keep(['dummy-wcag-success-criteria-list']);
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // SHOWCASE
-        case '06--showcase.hbs':
+        case 'showcase.hbs':
           // we skip the showcase files for now
           markdownContent = `# SHOWCASE - TODO\n`;
           break;
@@ -112,6 +112,12 @@ async function convert() {
           // we skip the generic files for now
           markdownContent = hbsSource;
           break;
+      }
+
+      // prepend the frontmatter if it exists
+      if (fs.existsSync(`${sourceFolder}/${fileRelativePath.replace('.hbs', '.frontmatter')}`)) {
+        const frontmatter = await fs.readFile(`${sourceFolder}/${fileRelativePath.replace('.hbs', '.frontmatter')}`, 'utf8');
+        markdownContent = `${frontmatter}\n\n${markdownContent}`;
       }
 
       // we use 'outputFile' instead of 'writeFile' to automatically create the sub-folders
