@@ -1,31 +1,10 @@
-{{! template-lint-disable link-rel-noopener no-action require-button-type require-valid-alt-text }}
-
 <div class="doc-page-wrapper">
-  <nav class="doc-page-sidenav {{if this.showSideNav 'doc-page-sidenav--always-show'}}">
-    <div class="doc-page-sidenav__top-part">
-      <LinkTo @route="show" @model="index" class="doc-page-sidenav__home-link">
-        <img class="doc-page-sidenav__logo" src="/assets/logos/hds-avatar.svg" alt="" role="none" />
-        <p class="doc-page-sidenav__text">HashiCorp Design System</p>
-      </LinkTo>
-      <DocNpmVersion />
-    </div>
-    <div class="doc-page-sidenav__table-of-contents">
-      <DocTableOfContents @tocs={{this.model}} @level={{1}} />
-    </div>
-  </nav>
+  <Doc::Page::Header />
   <div class="doc-page-content-wrapper">
+    <Doc::Page::Sidebar @tocs={{this.model}} @currentPath={{this.target.currentPath}} @currentRoute={{this.target.currentRoute}} />
     <main class="doc-page-main">
       {{outlet}}
-      <button class="doc-button-show-sidenav" {{action (mut this.showSideNav) (not this.showSideNav)}}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="25">
-          <path
-            d="M4 10h24a2 2 0 0 0 0-4H4a2 2 0 0 0 0 4zm24 4H4a2 2 0 0 0 0 4h24a2 2 0 0 0 0-4zm0 8H4a2 2 0 0 0 0 4h24a2 2 0 0 0 0-4z"
-          ></path>
-        </svg>
-      </button>
     </main>
-    <footer class="doc-page-footer">
-      FOOTER HERE
-    </footer>
   </div>
+  <Doc::Page::Footer />
 </div>

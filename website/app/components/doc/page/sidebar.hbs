@@ -1,0 +1,7 @@
+{{#if this.navigationTree}}
+  <aside class="doc-page-sidebar">
+    <nav class="doc-page-sidebar__table-of-contents">
+      <DocTableOfContents @navigationTree={{this.navigationTree}} @level={{1}} />
+    </nav>
+  </aside>
+{{/if}}

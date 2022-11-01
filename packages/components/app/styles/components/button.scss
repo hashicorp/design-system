@@ -17,6 +17,7 @@ $hds-button-focus-border-width: 3px;
   justify-content: center;
   width: auto;
   font-family: var(--token-typography-font-stack-text);
+  text-decoration: none;
   border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-button-border-radius;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
@@ -26,6 +27,16 @@ $hds-button-focus-border-width: 3px;
   // the <a> element behaves differently than a <button>
   @at-root a#{&} {
     width: fit-content;
+
+    // for more background on the use of underlining as defined below read the following document: https://docs.google.com/document/d/1acLxdRqmy92vQ8ArShPxoBFmAV0StsbZrqEic6MVt20
+    &:hover,
+    &:focus,
+    &:active,
+    &.mock-hover,
+    &.mock-focus,
+    &.mock-active {
+      text-decoration: underline;
+    }
   }
 
   // This covers all of the browsers and focus scenarios (due to the custom focus design).
