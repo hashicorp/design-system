@@ -5,11 +5,6 @@ import { setupApplicationTest } from 'ember-qunit';
 module('Acceptance | components/table', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('the sortable table exists on the page', async function (assert) {
-    await visit('/components/table');
-    assert.dom('#showcase-table-sortable-all').exists();
-  });
-
   test('it sorts the rows asc by default when the sort button is clicked on an unsorted column', async function (assert) {
     await visit('/components/table');
 
@@ -23,16 +18,6 @@ module('Acceptance | components/table', function (hooks) {
     assert
       .dom('#showcase-table-sortable-all td:nth-of-type(1)')
       .hasText('Bob Dylan');
-  });
-
-  test('it renders the empty caption by default', async function (assert) {
-    await visit('/components/table');
-
-    assert
-      .dom('#showcase-table-sortable-all td:nth-of-type(1)')
-      .hasText('Nick Drake');
-
-    assert.dom('#showcase-table-sortable-all caption').hasText('');
   });
 
   test('it updates the caption correctly after a sort has been performed', async function (assert) {
