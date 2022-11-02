@@ -24,7 +24,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
       hbs`<Hds::Table::ThSort @setSortBy={{this.setSortBy}}>Artist</Hds::Table::ThSort>`
     );
 
-    assert.dom('[data-test-table-th-sort]').hasAttribute('scope', 'col');
+    assert.dom('.hds-table__th-sort').hasAttribute('scope', 'col');
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
