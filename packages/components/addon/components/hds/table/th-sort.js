@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
 
+const NOOP = () => {};
+
 export default class HdsTableThSortComponent extends Component {
   /**
    * @param isActiveSortColumn
@@ -35,5 +37,15 @@ export default class HdsTableThSortComponent extends Component {
     } else {
       return 'swap-vertical';
     }
+  }
+
+  /**
+   * @param onClick
+   * @type {function}
+   * @default () => {}
+   */
+  get onClick() {
+    let { onClick } = this.args;
+    return onClick || NOOP;
   }
 }
