@@ -1,8 +1,8 @@
-<table class={{this.classNames}} data-test-table ...attributes>
+<table class={{this.classNames}} ...attributes>
   {{#if this.isSortableTable}}
     <caption class="sr-only" aria-live="polite">{{this.sortedMessageText}}</caption>
   {{/if}}
-  <thead class="hds-table__thead" data-test-table-head>
+  <thead class="hds-table__thead">
     {{#if this.isSortableTable}}
       <Hds::Table::Tr>
         {{#each this.columns as |column|}}
@@ -24,7 +24,7 @@
       {{yield (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th")) to="head"}}
     {{/if}}
   </thead>
-  <tbody class="hds-table__tbody" data-test-table-body>
+  <tbody class="hds-table__tbody">
     {{#if this.isSortableTable}}
       {{#each (sort-by this.getSortCriteria @model) as |data|}}
         {{yield data to="body"}}
