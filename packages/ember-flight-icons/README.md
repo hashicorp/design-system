@@ -15,8 +15,9 @@ Goals:
 
 ## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
+* Ember.js v3.28 or above
+  * Note: The library _should_ work with earlier versions of Ember, but we only test with Ember 3.28 and newer
+* Ember CLI v3.28 or above
 * Node.js v12 or above
 
 ## Installation and Usage
