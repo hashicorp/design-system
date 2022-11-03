@@ -111,10 +111,6 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
           </Hds::Modal>`
     );
-    assert.dom('.hds-modal__title').exists();
-    assert.dom('.hds-modal__title').hasText('Title');
-    assert.dom('.hds-modal__icon').doesNotExist();
-    assert.dom('.hds-modal__tagline').doesNotExist();
     // the IDs are dynamically generated
     let titleElement = this.element.querySelector('.hds-modal__title');
     let titleElementId = titleElement.id;
