@@ -17,9 +17,4 @@ export default class ModalController extends Controller {
     this[modal] = false;
     document.body.style.overflow = 'auto';
   }
-
-  @action
-  noop() {
-    console.log('noop');
-  }
 }
