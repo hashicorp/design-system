@@ -2,4 +2,111 @@
 // PAGINATIONBAR
 //
 
-// .hds-pagination-bar {}
+@use "../mixins/focus-ring" as *;
+
+.hds-pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  color: var(--token-color-foreground-primary);
+  font-size: 13px;
+}
+
+// TODO: refactor!!! (Should not reference nested component classes)
+.hds-pagination-bar__page-size {
+  > * {
+    display: flex;
+    gap: 12px; // TODO: refactor
+    align-items: center;
+    // outline: 1px dotted blue;
+  }
+
+  // attributes are spread on mested select element, not on the component's parent wrapper
+  .hds-form-label {
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  .hds-form-select {
+    height: 28px;
+    margin-top: 0 !important;
+    padding-top: 0;
+    padding-right: calc(0px + 24px);
+    padding-bottom: 0;
+    padding-left: 8px;
+    font-size: inherit;
+    background-position: center right 5px;
+  }
+}
+
+.hds-pagination-bar__pagination {
+  display: flex;
+  align-self: stretch;
+}
+
+.hds-pagination-bar__nav-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  > li {
+    display: flex;
+  }
+}
+
+.hds-pagination__nav-item {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: 5px,
+    $right: 5px,
+    $bottom: 5px,
+    $left: 5px,
+  );
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+// NOTE: Trying to account for white space around icons inside the links
+.hds-pagination__nav-item--previous { padding-left: 8px; }
+.hds-pagination__nav-item--next { padding-right: 8px; }
+
+.hds-pagination__nav-icon + .hds-pagination__nav-item-label,
+.hds-pagination__nav-item-label + .hds-pagination__nav-icon {
+  margin-left: 6px;
+}
+
+.hds-pagination__nav-item-ellipsis {
+  color: var(--token-color-foreground-faint);
+}
+
+.hds-pagination__current-page {
+  position: relative;
+  color: var(--token-color-foreground-action);
+  // outline: 1px dotted;
+
+  &:hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active {
+    color: var(--token-color-foreground-action-active);
+  }
+
+  // indicator underline
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 19px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: currentColor;
+    border-radius: 2px;
+    content: "";
+  }
+}

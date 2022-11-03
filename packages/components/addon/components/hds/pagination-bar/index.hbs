@@ -1,4 +1,65 @@
 {{! ADD YOUR TEMPLATE CONTENT HERE }}
 <div class={{this.classNames}} ...attributes>
-  {{yield}}
+  <div class="hds-pagination-bar__total-count">1–10 of 100</div>
+
+  <nav class="hds-pagination-bar__pagination">
+    <ul class="hds-pagination-bar__nav-list">
+      <li>
+        <a class="hds-pagination__nav-item hds-pagination__nav-item--previous" href="/page-?">
+          <FlightIcon @name="chevron-left" class="hds-pagination__nav-icon" /><span class="hds-pagination__nav-item-label">Previous</span>
+        </a>
+      </li>
+      <li class="hds-pagination__current-page">
+        <a class="hds-pagination__nav-item" href="/page-1">1</a>
+      </li>
+      <li>
+        <a class="hds-pagination__nav-item" href="/page-2">2</a>
+      </li>
+      <li>
+        <a class="hds-pagination__nav-item" href="/page-3">3</a>
+      </li>
+      <li>
+        <a class="hds-pagination__nav-item" href="/page-4">4</a>
+      </li>
+      <li>
+        <a class="hds-pagination__nav-item" href="/page-5">5</a>
+      </li>
+      <li>
+        <span class="hds-pagination__nav-item hds-pagination__nav-item-ellipsis">...</span>
+      </li>
+      <li>
+        <a class="hds-pagination__nav-item" href="/page-10">10</a>
+      </li>
+      <li>
+        <a class="hds-pagination__nav-item hds-pagination__nav-item--next" href="/page-?" aria-label="Next page">
+          <span class="hds-pagination__nav-item-label">Next</span><FlightIcon @name="chevron-right" class="hds-pagination__nav-icon" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="hds-pagination-bar__page-size">
+    <Hds::Form::Select::Field class="hds-pagination-bar__page-size-select" as |F|>
+      <F.Label>Items per page</F.Label>
+      <F.Options>
+        <option value="Kubernetes">10</option>
+        <option value="Other">30</option>
+        <option value="Other">50</option>
+      </F.Options>
+    </Hds::Form::Select::Field>
+  </div>
 </div>
+
+{{!
+  TEMP ROUGH NOTES
+  ------------------
+  WIP Structure:
+    * pagination-bar
+      * total-count
+      * pagination (separate out below children or keep grouped together?)
+        * page-prev
+        * pages
+          * page-item
+        * page-next
+      * page-size
+}}

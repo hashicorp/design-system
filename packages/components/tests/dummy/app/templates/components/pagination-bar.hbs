@@ -35,8 +35,16 @@
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::PaginationBar />
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 </section>
 
 <section>
@@ -68,5 +76,4 @@
 
   {{! This below is just an example of invocation, to get started }}
   <Hds::PaginationBar />
-
 </section>
