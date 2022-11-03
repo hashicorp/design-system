@@ -3,14 +3,13 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  This table component should be used for displaying tabular data.
+  The table component should be used for displaying tabular data; it renders a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank" rel="noopener noreferrer">HTML table element</a>.
 </p>
 <section>
   <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
   </h3>
-  <p class="dummy-paragraph">A table element is used to display tabular data.</p>
   <p class="dummy-paragraph">There are two named blocks in this component:
     <code class="dummy-code">:head</code>
     and
@@ -44,7 +43,18 @@
     Component API
   </h3>
   <p class="dummy-paragraph" id="component-api-table">
-    Here is the API for the component:
+    The <code class="dummy-code">Table</code> component itself is where most of options will be applied. Use of the component API (below) will automatically render sortable columns. 
+    </p>
+    <p class="dummy-paragraph">
+    Additionally, there are child components that can also be used provide custom options.
+    <ul>
+      <li class="dummy-paragraph">
+        The <code class="dummy-code">Hds::Table::Tr</code> component is a template-only component. It supports <code>...attributes</code> but is not eligible to receive interactions.
+      </li>
+      <li class="dummy-paragraph">
+        The <code class="dummy-code">Hds::Table::Td</code> component is a template-only component. It supports <code>...attributes</code> but is not eligible to receive interactions itself; however it can contain interactive elements.
+      </li>
+    </ul>
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
     <dt>model <code>array</code></dt>
@@ -145,7 +155,7 @@ export default class ComponentsTableRoute extends Route {
   <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route.</p>
+  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route. In this example, we're identifying the column headers and also capitalizing them.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -228,6 +238,12 @@ export default class ComponentsTableRoute extends Route {
   <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
     recommended, there should not be any WCAG conformance issues with this component. Developers should ensure that any
     table customizations they implement also meet the applicable WCAG Success Criteria.
+  </p>
+  <p>There are a few critical items for developers to note:
+    <ul>
+      <li>the row element (<code>tr</code>) is not eligible to receive interactions. If an interactive element is desired, place it within a table cell element (<code>td</code>).</li>
+      <li>When providing additional or alternative styles to the table element, do not change the <code>display</code> property in the CSS. This alters how the table is presented to the user with assistive technology, and they will no longer be presented with a table.</li>
+    </ul>
   </p>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
