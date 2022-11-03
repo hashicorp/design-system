@@ -3,6 +3,7 @@
 //
 
 .hds-modal {
+  z-index: 50;
   flex-direction: column;
   padding: 0;
   background: var(--token-color-surface-primary);
@@ -28,6 +29,7 @@
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 50;
   background: var(--token-color-palette-neutral-700);
   opacity: 0.5;
 }
