@@ -3,8 +3,7 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  This table component comes in two variations: a simple table for displaying data and a table with sorting
-  capabilities.
+  This table component should be used for displaying tabular data.
 </p>
 <section>
   <h3 class="dummy-h3" id="overview">
@@ -52,6 +51,38 @@
     <dd><p>If defined, sets the data source that gets yielded by the
         <code class="dummy-code">:body</code>
         named block.</p></dd>
+    <dt>columns <code>array</code></dt>
+    <dd><p>If defined, indicates that the table should be sorted and sets the column header content</p></dd>
+    <dt>sortingKeys <code>array</code></dt>
+    <dd><p>If defined, indicates which columns should be sortable</p></dd>
+    <dt>sortBy <code>string</code></dt>
+    <dd><p>If defined, indicates which column should be pre-sorted</p></dd>
+    <dt>sortOrder <code>string</code></dt>
+    <dd>
+      <p>If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>asc</li>
+        <li>desc</li>
+      </ol>
+    </dd>
+    <dt>isStriped <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>If set to <code>false</code>, zebra striping on the table will not be applied.</p>
+    </dd>
+    <dt>density <code>enum</code></dt>
+    <dd>
+      <p>If set, determines the density, or height, of the row.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>short</li>
+        <li class="default">medium</li>
+        <li>tall</li>
+      </ol>
+    </dd>
+    <dt>...attributes</dt>
+    <dd><p>Supported for the <code>hds/table</code> component.</p></dd>
   </dl>
 </section>
 <section>
@@ -436,7 +467,6 @@ export default class ComponentsTableRoute extends Route {
     @sortBy={{this.sortBy}}
     @sortOrder={{this.sortOrder}}
     @columns={{this.model.columns}}
-    id="showcase-table-sortable-all"
   >
     <:body as |data|>
       <Hds::Table::Tr>
