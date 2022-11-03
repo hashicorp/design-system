@@ -3,7 +3,12 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  The table component should be used for displaying tabular data; it renders a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank" rel="noopener noreferrer">HTML table element</a>.
+  The table component should be used for displaying tabular data; it renders a
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+    target="_blank"
+    rel="noopener noreferrer"
+  >HTML table element</a>.
 </p>
 <section>
   <h3 class="dummy-h3" id="overview">
@@ -19,23 +24,12 @@
     <code class="dummy-code">thead</code>
     of the table. It yields within a single
     <code class="dummy-code">tr</code>
-    element that is meant to represent column headers.</p>
+    element that contains column headers.</p>
   <h4 class="dummy-h4">:body named block</h4>
   <p class="dummy-paragraph">This represents the
     <code class="dummy-code">tbody</code>
-    of the table. It yields
-    <code class="dummy-code">n</code>
-    number of times where
-    <code class="dummy-code">n</code>
-    is equal to the length of the
-    <code class="dummy-code">@model</code>
-    arg provided to Table. The yield happens directly in the
-    <code class="dummy-code">tbody</code>
-    element to allow for multiple
-    <code class="dummy-code">tr</code>
-    elements for a single record. The yielded value is the exact record from the
-    <code class="dummy-code">@model</code>
-    array.</p>
+    of the table.
+  </p>
 </section>
 <section>
   <h3 class="dummy-h3" id="component-api">
@@ -239,10 +233,13 @@ export default class ComponentsTableRoute extends Route {
     recommended, there should not be any WCAG conformance issues with this component. Developers should ensure that any
     table customizations they implement also meet the applicable WCAG Success Criteria.
   </p>
-  <p>There are a few critical items for developers to note:
+  <p class="dummy-paragraph">There are a few critical items for developers to note:
     <ul>
-      <li>the row element (<code>tr</code>) is not eligible to receive interactions. If an interactive element is desired, place it within a table cell element (<code>td</code>).</li>
-      <li>When providing additional or alternative styles to the table element, do not change the <code>display</code> property in the CSS. This alters how the table is presented to the user with assistive technology, and they will no longer be presented with a table.</li>
+      <li>The table row element (<code>tr</code>) is not eligible to receive interactions. If an interactive element is desired, place it within a table cell element (<code>td</code>).</li>
+      <li>When providing additional or alternative styles to the table element, do not change the
+        <code>display</code>
+        property in the CSS. This alters how the table is presented to the user with assistive technology, and they will no longer be presented with a table.
+      </li>
     </ul>
   </p>
   <h4 class="dummy-h4">
