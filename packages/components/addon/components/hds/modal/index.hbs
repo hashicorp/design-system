@@ -4,9 +4,9 @@
   ...attributes
   aria-labelledby={{this.id}}
   {{did-insert this.setup}}
-  {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.close clickOutsideDeactivates=true)}}
+  {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
-  {{yield (hash Header=(component "hds/modal/header" id=this.id close=this.close))}}
+  {{yield (hash Header=(component "hds/modal/header" id=this.id onDismiss=this.onDismiss))}}
   {{yield (hash Body=(component "hds/modal/body"))}}
   {{yield (hash Footer=(component "hds/modal/footer"))}}
 </dialog>

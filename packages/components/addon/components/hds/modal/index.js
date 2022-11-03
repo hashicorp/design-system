@@ -118,7 +118,7 @@ export default class HdsModalIndexComponent extends Component {
   }
 
   @action
-  close() {
+  onDismiss() {
     // Make modal dialog invisible using the native `close` method
     this.element.close();
   }
