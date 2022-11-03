@@ -164,6 +164,30 @@ module('Integration | Component | hds/modal/index', function (hooks) {
       .hasAttribute('data-test-modal-footer2', 'test-footer');
   });
 
+  // CALLBACKS
+
+  test('it should call `onOpen` function if provided', async function (assert) {
+    let opened = false;
+    this.set('onOpen', () => (opened = true));
+    await render(
+      hbs`<Hds::Modal id="test-modal-onopen-callback" @onOpen={{this.onOpen}} as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>`
+    );
+    assert.ok(opened);
+  });
+  test('it should call `onClose` function if provided', async function (assert) {
+    let closed = false;
+    this.set('onClose', () => (closed = true));
+    await render(
+      hbs`<Hds::Modal id="test-modal-onclose-callback" @onClose={{this.onClose}} as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>`
+    );
+    await click('#test-modal-onclose-callback button.hds-modal__dismiss');
+    assert.ok(closed);
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
