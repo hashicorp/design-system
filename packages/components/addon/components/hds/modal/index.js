@@ -79,7 +79,7 @@ export default class HdsModalIndexComponent extends Component {
   }
 
   @action
-  setup(element) {
+  didInsert(element) {
     // Store a reference of the `<dialog>` element
     this.element = element;
 

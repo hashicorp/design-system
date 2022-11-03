@@ -3,7 +3,7 @@
   class={{this.classNames}}
   ...attributes
   aria-labelledby={{this.id}}
-  {{did-insert this.setup}}
+  {{did-insert this.didInsert}}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
   {{yield (hash Header=(component "hds/modal/header" id=this.id onDismiss=this.onDismiss))}}
