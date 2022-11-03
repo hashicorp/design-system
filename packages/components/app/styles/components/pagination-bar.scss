@@ -22,7 +22,7 @@
     // outline: 1px dotted blue;
   }
 
-  // attributes are spread on mested select element, not on the component's parent wrapper
+  // Issue: attributes are spread on nested select element, not on the component's parent wrapper...
   .hds-form-label {
     font-weight: inherit;
     font-size: inherit;
@@ -45,7 +45,7 @@
   align-self: stretch;
 }
 
-.hds-pagination-bar__nav-list {
+.hds-pagination-bar__page-list {
   display: flex;
   margin: 0;
   padding: 0;
@@ -70,7 +70,7 @@
   text-decoration: none;
 }
 
-// NOTE: Trying to account for white space around icons inside the links
+// NOTE: Trying to account for white space around icons inside the links (will adjust as requested)
 .hds-pagination__nav-item--previous { padding-left: 8px; }
 .hds-pagination__nav-item--next { padding-right: 8px; }
 
@@ -86,7 +86,6 @@
 .hds-pagination__current-page {
   position: relative;
   color: var(--token-color-foreground-action);
-  // outline: 1px dotted;
 
   &:hover {
     color: var(--token-color-foreground-action-hover);
