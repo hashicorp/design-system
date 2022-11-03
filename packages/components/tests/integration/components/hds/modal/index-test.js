@@ -41,6 +41,15 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-modal').hasClass('hds-modal--color-warning');
   });
 
+  // OVERLAY
+
+  test('it should render the component with an overlay element', async function (assert) {
+    await render(
+      hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    assert.dom('.hds-modal__overlay').isVisible();
+  });
+
   // CONTEXTUAL COMPONENTS
 
   test('it renders the contextual components', async function (assert) {
