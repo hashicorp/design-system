@@ -4,37 +4,41 @@
 
   <nav class="hds-pagination-bar__pagination">
     <ul class="hds-pagination-bar__page-list">
-      <li>
-        <a class="hds-pagination__nav-item hds-pagination__nav-item--previous" href="/page-?">
+      <li class="hds-pagination__page">
+        <a
+          class="hds-pagination__page-link hds-pagination__page-link--previous"
+          aria-label="Previous page"
+          href="/page-?"
+        >
           <FlightIcon @name="chevron-left" class="hds-pagination__nav-icon" /><span
-            class="hds-pagination__nav-item-label"
+            class="hds-pagination__page-label"
           >Previous</span>
         </a>
       </li>
-      <li class="hds-pagination__current-page">
-        <a class="hds-pagination__nav-item" href="/page-1">1</a>
+      <li class="hds-pagination__page hds-pagination__page--current">
+        <a class="hds-pagination__page-link" href="/page-1">1</a>
       </li>
-      <li>
-        <a class="hds-pagination__nav-item" href="/page-2">2</a>
+      <li class="hds-pagination__page">
+        <a class="hds-pagination__page-link" href="/page-2">2</a>
       </li>
-      <li>
-        <a class="hds-pagination__nav-item" href="/page-3">3</a>
+      <li class="hds-pagination__page">
+        <a class="hds-pagination__page-link" href="/page-3">3</a>
       </li>
-      <li>
-        <a class="hds-pagination__nav-item" href="/page-4">4</a>
+      <li class="hds-pagination__page">
+        <a class="hds-pagination__page-link" href="/page-4">4</a>
       </li>
-      <li>
-        <a class="hds-pagination__nav-item" href="/page-5">5</a>
+      <li class="hds-pagination__page">
+        <a class="hds-pagination__page-link" href="/page-5">5</a>
       </li>
-      <li>
-        <span class="hds-pagination__nav-item hds-pagination__nav-item-ellipsis">...</span>
+      <li class="hds-pagination__page">
+        <span class="hds-pagination__page-link hds-pagination__page-link--ellipsis">...</span>
       </li>
-      <li>
-        <a class="hds-pagination__nav-item" href="/page-10">10</a>
+      <li class="hds-pagination__page">
+        <a class="hds-pagination__page-link" href="/page-10">10</a>
       </li>
-      <li>
-        <a class="hds-pagination__nav-item hds-pagination__nav-item--next" href="/page-?" aria-label="Next page">
-          <span class="hds-pagination__nav-item-label">Next</span><FlightIcon
+      <li class="hds-pagination__page">
+        <a class="hds-pagination__page-link hds-pagination__page-link--next" href="/page-?" aria-label="Next page">
+          <span class="hds-pagination__page-label">Next</span><FlightIcon
             @name="chevron-right"
             class="hds-pagination__nav-icon"
           />
@@ -58,13 +62,16 @@
 {{!
   TEMP ROUGH NOTES
   ------------------
-  WIP Structure:
+  Still figuring out class naming and DOM structure...
+
+  WIP Structure (some of these will be separated out as sub-components, others just represent HTML/CSS structure):
     * pagination-bar
       * total-count
-      * pagination (separate out below children or keep grouped together?)
+      * pagination (separate out below children or keep grouped together in one list?)
         * page-prev
         * pages
-          * page-item
+          * page
+            * page-link (some content aren't links though...)
         * page-next
       * page-size
 }}

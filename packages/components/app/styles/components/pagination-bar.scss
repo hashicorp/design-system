@@ -19,7 +19,6 @@
     display: flex;
     gap: 12px; // TODO: refactor
     align-items: center;
-    // outline: 1px dotted blue;
   }
 
   // Issue: attributes are spread on nested select element, not on the component's parent wrapper...
@@ -50,13 +49,13 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-
-  > li {
-    display: flex;
-  }
 }
 
-.hds-pagination__nav-item {
+.hds-pagination__page {
+  display: flex;
+}
+
+.hds-pagination__page-link {
   @include hds-focus-ring-with-pseudo-element(
     $top: 5px,
     $right: 5px,
@@ -71,19 +70,19 @@
 }
 
 // NOTE: Trying to account for white space around icons inside the links (will adjust as requested)
-.hds-pagination__nav-item--previous { padding-left: 8px; }
-.hds-pagination__nav-item--next { padding-right: 8px; }
+.hds-pagination__page-link--previous { padding-left: 8px; }
+.hds-pagination__page-link-next { padding-right: 8px; }
 
-.hds-pagination__nav-icon + .hds-pagination__nav-item-label,
-.hds-pagination__nav-item-label + .hds-pagination__nav-icon {
+.hds-pagination__nav-icon + .hds-pagination__page-label,
+.hds-pagination__page-label + .hds-pagination__nav-icon {
   margin-left: 6px;
 }
 
-.hds-pagination__nav-item-ellipsis {
+.hds-pagination__page-link--ellipsis {
   color: var(--token-color-foreground-faint);
 }
 
-.hds-pagination__current-page {
+.hds-pagination__page--current {
   position: relative;
   color: var(--token-color-foreground-action);
 
