@@ -1,8 +1,15 @@
+@use "../breakpoints" as breakpoint;
+
+
+// ---------
+// TYPEFACES
+// ---------
+
 @mixin doc-font-family($family) {
   @if ($family == "gilmer") {
     font-family: gilmer-web, Gilmer, Geneva, Tahoma, Helvetica, Verdana, sans-serif;
   } @else if ($family == "sans") {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: metro-web, Metro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   } @else if ($family == "mono") {
     font-family: dejavu-sans-mono-web, monospace;
   } @else if ($family == "system") {
@@ -10,53 +17,218 @@
   }
 }
 
-@mixin doc-font-style-h1 {
+
+// ---------
+// HEADINGS
+// ---------
+
+// H1
+
+@mixin doc-font-style-h1($responsive: true) {
   @include doc-font-family("gilmer");
   font-weight: 700;
-  font-size: 3.052rem;
-  line-height: 1.3;
+
+  @if $responsive {
+    @include breakpoint.small () {
+      font-size: 2.125rem;
+      line-height: 1.265;
+      letter-spacing: -0.008em;
+    }
+
+    @include breakpoint.medium () {
+      font-size: 2.625rem;
+      line-height: 1.19;
+      letter-spacing: -0.01em;
+    }
+
+    @include breakpoint.large () {
+      font-size: 3.125rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+  } @else {
+    font-size: 3.125rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
 }
 
-@mixin doc-font-style-h2 {
+// H2
+
+@mixin doc-font-style-h2($responsive: true) {
   @include doc-font-family("gilmer");
   font-weight: 700;
-  font-size: 42px;
-  line-height: 1.3;
+
+  @if $responsive {
+    @include breakpoint.small () {
+      font-size: 1.75rem;
+      line-height: 1.286;
+      letter-spacing: -0.004em;
+    }
+
+    @include breakpoint.medium () {
+      font-size: 2.125rem;
+      line-height: 1.265;
+      letter-spacing: -0.008em;
+    }
+
+    @include breakpoint.large () {
+      font-size: 2.5rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+  } @else {
+    font-size: 2.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
 }
 
-@mixin doc-font-style-h3 {
+// H3
+
+@mixin doc-font-style-h3($responsive: true) {
   @include doc-font-family("gilmer");
   font-weight: 700;
-  font-size: 32px;
-  line-height: 1.3;
+
+  @if $responsive {
+    @include breakpoint.small () {
+      font-size: 1.5rem;
+      line-height: 1.375;
+      letter-spacing: -0.004em;
+    }
+
+    @include breakpoint.medium () {
+      font-size: 1.75rem;
+      line-height: 1.321;
+      letter-spacing: -0.004em;
+    }
+
+    @include breakpoint.large () {
+      font-size: 2rem;
+      line-height: 1.313;
+      letter-spacing: -0.006em;
+    }
+  } @else {
+    font-size: 2rem;
+    line-height: 1.313;
+    letter-spacing: -0.006em;
+  }
 }
 
-@mixin doc-font-style-h4 {
+// H4
+
+@mixin doc-font-style-h4($responsive: true) {
   @include doc-font-family("gilmer");
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 1.3;
+  font-weight: 700;
+
+  @if $responsive {
+    @include breakpoint.small () {
+      font-size: 1.313rem;
+      line-height: 1.429;
+    }
+
+    @include breakpoint.medium () {
+      font-size: 1.438rem;
+      line-height: 1.391;
+      letter-spacing: -0.004em;
+    }
+
+    @include breakpoint.large () {
+      font-size: 1.5rem;
+      line-height: 1.417;
+      letter-spacing: -0.004em;
+    }
+  } @else {
+    font-size: 1.5rem;
+    line-height: 1.417;
+    letter-spacing: -0.004em;
+  }
 }
+
+// H5
 
 @mixin doc-font-style-h5 {
   @include doc-font-family("gilmer");
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.3;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.556;
 }
+
+// H6
 
 @mixin doc-font-style-h6 {
   @include doc-font-family("gilmer");
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.3;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
 }
+
+
+// ---------
+// BODY COPY
+// ---------
+
+// BASE
 
 @mixin doc-font-style-body {
   @include doc-font-family("sans");
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: 1.063rem;
+  line-height: 1.647;
+  letter-spacing: 0.01em;
 }
+
+// SMALL
+
+@mixin doc-font-style-body-small {
+  @include doc-font-family("sans");
+  font-size: 0.938rem;
+  line-height: 1.667;
+  letter-spacing: 0.01em;
+}
+
+// LARGE
+
+@mixin doc-font-style-body-large($responsive: true) {
+  @include doc-font-family("sans");
+
+  @if $responsive {
+    @include breakpoint.small () {
+      font-size: 1.188rem;
+      line-height: 1.579;
+      letter-spacing: 0.01em;
+    }
+
+    @include breakpoint.medium () {
+      font-size: 1.188rem;
+      line-height: 1.579;
+      letter-spacing: 0.01em;
+    }
+
+    @include breakpoint.large () {
+      font-size: 1.25rem;
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+    }
+  } @else {
+    font-size: 1.25rem;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+  }
+}
+
+// LONG
+
+@mixin doc-font-style-body-long {
+  @include doc-font-family("sans");
+  font-size: 1.063rem;
+  line-height: 1.765;
+  letter-spacing: 0.01em;
+}
+
+
+// ---------
+// CODE
+// ---------
 
 @mixin doc-font-style-code {
   @include doc-font-family("mono");

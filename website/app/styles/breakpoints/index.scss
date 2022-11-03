@@ -1,0 +1,19 @@
+// BREAKPOINTS
+
+$small-upper-breakpoint: 767px;
+$medium-lower-breakpoint: 768px;
+$medium-upper-breakpoint: 1119px;
+$large-lower-breakpoint: 1120px;
+
+
+@mixin small {
+  @media (max-width: $small-upper-breakpoint) { @content; }
+}
+
+@mixin medium {
+  @media (min-width: $medium-lower-breakpoint) and (max-width: $medium-upper-breakpoint) { @content; }
+}
+
+@mixin large {
+  @media (min-width: $large-lower-breakpoint) { @content; }
+}
