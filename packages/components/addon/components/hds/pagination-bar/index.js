@@ -13,7 +13,7 @@ export default class HdsPaginationIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-pagination'];
+    let classes = ['hds-pagination-bar'];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-pagination--[variant]-${this.xxx}`);
