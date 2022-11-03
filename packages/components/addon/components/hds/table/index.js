@@ -15,7 +15,7 @@ export default class HdsTableIndexComponent extends Component {
    * @param isSortableTable
    * @type {boolean}
    * @default false
-   * @description Determines whether the table is sortable or not.
+   * @description Automatically determines whether the table is sortable or not, based on the presence of columns.
    */
   get isSortableTable() {
     const { columns } = this.args;
@@ -101,6 +101,7 @@ export default class HdsTableIndexComponent extends Component {
       this.sortBy = column;
       this.sortOrder = 'asc';
     }
+    // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
     this.sortedMessageText = `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
   }
 }
