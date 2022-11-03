@@ -18,5 +18,9 @@ export default class IndexController extends Controller {
       text: 'Patterns',
       url: 'patterns',
     },
+    {
+      text: 'Testing',
+      url: 'testing',
+    },
   ];
 }
