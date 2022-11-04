@@ -3,7 +3,9 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  The table component should be used for displaying tabular data; it renders a
+  The
+  <code class="dummy-code">Hds::Table</code>
+  component should be used for displaying tabular data; it renders a
   <a
     href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
     target="_blank"
@@ -69,11 +71,13 @@
         <code class="dummy-code">:body</code>
         named block.</p></dd>
     <dt>columns <code>array</code></dt>
-    <dd><p>If defined, indicates that the table should be sorted and sets the column header content</p></dd>
+    <dd><p>If defined, sets the column header content and indicates that the table should be sorted.</p></dd>
     <dt>sortingKeys <code>array</code></dt>
-    <dd><p>If defined, indicates which columns should be sortable</p></dd>
+    <dd><p>If defined, indicates which columns should be sortable (if only
+        <code class="dummy-code">columns</code>
+        is defined, all columns will be sortable).</p></dd>
     <dt>sortBy <code>string</code></dt>
-    <dd><p>If defined, indicates which column should be pre-sorted</p></dd>
+    <dd><p>If defined, indicates which column should be pre-sorted when the table is rendered.</p></dd>
     <dt>sortOrder <code>string</code></dt>
     <dd>
       <p>If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.</p>
@@ -86,7 +90,7 @@
     <dt>isStriped <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
-      <p>If set to <code>false</code>, zebra striping on the table will not be applied.</p>
+      <p>If set to <code class="dummy-code">false</code>, zebra striping on the table will not be applied.</p>
     </dd>
     <dt>density <code>enum</code></dt>
     <dd>
@@ -99,13 +103,12 @@
       </ol>
     </dd>
     <dt>...attributes</dt>
-    <dd><p>Supported for the <code>hds/table</code> component.</p></dd>
+    <dd><p>Supported for the <code class="dummy-code">Hds::Table</code> component.</p></dd>
   </dl>
 </section>
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">There are several types of tables, please be sure to choose the one that works best for
-    your situation.</p>
+  <p class="dummy-paragraph">There are several ways to customize the table component.</p>
   <h4 class="dummy-h4">Simple Table</h4>
   <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the model and insert
     your own content into the
@@ -491,12 +494,7 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Sortable table (all columns sortable)
   </h4>
-  <Hds::Table
-    @model={{this.model.data}}
-    @sortBy={{this.sortBy}}
-    @sortOrder={{this.sortOrder}}
-    @columns={{this.model.columns}}
-  >
+  <Hds::Table @model={{this.model.data}} @columns={{this.model.columns}}>
     <:body as |data|>
       <Hds::Table::Tr>
         <td>{{data.artist}}</td>
@@ -507,6 +505,35 @@ export default class ComponentsTableRoute extends Route {
   </Hds::Table>
   <h4 class="dummy-h4">
     Sortable table (only some columns sortable)
+  </h4>
+  <Hds::Table @model={{this.model.data}} @columns={{this.model.columns}} @sortingKeys={{array "artist" "album"}}>
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table, some columns sortable, artist column pre-sorted.
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{this.model.columns}}
+    @sortingKeys={{array "artist" "album"}}
+    @sortBy="artist"
+  >
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table, some columns sortable, artist column pre-sorted in descending order.
   </h4>
   <Hds::Table
     @model={{this.model.data}}
