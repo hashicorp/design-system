@@ -120,7 +120,9 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
-    @code="<Hds::Table @model=\{{this.model}}>
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table @model=\{{this.model}}>
   <:head>
     <Hds::Table::Tr>
       <Hds::Table::Th>Artist</Hds::Table::Th>
@@ -220,6 +222,80 @@ export default class ComponentsTableRoute extends Route {
   </:body>
 </Hds::Table>"
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">If you want, you can indicate that only specific columns should be sortable.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+>
+  <:body as |data|>
+    <Hds::Table::Tr>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+  @sortBy='artist'
+>
+  <:body as |data|>
+    <Hds::Table::Tr>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted in a specific direction.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+  @sortBy='artist'
+  @sortOrder='desc'
+>
+  <:body as |data|>
+    <Hds::Table::Tr>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 
 </section>
 <section>
