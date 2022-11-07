@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.11.1
+
+### Patch Changes
+
+- [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+
 ## 2.11.0
 
 ### Minor Changes
