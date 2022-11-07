@@ -13,7 +13,7 @@ The following are known potential issues, and developers should keep these in mi
 
 This section is for reference only. This component intends to conform to the following WCAG success criteria:
 
-<dummy-wcag-success-criteria-list data-list="1.3.1|1.3.2|1.4.1|1.4.3|1.4.4|1.4.10|1.4.11|1.4.12|2.1.1|2.1.2|2.4.3|2.4.7">Placeholder for the WCAG Success Criteria List component - Don't delete!</dummy-wcag-success-criteria-list>
+<Doc::WcagSuccessCriteriaList @items="1.3.1|1.3.2|1.4.1|1.4.3|1.4.4|1.4.10|1.4.11|1.4.12|2.1.1|2.1.2|2.4.3|2.4.7" />
 
 *   1.3.1: [Information and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships)
 *   1.3.2: [Meaningful Sequence](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html)
