@@ -1,6 +1,6 @@
 <table class={{this.classNames}} ...attributes>
   {{#if this.isSortableTable}}
-    <caption class="sr-only" aria-live="polite">{{this.sortedMessageText}}</caption>
+    <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else}}
     <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
