@@ -1,6 +1,8 @@
 <table class={{this.classNames}} ...attributes>
   {{#if this.isSortableTable}}
     <caption class="sr-only" aria-live="polite">{{this.sortedMessageText}}</caption>
+  {{else}}
+    <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
   <thead class="hds-table__thead">
     {{#if this.isSortableTable}}
