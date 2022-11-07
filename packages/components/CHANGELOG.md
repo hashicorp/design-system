@@ -1,5 +1,37 @@
 # @hashicorp/design-system-components
 
+## 1.3.2
+
+### Patch Changes
+
+- [#668](https://github.com/hashicorp/design-system/pull/668) [`3c3b6706`](https://github.com/hashicorp/design-system/commit/3c3b67061d3850721525a624c14bc88ee72e32a1) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix whitespace issue in `Link::Inline` and `Interactive` utility component
+
+## 1.3.1
+
+### Patch Changes
+
+- [#663](https://github.com/hashicorp/design-system/pull/663) [`1397d52c`](https://github.com/hashicorp/design-system/commit/1397d52c4405bb768b8cf0e7db2e0503d48f8f00) Thanks [@nfagerlund](https://github.com/nfagerlund)! - Tabs::Panel: Regress modern helper syntax for 3.24 compatibility
+
+## 1.3.0
+
+### Minor Changes
+
+- [#548](https://github.com/hashicorp/design-system/pull/548) [`5d1e2cb4`](https://github.com/hashicorp/design-system/commit/5d1e2cb4f953bfbe55ae1fa8a675903712a66a1c) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new Tabs component
+
+### Patch Changes
+
+- [#618](https://github.com/hashicorp/design-system/pull/618) [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659) Thanks [@alex-ju](https://github.com/alex-ju)! - Update `ember` to `4.7.0`
+
+* [#660](https://github.com/hashicorp/design-system/pull/660) [`4d0826a6`](https://github.com/hashicorp/design-system/commit/4d0826a6df220031b36f4918c5c5365012672c27) Thanks [@alex-ju](https://github.com/alex-ju)! - Update the `Hds::Button` style when rendered as a link
+
+- [#638](https://github.com/hashicorp/design-system/pull/638) [`90182235`](https://github.com/hashicorp/design-system/commit/901822353453e98c914c8d57e523d64b32a23f75) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - explicitly add ember-style-modifiers as a dependency
+
+* [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+
+* Updated dependencies [[`a079992f`](https://github.com/hashicorp/design-system/commit/a079992fbbed11812fcf4cdd4409a00fa2d246f1), [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659), [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda), [`ecbe26df`](https://github.com/hashicorp/design-system/commit/ecbe26df6bdbaf7b4f00c70d016eead0da9168f0)]:
+  - @hashicorp/design-system-tokens@1.2.0
+  - @hashicorp/ember-flight-icons@3.0.1
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @hashicorp/ember-flight-icons
 
+## 3.0.1
+
+### Patch Changes
+
+- [#618](https://github.com/hashicorp/design-system/pull/618) [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659) Thanks [@alex-ju](https://github.com/alex-ju)! - Update `ember` to `4.7.0`
+
+* [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+
+* Updated dependencies [[`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda)]:
+  - @hashicorp/flight-icons@2.11.1
+
 ## 3.0.0
 
 ### Major Changes
