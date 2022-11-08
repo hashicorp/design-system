@@ -158,6 +158,35 @@ module('Integration | Component | hds/table/index', function (hooks) {
       .hasText('3');
   });
 
+  test('it should render caption if @caption is defined', async function (assert) {
+    this.set('model', [
+      { id: 1, name: 'Test 1', description: 'Test 1 description' },
+      { id: 2, name: 'Test 2', description: 'Test 2 description' },
+      { id: 3, name: 'Test 3', description: 'Test 3 description' },
+    ]);
+
+    await render(hbs`
+      <Hds::Table id="data-test-table" @model={{this.model}} @caption="a test caption">
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::Th>Id</Hds::Table::Th>
+            <Hds::Table::Th>Name</Hds::Table::Th>
+            <Hds::Table::Th>Description</Hds::Table::Th>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |row|>
+          <Hds::Table::Tr>
+            <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.description}}</td>
+          </Hds::Table::Tr>
+        </:body>
+      </Hds::Table>
+    `);
+
+    assert.dom('#data-test-table caption').hasText('a test caption');
+  });
+
   test('it should render a sortable table when appropriate', async function (assert) {
     setData(this);
 
@@ -169,7 +198,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.dom('#data-test-table th:first-of-type').hasText('Artist');
   });
 
-  test('it should render a sortable table with an empty caption', async function (assert) {
+  test('it should render a sortable table with an empty caption if no caption is provided and table is unsorted', async function (assert) {
     setData(this);
 
     await renderSortableTable();

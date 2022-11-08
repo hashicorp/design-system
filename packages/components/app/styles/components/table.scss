@@ -51,12 +51,12 @@ $hds-table-cell-padding-tall: 20px 16px;
       padding: 0;
 
       button {
-        align-items: center;
         width: 100%;
         height: 48px;
         margin: 0;
         padding: $hds-table-cell-padding-medium;
         font: inherit;
+        text-align: inherit;
         background-color: transparent;
         border: 1px solid transparent;
         border-radius: 0; // this has to be separately declared on the specific cells that need to be rounded

@@ -3,15 +3,20 @@
   Table
 </h2>
 <p class="dummy-paragraph">
-  This table component comes in two variations: a simple table for displaying data and a table with sorting
-  capabilities.
+  The
+  <code class="dummy-code">Hds::Table</code>
+  component should be used for displaying tabular data; it renders a
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+    target="_blank"
+    rel="noopener noreferrer"
+  >HTML table element</a>.
 </p>
 <section>
   <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
   </h3>
-  <p class="dummy-paragraph">A table element is used to display tabular data.</p>
   <p class="dummy-paragraph">There are two named blocks in this component:
     <code class="dummy-code">:head</code>
     and
@@ -21,23 +26,12 @@
     <code class="dummy-code">thead</code>
     of the table. It yields within a single
     <code class="dummy-code">tr</code>
-    element that is meant to represent column headers.</p>
+    element that contains column headers.</p>
   <h4 class="dummy-h4">:body named block</h4>
   <p class="dummy-paragraph">This represents the
     <code class="dummy-code">tbody</code>
-    of the table. It yields
-    <code class="dummy-code">n</code>
-    number of times where
-    <code class="dummy-code">n</code>
-    is equal to the length of the
-    <code class="dummy-code">@model</code>
-    arg provided to Table. The yield happens directly in the
-    <code class="dummy-code">tbody</code>
-    element to allow for multiple
-    <code class="dummy-code">tr</code>
-    elements for a single record. The yielded value is the exact record from the
-    <code class="dummy-code">@model</code>
-    array.</p>
+    of the table.
+  </p>
 </section>
 <section>
   <h3 class="dummy-h3" id="component-api">
@@ -45,19 +39,79 @@
     Component API
   </h3>
   <p class="dummy-paragraph" id="component-api-table">
-    Here is the API for the component:
+    The
+    <code class="dummy-code">Table</code>
+    component itself is where most of options will be applied. Use of the component API (below) will automatically
+    render sortable columns. When the
+    <code class="dummy-code">@columns</code>
+    property is invoked with a value.
+  </p>
+  <p class="dummy-paragraph">
+    Additionally, there are child components that can also be used to provide custom options.
+    <ul>
+      <li class="dummy-paragraph">
+        The
+        <code class="dummy-code">Hds::Table::Tr</code>
+        component is a template-only component. It supports
+        <code>...attributes</code>
+        but is not eligible to receive interactions.
+      </li>
+      <li class="dummy-paragraph">
+        The
+        <code class="dummy-code">Hds::Table::Td</code>
+        component is a template-only component. It supports
+        <code>...attributes</code>
+        but is not eligible to receive interactions itself; however it can contain interactive elements.
+      </li>
+    </ul>
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
     <dt>model <code>array</code></dt>
     <dd><p>If defined, sets the data source that gets yielded by the
         <code class="dummy-code">:body</code>
         named block.</p></dd>
+    <dt>columns <code>array</code></dt>
+    <dd><p>If defined, sets the column header content and indicates that the table should be sorted.</p></dd>
+    <dt>sortingKeys <code>array</code></dt>
+    <dd><p>If defined, indicates which columns should be sortable (if only
+        <code class="dummy-code">columns</code>
+        is defined, all columns will be sortable).</p></dd>
+    <dt>sortBy <code>string</code></dt>
+    <dd><p>If defined, indicates which column should be pre-sorted when the table is rendered.</p></dd>
+    <dt>sortOrder <code>string</code></dt>
+    <dd>
+      <p>If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>asc</li>
+        <li>desc</li>
+      </ol>
+    </dd>
+    <dt>isStriped <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>If set to <code class="dummy-code">false</code>, zebra striping on the table will not be applied.</p>
+    </dd>
+    <dt>density <code>enum</code></dt>
+    <dd>
+      <p>If set, determines the density, or height, of the row.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>short</li>
+        <li class="default">medium</li>
+        <li>tall</li>
+      </ol>
+    </dd>
+    <dt>caption <code>string</code></dt>
+    <dd><p>Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided
+        table caption is paired with the automatically generated sorted message text.</p></dd>
+    <dt>...attributes</dt>
+    <dd><p>Supported for the <code class="dummy-code">Hds::Table</code> component.</p></dd>
   </dl>
 </section>
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">There are several types of tables, please be sure to choose the one that works best for
-    your situation.</p>
+  <p class="dummy-paragraph">There are several ways to customize the table component.</p>
   <h4 class="dummy-h4">Simple Table</h4>
   <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the model and insert
     your own content into the
@@ -69,7 +123,9 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="handlebars"
-    @code="<Hds::Table @model=\{{this.model}}>
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table @model=\{{this.model}}>
   <:head>
     <Hds::Table::Tr>
       <Hds::Table::Th>Artist</Hds::Table::Th>
@@ -114,7 +170,8 @@ export default class ComponentsTableRoute extends Route {
   <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route.</p>
+  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route. In
+    this example, we're identifying the column headers and also capitalizing them.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -157,8 +214,6 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @sortBy=\{{this.sortBy}}
-  @sortOrder=\{{this.sortOrder}}
   @columns=\{{this.model.columns}}
 >
   <:body as |data|>
@@ -170,6 +225,80 @@ export default class ComponentsTableRoute extends Route {
   </:body>
 </Hds::Table>"
   />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">If you want, you can indicate that only specific columns should be sortable.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+>
+  <:body as |data|>
+    <Hds::Table::Tr>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+  @sortBy='artist'
+>
+  <:body as |data|>
+    <Hds::Table::Tr>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted in a specific direction.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+  @sortBy='artist'
+  @sortOrder='desc'
+>
+  <:body as |data|>
+    <Hds::Table::Tr>
+      <td>\{{data.artist}}</td>
+      <td>\{{data.album}}</td>
+      <td>\{{data.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 
 </section>
 <section>
@@ -197,6 +326,17 @@ export default class ComponentsTableRoute extends Route {
   <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
     recommended, there should not be any WCAG conformance issues with this component. Developers should ensure that any
     table customizations they implement also meet the applicable WCAG Success Criteria.
+  </p>
+  <p class="dummy-paragraph">There are a few critical items for developers to note:
+    <ul>
+      <li>The table row element (<code>tr</code>) is not eligible to receive interactions. If an interactive element is
+        desired, place it within a table cell element (<code>td</code>).</li>
+      <li>When providing additional or alternative styles to the table element, do not change the
+        <code>display</code>
+        property in the CSS. This alters how the table is presented to the user with assistive technology, and they will
+        no longer be presented with a table.
+      </li>
+    </ul>
   </p>
   <h4 class="dummy-h4">
     Applicable WCAG Success Criteria (Reference)
@@ -431,13 +571,7 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Sortable table (all columns sortable)
   </h4>
-  <Hds::Table
-    @model={{this.model.data}}
-    @sortBy={{this.sortBy}}
-    @sortOrder={{this.sortOrder}}
-    @columns={{this.model.columns}}
-    id="showcase-table-sortable-all"
-  >
+  <Hds::Table @model={{this.model.data}} @columns={{this.model.columns}}>
     <:body as |data|>
       <Hds::Table::Tr>
         <td>{{data.artist}}</td>
@@ -448,6 +582,35 @@ export default class ComponentsTableRoute extends Route {
   </Hds::Table>
   <h4 class="dummy-h4">
     Sortable table (only some columns sortable)
+  </h4>
+  <Hds::Table @model={{this.model.data}} @columns={{this.model.columns}} @sortingKeys={{array "artist" "album"}}>
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table, some columns sortable, artist column pre-sorted.
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{this.model.columns}}
+    @sortingKeys={{array "artist" "album"}}
+    @sortBy="artist"
+  >
+    <:body as |data|>
+      <Hds::Table::Tr>
+        <td>{{data.artist}}</td>
+        <td>{{data.album}}</td>
+        <td>{{data.year}}</td>
+      </Hds::Table::Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table, some columns sortable, artist column pre-sorted in descending order.
   </h4>
   <Hds::Table
     @model={{this.model.data}}
