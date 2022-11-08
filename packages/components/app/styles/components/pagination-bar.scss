@@ -10,7 +10,7 @@
   justify-content: space-between;
   height: 36px;
   color: var(--token-color-foreground-primary);
-  font-size: 13px;
+  font-size: var(--token-typography-body-300-font-size);
 }
 
 // TODO: refactor!!! (Should not reference nested component classes)
