@@ -1,16 +1,14 @@
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
 <div class={{this.classNames}} ...attributes>
   <div class="hds-pagination-total-count">1–10 of 100</div>
 
   <nav class="hds-pagination" aria-label="Pagination navigation">
+    <a class="hds-pagination__page-link" href="/page-?">
+      <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" /><span
+        class="hds-pagination__page-label"
+      >Previous<span class="sr-only"> page</span></span>
+    </a>
+
     <ul class="hds-pagination__page-list">
-      <li class="hds-pagination__page-previous">
-        <a class="hds-pagination__page-link" aria-label="Previous page" href="/page-?">
-          <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" /><span
-            class="hds-pagination__page-label"
-          >Previous</span>
-        </a>
-      </li>
       <li class="hds-pagination__page-current">
         <a class="hds-pagination__page-link" href="/page-1" aria-current="page">
           <span class="sr-only">page </span>1
@@ -44,15 +42,14 @@
           <span class="sr-only">page </span>10
         </a>
       </li>
-      <li class="hds-pagination__page-next">
-        <a class="hds-pagination__page-link" href="/page-?" aria-label="Next page">
-          <span class="hds-pagination__page-label">Next</span><FlightIcon
-            @name="chevron-right"
-            class="hds-pagination__page-icon"
-          />
-        </a>
-      </li>
     </ul>
+
+    <a class="hds-pagination__page-link" href="/page-?">
+      <span class="hds-pagination__page-label">Next<span class="sr-only"> page</span></span><FlightIcon
+        @name="chevron-right"
+        class="hds-pagination__page-icon"
+      />
+    </a>
   </nav>
 
   <div class="hds-pagination-page-size">
