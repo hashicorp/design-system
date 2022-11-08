@@ -5,8 +5,7 @@
   font-display: swap;
   src:
     local("Gilmer Regular"),
-    url("/assets/fonts/gilmer-400-normal.woff2") format("woff2"),
-    url("/public/assets/fonts/gilmer-400-normal.woff") format("woff");
+    url("/assets/fonts/gilmer-400-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -16,8 +15,7 @@
   font-display: swap;
   src:
     local("Gilmer Medium"),
-    url("/assets/fonts/gilmer-500-normal.woff2") format("woff2"),
-    url("/public/assets/fonts/gilmer-500-normal.woff") format("woff");
+    url("/assets/fonts/gilmer-500-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -27,8 +25,37 @@
   font-display: swap;
   src:
     local("Gilmer Bold"),
-    url("/assets/fonts/gilmer-700-normal.woff2") format("woff2"),
-    url("/public/assets/fonts/gilmer-700-normal.woff") format("woff");
+    url("/assets/fonts/gilmer-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: metro-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("Metro Sans Regular"),
+    url("/assets/fonts/metro-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: 600;
+  font-family: metro-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("Metro Sans Semi-Bold"),
+    url("/assets/fonts/metro-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: metro-web;
+  font-style: normal;
+  font-display: swap;
+  src:
+    local("Metro Sans Bold"),
+    url("/assets/fonts/metro-700-normal.woff2") format("woff2");
 }
 
 @font-face {
@@ -38,6 +65,5 @@
   font-display: swap;
   src:
     local("DejaVu Sans Mono"),
-    url("/assets/fonts/dejavu_sans_mono-400-normal.woff2") format("woff2"),
-    url("/assets/fonts/dejavu_sans_mono-400-normal.woff") format("woff");
+    url("/assets/fonts/dejavu_sans_mono-400-normal.woff2") format("woff");
 }
