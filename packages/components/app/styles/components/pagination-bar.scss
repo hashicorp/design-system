@@ -4,6 +4,8 @@
 
 @use "../mixins/focus-ring" as *;
 
+// * Pagination Parent (wrapper) component
+// ----------------------------------------
 .hds-pagination-bar {
   display: flex;
   align-items: center;
@@ -13,38 +15,14 @@
   font-size: var(--token-typography-body-300-font-size);
 }
 
-// TODO: refactor!!! (Should not reference nested component classes)
-.hds-pagination-bar__page-size {
-  > * {
-    display: flex;
-    gap: 12px; // TODO: refactor
-    align-items: center;
-  }
-
-  // Issue: attributes are spread on nested select element, not on the component's parent wrapper...
-  .hds-form-label {
-    font-weight: inherit;
-    font-size: inherit;
-  }
-
-  .hds-form-select {
-    height: 28px;
-    margin-top: 0 !important;
-    padding-top: 0;
-    padding-right: calc(0px + 24px);
-    padding-bottom: 0;
-    padding-left: 8px;
-    font-size: inherit;
-    background-position: center right 5px;
-  }
-}
-
-.hds-pagination-bar__pagination {
+// * Sub-component: Pagination
+// ----------------------------------------
+.hds-pagination {
   display: flex;
   align-self: stretch;
 }
 
-.hds-pagination-bar__page-list {
+.hds-pagination__page-list {
   display: flex;
   margin: 0;
   padding: 0;
@@ -124,5 +102,33 @@
     background-color: currentColor;
     border-radius: 2px;
     content: "";
+  }
+}
+
+// * Sub-component: PaginationPageSize
+// ----------------------------------------
+// TODO: refactor!!! (Should not reference nested component classes)
+.hds-pagination-page-size {
+  > * {
+    display: flex;
+    gap: 12px; // TODO: refactor
+    align-items: center;
+  }
+
+  // Issue: attributes are spread on nested select element, not on the component's parent wrapper...
+  .hds-form-label {
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  .hds-form-select {
+    height: 28px;
+    margin-top: 0 !important;
+    padding-top: 0;
+    padding-right: calc(0px + 24px);
+    padding-bottom: 0;
+    padding-left: 8px;
+    font-size: inherit;
+    background-position: center right 5px;
   }
 }

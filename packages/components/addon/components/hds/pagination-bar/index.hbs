@@ -1,9 +1,9 @@
 {{! ADD YOUR TEMPLATE CONTENT HERE }}
 <div class={{this.classNames}} ...attributes>
-  <div class="hds-pagination-bar__total-count">1–10 of 100</div>
+  <div class="hds-pagination-total-count">1–10 of 100</div>
 
-  <nav class="hds-pagination-bar__pagination" aria-label="Pagination navigation">
-    <ul class="hds-pagination-bar__page-list">
+  <nav class="hds-pagination" aria-label="Pagination navigation">
+    <ul class="hds-pagination__page-list">
       <li class="hds-pagination__page hds-pagination__page--previous">
         <a class="hds-pagination__page-link" aria-label="Previous page" href="/page-?">
           <FlightIcon @name="chevron-left" class="hds-pagination__nav-icon" /><span
@@ -55,8 +55,8 @@
     </ul>
   </nav>
 
-  <div class="hds-pagination-bar__page-size">
-    <Hds::Form::Select::Field class="hds-pagination-bar__page-size-select" as |F|>
+  <div class="hds-pagination-page-size">
+    <Hds::Form::Select::Field as |F|>
       <F.Label>Items per page</F.Label>
       <F.Options>
         <option value="10">10</option>
@@ -74,12 +74,12 @@
 
   WIP Structure (some of these will be separated out as sub-components, others just represent HTML/CSS structure):
     * pagination-bar
-      * total-count
+      * pagination-total-count
       * pagination (separate out below children or keep grouped together in one list?)
         * page-prev
         * pages
           * page
             * page-link (some content aren't links though...)
         * page-next
-      * page-size
+      * pagination-page-size
 }}
