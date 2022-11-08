@@ -38,7 +38,7 @@ $hds-table-cell-padding-tall: 20px 16px;
       text-align: left;
       background-color: var(--token-color-surface-strong);
       border-top: none;
-      border-right: $hds-table-border-width solid $hds-table-border-color;
+      border-right: $hds-table-border-width solid transparent;
       border-bottom: $hds-table-border-width solid $hds-table-border-color;
       border-left: none;
     }
@@ -150,7 +150,7 @@ $hds-table-cell-padding-tall: 20px 16px;
     td {
       vertical-align: top; // this is so the text will automatically vertically align to the top of the cell if one of the cells has multiple lines of text; otherwise everything will center align (vertically)
       border-top: none;
-      border-right: $hds-table-border-width solid $hds-table-border-color;
+      border-right: none;
       border-bottom: $hds-table-border-width solid $hds-table-border-color;
       border-left: none;
 
