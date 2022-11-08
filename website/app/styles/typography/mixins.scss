@@ -232,7 +232,7 @@
 
 @mixin doc-font-style-code {
   @include doc-font-family("mono");
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: 0.8438rem;
+  line-height: 1.93;
 }
 
