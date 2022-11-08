@@ -58,8 +58,8 @@
 .hds-pagination-bar--is-compact {
   .hds-pagination__page-label { display: block; }
 
-  .hds-pagination__nav-icon + .hds-pagination__page-label,
-  .hds-pagination__page-label + .hds-pagination__nav-icon {
+  .hds-pagination__page-icon + .hds-pagination__page-label,
+  .hds-pagination__page-label + .hds-pagination__page-icon {
     margin-left: 6px;
   }
 
