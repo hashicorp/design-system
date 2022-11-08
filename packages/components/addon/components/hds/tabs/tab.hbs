@@ -9,7 +9,7 @@
     role="tab"
     type="button"
     id={{this.tabId}}
-    aria-selected={{this.isSelected}}
+    aria-selected={{if this.isSelected "true" "false"}}
     tabindex={{unless this.isSelected "-1"}}
     data-is-selected={{this.isInitialTab}}
     {{did-insert this.didInsertNode}}

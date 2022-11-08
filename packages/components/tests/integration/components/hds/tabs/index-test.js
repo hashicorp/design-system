@@ -61,7 +61,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="selected tab"] .hds-tabs__tab-button')
-      .hasAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'true');
     assert.dom('[data-test="selected panel"]').doesNotHaveAttribute('hidden');
 
     assert
@@ -69,7 +69,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="NOT selected tab"] .hds-tabs__tab-button')
-      .doesNotHaveAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'false');
     assert.dom('[data-test="NOT selected panel"]').hasAttribute('hidden');
   });
 
@@ -87,7 +87,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="selected tab"] .hds-tabs__tab-button')
-      .hasAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'true');
     assert.dom('[data-test="selected panel"]').doesNotHaveAttribute('hidden');
 
     assert
@@ -95,7 +95,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="NOT selected tab"] .hds-tabs__tab-button')
-      .doesNotHaveAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'false');
     assert.dom('[data-test="NOT selected panel"]').hasAttribute('hidden');
   });
 
@@ -114,7 +114,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="clicked tab"] .hds-tabs__tab-button')
-      .hasAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'true');
     assert
       .dom('[data-test="clicked tab panel"]')
       .doesNotHaveAttribute('hidden');
@@ -124,7 +124,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="NOT clicked tab"] .hds-tabs__tab-button')
-      .doesNotHaveAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'false');
     assert.dom('[data-test="NOT clicked tab panel"]').hasAttribute('hidden');
   });
 
@@ -190,7 +190,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="second tab"] .hds-tabs__tab-button')
-      .hasAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'true');
     assert.dom('[data-test="second panel"]').doesNotHaveAttribute('hidden');
 
     // focus 1st tab:
@@ -207,7 +207,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="first tab"] .hds-tabs__tab-button')
-      .hasAttribute('aria-selected');
+      .hasAttribute('aria-selected', 'true');
     assert.dom('[data-test="first panel"]').doesNotHaveAttribute('hidden');
   });
 
