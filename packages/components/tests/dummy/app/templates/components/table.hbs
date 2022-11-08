@@ -39,7 +39,20 @@
         <code class="dummy-code">Hds::Table::Tr</code>
         component is a template-only component. It supports
         <code>...attributes</code>
-        but is not eligible to receive interactions.
+        but is not eligible to receive interactions. It can contain
+        <code class="dummy-code">Hds::Table::Th</code>
+        or
+        <code class="dummy-code">Hds::Table::Td</code>
+        components.
+      </li>
+      <li class="dummy-paragraph">
+        The
+        <code class="dummy-code">Hds::Table::Th</code>
+        component is a template-only component. It supports
+        <code>...attributes</code>
+        but is not eligible to receive interactions itself, although it can contain interactive elements. However, it is
+        not likely that you will need to add interactive elements to this component as the sorting is already otherwise
+        provided for.
       </li>
       <li class="dummy-paragraph">
         The
