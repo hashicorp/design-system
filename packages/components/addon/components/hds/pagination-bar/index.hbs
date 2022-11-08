@@ -10,6 +10,7 @@
 
     <ul class="hds-pagination__page-list">
       <li class="hds-pagination__page-current">
+        {{! TODO: Look into replacing anchor links with Hds::Interactive }}
         <a class="hds-pagination__page-link" href="/page-1" aria-current="page">
           <span class="sr-only">page </span>1
         </a>
@@ -72,7 +73,7 @@
   WIP Structure (some of these will be separated out as sub-components, others just represent HTML/CSS structure):
     * pagination-bar
       * pagination-total-count
-      * pagination (separate out below children or keep grouped together in one list?)
+      * pagination
         * page-prev
         * pages
           * page
