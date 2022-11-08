@@ -27,10 +27,10 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-}
 
-.hds-pagination__page {
-  display: flex;
+  > li {
+    display: flex;
+  }
 }
 
 .hds-pagination__page-link {
