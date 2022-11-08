@@ -2,35 +2,20 @@
 <h2 class="dummy-h2">
   Table
 </h2>
-<p class="dummy-paragraph">
-  The
-  <code class="dummy-code">Hds::Table</code>
-  component should be used for displaying tabular data; it renders a
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
-    target="_blank"
-    rel="noopener noreferrer"
-  >HTML table element</a>.
-</p>
 <section>
   <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
   </h3>
-  <p class="dummy-paragraph">There are two named blocks in this component:
-    <code class="dummy-code">:head</code>
-    and
-    <code class="dummy-code">:body</code>.</p>
-  <h4 class="dummy-h4">:head named block</h4>
-  <p class="dummy-paragraph">This represents the
-    <code class="dummy-code">thead</code>
-    of the table. It yields within a single
-    <code class="dummy-code">tr</code>
-    element that contains column headers.</p>
-  <h4 class="dummy-h4">:body named block</h4>
-  <p class="dummy-paragraph">This represents the
-    <code class="dummy-code">tbody</code>
-    of the table.
+  <p class="dummy-paragraph">
+    The
+    <code class="dummy-code">Hds::Table</code>
+    component should be used for displaying tabular data; it renders a
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+      target="_blank"
+      rel="noopener noreferrer"
+    >HTML table element</a>.
   </p>
 </section>
 <section>
@@ -66,6 +51,14 @@
     </ul>
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
+    <dt>&lt;:head&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where the content for the thead is rendered.</p>
+    </dd>
+    <dt>&lt;:body&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is where the table body (tbody) is rendered.</p>
+    </dd>
     <dt>model <code>array</code></dt>
     <dd><p>If defined, sets the data source that gets yielded by the
         <code class="dummy-code">:body</code>
