@@ -121,6 +121,34 @@
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
   <p class="dummy-paragraph">There are several ways to customize the table component.</p>
   <h4 class="dummy-h4">Simple Table</h4>
+  <p class="dummy-paragraph">If you have your own content and don't want to use a model, you can still benefit from the
+    components themselves. Here is an example of such an invocation in a template:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Release Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    <B.Tr>
+      <td>Custom Cell Content</td>
+      <td>\{{t 'translated-cell-content-string'}}</td>
+      <td>Some other custom cell content</td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <h4 class="dummy-h4">Simple Table with model defined</h4>
   <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the model and insert
     your own content into the
     <code class="dummy-code">:head</code>
@@ -555,12 +583,12 @@ export default class ComponentsTableRoute extends Route {
     Static table with no model defined
   </h4>
   <Hds::Table>
-    <:head>
-      <Hds::Table::Tr>
-        <Hds::Table::Th>Cell Header</Hds::Table::Th>
-        <Hds::Table::Th>Cell Header</Hds::Table::Th>
-        <Hds::Table::Th>Cell Header</Hds::Table::Th>
-      </Hds::Table::Tr>
+    <:head as |T|>
+      <T.Tr>
+        <T.Th>Cell Header</T.Th>
+        <T.Th>Cell Header</T.Th>
+        <T.Th>Cell Header</T.Th>
+      </T.Tr>
     </:head>
     <:body>
       <Hds::Table::Tr>
