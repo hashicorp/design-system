@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export default class HdsPaginationIndexComponent extends Component {
+export default class HdsPaginationBarIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
