@@ -65,7 +65,7 @@
 .hds-modal__body {
   flex: 1 1 auto;
   padding: 24px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overscroll-behavior: contain;
 }
 
