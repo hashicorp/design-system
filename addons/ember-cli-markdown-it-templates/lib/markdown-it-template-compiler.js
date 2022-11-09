@@ -22,8 +22,8 @@ module.exports = class MarkdownTemplateCompiler {
           [
             'markdown-it-attrs',
             {
-              leftDelimiter: '{',
-              rightDelimiter: '}',
+              leftDelimiter: '⊂',
+              rightDelimiter: '⊃',
               // allowedAttributes: ['id', 'class', /^regex.*$/],
               allowedAttributes: ['id', 'class', /^data-.*$/],
             },

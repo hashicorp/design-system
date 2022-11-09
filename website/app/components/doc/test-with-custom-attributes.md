@@ -4,13 +4,13 @@ This is a test using [`markdown-it-attrs`](https://github.com/arve0/markdown-it-
 
 The examples below are taken and adapted from the addon/plugin documentation:
 
-## header {.style-me id=test}
+## header ⊂.style-me id=test⊃
 
-paragraph {data-toggle=modal}
+paragraph ⊂data-toggle=modal⊃
 
-paragraph *style me*{.red} more text
+paragraph *style me*⊂.red⊃ more text
 
-```python {data=asdf}
+```python ⊂data=asdf⊃
 nums = [x for x in range(10)]
 ```
 
