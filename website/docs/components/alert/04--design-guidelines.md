@@ -1,19 +1,3 @@
-<!-- <h1>Alert component - Design Guidelines</h1>
-
-<section data-section="design-guidelines">
-
-  <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=1377%3A11987"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Figma UI Kit</a></p>
-    <br />
-    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage-part1.png" alt="" role="none" />
-    <img class="dummy-figma-docs" src="/assets/images/alert-design-usage-part2.png" alt="" role="none" />
-  </div>
-</section> -->
-
 # Alert
 
 ## When to use
@@ -78,7 +62,38 @@ _Compact_
 
 ## Color
 
-![Examples of color variants for Alerts](/assets/components/alert/alert-color-variants.png)
+<section style="display: flex; gap: 1rem;">
+  <Hds::Alert @type="inline" @color="neutral" as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="highlight" as |A|>
+    <A.Title>Highlight alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="success" as |A|>
+    <A.Title>Success alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="warning" as |A|>
+    <A.Title>Warning alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="critical" as |A|>
+    <A.Title>Critical alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+</section>
 
 Use color logically.
 
@@ -102,21 +117,48 @@ All alerts except for compact can be set to dismiss. They are, however, set to b
 
 #### Persistent
 
-![Persistent Alert](/assets/components/alert/alert-inline-persistent.png)
+<section>
+  <Hds::Alert @type="inline" @color="warning" as |A|>
+    <A.Title>Your organization will delete soon</A.Title>
+    <A.Description>Your organization and account will be deleted on April 24 2022.</A.Description>
+    <A.Button @text="Cancel deletion" @color="secondary" @onClick={{this.noop}} />
+  </Hds::Alert>
+</section>
 
 ## Dismissible
 
 ![Dismissible Alert](/assets/components/alert/alert-inline-dismissible.png)
 
+<section>
+  <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Your organization will delete soon</A.Title>
+    <A.Description>Your organization and account will be deleted on April 24 2022.</A.Description>
+    <A.Button @text="Cancel deletion" @color="secondary" @onClick={{this.noop}} />
+  </Hds::Alert>
+</section>
+<!-- For some reason I couldn't get the dismiss to work here. Probably something in the model that I would need to add? -->
+
 ## Critical alerts
 
 - We recommend keeping critical alerts non-dissmissible as they are essential to the user's journey and can get dismissed by mistake.
 
-![Do this with a critical Alert](/assets/components/alert/alert-inline-critical-do.png)
+<section>
+  <Hds::Alert @type="inline" @color="critical" as |A|>
+    <A.Title>Your organization will delete soon</A.Title>
+    <A.Description>Your organization and account will be deleted on April 24 2022.</A.Description>
+    <A.Button @text="Cancel deletion" @color="secondary" @onClick={{this.noop}} />
+  </Hds::Alert>
+</section>
 
 Do
 
-![Don't do this with a critical alert](/assets/components/alert/alert-inline-critical-dont.png)
+<section>
+  <Hds::Alert @type="inline" @color="critical" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Your organization will delete soon</A.Title>
+    <A.Description>Your organization and account will be deleted on April 24 2022.</A.Description>
+    <A.Button @text="Cancel deletion" @color="secondary" @onClick={{this.noop}} />
+  </Hds::Alert>
+</section>
 
 Don't
 
@@ -126,7 +168,13 @@ Don't
 
 All alerts have icons by default. They are intentionally tied to the alert type. Icons in Neutral and Highlight alerts can be swapped out with any other icon from Flight, including animated ones. Change them only when the new icon provides the user with extra value; otherwise, leaving the default icon is recommended.
 
-![Example of changing the icon within an Alert](/assets/components/alert/alert-inline-with_icon.png)
+<section>
+  <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
+    <A.Title>New features available</A.Title>
+    <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be oprational, just as they were in prior versions.</A.Description>
+    <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
+  </Hds::Alert>
+</section>
 
 ---
 
@@ -142,15 +190,22 @@ Some common examples are:
 
 #### Button secondary only
 
-![Alert with only a secondary action](/assets/components/alert/alert-actions-button_secondary_only.png)
+<section>
+  <Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
+</section>
 
 #### Link only
 
-![Alert with only a Link action](/assets/components/alert/alert-actions-link_only.png)
+<section>
+  <Hds::Link::Standalone @color="primary" @iconPosition="trailing" @icon="arrow-right" @text="View snapshots" @href="#" />
+</section>
 
 #### Button secondary + tertiary
 
-![Alert with secondary and tertiary actions](/assets/components/alert/alert-actions-button_secondary_tertiary.png)
+<section style="display: flex; gap: 1rem;">
+  <Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
+  <Hds::Link::Standalone @color="primary" @iconPosition="leading" @icon="x-circle" @text="Cancel invitation" @href="#" />
+</section>
 
 ---
 
@@ -162,21 +217,48 @@ Alerts are very flexible and highly configurable except for `AlertCompact`, in w
 
 #### With icon and title
 
-![Example of an Alert with an icon and title](/assets/components/alert/alert-with_icon_title.png)
+<section>
+  <Hds::Alert @type="inline" @color="neutral" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+</section>
 
 #### With icon, title, and description
 
-![Example of an Alert with an icon, title, and description](/assets/components/alert/alert-with_icon_title_description.png)
+<section>
+  <Hds::Alert @type="inline" @color="neutral" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet, consectetur adipiscing elit nulla degnissim felis.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+</section>
 
 #### Title and description only
 
-![Example of an Alert with only a title and description](/assets/components/alert/alert-with_title_description_only.png)
+<section>
+  <Hds::Alert @type="inline" @color="neutral" @icon={{false}} @onDismiss={{this.noop}} as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet, consectetur adipiscing elit nulla degnissim felis.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+</section>
 
 _Insert banner (warning):_ When icon=false, the title or description should contain the alert type, ie. "Warning".
 
 #### With actions
 
-![Example of actions within an Alert](/assets/components/alert/alert-with_actions.png)
+<section>
+  <Hds::Alert @type="inline" @color="neutral" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet, consectetur adipiscing elit nulla degnissim felis.</A.Description>
+    <A.Button @text="Button" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Alert>
+</section>
 
 #### With custom content
 
@@ -224,8 +306,17 @@ Compact alerts can be wrapped within a section or component of the page or inlin
 
 ### Examples
 
-![Example of content with an Alert](/assets/components/alert/alert-content_example-01.png)
-
-![Example of content with an Alert](/assets/components/alert/alert-content_example-02.png)
-
-![Example of content with an Alert](/assets/components/alert/alert-content_example-03.png)
+<section style="display: flex; flex-direction: column; gap: 1rem;">
+  <Hds::Alert @type="inline" @color="neutral" as |A|>
+    <A.Title>Tip</A.Title>
+    <A.Description>The AMI ID used in this configuration is specific to the <code>us-west-2</code> region. If you would like to use a different region, see the <Hds::Link::Inline @href="#">Troubleshooting guide</Hds::Link::Inline> or visit the CLI <code>state</code> command documentation for guidance.</A.Description>
+  </Hds::Alert>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+    <A.Title>Note</A.Title>
+    <A.Description>The space between <code>\{{ / }}</code> and the values/functions are optional. For instance: <code>\{{.DisplayName}}</code> is equivalent to <code>\{{.DisplayName}}</code>.</A.Description>
+  </Hds::Alert>
+    <Hds::Alert @type="inline" @color="warning" as |A|>
+    <A.Title>Warning</A.Title>
+    <A.Description>This token <strong>will not be displayed again,</strong> so make sure to save it to a safe place.</A.Description>
+  </Hds::Alert>
+</section>
