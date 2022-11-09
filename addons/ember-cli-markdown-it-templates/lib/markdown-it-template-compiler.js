@@ -2,7 +2,7 @@
 
 // eslint-disable-next-line node/no-extraneous-require, no-undef
 const stew = require('broccoli-stew');
-// eslint-disable-next-line node/no-extraneous-require
+// eslint-disable-next-line node/no-extraneous-require, no-undef
 const MarkdownItCompiler = require('markdown-it-compiler');
 
 module.exports = class MarkdownTemplateCompiler {
@@ -16,7 +16,7 @@ module.exports = class MarkdownTemplateCompiler {
           html: true,
           typographer: true,
         },
-        plugins: ['markdown-it-ember'],
+        plugins: ['markdown-it-ember', 'markdown-it-attrs'],
         format(content) {
           return `${content.html}`;
         },
