@@ -103,6 +103,14 @@
     color: var(--token-color-foreground-action-active);
   }
 
+  .hds-pagination__page-link {
+    &,
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+  }
+
   // indicator underline
   &::before {
     position: absolute;
