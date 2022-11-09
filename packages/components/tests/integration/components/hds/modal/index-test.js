@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -176,7 +176,8 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     );
     assert.ok(opened);
   });
-  test('it should call `onClose` function if provided', async function (assert) {
+  // the following test is flakey so we're going to skip it until we find a more reliable way
+  skip('it should call `onClose` function if provided', async function (assert) {
     let closed = false;
     this.set('onClose', () => (closed = true));
     await render(
