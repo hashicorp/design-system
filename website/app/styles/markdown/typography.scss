@@ -1,29 +1,29 @@
-@use "../typography/mixins.scss";
+@use "../typography/mixins";
 
 .doc-markdown-content {
 
   // HEADINGS
 
   > h1 {
-    @include doc-font-style-h1 ();
+    @include doc-font-style-h1 ($responsive: false);
     margin-top: 16px;
     margin-bottom: 12px;
   }
 
   > h2 {
-    @include doc-font-style-h2 ();
+    @include doc-font-style-h2 ($responsive: false);
     margin-top: 16px;
     margin-bottom: 12px;
   }
 
   > h3 {
-    @include doc-font-style-h3 ();
+    @include doc-font-style-h3 ($responsive: false);
     margin-top: 16px;
     margin-bottom: 12px;
   }
 
   > h4 {
-    @include doc-font-style-h4 ();
+    @include doc-font-style-h4 ($responsive: false);
     margin-top: 16px;
     margin-bottom: 12px;
   }
