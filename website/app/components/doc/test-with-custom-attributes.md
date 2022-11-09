@@ -2,9 +2,9 @@
 
 This is a test using [`markdown-it-attrs`](https://github.com/arve0/markdown-it-attrs) and markdown that contains custom attributes
 
-The examples below are taken from the addon/plugin documentation:
+The examples below are taken and adapted from the addon/plugin documentation:
 
-## header {.style-me}
+## header {.style-me id=test}
 
 paragraph {data-toggle=modal}
 

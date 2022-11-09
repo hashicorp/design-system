@@ -16,13 +16,28 @@ module.exports = class MarkdownTemplateCompiler {
           html: true,
           typographer: true,
         },
-        plugins: ['markdown-it-ember', 'markdown-it-attrs'],
+        plugins: [
+          'markdown-it-ember',
+          // 'markdown-it-attrs',
+          [
+            'markdown-it-attrs',
+            {
+              leftDelimiter: '{',
+              rightDelimiter: '}',
+              // allowedAttributes: ['id', 'class', /^regex.*$/],
+              allowedAttributes: ['id', 'class', /^data-.*$/],
+            },
+          ],
+        ],
         format(content) {
           return `${content.html}`;
         },
       },
       options
     );
+    // this.configure = (md) => {
+    //   md.use(require('markdown-it-container'));
+    // };
     this.compiler = new MarkdownItCompiler(this.options);
   }
 
