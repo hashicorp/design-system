@@ -35,8 +35,16 @@
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::PaginationBar />
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 </section>
 
 <section>
@@ -64,9 +72,9 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
-  {{! ADD YOUR CONTENT HERE }}
-
-  {{! This below is just an example of invocation, to get started }}
+  <h4 class="dummy-h4">Default (numbered)</h4>
   <Hds::PaginationBar />
 
+  <h4 class="dummy-h4">Compact</h4>
+  <Hds::PaginationBar class="hds-pagination-bar--is-compact" />
 </section>
