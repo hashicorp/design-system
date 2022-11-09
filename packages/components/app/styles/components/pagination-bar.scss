@@ -54,6 +54,10 @@
   &:hover {
     color: var(--token-color-foreground-action-hover);
   }
+
+  &:active {
+    color: var(--token-color-foreground-action-active);
+  }
 }
 
 .hds-pagination__ellipsis {
