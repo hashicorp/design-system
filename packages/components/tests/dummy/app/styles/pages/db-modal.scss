@@ -7,6 +7,10 @@
     position: relative;
     display: inline-block;
   }
+
+  .hds-modal__dismiss {
+    pointer-events: none;
+  }
 }
 
 .hds-modal {
