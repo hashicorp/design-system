@@ -1,19 +1,3 @@
-<!-- <h1>Form::Select Component - Design Guidelines</h1>
-
-<section data-section="design-guidelines">
-
-  <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13896%3A33962"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Figma UI Kit</a></p>
-    <br />
-    <img class="dummy-figma-docs" src="/assets/images/form-select-design-usage.png" alt="" role="none" />
-  </div>
-</section>
- -->
-
 # Select
 
 ## When to use
@@ -109,7 +93,24 @@ Focus
 
 ## Required and optional
 
-![Example of both required and option select fields](/assets/components/select/select-required_optional.png)
+<section style="display: flex; flex-direction: column; gap: 1rem;">
+  <Hds::Form::Select::Field @isRequired={{true}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.Options>
+      <option value="">--Required select--</option>
+      <option value="Option 1">Option 1</option>
+      <option value="Option 2">Option 2</option>
+    </F.Options>
+  </Hds::Form::Select::Field>
+  <Hds::Form::Select::Field @isOptional={{true}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.Options>
+      <option value="">--Optional select--</option>
+      <option value="Option 1">Option 1</option>
+      <option value="Option 2">Option 2</option>
+    </F.Options>
+  </Hds::Form::Select::Field>
+</section>
 
 ### Best practices
 
@@ -126,7 +127,17 @@ Focus
 
 _Insert banner (warning):_ While we provide the structure and visual consistency for validation, the messaging and functionality are to be handled by the application teams.
 
-![Example of a validation error in a select](/assets/components/select/select-validation-error.png)
+<section>
+  <Hds::Form::Select::Field @isRequired={{true}} @isInvalid={{true}} as |F|>
+    <F.Label>Region selection</F.Label>
+    <F.Options>
+      <option value="">--Select an option--</option>
+      <option value="US-WEST">US-WEST</option>
+      <option value="US-EAST">US-EAST</option>
+    </F.Options>
+    <F.Error>Region selection is required. Select a region.</F.Error>
+  </Hds::Form::Select::Field>
+</section>
 
 ### Client side and Server side validation
 
@@ -206,30 +217,42 @@ Click to select OptionList/Item
 
 Focus
 
-_Tab_ (To Do: Replace with badge)
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Tab" @size="small" />
+</div>
 
 ![Example image of focusing on the select with tab on a keyboard](/assets/components/select/accessibility/keyboard/select-focus.png)
 
 Open OptionList
 
-_Spacebar_ _↓_ (To Do: Replace with badge)
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Spacebar" @size="small" />
+  <Hds::Badge @color="neutral" @type="filled" @text="↓" @size="small" />
+</div>
 
 ![Example image of selecting an item in the OptionList with spacebar](/assets/components/select/accessibility/keyboard/select-spacebar.png)
 
 Move between items
 
-_↑_ _↓_ (To Do: Replace with badge)
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="↑" @size="small" />
+  <Hds::Badge @color="neutral" @type="filled" @text="↓" @size="small" />
+</div>
 
 ![Example image of moving between items with up and down arrow keys](/assets/components/select/accessibility/keyboard/select-arrow-keys.png)
 
 Select OptionList/Item
 
-_Enter_ (To Do: Replace with badge)
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Enter" @size="small" />
+</div>
 
 ![Example image of selecting an item in an OptionList with enter](/assets/components/select/accessibility/keyboard/select-enter.png)
 
 Close with changing
 
-_Esc_ (To Do: Replace with badge)
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Esc" @size="small" />
+</div>
 
 ![Example image of closing the select with the escape key](/assets/components/select/accessibility/keyboard/select-focus.png)
