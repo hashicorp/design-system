@@ -730,7 +730,8 @@ export default class ComponentsTableRoute extends Route {
         <td><Hds::Link::Inline @href="#showcase">{{data.artist}}</Hds::Link::Inline></td>
         <td>
           <div class="db-table-cell-content-div">
-            <FlightIcon @name={{data.icon}}/> {{data.album}}
+            <FlightIcon @name={{data.icon}} />
+            {{data.album}}
           </div>
         </td>
         <td>
@@ -738,9 +739,9 @@ export default class ComponentsTableRoute extends Route {
         </td>
         <td>
           <Hds::ButtonSet>
-            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small"/> 
-            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary"/>
-            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical"/>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
           </Hds::ButtonSet>
         </td>
       </Hds::Table::Tr>
