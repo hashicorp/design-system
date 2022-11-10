@@ -11,6 +11,9 @@ module.exports = function (defaults) {
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
       ],
     },
+    fingerprint: {
+      enabled: false,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
