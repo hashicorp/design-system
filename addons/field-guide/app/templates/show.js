@@ -1,1 +1,1 @@
-export { default } from 'field-guide/templates/show';
+export { default } from '@hashicorp/field-guide/templates/show';

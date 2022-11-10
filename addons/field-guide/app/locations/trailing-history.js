@@ -1,1 +1,1 @@
-export { default } from 'field-guide/locations/trailing-history';
+export { default } from '@hashicorp/field-guide/locations/trailing-history';

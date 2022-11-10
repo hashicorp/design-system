@@ -1,1 +1,1 @@
-export { default } from 'field-guide/services/head-data';
+export { default } from '@hashicorp/field-guide/services/head-data';

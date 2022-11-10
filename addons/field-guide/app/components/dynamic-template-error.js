@@ -1,2 +1,2 @@
 /* eslint-disable prettier/prettier */
-export { default } from 'field-guide/components/dynamic-template-error';
+export { default } from '@hashicorp/field-guide/components/dynamic-template-error';

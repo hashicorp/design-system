@@ -1,1 +1,1 @@
-export { default } from 'field-guide/routes/application';
+export { default } from '@hashicorp/field-guide/routes/application';

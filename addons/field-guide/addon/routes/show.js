@@ -23,11 +23,9 @@ export default class ShowRoute extends Route {
 
     return fetch(`${config.rootURL}docs/${path}.json`)
       .then((res) => {
-        // console.log('res.json()', res.json());
         return res.json();
       })
       .then((res) => {
-        console.log('res', res);
         return {
           id: res.data.id,
           ...res.data.attributes,
