@@ -1,6 +1,8 @@
 <th scope="col" class="hds-table__th-sort" aria-sort={{this.ariaSort}} data-test-table-th-sort>
   <button type="button" {{on "click" (fn this.onClick @sortKey)}}>
-    {{yield}}
-    <FlightIcon @name={{this.icon}} />
+    <div class="hds-table__th-sort--button-content">
+      <span>{{yield}}</span>
+      <FlightIcon @name={{this.icon}} />
+    </div>
   </button>
 </th>
