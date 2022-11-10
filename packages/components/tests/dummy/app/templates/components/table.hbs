@@ -753,7 +753,8 @@ export default class ComponentsTableRoute extends Route {
       <H.Tr>
         <H.Th>Artist</H.Th>
         <H.Th>Album</H.Th>
-        <H.Th>Related Quote about the artist that is multiple lines.</H.Th>
+        <H.Th>Related Quote about the artist</H.Th>
+        <H.Th>Other Options</H.Th>
       </H.Tr>
     </:head>
     <:body as |data|>
@@ -761,6 +762,16 @@ export default class ComponentsTableRoute extends Route {
         <td>{{data.artist}}</td>
         <td>{{data.album}}</td>
         <td>&ldquo;{{data.quote}}&rdquo;</td>
+        <td>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+            <dd.Interactive @route="components.table" @text="Create" />
+            <dd.Interactive @route="components.table" @text="Read" />
+            <dd.Interactive @route="components.table" @text="Update" />
+            <dd.Separator />
+            <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+        </td>
       </Hds::Table::Tr>
     </:body>
   </Hds::Table>
