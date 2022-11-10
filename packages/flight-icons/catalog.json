@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-09-29T21:59:30.161Z",
+  "lastRunTimeISO": "2022-11-10T06:50:51.994Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -912,6 +912,42 @@
       "height": 16
     },
     {
+      "id": "2868:96",
+      "fileName": "figma-24",
+      "iconName": "figma",
+      "description": "figma",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2868:98",
+      "fileName": "figma-16",
+      "iconName": "figma",
+      "description": "figma",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2868:103",
+      "fileName": "figma-color-24",
+      "iconName": "figma-color",
+      "description": "figma",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2868:116",
+      "fileName": "figma-color-16",
+      "iconName": "figma-color",
+      "description": "figma",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:200",
       "fileName": "gcp-24",
       "iconName": "gcp",
@@ -1339,6 +1375,42 @@
       "fileName": "linux-color-16",
       "iconName": "linux-color",
       "description": "linux, os",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2868:127",
+      "fileName": "loom-24",
+      "iconName": "loom",
+      "description": "loom",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2868:129",
+      "fileName": "loom-16",
+      "iconName": "loom",
+      "description": "loom",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "2868:134",
+      "fileName": "loom-color-24",
+      "iconName": "loom-color",
+      "description": "loom",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "2868:136",
+      "fileName": "loom-color-16",
+      "iconName": "loom-color",
+      "description": "loom",
       "size": "16",
       "width": 16,
       "height": 16
