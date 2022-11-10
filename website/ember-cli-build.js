@@ -11,8 +11,10 @@ module.exports = function (defaults) {
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
       ],
     },
+    // https://cli.emberjs.com/release/advanced-use/asset-compilation/#fingerprintingandcdnurls
     fingerprint: {
-      enabled: false,
+      // override defaults to also include json files which our markdown is compiled to. without this images don't render properly.
+      replaceExtensions: ['html', 'css', 'js', 'json'],
     },
   });
 
