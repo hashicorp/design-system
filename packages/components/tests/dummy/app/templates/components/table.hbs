@@ -582,7 +582,7 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with no model defined
   </h4>
-  <Hds::Table>
+  <Hds::Table @caption="a custom table with no model defined">
     <:head as |T|>
       <T.Tr>
         <T.Th>Cell Header</T.Th>
@@ -611,7 +611,7 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with no striping
   </h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
+  <Hds::Table @model={{this.model.data}} @isStriped={{false}} @caption="Static table with no striping">
     <:head>
       <Hds::Table::Tr>
         <Hds::Table::Th>Artist</Hds::Table::Th>
@@ -748,7 +748,7 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">Table with multi-line content</h4>
-  <Hds::Table @model={{this.model.data}}>
+  <Hds::Table @model={{this.model.data}} @caption="table with multi-line content">
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
