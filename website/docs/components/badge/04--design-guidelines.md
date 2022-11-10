@@ -1,4 +1,4 @@
-# Badge
+# Badge - Design Guidelines
 
 ## When to use
 
