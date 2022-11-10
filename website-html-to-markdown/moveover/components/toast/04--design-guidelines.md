@@ -51,7 +51,42 @@ Required
 
 ## Color
 
-![Example image of color variants for the Toast component](/assets/components/toast/toast-color_variants.png)
+<section style="display: flex; flex-direction: column; gap: 1rem;">
+  <div style="display: flex; flex-direction: row; gap: 1rem;">
+    <Hds::Toast @onDismiss={{this.noop}} as |T|>
+      <T.Title>Neutral toast title</T.Title>
+      <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+      <T.Button @text="Button" @color="secondary" />
+      <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    </Hds::Toast>
+    <Hds::Toast @color="highlight" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Highlight toast title</T.Title>
+      <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+      <T.Button @text="Button" @color="secondary" />
+      <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    </Hds::Toast>
+    <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Success toast title</T.Title>
+      <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+      <T.Button @text="Button" @color="secondary" />
+      <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    </Hds::Toast>
+  </div>
+  <div style="display: flex; flex-direction: row; gap: 1rem;">
+    <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Warning toast title</T.Title>
+      <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+      <T.Button @text="Button" @color="secondary" />
+      <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    </Hds::Toast>
+    <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+      <T.Title>Critical toast title</T.Title>
+      <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+      <T.Button @text="Button" @color="secondary" />
+      <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    </Hds::Toast>
+  </div>
+</section>
 
 Use color logically.
 
@@ -67,7 +102,20 @@ Use color logically.
 
 All toasts come with icons by default. They are intentionally tied to the toast type. Icons in Neutral and Highlight alerts can be swapped out with any other icon from Flight, including animated ones. Change them only when the new icon provides the user with extra value; otherwise, leaving the default icon is recommended.
 
-![Visual examples of different icons in the toast](/assets/components/toast/toast-icon_examples.png)
+<section style="display: flex; gap: 1rem">
+  <Hds::Toast @color="neutral" @icon="running" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Plan running</T.Title>
+    <T.Button @text="Button" @color="secondary" />
+    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Toast>
+  <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Plan finished</T.Title>
+    <T.Button @text="Button" @color="secondary" />
+    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Toast>
+</section>
+
+<!-- ![Visual examples of different icons in the toast](/assets/components/toast/toast-icon_examples.png) -->
 
 ---
 
@@ -83,15 +131,22 @@ Some common examples are:
 
 #### Button secondary only
 
-![Button secondary only](/assets/components/toast/toast-button.png)
+<section>
+  <Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
+</section>
 
 #### Link only
 
-[Link only](/assets/toast-link-only.png)
+<section>
+  <Hds::Link::Standalone @color="primary" @iconPosition="trailing" @icon="arrow-right" @text="View snapshots" @href="#" />
+</section>
 
 #### Button secondary + tertiary
 
-![Button secondary + tertiary](/assets/components/toast/toast-button-secondary-tertiary.png)
+<section style="display: flex; gap: 1rem;">
+  <Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
+  <Hds::Link::Standalone @color="primary" @iconPosition="leading" @icon="x-circle" @text="Cancel invitation" @href="#" />
+</section>
 
 _Insert banner (warning):_ When using links, avoid using CTA link; it may take users' attention away from other actions on the page. Use [LinkStandalone](/components/link/link-standalone/overview)
 
@@ -103,21 +158,50 @@ Alerts are very flexible and highly configurable except for the AlertCompact, in
 
 #### With icon and title
 
-![Visual example of a toast with icon and title](/assets/components/toast/toast-composition-with_icon_title.png)
+<!-- ![Visual example of a toast with icon and title](/assets/components/toast/toast-composition-with_icon_title.png) -->
+
+<section>
+  <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Success toast title</T.Title>
+  </Hds::Toast>
+</section>
 
 #### With icon, title, and description
 
-![Visual example of a toast with icon, title, and description](/assets/components/toast/toast-composition-with_icon_title_description.png)
+<!-- ![Visual example of a toast with icon, title, and description](/assets/components/toast/toast-composition-with_icon_title_description.png) -->
+
+<section>
+  <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Success toast title</T.Title>
+    <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
+  </Hds::Toast>
+</section>
 
 #### Title and description only
 
-![Visual example of a toast with title and description](/assets/components/toast/toast-composition-with_title_description.png)
+<!-- ![Visual example of a toast with title and description](/assets/components/toast/toast-composition-with_title_description.png) -->
+
+<section>
+  <Hds::Toast @color="success" @icon={{false}} @onDismiss={{this.noop}} as |T|>
+    <T.Title>Success toast title</T.Title>
+    <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
+  </Hds::Toast>
+</section>
 
 _Insert banner (warning):_ When icon=false, the title or description text should contain the alert type in it, ie. "Success."
 
 #### With actions
 
-![Visual example of a toast with actions](/assets/components/toast/toast-composition-with_actions.png)
+<!-- ![Visual example of a toast with actions](/assets/components/toast/toast-composition-with_actions.png) -->
+
+<section>
+  <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Success toast title</T.Title>
+    <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
+    <T.Button @text="Button" @color="secondary" />
+    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Toast>
+</section>
 
 #### With custom content
 
@@ -151,7 +235,24 @@ _Insert banner (warning):_ Toast width: The Figma component is 360px, which is t
 
 #### Examples
 
-![Examples of differing types of content with a toast](/assets/components/toast/toast-content_examples.png)
+<section style="display: flex; gap: 1rem;">
+  <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Cost estimation enabled</T.Title>
+    <T.Description>Future runs will now include this step. You can manage this preference in <Hds::Link::Inline @href="#">Organization settings</Hds::Link::Inline>.</T.Description>
+    <T.Button @text="Button" @color="secondary" />
+    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Toast>
+  <Hds::Toast @color="critical" @icon="alert-diamond" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Placement failures</T.Title>
+    <T.Description>Batch, <strong>3 unplaced</strong></T.Description>
+    <T.Description>Resources exhausted on 5 modes</T.Description>
+    <T.Description>Missing driver "java" on 5 nodes</T.Description>
+    <T.Button @text="Button" @color="secondary" />
+    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  </Hds::Toast>
+</section>
+
+<!-- ![Examples of differing types of content with a toast](/assets/components/toast/toast-content_examples.png) -->
 
 ---
 

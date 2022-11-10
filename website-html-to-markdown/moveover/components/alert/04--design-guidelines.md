@@ -127,8 +127,6 @@ All alerts except for compact can be set to dismiss. They are, however, set to b
 
 ## Dismissible
 
-![Dismissible Alert](/assets/components/alert/alert-inline-dismissible.png)
-
 <section>
   <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
     <A.Title>Your organization will delete soon</A.Title>
