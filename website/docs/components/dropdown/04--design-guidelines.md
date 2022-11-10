@@ -104,3 +104,13 @@ Small
     </Hds::Dropdown>
   </Hds::ButtonSet>
 </section>
+
+---
+
+## Chevron
+
+Open toggles use a chevron pointing up, while closed toggles use a chevron pointing down.
+
+_Banner (highlight):_ Set `isOpen=true` when displaying the toggle with a menu and `isOpen=false` when displaying the toggle.
+
+### Open
