@@ -6,7 +6,8 @@
     "./packages/*",
     "./flight-website",
     "./website",
-    "./website-html-to-markdown"
+    "./website-html-to-markdown",
+    "./addons/*"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
