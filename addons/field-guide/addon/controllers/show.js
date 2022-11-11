@@ -1,14 +1,12 @@
-/* eslint-disable prettier/prettier, ember/no-classic-classes */
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import showdown from 'showdown';
 import config from 'ember-get-config';
 
+export default class ShowController extends Controller {
+  fieldGuideConfig = config['field-guide'];
 
-export default Controller.extend({
-  fieldGuideConfig: config['field-guide'],
-  renderedContent: computed('model.content', function() {
+  get renderedContent() {
     const converter = new showdown.Converter();
     return converter.makeHtml(this.model.content);
-  })
-})
+  }
+}
