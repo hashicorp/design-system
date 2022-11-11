@@ -1,82 +1,22 @@
-@mixin top-list-level() {
-  > ul,
-  > ol {
-    @content;
+// LISTS
+
+.doc-markdown-ul,
+.doc-markdown-ol {
+  padding-left: 16px;
+
+  > li > p {
+    margin-top: 12px;
+  }
+
+  > li + li {
+    margin-top: 12px;
   }
 }
 
-@mixin generic-list-level() {
-  > ul,
-  > ol {
-    & {
-      @content;
-    }
-  }
-}
-
-@mixin nested-list-levels() { // we support up to 4 nested levels
-  > ul > li > ul,
-  > ul > li > ol,
-  > ol > li > ul,
-  > ol > li > ol,
-  > ul > li > ul > li > ul,
-  > ul > li > ul > li > ol,
-  > ul > li > ol > li > ul,
-  > ul > li > ol > li > ol,
-  > ol > li > ul > li > ul,
-  > ol > li > ul > li > ol,
-  > ol > li > ol > li > ul,
-  > ol > li > ol > li > ol,
-  > ul > li > ul > li > ul > li > ul,
-  > ul > li > ul > li > ul > li > ol,
-  > ul > li > ul > li > ol > li > ul,
-  > ul > li > ul > li > ol > li > ol,
-  > ul > li > ol > li > ul > li > ul,
-  > ul > li > ol > li > ul > li > ol,
-  > ul > li > ol > li > ol > li > ul,
-  > ul > li > ol > li > ol > li > ol,
-  > ol > li > ul > li > ul > li > ul,
-  > ol > li > ul > li > ul > li > ol,
-  > ol > li > ul > li > ol > li > ul,
-  > ol > li > ul > li > ol > li > ol,
-  > ol > li > ol > li > ul > li > ul,
-  > ol > li > ol > li > ul > li > ol,
-  > ol > li > ol > li > ol > li > ul,
-  > ol > li > ol > li > ol > li > ol {
-    @content;
-  }
-}
-
-@mixin all-list-levels() {
-  @include top-list-level() {
-    @content;
-  }
-
-  @include nested-list-levels() {
-    @content;
-  }
-}
-
-.doc-markdown-content {
-
-  // LISTS
-
-  @include all-list-levels() {
-    padding-left: 16px;
-    border: 4px solid cyan;
-
-    > li > p {
-      margin-top: 12px;
-    }
-
-    > li + li {
-      margin-top: 12px;
-      border-left: 2px solid coral;
-    }
-  }
-
-  @include nested-list-levels() {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+.doc-markdown-ul .doc-markdown-ul,
+.doc-markdown-ul .doc-markdown-ol,
+.doc-markdown-ol .doc-markdown-ul,
+.doc-markdown-ol .doc-markdown-ol {
+  margin-top: 0;
+  margin-bottom: 0;
 }

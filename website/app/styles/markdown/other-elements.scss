@@ -1,60 +1,59 @@
-.doc-markdown-content {
+// LINKS
 
-  // IMAGES
+.doc-markdown-a {
+  color: teal;
+}
 
-  > img,
-  > p img,
-  > li img,
-  > th img,
-  > td img {
-    box-sizing: content-box;
-    max-width: 100%;
-    background-color: #fff; // TODO
+// IMAGES
 
-    &[align="right"] {
-      padding-left: 20px;
-    }
+.doc-markdown-img {
+  box-sizing: content-box;
+  max-width: 100%;
+  background-color: #fff; // TODO
 
-    &[align="left"] {
-      padding-right: 20px;
-    }
+  &[align="right"] {
+    padding-left: 20px;
   }
 
-  // CODE SNIPPETS
-  // TODO do we need this or in reality we will not use them directly?
+  &[align="left"] {
+    padding-right: 20px;
+  }
+}
 
-  code { // for the typographic styles see "typography"
+// CODE SNIPPETS
+// TODO do we need this or in reality we will not use them directly?
+
+.doc-markdown-code { // for the typographic styles see "typography"
+  margin: 0;
+  padding: 4px 8px;
+  color: white; // TODO
+  background-color: black; // TODO
+  border-radius: 3px;
+}
+
+.doc-markdown-pre {
+  word-wrap: normal;
+
+  .doc-markdown-code {
+    display: inline;
+    max-width: auto;
     margin: 0;
-    padding: 4px 8px;
-    color: white; // TODO
-    background-color: black; // TODO
-    border-radius: 3px;
-  }
-
-  pre {
-    word-wrap: normal;
-
-    > code {
-      display: inline;
-      max-width: auto;
-      margin: 0;
-      padding: 0;
-      overflow: visible;
-      white-space: pre;
-      word-wrap: normal;
-      word-break: normal;
-      background: transparent;
-      border: 0;
-    }
-  }
-
-  // HORIZONTAL RULE
-
-  > hr {
-    height: 12px;
-    margin: 16px 0;
     padding: 0;
-    background-color: midnightblue; // TODO
+    overflow: visible;
+    white-space: pre;
+    word-wrap: normal;
+    word-break: normal;
+    background: transparent;
     border: 0;
   }
+}
+
+// HORIZONTAL RULE
+
+.doc-markdown-hr {
+  height: 1px;
+  margin: 16px 0;
+  padding: 0;
+  background-color: lightgray; // TODO
+  border: 0;
 }
