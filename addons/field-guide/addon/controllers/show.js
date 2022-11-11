@@ -6,7 +6,11 @@ export default class ShowController extends Controller {
   fieldGuideConfig = config['field-guide'];
 
   get renderedContent() {
-    const converter = new showdown.Converter();
+    // SET SHOWDOWN SETTINGS HERE:
+    const showdownConfig = {
+      tables: true,
+    };
+    const converter = new showdown.Converter(showdownConfig);
     return converter.makeHtml(this.model.content);
   }
 }
