@@ -70,11 +70,28 @@
 </section>
 
 <section data-test-percy>
-  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
+  <h3 class="dummy-h3" id="showcase">
+    <a href="#showcase" class="dummy-link-section">§</a>
+    Showcase
+  </h3>
 
-  <h4 class="dummy-h4">Default (numbered)</h4>
+  <h4 class="dummy-h4">Numbered</h4>
   <Hds::PaginationBar />
 
   <h4 class="dummy-h4">Compact</h4>
-  <Hds::PaginationBar class="hds-pagination-bar--is-compact" />
+  <Hds::PaginationBar @type="compact" />
+
+  <hr />
+  <h4 class="dummy-h4">No TotalCount</h4>
+  <Hds::PaginationBar @showTotalCount={{false}} />
+  <hr />
+
+  <h4 class="dummy-h4">No PageSize</h4>
+  <Hds::PaginationBar @showPageSize={{false}} />
+
+  <h4 class="dummy-h4">No TotalCount or PageSize</h4>
+  <Hds::PaginationBar @showTotalCount={{false}} @showPageSize={{false}} />
+
+  <h4 class="dummy-h4">No TotalItems</h4>
+  <Hds::PaginationBar @hasTotalItems={{false}} />
 </section>
