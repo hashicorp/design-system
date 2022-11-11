@@ -2,6 +2,32 @@ import Controller from '@ember/controller';
 import showdown from 'showdown';
 import config from 'ember-get-config';
 
+const mapElementsToClassNames = {
+  // TODO decide if shorten them to `doc-md-[...]`
+  h1: 'doc-markdown-h1',
+  h2: 'doc-markdown-h2',
+  h3: 'doc-markdown-h3',
+  h4: 'doc-markdown-h4',
+  h5: 'doc-markdown-h5',
+  h6: 'doc-markdown-h6',
+  p: 'doc-markdown-p',
+  blockquote: 'doc-markdown-blockquote',
+  ul: 'doc-markdown-ul',
+  ol: 'doc-markdown-ol',
+  li: 'doc-markdown-li',
+  img: 'doc-markdown-img',
+  a: 'doc-markdown-a',
+  table: 'doc-markdown-table',
+  thead: 'doc-markdown-thead',
+  tbody: 'doc-markdown-tbody',
+  tr: 'doc-markdown-tr',
+  td: 'doc-markdown-td',
+  // th: 'doc-markdown-th', // COMMENTING FOR PROBLEMS WITH THE REGEX (`th/thead`)
+  // pre: 'doc-markdown-pre', // COMMENTING FOR PROBLEMS WITH THE REGEX (`p/pre`)
+  code: 'doc-markdown-code',
+  hr: 'doc-markdown-hr',
+};
+
 // SET SHOWDOWN SETTINGS HERE:
 // https://showdownjs.com/docs/available-options/
 // https://github.com/showdownjs/showdown/wiki/Showdown-Options
@@ -18,6 +44,17 @@ const showdownConfig = {
   customizedHeaderId: true,
   // enable generations of heading IDs compatible with GitHub style (see: https://showdownjs.com/docs/available-options/#ghcompatibleheaderid)
   ghCompatibleHeaderId: true,
+  // add default class for each HTML element generated (see: https://showdownjs.com/docs/tutorials/add-default-class-to-html/)
+  extensions: Object.keys(mapElementsToClassNames).map((element) => ({
+    type: 'output',
+    // [1] - this is the original regex found in the article linked above
+    regex: new RegExp(`<${element}(.*)>`, 'g'),
+    // [2] - below a set of custom regex (more solid and encompassing more use cases)
+    // TODO! with `code` and `pre` this is replaced by the `language` classes, we have to find a way to concatenate the strings (not sure how though)
+    // maybe a solition here? https://regex101.com/r/I2FB9N/1
+    // regex: new RegExp(`<?[^>\s]*(.*)>`, 'g'), // https://regex101.com/r/jLk7wN/2
+    replace: `<${element} class="${mapElementsToClassNames[element]}" $1>`,
+  })),
 };
 export default class ShowController extends Controller {
   fieldGuideConfig = config['field-guide'];
