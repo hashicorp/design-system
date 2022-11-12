@@ -55,10 +55,36 @@ const showdownConfig = {
     type: 'output',
     // this is a custom regex, modified from the one found in the original tutolrial, to make it more solid and encompass more use cases
     // for testing see: https://regex101.com/r/jLk7wN/2 + https://regex101.com/r/jLk7wN/5
+    // IMPORTANT: we NEED to set the "g" global option here!
     regex: new RegExp(`<${element}>|<${element} (.*)>`, 'g'),
-    // TODO! with `code` and `pre` this is replaced by the `language` classes, we have to find a way to concatenate the strings (not sure how though)
-    // maybe a solition here? https://regex101.com/r/I2FB9N/1
-    replace: `<${element} class="${mapElementsToClassNames[element]}" $1>`,
+    replace: function (text) {
+      // IMPORTANT: we DO NOT NEED to set the "g" global option here!
+      const regexBasic = new RegExp(`<${element}>`);
+      const matchBasic = text.match(regexBasic);
+      const regexWithAttrs = new RegExp(`<${element} (.*)>`);
+      const matchWithAttrs = text.match(regexWithAttrs);
+
+      let attrs;
+
+      // eg. <h1> <p> <td>
+      if (matchBasic) {
+        attrs = `class="${mapElementsToClassNames[element]}"`;
+      }
+      // eg. <hr /> <th style="text-align:center;"> <pre class="language-shell"><code class="shell language-shell">
+      if (matchWithAttrs) {
+        const rest = matchWithAttrs[1];
+        if (rest.includes('class="')) {
+          attrs = rest.replace(
+            'class="',
+            `class="${mapElementsToClassNames[element]} `
+          );
+        } else {
+          attrs = `class="${mapElementsToClassNames[element]}" ${rest}`;
+        }
+      }
+
+      return `<${element} ${attrs}>`;
+    },
   })),
 };
 export default class ShowController extends Controller {
