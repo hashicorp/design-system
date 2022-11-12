@@ -22,8 +22,8 @@ const mapElementsToClassNames = {
   tbody: 'doc-markdown-tbody',
   tr: 'doc-markdown-tr',
   td: 'doc-markdown-td',
-  // th: 'doc-markdown-th', // COMMENTING FOR PROBLEMS WITH THE REGEX (`th/thead`)
-  // pre: 'doc-markdown-pre', // COMMENTING FOR PROBLEMS WITH THE REGEX (`p/pre`)
+  th: 'doc-markdown-th',
+  pre: 'doc-markdown-pre',
   code: 'doc-markdown-code',
   hr: 'doc-markdown-hr',
 };
@@ -47,12 +47,11 @@ const showdownConfig = {
   // add default class for each HTML element generated (see: https://showdownjs.com/docs/tutorials/add-default-class-to-html/)
   extensions: Object.keys(mapElementsToClassNames).map((element) => ({
     type: 'output',
-    // [1] - this is the original regex found in the article linked above
-    regex: new RegExp(`<${element}(.*)>`, 'g'),
-    // [2] - below a set of custom regex (more solid and encompassing more use cases)
+    // this is a custom regex, modified from the one found in the original tutolrial, to make it more solid and encompass more use cases
+    // for testing see: https://regex101.com/r/jLk7wN/2 + https://regex101.com/r/jLk7wN/5
+    regex: new RegExp(`<${element}>|<${element} (.*)>`, 'g'),
     // TODO! with `code` and `pre` this is replaced by the `language` classes, we have to find a way to concatenate the strings (not sure how though)
     // maybe a solition here? https://regex101.com/r/I2FB9N/1
-    // regex: new RegExp(`<?[^>\s]*(.*)>`, 'g'), // https://regex101.com/r/jLk7wN/2
     replace: `<${element} class="${mapElementsToClassNames[element]}" $1>`,
   })),
 };
