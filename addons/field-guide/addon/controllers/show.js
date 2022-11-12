@@ -33,18 +33,24 @@ const mapElementsToClassNames = {
 // https://github.com/showdownjs/showdown/wiki/Showdown-Options
 
 const showdownConfig = {
-  // enable support for tables in markdown (see: https://showdownjs.com/docs/available-options/#tables)
+  // enable support for tables in markdown
+  // see: https://showdownjs.com/docs/available-options/#tables
   tables: true,
-  // enable support for strikethrough in markdown (see: https://showdownjs.com/docs/available-options/#strikethrough)
+  // enable support for strikethrough in markdown
+  // see: https://showdownjs.com/docs/available-options/#strikethrough
   strikethrough: true,
-  // enable support for image sizes in markdown (see: https://showdownjs.com/docs/available-options/#parseimgdimensions)
+  // enable support for image sizes in markdown
+  // see: https://showdownjs.com/docs/available-options/#parseimgdimensions
   parseImgDimensions: true,
-  // enable custom ID for a heading (see: https://showdownjs.com/docs/available-options/#customizedheaderid)
+  // enable custom ID for a heading
+  // see: https://showdownjs.com/docs/available-options/#customizedheaderid
   // notice: later it may be replaced with a more comprehensive way to handle HTML attributes (similar to https://github.com/arve0/markdown-it-attrs)
   customizedHeaderId: true,
-  // enable generations of heading IDs compatible with GitHub style (see: https://showdownjs.com/docs/available-options/#ghcompatibleheaderid)
+  // enable generations of heading IDs compatible with GitHub style
+  // see: https://showdownjs.com/docs/available-options/#ghcompatibleheaderid
   ghCompatibleHeaderId: true,
-  // add default class for each HTML element generated (see: https://showdownjs.com/docs/tutorials/add-default-class-to-html/)
+  // add default class for each HTML element generated
+  // see: https://github.com/showdownjs/showdown/wiki/Extensions + https://showdownjs.com/docs/tutorials/add-default-class-to-html/
   extensions: Object.keys(mapElementsToClassNames).map((element) => ({
     type: 'output',
     // this is a custom regex, modified from the one found in the original tutolrial, to make it more solid and encompass more use cases
