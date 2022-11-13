@@ -1,21 +1,18 @@
 // SIDE NAVIGATION
 
-$docs-page-sidebar-width: 241px;
-
 .doc-page-sidebar {
-  flex: none;
-  // position: fixed;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  width: $docs-page-sidebar-width;
-  padding: 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  grid-area: sidebar;
+  width: var(--doc-sidebar-width);
   background: white;
   border-right: 1px solid #ddd;
 }
 
-.doc-page-sidebar__table-of-contents {
-  // width: 100%;
-  // overflow: hidden;
-  // overflow-y: auto;
+.doc-page-sidebar__inner-wrapper {
+  position: relative;
+  flex: 1 0 0;
+  min-height: 0;
+  padding: 2rem 0.5rem;
+  overflow-y: auto;
 }

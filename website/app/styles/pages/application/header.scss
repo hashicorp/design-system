@@ -1,11 +1,15 @@
 // HEADER
 
 .doc-page-header {
+  // TBD with Heather if we want it sticky or not
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: row;
+  grid-area: header;
   align-items: center;
   justify-content: flex-start;
-  height: 68px;
+  height: var(--doc-page-header-height);
   padding: 0 24px;
   color: #fff;
   background: #000;

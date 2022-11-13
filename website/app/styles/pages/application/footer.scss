@@ -2,6 +2,8 @@
 
 .doc-page-footer {
   display: flex;
+  grid-area: footer;
+  margin: auto 0 0 0;
   padding: 1rem 2rem;
   color: #fff;
   background: #000;
