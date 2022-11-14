@@ -11,8 +11,7 @@ $hds-table-cell-padding-medium: 12px 16px;
 $hds-table-cell-padding-short: 4px 16px;
 $hds-table-cell-padding-tall: 20px 16px;
 
-.hds-table,
-.hds-table-sortable {
+.hds-table {
   width: 100%;
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-font-stack-text);
@@ -73,7 +72,7 @@ $hds-table-cell-padding-tall: 20px 16px;
             max-width: calc(100% - 32px); // It didn't work very well until 32px (theoretically it should have worked with icon (16px) + margin-left of icon (8px)) -- maybe someone has a more logical reasoning for this?
           }
 
-          .flight-icon { // using the .flight-icon selector breaks our rules, any ideas?
+          .flight-icon {
             display: inline-flex;
             align-self: center;
             margin-left: 8px;
@@ -106,20 +105,11 @@ $hds-table-cell-padding-tall: 20px 16px;
     &:first-of-type {
       th:first-child {
         border-top-left-radius: $hds-table-inner-border-radius;
-
-        // IF SORTABLE, WILL CONTAIN A BUTTON FOR SORTING
-        button {
-          border-top-left-radius: inherit;
-        }
       }
 
       // LAST TH IN THE ROW, BORDER RADIUS
       th:last-child {
         border-top-right-radius: $hds-table-inner-border-radius;
-
-        button { // so the background color and focus border will be correct
-          border-top-right-radius: inherit;
-        }
       }
     }
   }
@@ -162,10 +152,6 @@ $hds-table-cell-padding-tall: 20px 16px;
       border-right: none;
       border-bottom: $hds-table-border-width solid $hds-table-border-color;
       border-left: none;
-
-      &:last-child {
-        border-right: none;
-      }
     }
 
     // BORDER RADIUS: TARGET FIRST AND LAST TD ELEMENTS IN THE LAST ROW
