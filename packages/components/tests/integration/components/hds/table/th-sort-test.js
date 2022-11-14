@@ -30,11 +30,17 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     assert.dom('[data-test-icon="swap-vertical"]').exists();
   });
 
-  test('if `@sortOrder` is set to asc, the arrow-up icon should be displayed', async function (assert) {
+  test('if sorted and `@sortOrder` is set the correct icon should be displayed', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @sortBy='artist' @sortKey='artist' @sortOrder='asc' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='asc' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
     );
 
     assert.dom('[data-test-icon="arrow-up"]').exists();
+
+    await render(
+      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='desc' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+    );
+
+    assert.dom('[data-test-icon="arrow-down"]').exists();
   });
 });
