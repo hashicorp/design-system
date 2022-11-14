@@ -10,10 +10,9 @@
         {{#each this.columns as |column|}}
           {{#if column.isSortableColumn}}
             <Hds::Table::ThSort
-              @sortKey={{column.key}}
-              @sortBy={{this.sortBy}}
+              @isSorted={{eq column.key this.sortBy}}
               @sortOrder={{this.sortOrder}}
-              @onClick={{this.setSortBy}}
+              @onClick={{(fn this.setSortBy column.key)}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
