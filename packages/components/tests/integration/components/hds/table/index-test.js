@@ -4,7 +4,7 @@ import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
-const setData = (context) => {
+const setSortableTableData = (context) => {
   context.set('model', [
     {
       id: '1',
@@ -36,25 +36,24 @@ const setData = (context) => {
   context.set('sortBy', 'artist');
   context.set('sortOrder', 'asc');
 };
-const renderSortableTable = async () => {
-  await render(hbs`
-  <Hds::Table
-        @model={{this.model}}
-        @sortBy={{this.sortBy}}
-        @sortOrder={{this.sortOrder}}
-        @columns={{this.columns}}
-        id="data-test-table"
-      >
-        <:body as |row|>
-          <Hds::Table::Tr>
-            <td>{{row.artist}}</td>
-            <td>{{row.album}}</td>
-            <td>{{row.year}}</td>
-          </Hds::Table::Tr>
-        </:body>
-      </Hds::Table>
-  `);
-};
+
+const hbsSortableTable = hbs`
+<Hds::Table
+  @model={{this.model}}
+  @sortBy={{this.sortBy}}
+  @sortOrder={{this.sortOrder}}
+  @columns={{this.columns}}
+  id="data-test-table"
+>
+  <:body as |row|>
+    <Hds::Table::Tr>
+      <td>{{row.artist}}</td>
+      <td>{{row.album}}</td>
+      <td>{{row.year}}</td>
+    </Hds::Table::Tr>
+  </:body>
+</Hds::Table>
+`;
 
 module('Integration | Component | hds/table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -188,10 +187,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it should render a sortable table when appropriate', async function (assert) {
-    setData(this);
-
-    await renderSortableTable();
-
+    setSortableTableData(this);
+    await render(hbsSortableTable);
     assert
       .dom('#data-test-table th:first-of-type')
       .hasClass('hds-table__th-sort');
@@ -199,9 +196,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it should render a sortable table with an empty caption if no caption is provided and table is unsorted', async function (assert) {
-    setData(this);
-
-    await renderSortableTable();
+    setSortableTableData(this);
+    await render(hbsSortableTable);
 
     assert
       .dom('#data-test-table th:first-of-type')
@@ -210,9 +206,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it sorts the rows asc by default when the sort button is clicked on an unsorted column', async function (assert) {
-    setData(this);
-
-    await renderSortableTable();
+    setSortableTableData(this);
+    await render(hbsSortableTable);
 
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
 
@@ -221,9 +216,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it updates the caption correctly after a sort has been performed', async function (assert) {
-    setData(this);
-
-    await renderSortableTable();
+    setSortableTableData(this);
+    await render(hbsSortableTable);
 
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
 
@@ -237,9 +231,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it updates the `aria-sort` attribute value when a sort is performed', async function (assert) {
-    setData(this);
-
-    await renderSortableTable();
+    setSortableTableData(this);
+    await render(hbsSortableTable);
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
     assert
