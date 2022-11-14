@@ -530,17 +530,17 @@ export default class ComponentsTableRoute extends Route {
     Showcase
   </h3>
   <h4 class="dummy-h4">States of the sortable table header (buttons)</h4>
-  <table class="hds-table">
-    <thead class="hds-table__thead">
-      <tr class="hds-table__tr">
+  <Hds::Table>
+    <:head>
+      <Hds::Table::Tr>
         {{#each @model.STATES as |state|}}
           <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
             {{capitalize state}}
           </Hds::Table::ThSort>
         {{/each}}
-      </tr>
-    </thead>
-  </table>
+      </Hds::Table::Tr>
+    </:head>
+  </Hds::Table>
   <h4 class="dummy-h4">
     Static table with model defined
   </h4>
