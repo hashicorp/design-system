@@ -3,60 +3,69 @@
   aria-label="Pagination navigation"
   ...attributes
 >
-  <a class="hds-pagination__page-link" href="/page-?" aria-label="Previous page">
+  <Hds::Interactive
+    class="hds-pagination__page-link"
+    @href="/page-?"
+    @isHrefExternal={{false}}
+    aria-label="Previous page"
+  >
     <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" />
     {{#if this.isCompact}}
       <span class="hds-pagination__page-label" aria-hidden="true">
         Previous
       </span>
     {{/if}}
-  </a>
+  </Hds::Interactive>
 
   {{#if this.isNumbered}}
     <ul class="hds-pagination__page-list">
       <li class="hds-pagination__page-selected">
-        {{! TODO: Look into replacing anchor links with Hds::Interactive }}
-        <a class="hds-pagination__page-link" href="/page-1" aria-current="page">
+        <Hds::Interactive
+          class="hds-pagination__page-link"
+          @href="/page-1"
+          aria-current="page"
+          @isHrefExternal={{false}}
+        >
           <span class="sr-only">page </span>1
-        </a>
+        </Hds::Interactive>
       </li>
       <li>
-        <a class="hds-pagination__page-link" href="/page-2">
+        <Hds::Interactive class="hds-pagination__page-link" @href="/page-2" @isHrefExternal={{false}}>
           <span class="sr-only">page </span>2
-        </a>
+        </Hds::Interactive>
       </li>
       <li>
-        <a class="hds-pagination__page-link" href="/page-3">
+        <Hds::Interactive class="hds-pagination__page-link" @href="/page-3" @isHrefExternal={{false}}>
           <span class="sr-only">page </span>3
-        </a>
+        </Hds::Interactive>
       </li>
       <li>
-        <a class="hds-pagination__page-link" href="/page-4">
+        <Hds::Interactive class="hds-pagination__page-link" @href="/page-4" @isHrefExternal={{false}}>
           <span class="sr-only">page </span>4
-        </a>
+        </Hds::Interactive>
       </li>
       <li>
-        <a class="hds-pagination__page-link" href="/page-5">
+        <Hds::Interactive class="hds-pagination__page-link" @href="/page-5" @isHrefExternal={{false}}>
           <span class="sr-only">page </span>5
-        </a>
+        </Hds::Interactive>
       </li>
       <li>
         <span class="hds-pagination__ellipsis">...</span>
       </li>
       <li>
-        <a class="hds-pagination__page-link" href="/page-10">
+        <Hds::Interactive class="hds-pagination__page-link" @href="/page-10" @isHrefExternal={{false}}>
           <span class="sr-only">page </span>10
-        </a>
+        </Hds::Interactive>
       </li>
     </ul>
   {{/if}}
 
-  <a class="hds-pagination__page-link" href="/page-?" aria-label="Next page">
+  <Hds::Interactive class="hds-pagination__page-link" @href="/page-?" @isHrefExternal={{false}} aria-label="Next page">
     {{#if this.isCompact}}
       <span class="hds-pagination__page-label" aria-hidden="true">
         Next
       </span>
     {{/if}}
     <FlightIcon @name="chevron-right" class="hds-pagination__page-icon" />
-  </a>
+  </Hds::Interactive>
 </nav>
