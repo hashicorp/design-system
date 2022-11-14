@@ -13,9 +13,6 @@ $hds-table-cell-padding-tall: 20px 16px;
 
 .hds-table {
   width: 100%;
-  font-size: var(--token-typography-body-200-font-size);
-  font-family: var(--token-typography-font-stack-text);
-  line-height: var(--token-typography-body-200-line-height);
   table-layout: fixed;
   border: $hds-table-border-width solid $hds-table-border-color;
   border-radius: $hds-table-border-radius;
@@ -137,11 +134,13 @@ $hds-table-cell-padding-tall: 20px 16px;
 .hds-table__tbody {
   .hds-table__tr {
     color: var(--token-color-foreground-primary);
-    font-weight: var(--token-typography-font-weight-regular);
     background-color: var(--token-color-surface-primary);
 
 
-    td {
+    td { // TODO decide what to do with TD
+      font-size: var(--token-typography-body-200-font-size);
+      font-family: var(--token-typography-font-stack-text);
+      line-height: var(--token-typography-body-200-line-height);
       vertical-align: top; // this is so the text will automatically vertically align to the top of the cell if one of the cells has multiple lines of text; otherwise everything will center align (vertically)
       border-top: none;
       border-right: none;
