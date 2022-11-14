@@ -5,7 +5,7 @@ export default class ComponentsTableRoute extends Route {
   async model() {
     let response = await fetch('/api/folk.json');
     let { data } = await response.json();
-    const STATES = ['default', 'hover', 'active'];
+    const STATES = ['default', 'hover', 'focus', 'active'];
 
     // make sure the variable is declared outside of the loop
     // so we can return it in the model response
@@ -18,7 +18,5 @@ export default class ComponentsTableRoute extends Route {
       return { key, label: capitalize(key) };
     });
     return { data: dataResponse, columns, STATES };
-
-    // second model goes here if we want to have a second table
   }
 }
