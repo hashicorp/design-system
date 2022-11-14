@@ -46,5 +46,5 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
     await fs.writeFile(`${config.mainFolder}/svg/animation.css`, getCssForIconAnimation());
 
     // generate an "index.js" file
-    await fs.writeFile(`${config.mainFolder}/svg/index.js`, `export const Icons = [ ${uniq(allIcons).join(', ')} ];`);
+    await fs.writeFile(`${config.mainFolder}/svg/index.js`, `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`);
 }

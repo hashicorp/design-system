@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.3.2
+
+### Patch Changes
+
+- [#668](https://github.com/hashicorp/design-system/pull/668) [`3c3b6706`](https://github.com/hashicorp/design-system/commit/3c3b67061d3850721525a624c14bc88ee72e32a1) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix whitespace issue in `Link::Inline` and `Interactive` utility component
+
 ## 1.3.1
 
 ### Patch Changes
