@@ -150,7 +150,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <h4 class="dummy-h4">Simple Table with model defined</h4>
-  <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the model and insert
+  <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the data model and insert
     your own content into the
     <code class="dummy-code">:head</code>
     and
@@ -529,6 +529,20 @@ export default class ComponentsTableRoute extends Route {
     <a href="#showcase" class="dummy-link-section">§</a>
     Showcase
   </h3>
+  <h4 class="dummy-h4">States</h4> <!-- TODO add states -->
+  <div class="dummy-tag-states-grid">
+    {{#each @model.STATES as |state|}}
+      <div>
+        <span class="dummy-text-small">{{capitalize state}}:</span>
+        <br />
+        <div class="hds-table">
+          <div class="dummy-tag-states-subgrid">
+            <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">Artist</Hds::Table::ThSort>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
   <h4 class="dummy-h4">
     Static table with model defined
   </h4>
@@ -700,16 +714,6 @@ export default class ComponentsTableRoute extends Route {
             <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
         </td>
-      </Hds::Table::Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">Sortable table states</h4>
-  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}}>
-    <:body as |data|>
-      <Hds::Table::Tr>
-        <td>{{data.artist}}</td>
-        <td>{{data.album}}</td>
-        <td>{{data.year}}</td>
       </Hds::Table::Tr>
     </:body>
   </Hds::Table>
