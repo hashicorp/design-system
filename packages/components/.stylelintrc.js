@@ -48,12 +48,12 @@ module.exports = {
     // see: https://stylelint.io/user-guide/rules/list/number-leading-zero/
     'number-leading-zero': 'always',
 
-    // we've decided to enforce the `.hds|.mock` naming convention (plus, using the default stylelint rule one doesn't work for us, because we're using BEM)
+    // we've decided to enforce the `.hds|.mock|.flight` naming convention (plus, using the default stylelint rule one doesn't work for us, because we're using BEM)
     // see: https://stylelint.io/user-guide/rules/list/selector-class-pattern/
     'selector-class-pattern': [
       // found this pattern here: https://github.com/humanmade/coding-standards/pull/199
       // '^(?<block>(?:[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)(?<element>(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*))?(?<modifier>(?:--[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)?$',
-      '^hds-(?<block>(?:[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)(?<element>(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*))?(?<modifier>(?:--[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)?$|^mock-(?:[a-z][a-z0-9]*)$',
+      '^hds-(?<block>(?:[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)(?<element>(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*))?(?<modifier>(?:--[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)?$|^mock-(?:[a-z][a-z0-9]*)$||^flight-(?:[a-z][a-z0-9]*)$',
       { resolveNestedSelectors: true },
     ],
 
