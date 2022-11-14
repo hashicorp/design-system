@@ -31,9 +31,6 @@ $hds-table-cell-padding-tall: 20px 16px;
     .hds-table__th,
     .hds-table__th-sort {
       height: $hds-table-header-height;
-      font-weight: var(--token-typography-font-weight-semibold);
-      font-size: 14px;
-      line-height: 1.4;
       text-align: left;
       border-top: none;
       border-right: none;
@@ -53,7 +50,6 @@ $hds-table-cell-padding-tall: 20px 16px;
         min-height: $hds-table-header-height;
         margin: 0;
         padding: $hds-table-cell-padding-medium;
-        font: inherit;
         text-align: inherit;
         background-color: transparent;
         border: 1px solid transparent;
@@ -64,7 +60,6 @@ $hds-table-cell-padding-tall: 20px 16px;
           align-self: center;
           min-height: fit-content;
           padding: 0;
-          font: inherit;
           text-align: inherit;
           background-color: transparent;
 
