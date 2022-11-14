@@ -63,14 +63,37 @@
         <li>center</li>
       </ol>
     </dd>
+    <dt>layout <code>string</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">fluid</li>
+        <li>fixed</li>
+      </ol>
+      <p><em>Notice: by default the card will expand to fit the parent container. When used in a group the cards will
+          equally share the width to fit the available space. If the
+          <code class="dummy-code">@layout</code>
+          parameter is set to
+          <code class="dummy-code">fixed</code>
+          a
+          <code class="dummy-code">@maxWidth</code>
+          value must be specified to constrain the card.
+        </em></p>
+    </dd>
     <dt>maxWidth <code>string</code></dt>
     <dd>
       <p>Acceptable values: any valid CSS width (%, vw, etc)</p>
-      <p><em>Notice: by default the card will expand to fit the parent container. When used in a group the cards will
-          equally share the width to fit the available space. If a
-          <code class="dummy-code">@maxWidth</code>
-          parameter is provided then the card will be constrained to the specified value.
-        </em></p>
+      <p>When used with a
+        <code class="dummy-code">fluid</code>
+        layout, this parameter will determine the number of cards shown per row (for example
+        <code class="dummy-code">25%</code>
+        will result in 4 cards).
+      </p>
+      <p>
+        When used with a
+        <code class="dummy-code">fixed</code>
+        layout, this parameter will preserve the width of the card and wrap cards on multiple rows if necessary.
+      </p>
     </dd>
     <dt>extraAriaDescribedBy <code>string</code></dt>
     <dd>
@@ -207,6 +230,25 @@
         attribute on the controls when user input is required.
       </p>
       <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>layout <code>string</code></dt>
+    <dd>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">fluid</li>
+        <li>fixed</li>
+      </ol>
+      <p><em>Notice: by default the cards will expand to fit the parent container and will equally share the width to
+          fit the available space. If the
+          <code class="dummy-code">@layout</code>
+          parameter is set to
+          <code class="dummy-code">fixed</code>
+          a
+          <code class="dummy-code">@maxWidth</code>
+          value must be specified for each
+          <code class="dummy-code">RadioCard</code>
+          to constrain them.
+        </em></p>
     </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
@@ -736,6 +778,53 @@
         <R.Description>{{item.description}}</R.Description>
       </G.RadioCard>
     {{/each}}
+  </Hds::Form::RadioCard::Group>
+  <br />
+
+  <h4 class="dummy-h4">Group layout</h4>
+  <span class="dummy-text-small">Fluid</span>
+  <Hds::Form::RadioCard::Group @name="radio-card-layout-fluid" @layout="fluid" as |G|>
+    <G.Legend>Group legend</G.Legend>
+    <G.RadioCard @maxWidth="50%" @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 1</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="50%" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 2</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+  </Hds::Form::RadioCard::Group>
+  <br />
+  <span class="dummy-text-small">Fixed</span>
+  <Hds::Form::RadioCard::Group @name="radio-card-layout-fixed" @layout="fixed" as |G|>
+    <G.Legend>Group legend</G.Legend>
+    <G.RadioCard @maxWidth="244px" @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 1</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 2</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 3</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 4</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 5</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
   </Hds::Form::RadioCard::Group>
   <br />
 

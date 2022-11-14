@@ -15,8 +15,17 @@
   }
 
   .hds-form-radio-card {
-    flex: 1;
     margin: calc(var(--token-form-radiocard-group-gap) / 2);
+  }
+
+  // LAYOUT
+
+  .hds-form-radio-card--layout-fluid {
+    flex: 1 0 0;
+  }
+
+  .hds-form-radio-card--layout-fixed {
+    flex: 1 0 100%;
   }
 }
 
