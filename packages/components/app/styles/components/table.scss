@@ -127,11 +127,7 @@ $hds-table-cell-padding-tall: 20px 16px;
     color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-primary);
 
-
-    td { // TODO decide what to do with TD
-      font-size: var(--token-typography-body-200-font-size);
-      font-family: var(--token-typography-font-stack-text);
-      line-height: var(--token-typography-body-200-line-height);
+    td {
       vertical-align: top; // this is so the text will automatically vertically align to the top of the cell if one of the cells has multiple lines of text; otherwise everything will center align (vertically)
       border-top: none;
       border-right: none;
