@@ -201,38 +201,6 @@ Normal markdown tables can contain only inline elements (and the content can be 
 | zebra stripes | ~~are neat~~  |    $1 |
 | `inline code` | can be added  |   too |
 
-<table role="table">
-    <thead>
-        <tr>
-            <th>Tables</th>
-            <th align="center">Are</th>
-            <th align="right">Cool</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>col 3 is</strong></td>
-            <td align="center">right-aligned</td>
-            <td align="right">$1600</td>
-        </tr>
-        <tr>
-            <td>col 2 is</td>
-            <td align="center"><em>centered</em></td>
-            <td align="right">$12</td>
-        </tr>
-        <tr>
-            <td>zebra stripes</td>
-            <td align="center"><del>are neat</del></td>
-            <td align="right">$1</td>
-        </tr>
-        <tr>
-            <td><code class="notranslate">inline code</code></td>
-            <td align="center">can be added</td>
-            <td align="right">too</td>
-        </tr>
-    </tbody>
-</table>
-
 If you need to use block elements inside a table, you have to use HTML code:
 
 <table>

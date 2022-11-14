@@ -1,0 +1,58 @@
+div.field-guide-color-pallet {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ebeef2;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  max-width: 400px;
+}
+
+.field-guide-color-pallet .color-pallet__example-text-row {
+  padding: .5rem;
+}
+
+.field-guide-color-pallet .color-pallet__example-text {
+  height: 65px;
+  line-height: 65px;
+}
+
+.field-guide-color-pallet .color-pallet__example-text-result .score {
+  font-family: monospace;
+  font-size: small;
+  background-color: #1c1e24;
+  color: #f4f6f8;
+  border-radius: 4px;
+  line-height: 1rem;
+  display: inline-block;
+  padding: 0 .5rem;
+}
+
+.field-guide-color-pallet .color-pallet__details {
+  flex-grow: 1;
+  min-height: 250px;
+  background-color: #ebeef2;
+  padding: 0 1.5rem;
+}
+
+.field-guide-color-pallet .color-pallet__details-title {
+  color: #8f949f;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.field-guide-color-pallet dd {
+  margin: 0;
+}
+
+
+.field-guide-color-pallet .color-pallet__example-text-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.field-guide-color-pallet .color-pallet__example-text-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
