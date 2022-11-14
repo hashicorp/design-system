@@ -14,6 +14,10 @@
   color: var(--token-color-foreground-primary);
   // font-size: var(--token-typography-body-300-font-size); // = 1rem, not same as 13px, TODO: investigate
   font-size: 13px;
+
+  > * {
+    outline: 2px dotted hotpink;
+  }
 }
 
 // * Sub-component: Pagination
@@ -64,34 +68,12 @@
   color: var(--token-color-foreground-faint);
 }
 
-// Hide "Previous" & "Next" labels by default (TODO: Remove from DOM using JS?)
-.hds-pagination__page-label { display: none; }
-
-// NOTE: Trying to account for white space around icons inside the links (will adjust as requested)
-.hds-pagination__page--previous .hds-pagination__page-link { padding-left: 8px; }
-.hds-pagination__page-next .hds-pagination__page-link { padding-right: 8px; }
-
-// "Compact" Pagination Very Rough WIP - TODO: Refactor
-.hds-pagination-bar--is-compact {
-  .hds-pagination__page-label { display: block; }
-
-  .hds-pagination__page-icon + .hds-pagination__page-label,
-  .hds-pagination__page-label + .hds-pagination__page-icon {
-    margin-left: 6px;
-  }
-
-  .hds-pagination__page--previous,
-  .hds-pagination__page--next {
-    display: flex;
-  }
-
-  // may be replaced by JS solution...
-  .hds-pagination__page-list {
-    display: none;
-  }
+.hds-pagination__page-icon + .hds-pagination__page-label,
+.hds-pagination__page-label + .hds-pagination__page-icon {
+  margin-left: 6px;
 }
 
-.hds-pagination__page-current {
+.hds-pagination__page-selected {
   position: relative;
   color: var(--token-color-foreground-action);
 
@@ -128,7 +110,7 @@
 
 // * Sub-component: PaginationPageSize
 // ----------------------------------------
-// TODO: refactor!!! (Should not reference nested component classes)
+// TODO: refactor? (Should not reference nested component classes if possible)
 .hds-pagination-page-size {
   > * {
     display: flex;

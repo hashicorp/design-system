@@ -1,83 +1,70 @@
 <div class={{this.classNames}} ...attributes>
-  <div class="hds-pagination-total-count">1–10 of 100</div>
+  {{#if this.showTotalCount}}
+    <Hds::PaginationBar::PaginationTotalCount @hasTotalItems={{this.hasTotalItems}} />
+  {{/if}}
 
-  <nav class="hds-pagination" aria-label="Pagination navigation">
-    <a class="hds-pagination__page-link" href="/page-?">
-      <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" /><span
-        class="hds-pagination__page-label"
-      >Previous<span class="sr-only"> page</span></span>
-    </a>
+  <Hds::PaginationBar::Pagination @type={{this.type}} />
 
-    <ul class="hds-pagination__page-list">
-      <li class="hds-pagination__page-current">
-        {{! TODO: Look into replacing anchor links with Hds::Interactive }}
-        <a class="hds-pagination__page-link" href="/page-1" aria-current="page">
-          <span class="sr-only">page </span>1
-        </a>
-      </li>
-      <li>
-        <a class="hds-pagination__page-link" href="/page-2">
-          <span class="sr-only">page </span>2
-        </a>
-      </li>
-      <li>
-        <a class="hds-pagination__page-link" href="/page-3">
-          <span class="sr-only">page </span>3
-        </a>
-      </li>
-      <li>
-        <a class="hds-pagination__page-link" href="/page-4">
-          <span class="sr-only">page </span>4
-        </a>
-      </li>
-      <li>
-        <a class="hds-pagination__page-link" href="/page-5">
-          <span class="sr-only">page </span>5
-        </a>
-      </li>
-      <li>
-        <span class="hds-pagination__ellipsis">...</span>
-      </li>
-      <li>
-        <a class="hds-pagination__page-link" href="/page-10">
-          <span class="sr-only">page </span>10
-        </a>
-      </li>
-    </ul>
-
-    <a class="hds-pagination__page-link" href="/page-?">
-      <span class="hds-pagination__page-label">Next<span class="sr-only"> page</span></span><FlightIcon
-        @name="chevron-right"
-        class="hds-pagination__page-icon"
-      />
-    </a>
-  </nav>
-
-  <div class="hds-pagination-page-size">
-    <Hds::Form::Select::Field as |S|>
-      <S.Label>Items per page</S.Label>
-      <S.Options>
-        <option value="10">10</option>
-        <option value="30">30</option>
-        <option value="50">50</option>
-      </S.Options>
-    </Hds::Form::Select::Field>
-  </div>
+  {{#if this.showPageSize}}
+    <Hds::PaginationBar::PaginationPageSize />
+  {{/if}}
 </div>
 
 {{!
   TEMP ROUGH NOTES
   ------------------
-  Still figuring out class naming and DOM structure...
+  Figuring out class naming and DOM structure...
 
-  WIP Structure (some of these will be separated out as sub-components, others just represent HTML/CSS structure):
-    * pagination-bar
-      * pagination-total-count
-      * pagination
+  WIP Structure (some names represent sub-components, others just represent HTML/CSS structure):
+    * PaginationBar
+      * PaginationTotalCount (optional)
+
+      * Pagination
         * page-prev
         * pages
           * page
             * page-link (some content aren't links though...)
         * page-next
-      * pagination-page-size
+
+      * PaginationPageSize (optional)
+
+APIs
+------
+PaginationBar:
+  X type=
+    "numbered" (default)
+    "compact"
+  X showTotalCount ?) =
+    true (default)
+    false
+  X showPageSize =
+    true (default)
+    false
+  isTruncated =
+    true (default ?)
+    false
+  X hasTotalItems=
+    true (default)
+    false
+
+TotalCount:
+  X hasTotalItems= (take values passed down from PaginationBar unless used as stand alone component)
+    true (default)
+    false
+
+Pagination:
+  X type= (take values passed down from PaginationBar unless used as stand alone component)
+    "numbered" (default)
+    "compact"
+  isTruncated= (take values passed down from PaginationBar unless used as stand alone component)
+    true (default ?)
+    false
+  * PageNumber:
+      isSelected (NOT isCurrent) (for page number, not exposed)
+      Truncated/ellipsis ? (for page number, not exposed)
+  * Prev/Next buttons:
+    * isDisabled (not exposed)
+
+PageSize:
+  ?
 }}
