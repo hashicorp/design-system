@@ -45,12 +45,12 @@ const hbsSortableTable = hbs`
   @columns={{this.columns}}
   id="data-test-table"
 >
-  <:body as |row|>
-    <Hds::Table::Tr>
-      <td>{{row.artist}}</td>
-      <td>{{row.album}}</td>
-      <td>{{row.year}}</td>
-    </Hds::Table::Tr>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
   </:body>
 </Hds::Table>
 `;
@@ -90,29 +90,29 @@ module('Integration | Component | hds/table/index', function (hooks) {
   test('it should render the table with manual data passed and no model defined', async function (assert) {
     await render(hbs`
       <Hds::Table id="data-test-table">
-        <:head>
-          <Hds::Table::Tr>
-            <Hds::Table::Th>Cell Header 1</Hds::Table::Th>
-            <Hds::Table::Th>Cell Header 2</Hds::Table::Th>
-            <Hds::Table::Th>Cell Header 3</Hds::Table::Th>
-          </Hds::Table::Tr>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Cell Header 1</H.Th>
+            <H.Th>Cell Header 2</H.Th>
+            <H.Th>Cell Header 3</H.Th>
+          </H.Tr>
         </:head>
-        <:body>
-          <Hds::Table::Tr>
-            <td>Cell Content 1 1</td>
-            <td>Cell Content 1 2</td>
-            <td>Cell Content 1 3</td>
-          </Hds::Table::Tr>
-          <Hds::Table::Tr>
-            <td>Cell Content 2 1</td>
-            <td>Cell Content 2 2</td>
-            <td>Cell Content 2 3</td>
-          </Hds::Table::Tr>
-          <Hds::Table::Tr>
-            <td>Cell Content 3 1</td>
-            <td>Cell Content 3 2</td>
-            <td>Cell Content 3 3</td>
-          </Hds::Table::Tr>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>Cell Content 1 1</B.Td>
+            <B.Td>Cell Content 1 2</B.Td>
+            <B.Td>Cell Content 1 3</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Td>Cell Content 2 1</B.Td>
+            <B.Td>Cell Content 2 2</B.Td>
+            <B.Td>Cell Content 2 3</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Td>Cell Content 3 1</B.Td>
+            <B.Td>Cell Content 3 2</B.Td>
+            <B.Td>Cell Content 3 3</B.Td>
+          </B.Tr>
         </:body>
       </Hds::Table>
     `);
@@ -132,19 +132,19 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     await render(hbs`
       <Hds::Table id="data-test-table" @model={{this.model}}>
-        <:head>
-          <Hds::Table::Tr>
-            <Hds::Table::Th>Id</Hds::Table::Th>
-            <Hds::Table::Th>Name</Hds::Table::Th>
-            <Hds::Table::Th>Description</Hds::Table::Th>
-          </Hds::Table::Tr>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Id</H.Th>
+            <H.Th>Name</H.Th>
+            <H.Th>Description</H.Th>
+          </H.Tr>
         </:head>
-        <:body as |row|>
-          <Hds::Table::Tr>
-            <td>{{row.id}}</td>
-            <td>{{row.name}}</td>
-            <td>{{row.description}}</td>
-          </Hds::Table::Tr>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.id}}</B.Td>
+            <B.Td>{{B.data.name}}</B.Td>
+            <B.Td>{{B.data.description}}</B.Td>
+          </B.Tr>
         </:body>
       </Hds::Table>
     `);
@@ -166,19 +166,19 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     await render(hbs`
       <Hds::Table id="data-test-table" @model={{this.model}} @caption="a test caption">
-        <:head>
-          <Hds::Table::Tr>
-            <Hds::Table::Th>Id</Hds::Table::Th>
-            <Hds::Table::Th>Name</Hds::Table::Th>
-            <Hds::Table::Th>Description</Hds::Table::Th>
-          </Hds::Table::Tr>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Id</H.Th>
+            <H.Th>Name</H.Th>
+            <H.Th>Description</H.Th>
+          </H.Tr>
         </:head>
-        <:body as |row|>
-          <Hds::Table::Tr>
-            <td>{{row.id}}</td>
-            <td>{{row.name}}</td>
-            <td>{{row.description}}</td>
-          </Hds::Table::Tr>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.id}}</B.Td>
+            <B.Td>{{B.data.name}}</B.Td>
+            <B.Td>{{B.data.description}}</B.Td>
+          </B.Tr>
         </:body>
       </Hds::Table>
     `);
