@@ -1,4 +1,4 @@
-# Alert - Design Guidelines
+# Alert
 
 ## When to use
 

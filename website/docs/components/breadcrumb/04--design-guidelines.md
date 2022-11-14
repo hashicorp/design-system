@@ -1,4 +1,4 @@
-# Breadcrumb - Design Guidelines
+# Breadcrumb
 
 ## When to use
 
