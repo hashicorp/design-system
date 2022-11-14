@@ -44,6 +44,7 @@ $hds-table-cell-padding-tall: 20px 16px;
 
       button {
         width: 100%;
+        height: 100%;
         min-height: $hds-table-header-height;
         margin: 0;
         padding: $hds-table-cell-padding-medium;
@@ -54,22 +55,12 @@ $hds-table-cell-padding-tall: 20px 16px;
 
         .hds-table__th-sort--button-content {
           display: flex; // we can't put flex on the button itself so we drop the content into its own container
-          align-self: center;
-          min-height: fit-content;
-          padding: 0;
-          text-align: inherit;
-          background-color: transparent;
-
-          span {
-            max-width: calc(100% - 32px); // It didn't work very well until 32px (theoretically it should have worked with icon (16px) + margin-left of icon (8px)) -- maybe someone has a more logical reasoning for this?
-          }
+          align-items: center;
 
           .flight-icon {
-            display: inline-flex;
-            align-self: center;
+            flex: none;
             margin-left: 8px;
             color: var(--token-color-foreground-action);
-            vertical-align: middle; // we can't use display flex on the button, so we have to align the icon itself instead.
           }
         }
 
