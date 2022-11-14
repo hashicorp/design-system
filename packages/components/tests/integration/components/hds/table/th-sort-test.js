@@ -17,9 +17,11 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Table::ThSort>Artist</Hds::Table::ThSort>`);
+    await render(
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+    );
 
-    assert.dom('[data-test-table-th-sort]').hasClass('hds-table__th-sort');
+    assert.dom('#data-test-table-th-sort').hasClass('hds-table__th-sort');
   });
 
   test('if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {
@@ -32,13 +34,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('if sorted and `@sortOrder` is set the correct icon should be displayed', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='asc' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='asc'>Artist</Hds::Table::ThSort>`
     );
 
     assert.dom('[data-test-icon="arrow-up"]').exists();
 
     await render(
-      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='desc' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='desc'>Artist</Hds::Table::ThSort>`
     );
 
     assert.dom('[data-test-icon="arrow-down"]').exists();

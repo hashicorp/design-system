@@ -5,7 +5,7 @@ export default class ComponentsTableRoute extends Route {
   async model() {
     let response = await fetch('/api/folk.json');
     let { data } = await response.json();
-    const STATES = ['default', 'hover', 'focus', 'active'];
+    const STATES = ['active', 'default', 'hover', 'focus'];
 
     // make sure the variable is declared outside of the loop
     // so we can return it in the model response
