@@ -9,14 +9,13 @@ export default class ComponentsTableRoute extends Route {
 
     // make sure the variable is declared outside of the loop
     // so we can return it in the model response
-    let columns;
-    let dataResponse = data.map((model) => {
-      let { id, attributes } = model;
-      columns = Object.keys(attributes);
+    let dataResponse = data.map((record) => {
+      let { id, attributes } = record;
       return { id, ...attributes };
     });
-    columns = columns.map((column) => {
-      return { key: column, label: capitalize(column) };
+    const keys = Object.keys(data[0].attributes);
+    const columns = keys.map((key) => {
+      return { key, label: capitalize(key) };
     });
     return { data: dataResponse, columns, STATES };
 
