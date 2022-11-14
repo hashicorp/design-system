@@ -28,14 +28,14 @@
   <tbody class="hds-table__tbody">
     {{#if this.isSortableTable}}
       {{#each (sort-by this.getSortCriteria @model) as |data|}}
-        {{yield data to="body"}}
+        {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
       {{/each}}
     {{else if @model}}
-      {{#each @model as |record|}}
-        {{yield record to="body"}}
+      {{#each @model as |data|}}
+        {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
       {{/each}}
     {{else}}
-      {{yield to="body"}}
+      {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td")) to="body"}}
     {{/if}}
   </tbody>
 </table>
