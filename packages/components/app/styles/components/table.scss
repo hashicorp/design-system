@@ -135,6 +135,18 @@ $hds-table-cell-padding-tall: 20px 16px;
   vertical-align: bottom;
 }
 
+.hds-table--valign-baseline .hds-table__tbody td {
+  vertical-align: baseline;
+}
+
+.hds-table--valign-sub .hds-table__tbody td {
+  vertical-align: sub;
+}
+
+.hds-table--valign-text-top .hds-table__tbody td {
+  vertical-align: text-top;
+}
+
 .hds-table__tbody {
   .hds-table__tr {
     color: var(--token-color-foreground-primary);
