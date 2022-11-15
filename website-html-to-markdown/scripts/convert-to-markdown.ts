@@ -17,6 +17,7 @@ const destFolder = path.resolve(__dirname, '../temp/markdown');
     );
 
     await convert();
+
   } catch (err) {
     console.error(err);
     process.exit(1);
