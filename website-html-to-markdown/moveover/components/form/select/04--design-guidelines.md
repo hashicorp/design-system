@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: select
+section: design-guidelines
+---
+
 # Select
 
 ## When to use

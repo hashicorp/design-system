@@ -1,3 +1,9 @@
+---
+category: components
+component: breadcrumb
+section: design-guidelines
+---
+
 # Breadcrumb
 
 ## When to use

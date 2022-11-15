@@ -1,3 +1,9 @@
+---
+category: components
+component: alert
+section: design-guidelines
+---
+
 # Alert
 
 ## When to use

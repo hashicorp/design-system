@@ -1,3 +1,9 @@
+---
+category: components
+component: badge
+section: design-guidelines
+---
+
 # Badge
 
 ## When to use
