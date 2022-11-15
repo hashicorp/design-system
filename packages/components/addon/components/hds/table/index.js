@@ -5,7 +5,7 @@ import { assert } from '@ember/debug';
 
 const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
-const VALIGNMENTS = ['top', 'middle', 'bottom'];
+const VALIGNMENTS = ['top', 'middle', 'bottom', 'baseline', 'sub', 'text-top'];
 const DEFAULT_VALIGN = 'top';
 
 export default class HdsTableIndexComponent extends Component {
