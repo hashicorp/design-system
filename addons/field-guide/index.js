@@ -84,6 +84,9 @@ module.exports = {
       contentFolder: 'docs',
       collate: true,
       contentTypes: ['content', 'html', 'toc'],
+      // IMPORTANT: according to the documentation, the frontmatter attributes that we want to include need to be explicitly declared ¯\_(ツ)_/¯
+      // see: https://github.com/empress/broccoli-static-site-json#attributes
+      attributes: ['category', 'group', 'component', 'section']
     });
 
     let toc = new TableOfContents(docs, {
