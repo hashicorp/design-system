@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   grid-area: sidebar;
-  width: var(--doc-sidebar-width);
+  width: var(--doc-page-sidebar-width);
   background: white;
   border-right: 1px solid #ddd;
 }

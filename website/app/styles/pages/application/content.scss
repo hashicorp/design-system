@@ -1,6 +1,36 @@
-// CONTENT
+// CONTENT (WRAPPER + MAIN + SIDECAR)
 
-.doc-page-content {
+@use "../../breakpoints" as breakpoint;
+
+
+.doc-page-content-wrapper {
+  display: grid;
   grid-area: content;
-  padding: 2rem 4rem;
+  grid-template-areas: "main sidecar";
+  grid-template-columns: 1fr auto;
+  width: 100%; // needed otherwise it collapses because is in a grid
+  margin: 0 auto;
+  padding: 32px var(--doc-page-content-gutter-small);
+
+  @include breakpoint.large () {
+    max-width: calc(var(--doc-page-main-max-width) + var(--doc-page-sidecar-width) + 3 * var(--doc-page-content-gutter-large));
+    padding-right: var(--doc-page-content-gutter-large);
+    padding-left: var(--doc-page-content-gutter-large);
+  }
 }
+
+.doc-page-main {
+  grid-area: main;
+}
+
+.doc-page-sidecar {
+  display: none;
+
+  @include breakpoint.large () {
+    display: block;
+    grid-area: sidecar;
+    width: var(--doc-page-sidecar-width);
+    margin-left: var(--doc-page-content-gutter-large);
+  }
+}
+
