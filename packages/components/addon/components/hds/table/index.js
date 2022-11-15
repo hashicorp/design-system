@@ -77,7 +77,7 @@ export default class HdsTableIndexComponent extends Component {
    * @param valign
    * @type {string}
    * @default 'top'
-   * @description Determines the vertical alignment of the table cells; options are "top", "middle" and "bottom". If no valign is defined, "top" is used.
+   * @description Determines the vertical alignment of the table cells; options are all of the values accepted by the CSS "vertical-align" property: "top", "middle", "bottom", "baseline", "sub", and "text-top". If no valign is defined, "top" is used.
    */
   get valign() {
     let { valign = DEFAULT_VALIGN } = this.args;
