@@ -3,7 +3,6 @@ import showdown from 'showdown';
 import config from 'ember-get-config';
 
 const mapElementsToClassNames = {
-  // TODO decide if shorten them to `doc-md-[...]`
   h1: 'doc-markdown-h1',
   h2: 'doc-markdown-h2',
   h3: 'doc-markdown-h3',

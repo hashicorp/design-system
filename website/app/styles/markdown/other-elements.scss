@@ -7,17 +7,8 @@
 // IMAGES
 
 .doc-markdown-img {
-  box-sizing: content-box;
   max-width: 100%;
   background-color: #fff; // TODO
-
-  &[align="right"] {
-    padding-left: 20px;
-  }
-
-  &[align="left"] {
-    padding-right: 20px;
-  }
 }
 
 // CODE SNIPPETS
