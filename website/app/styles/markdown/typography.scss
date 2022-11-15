@@ -1,96 +1,86 @@
 @use "../typography/mixins";
 
-.doc-markdown-content {
 
-  // HEADINGS
+// HEADINGS
 
-  > h1 {
-    @include doc-font-style-h1 ($responsive: false);
-    margin-top: 16px;
-    margin-bottom: 12px;
+.doc-markdown-h1 {
+  @include doc-font-style-h1 ($responsive: false);
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h2 {
+  @include doc-font-style-h2 ($responsive: false);
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h3 {
+  @include doc-font-style-h3 ($responsive: false);
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h4 {
+  @include doc-font-style-h4 ($responsive: false);
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h5 {
+  @include doc-font-style-h5 ();
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h6 {
+  @include doc-font-style-h6 ();
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h1,
+.doc-markdown-h2,
+.doc-markdown-h3,
+.doc-markdown-h4,
+.doc-markdown-h5,
+.doc-markdown-h6 {
+  .doc-markdown-code {
+    font-size: inherit;
   }
+}
 
-  > h2 {
-    @include doc-font-style-h2 ($responsive: false);
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
+// BODY COPY
 
-  > h3 {
-    @include doc-font-style-h3 ($responsive: false);
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
+.doc-markdown-p,
+.doc-markdown-ul,
+.doc-markdown-ol {
+  @include doc-font-style-body();
+  margin-top: 0;
+  margin-bottom: 12px;
+}
 
-  > h4 {
-    @include doc-font-style-h4 ($responsive: false);
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
+.doc-markdown-blockquote {
+  margin: 0 0 12px 0;
+  padding: 0 0 0 16px;
+  border-left: 2px solid lightgray;
 
-  > h5 {
-    @include doc-font-style-h5 ();
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
+  @include doc-font-style-body();
 
-  > h6 {
-    @include doc-font-style-h6 ();
-    margin-top: 16px;
-    margin-bottom: 12px;
-  }
-
-  > h1,
-  > h2,
-  > h3,
-  > h4,
-  > h5,
-  > h6 {
-    > code {
-      font-size: inherit;
-    }
-  }
-
-  // BODY COPY
-
-  > p,
-  > ul,
-  > ol {
-    @include doc-font-style-body();
+  > :first-child {
     margin-top: 0;
-    margin-bottom: 12px;
   }
 
-  // top level element + nested elements (reasonably no more than two levels)
-  > blockquote,
-  > ul > li > blockquote,
-  > ol > li > blockquote,
-  > ul > li > ul > li > blockquote,
-  > ul > li > ol > li > blockquote,
-  > ol > li > ul > li > blockquote,
-  > ol > li > ol > li > blockquote {
-    margin-top: 0;
-    margin-bottom: 12px;
-    padding: 0 0 0 16px;
-    border-left: 2px solid green;
-
-    @include doc-font-style-body();
-
-    > :first-child {
-      margin-top: 0;
-    }
-
-    > :last-child {
-      margin-bottom: 0;
-    }
+  > :last-child {
+    margin-bottom: 0;
   }
+}
 
-  // CODE
+// CODE
 
-  > pre > code,
-  > code {
-    @include doc-font-style-code ();
-    margin-top: 0;
-    margin-bottom: 12px;
-  }
+.doc-markdown-pre,
+.doc-markdown-code {
+  @include doc-font-style-code ();
+  margin-top: 0;
+  margin-bottom: 12px;
 }

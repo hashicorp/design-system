@@ -1,19 +1,42 @@
-.doc-markdown-content {
-  > h1,
-  > h2,
-  > h3,
-  > h4,
-  > h5,
-  > h6,
-  > p,
-  > blockquote,
-  > ul,
-  > ol,
-  > dl,
-  > table,
-  > pre,
-  > details,
-  > hr {
-    outline: 2px solid magenta;
+.doc-markdown-h1,
+.doc-markdown-h2,
+.doc-markdown-h3,
+.doc-markdown-h4,
+.doc-markdown-h5,
+.doc-markdown-h6,
+.doc-markdown-p,
+.doc-markdown-blockquote,
+.doc-markdown-ul,
+.doc-markdown-ol,
+.doc-markdown-li,
+.doc-markdown-img,
+.doc-markdown-a,
+.doc-markdown-table,
+.doc-markdown-tr,
+.doc-markdown-td,
+.doc-markdown-th,
+.doc-markdown-pre,
+.doc-markdown-code,
+.doc-markdown-hr {
+  outline: 2px solid magenta;
+}
+
+.doc-markdown-blockquote {
+  border-left: 2px solid green;
+}
+
+.doc-markdown-ul,
+.doc-markdown-ol {
+  border: 4px solid cyan;
+
+  > li + li {
+    border-top: 5px solid coral;
   }
 }
+
+
+.doc-markdown-hr {
+  height: 12px;
+  background-color: midnightblue;
+}
+
