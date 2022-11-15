@@ -111,6 +111,16 @@
         <li>tall</li>
       </ol>
     </dd>
+    <dt>valign <code>enum</code></dt>
+    <dd>
+      <p>If set, determines the vertical alignment of table cell (td) content.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">top</li>
+        <li>middle</li>
+        <li>bottom</li>
+      </ol>
+    </dd>
     <dt>caption <code>string</code></dt>
     <dd><p>Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided
         table caption is paired with the automatically generated sorted message text.</p></dd>
@@ -696,6 +706,7 @@ export default class ComponentsTableRoute extends Route {
     @sortingKeys={{array "artist" "album"}}
     @sortBy="artist"
     @sortOrder="desc"
+    @valign="middle"
   >
     <:body as |B|>
       <B.Tr>

@@ -122,13 +122,25 @@ $hds-table-cell-padding-tall: 20px 16px;
   padding: $hds-table-cell-padding-tall;
 }
 
+// TABLE CELL VERTICAL ALIGNMENT
+.hds-table--valign-top .hds-table__tbody td {
+  vertical-align: top;
+}
+
+.hds-table--valign-middle .hds-table__tbody td {
+  vertical-align: middle;
+}
+
+.hds-table--valign-bottom .hds-table__tbody td {
+  vertical-align: bottom;
+}
+
 .hds-table__tbody {
   .hds-table__tr {
     color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-primary);
 
     td {
-      vertical-align: top; // this is so the text will automatically vertically align to the top of the cell if one of the cells has multiple lines of text; otherwise everything will center align (vertically)
       border-top: none;
       border-right: none;
       border-bottom: $hds-table-border-width solid $hds-table-border-color;

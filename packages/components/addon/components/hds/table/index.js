@@ -5,6 +5,8 @@ import { assert } from '@ember/debug';
 
 const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
+const VALIGNMENTS = ['top', 'middle', 'bottom'];
+const DEFAULT_VALIGN = 'top';
 
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
@@ -72,6 +74,25 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   /**
+   * @param valign
+   * @type {string}
+   * @default 'top'
+   * @description Determines the vertical alignment of the table cells; options are "top", "middle" and "bottom". If no valign is defined, "top" is used.
+   */
+  get valign() {
+    let { valign = DEFAULT_VALIGN } = this.args;
+
+    assert(
+      `@valign for "Hds::Table" must be one of the following: ${VALIGNMENTS.join(
+        ', '
+      )}; received: ${valign}`,
+      VALIGNMENTS.includes(valign)
+    );
+
+    return valign;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -87,6 +108,11 @@ export default class HdsTableIndexComponent extends Component {
     // add a class based on the @density argument
     if (this.density) {
       classes.push(`hds-table--density-${this.density}`);
+    }
+
+    // add a class based on the @valign argument
+    if (this.valign) {
+      classes.push(`hds-table--valign-${this.valign}`);
     }
 
     return classes.join(' ');

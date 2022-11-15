@@ -78,6 +78,16 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.dom('#data-test-table').hasClass('hds-table--density-medium');
   });
 
+  test('it should render with a CSS class appropriate for the @valign value', async function (assert) {
+    await render(hbs`<Hds::Table @valign="middle" id="data-test-table" />`);
+    assert.dom('#data-test-table').hasClass('hds-table--valign-middle');
+  });
+
+  test('it should render with a CSS class appropriate if no @valign value is set', async function (assert) {
+    await render(hbs`<Hds::Table id="data-test-table"/>`);
+    assert.dom('#data-test-table').hasClass('hds-table--valign-top');
+  });
+
   test('it should support splattributes', async function (assert) {
     await render(
       hbs`<Hds::Table id="data-test-table" aria-label="data test table" />`
