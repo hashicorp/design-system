@@ -1,3 +1,9 @@
+---
+category: components
+component: breadcrumb
+section: how-to-use
+---
+
 # Breadcrumb - How to use
 
 The breadcrumb is a high-level UI element, so it's likely that it will be implemented once per application, and then never changed (apart from follow-up redesigns/improvements). Below we give a couple of examples to give a general overview and show how it works.

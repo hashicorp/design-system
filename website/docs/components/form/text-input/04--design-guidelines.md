@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: text-input
+section: design-guidelines
+---
+
 <h1>Form::TextInput Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">

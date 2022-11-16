@@ -1,2 +1,20 @@
 <HeadLayout />
+{{!-- Leave it here for debugging purpose (will be removed later!) --}}
+<!--
+{{#if this.model.id}}
+    <pre>this.model.id = {{this.model.id}}</pre>
+{{/if}}
+{{#if this.model.frontmatter.category}}
+    <pre>this.model.frontmatter.category = {{this.model.frontmatter.category}}</pre>
+{{/if}}
+{{#if this.model.frontmatter.group}}
+    <pre>this.model.frontmatter.group = {{this.model.frontmatter.group}}</pre>
+{{/if}}
+{{#if this.model.frontmatter.component}}
+    <pre>this.model.frontmatter.component = {{this.model.frontmatter.component}}</pre>
+{{/if}}
+{{#if this.model.frontmatter.section}}
+    <pre>this.model.frontmatter.section = {{this.model.frontmatter.section}}</pre>
+{{/if}}
+-->
 <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}}/>

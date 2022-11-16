@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: text-input
+section: component-api
+---
+
 # Form::TextInput Component - Component API
 
 The `Form::TextInput` component has two different variants, with their own APIs:

@@ -1,3 +1,9 @@
+---
+category: utilities
+component: disclosure
+section: showcase
+---
+
 <h1>Disclosure - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

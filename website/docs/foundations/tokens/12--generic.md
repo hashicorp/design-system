@@ -1,3 +1,9 @@
+---
+category: foundations
+component: tokens
+section: generic
+---
+
 <h1>Design tokens - Generic #2</h1>
 
 <section data-section="css-custom-properties">

@@ -1,3 +1,9 @@
+---
+category: utilities
+component: interactive
+section: component-api
+---
+
 # Interactive - Component API
 
 Here is the API for the component:

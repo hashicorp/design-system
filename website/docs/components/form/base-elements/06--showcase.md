@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: base-elements
+section: showcase
+---
+
 <h1>Form / Base elements - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: select
+section: generic
+---
+
 <h1>Form::Select Component - Generic #1</h1>
 
 <section class="dummy-link-cta-button-banner" data-section="generic">

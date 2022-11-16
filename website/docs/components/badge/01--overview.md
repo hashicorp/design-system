@@ -1,3 +1,9 @@
+---
+category: components
+component: badge
+section: overview
+---
+
 # Badge component - Overview
 
 `Badge` are concise, non-interactive labels that represent metadata. It should be used:

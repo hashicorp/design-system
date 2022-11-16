@@ -1,3 +1,9 @@
+---
+category: components
+component: alert
+section: showcase
+---
+
 <h1>Alert component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

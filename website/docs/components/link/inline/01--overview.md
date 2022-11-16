@@ -1,3 +1,10 @@
+---
+category: components
+group: link
+component: inline
+section: overview
+---
+
 # Link::Inline component - Overview
 
 The `Link::Inline` component handles the generation of:

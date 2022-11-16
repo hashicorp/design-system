@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: radio-card
+section: showcase
+---
+
 <h1>Form::RadioCard Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

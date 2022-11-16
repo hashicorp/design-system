@@ -1,3 +1,9 @@
+---
+category: components
+component: toast
+section: how-to-use
+---
+
 # Toast component - How to use
 
 #### Basic use

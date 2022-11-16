@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: toggle
+section: component-api
+---
+
 # Form::Toggle Component - Component API
 
 The `Form::Toggle` component has two different variants, with their own APIs:

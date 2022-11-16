@@ -1,3 +1,9 @@
+---
+category: components
+component: toast
+section: design-guidelines
+---
+
 # Toast
 
 ## When to use

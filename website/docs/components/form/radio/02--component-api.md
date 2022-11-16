@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: radio
+section: component-api
+---
+
 # Form::Radio Component - Component API
 
 The `Form::Radio` component has three different variants, with their own APIs:

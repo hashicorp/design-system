@@ -1,3 +1,9 @@
+---
+category: components
+component: alert
+section: accessibility
+---
+
 # Alert component - Accessibility
 
 This component is conditionally conformant. That is, it is conformant when there are no interactive elements present inside of the alert. There is future work planned to make this component WCAG conformant by adding support for the correct ARIA roles when interactive elements are contained within the alert.

@@ -1,3 +1,9 @@
+---
+category: components
+component: empty-state
+section: component-api
+---
+
 # Card component - Component API
 
 Here is the API for the component:
