@@ -1,11 +1,11 @@
 <table class={{this.classNames}} ...attributes>
-  {{#if this.isSortableTable}}
+  {{#if @columns}}
     <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else if @caption}}
     <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
   <thead class="hds-table__thead">
-    {{#if this.isSortableTable}}
+    {{#if @columns}}
       <Hds::Table::Tr>
         {{#each this.columns as |column|}}
           {{#if column.isSortableColumn}}
@@ -26,7 +26,7 @@
     {{/if}}
   </thead>
   <tbody class="hds-table__tbody">
-    {{#if this.isSortableTable}}
+    {{#if @columns}}
       {{#each (sort-by this.getSortCriteria @model) as |data|}}
         {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
       {{/each}}
