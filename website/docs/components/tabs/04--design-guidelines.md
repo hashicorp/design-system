@@ -1,3 +1,9 @@
+---
+category: components
+component: tabs
+section: design-guidelines
+---
+
 # Tabs - Design Guidelines
 
 ## When to use

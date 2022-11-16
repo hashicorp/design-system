@@ -1,3 +1,10 @@
+---
+category: components
+group: link
+component: standalone
+section: design-guidelines
+---
+
 # Link (Standalone) - Design Guidelines
 
 ## When to use

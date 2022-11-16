@@ -1,3 +1,9 @@
+---
+category: components
+component: tag
+section: design-guidelines
+---
+
 # Tag - Design Guidelines
 
 ## When to use

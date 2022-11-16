@@ -1,3 +1,9 @@
+---
+category: components
+component: icon-tile
+section: design-guidelines
+---
+
 # IconTile - Design Guidelines
 
 ## When to use

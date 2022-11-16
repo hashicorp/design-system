@@ -1,3 +1,9 @@
+---
+category: components
+component: stepper
+section: design-guidelines
+---
+
 # Stepper Indicator - Design Guidelines
 
 ## When to use
