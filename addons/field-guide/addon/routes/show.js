@@ -26,9 +26,28 @@ export default class ShowRoute extends Route {
         return res.json();
       })
       .then((res) => {
+        // want to group all the "frontmatter" attributes under the same object
+        // instead of having them spread across the whole model
+        // (super-hacky for now, we will find a better way later)
+        const frontmatter = {};
+        // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/index.js`
+        const frontmatterAttributes = [
+          'category',
+          'group',
+          'component',
+          'section',
+        ];
+        frontmatterAttributes.forEach((attribute) => {
+          if (attribute in res.data.attributes) {
+            frontmatter[attribute] = res.data.attributes[attribute];
+            delete res.data.attributes[attribute];
+          }
+        });
+
         return {
           id: res.data.id,
           ...res.data.attributes,
+          frontmatter,
         };
       });
   }
