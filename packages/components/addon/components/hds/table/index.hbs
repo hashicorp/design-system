@@ -7,8 +7,20 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr>
-        {{#each this.columns as |column|}}
-          {{#if column.isSortableColumn}}
+        {{#each @columns as |column|}}
+          {{#if @sortingKeys}}
+            {{#if (includes column.key @sortingKeys)}}
+              <Hds::Table::ThSort
+                @isSorted={{eq column.key this.sortBy}}
+                @sortOrder={{this.sortOrder}}
+                @onClick={{(fn this.setSortBy column.key)}}
+              >
+                {{column.label}}
+              </Hds::Table::ThSort>
+            {{else}}
+              <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
+            {{/if}}
+          {{else}}
             <Hds::Table::ThSort
               @isSorted={{eq column.key this.sortBy}}
               @sortOrder={{this.sortOrder}}
@@ -16,8 +28,6 @@
             >
               {{column.label}}
             </Hds::Table::ThSort>
-          {{else}}
-            <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
           {{/if}}
         {{/each}}
       </Hds::Table::Tr>

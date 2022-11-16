@@ -1,7 +1,22 @@
 import Route from '@ember/routing/route';
 import { capitalize } from '@ember/string';
+import { tracked } from '@glimmer/tracking';
 
 export default class ComponentsTableRoute extends Route {
+  @tracked mySortableTableColumns = [
+    {
+      key: 'fruit',
+      label: 'Fruit',
+    },
+    {
+      key: 'color',
+      label: 'Color',
+    },
+    {
+      key: 'shape',
+      label: 'Shape',
+    },
+  ];
   async model() {
     let response = await fetch('/api/folk.json');
     let { data } = await response.json();

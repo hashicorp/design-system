@@ -13,22 +13,6 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortOrder = this.args.sortOrder || 'asc';
   @tracked sortedMessageText = '';
 
-  get columns() {
-    let columns = this.args.columns;
-    let sortingKeys = this.args.sortingKeys;
-
-    columns.forEach((column) => {
-      console.log(`and the column.key: ${column.key}`);
-      // if we have a `sortingKeys` parameter only some columns can be sorted, otherwise all the columns are sortable
-      if (sortingKeys && sortingKeys.includes) {
-        column.isSortableColumn = sortingKeys.includes(column.key);
-      } else {
-        column.isSortableColumn = true;
-      }
-    });
-    return columns;
-  }
-
   get getSortCriteria() {
     return `${this.sortBy}:${this.sortOrder}`;
   }
