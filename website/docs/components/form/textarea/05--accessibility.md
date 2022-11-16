@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: textarea
+section: accessibility
+---
+
 # Form::Textarea Component - Accessibility
 
 #### Known Issues

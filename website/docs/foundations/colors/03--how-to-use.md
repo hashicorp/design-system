@@ -1,3 +1,9 @@
+---
+category: foundations
+component: colors
+section: how-to-use
+---
+
 # Colors - How to use
 
 There are two different ways to apply a color to a UI element, via **design tokens** or via **CSS helper classes**.

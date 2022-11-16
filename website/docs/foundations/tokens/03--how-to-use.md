@@ -1,3 +1,9 @@
+---
+category: foundations
+component: tokens
+section: how-to-use
+---
+
 # Design tokens - How to use
 
 You can use the design tokens in your CSS code as CSS custom properties:

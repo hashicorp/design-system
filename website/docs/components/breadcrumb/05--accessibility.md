@@ -1,3 +1,9 @@
+---
+category: components
+component: breadcrumb
+section: accessibility
+---
+
 # Breadcrumb - Accessibility
 
 This component has been designed and implemented with accessibility in mind. However, if the truncation feature is used, this component would not pass a WCAG conformance audit.

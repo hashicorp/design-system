@@ -1,3 +1,9 @@
+---
+category: utilities
+component: interactive
+section: showcase
+---
+
 <h1>Interactive - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

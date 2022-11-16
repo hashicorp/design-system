@@ -1,3 +1,9 @@
+---
+category: utilities
+component: interactive
+section: generic
+---
+
 <h1>Interactive - Generic #1</h1>
 
 <section data-section="generic">

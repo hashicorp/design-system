@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: toggle
+section: accessibility
+---
+
 # Form::Toggle Component - Accessibility
 
 #### Known Issues

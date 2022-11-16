@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: radio-card
+section: design-guidelines
+---
+
 <h1>Form::RadioCard Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">

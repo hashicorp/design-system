@@ -1,3 +1,9 @@
+---
+category: foundations
+component: typography
+section: showcase
+---
+
 <h1>Typography - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

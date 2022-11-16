@@ -1,3 +1,9 @@
+---
+category: components
+component: tag
+section: accessibility
+---
+
 # Tag component - Accessibility
 
 #### Applicable WCAG Success Criteria (Reference)

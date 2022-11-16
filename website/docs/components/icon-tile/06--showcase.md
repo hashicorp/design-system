@@ -1,3 +1,9 @@
+---
+category: components
+component: icon-tile
+section: showcase
+---
+
 <h1>IconTile - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

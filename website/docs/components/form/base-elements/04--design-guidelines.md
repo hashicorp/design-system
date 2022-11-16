@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: base-elements
+section: design-guidelines
+---
+
 <h1>Form / Base elements - Design Guidelines</h1>
 
 <section data-section="design-guidelines">

@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: text-input
+section: accessibility
+---
+
 # Form::TextInput Component - Accessibility
 
 This component was designed with WCAG conformance as a requirement. As such, the `Form::TextInput::Base` is conditionally conformant; that is, it is not conformant until it has an accessible name. However, the `Form::TextInput::Field` component is the one that developers should use in most cases, and it is conformant when used as directed. Please report any conformance issues that you find.

@@ -1,3 +1,9 @@
+---
+category: components
+component: dropdown
+section: generic
+---
+
 <h1>Dropdown Component - Generic #1</h1>
 
 <section class="dummy-link-cta-button-banner" data-section="generic">

@@ -1,3 +1,10 @@
+---
+category: components
+group: link
+component: inline
+section: generic
+---
+
 <h1>Link::Inline component - Generic #1</h1>
 
 <section data-section="generic">

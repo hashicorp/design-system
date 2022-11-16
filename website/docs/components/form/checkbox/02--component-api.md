@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: checkbox
+section: component-api
+---
+
 # Form::Checkbox Component - Component API
 
 The `Form::Checkbox` component has three different variants, with their own APIs:
