@@ -7,10 +7,14 @@
   display: grid;
   grid-area: content;
   grid-template-areas: "main sidecar";
-  grid-template-columns: 1fr auto;
-  width: 100%; // needed otherwise it collapses because is in a grid
+  // use this if you want the `sidecar` to collaps and the `main` content to pick up the space
+  // grid-template-columns: 1fr auto;
+  // use this if you want the have an empty space when there is no `sidecar`
+  grid-template-columns: 1fr var(--doc-page-sidecar-width);
+  width: 100%; // needed (otherwise it collapses, because is in a grid)
   margin: 0 auto;
   padding: 32px var(--doc-page-content-gutter-small);
+  column-gap: var(--doc-page-content-gutter-large);
 
   @include breakpoint.large () {
     max-width: calc(var(--doc-page-main-max-width) + var(--doc-page-sidecar-width) + 3 * var(--doc-page-content-gutter-large));
@@ -18,20 +22,3 @@
     padding-left: var(--doc-page-content-gutter-large);
   }
 }
-
-.doc-page-main {
-  grid-area: main;
-  min-width: 0; // needed to avoid that the element blows out if the content is too wide (see: https://css-tricks.com/preventing-a-grid-blowout/)
-}
-
-.doc-page-sidecar {
-  display: none;
-
-  @include breakpoint.large () {
-    display: block;
-    grid-area: sidecar;
-    width: var(--doc-page-sidecar-width);
-    margin-left: var(--doc-page-content-gutter-large);
-  }
-}
-
