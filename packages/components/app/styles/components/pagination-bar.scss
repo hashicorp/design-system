@@ -53,7 +53,10 @@
     $left: 5px,
   );
   color: inherit;
+  font: inherit;
   text-decoration: none;
+  background: transparent;
+  border: none;
 
   &:hover {
     color: var(--token-color-foreground-action-hover);

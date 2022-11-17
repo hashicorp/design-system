@@ -1,9 +1,19 @@
-<div class={{this.classNames}} ...attributes>
+<div class="hds-pagination-bar" ...attributes>
   {{#if this.showTotalCount}}
-    <Hds::PaginationBar::PaginationTotalCount @hasTotalItems={{this.hasTotalItems}} />
+    <Hds::PaginationBar::PaginationTotalCount
+      @hasTotalItems={{this.hasTotalItems}}
+      @itemsRangeStart={{this.itemsRangeStart}}
+      @itemsRangeEnd={{this.itemsRangeEnd}}
+      @totalItems={{this.args.totalItems}}
+    />
   {{/if}}
 
-  <Hds::PaginationBar::Pagination @type={{this.type}} />
+  <Hds::PaginationBar::Pagination
+    @type={{this.type}}
+    @totalPages={{this.totalPages}}
+    @currentPage={{this.currentPage}}
+    @pageChanged={{this.pageChanged}}
+  />
 
   {{#if this.showPageSize}}
     <Hds::PaginationBar::PaginationPageSize />
@@ -11,10 +21,17 @@
 </div>
 
 {{!
+  Allow users to navigate through a large dataset split into pages
+
+  * *** Cursor pagination: Returns the next or previous set of records in the dataset (most)
+  * Offset or page-based pagination:
+    divides the dataset into pages, which basically means that by passing a certain set of parameters,
+    we can get the length of the page and the number of records returned, making it possible to jump
+    between pages or to any particular page.
+    - "numbered" can be used only if offset pagination is implemented or supported by the backend
+
   TEMP ROUGH NOTES
   ------------------
-  Figuring out class naming and DOM structure...
-
   WIP Structure (some names represent sub-components, others just represent HTML/CSS structure):
     * PaginationBar
       * PaginationTotalCount (optional)

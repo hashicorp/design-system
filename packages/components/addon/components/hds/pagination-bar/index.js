@@ -1,14 +1,22 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export const TYPES = ['numbered', 'compact'];
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+  totalPages = Math.max(
+    Math.ceil(this.args.totalItems / this.args.itemsPerPage),
+    1
+  );
+  @tracked currentPage = 1;
+  @tracked itemsRangeStart =
+    (this.currentPage - 1) * this.args.itemsPerPage + 1;
+  @tracked itemsRangeEnd =
+    this.currentPage < this.totalPages
+      ? this.itemsRangeStart + this.args.itemsPerPage - 1
+      : this.args.totalItems - this.itemsRangeEnd + this.itemsRangeStart - 1;
 
   /**
    * Shows totalItems if true
@@ -63,17 +71,27 @@ export default class HdsPaginationBarIndexComponent extends Component {
     return this.args.showPageSize ?? true;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-pagination-bar'];
-
-    // add a class based on the @xxx argument
-    // classes.push(`hds-pagination--[variant]-${this.xxx}`);
-
-    return classes.join(' ');
+  @action
+  pageChanged(newPage) {
+    this.currentPage = newPage;
+    this.itemsRangeStart = (this.currentPage - 1) * this.args.itemsPerPage + 1;
+    this.itemsRangeEnd =
+      this.currentPage < this.totalPages
+        ? this.itemsRangeStart + this.args.itemsPerPage - 1
+        : this.args.totalItems - this.itemsRangeEnd + this.itemsRangeStart - 1;
   }
+
+  // /**
+  //  * Get the class names to apply to the component.
+  //  * @method classNames
+  //  * @return {string} The "class" attribute to apply to the component.
+  //  */
+  // get classNames() {
+  //   let classes = ['hds-pagination-bar'];
+
+  //   // add a class based on the @xxx argument
+  //   // classes.push(`hds-pagination--[variant]-${this.xxx}`);
+
+  //   return classes.join(' ');
+  // }
 }
