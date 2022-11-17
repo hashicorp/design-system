@@ -49,6 +49,7 @@ export default class ShowRoute extends Route {
           ...res.data.attributes,
           frontmatter,
           // TODO! TEMPORARY, FOR TESTING!
+          hasCover: true,
           hasSidecar: true,
         };
       });

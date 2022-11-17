@@ -1,0 +1,30 @@
+// COVER
+
+@use "../../breakpoints" as breakpoint;
+
+.doc-page-cover {
+  grid-area: cover;
+  // TODO check with heather what she wants to do with the vertical padding (responsive)
+  padding: 16px var(--doc-page-stage-gutter-small);
+  background-color: #fff;
+  border-bottom: 1px solid #dbdbdc;
+
+  @include breakpoint.medium () {
+    padding: 32px var(--doc-page-stage-gutter-medium);
+  }
+
+  @include breakpoint.large () {
+    padding: 64px var(--doc-page-stage-gutter-large);
+  }
+}
+
+.doc-page-cover__title {
+  margin: 0;
+  color: #1d1e1f; // TODO convert to token
+}
+
+.doc-page-cover__description {
+  max-width: var(--doc-page-content-max-width);
+  margin: 16px 0 0 0;
+  color: #727274; // TODO convert to token
+}

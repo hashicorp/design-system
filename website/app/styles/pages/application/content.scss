@@ -1,24 +1,21 @@
-// CONTENT (WRAPPER + MAIN + SIDECAR)
+// CONTENT (MAIN)
 
 @use "../../breakpoints" as breakpoint;
 
 
-.doc-page-content-wrapper {
-  display: grid;
-  grid-area: content;
-  grid-template-areas: "main sidecar";
-  // use this if you want the `sidecar` to collaps and the `main` content to pick up the space
-  // grid-template-columns: 1fr auto;
-  // use this if you want the have an empty space when there is no `sidecar`
-  grid-template-columns: 1fr var(--doc-page-sidecar-width);
-  width: 100%; // needed (otherwise it collapses, because is in a grid)
-  margin: 0 auto;
-  padding: 32px var(--doc-page-content-gutter-small);
-  column-gap: var(--doc-page-content-gutter-large);
+.doc-page-content {
+  grid-area: content / content / _extra / _extra;
+  min-width: 0; // needed to avoid that the element blows out if the content is too wide (see: https://css-tricks.com/preventing-a-grid-blowout/)
+  padding: 0 var(--doc-page-stage-gutter-small);
+
+  @include breakpoint.medium () {
+    padding: 0 var(--doc-page-stage-gutter-medium);
+  }
 
   @include breakpoint.large () {
-    max-width: calc(var(--doc-page-main-max-width) + var(--doc-page-sidecar-width) + 3 * var(--doc-page-content-gutter-large));
-    padding-right: var(--doc-page-content-gutter-large);
-    padding-left: var(--doc-page-content-gutter-large);
+    grid-area: content;
+    width: 100%; // need to fill the available space
+    max-width: 100%; // there is also a max-width set at grid level that acts as parent container
+    padding: 0 var(--doc-page-stage-gutter-large);
   }
 }

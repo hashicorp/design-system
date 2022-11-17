@@ -6,12 +6,17 @@
   background-color: #0c56e9;
 }
 
-.doc-page-content-wrapper {
+.doc-page-stage {
   background-color: #edf7fc;
 }
 
-.doc-page-main {
+.doc-page-cover {
+  background-color: #feff38;
+}
+
+.doc-page-content {
   background-color: #a737ff;
+  background-clip: content-box;
 }
 
 .doc-page-sidecar {
@@ -19,5 +24,5 @@
 }
 
 .doc-page-footer {
-  background-color: yellow;
+  background-color: #111f5d;
 }

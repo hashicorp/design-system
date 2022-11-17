@@ -1,6 +1,9 @@
 <HeadLayout />
-<Doc::Page::Content>
-  <Doc::Page::Main>
+<Doc::Page::Stage>
+  {{#if this.model.hasCover}}
+    <Doc::Page::Cover />
+  {{/if}}
+  <Doc::Page::Content>
     {{!-- Leave it here for debugging purpose (will be removed later!) --}}
     <!--
     {{#if this.model.id}}
@@ -23,8 +26,8 @@
       @templateString={{this.renderedContent}}
       @componentId={{this.model.id}}
     />
-  </Doc::Page::Main>
+  </Doc::Page::Content>
   {{#if this.model.hasSidecar}}
     <Doc::Page::Sidecar />
   {{/if}}
-</Doc::Page::Content>
+</Doc::Page::Stage>

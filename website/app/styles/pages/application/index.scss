@@ -3,8 +3,9 @@
 @import "./header";
 @import "./sidebar";
 @import "./hero";
+@import "./stage";
+@import "./cover";
 @import "./content";
-@import "./main";
 @import "./sidecar";
 @import "./footer";
 @import "./debug";
@@ -15,9 +16,11 @@
 :root {
   --doc-page-header-height: 68px;
   --doc-page-sidebar-width: 320px;
-  --doc-page-content-gutter-small: 24px;
-  --doc-page-content-gutter-large: 48px;
-  --doc-page-main-max-width: 896px; // TODO discuss with Heather this value
+  --doc-page-stage-gutter-small: 24px;
+  --doc-page-stage-gutter-medium: 48px;
+  --doc-page-stage-gutter-large: 96px;
+  --doc-page-content-max-width: 900px;
+  --doc-page-text-limit-width: 720px;
   --doc-page-sidecar-width: 220px;
 }
 
@@ -28,7 +31,7 @@
   display: grid;
   grid-template-areas:
     "header header"
-    "sidebar content"
+    "sidebar stage"
     "footer footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;

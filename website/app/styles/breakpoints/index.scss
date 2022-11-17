@@ -1,9 +1,13 @@
 // BREAKPOINTS
 
+// general breakdpoints
 $small-upper-breakpoint: 767px;
 $medium-lower-breakpoint: 768px;
 $medium-upper-breakpoint: 1279px;
 $large-lower-breakpoint: 1280px;
+
+// we have a special breakpoint for when we show the sidebar
+$with-sidedar-breakpoint: 1000px;
 
 
 @mixin small {
@@ -16,4 +20,8 @@ $large-lower-breakpoint: 1280px;
 
 @mixin large {
   @media (min-width: $large-lower-breakpoint) { @content; }
+}
+
+@mixin with-sidebar {
+  @media (min-width: $with-sidedar-breakpoint) { @content; }
 }
