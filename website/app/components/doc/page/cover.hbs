@@ -1,4 +1,6 @@
 <div class="doc-page-cover" ...attributes>
-  <h1 class="doc-page-cover__title doc-text-h1">This is the page title</h1>
-  <p class="doc-page-cover__description doc-text-body-large">This is the long description of the component, that will come from the frontmatter attributes</p>
+  <h1 class="doc-page-cover__title doc-text-h1">{{@title}}</h1>
+  {{#if @description}}
+    <p class="doc-page-cover__description doc-text-body-large">{{@description}}</p>
+  {{/if}}
 </div>

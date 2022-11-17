@@ -1,11 +1,10 @@
 ---
+title: Form / Base elements
 category: components
 group: form
 component: base-elements
 section: component-api
 ---
-
-# Form / Base elements - Component API
 
 #### Form::Label
 

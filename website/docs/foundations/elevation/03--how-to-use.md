@@ -1,10 +1,9 @@
 ---
+title: Elevation
 category: foundations
 component: elevation
 section: how-to-use
 ---
-
-# Elevation - How to use
 
 There are two different ways to apply an "elevation" or "surface" effect to a UI element, via **design tokens** or via **CSS helper classes**.
 

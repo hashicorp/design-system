@@ -1,10 +1,9 @@
 ---
+title: Toast
 category: components
 component: toast
 section: accessibility
 ---
-
-# Toast component - Accessibility
 
 This component has been designed and implemented with accessibility in mind. When used as designed, there should not be any accessibility issues with this component.
 

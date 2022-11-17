@@ -1,10 +1,9 @@
 ---
+title: Toast
 category: components
 component: toast
 section: overview
 ---
-
-# Toast component - Overview
 
 A Toast is an element intended for **messages that are the result of a user's actions**.
 

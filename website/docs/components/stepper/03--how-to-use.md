@@ -1,10 +1,9 @@
 ---
+title: Stepper Indicator
 category: components
 component: stepper
 section: how-to-use
 ---
-
-# Stepper Indicator Component - How to use
 
 The stepper indicator is used to indicate the relational step number or value, helping the user maintain context in a multi-step flow or sequence. It should be used in larger stepper item patterns with an appropriate label, description, and visual language indicating directionality.
 

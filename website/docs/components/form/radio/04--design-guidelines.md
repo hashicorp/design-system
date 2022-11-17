@@ -1,11 +1,11 @@
 ---
+title: Form::Radio
 category: components
 group: form
 component: radio
 section: design-guidelines
 ---
 
-<h1>Form::Radio Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
   

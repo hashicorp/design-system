@@ -1,11 +1,11 @@
 ---
+title: Form::Select
 category: components
 group: form
 component: select
 section: showcase
 ---
 
-<h1>Form::Select Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

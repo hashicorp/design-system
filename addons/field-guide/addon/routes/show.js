@@ -36,6 +36,10 @@ export default class ShowRoute extends Route {
           'group',
           'component',
           'section',
+          'title',
+          'description',
+          'caption',
+          'status',
         ];
         frontmatterAttributes.forEach((attribute) => {
           if (attribute in res.data.attributes) {

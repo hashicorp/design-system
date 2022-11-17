@@ -1,10 +1,9 @@
 ---
+title: Alert
 category: components
 component: alert
 section: how-to-use
 ---
-
-# Alert component - How to use
 
 #### Basic use
 

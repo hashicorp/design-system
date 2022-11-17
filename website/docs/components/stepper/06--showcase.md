@@ -1,10 +1,10 @@
 ---
+title: Stepper Indicator
 category: components
 component: stepper
 section: showcase
 ---
 
-<h1>Stepper Indicator Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

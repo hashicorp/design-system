@@ -1,11 +1,10 @@
 ---
+title: Form / Base elements
 category: components
 group: form
 component: base-elements
 section: how-to-use
 ---
-
-# Form / Base elements - How to use
 
 The base form elements collected in this page are used internally as building blocks for the "field" and "group" controls, but can also be used in special cases when you need to implement custom layouts or controls in forms. Unless strictly needed, we **strongly** suggest to use the pre-defined "field" and "group" controls provided by the system (you can find them in the other "form" documentation pages).
 
