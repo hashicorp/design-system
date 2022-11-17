@@ -1,10 +1,10 @@
 ---
+title: Card
 category: components
 component: empty-state
 section: showcase
 ---
 
-<h1>Card component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

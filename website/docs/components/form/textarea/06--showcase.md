@@ -1,11 +1,11 @@
 ---
+title: Form::Textarea
 category: components
 group: form
 component: textarea
 section: showcase
 ---
 
-<h1>Form::Textarea Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

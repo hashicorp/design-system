@@ -1,10 +1,9 @@
 ---
+title: IconTile
 category: components
 component: icon-tile
 section: component-api
 ---
-
-# IconTile - Component API
 
 Here is the API for the component:
 

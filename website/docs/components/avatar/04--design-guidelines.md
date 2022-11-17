@@ -1,10 +1,10 @@
 ---
+title: Avatar
 category: components
 component: avatar
 section: design-guidelines
 ---
 
-<h1>Avatar Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
   

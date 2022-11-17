@@ -1,10 +1,10 @@
 ---
+title: Breadcrumb
 category: components
 component: breadcrumb
 section: showcase
 ---
 
-<h1>Breadcrumb - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

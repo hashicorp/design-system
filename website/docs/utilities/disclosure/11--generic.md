@@ -1,10 +1,10 @@
 ---
+title: Disclosure
 category: utilities
 component: disclosure
 section: generic
 ---
 
-<h1>Disclosure - Generic #1</h1>
 
 <section data-section="generic">
   <div class="dummy-banner dummy-banner--info">

@@ -1,10 +1,9 @@
 ---
+title: BadgeCount
 category: components
 component: badge-count
 section: component-api
 ---
-
-# BadgeCount component - Component API
 
 Here is the API for the component:
 

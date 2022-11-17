@@ -1,11 +1,11 @@
 ---
+title: Form::Checkbox
 category: components
 group: form
 component: checkbox
 section: design-guidelines
 ---
 
-<h1>Form::Checkbox Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
   

@@ -1,11 +1,11 @@
 ---
+title: Form::RadioCard
 category: components
 group: form
 component: radio-card
 section: showcase
 ---
 
-<h1>Form::RadioCard Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   
@@ -150,6 +150,53 @@ section: showcase
         <R.Description>{{item.description}}</R.Description>
       </G.RadioCard>
     {{/each}}
+  </Hds::Form::RadioCard::Group>
+  <br />
+
+  <h4 class="dummy-h4">Group layout</h4>
+  <span class="dummy-text-small">Fluid</span>
+  <Hds::Form::RadioCard::Group @name="radio-card-layout-fluid" @layout="fluid" as |G|>
+    <G.Legend>Group legend</G.Legend>
+    <G.RadioCard @maxWidth="50%" @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 1</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="50%" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 2</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+  </Hds::Form::RadioCard::Group>
+  <br />
+  <span class="dummy-text-small">Fixed</span>
+  <Hds::Form::RadioCard::Group @name="radio-card-layout-fixed" @layout="fixed" as |G|>
+    <G.Legend>Group legend</G.Legend>
+    <G.RadioCard @maxWidth="244px" @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 1</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 2</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 3</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 4</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
+    <G.RadioCard @maxWidth="244px" {{on "change" this.onChange}} as |R|>
+      <R.Icon @name="hexagon" />
+      <R.Label>Radio card label 5</R.Label>
+      <R.Description>This is the radio card description text.</R.Description>
+    </G.RadioCard>
   </Hds::Form::RadioCard::Group>
   <br />
 

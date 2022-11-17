@@ -1,11 +1,10 @@
 ---
+title: Form / Base elements
 category: components
 group: form
 component: base-elements
 section: overview
 ---
-
-# Form / Base elements - Overview
 
 In this page we collect a few "base" elements that are used to build/compose the "form" fields. They can also be used to build custom fields (in very specific cases).
 
