@@ -99,10 +99,19 @@ export default class HdsModalIndexComponent extends Component {
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', () => {
-      this.isOpen = false;
-
       if (this.args.onClose && typeof this.args.onClose === 'function') {
-        this.args.onClose();
+        if (this.args.onClose() === false) {
+          // If the callback function returns `false`, we keep the modal open/visible
+          // As there is no way to `preventDefault` on `close` events, we call the `showModal` function
+          // preserving the state of the modal dialog
+          this.element.showModal();
+        } else {
+          // If the callback function returns `true` or is `undefined` we mark the modal as closed
+          this.isOpen = false;
+        }
+      } else {
+        // If there is no callback function we mark the modal as closed
+        this.isOpen = false;
       }
     });
 

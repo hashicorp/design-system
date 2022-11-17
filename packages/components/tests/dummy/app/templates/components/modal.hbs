@@ -55,6 +55,10 @@
       <p>
         Callback function invoked when the modal is closed.
       </p>
+      <p>If you need to prevent the modal from closing (for instance, to avoid accidental data loss in an unsubmitted
+        form) return
+        <code class="dummy-code">false</code>
+        on this callback function.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -221,6 +225,7 @@
   </p>
 
   <h4 class="dummy-h4">Form within a modal dialog</h4>
+  <p class="dummy-paragraph">When the modal dialog contains information that might be lost on close, we recommend using a confirmation message before discarding it.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -233,30 +238,27 @@
       />
 
       \{{#if this.formModalActive}}
-        <Hds::Modal id="form-modal" @onClose=\{{fn this.deactivateModal "formModalActive"}} as |M|>
+        <Hds::Modal id="form-modal" @onClose=\{{fn this.checkBeforeDeactivate "formModalActive"}} as |M|>
           <M.Header>
             Why do you want to leave the beta?
           </M.Header>
           <M.Body>
-            <Hds::Form::Select::Field autofocus @width="100%" as |F|>
-              <F.Label>Select the primary reason</F.Label>
-              <F.Options>
-                <option></option>
-              </F.Options>
-            </Hds::Form::Select::Field>
-            <Hds::Form::Textarea::Field @isOptional=\{{true}} as |F|>
-              <F.Label>Your feedback</F.Label>
-            </Hds::Form::Textarea::Field>
+            <form \{{on "change" this.markFormAsChanged)}} name="leaving-beta-form" method="dialog">
+              <Hds::Form::Select::Field autofocus @width="100%" as |F|>
+                <F.Label>Select the primary reason</F.Label>
+                <F.Options>
+                  <option></option>
+                </F.Options>
+              </Hds::Form::Select::Field>
+              <Hds::Form::Textarea::Field @isOptional=\{{true}} as |F|>
+                <F.Label>Your feedback</F.Label>
+              </Hds::Form::Textarea::Field>
+            </form>
           </M.Body>
           <M.Footer>
             <Hds::ButtonSet>
               <Hds::Button type="submit" @text="Leave Beta" />
-              <Hds::Button
-                type="submit"
-                @text="Cancel"
-                @color="secondary"
-                \{{on "click" (fn this.deactivateModal "formModalActive")}}
-              />
+              <Hds::Button type="submit" @text="Cancel" @color="secondary" />
             </Hds::ButtonSet>
           </M.Footer>
         </Hds::Modal>
@@ -270,30 +272,27 @@
 
   {{! template-lint-disable no-autofocus-attribute }}
   {{#if this.formModalActive}}
-    <Hds::Modal id="form-modal" @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
+    <Hds::Modal id="form-modal" @onClose={{fn this.checkBeforeDeactivate "formModalActive"}} as |M|>
       <M.Header>
         Why do you want to leave the beta?
       </M.Header>
       <M.Body>
-        <Hds::Form::Select::Field autofocus @width="100%" as |F|>
-          <F.Label>Select the primary reason</F.Label>
-          <F.Options>
-            <option></option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-        <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-          <F.Label>Your feedback</F.Label>
-        </Hds::Form::Textarea::Field>
+        <form {{on "change" this.markFormAsChanged}} name="leaving-beta-form">
+          <Hds::Form::Select::Field autofocus @width="100%" as |F|>
+            <F.Label>Select the primary reason</F.Label>
+            <F.Options>
+              <option></option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+          <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+            <F.Label>Your feedback</F.Label>
+          </Hds::Form::Textarea::Field>
+        </form>
       </M.Body>
       <M.Footer>
         <Hds::ButtonSet>
           <Hds::Button type="submit" @text="Leave Beta" />
-          <Hds::Button
-            type="submit"
-            @text="Cancel"
-            @color="secondary"
-            {{on "click" (fn this.deactivateModal "formModalActive")}}
-          />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
         </Hds::ButtonSet>
       </M.Footer>
     </Hds::Modal>
