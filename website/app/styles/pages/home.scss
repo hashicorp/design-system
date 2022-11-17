@@ -1,0 +1,7 @@
+.doc-page-home {
+  grid-area: sidebar / sidebar / content / content;
+}
+
+.doc-page-home__content {
+  grid-area: main / main / sidecar / sidecar;
+}

@@ -1,8 +1,6 @@
 <div class="doc-page-wrapper">
   <Doc::Page::Header />
   <Doc::Page::Sidebar @tocs={{this.model}} @currentPath={{this.target.currentPath}} @currentRoute={{this.target.currentRoute}} />
-  <div class="doc-page-content-wrapper">
-    {{outlet}}
-  </div>
+  {{outlet}}
   <Doc::Page::Footer />
 </div>
