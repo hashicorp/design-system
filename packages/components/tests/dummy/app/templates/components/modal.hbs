@@ -114,6 +114,10 @@
         <LinkTo @route="components.button-set"><code class="dummy-code">ButtonSet</code></LinkTo>
         component. If a tertiary action is presented, it will always be aligned at the end of the row.</p>
       <dl class="dummy-component-props">
+        <dt>close <code>function</code></dt>
+        <dd>
+          A function that can be called to close the modal programmatically. This call will have the same effect as the
+          dismiss button in the modal header.</dd>
         <dt>...attributes</dt>
         <dd>
           <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
@@ -189,12 +193,8 @@
           <M.Body>
             <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
           </M.Body>
-          <M.Footer>
-            <Hds::Button
-              type="submit"
-              @text="Confirm"
-              \{{on "click" (fn this.deactivateModal "basicModalActive")}}
-            />
+          <M.Footer as |F|>
+            <Hds::Button type="submit" @text="Confirm" \{{on "click" F.close}} />
           </M.Footer>
         </Hds::Modal>
       \{{/if}}
@@ -213,8 +213,8 @@
       <M.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
       </M.Body>
-      <M.Footer>
-        <Hds::Button type="submit" @text="Confirm" {{on "click" (fn this.deactivateModal "basicModalActive")}} />
+      <M.Footer as |F|>
+        <Hds::Button type="submit" @text="Confirm" {{on "click" F.close}} />
       </M.Footer>
     </Hds::Modal>
   {{/if}}
@@ -225,7 +225,8 @@
   </p>
 
   <h4 class="dummy-h4">Form within a modal dialog</h4>
-  <p class="dummy-paragraph">When the modal dialog contains information that might be lost on close, we recommend using a confirmation message before discarding it.</p>
+  <p class="dummy-paragraph">When the modal dialog contains information that might be lost on close, we recommend using
+    a confirmation message before discarding it.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -255,10 +256,10 @@
               </Hds::Form::Textarea::Field>
             </form>
           </M.Body>
-          <M.Footer>
+          <M.Footer as |F|>
             <Hds::ButtonSet>
               <Hds::Button type="submit" @text="Leave Beta" />
-              <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+              <Hds::Button type="submit" @text="Cancel" @color="secondary" \{{on "click" F.close}} />
             </Hds::ButtonSet>
           </M.Footer>
         </Hds::Modal>
@@ -289,10 +290,10 @@
           </Hds::Form::Textarea::Field>
         </form>
       </M.Body>
-      <M.Footer>
+      <M.Footer as |F|>
         <Hds::ButtonSet>
           <Hds::Button type="submit" @text="Leave Beta" />
-          <Hds::Button type="submit" @text="Cancel" @color="secondary" />
+          <Hds::Button type="submit" @text="Cancel" @color="secondary" {{on "click" F.close}} />
         </Hds::ButtonSet>
       </M.Footer>
     </Hds::Modal>

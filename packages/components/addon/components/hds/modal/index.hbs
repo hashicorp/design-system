@@ -8,7 +8,7 @@
 >
   {{yield (hash Header=(component "hds/modal/header" id=this.id onDismiss=this.onDismiss))}}
   {{yield (hash Body=(component "hds/modal/body"))}}
-  {{yield (hash Footer=(component "hds/modal/footer"))}}
+  {{yield (hash Footer=(component "hds/modal/footer" onDismiss=this.onDismiss))}}
 </dialog>
 {{#if this.isOpen}}
   <div class="hds-modal__overlay"></div>
