@@ -17,8 +17,7 @@
       rel="noopener noreferrer"
     >HTML table element</a>.
   </p>
-  <p class="dummy-paragraph">Use a table when you need to display a large amount of data in a structured way. Tables are
-    useful for displaying information that is easy to compare and analyze.</p>
+  <p class="dummy-paragraph">This component takes advantage of the <code class="dummy-code">sort-by</code> helper provided in <a href="https://github.com/DockYard/ember-composable-helpers" target="_blank">ember-composable-helpers</a>. While some of the examples provided on this page use some of the other helpers provided in this addon, they are not required to use the design system. Read the <a href="https://github.com/DockYard/ember-composable-helpers#configuration" target="_blank">configuration information</a> provided by the addon if you wish to customize which helpers are included in your own app.</p>
 </section>
 <section>
   <h3 class="dummy-h3" id="component-api">
@@ -66,11 +65,11 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
     <dt>&lt;:head&gt; <code>named block</code></dt>
     <dd>
-      <p>This is a named block where the content for the thead is rendered.</p>
+      <p>This is a named block where the content for the table head (thead) is rendered.</p>
     </dd>
     <dt>&lt;:body&gt; <code>named block</code></dt>
     <dd>
-      <p>This is where the table body (tbody) is rendered.</p>
+      <p>This is a named block where the content for the table body (tbody) is rendered.</p>
     </dd>
     <dt>model <code>array</code></dt>
     <dd><p>If defined, sets the data source that gets yielded by the
@@ -89,7 +88,7 @@
         about how this value, look at the code examples in the "How to Use" section.</p></dd>
     <dt>sortOrder <code>string</code></dt>
     <dd>
-      <p>If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.</p>
+      <p>Use in conjunction with <code class="dummy-code">sortBy</code>. If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">asc</li>
@@ -113,7 +112,7 @@
     </dd>
     <dt>valign <code>enum</code></dt>
     <dd>
-      <p>If set, determines the vertical alignment of table cell (td) content. While the acceptable values contain all
+      <p>If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all
         of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.</p>
       <p>Acceptable values:</p>
       <ol>
@@ -134,8 +133,8 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">There are several ways to customize the table component.</p>
-  <h4 class="dummy-h4">Simple Table</h4>
+  <p class="dummy-paragraph">There are several ways to implement the table component. These examples will be in order of increasing complexity. Additional implementation examples are in the Showcase section.</p>
+  <h4 class="dummy-h4">Static Table (non-sortable)</h4>
   <p class="dummy-paragraph">If you have your own content and don't want to use a model, you can still benefit from the
     components themselves. Here is an example of such an invocation in a template:</p>
   {{! prettier-ignore-start }}
@@ -147,9 +146,9 @@
 <Hds::Table>
   <:head as |H|>
     <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
+      <H.Th>Column One</H.Th>
+      <H.Th>\{{t 'translated-column-header-two'}}</H.Th>
+      <H.Th>Column Three</H.Th>
     </H.Tr>
   </:head>
   <:body as |B|>
@@ -163,7 +162,7 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <h4 class="dummy-h4">Simple Table with model defined</h4>
+  <h4 class="dummy-h4">Table with model defined (non-sortable)</h4>
   <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the data model and
     insert your own content into the
     <code class="dummy-code">:head</code>
@@ -222,7 +221,7 @@ export default class ComponentsTableRoute extends Route {
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route. In
-    this example, we're identifying the column headers (keys) and also capitalizing them. Each column object has two
+    this example, we're identifying the column headers (keys) and also capitalizing them for the label. Each column object has two
     pieces: a
     <code class="dummy-code">key</code>-- used for the model, the
     <code class="dummy-code">sortingKeys</code>
@@ -284,7 +283,7 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">If you want, you can indicate that only specific columns should be sortable.</p>
+  <p class="dummy-paragraph">In our next example, we'll build on the previous one. By defining <code class="dummy-code">sortableKeys</code> (as an array of column keys), you can indicate that only specific columns should be sortable.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -331,7 +330,7 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted in a specific direction.</p>
+  <p class="dummy-paragraph">If <code class="dummy-code">sortBy</code> has been defined, it will be pre-sorted in an ascending order. If you want to sort in a descending order instead, use <code class="dummy-code">sortOrder</code>:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -749,21 +748,21 @@ export default class ComponentsTableRoute extends Route {
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with a custom-width column and right-aligned text column</h4>
+  <h4 class="dummy-h4">Table with a right-aligned text column</h4>
   <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
         <H.Th>Album</H.Th>
-        <H.Th class="db-table-w1-7">Release Year</H.Th>
-        <H.Th class="db-table-text-right">Current Vinyl Cost (USD)</H.Th>
+        <H.Th>Release Year</H.Th>
+        <H.Th class="db-table-text-right">Cost (USD)</H.Th>
       </H.Tr>
     </:head>
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
-        <B.Td class="db-table-w1-7">{{B.data.year}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
         <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
