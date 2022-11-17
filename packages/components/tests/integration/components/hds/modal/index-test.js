@@ -115,7 +115,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
             <M.Footer as |F|>
-              <Hds::Button id="cancel-button" type="submit" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
             </M.Footer>
           </Hds::Modal>`
     );
