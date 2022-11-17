@@ -48,6 +48,8 @@ export default class ShowRoute extends Route {
           id: res.data.id,
           ...res.data.attributes,
           frontmatter,
+          // TODO! TEMPORARY, FOR TESTING!
+          hasSidecar: true,
         };
       });
   }
