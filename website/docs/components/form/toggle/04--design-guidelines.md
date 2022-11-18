@@ -1,11 +1,11 @@
 ---
+title: Form::Toggle
 category: components
 group: form
 component: toggle
 section: design-guidelines
 ---
 
-<h1>Form::Toggle Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
   

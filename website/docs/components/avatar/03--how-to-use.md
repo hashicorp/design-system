@@ -1,10 +1,9 @@
 ---
+title: Avatar
 category: components
 component: avatar
 section: how-to-use
 ---
-
-# Avatar Component - How to use
 
 Default invocation:
 

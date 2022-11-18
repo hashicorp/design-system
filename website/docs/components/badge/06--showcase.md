@@ -1,10 +1,10 @@
 ---
+title: Badge
 category: components
 component: badge
 section: showcase
 ---
 
-<h1>Badge component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

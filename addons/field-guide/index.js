@@ -86,7 +86,16 @@ module.exports = {
       contentTypes: ['content', 'html', 'toc'],
       // IMPORTANT: according to the documentation, the frontmatter attributes that we want to include need to be explicitly declared ¯\_(ツ)_/¯
       // see: https://github.com/empress/broccoli-static-site-json#attributes
-      attributes: ['category', 'group', 'component', 'section'], // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/addon/routes/show.js`
+      attributes: [ // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/addon/routes/show.js`
+        'category',
+        'group',
+        'component',
+        'section',
+        'title',
+        'description',
+        'caption',
+        'status'
+      ],
     });
 
     let toc = new TableOfContents(docs, {

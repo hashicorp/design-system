@@ -1,10 +1,9 @@
 ---
+title: PowerSelect
 category: overrides
 component: power-select
 section: how-to-use
 ---
-
-# PowerSelect Component - How to use
 
 To use this component in your application follow [the getting started guide on the add-on website](https://ember-power-select.com) then add the PowerSelect overrides as shown below.
 

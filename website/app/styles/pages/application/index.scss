@@ -1,51 +1,39 @@
+// "APPLICATION" PAGE
+
 @import "./header";
-@import "./footer";
 @import "./sidebar";
+@import "./hero";
+@import "./stage";
+@import "./cover";
+@import "./content";
+@import "./sidecar";
+@import "./footer";
+@import "./debug";
+
+
+// globals
+
+:root {
+  --doc-page-header-height: 68px;
+  --doc-page-sidebar-width: 320px;
+  --doc-page-stage-gutter-small: 24px;
+  --doc-page-stage-gutter-medium: 48px;
+  --doc-page-stage-gutter-large: 96px;
+  --doc-page-content-max-width: 900px;
+  --doc-page-text-limit-width: 720px;
+  --doc-page-sidecar-width: 220px;
+}
+
+
+// "top/root" page wrapper
 
 .doc-page-wrapper {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar stage"
+    "footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   min-height: 100vh;
-}
-
-// CONTENT
-
-.doc-page-content-wrapper {
-  display: flex;
-  flex-direction: row;
-  // min-height: 100vh;
-}
-
-// MAIN
-
-.doc-page-main {
-  flex: 1 0 0;
-  min-width: 0;
-  // margin-left: $docs-page-sidenav-width;
-  padding: 2rem 4rem;
-}
-
-.doc-button-show-sidenav {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  display: none;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  background: none;
-  border: none;
-  outline: inherit;
-  cursor: pointer;
-}
-
-
-// RESPONSIVENESS
-
-@media screen and (max-width: 950px) {
-  .doc-page-main {
-    margin-left: 0;
-  }
-
-  .doc-button-show-sidenav {
-    display: initial;
-  }
 }

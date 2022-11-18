@@ -1,11 +1,10 @@
 ---
+title: Form::Select
 category: components
 group: form
 component: select
 section: how-to-use
 ---
-
-# Form::Select Component - How to use
 
 Note: depending on how you're going to process the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, in the examples provided we will omit these specific arguments, for sake of simplicity.
 

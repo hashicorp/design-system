@@ -1,11 +1,11 @@
 ---
+title: Form::Textarea
 category: components
 group: form
 component: textarea
 section: design-guidelines
 ---
 
-<h1>Form::Textarea Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
   

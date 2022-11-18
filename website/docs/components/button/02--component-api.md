@@ -1,10 +1,9 @@
 ---
+title: Button
 category: components
 component: button
 section: component-api
 ---
-
-# Button component - Component API
 
 Here is the API for the component:
 

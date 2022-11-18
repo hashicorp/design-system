@@ -1,0 +1,16 @@
+// SIDECAR
+
+@use "../../breakpoints" as breakpoint;
+
+
+.doc-page-sidecar {
+  display: none;
+
+  @include breakpoint.large () {
+    display: block;
+    grid-area: sidecar;
+    width: var(--doc-page-sidecar-width);
+    margin-right: calc(var(--doc-page-stage-gutter-large) / 2);
+  }
+}
+

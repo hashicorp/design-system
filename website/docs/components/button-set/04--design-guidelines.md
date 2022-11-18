@@ -1,10 +1,10 @@
 ---
+title: ButtonSet
 category: components
 component: button-set
 section: design-guidelines
 ---
 
-<h1>ButtonSet Component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
   

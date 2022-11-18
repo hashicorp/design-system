@@ -1,10 +1,9 @@
 ---
+title: Badge
 category: components
 component: badge
 section: how-to-use
 ---
-
-# Badge component - How to use
 
 Invocation of the component would look something like this:
 

@@ -1,0 +1,22 @@
+@use "../breakpoints" as breakpoint;
+
+.doc-page-home {
+  grid-area: sidebar / sidebar / content / content;
+}
+
+.doc-page-home__content {
+  grid-area: content / content / _extra/ _extra;
+  width: 100%; // needed (otherwise it collapses, because is in a grid)
+  max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-medium));
+  margin: 0 auto;
+  // TODO check with heather what she wants to do with the vertical padding (responsive)
+  padding: 16px var(--doc-page-stage-gutter-small);
+
+  @include breakpoint.medium () {
+    padding: 32px var(--doc-page-stage-gutter-medium);
+  }
+
+  @include breakpoint.large () {
+    padding: 64px var(--doc-page-stage-gutter-medium);
+  }
+}

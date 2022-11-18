@@ -1,10 +1,9 @@
 ---
+title: Disclosure
 category: utilities
 component: disclosure
 section: component-api
 ---
-
-# Disclosure - Component API
 
 Here is the API for the component:
 

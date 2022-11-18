@@ -1,10 +1,9 @@
 ---
+title: Focus ring
 category: foundations
 component: focus-ring
 section: how-to-use
 ---
-
-# Focus ring - How to use
 
 The suggested way to apply a "focus-ring" style to an UI element is using the specific **design token** provided as CSS custom property.
 
