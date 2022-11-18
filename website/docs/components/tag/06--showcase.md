@@ -1,10 +1,10 @@
 ---
+title: Tag
 category: components
 component: tag
 section: showcase
 ---
 
-<h1>Tag component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

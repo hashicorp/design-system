@@ -1,10 +1,10 @@
 ---
+title: Elevation
 category: foundations
 component: elevation
 section: showcase
 ---
 
-<h1>Elevation - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

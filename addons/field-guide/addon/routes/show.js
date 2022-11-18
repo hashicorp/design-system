@@ -36,6 +36,10 @@ export default class ShowRoute extends Route {
           'group',
           'component',
           'section',
+          'title',
+          'description',
+          'caption',
+          'status',
         ];
         frontmatterAttributes.forEach((attribute) => {
           if (attribute in res.data.attributes) {
@@ -48,6 +52,9 @@ export default class ShowRoute extends Route {
           id: res.data.id,
           ...res.data.attributes,
           frontmatter,
+          // TODO! TEMPORARY, FOR TESTING!
+          hasCover: true,
+          hasSidecar: true,
         };
       });
   }

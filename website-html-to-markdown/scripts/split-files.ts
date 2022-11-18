@@ -96,35 +96,27 @@ async function split() {
           ? sectionIDMatchResults[1]
           : `generic-${genericCounter}`;
 
-        let sectionTitle;
         let sectionFileName;
         switch (sectionID) {
           case 'overview':
-            sectionTitle = 'Overview';
             sectionFileName = '01--overview';
             break;
           case 'component-api':
-            sectionTitle = 'Component API';
             sectionFileName = '02--component-api';
             break;
           case 'how-to-use':
-            sectionTitle = 'How to use';
             sectionFileName = '03--how-to-use';
             break;
           case 'design-guidelines':
-            sectionTitle = 'Design Guidelines';
             sectionFileName = '04--design-guidelines';
             break;
           case 'accessibility':
-            sectionTitle = 'Accessibility';
             sectionFileName = '05--accessibility';
             break;
           case 'showcase':
-            sectionTitle = 'Showcase';
             sectionFileName = '06--showcase';
             break;
           default:
-            sectionTitle = `Generic #${genericCounter}`;
             sectionFileName = `1${genericCounter}--generic`;
             break;
         }
@@ -135,7 +127,7 @@ async function split() {
             '.hbs',
             ''
           )}/${sectionFileName}.hbs`,
-          `<h1>${pageTitle} - ${sectionTitle}</h1>\n\n${sectionContent}\n`
+          `<!-- %%% ${pageTitle} %%% -->\n\n${sectionContent}\n`
         );
         genericCounter++;
       }

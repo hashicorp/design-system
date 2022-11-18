@@ -1,10 +1,10 @@
 ---
+title: Avatar
 category: components
 component: avatar
 section: showcase
 ---
 
-<h1>Avatar Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

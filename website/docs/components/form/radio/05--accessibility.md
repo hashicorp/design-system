@@ -1,11 +1,10 @@
 ---
+title: Form::Radio
 category: components
 group: form
 component: radio
 section: accessibility
 ---
-
-# Form::Radio Component - Accessibility
 
 #### Known Issues
 

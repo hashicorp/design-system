@@ -1,10 +1,10 @@
 ---
+title: PowerSelect
 category: overrides
 component: power-select
 section: showcase
 ---
 
-<h1>PowerSelect Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

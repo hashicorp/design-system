@@ -8,6 +8,7 @@
 
 // Pages declarations
 @import "pages/application"; // main application frame
+@import "pages/home"; // homepage (index)
 
 // "Doc" components
 @import "components/badge";
@@ -23,16 +24,17 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html {
-  box-sizing: border-box;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }

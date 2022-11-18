@@ -1,11 +1,10 @@
 ---
+title: Form::RadioCard
 category: components
 group: form
 component: radio-card
 section: accessibility
 ---
-
-# Form::RadioCard Component - Accessibility
 
 #### Known Issues
 

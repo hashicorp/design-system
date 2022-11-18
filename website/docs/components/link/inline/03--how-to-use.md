@@ -1,11 +1,10 @@
 ---
+title: Link::Inline
 category: components
 group: link
 component: inline
 section: how-to-use
 ---
-
-# Link::Inline component - How to use
 
 #### Basic use
 

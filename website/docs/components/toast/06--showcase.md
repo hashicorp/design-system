@@ -1,10 +1,10 @@
 ---
+title: Toast
 category: components
 component: toast
 section: showcase
 ---
 
-<h1>Toast component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

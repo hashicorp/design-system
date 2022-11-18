@@ -1,20 +1,45 @@
 <HeadLayout />
-{{!-- Leave it here for debugging purpose (will be removed later!) --}}
-<!--
-{{#if this.model.id}}
-    <pre>this.model.id = {{this.model.id}}</pre>
-{{/if}}
-{{#if this.model.frontmatter.category}}
-    <pre>this.model.frontmatter.category = {{this.model.frontmatter.category}}</pre>
-{{/if}}
-{{#if this.model.frontmatter.group}}
-    <pre>this.model.frontmatter.group = {{this.model.frontmatter.group}}</pre>
-{{/if}}
-{{#if this.model.frontmatter.component}}
-    <pre>this.model.frontmatter.component = {{this.model.frontmatter.component}}</pre>
-{{/if}}
-{{#if this.model.frontmatter.section}}
-    <pre>this.model.frontmatter.section = {{this.model.frontmatter.section}}</pre>
-{{/if}}
--->
-<DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}}/>
+<Doc::Page::Stage>
+  {{#if this.model.hasCover}}
+    <Doc::Page::Cover @title={{this.title}} @description={{this.description}} />
+  {{/if}}
+  <Doc::Page::Content>
+    {{!-- Leave it here for debugging purpose (will be removed later!) --}}
+    <!--
+    {{#if this.model.id}}
+        <pre>this.model.id = {{this.model.id}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.title}}
+        <pre>this.model.frontmatter.title = {{this.model.frontmatter.title}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.description}}
+        <pre>this.model.frontmatter.description = {{this.model.frontmatter.description}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.caption}}
+        <pre>this.model.frontmatter.caption = {{this.model.frontmatter.caption}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.status}}
+        <pre>this.model.frontmatter.status = {{this.model.frontmatter.status}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.category}}
+        <pre>this.model.frontmatter.category = {{this.model.frontmatter.category}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.group}}
+        <pre>this.model.frontmatter.group = {{this.model.frontmatter.group}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.component}}
+        <pre>this.model.frontmatter.component = {{this.model.frontmatter.component}}</pre>
+    {{/if}}
+    {{#if this.model.frontmatter.section}}
+        <pre>this.model.frontmatter.section = {{this.model.frontmatter.section}}</pre>
+    {{/if}}
+    -->
+    <DynamicTemplate
+      @templateString={{this.renderedContent}}
+      @componentId={{this.model.id}}
+    />
+  </Doc::Page::Content>
+  {{#if this.model.hasSidecar}}
+    <Doc::Page::Sidecar />
+  {{/if}}
+</Doc::Page::Stage>

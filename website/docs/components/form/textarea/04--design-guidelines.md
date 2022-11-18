@@ -1,4 +1,5 @@
 ---
+title: Form::Textarea
 category: components
 group: form
 component: textarea

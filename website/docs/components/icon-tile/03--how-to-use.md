@@ -1,10 +1,9 @@
 ---
+title: IconTile
 category: components
 component: icon-tile
 section: how-to-use
 ---
-
-# IconTile - How to use
 
 Invocation of the component would look something like this:
 

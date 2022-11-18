@@ -1,11 +1,10 @@
 ---
+title: Link::Standalone
 category: components
 group: link
 component: standalone
 section: component-api
 ---
-
-# Link::Standalone component - Component API
 
 Here is the API for the component:
 
