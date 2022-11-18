@@ -1,3 +1,9 @@
+---
+category: components
+component: tag
+section: component-api
+---
+
 # Tag component - Component API
 
 Here is the API for the component:

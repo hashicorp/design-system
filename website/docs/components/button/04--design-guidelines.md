@@ -1,3 +1,9 @@
+---
+category: components
+component: button
+section: design-guidelines
+---
+
 # Button - Design Guidelines
 
 ## When to use

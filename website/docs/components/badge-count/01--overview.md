@@ -1,3 +1,9 @@
+---
+category: components
+component: badge-count
+section: overview
+---
+
 # BadgeCount component - Overview
 
 `BadgeCount` is a numeric label used to display things like version number and collection enumeration in tabs.

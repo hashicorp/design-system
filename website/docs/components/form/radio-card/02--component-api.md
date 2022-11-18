@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: radio-card
+section: component-api
+---
+
 # Form::RadioCard Component - Component API
 
 #### Form::RadioCard

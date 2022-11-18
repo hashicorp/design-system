@@ -1,3 +1,9 @@
+---
+category: components
+component: button
+section: accessibility
+---
+
 # Button component - Accessibility
 
 This component has been designed and implemented with accessibility in mind. When used as recommended, there should not be any WCAG conformance issues with this component.

@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: radio-card
+section: how-to-use
+---
+
 # Form::RadioCard Component - How to use
 
 #### Form::Radio::Group

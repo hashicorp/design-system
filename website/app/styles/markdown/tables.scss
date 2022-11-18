@@ -1,35 +1,33 @@
-.doc-markdown-content {
+// TABLES
 
-  // TABLES
+.doc-markdown-table {
+  display: block;
+  width: 100%;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
 
-  table {
-    display: block;
-    width: 100%;
-    width: max-content;
-    max-width: 100%;
-    overflow: auto;
-
-    th {
-      font-weight: bold; // TODO
-    }
-
-    th,
-    td {
-      padding: 6px 12px;
-      border: 1px solid olivedrab; // TODO
-    }
-
-    tr {
-      background-color: pink; // TODO
-      border-top: 1px solid coral; // TODO
-
-      &:nth-child(2n) {
-        background-color: maroon; // TODO
-      }
-    }
-
-    img {
-      background-color: transparent;
-    }
+  // TODO why is needed?
+  .doc-markdown-img {
+    background-color: transparent;
   }
+}
+
+.doc-markdown-tr {
+  background-color: pink; // TODO
+  border-top: 1px solid coral; // TODO
+
+  &:nth-child(2n) {
+    background-color: maroon; // TODO
+  }
+}
+
+.doc-markdown-th {
+  font-weight: bold; // TODO
+}
+
+.doc-markdown-th,
+.doc-markdown-td {
+  padding: 6px 12px;
+  border: 1px solid olivedrab; // TODO
 }

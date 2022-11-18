@@ -47,6 +47,7 @@ async function split() {
           'foundations.hbs',
           'overrides.hbs',
           'utilities.hbs',
+          'content/writing-guidelines.hbs',
         ].includes(fileRelativePath)
       ) {
         continue;

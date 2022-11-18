@@ -1,3 +1,9 @@
+---
+category: components
+component: dropdown
+section: design-guidelines
+---
+
 # Dropdown - Design Guidelines
 
 ## When to use

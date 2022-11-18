@@ -1,3 +1,9 @@
+---
+category: utilities
+component: disclosure
+section: how-to-use
+---
+
 # Disclosure - How to use
 
 Invocation of the component would look something like this:

@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: checkbox
+section: accessibility
+---
+
 # Form::Checkbox Component - Accessibility
 
 #### Known Issues

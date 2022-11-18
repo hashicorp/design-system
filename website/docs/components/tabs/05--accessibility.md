@@ -1,3 +1,9 @@
+---
+category: components
+component: tabs
+section: accessibility
+---
+
 # Tabs Component - Accessibility
 
 #### Relevant WCAG

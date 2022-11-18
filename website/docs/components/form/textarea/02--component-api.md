@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: textarea
+section: component-api
+---
+
 # Form::Textarea Component - Component API
 
 The `Form::Textarea` component is based on the Ember [`Textarea` built-in component](https://guides.emberjs.com/release/components/built-in-components/).

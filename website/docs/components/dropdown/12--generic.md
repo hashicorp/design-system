@@ -1,3 +1,9 @@
+---
+category: components
+component: dropdown
+section: generic
+---
+
 <h1>Dropdown Component - Generic #2</h1>
 
 <section data-section="generic">

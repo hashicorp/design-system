@@ -1,3 +1,9 @@
+---
+category: components
+component: badge
+section: component-api
+---
+
 # Badge component - Component API
 
 Here is the API for the component:

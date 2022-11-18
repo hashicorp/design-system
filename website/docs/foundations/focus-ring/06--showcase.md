@@ -1,3 +1,9 @@
+---
+category: foundations
+component: focus-ring
+section: showcase
+---
+
 <h1>Focus ring - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

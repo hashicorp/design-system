@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: select
+section: component-api
+---
+
 # Form::Select Component - Component API
 
 The `Form::Select` component has two different variants, with their own APIs:

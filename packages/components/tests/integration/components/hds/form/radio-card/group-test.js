@@ -79,15 +79,15 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       .hasAttribute('aria-describedby', `${groupHelperTextId} ${groupErrorId}`);
   });
 
-  // ARGUMENT FORWARDING: NAME, ALIGNMENT, CONTROL POSITION
+  // ARGUMENT FORWARDING: NAME, ALIGNMENT, CONTROL POSITION, LAYOUT
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" as |G|>
+      hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" @layout="fixed" as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard data-test="first-control"/>
-            <G.RadioCard data-test="second-control"/>
+            <G.RadioCard @maxWidth="50%" data-test="first-control"/>
+            <G.RadioCard @maxWidth="50%" data-test="second-control"/>
             <G.Error>This is the group error</G.Error>
           </Hds::Form::RadioCard::Group>`
     );
@@ -101,6 +101,9 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     assert
       .dom('.hds-form-radio-card')
       .hasClass('hds-form-radio-card--control-left');
+    assert
+      .dom('.hds-form-radio-card')
+      .hasClass('hds-form-radio-card--layout-fixed');
   });
 
   // REQUIRED AND OPTIONAL

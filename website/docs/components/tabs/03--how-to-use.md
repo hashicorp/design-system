@@ -1,3 +1,9 @@
+---
+category: components
+component: tabs
+section: how-to-use
+---
+
 # Tabs Component - How to use
 
 #### Basic use

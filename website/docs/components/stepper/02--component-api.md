@@ -1,3 +1,9 @@
+---
+category: components
+component: stepper
+section: component-api
+---
+
 # Stepper Indicator Component - Component API
 
 **Note:** Since the `indicator` components are meant to be assembled into larger stepper item patterns, the component's interactive states should be tied to the larger pattern. This includes `hover`, `active`, and `focus`.

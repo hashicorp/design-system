@@ -1,3 +1,9 @@
+---
+category: foundations
+component: elevation
+section: design-guidelines
+---
+
 <h1>Elevation - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
