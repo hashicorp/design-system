@@ -4,7 +4,9 @@
   <Doc::Page::Hero class="doc-page-home__hero">HDS - HashiCorp Design System</Doc::Page::Hero>
   <Doc::Page::Stage>
     <div class="doc-page-home__content">
-      <DocLandingCalloutBlocks @cols='2' @items={{this.items}} />
+      <div class="doc-page-home__cards">
+        <Doc::Cards::Deck @cols="4" @cards={{this.cards}} />
+      </div>
     </div>
   </Doc::Page::Stage>
 </div>
