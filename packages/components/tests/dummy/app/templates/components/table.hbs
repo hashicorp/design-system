@@ -92,6 +92,9 @@
     <dt>columns <code>array</code></dt>
     <dd><p>If defined, sets the column header content and indicates that the table should be sorted. For more
         information about how this array is shaped, look at the code examples in the "How to Use" section.</p></dd>
+    <dt>alignRightKeys <code>array</code></dt>
+    <dd><p>If defined, indicates which column headers should have right-aligned text. Column headers are left-aligned by
+        default.</p></dd>
     <dt>sortingKeys <code>array</code></dt>
     <dd><p>If defined, indicates which columns should be sortable (if only
         <code class="dummy-code">columns</code>
@@ -372,6 +375,34 @@ export default class ComponentsTableRoute extends Route {
       <B.Td>\{{B.data.artist}}</B.Td>
       <B.Td>\{{B.data.album}}</B.Td>
       <B.Td>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">If you'd like to indicate which column headers should have right-aligned text (typically
+    only for numbers with decimal places), you can define
+    <code class="dummy-code">@alignRightKeys</code>
+    as an array of column keys, or
+    <code class="dummy-code">@alignRight=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
+    if you invoke components individually. The following example includes both:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @alignRightKeys=\{{array 'year'}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td @alignRight=\{{true}}>\{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>"
@@ -743,12 +774,12 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table, some columns sortable, artist column pre-sorted in descending order.
+    Sortable table, some columns sortable, artist column pre-sorted in descending order
   </h4>
   <Hds::Table
     @model={{this.model.data}}
     @columns={{union (take 3 this.model.columns) (hash key="other" label="Other")}}
-    @sortingKeys={{array "artist" "album"}}
+    @sortingKeys={{array "artist" "album" "year"}}
     @sortBy="artist"
     @sortOrder="desc"
     @valign="middle"
@@ -778,7 +809,7 @@ export default class ComponentsTableRoute extends Route {
         <H.Th>Artist</H.Th>
         <H.Th>Album</H.Th>
         <H.Th>Release Year</H.Th>
-        <H.Th class="db-table-text-right">Cost (USD)</H.Th>
+        <H.Th @alignRight={{true}}>Cost (USD)</H.Th>
       </H.Tr>
     </:head>
     <:body as |B|>
@@ -786,7 +817,7 @@ export default class ComponentsTableRoute extends Route {
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
-        <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td>
+        <B.Td @alignRight={{true}}>{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>

@@ -14,6 +14,7 @@
                 @isSorted={{eq column.key this.sortBy}}
                 @sortOrder={{this.sortOrder}}
                 @onClick={{(fn this.setSortBy column.key)}}
+                @alignRight={{if (includes column.key @alignRightKeys) true}}
               >
                 {{column.label}}
               </Hds::Table::ThSort>
@@ -25,6 +26,7 @@
               @isSorted={{eq column.key this.sortBy}}
               @sortOrder={{this.sortOrder}}
               @onClick={{(fn this.setSortBy column.key)}}
+              @alignRight={{if (includes column.key @alignRightKeys) true}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
