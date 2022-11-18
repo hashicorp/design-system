@@ -1,3 +1,9 @@
+---
+category: components
+component: alert
+section: component-api
+---
+
 # Alert component - Component API
 
 Here is the API for the component:

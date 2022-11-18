@@ -1,3 +1,9 @@
+---
+category: components
+component: breadcrumb
+section: component-api
+---
+
 # Breadcrumb - Component API
 
 The `Breadcrumb` component is composed by different parts, with their own APIs:

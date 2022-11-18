@@ -1,3 +1,10 @@
+---
+category: components
+group: link
+component: standalone
+section: overview
+---
+
 # Link::Standalone component - Overview
 
 The `Link::Standalone` component handles the generation of:

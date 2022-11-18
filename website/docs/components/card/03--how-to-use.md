@@ -1,3 +1,9 @@
+---
+category: components
+component: card
+section: how-to-use
+---
+
 # Card component - How to use
 
 #### Basic use

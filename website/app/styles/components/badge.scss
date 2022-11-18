@@ -1,0 +1,49 @@
+// BADGE
+
+@use "../typography/mixins" as *;
+
+.doc-badge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 8px;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  @include doc-font-style-body-small();
+}
+
+
+// colors
+
+.doc-badge--color-neutral-light {
+  color: #212529;
+  background-color: #f8f9fa;
+}
+
+.doc-badge--color-neutral-dark {
+  color: #fff;
+  background-color: #343a40;
+}
+
+.doc-badge--color-highlight {
+  color: #fff;
+  background-color: #17a2b8;
+}
+
+.doc-badge--color-success {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.doc-badge--color-warning {
+  color: #212529;
+  background-color: #ffc107;
+}
+
+.doc-badge--color-critical {
+  color: #fff;
+  background-color: #dc3545;
+}
+

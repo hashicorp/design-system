@@ -1,3 +1,9 @@
+---
+category: components
+component: alert
+section: overview
+---
+
 # Alert component - Overview
 
 An Alert is an element intended for **system-generated messages**. It is a live region with important, usually time-sensitive information. The use of this alert component will cause immediate notifications for users with assistive technology. Since alerts are not required to receive focus, it should not be required that the user close the alert.

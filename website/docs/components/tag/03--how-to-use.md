@@ -1,3 +1,9 @@
+---
+category: components
+component: tag
+section: how-to-use
+---
+
 # Tag component - How to use
 
 Use tags to indicate an object's categorization, i.e., for filtering. Use a [badge](/components/badge/01_overview/) instead for static metadata, status, or to indicate a new feature.

@@ -1,3 +1,9 @@
+---
+category: foundations
+component: colors
+section: generic
+---
+
 <h1>Colors - Generic #2</h1>
 
 <section data-test-percy data-section="colors-semantic">

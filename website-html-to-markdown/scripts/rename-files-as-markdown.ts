@@ -14,6 +14,7 @@ const sourceFolder = path.resolve(__dirname, '../temp/split-files');
     );
 
     await renameFiles();
+
   } catch (err) {
     console.error(err);
     process.exit(1);

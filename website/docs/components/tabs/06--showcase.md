@@ -1,3 +1,9 @@
+---
+category: components
+component: tabs
+section: showcase
+---
+
 <h1>Tabs Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

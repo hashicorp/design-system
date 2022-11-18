@@ -77,7 +77,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('input').hasAttribute('data-test2', 'test');
   });
 
-  // ASSERTIONS: ALIGNMENT, CONTROL POSITION
+  // ASSERTIONS: ALIGNMENT, CONTROL POSITION, LAYOUT
 
   test('it should throw an assertion if an incorrect value for @alignment is provided', async function (assert) {
     const errorMessage =
@@ -100,6 +100,32 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Form::RadioCard @controlPosition="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if an incorrect value for @layout is provided', async function (assert) {
+    const errorMessage =
+      '@layout for "Hds::Form::RadioCard" must be one of the following: fluid, fixed; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::RadioCard @layout="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if @layout is fixed and no @maxWidth value is provided', async function (assert) {
+    const errorMessage =
+      '@maxWidth for "Hds::Form::RadioCard" with @layout "fixed" is required';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::RadioCard @layout="fixed" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });

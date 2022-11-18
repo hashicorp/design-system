@@ -1,3 +1,10 @@
+---
+category: components
+group: form
+component: checkbox
+section: showcase
+---
+
 <h1>Form::Checkbox Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">

@@ -1,3 +1,9 @@
+---
+category: components
+component: card
+section: design-guidelines
+---
+
 <h1>Card component - Design Guidelines</h1>
 
 <section data-section="design-guidelines">
