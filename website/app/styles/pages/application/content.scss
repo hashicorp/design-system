@@ -19,3 +19,13 @@
     padding: 0 var(--doc-page-stage-gutter-large);
   }
 }
+
+
+// in case we need it to "breakthrough" and occupy also the "sidecar" area
+.doc-page-content--breakthrough {
+  grid-area: content / content / sidecar / sidecar;
+  // notice: since the sidebar doesn't have a fixed size, we need to force the max-width on the content in this case
+  // TODO! - IMPORTANT: since now we have the `@breakthrough` argument to control the use case when we don't have the sidecar
+  // potentially we could add again the fixed size to the "sidecar" grid area and remove this max-width (to be tested)
+  max-width: calc(var(--doc-page-content-max-width) + 2 * var(--doc-page-stage-gutter-large) + var(--doc-page-sidebar-width));
+}
