@@ -32,7 +32,10 @@
         {{/each}}
       </Hds::Table::Tr>
     {{else}}
-      {{yield (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th") ThSort=(component "hds/table/th-sort")) to="head"}}
+      {{yield
+        (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th") ThSort=(component "hds/table/th-sort"))
+        to="head"
+      }}
     {{/if}}
   </thead>
   <tbody class="hds-table__tbody">
