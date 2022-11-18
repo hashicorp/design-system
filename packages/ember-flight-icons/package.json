@@ -78,9 +78,6 @@
     "qunit-dom": "^2.0.0",
     "webpack": "^5.74.0"
   },
-  "peerDependencies": {
-    "ember-test-selectors": "^6.0.0"
-  },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
