@@ -1,9 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class HdsPaginationBarIndexComponent extends Component {
   totalPages = this.args.totalPages;
-  currentPage = this.args.currentPage ? this.args.currentPage : 1;
+  @tracked currentPage = this.args.currentPage ? this.args.currentPage : 1;
 
   get isNumbered() {
     let { type } = this.args;
@@ -15,6 +16,14 @@ export default class HdsPaginationBarIndexComponent extends Component {
     let { type } = this.args;
 
     return type === 'compact';
+  }
+
+  get isDisabledPrev() {
+    return this.currentPage === 1;
+  }
+
+  get isDisabledNext() {
+    return this.currentPage === this.totalPages;
   }
 
   @action

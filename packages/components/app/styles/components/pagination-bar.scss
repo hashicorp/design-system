@@ -65,6 +65,10 @@
   &:active {
     color: var(--token-color-foreground-action-active);
   }
+
+  &:disabled {
+    color: var(--token-color-foreground-disabled);
+  }
 }
 
 .hds-pagination__ellipsis {

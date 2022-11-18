@@ -79,15 +79,33 @@
   <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} />
 
   <h4 class="dummy-h4">Compact</h4>
-  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} @itemsPerPage={{8}} @type="compact" />
+  <Hds::PaginationBar
+    @itemsRangeStart={{1}}
+    @itemsRangeEnd={{10}}
+    @totalItems={{103}}
+    @itemsPerPage={{8}}
+    @type="compact"
+  />
 
   <hr />
   <h4 class="dummy-h4">No TotalCount</h4>
-  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} @showTotalCount={{false}} />
+  <Hds::PaginationBar
+    @itemsRangeStart={{1}}
+    @itemsRangeEnd={{10}}
+    @totalItems={{100}}
+    @itemsPerPage={{10}}
+    @showTotalCount={{false}}
+  />
   <hr />
 
   <h4 class="dummy-h4">No PageSize</h4>
-  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} @showPageSize={{false}} />
+  <Hds::PaginationBar
+    @itemsRangeStart={{1}}
+    @itemsRangeEnd={{10}}
+    @totalItems={{100}}
+    @itemsPerPage={{10}}
+    @showPageSize={{false}}
+  />
 
   <h4 class="dummy-h4">No TotalCount or PageSize</h4>
   <Hds::PaginationBar
@@ -99,5 +117,11 @@
   />
 
   <h4 class="dummy-h4">No TotalItems</h4>
-  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} @hasTotalItems={{false}} />
+  <Hds::PaginationBar
+    @itemsRangeStart={{1}}
+    @itemsRangeEnd={{10}}
+    @totalItems={{100}}
+    @itemsPerPage={{10}}
+    @hasTotalItems={{false}}
+  />
 </section>

@@ -3,7 +3,12 @@
   aria-label="Pagination navigation"
   ...attributes
 >
-  <Hds::Interactive class="hds-pagination__page-link" onClick={{this.prevPage}} aria-label="Previous page">
+  <Hds::Interactive
+    class="hds-pagination__page-link"
+    onClick={{this.prevPage}}
+    aria-label="Previous page"
+    disabled={{if this.isDisabledPrev true null}}
+  >
     <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" />
     {{#if this.isCompact}}
       <span class="hds-pagination__page-label" aria-hidden="true">
@@ -55,7 +60,12 @@
     </ul>
   {{/if}}
 
-  <Hds::Interactive class="hds-pagination__page-link" onClick={{this.nextPage}} aria-label="Next page">
+  <Hds::Interactive
+    class="hds-pagination__page-link"
+    onClick={{this.nextPage}}
+    aria-label="Next page"
+    disabled={{if this.isDisabledNext true null}}
+  >
     {{#if this.isCompact}}
       <span class="hds-pagination__page-label" aria-hidden="true">
         Next
