@@ -1,0 +1,20 @@
+<div class={{this.classNames}} ...attributes>
+  {{#if @route}}
+  <LinkTo class="doc-cards-card__link" @route={{@route}} @model={{@model}}>
+    <img class="doc-cards-card__image" src={{@image}} alt="" role="presentation" />
+    <div class="doc-cards-card__details">
+      <p class="doc-cards-card__title">{{capitalize @title}}</p>
+      <p class="doc-cards-card_description">{{capitalize @description}}</p>
+    </div>
+  </LinkTo>
+  {{/if}}
+  {{#if @href}}
+  <a class="doc-cards-card__link" href={{@href}}>
+    <img class="doc-cards-card__image" src={{@image}} alt="" role="presentation" />
+    <div class="doc-cards-card__details">
+      <p class="doc-cards-card__title">{{capitalize @title}}</p>
+      <p class="doc-cards-card_description">{{capitalize @description}}</p>
+    </div>
+  </a>
+  {{/if}}
+</div>
