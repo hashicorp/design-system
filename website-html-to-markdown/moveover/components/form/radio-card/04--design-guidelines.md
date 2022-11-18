@@ -237,3 +237,17 @@ _Banner (informational):_ Labels and link: Labels are part of the checkbox's sel
 - [4.1.4 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html): In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without recieving focus.
 
 Refer to [HashiCorp's Style, Language, and Voice Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit?usp=sharing) for more content tips.
+
+---
+
+## Accessibility
+
+### Keyboard navigation
+
+Move focus to the selected card. If nothing is selected, focus will move to the first radio card.
+
+![Keyboard tab focus in a RadioCard group](/assets/components/form/radio-card/radio_card-accessibility-keyboard_tab.png)
+
+Navigate between radio cards. As the card is focused it also becomes selected.
+
+![Keyboard arrow key focus in a RadioCard group](/assets/components/form/radio-card/radio_card-accessibility-keyboard_arrows.png)
