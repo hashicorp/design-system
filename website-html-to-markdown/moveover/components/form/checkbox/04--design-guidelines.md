@@ -1,29 +1,31 @@
 ---
-title: Form::Textarea
 category: components
 group: form
-component: textarea
+component: checkbox
 section: design-guidelines
 ---
 
-# Textarea - Design Guidelines
+# Checkbox
 
 ## When to use
 
-- As a form element that provides users with a way to read, input, or edit data in a multi-line field.
+- To allow users to check or uncheck an option or setting.
+- To allow users to select one or more options from a list.
 
 ## When not to use
 
-- If needing a single-line input, use [TextInput](/components/form/text-input/overview).
-- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox/overview), [Radio button](/components/form/radio/overview), [Select](/components/form/select/overview).
+- When only one choice must be selected, use [Radio](/components/form/radio/overview) buttons.
+- When the result of checking or unchecking the option is expected to happen immediately, use a [Toggle](/components/form/toggle/overview).
 
 ---
 
+_Field_
+
 ## Anatomy
 
-![Textarea anatomy](/assets/components/form/textarea/textarea-anatomy.png)
+![Checkbox field anatomy](/assets/components/form/checkbox/checkbox-field-anatomy.png)
 
-#### Label
+#### Base control
 
 Required
 
@@ -31,11 +33,7 @@ Required
 
 Optional
 
-#### Base text
-
-Options: empty, placeholder, filled. Shown in _"placeholder"_
-
-#### Base control
+#### Label
 
 Required
 
@@ -47,35 +45,106 @@ Triggered by system
 
 ## State
 
-![Textarea state](/assets/components/form/textarea/textarea-states.png)
+![Checkbox state example](/assets/components/form/checkbox/checkbox-state.png)
 
-### Readonly vs Disabled
+---
 
-- Readonly and disabled fields are not editable by the user.
-- Data in readonly fields gets passed to the form, while data in disabled fields does not.
-- If the user doesn't need to review the data, consider using a hidden field instead.
-- Use these fields sparingly.
+_Group_
+
+## Anatomy
+
+![Checkbox group anatomy](/assets/components/form/checkbox/checkbox-group-anatomy.png)
+
+#### Legend
+
+Optional
+
+#### Fields
+
+At least one is required
+
+#### Helper text
+
+Optional
+
+#### Error message
+
+Triggered by system
+
+---
+
+## Layout
+
+We recommend using **vertical** checkbox gropus, especially with short option lists.
+
+### Horizontal
+
+<section>
+  <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+    <G.Legend>Group label</G.Legend>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
+</section>
+
+### Vertical
+
+<section>
+  <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
+    <G.Legend>Group label</G.Legend>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
+</section>
 
 ---
 
 ## Required and optional
 
 <section>
-  <Hds::Form::Textarea::Field @isRequired={{true}} @width="300px" as |F|>
-    <F.Label>Label</F.Label>
-  </Hds::Form::Textarea::Field>
+  <Hds::Form::Checkbox::Group @layout="vertical" @isRequired={{true}} as |G|>
+    <G.Legend>Group label</G.Legend>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
 </section>
 
 <section>
-  <Hds::Form::Textarea::Field @isOptional={{true}} @width="300px" as |F|>
-    <F.Label>Label</F.Label>
-  </Hds::Form::Textarea::Field>
+  <Hds::Form::Checkbox::Group @layout="vertical" @isOptional={{true}} as |G|>
+    <G.Legend>Group label</G.Legend>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>Label</F.Label>
+    </G.Checkbox::Field>
+  </Hds::Form::Checkbox::Group>
 </section>
 
 ### Best practices
 
 - For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don't have to make assumptions.
-- For shorter, simpler forms (ie. login/signup and feedback requests), indicate **optional** fields instead.
+- For shorter, simpler forms (ie. login/signup and feedback requests), indicate **optional** fields.
+
+### Resources
 
 [Marking required fields in forms](https://www.nngroup.com/articles/required-fields/)
 
@@ -85,38 +154,33 @@ Triggered by system
 
 _Banner (warning):_ While we provide the structure and visual consistency for validation, the messaging and functionality are to be handled by the application teams.
 
-### Single error message
-
 <section>
-  <Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>Reason</F.Label>
-    <F.Error>Reason cannot be blank</F.Error>
-  </Hds::Form::Textarea::Field>
+  <Hds::Form::Checkbox::Group @layout="vertical" @isRequired={{true}} as |G|>
+    <G.Legend>Service agreement</G.Legend>
+    <G.Checkbox::Field as |F|>
+      <F.Label>I accept the company privacy policy</F.Label>
+    </G.Checkbox::Field>
+    <G.Error>This field is required</G.Error>
+  </Hds::Form::Checkbox::Group>
 </section>
 
 <section>
-  <Hds::Form::Textarea::Field @value="5&3y" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>VPC ID</F.Label>
-    <F.Error>VPC ID may only contain letters, numbers, or hyphens.</F.Error>
-  </Hds::Form::Textarea::Field>
-</section>
-
-### Multiple error messages
-
-Show **all** applicable error messages directly under their corresponding form field.
-
-_Banner (informational):_ To display multiple error messages in your designs, hit `return` or `enter` between messages.
-
-<section>
-  <Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>Network ID</F.Label>
-    <F.HelperText>Must be a unique set of 3-36 characters. May include numbers, hyphens, and lowercase letters. Must start with a letter and end with a letter or number</F.HelperText>
-    <F.Error as |E|>
-      <E.Message>Network ID must be 3 to 36 characters long.</E.Message>
-      <E.Message>Network ID must start with a letter.</E.Message>
-      <E.Message>Network ID must end with a letter or number.</E.Message>
-    </F.Error>
-  </Hds::Form::Textarea::Field>
+  <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
+    <G.Legend>Valid datacenters</G.Legend>
+    <G.Checkbox::Field as |F|>
+      <F.Label>DC1</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>NYC1</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>NYC2</F.Label>
+    </G.Checkbox::Field>
+    <G.Checkbox::Field as |F|>
+      <F.Label>SF1</F.Label>
+    </G.Checkbox::Field>
+    <G.Error>Select at least one option</G.Error>
+  </Hds::Form::Checkbox::Group>
 </section>
 
 ### Client side and Server side validation

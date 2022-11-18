@@ -1,27 +1,26 @@
 ---
-title: Form::Textarea
 category: components
 group: form
-component: textarea
+component: text-input
 section: design-guidelines
 ---
 
-# Textarea - Design Guidelines
+# TextInput - Design Guidelines
 
 ## When to use
 
-- As a form element that provides users with a way to read, input, or edit data in a multi-line field.
+- As a form element that provides users with a way to read, input, or edit data in a freeform way.
 
 ## When not to use
 
-- If needing a single-line input, use [TextInput](/components/form/text-input/overview).
-- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox/overview), [Radio button](/components/form/radio/overview), [Select](/components/form/select/overview).
+- If needing a multi-line text input, use [TextArea](/components/form/textarea/overview)
+- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox/overview), [Radio button](/components/form/radio/overview), or [Select](/components/form/select/overview).
 
 ---
 
 ## Anatomy
 
-![Textarea anatomy](/assets/components/form/textarea/textarea-anatomy.png)
+![Anatomy of the TextInput](/assets/components/form/text-input/text_input-anatomy.png)
 
 #### Label
 
@@ -45,9 +44,53 @@ Triggered by system
 
 ---
 
+## Type
+
+Text
+
+<section>
+    <Hds::Form::TextInput::Field @type="text" placeholder="Placeholder" @width="300px" as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::TextInput::Field>
+</section>
+
+Password
+
+<section>
+    <Hds::Form::TextInput::Field @type="password" placeholder="Password" @value="password" @width="300px" as |F|>
+    <F.Label>Password</F.Label>
+  </Hds::Form::TextInput::Field>
+</section>
+
+Search
+
+<section>
+    <Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" as |F|>
+    <F.Label>Search</F.Label>
+  </Hds::Form::TextInput::Field>
+</section>
+
+Date
+
+<section>
+    <Hds::Form::TextInput::Field @type="date" placeholder="mm/dd/yy" @width="150px" as |F|>
+    <F.Label>Date</F.Label>
+  </Hds::Form::TextInput::Field>
+</section>
+
+Time
+
+<section>
+    <Hds::Form::TextInput::Field @type="time" placeholder="--:-- --" @width="150px" as |F|>
+    <F.Label>Time</F.Label>
+  </Hds::Form::TextInput::Field>
+</section>
+
+---
+
 ## State
 
-![Textarea state](/assets/components/form/textarea/textarea-states.png)
+![State of the TextInput](/assets/components/form/text-input/text_input-states.png)
 
 ### Readonly vs Disabled
 
@@ -61,15 +104,15 @@ Triggered by system
 ## Required and optional
 
 <section>
-  <Hds::Form::Textarea::Field @isRequired={{true}} @width="300px" as |F|>
+  <Hds::Form::TextInput::Field @type="text" @isRequired={{true}} @width="300px" as |F|>
     <F.Label>Label</F.Label>
-  </Hds::Form::Textarea::Field>
+  </Hds::Form::TextInput::Field>
 </section>
 
 <section>
-  <Hds::Form::Textarea::Field @isOptional={{true}} @width="300px" as |F|>
+  <Hds::Form::TextInput::Field @type="text" @isOptional={{true}} @width="300px" as |F|>
     <F.Label>Label</F.Label>
-  </Hds::Form::Textarea::Field>
+  </Hds::Form::TextInput::Field>
 </section>
 
 ### Best practices
@@ -88,17 +131,17 @@ _Banner (warning):_ While we provide the structure and visual consistency for va
 ### Single error message
 
 <section>
-  <Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>Reason</F.Label>
-    <F.Error>Reason cannot be blank</F.Error>
-  </Hds::Form::Textarea::Field>
+  <Hds::Form::TextInput::Field @value="janedoe@emailcom" @isInvalid={{true}} @width="300px" as |F|>
+    <F.Label>Email</F.Label>
+    <F.Error>Enter a valid email address.</F.Error>
+  </Hds::Form::TextInput::Field>
 </section>
 
 <section>
-  <Hds::Form::Textarea::Field @value="5&3y" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
+  <Hds::Form::TextInput::Field @value="5&3y" @isInvalid={{true}} @width="300px" as |F|>
     <F.Label>VPC ID</F.Label>
     <F.Error>VPC ID may only contain letters, numbers, or hyphens.</F.Error>
-  </Hds::Form::Textarea::Field>
+  </Hds::Form::TextInput::Field>
 </section>
 
 ### Multiple error messages
@@ -108,15 +151,14 @@ Show **all** applicable error messages directly under their corresponding form f
 _Banner (informational):_ To display multiple error messages in your designs, hit `return` or `enter` between messages.
 
 <section>
-  <Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
+  <Hds::Form::TextInput::Field @value="1-" @isInvalid={{true}} @width="300px" as |F|>
     <F.Label>Network ID</F.Label>
-    <F.HelperText>Must be a unique set of 3-36 characters. May include numbers, hyphens, and lowercase letters. Must start with a letter and end with a letter or number</F.HelperText>
     <F.Error as |E|>
       <E.Message>Network ID must be 3 to 36 characters long.</E.Message>
       <E.Message>Network ID must start with a letter.</E.Message>
       <E.Message>Network ID must end with a letter or number.</E.Message>
     </F.Error>
-  </Hds::Form::Textarea::Field>
+  </Hds::Form::TextInput::Field>
 </section>
 
 ### Client side and Server side validation
