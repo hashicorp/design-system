@@ -3145,8 +3145,6 @@ __metadata:
     qunit: ^2.19.1
     qunit-dom: ^2.0.0
     webpack: ^5.74.0
-  peerDependencies:
-    ember-test-selectors: ^6.0.0
   languageName: unknown
   linkType: soft
 
