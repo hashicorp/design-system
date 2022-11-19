@@ -861,11 +861,7 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">Table with multi-line content and column widths defined.</h4>
-  <Hds::Table
-    @model={{this.model.data}}
-    @caption="table with multi-line content"
-    @colWidths={{array "20" "20" "auto"}}
-  >
+  <Hds::Table @model={{this.model.data}} @caption="table with multi-line content" @colWidths={{array "20" "20" "auto"}}>
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
