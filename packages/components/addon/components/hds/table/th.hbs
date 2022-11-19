@@ -1,3 +1,7 @@
-<th class="hds-typography-body-200 hds-font-weight-semibold {{this.classNames}}" ...attributes scope="col">
+<th
+  class="hds-table__th hds-typography-body-200 hds-font-weight-semibold {{if @alignRight 'hds-table__th--text-right'}}"
+  ...attributes
+  scope="col"
+>
   {{yield}}
 </th>

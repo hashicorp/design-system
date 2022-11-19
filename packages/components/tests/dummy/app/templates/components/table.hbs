@@ -837,7 +837,7 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">Table with a right-aligned text column</h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
+  <Hds::Table @model={{this.model.data}} @isStriped={{false}} @colWidths={{array "auto" "auto" "auto" "20"}}>
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
