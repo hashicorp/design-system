@@ -115,9 +115,12 @@
     <dd><p>If defined, indicates which column headers should have right-aligned text. Column headers are left-aligned by
         default.</p></dd>
     <dt>colWidths <code>array</code></dt>
-    <dd><p>If defined, indicates the width of the column. A value for each column must be defined. If no custom column
-        width is desired for a column in the array, set that particular value to auto. Columns are spaced equally within
-        the full width of the table by default.</p></dd>
+    <dd><p>If defined, indicates the percentage width of the column in multiples of 10. A value for each column must be
+        defined. If no custom width is desired for a column in the array, set that particular value to auto. Example: a
+        table with four columns, where the first three columns have custom widths and the last column should take up the
+        remaining width:
+        <code class="dummy-code">@colWidths=&lbrace;&lbrace;array '10' '20' '20' 'auto'&rbrace;&rbrace;</code>
+        Note: Columns are spaced equally within the full width of the table by default.</p></dd>
     <dt>isStriped <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
@@ -861,7 +864,7 @@ export default class ComponentsTableRoute extends Route {
   <Hds::Table
     @model={{this.model.data}}
     @caption="table with multi-line content"
-    @colWidths={{array "20%" "20%" "auto"}}
+    @colWidths={{array "20" "20" "auto"}}
   >
     <:head as |H|>
       <H.Tr>

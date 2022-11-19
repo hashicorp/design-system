@@ -22,6 +22,50 @@ $hds-table-cell-padding-tall: 20px 16px;
   border-spacing: 0;
 }
 
+// TABLE COLGROUP/COL
+.hds-table__col--width-auto {
+  width: auto;
+}
+
+.hds-table__col--width-10 {
+  width: 10%;
+}
+
+.hds-table__col--width-20 {
+  width: 20%;
+}
+
+.hds-table__col--width-30 {
+  width: 30%;
+}
+
+.hds-table__col--width-40 {
+  width: 40%;
+}
+
+.hds-table__col--width-50 {
+  width: 50%;
+}
+
+.hds-table__col--width-60 {
+  width: 60%;
+}
+
+.hds-table__col--width-70 {
+  width: 70%;
+}
+
+.hds-table__col--width-80 {
+  width: 80%;
+}
+
+.hds-table__col--width-90 {
+  width: 90%;
+}
+
+.hds-table__col--width-100 {
+  width: 100%;
+}
 // TABLE HEADER
 .hds-table__thead {
   .hds-table__tr {

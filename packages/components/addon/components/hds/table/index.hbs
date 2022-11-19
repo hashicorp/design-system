@@ -7,7 +7,7 @@
   {{#if @colWidths}}
     <colgroup>
       {{#each @colWidths as |colWidth|}}
-        <col style="width: {{colWidth}};" />
+        <col class="hds-table__col--width-{{colWidth}}" />
       {{/each}}
     </colgroup>
   {{/if}}
