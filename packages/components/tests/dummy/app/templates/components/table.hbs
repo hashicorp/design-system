@@ -791,19 +791,20 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table, some columns sortable, artist column pre-sorted.
+    Sortable table, some columns sortable, "artist" pre-sorted, "year" right-aligned.
   </h4>
   <Hds::Table
     @model={{this.model.data}}
     @columns={{take 3 this.model.columns}}
     @sortingKeys={{array "artist" "album"}}
     @sortBy="artist"
+    @alignRightKeys={{array "album" "year"}}
   >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td @alignRight={{true}}>{{B.data.year}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>

@@ -26,7 +26,9 @@
                 {{column.label}}
               </Hds::Table::ThSort>
             {{else}}
-              <Hds::Table::Th @alignRight={{@alignRight}}>{{column.label}}</Hds::Table::Th>
+              <Hds::Table::Th
+                @alignRight={{if (includes column.key @alignRightKeys) true}}
+              >{{column.label}}</Hds::Table::Th>
             {{/if}}
           {{else}}
             <Hds::Table::ThSort
