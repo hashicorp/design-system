@@ -386,6 +386,7 @@ export default class ComponentsTableRoute extends Route {
   </:body>
 </Hds::Table>"
   />
+  <h4 class="dummy-h4">Other Table Options</h4>
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">If you'd like to indicate which column headers should have right-aligned text (typically
@@ -404,6 +405,32 @@ export default class ComponentsTableRoute extends Route {
   @model=\{{this.model.data}}
   @columns=\{{this.model.columns}}
   @alignRightKeys=\{{array 'year'}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td @alignRight=\{{true}}>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">If you'd like to customize column width, define
+    <code class="dummy-code">@colWidths</code>
+    as an array of column widths, in multiples of ten. If the column width should be automatic, use
+    <code class="dummy-code">auto</code>:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @colWidths=\{{array 'auto' 'auto' '20'}}
 >
   <:body as |B|>
     <B.Tr>
