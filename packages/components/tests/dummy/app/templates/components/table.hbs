@@ -798,7 +798,7 @@ export default class ComponentsTableRoute extends Route {
     @columns={{take 3 this.model.columns}}
     @sortingKeys={{array "artist" "album"}}
     @sortBy="artist"
-    @alignRightKeys={{array "album" "year"}}
+    @alignRightKeys={{array "year"}}
   >
     <:body as |B|>
       <B.Tr>
