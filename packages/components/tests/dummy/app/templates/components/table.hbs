@@ -779,7 +779,7 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table (only some columns sortable)
+    Sortable table (some columns sortable)
   </h4>
   <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}} @sortingKeys={{array "artist" "album"}}>
     <:body as |B|>
@@ -809,7 +809,7 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table, some columns sortable, artist column pre-sorted in descending order
+    Sortable table, some columns sortable, "artist" pre-sorted (descending), cells vertically aligned (middle)
   </h4>
   <Hds::Table
     @model={{this.model.data}}
