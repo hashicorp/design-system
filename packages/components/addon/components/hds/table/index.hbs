@@ -4,6 +4,13 @@
   {{else if @caption}}
     <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
+  {{#if @colWidths}}
+    <colgroup>
+      {{#each @colWidths as |colWidth|}}
+        <col style="width: {{colWidth}};" />
+      {{/each}}
+    </colgroup>
+  {{/if}}
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr>

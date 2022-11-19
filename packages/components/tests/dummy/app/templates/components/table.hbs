@@ -92,9 +92,6 @@
     <dt>columns <code>array</code></dt>
     <dd><p>If defined, sets the column header content and indicates that the table should be sorted. For more
         information about how this array is shaped, look at the code examples in the "How to Use" section.</p></dd>
-    <dt>alignRightKeys <code>array</code></dt>
-    <dd><p>If defined, indicates which column headers should have right-aligned text. Column headers are left-aligned by
-        default.</p></dd>
     <dt>sortingKeys <code>array</code></dt>
     <dd><p>If defined, indicates which columns should be sortable (if only
         <code class="dummy-code">columns</code>
@@ -114,6 +111,13 @@
         <li>desc</li>
       </ol>
     </dd>
+    <dt>alignRightKeys <code>array</code></dt>
+    <dd><p>If defined, indicates which column headers should have right-aligned text. Column headers are left-aligned by
+        default.</p></dd>
+    <dt>colWidths <code>array</code></dt>
+    <dd><p>If defined, indicates the width of the column. A value for each column must be defined. If no custom column
+        width is desired for a column in the array, set that particular value to auto. Columns are spaced equally within
+        the full width of the table by default.</p></dd>
     <dt>isStriped <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">true</span></p>
@@ -853,8 +857,12 @@ export default class ComponentsTableRoute extends Route {
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with multi-line content</h4>
-  <Hds::Table @model={{this.model.data}} @caption="table with multi-line content">
+  <h4 class="dummy-h4">Table with multi-line content and column widths defined.</h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @caption="table with multi-line content"
+    @colWidths={{array "20%" "20%" "auto"}}
+  >
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
