@@ -1,21 +1,41 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+
+export const DEFAULT_TYPE = 'compact';
+export const TYPES = ['compact', 'numbered'];
 
 export default class HdsPaginationBarIndexComponent extends Component {
   totalPages = this.args.totalPages;
   @tracked currentPage = this.args.currentPage ? this.args.currentPage : 1;
 
-  get isNumbered() {
-    let { type } = this.args;
+  /**
+   * Gets the type of pagination
+   *
+   * @param type
+   * @type {string}
+   * @default 'compact'
+   */
+  get type() {
+    let { type = DEFAULT_TYPE } = this.args;
 
-    return type === 'numbered';
+    assert(
+      `@type for "Hds::PaginationBar" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${type}`,
+      TYPES.includes(type)
+    );
+
+    return type;
+  }
+
+  get isNumbered() {
+    return this.type === 'numbered';
   }
 
   get isCompact() {
-    let { type } = this.args;
-
-    return type === 'compact';
+    return this.type === 'compact';
   }
 
   get isDisabledPrev() {
