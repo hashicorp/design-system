@@ -45,4 +45,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
     assert.dom('[data-test-icon="arrow-down"]').exists();
   });
+
+  test('it should add a CSS class if `@alignRight` is true', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Th-Sort @alignRight={{true}} id="data-test-table-th-sort"/>`
+    );
+    assert
+      .dom('#data-test-table-th-sort')
+      .hasClass('hds-table__th-sort--text-right');
+  });
 });

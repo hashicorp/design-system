@@ -24,6 +24,13 @@ module('Integration | Component | hds/table/th', function (hooks) {
     assert.dom('#data-test-table-th').hasClass('hds-table__th');
   });
 
+  test('it should add a CSS class if `@alignRight` is true', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Th @alignRight={{true}} id="data-test-table-th"/>`
+    );
+    assert.dom('#data-test-table-th').hasClass('hds-table__th--text-right');
+  });
+
   test('it should support splattributes', async function (assert) {
     await render(hbs`<Hds::Table::Th id="data-test-table-th" lang="es" />`);
     assert.dom('#data-test-table-th').hasAttribute('lang', 'es');
