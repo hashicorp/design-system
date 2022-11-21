@@ -7,7 +7,7 @@ export const DEFAULT_TYPE = 'compact';
 export const TYPES = ['compact', 'numbered'];
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  totalPages = this.args.totalPages;
+  totalPages = this.args.totalPages ?? 0;
   @tracked currentPage = this.args.currentPage ? this.args.currentPage : 1;
 
   /**
