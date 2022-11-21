@@ -87,8 +87,6 @@ const showdownConfig = {
   })),
 };
 export default class ShowController extends Controller {
-  fieldGuideConfig = config['field-guide'];
-
   get title() {
     // TODO! do something smarter than this :)
     return this.model.frontmatter?.title ?? 'This is the (missing) page title';

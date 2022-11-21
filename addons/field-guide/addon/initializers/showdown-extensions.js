@@ -3,10 +3,6 @@
 
 import showdown from 'showdown';
 
-import config from 'ember-get-config';
-
-let fieldGuideConfig = config['field-guide'] || {};
-
 export function initialize(/* application */) {
 
   showdown.subParser('githubCodeBlocks', function (text, options, globals) {
@@ -58,7 +54,7 @@ export function initialize(/* application */) {
 
         let preBlock = `<pre class="language-${language}"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
 
-        let autoExecuteLanguages = fieldGuideConfig.autoExecuteLanguages || ['html', 'handlebars', 'hbs'];
+        let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
         let selfExecutingBlock = `<div class="self-executing-code-block">
   <div class="example">
