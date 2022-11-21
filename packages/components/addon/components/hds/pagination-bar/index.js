@@ -72,7 +72,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
   }
 
   @action
-  pageChanged(newPage) {
+  onPageChange(newPage) {
     this.currentPage = newPage;
     this.itemsRangeStart = (this.currentPage - 1) * this.args.itemsPerPage + 1;
     this.itemsRangeEnd =

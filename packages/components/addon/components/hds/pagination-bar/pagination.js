@@ -50,9 +50,9 @@ export default class HdsPaginationBarIndexComponent extends Component {
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      let { pageChanged } = this.args;
-      if (typeof pageChanged === 'function') {
-        pageChanged(this.currentPage);
+      let { onPageChange } = this.args;
+      if (typeof onPageChange === 'function') {
+        onPageChange(this.currentPage);
       }
     }
   }
@@ -61,9 +61,9 @@ export default class HdsPaginationBarIndexComponent extends Component {
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      let { pageChanged } = this.args;
-      if (typeof pageChanged === 'function') {
-        pageChanged(this.currentPage);
+      let { onPageChange } = this.args;
+      if (typeof onPageChange === 'function') {
+        onPageChange(this.currentPage);
       }
     }
   }
