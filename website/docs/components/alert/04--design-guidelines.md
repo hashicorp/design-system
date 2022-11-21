@@ -131,7 +131,7 @@ All alerts except for compact can be set to dismiss. They are, however, set to b
   </Hds::Alert>
 </section>
 
-## Dismissible
+### Dismissible
 
 <section>
   <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
@@ -142,7 +142,7 @@ All alerts except for compact can be set to dismiss. They are, however, set to b
 </section>
 <!-- For some reason I couldn't get the dismiss to work here. Probably something in the model that I would need to add? -->
 
-## Critical alerts
+### Critical alerts
 
 - We recommend keeping critical alerts non-dissmissible as they are essential to the user's journey and can get dismissed by mistake.
 
