@@ -1,5 +1,5 @@
 ---
-title: Form::Checkbox
+title: Form / Checkbox
 category: components
 group: form
 component: checkbox
