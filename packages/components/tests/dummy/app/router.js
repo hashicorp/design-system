@@ -40,6 +40,7 @@ Router.map(function () {
       this.route('inline');
       this.route('standalone');
     });
+    this.route('modal');
     this.route('stepper');
     this.route('tag');
     this.route('toast');
@@ -50,6 +51,7 @@ Router.map(function () {
   });
   this.route('utilities', function () {
     this.route('disclosure');
+    this.route('dismiss-button');
     this.route('interactive');
   });
   this.route('overrides', function () {

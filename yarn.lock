@@ -2477,6 +2477,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.0.0":
+  version: 1.8.3
+  resolution: "@embroider/addon-shim@npm:1.8.3"
+  dependencies:
+    "@embroider/shared-internals": ^1.8.3
+    semver: ^7.3.5
+  checksum: 11dfdb956631179656727599eb6d6223369f6a04f0e28ac04b793064338c577a89a77c59254a4a665acc46e174cf87196d0f335ab8049be7fe8a2c71ef695974
+  languageName: node
+  linkType: hard
+
 "@embroider/addon-shim@npm:^1.5.0":
   version: 1.8.0
   resolution: "@embroider/addon-shim@npm:1.8.0"
@@ -2564,7 +2574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/shared-internals@npm:1.8.3":
+"@embroider/shared-internals@npm:1.8.3, @embroider/shared-internals@npm:^1.8.3":
   version: 1.8.3
   resolution: "@embroider/shared-internals@npm:1.8.3"
   dependencies:
@@ -3019,6 +3029,7 @@ __metadata:
     "@percy/ember": ^4.0.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
+    dialog-polyfill: ^0.5.6
     ember-a11y-refocus: ^2.1.0
     ember-a11y-testing: ^5.0.0
     ember-auto-import: ^2.4.2
@@ -3036,6 +3047,7 @@ __metadata:
     ember-cli-terser: ^4.0.2
     ember-concurrency: ^2.2.0
     ember-disable-prototype-extensions: ^1.1.3
+    ember-focus-trap: ^1.0.1
     ember-keyboard: ^8.1.0
     ember-load-initializers: ^2.1.2
     ember-named-blocks-polyfill: ^0.2.5
@@ -9484,6 +9496,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dialog-polyfill@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "dialog-polyfill@npm:0.5.6"
+  checksum: dde8d4b6a62b63b710e0d0d70b615d92ff08f3cb2b521e1f99b17e8220d9d55d0fdf9fc17fbe77b0ff1be817094e14b60c4c4bacd5456fba427ede48d2d90230
+  languageName: node
+  linkType: hard
+
 "didyoumean@npm:^1.2.2":
   version: 1.2.2
   resolution: "didyoumean@npm:1.2.2"
@@ -10841,6 +10860,16 @@ __metadata:
     node-fetch: ^2.6.1
     whatwg-fetch: ^3.6.2
   checksum: 00b864c04776493d7c6e06c71709edb9045d4fa6c25392988dad218487d5440a8b00e994e951c6279da2522c6bb12e0780983d0083f93524e68fcdcd77dec62b
+  languageName: node
+  linkType: hard
+
+"ember-focus-trap@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "ember-focus-trap@npm:1.0.1"
+  dependencies:
+    "@embroider/addon-shim": ^1.0.0
+    focus-trap: ^6.7.1
+  checksum: 1c4b218b0991b3c90411733cf578aa59cc1b7b08ba7654d2ac9540218c07f8c2879ed98c6472c9dea813863500e9dc3279d517ac422d4861a4e4442a1b651e0e
   languageName: node
   linkType: hard
 
@@ -13092,6 +13121,15 @@ __metadata:
     inherits: ^2.0.3
     readable-stream: ^2.3.6
   checksum: 42e07747f83bcd4e799da802e621d6039787749ffd41f5517f8c4f786ee967e31ba32b09f8b28a9c6f67bd4f5346772e604202df350e8d99f4141771bae31279
+  languageName: node
+  linkType: hard
+
+"focus-trap@npm:^6.7.1":
+  version: 6.9.4
+  resolution: "focus-trap@npm:6.9.4"
+  dependencies:
+    tabbable: ^5.3.3
+  checksum: 0b4cebcc11010bd9397731092bd59a981e838c710c6497374ba70571875a14ab27c0db7d60f36005ec01bdabc3b9cfeda11d30ddf5b8874596dcc95e18913b3b
   languageName: node
   linkType: hard
 
@@ -22267,6 +22305,13 @@ __metadata:
     rimraf: ^3.0.0
     username-sync: ^1.0.2
   checksum: 02f02d2842c69da088c28f5c6e39df7f22b68b06fd309a91eee9266a561d1a50759a8ba058df51017b89f3e70608dc884ec086b572fc9ae51165de0585029abb
+  languageName: node
+  linkType: hard
+
+"tabbable@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "tabbable@npm:5.3.3"
+  checksum: 1aa56e1bb617cc10616c407f4e756f0607f3e2d30f9803664d70b85db037ca27e75918ed1c71443f3dc902e21dc9f991ce4b52d63a538c9b69b3218d3babcd70
   languageName: node
   linkType: hard
 
