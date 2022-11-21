@@ -4,7 +4,14 @@
   grid-area: sidebar / sidebar / content / content;
 }
 
+.doc-page-home__hero {
+  padding-bottom: 80px;
+  background-color: #727374;
+}
+
 .doc-page-home__content {
+  // looking at the current design, seems it's not like the normal <Doc::Page::Content @breakthrough={{true}}>
+  // so I have to create a custom thing for now (later when designs will be final I'll review everything)
   grid-area: content / content / _extra/ _extra;
   width: 100%; // needed (otherwise it collapses, because is in a grid)
   max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-medium));
@@ -19,4 +26,11 @@
   @include breakpoint.large () {
     padding: 64px var(--doc-page-stage-gutter-medium);
   }
+}
+
+.doc-page-home__cards {
+  margin-top: -132px;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 8px;
 }
