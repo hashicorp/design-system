@@ -19,11 +19,11 @@ export default class HdsPaginationBarIndexComponent extends Component {
   }
 
   get isDisabledPrev() {
-    return this.currentPage === 1;
+    return (this.currentPage === 1) ? true : null;
   }
 
   get isDisabledNext() {
-    return this.currentPage === this.totalPages;
+    return (this.currentPage === this.totalPages) ? true : null;
   }
 
   @action

@@ -7,7 +7,7 @@
     class="hds-pagination__page-link"
     onClick={{this.prevPage}}
     aria-label="Previous page"
-    disabled={{if this.isDisabledPrev true null}}
+    disabled={{this.isDisabledPrev}}
   >
     <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" />
     {{#if this.isCompact}}
@@ -64,7 +64,7 @@
     class="hds-pagination__page-link"
     onClick={{this.nextPage}}
     aria-label="Next page"
-    disabled={{if this.isDisabledNext true null}}
+    disabled={{this.isDisabledNext}}
   >
     {{#if this.isCompact}}
       <span class="hds-pagination__page-label" aria-hidden="true">
