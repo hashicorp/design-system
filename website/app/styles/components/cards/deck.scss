@@ -1,0 +1,44 @@
+// CARDS > DECK
+
+@use "../../breakpoints" as breakpoint;
+
+
+.doc-cards-deck {
+  display: grid;
+  gap: 32px; // TODO maybe different gaps via a prop?
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-cards-deck--layout-2cols {
+  grid-template-columns: 1fr;
+
+  @include breakpoint.medium () {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.doc-cards-deck--layout-3cols {
+  grid-template-columns: 1fr;
+
+  @include breakpoint.medium () {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint.large () {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.doc-cards-deck--layout-4cols {
+  grid-template-columns: 1fr;
+
+  @include breakpoint.medium () {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint.large () {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

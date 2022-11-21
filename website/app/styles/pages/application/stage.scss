@@ -1,0 +1,38 @@
+// STAGE
+
+@use "../../breakpoints" as breakpoint;
+
+
+.doc-page-stage {
+  display: grid;
+  grid-area: stage;
+  grid-template-areas:
+    "cover"
+    "content";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  width: 100%; // needed (otherwise it collapses, because is in a grid)
+
+  // @include breakpoint.with-sidebar () {
+  //   background-color: cyan;
+  // }
+
+  @include breakpoint.large () {
+    --max-content-width: calc(var(--doc-page-content-max-width) + 2 * var(--doc-page-stage-gutter-large));
+    grid-template-areas:
+      "cover cover cover"
+      "content sidecar _extra";
+    grid-template-columns:
+      // content
+      minmax(auto, var(--max-content-width))
+      // sidecar
+      // var(--doc-page-sidecar-width)
+      auto
+      // extra space
+      auto;
+    margin: 0 auto 0 0;
+    // TODO! padding should be refactored, now is full-width!
+    // padding-right: var(--doc-page-stage-gutter-large);
+    // padding-left: var(--doc-page-stage-gutter-large);
+  }
+}

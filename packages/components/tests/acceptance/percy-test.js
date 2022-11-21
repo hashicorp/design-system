@@ -84,6 +84,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
+    await visit('/components/modal');
+    await percySnapshot('Modal');
+
     await visit('/components/tag');
     await percySnapshot('Tag');
 

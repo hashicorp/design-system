@@ -1,11 +1,11 @@
 ---
+title: Link::Standalone
 category: components
 group: link
 component: standalone
 section: showcase
 ---
 
-<h1>Link::Standalone component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

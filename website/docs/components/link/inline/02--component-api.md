@@ -1,11 +1,10 @@
 ---
+title: Link::Inline
 category: components
 group: link
 component: inline
 section: component-api
 ---
-
-# Link::Inline component - Component API
 
 Here is the API for the component:
 

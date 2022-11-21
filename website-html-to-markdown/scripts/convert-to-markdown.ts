@@ -46,14 +46,28 @@ async function convert() {
       const fileName = fileRelativePath.split('/').pop();
 
       // let's use a single file for testing
-      // if (fileRelativePath !== 'components/alert/03--how-to-use.hbs') {
+      // if (fileRelativePath !== 'components/alert/01--overview.hbs') {
       //   continue;
       // }
 
       // console.log(`Converting HBS file ${fileRelativePath}`);
 
       // we read the handlebars source (made of HTML + Handlebars + Markdown code) to process it
-      const hbsSource = await fs.readFile(filePath, 'utf8');
+      let hbsSource = await fs.readFile(filePath, 'utf8');
+
+      // extract the "frontmatter" block (it's in a special comment at the top of the file)
+      const frontRegex = new RegExp(/<!-- %%%\n(---\n(.|\n)*---\n)%%% -->\n/, 'm'); // https://regex101.com/r/Hv8Udw/1
+      const frontMatch = hbsSource.match(frontRegex);
+
+      let frontmatter;
+      if (frontMatch) {
+        frontmatter = frontMatch[1];
+      } else {
+        frontmatter = "---\n---\n";
+      }
+
+      // strip the special comment from the file
+      hbsSource = hbsSource.replace(frontRegex, '');
 
       // convert the file using Turndown
       const turndownService = new TurndownService({
@@ -117,7 +131,7 @@ async function convert() {
       // we use 'outputFile' instead of 'writeFile' to automatically create the sub-folders
       await fs.outputFile(
         `${destFolder}/${fileRelativePath.replace('.hbs', '.md')}`,
-        markdownContent
+        `${frontmatter}\n${markdownContent}`
       );
     }
   });

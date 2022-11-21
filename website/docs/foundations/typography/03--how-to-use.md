@@ -1,10 +1,9 @@
 ---
+title: Typography
 category: foundations
 component: typography
 section: how-to-use
 ---
-
-# Typography - How to use
 
 The suggested way to apply the typographic definitions to a UI element is using the **predefined CSS helper classes** provided.
 

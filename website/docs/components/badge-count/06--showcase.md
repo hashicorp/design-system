@@ -1,10 +1,10 @@
 ---
+title: BadgeCount
 category: components
 component: badge-count
 section: showcase
 ---
 
-<h1>BadgeCount component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

@@ -1,10 +1,9 @@
 ---
+title: Dropdown
 category: components
 component: dropdown
 section: how-to-use
 ---
-
-# Dropdown Component - How to use
 
 #### Invocation
 

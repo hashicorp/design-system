@@ -1,0 +1,16 @@
+<ul class={{this.classNames}} ...attributes>
+  {{#if @cards}}
+    {{#each @cards as |card|}}
+      <Doc::Cards::Card
+        @image={{card.image}}
+        @title={{card.title}}
+        @description={{card.description}}
+        @route={{card.route}}
+        @model={{card.model}}
+        @href={{card.href}}
+      />
+    {{/each}}
+  {{else}}
+    {{yield}}
+  {{/if}}
+</ul>

@@ -1,10 +1,10 @@
 ---
+title: Dropdown
 category: components
 component: dropdown
 section: showcase
 ---
 
-<h1>Dropdown Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

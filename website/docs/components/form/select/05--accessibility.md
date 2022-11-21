@@ -1,11 +1,10 @@
 ---
+title: Form::Select
 category: components
 group: form
 component: select
 section: accessibility
 ---
-
-# Form::Select Component - Accessibility
 
 #### Known Issues
 

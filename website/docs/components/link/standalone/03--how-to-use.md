@@ -1,11 +1,10 @@
 ---
+title: Link::Standalone
 category: components
 group: link
 component: standalone
 section: how-to-use
 ---
-
-# Link::Standalone component - How to use
 
 #### Basic use
 

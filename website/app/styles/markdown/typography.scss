@@ -4,25 +4,25 @@
 // HEADINGS
 
 .doc-markdown-h1 {
-  @include doc-font-style-h1 ($responsive: false);
+  @include doc-font-style-h1 ($responsive: true);
   margin-top: 16px;
   margin-bottom: 12px;
 }
 
 .doc-markdown-h2 {
-  @include doc-font-style-h2 ($responsive: false);
+  @include doc-font-style-h2 ($responsive: true);
   margin-top: 16px;
   margin-bottom: 12px;
 }
 
 .doc-markdown-h3 {
-  @include doc-font-style-h3 ($responsive: false);
+  @include doc-font-style-h3 ($responsive: true);
   margin-top: 16px;
   margin-bottom: 12px;
 }
 
 .doc-markdown-h4 {
-  @include doc-font-style-h4 ($responsive: false);
+  @include doc-font-style-h4 ($responsive: true);
   margin-top: 16px;
   margin-bottom: 12px;
 }

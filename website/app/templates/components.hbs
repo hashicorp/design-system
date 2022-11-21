@@ -1,7 +1,12 @@
-{{page-title 'HDS Components'}}
+{{page-title "Components"}}
 
-<h1>HDS Components</h1>
-
-<p>Here we may want to show a list of callout blocks linking to "components" sub-pages like in Atlassian or Evergreen</p>
-
-<pre>How do we generate dynamically the list, without having to edit it manually?</pre>
+<Doc::Page::Stage>
+  <Doc::Page::Cover @title="Components" />
+  <Doc::Page::Content @breakthrough={{true}}>
+    <Doc::Cards::Deck @cols="4" @cards={{this.subTOC.components.cards}} />
+    <h2 class="doc-text-h2">{{capitalize this.subTOC.overrides.title}}</h2>
+    <Doc::Cards::Deck @cols="4" @cards={{this.subTOC.overrides.cards}} />
+    <h2 class="doc-text-h2">{{capitalize this.subTOC.utilities.title}}</h2>
+    <Doc::Cards::Deck @cols="4" @cards={{this.subTOC.utilities.cards}} />
+  </Doc::Page::Content>
+</Doc::Page::Stage>

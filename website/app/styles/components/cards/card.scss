@@ -1,0 +1,49 @@
+// CARDS > CARD
+
+@use "../../typography/mixins" as *;
+
+
+.doc-cards-card {
+  list-style: none;
+  background-color: #fff;
+  border-radius: 10px; // this may depend on the card "size" (as in text size, border radius, etc)
+}
+
+.doc-cards-card__link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-decoration: none;
+  border-radius: inherit; // needed to propagate down
+}
+
+.doc-cards-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #727374; // TODO is this really neaded?
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.doc-cards-card__details {
+  padding: 24px 24px 32px 24px;
+  border: 1px solid #dbdbdc; // TODO convert to token
+  border-top: none;
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.doc-cards-card__title {
+  @include doc-font-style-body();
+  margin: 0;
+  color: #000; // TODO convert to token
+  font-weight: 700;
+}
+
+.doc-cards-card_description {
+  @include doc-font-style-body-small();
+  margin: 0;
+  color: #343536; // TODO convert to token
+}
+

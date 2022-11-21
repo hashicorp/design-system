@@ -1,10 +1,9 @@
 ---
+title: Stepper Indicator
 category: components
 component: stepper
 section: accessibility
 ---
-
-# Stepper Indicator Component - Accessibility
 
 The `Stepper Indicator` components are not WCAG-conformant on their own.
 

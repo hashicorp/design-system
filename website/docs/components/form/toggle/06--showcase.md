@@ -1,11 +1,11 @@
 ---
+title: Form::Toggle
 category: components
 group: form
 component: toggle
 section: showcase
 ---
 
-<h1>Form::Toggle Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   
