@@ -7,23 +7,32 @@
 // * Pagination Parent (wrapper) component
 // ----------------------------------------
 .hds-pagination-bar {
-  display: flex;
+  display: grid;
+  grid-template-areas: "left center right";
+  grid-template-rows: auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  height: 36px;
+  // justify-content: space-between;
+  height: calc(36px + 6px);
+  margin: 20px auto;
   color: var(--token-color-foreground-primary);
   // font-size: var(--token-typography-body-300-font-size); // = 1rem, not same as 13px, TODO: investigate
   font-size: 13px;
-
-  > * {
-    outline: 2px dotted hotpink;
-  }
 }
+
+// * Sub-component: TotalCount
+
+.hds-pagination-total-count {
+  grid-area: left;
+  justify-self: flex-start;
+}
+
 
 // * Sub-component: Pagination
 // ----------------------------------------
 .hds-pagination {
   display: flex;
+  grid-area: center;
   align-self: stretch;
 }
 
@@ -119,6 +128,9 @@
 // ----------------------------------------
 // TODO: refactor? (Should not reference nested component classes if possible)
 .hds-pagination-page-size {
+  grid-area: right;
+  justify-self: flex-end;
+
   > * {
     display: flex;
     gap: 12px; // TODO: refactor
