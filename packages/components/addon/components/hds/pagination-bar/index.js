@@ -10,13 +10,24 @@ export default class HdsPaginationBarIndexComponent extends Component {
     Math.ceil(this.args.totalItems / this.args.itemsPerPage),
     1
   );
-  @tracked currentPage = 1;
+  @tracked currentPage = 1; // TODO: refactor so can be passed in by user (create an arg)
+
   @tracked itemsRangeStart =
+    // Calculate the starting range of items displayed on current page
+    // if currentPage = 1st page and # of items per page is 10:
+    //  ( (1 - 1 = 0) * 10 = 0 ) + 1 = 1
+    // if current page = 2nd page:
+    // ( (2 - 1 = 1) * 10 = 10 ) + 1 = 11
     (this.currentPage - 1) * this.args.itemsPerPage + 1;
+
   @tracked itemsRangeEnd =
+    // Calculate ending range of items displayed on current page
+    // 2 cases: 1) full page of items or 2) potentially less than full page of items (last page)
     this.currentPage < this.totalPages
-      ? this.itemsRangeStart + this.args.itemsPerPage - 1
-      : this.args.totalItems - this.itemsRangeEnd + this.itemsRangeStart - 1;
+      ? // 1) full page of items (pages 1 to page before last):
+        this.itemsRangeStart + this.args.itemsPerPage - 1
+      : // 2) Potentially less than full page of items (last page):
+        this.args.totalItems - this.itemsRangeEnd + this.itemsRangeStart - 1;
 
   /**
    * Shows totalItems if true
