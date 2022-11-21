@@ -11,6 +11,7 @@ export const COLORS = ['neutral', 'warning', 'critical'];
 
 export default class HdsModalIndexComponent extends Component {
   @tracked isOpen = false;
+  @tracked isDismissDisabled = this.args.isDismissDisabled ?? false;
 
   /**
    * Sets the size of the modal dialog
@@ -100,17 +101,19 @@ export default class HdsModalIndexComponent extends Component {
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', () => {
       if (this.args.onClose && typeof this.args.onClose === 'function') {
-        if (this.args.onClose() === false) {
-          // If the callback function returns `false`, we keep the modal open/visible
+        this.args.onClose();
+      }
+
+      // If the dismissal of the modal is disabled, we keep the modal open/visible otherwise we mark it as closed
+      if (this.isDismissDisabled) {
+        // If, in a chain of events, the element is not attached to the DOM, the `showModal` would fail
+        // so we add this safeguard condition that checks for the `<dialog>` to have a parent
+        if (this.element.parentElement) {
           // As there is no way to `preventDefault` on `close` events, we call the `showModal` function
           // preserving the state of the modal dialog
           this.element.showModal();
-        } else {
-          // If the callback function returns `true` or is `undefined` we mark the modal as closed
-          this.isOpen = false;
         }
       } else {
-        // If there is no callback function we mark the modal as closed
         this.isOpen = false;
       }
     });

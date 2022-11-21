@@ -55,10 +55,19 @@
       <p>
         Callback function invoked when the modal is closed.
       </p>
-      <p>If you need to prevent the modal from closing (for instance, to avoid accidental data loss in an unsubmitted
-        form) return
-        <code class="dummy-code">false</code>
-        on this callback function.</p>
+    </dd>
+    <dt>
+      isDismissDisabled
+      <code>boolean</code>
+    </dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>Set this boolean to
+        <code class="dummy-code">true</code>
+        if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in an
+        unsubmitted form). Make sure you communicate to users the reason why the modal is still open, and what they need
+        to do to resolve the problem that is preventing the modal from being closed.
+      </p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -250,12 +259,17 @@
       />
 
       \{{#if this.formModalActive}}
-        <Hds::Modal id="form-modal" @onClose=\{{fn this.checkBeforeDeactivate "formModalActive"}} as |M|>
+        <Hds::Modal
+          id="form-modal"
+          @isDismissDisabled=\{{this.isModalDismissDisabled}}
+          @onClose=\{{fn this.checkBeforeDeactivate "formModalActive"}}
+          as |M|
+        >
           <M.Header>
             Why do you want to leave the beta?
           </M.Header>
           <M.Body>
-            <form \{{on "change" this.markFormAsChanged)}} name="leaving-beta-form" method="dialog">
+            <form \{{on "change" this.markFormAsChanged}} name="leaving-beta-form">
               <Hds::Form::Select::Field autofocus @width="100%" as |F|>
                 <F.Label>Select the primary reason</F.Label>
                 <F.Options>
@@ -269,7 +283,9 @@
           </M.Body>
           <M.Footer as |F|>
             <Hds::ButtonSet>
-              <Hds::Button type="submit" @text="Leave Beta" />
+              <Hds::Button type="submit" @text="Leave Beta"
+                \{{on "click" (fn this.saveFormAndClose "formModalActive")}}
+              />
               <Hds::Button type="button" @text="Cancel" @color="secondary" \{{on "click" F.close}} />
             </Hds::ButtonSet>
           </M.Footer>
@@ -284,7 +300,12 @@
 
   {{! template-lint-disable no-autofocus-attribute }}
   {{#if this.formModalActive}}
-    <Hds::Modal id="form-modal" @onClose={{fn this.checkBeforeDeactivate "formModalActive"}} as |M|>
+    <Hds::Modal
+      id="form-modal"
+      @isDismissDisabled={{this.isModalDismissDisabled}}
+      @onClose={{fn this.checkBeforeDeactivate "formModalActive"}}
+      as |M|
+    >
       <M.Header>
         Why do you want to leave the beta?
       </M.Header>
@@ -303,7 +324,7 @@
       </M.Body>
       <M.Footer as |F|>
         <Hds::ButtonSet>
-          <Hds::Button type="submit" @text="Leave Beta" />
+          <Hds::Button type="submit" @text="Leave Beta" {{on "click" (fn this.saveFormAndClose "formModalActive")}} />
           <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
         </Hds::ButtonSet>
       </M.Footer>

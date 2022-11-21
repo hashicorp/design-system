@@ -1,6 +1,12 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  resetOnerror,
+  setupOnerror,
+  settled,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/modal/index', function (hooks) {
@@ -123,6 +129,13 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await click('#cancel-button');
     assert.dom('#test-modal').isNotVisible();
   });
+  test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
+    await render(
+      hbs`<Hds::Modal @isDismissDisabled={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+    );
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-modal').exists();
+  });
 
   // ACCESSIBILITY
 
@@ -186,10 +199,12 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
           </Hds::Modal>`
     );
+    assert.dom('#test-modal-onopen-callback').isVisible();
+    await settled();
     assert.ok(opened);
   });
   // the following test is flakey so we're going to skip it until we find a more reliable way
-  skip('it should call `onClose` function if provided', async function (assert) {
+  test('it should call `onClose` function if provided', async function (assert) {
     let closed = false;
     this.set('onClose', () => (closed = true));
     await render(
@@ -198,6 +213,8 @@ module('Integration | Component | hds/modal/index', function (hooks) {
           </Hds::Modal>`
     );
     await click('#test-modal-onclose-callback button.hds-modal__dismiss');
+    assert.dom('#test-modal-onclose-callback').isNotVisible();
+    await settled();
     assert.ok(closed);
   });
 
