@@ -1,28 +1,50 @@
-.doc-page-header {
-  background-color: red;
+// stylelint-disable selector-class-pattern
+
+.🌈 {
+  background-color: pink;
+
+  .doc-page-hero {
+    background-color: cyan;
+  }
+
+  .doc-page-header {
+    background-color: red;
+  }
+
+  .doc-page-sidebar {
+    background-color: #0c56e9;
+  }
+
+  .doc-page-stage {
+    background-color: #edf7fc;
+  }
+
+  .doc-page-cover {
+    background-color: #feff38;
+  }
+
+  .doc-page-content {
+    background-color: #a737ff;
+    background-clip: content-box;
+  }
+
+  .doc-page-sidecar {
+    background-color: #008a22;
+  }
+
+  .doc-page-footer {
+    background-color: #111f5d;
+  }
 }
 
-.doc-page-sidebar {
-  background-color: #0c56e9;
+.doc-page-header__🌈 {
+  justify-self: flex-end;
+  margin: auto 0 auto auto;
+  padding: 1px 3px;
+  font-size: 20px;
+  background-color: #fff;
+  border-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.doc-page-stage {
-  background-color: #edf7fc;
-}
-
-.doc-page-cover {
-  background-color: #feff38;
-}
-
-.doc-page-content {
-  background-color: #a737ff;
-  background-clip: content-box;
-}
-
-.doc-page-sidecar {
-  background-color: #008a22;
-}
-
-.doc-page-footer {
-  background-color: #111f5d;
-}
