@@ -6,7 +6,7 @@ import { tracked } from '@glimmer/tracking';
 export const DEFAULT_TYPE = 'compact';
 export const TYPES = ['compact', 'numbered'];
 
-export default class HdsPaginationBarIndexComponent extends Component {
+export default class HdsPaginationBarPaginationIndexComponent extends Component {
   totalPages = this.args.totalPages ?? 0;
   @tracked currentPage = this.args.currentPage ? this.args.currentPage : 1;
 
@@ -68,3 +68,4 @@ export default class HdsPaginationBarIndexComponent extends Component {
     }
   }
 }
+
