@@ -68,4 +68,3 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     }
   }
 }
-
