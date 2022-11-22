@@ -1,7 +1,10 @@
 // import { glob } from 'glob';
 import fs from 'fs-extra';
-// import path from 'path';
+import path from 'path';
 import _ from 'lodash';
+import { parentPort } from 'worker_threads';
+
+const jsonSourceFolder = path.resolve(__dirname, '../../website/dist/docs');
 
 const files: string[] = [
   'components/alert/01--overview',
@@ -25,24 +28,19 @@ const files: string[] = [
 // console.log(JSON.stringify({files}, null, 2));
 
 const basicDirectoryTree = getBasicDirectoryTree(files);
+
 const structuredDirectoryTree = getStructuredDirectoryTree(basicDirectoryTree);
 const populatedDirectoryTree = getPopulatedDirectoryTree(structuredDirectoryTree);
-
+// console.log(
+//   'populatedDirectoryTree',
+//   JSON.stringify(populatedDirectoryTree, null, 2)
+// );
+// this is an MVP for the routing
+const flatPageList = getFlatPageList(populatedDirectoryTree);
 console.log(
-  'populatedDirectoryTree',
-  JSON.stringify(populatedDirectoryTree, null, 2)
+  'getFlatPageList',
+  JSON.stringify(flatPageList, null, 2)
 );
-
-// const pages = files
-// .filter(path => path != 'all.json')
-// .map(path => path.replace(/\.json$/, ''))
-// .map(path => path.split('/'));
-
-// console.log('pages', JSON.stringify({pages}, null, 2));
-
-// const toc = clusterPages(pages)
-
-// console.log('toc', JSON.stringify({toc}, null, 2));
 
 // ################################################
 // ################################################
@@ -68,7 +66,7 @@ function getBasicDirectoryTree(files: string[]) {
 
 function getStructuredDirectoryTree(
   srcTree: Record<string, unknown>,
-  path: string
+  path?: string
 ) {
   const tree: Record<string, unknown> = {};
 
@@ -81,7 +79,12 @@ function getStructuredDirectoryTree(
             {
               fileName: 'index',
               parentPath: currPath,
-              siblings: _.pull(subTree, 'index'),
+              siblings: _.pull(subTree, 'index').map((page) => {
+                return {
+                  fileName: page,
+                  parentPath: currPath,
+                };
+              }),
             },
           ],
         };
@@ -109,15 +112,60 @@ function getPopulatedDirectoryTree(srcTree: Record<string, unknown>) {
   _.forIn(srcTree, function (subTree: any) {
     if (_.has(subTree, 'pages') && Array.isArray(subTree?.pages)) {
       subTree.pages.forEach((page: Record<string, unknown>) => {
-        console.log('found page', page, `${page.parentPath}/${page.fileName}.json`);
+        addAttributesDataFromJsonFile(page);
+        if (page.siblings) {
+          const pageSections: string[] = [] as const;
+          page.siblings.forEach((sibling: Record<string, unknown>) => {
+            addAttributesDataFromJsonFile(sibling);
+            if (sibling.attributes && sibling.attributes.section) {
+              pageSections.push(sibling.attributes.section);
+            }
+          });
+          page.attributes.sections = _.uniq(pageSections);
+        }
       });
     } else {
       getPopulatedDirectoryTree(subTree);
     }
   });
 
-  return tree;
+  return srcTree;
 }
+
+function addAttributesDataFromJsonFile(page: Record<string, unknown>) {
+  const fullFilePath = `${jsonSourceFolder}/${page.parentPath}/${page.fileName}.json`;
+  if (fs.existsSync(fullFilePath)) {
+    const jsonData = fs.readJSONSync(fullFilePath);
+    if (page.fileName === 'index') {
+      // we want only certain fields for the index pages
+      page.attributes = _.pick(jsonData.data.attributes, ['title']);
+    } else {
+      page.attributes = jsonData.data.attributes;
+    }
+  } else {
+    console.log('NOT found page', page, fullFilePath);
+  }
+}
+
+
+function getFlatPageList(srcTree: Record<string, unknown>) {
+  const list: Record<string, unknown>[] = [];
+
+  _.forIn(srcTree, function (subTree) {
+    if (_.has(subTree, 'pages')) {
+      subTree.pages.forEach(page => {
+        const pageDetails = _.pick(page, ['fileName', 'parentPath', 'attributes.title']);
+        list.push(pageDetails);
+      });
+    } else {
+      list.push(...getFlatPageList(subTree));
+    }
+  });
+
+  return list;
+}
+
+
 
 function clusterPages(pages: string[][], path?: string) {
   if (!pages.length) return;
