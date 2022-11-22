@@ -1,5 +1,5 @@
 ---
-title: Form::TextInput
+title: Form / TextInput
 category: components
 group: form
 component: text-input
