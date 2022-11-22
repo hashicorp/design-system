@@ -1,4 +1,4 @@
-<header class="doc-page-header">
+<header class="doc-page-header" ...attributes>
   <div class="doc-page-header__identity">
     <LinkTo @route="index" class="doc-page-header__identity-logo">
       <img src="/assets/logos/hds-avatar-inverted.svg" alt="" role="none" />
@@ -14,4 +14,5 @@
       <li><a href="/patterns">Patterns</a></li>
     </ul>
   </nav>
+  <button type="button" class="doc-page-header__🌈" {{on "click" this.toggleLayoutColors}}>🌈</button>
 </header>

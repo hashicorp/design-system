@@ -38,11 +38,13 @@
   "dependencies": {
     "@hashicorp/design-system-tokens": "^1.2.0",
     "@hashicorp/ember-flight-icons": "^3.0.1",
+    "dialog-polyfill": "^0.5.6",
     "ember-auto-import": "^2.4.2",
     "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.1.0",
     "ember-cli-sass": "^10.0.1",
+    "ember-focus-trap": "^1.0.1",
     "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
     "ember-style-modifier": "^0.8.0",

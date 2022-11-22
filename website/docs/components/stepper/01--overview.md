@@ -1,10 +1,9 @@
 ---
+title: Stepper Indicator
 category: components
 component: stepper
 section: overview
 ---
-
-# Stepper Indicator Component - Overview
 
 A stepper indicator helps the user maintain context and directionality when advancing through a multi-step flow or feature, and in certain circumstances, could act as a navigational device between steps. It is generally assembled as part of a larger stepper pattern.
 

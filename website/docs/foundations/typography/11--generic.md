@@ -1,10 +1,10 @@
 ---
+title: Typography
 category: foundations
 component: typography
 section: generic
 ---
 
-<h1>Typography - Generic #1</h1>
 
 <section class="dummy-link-cta-button-banner" data-section="generic">
   <h3>Why system fonts?</h3>

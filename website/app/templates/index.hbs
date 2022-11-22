@@ -1,5 +1,17 @@
 {{page-title 'HDS - HashiCorp Design System'}}
 
-<h1>HDS - HashiCorp Design System</h1>
-
-<DocLandingCalloutBlocks @cols="2" @items={{this.items}}/>
+<div class="doc-page-home">
+  <div class="doc-page-home__hero">
+    <Doc::Page::Hero
+      @title="HDS - HashiCorp Design System"
+      @description="HashiCorp Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp."
+    />
+  </div>
+  <Doc::Page::Stage>
+    <div class="doc-page-home__content">
+      <div class="doc-page-home__cards">
+        <Doc::Cards::Deck @cols="4" @cards={{this.cards}} />
+      </div>
+    </div>
+  </Doc::Page::Stage>
+</div>

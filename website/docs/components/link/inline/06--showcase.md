@@ -1,11 +1,11 @@
 ---
+title: Link::Inline
 category: components
 group: link
 component: inline
 section: showcase
 ---
 
-<h1>Link::Inline component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

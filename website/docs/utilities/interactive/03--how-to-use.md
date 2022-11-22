@@ -1,10 +1,9 @@
 ---
+title: Interactive
 category: utilities
 component: interactive
 section: how-to-use
 ---
-
-# Interactive - How to use
 
 #### Basic use (<button>)
 

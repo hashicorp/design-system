@@ -1,10 +1,10 @@
 ---
+title: Typography
 category: foundations
 component: typography
 section: generic
 ---
 
-<h1>Typography - Generic #3</h1>
 
 <section data-section="writing-guidelines">
   

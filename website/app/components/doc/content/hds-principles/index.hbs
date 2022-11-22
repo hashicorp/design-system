@@ -1,0 +1,9 @@
+<ul class="doc-content-principles">
+  {{#each this.principles as |principle index|}}
+  <li class="doc-text-body-small">
+    <img class="doc-content-principles__image" src="https://picsum.photos/seed/s{{index}}/456/124" alt="" role="presentation" />
+    <p class="doc-content-principles__title"><strong>{{principle.title}}</strong></p>
+    <p class="doc-content-principles__description">{{principle.description}}</p>
+  </li>
+  {{/each}}
+</ul>

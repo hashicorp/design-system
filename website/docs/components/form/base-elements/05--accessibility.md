@@ -1,11 +1,10 @@
 ---
+title: Form / Base elements
 category: components
 group: form
 component: base-elements
 section: accessibility
 ---
-
-# Form / Base elements - Accessibility
 
 Since these are the base elements, they are conditionally conformant; that is, they are not conformant until used in conjunction with the other components/elements that will make them conformant.
 

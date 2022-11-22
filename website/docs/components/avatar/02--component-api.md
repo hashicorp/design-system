@@ -1,10 +1,9 @@
 ---
+title: Avatar
 category: components
 component: avatar
 section: component-api
 ---
-
-# Avatar Component - Component API
 
 Here is the API for the component:
 

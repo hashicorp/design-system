@@ -1,10 +1,9 @@
 ---
+title: Dropdown
 category: components
 component: dropdown
 section: component-api
 ---
-
-# Dropdown Component - Component API
 
 The `Dropdown` component is composed of different child components, each with their own APIs:
 

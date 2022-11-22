@@ -1,0 +1,25 @@
+// HERO
+
+.doc-page-hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 160px 120px;
+}
+
+.doc-page-hero__inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.doc-page-hero__title {
+  margin: 0;
+  color: #fff;
+}
+
+.doc-page-hero__description {
+  max-width: 600px;
+  margin: 24px 0 0 0;
+  color: #bfbfc0;
+}

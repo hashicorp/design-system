@@ -1,0 +1,28 @@
+.doc-content-principles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-content-principles__item {
+  // border-radius: 10px;
+}
+
+.doc-content-principles__image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.doc-content-principles__title {
+  margin: 24px 0 0 0;
+  color: #000; // TODO convert to token
+}
+
+.doc-content-principles__description {
+  margin: 4px 0 0 0;
+  color: #343536; // TODO convert to token
+}

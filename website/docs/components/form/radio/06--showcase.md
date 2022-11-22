@@ -1,11 +1,11 @@
 ---
+title: Form::Radio
 category: components
 group: form
 component: radio
 section: showcase
 ---
 
-<h1>Form::Radio Component - Showcase</h1>
 
 <section data-test-percy data-section="showcase">
   

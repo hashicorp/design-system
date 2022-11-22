@@ -1,10 +1,9 @@
 ---
+title: Tabs
 category: components
 component: tabs
 section: component-api
 ---
-
-# Tabs Component - Component API
 
 The `Tabs` component is composed of different parts, with their own APIs:
 

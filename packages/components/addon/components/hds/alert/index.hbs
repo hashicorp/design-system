@@ -29,8 +29,6 @@
   </div>
 
   {{#if this.onDismiss}}
-    <button class="hds-alert__dismiss" type="button" aria-label="Dismiss" {{on "click" this.onDismiss}}>
-      <FlightIcon @name="x" @size="16" @isInlineBlock={{false}} />
-    </button>
+    <Hds::DismissButton class="hds-alert__dismiss" {{on "click" this.onDismiss}} />
   {{/if}}
 </div>

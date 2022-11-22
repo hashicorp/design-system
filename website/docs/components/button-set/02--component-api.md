@@ -1,10 +1,9 @@
 ---
+title: ButtonSet
 category: components
 component: button-set
 section: component-api
 ---
-
-# ButtonSet Component - Component API
 
 Here is the API for the component:
 
