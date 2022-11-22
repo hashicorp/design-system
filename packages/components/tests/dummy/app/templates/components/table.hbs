@@ -3,6 +3,13 @@
   Table
 </h2>
 <section>
+  <div class="dummy-banner dummy-banner--info">
+    <p class="dummy-paragraph">⚠️
+      <strong>Note</strong>: this component has some features that are still in flux. If you find that your particular
+      use case is not covered, or you have difficulty using this component, please reach out to the HDS team.</p>
+  </div>
+</section>
+<section>
   <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
@@ -17,8 +24,21 @@
       rel="noopener noreferrer"
     >HTML table element</a>.
   </p>
-  <p class="dummy-paragraph">Use a table when you need to display a large amount of data in a structured way. Tables are
-    useful for displaying information that is easy to compare and analyze.</p>
+  <p class="dummy-paragraph">This component takes advantage of the
+    <code class="dummy-code">sort-by</code>
+    helper provided in
+    <a
+      href="https://github.com/DockYard/ember-composable-helpers"
+      target="_blank"
+      rel="noopener noreferrer"
+    >ember-composable-helpers</a>. While some of the examples provided on this page use some of the other helpers
+    provided in this addon, they are not required to use the design system. Read the
+    <a
+      href="https://github.com/DockYard/ember-composable-helpers#configuration"
+      target="_blank"
+      rel="noopener noreferrer"
+    >configuration information</a>
+    provided by the addon if you wish to customize which helpers are included in your own app.</p>
 </section>
 <section>
   <h3 class="dummy-h3" id="component-api">
@@ -66,11 +86,11 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-table">
     <dt>&lt;:head&gt; <code>named block</code></dt>
     <dd>
-      <p>This is a named block where the content for the thead is rendered.</p>
+      <p>This is a named block where the content for the table head (thead) is rendered.</p>
     </dd>
     <dt>&lt;:body&gt; <code>named block</code></dt>
     <dd>
-      <p>This is where the table body (tbody) is rendered.</p>
+      <p>This is a named block where the content for the table body (tbody) is rendered.</p>
     </dd>
     <dt>model <code>array</code></dt>
     <dd><p>If defined, sets the data source that gets yielded by the
@@ -89,7 +109,9 @@
         about how this value, look at the code examples in the "How to Use" section.</p></dd>
     <dt>sortOrder <code>string</code></dt>
     <dd>
-      <p>If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.</p>
+      <p>Use in conjunction with
+        <code class="dummy-code">sortBy</code>. If defined, indicates which direction the column should be pre-sorted
+        in. All columns are unsorted by default.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">asc</li>
@@ -113,7 +135,7 @@
     </dd>
     <dt>valign <code>enum</code></dt>
     <dd>
-      <p>If set, determines the vertical alignment of table cell (td) content. While the acceptable values contain all
+      <p>If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all
         of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.</p>
       <p>Acceptable values:</p>
       <ol>
@@ -134,8 +156,9 @@
 </section>
 <section>
   <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">There are several ways to customize the table component.</p>
-  <h4 class="dummy-h4">Simple Table</h4>
+  <p class="dummy-paragraph">There are several ways to implement the table component. These examples will be in order of
+    increasing complexity. Additional implementation examples are in the Showcase section.</p>
+  <h4 class="dummy-h4">Static Table (non-sortable)</h4>
   <p class="dummy-paragraph">If you have your own content and don't want to use a model, you can still benefit from the
     components themselves. Here is an example of such an invocation in a template:</p>
   {{! prettier-ignore-start }}
@@ -163,9 +186,9 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <h4 class="dummy-h4">Simple Table with model defined</h4>
-  <p class="dummy-paragraph">In the simplest invocation of the table component, you would define the data model and
-    insert your own content into the
+  <h4 class="dummy-h4">Simple Table with model defined (non-sortable)</h4>
+  <p class="dummy-paragraph">In this invocation of the table component, you would define the data model and insert your
+    own content into the
     <code class="dummy-code">:head</code>
     and
     <code class="dummy-code">:body</code>
