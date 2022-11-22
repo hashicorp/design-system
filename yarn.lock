@@ -23106,6 +23106,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"turndown-plugin-gfm@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "turndown-plugin-gfm@npm:1.0.2"
+  checksum: 18191dc18d731ec16bb1f1a477af6471ce2acf152b882a7eccef8e0101e09628fec0f8499f352f0a291ce798f1f30d799b5a72bd5d2cde30a2a28070de24495c
+  languageName: node
+  linkType: hard
+
 "turndown@npm:^7.1.1":
   version: 7.1.1
   resolution: "turndown@npm:7.1.1"
@@ -24136,6 +24143,7 @@ __metadata:
     prettier: 2.7.1
     ts-node: ^10.9.1
     turndown: ^7.1.1
+    turndown-plugin-gfm: ^1.0.2
     typescript: ^4.8.4
   languageName: unknown
   linkType: soft

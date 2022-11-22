@@ -1,0 +1,134 @@
+// ## refactor component properties
+//
+// This codemod converts this code:
+// ```
+// <dl class="dummy-component-props" aria-labelledby="component-api-alert">
+//   <dt>type <code>enum</code> <strong class="required">required</strong></dt>
+//   <dd>
+//     <p>Sets the type of alert.</p>
+//     <p>Acceptable values:</p>
+//     <ol><li>page</li><li>inline</li><li>compact</li></ol>
+//   </dd>
+// </dl>
+// ```
+// in this
+// ```
+// <table>
+//   <tr><th>Name</th><th>Type</th><th>Value</th><th>Notes</th></tr>
+//   <tr>
+//     <td><code>type</code> required</td>
+//     <td>enum</td>
+//     <td><code>page</code> <code>inline</code> <code>compact</code></td>
+//     <td>Sets the type of alert.</td>
+//   </tr>
+// </table>
+// ```
+//
+// ## Usage
+// - in the `website-html-to-markdown` folder run the command:
+//   `node codemods/bin/cli.js refactor-properties ./path-to-your-files/**/*.hbs`
+
+const getNodeAttributeValue = (node, attributeName) => {
+  const foundAttributeWithName = node.attributes.find(
+    (a) => a.name === attributeName
+  );
+  if (foundAttributeWithName) {
+    return foundAttributeWithName.value.chars;
+  } else {
+    return undefined;
+  }
+};
+
+module.exports = function ({ source, path }, { parse, visit }) {
+  const ast = parse(source);
+
+  return visit(ast, (env) => {
+    let { builders: build } = env.syntax;
+
+    return {
+      ElementNode(node) {
+        if (node.tag === 'dl') {
+          let className = getNodeAttributeValue(node, 'class');
+          let properties = [];
+
+          if (className === "dummy-component-props") {
+            let property = [];
+            node.children.forEach((c) => {
+              if (c.tag === 'dt') {
+                property['name'] = '';
+                c.children.forEach((c) => {
+                  if (c.tag === 'code') {
+                    property['type'] = c.children[0].chars.trim().replace('|','/');
+                  } else if (c.tag === 'strong') {
+                    property['required'] = 'required';
+                  } else if (c.type === 'TextNode' && c.chars) {
+                    property['name']+=c.chars.trim();
+                  }
+                });
+              } else if (c.tag === 'dd') {
+                if (c.type === 'TextNode' && c.chars) {
+                  property['notes'] = c.chars;
+                } else {
+                  property['notes'] = '';
+                  c.children.forEach((c) => {
+                    if (c.tag === 'p' && c.children) {
+                      if (property['notes'] !== '') property['notes']+=' ';
+                      c.children.forEach((c) => {
+                        if (c.type === 'TextNode' && c.chars) {
+                          if (!c.chars.includes('Acceptable values') && !c.chars.includes('Default:') ) property['notes']+=c.chars;
+                        } else if ((c.tag === 'code' || c.tag === 'strong' || c.tag === 'em') && c.children) {
+                          if (c.children[0].chars) {
+                            property['notes']+=`<${c.tag}>${c.children[0].chars}</${c.tag}>`;
+                          }
+                        } else if (c.tag === 'a' && c.children) {
+                          let href = getNodeAttributeValue(c, 'href');
+                          property['notes']+=`<${c.tag} href="${href}">${c.children[0].chars}</${c.tag}>`;
+                        }
+                      });
+                    } else if (c.tag === 'ol' && c.children) {
+                      let values = [];
+                      c.children.forEach((c) => {
+                        if (c.tag === 'li' && c.children[0]) {
+                          let value = `<code>${c.children[0].chars}</code>`;
+                          if (getNodeAttributeValue(c, 'class') === 'default') {
+                            // mark value as default, either by class or attribute
+                            // value += ' (default)';
+                          }
+                          values.push(value);
+                        }
+                      });
+                      property['value'] = values.join(' ');
+                    }
+                  });
+                  properties.push(property);
+                  property = [];  
+                }
+              }
+            });
+          } else {
+            console.error(
+              'ERROR: Found <dl> without `dummy-component-props` class in ',
+              `\nFILE: "${path}"`
+            );
+          }
+
+          let output = [];
+          output.push(build.text(`<table>`));
+          output.push(build.text(`<tr><th>Name</th><th>Type</th><th>Value</th><th>Notes</th></tr>`));
+          properties.forEach((p) => {
+            output.push(build.text(`<tr>`));
+            output.push(build.text(`<td><code>${p['name']}</code>${p['required']?' '+p['required']:''}</td>`));
+            output.push(build.text(`<td>${p['type']?p['type']:''}</td>`));
+            output.push(build.text(`<td>${p['value']?p['value']:''}</td>`));
+            output.push(build.text(`<td>${p['notes']?p['notes']:''}</td>`));
+            output.push(build.text(`</tr>`));
+          });
+          output.push(build.text(`</table>`));
+          return output;
+        }
+      },
+    };
+  });
+};
+
+module.exports.type = 'hbs';

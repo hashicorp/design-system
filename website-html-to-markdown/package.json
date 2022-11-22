@@ -11,13 +11,14 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "generate": "yarn prepare-temp-folder && yarn copy-source-files && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn enrich-wcag-lists && yarn preprocess-files && yarn add-frontmatter && yarn convert-to-markdown && yarn prettify-files && yarn prepare-dest-folder && yarn copy-markdown-files && yarn copy-assets-folder && yarn copy-moveover-files && yarn cleanup-temp-folder",
+    "generate": "yarn prepare-temp-folder && yarn copy-source-files && yarn identify-sections && yarn split-files && yarn replace-linkto-with-a && yarn refactor-codeblocks && yarn refactor-properties && yarn enrich-wcag-lists && yarn preprocess-files && yarn add-frontmatter && yarn convert-to-markdown && yarn prettify-files && yarn prepare-dest-folder && yarn copy-markdown-files && yarn copy-assets-folder && yarn copy-moveover-files && yarn cleanup-temp-folder",
     "prepare-temp-folder": "rm -fr temp && mkdir temp && mkdir temp/original",
     "copy-source-files": "cp -r ../packages/components/tests/dummy/app/templates/* temp/original",
     "identify-sections": "echo '\n==========\nIdentifying <section> blocks...\n' && node codemods/bin/cli.js identify-sections ./temp/original/**/*.hbs",
     "split-files": "ts-node --transpile-only ./scripts/split-files",
     "replace-linkto-with-a": "echo '\n==========\nReplacing <LinkTo> with <a> links...\n' && node codemods/bin/cli.js replace-linkto-with-a ./temp/split-files/**/*.hbs",
     "refactor-codeblocks": "echo '\n==========\nRefactoring <CodeBlock> instances...\n' && node codemods/bin/cli.js refactor-codeblocks ./temp/split-files/**/03--how-to-use.hbs",
+    "refactor-properties": "echo '\n==========\nRefactoring <dl> instances...\n' && node codemods/bin/cli.js refactor-properties ./temp/split-files/**/02--component-api.hbs",
     "enrich-wcag-lists": "echo '\n==========\nEnriching WCAG lists...\n' && node codemods/bin/cli.js enrich-wcag-lists ./temp/split-files/**/05--accessibility.hbs",
     "preprocess-files": "ts-node --transpile-only ./scripts/preprocess-files",
     "add-frontmatter": "ts-node --transpile-only ./scripts/add-frontmatter",
@@ -42,6 +43,7 @@
     "prettier": "2.7.1",
     "ts-node": "^10.9.1",
     "turndown": "^7.1.1",
+    "turndown-plugin-gfm": "^1.0.2",
     "typescript": "^4.8.4"
   },
   "engines": {

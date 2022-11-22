@@ -4,6 +4,8 @@ import path from 'path';
 import chalk from 'chalk';
 
 import TurndownService from 'turndown';
+import * as TurndownPluginGfm from 'turndown-plugin-gfm';
+const tables = TurndownPluginGfm.tables;
 
 const sourceFolder = path.resolve(__dirname, '../temp/split-files');
 const destFolder = path.resolve(__dirname, '../temp/markdown');
@@ -84,22 +86,8 @@ async function convert() {
           break;
         // COMPONENT API
         case '02--component-api.hbs':
-          // turndownService.addRule('skip-dummy-component-props', {
-          //   filter: function (node: HTMLElement) {
-          //     const isRootNode =
-          //       node.nodeName === 'DL' &&
-          //       node.getAttribute('class') === 'dummy-component-props';
-          //     const isChildNode =
-          //       node.closest('.dummy-component-props') !== null;
-          //     return isRootNode || isChildNode;
-          //   },
-          //   replacement: function (_content, node) {
-          //     // TODO this loses the formatting (it's a string with whitespace removed), is there another way?
-          //     // return node.innerHTML;
-          //     return node.outerHTML;
-          //   },
-          // });
-          turndownService.keep(['dl']);
+          // turndownService.keep(['table']);
+          turndownService.use([tables]);
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // HOW TO USE
