@@ -3833,6 +3833,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.189":
+  version: 4.14.189
+  resolution: "@types/lodash@npm:4.14.189"
+  checksum: 096d1e0954794fb76bd6a0ea443067f02004b53e3c59ac6e3fed88817a1468fc2e6614abdf44341f5e0fdff5f9a3c94a934cc9ff7126e07efbcd94355a21fe45
+  languageName: node
+  linkType: hard
+
 "@types/mime@npm:^1":
   version: 1.3.2
   resolution: "@types/mime@npm:1.3.2"
@@ -16232,6 +16239,24 @@ __metadata:
   checksum: e86a926dc9fbb3b41b4c4a89d998afdf140e20a4e8dbe6c0a807f7b2948b42ea97d7fd3ad4868041487b6e9ee98409829c6e4d84a734a4215dff060a7fbeb4bf
   languageName: node
   linkType: hard
+
+"node-temp-playground@workspace:node-temp-playground":
+  version: 0.0.0-use.local
+  resolution: "node-temp-playground@workspace:node-temp-playground"
+  dependencies:
+    "@types/fs-extra": ^9.0.13
+    "@types/lodash": ^4.14.189
+    "@types/node": ^18.8.1
+    "@typescript-eslint/eslint-plugin": ^5.39.0
+    "@typescript-eslint/parser": ^5.39.0
+    fs-extra: ^10.1.0
+    glob: ^8.0.3
+    lodash: ^4.17.21
+    prettier: 2.7.1
+    ts-node: ^10.9.1
+    typescript: ^4.8.4
+  languageName: unknown
+  linkType: soft
 
 "node-watch@npm:0.7.3":
   version: 0.7.3

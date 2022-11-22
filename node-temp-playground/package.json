@@ -1,0 +1,24 @@
+{
+  "name": "node-temp-playground",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "play": "ts-node --transpile-only ./scripts/play"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/lodash": "^4.14.189",
+    "@types/node": "^18.8.1",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "lodash": "^4.17.21",
+    "prettier": "2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": "12.* || 14.* || >= 16"
+  }
+}
