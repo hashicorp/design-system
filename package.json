@@ -7,6 +7,7 @@
     "./flight-website",
     "./website",
     "./website-html-to-markdown",
+    "./node-temp-playground",
     "./addons/*"
   ],
   "devDependencies": {
