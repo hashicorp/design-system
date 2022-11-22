@@ -87,11 +87,11 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/modal');
     await percySnapshot('Modal');
 
-    await visit('/components/tab');
-    await percySnapshot('Tab');
-
     await visit('/components/table');
     await percySnapshot('Table');
+
+    await visit('/components/tabs');
+    await percySnapshot('Tabs');
 
     await visit('/components/tag');
     await percySnapshot('Tag');
