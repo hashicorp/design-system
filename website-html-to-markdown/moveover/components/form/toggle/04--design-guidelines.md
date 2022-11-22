@@ -1,4 +1,5 @@
 ---
+title: Form / Toggle
 category: components
 group: form
 component: toggle
