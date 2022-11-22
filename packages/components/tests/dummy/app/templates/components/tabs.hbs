@@ -15,6 +15,11 @@
     elements for activating individual tabs vs. links. If your use case includes a usage of a Tabs-like component for
     primary navigation, consider reaching out to your designer and working with them to refactor the design if feasible.
   </p>
+  <p class="dummy-paragraph">
+    Use the
+    <code class="dummy-code">@onClickTab</code>
+    handler if you need to store the active tab in the URL for persistence.
+  </p>
 </section>
 
 <section>
@@ -209,6 +214,12 @@
   </Hds::Tabs>
 
   <h4 class="dummy-h4">Pass in a function that gets called when a tab is clicked</h4>
+  <p class="dummy-paragraph">
+    You can use the
+    <code class="dummy-code">@onClickTab</code>
+    handler to pass in your own custom function. For example, if you need to store the active tab in the URL for
+    persistence.
+  </p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
