@@ -3,7 +3,7 @@
   {{#if this.model.hasCover}}
     <Doc::Page::Cover @title={{this.title}} @description={{this.description}} />
   {{/if}}
-  <Doc::Page::Content>
+  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}}>
     {{!-- Leave it here for debugging purpose (will be removed later!) --}}
     <!--
     {{#if this.model.id}}
