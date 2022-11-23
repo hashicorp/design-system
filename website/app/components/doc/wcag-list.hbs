@@ -1,11 +1,11 @@
 <div class="doc-wcag-list">
   <ul class="doc-wcag-list__ul">
     {{#each this.criteria as |criterion|}}
-      {{#if (and @criteriaList (includes criterion.id @criteriaList))}}
+      {{#if (and @criteriaList (includes criterion.number @criteriaList))}}
         <li class="doc-wcag-list__li">
-          <a href={{criterion.attributes.url}} class="doc-wcag-list__link">
-          {{criterion.attributes.number}} {{criterion.attributes.title}}:</a>
-          {{criterion.attributes.description}}
+          <a href={{criterion.url}} class="doc-wcag-list__link">
+          {{criterion.number}} {{criterion.title}}:</a>
+          {{criterion.description}}
         </li>
       {{/if}}
     {{else}}
