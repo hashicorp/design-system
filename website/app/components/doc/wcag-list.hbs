@@ -1,0 +1,14 @@
+<div class="doc-wcag-list">
+  <ul class="doc-wcag-list__ul">
+    {{#each this.criteria as |criterion|}}
+      {{#if (and @criteriaList (includes criterion.id @criteriaList))}}
+        <li class="doc-wcag-list__li">
+          <a href={{criterion.attributes.url}} class="doc-wcag-list__link">
+          {{criterion.attributes.title}}:</a> {{criterion.attributes.content}}
+        </li>
+      {{/if}}
+    {{else}}
+      <li>No relevant Success Criterion found.</li>
+    {{/each}}
+  </ul>
+</div>

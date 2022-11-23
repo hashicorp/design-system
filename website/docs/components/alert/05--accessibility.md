@@ -11,9 +11,11 @@ This component is conditionally conformant. That is, it is conformant when there
 
 This section is for reference only. This component intends to conform to the following WCAG success criteria:
 
-<dummy-wcag-success-criteria-list data-list="1.3.1|1.3.2|1.4.1|1.4.3|1.4.10|1.4.11|1.4.12|2.1.1|2.1.2|2.2.1|2.5.3|4.1.1|4.1.2|4.1.3">Placeholder for the WCAG Success Criteria List component - Don't delete!</dummy-wcag-success-criteria-list>
+<Doc::WcagList @criteriaList={{array 'wcag-1-3-1' 'wcag-1-3-2' 'wcag-1-4-1' 'wcag-1-4-3' 'wcag-1-4-10' 'wcag-1-4-11' 'wcag-1-4-12' 'wcag-2-1-1' 'wcag-2-1-2' 'wcag-2-2-1' 'wcag-2-5-3' 'wcag-4-1-1' 'wcag-4-1-2' 'wcag-4-1-3' }} />
 
-*   1.3.1: [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
+<!-- <dummy-wcag-success-criteria-list data-list="1.3.1|1.3.2|1.4.1|1.4.3|1.4.10|1.4.11|1.4.12|2.1.1|2.1.2|2.2.1|2.5.3|4.1.1|4.1.2|4.1.3">Placeholder for the WCAG Success Criteria List component - Don't delete!</dummy-wcag-success-criteria-list> -->
+
+<!-- *   1.3.1: [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
 *   1.3.2: [Meaningful Sequence](https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html)
 *   1.4.1: [Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)
 *   1.4.3: [Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
@@ -26,4 +28,4 @@ This section is for reference only. This component intends to conform to the fol
 *   2.5.3: [Label in Name](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html)
 *   4.1.1: [Parsing](https://www.w3.org/WAI/WCAG21/Understanding/parsing.html)
 *   4.1.2: [Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html)
-*   4.1.3: [Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html)
+*   4.1.3: [Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html) -->
