@@ -1,0 +1,827 @@
+{{page-title "Table Component"}}
+<h2 class="dummy-h2">
+  Table
+</h2>
+<section>
+  <div class="dummy-banner dummy-banner--info">
+    <p class="dummy-paragraph">⚠️
+      <strong>Note</strong>: this component has some features that are still in flux, such as how to indicate column
+      width, the implementation of column sorting, and how to apply non-standard text-aligment. Your feedback on these
+      particular features is very important to us.</p>
+    <p class="dummy-paragraph">If, when trying this component out, you find that you have a particular use case that is
+      not covered, or you have difficulty using this component, please reach out to the HDS team.</p>
+  </div>
+</section>
+<section>
+  <h3 class="dummy-h3" id="overview">
+    <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
+    Overview
+  </h3>
+  <p class="dummy-paragraph">
+    The
+    <code class="dummy-code">Hds::Table</code>
+    component should be used for displaying tabular data; it renders an
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+      target="_blank"
+      rel="noopener noreferrer"
+    >HTML table element</a>.
+  </p>
+  <p class="dummy-paragraph">This component takes advantage of the
+    <code class="dummy-code">sort-by</code>
+    helper provided in
+    <a
+      href="https://github.com/DockYard/ember-composable-helpers"
+      target="_blank"
+      rel="noopener noreferrer"
+    >ember-composable-helpers</a>. While some of the examples provided on this page use some of the other helpers
+    provided in this addon, they are not required to use the design system. Read the
+    <a
+      href="https://github.com/DockYard/ember-composable-helpers#configuration"
+      target="_blank"
+      rel="noopener noreferrer"
+    >configuration information</a>
+    provided by the addon if you wish to customize which helpers are included in your own app.</p>
+</section>
+<section>
+  <h3 class="dummy-h3" id="component-api">
+    <a href="#component-api" class="dummy-link-section">§</a>
+    Component API
+  </h3>
+  <p class="dummy-paragraph" id="component-api-table">
+    The
+    <code class="dummy-code">Table</code>
+    component itself is where most of options will be applied. Use of the component API (below) will automatically
+    render sortable columns if desired.
+  </p>
+  <p class="dummy-paragraph">
+    Additionally, there are child components that can also be used to provide custom options.
+    <ul>
+      <li class="dummy-paragraph">
+        The
+        <code class="dummy-code">Hds::Table::Tr</code>
+        component is a template-only component. It supports
+        <code class="dummy-code">...attributes</code>
+        but is not eligible to receive interactions. It can contain
+        <code class="dummy-code">Hds::Table::Th</code>
+        or
+        <code class="dummy-code">Hds::Table::Td</code>
+        components.
+      </li>
+      <li class="dummy-paragraph">
+        The
+        <code class="dummy-code">Hds::Table::Th</code>
+        component is a template-only component. It supports
+        <code class="dummy-code">...attributes</code>
+        but is not eligible to receive interactions itself, although it can contain interactive elements. However, it is
+        not likely that you will need to add interactive elements to this component as the sorting is already otherwise
+        provided for.
+      </li>
+      <li class="dummy-paragraph">
+        The
+        <code class="dummy-code">Hds::Table::Td</code>
+        component is a template-only component. It supports
+        <code class="dummy-code">...attributes</code>
+        but is not eligible to receive interactions itself; however it can contain interactive elements.
+      </li>
+    </ul>
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-table">
+    <dt>&lt;:head&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where the content for the table head (<code>&lt;thead&gt;</code>) is rendered.</p>
+    </dd>
+    <dt>&lt;:body&gt; <code>named block</code></dt>
+    <dd>
+      <p>This is a named block where the content for the table body (<code>&lt;tbody&gt;</code>) is rendered.</p>
+    </dd>
+    <dt>model <code>array</code></dt>
+    <dd><p>If defined, sets the data source that gets yielded by the
+        <code class="dummy-code">:body</code>
+        named block.</p></dd>
+    <dt>columns <code>array</code></dt>
+    <dd><p>If defined, sets the column header content and indicates that the table should be sorted. For more
+        information about how this array is shaped, look at the code examples in the "How to Use" section.</p></dd>
+    <dt>sortingKeys <code>array</code></dt>
+    <dd><p>If defined, indicates which columns should be sortable (if only
+        <code class="dummy-code">columns</code>
+        is defined, all columns will be sortable). For more information about how this array is shaped, look at the code
+        examples in the "How to Use" section.</p></dd>
+    <dt>sortBy <code>string</code></dt>
+    <dd><p>If defined, indicates which column should be pre-sorted when the table is rendered. For more information
+        about how this value, look at the code examples in the "How to Use" section.</p></dd>
+    <dt>sortOrder <code>string</code></dt>
+    <dd>
+      <p>Use in conjunction with
+        <code class="dummy-code">sortBy</code>. If defined, indicates which direction the column should be pre-sorted
+        in. All columns are unsorted by default.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">asc</li>
+        <li>desc</li>
+      </ol>
+    </dd>
+    <dt>isStriped <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">true</span></p>
+      <p>If set to <code class="dummy-code">false</code>, zebra striping on the table will not be applied.</p>
+    </dd>
+    <dt>density <code>enum</code></dt>
+    <dd>
+      <p>If set, determines the density, or height, of the row.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>short</li>
+        <li class="default">medium</li>
+        <li>tall</li>
+      </ol>
+    </dd>
+    <dt>valign <code>enum</code></dt>
+    <dd>
+      <p>If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all
+        of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">top</li>
+        <li>middle</li>
+        <li>bottom</li>
+        <li>baseline</li>
+        <li>sub</li>
+        <li>text-top</li>
+      </ol>
+    </dd>
+    <dt>caption <code>string</code></dt>
+    <dd><p>Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided
+        table caption is paired with the automatically generated sorted message text.</p></dd>
+    <dt>...attributes</dt>
+    <dd><p>Supported for the <code class="dummy-code">Hds::Table</code> component.</p></dd>
+  </dl>
+</section>
+<section>
+  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
+  <p class="dummy-paragraph">There are several ways to implement the table component. These examples will be in order of
+    increasing complexity. Additional implementation examples are in the Showcase section.</p>
+  <h4 class="dummy-h4">Static Table (non-sortable)</h4>
+  <p class="dummy-paragraph">If you have your own content and don't want to use a model, you can still benefit from the
+    components themselves. Here is an example of such an invocation in a template:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Release Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>Custom Cell Content</B.Td>
+      <B.Td>\{{t 'translated-cell-content-string'}}</B.Td>
+      <B.Td>Some other custom cell content</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <h4 class="dummy-h4">Simple Table with model defined (non-sortable)</h4>
+  <p class="dummy-paragraph">In this invocation of the table component, you would define the data model and insert your
+    own content into the
+    <code class="dummy-code">:head</code>
+    and
+    <code class="dummy-code">:body</code>
+    blocks. Here is an example of such an invocation in a template:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table @model=\{{this.model}}>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Release Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">For documentation purposes, we imitated fetching data from an API and working with that as
+    our data model.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="javascript"
+    @code="import Route from '@ember/routing/route';
+
+export default class ComponentsTableRoute extends Route {
+  async model() {
+    let response = await fetch('/api/folk.json');
+    let { data } = await response.json();
+
+    return data.map((model) => {
+      let { attributes } = model;
+      return { ...attributes };
+    });
+  }
+}"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <h4 class="dummy-h4">Sortable Table</h4>
+  <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route. In
+    this example, we're identifying the column headers (keys) and also capitalizing them. Each column object has two
+    pieces: a
+    <code class="dummy-code">key</code>-- used for the model, the
+    <code class="dummy-code">sortingKeys</code>
+    and
+    <code class="dummy-code">sortBy</code>; and the
+    <code class="dummy-code">label</code>-- used in the table header cells.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="javascript"
+    @code="// app/routes/components/table.js
+
+import Route from '@ember/routing/route';
+import { capitalize } from '@ember/string';
+
+export default class ComponentsTableRoute extends Route {
+  async model() {
+    let response = await fetch('/api/folk.json');
+    let { data } = await response.json();
+
+    // make sure the variable is declared outside of the loop
+    // so we can return it in the model response
+    let columns;
+    let dataResponse = data.map((model) => {
+      let { id, attributes } = model;
+      columns = Object.keys(attributes);
+      return { id, ...attributes };
+    });
+    columns = columns.map((column) => {
+      return { key: column, label: capitalize(column) };
+    });
+    return { data: dataResponse, columns };
+  }
+}"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">2. Invoke the
+    <span class="dummy-code">Hds::Table</span>
+    component in your template file.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">If you want, you can indicate that only specific columns should be sortable.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+  @sortBy='artist'
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted in a specific direction.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{this.model.columns}}
+  @sortingKeys=\{{array 'artist' 'album'}}
+  @sortBy='artist'
+  @sortOrder='desc'
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td>\{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
+</section>
+<section>
+  <h3 class="dummy-h3" id="design-guidelines">
+    <a href="#design-guidelines" class="dummy-link-section">§</a>
+    Design guidelines
+  </h3>
+  <div class="dummy-design-guidelines">
+    <p class="dummy-paragraph">
+      <a
+        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=16727%3A59704"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Figma UI Kit</a>
+    </p>
+  </div>
+  <details>
+    <summary>Table header design guidelines (expand to view)</summary>
+    <div class="dummy-design-guidelines">
+      <p class="dummy-paragraph">
+        <img
+          class="dummy-figma-docs"
+          src="/assets/images/table-header-design_guidelines.png"
+          alt="table header design guidelines as a screenshot. please visit the figma file link."
+        />
+      </p>
+    </div>
+  </details>
+  <details>
+    <summary>Table cell design guidelines (expand to view)</summary>
+    <div class="dummy-design-guidelines">
+      <p class="dummy-paragraph">
+        <img
+          class="dummy-figma-docs"
+          src="/assets/images/table-cell-design_guidelines.png"
+          alt="table cell design guidelines as a screenshot. please visit the figma file link."
+        />
+      </p>
+    </div>
+  </details>
+
+</section>
+<section>
+  <h3 class="dummy-h3" id="accessibility">
+    <a href="#accessibility" class="dummy-link-section">§</a>
+    Accessibility
+  </h3>
+  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
+    recommended, there should not be any WCAG conformance issues with this component. Developers should ensure that any
+    table customizations they implement also meet the applicable WCAG Success Criteria.
+  </p>
+  <p class="dummy-paragraph">There are a few critical items for developers to note:
+    <ul>
+      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions. If an
+        interactive element is desired, place it within a table cell element (<code class="dummy-code">td</code>).</li>
+      <li>When providing additional or alternative styles to the table element, do not change the
+        <code class="dummy-code">display</code>
+        property in the CSS. This alters how the table is presented to the user with assistive technology, and they will
+        no longer be presented with a table.
+      </li>
+    </ul>
+  </p>
+  <h4 class="dummy-h4">
+    Applicable WCAG Success Criteria (Reference)
+  </h4>
+  <p class="dummy-paragraph">
+    This section is for reference only. This component intends to conform to the following WCAG success criteria:
+  </p>
+  <ul class="dummy-list">
+    <li>1.3.1:
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Info and Relationships (A)</a>: Information, structure, and relationships conveyed through presentation can be
+      programmatically determined or are available in text.</li>
+    <li>1.3.2
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Meaningful Sequence (A)</a>: When the sequence in which content is presented affects its meaning, a correct
+      reading sequence can be programmatically determined.</li>
+    <li>1.4.1
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Use of Color (A)</a>: Color is not used as the only visual means of conveying information, indicating an action,
+      prompting a response, or distinguishing a visual element.</li>
+    <li>1.4.3
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/xxx.html" rel="noopener noreferrer" target="_blank">Contrast
+        (Minimum) (AA)</a>: The visual presentation of text and images of text has a contrast ratio of at least 4.5:1</li>
+    <li>1.4.4
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Resize text (AA)</a>: Except for captions and images of text, text can be resized without assistive technology up
+      to 200 percent without loss of content or functionality.</li>
+    <li>1.4.10
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" rel="noopener noreferrer" target="_blank">Reflow
+        (AA)</a>: Content can be presented without loss of information or functionality, and without requiring scrolling
+      in two dimensions (some exceptions apply)</li>
+    <li>1.4.11
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Non-text Contrast (AA)</a>: The visual presentation of the following have a contrast ratio of at least 3:1
+      against adjacent color(s): user interface components; graphical objects.</li>
+    <li>1.4.12
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Text Spacing (AA)</a>: no loss of content or functionality occurs by setting all of the following and by changing
+      no other style property: line height set to 1.5; spacing following paragraphs set to at least 2x the font size;
+      letter-spacing set at least 0.12x of the font size, word spacing set to at least 0.16 times the font size.</li>
+    <li>1.4.13
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Content on Hover or Focus (AA)</a>: Where receiving and then removing pointer hover or keyboard focus triggers
+      additional content to become visible and then hidden, the following are true: dismissible, hoverable, persistent
+      (see link)</li>
+    <li>2.1.1
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Keyboard (A)</a>: All functionality of the content is operable through a keyboard interface.</li>
+    <li>2.1.2
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >No Keyboard Trap (A)</a>: If keyboard focus can be moved to a component of the page using a keyboard interface,
+      then focus can be moved away from that component using only a keyboard interface.
+    </li>
+    <li>2.1.4
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Character Key Shortcuts (A)</a>: If a keyboard shortcut is implemented in content using only letter (including
+      upper- and lower-case letters), punctuation, number, or symbol characters, then it should be able to be turned
+      off, remapped, or active only on focus.
+    </li>
+    <li>2.4.3
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Focus Order (A)</a>: If a Web page can be navigated sequentially and the navigation sequences affect meaning or
+      operation, focusable components receive focus in an order that preserves meaning and operability.</li>
+    <li>2.4.7
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Focus Visible (AA)</a>: Any keyboard operable user interface has a mode of operation where the keyboard focus
+      indicator is visible.</li>
+    <li>4.1.1
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Parsing (A)</a>: In content implemented using markup languages, elements have complete start and end tags,
+      elements are nested according to their specifications, elements do not contain duplicate attributes, and any IDs
+      are unique.</li>
+    <li>4.1.2
+      <a
+        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >Name, Role, Value (A)</a>: For all user interface components, the name and role can be programmatically
+      determined; states, properties, and values that can be set by the user can be programmatically set; and
+      notification of changes to these items is available to user agents, including assistive technologies</li>
+  </ul>
+</section>
+<section data-test-percy>
+  <h3 class="dummy-h3" id="showcase">
+    <a href="#showcase" class="dummy-link-section">§</a>
+    Showcase
+  </h3>
+  <h4 class="dummy-h4">States of the sortable table header (buttons)</h4>
+  <Hds::Table>
+    <:head>
+      <Hds::Table::Tr>
+        {{#each @model.STATES as |state|}}
+          <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
+            {{capitalize state}}
+          </Hds::Table::ThSort>
+        {{/each}}
+      </Hds::Table::Tr>
+    </:head>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table with model defined
+  </h4>
+  <Hds::Table @model={{this.model.data}}>
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th>Release Year</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table with density set to "short"
+  </h4>
+  <Hds::Table @model={{this.model.data}} @density="short">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th>Release Year</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table with density set to "tall"
+  </h4>
+  <Hds::Table @model={{this.model.data}} @density="tall">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th>Release Year</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table with no model defined
+  </h4>
+  <Hds::Table @caption="a custom table with no model defined">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Cell Header</H.Th>
+        <H.Th>Cell Header</H.Th>
+        <H.Th>Cell Header</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Static table with no striping
+  </h4>
+  <Hds::Table @model={{this.model.data}} @isStriped={{false}} @caption="Static table with no striping">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th>Release Year</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table (all columns sortable)
+  </h4>
+  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}}>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table (only some columns sortable)
+  </h4>
+  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}} @sortingKeys={{array "artist" "album"}}>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table, some columns sortable, artist column pre-sorted.
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{take 3 this.model.columns}}
+    @sortingKeys={{array "artist" "album"}}
+    @sortBy="artist"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table, some columns sortable, artist column pre-sorted in descending order.
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{union (take 3 this.model.columns) (hash key="other" label="Other")}}
+    @sortingKeys={{array "artist" "album"}}
+    @sortBy="artist"
+    @sortOrder="desc"
+    @valign="middle"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+            <dd.Interactive @route="components.table" @text="Create" />
+            <dd.Interactive @route="components.table" @text="Read" />
+            <dd.Interactive @route="components.table" @text="Update" />
+            <dd.Separator />
+            <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">Table with a custom-width column and right-aligned text column</h4>
+  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th class="db-table-w1-7">Release Year</H.Th>
+        <H.Th class="db-table-text-right">Current Vinyl Cost (USD)</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td class="db-table-w1-7">{{B.data.year}}</B.Td>
+        <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">Table with different types of cell content (no striping because badges are used)</h4>
+  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th>Release Year</H.Th>
+        <H.Th>Additional Actions As Buttons</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
+        <B.Td>
+          <div class="db-table-cell-content-div">
+            <FlightIcon @name={{B.data.icon}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">Table with multi-line content</h4>
+  <Hds::Table @model={{this.model.data}} @caption="table with multi-line content">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Artist</H.Th>
+        <H.Th>Album</H.Th>
+        <H.Th>Related Quote about the artist</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>&ldquo;{{B.data.quote}}&rdquo;</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+</section>

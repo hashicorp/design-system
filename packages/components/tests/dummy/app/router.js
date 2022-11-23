@@ -42,6 +42,7 @@ Router.map(function () {
     });
     this.route('modal');
     this.route('stepper');
+    this.route('table');
     this.route('tag');
     this.route('toast');
     this.route('tabs');

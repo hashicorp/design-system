@@ -93,6 +93,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/core@npm:^7.0.0, @babel/core@npm:^7.18.6":
+  version: 7.19.3
+  resolution: "@babel/core@npm:7.19.3"
+  dependencies:
+    "@ampproject/remapping": ^2.1.0
+    "@babel/code-frame": ^7.18.6
+    "@babel/generator": ^7.19.3
+    "@babel/helper-compilation-targets": ^7.19.3
+    "@babel/helper-module-transforms": ^7.19.0
+    "@babel/helpers": ^7.19.0
+    "@babel/parser": ^7.19.3
+    "@babel/template": ^7.18.10
+    "@babel/traverse": ^7.19.3
+    "@babel/types": ^7.19.3
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.1
+    semver: ^6.3.0
+  checksum: dd883311209ad5a2c65b227daeb7247d90a382c50f4c6ad60c5ee40927eb39c34f0690d93b775c0427794261b72fa8f9296589a2dbda0782366a9f1c6de00c08
+  languageName: node
+  linkType: hard
+
 "@babel/core@npm:^7.1.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.3.4":
   version: 7.18.5
   resolution: "@babel/core@npm:7.18.5"
@@ -136,29 +159,6 @@ __metadata:
     json5: ^2.2.1
     semver: ^6.3.0
   checksum: 98faaaef26103a276a30a141b951a93bc8418d100d1f668bf7a69d12f3e25df57958e8b6b9100d95663f720db62da85ade736f6629a5ebb1e640251a1b43c0e4
-  languageName: node
-  linkType: hard
-
-"@babel/core@npm:^7.18.6":
-  version: 7.19.3
-  resolution: "@babel/core@npm:7.19.3"
-  dependencies:
-    "@ampproject/remapping": ^2.1.0
-    "@babel/code-frame": ^7.18.6
-    "@babel/generator": ^7.19.3
-    "@babel/helper-compilation-targets": ^7.19.3
-    "@babel/helper-module-transforms": ^7.19.0
-    "@babel/helpers": ^7.19.0
-    "@babel/parser": ^7.19.3
-    "@babel/template": ^7.18.10
-    "@babel/traverse": ^7.19.3
-    "@babel/types": ^7.19.3
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.2.1
-    semver: ^6.3.0
-  checksum: dd883311209ad5a2c65b227daeb7247d90a382c50f4c6ad60c5ee40927eb39c34f0690d93b775c0427794261b72fa8f9296589a2dbda0782366a9f1c6de00c08
   languageName: node
   linkType: hard
 
@@ -3045,6 +3045,7 @@ __metadata:
     ember-cli-sri: ^2.1.1
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
+    ember-composable-helpers: ^4.4.1
     ember-concurrency: ^2.2.0
     ember-disable-prototype-extensions: ^1.1.3
     ember-focus-trap: ^1.0.1
@@ -6745,6 +6746,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"broccoli-funnel@npm:2.0.1":
+  version: 2.0.1
+  resolution: "broccoli-funnel@npm:2.0.1"
+  dependencies:
+    array-equal: ^1.0.0
+    blank-object: ^1.0.1
+    broccoli-plugin: ^1.3.0
+    debug: ^2.2.0
+    fast-ordered-set: ^1.0.0
+    fs-tree-diff: ^0.5.3
+    heimdalljs: ^0.2.0
+    minimatch: ^3.0.0
+    mkdirp: ^0.5.0
+    path-posix: ^1.0.0
+    rimraf: ^2.4.3
+    symlink-or-copy: ^1.0.0
+    walk-sync: ^0.3.1
+  checksum: 415257006360c6015835a513c7946f1bc356ea5ed6bd960382bad1f511d81758539690ccbd7cecdc740b7e91f1719088b5bb8f5c024ca4dda089efec229ce0b7
+  languageName: node
+  linkType: hard
+
 "broccoli-funnel@npm:^1.0.1":
   version: 1.2.0
   resolution: "broccoli-funnel@npm:1.2.0"
@@ -9780,9 +9802,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.251":
-  version: 1.4.274
-  resolution: "electron-to-chromium@npm:1.4.274"
-  checksum: 5ada070407c93a500300b8c699a493f3fb29ca9f7c1b01bcbe6f74191ace09adf8baf137591daedd47f9207a9818195be2ae4dd17099ff3ae60f16bcd624dda7
+  version: 1.4.272
+  resolution: "electron-to-chromium@npm:1.4.272"
+  checksum: 61774a483072bf96d6badd653a8a094d2aa56d9ec7f6475dfbb3540d2c80fe3f21bdbaa9cecf8b200174c43f63ec4ba2dc56c335af006b38c0a844be9a23e5f7
   languageName: node
   linkType: hard
 
@@ -10775,6 +10797,18 @@ __metadata:
     fs-extra: ^9.1.0
     semver: ^5.4.1
   checksum: 1ab8ea51c8d010e02f06668820f1a5ee572ffc0d0ca8eb8b740641e736c8ed67f294d3321876eb9d5dc994c789cd9432632dd748b040c256eabe87e3b941fafc
+  languageName: node
+  linkType: hard
+
+"ember-composable-helpers@npm:^4.4.1":
+  version: 4.5.0
+  resolution: "ember-composable-helpers@npm:4.5.0"
+  dependencies:
+    "@babel/core": ^7.0.0
+    broccoli-funnel: 2.0.1
+    ember-cli-babel: ^7.26.3
+    resolve: ^1.10.0
+  checksum: 39bc86701eee2c8afde0cd912b757fd7f26b06c25df182fc6bc833722bea86a2c4cc4e51659c489dfdcea5630ed87794010584e68b4c52e6049aee8a8c87808b
   languageName: node
   linkType: hard
 
