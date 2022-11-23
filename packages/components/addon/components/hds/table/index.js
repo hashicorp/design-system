@@ -13,33 +13,6 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortOrder = this.args.sortOrder || 'asc';
   @tracked sortedMessageText = '';
 
-  /**
-   * @param isSortableTable
-   * @type {boolean}
-   * @default false
-   * @description Automatically determines whether the table is sortable or not, based on the presence of columns.
-   */
-  get isSortableTable() {
-    const { columns } = this.args;
-    return columns !== undefined;
-  }
-
-  get columns() {
-    const { columns, sortingKeys } = this.args;
-
-    if (this.isSortableTable) {
-      columns.forEach((column) => {
-        // if we have a `sortingKeys` parameter only some columns can be sorted, otherwise all the columns are sortable
-        if (sortingKeys && sortingKeys.includes) {
-          column.isSortableColumn = sortingKeys.includes(column.key);
-        } else {
-          column.isSortableColumn = true;
-        }
-      });
-    }
-    return columns;
-  }
-
   get getSortCriteria() {
     return `${this.sortBy}:${this.sortOrder}`;
   }
