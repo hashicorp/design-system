@@ -4,7 +4,8 @@
       {{#if (and @criteriaList (includes criterion.id @criteriaList))}}
         <li class="doc-wcag-list__li">
           <a href={{criterion.attributes.url}} class="doc-wcag-list__link">
-          {{criterion.attributes.title}}:</a> {{criterion.attributes.content}}
+          {{criterion.attributes.number}} {{criterion.attributes.title}}:</a>
+          {{criterion.attributes.description}}
         </li>
       {{/if}}
     {{else}}
