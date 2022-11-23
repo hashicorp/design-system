@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 2.12.0
+
+### Minor Changes
+
+- [#727](https://github.com/hashicorp/design-system/pull/727) [`f9c22874`](https://github.com/hashicorp/design-system/commit/f9c22874ab24db25ee347c95e5c26dc0055a642e) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove unnused css icons
+
+  _Notice: as an exception, we are releasing this change as minor instead of major for the reason that no one is actually using these files._
+
+* [#689](https://github.com/hashicorp/design-system/pull/689) [`b95f448a`](https://github.com/hashicorp/design-system/commit/b95f448a31cc138436caf0aae332139c5129d9dc) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Figma and Loom icons
+
 ## 2.11.1
 
 ### Patch Changes
