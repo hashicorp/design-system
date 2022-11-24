@@ -34,8 +34,9 @@ async function split() {
   glob(sourceFolder + '/**/*.hbs', {}, async function (_error, files) {
     // loop on every HBS file found in the source folder
     for (const filePath of files) {
-      // get the relative path of the file, in relation to the "source" folder
+      // get the relative path of the file (and its parent folder), in relation to the "source" folder
       const fileRelativePath = path.relative(sourceFolder, filePath);
+      const parentRelativePath = fileRelativePath.replace('.hbs','');
 
       // we need to skip some files...
       if (
@@ -54,7 +55,7 @@ async function split() {
       }
 
       // DEBUG - let's use a single file for testing
-      // if (fileRelativePath !== '_test.hbs') {
+      // if (fileRelativePath !== 'components/alert.hbs') {
       //   continue;
       // }
 
@@ -69,9 +70,12 @@ async function split() {
       // get the page title
 
       const pageTitleMatchResults = hbsSource.match(/{{page-title "(.*)"}}/);
-      const pageTitle = pageTitleMatchResults
-        ? pageTitleMatchResults[1]
-        : 'no-page-title';
+      let pageTitle;
+      if (pageTitleMatchResults) {
+        pageTitle = pageTitleMatchResults[1].replace(/\s?component$/i,'');
+      } else {
+        pageTitle = "Missing component title";
+      }
 
       // ===========================================================================
 
@@ -123,14 +127,17 @@ async function split() {
 
         // we use 'outputFile' instead of 'writeFile' to automatically create the sub-folders
         await fs.outputFile(
-          `${destFolder}/${fileRelativePath.replace(
-            '.hbs',
-            ''
-          )}/${sectionFileName}.hbs`,
+          `${destFolder}/${parentRelativePath}/${sectionFileName}.hbs`,
           `<!-- %%% ${pageTitle} %%% -->\n\n${sectionContent}\n`
         );
         genericCounter++;
       }
+
+      // we add an "index" file that will contains the component "metadata" (index) used to build the custom TOC/navigation
+      await fs.outputFile(
+        `${destFolder}/${parentRelativePath}/index.hbs`,
+        `<!-- %%% ${pageTitle} %%% -->\n`
+      );
     }
   });
 }
