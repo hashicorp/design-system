@@ -1,33 +1,36 @@
 // TABLES
 
+@use "../typography/mixins" as *;
+
+$doc-markdown-table-border-color: rgba(101, 106, 118, 20%);
+
 .doc-markdown-table {
-  display: block;
   width: 100%;
-  width: max-content;
   max-width: 100%;
   overflow: auto;
-
-  // TODO why is needed?
-  .doc-markdown-img {
-    background-color: transparent;
-  }
-}
-
-.doc-markdown-tr {
-  background-color: pink; // TODO
-  border-top: 1px solid coral; // TODO
-
-  &:nth-child(2n) {
-    background-color: maroon; // TODO
-  }
+  table-layout: fixed;
+  border: 1px solid $doc-markdown-table-border-color;
+  border-radius: 4px;
+  border-spacing: 0;
 }
 
 .doc-markdown-th {
-  font-weight: bold; // TODO
+  @include doc-font-style-body-small();
+  padding: 12px 16px;
+  color: #0c0c0e;  // TODO convert to design token
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: #f1f2f3; // TODO convert to design token
 }
 
-.doc-markdown-th,
 .doc-markdown-td {
-  padding: 6px 12px;
-  border: 1px solid olivedrab; // TODO
+  @include doc-font-style-body-small();
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid $doc-markdown-table-border-color;
+
+  .doc-markdown-tr:last-child & {
+    border-bottom: none;
+  }
 }
