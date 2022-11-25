@@ -2,7 +2,6 @@
 import fs from 'fs-extra';
 import path from 'path';
 import _ from 'lodash';
-import { parentPort } from 'worker_threads';
 
 const jsonSourceFolder = path.resolve(__dirname, '../../website/dist/docs');
 
@@ -28,19 +27,19 @@ const files: string[] = [
 // console.log(JSON.stringify({files}, null, 2));
 
 const basicDirectoryTree = getBasicDirectoryTree(files);
-
 const structuredDirectoryTree = getStructuredDirectoryTree(basicDirectoryTree);
 const populatedDirectoryTree = getPopulatedDirectoryTree(structuredDirectoryTree);
-// console.log(
-//   'populatedDirectoryTree',
-//   JSON.stringify(populatedDirectoryTree, null, 2)
-// );
+
 // this is an MVP for the routing
 const flatPageList = getFlatPageList(populatedDirectoryTree);
-console.log(
-  'getFlatPageList',
-  JSON.stringify(flatPageList, null, 2)
-);
+
+// write the files in outpur
+saveJsonFiles(populatedDirectoryTree, flatPageList);
+
+// console.log(
+//   'getFlatPageList',
+//   JSON.stringify(flatPageList, null, 2)
+// );
 
 // ################################################
 // ################################################
@@ -147,7 +146,6 @@ function addAttributesDataFromJsonFile(page: Record<string, unknown>) {
   }
 }
 
-
 function getFlatPageList(srcTree: Record<string, unknown>) {
   const list: Record<string, unknown>[] = [];
 
@@ -165,7 +163,22 @@ function getFlatPageList(srcTree: Record<string, unknown>) {
   return list;
 }
 
+function saveJsonFiles(populatedDirectoryTree, flatPageList) {
 
+  // TODO tbd where this file is stored (plus, needs to be much richer in meta-information)
+  fs.writeFileSync(`${jsonSourceFolder}/flat-page-list.json`,JSON.stringify(flatPageList));
+
+  flatPageList.forEach((page: Record<string, unknown>) => {
+    if (page.fileName === 'index') {
+      // const path
+      const pathData = _.get(populatedDirectoryTree, page.parentPath.split('/'));
+      // we're making an assumption here, based on the fact that this is what we're building in other parts of the code above
+      const indexData = pathData.pages[0];
+      // console.log('indexData', page.parentPath, indexData);
+      fs.writeFileSync(`${jsonSourceFolder}/${page.parentPath}/index.json`,JSON.stringify(indexData));
+    }
+  });
+}
 
 function clusterPages(pages: string[][], path?: string) {
   if (!pages.length) return;
