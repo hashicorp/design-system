@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "play": "ts-node --transpile-only ./scripts/play"
+    "play": "ts-node --transpile-only ./scripts/play",
+    "play2": "ts-node --transpile-only ./scripts/play2"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
