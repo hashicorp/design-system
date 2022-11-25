@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - "v*"
+  pull_request:
+
+env:
+  FORCE_COLOR: 1
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: mansona/npm-lockfile-version@v1
+      - run: npm i -g npm@7
+      - run: npm ci
+      - run: npm run lint:js
+
+  test:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        node-version:
+          - 10
+          - 12
+          - 14
+          - 16
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i -g npm@7
+      - run: npm ci
+      - run: npm test

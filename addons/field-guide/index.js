@@ -5,7 +5,7 @@ const path = require('path');
 const resolve = require('resolve');
 const walkSync = require('walk-sync');
 
-const StaticSiteJson = require('broccoli-static-site-json');
+const StaticSiteJson = require('./lib/broccoli-static-site-json');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 const TableOfContents = require('./lib/table-of-contents');
