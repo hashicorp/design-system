@@ -86,8 +86,22 @@ async function convert() {
           break;
         // COMPONENT API
         case '02--component-api.hbs':
-          // turndownService.keep(['table']);
-          turndownService.use([tables]);
+          // convert HTML to HBS syntax
+          turndownService.addRule('api', {
+            filter: ['api'],
+            replacement: (content) => '<Doc::ComponentApi as |C|>'+content+'</Doc::ComponentApi>',
+          })
+          turndownService.addRule('output', {
+            filter: ['output'],
+            replacement: (content, node) => {
+              const attributes = [];
+              ['data-name','data-required','data-type','data-value','data-default'].forEach((a) => {
+                if (node.getAttribute(a)) attributes.push(`@${a.replace('data-','')}="${node.getAttribute(a)}"`);
+              });
+              return `<C.Property ${attributes.join(' ')}>${content}</C.Property>`;
+            }
+          })
+
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // HOW TO USE

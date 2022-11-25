@@ -13,15 +13,19 @@
 // ```
 // in this
 // ```
-// <table>
-//   <tr><th>Name</th><th>Type</th><th>Value</th><th>Notes</th></tr>
-//   <tr>
-//     <td><code>type</code> required</td>
-//     <td>enum</td>
-//     <td><code>page</code> <code>inline</code> <code>compact</code></td>
-//     <td>Sets the type of alert.</td>
-//   </tr>
-// </table>
+// <api>
+//   <output data-name="type" data-type="enum" data-values="page inline compact" data-required="true">
+//     <p>Sets the type of alert.</p>
+//   </output>
+// </api>
+// ```
+// so we can later alter in `convert-to-markdown.ts` to
+// ```
+// <Doc::ComponentAPI as |C|>
+//   <C.Property @name='type' @type='enum' @value='page inline compact' @required='true'>
+//     <p>Sets the type of alert.</p>
+//   </C.Property>
+// </Doc::ComponentAPI>
 // ```
 //
 // ## Usage
@@ -58,11 +62,11 @@ module.exports = function ({ source, path }, { parse, visit }) {
                 property['name'] = '';
                 c.children.forEach((c) => {
                   if (c.tag === 'code') {
-                    property['type'] = c.children[0].chars.trim().replace('|','/');
+                    property['type'] = c.children[0].chars.trim();
                   } else if (c.tag === 'strong') {
-                    property['required'] = 'required';
+                    property['required'] = true;
                   } else if (c.type === 'TextNode' && c.chars) {
-                    property['name']+=c.chars.trim();
+                    property['name']+=c.chars.trim().replace(/"/g, '');
                   }
                 });
               } else if (c.tag === 'dd') {
@@ -89,10 +93,9 @@ module.exports = function ({ source, path }, { parse, visit }) {
                       let values = [];
                       c.children.forEach((c) => {
                         if (c.tag === 'li' && c.children[0]) {
-                          let value = `<code>${c.children[0].chars}</code>`;
+                          let value = c.children[0].chars;
                           if (getNodeAttributeValue(c, 'class') === 'default') {
-                            // mark value as default, either by class or attribute
-                            // value += ' (default)';
+                            property['default']=value;
                           }
                           values.push(value);
                         }
@@ -112,18 +115,15 @@ module.exports = function ({ source, path }, { parse, visit }) {
             );
           }
 
+
           let output = [];
-          output.push(build.text(`<table>`));
-          output.push(build.text(`<tr><th>Name</th><th>Type</th><th>Value</th><th>Notes</th></tr>`));
+          output.push(build.text(`<api>`));
           properties.forEach((p) => {
-            output.push(build.text(`<tr>`));
-            output.push(build.text(`<td><code>${p['name']}</code>${p['required']?' '+p['required']:''}</td>`));
-            output.push(build.text(`<td>${p['type']?p['type']:''}</td>`));
-            output.push(build.text(`<td>${p['value']?p['value']:''}</td>`));
-            output.push(build.text(`<td>${p['notes']?p['notes']:''}</td>`));
-            output.push(build.text(`</tr>`));
+            output.push(build.text(`<output data-name="${p['name']}" data-type="${p['type']?p['type']:'–'}" data-value="${p['value']?p['value']:'–'}"${p['default']?' data-default="'+p['default']+'"':''}${p['required']?' data-required="true"':''}>`));
+            output.push(build.text(`${p['notes']?p['notes']:'–'}`));
+            output.push(build.text(`</output>`));
           });
-          output.push(build.text(`</table>`));
+          output.push(build.text(`</api>`));
           return output;
         }
       },
