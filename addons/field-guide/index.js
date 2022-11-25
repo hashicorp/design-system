@@ -5,7 +5,7 @@ const path = require('path');
 const resolve = require('resolve');
 const walkSync = require('walk-sync');
 
-const StaticSiteJson = require('./lib/broccoli-static-site-json');
+const ProcessMarkdownToJson = require('./lib/broccoli-markdown-to-json');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 const TableOfContents = require('./lib/table-of-contents');
@@ -80,9 +80,9 @@ module.exports = {
   },
 
   treeForPublic: function() {
-    let docs = new StaticSiteJson('docs', {
+    let docs = new ProcessMarkdownToJson('docs', {
       contentFolder: 'docs',
-      collate: true,
+      // collate: false, // at the moment we don't need (and use) the collated file `all.json`
       // NOTICE: no need to export also pre-generated HTML, we're going to use out converter (instead of the one provided by `broccoli-static-site-json`)
       contentTypes: ['content', 'toc'], // before it was: ['content', 'html', 'toc'],
       // IMPORTANT: according to the documentation, the frontmatter attributes that we want to include need to be explicitly declared ¯\_(ツ)_/¯
@@ -111,6 +111,8 @@ module.exports = {
   },
 
   urlsForPrember() {
+    // TODO! this should be based on the JSON files, not the markdown!
+    // (or even better, use the generated "flat list" of pages)
     const content = walkSync('docs', {
       globs: ['**/*.md'],
     });
