@@ -81,10 +81,6 @@ module.exports = {
 
   treeForPublic: function() {
     let docs = new ProcessMarkdownToJson('docs', {
-      contentFolder: 'docs',
-      // collate: false, // at the moment we don't need (and use) the collated file `all.json`
-      // NOTICE: no need to export also pre-generated HTML, we're going to use out converter (instead of the one provided by `broccoli-static-site-json`)
-      contentTypes: ['content', 'toc'], // before it was: ['content', 'html', 'toc'],
       // IMPORTANT: according to the documentation, the frontmatter attributes that we want to include need to be explicitly declared ¯\_(ツ)_/¯
       // see: https://github.com/empress/broccoli-static-site-json#attributes
       attributes: [ // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/addon/routes/show.js`

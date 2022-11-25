@@ -6,26 +6,18 @@ const h2p = require('html2plaintext');
 const { Serializer } = require('jsonapi-serializer');
 const { JSDOM } = require('jsdom');
 
-const supportedContentTypes = ['content', 'html', 'description', 'toc'];
-
 class MarkDownToJsonApi extends PersistentFilter {
   constructor(folder, options) {
     super(folder, options);
-    this.extensions = ['md', 'markdown'];
+    this.extensions = ['md'];
     this.targetExtension = 'json';
     this.options = {
-      contentTypes: ['html', 'content'],
+      contentTypes: ['content', 'toc'],
       type: 'content',
       attributes: [],
       references: [],
       ...options,
     };
-
-    const unsupportedContentTypes = _.difference(this.options.contentTypes, supportedContentTypes);
-
-    if (unsupportedContentTypes.length) {
-      throw new Error(`Unknown content type: ${unsupportedContentTypes[0]}`);
-    }
 
     this.converter = new showdown.Converter();
 
@@ -40,7 +32,7 @@ class MarkDownToJsonApi extends PersistentFilter {
       attributes: _.union(
         this.options.contentTypes,
         this.options.attributes,
-        referenceAttributes,
+        referenceAttributes
       ),
       keyForAttribute: 'camelCase',
     };
@@ -50,7 +42,9 @@ class MarkDownToJsonApi extends PersistentFilter {
     });
 
     serializerOptions.typeForAttribute = (attribute) => {
-      const customTypeRef = this.options.references.find((ref) => ref.name === attribute);
+      const customTypeRef = this.options.references.find(
+        (ref) => ref.name === attribute
+      );
       if (customTypeRef) {
         return customTypeRef.type;
       }
@@ -67,7 +61,8 @@ class MarkDownToJsonApi extends PersistentFilter {
     const html = this.converter.makeHtml(markdown);
 
     const dom = new JSDOM(html);
-    const headingNodes = dom.window.document.querySelectorAll('h1, h2, h3, h4, h5');
+    const headingNodes =
+      dom.window.document.querySelectorAll('h1, h2, h3, h4, h5');
 
     const toc = [...headingNodes].map((heading) => ({
       text: heading.textContent,
@@ -77,7 +72,7 @@ class MarkDownToJsonApi extends PersistentFilter {
 
     const baseProperties = {
       path: relativePath,
-      id: relativePath.replace(/\.(md|markdown)$/, ''),
+      id: relativePath.replace(/\.(md)$/, ''),
       content: markdown,
       html,
       toc,
@@ -85,7 +80,10 @@ class MarkDownToJsonApi extends PersistentFilter {
 
     const resultHash = { ...baseProperties, ...front };
 
-    if (!resultHash.description && _.includes(this.options.contentTypes, 'description')) {
+    if (
+      !resultHash.description &&
+      _.includes(this.options.contentTypes, 'description')
+    ) {
       const description = _.truncate(h2p(resultHash.html), {
         length: 260,
         separator: /,?\.* +/,
@@ -99,8 +97,8 @@ class MarkDownToJsonApi extends PersistentFilter {
 
   // eslint-disable-next-line class-methods-use-this
   getDestFilePath(relativePath) {
-    if (relativePath.endsWith('.md') || relativePath.endsWith('.markdown')) {
-      return `${relativePath.replace(/.(md|markdown)$/, '')}.json`;
+    if (relativePath.endsWith('.md')) {
+      return `${relativePath.replace(/.(md)$/, '')}.json`;
     }
     return null;
   }
