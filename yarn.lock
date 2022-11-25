@@ -3216,7 +3216,6 @@ __metadata:
     eslint-plugin-prettier: ^3.4.1
     eslint-plugin-qunit: ^6.2.0
     field-guide-default-template: ^2.0.0
-    html2plaintext: ^2.1.4
     innertext: ^1.0.3
     js-yaml: ^4.1.0
     jsdom: ^20.0.3
@@ -8015,7 +8014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:1.0.0-rc.10, cheerio@npm:v1.0.0-rc.10":
+"cheerio@npm:v1.0.0-rc.10":
   version: 1.0.0-rc.10
   resolution: "cheerio@npm:1.0.0-rc.10"
   dependencies:
@@ -14414,17 +14413,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html2plaintext@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "html2plaintext@npm:2.1.4"
-  dependencies:
-    cheerio: 1.0.0-rc.10
-    he: 1.2.0
-    plumb: 0.1.0
-  checksum: 8c56b2c370171e5e7959215c43c80af0b1d84a1a07d77d4d8a4057c89fb61799c4c93923640edc2d9cc24681e08dcf5883b1bf9a911c142d3328a66d735a5ddc
-  languageName: node
-  linkType: hard
-
 "htmlparser2@npm:^3.10.0":
   version: 3.10.1
   resolution: "htmlparser2@npm:3.10.1"
@@ -18976,13 +18964,6 @@ __metadata:
   dependencies:
     find-up: ^3.0.0
   checksum: 5bac346b7c7c903613c057ae3ab722f320716199d753f4a7d053d38f2b5955460f3e6ab73b4762c62fd3e947f58e04f1343e92089e7bb6091c90877406fcd8c8
-  languageName: node
-  linkType: hard
-
-"plumb@npm:0.1.0":
-  version: 0.1.0
-  resolution: "plumb@npm:0.1.0"
-  checksum: 91efb61d7bf8333b08827572b80d33645cb7304b26ed5909f0e252dfb68c09d6e2a85511ec5400829d75893c4e134c3b33f12ba04efd54041e79457a6eb759a7
   languageName: node
   linkType: hard
 

@@ -45,7 +45,6 @@
     "ember-meta": "^2.0.0",
     "ember-prism": "^0.10.0",
     "empress-blueprint-helpers": "^1.2.1",
-    "html2plaintext": "^2.1.4",
     "innertext": "^1.0.3",
     "js-yaml": "^4.1.0",
     "jsdom": "^20.0.3",

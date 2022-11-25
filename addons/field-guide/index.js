@@ -80,21 +80,7 @@ module.exports = {
   },
 
   treeForPublic: function() {
-    let docs = new ProcessMarkdownToJson('docs', {
-      // IMPORTANT: according to the documentation, the frontmatter attributes that we want to include need to be explicitly declared ¯\_(ツ)_/¯
-      // see: https://github.com/empress/broccoli-static-site-json#attributes
-      attributes: [ // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/addon/routes/show.js`
-        'category',
-        'group',
-        'component',
-        'section',
-        'layout',
-        'title',
-        'description',
-        'caption',
-        'status',
-      ],
-    });
+    let docs = new ProcessMarkdownToJson('docs');
 
     let toc = new TableOfContents(docs, {
       subdir: 'docs',
