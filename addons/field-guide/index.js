@@ -5,6 +5,7 @@ const path = require('path');
 const resolve = require('resolve');
 const walkSync = require('walk-sync');
 
+const MarkdownProcessIncludeDirectives = require('./lib/markdown-process-includes');
 const ProcessMarkdownToJson = require('./lib/broccoli-markdown-to-json');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
@@ -26,6 +27,18 @@ module.exports = {
       fastboot,
     }
   },
+
+  // preprocessTree(type, tree) {
+  //   console.log('### preprocessTree', type, tree);
+  // },
+
+  // preBuild(result) {
+  //   console.log('### preBuild result', result);
+  // },
+
+  // postBuild(result) {
+  //   console.log('### postBuild', result);
+  // },
 
   treeForApp(tree) {
     let backingClasses = new Funnel(
@@ -80,15 +93,17 @@ module.exports = {
   },
 
   treeForPublic: function() {
-    let docs = new ProcessMarkdownToJson('docs');
+    let processedDocsMardownFilesTree = new MarkdownProcessIncludeDirectives('docs');
+    let processedDocsJsonFilesTree = new ProcessMarkdownToJson(processedDocsMardownFilesTree, 'docs');
 
-    let toc = new TableOfContents(docs, {
+    let toc = new TableOfContents(processedDocsJsonFilesTree, {
       subdir: 'docs',
     });
 
     return new MergeTrees([
-      docs,
+      processedDocsJsonFilesTree,
       toc,
+      // processedMardownFilesTree
     ]);
   },
 

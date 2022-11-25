@@ -3176,6 +3176,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     broccoli-funnel: ^3.0.3
     broccoli-merge-trees: ^4.2.0
+    broccoli-multifilter: ^2.0.0
     broccoli-persistent-filter: ^3.1.3
     broccoli-plugin: ^4.0.7
     broccoli-stew: ^3.0.0
@@ -6929,6 +6930,18 @@ __metadata:
     has-ansi: ^3.0.0
     mime-types: ^2.1.18
   checksum: d32e8d871869737d554bb0913491f2cf80b975eac43f7c1cde1334468d4610830b6a4f2d75a310b3d113d0e513e3b8b966b5d58789a9d396b52a40d279587a1f
+  languageName: node
+  linkType: hard
+
+"broccoli-multifilter@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "broccoli-multifilter@npm:2.0.0"
+  dependencies:
+    broccoli-plugin: ^1.0.0
+    merge-trees: ^2.0.0
+    mkdirp: ^0.5.1
+    promise-map-series: ^0.2.1
+  checksum: 60df415ed26aa00eb9fb5dd6a696639960c1bc3d8167a144f960ddbf44ae301a4fa18cb8d0135a54eab658a7b05c506b7a82daacb5c09c37b8e9229fb0dd4db3
   languageName: node
   linkType: hard
 
