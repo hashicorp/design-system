@@ -7,10 +7,4 @@ section: component-api
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `size` | enum | `small` `medium` `large` |  |
-| `type` | enum | `filled` `inverted` `outlined` |  |
-| `color` | enum | `neutral` `neutral-dark-mode` |  |
-| `text` | string |  | The text value that should go in the badge counter. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="size" @type="enum" @value="small medium large" @default="medium">–</C.Property><C.Property @name="type" @type="enum" @value="filled inverted outlined" @default="filled">–</C.Property><C.Property @name="color" @type="enum" @value="neutral neutral-dark-mode" @default="neutral">–</C.Property><C.Property @name="text" @type="string" @value="–">The text value that should go in the badge counter.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>

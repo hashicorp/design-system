@@ -7,12 +7,4 @@ section: component-api
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `size` | enum | `small` `medium` `large` |  |
-| `type` | enum | `filled` `inverted` `outlined` |  |
-| `color` | enum | `neutral` `neutral-dark-mode` `highlight` `critical` `success` `warning` |  |
-| `text` | string |  | The text of the badge or value of the _screen-reader only_ element if _isIconOnly_ is set to _true_. _If no text value is defined an error will be thrown._ |
-| `icon` | string |  | Use this parameter to show an icon. Acceptable value: any Flight icon name. |
-| `isIconOnly` | boolean |  | This indicates if the button will only contain an icon. _Notice: an internal check is in place to ensure that accessible text is still applied to the component._ |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="size" @type="enum" @value="small medium large" @default="medium">–</C.Property><C.Property @name="type" @type="enum" @value="filled inverted outlined" @default="filled">–</C.Property><C.Property @name="color" @type="enum" @value="neutral neutral-dark-mode highlight critical success warning" @default="neutral">–</C.Property><C.Property @name="text" @type="string" @value="–">The text of the badge or value of the screen-reader only element if `isIconOnly` is set to `true`. _If no text value is defined an error will be thrown._</C.Property><C.Property @name="icon" @type="string" @value="–">Use this parameter to show an icon. Acceptable value: any Flight icon name.</C.Property><C.Property @name="isIconOnly" @type="boolean" @value="–">This indicates if the button will only contain an icon. _Notice: an internal check is in place to ensure that accessible text is still applied to the component._</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>

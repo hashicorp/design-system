@@ -10,99 +10,52 @@ section: component-api
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `controlId` | string |  | The ID of the form control associated with the label. This is used to populate the `for` attribute of the `<label>` element. |
-| `isRequired` | boolean |  | Appends a `Required` indicator next to the label text when user input is required. |
-| `isOptional` | boolean |  | Appends an `Optional` indicator next to the label text when user input is optional. |
-| `"yield"` |  |  | Elements passed as children of this component are yielded inside the `<label>` element. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="controlId" @type="string" @value="–">The ID of the form control associated with the label. This is used to populate the `for` attribute of the `<label>` element.</C.Property><C.Property @name="isRequired" @type="boolean" @value="–">Appends a `Required` indicator next to the label text when user input is required.</C.Property><C.Property @name="isOptional" @type="boolean" @value="–">Appends an `Optional` indicator next to the label text when user input is optional.</C.Property><C.Property @name="yield" @type="–" @value="–">Elements passed as children of this component are yielded inside the `<label>` element.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 #### Form::HelperText
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `controlId` | string |  | The ID of the form control associated with the helper text. This is used to populate the `id` HTML attribute (with a `helper-text-` prefix) of the element. This HelperText ID can then be referenced in the `aria-describedby` attribute of the form control. |
-| `"yield"` |  |  | Elements passed as children of this component are yielded inside the element. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="controlId" @type="string" @value="–">The ID of the form control associated with the helper text. This is used to populate the `id` HTML attribute (with a `helper-text-` prefix) of the element. This HelperText ID can then be referenced in the `aria-describedby` attribute of the form control.</C.Property><C.Property @name="yield" @type="–" @value="–">Elements passed as children of this component are yielded inside the element.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 #### Form::Indicator
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `isRequired` | boolean |  | Shows the `Required` indicator. |
-| `isOptional` | boolean |  | Shows the `Optional` indicator. |
+<Doc::ComponentApi as |C|><C.Property @name="isRequired" @type="boolean" @value="–">Shows the `Required` indicator.</C.Property><C.Property @name="isOptional" @type="boolean" @value="–">Shows the `Optional` indicator.</C.Property></Doc::ComponentApi>
 
 #### Form::Error
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `controlId` | string |  | The ID of the form control associated with the error. This is used to populate the `id` HTML attribute (with an `error-` prefix) of the element. This Error ID can then be referenced in the `aria-describedby` attribute of the form control. |
-| `"yield"` |  |  | Elements passed as children of this component are yielded inside the element. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="controlId" @type="string" @value="–">The ID of the form control associated with the error. This is used to populate the `id` HTML attribute (with an `error-` prefix) of the element. This Error ID can then be referenced in the `aria-describedby` attribute of the form control.</C.Property><C.Property @name="yield" @type="–" @value="–">Elements passed as children of this component are yielded inside the element.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 #### Form::Legend
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `isRequired` | boolean |  | Appends a `Required` indicator next to the label text when user input is required. |
-| `isOptional` | boolean |  | Appends an `Optional` indicator next to the label text when user input is optional. |
-| `"yield"` |  |  | Elements passed as children of this component are yielded inside the `<legend>` element. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="isRequired" @type="boolean" @value="–">Appends a `Required` indicator next to the label text when user input is required.</C.Property><C.Property @name="isOptional" @type="boolean" @value="–">Appends an `Optional` indicator next to the label text when user input is optional.</C.Property><C.Property @name="yield" @type="–" @value="–">Elements passed as children of this component are yielded inside the `<legend>` element.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 #### Form::Field
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `layout` | enum | `vertical` `flag` | Sets the layout of the component. "Vertical" layout is used for `TextInput`, `Textarea` and `Select` fields. "Flag" layout is used for `Checkbox`, `Radio` and `Toggle` fields. |
-| `id` | string |  | The control's ID attribute _Notice: by default the ID is automatically generated by the component; use this argument if you need to pass a custom ID for specific reasons you may have._ |
-| `extraAriaDescribedBy` | string |  | An extra ID attribute to be added to the `aria-describedby` HTML attribute. _Notice: by default the_ |
-| `isRequired` | boolean |  | Appends a `Required` indicator next to the label text when user input is required. |
-| `isOptional` | boolean |  | Appends an `Optional` indicator next to the label text when user input is optional. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="layout" @type="enum" @value="vertical flag">Sets the layout of the component. "Vertical" layout is used for `TextInput`, `Textarea` and `Select` fields. "Flag" layout is used for `Checkbox`, `Radio` and `Toggle` fields.</C.Property><C.Property @name="id" @type="string" @value="–">The control's ID attribute _Notice: by default the ID is automatically generated by the component; use this argument if you need to pass a custom ID for specific reasons you may have._</C.Property><C.Property @name="extraAriaDescribedBy" @type="string" @value="–">An extra ID attribute to be added to the `aria-describedby` HTML attribute. _Notice: by default the_</C.Property><C.Property @name="isRequired" @type="boolean" @value="–">Appends a `Required` indicator next to the label text when user input is required.</C.Property><C.Property @name="isOptional" @type="boolean" @value="–">Appends an `Optional` indicator next to the label text when user input is optional.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 ##### Contextual components
 
 Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys.
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `<[F].Label>` | yielded component |  | It is a container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Label` component. _Notice: the_ |
-| `<[F].HelperText>` | yielded component |  | It is a container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::HelperText` component. _Notice: the_ |
-| `<[F].Control>` | yielded component |  | It is a very simple container that yields its content. It is used to forward the "base" control inside the "field" control wrapper. The `Control` yielded component exposes two hashed arguments: |
-| `<[F].Error>` | yielded component |  | It is a container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Error` component. _Notice: the_ |
+<Doc::ComponentApi as |C|><C.Property @name="<[F].Label>" @type="yielded component" @value="–">It is a container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Label` component. _Notice: the_</C.Property><C.Property @name="<[F].HelperText>" @type="yielded component" @value="–">It is a container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::HelperText` component. _Notice: the_</C.Property><C.Property @name="<[F].Control>" @type="yielded component" @value="–">It is a very simple container that yields its content. It is used to forward the "base" control inside the "field" control wrapper. The `Control` yielded component exposes two hashed arguments:</C.Property><C.Property @name="[C].id" @type="string" @value="–">returns the unique "id" attribute for the control element (generated automatically, unless provided using the `@id` argument described above).</C.Property><C.Property @name="[C].ariaDescribedBy" @type="string" @value="–">returns the "aria-describedby" attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).</C.Property><C.Property @name="<[F].Error>" @type="yielded component" @value="–">It is a container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Error` component. _Notice: the_</C.Property><C.Property @name="<[E].Message>" @type="yielded component" @value="–">If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.</C.Property></Doc::ComponentApi>
 
 #### Form::Fieldset
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `layout` | enum | `vertical` `horizontal` | Sets the layout of the field controls in the component. |
-| `id` | string |  | The fieldset's ID attribute _Notice: by default the ID is automatically generated by the component; use this argument if you need to pass a custom ID for specific reasons you may have._ |
-| `isRequired` | boolean |  | Appends a `Required` indicator next to the label text when user input is required. |
-| `isOptional` | boolean |  | Appends an `Optional` indicator next to the label text when user input is optional. |
-| `...attributes` |  |  | `...attributes` spreading is supported on this component. |
+<Doc::ComponentApi as |C|><C.Property @name="layout" @type="enum" @value="vertical horizontal" @default="vertical">Sets the layout of the field controls in the component.</C.Property><C.Property @name="id" @type="string" @value="–">The fieldset's ID attribute _Notice: by default the ID is automatically generated by the component; use this argument if you need to pass a custom ID for specific reasons you may have._</C.Property><C.Property @name="isRequired" @type="boolean" @value="–">Appends a `Required` indicator next to the label text when user input is required.</C.Property><C.Property @name="isOptional" @type="boolean" @value="–">Appends an `Optional` indicator next to the label text when user input is optional.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 ##### Contextual components
 
 Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys. The component exposes also two hashed methods, `id` and `ariaDescribedBy`
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `<[F].Legend>` | yielded component |  | It is a container that yields its content inside the `<legend>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Legend` component. |
-| `<[F].HelperText>` | yielded component |  | It is a container that yields its content inside the "helper text" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::HelperText` component. _Notice: the_ |
-| `<[F].Control>` | yielded component |  | It is a very simple container that yields its content. It is used to forward the "field" control inside the fields' "group" control wrapper. _Notice: you can pass all the controls to a single_ |
-| `<[F].Error>` | yielded component |  | It is a container that yields its content inside the "error" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). |
-| `[F].id` | function |  | returns the unique "id" attribute for the control element (generated automatically, unless provided using the `@id` argument described above). |
-| `[F].ariaDescribedBy` | function |  | returns the "aria-describedby" attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above). |
+<Doc::ComponentApi as |C|><C.Property @name="<[F].Legend>" @type="yielded component" @value="–">It is a container that yields its content inside the `<legend>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Legend` component.</C.Property><C.Property @name="<[F].HelperText>" @type="yielded component" @value="–">It is a container that yields its content inside the "helper text" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::HelperText` component. _Notice: the_</C.Property><C.Property @name="<[F].Control>" @type="yielded component" @value="–">It is a very simple container that yields its content. It is used to forward the "field" control inside the fields' "group" control wrapper. _Notice: you can pass all the controls to a single_</C.Property><C.Property @name="[C].id" @type="function" @value="–">returns the unique "id" attribute for the control element (generated automatically, unless provided using the `@id` argument described above).</C.Property><C.Property @name="[C].ariaDescribedBy" @type="function" @value="–">returns the "aria-describedby" attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).</C.Property><C.Property @name="<[F].Error>" @type="yielded component" @value="–">It is a container that yields its content inside the "error" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style).</C.Property><C.Property @name="<[E].Message>" @type="yielded component" @value="–">If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`. For details about its API check the `Form::Error` component. _Note:_ the `id` attribute of the `Error` element is automatically generated.</C.Property></Doc::ComponentApi>

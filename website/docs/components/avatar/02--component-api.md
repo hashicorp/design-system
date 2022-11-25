@@ -7,6 +7,4 @@ section: component-api
 
 Here is the API for the component:
 
-| Name | Type | Value | Notes |
-| --- | --- | --- | --- |
-| `src` | string |  |  |
+<Doc::ComponentApi as |C|><C.Property @name="src" @type="string" @value="–">–</C.Property></Doc::ComponentApi>
