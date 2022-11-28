@@ -8,14 +8,6 @@
     />
   {{/if}}
 
-  {{! WIP: Replacing with yielded component
-  <Hds::PaginationBar::Pagination
-    @type={{@type
-    @totalPages={{this.totalPages
-    @currentPage={{this.currentPage
-    @onPageChange={{this.onPageChange
-  /> }}
-
   {{yield
     (hash
       Pagination=(component
