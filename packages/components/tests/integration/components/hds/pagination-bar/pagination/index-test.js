@@ -12,13 +12,14 @@ module(
       await render(hbs`<Hds::PaginationBar::Pagination />`);
       assert.dom(this.element).exists();
     });
+
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::PaginationBar::Pagination id="test-pagination-bar-pagination" />`
+        hbs`<Hds::PaginationBar::Pagination id="test-pagination" />`
       );
       assert
-        .dom('#test-pagination-bar-pagination')
-        .hasClass('hds-pagination-bar-pagination');
+        .dom('#test-pagination')
+        .hasClass('hds-pagination');
     });
   }
 );
