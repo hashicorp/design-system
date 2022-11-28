@@ -74,15 +74,15 @@ export default class DocPageSidebarComponent extends Component {
       section = currentPath;
     }
 
-    const currentPageTocs = this.sortedTocs.filter((item) => {
+    const currentPageToc = this.sortedToc.filter((item) => {
       return getTocBundle(item.id).includes(section);
     });
 
-    return currentPageTocs.length > 0 ? currentPageTocs : undefined;
+    return currentPageToc.length > 0 ? currentPageToc : undefined;
   }
 
-  get sortedTocs() {
-    return this.args.tocs.sort((a, b) => {
+  get sortedToc() {
+    return this.args.toc.sort((a, b) => {
       // index at the top always
       if (a.title === 'index' && b.title !== 'index') {
         return -1;

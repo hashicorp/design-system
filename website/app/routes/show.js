@@ -1,9 +1,13 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
+import {
+  isAbortError,
+  isServerErrorResponse,
+  isUnauthorizedResponse,
+  isNotFoundResponse,
+} from 'ember-fetch/errors';
 import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
-
-import normalisePath from '../utils/normalise-path';
 
 export default class ShowRoute extends Route {
   @service router;
@@ -12,18 +16,53 @@ export default class ShowRoute extends Route {
     // remove trailing slash
     let path = params.path.replace(/\/$/, '');
 
+    // redirect if `index` is added to the URL
     if (path.endsWith('/index')) {
       return this.router.transitionTo('show', path.replace(/\/index$/, ''));
     }
 
-    // check if there is a path/index in the TOC
-    const toc = this.modelFor('application');
+    // get the page data from the "flat" toc we need it to get the "filePath"
+    // which is not necessarily the same as the URL path (eg. we remove the "index" from the URL)
+    const toc = this.modelFor('application').toc;
+    const pageData = toc.flat.find((page) => page.pageURL === path);
 
-    path = normalisePath(path, toc);
-
-    return fetch(`${config.rootURL}docs/${path}.json`)
+    return fetch(`${config.rootURL}docs/${pageData.filePath}.json`)
       .then((res) => {
-        return res.json();
+        if (res.ok) {
+          return res.json();
+        } else if (isUnauthorizedResponse(res)) {
+          // handle 401 response
+          console.log(
+            `fetch "${config.rootURL}docs/${path}.json" → isUnauthorizedResponse (401)`,
+            res
+          );
+        } else if (isNotFoundResponse(res)) {
+          // handle 404 response
+          console.log(
+            `fetch "${config.rootURL}docs/${path}.json" → isNotFoundResponse (404)`,
+            res
+          );
+        } else if (isServerErrorResponse(res)) {
+          // handle 5xx response
+          console.log(
+            `fetch "${config.rootURL}docs/${path}.json" → isServerErrorResponse (5xx)`,
+            res
+          );
+        }
+      })
+      .catch((error) => {
+        if (isAbortError(error)) {
+          // handle aborted network error
+          console.log(
+            `fetch "${config.rootURL}docs/${path}.json" → isAbortError`,
+            error
+          );
+        } else {
+          console.log(
+            `fetch "${config.rootURL}docs/${path}.json" → error`,
+            error
+          );
+        }
       })
       .then((res) => {
         // want to group all the "frontmatter" attributes under the same object
