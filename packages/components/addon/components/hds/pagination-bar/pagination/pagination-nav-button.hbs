@@ -1,0 +1,31 @@
+<Hds::Interactive
+  class="hds-pagination__page-link"
+  {{on "click" this.onClick}}
+  @onClick={{@onClick}}
+  @direction={{@direction}}
+  aria-label={{if this.isNext "Next page" "Previous page"}}
+  disabled={{this.isDisabled}}
+  @currentPage={{@currentPage}}
+  @totalPages={{@totalPages}}
+>
+  {{#if (eq this.direction "next")}}
+    {{#if (eq @type "compact")}}
+      <span class="hds-pagination__page-label" aria-hidden="true">
+        Next
+      </span>
+    {{/if}}
+  {{/if}}
+
+  <FlightIcon
+    class="hds-pagination__page-icon"
+    @name={{if (eq this.direction "next") "chevron-right" "chevron-left"}}
+  />
+
+  {{#if (eq this.direction "previous")}}
+    {{#if (eq @type "compact")}}
+      <span class="hds-pagination__page-label" aria-hidden="true">
+        Previous
+      </span>
+    {{/if}}
+  {{/if}}
+</Hds::Interactive>

@@ -9,7 +9,7 @@
   {{/if}}
 
   <Hds::PaginationBar::Pagination
-    @type={{this.type}}
+    @type={{@type}}
     @totalPages={{this.totalPages}}
     @currentPage={{this.currentPage}}
     @onPageChange={{this.onPageChange}}
@@ -48,32 +48,23 @@
 APIs
 ------
 PaginationBar:
-  X type=
-    "numbered" (default)
-    "compact"
   X showTotalCount ?) =
     true (default)
     false
   X showPageSize =
     true (default)
     false
-  isTruncated =
-    true (default ?)
-    false
+
+TotalCount:
   X hasTotalItems=
     true (default)
     false
 
-TotalCount:
-  X hasTotalItems= (take values passed down from PaginationBar unless used as stand alone component)
-    true (default)
-    false
-
 Pagination:
-  X type= (take values passed down from PaginationBar unless used as stand alone component)
-    "numbered" (default)
-    "compact"
-  isTruncated= (take values passed down from PaginationBar unless used as stand alone component)
+  X type=
+    "numbered"
+    "compact" (default)
+  isTruncated =
     true (default ?)
     false
   * PageNumber:

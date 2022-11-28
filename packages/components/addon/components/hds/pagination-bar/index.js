@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+// import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
@@ -38,26 +38,6 @@ export default class HdsPaginationBarIndexComponent extends Component {
    */
   get hasTotalItems() {
     return this.args.hasTotalItems ?? true;
-  }
-
-  /**
-   * Gets the type
-   *
-   * @param type
-   * @type {string}
-   * @default 'numbered'
-   */
-  get type() {
-    let { type } = this.args;
-
-    assert(
-      `@type for "Hds::PaginationBar" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type) || type === undefined
-    );
-
-    return type ?? 'numbered';
   }
 
   /**

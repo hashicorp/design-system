@@ -1,23 +1,18 @@
+{{! PAGINATION SUB-COMPONENT }}
 <nav
   class="hds-pagination hds-typography-body-200 hds-font-weight-medium"
   aria-label="Pagination navigation"
   ...attributes
 >
-  <Hds::Interactive
-    class="hds-pagination__page-link"
-    onClick={{this.prevPage}}
-    aria-label="Previous page"
-    disabled={{this.isDisabledPrev}}
-  >
-    <FlightIcon @name="chevron-left" class="hds-pagination__page-icon" />
-    {{#if this.isCompact}}
-      <span class="hds-pagination__page-label" aria-hidden="true">
-        Previous
-      </span>
-    {{/if}}
-  </Hds::Interactive>
+  <Hds::PaginationBar::Pagination::PaginationNavButton
+    @direction="previous"
+    @type={{this.type}}
+    @onClick={{this.changePage}}
+    @currentPage={{this.currentPage}}
+    @totalPages={{this.totalPages}}
+  />
 
-  {{#if this.isNumbered}}
+  {{#if (eq this.type "numbered")}}
     <ul class="hds-pagination__page-list">
       <li class="hds-pagination__page-selected">
         <Hds::Interactive
@@ -60,17 +55,11 @@
     </ul>
   {{/if}}
 
-  <Hds::Interactive
-    class="hds-pagination__page-link"
-    onClick={{this.nextPage}}
-    aria-label="Next page"
-    disabled={{this.isDisabledNext}}
-  >
-    {{#if this.isCompact}}
-      <span class="hds-pagination__page-label" aria-hidden="true">
-        Next
-      </span>
-    {{/if}}
-    <FlightIcon @name="chevron-right" class="hds-pagination__page-icon" />
-  </Hds::Interactive>
+  <Hds::PaginationBar::Pagination::PaginationNavButton
+    @direction="next"
+    @type={{this.type}}
+    @onClick={{this.changePage}}
+    @currentPage={{this.currentPage}}
+    @totalPages={{this.totalPages}}
+  />
 </nav>

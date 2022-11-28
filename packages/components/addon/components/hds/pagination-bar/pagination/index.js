@@ -38,32 +38,23 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return this.type === 'compact';
   }
 
-  get isDisabledPrev() {
-    return this.currentPage === 1 ? true : null;
-  }
-
-  get isDisabledNext() {
-    return this.currentPage === this.totalPages ? true : null;
-  }
-
   @action
-  prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      let { onPageChange } = this.args;
-      if (typeof onPageChange === 'function') {
-        onPageChange(this.currentPage);
+  changePage(direction) {
+    if (direction === 'previous') {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        let { onPageChange } = this.args;
+        if (typeof onPageChange === 'function') {
+          onPageChange(this.currentPage);
+        }
       }
-    }
-  }
-
-  @action
-  nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-      let { onPageChange } = this.args;
-      if (typeof onPageChange === 'function') {
-        onPageChange(this.currentPage);
+    } else {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+        let { onPageChange } = this.args;
+        if (typeof onPageChange === 'function') {
+          onPageChange(this.currentPage);
+        }
       }
     }
   }
