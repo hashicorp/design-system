@@ -1,8 +1,8 @@
-{{#if this.navigationTree}}
+{{#if this.structuredPageTree}}
   <aside class="doc-page-sidebar" ...attributes>
     <div class="doc-page-sidebar__inner-wrapper">
       <nav class="doc-page-sidebar__table-of-contents">
-        <DocTableOfContents @navigationTree={{this.navigationTree}} @level={{1}} />
+        <DocTableOfContents @structuredPageTree={{this.structuredPageTree}} @level={{1}} />
       </nav>
     </div>
   </aside>

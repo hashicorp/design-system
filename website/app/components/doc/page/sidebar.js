@@ -1,7 +1,8 @@
 import Component from '@glimmer/component';
 
-// super hacky way to do what we need, but is a stepping stone (things will be done properly in https://hashicorp.atlassian.net/browse/HDS-1059)
-const getTocBundle = (section) => {
+// we want to limit the content of the sidebar navigation to only the links related to the current "section".
+// notice: super hacky way to do it, but... it works™ !
+const getTocSectionBundle = (section) => {
   const ABOUT = ['about', 'overview', 'getting-started', 'updates'];
   const FOUNDATIONS = ['foundations'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
@@ -20,24 +21,15 @@ const getTocBundle = (section) => {
   } else if (TESTING.includes(section)) {
     return TESTING;
   } else {
-    console.log(`ERROR (getTocBundle): section not found for '${section}'`);
+    console.log(
+      `ERROR (getTocSectionBundle): section not found for '${section}'`
+    );
     return [];
   }
 };
 
 export default class DocPageSidebarComponent extends Component {
-  //
-  // this is a temporary function used to emulate the functionality
-  // that limits the content of the sidebar navigation to only the links
-  // related to the current "section".
-  //
-  // notice: it makes a lot of assumptions, and is not perfect but as
-  // initial way to test the information architecture and navigation does the trick
-  //
-  // we will implement a proper TOC generation and navigation once we will make a call
-  // on the tool/infrastructure to use for the website
-  //
-  get navigationTree() {
+  get structuredPageTree() {
     const { currentPath, currentRoute } = this.args;
 
     // eg. currentPath = 'about'
@@ -65,34 +57,20 @@ export default class DocPageSidebarComponent extends Component {
     //   }
     // console.log('sidebar >>> currentRoute', currentRoute);
 
-    let section;
+    let currentSection;
     if (currentRoute.localName === 'show') {
       // eg. "foundations/tokens/"
-      section = currentRoute.params.path.split('/')[0];
+      currentSection = currentRoute.params.path.split('/')[0];
     } else if (currentPath) {
       // eg. "foundations/"
-      section = currentPath;
+      currentSection = currentPath;
     }
 
-    const currentPageToc = this.sortedToc.filter((item) => {
-      return getTocBundle(item.id).includes(section);
+    const subSectionTree = {};
+    getTocSectionBundle(currentSection).forEach((section) => {
+      subSectionTree[section] = this.args.toc.tree[section];
     });
 
-    return currentPageToc.length > 0 ? currentPageToc : undefined;
-  }
-
-  get sortedToc() {
-    return this.args.toc.sort((a, b) => {
-      // index at the top always
-      if (a.title === 'index' && b.title !== 'index') {
-        return -1;
-      }
-
-      if (b.title === 'index' && a.title !== 'index') {
-        return 1;
-      }
-
-      return a.title.localeCompare(b.title);
-    });
+    return subSectionTree;
   }
 }
