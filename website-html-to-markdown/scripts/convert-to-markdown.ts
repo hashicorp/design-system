@@ -4,8 +4,6 @@ import path from 'path';
 import chalk from 'chalk';
 
 import TurndownService from 'turndown';
-import * as TurndownPluginGfm from 'turndown-plugin-gfm';
-const tables = TurndownPluginGfm.tables;
 
 const sourceFolder = path.resolve(__dirname, '../temp/split-files');
 const destFolder = path.resolve(__dirname, '../temp/markdown');
