@@ -86,16 +86,14 @@
   -->
 
   <h4 class="dummy-h4">Numbered</h4>
-  <Hds::PaginationBar
-    @itemsRangeStart={{1}}
-    @itemsRangeEnd={{10}}
-    @totalItems={{100}}
-    @itemsPerPage={{10}}
-    @type="numbered"
-  />
+  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} as |P|>
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
 
   <h4 class="dummy-h4">Compact (default)</h4>
-  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} @itemsPerPage={{8}} />
+  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} @itemsPerPage={{8}} as |P|>
+    <P.Pagination @type="compact" />
+  </Hds::PaginationBar>
 
   <hr />
   <h4 class="dummy-h4">No TotalCount</h4>
@@ -105,8 +103,10 @@
     @totalItems={{100}}
     @itemsPerPage={{10}}
     @showTotalCount={{false}}
-    @type="numbered"
-  />
+    as |P|
+  >
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
   <hr />
 
   <h4 class="dummy-h4">No PageSize</h4>
@@ -116,8 +116,10 @@
     @totalItems={{100}}
     @itemsPerPage={{10}}
     @showPageSize={{false}}
-    @type="numbered"
-  />
+    as |P|
+  >
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
 
   <h4 class="dummy-h4">No TotalCount or PageSize</h4>
   <Hds::PaginationBar
@@ -126,8 +128,10 @@
     @totalItems={{100}}
     @showTotalCount={{false}}
     @showPageSize={{false}}
-    @type="numbered"
-  />
+    as |P|
+  >
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
 
   <h4 class="dummy-h4">No TotalItems</h4>
   <Hds::PaginationBar
@@ -136,8 +140,10 @@
     @totalItems={{100}}
     @itemsPerPage={{10}}
     @hasTotalItems={{false}}
-    @type="numbered"
-  />
+    as |P|
+  >
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
 
   <h4 class="dummy-h4">No TotalCount / PageSize / TotalItems</h4>
   <Hds::PaginationBar
@@ -148,6 +154,8 @@
     @showTotalCount={{false}}
     @showPageSize={{false}}
     @hasTotalItems={{false}}
-    @type="numbered"
-  />
+    as |P|
+  >
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
 </section>

@@ -8,12 +8,25 @@
     />
   {{/if}}
 
+  {{! WIP: Replacing with yielded component
   <Hds::PaginationBar::Pagination
-    @type={{@type}}
-    @totalPages={{this.totalPages}}
-    @currentPage={{this.currentPage}}
-    @onPageChange={{this.onPageChange}}
-  />
+    @type={{@type
+    @totalPages={{this.totalPages
+    @currentPage={{this.currentPage
+    @onPageChange={{this.onPageChange
+  /> }}
+
+  {{yield
+    (hash
+      Pagination=(component
+        "hds/pagination-bar/pagination"
+        type=this.type
+        totalPages=this.totalPages
+        currentPage=this.currentPage
+        onPageChange=this.onPageChange
+      )
+    )
+  }}
 
   {{#if this.showPageSize}}
     <Hds::PaginationBar::PaginationPageSize />
