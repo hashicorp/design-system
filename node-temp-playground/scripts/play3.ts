@@ -9,26 +9,29 @@ const files: string[] = [
   'overview/hds-principles',
   // 'components/alert/index',
   'overview/about',
+  // 'overview/xxx',
 ];
 
 const flatPageList = getFlatPageList(files);
 
-// console.log(
-//   'getFlatPageList',
-//   JSON.stringify(flatPageList, null, 2)
-// );
-
-const sortedDirectoryTree = getSortedDirectoryTree(flatPageList);
-
 console.log(
-  'getSortedDirectoryTree',
-  JSON.stringify(sortedDirectoryTree, null, 2)
+  'getFlatPageList',
+  JSON.stringify(flatPageList, null, 2)
 );
 
-// const populatedDirectoryTree = getPopulatedDirectoryTree(structuredDirectoryTree);
+const structuredPageTree = getStructuredPageTree(flatPageList);
 
-// write the files in outpur
-// saveJsonFiles(flatPageList, sortedDirectoryTree);
+console.log(
+  'getStructuredPageTree',
+  JSON.stringify(structuredPageTree, null, 2)
+);
+
+// write the files in output
+// fs.writeJsonSync(
+//   `${jsonSourceFolder}/toc.json`,
+//   { flat: flatPageList, tree: structuredPageTree}
+// );
+
 
 // ################################################
 // ################################################
@@ -47,7 +50,7 @@ function getFlatPageList(files: string[]) {
 
     // get the "parent" folders in an array (will be used later to build a page tree)
     const parts = pageURL.split('/');
-    parts.pop(); // remove the file from the path, so we have only the "parent" folders
+    const pageName = parts.pop(); // extract the file from the path (notice: this modifies the original array, so we are left with only the "parent" folders)
     const pageParents = parts;
 
     // get "frontmatter" attributes
@@ -64,114 +67,96 @@ function getFlatPageList(files: string[]) {
 
     // assign a "weight" using the frontmatter value (or a default)
     // notice: it's used for sorting criteria in the navigation
-    pageAttributes.weight = pageAttributes.weight ?? 1000;
+    pageAttributes.weight = pageAttributes.weight ?? 100;
 
-    list.push({ filePath, pageURL, pageParents, pageAttributes });
+    list.push({ filePath, pageURL, pageName, pageParents, pageAttributes });
   });
 
-  return list;
+  // notice: we pre-sort the list so we don't need to do it in the structured tree (much harder!)
+  return list.sort(sortPages);
 }
 
-function getSortedDirectoryTree(pageList: Record<string, unknown>[]) {
+
+const CATEGORIES = ['about', 'overview', 'getting-started', 'updates','foundations','components', 'overrides', 'utilities','patterns','testing'];
+
+function sortPagesXXX(s1, s2) {
+  // if they belong to different first-level categories
+  const c1 = CATEGORIES.indexOf(s1.pageParents[0].toLowerCase());
+  const c2 = CATEGORIES.indexOf(s2.pageParents[0].toLowerCase());
+  if (c1 < c2) {
+    return 1;
+  } else if (c1 > c2) {
+    return -1;
+  } else {
+    // if they both are "leaf" pages we use the weight
+    if (s1.pageURL && s2.pageURL) {
+      if (s1.pageAttributes.weight < s2.pageAttributes.weight) {
+        return 1;
+      } else if (s1.pageAttributes.weight > s2.pageAttributes.weight) {
+        return -1;
+      } else {
+        // if the "pages" have the same weight, we sort alphabethically
+        const p1 = s1.pageName.toLowerCase;
+        const p2 = s2.pageName.toLowerCase;
+        if (p1 < p2) {
+          return 1;
+        } else if (p1 > p2) {
+          return -1;
+        } else {
+          return 0;
+        }
+      }
+    } else {
+      // we have a "leaf" page and a "subcategory" object, we can sort them only alphabetically
+      // const x1 = s1.pageURL ? s1.pageName.toLowerCase :
+      return 0;
+    }
+  }
+}
+
+function sortPages(s1, s2) {
+  debugger;
+  // if they are siblings...
+  if (_.isEqual(s1.pageParents, s2.pageParents)) {
+    //  we use the weight first...
+    if (s1.pageAttributes.weight < s2.pageAttributes.weight) {
+      return 1;
+    } else if (s1.pageAttributes.weight > s2.pageAttributes.weight) {
+      return -1;
+    } else {
+      // or we fallback to sort alphabethically
+      const p1 = s1.pageName.toLowerCase;
+      const p2 = s2.pageName.toLowerCase;
+      if (p1 < p2) {
+        return 1;
+      } else if (p1 > p2) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  } else {
+    // TODO!
+    return 0;
+  }
+  // const c1 = CATEGORIES.indexOf(s1.pageParents[0].toLowerCase());
+  // const c2 = CATEGORIES.indexOf(s2.pageParents[0].toLowerCase());
+  // if (c1 < c2) {
+  //   return 1;
+  // } else if (c1 > c2) {
+  //   return -1;
+  // } else {
+  //   return 0;
+  // }
+}
+
+function getStructuredPageTree(pageList: Record<string, unknown>[]) {
   const tree: Record<string, unknown> = {};
 
-  // console.log('AAA', pageList);
-
   pageList.forEach((page) => {
-    console.log('\n\n\nBBB1 page', page.filePath);
-    console.log('BBB2 page.pageParents', page.pageParents);
-    console.log('BBB3 _.has(tree, page.pageParents)', _.has(tree, page.pageParents));
-    console.log('BBB4 _.get(tree, page.pageParents)', _.get(tree, page.pageParents), typeof _.get(tree, page.pageParents), _.isArray(_.get(tree, page.pageParents)), _.get(tree, page.pageParents)?.length);
-    if (_.has(tree, page.pageParents)) {
-      _.get(tree, page.pageParents).push(page);
-    } else {
-      _.set(tree, page.pageParents, [page]);
-    }
-    console.log('BBB5 _.get(tree, page.pageParents)', _.get(tree, page.pageParents), typeof _.get(tree, page.pageParents), _.isArray(_.get(tree, page.pageParents)), _.get(tree, page.pageParents)?.length);
+    // we have to rebuild the full structure here
+    _.set(tree, [...page.pageParents, page.pageName], page);
   });
-
-  // sortTree(tree);
 
   return tree;
-}
-
-function sortTree(pageTree: Record<string, unknown>) {
-  _.forIn(pageTree, function (subTree, key) {
-    if (_.isArray(subTree)) {
-      console.log('key', key)
-      // do something
-      // pageTree[key] = ['AAA!']
-    } else {
-      sortTree(subTree);
-    }
-  });
-
-  return pageTree;
-}
-
-// function getSortedDirectoryTree(
-//   srcTree: Record<string, unknown>,
-//   path?: string
-// ) {
-//   const tree: Record<string, unknown> = {};
-
-//   _.forIn(srcTree, function (subTree, key) {
-//     const currPath = path ? `${path}/${key}` : key;
-//     if (Array.isArray(subTree)) {
-//       if (subTree.includes('index')) {
-//         tree[key] = {
-//           pages: [
-//             {
-//               fileName: 'index',
-//               parentPath: currPath,
-//               siblings: _.pull(subTree, 'index').map((page) => {
-//                 return {
-//                   fileName: page,
-//                   parentPath: currPath,
-//                 };
-//               }),
-//             },
-//           ],
-//         };
-//       } else {
-//         tree[key] = {
-//           pages: subTree.map((page) => {
-//             return {
-//               fileName: page,
-//               parentPath: currPath,
-//             };
-//           }),
-//         };
-//       }
-//     } else {
-//       tree[key] = getStructuredDirectoryTree(subTree, currPath);
-//     }
-//   });
-
-//   return tree;
-// }
-
-function saveJsonFiles(populatedDirectoryTree, flatPageList) {
-  // TODO tbd where this file is stored (plus, needs to be much richer in meta-information)
-  fs.writeFileSync(
-    `${jsonSourceFolder}/tocs/flat-page-list.json`,
-    JSON.stringify(flatPageList)
-  );
-
-  flatPageList.forEach((page: Record<string, unknown>) => {
-    if (page.fileName === 'index') {
-      // const path
-      const pathData = _.get(
-        populatedDirectoryTree,
-        page.parentPath.split('/')
-      );
-      // we're making an assumption here, based on the fact that this is what we're building in other parts of the code above
-      const indexData = pathData.pages[0];
-      // console.log('indexData', page.parentPath, indexData);
-      fs.writeFileSync(
-        `${jsonSourceFolder}/${page.parentPath}/index.json`,
-        JSON.stringify(indexData)
-      );
-    }
-  });
 }
