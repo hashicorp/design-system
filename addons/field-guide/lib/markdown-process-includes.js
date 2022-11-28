@@ -32,7 +32,6 @@ class MarkdownProcessIncludes extends Multifilter {
   build() {
     const inputFolder = this.inputPaths[0];
     const inputFiles = walkSync(inputFolder, {
-      // the parent
       globs: ['**/*.md'],
       // we exclude from the generated tree (passed down the pipeline)
       // all the "partials" files (they're used only to be included in a parent markdown file)

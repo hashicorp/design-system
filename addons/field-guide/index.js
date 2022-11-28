@@ -98,15 +98,12 @@ module.exports = {
       'docs'
     );
 
-    let toc = new TableOfContents(processedDocsJsonFilesTree, {
-      subdir: 'docs',
-    });
-
-    return new MergeTrees([
+    let processedTocFiles = new TableOfContents(
       processedDocsJsonFilesTree,
-      toc,
-      // processedMardownFilesTree
-    ]);
+      'docs'
+    );
+
+    return new MergeTrees([processedDocsJsonFilesTree, processedTocFiles]);
   },
 
   urlsForPrember() {
