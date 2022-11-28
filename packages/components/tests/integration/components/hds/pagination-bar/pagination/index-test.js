@@ -17,9 +17,7 @@ module(
       await render(
         hbs`<Hds::PaginationBar::Pagination id="test-pagination" />`
       );
-      assert
-        .dom('#test-pagination')
-        .hasClass('hds-pagination');
+      assert.dom('#test-pagination').hasClass('hds-pagination');
     });
   }
 );
