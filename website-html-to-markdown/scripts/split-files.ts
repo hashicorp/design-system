@@ -36,7 +36,7 @@ async function split() {
     for (const filePath of files) {
       // get the relative path of the file (and its parent folder), in relation to the "source" folder
       const fileRelativePath = path.relative(sourceFolder, filePath);
-      const parentRelativePath = fileRelativePath.replace('.hbs','');
+      const parentRelativePath = fileRelativePath.replace('.hbs', '');
 
       // we need to skip some files...
       if (
@@ -72,9 +72,9 @@ async function split() {
       const pageTitleMatchResults = hbsSource.match(/{{page-title "(.*)"}}/);
       let pageTitle;
       if (pageTitleMatchResults) {
-        pageTitle = pageTitleMatchResults[1].replace(/\s?component$/i,'');
+        pageTitle = pageTitleMatchResults[1].replace(/\s?component$/i, '');
       } else {
-        pageTitle = "Missing component title";
+        pageTitle = 'Missing component title';
       }
 
       // ===========================================================================
@@ -88,6 +88,7 @@ async function split() {
 
       // used to differentiate generic "sections" that we don't know how to handle
       let genericCounter = 1;
+      const sectionsList: Record<string, string[]> = {};
 
       // notice: matchAll returns a IterableIterator and each item is a RegExpMatchArray so we need some special code here
       for (const matchResultArray of sectionMatchAllResults) {
@@ -101,42 +102,82 @@ async function split() {
           : `generic-${genericCounter}`;
 
         let sectionFileName;
+        let sectionFolderName;
         switch (sectionID) {
           case 'overview':
-            sectionFileName = '01--overview';
-            break;
-          case 'component-api':
-            sectionFileName = '02--component-api';
+            sectionFileName = 'overview';
+            sectionFolderName = 'guidelines';
             break;
           case 'how-to-use':
-            sectionFileName = '03--how-to-use';
+            sectionFileName = 'how-to-use';
+            sectionFolderName = 'code';
             break;
-          case 'design-guidelines':
-            sectionFileName = '04--design-guidelines';
-            break;
-          case 'accessibility':
-            sectionFileName = '05--accessibility';
+          case 'component-api':
+            sectionFileName = 'component-api';
+            sectionFolderName = 'code';
             break;
           case 'showcase':
-            sectionFileName = '06--showcase';
+            sectionFileName = 'showcase';
+            sectionFolderName = 'code';
+            break;
+          case 'design-guidelines':
+            sectionFileName = 'design-guidelines';
+            sectionFolderName = 'specifications';
+            break;
+          case 'accessibility':
+            sectionFileName = 'accessibility';
+            sectionFolderName = 'accessibility';
             break;
           default:
-            sectionFileName = `1${genericCounter}--generic`;
+            sectionFileName = `generic-${genericCounter}`;
+            sectionFolderName = 'other';
             break;
         }
 
         // we use 'outputFile' instead of 'writeFile' to automatically create the sub-folders
         await fs.outputFile(
-          `${destFolder}/${parentRelativePath}/${sectionFileName}.hbs`,
-          `<!-- %%% ${pageTitle} %%% -->\n\n${sectionContent}\n`
+          `${destFolder}/${parentRelativePath}/partials/${sectionFolderName}/${sectionFileName}.hbs`,
+          sectionContent
         );
         genericCounter++;
+
+        // store the section in the "list" object
+        if (sectionsList[sectionFolderName]) {
+          sectionsList[sectionFolderName].push(sectionFileName);
+        } else {
+          sectionsList[sectionFolderName] = [sectionFileName];
+        }
       }
 
-      // we add an "index" file that will contains the component "metadata" (index) used to build the custom TOC/navigation
+      // INDEX FILE
+      // we prepare an "index.mhbsd" file that will contain the component "metadata" (as "frontmatter" block) plus the "@includes" declarations
+      // notice: internally the file will be already in markdown format, but we need the `hbs` extension so it's picked up by the `convert-to-markdown` script
+
+      // prepare the "frontmatter" block (inside special comment)
+      let indexFrontmatter = '';
+      indexFrontmatter += '---\n';
+      indexFrontmatter += `title: ${pageTitle}\n`;
+      // indexFrontmatter += `category: ${category}\n`;
+      // if (group) { indexFrontmatter += `group: ${group}\n`; }
+      // indexFrontmatter += `component: ${component}\n`;
+      indexFrontmatter += '---\n';
+
+      let indexContent = '';
+      Object.keys(sectionsList).forEach((sectionFolderName) => {
+        const sections = sectionsList[sectionFolderName];
+        // IMPORTANT: we need to add data-markdown="1" or Showdown will not interpret the content as markdown
+        // see: https://showdownjs.com/docs/markdown-syntax/#handle-html-in-markdown-documents
+        // TODO decide if move away from showdown and use something else (markdown-it)
+        indexContent += `<section id="section-${sectionFolderName}" data-markdown="1">\n`;
+        sections.forEach((section) => {
+          indexContent += `  @include "partials/${sectionFolderName}/${section}.md"\n`;
+        })
+        indexContent += `</section>\n\n`;
+      })
+
       await fs.outputFile(
         `${destFolder}/${parentRelativePath}/index.hbs`,
-        `<!-- %%% ${pageTitle} %%% -->\n`
+        `${indexFrontmatter}\n${indexContent}`
       );
     }
   });

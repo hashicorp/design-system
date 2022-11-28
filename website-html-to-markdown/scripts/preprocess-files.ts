@@ -28,8 +28,6 @@ async function preprocess() {
     for (const filePath of files) {
       // get the relative path of the file, in relation to the "source" folder
       const fileRelativePath = path.relative(sourceFolder, filePath);
-      const fileName = fileRelativePath.split('/').pop();
-      const sectionName = fileName?.replace('.hbs', '');
 
       // DEBUG - let's use a single file for testing
       // if (fileRelativePath !== 'components/alert/03_how-to-use.hbs') {
@@ -42,32 +40,14 @@ async function preprocess() {
       // we read the handlebars source (made of HTML + Handlebars code) to process it
       let hbsSource = await fs.readFile(filePath, 'utf8');
 
-      // GENERAL CHANGES
-      // ----------------------------
-
-      switch (sectionName) {
-        case '01--overview':
-          break;
-        case '02--component-api':
-          break;
-        case '03--how-to-use':
-
-          break;
-        case '04--design-guidelines':
-          //
-          break;
-        case '05--accessibility':
-          break;
-      }
-
       // FILE SPECIFIC CHANGES
       // ----------------------------
 
-      if (fileRelativePath === 'components/tag/03--how-to-use.hbs') {
+      if (fileRelativePath === 'components/tag/partials/code/how-to-use.hbs') {
         hbsSource = hbsSource.replace(/ your function here /g, 'this.yourOnDismissFunction');
         hbsSource = hbsSource.replace(/@route="components.tag"/g, '@href="#"');
       }
-      if (fileRelativePath === 'components/toast/03--how-to-use.hbs') {
+      if (fileRelativePath === 'components/toast/partials/code/how-to-use.hbs') {
         hbsSource = hbsSource.replace('<Hds::Toast @onDismiss={{ your function here }} as |T|>', '<Hds::Toast @onDismiss={{this.yourOnDismissFunction}} as |T|>');
         hbsSource = hbsSource.replace(/@onDismiss=\{\{\.\.\.\}\}/g, '@onDismiss={{this.yourOnDismissFunction}}');
         hbsSource = hbsSource.replace('@onClick={{ your function here }}', '@onClick={{this.yourOnClickFunction}}');

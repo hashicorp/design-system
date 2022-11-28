@@ -67,7 +67,7 @@ export default class DocPageSidebarComponent extends Component {
 
     let section;
     if (currentRoute.localName === 'show') {
-      // eg. "foundations/tokens/03--how-to-use/"
+      // eg. "foundations/tokens/"
       section = currentRoute.params.path.split('/')[0];
     } else if (currentPath) {
       // eg. "foundations/"
