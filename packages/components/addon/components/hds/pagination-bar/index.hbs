@@ -1,12 +1,15 @@
 <div class="hds-pagination-bar" ...attributes>
-  {{#if this.showTotalCount}}
-    <Hds::PaginationBar::PaginationTotalCount
-      @hasTotalItems={{this.hasTotalItems}}
-      @itemsRangeStart={{this.itemsRangeStart}}
-      @itemsRangeEnd={{this.itemsRangeEnd}}
-      @totalItems={{@totalItems}}
-    />
-  {{/if}}
+  {{yield
+    (hash
+      PaginationTotalCount=(component
+        "hds/pagination-bar/pagination-total-count"
+        hasTotalItems=@hasTotalItems
+        itemsRangeStart=this.itemsRangeStart
+        itemsRangeEnd=this.itemsRangeEnd
+        totalItems=@totalItems
+      )
+    )
+  }}
 
   {{yield
     (hash

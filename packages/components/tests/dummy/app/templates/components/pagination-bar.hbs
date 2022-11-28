@@ -87,24 +87,19 @@
 
   <h4 class="dummy-h4">Numbered</h4>
   <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} as |P|>
+    <P.PaginationTotalCount />
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 
   <h4 class="dummy-h4">Compact (default)</h4>
   <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} @itemsPerPage={{8}} as |P|>
+    <P.PaginationTotalCount />
     <P.Pagination @type="compact" />
   </Hds::PaginationBar>
 
   <hr />
   <h4 class="dummy-h4">No TotalCount</h4>
-  <Hds::PaginationBar
-    @itemsRangeStart={{1}}
-    @itemsRangeEnd={{10}}
-    @totalItems={{100}}
-    @itemsPerPage={{10}}
-    @showTotalCount={{false}}
-    as |P|
-  >
+  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
   <hr />
@@ -118,42 +113,23 @@
     @showPageSize={{false}}
     as |P|
   >
+    <P.PaginationTotalCount />
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 
-  <h4 class="dummy-h4">No TotalCount or PageSize</h4>
-  <Hds::PaginationBar
-    @itemsRangeStart={{1}}
-    @itemsRangeEnd={{10}}
-    @totalItems={{100}}
-    @showTotalCount={{false}}
-    @showPageSize={{false}}
-    as |P|
-  >
+  <h4 class="dummy-h4">TotalCount with no TotalItems</h4>
+  <Hds::PaginationBar @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{100}} @itemsPerPage={{10}} as |P|>
+    <P.PaginationTotalCount @hasTotalItems={{false}} />
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 
-  <h4 class="dummy-h4">No TotalItems</h4>
+  <h4 class="dummy-h4">Pagination only (No TotalCount or PageSize)</h4>
   <Hds::PaginationBar
     @itemsRangeStart={{1}}
     @itemsRangeEnd={{10}}
     @totalItems={{100}}
     @itemsPerPage={{10}}
-    @hasTotalItems={{false}}
-    as |P|
-  >
-    <P.Pagination @type="numbered" />
-  </Hds::PaginationBar>
-
-  <h4 class="dummy-h4">No TotalCount / PageSize / TotalItems</h4>
-  <Hds::PaginationBar
-    @itemsRangeStart={{1}}
-    @itemsRangeEnd={{10}}
-    @totalItems={{100}}
-    @itemsPerPage={{10}}
-    @showTotalCount={{false}}
     @showPageSize={{false}}
-    @hasTotalItems={{false}}
     as |P|
   >
     <P.Pagination @type="numbered" />
