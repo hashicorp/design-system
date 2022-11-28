@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "play": "ts-node --transpile-only ./scripts/play",
-    "play2": "ts-node --transpile-only ./scripts/play2"
+    "play2": "ts-node --transpile-only ./scripts/play2",
+    "play3": "ts-node --transpile-only ./scripts/play3"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
