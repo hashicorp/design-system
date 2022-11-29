@@ -63,6 +63,8 @@ One Two Three Content 1 Content 2 Content 3!
 
 #### Pass in a function that gets called when a tab is clicked
 
+You can use the `@onClickTab` handler to pass in your own custom function. For example, if you need to store the active tab in the URL for persistence.
+
 ```handlebars
 <Hds::Tabs @onClickTab={{this.logClickedTab}} as |T|>
   <T.Tab>One</T.Tab>
