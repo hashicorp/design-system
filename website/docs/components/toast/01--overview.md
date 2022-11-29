@@ -13,4 +13,4 @@ Typically it displays a brief, temporary notification and it disappears on its o
 
 It can have an **icon** (optional), a **title** and/or **description** (required to have at least one of the two), some **actions** (optional) and a **dismiss/close** button.
 
-🚨 _**Important**: we provide only the visual styling to this element, so other features like placement, animations/transitions, and what happens on dismiss, will need to be implemented in your app (eg. with an Ember addon)._
+**Important**: we provide only the visual styling to this element, so other features like placement, animations/transitions, and what happens on dismiss, will need to be implemented in your app (eg. with an Ember addon).
