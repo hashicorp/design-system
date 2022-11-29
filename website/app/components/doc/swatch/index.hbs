@@ -1,0 +1,12 @@
+<section class={{this.classNames}} ...attributes>
+	<aside class="doc-swatch-value"></aside>
+	<article class="doc-swatch-main">
+		<h5 class="doc-text-h5">{{this.title}}</h5>
+		{{#each @values as |value|}}
+			<div class="doc-swatch-item">
+				<p class="doc-font-style-body-small">{{value.title}}</p>
+				<code class="doc-font-style-code">{{value.value}}</code>
+			</div>
+		{{/each}}
+	</article>
+</section>

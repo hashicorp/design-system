@@ -1,0 +1,34 @@
+.doc-swatch {
+    display: flex;
+    border: 1px solid #DBDBDC;
+    border-radius: 5px;
+    background-clip: border-box;
+
+    h5 {
+        margin: 0;
+    }
+}
+
+.doc-swatch-value {
+    width: 64px;
+    background: var(--token-color-palette-blue-200);
+    border-right: 1px solid #DBDBDC;
+}
+
+.doc-swatch-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #FFFFFF;
+}
+
+.doc-swatch-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    p {
+        margin: 0;
+    }
+}
