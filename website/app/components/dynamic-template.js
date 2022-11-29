@@ -2,7 +2,7 @@
 
 import Component from '@ember/component';
 import GlimmerComponent from '@glimmer/component';
-import layout from '../templates/components/dynamic-template';
+import layout from './dynamic-template';
 
 import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
