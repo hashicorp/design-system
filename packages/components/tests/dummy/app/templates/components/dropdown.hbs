@@ -249,7 +249,7 @@
     <dt>"yield"</dt>
     <dd>
       <p>Elements passed as children of this sub-component are yielded inside the list item.</p>
-      <p>🚨
+      <p>
         <em>Notice: when using the "generic" list item the developer is completely responsible for any element yielded,
           including the accessibility of that element, as well as the layout of the content (we provide only the
           horizontal padding for consistency with the other items).</em></p>
@@ -332,19 +332,19 @@
     <dt>...attributes</dt>
     <dd>
       <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-      <p>🚨
-        <em><strong>Important</strong>: in this specific component, the
-          <code class="dummy-code">...attributes</code>
-          are not spread on the root element of the component (an
-          <code class="dummy-code">&lt;li&gt;</code>
-          element) but on the underlying element/component (<code class="dummy-code">&lt;button&gt;</code>,
-          <code class="dummy-code">&lt;a&gt;</code>,
-          <code class="dummy-code">&lt;LinkTo&gt;</code>
-          or
-          <code class="dummy-code">&lt;LinkToExternal&gt;</code>
-          depending on the
-          <code class="dummy-code">@route/@href</code>
-          arguments).</em></p>
+      <p>
+        <strong>Important</strong>: in this specific component, the
+        <code class="dummy-code">...attributes</code>
+        are not spread on the root element of the component (an
+        <code class="dummy-code">&lt;li&gt;</code>
+        element) but on the underlying element/component (<code class="dummy-code">&lt;button&gt;</code>,
+        <code class="dummy-code">&lt;a&gt;</code>,
+        <code class="dummy-code">&lt;LinkTo&gt;</code>
+        or
+        <code class="dummy-code">&lt;LinkToExternal&gt;</code>
+        depending on the
+        <code class="dummy-code">@route/@href</code>
+        arguments).</p>
     </dd>
   </dl>
 
@@ -463,7 +463,7 @@
     '
   />
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">⚠️
+  <p class="dummy-paragraph">
     <strong>Important</strong>: when using the
     <code class="dummy-code">@href</code>
     argument the component adds by default the attributes
@@ -506,7 +506,7 @@
     '
   />
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">⚠️
+  <p class="dummy-paragraph">
     <strong>Important</strong>: if the route is external to your current engine you have to pass also
     <code class="dummy-code">@isRouteExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
     to the component so that it will use
