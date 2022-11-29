@@ -84,22 +84,22 @@ async function convert() {
           break;
         // COMPONENT API
         case '02--component-api.hbs':
-          // turndownService.addRule('skip-dummy-component-props', {
-          //   filter: function (node: HTMLElement) {
-          //     const isRootNode =
-          //       node.nodeName === 'DL' &&
-          //       node.getAttribute('class') === 'dummy-component-props';
-          //     const isChildNode =
-          //       node.closest('.dummy-component-props') !== null;
-          //     return isRootNode || isChildNode;
-          //   },
-          //   replacement: function (_content, node) {
-          //     // TODO this loses the formatting (it's a string with whitespace removed), is there another way?
-          //     // return node.innerHTML;
-          //     return node.outerHTML;
-          //   },
-          // });
-          turndownService.keep(['dl']);
+          // convert HTML to HBS syntax
+          turndownService.addRule('api', {
+            filter: ['api'],
+            replacement: (content) => '<Doc::ComponentApi as |C|>'+content+'</Doc::ComponentApi>',
+          })
+          turndownService.addRule('output', {
+            filter: ['output'],
+            replacement: (content, node) => {
+              const attributes = [];
+              ['data-name','data-required','data-type','data-value','data-default'].forEach((a) => {
+                if (node.getAttribute(a)) attributes.push(`@${a.replace('data-','')}="${node.getAttribute(a)}"`);
+              });
+              return `<C.Property ${attributes.join(' ')}>${content}</C.Property>`;
+            }
+          })
+
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // HOW TO USE
