@@ -1,0 +1,177 @@
+//
+// TABLE
+//
+//
+
+@use "../mixins/focus-ring" as *;
+
+$hds-table-border-radius: 6px;
+$hds-table-border-width: 1px;
+$hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
+$hds-table-border-color: var(--token-color-border-primary);
+$hds-table-header-height: 48px;
+$hds-table-cell-padding-medium: 12px 16px;
+$hds-table-cell-padding-short: 4px 16px;
+$hds-table-cell-padding-tall: 20px 16px;
+
+.hds-table {
+  width: 100%;
+  table-layout: fixed;
+  border: $hds-table-border-width solid $hds-table-border-color;
+  border-radius: $hds-table-border-radius;
+  border-spacing: 0;
+}
+
+// TABLE HEADER
+.hds-table__thead {
+  .hds-table__tr {
+    color: var(--token-color-foreground-strong);
+    background-color: var(--token-color-surface-strong);
+
+    .hds-table__th,
+    .hds-table__th-sort {
+      height: $hds-table-header-height;
+      text-align: left;
+      border-top: none;
+      border-right: none;
+      border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      border-left: none;
+    }
+
+    .hds-table__th {
+      padding: $hds-table-cell-padding-medium;
+    }
+
+    .hds-table__th-sort {
+      padding: 0;
+
+      button {
+        width: 100%;
+        height: 100%;
+        min-height: $hds-table-header-height;
+        margin: 0;
+        padding: $hds-table-cell-padding-medium;
+        text-align: inherit;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: inherit;
+
+        .hds-table__th-sort--button-content {
+          display: flex; // we can't put flex on the button itself so we drop the content into its own container
+          align-items: center;
+
+          .flight-icon {
+            flex: none;
+            margin-left: 8px;
+            color: var(--token-color-foreground-action);
+          }
+        }
+
+        &:hover,
+        &.mock-hover {
+          color: var(--token-color-foreground-strong);
+          background-color: var(--token-color-palette-neutral-200);
+          cursor: pointer;
+        }
+
+        @include hds-focus-ring-with-pseudo-element($radius: inherit);
+
+        &:active,
+        &.mock-active {
+          color: var(--token-color-foreground-strong);
+          background-color: var(--token-color-palette-neutral-300);
+        }
+      }
+    }
+
+    // BORDER RADIUS: TARGET FIRST AND LAST TH ELEMENTS IN THE ROW
+    &:first-of-type {
+      th:first-child {
+        border-top-left-radius: $hds-table-inner-border-radius;
+      }
+
+      // LAST TH IN THE ROW, BORDER RADIUS
+      th:last-child {
+        border-top-right-radius: $hds-table-inner-border-radius;
+      }
+    }
+  }
+}
+
+// TABLE BODY
+
+// TABLE STRIPING ROWS
+.hds-table--striped {
+  .hds-table__tbody {
+    .hds-table__tr:nth-child(even) {
+      background-color: var(--token-color-surface-faint);
+    }
+  }
+}
+
+// TABLE DENSITY (TBODY ROW HEIGHT)
+.hds-table--density-short .hds-table__tbody td {
+  padding: $hds-table-cell-padding-short;
+}
+
+.hds-table--density-medium .hds-table__tbody td {
+  padding: $hds-table-cell-padding-medium;
+}
+
+.hds-table--density-tall .hds-table__tbody td {
+  padding: $hds-table-cell-padding-tall;
+}
+
+// TABLE CELL VERTICAL ALIGNMENT
+.hds-table--valign-top .hds-table__tbody td {
+  vertical-align: top;
+}
+
+.hds-table--valign-middle .hds-table__tbody td {
+  vertical-align: middle;
+}
+
+.hds-table--valign-bottom .hds-table__tbody td {
+  vertical-align: bottom;
+}
+
+.hds-table--valign-baseline .hds-table__tbody td {
+  vertical-align: baseline;
+}
+
+.hds-table--valign-sub .hds-table__tbody td {
+  vertical-align: sub;
+}
+
+.hds-table--valign-text-top .hds-table__tbody td {
+  vertical-align: text-top;
+}
+
+.hds-table__tbody {
+  .hds-table__tr {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-primary);
+
+    td {
+      border-top: none;
+      border-right: none;
+      border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      border-left: none;
+    }
+
+    // BORDER RADIUS: TARGET FIRST AND LAST TD ELEMENTS IN THE LAST ROW
+    &:last-of-type {
+      td {
+        border-bottom: none;
+      }
+
+      td:first-child {
+        border-bottom-left-radius: $hds-table-inner-border-radius;
+      }
+
+      td:last-child {
+        border-bottom-right-radius: $hds-table-inner-border-radius;
+      }
+    }
+  }
+}

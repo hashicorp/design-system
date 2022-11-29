@@ -101,7 +101,7 @@ Title here Description here
 
 In some cases the alert needs to be dismissable. In this case you have to pass a callback function to the `onDismiss` argument. This will also automatically add a "dismiss/close" button to the alert, that when clicked will execute the callback function.
 
-🚨 _**Important**: the actual implementation of what happens to the alert when the callback function is invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used, on the specific use case, etc.)._
+**Important**: the actual implementation of what happens to the alert when the callback function is invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used, on the specific use case, etc.).
 
 ```handlebars
 <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
@@ -196,4 +196,4 @@ Renders to:
 
 Title here Description here \[your content here\]
 
-🚨 _**Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria._
+**Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria.

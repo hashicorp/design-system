@@ -82,56 +82,46 @@
     <code class="dummy-code">Body</code>,
     <code class="dummy-code">Footer</code>
     keys.</p>
+
+  <h5 class="dummy-h5">Modal::Header</h5>
+  <p class="dummy-paragraph">It is a container that yields its content as the title of the modal dialog.</p>
   <dl class="dummy-component-props" aria-labelledby="contextual-components-modal">
-    <dt>&lt;[M].Header&gt; <code>yielded component</code></dt>
+    <dt>icon <code>string</code></dt>
     <dd>
-      <p>It is a container that yields its content as the title of the modal dialog.</p>
-      <dl class="dummy-component-props">
-        <dt>icon <code>string</code></dt>
-        <dd>
-          <p>Acceptable values: any
-            <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
-              Flight</a>
-            icon name.</p>
-        </dd>
-        <dt>tagline <code>string</code></dt>
-        <dd>
-          <p>A string that helps the user maintain context when a modal dialog is open. (Note: this is NOT the title
-            text, but a small piece of text above the title text.)</p>
-        </dd>
-        <dt>...attributes</dt>
-        <dd>
-          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-        </dd>
-      </dl>
+      <p>Acceptable values: any
+        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+          Flight</a>
+        icon name.</p>
     </dd>
-    <dt>&lt;[M].Body&gt; <code>yielded component</code></dt>
+    <dt>tagline <code>string</code></dt>
     <dd>
-      <p>It is an unstyled, generic container that yields as the main content of the modal dialog.</p>
-      <p>This container gets a scrollbar when the yielded content exceeds the available space.</p>
-      <dl class="dummy-component-props">
-        <dt>...attributes</dt>
-        <dd>
-          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-        </dd>
-      </dl>
+      <p>A string that helps the user maintain context when a modal dialog is open. (Note: this is NOT the title text,
+        but a small piece of text above the title text.)</p>
     </dd>
-    <dt>&lt;[M].Footer&gt; <code>yielded component</code></dt>
+    <dt>...attributes</dt>
     <dd>
-      <p>It is a container that yields its content as the footer of the modal dialog.</p>
-      <p>We recommend using it exclusively for actions using the
-        <LinkTo @route="components.button-set"><code class="dummy-code">ButtonSet</code></LinkTo>
-        component. If a tertiary action is presented, it will always be aligned at the end of the row.</p>
-      <dl class="dummy-component-props">
-        <dt>close <code>function</code></dt>
-        <dd>
-          A function that can be called to close the modal programmatically. This call will have the same effect as the
-          dismiss button in the modal header.</dd>
-        <dt>...attributes</dt>
-        <dd>
-          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-        </dd>
-      </dl>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h5 class="dummy-h5">Modal::Body</h5>
+  <p class="dummy-paragraph">It is an unstyled, generic container that yields as the main content of the modal dialog.</p>
+  <p class="dummy-paragraph">This container gets a scrollbar when the yielded content exceeds the available space.</p>
+  <p class="dummy-paragraph"><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+
+  <h5 class="dummy-h5">Modal::Footer</h5>
+  <p class="dummy-paragraph">It is a container that yields its content as the footer of the modal dialog.</p>
+  <p class="dummy-paragraph">We recommend using it exclusively for actions using the
+    <LinkTo @route="components.button-set"><code class="dummy-code">ButtonSet</code></LinkTo>
+    component. If a tertiary action is presented, it will always be aligned at the end of the row.</p>
+  <dl class="dummy-component-props">
+    <dt>close <code>function</code></dt>
+    <dd>
+      A function that can be called to close the modal programmatically. This call will have the same effect as the
+      dismiss button in the modal header.</dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 </section>
