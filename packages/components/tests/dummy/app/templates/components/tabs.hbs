@@ -5,8 +5,20 @@
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
   <p class="dummy-paragraph">
-    Tabs allow users to move between different views within the same context and at the same level of hierarchy, ie. UI
-    vs CLI, macOS vs Windows vs Linux, etc.
+    Tabs allow users to
+    <strong>move between different views within the same context</strong>
+    and at the same level of hierarchy, ie. UI vs. CLI, macOS vs. Windows vs. Linux, etc.
+  </p>
+  <p class="dummy-paragraph">
+    Tabs are not intended for navigation. For this reason, we chose to use HTML
+    <code class="dummy-code">button</code>
+    elements for activating individual tabs vs. links. If your use case includes a usage of a Tabs-like component for
+    navigation, consider using other navigation patterns, such as sidebar, links, or breadcrumbs.
+  </p>
+  <p class="dummy-paragraph">
+    Use the
+    <code class="dummy-code">@onClickTab</code>
+    handler if you need to store the active tab in the URL for persistence.
   </p>
 </section>
 
@@ -202,6 +214,12 @@
   </Hds::Tabs>
 
   <h4 class="dummy-h4">Pass in a function that gets called when a tab is clicked</h4>
+  <p class="dummy-paragraph">
+    You can use the
+    <code class="dummy-code">@onClickTab</code>
+    handler to pass in your own custom function. For example, if you need to store the active tab in the URL for
+    persistence.
+  </p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock

@@ -101,7 +101,7 @@ _Notice: If a link is used within a label, helper text, or error text, it will n
 
 ##### Validation
 
-Notice: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
+Note: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
 
 To show the user that their input is not valid, you have to provide an error message (using the `Error` contextual component):
 
@@ -321,7 +321,7 @@ _Notice: for complex forms we suggest to indicate **required** fields, since thi
 
 ##### Validation
 
-Notice: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
+Note: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
 
 To show the user that their input is not valid, you have to provide an error message (using the `Error` contextual component):
 
@@ -433,7 +433,7 @@ Visibility Private Making a box private prevents users from accessing it unless 
 
 As mentioned above, the "base" element is intended **only** for those rare cases where the "field" or "group" variants can't be used, and a custom implementation needs to be done. For this reason we will not go too much in detail on how to use it: most of the explanations above apply also to the "base" variant of the component, and for further details refer to the [Component API](#component-api) section on this page, or speak with one of the design system team members.
 
-Notice: when the "base" checkbox is used, the developer is completely responsible for the correct implementation of the form control, including its accessibility conformance.
+Note: when the "base" checkbox is used, the developer is completely responsible for the correct implementation of the form control, including its accessibility conformance.
 
 To give just an example, this could be an invocation of the "base" component you would use:
 

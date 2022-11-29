@@ -7,10 +7,30 @@ section: component-api
 
 Here is the API for the component:
 
-<dl class="dummy-component-props" aria-labelledby="component-api-modal"><dt>size <code>enum</code></dt><dd><p>Sets the width of the modal.</p><p>Acceptable values:</p><ol><li>small</li><li class="default">medium</li><li>large</li></ol></dd><dt>color <code>enum</code></dt><dd><p>Sets the color scheme for the modal header elements: icon, tagline and title.</p><p>Acceptable values:</p><ol><li class="default">neutral</li><li>warning</li><li>critical</li></ol></dd><dt>onOpen <code>function</code></dt><dd><p>Callback function invoked when the modal is opened.</p></dd><dt>onClose <code>function</code></dt><dd><p>Callback function invoked when the modal is closed.</p></dd><dt>isDismissDisabled <code>boolean</code></dt><dd><p>Default: <span class="default">false</span></p><p>Set this boolean to <code class="dummy-code">true</code> if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in an unsubmitted form). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.</p></dd><dt>...attributes</dt><dd><p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p></dd></dl>
+<Doc::ComponentApi as |C|><C.Property @name="size" @type="enum" @value="small medium large" @default="medium">Sets the width of the modal.</C.Property><C.Property @name="color" @type="enum" @value="neutral warning critical" @default="neutral">Sets the color scheme for the modal header elements: icon, tagline and title.</C.Property><C.Property @name="onOpen" @type="function" @value="–">Callback function invoked when the modal is opened.</C.Property><C.Property @name="onClose" @type="function" @value="–">Callback function invoked when the modal is closed.</C.Property><C.Property @name="isDismissDisabled" @type="boolean" @value="–">Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in an unsubmitted form). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
 
 #### Contextual components
 
 The title, the content of the modal dialog, and the actions are passed into the modal as yielded components, using the `Header`, `Body`, `Footer` keys.
 
-<dl class="dummy-component-props" aria-labelledby="contextual-components-modal"><dt>&lt;[M].Header&gt; <code>yielded component</code></dt><dd><p>It is a container that yields its content as the title of the modal dialog.</p><dl class="dummy-component-props"><dt>icon <code>string</code></dt><dd><p>Acceptable values: any <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">Flight</a> icon name.</p></dd><dt>tagline <code>string</code></dt><dd><p>A string that helps the user maintain context when a modal dialog is open. (Note: this is NOT the title text, but a small piece of text above the title text.)</p></dd><dt>...attributes</dt><dd><p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p></dd></dl></dd><dt>&lt;[M].Body&gt; <code>yielded component</code></dt><dd><p>It is an unstyled, generic container that yields as the main content of the modal dialog.</p><p>This container gets a scrollbar when the yielded content exceeds the available space.</p><dl class="dummy-component-props"><dt>...attributes</dt><dd><p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p></dd></dl></dd><dt>&lt;[M].Footer&gt; <code>yielded component</code></dt><dd><p>It is a container that yields its content as the footer of the modal dialog.</p><p>We recommend using it exclusively for actions using the <a href="/components/button-set/01_overview/"><code class="dummy-code">ButtonSet</code></a> component. If a tertiary action is presented, it will always be aligned at the end of the row.</p><dl class="dummy-component-props"><dt>close <code>function</code></dt><dd>A function that can be called to close the modal programmatically. This call will have the same effect as the dismiss button in the modal header.</dd><dt>...attributes</dt><dd><p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p></dd></dl></dd></dl>
+##### Modal::Header
+
+It is a container that yields its content as the title of the modal dialog.
+
+<Doc::ComponentApi as |C|><C.Property @name="icon" @type="string" @value="–">[Flight](https://flight-hashicorp.vercel.app/) icon name.</C.Property><C.Property @name="tagline" @type="string" @value="–">A string that helps the user maintain context when a modal dialog is open. (Note: this is NOT the title text, but a small piece of text above the title text.)</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
+
+##### Modal::Body
+
+It is an unstyled, generic container that yields as the main content of the modal dialog.
+
+This container gets a scrollbar when the yielded content exceeds the available space.
+
+`...attributes` spreading is supported on this component.
+
+##### Modal::Footer
+
+It is a container that yields its content as the footer of the modal dialog.
+
+We recommend using it exclusively for actions using the [`ButtonSet`](/components/button-set/01_overview/) component. If a tertiary action is presented, it will always be aligned at the end of the row.
+
+<Doc::ComponentApi as |C|><C.Property @name="close" @type="function" @value="–">–</C.Property><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component.</C.Property></Doc::ComponentApi>
