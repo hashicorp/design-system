@@ -59,4 +59,4 @@ Renders to:
 
 \[Your content here\]
 
-🚨**Important**: _this is just an example and not a recommendation: if you have any doubt about which level to use for the different states, please speak with your product designer or with the HDS team._
+**Important**: this is just an example and not a recommendation: if you have any doubt about which level to use for the different states, please speak with your product designer or with the HDS team.
