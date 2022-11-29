@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import showdown from 'showdown';
-import config from 'ember-get-config';
 
 const mapElementsToClassNames = {
   h1: 'doc-markdown-h1',
