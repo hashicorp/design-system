@@ -8,7 +8,8 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-card">
     <dt>level <code>enum</code></dt>
     <dd>
-      <p>This controls the level of elevation ("shadow" visual effect). Acceptable values:</p>
+      <p>This controls the level of elevation ("shadow" visual effect).</p>
+      <p>Acceptable values:</p>
       <ol>
         {{#each @model.CONTAINER_LEVELS as |level|}}
           <li class={{if (eq level @model.CONTAINER_DEFAULT_LEVEL) "default"}}>{{level}}</li>
@@ -22,7 +23,8 @@
     </dd>
     <dt>levelHover <code>enum</code></dt>
     <dd>
-      <p>This controls the level of elevation on <code class="dummy-code">:hover</code> state. Acceptable values:</p>
+      <p>This controls the level of elevation on <code class="dummy-code">:hover</code> state.</p>
+      <p>Acceptable values:</p>
       <ol>
         {{#each @model.CONTAINER_HOVER_LEVELS as |level|}}
           <li>{{level}}</li>
@@ -31,7 +33,8 @@
     </dd>
     <dt>levelActive <code>enum</code></dt>
     <dd>
-      <p>This controls the level of elevation on <code class="dummy-code">:active</code> state. Acceptable values:</p>
+      <p>This controls the level of elevation on <code class="dummy-code">:active</code> state.</p>
+      <p>Acceptable values:</p>
       <ol>
         {{#each @model.CONTAINER_ACTIVE_LEVELS as |level|}}
           <li>{{level}}</li>
@@ -40,7 +43,8 @@
     </dd>
     <dt>background <code>enum</code></dt>
     <dd>
-      <p>This controls the background color. Acceptable values:</p>
+      <p>This controls the background color.</p>
+      <p>Acceptable values:</p>
       <ol>
         <li class="default">neutral-primary</li>
         <li>neutral-secondary</li>
@@ -58,7 +62,8 @@
     <dd>
       <p>This controls if the main wrapper (who has a border-radius applied) has overflow = visible or hidden. We expect
         that this is needed in case part of the content (eg. a tooltip) needs to go beyond the bounding box of the card
-        itself. Acceptable values:</p>
+        itself.</p>
+      <p>Acceptable values:</p>
       <ol>
         <li class="default">hidden</li>
         <li>visible</li>
