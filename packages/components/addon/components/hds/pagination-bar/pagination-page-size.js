@@ -7,5 +7,5 @@ export default class HdsPaginationBarIndexComponent extends Component {
    *
    * @param pageSizeId
    */
-   pageSizeId = 'pagination-page-size-' + guidFor(this);
+  pageSizeId = 'pagination-page-size-' + guidFor(this);
 }
