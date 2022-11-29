@@ -50,7 +50,7 @@ export default Component.extend({
         component = class extends component.class {}
       }
 
-      componentName = `some-prefix-${templateId++}`;
+      componentName = `doc-dynamic-template-${templateId++}__${this.componentId}`;
 
       owner.register(`component:${componentName}`, component);
       owner.register(`template:components/${componentName}`, compiledTemplate);
