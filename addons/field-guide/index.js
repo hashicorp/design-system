@@ -2,9 +2,9 @@
 
 'use strict';
 
+const fs = require('fs-extra');
 const path = require('path');
 const resolve = require('resolve');
-const walkSync = require('walk-sync');
 
 const MarkdownProcessIncludeDirectives = require('./lib/markdown-process-includes');
 const MarkdownToJson = require('./lib/markdown-to-jsonapi');
@@ -106,17 +106,12 @@ module.exports = {
     return new MergeTrees([processedDocsJsonFilesTree, processedTocFiles]);
   },
 
-  urlsForPrember() {
-    // TODO! this should be based on the JSON files, not the markdown!
-    // (or even better, use the generated "flat list" of pages)
-    const content = walkSync('docs', {
-      globs: ['**/*.md'],
-    });
-
-    const staticUrls = ['/'];
-
-    const contentUrls = content.map((file) => file.replace(/\.md$/, ''));
-
-    return [...staticUrls, ...contentUrls];
+  // TODO! not sure how to test if this logic below works
+  urlsForPrember(distDir) {
+    const flatPageListJson = fs.readJsonSync(`${distDir}/toc.json`);
+    // TODO is there a way to have this list generated automatically (or exported) from the routes (`website/app/router.js`)?
+    const staticURLs = ['/', 'about', 'foundations', 'components', 'patterns'];
+    const docsURLs = flatPageListJson.map((page) => page.pageURL);
+    return [...staticURLs, ...docsURLs];
   },
 };
