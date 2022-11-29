@@ -1,0 +1,44 @@
+// ICONS-LIST > FILTER
+
+@use "../../typography/mixins" as *;
+
+
+// filter
+
+.doc-icons-list-filter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+// search
+
+.doc-icons-list-search__label {
+  @include doc-font-style-body-small();
+}
+
+.doc-icons-list-search__control {
+  position: relative;
+}
+
+.doc-icons-list-search__icon {
+  position: absolute;
+  margin: auto auto auto 8px;
+  inset: 0;
+  pointer-events: none;
+}
+
+.doc-icons-list-search__input {
+  @include doc-font-style-body();
+  width: 100%;
+  padding-left: 32px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+
+// toggle
+
+// TODO

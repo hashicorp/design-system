@@ -1,0 +1,9 @@
+<ul class="doc-icons-list-grid">
+  {{#each @icons as |meta|}}
+    <Doc::IconsList::Item @meta={{meta}} />
+  {{else}}
+    <div>
+      No icons found
+    </div>
+  {{/each}}
+</ul>

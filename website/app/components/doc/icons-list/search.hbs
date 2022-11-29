@@ -1,0 +1,15 @@
+<div class="doc-icons-list-search">
+  <label class="doc-icons-list-search__label" for="doc-input-search">Filter results</label>
+  <div class="doc-icons-list-search__control">
+    <FlightIcon class="doc-icons-list-search__icon" @name="search" />
+    <input
+      type="text"
+      name="search"
+      id="doc-input-search"
+      class="doc-icons-list-search__input"
+      placeholder="e.g. arrow"
+      value={{@searchQuery}}
+      {{on "input" (perform @onInput value="target.value")}}
+    />
+  </div>
+</div>
