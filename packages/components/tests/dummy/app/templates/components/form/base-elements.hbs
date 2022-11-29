@@ -287,48 +287,43 @@
       <p>The
         <code class="dummy-code">Control</code>
         yielded component exposes two hashed arguments:</p>
-      <dl class="dummy-component-props">
-        <dt>[C].id <code>string</code></dt>
-        <dd>
-          <p>returns the unique "id" attribute for the control element (generated automatically, unless provided using
-            the
-            <code class="dummy-code">@id</code>
-            argument described above).
-          </p>
-        </dd>
-        <dt>[C].ariaDescribedBy <code>string</code></dt>
-        <dd>
-          <p>returns the "aria-describedby" attribute for the control element (generated automatically, based on the
-            presence of the
-            <code class="dummy-code">HelperText</code>
-            an/or the
-            <code class="dummy-code">Error</code>
-            elements in the field, plus the optional
-            <code class="dummy-code">@extraAriaDescribedBy</code>
-            argument described above).</p>
-        </dd>
-      </dl>
+    </dd>
+    <dt>[C].id <code>string</code></dt>
+    <dd>
+      <p>returns the unique "id" attribute for the control element (generated automatically, unless provided using the
+        <code class="dummy-code">@id</code>
+        argument described above).
+      </p>
+    </dd>
+    <dt>[C].ariaDescribedBy <code>string</code></dt>
+    <dd>
+      <p>returns the "aria-describedby" attribute for the control element (generated automatically, based on the
+        presence of the
+        <code class="dummy-code">HelperText</code>
+        an/or the
+        <code class="dummy-code">Error</code>
+        elements in the field, plus the optional
+        <code class="dummy-code">@extraAriaDescribedBy</code>
+        argument described above).</p>
     </dd>
     <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the "error" block.</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
         style).</p>
-      <dl class="dummy-component-props">
-        <dt>[E].Message <code>yielded component</code></dt>
-        <dd>
-          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-            individual items using
-            <code class="dummy-code">Error.Message</code>.
-          </p>
-        </dd>
-      </dl>
       <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
       <p><em>Notice: the
           <code class="dummy-code">id</code>
           attribute of the
           <code class="dummy-code">Error</code>
           element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[E].Message&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+        individual items using
+        <code class="dummy-code">Error.Message</code>.
+      </p>
     </dd>
   </dl>
 
@@ -337,8 +332,7 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-form-field">
     <dt>layout <code>enum</code></dt>
     <dd>
-      <p>
-        Sets the layout of the field controls in the component.</p>
+      <p>Sets the layout of the field controls in the component.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">vertical</li>
@@ -416,37 +410,14 @@
           <code class="dummy-code">&lt;Control&gt;</code>
           container, or you can have one control per container.</em></p>
     </dd>
-    <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
-    <dd>
-      <p>It is a container that yields its content inside the "error" block (at group level).</p>
-      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
-        style).</p>
-
-      <dl class="dummy-component-props">
-        <dt>[E].Message <code>yielded component</code></dt>
-        <dd>
-          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-            individual items using
-            <code class="dummy-code">Error.Message</code>.</p>
-          <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
-          <p><em>Note:</em>
-            the
-            <code class="dummy-code">id</code>
-            attribute of the
-            <code class="dummy-code">Error</code>
-            element is automatically generated.</p>
-        </dd>
-      </dl>
-    </dd>
-
-    <dt>[F].id <code>function</code></dt>
+    <dt>[C].id <code>function</code></dt>
     <dd>
       <p>returns the unique "id" attribute for the control element (generated automatically, unless provided using the
         <code class="dummy-code">@id</code>
         argument described above).
       </p>
     </dd>
-    <dt>[F].ariaDescribedBy <code>function</code></dt>
+    <dt>[C].ariaDescribedBy <code>function</code></dt>
     <dd>
       <p>returns the "aria-describedby" attribute for the control element (generated automatically, based on the
         presence of the
@@ -456,6 +427,25 @@
         elements in the field, plus the optional
         <code class="dummy-code">@extraAriaDescribedBy</code>
         argument described above).</p>
+    </dd>
+    <dt>&lt;[F].Error&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>It is a container that yields its content inside the "error" block (at group level).</p>
+      <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
+        style).</p>
+    </dd>
+    <dt>&lt;[E].Message&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+        individual items using
+        <code class="dummy-code">Error.Message</code>.</p>
+      <p>For details about its API check the <code class="dummy-code">Form::Error</code> component.</p>
+      <p><em>Note:</em>
+        the
+        <code class="dummy-code">id</code>
+        attribute of the
+        <code class="dummy-code">Error</code>
+        element is automatically generated.</p>
     </dd>
   </dl>
 

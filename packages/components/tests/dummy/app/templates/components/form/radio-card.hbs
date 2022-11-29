@@ -150,12 +150,7 @@
     <dt>&lt;[R].Label&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content emphasized inside the card.</p>
-      <dl class="dummy-component-props">
-        <dt>...attributes</dt>
-        <dd>
-          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-        </dd>
-      </dl>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
     <dt>&lt;[R].Badge&gt;</dt>
     <dd>
@@ -168,23 +163,13 @@
     <dd>
       <p>It is a container that yields its content inside the card.</p>
       <p>The content can be a simple string or a more complex/structured one, in which case it inherits the text style.</p>
-      <dl class="dummy-component-props">
-        <dt>...attributes</dt>
-        <dd>
-          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-        </dd>
-      </dl>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
     <dt>&lt;[R].Generic&gt; <code>yielded component</code></dt>
     <dd>
       <p>It is a container that yields its content inside the card.</p>
       <p>The content does not inherit any styles and can be customized as desired.</p>
-      <dl class="dummy-component-props">
-        <dt>...attributes</dt>
-        <dd>
-          <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-        </dd>
-      </dl>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 
@@ -301,15 +286,6 @@
       <p>It is a container that yields its content inside the "error" block (at group level).</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
         style).</p>
-      <dl class="dummy-component-props">
-        <dt>[E].Message <code>yielded component</code></dt>
-        <dd>
-          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-            individual items using
-            <code class="dummy-code">Error.Message</code>.
-          </p>
-        </dd>
-      </dl>
       <p>For details about its API check the
         <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
         component.</p>
@@ -318,6 +294,13 @@
           attribute of the
           <code class="dummy-code">Error</code>
           element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[E].Message&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+        individual items using
+        <code class="dummy-code">Error.Message</code>.
+      </p>
     </dd>
   </dl>
 </section>
