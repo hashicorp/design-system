@@ -1,7 +1,6 @@
 ---
-category: about
 title: About
-description: This is the description of the "About" page
+description: This is the (missing) long description of the component, that will come from the frontmatter attributes
 ---
 
 ## Lorem ipsum dolor
