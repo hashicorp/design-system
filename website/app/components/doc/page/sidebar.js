@@ -7,7 +7,7 @@ const getTocSectionBundle = (section) => {
   const FOUNDATIONS = ['foundations'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
-  // This will be removed later
+  // this will be removed later
   const TESTING = ['testing'];
 
   if (ABOUT.includes(section)) {
@@ -21,9 +21,7 @@ const getTocSectionBundle = (section) => {
   } else if (TESTING.includes(section)) {
     return TESTING;
   } else {
-    console.log(
-      `ERROR (getTocSectionBundle): section not found for '${section}'`
-    );
+    // eg. the website "root" index page
     return [];
   }
 };
@@ -71,6 +69,6 @@ export default class DocPageSidebarComponent extends Component {
       subSectionTree[section] = this.args.toc.tree[section];
     });
 
-    return subSectionTree;
+    return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;
   }
 }
