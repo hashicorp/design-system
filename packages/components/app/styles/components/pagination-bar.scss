@@ -131,24 +131,19 @@
 
 // * Sub-component: PaginationPageSize
 // ----------------------------------------
-// TODO: refactor? (Should not reference nested component classes if possible)
 .hds-pagination-page-size {
+  display: flex;
   grid-area: right;
+  gap: 12px; // TODO: refactor
+  align-items: center;
   justify-self: flex-end;
 
-  > * {
-    display: flex;
-    gap: 12px; // TODO: refactor
-    align-items: center;
-  }
-
-  // Issue: attributes are spread on nested select element, not on the component's parent wrapper...
-  .hds-form-label {
+  > label {
     font-weight: inherit;
     font-size: inherit;
   }
 
-  .hds-form-select {
+  > select {
     height: 28px;
     margin-top: 0 !important;
     padding-top: 0;
