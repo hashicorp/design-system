@@ -52,7 +52,10 @@
     </dd>
     <dt>width <code>string</code></dt>
     <dd>
-      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>any valid CSS width (px, rem, etc)</li>
+      </ol>
       <p><em>Notice: by default the
           <code class="dummy-code">&lt;select&gt;</code>
           has an intrinsic width based on its content. If a
@@ -111,7 +114,10 @@
     </dd>
     <dt>width <code>string</code></dt>
     <dd>
-      <p>Acceptable values: any valid CSS width (px, rem, etc)</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>any valid CSS width (px, rem, etc)</li>
+      </ol>
       <p><em>Notice: by default the
           <code class="dummy-code">&lt;select&gt;</code>
           has an intrinsic width based on its content. If a
@@ -230,15 +236,6 @@
       <p>It is a container that yields its content inside the "error" block.</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
         style).</p>
-      <dl class="dummy-component-props">
-        <dt>[E].Message <code>yielded component</code></dt>
-        <dd>
-          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-            individual items using
-            <code class="dummy-code">Error.Message</code>.
-          </p>
-        </dd>
-      </dl>
       <p>For details about its API check the
         <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
         component.</p>
@@ -247,6 +244,13 @@
           attribute of the
           <code class="dummy-code">Error</code>
           element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[E].Message&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+        individual items using
+        <code class="dummy-code">Error.Message</code>.
+      </p>
     </dd>
   </dl>
 
