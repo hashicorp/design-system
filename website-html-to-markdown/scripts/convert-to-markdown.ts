@@ -46,28 +46,14 @@ async function convert() {
       const fileName = fileRelativePath.split('/').pop();
 
       // let's use a single file for testing
-      // if (fileRelativePath !== 'components/alert/01--overview.hbs') {
+      // if (fileRelativePath !== 'components/alert/partials/code/overview.hbs') {
       //   continue;
       // }
 
       // console.log(`Converting HBS file ${fileRelativePath}`);
 
       // we read the handlebars source (made of HTML + Handlebars + Markdown code) to process it
-      let hbsSource = await fs.readFile(filePath, 'utf8');
-
-      // extract the "frontmatter" block (it's in a special comment at the top of the file)
-      const frontRegex = new RegExp(/<!-- %%%\n(---\n(.|\n)*---\n)%%% -->\n/, 'm'); // https://regex101.com/r/Hv8Udw/1
-      const frontMatch = hbsSource.match(frontRegex);
-
-      let frontmatter;
-      if (frontMatch) {
-        frontmatter = frontMatch[1];
-      } else {
-        frontmatter = "---\n---\n";
-      }
-
-      // strip the special comment from the file
-      hbsSource = hbsSource.replace(frontRegex, '');
+      const hbsSource = await fs.readFile(filePath, 'utf8');
 
       // convert the file using Turndown
       const turndownService = new TurndownService({
@@ -78,12 +64,17 @@ async function convert() {
       let markdownContent;
 
       switch (fileName) {
+        // INDEX
+        // notice: the `index.hbs` file is already in markdown format, we just left the `hbs` extension so it's picked up by this script
+        case 'index.hbs':
+          markdownContent = hbsSource;
+          break
         // OVERVIEW
-        case '01--overview.hbs':
+        case 'overview.hbs':
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // COMPONENT API
-        case '02--component-api.hbs':
+        case 'component-api.hbs':
           // convert HTML to HBS syntax
           turndownService.addRule('api', {
             filter: ['api'],
@@ -99,25 +90,24 @@ async function convert() {
               return `<C.Property ${attributes.join(' ')}>${content}</C.Property>`;
             }
           })
-
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // HOW TO USE
-        case '03--how-to-use.hbs':
+        case 'how-to-use.hbs':
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // DESIGN GUIDELINES
-        case '04--design-guidelines.hbs':
+        case 'design-guidelines.hbs':
           // we skip the showcase files for now
           markdownContent = hbsSource;
           break;
         // ACCESSIBILITY
-        case '05--accessibility.hbs':
+        case 'accessibility.hbs':
           turndownService.keep(['dummy-wcag-success-criteria-list']);
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // SHOWCASE
-        case '06--showcase.hbs':
+        case 'showcase.hbs':
           // we skip the showcase files for now
           markdownContent = hbsSource;
           break;
@@ -131,7 +121,7 @@ async function convert() {
       // we use 'outputFile' instead of 'writeFile' to automatically create the sub-folders
       await fs.outputFile(
         `${destFolder}/${fileRelativePath.replace('.hbs', '.md')}`,
-        `${frontmatter}\n${markdownContent}`
+        markdownContent
       );
     }
   });

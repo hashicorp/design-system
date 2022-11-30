@@ -1,10 +1,6 @@
 ---
-order: 1
-title: Front Matter is awesome
-category: testing
+title: Page with frontmatter
 ---
-
-# Page with frontmatter
 
 This markdown file contains frontmatter.
 

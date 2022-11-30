@@ -1,3 +1,8 @@
+---
+title: More complex code
+---
+
+
 ----------------
 
 A simple inline code snippet `var foo = "bar";` like this.

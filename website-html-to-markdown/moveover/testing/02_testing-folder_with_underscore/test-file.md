@@ -1,4 +1,6 @@
-# Testing file under a folder with a name that contains an underline
+---
+title: Testing file under a folder with a name that contains an underline
+---
 
 ## 🚨🚨 THIS DOES NOT WORK 😢 🚨🚨
 

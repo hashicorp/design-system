@@ -1,5 +1,4 @@
 ---
-category: about
 title: HDS principles
 description: Consider the whole when creating the parts.
 ---
