@@ -133,12 +133,15 @@
         name, which is determined by the
         <code class="dummy-code">color</code>
         argument.</p>
-      <p>Acceptable values: any
-        <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
-          Flight</a>
-        icon name or pass
-        <code class="dummy-code">false</code>
-        for no icon.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>any
+          <a href="https://flight-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">
+            Flight</a>
+          icon name or pass
+          <code class="dummy-code">false</code>
+          for no icon.</li>
+      </ol>
     </dd>
     <dt>onDismiss <code>function</code></dt>
     <dd>
@@ -220,11 +223,11 @@
       <p>It is a very simple component that yields its content.</p>
       <p><em>Notice: generic the content will appear at the bottom, after title, description and actions, and the
           developer will need to take care of spacing, layout and styling of the custom content in this case.</em></p>
-      <p>🚨
-        <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you
-          find yourself in need to use it, we suggest to speak with the design system team to check that the solution is
-          conformant and satifies the accessibility criteria.
-        </em></p>
+      <p>
+        <strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
+        yourself in need to use it, we suggest to speak with the design system team to check that the solution is
+        conformant and satifies the accessibility criteria.
+      </p>
     </dd>
   </dl>
 
@@ -404,10 +407,9 @@
     callback function.
   </p>
   <p class="dummy-paragraph">
-    🚨
-    <em><strong>Important</strong>: the actual implementation of what happens to the alert when the callback function is
-      invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used,
-      on the specific use case, etc.).</em>
+    <strong>Important</strong>: the actual implementation of what happens to the alert when the callback function is
+    invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used,
+    on the specific use case, etc.).
   </p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -564,11 +566,11 @@
       [your content here]
     </A.Generic>
   </Hds::Alert>
-  <p class="dummy-paragraph">🚨
-    <em><strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
-      yourself in need to use it, we suggest to speak with the design system team to check that the solution is
-      conformant and satifies the accessibility criteria.
-    </em></p>
+  <p class="dummy-paragraph">
+    <strong>Important</strong>: this method should be used only in special cases and as an escape hatch. If you find
+    yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant
+    and satifies the accessibility criteria.
+  </p>
 
 </section>
 

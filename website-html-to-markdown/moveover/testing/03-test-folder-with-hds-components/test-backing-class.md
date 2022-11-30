@@ -1,4 +1,7 @@
-# Test of different ways to use the JS backing class
+---
+title: Test of different ways to use the JS backing class
+---
+
 
 ```handlebars
 <pre>this.test = {{this.test}}</pre>

@@ -11,4 +11,8 @@ Router.map(function () {
   this.route('foundations');
   this.route('components');
   this.route('patterns');
+  // this will be removed later
+  this.route('testing');
+  // this is a catch-all route that points any path not matched above to the "show" route
+  this.route('show', { path: '*path' });
 });

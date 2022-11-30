@@ -1,3 +1,7 @@
+---
+title: More complex tables
+---
+
 Tables should have bold headings and alternating shaded rows.
 
 | Artist            | Album           | Year |

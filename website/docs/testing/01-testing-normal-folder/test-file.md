@@ -1,4 +1,6 @@
-# Testing file under a single folder level with a normal name
+---
+title: Testing file under a single folder level with a normal name
+---
 
 ## ✅✅ THIS WORKS 🎉 ✅✅
 
