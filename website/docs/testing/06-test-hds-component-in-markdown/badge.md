@@ -1,4 +1,6 @@
-# Test with inline Ember component
+---
+title: Test with inline Ember component
+---
 
 <DocNpmVersion class="doc-test-markdown-basic-styling" />
 

@@ -1,3 +1,6 @@
+---
+title: Basic spacing
+---
 # Header 1
 
 This is a normal paragraph following a header. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.

@@ -1,3 +1,7 @@
+---
+title: With Ember components
+---
+
 # Test with inline Ember component
 
 Ember component directly declared in the markdown "root"

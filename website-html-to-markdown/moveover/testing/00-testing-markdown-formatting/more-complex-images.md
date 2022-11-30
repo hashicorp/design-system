@@ -1,3 +1,6 @@
+---
+title: More complex images
+---
 
 A simple small image (using markdown syntax).
 
