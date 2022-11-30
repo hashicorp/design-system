@@ -40,6 +40,12 @@ async function preprocess() {
       // we read the handlebars source (made of HTML + Handlebars code) to process it
       let hbsSource = await fs.readFile(filePath, 'utf8');
 
+      // GENERAL CHANGES
+      // ----------------------------
+      if (fileRelativePath.match(/showcase.hbs$/)) {
+        hbsSource = hbsSource.replace('@model.', 'this.');
+      }
+
       // FILE SPECIFIC CHANGES
       // ----------------------------
 
