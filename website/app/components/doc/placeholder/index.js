@@ -20,9 +20,9 @@ export default class DocPlaceholderIndexComponent extends Component {
   }
 
   /**
-   * Sets the width for the placeholder
+   * Sets the height for the placeholder
    *
-   * @param width
+   * @param height
    * @type {string}
    * @default '100%'
    */
@@ -37,7 +37,7 @@ export default class DocPlaceholderIndexComponent extends Component {
   }
 
   /**
-   * Get a style attribut to apply to the placeholder based on the other properties argument.
+   * Get a style attribute to apply to the placeholder based on the other properties argument.
    * @return {string} The style attribute to apply to the placeholder
    */
   get style() {
