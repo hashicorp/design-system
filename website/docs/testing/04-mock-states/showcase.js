@@ -18,3 +18,4 @@ export default Component.extend({
     return COLORS;
   }
 });
+ 
