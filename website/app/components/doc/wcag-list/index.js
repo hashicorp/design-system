@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export default class DocWcagListComponent extends Component {
+export default class DocWcagListIndexComponent extends Component {
   criteria = [
     {
       type: 'success-criteria',
@@ -805,4 +805,13 @@ export default class DocWcagListComponent extends Component {
       description: '',
     },
   ];
+
+  get classNames() {
+    let classes = ['doc-wcag-list'];
+
+    // add a class based on the @xxx argument
+    // classes.push(`doc-wcag-list--xxx-${this.xxx}`);
+
+    return classes.join(' ');
+  }
 }
