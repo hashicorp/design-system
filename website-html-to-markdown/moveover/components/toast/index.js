@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export default class HowToUse extends Component {
+export default class Index extends Component {
   get noop() {
     return () => {};
   }
