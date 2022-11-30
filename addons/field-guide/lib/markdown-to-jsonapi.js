@@ -1,11 +1,17 @@
+// RELEVANT LINKS
+// - https://github.com/empress/broccoli-static-site-json/blob/master/lib/markdown-to-jsonapi.js (__heavily__ inspired from)
+
+/* eslint-env node */
+
 const PersistentFilter = require('broccoli-persistent-filter');
+const { mv } = require('broccoli-stew');
 const yamlFront = require('yaml-front-matter');
 const showdown = require('showdown');
-const _ = require('lodash');
 const { Serializer } = require('jsonapi-serializer');
 const { JSDOM } = require('jsdom');
+const _ = require('lodash');
 
-class MarkDownToJsonApi extends PersistentFilter {
+class MarkdownToJsonApi extends PersistentFilter {
   constructor(folder) {
     super(folder);
     this.extensions = ['md'];
@@ -57,9 +63,13 @@ class MarkDownToJsonApi extends PersistentFilter {
     }));
 
     const baseProperties = {
-      path: this.getDestFilePath(relativePath),
-      // TODO maybe just use `this.getDestFilePath(relativePath)` here too?
-      id: relativePath.replace(/\.md$/, ''),
+      // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
+      // This ID is spread in the `route` class on the page model for "show" (`id: res.data.id`) and this becomes the "component" ID (that's my understanding)
+      // ⚠️ DON'T USE the `getDestFilePath` to generate an ID or it will cause a bug
+      // (the backing classes associated to the markdown files are not correctly loaded when "show" is generated)
+      id: relativePath.replace(/\.md$/, ''), // relativePath = 'components/alert/index.md' –> id = 'components/alert/index'
+      // this is the (relative) path of the JSON file
+      path: this.getDestFilePath(relativePath), // relativePath = 'components/alert/index.md' –> path = 'components/alert/index.json'
       // TODO! rename this property to `markdown` (more semantic)
       content: markdown,
       html,
@@ -85,4 +95,7 @@ class MarkDownToJsonApi extends PersistentFilter {
   }
 }
 
-module.exports = MarkDownToJsonApi;
+module.exports = function (funnel, folder) {
+  const jsonApiTree = new MarkdownToJsonApi(funnel);
+  return mv(jsonApiTree, folder);
+};

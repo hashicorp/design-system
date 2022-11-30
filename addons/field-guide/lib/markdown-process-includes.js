@@ -4,9 +4,10 @@
 // - https://cs.github.com/?scopeName=All+repos&scope=&q=%22broccoli-multifilter%22
 // - https://github.com/givanse/shadow-dom-v1-broccoli-example/blob/8e56e0aaeddfe77a6074f1b2d97e2ba0d35dad58/broccoli-register-elements.js
 
+/* eslint-env node */
+
 const Multifilter = require('broccoli-multifilter');
 const Funnel = require('broccoli-funnel');
-// const Merge = require('broccoli-merge-trees');
 const fs = require('fs-extra');
 const path = require('path');
 const walkSync = require('walk-sync');
@@ -99,7 +100,7 @@ module.exports = function (folder) {
 
   const processedTree = new MarkdownProcessIncludes([sourceMarkdownFunnel]);
 
-  // return new Merge([processedTree], {
+  // return new MergeTrees([processedTree], {
   //   overwrite: true,
   // });
   return processedTree;

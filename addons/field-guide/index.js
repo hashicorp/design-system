@@ -1,4 +1,5 @@
-/* eslint-disable prettier/prettier */
+/* eslint-env node */
+
 'use strict';
 
 const path = require('path');
@@ -6,10 +7,10 @@ const resolve = require('resolve');
 const walkSync = require('walk-sync');
 
 const MarkdownProcessIncludeDirectives = require('./lib/markdown-process-includes');
-const ProcessMarkdownToJson = require('./lib/broccoli-markdown-to-json');
+const MarkdownToJson = require('./lib/markdown-to-jsonapi');
+const TableOfContents = require('./lib/table-of-contents');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
-const TableOfContents = require('./lib/table-of-contents');
 
 module.exports = {
   name: require('./package').name,
@@ -17,7 +18,7 @@ module.exports = {
   config(env, config) {
     let fastboot = config.fastboot || {};
 
-    if(fastboot.hostWhitelist) {
+    if (fastboot.hostWhitelist) {
       fastboot.hostWhitelist.push(/localhost:\d+/);
     } else {
       fastboot.hostWhitelist = [/localhost:\d+/];
@@ -25,7 +26,7 @@ module.exports = {
 
     return {
       fastboot,
-    }
+    };
   },
 
   // preprocessTree(type, tree) {
@@ -41,20 +42,17 @@ module.exports = {
   // },
 
   treeForApp(tree) {
-    let backingClasses = new Funnel(
-      'docs',
-      {
-        destDir: 'components',
-        include: ['**/*.js']
-      }
-    );
+    let backingClasses = new Funnel('docs', {
+      destDir: 'components',
+      include: ['**/*.js'],
+    });
     return new MergeTrees([tree, backingClasses]);
   },
 
   included(app) {
     this.import('vendor/ember/ember-template-compiler.js');
 
-    if(!app.options['ember-prism']) {
+    if (!app.options['ember-prism']) {
       app.options['ember-prism'] = {
         // theme: 'okaidia',
 
@@ -68,11 +66,11 @@ module.exports = {
           'json',
           'markup-templating',
           'ruby',
-          'scss'
+          'scss',
         ],
 
-        plugins: ['line-numbers', 'normalize-whitespace']
-      }
+        plugins: ['line-numbers', 'normalize-whitespace'],
+      };
     }
 
     this._super.included.apply(this, arguments);
@@ -80,21 +78,25 @@ module.exports = {
 
   treeForVendor(vendor) {
     let templateCompilerTree = new Funnel(
-      path.dirname(resolve.sync('ember-source/package.json'), { basedir: this.project.root }),
+      path.dirname(resolve.sync('ember-source/package.json'), {
+        basedir: this.project.root,
+      }),
       {
         srcDir: 'dist',
-        destDir: 'ember'
+        destDir: 'ember',
       }
     );
-    return new MergeTrees([
-      vendor,
-      templateCompilerTree,
-    ].filter(Boolean));
+    return new MergeTrees([vendor, templateCompilerTree].filter(Boolean));
   },
 
-  treeForPublic: function() {
-    let processedDocsMardownFilesTree = new MarkdownProcessIncludeDirectives('docs');
-    let processedDocsJsonFilesTree = new ProcessMarkdownToJson(processedDocsMardownFilesTree, 'docs');
+  treeForPublic: function () {
+    let processedDocsMardownFilesTree = new MarkdownProcessIncludeDirectives(
+      'docs'
+    );
+    let processedDocsJsonFilesTree = new MarkdownToJson(
+      processedDocsMardownFilesTree,
+      'docs'
+    );
 
     let toc = new TableOfContents(processedDocsJsonFilesTree, {
       subdir: 'docs',
@@ -116,7 +118,7 @@ module.exports = {
 
     const staticUrls = ['/'];
 
-    const contentUrls = content.map(file => file.replace(/\.md$/, ''));
+    const contentUrls = content.map((file) => file.replace(/\.md$/, ''));
 
     return [...staticUrls, ...contentUrls];
   },
