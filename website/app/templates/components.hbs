@@ -3,10 +3,10 @@
 <Doc::Page::Stage>
   <Doc::Page::Cover @title="Components" />
   <Doc::Page::Content @breakthrough={{true}}>
-    <Doc::Cards::Deck @cols="4" @cards={{this.subTOC.components.cards}} />
-    <h2 class="doc-text-h2">{{capitalize this.subTOC.overrides.title}}</h2>
-    <Doc::Cards::Deck @cols="4" @cards={{this.subTOC.overrides.cards}} />
-    <h2 class="doc-text-h2">{{capitalize this.subTOC.utilities.title}}</h2>
-    <Doc::Cards::Deck @cols="4" @cards={{this.subTOC.utilities.cards}} />
+    <Doc::Cards::Deck @cols="4" @cards={{this.cards.components}} />
+    <h2 class="doc-text-h2">Overrides</h2>
+    <Doc::Cards::Deck @cols="4" @cards={{this.cards.overrides}} />
+    <h2 class="doc-text-h2">Utilities</h2>
+    <Doc::Cards::Deck @cols="4" @cards={{this.cards.utilities}} />
   </Doc::Page::Content>
 </Doc::Page::Stage>

@@ -1,82 +1,108 @@
-/* eslint-disable prettier/prettier */
+// RELEVANT LINKS
+// - https://github.com/empress/field-guide/blob/master/lib/table-of-contents.js (__heavily__ inspired)
+
 /* eslint-env node */
 
 const walkSync = require('walk-sync');
-const _ = require('lodash');
-const mkdirp = require('mkdirp');
 const Plugin = require('broccoli-plugin');
+const fs = require('fs-extra');
+const _ = require('lodash');
 
-const { join } = require('path');
-const { existsSync, writeFileSync } = require('fs');
+// const CATEGORIES = [
+//   'about',
+//   'overview',
+//   'getting-started',
+//   'updates',
+//   'foundations',
+//   'components',
+//   'overrides',
+//   'utilities',
+//   'patterns',
+//   'testing',
+// ];
 
-function addPages(pages, path) {
-  if(!pages.length) return;
+function getStructuredPageTree(pageList) {
+  const tree = {};
 
-  let outputPages = [];
-
-  let groups = _.groupBy(pages, item => item[0]);
-
-  // remove the grouped key
-  _.forEach(groups, (value) => {
-    value.forEach((arr) => arr.shift());
+  pageList.forEach((page) => {
+    // we have to rebuild the full structure here
+    _.set(tree, [...page.pageParents, page.pageName], page);
   });
 
-  _.forEach(groups, (value, key) => {
-    let subPages = value.filter((arr) => arr.length === 1);
-    let subSections = value.filter((arr) => arr.length > 1);
-
-
-    let newPage = {
-      id: `${path ? path + '/': ''}${key}`,
-      title: key,
-      pages: subPages.map((page) => {
-        return {
-          id: `${path ? path + '/': ''}${key}/${page}`,
-          title: page[0],
-          // pages: addPages(subSections, key)
-        }
-      })
-    };
-
-    if(subSections.length) {
-      newPage.pages = newPage.pages.concat(addPages(subSections, key));
-    }
-
-    outputPages.push(newPage);
-  })
-
-  return outputPages;
+  return tree;
 }
 
 class TableOfContents extends Plugin {
-  constructor(inputNodes, options = {}) {
-    super([inputNodes], options)
-
-    this.options = options;
+  constructor(inputNodes, folder) {
+    super([inputNodes]);
+    this.folder = folder;
   }
 
   build() {
-    this.inputPaths.forEach((dir) => {
-      const inputDir = this.options.subdir ? join(dir, this.options.subdir) : dir;
+    const inputFolder = this.inputPaths[0];
+    // const inputDir = `${dir}/${this.folder}`;
 
-      const pages = walkSync(inputDir)
-          .filter(path => path.endsWith('.json'))
-          .filter(path => path != 'all.json')
-          .map(path => path.replace(/\.json$/, ''))
-          .map(path => path.split('/'));
+    const inputFiles = walkSync(inputFolder, {
+      globs: ['**/*.json'],
+    }).map((path) => path.replace(/\.json$/, ''));
 
-      let toc = addPages(pages);
+    const flatPageList = [];
+    const structuredPageTree = {};
 
-      let outputFolder = this.options.outputDir ? join(this.outputPath, this.options.outputDir) : this.outputPath;
+    inputFiles.forEach((filePath) => {
+      // store the full file path (used to read the JSON file)
+      const fullFilePath = `${inputFolder}/${filePath}.json`;
 
-      if (!existsSync(outputFolder)) {
-        mkdirp.sync(outputFolder);
+      // strip away the "docs" folder from the file path
+      filePath = filePath.replace(/^docs\//, '');
+
+      // strip away the "index" from the file path (and remove any trailing `/`)
+      const pageURL = filePath.replace(/(\/index)?\/?$/, '');
+
+      // get the "parent" folders in an array (will be used later to build a page tree)
+      const parts = pageURL.split('/');
+      const pageName = parts.pop(); // extract the file from the path (notice: this modifies the original array, so we are left with only the "parent" folders)
+      const pageParents = parts;
+
+      // get "frontmatter" attributes
+      let pageAttributes;
+      if (fs.existsSync(fullFilePath)) {
+        const jsonData = fs.readJSONSync(fullFilePath);
+        // notice: the page attributes are quite verbose, so we select only a subset (what we really need for the TOC generation)
+        pageAttributes = _.pick(jsonData.data.attributes, ['title']);
+      } else {
+        console.log('File NOT found!', fullFilePath);
+        pageAttributes = {};
       }
 
-      writeFileSync(join(outputFolder, 'toc.json'), JSON.stringify(toc));
+      // assign a "weight" using the frontmatter value (or a default)
+      // notice: it's used for sorting criteria in the navigation
+      pageAttributes.weight = pageAttributes.weight ?? 100;
 
-      return;
-    })
+      flatPageList.push({
+        filePath,
+        pageURL,
+        pageName,
+        pageParents,
+        pageAttributes,
+      });
+    });
+
+    // notice: we pre-sort the list so we don't need to do it in the structured tree (much harder!)
+    // flatPageList = flatPageList.sort(sortPages);
+
+    flatPageList.forEach((page) => {
+      // we have to rebuild the full structure here
+      _.set(structuredPageTree, [...page.pageParents, page.pageName], page);
+    });
+
+    const toc = { flat: flatPageList, tree: structuredPageTree };
+
+    // IMPORTANT: we have to make sure the parent folders of the file exist, before writing!
+    fs.ensureDirSync(this.outputPath);
+    fs.writeJsonSync(`${this.outputPath}/toc.json`, toc);
+
+    return;
   }
 }
 

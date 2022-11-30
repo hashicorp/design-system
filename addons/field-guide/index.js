@@ -1,14 +1,16 @@
-/* eslint-disable prettier/prettier */
+/* eslint-env node */
+
 'use strict';
 
+const fs = require('fs-extra');
 const path = require('path');
 const resolve = require('resolve');
-const walkSync = require('walk-sync');
 
-const StaticSiteJson = require('broccoli-static-site-json');
+const MarkdownProcessIncludeDirectives = require('./lib/markdown-process-includes');
+const MarkdownToJson = require('./lib/markdown-to-jsonapi');
+const TableOfContents = require('./lib/table-of-contents');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
-const TableOfContents = require('./lib/table-of-contents');
 
 module.exports = {
   name: require('./package').name,
@@ -16,7 +18,7 @@ module.exports = {
   config(env, config) {
     let fastboot = config.fastboot || {};
 
-    if(fastboot.hostWhitelist) {
+    if (fastboot.hostWhitelist) {
       fastboot.hostWhitelist.push(/localhost:\d+/);
     } else {
       fastboot.hostWhitelist = [/localhost:\d+/];
@@ -24,24 +26,33 @@ module.exports = {
 
     return {
       fastboot,
-    }
+    };
   },
 
+  // preprocessTree(type, tree) {
+  //   console.log('### preprocessTree', type, tree);
+  // },
+
+  // preBuild(result) {
+  //   console.log('### preBuild result', result);
+  // },
+
+  // postBuild(result) {
+  //   console.log('### postBuild', result);
+  // },
+
   treeForApp(tree) {
-    let backingClasses = new Funnel(
-      'docs',
-      {
-        destDir: 'components',
-        include: ['**/*.js']
-      }
-    );
+    let backingClasses = new Funnel('docs', {
+      destDir: 'components',
+      include: ['**/*.js'],
+    });
     return new MergeTrees([tree, backingClasses]);
   },
 
   included(app) {
     this.import('vendor/ember/ember-template-compiler.js');
 
-    if(!app.options['ember-prism']) {
+    if (!app.options['ember-prism']) {
       app.options['ember-prism'] = {
         // theme: 'okaidia',
 
@@ -55,11 +66,11 @@ module.exports = {
           'json',
           'markup-templating',
           'ruby',
-          'scss'
+          'scss',
         ],
 
-        plugins: ['line-numbers', 'normalize-whitespace']
-      }
+        plugins: ['line-numbers', 'normalize-whitespace'],
+      };
     }
 
     this._super.included.apply(this, arguments);
@@ -67,57 +78,40 @@ module.exports = {
 
   treeForVendor(vendor) {
     let templateCompilerTree = new Funnel(
-      path.dirname(resolve.sync('ember-source/package.json'), { basedir: this.project.root }),
+      path.dirname(resolve.sync('ember-source/package.json'), {
+        basedir: this.project.root,
+      }),
       {
         srcDir: 'dist',
-        destDir: 'ember'
+        destDir: 'ember',
       }
     );
-    return new MergeTrees([
-      vendor,
-      templateCompilerTree,
-    ].filter(Boolean));
+    return new MergeTrees([vendor, templateCompilerTree].filter(Boolean));
   },
 
-  treeForPublic: function() {
-    let docs = new StaticSiteJson('docs', {
-      contentFolder: 'docs',
-      collate: true,
-      contentTypes: ['content', 'html', 'toc'],
-      // IMPORTANT: according to the documentation, the frontmatter attributes that we want to include need to be explicitly declared ¯\_(ツ)_/¯
-      // see: https://github.com/empress/broccoli-static-site-json#attributes
-      attributes: [ // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/addon/routes/show.js`
-        'category',
-        'group',
-        'component',
-        'section',
-        'layout',
-        'title',
-        'description',
-        'caption',
-        'status',
-      ],
-    });
+  treeForPublic: function () {
+    let processedDocsMardownFilesTree = new MarkdownProcessIncludeDirectives(
+      'docs'
+    );
+    let processedDocsJsonFilesTree = new MarkdownToJson(
+      processedDocsMardownFilesTree,
+      'docs'
+    );
 
-    let toc = new TableOfContents(docs, {
-      subdir: 'docs',
-    });
+    let processedTocFiles = new TableOfContents(
+      processedDocsJsonFilesTree,
+      'docs'
+    );
 
-    return new MergeTrees([
-      docs,
-      toc,
-    ]);
+    return new MergeTrees([processedDocsJsonFilesTree, processedTocFiles]);
   },
 
-  urlsForPrember() {
-    const content = walkSync('docs', {
-      globs: ['**/*.md'],
-    });
-
-    const staticUrls = ['/'];
-
-    const contentUrls = content.map(file => file.replace(/\.md$/, ''));
-
-    return [...staticUrls, ...contentUrls];
+  // TODO! not sure how to test if this logic below works
+  urlsForPrember(distDir) {
+    const flatPageListJson = fs.readJsonSync(`${distDir}/toc.json`);
+    // TODO is there a way to have this list generated automatically (or exported) from the routes (`website/app/router.js`)?
+    const staticURLs = ['/', 'about', 'foundations', 'components', 'patterns'];
+    const docsURLs = flatPageListJson.map((page) => page.pageURL);
+    return [...staticURLs, ...docsURLs];
   },
 };
