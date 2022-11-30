@@ -19,12 +19,6 @@ module.exports = function (environment) {
       // when it is created
     },
 
-    'field-guide': {
-      // IMPORTANT: the "name" is required by Field-Guide (see addon/services/head-data.js - lines 17 and 24)
-      name: 'HDS',
-      tagLine: 'HashiCorp Design System',
-    },
-
     historySupportMiddleware: true,
   };
 

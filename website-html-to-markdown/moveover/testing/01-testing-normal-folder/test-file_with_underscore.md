@@ -1,4 +1,6 @@
-# Testing file a filename that contains an underscore character
+---
+title: Testing file a filename that contains an underscore character
+---
 
 ## 🚨🚨 THIS DOES NOT WORK 😢 🚨🚨
 

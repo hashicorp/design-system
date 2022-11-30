@@ -1,4 +1,6 @@
-# Testing file under a single folder level with a number prefix and a double dash
+---
+title: Testing file under a single folder level with a number prefix and a double dash
+---
 
 ## ✅✅ THIS WORKS 🎉 ✅✅
 

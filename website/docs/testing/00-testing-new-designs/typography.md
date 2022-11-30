@@ -1,3 +1,7 @@
+---
+title: Testing new designs / Typography
+---
+
 <section class="doc-page-temp-testing-typography">
     <kbd>&lt;h1 class="doc-text-h1"&gt;</kbd>
     <h1 class="doc-text-h1">Lorem ipsum dolor sit amet</h1>

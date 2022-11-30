@@ -1,6 +1,6 @@
 # field-guide
 
-Porting of `field-guide` in HDS (as local addon)
+Porting of [`field-guide`](https://github.com/empress/field-guide/) in HDS (as local addon)
 
 
 ## Compatibility

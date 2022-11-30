@@ -1,0 +1,1 @@
+Provides consistent layout and spacing of buttons.
