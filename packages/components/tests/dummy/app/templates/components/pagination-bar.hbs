@@ -101,7 +101,7 @@
     @language="markup"
     @code="
       <Hds::PaginationBar as |P|>
-        <P.PaginationTotalCount />
+        <P.TotalCount />
         <P.Pagination />
         <P.PageSize />
       </Hds::PaginationBar>
@@ -145,7 +145,7 @@
 
   <div class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
     <h4 class="dummy-h4">TotalCount</h4>
-    <Hds::PaginationBar::PaginationTotalCount @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} />
+    <Hds::PaginationBar::TotalCount @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} />
 
     <h4 class="dummy-h4">Pagination</h4>
     <div class="dummy-paragraph">
@@ -156,7 +156,7 @@
     </div>
 
     <h4 class="dummy-h4">PageSize</h4>
-    <Hds::PaginationBar::PaginationPageSize />
+    <Hds::PaginationBar::PageSize />
   </div>
 
   <!--
@@ -167,36 +167,36 @@
 
   <h5 class="dummy-h5">Numbered</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.PaginationTotalCount />
+    <P.TotalCount />
     <P.Pagination @type="numbered" />
-    <P.PaginationPageSize />
+    <P.PageSize />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">Compact (default) with currentPage set to "3"</h5>
   <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{3}} as |P|>
-    <P.PaginationTotalCount />
+    <P.TotalCount />
     <P.Pagination @type="compact" />
-    <P.PaginationPageSize />
+    <P.PageSize />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">No TotalCount</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.Pagination @type="numbered" />
-    <P.PaginationPageSize />
+    <P.PageSize />
   </Hds::PaginationBar>
   <hr />
 
   <h5 class="dummy-h5">No PageSize</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.PaginationTotalCount />
+    <P.TotalCount />
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">TotalCount with no TotalItems</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.PaginationTotalCount @hasTotalItems={{false}} />
+    <P.TotalCount @hasTotalItems={{false}} />
     <P.Pagination @type="numbered" />
-    <P.PaginationPageSize />
+    <P.PageSize />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">Pagination only (No TotalCount or PageSize)</h5>

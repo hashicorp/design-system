@@ -1,8 +1,8 @@
 <div class="hds-pagination-bar" ...attributes>
   {{yield
     (hash
-      PaginationTotalCount=(component
-        "hds/pagination-bar/pagination-total-count"
+      TotalCount=(component
+        "hds/pagination-bar/total-count"
         hasTotalItems=@hasTotalItems
         totalItems=@totalItems
         currentPage=this.currentPage
@@ -23,9 +23,7 @@
     )
   }}
 
-  {{yield
-    (hash PaginationPageSize=(component "hds/pagination-bar/pagination-page-size" onChange=this.onPageSizeChange))
-  }}
+  {{yield (hash PageSize=(component "hds/pagination-bar/page-size" onChange=this.onPageSizeChange))}}
 </div>
 
 {{!
