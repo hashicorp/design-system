@@ -4,9 +4,9 @@
       PaginationTotalCount=(component
         "hds/pagination-bar/pagination-total-count"
         hasTotalItems=@hasTotalItems
-        itemsRangeStart=this.itemsRangeStart
-        itemsRangeEnd=this.itemsRangeEnd
         totalItems=@totalItems
+        currentPage=this.currentPage
+        itemsPerPage=this.itemsPerPage
       )
     )
   }}
@@ -24,7 +24,7 @@
   }}
 
   {{#if this.showPageSize}}
-    <Hds::PaginationBar::PaginationPageSize />
+    <Hds::PaginationBar::PaginationPageSize @onChange={{this.onPageSizeChange}} />
   {{/if}}
 </div>
 

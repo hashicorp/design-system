@@ -1,15 +1,11 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_TYPE = 'compact';
 export const TYPES = ['compact', 'numbered'];
 
 export default class HdsPaginationBarPaginationIndexComponent extends Component {
-  totalPages = this.args.totalPages ?? 0;
-  @tracked currentPage = this.args.currentPage ? this.args.currentPage : 1;
-
   /**
    * Gets the type of pagination
    *
@@ -41,20 +37,16 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
   @action
   changePage(direction) {
     if (direction === 'previous') {
-      if (this.currentPage > 1) {
-        this.currentPage--;
+      if (this.args.currentPage > 1) {
         let { onPageChange } = this.args;
         if (typeof onPageChange === 'function') {
-          onPageChange(this.currentPage);
+          onPageChange(this.args.currentPage - 1);
         }
       }
-    } else {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-        let { onPageChange } = this.args;
-        if (typeof onPageChange === 'function') {
-          onPageChange(this.currentPage);
-        }
+    } else if (this.args.currentPage < this.args.totalPages) {
+      let { onPageChange } = this.args;
+      if (typeof onPageChange === 'function') {
+        onPageChange(this.args.currentPage + 1);
       }
     }
   }

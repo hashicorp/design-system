@@ -8,8 +8,8 @@
     @direction="previous"
     @type={{this.type}}
     @onClick={{this.changePage}}
-    @currentPage={{this.currentPage}}
-    @totalPages={{this.totalPages}}
+    @currentPage={{@currentPage}}
+    @totalPages={{@totalPages}}
   />
 
   {{#if (eq this.type "numbered")}}
@@ -59,7 +59,7 @@
     @direction="next"
     @type={{this.type}}
     @onClick={{this.changePage}}
-    @currentPage={{this.currentPage}}
-    @totalPages={{this.totalPages}}
+    @currentPage={{@currentPage}}
+    @totalPages={{@totalPages}}
   />
 </nav>
