@@ -95,7 +95,9 @@ export default class ShowRoute extends Route {
         const hasSidecar = frontmatter?.layout?.sidecar ?? true;
 
         return {
-          id: res.data.id,
+          // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
+          // This ID comes from the markdown-to-json conversion (see `id: relativePath.replace(/\.md$/, '')` in `addons/field-guide/lib/markdown-to-jsonapi.js`)
+          id: res.data.id, // eg. 'components/alert/index'
           ...res.data.attributes,
           frontmatter,
           hasCover,
