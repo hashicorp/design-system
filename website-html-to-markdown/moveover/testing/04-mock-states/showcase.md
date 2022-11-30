@@ -1,4 +1,6 @@
-# Tag / Showcase
+---
+title: Mock states (Tag / Showcase)
+---
 
 <section data-test-percy>
   <h4 class="dummy-h4">Content</h4>

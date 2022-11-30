@@ -1,4 +1,6 @@
-# Test showcase with "mock" state set via DOM manipulation at runtime
+---
+title: Test showcase with "mock" state set via DOM manipulation at runtime
+---
 
 <section data-test-percy>
   <h4 class="dummy-h4">Content</h4>

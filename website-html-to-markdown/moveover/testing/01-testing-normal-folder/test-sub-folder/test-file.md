@@ -1,4 +1,6 @@
-# Testing file within a sub-folder
+---
+title: Testing file within a sub-folder
+---
 
 ## ✅✅ THIS WORKS 🎉 ✅✅
 
