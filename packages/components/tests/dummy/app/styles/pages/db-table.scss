@@ -1,0 +1,37 @@
+// TABLE
+
+.db-table-text-right {
+  text-align: right !important;
+}
+
+// align table cell content for icon plus text in cell
+.db-table-cell-content-div {
+  display: flex;
+  align-items: center;
+
+  .flight-icon {
+    flex: none;
+    margin-right: 5px;
+  }
+}
+
+// some custom width utility classes like cloud-ui already uses
+.db-table-w1-3 {
+  width: 33.333333%;
+}
+
+.db-table-w1-4 {
+  width: 25%;
+}
+
+.db-table-w1-5 {
+  width: 20%;
+}
+
+.db-table-w1-7 {
+  width: 15%;
+}
+
+.db-table-w1-10 {
+  width: 10%;
+}

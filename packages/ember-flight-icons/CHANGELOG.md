@@ -1,5 +1,14 @@
 # @hashicorp/ember-flight-icons
 
+## 3.0.2
+
+### Patch Changes
+
+- [#715](https://github.com/hashicorp/design-system/pull/715) [`aeff4e02`](https://github.com/hashicorp/design-system/commit/aeff4e02e3c5c738104be326569c110dc2f79618) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - remove `ember-test-selectors` peerDependency
+
+- Updated dependencies [[`f9c22874`](https://github.com/hashicorp/design-system/commit/f9c22874ab24db25ee347c95e5c26dc0055a642e), [`b95f448a`](https://github.com/hashicorp/design-system/commit/b95f448a31cc138436caf0aae332139c5129d9dc)]:
+  - @hashicorp/flight-icons@2.12.0
+
 ## 3.0.1
 
 ### Patch Changes

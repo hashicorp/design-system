@@ -84,15 +84,20 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/link/standalone');
     await percySnapshot('Link Standalone');
 
+    await visit('/components/modal');
+    await percySnapshot('Modal');
+
+    await visit('/components/table');
+    await percySnapshot('Table');
+
+    await visit('/components/tabs');
+    await percySnapshot('Tabs');
+
     await visit('/components/tag');
     await percySnapshot('Tag');
 
     await visit('/components/toast');
     await percySnapshot('Toast');
-
-    await visit('/components/tabs');
-    await click('button#dummy-toggle-highlight');
-    await percySnapshot('Tabs');
 
     await visit('/components/stepper');
     await percySnapshot('Stepper - Indicator');

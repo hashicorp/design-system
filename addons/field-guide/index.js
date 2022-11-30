@@ -91,10 +91,11 @@ module.exports = {
         'group',
         'component',
         'section',
+        'layout',
         'title',
         'description',
         'caption',
-        'status'
+        'status',
       ],
     });
 

@@ -1,5 +1,5 @@
 ---
-title: Form::Toggle
+title: Form / Toggle
 category: components
 group: form
 component: toggle

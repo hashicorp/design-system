@@ -134,15 +134,6 @@
       <p>It is a container that yields its content inside the "error" block.</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
         style).</p>
-      <dl class="dummy-component-props">
-        <dt>[E].Message <code>yielded component</code></dt>
-        <dd>
-          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-            individual items using
-            <code class="dummy-code">Error.Message</code>.
-          </p>
-        </dd>
-      </dl>
       <p>For details about its API check the
         <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
         component.</p>
@@ -151,6 +142,13 @@
           attribute of the
           <code class="dummy-code">Error</code>
           element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[E].Message&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+        individual items using
+        <code class="dummy-code">Error.Message</code>.
+      </p>
     </dd>
   </dl>
   <h4 class="dummy-h4">Form::Toggle::Group</h4>
@@ -233,15 +231,6 @@
       <p>It is a container that yields its content inside the "error" block (at group level).</p>
       <p>The content can be a simple string, or a more complex/structured one (in which case it inherits the text
         style).</p>
-      <dl class="dummy-component-props">
-        <dt>[E].Message <code>yielded component</code></dt>
-        <dd>
-          <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
-            individual items using
-            <code class="dummy-code">Error.Message</code>.
-          </p>
-        </dd>
-      </dl>
       <p>For details about its API check the
         <LinkTo @route="components.form.base-elements"><code class="dummy-code">Form::Error</code></LinkTo>
         component.</p>
@@ -250,6 +239,13 @@
           attribute of the
           <code class="dummy-code">Error</code>
           element is automatically generated.</em></p>
+    </dd>
+    <dt>&lt;[E].Message&gt; <code>yielded component</code></dt>
+    <dd>
+      <p>If the error is made of multiple messages, you can iterate over a collection of error messages yielding
+        individual items using
+        <code class="dummy-code">Error.Message</code>.
+      </p>
     </dd>
   </dl>
 </section>
@@ -426,7 +422,7 @@
 
   <h5 class="dummy-h5">Validation</h5>
   <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
-    Notice: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we
+    Note: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we
     provide is the visual representation of an invalid state of the field at UI level. When and how to provide this
     visual feedback to the user is responsibility left to the developer.</p>
   <p class="dummy-paragraph">To show the user that their input is not valid, you have to provide an error message (using
@@ -625,8 +621,8 @@
     section on this page, or speak with one of the design system team members.
   </p>
   <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
-    Notice: when the "base" toggle is used, the developer is completely responsible for the correct implementation of
-    the form control, including its accessibility conformance.</p>
+    Note: when the "base" toggle is used, the developer is completely responsible for the correct implementation of the
+    form control, including its accessibility conformance.</p>
   <p class="dummy-paragraph">To give just an example, this could be an invocation of the "base" component you would use:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}

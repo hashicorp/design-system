@@ -20,7 +20,7 @@ Renders to:
 
 Title here Description here
 
-🚨 _**Important**: the actual implementation of what happens to the alert when the `onDismiss` function is invoked is left to the developer._
+**Important**: the actual implementation of what happens to the alert when the `onDismiss` function is invoked is left to the developer.
 
 If needed, you can pass only `title` or only `text` as argument.
 
@@ -166,4 +166,4 @@ Renders to:
 
 Title here Description here \[your content here\]
 
-🚨 _**Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria._
+**Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria.

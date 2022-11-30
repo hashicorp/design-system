@@ -1,5 +1,5 @@
 ---
-title: Form::Radio
+title: Form / Radio
 category: components
 group: form
 component: radio
