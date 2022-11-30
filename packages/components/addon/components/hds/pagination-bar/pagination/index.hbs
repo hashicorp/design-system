@@ -4,7 +4,7 @@
   aria-label="Pagination navigation"
   ...attributes
 >
-  <Hds::PaginationBar::Pagination::PaginationNavButton
+  <Hds::PaginationBar::Pagination::NavButton
     @direction="previous"
     @type={{this.type}}
     @onClick={{this.changePage}}
@@ -55,7 +55,7 @@
     </ul>
   {{/if}}
 
-  <Hds::PaginationBar::Pagination::PaginationNavButton
+  <Hds::PaginationBar::Pagination::NavButton
     @direction="next"
     @type={{this.type}}
     @onClick={{this.changePage}}

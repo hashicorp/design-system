@@ -4,6 +4,8 @@
 
 @use "../mixins/focus-ring" as *;
 
+$pagination-height: calc(36px + 6px);
+
 // * Pagination Parent (wrapper) component
 // ----------------------------------------
 .hds-pagination-bar {
@@ -12,8 +14,7 @@
   grid-template-rows: auto;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  // justify-content: space-between;
-  height: calc(36px + 6px);
+  height: $pagination-height;
   margin: 20px auto;
   color: var(--token-color-foreground-primary);
   // font-size: var(--token-typography-body-300-font-size); // = 1rem, not same as 13px, TODO: investigate
@@ -26,7 +27,7 @@
 }
 
 // * Sub-component: TotalCount
-
+// ---------------------------------------
 .hds-pagination-total-count {
   grid-area: left;
   justify-self: flex-start;
@@ -66,17 +67,20 @@
     $bottom: 5px,
     $left: 5px,
   );
+  height: $pagination-height;
   color: inherit;
   font: inherit;
   text-decoration: none;
   background: transparent;
   border: none;
 
-  &:hover {
+  &:hover,
+  &.mock-hover {
     color: var(--token-color-foreground-action-hover);
   }
 
-  &:active {
+  &:active,
+  &.mock-active {
     color: var(--token-color-foreground-action-active);
   }
 
