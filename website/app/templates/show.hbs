@@ -1,0 +1,15 @@
+<HeadLayout />
+<Doc::Page::Stage>
+  {{#if this.model.hasCover}}
+    <Doc::Page::Cover @title={{this.title}} @description={{this.description}} />
+  {{/if}}
+  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}}>
+    <DynamicTemplate
+      @templateString={{this.renderedContent}}
+      @componentId={{this.model.id}}
+    />
+  </Doc::Page::Content>
+  {{#if this.model.hasSidecar}}
+    <Doc::Page::Sidecar />
+  {{/if}}
+</Doc::Page::Stage>

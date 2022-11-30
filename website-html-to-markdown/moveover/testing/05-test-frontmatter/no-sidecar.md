@@ -1,7 +1,5 @@
 ---
-order: 1
 title: Page with no sidecar
-category: testing
 layout:
   sidecar: false
 ---

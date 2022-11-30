@@ -1,4 +1,6 @@
-# Testing file number prefix and an underscore in both the markdown and the javascript file
+---
+title: Testing file number prefix and an underscore in both the markdown and the javascript file
+---
 
 ## 🚨🚨 THIS DOES NOT WORK 😢 🚨🚨
 

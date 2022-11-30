@@ -12,3 +12,4 @@ node_modules/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+*.vscode/settings.json
