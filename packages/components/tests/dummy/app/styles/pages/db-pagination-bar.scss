@@ -1,5 +1,11 @@
 // PAGINATIONBAR
 
 .dummy-pagination-layout-highlight {
-  [class*="hds-"] { outline: 1px dashed #78909c; }
+  li,
+  > [class*="hds-"],
+  > * > [class*="hds-"],
+  > * > * > [class*="hds-"] {
+    width: max-content;
+    outline: 1px dashed #78909c;
+  }
 }

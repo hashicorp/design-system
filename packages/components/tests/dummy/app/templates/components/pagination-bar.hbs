@@ -159,14 +159,8 @@
     <Hds::PaginationBar::PaginationPageSize />
   </div>
 
-  <!-- WIP: Example of eventual desired structure
-  <Hds::PaginationBar as |P|>
-    <P.PaginationTotalCount @hasTotalItems={{false}} />
-    <P.Pagination @type="numbered" />
-    <P.PageSize />
-  </Hds::PaginationBar>
-
-  TODO: Add Prev/Next buttons (PaginationNavButton) examples with different variants and states
+  <!--
+    TODO: Add Prev/Next buttons (PaginationNavButton) examples with different variants and states
   -->
 
   <h4 class="dummy-h4">PaginationBar with sub-components</h4>
@@ -175,22 +169,25 @@
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.PaginationTotalCount />
     <P.Pagination @type="numbered" />
+    <P.PaginationPageSize />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">Compact (default) with currentPage set to "3"</h5>
   <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{3}} as |P|>
     <P.PaginationTotalCount />
     <P.Pagination @type="compact" />
+    <P.PaginationPageSize />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">No TotalCount</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.Pagination @type="numbered" />
+    <P.PaginationPageSize />
   </Hds::PaginationBar>
   <hr />
 
   <h5 class="dummy-h5">No PageSize</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} @showPageSize={{false}} as |P|>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.PaginationTotalCount />
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
@@ -199,10 +196,11 @@
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.PaginationTotalCount @hasTotalItems={{false}} />
     <P.Pagination @type="numbered" />
+    <P.PaginationPageSize />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">Pagination only (No TotalCount or PageSize)</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} @showPageSize={{false}} as |P|>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 </section>

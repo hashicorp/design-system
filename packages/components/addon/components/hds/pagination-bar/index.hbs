@@ -23,9 +23,9 @@
     )
   }}
 
-  {{#if this.showPageSize}}
-    <Hds::PaginationBar::PaginationPageSize @onChange={{this.onPageSizeChange}} />
-  {{/if}}
+  {{yield
+    (hash PaginationPageSize=(component "hds/pagination-bar/pagination-page-size" onChange=this.onPageSizeChange))
+  }}
 </div>
 
 {{!
@@ -56,12 +56,6 @@
 APIs
 ------
 PaginationBar:
-  X showTotalCount ?) =
-    true (default)
-    false
-  X showPageSize =
-    true (default)
-    false
 
 TotalCount:
   X hasTotalItems=

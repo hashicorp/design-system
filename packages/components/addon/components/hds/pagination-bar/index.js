@@ -14,28 +14,6 @@ export default class HdsPaginationBarIndexComponent extends Component {
   );
   @tracked currentPage = this.args.currentPage ?? 1;
 
-  /**
-   * Shows the TotalCount if true
-   *
-   * @param showTotalCount
-   * @type {boolean}
-   * @default true
-   */
-  get showTotalCount() {
-    return this.args.showTotalCount ?? true;
-  }
-
-  /**
-   * Shows the PageSize if true
-   *
-   * @param showPageSize
-   * @type {boolean}
-   * @default true
-   */
-  get showPageSize() {
-    return this.args.showPageSize ?? true;
-  }
-
   @action
   onPageChange(newPage) {
     this.currentPage = newPage;
