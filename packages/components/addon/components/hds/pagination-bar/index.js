@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-// import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 

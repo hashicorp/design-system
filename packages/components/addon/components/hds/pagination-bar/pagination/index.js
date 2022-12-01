@@ -34,6 +34,16 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return this.type === 'compact';
   }
 
+  get pages() {
+    let pages = [];
+
+    for (let i = 1; i <= this.args.totalPages; i++) {
+      pages.push(i);
+    }
+
+    return pages;
+  }
+
   @action
   changePage(direction) {
     if (direction === 'previous') {
