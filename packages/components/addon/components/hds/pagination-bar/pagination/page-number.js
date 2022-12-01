@@ -8,12 +8,10 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
 
   @action
   onClick() {
-    if (this.args.page !== this.args.currentPage) {
-      let { onClick } = this.args;
+    let { onClick } = this.args;
 
-      if (typeof onClick === 'function') {
-        onClick(this.args.page);
-      }
+    if (typeof onClick === 'function') {
+      onClick(this.args.page);
     }
   }
 }
