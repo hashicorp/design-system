@@ -19,11 +19,6 @@ $pagination-height: calc(36px + 6px);
   color: var(--token-color-foreground-primary);
   // font-size: var(--token-typography-body-300-font-size); // = 1rem, not same as 13px, TODO: investigate
   font-size: 13px;
-  outline: 2px dashed skyblue;
-
-  > * {
-    outline: 2px dashed hotpink;
-  }
 }
 
 // * Sub-component: TotalCount
