@@ -1,4 +1,3 @@
-{{! PAGINATION SUB-COMPONENT }}
 <nav
   class="hds-pagination hds-typography-body-200 hds-font-weight-medium"
   aria-label="Pagination navigation"
@@ -14,44 +13,13 @@
 
   {{#if (eq this.type "numbered")}}
     <ul class="hds-pagination__page-list">
-      <li class="hds-pagination__page-selected">
-        <Hds::Interactive
-          class="hds-pagination__page-link"
-          @href="/page-1"
-          aria-current="page"
-          @isHrefExternal={{false}}
-        >
-          <span class="sr-only">page </span>1
-        </Hds::Interactive>
-      </li>
-      <li>
-        <Hds::Interactive class="hds-pagination__page-link" @href="/page-2" @isHrefExternal={{false}}>
-          <span class="sr-only">page </span>2
-        </Hds::Interactive>
-      </li>
-      <li>
-        <Hds::Interactive class="hds-pagination__page-link" @href="/page-3" @isHrefExternal={{false}}>
-          <span class="sr-only">page </span>3
-        </Hds::Interactive>
-      </li>
-      <li>
-        <Hds::Interactive class="hds-pagination__page-link" @href="/page-4" @isHrefExternal={{false}}>
-          <span class="sr-only">page </span>4
-        </Hds::Interactive>
-      </li>
-      <li>
-        <Hds::Interactive class="hds-pagination__page-link" @href="/page-5" @isHrefExternal={{false}}>
-          <span class="sr-only">page </span>5
-        </Hds::Interactive>
-      </li>
-      <li>
-        <span class="hds-pagination__ellipsis">...</span>
-      </li>
-      <li>
-        <Hds::Interactive class="hds-pagination__page-link" @href="/page-10" @isHrefExternal={{false}}>
-          <span class="sr-only">page </span>10
-        </Hds::Interactive>
-      </li>
+      {{#each this.pages as |page|}}
+        <Hds::PaginationBar::Pagination::PageNumber
+          @page={{page}}
+          @currentPage={{@currentPage}}
+          @onClick={{this.selectPage}}
+        />
+      {{/each}}
     </ul>
   {{/if}}
 

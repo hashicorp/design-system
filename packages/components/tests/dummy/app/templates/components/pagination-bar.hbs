@@ -318,8 +318,15 @@
     <P.PageSize />
   </Hds::PaginationBar>
 
-  <h5 class="dummy-h5">Compact (default) with currentPage set to "3"</h5>
-  <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{3}} as |P|>
+  <h5 class="dummy-h5">Numbered with currentPage set to "3"</h5>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{3}} as |P|>
+    <P.TotalCount />
+    <P.Pagination @type="numbered" />
+    <P.PageSize />
+  </Hds::PaginationBar>
+
+  <h5 class="dummy-h5">Compact (default)</h5>
+  <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
     <P.Pagination @type="compact" />
     <P.PageSize />

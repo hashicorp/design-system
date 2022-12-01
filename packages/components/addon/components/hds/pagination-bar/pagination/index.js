@@ -34,6 +34,16 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return this.type === 'compact';
   }
 
+  get pages() {
+    let pages = [];
+
+    for (let i = 1; i <= this.args.totalPages; i++) {
+      pages.push(i);
+    }
+
+    return pages;
+  }
+
   @action
   changePage(direction) {
     if (direction === 'previous') {
@@ -47,6 +57,16 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
       let { onPageChange } = this.args;
       if (typeof onPageChange === 'function') {
         onPageChange(this.args.currentPage + 1);
+      }
+    }
+  }
+
+  @action
+  selectPage(page) {
+    if (page !== this.args.currentPage) {
+      let { onPageChange } = this.args;
+      if (typeof onPageChange === 'function') {
+        onPageChange(page);
       }
     }
   }
