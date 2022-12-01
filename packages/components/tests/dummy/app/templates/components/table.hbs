@@ -775,38 +775,6 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table, internationalized column labels, some columns sortable.
-  </h4>
-  <Hds::Table
-    @model={{this.model.data}}
-    @columns={{array
-      (hash key="artist" label=(t "components.table.headers.artist"))
-      (hash key="album" label=(t "components.table.headers.album"))
-      (hash key="year" label=(t "components.table.headers.year"))
-      (hash key="other" label=(t "global.titles.other"))
-    }}
-    @sortingKeys={{array "artist" "album" "year"}}
-    @valign="middle"
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-        <B.Td>
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-            <dd.Interactive @route="components.table" @text="Create" />
-            <dd.Interactive @route="components.table" @text="Read" />
-            <dd.Interactive @route="components.table" @text="Update" />
-            <dd.Separator />
-            <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
-          </Hds::Dropdown>
-        </B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
     Sortable table, some columns sortable, artist column pre-sorted in descending order.
   </h4>
   <Hds::Table
