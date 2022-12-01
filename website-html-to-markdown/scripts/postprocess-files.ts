@@ -33,8 +33,14 @@ async function postprocess() {
       // GLOBAL CHANGES
       // ----------------------------
 
+      // <DummyPlaceholder> → <Doc::Placeholder>
       markdownSource = markdownSource.replace(/<DummyPlaceholder/g, '<Doc::Placeholder');
       markdownSource = markdownSource.replace(/<\/DummyPlaceholder/g, '</Doc::Placeholder');
+
+      // <dummywcagsuccesscriterialist> → <Doc::WcagList>
+      markdownSource = markdownSource.replace(/<dummywcagsuccesscriterialist data-list="(.*)">WCAG<\/dummywcagsuccesscriterialist>/g, (_match, list) => {
+        return `<Doc::WcagList @criteriaList={{array "${list.split('|').join('" "')}" }} />\n`;
+      });
 
       await fs.writeFile(filePath, markdownSource);
     }

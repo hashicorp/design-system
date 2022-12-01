@@ -103,7 +103,7 @@ async function convert() {
           break;
         // ACCESSIBILITY
         case 'accessibility.hbs':
-          turndownService.keep(['dummy-wcag-success-criteria-list']);
+          turndownService.keep(['dummywcagsuccesscriterialist']);
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // SHOWCASE

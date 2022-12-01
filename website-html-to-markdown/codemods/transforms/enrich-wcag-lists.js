@@ -102,17 +102,13 @@ module.exports = function ({ source /*, path */ }, { parse, visit }) {
               criteria.push({ href, id});
             }
           });
-          // console.log('\nAAA\n', criteria.map(item => item.id).join('|'), '\n');
-
-          // update the class name of the `<ul>` element (this also prevents an infinite loop)
-          node.attributes[0].value.chars = 'dummy-wcag-success-criteria-list';
 
           const nl = build.text('\n');
 
           const customComponentNode = build.element(
-            { name: 'Dummy-Wcag-Success-Criteria-List', selfClosing: false },
+            { name: 'dummywcagsuccesscriterialist', selfClosing: false },
             {
-              children: [ build.text('Placeholder for the WCAG Success Criteria List component - Don\'t delete!') ],
+              children: [ build.text('WCAG') ],
               attrs: [
                 // use this one if we need just the ID of the criteria
                 build.attr('data-list', build.text(`${criteria.map(item => item.id).join('|')}`)),
@@ -126,7 +122,7 @@ module.exports = function ({ source /*, path */ }, { parse, visit }) {
             build.element(
               { name: 'div', selfClosing: false },
               {
-                children: [nl, nl, customComponentNode, nl, nl, node, nl],
+                children: [nl, nl, customComponentNode, nl],
               }
             ),
           ];
