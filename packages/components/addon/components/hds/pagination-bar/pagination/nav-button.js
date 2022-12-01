@@ -1,7 +1,6 @@
 // TODO: Test button in isolation (the API, the UI, the interaction)
 
 import Component from '@glimmer/component';
-// import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 
 export const DIRECTIONS = ['next', 'previous'];

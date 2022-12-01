@@ -14,11 +14,11 @@
   {{#if (eq this.type "numbered")}}
     <ul class="hds-pagination__page-list">
       {{#each this.pages as |page|}}
-        <li class={{if (eq page @currentPage) "hds-pagination__page-selected" null}}>
-          <Hds::Interactive class="hds-pagination__page-link" aria-selected={{if (eq page @currentPage) "page" null}}>
-            <span class="sr-only">page </span>{{page}}
-          </Hds::Interactive>
-        </li>
+        <Hds::PaginationBar::Pagination::PageNumber
+          @page={{page}}
+          @currentPage={{@currentPage}}
+          @onClick={{this.selectPage}}
+        />
       {{/each}}
     </ul>
   {{/if}}

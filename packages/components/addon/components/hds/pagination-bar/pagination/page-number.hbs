@@ -1,0 +1,10 @@
+<li class={{if this.isSelected "hds-pagination__page-selected" null}}>
+  <Hds::Interactive
+    class="hds-pagination__page-link"
+    aria-selected={{if this.isSelected "page" null}}
+    {{on "click" this.onClick}}
+    @onClick={{@onClick}}
+  >
+    <span class="sr-only">page </span>{{@page}}
+  </Hds::Interactive>
+</li>

@@ -60,4 +60,14 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
       }
     }
   }
+
+  @action
+  selectPage(page) {
+    if (page !== this.args.currentPage) {
+      let { onPageChange } = this.args;
+      if (typeof onPageChange === 'function') {
+        onPageChange(page);
+      }
+    }
+  }
 }
