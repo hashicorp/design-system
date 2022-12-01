@@ -1,10 +1,11 @@
 // PAGINATIONBAR
 
 .dummy-pagination-layout-highlight {
-  li,
-  > [class*="hds-"],
-  > * > [class*="hds-"],
-  > * > * > [class*="hds-"] {
+  .hds-pagination-total-count,
+  .hds-pagination,
+  .hds-pagination__page-link,
+  .hds-pagination__ellipsis,
+  .hds-pagination-page-size {
     width: max-content;
     outline: 1px dashed #78909c;
   }
