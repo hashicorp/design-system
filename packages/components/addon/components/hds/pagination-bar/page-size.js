@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsPaginationBarIndexComponent extends Component {
+export default class HdsPaginationBarPageSizeComponent extends Component {
   /**
    * Generates a unique ID for the pageSize select
    *
