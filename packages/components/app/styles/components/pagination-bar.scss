@@ -138,8 +138,8 @@ $pagination-height: calc(36px + 6px);
   justify-self: flex-end;
 
   > label {
-    font-weight: inherit;
-    font-size: inherit;
+    font-size: inherit; // TODO: look into removing/replacing
+    white-space: nowrap;
   }
 
   > select {
