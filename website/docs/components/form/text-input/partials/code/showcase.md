@@ -22,7 +22,7 @@
   </div>
   <h5 class="dummy-h5">Types (native)</h5>
   <div class="dummy-form-text-input-types-grid">
-    {{#each @model.TYPES as |type|}}
+    {{#each this.TYPES as |type|}}
       <div>
         <span class="dummy-text-small">{{capitalize type}}:</span>
         <br />

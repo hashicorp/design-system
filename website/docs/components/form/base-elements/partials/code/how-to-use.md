@@ -70,7 +70,7 @@ To implement additional nested components within the helper text, use the block 
 ```handlebars
 <Hds::Form::HelperText @controlId="control-ID">
   Some text with a
-  <Hds::Link::Inline @route="components.link.inline">Hds::Link::Inline</Hds::Link::Inline>,
+  <Hds::Link::Inline @route="show" @model="components/link/inline">Hds::Link::Inline</Hds::Link::Inline>,
   or <code>some formatted code</code> or a <strong>strong message</strong>.
 </Hds::Form::HelperText>
 ```

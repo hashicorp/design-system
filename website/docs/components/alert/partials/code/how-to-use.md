@@ -116,7 +116,7 @@ Actions can optionally be passed to component using one of the suggested `Button
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." />
+  <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="components" />
   <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" @href="#" />
 </Hds::Alert>
 ```

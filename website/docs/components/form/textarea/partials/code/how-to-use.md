@@ -177,7 +177,7 @@ This can be useful in case you want to add specific native behaviors to the fiel
 Thanks to the `...attributes` spreading over the `<textarea>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
 
 ```handlebars
-<Hds::Form::Textarea::Field placeholder="Workspace description" {{on "blur" myAction}} as |F|>
+<Hds::Form::Textarea::Field placeholder="Workspace description" {{on "blur" this.yourOnBlurFunction}} as |F|>
   <F.Label>Email</F.Label>
 </Hds::Form::Textarea::Field>
 ```
@@ -216,7 +216,7 @@ To give just an example, this could be an invocation of the "base" component you
   aria-label="Short description"
   placeholder="Workspace description"
   @isRequired={{true}}
-  {{on "blur" myAction}}
+  {{on "blur" this.yourOnBlurFunction}}
 />
 ```
 

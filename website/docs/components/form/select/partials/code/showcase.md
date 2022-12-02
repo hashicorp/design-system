@@ -19,7 +19,7 @@
   <div class="dummy-form-select-grid-sample">
     {{#let (array "base" "invalid" "disabled") as |variants|}}
       {{#each variants as |variant|}}
-        {{#each @model.STATES as |state|}}
+        {{#each this.STATES as |state|}}
           {{! template-lint-disable simple-unless }}
           {{#unless (and (eq variant "disabled") (eq state "focus"))}}
             <div>

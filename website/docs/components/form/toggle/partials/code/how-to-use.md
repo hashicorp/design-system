@@ -155,7 +155,7 @@ This can be useful in case you want to add specific native behaviors to the fiel
 Thanks to the `...attributes` spreading over the `<input type="checkbox">` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
 
 ```handlebars
-<Hds::Form::Toggle::Field {{on "change" myAction}} as |F|>
+<Hds::Form::Toggle::Field {{on "change" this.yourOnChangeFunction}} as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Toggle::Field>
 ```
@@ -205,7 +205,7 @@ To give just an example, this could be an invocation of the "base" component you
   name="enable-cost-estimation"
   aria-label="Enable cost estimation"
   @value="enable"
-  {{on "change" myAction}}
+  {{on "change" this.yourOnChangeFunction}}
 />
 ```
 

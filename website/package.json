@@ -34,6 +34,7 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@hashicorp/design-system-components": "workspace:^",
+    "@hashicorp/design-system-tokens": "workspace:^",
     "@hashicorp/ember-flight-icons": "workspace:^",
     "@hashicorp/field-guide": "*",
     "babel-eslint": "^10.1.0",

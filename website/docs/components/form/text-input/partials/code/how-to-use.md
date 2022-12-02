@@ -197,7 +197,7 @@ This can be useful in case you want to add specific native behaviors to the fiel
 Thanks to the `...attributes` spreading over the `<input>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
 
 ```handlebars
-<Hds::Form::TextInput::Field @type="email" placeholder="eg. name.surname@email.com" {{on "blur" myAction}} as |F|>
+<Hds::Form::TextInput::Field @type="email" placeholder="eg. name.surname@email.com" {{on "blur" this.yourOnBlurFunction}} as |F|>
   <F.Label>Email</F.Label>
 </Hds::Form::TextInput::Field>
 ```
@@ -237,7 +237,7 @@ To give just an example, this could be an invocation of the "base" component you
   aria-label="User email"
   placeholder="eg. name.surname@email.com"
   @isRequired={{true}}
-  {{on "blur" myAction}}
+  {{on "blur" this.yourOnBlurFunction}}
 />
 ```
 

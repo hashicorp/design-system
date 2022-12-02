@@ -4,8 +4,8 @@
   <div class="dummy-tag-base-sample">
     <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
     <Hds::Tag @text="My text tag" />
-    <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
-    <Hds::Tag @text="My link tag" @route="components.tag" />
+    <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="show" @model="components/tag" />
+    <Hds::Tag @text="My link tag" @route="show" @model="components/tag" />
   </div>
   <div class="dummy-tag-base-sample">
     <p>This is a paragraph: <Hds::Tag @text="My text tag" /></p>
@@ -13,7 +13,7 @@
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-tag-states-grid">
-    {{#each @model.STATES as |state|}}
+    {{#each this.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />
@@ -34,7 +34,7 @@
               @color={{color}}
               @text="My link tag"
               @onDismiss={{this.noop}}
-              @route="components.tag"
+              @route="show" @model="components/tag"
               mock-state-value={{state}}
               mock-state-selector="button"
             />
@@ -42,14 +42,14 @@
               @color={{color}}
               @text="My link tag"
               @onDismiss={{this.noop}}
-              @route="components.tag"
+              @route="show" @model="components/tag"
               mock-state-value={{state}}
               mock-state-selector="a"
             />
             <Hds::Tag
               @color={{color}}
               @text="My link tag"
-              @route="components.tag"
+              @route="show" @model="components/tag"
               mock-state-value={{state}}
               mock-state-selector="a"
             />

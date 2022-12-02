@@ -3,7 +3,7 @@
   <h4 class="dummy-h4">Elevation:</h4>
   <div class="dummy-card-sample-grid">
     <p class="dummy-paragraph dummy-card-sample-grid__title">"level"</p>
-    {{#each @model.CONTAINER_LEVELS as |level|}}
+    {{#each this.CONTAINER_LEVELS as |level|}}
       <Hds::Card::Container @level={{level}}>
         <Doc::Placeholder @text={{level}} @width="200" @height="200" @background="transparent" />
       </Hds::Card::Container>

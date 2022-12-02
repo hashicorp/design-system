@@ -41,7 +41,7 @@
   </div>
   <h5 class="dummy-h5">States</h5>
   <div class="dummy-dropdown-toggle-states-grid">
-    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+    {{#each this.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{color}}/{{state}}:</span>

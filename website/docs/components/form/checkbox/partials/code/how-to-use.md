@@ -155,7 +155,7 @@ This can be useful in case you want to add specific native behaviors to the fiel
 Thanks to the `...attributes` spreading over the `<input type="checkbox">` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
 
 ```handlebars
-<Hds::Form::Checkbox::Field {{on "change" myAction}} as |F|>
+<Hds::Form::Checkbox::Field {{on "change" this.yourOnChangeFunction}} as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -380,19 +380,19 @@ As explained above, a "group" of checkboxes is made of one or more "field" check
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" myAction}} as |F|>
+  <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC1</F.Label>
     <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
   </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter2" @id="datacenter-DC1" checked @value="DC1" {{on "change" myAction}} as |F|>
+  <G.Checkbox::Field name="datacenter2" @id="datacenter-DC1" checked @value="DC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>DC1</F.Label>
     <F.HelperText>CoreSite- K Street</F.HelperText>
   </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter3" @id="datacenter-NYC2" checked @value="NYC2" {{on "change" myAction}} as |F|>
+  <G.Checkbox::Field name="datacenter3" @id="datacenter-NYC2" checked @value="NYC2" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC2</F.Label>
     <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
   </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter4" @id="datacenter-SF1" @value="SF1" {{on "change" myAction}} as |F|>
+  <G.Checkbox::Field name="datacenter4" @id="datacenter-SF1" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>SF1</F.Label>
     <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
   </G.Checkbox::Field>
@@ -434,7 +434,7 @@ To give just an example, this could be an invocation of the "base" component you
   name="enable-cost-estimation"
   aria-label="Enable cost estimation"
   @value="enable"
-  {{on "change" myAction}}
+  {{on "change" this.yourOnChangeFunction}}
 />
 ```
 

@@ -3,7 +3,7 @@
 The most basic invocation requires the `type` arguments to be passed, and an `onDismiss` callback function, along with the `title` and/or `description` content. By default a `neutral` toast is generated (with a neutral color applied and a specific icon visible).
 
 ```handlebars
-<Hds::Toast @onDismiss={{ your function here }} as |T|>
+<Hds::Toast @onDismiss={{this.yourOnDismissFunction}} as |T|>
   <T.Title>Title here</T.Title>
   <T.Description>Description here</T.Description>
 </Hds::Toast>
@@ -87,7 +87,7 @@ Actions can optionally be passed into the component using one of the suggested `
   <T.Title>Title here</T.Title>
   <T.Description>Description here</T.Description>
   <T.Button @text="Your action" @color="secondary" @onClick={{this.yourOnClickFunction}} />
-  <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
+  <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="components" @color="secondary" />
 </Hds::Toast>
 ```
 
