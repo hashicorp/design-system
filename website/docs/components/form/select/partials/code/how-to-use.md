@@ -240,7 +240,7 @@ This can be useful in case you want to add specific native behaviors to the fiel
 Thanks to the `...attributes` spreading over the `<select>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
 
 ```handlebars
-<Hds::Form::Select::Field {{on "blur" myAction}} as |F|>
+<Hds::Form::Select::Field {{on "blur" this.yourOnBlurFunction}} as |F|>
   <F.Label>Target infrastructure</F.Label>
   <F.Options>
     <option value=""></option>
@@ -283,7 +283,7 @@ Note: when the "base" select is used, the developer is completely responsible fo
 To give just an example, this could be an invocation of the "base" component you would use:
 
 ```handlebars
-<Hds::Form::Select::Base aria-label="Target infrastructure" @isRequired={{true}} {{on "blur" myAction}} as |S|>
+<Hds::Form::Select::Base aria-label="Target infrastructure" @isRequired={{true}} {{on "blur" this.yourOnBlurFunction}} as |S|>
   <S.Options>
     <option value="Kubernetes">Kubernetes</option>
     <option value="Other">Other</option>

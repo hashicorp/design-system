@@ -3,7 +3,7 @@
 
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-radio-card-states-grid">
-    {{#each @model.STATES as |state|}}
+    {{#each this.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}</span>
         <br />

@@ -3,7 +3,7 @@
   <h4 class="dummy-h4">Elevation:</h4>
   <p class="dummy-paragraph">Standalone shadow effects</p>
   <div class="dummy-elevation-sample">
-    {{#each @model.ELEVATIONS as |elevation|}}
+    {{#each this.ELEVATIONS as |elevation|}}
       <div class="hds-elevation-{{elevation}}">
         <Doc::Placeholder @text={{elevation}} @width="100" @height="100" @background="transparent" />
       </div>

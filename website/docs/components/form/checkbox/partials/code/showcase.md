@@ -17,7 +17,7 @@
   </div>
   <h5 class="dummy-h6">States (Base / Disabled)</h5>
   <div class="dummy-form-checkbox-states-grid">
-    {{#each @model.STATES as |state|}}
+    {{#each this.STATES as |state|}}
       <div>
         <span class="dummy-text-small">{{capitalize state}}:</span>
         <br />

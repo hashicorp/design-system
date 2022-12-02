@@ -6,7 +6,7 @@
     <h4 class="dummy-h4">{{capitalize category}}</h4>
     <div class="dummy-tokens-list">
       {{#each categoryList as |token|}}
-        <DummyToken @token={{token}} />
+        <Doc::TokenCard @token={{token}} />
       {{/each}}
     </div>
   {{else}}

@@ -4,7 +4,7 @@
   <Hds::Table>
     <:head>
       <Hds::Table::Tr>
-        {{#each @model.STATES as |state|}}
+        {{#each this.STATES as |state|}}
           <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
             {{capitalize state}}
           </Hds::Table::ThSort>

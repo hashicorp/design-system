@@ -182,3 +182,48 @@ You can also indicate that a specific column should be pre-sorted in a specific 
   </:body>
 </Hds::Table>
 ```
+
+Here's a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
+
+```handlebars
+<!-- app/templates/components/table.hbs -->
+
+<Hds::Table
+  @model={{this.model.data}}
+  @columns={{array
+      (hash key='artist' label=(t 'components.table.headers.artist'))
+      (hash key='album' label=(t 'components.table.headers.album'))
+      (hash key='year' label=(t 'components.table.headers.year'))
+      (hash key='other' label=(t 'global.titles.other'))
+    }}
+  @sortingKeys={{array 'artist' 'album' 'year'}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon
+              @icon='more-horizontal'
+              @text='Overflow Options'
+              @hasChevron={{false}}
+              @size='small'
+            />
+            <dd.Interactive @route='components.table' @text='Create' />
+            <dd.Interactive @route='components.table' @text='Read' />
+            <dd.Interactive @route='components.table' @text='Update' />
+            <dd.Separator />
+            <dd.Interactive
+              @route='components.table'
+              @text='Delete'
+              @color='critical'
+              @icon='trash'
+            />
+          </Hds::Dropdown>
+        </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```

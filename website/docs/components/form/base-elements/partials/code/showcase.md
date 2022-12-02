@@ -141,7 +141,7 @@
   <br />
   <span class="dummy-text-small">With multiple error messages</span>
   <Hds::Form::Error as |Error|>
-    {{#each @model.SAMPLE_ERROR_MESSAGES as |message|}}
+    {{#each this.SAMPLE_ERROR_MESSAGES as |message|}}
       <Error.Message>{{message}}</Error.Message>
     {{/each}}
   </Hds::Form::Error>

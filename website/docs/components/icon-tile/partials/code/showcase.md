@@ -5,7 +5,7 @@
     <li>
       <p class="dummy-paragraph">With logo</p>
       <div class="dummy-icon-tile-base-sample">
-        {{#each @model.SIZES as |size|}}
+        {{#each this.SIZES as |size|}}
           <Hds::IconTile @logo="boundary" @size={{size}} />
         {{/each}}
       </div>

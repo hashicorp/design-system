@@ -9,7 +9,7 @@ To make the invocation more intuitive for developers, we've provided contextual 
   &lt;dd.Description @text="Lorem ipsum dolor sine qua non est." /&gt;
   &lt;dd.Interactive @href="..." @text="Add" /&gt;
   &lt;dd.Separator /&gt;
-  &lt;dd.Interactive @route="..." @icon="trash" @text="Delete" @color="critical" /&gt;
+  &lt;dd.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" /&gt;
 &lt;/Hds::Dropdown&gt;
 ```
 
@@ -69,12 +69,12 @@ This example demonstrates the use of a dropdown with a toggle-button, links, a s
 ```handlebars
 &lt;Hds::Dropdown as |dd|&gt;
   &lt;dd.ToggleButton @text="Text Toggle" /&gt;
-  &lt;dd.Interactive @route="..." @text="Item One" /&gt;
-  &lt;dd.Interactive @route="..." @text="Item Two" /&gt;
-  &lt;dd.Interactive @route="..." @text="Item Three" /&gt;
+  &lt;dd.Interactive @route="components" @text="Item One" /&gt;
+  &lt;dd.Interactive @route="components" @text="Item Two" /&gt;
+  &lt;dd.Interactive @route="components" @text="Item Three" /&gt;
   &lt;dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} /&gt;
   &lt;dd.Separator /&gt;
-  &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
+  &lt;dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" /&gt;
 &lt;/Hds::Dropdown&gt;
 ```
 
@@ -114,11 +114,11 @@ Note that `toggleText` is still required, because it supplies the `aria-label` f
 ```handlebars
 &lt;Hds::Dropdown as |dd|&gt;
   &lt;dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} /&gt;
-  &lt;dd.Interactive @route="..." @text="Create" /&gt;
-  &lt;dd.Interactive @route="..." @text="Read" /&gt;
-  &lt;dd.Interactive @route="..." @text="Update" /&gt;
+  &lt;dd.Interactive @route="components" @text="Create" /&gt;
+  &lt;dd.Interactive @route="components" @text="Read" /&gt;
+  &lt;dd.Interactive @route="components" @text="Update" /&gt;
   &lt;dd.Separator /&gt;
-  &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
+  &lt;dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" /&gt;
 &lt;/Hds::Dropdown&gt;
 ```
 
@@ -155,8 +155,8 @@ In that case the argument `@isLoading={{true}}` can be passed to the item: this 
 ```handlebars
 &lt;Hds::Dropdown as |dd|&gt;
   &lt;dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} /&gt;
-  &lt;dd.Interactive @route="..." @isLoading={{true}} @text="Edit cluster" @color="action" @icon="edit" /&gt;
-  &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
+  &lt;dd.Interactive @route="components" @isLoading={{true}} @text="Edit cluster" @color="action" @icon="edit" /&gt;
+  &lt;dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" /&gt;
 &lt;/Hds::Dropdown&gt;
 ```
 
@@ -186,8 +186,8 @@ Note that `toggleText` is still required, because it supplies the `aria-label` f
   &lt;dd.Title @text="Signed In" /&gt;
   &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
   &lt;dd.Separator /&gt;
-  &lt;dd.Interactive @route="..." @text="Settings and Preferences" /&gt;
-  &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
+  &lt;dd.Interactive @route="components" @text="Settings and Preferences" /&gt;
+  &lt;dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" /&gt;
 &lt;/Hds::Dropdown&gt;
 ```
 
@@ -207,8 +207,8 @@ Note that `toggleText` is still required, because it supplies the `aria-label` f
   &lt;dd.Title @text="Signed In" /&gt;
   &lt;dd.Description @text="design-systems@hashicorp.com" /&gt;
   &lt;dd.Separator /&gt;
-  &lt;dd.Interactive @route="..." @text="Settings and Preferences" /&gt;
-  &lt;dd.Interactive @route="..." @text="Delete" @color="critical" @icon="trash" /&gt;
+  &lt;dd.Interactive @route="components" @text="Settings and Preferences" /&gt;
+  &lt;dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" /&gt;
 &lt;/Hds::Dropdown&gt;
 ```
 

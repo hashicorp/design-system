@@ -193,19 +193,19 @@ As explained above, a "group" of radios is made of one or more "field" radio com
 ```handlebars
 <Hds::Form::Radio::Group @layout="vertical" @name="datacenter-demo5" as |G|>
   <G.Legend>Choose datacenter</G.Legend>
-  <G.Radio::Field @id="datacenter-NYC1" checked @value="NYC1" {{on "change" myAction}} as |F|>
+  <G.Radio::Field @id="datacenter-NYC1" checked @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC1</F.Label>
     <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
   </G.Radio::Field>
-  <G.Radio::Field @id="datacenter-DC1" @value="DC1" {{on "change" myAction}} as |F|>
+  <G.Radio::Field @id="datacenter-DC1" @value="DC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>DC1</F.Label>
     <F.HelperText>CoreSite- K Street</F.HelperText>
   </G.Radio::Field>
-  <G.Radio::Field @id="datacenter-NYC2" @value="NYC2" {{on "change" myAction}} as |F|>
+  <G.Radio::Field @id="datacenter-NYC2" @value="NYC2" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC1</F.Label>
     <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
   </G.Radio::Field>
-  <G.Radio::Field @id="datacenter-SF1" @value="SF1" {{on "change" myAction}} as |F|>
+  <G.Radio::Field @id="datacenter-SF1" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>SF1</F.Label>
     <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
   </G.Radio::Field>
@@ -229,7 +229,7 @@ To give just an example, this could be an invocation of the "base" component you
   name="data-center"
   aria-label="San Francisco datacenter number 1"
   @value="SF1"
-  {{on "change" myAction}}
+  {{on "change" this.yourOnChangeFunction}}
 />
 ```
 
@@ -240,7 +240,7 @@ This "base" component creates just the `<input type="radio">` control with an au
 Similarly, this could be an invocation of the "field" component:
 
 ```handlebars
-<Hds::Form::Radio::Field name="data-center" @value="SF1" {{on "change" myAction}} as |F|>
+<Hds::Form::Radio::Field name="data-center" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
   <F.Label>SF1</F.Label>
 </Hds::Form::Radio::Field>
 ```

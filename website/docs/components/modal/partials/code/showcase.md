@@ -2,7 +2,7 @@
   
 
   <h4 class="dummy-h4">Size</h4>
-  {{#each @model.SIZES as |size|}}
+  {{#each this.SIZES as |size|}}
     <p class="dummy-paragraph">{{capitalize size}}</p>
     <br />
     <div class="dummy-modal-sample-item">
