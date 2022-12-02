@@ -3083,7 +3083,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@^1.2.0, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@^1.2.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -24170,6 +24170,7 @@ __metadata:
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/design-system-components": "workspace:^"
+    "@hashicorp/design-system-tokens": "workspace:^"
     "@hashicorp/ember-flight-icons": "workspace:^"
     "@hashicorp/field-guide": "*"
     babel-eslint: ^10.1.0
