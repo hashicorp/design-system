@@ -20,3 +20,13 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+// custom marker colors
+
+.doc-markdown-ul > li::marker {
+  color: #c4c4c4; // TODO convert to token
+}
+
+.doc-markdown-ol > li::marker {
+  color: #76767d; // TODO convert to token
+}
