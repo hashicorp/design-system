@@ -8,7 +8,7 @@ The `Form::Checkbox` component has three different variants, with their own APIs
 
 Here is the API for the "base" component:
 
-<Doc::ComponentApi as |C|><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component. _Notice: the attributes will be applied to the_ _Some examples of HTML attributes that you will likely use:_</C.Property></Doc::ComponentApi>
+<Doc::ComponentApi as |C|><C.Property @name="...attributes" @type="–" @value="–">`...attributes` spreading is supported on this component. _Notice: the attributes will be applied to the_ _Some examples of HTML attributes that you will likely use:_ _In addition to the standard HTML attributes, an_</C.Property></Doc::ComponentApi>
 
 #### Form::Checkbox::Field
 

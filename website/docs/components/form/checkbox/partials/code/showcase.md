@@ -14,6 +14,11 @@
       <br />
       <Hds::Form::Checkbox::Base checked="checked" aria-label="Checked checkbox" />
     </div>
+    <div>
+      <span class="dummy-text-small">Indeterminate</span>
+      <br />
+      <Hds::Form::Checkbox::Base indeterminate={{true}} aria-label="Indeterminate checkbox" />
+    </div>
   </div>
   <h5 class="dummy-h6">States (Base / Disabled)</h5>
   <div class="dummy-form-checkbox-states-grid">
@@ -24,10 +29,16 @@
         <div class="dummy-form-checkbox-states-subgrid" mock-state-value={{state}} mock-state-selector="input">
           <Hds::Form::Checkbox::Base aria-label="Checkbox" />
           <Hds::Form::Checkbox::Base checked="checked" aria-label="Checked checkbox" />
+          <Hds::Form::Checkbox::Base indeterminate={{true}} aria-label="Indeterminate checkbox" />
           {{! template-lint-disable simple-unless }}
           {{#unless (eq state "focus")}}
             <Hds::Form::Checkbox::Base disabled="disabled" aria-label="Disabled checkbox" />
             <Hds::Form::Checkbox::Base checked="checked" disabled="disabled" aria-label="Checked, disabled checkbox" />
+            <Hds::Form::Checkbox::Base
+              indeterminate={{true}}
+              disabled="disabled"
+              aria-label="Indeterminate, disabled checkbox"
+            />
           {{/unless}}
         </div>
       </div>
@@ -112,7 +123,7 @@
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
@@ -130,7 +141,7 @@
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
@@ -146,7 +157,7 @@
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
@@ -163,7 +174,7 @@
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.Checkbox::Field>
@@ -181,7 +192,7 @@
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
@@ -197,7 +208,7 @@
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
         <G.Error>Error for the entire group</G.Error>
@@ -216,7 +227,7 @@
     <G.Checkbox::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    <G.Checkbox::Field indeterminate={{true}} as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
@@ -230,7 +241,7 @@
     <G.Checkbox::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    <G.Checkbox::Field indeterminate={{true}} as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
@@ -246,7 +257,7 @@
     <G.Checkbox::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    <G.Checkbox::Field indeterminate={{true}} as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
   </Hds::Form::Checkbox::Group>
@@ -261,7 +272,7 @@
     <G.Checkbox::Field checked="checked" as |F|>
       <F.Label>Label of control #2</F.Label>
     </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    <G.Checkbox::Field indeterminate={{true}} as |F|>
       <F.Label>Label of control #3</F.Label>
     </G.Checkbox::Field>
     <G.Error>Error for the entire group</G.Error>
@@ -306,7 +317,7 @@
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
@@ -322,7 +333,7 @@
         <G.Checkbox::Field checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
         </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        <G.Checkbox::Field indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.Checkbox::Field>
       </Hds::Form::Checkbox::Group>
