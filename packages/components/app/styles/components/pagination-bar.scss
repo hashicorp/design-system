@@ -16,9 +16,6 @@ $pagination-height: calc(36px + 6px);
   align-items: center;
   height: $pagination-height;
   margin: 20px auto;
-  color: var(--token-color-foreground-primary);
-  // font-size: var(--token-typography-body-300-font-size); // = 1rem, not same as 13px, TODO: investigate
-  font-size: 13px;
 }
 
 // * Sub-component: TotalCount
@@ -41,11 +38,8 @@ $pagination-height: calc(36px + 6px);
   display: flex;
   margin: 0;
   padding: 0;
-  list-style-type: none;
 
-  > li {
-    display: flex;
-  }
+  > li { list-style-type: none; }
 }
 
 .hds-pagination__page-link,
@@ -63,8 +57,6 @@ $pagination-height: calc(36px + 6px);
     $left: 5px,
   );
   height: $pagination-height;
-  color: inherit;
-  font: inherit;
   text-decoration: none;
   background: transparent;
   border: none;
@@ -82,6 +74,11 @@ $pagination-height: calc(36px + 6px);
   &:disabled {
     color: var(--token-color-foreground-disabled);
   }
+}
+
+// TODO: look at naming structure
+.hds-pagination__page-link--labeled {
+  min-width: 103px;
 }
 
 .hds-pagination__ellipsis {
@@ -133,22 +130,21 @@ $pagination-height: calc(36px + 6px);
 .hds-pagination-page-size {
   display: flex;
   grid-area: right;
-  gap: 12px; // TODO: refactor
   align-items: center;
   justify-self: flex-end;
 
   > label {
-    font-size: inherit; // TODO: look into removing/replacing
     white-space: nowrap;
   }
 
   > select {
     height: 28px;
-    margin-top: 0 !important;
+    margin-left: 12px;
     padding-top: 0;
     padding-right: calc(0px + 24px);
     padding-bottom: 0;
     padding-left: 8px;
+    font-weight: inherit;
     font-size: inherit;
     background-position: center right 5px;
   }
