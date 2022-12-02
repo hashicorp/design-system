@@ -23,5 +23,9 @@
     )
   }}
 
-  {{yield (hash PageSize=(component "hds/pagination-bar/page-size" onChange=this.onPageSizeChange))}}
+  {{yield
+    (hash
+      PageSize=(component "hds/pagination-bar/page-size" onChange=this.onPageSizeChange itemsPerPage=this.itemsPerPage)
+    )
+  }}
 </div>

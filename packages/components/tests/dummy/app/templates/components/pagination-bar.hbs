@@ -103,7 +103,7 @@
       <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
         <P.TotalCount />
         <P.Pagination />
-        <P.PageSize />
+        <P.PageSize @sizes={{array 10 30 50}} />
       </Hds::PaginationBar>
     "
   />
@@ -113,7 +113,7 @@
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
     <P.Pagination />
-    <P.PageSize />
+    <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 </section>
 
@@ -306,7 +306,7 @@
     </div>
 
     <h4 class="dummy-h4">PageSize</h4>
-    <Hds::PaginationBar::PageSize />
+    <Hds::PaginationBar::PageSize @sizes={{array 10 30 50}} />
   </div>
 
   <h4 class="dummy-h4">PaginationBar with sub-components</h4>
@@ -315,27 +315,27 @@
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
     <P.Pagination @type="numbered" />
-    <P.PageSize />
+    <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 
-  <h5 class="dummy-h5">Numbered with currentPage set to "3"</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{3}} as |P|>
+  <h5 class="dummy-h5">Numbered with currentPage set to "3" and items per page = "30"</h5>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{30}} @currentPage={{3}} as |P|>
     <P.TotalCount />
     <P.Pagination @type="numbered" />
-    <P.PageSize />
+    <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">Compact (default)</h5>
   <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
     <P.Pagination @type="compact" />
-    <P.PageSize />
+    <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">No TotalCount</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.Pagination @type="numbered" />
-    <P.PageSize />
+    <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">No PageSize</h5>
@@ -348,7 +348,7 @@
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount @hasTotalItems={{false}} />
     <P.Pagination @type="numbered" />
-    <P.PageSize />
+    <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 
   <h5 class="dummy-h5">Pagination only (No TotalCount or PageSize)</h5>
