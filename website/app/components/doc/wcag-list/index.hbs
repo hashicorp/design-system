@@ -1,7 +1,7 @@
 <div class={{this.classNames}}>
   <ul class="doc-wcag-list__ul">
-    {{#each this.criteria as |criterion|}}
-      {{#if (and @criteriaList (includes criterion.number @criteriaList))}}
+    {{#each this.filteredCriteria as |criterion|}}
+      {{#if (@criteriaList)}}
         <li class="doc-wcag-list__li">
           <a href={{criterion.url}} class="doc-wcag-list__link">
           {{criterion.number}} {{criterion.title}}:</a>
