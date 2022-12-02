@@ -94,6 +94,7 @@ async function convert() {
           break;
         // HOW TO USE
         case 'how-to-use.hbs':
+          turndownService.keep(['dummyvarslist']);
           markdownContent = turndownService.turndown(hbsSource);
           break;
         // DESIGN GUIDELINES
