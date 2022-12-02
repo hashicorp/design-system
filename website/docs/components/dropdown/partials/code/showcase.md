@@ -1,6 +1,4 @@
 <section data-test-percy data-section="showcase">
-  
-
   <h4 class="dummy-h4">Toggles</h4>
   <h5 class="dummy-h5">Toggle::Button</h5>
   <div class="dummy-dropdown-toggle-button-sample">
@@ -186,7 +184,7 @@
         <code class="dummy-code">&lt;a&gt;</code></span>
       <br />
       <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Interactive @route="components.dropdown" @text="Lorem ipsum dolor" />
+        <Hds::Dropdown::ListItem::Interactive @route="index" @text="Lorem ipsum dolor" />
       </ul>
     </div>
   </div>
