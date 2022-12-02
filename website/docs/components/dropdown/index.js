@@ -21,5 +21,4 @@ export default class Index extends Component {
   get ITEM_INTERACTIVE_COLORS() {
     return ITEM_INTERACTIVE_COLORS;
   }
-
 }
