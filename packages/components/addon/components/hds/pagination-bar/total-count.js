@@ -1,13 +1,8 @@
 import Component from '@glimmer/component';
 
 export default class HdsPaginationBarTotalCountComponent extends Component {
-  // totalPages = Math.max(
-  //   Math.ceil(this.args.totalItems / this.itemsPerPage),
-  //   1
-  // );
-
   /**
-   * Shows totalItems if true
+   * Shows totalItems in UI if true
    *
    * @param hasTotalItems
    * @type {boolean}

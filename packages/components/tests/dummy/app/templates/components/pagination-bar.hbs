@@ -51,11 +51,62 @@
     </li>
   </ul>
 
+  <!--
+    <div class="hds-pagination-bar" ...attributes>
+      {{yield
+        (hash
+          TotalCount=(component
+            "hds/pagination-bar/total-count"
+            hasTotalItems=@hasTotalItems
+            totalItems=@totalItems
+            currentPage=this.currentPage
+            itemsPerPage=this.itemsPerPage
+          )
+        )
+      }}
+
+      {{yield
+        (hash
+          Pagination=(component
+            "hds/pagination-bar/pagination"
+            type=this.type
+            totalPages=this.totalPages
+            currentPage=this.currentPage
+            onPageChange=this.onPageChange
+          )
+        )
+      }}
+
+      {{yield
+        (hash
+          PageSize=(component "hds/pagination-bar/page-size" itemsPerPage=this.itemsPerPage onChange=this.onPageSizeChange)
+        )
+      }}
+    </div>
+
+    <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+      <P.TotalCount @hasTotalItems={{false}} />
+      <P.Pagination @type="numbered" />
+      <P.PageSize @sizes={{array 10 30 50}} />
+    </Hds::PaginationBar>
+  -->
+
   <h4 class="dummy-h4">PaginationBar</h4>
   <p class="dummy-paragraph" id="component-api-pagination-bar">Here is the API for the main (“container”) component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-bar">
-    {{! ADD YOUR CONTENT HERE }}
-    WIP
+    <dt>totalItems <code>number</code> <strong class="required">required</strong></dt>
+    <dd>Pass the total number of items to be paginated. If no value is defined an error will be thrown.</dd>
+
+    <dt>itemsPerPage <code>number</code> <strong class="required">required</strong></dt>
+    <dd>
+      Pass the maximum number of items to display on each page initially.
+    </dd>
+
+    <dt>currentPage <code>number</code></dt>
+    <dd>
+      <p>Set a custom initial selected page.</p>
+      <p>Default: <span class="default">1</span> (The first page is selected on page load by default.)</p>
+    </dd>
   </dl>
 
   <h4 class="dummy-h4">TotalCount</h4>
@@ -65,8 +116,11 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-total-count">
-    {{! ADD YOUR CONTENT HERE }}
-    WIP
+    <dt>hasTotalItems <code>boolean</code></dt>
+    <dd>
+      <p>Hide display of total items in the UI.</p>
+      <p>Default: <span class="default">true</span> (Total items are displayed by default.)</p>
+    </dd>
   </dl>
 
   <h4 class="dummy-h4">Pagination</h4>
@@ -76,8 +130,15 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination">
-    {{! ADD YOUR CONTENT HERE }}
-    WIP
+    <dt>type <code>string</code></dt>
+    <dd>
+      <p>Sets the type of Pagination.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">compact</li>
+        <li>numbered</li>
+      </ol>
+    </dd>
   </dl>
 
   <h4 class="dummy-h4">PageSize</h4>
@@ -87,8 +148,18 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-page-size">
-    {{! ADD YOUR CONTENT HERE }}
-    WIP
+    <dt>sizes <code>array of integers</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>Set the page sizes users can select from.</p>
+      <p>
+        Example:
+        {{! prettier-ignore-start }}
+        {{! template-lint-disable no-unbalanced-curlies }}
+        <code>@sizes=\{{array 10 30 50}}</code>
+        {{! template-lint-enable no-unbalanced-curlies }}
+        {{! prettier-ignore-end }}
+      </p>
+    </dd>
   </dl>
 </section>
 
@@ -344,7 +415,7 @@
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 
-  <h5 class="dummy-h5">TotalCount with no TotalItems</h5>
+  <h5 class="dummy-h5">TotalCount with hasTotalItems set to false</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount @hasTotalItems={{false}} />
     <P.Pagination @type="numbered" />
