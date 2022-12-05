@@ -808,7 +808,7 @@ export default class DocWcagListIndexComponent extends Component {
     ];
     let criteriaList = this.args.criteriaList;
     let filteredCriteria = criteria.filter((criterion) =>
-      criteriaList.includes(criterion.name)
+      criteriaList.includes(criterion.number)
     );
     return filteredCriteria;
   }
