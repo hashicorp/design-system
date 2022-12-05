@@ -52,7 +52,6 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-string-helpers": "^6.1.0",
     "ember-cli-terser": "^4.0.2",
-    "ember-composable-helpers": "4.4.1",
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
     "ember-math-helpers": "^2.18.2",
