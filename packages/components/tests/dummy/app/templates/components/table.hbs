@@ -60,7 +60,8 @@
         <code class="dummy-code">Hds::Table::Tr</code>
         component is a template-only component. It supports
         <code class="dummy-code">...attributes</code>
-        but is not eligible to receive interactions. It can contain
+        but is not eligible to receive interactions (e.g., cannot have an onClick event handler attached directly to
+        it). It can contain
         <code class="dummy-code">Hds::Table::Th</code>
         or
         <code class="dummy-code">Hds::Table::Td</code>
@@ -80,7 +81,8 @@
         <code class="dummy-code">Hds::Table::Td</code>
         component is a template-only component. It supports
         <code class="dummy-code">...attributes</code>
-        but is not eligible to receive interactions itself; however it can contain interactive elements.
+        but is not eligible to receive interactions itself (e.g., cannot have an onClick event handler attached directly
+        to it); however it can contain interactive elements.
       </li>
     </ul>
   </p>
@@ -121,8 +123,15 @@
     </dd>
     <dt>isStriped <code>boolean</code></dt>
     <dd>
-      <p>Default: <span class="default">true</span></p>
-      <p>If set to <code class="dummy-code">false</code>, zebra striping on the table will not be applied.</p>
+      <p>Default: <span class="default">false</span></p>
+      <p>If set to <code class="dummy-code">true</code>, zebra striping on the table will be applied.</p>
+    </dd>
+    <dt>isFixed <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>If set to
+        <code class="dummy-code">true</code>, table-display will be set to fixed, which will automatically distribute
+        columns equally based on the total width of the table.</p>
     </dd>
     <dt>density <code>enum</code></dt>
     <dd>
@@ -136,16 +145,13 @@
     </dd>
     <dt>valign <code>enum</code></dt>
     <dd>
-      <p>If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all
-        of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.</p>
+      <p>If set, determines the vertical alignment of table's cell (td) content. While it is set to top by default,
+        content will be middle aligned vertically unless there are two or more lines of contentin any cell in a given
+        row.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">top</li>
         <li>middle</li>
-        <li>bottom</li>
-        <li>baseline</li>
-        <li>sub</li>
-        <li>text-top</li>
       </ol>
     </dd>
     <dt>caption <code>string</code></dt>
@@ -482,12 +488,13 @@ export default class ComponentsTableRoute extends Route {
   </p>
   <p class="dummy-paragraph">There are a few critical items for developers to note:
     <ul>
-      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions. If an
-        interactive element is desired, place it within a table cell element (<code class="dummy-code">td</code>).</li>
+      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions (e.g.,
+        cannot have an onClick event handler attached directly to it). If an interactive element is desired, place it
+        within a table cell element (<code class="dummy-code">td</code>).</li>
       <li>When providing additional or alternative styles to the table element, do not change the
         <code class="dummy-code">display</code>
         property in the CSS. This alters how the table is presented to the user with assistive technology, and they will
-        no longer be presented with a table.
+        no longer be presented with a table, as the table element will have lost its implicit role.
       </li>
     </ul>
   </p>
@@ -715,9 +722,9 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Static table with no striping
+    Static table with striping
   </h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}} @caption="Static table with no striping">
+  <Hds::Table @model={{this.model.data}} @isStriped={{true}} @caption="Static table with no striping">
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
@@ -822,7 +829,7 @@ export default class ComponentsTableRoute extends Route {
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with different types of cell content (no striping because badges are used)</h4>
+  <h4 class="dummy-h4">Table with various cell content</h4>
   <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
     <:head as |H|>
       <H.Tr>
