@@ -2,14 +2,11 @@ import Controller from '@ember/controller';
 import showdown from 'showdown';
 import { set, action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { service } from '@ember/service';
 import { A } from '@ember/array';
 
 import { showdownConfig } from '../shared/showdown-config';
 
 export default class ShowController extends Controller {
-  @service('dynamic-sections') dynamicSections;
-
   @tracked sections = A([]);
   @tracked tabs = A([]);
   @tracked tocs = A([]);
@@ -72,7 +69,6 @@ export default class ShowController extends Controller {
           list: headings,
         });
       });
-    this.dynamicSections.updateSections(this.sections);
     this.sections.setObjects(sections);
     this.tabs.setObjects(tabs);
     this.tocs.setObjects(tocs);
