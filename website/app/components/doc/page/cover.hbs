@@ -7,6 +7,15 @@
   {{#each @tabs as |tab|}}
     <pre>tab = {{tab.name}}</pre>
   {{/each}}
+  {{#each this.dynamicSections.sections as |section|}}
+    <pre>dynamicSections.section = {{section.name}}</pre>
+  {{/each}}
+  {{#each this.dynamicSections.tabs as |tab|}}
+    <pre>dynamicSections.tab = {{tab.label}}</pre>
+  {{/each}}
+  {{#each this.tabs as |tab|}}
+    <pre>getTab = {{tab}}</pre>
+  {{/each}}
   {{#if @tabs}}
     <div class="doc-page-cover__tabs">
       <Doc::Page::Tabs @tabs={{@tabs}} />

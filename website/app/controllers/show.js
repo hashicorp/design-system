@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import showdown from 'showdown';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 
 const mapElementsToClassNames = {
   h1: 'doc-markdown-h1',
@@ -89,6 +90,8 @@ const showdownConfig = {
 };
 
 export default class ShowController extends Controller {
+  @service('dynamic-sections') dynamicSections;
+
   @tracked sections = [];
   @tracked tabs = [];
   @tracked tabs2 = [
@@ -147,7 +150,7 @@ export default class ShowController extends Controller {
           toc: [],
         });
       });
-    console.log(this.tabs);
+    this.dynamicSections.updateSections(this.sections);
 
     // if (actions.length) {
     //   this.role = 'alertdialog';

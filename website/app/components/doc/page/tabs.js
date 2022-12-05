@@ -2,15 +2,17 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 const hideTabs = (tabIds) => {
-  tabIds.forEach((tabId) => {
-    document.getElementById(`section-${tabId}`).style.display = 'none';
-    document.getElementById(`toc-${tabId}`).style.display = 'none';
-  });
+  console.log('hideTabs', tabIds);
+  // tabIds.forEach((tabId) => {
+  //   document.getElementById(`section-${tabId}`).style.display = 'none';
+  //   document.getElementById(`toc-${tabId}`).style.display = 'none';
+  // });
 };
 
 const showTab = (tabId) => {
-  document.getElementById(`section-${tabId}`).style.display = '';
-  document.getElementById(`toc-${tabId}`).style.display = '';
+  console.log('showTab', tabId);
+  // document.getElementById(`section-${tabId}`).style.display = '';
+  // document.getElementById(`toc-${tabId}`).style.display = '';
 };
 
 export default class DocPageTabsComponent extends Component {
