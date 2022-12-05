@@ -50,16 +50,17 @@ $pagination-height: calc(36px + 6px);
 }
 
 .hds-pagination__page-link {
+  height: $pagination-height;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+
   @include hds-focus-ring-with-pseudo-element(
     $top: 5px,
     $right: 5px,
     $bottom: 5px,
     $left: 5px,
   );
-  height: $pagination-height;
-  text-decoration: none;
-  background: transparent;
-  border: none;
 
   &:hover,
   &.mock-hover {
@@ -76,7 +77,7 @@ $pagination-height: calc(36px + 6px);
   }
 }
 
-// TODO: look at naming structure
+// Make buttons with "Previous" & "Next" labels the same min-width
 .hds-pagination__page-link--labeled {
   min-width: 103px;
 }
