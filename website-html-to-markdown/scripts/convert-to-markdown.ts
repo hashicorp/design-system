@@ -78,7 +78,7 @@ async function convert() {
           // convert HTML to HBS syntax
           turndownService.addRule('api', {
             filter: ['api'],
-            replacement: (content) => '<Doc::ComponentApi as |C|>'+content+'</Doc::ComponentApi>',
+            replacement: (content) => '<Doc::ComponentApi as |C|>\n'+content+'</Doc::ComponentApi>',
           })
           turndownService.addRule('output', {
             filter: ['output'],
@@ -87,7 +87,11 @@ async function convert() {
               ['data-name','data-required','data-type','data-value','data-default'].forEach((a) => {
                 if (node.getAttribute(a)) attributes.push(`@${a.replace('data-','')}="${node.getAttribute(a)}"`);
               });
-              return `<C.Property ${attributes.join(' ')}>${content}</C.Property>`;
+              if (content !== '–') {
+                return `  <C.Property ${attributes.join(' ')}>\n    ${content}\n  </C.Property>\n`;
+              } else {
+                return `  <C.Property ${attributes.join(' ')}/>\n`;
+              }
             }
           })
           markdownContent = turndownService.turndown(hbsSource);
