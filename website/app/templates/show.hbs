@@ -1,15 +1,19 @@
 <HeadLayout />
 <Doc::Page::Stage>
   {{#if this.model.hasCover}}
-    <Doc::Page::Cover @title={{this.title}} @description={{this.description}} />
+    <pre>this.tabs = {{this.tabs}}</pre>
+    {{#each this.tabs as |tab|}}
+      <pre>{{tab.name}}</pre>
+    {{/each}}
+    <Doc::Page::Cover @title={{this.title}} @description={{this.description}} @tabs={{this.tabs2}} />
   {{/if}}
-  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}}>
+  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} {{did-insert this.didInsert}}>
     <DynamicTemplate
       @templateString={{this.renderedContent}}
       @componentId={{this.model.id}}
     />
   </Doc::Page::Content>
   {{#if this.model.hasSidecar}}
-    <Doc::Page::Sidecar />
+    <Doc::Page::Sidecar @tocBlocks={{this.content.tocBlocks}} />
   {{/if}}
 </Doc::Page::Stage>

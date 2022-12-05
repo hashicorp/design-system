@@ -3,4 +3,13 @@
   {{#if @description}}
     <p class="doc-page-cover__description doc-text-body-large">{{@description}}</p>
   {{/if}}
+  <pre>@tabs = {{@tabs}}</pre>
+  {{#each @tabs as |tab|}}
+    <pre>tab = {{tab.name}}</pre>
+  {{/each}}
+  {{#if @tabs}}
+    <div class="doc-page-cover__tabs">
+      <Doc::Page::Tabs @tabs={{@tabs}} />
+    </div>
+  {{/if}}
 </div>

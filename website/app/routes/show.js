@@ -106,9 +106,10 @@ export default class ShowRoute extends Route {
       });
   }
 
-  redirect(model) {
-    if (model.id === 'index') {
-      this.router.transitionTo('index');
-    }
-  }
+  // TODO! do we still need this?!
+  // redirect(model) {
+  //   if (model.id === 'index') {
+  //     this.router.transitionTo('index');
+  //   }
+  // }
 }
