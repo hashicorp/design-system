@@ -3,7 +3,7 @@
   {{#if this.model.hasCover}}
     <Doc::Page::Cover @title={{this.title}} @description={{this.description}} @tabs={{this.tabs}}/>
   {{/if}}
-  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} {{did-insert this.didInsert}}>
+  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} {{did-insert this.didInsertContent}}>
     <DynamicTemplate
       @templateString={{this.renderedContent}}
       @componentId={{this.model.id}}

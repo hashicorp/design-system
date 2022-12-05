@@ -29,7 +29,7 @@ export default class ShowController extends Controller {
   }
 
   @action
-  didInsert(docPageContentElement) {
+  didInsertContent(docPageContentElement) {
     let sections = [];
     let tabs = [];
     let tocs = [];
