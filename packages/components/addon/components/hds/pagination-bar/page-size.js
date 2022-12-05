@@ -29,7 +29,7 @@ export default class HdsPaginationBarPageSizeComponent extends Component {
     let { onChange } = this.args;
 
     if (typeof onChange === 'function') {
-      onChange(parseInt(e.target.value, 10));
+      onChange(e.target.value);
     }
   }
 }
