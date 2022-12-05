@@ -18,3 +18,59 @@
   }
 }
 
+.doc-page-sidecar__on-this-page {
+  // TODO! is not the right font size (see handlebar file)
+  color: #1d1e1f; // TODO transform to design token
+  text-transform: uppercase;
+}
+
+.doc-page-sidecar__list {
+  @include doc-font-style-body-small();
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid #dbdbdc;
+}
+
+.doc-page-sidecar__item {
+  & + & {
+    margin-top: 8px;
+  }
+
+  a {
+    position: relative;
+    padding: 0 0 0 var(--padding-left);
+    color: #727374;
+    font-weight: var(--font-weight);
+    text-decoration: none;
+
+    &:hover {
+      color: #2264d6;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -1px;
+        width: 3px;
+        background-color: #2264d6;
+        content: "";
+      }
+    }
+
+    &:active,
+    &:visited {
+      color: #727374;
+    }
+  }
+}
+
+.doc-page-sidecar__item--depth-2 {
+  --padding-left: 12px;
+  --font-weight: bold;
+}
+
+.doc-page-sidecar__item--depth-3 {
+  --padding-left: 24px;
+  --font-weight: medium;
+}

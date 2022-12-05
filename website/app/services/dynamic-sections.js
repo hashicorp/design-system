@@ -14,7 +14,7 @@ export default class DynamicSectionsService extends Service {
   // }
 
   updateSections(sections) {
-    console.log('calling "setSections" on DynamicSectionsService', sections);
+    // console.log('calling "setSections" on DynamicSectionsService', sections);
     this.sections.clear();
     this.sections.pushObjects(sections);
     const tabs = this.sections.map((section, index) => {
@@ -27,15 +27,15 @@ export default class DynamicSectionsService extends Service {
     });
     this.tabs.clear();
     this.tabs.pushObjects(tabs);
-    console.log('tabs in "updateSections"', this.tabs);
+    // console.log('tabs in "updateSections"', this.tabs);
   }
 
   setCurrent(index) {
-    console.log('calling "setCurrent" on DynamicSectionsService', index);
+    // console.log('calling "setCurrent" on DynamicSectionsService', index);
     this.current = index;
     this.tabs.forEach((tab) => {
       tab.isCurrent = tab.index === index;
     });
-    console.log('set sections in "setCurrent"', this.tabs);
+    // console.log('set sections in "setCurrent"', this.tabs);
   }
 }
