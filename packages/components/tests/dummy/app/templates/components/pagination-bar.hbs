@@ -257,60 +257,27 @@
       <div>
         <span class="dummy-text-small">Default:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="compact"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
       </div>
       <div>
         <span class="dummy-text-small">Disabled:</span>
-        <Hds::PaginationBar::Pagination::NavButton
-          @direction="previous"
-          @type="compact"
-          @itemsPerPage={{1}}
-          @totalItems={{1}}
-          @currentPage={{1}}
-        />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
+        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" @disabled={{true}} />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" @disabled={{true}} />
       </div>
       <div>
         <span class="dummy-text-small">Hover:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-hover" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="compact"
-          class="mock-hover"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" class="mock-hover" />
       </div>
       <div>
         <span class="dummy-text-small">Active:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-active" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="compact"
-          class="mock-active"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" class="mock-active" />
       </div>
       <div>
         <span class="dummy-text-small">Focus:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-active" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="compact"
-          class="mock-focus"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-focus" />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" class="mock-focus" />
       </div>
     </div>
 
@@ -319,60 +286,27 @@
       <div>
         <span class="dummy-text-small">Default:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="numbered"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
       </div>
       <div>
         <span class="dummy-text-small">Disabled:</span>
-        <Hds::PaginationBar::Pagination::NavButton
-          @direction="previous"
-          @type="numbered"
-          @itemsPerPage={{1}}
-          @totalItems={{1}}
-          @currentPage={{1}}
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
         <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
       </div>
       <div>
         <span class="dummy-text-small">Hover:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" class="mock-hover" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="numbered"
-          class="mock-hover"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" class="mock-hover" />
       </div>
       <div>
         <span class="dummy-text-small">Active:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" class="mock-active" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="numbered"
-          class="mock-active"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" class="mock-active" />
       </div>
       <div>
         <span class="dummy-text-small">Focus:</span>
         <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" class="mock-focus" />
-        <Hds::PaginationBar::Pagination::NavButton
-          @itemsPerPage={{1}}
-          @totalItems={{3}}
-          @currentPage={{3}}
-          @direction="next"
-          @type="numbered"
-          class="mock-focus"
-        />
+        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" class="mock-focus" />
       </div>
     </div>
 

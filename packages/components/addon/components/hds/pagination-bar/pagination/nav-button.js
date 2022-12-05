@@ -10,14 +10,6 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return this.args.direction;
   }
 
-  get isDisabled() {
-    if (this.direction === 'previous') {
-      return this.args.currentPage === 1;
-    } else {
-      return this.args.currentPage === this.args.totalPages;
-    }
-  }
-
   @action
   onClick() {
     let { onClick } = this.args;

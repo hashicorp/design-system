@@ -5,9 +5,7 @@
   @onClick={{@onClick}}
   @direction={{@direction}}
   aria-label={{if this.isNext "Next page" "Previous page"}}
-  disabled={{this.isDisabled}}
-  @currentPage={{@currentPage}}
-  @totalPages={{@totalPages}}
+  disabled={{@disabled}}
   ...attributes
 >
   {{#if (eq this.direction "next")}}

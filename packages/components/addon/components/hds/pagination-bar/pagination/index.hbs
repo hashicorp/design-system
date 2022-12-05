@@ -3,8 +3,7 @@
     @direction="previous"
     @type={{this.type}}
     @onClick={{this.changePage}}
-    @currentPage={{@currentPage}}
-    @totalPages={{@totalPages}}
+    @disabled={{this.isDisabledPrev}}
   />
 
   {{#if (eq this.type "numbered")}}
@@ -23,7 +22,6 @@
     @direction="next"
     @type={{this.type}}
     @onClick={{this.changePage}}
-    @currentPage={{@currentPage}}
-    @totalPages={{@totalPages}}
+    @disabled={{this.isDisabledNext}}
   />
 </nav>
