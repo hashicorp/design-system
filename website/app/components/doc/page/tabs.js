@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
 
 const hideTabs = (tabIds) => {
   console.log('hideTabs', tabIds);
@@ -16,28 +17,13 @@ const showTab = (tabId) => {
 };
 
 export default class DocPageTabsComponent extends Component {
-  get tabs() {
-    const orderedTabs = [
-      'guidelines',
-      'specifications',
-      'code',
-      'accessibility',
-      'other',
-    ];
-    return orderedTabs.filter((tab) => this.args.tabs.includes(tab));
-  }
+  @service('dynamic-sections') dynamicSections;
 
   @action
-  didInsert() {
-    // for now we hide all the tabs apart from the first (this is a super scrappy MVP!)
-    hideTabs(this.tabs.slice(1));
-    showTab(this.tabs[0]);
-  }
-
-  @action
-  onClickTab(tabId) {
-    console.log(`clicked ${tabId} tab!`);
-    hideTabs(this.tabs);
-    showTab(tabId);
+  onClickTab(tab) {
+    console.log(`clicked ${tab.label} tab!`);
+    this.dynamicSections.setCurrent(tab.index);
+    // hideTabs(this.tabs);
+    // showTab(tabId);
   }
 }

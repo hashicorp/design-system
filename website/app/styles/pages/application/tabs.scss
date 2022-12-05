@@ -11,27 +11,35 @@
 }
 
 .doc-page-tabs__tab {
+  position: relative;
+
   button {
     position: relative;
     padding: 4px 12px;
     color: #727374; // TODO transform to design token
-    font-weight: semibold;
+    font-weight: 600;
     background-color: transparent;
     border: none;
     cursor: pointer;
 
     &:hover {
       color: #2264d6;
+    }
+  }
 
-      &::after {
-        position: absolute;
-        right: 0;
-        bottom: -1px;
-        left: 0;
-        height: 3px;
-        background-color: #2264d6;
-        content: "";
-      }
+  &.doc-page-tabs__tab--is-current {
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 3px;
+      background-color: #2264d6;
+      content: "";
+    }
+
+    button {
+      color: #2264d6;
     }
   }
 }

@@ -1,7 +1,7 @@
-<ul class="doc-page-tabs" {{did-insert this.didInsert}} ...attributes>
-  {{#each this.tabs as |tab|}}
-    <li class="doc-page-tabs__tab">
-      <button class="doc-text-body-small" type="button" {{on "click" (fn this.onClickTab tab)}}>{{capitalize tab}}</button>
+<ul class="doc-page-tabs" ...attributes>
+  {{#each this.dynamicSections.tabs  as |tab|}}
+    <li class="doc-page-tabs__tab {{if tab.isCurrent 'doc-page-tabs__tab--is-current'}}">
+      <button class="doc-text-body-small" type="button" {{on "click" (fn this.onClickTab tab)}}>{{capitalize tab.label}}</button>
     </li>
   {{/each}}
 </ul>
