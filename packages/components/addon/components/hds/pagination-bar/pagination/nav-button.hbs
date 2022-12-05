@@ -8,7 +8,7 @@
   disabled={{@disabled}}
   ...attributes
 >
-  {{#if (eq this.direction "next")}}
+  {{#if (eq @direction "next")}}
     {{#if (eq @type "compact")}}
       <span class="hds-pagination__page-label" aria-hidden="true">
         Next
@@ -16,12 +16,9 @@
     {{/if}}
   {{/if}}
 
-  <FlightIcon
-    class="hds-pagination__page-icon"
-    @name={{if (eq this.direction "next") "chevron-right" "chevron-left"}}
-  />
+  <FlightIcon class="hds-pagination__page-icon" @name={{if (eq @direction "next") "chevron-right" "chevron-left"}} />
 
-  {{#if (eq this.direction "previous")}}
+  {{#if (eq @direction "previous")}}
     {{#if (eq @type "compact")}}
       <span class="hds-pagination__page-label" aria-hidden="true">
         Previous

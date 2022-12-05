@@ -6,16 +6,12 @@ import { action } from '@ember/object';
 export const DIRECTIONS = ['next', 'previous'];
 
 export default class HdsPaginationBarPaginationIndexComponent extends Component {
-  get direction() {
-    return this.args.direction;
-  }
-
   @action
   onClick() {
     let { onClick } = this.args;
 
     if (typeof onClick === 'function') {
-      onClick(this.direction);
+      onClick(this.args.direction);
     }
   }
 }
