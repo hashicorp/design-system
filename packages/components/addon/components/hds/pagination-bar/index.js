@@ -34,7 +34,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
    */
   get itemsPerPage() {
     assert(
-      '@itemsPerPage must not be undefined',
+      '@itemsPerPage must be defined',
       this._itemsPerPage !== undefined
     );
 
