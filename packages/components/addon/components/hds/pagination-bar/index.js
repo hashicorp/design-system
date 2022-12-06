@@ -22,7 +22,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
   get totalItems() {
     let { totalItems } = this.args;
 
-    assert('@totalItems must not be undefined', totalItems !== undefined);
+    assert('@totalItems must be defined', totalItems !== undefined);
 
     return totalItems;
   }
