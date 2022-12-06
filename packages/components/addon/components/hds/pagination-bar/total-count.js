@@ -4,12 +4,12 @@ export default class HdsPaginationBarTotalCountComponent extends Component {
   /**
    * Shows totalItems in UI if true
    *
-   * @param hasTotalItems
+   * @param showTotalItems
    * @type {boolean}
    * @default true
    */
-  get hasTotalItems() {
-    return this.args.hasTotalItems ?? true;
+  get showTotalItems() {
+    return this.args.showTotalItems ?? true;
   }
 
   get itemsRangeStart() {

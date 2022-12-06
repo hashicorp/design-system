@@ -76,7 +76,7 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-total-count">
-    <dt>hasTotalItems <code>boolean</code></dt>
+    <dt>showTotalItems <code>boolean</code></dt>
     <dd>
       <p>Hide display of total items in the UI.</p>
       <p>Default: <span class="default">true</span> (Total items are displayed by default.)</p>
@@ -211,14 +211,26 @@
         <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} @totalItems={{103}} />
       </div>
 
+      {{! prettier-ignore-start }}
+      {{! template-lint-disable no-unbalanced-curlies }}
+      <code>@sizes=\{{array 10 30 50}}</code>
+      {{! template-lint-enable no-unbalanced-curlies }}
+      {{! prettier-ignore-end }}
+
       <div>
         <span class="dummy-text-small">
-          with<code class="dummy-code">@hasTotalItems=false</code></span>
+          with
+          {{! prettier-ignore-start }}
+          {{! template-lint-disable no-unbalanced-curlies }}<code
+            class="dummy-code"
+          >@showTotalItems=\{{false}}</code>{{! template-lint-enable no-unbalanced-curlies }}
+          {{! prettier-ignore-end }}
+        </span>
         <Hds::PaginationBar::TotalCount
           @itemsPerPage={{10}}
           @currentPage={{1}}
           @totalItems={{103}}
-          @hasTotalItems={{false}}
+          @showTotalItems={{false}}
         />
       </div>
     </div>
@@ -378,9 +390,9 @@
     <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 
-  <h5 class="dummy-h5">TotalCount with hasTotalItems set to false</h5>
+  <h5 class="dummy-h5">TotalCount with showTotalItems set to false</h5>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount @hasTotalItems={{false}} />
+    <P.TotalCount @showTotalItems={{false}} />
     <P.Pagination @type="numbered" />
     <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
