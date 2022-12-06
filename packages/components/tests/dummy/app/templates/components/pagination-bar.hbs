@@ -59,7 +59,8 @@
 
     <dt>itemsPerPage <code>number</code> <strong class="required">required</strong></dt>
     <dd>
-      Pass the maximum number of items to display on each page initially.
+      Pass the maximum number of items to display on each page initially. If no value is defined an error will be
+      thrown.
     </dd>
 
     <dt>currentPage <code>number</code></dt>
@@ -110,7 +111,7 @@
   <dl class="dummy-component-props" aria-labelledby="component-api-page-size">
     <dt>sizes <code>array of integers</code> <strong class="required">required</strong></dt>
     <dd>
-      <p>Set the page sizes users can select from.</p>
+      <p>Set the page sizes users can select from. If no value is defined an error will be thrown.</p>
       <p>
         Example:
         {{! prettier-ignore-start }}
