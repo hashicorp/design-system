@@ -51,46 +51,6 @@
     </li>
   </ul>
 
-  <!--
-    <div class="hds-pagination-bar" ...attributes>
-      {{yield
-        (hash
-          TotalCount=(component
-            "hds/pagination-bar/total-count"
-            hasTotalItems=@hasTotalItems
-            totalItems=@totalItems
-            currentPage=this.currentPage
-            itemsPerPage=this.itemsPerPage
-          )
-        )
-      }}
-
-      {{yield
-        (hash
-          Pagination=(component
-            "hds/pagination-bar/pagination"
-            type=this.type
-            totalPages=this.totalPages
-            currentPage=this.currentPage
-            onPageChange=this.onPageChange
-          )
-        )
-      }}
-
-      {{yield
-        (hash
-          PageSize=(component "hds/pagination-bar/page-size" itemsPerPage=this.itemsPerPage onChange=this.onPageSizeChange)
-        )
-      }}
-    </div>
-
-    <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-      <P.TotalCount @hasTotalItems={{false}} />
-      <P.Pagination @type="numbered" />
-      <P.PageSize @sizes={{array 10 30 50}} />
-    </Hds::PaginationBar>
-  -->
-
   <h4 class="dummy-h4">PaginationBar</h4>
   <p class="dummy-paragraph" id="component-api-pagination-bar">Here is the API for the main (“container”) component:</p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-bar">
