@@ -19,7 +19,7 @@ export default class HdsPaginationBarPageSizeComponent extends Component {
   get sizes() {
     let { sizes } = this.args;
 
-    assert('@sizes must not be undefined', sizes !== undefined);
+    assert('@sizes must be defined', sizes !== undefined);
 
     return sizes;
   }
