@@ -12,14 +12,10 @@ export default class ShowController extends Controller {
   @tracked tocs = A([]);
 
   get title() {
-    // TODO! do something smarter than this :)
-    // TODO! also it flashes when the page load!!!!
-    return this.model.frontmatter?.title ?? 'This is the (missing) page title';
+    return this.model.frontmatter?.title ?? '';
   }
 
   get description() {
-    // TODO! do something smarter than this :)
-    // TODO! also it flashes when the page load!!!!
     return this.model.frontmatter?.description ?? false;
   }
 
@@ -105,13 +101,6 @@ export default class ShowController extends Controller {
     this.tocs.forEach((toc) => {
       set(toc, 'isCurrent', toc.index === current);
     });
-    // this.tocs.forEach((toc, index) => {
-    //   if (index === current) {
-    //     toc.removeAttribute('hidden');
-    //   } else {
-    //     toc.setAttribute('hidden', true);
-    //   }
-    // });
     // leave for debugging
     // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
   }

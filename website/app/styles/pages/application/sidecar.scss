@@ -1,7 +1,7 @@
 // SIDECAR
 
 @use "../../breakpoints" as breakpoint;
-
+@use "../../typography/mixins" as *;
 
 .doc-page-sidecar {
   display: none;
@@ -19,8 +19,11 @@
 }
 
 .doc-page-sidecar__on-this-page {
-  // TODO! is not the right font size (see handlebar file)
+  @include doc-font-family("gilmer");
   color: #1d1e1f; // TODO transform to design token
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
   text-transform: uppercase;
 }
 
