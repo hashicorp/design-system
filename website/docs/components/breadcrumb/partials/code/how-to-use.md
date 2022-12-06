@@ -43,11 +43,11 @@ It is also possible to collect and hide part of the breadcrumb tree under a "tru
 ```handlebars
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Truncation>
-    <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="..." />
-    <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="..." />
-    <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="..." />
+    <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
+    <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
+    <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="components" />
   </Hds::Breadcrumb::Truncation>
-  <Hds::Breadcrumb::Item @text="Cluster details" @route="..." />
+  <Hds::Breadcrumb::Item @text="Cluster details" @route="components" />
   <Hds::Breadcrumb::Item @text="Cluster sub-details" @current={{true}} />
 </Hds::Breadcrumb>
 ```

@@ -4,6 +4,42 @@
 import showdown from 'showdown';
 
 export function initialize(/* application */) {
+  // Overriding `unhashHTMLSpans` subparser to overcome the 10 levels of nesting limit
+  showdown.subParser('unhashHTMLSpans', function (text, options, globals) {
+    'use strict';
+
+    text = globals.converter._dispatch(
+      'unhashHTMLSpans.before',
+      text,
+      options,
+      globals
+    );
+  
+    for (var i = 0; i < globals.gHtmlSpans.length; ++i) {
+      var repText = globals.gHtmlSpans[i],
+        // limiter to prevent infinite loop (assume 50 as limit for recurse)
+        limit = 0;
+  
+      while (/¨C(\d+)C/.test(repText)) {
+        var num = RegExp.$1;
+        repText = repText.replace('¨C' + num + 'C', globals.gHtmlSpans[num]);
+        if (limit === 50) {
+          console.error('maximum nesting of 50 spans reached!!!');
+          break;
+        }
+        ++limit;
+      }
+      text = text.replace('¨C' + i + 'C', repText);
+    }
+  
+    text = globals.converter._dispatch(
+      'unhashHTMLSpans.after',
+      text,
+      options,
+      globals
+    );
+    return text;
+  });
 
   showdown.subParser('githubCodeBlocks', function (text, options, globals) {
     'use strict';
@@ -52,16 +88,17 @@ export function initialize(/* application */) {
         // escape { and } for the code sample
         highlightedCodeBlock = highlightedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
 
-        let preBlock = `<pre class="language-${language}"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
+        let preBlock = `<pre class="doc-code-block__code-snippet language-${language}"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
-        let selfExecutingBlock = `<div class="self-executing-code-block">
-  <div class="example">
-    ${inputCodeblock}
-  </div>
-  ${preBlock}
-</div>`;
+        let selfExecutingBlock = "";
+        selfExecutingBlock += '<div class="doc-code-block doc-code-block--self-executing">';
+        selfExecutingBlock += '  <div class="doc-code-block__code-rendered">';
+        selfExecutingBlock += `    ${inputCodeblock}`;
+        selfExecutingBlock += '  </div>';
+        selfExecutingBlock += `  ${preBlock}`;
+        selfExecutingBlock += '</div>';
 
         if(attributeString.includes('data-execute=false')) {
           codeblock = preBlock;

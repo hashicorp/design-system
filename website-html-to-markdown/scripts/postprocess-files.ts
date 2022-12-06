@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 
-const docsFolder = path.resolve(__dirname, '../../website/docs');
+const docsFolder = path.resolve(__dirname, './generated-output');
 
 (async () => {
   try {
@@ -40,6 +40,11 @@ async function postprocess() {
       // <dummywcagsuccesscriterialist> → <Doc::WcagList>
       markdownSource = markdownSource.replace(/<dummywcagsuccesscriterialist data-list="(.*)">WCAG<\/dummywcagsuccesscriterialist>/g, (_match, list) => {
         return `<Doc::WcagList @criteriaList={{array "${list.split('|').join('" "')}" }} />\n`;
+      });
+
+      // <dummyvarslist> → <Doc::VarsList>
+      markdownSource = markdownSource.replace(/<dummyvarslist data-items="(.*?)">TEMP<\/dummyvarslist>/g, (_match, items) => {
+        return `<Doc::VarsList @items={{${items}}} />\n`;
       });
 
       await fs.writeFile(filePath, markdownSource);

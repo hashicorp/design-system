@@ -6,7 +6,7 @@
   <p class="dummy-paragraph">Use for text and icons.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.foreground as |color|}}
-      <DummyColorCard @color={{color}} />
+      <Doc::ColorCard @color={{color}} />
     {{else}}
       <p class="dummy-paragraph">No tokens found for "semantic/foreground" colors 🤷‍♀️</p>
     {{/each}}
@@ -16,7 +16,7 @@
   <p class="dummy-paragraph">Use for container and component backgrounds.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.surface as |color|}}
-      <DummyColorCard @color={{color}} />
+      <Doc::ColorCard @color={{color}} />
     {{else}}
       <p class="dummy-paragraph">No tokens found for "semantic/surface" colors 🤷‍♀️</p>
     {{/each}}
@@ -27,7 +27,7 @@
     rules.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.border as |color|}}
-      <DummyColorCard @color={{color}} />
+      <Doc::ColorCard @color={{color}} />
     {{else}}
       <p class="dummy-paragraph">No tokens found for "semantic/border" colors 🤷‍♀️</p>
     {{/each}}
@@ -39,7 +39,7 @@
     <em>Notice: they're used internally by the design system to define focus states</em>.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.focus as |color|}}
-      <DummyColorCard @color={{color}} />
+      <Doc::ColorCard @color={{color}} />
     {{else}}
       <p class="dummy-paragraph">No tokens found for "semantic/focus" colors 🤷‍♀️</p>
     {{/each}}
@@ -49,7 +49,7 @@
   <p class="dummy-paragraph">Use for page backgrounds.</p>
   <div class="dummy-colors-list">
     {{#each this.colors.semantic.page as |color|}}
-      <DummyColorCard @color={{color}} />
+      <Doc::ColorCard @color={{color}} />
     {{else}}
       <p class="dummy-paragraph">No tokens found for "semantic/page" colors 🤷‍♀️</p>
     {{/each}}
@@ -60,7 +60,7 @@
     <h4 class="dummy-h4">{{capitalize brand}}</h4>
     <div class="dummy-colors-list">
       {{#each colorsList as |color|}}
-        <DummyColorCard @color={{color}} />
+        <Doc::ColorCard @color={{color}} />
       {{/each}}
     </div>
   {{else}}
@@ -74,7 +74,7 @@
     <h4 class="dummy-h4">{{capitalize tone}}</h4>
     <div class="dummy-colors-list">
       {{#each colorsList as |color|}}
-        <DummyColorCard @color={{color}} />
+        <Doc::ColorCard @color={{color}} />
       {{/each}}
     </div>
   {{else}}

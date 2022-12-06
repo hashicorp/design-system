@@ -23,7 +23,7 @@
         <code class="dummy-code">&lt;a&gt;</code></span>
       <br />
       <div class="hds-typography-body-300">
-        <Hds::Link::Inline @color="primary" @route="index">Lorem ipsum dolor</Hds::Link::Inline>
+        <Hds::Link::Inline @color="primary" @route="components">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
     </div>
   </div>
@@ -101,7 +101,7 @@
     States
   </h4>
   <div class="dummy-link-inline-states-grid">
-    {{#each @model.COLORS as |color|}}
+    {{#each this.COLORS as |color|}}
       <h5 class="dummy-h5 dummy-link-inline-states-grid__title">{{capitalize color}}</h5>
       {{#each @model.STATES as |state|}}
         <div>

@@ -13,7 +13,7 @@
 
   <h4 class="dummy-h4">Size</h4>
   <div class="dummy-badge-base-sample">
-    {{#each @model.BADGE_COUNT_SIZES as |size|}}
+    {{#each this.BADGE_COUNT_SIZES as |size|}}
       <Hds::BadgeCount @text={{capitalize size}} @size={{size}} />
     {{/each}}
   </div>

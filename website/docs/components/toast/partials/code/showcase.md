@@ -3,7 +3,7 @@
 
   <h4 class="dummy-h4">Color</h4>
   <div class="dummy-toast-base-sample">
-    {{#each @model.COLORS as |color|}}
+    {{#each this.COLORS as |color|}}
       <Hds::Toast @color={{color}} @onDismiss={{this.noop}} as |T|>
         <T.Title>{{capitalize color}}</T.Title>
         <T.Description>This is the toast with <em>{{color}}</em> color.</T.Description>

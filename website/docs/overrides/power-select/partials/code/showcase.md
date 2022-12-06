@@ -7,7 +7,7 @@
   <div class="dummy-power-select-container">
     <div class="hds-power-select">
       <PowerSelect
-        @options={{@model.OPTIONS}}
+        @options={{this.OPTIONS}}
         @selected={{@model.SELECTED}}
         @onChange={{this.noop}}
         @renderInPlace={{true}}
