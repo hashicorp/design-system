@@ -209,14 +209,8 @@
     <div class="dummy-pagination-base-sample">
       <div>
         <span class="dummy-text-small">default</span>
-        <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} @totalItems={{103}} />
+        <Hds::PaginationBar::TotalCount @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
       </div>
-
-      {{! prettier-ignore-start }}
-      {{! template-lint-disable no-unbalanced-curlies }}
-      <code>@sizes=\{{array 10 30 50}}</code>
-      {{! template-lint-enable no-unbalanced-curlies }}
-      {{! prettier-ignore-end }}
 
       <div>
         <span class="dummy-text-small">
@@ -228,8 +222,8 @@
           {{! prettier-ignore-end }}
         </span>
         <Hds::PaginationBar::TotalCount
-          @itemsPerPage={{10}}
-          @currentPage={{1}}
+          @itemsRangeStart={{1}}
+          @itemsRangeEnd={{10}}
           @totalItems={{103}}
           @showTotalItems={{false}}
         />
