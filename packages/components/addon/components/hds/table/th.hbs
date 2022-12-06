@@ -1,3 +1,7 @@
-<th class="hds-table__th hds-typography-body-200 hds-font-weight-semibold" ...attributes scope="col">
+<th
+  class="hds-table__th hds-typography-body-200 hds-font-weight-semibold {{if @align (concat 'hds-text-' @align)}}"
+  ...attributes
+  scope="col"
+>
   {{yield}}
 </th>

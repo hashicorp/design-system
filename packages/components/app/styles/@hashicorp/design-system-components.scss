@@ -43,3 +43,17 @@
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
   clip-path: inset(50%) !important;  /* 2 */
 }
+
+// text alignment helpers - only use these if you absolutely must.
+
+.hds-text-left {
+  text-align: left;
+}
+
+.hds-text-center {
+  text-align: center;
+}
+
+.hds-text-right {
+  text-align: right;
+}

@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 
 const NOOP = () => {};
+const ALIGNMENTS = ['left', 'center', 'right'];
+const DEFAULT_ALIGN = 'left';
 
 export default class HdsTableThSortComponent extends Component {
   /**
@@ -33,6 +36,25 @@ export default class HdsTableThSortComponent extends Component {
   }
 
   /**
+   * @param align
+   * @type {string}
+   * @default left
+   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
+   */
+  get align() {
+    let { align = DEFAULT_ALIGN } = this.args;
+
+    assert(
+      `@align for "Hds::Table" must be one of the following: ${ALIGNMENTS.join(
+        ', '
+      )}; received: ${align}`,
+      ALIGNMENTS.includes(align)
+    );
+    console.log(`align: ${align}`);
+    return align;
+  }
+
+  /**
    * @param onClick
    * @type {function}
    * @default () => {}
@@ -40,5 +62,21 @@ export default class HdsTableThSortComponent extends Component {
   get onClick() {
     let { onClick } = this.args;
     return onClick || NOOP;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-table__th-sort'];
+
+    // add a class based on the @align argument
+    if (this.align) {
+      classes.push(`text-${this.align}`);
+    }
+
+    return classes.join(' ');
   }
 }

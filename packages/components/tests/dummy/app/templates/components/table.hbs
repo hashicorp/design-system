@@ -745,7 +745,14 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Sortable table (all columns sortable)
   </h4>
-  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}}>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -757,7 +764,14 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Sortable table (only some columns sortable)
   </h4>
-  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}} @sortingKeys={{array "artist" "album"}}>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -771,8 +785,11 @@ export default class ComponentsTableRoute extends Route {
   </h4>
   <Hds::Table
     @model={{this.model.data}}
-    @columns={{take 3 this.model.columns}}
-    @sortingKeys={{array "artist" "album"}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year")
+    }}
     @sortBy="artist"
   >
     <:body as |B|>
@@ -784,14 +801,16 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table, some columns sortable, artist column pre-sorted in descending order.
+    Sortable table, last column not sortable and has custom width.
   </h4>
   <Hds::Table
     @model={{this.model.data}}
-    @columns={{union (take 3 this.model.columns) (hash key="other" label="Other")}}
-    @sortingKeys={{array "artist" "album"}}
-    @sortBy="artist"
-    @sortOrder="desc"
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="other" label="Other" width="55px")
+    }}
     @valign="middle"
   >
     <:body as |B|>
@@ -812,22 +831,24 @@ export default class ComponentsTableRoute extends Route {
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with a custom-width column and right-aligned text column</h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th class="db-table-w1-7">Release Year</H.Th>
-        <H.Th class="db-table-text-right">Current Vinyl Cost (USD)</H.Th>
-      </H.Tr>
-    </:head>
+  <h4 class="dummy-h4">Table where last column has right-aligned text</h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @isStriped={{false}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="vinyl-cost" label="Current Vinyl Cost" align="right")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
-        <B.Td class="db-table-w1-7">{{B.data.year}}</B.Td>
-        <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        {{!-- <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td> --}}
+        <B.Td>{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>
