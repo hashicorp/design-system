@@ -1,8 +1,8 @@
 export const myext = function () {
   var myext1 = {
     type: 'lang',
-    regex: /markdown/g,
-    replace: 'showdown',
+    regex: /yyyyyy/g,
+    replace: 'yyyyyy',
   };
   var myext2 = {
     type: 'lang',

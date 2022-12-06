@@ -15,7 +15,7 @@ export default class DocBannerComponent extends Component {
   //   return this.args.color ?? DEFAULT_COLOR;
   // }
   get classNames() {
-    let classes = ['doc-banner'];
+    let classes = ['doc-banner aaaa'];
 
     // // add a class based on the @color argument
     // classes.push(`doc-banner--color-${this.color}`);

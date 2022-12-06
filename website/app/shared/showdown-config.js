@@ -1,6 +1,7 @@
 import { elementsToClassNames } from './showdown-extensions/elements-to-classnames';
 import { bannerContentBlock } from './showdown-extensions/banner-content-block';
 import { myext } from './showdown-extensions/my-extension';
+import { myextv2 } from './showdown-extensions/my-extension-v2';
 
 // SET SHOWDOWN SETTINGS HERE:
 // https://showdownjs.com/docs/available-options/
@@ -25,6 +26,6 @@ export const showdownConfig = {
   ghCompatibleHeaderId: true,
   // add default class for each HTML element generated
   // see: https://github.com/showdownjs/showdown/wiki/Extensions + https://showdownjs.com/docs/tutorials/add-default-class-to-html/
-  extensions: [myext, ...elementsToClassNames],
-  // extensions: [...bannerContentBlock, ...elementsToClassNames],
+  // extensions: [bannerContentBlock, myext, myextv2, ...elementsToClassNames],
+  extensions: [...elementsToClassNames, bannerContentBlock],
 };

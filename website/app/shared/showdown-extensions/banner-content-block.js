@@ -1,86 +1,62 @@
-// https://regex101.com/r/j4PHPo/1
-const regex = new RegExp(/^!!! (\w+)[\n\s]((.|\n)*?)!!!$/, 'gm');
+const PLACEHOLDER = 'div';
+
+const langRegex = new RegExp(/^!!! (\w+)[\n\s]((.|\n)*?)!!!$/, 'gm');
+const outputRegex = new RegExp(`<(\/)?${PLACEHOLDER}`, 'g');
 
 export const bannerContentBlock = function () {
-  var myext1 = {
+  var langExtension = {
+    // we use the "lang" here because we want to replace the `!!!` delimitiers before everything else
+    // so that the contained markdown is normally interpreted, parsed and converted
+    // see: https://github.com/showdownjs/showdown/wiki/Extensions#type-propertyrequired
     type: 'lang',
-    regex: /markdown/g,
-    replace: 'showdown',
-  };
-  var myext2 = {
-    /* extension code */
-  };
-  return [myext1, myext2];
-};
-
-export const bannerContentBlock_ZZZ = [
-  {
-    type: 'lang',
-    regex: regex,
+    // https://regex101.com/r/j4PHPo/1
+    regex: langRegex,
     replace: function (text) {
-      console.log('banner1', text);
-      return text.replace(regex, function (_match, type, content) {
-        console.log('banner2a', _match);
-        console.log('banner2b', type);
-        console.log('banner2c', content);
-        return `<div data-banner-type="${type}" class="doc-banner" data-markdown="1">\n${content}\n</div>`;
-        // return `<aaa class="${type}" data-markdown="1">\n${content}\n</aaa>`;
+      console.log('langExtension1', text);
+      return text.replace(langRegex, function (_match, type, content) {
+        console.log('langExtension2', _match, type, content);
+        return `<${PLACEHOLDER} data-banner-type="${type}" data-markdown="1">\n${content}\n</${PLACEHOLDER}>`;
       });
     },
-  },
-];
-
-// inspiration for this example taken from here: https://github.com/showdownjs/prettify-extension/blob/master/src/showdown-prettify.js
-export const bannerContentBlock__v1 = {
-  type: 'lang',
-  filter: function (source) {
-    console.log('banner1', source);
-    return source.replace(regex, function (_match, type, content) {
-      console.log('banner2', _match, type, content);
-      return `<div class="${type}">\n${content}\n</div>`;
-    });
-  },
+  };
+  var outputExtension = {
+    type: 'output',
+    // regex: outputRegex,
+    // replace: function (text) {
+    //   // TODO maybe we can use this regex https://regex101.com/r/Z91et6/1 to replace both tags at the same time?
+    //   console.log('outputExtension old text', text);
+    //   const newText = text.replace(outputRegex, `<$1Doc::Banner`);
+    //   console.log('outputExtension newText', newText);
+    //   return newText;
+    // },
+    filter: function (text) {
+      // TODO maybe we can use this regex https://regex101.com/r/Z91et6/1 to replace both tags at the same time?
+      console.log('outputExtension old text', text);
+      const newText = text.replace(outputRegex, `<$1Doc::Banner`);
+      console.log('outputExtension newText', newText);
+      return newText;
+    },
+    // filter: function (text) {
+    //   text = text.replace(outputRegex, `<$1Doc::Banner`);
+    //   return text;
+    // },
+  };
+  return [langExtension, outputExtension];
 };
 
-// export const bannerContentBlock = {
-//   type: 'lang',
-//   regex: regex,
-//   replace: function (text) {
-//     console.log('banner1', text);
-//     return text.replace(regex, function (_match, type, content) {
-//       console.log('banner2', _match, type, content);
-//       return `<div class="${type}">\n${content}\n</div>`;
-//     });
+// export const bannerContentBlock_ZZZ = [
+//   {
+//     type: 'lang',
+//     regex: regex,
+//     replace: function (text) {
+//       console.log('banner1', text);
+//       return text.replace(regex, function (_match, type, content) {
+//         console.log('banner2a', _match);
+//         console.log('banner2b', type);
+//         console.log('banner2c', content);
+//         return `<div data-banner-type="${type}" class="doc-banner" data-markdown="1">\n${content}\n</div>`;
+//         // return `<aaa class="${type}" data-markdown="1">\n${content}\n</aaa>`;
+//       });
+//     },
 //   },
-// };
-
-export const bannerContentBlock__v4 = {
-  type: 'output',
-  regex: new RegExp(`<p>|<p (.*)>`, 'g'),
-  replace: function (text) {
-    // IMPORTANT: we DO NOT NEED to set the "g" global option here!
-    const regexBasic = new RegExp(`<p>`);
-    const matchBasic = text.match(regexBasic);
-    const regexWithAttrs = new RegExp(`<p (.*)>`);
-    const matchWithAttrs = text.match(regexWithAttrs);
-    console.log('BBBB', text);
-
-    let attrs;
-
-    // eg. <h1> <p> <td>
-    if (matchBasic) {
-      attrs = `class="AAAAA"`;
-    }
-    // eg. <hr /> <th style="text-align:center;"> <pre class="language-shell"><code class="shell language-shell">
-    if (matchWithAttrs) {
-      const rest = matchWithAttrs[1];
-      if (rest.includes('class="')) {
-        attrs = rest.replace('class="', `class="BBBBB `);
-      } else {
-        attrs = `class="CCCCCC" ${rest}`;
-      }
-    }
-
-    return `<p ${attrs}>`;
-  },
-};
+// ];
