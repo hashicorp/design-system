@@ -244,10 +244,15 @@
     <h4 class="dummy-h4">Base elements</h4>
 
     <h5 class="dummy-h5">TotalCount</h5>
+
     <span class="dummy-text-small">with <code class="dummy-code">@totalItems</code></span>
     <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} @totalItems={{103}} />
+
+    <!--
     <span class="dummy-text-small">without <code class="dummy-code">@totalItems</code></span>
     <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} />
+    -->
+
     <span class="dummy-text-small">with
       <code class="dummy-code">@totalItems</code>
       but with
@@ -258,11 +263,14 @@
       @totalItems={{103}}
       @hasTotalItems={{false}}
     />
+
+    <!--
     <span class="dummy-text-small">without
       <code class="dummy-code">@totalItems</code>
       but with
       <code class="dummy-code">@hasTotalItems=true</code></span>
     <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} @hasTotalItems={{true}} />
+    -->
 
     <h5 class="dummy-h5">PageSize</h5>
     <Hds::PaginationBar::PageSize @sizes={{array 10 30 50}} />
