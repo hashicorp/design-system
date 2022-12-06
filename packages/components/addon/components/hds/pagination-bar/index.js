@@ -6,7 +6,7 @@ import { tracked } from '@glimmer/tracking';
 export const TYPES = ['numbered', 'compact'];
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  _itemsPerPage = this.args.itemsPerPage;
+  _currentItemsPerPage = this.args.itemsPerPage;
 
   @tracked totalPages = Math.max(
     Math.ceil(this.totalItems / this.itemsPerPage),
@@ -35,10 +35,10 @@ export default class HdsPaginationBarIndexComponent extends Component {
   get itemsPerPage() {
     assert(
       '@itemsPerPage must be defined',
-      this._itemsPerPage !== undefined
+      this._currentItemsPerPage !== undefined
     );
 
-    return this._itemsPerPage;
+    return this._currentItemsPerPage;
   }
 
   @action
@@ -48,7 +48,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
 
   @action
   onPageSizeChange(newPageSize) {
-    this._itemsPerPage = newPageSize;
+    this._currentItemsPerPage = newPageSize;
     this.currentPage = 1;
     this.totalPages = Math.max(
       Math.ceil(this.args.totalItems / this.itemsPerPage),
