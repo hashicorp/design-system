@@ -45,14 +45,20 @@
   <tbody class="hds-table__tbody">
     {{#if @columns}}
       {{#each (sort-by this.getSortCriteria @model) as |data|}}
-        {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
+        {{yield
+          (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td" align=this.align) data=data)
+          to="body"
+        }}
       {{/each}}
     {{else if @model}}
       {{#each @model as |data|}}
-        {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
+        {{yield
+          (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td" align=this.align) data=data)
+          to="body"
+        }}
       {{/each}}
     {{else}}
-      {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td")) to="body"}}
+      {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td" align=this.align)) to="body"}}
     {{/if}}
   </tbody>
 </table>

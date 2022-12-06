@@ -1,3 +1,6 @@
-<td class="hds-table__td hds-typography-body-200 hds-font-weight-regular" ...attributes>
+<td
+  class="hds-table__td hds-typography-body-200 hds-font-weight-regular{{if @align (concat ' hds-text-' @align)}}"
+  ...attributes
+>
   {{yield}}
 </td>
