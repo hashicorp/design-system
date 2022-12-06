@@ -51,7 +51,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
     this._currentItemsPerPage = newPageSize;
     this.currentPage = 1;
     this.totalPages = Math.max(
-      Math.ceil(this.args.totalItems / this.itemsPerPage),
+      Math.ceil(this.totalItems / this.itemsPerPage),
       1
     );
   }
