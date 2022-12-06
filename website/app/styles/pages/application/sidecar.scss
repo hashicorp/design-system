@@ -74,3 +74,10 @@
   --padding-left: 24px;
   --font-weight: medium;
 }
+
+
+// SPECIAL CLASS FOR HEADINGS
+
+.doc-page-sidecar-scroll-margin-top {
+  scroll-margin-top: calc(var(--doc-page-header-height) + 20px);
+}

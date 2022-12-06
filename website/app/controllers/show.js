@@ -57,6 +57,9 @@ export default class ShowController extends Controller {
         section
           .querySelectorAll(`#${section.id} > h2, #${section.id} > h3`)
           .forEach((element) => {
+            // we need to add a class to avoid the element being hidden behind the fixed top header
+            element.classList.add('doc-page-sidecar-scroll-margin-top');
+            // we add it to the list of headings used as TOC in the sidecar
             headings.push({
               target: element.id,
               text: element.innerText,
