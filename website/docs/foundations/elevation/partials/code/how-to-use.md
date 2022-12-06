@@ -14,6 +14,10 @@ You can use the "elevation" and "surface" [design tokens](./tokens) directly in 
 
 These are the **CSS variables** that you can use:
 
+<Doc::VarsList @items={{this.cssVariables.elevations}} />
+ <Doc::VarsList @items={{this.cssVariables.surfaces}} />
+
+
 **🚨 IMPORTANT: 🚨**
 
 *   the "elevation" and "surface" CSS variables can be used **only** with a `box-shadow` property
@@ -28,6 +32,10 @@ You can use one of the predefined CSS helper classes:
 ```
 
 These are the **CSS helper classes** that you can use:
+
+<Doc::VarsList @items={{this.cssHelpers.elevations}} />
+ <Doc::VarsList @items={{this.cssHelpers.surfaces}} />
+
 
 To use this classes you have to import the CSS file `[products|devdot]/css/helpers/elevation.css` from the `@hashicorp/design-system-tokens` package.
 

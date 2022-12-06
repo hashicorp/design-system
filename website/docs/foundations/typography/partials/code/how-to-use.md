@@ -42,6 +42,11 @@ If you want to change the _font-weight_ of an element you can use one the "font-
 
 These are the **CSS helper classes** that you can use:
 
+<Doc::VarsList @items={{this.cssHelpers.families}} />
+ <Doc::VarsList @items={{this.cssHelpers.weights}} />
+ <Doc::VarsList @items={{this.cssHelpers.styles}} />
+
+
 To use this classes you have to import the CSS file `[products|devdot]/css/helpers/typography.css` from the `@hashicorp/design-system-tokens` package.
 
 **🚨 IMPORTANT: 🚨**
