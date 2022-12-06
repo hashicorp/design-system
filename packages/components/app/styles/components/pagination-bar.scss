@@ -38,9 +38,9 @@ $pagination-height: calc(36px + 6px);
   display: flex;
   margin: 0;
   padding: 0;
-
-  > li { list-style-type: none; }
 }
+
+.hds-pagination__page-item { list-style-type: none; }
 
 .hds-pagination__page-link,
 .hds-pagination__ellipsis {
@@ -72,7 +72,8 @@ $pagination-height: calc(36px + 6px);
     color: var(--token-color-foreground-action-active);
   }
 
-  &:disabled {
+  &:disabled,
+  &.mock-disabled {
     color: var(--token-color-foreground-disabled);
   }
 }

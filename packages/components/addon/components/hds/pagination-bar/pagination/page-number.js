@@ -21,7 +21,7 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = [];
+    let classes = ['hds-pagination__page-item'];
 
     if (this.isSelected) {
       classes.push(`hds-pagination__page-selected`);

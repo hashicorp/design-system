@@ -11,8 +11,28 @@
   }
 }
 
-.dummy-pagination-showcase-layout {
+.dummy-pagination-base-sample {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   align-items: flex-start;
+  min-width: fit-content;
+  margin: 0;
+}
+
+.dummy-pagination-base-sample-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.dummy-pagination-base-sample-row {
+  display: flex;
+  gap: 8px;
+}
+
+.dummy-pagination-ul-wrapper {
+  display: contents;
+  list-style: none;
 }

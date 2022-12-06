@@ -240,8 +240,105 @@
   </button>
 
   <div class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
-    <h4 class="dummy-h4">TotalCount</h4>
-    <Hds::PaginationBar::TotalCount @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} />
+
+    <h4 class="dummy-h4">Base elements</h4>
+
+    <h5 class="dummy-h5">TotalCount</h5>
+    <span class="dummy-text-small">with <code class="dummy-code">@totalItems</code></span>
+    <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} @totalItems={{103}} />
+    <span class="dummy-text-small">without <code class="dummy-code">@totalItems</code></span>
+    <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} />
+    <span class="dummy-text-small">with
+      <code class="dummy-code">@totalItems</code>
+      but with
+      <code class="dummy-code">@hasTotalItems=false</code></span>
+    <Hds::PaginationBar::TotalCount
+      @itemsPerPage={{10}}
+      @currentPage={{1}}
+      @totalItems={{103}}
+      @hasTotalItems={{false}}
+    />
+    <span class="dummy-text-small">without
+      <code class="dummy-code">@totalItems</code>
+      but with
+      <code class="dummy-code">@hasTotalItems=true</code></span>
+    <Hds::PaginationBar::TotalCount @itemsPerPage={{10}} @currentPage={{1}} @hasTotalItems={{true}} />
+
+    <h5 class="dummy-h5">PageSize</h5>
+    <Hds::PaginationBar::PageSize @sizes={{array 10 30 50}} />
+
+    <h5 class="dummy-h5">Pagination::NavButton</h5>
+    {{#let (array "compact" "normal") as |types|}}
+      {{#each types as |type|}}
+        <p class="dummy-paragraph">Type <code class="dummy-code">{{type}}</code></p>
+        <div class="dummy-pagination-base-sample">
+          {{#let (array "default" "hover" "active" "focus") as |states|}}
+            {{#each states as |state|}}
+              <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button">
+                <div class="dummy-pagination-base-sample-row">
+                  <Hds::PaginationBar::Pagination::NavButton
+                    @direction="previous"
+                    @type={{type}}
+                    @currentPage="1"
+                    @totalPages="1"
+                  />
+                  <Hds::PaginationBar::Pagination::NavButton
+                    @direction="next"
+                    @type={{type}}
+                    @currentPage="1"
+                    @totalPages="1"
+                  />
+                </div>
+                <div class="dummy-pagination-base-sample-row">
+                  <Hds::PaginationBar::Pagination::NavButton
+                    @direction="previous"
+                    @type={{type}}
+                    @currentPage="1"
+                    @totalPages="10"
+                  />
+                  <Hds::PaginationBar::Pagination::NavButton
+                    @direction="next"
+                    @type={{type}}
+                    @currentPage="1"
+                    @totalPages="10"
+                  />
+                </div>
+                <div class="dummy-pagination-base-sample-row">
+                  <Hds::PaginationBar::Pagination::NavButton
+                    @direction="previous"
+                    @type={{type}}
+                    @currentPage="10"
+                    @totalPages="10"
+                  />
+                  <Hds::PaginationBar::Pagination::NavButton
+                    @direction="next"
+                    @type={{type}}
+                    @currentPage="10"
+                    @totalPages="10"
+                  />
+                </div>
+              </div>
+            {{/each}}
+          {{/let}}
+        </div>
+      {{/each}}
+    {{/let}}
+
+    <h5 class="dummy-h5">Pagination::PageNumber</h5>
+    <p class="dummy-paragraph">Generic vs current page</p>
+    <div class="dummy-pagination-base-sample">
+      {{#let (array "default" "hover" "active" "focus") as |states|}}
+        {{#each states as |state|}}
+          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
+            <span class="dummy-text-small">{{state}}</span>
+            <div class="dummy-pagination-base-sample-row">
+              <Hds::PaginationBar::Pagination::PageNumber @page="1" @currentPage="10" />
+              <Hds::PaginationBar::Pagination::PageNumber @page="1" @currentPage="1" />
+            </div>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
 
     <h4 class="dummy-h4">Pagination</h4>
     <div class="dummy-paragraph">
@@ -253,61 +350,34 @@
 
     <h5 class="dummy-h5">Pagination NavButton variants and states</h5>
     <h6 class="dummy-h6">“Compact” type (includes text label)</h6>
-    <div class="dummy-pagination-showcase-layout hds-typography-body-200 hds-font-weight-medium">
-      <div>
-        <span class="dummy-text-small">Default:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Disabled:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" @disabled={{true}} />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" @disabled={{true}} />
-      </div>
-      <div>
-        <span class="dummy-text-small">Hover:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-hover" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" class="mock-hover" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Active:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-active" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" class="mock-active" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Focus:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" class="mock-focus" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" class="mock-focus" />
-      </div>
+
+    <div class="dummy-pagination-base-sample">
+      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+        {{#each states as |state|}}
+          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
+            <span class="dummy-text-small">{{state}}</span>
+            <div class="dummy-pagination-base-sample-row">
+              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
+            </div>
+          </div>
+        {{/each}}
+      {{/let}}
     </div>
 
     <h6 class="dummy-h6">“Numbered” type (no text label)</h6>
-    <div class="dummy-pagination-showcase-layout hds-typography-body-200 hds-font-weight-medium">
-      <div>
-        <span class="dummy-text-small">Default:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Disabled:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Hover:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" class="mock-hover" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" class="mock-hover" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Active:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" class="mock-active" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" class="mock-active" />
-      </div>
-      <div>
-        <span class="dummy-text-small">Focus:</span>
-        <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" class="mock-focus" />
-        <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" class="mock-focus" />
-      </div>
+    <div class="dummy-pagination-base-sample">
+      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+        {{#each states as |state|}}
+          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
+            <span class="dummy-text-small">{{state}}</span>
+            <div class="dummy-pagination-base-sample-row">
+              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
+            </div>
+          </div>
+        {{/each}}
+      {{/let}}
     </div>
 
     <h4 class="dummy-h4">PageSize</h4>
