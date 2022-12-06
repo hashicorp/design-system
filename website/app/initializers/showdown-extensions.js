@@ -52,16 +52,17 @@ export function initialize(/* application */) {
         // escape { and } for the code sample
         highlightedCodeBlock = highlightedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
 
-        let preBlock = `<pre class="language-${language}"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
+        let preBlock = `<pre class="doc-code-block__code-snippet language-${language}"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
-        let selfExecutingBlock = `<div class="self-executing-code-block">
-  <div class="example">
-    ${inputCodeblock}
-  </div>
-  ${preBlock}
-</div>`;
+        let selfExecutingBlock = "";
+        selfExecutingBlock += '<div class="doc-code-block doc-code-block--self-executing">';
+        selfExecutingBlock += '  <div class="doc-code-block__code-rendered">';
+        selfExecutingBlock += `    ${inputCodeblock}`;
+        selfExecutingBlock += '  </div>';
+        selfExecutingBlock += `  ${preBlock}`;
+        selfExecutingBlock += '</div>';
 
         if(attributeString.includes('data-execute=false')) {
           codeblock = preBlock;

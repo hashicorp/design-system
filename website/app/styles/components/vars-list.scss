@@ -1,0 +1,38 @@
+// DOC VARS LIST
+
+@use "../typography/mixins" as *;
+
+.doc-vars-list {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  list-style: none;
+  // background: var(--background);
+  background: #f5f5f5;
+  border-radius: 0.5rem;
+}
+
+.doc-vars-list__item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  & + & {
+    margin-top: 0.5rem;
+  }
+
+  code {
+    @include doc-font-family("mono");
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 24px;
+  }
+
+  button {
+    visibility: hidden;
+    cursor: pointer;
+  }
+
+  &:hover button {
+    visibility: visible;
+  }
+}

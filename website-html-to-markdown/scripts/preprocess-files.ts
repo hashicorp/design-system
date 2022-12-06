@@ -55,6 +55,12 @@ async function preprocess() {
       if (fileRelativePath === 'foundations/colors/partials/other/generic-2.hbs') {
         hbsSource = hbsSource.replace(/DummyColorCard/g, 'Doc::ColorCard');
       }
+      if (fileRelativePath === 'foundations/elevation/partials/code/how-to-use.hbs') {
+        hbsSource = hbsSource.replace(/<DummyVarsList @items=\{\{(.*)\}\} \/>/g, '<dummyvarslist data-items="$1">TEMP</dummyvarslist>');
+      }
+      if (fileRelativePath === 'foundations/typography/partials/code/how-to-use.hbs') {
+        hbsSource = hbsSource.replace(/<DummyVarsList @items=\{\{(.*)\}\} \/>/g, '<dummyvarslist data-items="$1">TEMP</dummyvarslist>');
+      }
       if (fileRelativePath === 'components/alert/partials/code/how-to-use.hbs') {
         hbsSource = hbsSource.replace(/@route="\.\.\."/g, '@route="components"');
       }

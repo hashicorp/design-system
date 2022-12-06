@@ -42,6 +42,11 @@ async function postprocess() {
         return `<Doc::WcagList @criteriaList={{array "${list.split('|').join('" "')}" }} />\n`;
       });
 
+      // <dummyvarslist> → <Doc::VarsList>
+      markdownSource = markdownSource.replace(/<dummyvarslist data-items="(.*?)">TEMP<\/dummyvarslist>/g, (_match, items) => {
+        return `<Doc::VarsList @items={{${items}}} />\n`;
+      });
+
       await fs.writeFile(filePath, markdownSource);
     }
   });

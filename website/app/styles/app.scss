@@ -13,7 +13,11 @@
 // "Doc" components
 @import "components/badge";
 @import "components/cards";
+@import "components/color-card";
+@import "components/code-block";
 @import "components/placeholder";
+@import "components/token-card";
+@import "components/vars-list";
 @import "components/doc-table-of-contents";
 @import "components/content/hds-principles";
 
@@ -39,25 +43,6 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-}
-
-// TODO! move to another file once we have converted this to a "doc" custom component
-
-// stylelint-disable-next-line selector-class-pattern
-.self-executing-code-block {
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 3px;
-}
-
-// stylelint-disable-next-line selector-class-pattern
-.self-executing-code-block pre {
-  margin: 0;
-  padding: 10px;
-  border-color: #ccc;
-  border-width: 1px;
-  border-top-style: solid;
 }
 
 
