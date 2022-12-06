@@ -125,26 +125,55 @@
 </section>
 
 <section>
-  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">Compact pagination with all optional child components</p>
+  <h3 class="dummy-h3" id="how-to-use">
+    <a href="#how-to-use" class="dummy-link-section">§</a>
+    How to use
+  </h3>
+
+  <h4 class="dummy-h4">Basic use</h4>
+  <p class="dummy-paragraph">Default "compact" pagination with all optional child components</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+      <Hds::PaginationBar @totalItems=\{{103}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
         <P.TotalCount />
         <P.Pagination />
-        <P.PageSize @sizes={{array 10 30 50}} />
+        <P.PageSize @sizes=\{{array 10 30 50}} />
       </Hds::PaginationBar>
     "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
+
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.TotalCount />
+    <P.Pagination />
+    <P.PageSize @sizes={{array 10 30 50}} />
+  </Hds::PaginationBar>
+
+  <h4 class="dummy-h4">“Numbered” pagination</h4>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code='
+      <Hds::PaginationBar @totalItems=\{{100}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
+        <P.TotalCount />
+        <P.Pagination @type="numbered" />
+        <P.PageSize @sizes=\{{array 10 30 50}} />
+      </Hds::PaginationBar>
+    '
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
-    <P.Pagination />
+    <P.Pagination @type="numbered" />
     <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 </section>
@@ -234,61 +263,42 @@
     <Hds::PaginationBar::PageSize @sizes={{array 10 30 50}} />
 
     <h5 class="dummy-h5">Pagination::NavButton</h5>
-    {{#let (array "compact" "normal") as |types|}}
-      {{#each types as |type|}}
-        <p class="dummy-paragraph">Type <code class="dummy-code">{{type}}</code></p>
-        <div class="dummy-pagination-base-sample">
-          {{#let (array "default" "hover" "active" "focus") as |states|}}
-            {{#each states as |state|}}
-              <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button">
-                <div class="dummy-pagination-base-sample-row">
-                  <Hds::PaginationBar::Pagination::NavButton
-                    @direction="previous"
-                    @type={{type}}
-                    @currentPage="1"
-                    @totalPages="1"
-                  />
-                  <Hds::PaginationBar::Pagination::NavButton
-                    @direction="next"
-                    @type={{type}}
-                    @currentPage="1"
-                    @totalPages="1"
-                  />
-                </div>
-                <div class="dummy-pagination-base-sample-row">
-                  <Hds::PaginationBar::Pagination::NavButton
-                    @direction="previous"
-                    @type={{type}}
-                    @currentPage="1"
-                    @totalPages="10"
-                  />
-                  <Hds::PaginationBar::Pagination::NavButton
-                    @direction="next"
-                    @type={{type}}
-                    @currentPage="1"
-                    @totalPages="10"
-                  />
-                </div>
-                <div class="dummy-pagination-base-sample-row">
-                  <Hds::PaginationBar::Pagination::NavButton
-                    @direction="previous"
-                    @type={{type}}
-                    @currentPage="10"
-                    @totalPages="10"
-                  />
-                  <Hds::PaginationBar::Pagination::NavButton
-                    @direction="next"
-                    @type={{type}}
-                    @currentPage="10"
-                    @totalPages="10"
-                  />
-                </div>
-              </div>
-            {{/each}}
-          {{/let}}
-        </div>
-      {{/each}}
-    {{/let}}
+    <h6 class="dummy-h6">
+      Type
+      <code class="dummy-code">compact</code>
+      (includes text label) TODO: Update name
+    </h6>
+
+    <div class="dummy-pagination-base-sample">
+      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+        {{#each states as |state|}}
+          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
+            <span class="dummy-text-small">{{state}}</span>
+            <div class="dummy-pagination-base-sample-row">
+              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
+            </div>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
+
+    <h6 class="dummy-h6">Type
+      <code class="dummy-code">numbered</code>
+      (normal) type (no text label) TODO: Update name</h6>
+    <div class="dummy-pagination-base-sample">
+      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+        {{#each states as |state|}}
+          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
+            <span class="dummy-text-small">{{state}}</span>
+            <div class="dummy-pagination-base-sample-row">
+              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
+            </div>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
 
     <h5 class="dummy-h5">Pagination::PageNumber</h5>
     <p class="dummy-paragraph">Generic vs current page</p>
@@ -313,41 +323,6 @@
     <div class="dummy-paragraph">
       <Hds::PaginationBar::Pagination @totalItems={{100}} @itemsPerPage={{10}} @type="numbered" />
     </div>
-
-    <h5 class="dummy-h5">Pagination NavButton variants and states</h5>
-    <h6 class="dummy-h6">“Compact” type (includes text label)</h6>
-
-    <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
-        {{#each states as |state|}}
-          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
-            <span class="dummy-text-small">{{state}}</span>
-            <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
-              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
-            </div>
-          </div>
-        {{/each}}
-      {{/let}}
-    </div>
-
-    <h6 class="dummy-h6">“Numbered” type (no text label)</h6>
-    <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
-        {{#each states as |state|}}
-          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
-            <span class="dummy-text-small">{{state}}</span>
-            <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
-              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
-            </div>
-          </div>
-        {{/each}}
-      {{/let}}
-    </div>
-
-    <h4 class="dummy-h4">PageSize</h4>
-    <Hds::PaginationBar::PageSize @sizes={{array 10 30 50}} />
   </div>
 
   <h4 class="dummy-h4">PaginationBar with sub-components</h4>
@@ -369,7 +344,7 @@
   <h5 class="dummy-h5">Compact (default)</h5>
   <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
-    <P.Pagination @type="compact" />
+    <P.Pagination />
     <P.PageSize @sizes={{array 10 30 50}} />
   </Hds::PaginationBar>
 
