@@ -100,13 +100,35 @@
         <code class="dummy-code">:body</code>
         named block.</p></dd>
     <dt>columns <code>array</code></dt>
-    <dd><p>If defined, sets the column header content and indicates that the table should be sorted. For more
-        information about how this array is shaped, look at the code examples in the "How to Use" section.</p></dd>
-    <dt>sortingKeys <code>array</code></dt>
-    <dd><p>If defined, indicates which columns should be sortable (if only
-        <code class="dummy-code">columns</code>
-        is defined, all columns will be sortable). For more information about how this array is shaped, look at the code
-        examples in the "How to Use" section.</p></dd>
+    <dd><p>Use an array hash to define your table columns. While
+        <code class="dummy-code">key</code>
+        and
+        <code class="dummy-code">label</code>
+        are required, other options include
+        <code class="dummy-code">isSortable</code>,
+        <code class="dummy-code">align</code>
+        (for text-alignment), and
+        <code class="dummy-code">width</code>.</p></dd>
+    <dt>isSortable <code>boolean</code></dt>
+    <dd><p>Use with
+        <code class="dummy-code">column</code>. If defined, indicates that a column should be sortable.</p></dd>
+    <dt>align <code>enum</code></dt>
+    <dd>
+      <p>Use with
+        <code class="dummy-code">column</code>. If set, determines the text alignment of table column's content.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">left</li>
+        <li>center</li>
+        <li>right</li>
+      </ol>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>Use with
+        <code class="dummy-code">column</code>. If set, determines width of the column. Otherwise, the column width will
+        be automatically determined by the content (the browser default).</p>
+    </dd>
     <dt>sortBy <code>string</code></dt>
     <dd><p>If defined, indicates which column should be pre-sorted when the table is rendered. For more information
         about how this value, look at the code examples in the "How to Use" section.</p></dd>
@@ -227,72 +249,12 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">For documentation purposes, we imitated fetching data from an API and working with that as
-    our data model.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="javascript"
-    @code="import Route from '@ember/routing/route';
-
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    let response = await fetch('/api/folk.json');
-    let { data } = await response.json();
-
-    return data.map((model) => {
-      let { attributes } = model;
-      return { ...attributes };
-    });
-  }
-}"
-  />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <h4 class="dummy-h4">Sortable Table</h4>
-  <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route. In
-    this example, we're identifying the column headers (keys) and also capitalizing them. Each column object has two
-    pieces: a
-    <code class="dummy-code">key</code>-- used for the model, the
-    <code class="dummy-code">sortingKeys</code>
-    and
-    <code class="dummy-code">sortBy</code>; and the
-    <code class="dummy-code">label</code>-- used in the table header cells.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="javascript"
-    @code="// app/routes/components/table.js
-
-import Route from '@ember/routing/route';
-import { capitalize } from '@ember/string';
-
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    let response = await fetch('/api/folk.json');
-    let { data } = await response.json();
-
-    // make sure the variable is declared outside of the loop
-    // so we can return it in the model response
-    let columns;
-    let dataResponse = data.map((model) => {
-      let { id, attributes } = model;
-      columns = Object.keys(attributes);
-      return { id, ...attributes };
-    });
-    columns = columns.map((column) => {
-      return { key: column, label: capitalize(column) };
-    });
-    return { data: dataResponse, columns };
-  }
-}"
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">2. Invoke the
+  <p class="dummy-paragraph">Invoke the
     <span class="dummy-code">Hds::Table</span>
     component in your template file.</p>
   {{! prettier-ignore-start }}
@@ -303,7 +265,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
+  }}
 >
   <:body as |B|>
     <B.Tr>
@@ -325,8 +291,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
-  @sortingKeys=\{{array 'artist' 'album'}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}
 >
   <:body as |B|>
     <B.Tr>
@@ -348,8 +317,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
-  @sortingKeys=\{{array 'artist' 'album'}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}
   @sortBy='artist'
 >
   <:body as |B|>
@@ -372,8 +344,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
-  @sortingKeys=\{{array 'artist' 'album'}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
+  }}
   @sortBy='artist'
   @sortOrder='desc'
 >
@@ -399,12 +374,11 @@ export default class ComponentsTableRoute extends Route {
 <Hds::Table
   @model=\{{this.model.data}}
   @columns=\{{array
-      (hash key='artist' label=(t 'components.table.headers.artist'))
-      (hash key='album' label=(t 'components.table.headers.album'))
-      (hash key='year' label=(t 'components.table.headers.year'))
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+      (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+      (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
       (hash key='other' label=(t 'global.titles.other'))
     }}
-  @sortingKeys=\{{array 'artist' 'album' 'year'}}
 >
   <:body as |B|>
     <B.Tr>
