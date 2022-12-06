@@ -26,14 +26,6 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return type;
   }
 
-  get isNumbered() {
-    return this.type === 'numbered';
-  }
-
-  get isCompact() {
-    return this.type === 'compact';
-  }
-
   get pages() {
     let pages = [];
 
