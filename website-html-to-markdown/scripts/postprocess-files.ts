@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 
-const docsFolder = path.resolve(__dirname, '../../website/docs');
+const docsFolder = path.resolve(__dirname, './generated-output');
 
 (async () => {
   try {
