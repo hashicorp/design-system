@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import TOKENS_RAW from '../../../../packages/tokens/dist/docs/products/tokens.json';
+import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
 export default class Colors extends Component {
   get colors() {

@@ -1,3 +1,14 @@
-<div class="doc-page-sidecar" ...attributes>
-  <p>[this is the page "sidecar"]</p>
+<div class='doc-page-sidecar'>
+  <p class='doc-page-sidecar__on-this-page doc-text-h6'>On this page:</p>
+  {{#each @tocs as |toc|}}
+    <ul class='doc-page-sidecar__list' id={{toc.id}} hidden={{not toc.isCurrent}}>
+      {{#each toc.list as |item|}}
+        <li
+          class='doc-page-sidecar__item doc-page-sidecar__item--depth-{{item.depth}}'
+        >
+          <a href='#{{item.target}}'>{{item.text}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/each}}
 </div>

@@ -66,7 +66,7 @@ module.exports = function ({ source, path }, { parse, visit }) {
                   } else if (c.tag === 'strong') {
                     property['required'] = true;
                   } else if (c.type === 'TextNode' && c.chars) {
-                    property['name']+=c.chars.trim().replace(/"/g, '');
+                    property['name']+=c.chars.trim().replace(/"/g, '').replace(/\//g, ' ');
                   }
                 });
               } else if (c.tag === 'dd') {
@@ -80,13 +80,18 @@ module.exports = function ({ source, path }, { parse, visit }) {
                       c.children.forEach((c) => {
                         if (c.type === 'TextNode' && c.chars) {
                           if (!c.chars.includes('Acceptable values') && !c.chars.includes('Default:') ) property['notes']+=c.chars;
-                        } else if ((c.tag === 'code' || c.tag === 'strong' || c.tag === 'em') && c.children) {
-                          if (c.children[0].chars) {
-                            property['notes']+=`<${c.tag}>${c.children[0].chars}</${c.tag}>`;
-                          }
-                        } else if (c.tag === 'a' && c.children) {
+                        } else if ((c.tag === 'code' || c.tag === 'strong' || c.tag === 'em' || c.tag === 'a') && c.children) {
                           let href = getNodeAttributeValue(c, 'href');
-                          property['notes']+=`<${c.tag} href="${href}">${c.children[0].chars}</${c.tag}>`;
+                          property['notes']+=`<${c.tag} ${href?'href="'+href+'"':''}>`;
+                          c.children.forEach((c) => {
+                            if (c.type === 'TextNode' && c.chars) {
+                              property['notes']+=c.chars;
+                            } else if ((c.tag === 'code' || c.tag === 'strong' || c.tag === 'em' || c.tag === 'a') && c.children) {
+                              let href = getNodeAttributeValue(c, 'href');
+                              property['notes']+=`<${c.tag} ${href?'href="'+href+'"':''}>${c.children[0].chars}</${c.tag}>`;
+                            }
+                          });
+                          property['notes']+=`</${c.tag}>`;
                         }
                       });
                     } else if (c.tag === 'ol' && c.children) {
@@ -100,7 +105,7 @@ module.exports = function ({ source, path }, { parse, visit }) {
                           values.push(value);
                         }
                       });
-                      property['value'] = values.join(' ');
+                      property['value'] = values.join(', ').trim();
                     }
                   });
                   properties.push(property);
@@ -119,7 +124,7 @@ module.exports = function ({ source, path }, { parse, visit }) {
           let output = [];
           output.push(build.text(`<api>`));
           properties.forEach((p) => {
-            output.push(build.text(`<output data-name="${p['name']}" data-type="${p['type']?p['type']:'–'}" data-value="${p['value']?p['value']:'–'}"${p['default']?' data-default="'+p['default']+'"':''}${p['required']?' data-required="true"':''}>`));
+            output.push(build.text(`<output data-name="${p['name']}" data-type="${p['type']?p['type']:''}" data-value="${p['value']?p['value']:''}"${p['default']?' data-default="'+p['default']+'"':''}${p['required']?' data-required="true"':''}>`));
             output.push(build.text(`${p['notes']?p['notes']:'–'}`));
             output.push(build.text(`</output>`));
           });

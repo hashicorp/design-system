@@ -3,7 +3,7 @@
   <h4 class="dummy-h4">Status</h4>
   <h5 class="dummy-h5">Default</h5>
   <div class="dummy-stepper-indicator-grid">
-    {{#each @model.STEP_STATUSES as |status|}}
+    {{#each this.STEP_STATUSES as |status|}}
       <div>
         <span class="dummy-text-small">{{capitalize status}}</span>
         <br />

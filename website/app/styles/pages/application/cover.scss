@@ -3,6 +3,7 @@
 @use "../../breakpoints" as breakpoint;
 
 .doc-page-cover {
+  position: relative;
   grid-area: cover;
   // TODO check with heather what she wants to do with the vertical padding (responsive)
   padding: 16px var(--doc-page-stage-gutter-small);

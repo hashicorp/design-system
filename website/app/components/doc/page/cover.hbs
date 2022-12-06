@@ -3,4 +3,7 @@
   {{#if @description}}
     <p class="doc-page-cover__description doc-text-body-large">{{@description}}</p>
   {{/if}}
+  <div class="doc-page-cover__tabs">
+    <Doc::Page::Tabs @tabs={{@tabs}} />
+  </div>
 </div>

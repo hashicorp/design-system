@@ -1,107 +1,107 @@
 import Controller from '@ember/controller';
 import showdown from 'showdown';
+import { set, action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { A } from '@ember/array';
 
-const mapElementsToClassNames = {
-  h1: 'doc-markdown-h1',
-  h2: 'doc-markdown-h2',
-  h3: 'doc-markdown-h3',
-  h4: 'doc-markdown-h4',
-  h5: 'doc-markdown-h5',
-  h6: 'doc-markdown-h6',
-  p: 'doc-markdown-p',
-  blockquote: 'doc-markdown-blockquote',
-  ul: 'doc-markdown-ul',
-  ol: 'doc-markdown-ol',
-  li: 'doc-markdown-li',
-  img: 'doc-markdown-img',
-  a: 'doc-markdown-a',
-  table: 'doc-markdown-table',
-  thead: 'doc-markdown-thead',
-  tbody: 'doc-markdown-tbody',
-  tr: 'doc-markdown-tr',
-  td: 'doc-markdown-td',
-  th: 'doc-markdown-th',
-  pre: 'doc-markdown-pre',
-  code: 'doc-markdown-code',
-  hr: 'doc-markdown-hr',
-};
+import { showdownConfig } from '../shared/showdown-config';
 
-// SET SHOWDOWN SETTINGS HERE:
-// https://showdownjs.com/docs/available-options/
-// https://github.com/showdownjs/showdown/wiki/Showdown-Options
-
-const showdownConfig = {
-  // enable support for tables in markdown
-  // see: https://showdownjs.com/docs/available-options/#tables
-  tables: true,
-  // enable support for strikethrough in markdown
-  // see: https://showdownjs.com/docs/available-options/#strikethrough
-  strikethrough: true,
-  // enable support for image sizes in markdown
-  // see: https://showdownjs.com/docs/available-options/#parseimgdimensions
-  parseImgDimensions: true,
-  // enable custom ID for a heading
-  // see: https://showdownjs.com/docs/available-options/#customizedheaderid
-  // notice: later it may be replaced with a more comprehensive way to handle HTML attributes (similar to https://github.com/arve0/markdown-it-attrs)
-  customizedHeaderId: true,
-  // enable generations of heading IDs compatible with GitHub style
-  // see: https://showdownjs.com/docs/available-options/#ghcompatibleheaderid
-  ghCompatibleHeaderId: true,
-  // add default class for each HTML element generated
-  // see: https://github.com/showdownjs/showdown/wiki/Extensions + https://showdownjs.com/docs/tutorials/add-default-class-to-html/
-  extensions: Object.keys(mapElementsToClassNames).map((element) => ({
-    type: 'output',
-    // this is a custom regex, modified from the one found in the original tutolrial, to make it more solid and encompass more use cases
-    // for testing see: https://regex101.com/r/jLk7wN/2 + https://regex101.com/r/jLk7wN/5
-    // IMPORTANT: we NEED to set the "g" global option here!
-    regex: new RegExp(`<${element}>|<${element} (.*)>`, 'g'),
-    replace: function (text) {
-      // IMPORTANT: we DO NOT NEED to set the "g" global option here!
-      const regexBasic = new RegExp(`<${element}>`);
-      const matchBasic = text.match(regexBasic);
-      const regexWithAttrs = new RegExp(`<${element} (.*)>`);
-      const matchWithAttrs = text.match(regexWithAttrs);
-
-      let attrs;
-
-      // eg. <h1> <p> <td>
-      if (matchBasic) {
-        attrs = `class="${mapElementsToClassNames[element]}"`;
-      }
-      // eg. <hr /> <th style="text-align:center;"> <pre class="language-shell"><code class="shell language-shell">
-      if (matchWithAttrs) {
-        const rest = matchWithAttrs[1];
-        if (rest.includes('class="')) {
-          attrs = rest.replace(
-            'class="',
-            `class="${mapElementsToClassNames[element]} `
-          );
-        } else {
-          attrs = `class="${mapElementsToClassNames[element]}" ${rest}`;
-        }
-      }
-
-      return `<${element} ${attrs}>`;
-    },
-  })),
-};
 export default class ShowController extends Controller {
+  @tracked sections = A([]);
+  @tracked tabs = A([]);
+  @tracked tocs = A([]);
+
   get title() {
-    // TODO! do something smarter than this :)
-    return this.model.frontmatter?.title ?? 'This is the (missing) page title';
+    return this.model.frontmatter?.title ?? '';
   }
 
   get description() {
-    // return this.model.frontmatter?.description ?? false;
-    // TODO! do something smarter than this :)
-    return (
-      this.model.frontmatter?.description ??
-      'This is the (missing) long description, that will come from the frontmatter attributes'
-    );
+    return this.model.frontmatter?.description ?? false;
   }
 
   get renderedContent() {
     const converter = new showdown.Converter(showdownConfig);
     return converter.makeHtml(this.model.content);
+  }
+
+  @action
+  didInsertContent(docPageContentElement) {
+    let sections = [];
+    let tabs = [];
+    let tocs = [];
+    docPageContentElement
+      .querySelectorAll(`section[id^=section-]`)
+      .forEach((section, index) => {
+        // SECTIONS
+        const name = section.id.replace(/^section-/, '');
+        section.setAttribute('role', 'tabpanel');
+        section.setAttribute('tabindex', '0');
+        section.setAttribute('aria-labelledby', `tab-${name}`);
+        section.setAttribute('hidden', true);
+        sections.push(section);
+        // TABS
+        tabs.push({
+          index,
+          id: `tab-${name}`,
+          label: name,
+          target: section.id,
+          onClickTab: this.onClickTab,
+          isCurrent: false,
+        });
+        // TOCS
+        let headings = [];
+        section
+          .querySelectorAll(`#${section.id} > h2, #${section.id} > h3`)
+          .forEach((element) => {
+            // we need to add a class to avoid the element being hidden behind the fixed top header
+            element.classList.add('doc-page-sidecar-scroll-margin-top');
+            // we add it to the list of headings used as TOC in the sidecar
+            headings.push({
+              target: element.id,
+              text: element.innerText,
+              depth: element.tagName.replace(/h/i, ''),
+            });
+          });
+        tocs.push({
+          index,
+          id: `toc-${name}`,
+          list: headings,
+        });
+      });
+    this.sections.setObjects(sections);
+    this.tabs.setObjects(tabs);
+    this.tocs.setObjects(tocs);
+    // TODO handle when the page loads which one is the current, based on the URL query params
+    this.setCurrent(0);
+    // leave for debugging
+    // console.log('show didInsert', this.sections, this.tabs, this.tocs);
+  }
+
+  @action
+  onClickTab(tab) {
+    // console.log('show onClickTab', tab);
+    this.setCurrent(tab.index);
+  }
+
+  @action
+  setCurrent(current) {
+    // TABS
+    this.tabs.forEach((tab) => {
+      set(tab, 'isCurrent', tab.index === current);
+    });
+    // SECTIONS
+    this.sections.forEach((section, index) => {
+      if (index === current) {
+        section.removeAttribute('hidden');
+      } else {
+        section.setAttribute('hidden', true);
+      }
+    });
+    // TOCS
+    this.tocs.forEach((toc) => {
+      set(toc, 'isCurrent', toc.index === current);
+    });
+    // leave for debugging
+    // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
   }
 }

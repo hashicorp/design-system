@@ -1,0 +1,118 @@
+// DOC TOKEN CARD
+
+@use "../typography/mixins" as *;
+
+.doc-token-card {
+  @include doc-font-family("sans");
+  font-size: 1rem;
+  line-height: 1;
+  border-top: 1px dotted #ccc;
+
+  &:last-child {
+    border-bottom: 1px dotted #ccc;
+  }
+
+  &.doc-token-card--is-expanded {
+    background-color: #fafafa;
+  }
+}
+
+.doc-token-card__summary { // it's a button
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 10px 30px 10px 10px;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transform: rotate(180deg);
+    opacity: 0.3;
+    content: "▲";
+  }
+
+  .doc-token-card--is-expanded & {
+    background-color: #eceff1;
+
+    &::after {
+      transform: none;
+    }
+  }
+}
+
+.doc-token-card__name {
+  flex: 1 0 60%;
+  min-width: 0;
+  margin: 0;
+  padding: 5px 20px 5px 0;
+  color: #000;
+
+  .doc-token-card--is-deprecated & {
+    color: #ccc;
+    text-decoration: line-through;
+  }
+}
+
+.doc-token-card__asterisk {
+  font-size: 0.8125rem;
+  opacity: 0.5;
+}
+
+.doc-token-card__value {
+  display: flex;
+  color: #666;
+}
+
+.doc-token-card__color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-color: currentColor;
+  box-shadow: inset 0 0 1px 0 rgb(0, 0, 0, 25%);
+}
+
+.doc-token-card__details {
+  display: none;
+
+  .doc-token-card--is-expanded & {
+    display: block;
+  }
+}
+
+.doc-token-card__details-table {
+  width: 100%;
+  padding: 10px 10px 10px 15px;
+  font-size: 0.9rem;
+  font-family: monospace;
+  text-align: left;
+
+  th {
+    width: 150px;
+    padding: 5px 0 5px 0;
+    color: #666;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  td {
+    padding: 5px 0 5px 0;
+  }
+}
+
+.doc-token-card__comment {
+  @include doc-font-family("sans");
+  font-size: 0.9em;
+}

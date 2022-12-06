@@ -20,7 +20,7 @@
         ⇒
         <code class="dummy-code">&lt;a&gt;</code></span>
       <br />
-      <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
+      <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="components" />
     </div>
   </div>
 
@@ -45,8 +45,8 @@
     Sizes
   </h4>
   <div class="dummy-link-standalone-base-sample">
-    {{#each @model.SIZES as |size|}}
-      <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link" />
+    {{#each this.SIZES as |size|}}
+      <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components" />
     {{/each}}
   </div>
   <h4 class="dummy-h4">

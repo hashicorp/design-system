@@ -105,10 +105,4 @@ export default class ShowRoute extends Route {
         };
       });
   }
-
-  redirect(model) {
-    if (model.id === 'index') {
-      this.router.transitionTo('index');
-    }
-  }
 }

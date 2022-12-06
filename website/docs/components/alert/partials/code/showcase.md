@@ -5,7 +5,7 @@
     "Showcase" for clarity.</p>
 
   <h4 class="dummy-h4">Type</h4>
-  {{#each @model.TYPES as |type|}}
+  {{#each this.TYPES as |type|}}
     <p class="dummy-paragraph">{{capitalize type}}</p>
     <br />
     <div class="dummy-alert-sample-item--type-{{type}}">

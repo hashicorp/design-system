@@ -30,3 +30,18 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```javascript
 var foo = "The same thing is true for code with syntax highlighting. A single line of code should horizontally scroll if it is really long.";
 ```
+
+---
+
+GitHub code block with <code>handlebars</code> syntax attribute.
+
+```handlebars
+<Hds::Button @text="Hello world!" {{on "click" this.noop }} />
+```
+
+GitHub code block with <code>handlebars</code> + <code>data-execute=false</code> attributes.
+
+```handlebars{data-execute=false}
+<Hds::Button @text="Hello world!" {{on "click" this.noop }} />
+```
+

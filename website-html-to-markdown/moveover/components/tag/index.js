@@ -1,9 +1,14 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class Index extends Component {
-  get yourOnDismissFunction() {
-    return () => {
-      console.log('Clicked the "dismiss" button in the "tag"!');
-    };
+  @action
+  noop() {
+    //
+  }
+
+  @action
+  yourOnDismissFunction() {
+    console.log('Clicked the "dismiss" button in the "toast"!');
   }
 }

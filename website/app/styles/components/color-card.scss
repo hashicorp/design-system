@@ -1,0 +1,51 @@
+// DOC COLOR CARD
+
+@use "../typography/mixins" as *;
+
+.doc-color-card {
+  position: relative;
+  width: 100%;
+  max-width: 740px;
+  padding: 20px 20px 20px 160px;
+
+  & + & { margin-top: 0.5rem; }
+}
+
+.doc-color-card__color-preview {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: 140px;
+  background-color: currentColor;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 50%) 0 0 1px inset;
+}
+
+.doc-color-card__color-name {
+  @include doc-font-family("sans");
+  color: #000;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.doc-color-card__color-vars {
+  margin: 1rem 0 0 0;
+  padding: 0;
+  color: #000;
+  font-size: 0.8rem;
+  line-height: 1;
+  list-style: none;
+
+  li {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+  }
+
+  span {
+    @include doc-font-family("sans");
+    display: inline-block;
+    width: 85px;
+    opacity: 0.5;
+  }
+}

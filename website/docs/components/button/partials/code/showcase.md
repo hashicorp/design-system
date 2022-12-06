@@ -43,7 +43,7 @@
 
   <h4 class="dummy-h4">Sizes</h4>
   <div class="dummy-button-base-sample">
-    {{#each @model.SIZES as |size|}}
+    {{#each this.SIZES as |size|}}
       <Hds::Button @icon="plus" @text={{capitalize size}} @size={{size}} />
     {{/each}}
     <div class="dummy-button-full-width-container">

@@ -13,6 +13,8 @@ Router.map(function () {
   this.route('patterns');
   // this will be removed later
   this.route('testing');
+  // this is a fake route that we use for the "how to use" and "showcase" sections
+  this.route('my.page.route', { path: 'my/*path' });
   // this is a catch-all route that points any path not matched above to the "show" route
   this.route('show', { path: '*path' });
 });
