@@ -8,10 +8,7 @@ export const TYPES = ['numbered', 'compact'];
 export default class HdsPaginationBarIndexComponent extends Component {
   @tracked _currentItemsPerPage = this.args.itemsPerPage;
 
-  @tracked totalPages = Math.max(
-    Math.ceil(this.totalItems / this.itemsPerPage),
-    1
-  );
+  @tracked totalPages = this.calculateTotalPages();
 
   @tracked currentPage = this.args.currentPage ?? 1;
 
@@ -72,9 +69,10 @@ export default class HdsPaginationBarIndexComponent extends Component {
   onPageSizeChange(newPageSize) {
     this._currentItemsPerPage = newPageSize;
     this.currentPage = 1;
-    this.totalPages = Math.max(
-      Math.ceil(this.totalItems / this.itemsPerPage),
-      1
-    );
+    this.totalPages = this.calculateTotalPages();
+  }
+
+  calculateTotalPages() {
+    return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
   }
 }
