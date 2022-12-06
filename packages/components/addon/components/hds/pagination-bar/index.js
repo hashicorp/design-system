@@ -6,12 +6,13 @@ import { tracked } from '@glimmer/tracking';
 export const TYPES = ['numbered', 'compact'];
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  _currentItemsPerPage = this.args.itemsPerPage;
+  @tracked _currentItemsPerPage = this.args.itemsPerPage;
 
   @tracked totalPages = Math.max(
     Math.ceil(this.totalItems / this.itemsPerPage),
     1
   );
+
   @tracked currentPage = this.args.currentPage ?? 1;
 
   /**
