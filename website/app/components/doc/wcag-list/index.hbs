@@ -1,15 +1,11 @@
 <div class={{this.classNames}}>
   <ul class="doc-wcag-list__ul">
-    {{#each this.criteria as |criterion|}}
-      {{#if (and @criteriaList (includes criterion.number @criteriaList))}}
+    {{#each this.filteredCriteria as |criterion|}}
         <li class="doc-wcag-list__li">
           <a href={{criterion.url}} class="doc-wcag-list__link">
           {{criterion.number}} {{criterion.title}}:</a>
           {{criterion.description}}
         </li>
-      {{/if}}
-    {{else}}
-      <li>No relevant Success Criterion found.</li>
     {{/each}}
   </ul>
 </div>
