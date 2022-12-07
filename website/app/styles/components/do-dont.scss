@@ -1,0 +1,40 @@
+// DO-DONT
+
+@use "../typography/mixins" as *;
+
+.doc-do-dont {
+  margin: 16px 0;
+}
+
+.doc-do-dont__badge {
+  @include doc-font-style-body-small();
+  width: min-content;
+  margin-bottom: 8px;
+  padding: 3px 12px 4px;
+  color: white; // TODO transform to token
+  font-weight: 600;
+  border-radius: 100px;
+
+  .doc-do-dont--type-do & {
+    background-color: #007854;
+  }
+
+  .doc-do-dont--type-dont & {
+    background-color: #ba2226;
+  }
+}
+
+.doc-do-dont__content {
+  padding: 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+
+  .doc-do-dont--type-do & {
+    border-color: #007854;
+  }
+
+  .doc-do-dont--type-dont & {
+    border-color: #ba2226;
+  }
+}
