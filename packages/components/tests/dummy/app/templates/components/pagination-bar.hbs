@@ -275,7 +275,7 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="compact" />
               <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
             </div>
           </div>
@@ -283,7 +283,7 @@
         <div class="dummy-pagination-base-sample-item">
           <span class="dummy-text-small">disabled</span>
           <div class="dummy-pagination-base-sample-row">
-            <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" @disabled={{true}} />
+            <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="compact" @disabled={{true}} />
             <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" @disabled={{true}} />
           </div>
         </div>
@@ -301,7 +301,7 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="numbered" />
               <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
             </div>
           </div>
@@ -310,7 +310,7 @@
       <div class="dummy-pagination-base-sample-item">
         <span class="dummy-text-small">disabled</span>
         <div class="dummy-pagination-base-sample-row">
-          <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" @disabled={{true}} />
+          <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="numbered" @disabled={{true}} />
           <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" @disabled={{true}} />
         </div>
       </div>

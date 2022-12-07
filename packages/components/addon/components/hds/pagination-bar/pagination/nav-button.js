@@ -4,7 +4,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-export const DIRECTIONS = ['next', 'previous'];
+export const DIRECTIONS = ['prev', 'next'];
 
 export default class HdsPaginationBarPaginationIndexComponent extends Component {
   get content() {
@@ -18,7 +18,7 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     );
 
     let content;
-    if (direction === 'previous') {
+    if (direction === 'prev') {
       content = {
         label: 'Previous',
         icon: 'chevron-left',
