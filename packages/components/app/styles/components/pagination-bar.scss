@@ -79,8 +79,26 @@ $pagination-height: calc(36px + 6px);
 }
 
 // Make buttons with "Previous" & "Next" labels the same min-width
-.hds-pagination__page-link--labeled {
+.hds-pagination__nav-button--labeled {
   min-width: 103px;
+}
+
+.hds-pagination__nav-button--direction-prev {
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .hds-pagination__page-label {
+    margin-left: 6px;
+  }
+}
+
+.hds-pagination__nav-button--direction-next {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  .hds-pagination__page-label {
+    margin-right: 6px;
+  }
 }
 
 .hds-pagination__ellipsis {
