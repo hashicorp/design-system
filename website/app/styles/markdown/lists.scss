@@ -23,10 +23,7 @@
 
 // custom marker colors
 
-.doc-markdown-ul > li::marker {
-  color: #c4c4c4; // TODO convert to token
-}
-
+.doc-markdown-ul > li::marker,
 .doc-markdown-ol > li::marker {
-  color: #76767d; // TODO convert to token
+  color: var(--doc-color-gray-300);
 }
