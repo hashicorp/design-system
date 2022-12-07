@@ -1,6 +1,6 @@
 <div class="hds-pagination-total-count hds-typography-body-100 hds-font-weight-medium" ...attributes>
   {{@itemsRangeStart}}–{{@itemsRangeEnd}}
-  {{#if @totalItems}}
+  {{#if this.showTotalItems}}
     of
     {{@totalItems}}
   {{/if}}

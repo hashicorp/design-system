@@ -11,15 +11,6 @@ export default class HdsPaginationBarIndexComponent extends Component {
   @tracked currentPage = this.args.currentPage ?? 1;
 
   /**
-   * @param showTotalItems
-   * @type {boolean}
-   * @description Controls the visibility of the total items in the "total count" element
-   */
-  get showTotalItems() {
-    return this.args.showTotalItems ?? true;
-  }
-
-  /**
    * @param totalItems
    * @type {number}
    * @description Pass the total number of items to be paginated. If no value is defined an error will be thrown.
@@ -29,7 +20,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
 
     assert('@totalItems must be defined', totalItems !== undefined);
 
-    return this.showTotalItems ? totalItems : false;
+    return totalItems;
   }
 
   /**
@@ -58,12 +49,12 @@ export default class HdsPaginationBarIndexComponent extends Component {
   get itemsRangeEnd() {
     // Calculate ending range of items displayed on current page
     // 2 cases: 1) full page of items or 2) last page of items
-    if (this.currentPage * this.itemsPerPage < this.args.totalItems) {
+    if (this.currentPage * this.itemsPerPage < this.totalItems) {
       // 1) full page of items (pages 1 to page before last):
       return this.itemsRangeStart + this.itemsPerPage - 1;
     } else {
       // 2) last page of items:
-      return this.args.totalItems;
+      return this.totalItems;
     }
   }
 
@@ -80,6 +71,6 @@ export default class HdsPaginationBarIndexComponent extends Component {
   }
 
   calculateTotalPages() {
-    return Math.max(Math.ceil(this.args.totalItems / this.itemsPerPage), 1);
+    return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
   }
 }
