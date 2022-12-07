@@ -1,79 +1,74 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-
-export const TYPES = ['numbered', 'compact'];
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+  @tracked currentItemsPerPage = this.args.itemsPerPage;
+  @tracked totalPages = this.calculateTotalPages();
+  @tracked currentPage = this.args.currentPage ?? 1;
 
   /**
-   * Shows totalItems if true
-   *
-   * @param hasTotalItems
-   * @type {boolean}
-   * @default true
+   * @param totalItems
+   * @type {number}
+   * @description Pass the total number of items to be paginated. If no value is defined an error will be thrown.
    */
-  get hasTotalItems() {
-    return this.args.hasTotalItems ?? true;
+  get totalItems() {
+    let { totalItems } = this.args;
+
+    assert('@totalItems must be defined', totalItems !== undefined);
+
+    return totalItems;
   }
 
   /**
-   * Gets the type
-   *
-   * @param type
-   * @type {string}
-   * @default 'numbered'
+   * @param itemsPerPage
+   * @type {number}
+   * @description Pass the maximum number of items to display on each page initially.
    */
-  get type() {
-    let { type } = this.args;
-
+  get itemsPerPage() {
     assert(
-      `@type for "Hds::PaginationBar" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type) || type === undefined
+      '@itemsPerPage must be defined',
+      this.currentItemsPerPage !== undefined
     );
 
-    return type ?? 'numbered';
+    return this.currentItemsPerPage;
   }
 
-  /**
-   * Shows the TotalCount if true
-   *
-   * @param showTotalCount
-   * @type {boolean}
-   * @default true
-   */
-  get showTotalCount() {
-    return this.args.showTotalCount ?? true;
+  get itemsRangeStart() {
+    // Calculate the starting range of items displayed on current page
+    // if currentPage = 1st page and # of items per page is 10:
+    //  ( (1 - 1 = 0) * 10 = 0 ) + 1 = 1
+    // if current page = 2nd page:
+    // ( (2 - 1 = 1) * 10 = 10 ) + 1 = 11
+    return (this.currentPage - 1) * this.itemsPerPage + 1;
   }
 
-  /**
-   * Shows the PageSize if true
-   *
-   * @param showPageSize
-   * @type {boolean}
-   * @default true
-   */
-  get showPageSize() {
-    return this.args.showPageSize ?? true;
+  get itemsRangeEnd() {
+    // Calculate ending range of items displayed on current page
+    // 2 cases: 1) full page of items or 2) last page of items
+    if (this.currentPage * this.itemsPerPage < this.totalItems) {
+      // 1) full page of items (pages 1 to page before last):
+      return this.itemsRangeStart + this.itemsPerPage - 1;
+    } else {
+      // 2) last page of items:
+      return this.totalItems;
+    }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-pagination-bar'];
+  @action
+  onPageChange(newPage) {
+    this.currentPage = newPage;
+  }
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-pagination--[variant]-${this.xxx}`);
+  @action
+  onPageSizeChange(newPageSize) {
+    this.currentItemsPerPage = newPageSize;
+    this.currentPage = 1;
+    this.totalPages = this.calculateTotalPages();
+  }
 
-    return classes.join(' ');
+  calculateTotalPages() {
+    return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
   }
 }

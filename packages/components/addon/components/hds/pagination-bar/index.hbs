@@ -1,70 +1,31 @@
-<div class={{this.classNames}} ...attributes>
-  {{#if this.showTotalCount}}
-    <Hds::PaginationBar::PaginationTotalCount @hasTotalItems={{this.hasTotalItems}} />
-  {{/if}}
+<div class="hds-pagination-bar" ...attributes>
+  {{yield
+    (hash
+      TotalCount=(component
+        "hds/pagination-bar/total-count"
+        showTotalItems=@showTotalItems
+        totalItems=this.totalItems
+        itemsRangeStart=this.itemsRangeStart
+        itemsRangeEnd=this.itemsRangeEnd
+      )
+    )
+  }}
 
-  <Hds::PaginationBar::Pagination @type={{this.type}} />
+  {{yield
+    (hash
+      Pagination=(component
+        "hds/pagination-bar/pagination"
+        type=this.type
+        totalPages=this.totalPages
+        currentPage=this.currentPage
+        onPageChange=this.onPageChange
+      )
+    )
+  }}
 
-  {{#if this.showPageSize}}
-    <Hds::PaginationBar::PaginationPageSize />
-  {{/if}}
+  {{yield
+    (hash
+      PageSize=(component "hds/pagination-bar/page-size" itemsPerPage=this.itemsPerPage onChange=this.onPageSizeChange)
+    )
+  }}
 </div>
-
-{{!
-  TEMP ROUGH NOTES
-  ------------------
-  Figuring out class naming and DOM structure...
-
-  WIP Structure (some names represent sub-components, others just represent HTML/CSS structure):
-    * PaginationBar
-      * PaginationTotalCount (optional)
-
-      * Pagination
-        * page-prev
-        * pages
-          * page
-            * page-link (some content aren't links though...)
-        * page-next
-
-      * PaginationPageSize (optional)
-
-APIs
-------
-PaginationBar:
-  X type=
-    "numbered" (default)
-    "compact"
-  X showTotalCount ?) =
-    true (default)
-    false
-  X showPageSize =
-    true (default)
-    false
-  isTruncated =
-    true (default ?)
-    false
-  X hasTotalItems=
-    true (default)
-    false
-
-TotalCount:
-  X hasTotalItems= (take values passed down from PaginationBar unless used as stand alone component)
-    true (default)
-    false
-
-Pagination:
-  X type= (take values passed down from PaginationBar unless used as stand alone component)
-    "numbered" (default)
-    "compact"
-  isTruncated= (take values passed down from PaginationBar unless used as stand alone component)
-    true (default ?)
-    false
-  * PageNumber:
-      isSelected (NOT isCurrent) (for page number, not exposed)
-      Truncated/ellipsis ? (for page number, not exposed)
-  * Prev/Next buttons:
-    * isDisabled (not exposed)
-
-PageSize:
-  ?
-}}
