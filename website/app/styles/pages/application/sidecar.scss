@@ -20,7 +20,7 @@
 
 .doc-page-sidecar__on-this-page {
   @include doc-font-family("gilmer");
-  color: #1d1e1f; // TODO transform to design token
+  color: var(--doc-color-gray-100);
   font-weight: 600;
   font-size: 13px;
   line-height: 1;
