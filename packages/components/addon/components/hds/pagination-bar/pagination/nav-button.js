@@ -17,20 +17,23 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
       DIRECTIONS.includes(direction)
     );
 
+    let content;
     if (direction === 'previous') {
-      return {
+      content = {
         label: 'Previous',
         icon: 'chevron-left',
         ariaLabel: 'Previous page',
       };
     }
     if (direction === 'next') {
-      return {
+      content = {
         label: 'Next',
         icon: 'chevron-right',
         ariaLabel: 'Next page',
       };
     }
+
+    return content;
   }
 
   /**
