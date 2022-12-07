@@ -2,10 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 export default class HdsPaginationBarPaginationIndexComponent extends Component {
-  get isSelected() {
-    return this.args.page === this.args.currentPage;
-  }
-
   @action
   onClick() {
     let { onClick } = this.args;
@@ -23,7 +19,7 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
   get classNames() {
     let classes = ['hds-pagination__page-item'];
 
-    if (this.isSelected) {
+    if (this.args.isSelected) {
       classes.push(`hds-pagination__page-selected`);
     }
 

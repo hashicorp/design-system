@@ -1,7 +1,7 @@
 <Hds::Interactive
   class={{this.classNames}}
   {{on "click" this.onClick}}
-  aria-label={{if this.isNext "Next page" "Previous page"}}
+  aria-label={{if (eq @direction "next") "Next page" "Previous page"}}
   disabled={{@disabled}}
   ...attributes
 >

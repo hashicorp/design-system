@@ -11,8 +11,8 @@
       {{#each this.pages as |page|}}
         <Hds::PaginationBar::Pagination::PageNumber
           @page={{page}}
-          @currentPage={{@currentPage}}
           @onClick={{this.onSelectPage}}
+          @isSelected={{if (eq page @currentPage) true false}}
         />
       {{/each}}
     </ul>

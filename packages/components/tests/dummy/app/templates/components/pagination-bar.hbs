@@ -310,8 +310,8 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::PageNumber @page="1" @currentPage="10" />
-              <Hds::PaginationBar::Pagination::PageNumber @page="1" @currentPage="1" />
+              <Hds::PaginationBar::Pagination::PageNumber @page="1" />
+              <Hds::PaginationBar::Pagination::PageNumber @page="1" @isSelected={{true}} />
             </div>
           </div>
         {{/each}}
