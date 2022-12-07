@@ -2,11 +2,9 @@ import Component from '@glimmer/component';
 
 export default class HdsPaginationBarTotalCountComponent extends Component {
   /**
-   * Shows totalItems in UI if true
-   *
    * @param showTotalItems
    * @type {boolean}
-   * @default true
+   * @description Controls the visibility of the total items
    */
   get showTotalItems() {
     return this.args.showTotalItems ?? true;

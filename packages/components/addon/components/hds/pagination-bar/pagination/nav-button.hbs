@@ -1,25 +1,14 @@
 <Hds::Interactive
   class={{this.classNames}}
   {{on "click" this.onClick}}
-  aria-label={{if (eq @direction "next") "Next page" "Previous page"}}
+  aria-label={{this.content.ariaLabel}}
   disabled={{@disabled}}
   ...attributes
 >
-  {{#if (eq @direction "next")}}
-    {{#if (eq @type "compact")}}
-      <span class="hds-pagination__page-label" aria-hidden="true">
-        Next
-      </span>
-    {{/if}}
-  {{/if}}
-
-  <FlightIcon class="hds-pagination__page-icon" @name={{if (eq @direction "next") "chevron-right" "chevron-left"}} />
-
-  {{#if (eq @direction "previous")}}
-    {{#if (eq @type "compact")}}
-      <span class="hds-pagination__page-label" aria-hidden="true">
-        Previous
-      </span>
-    {{/if}}
+  <FlightIcon class="hds-pagination__page-icon" @name={{this.content.icon}} />
+  {{#if (eq @type "compact")}}
+    <span class="hds-pagination__page-label" aria-hidden="true">
+      {{this.content.label}}
+    </span>
   {{/if}}
 </Hds::Interactive>

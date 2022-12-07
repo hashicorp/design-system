@@ -4,10 +4,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  @tracked _currentItemsPerPage = this.args.itemsPerPage;
-
+  @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
-
   @tracked currentPage = this.args.currentPage ?? 1;
 
   /**
@@ -31,10 +29,10 @@ export default class HdsPaginationBarIndexComponent extends Component {
   get itemsPerPage() {
     assert(
       '@itemsPerPage must be defined',
-      this._currentItemsPerPage !== undefined
+      this.currentItemsPerPage !== undefined
     );
 
-    return this._currentItemsPerPage;
+    return this.currentItemsPerPage;
   }
 
   get itemsRangeStart() {
@@ -65,7 +63,7 @@ export default class HdsPaginationBarIndexComponent extends Component {
 
   @action
   onPageSizeChange(newPageSize) {
-    this._currentItemsPerPage = newPageSize;
+    this.currentItemsPerPage = newPageSize;
     this.currentPage = 1;
     this.totalPages = this.calculateTotalPages();
   }

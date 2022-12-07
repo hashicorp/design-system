@@ -7,7 +7,7 @@
 {{! You can start by copy&pasting it, if you want, and then adapt it according to your needs. }}
 {{! Once done, please remove these comments (they're created by the generator). }}
 
-<section>
+<section hidden>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">
@@ -20,7 +20,7 @@
   </p>
 </section>
 
-<section>
+<section hidden>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph">
     The
@@ -124,7 +124,7 @@
   </dl>
 </section>
 
-<section>
+<section hidden>
   <h3 class="dummy-h3" id="how-to-use">
     <a href="#how-to-use" class="dummy-link-section">§</a>
     How to use
@@ -178,7 +178,7 @@
   </Hds::PaginationBar>
 </section>
 
-<section>
+<section hidden>
   <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
     Design guidelines</h3>
   {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
@@ -193,7 +193,7 @@
   }}
 </section>
 
-<section>
+<section hidden>
   <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
 
   <!-- <Doc::WcagList
@@ -270,16 +270,23 @@
       numbers)</p>
 
     <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+      {{#let (array "default" "hover" "active" "focus") as |states|}}
         {{#each states as |state|}}
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="compact" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="compact" />
               <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
             </div>
           </div>
         {{/each}}
+        <div class="dummy-pagination-base-sample-item">
+          <span class="dummy-text-small">disabled</span>
+          <div class="dummy-pagination-base-sample-row">
+            <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="compact" @disabled={{true}} />
+            <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" @disabled={{true}} />
+          </div>
+        </div>
       {{/let}}
     </div>
 
@@ -289,17 +296,24 @@
     <p class="dummy-paragraph">(text label is not shown with Pagination type set to "numbered" which includes page
       numbers)</p>
     <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+      {{#let (array "default" "hover" "active" "focus") as |states|}}
         {{#each states as |state|}}
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="previous" @type="numbered" />
+              <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="numbered" />
               <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
             </div>
           </div>
         {{/each}}
       {{/let}}
+      <div class="dummy-pagination-base-sample-item">
+        <span class="dummy-text-small">disabled</span>
+        <div class="dummy-pagination-base-sample-row">
+          <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="numbered" @disabled={{true}} />
+          <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" @disabled={{true}} />
+        </div>
+      </div>
     </div>
 
     <h5 class="dummy-h5">Pagination::PageNumber</h5>

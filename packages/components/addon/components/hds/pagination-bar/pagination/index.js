@@ -46,7 +46,7 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
 
   @action
   changePage(direction) {
-    if (direction === 'previous') {
+    if (direction === 'prev') {
       if (this.args.currentPage > 1) {
         let { onPageChange } = this.args;
         if (typeof onPageChange === 'function') {
