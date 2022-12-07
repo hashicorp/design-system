@@ -105,11 +105,6 @@ $pagination-height: calc(36px + 6px);
   color: var(--token-color-foreground-faint);
 }
 
-.hds-pagination__page-icon + .hds-pagination__page-label,
-.hds-pagination__page-label + .hds-pagination__page-icon {
-  margin-left: 6px;
-}
-
 .hds-pagination__page-selected {
   position: relative;
   color: var(--token-color-foreground-action);
