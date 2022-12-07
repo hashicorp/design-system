@@ -71,16 +71,13 @@ export default class ShowRoute extends Route {
         const frontmatter = {};
         // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/index.js`
         const frontmatterAttributes = [
-          'category',
-          'group',
-          'component',
-          'section',
-          'layout',
           'title',
           'description',
           'caption',
           'status',
+          'links',
           'layout',
+          'hidden',
         ];
         frontmatterAttributes.forEach((attribute) => {
           if (attribute in res.data.attributes) {
