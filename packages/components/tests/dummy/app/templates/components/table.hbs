@@ -614,14 +614,14 @@
   <h4 class="dummy-h4">
     Static table with model defined
   </h4>
-  <Hds::Table @model={{this.model.data}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -633,14 +633,15 @@
   <h4 class="dummy-h4">
     Static table with density set to "short"
   </h4>
-  <Hds::Table @model={{this.model.data}} @density="short">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @density="short"
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -652,14 +653,15 @@
   <h4 class="dummy-h4">
     Static table with density set to "tall"
   </h4>
-  <Hds::Table @model={{this.model.data}} @density="tall">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @density="tall"
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -808,7 +810,6 @@
   <h4 class="dummy-h4">Table where last column has right-aligned text</h4>
   <Hds::Table
     @model={{this.model.data}}
-    @isStriped={{false}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -822,20 +823,20 @@
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
         {{!-- <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td> --}}
-        <B.Td>{{B.data.vinyl-cost}}</B.Td>
+        <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">Table with various cell content</h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-        <H.Th>Additional Actions As Buttons</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="other" label="Additional Actions")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
@@ -859,14 +860,15 @@
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">Table with multi-line content</h4>
-  <Hds::Table @model={{this.model.data}} @caption="table with multi-line content">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Related Quote about the artist</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @caption="table with multi-line content"
+    @column={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="quote" label="Quote" width="33%")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
