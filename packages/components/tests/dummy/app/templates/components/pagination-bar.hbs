@@ -329,7 +329,46 @@
 
   <h4 class="dummy-h4">PaginationBar with sub-components</h4>
 
-  <h5 class="dummy-h5">Numbered</h5>
+  <h5 class="dummy-h5">Simplest use case: PaginationBar with Pagination</h5>
+
+  <h6 class="dummy-h6">Type="compact" (the default)</h6>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Pagination />
+  </Hds::PaginationBar>
+
+  <h6 class="dummy-h6">Type="numbered"</h6>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
+
+  <h5 class="dummy-h5">PaginationBar with Pagination and TotalCount</h5>
+  <h6 class="dummy-h6">Type="compact"</h6>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.TotalCount />
+    <P.Pagination />
+  </Hds::PaginationBar>
+
+  <h6 class="dummy-h6">Type="numbered"</h6>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.TotalCount />
+    <P.Pagination @type="numbered" />
+  </Hds::PaginationBar>
+
+  <h6 class="dummy-h6">TotalCount with showTotalItems set to "false"</h6>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.TotalCount @showTotalItems={{false}} />
+    <P.Pagination />
+  </Hds::PaginationBar>
+
+  <h6 class="dummy-h6">PaginationBar with Pagination, TotalCount, and PageSize</h6>
+  <h6 class="dummy-h6">Type="compact"</h6>
+  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.TotalCount />
+    <P.Pagination />
+    <P.PageSize @sizes={{array 10 30 50}} />
+  </Hds::PaginationBar>
+
+  <h6 class="dummy-h6">Type="numbered"</h6>
   <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.TotalCount />
     <P.Pagination @type="numbered" />
@@ -341,36 +380,5 @@
     <P.TotalCount />
     <P.Pagination @type="numbered" />
     <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
-
-  <h5 class="dummy-h5">Compact (default)</h5>
-  <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
-
-  <h5 class="dummy-h5">No TotalCount</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.Pagination @type="numbered" />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
-
-  <h5 class="dummy-h5">No PageSize</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination @type="numbered" />
-  </Hds::PaginationBar>
-
-  <h5 class="dummy-h5">TotalCount with showTotalItems set to false</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount @showTotalItems={{false}} />
-    <P.Pagination @type="numbered" />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
-
-  <h5 class="dummy-h5">Pagination only (No TotalCount or PageSize)</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.Pagination @type="numbered" />
   </Hds::PaginationBar>
 </section>
