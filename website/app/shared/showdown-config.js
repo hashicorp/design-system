@@ -1,7 +1,5 @@
 import { elementsToClassNames } from './showdown-extensions/elements-to-classnames';
 import { bannerContentBlock } from './showdown-extensions/banner-content-block';
-import { myext } from './showdown-extensions/my-extension';
-import { myextv2 } from './showdown-extensions/my-extension-v2';
 
 // SET SHOWDOWN SETTINGS HERE:
 // https://showdownjs.com/docs/available-options/

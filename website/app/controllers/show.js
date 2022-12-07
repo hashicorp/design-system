@@ -21,9 +21,7 @@ export default class ShowController extends Controller {
 
   get renderedContent() {
     const converter = new showdown.Converter(showdownConfig);
-    const xxx = converter.makeHtml(this.model.content);
-    console.log('$$$$$$$', xxx);
-    return xxx;
+    return converter.makeHtml(this.model.content);
   }
 
   @action
