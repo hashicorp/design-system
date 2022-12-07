@@ -6,11 +6,18 @@ import { tracked } from '@glimmer/tracking';
 export const TYPES = ['numbered', 'compact'];
 
 export default class HdsPaginationBarIndexComponent extends Component {
-  @tracked _currentItemsPerPage = this.args.itemsPerPage;
-
+  @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
-
   @tracked currentPage = this.args.currentPage ?? 1;
+
+  /**
+   * @param showTotalItems
+   * @type {boolean}
+   * @description Controls the visibility of the total items in the "total count" element
+   */
+  get showTotalItems() {
+    return this.args.showTotalItems ?? true;
+  }
 
   /**
    * @param totalItems
@@ -18,11 +25,11 @@ export default class HdsPaginationBarIndexComponent extends Component {
    * @description Pass the total number of items to be paginated. If no value is defined an error will be thrown.
    */
   get totalItems() {
-    let { totalItems, showTotalItems } = this.args;
+    let { totalItems } = this.args;
 
     assert('@totalItems must be defined', totalItems !== undefined);
 
-    return showTotalItems ? totalItems : false;
+    return this.showTotalItems ? totalItems : false;
   }
 
   /**
@@ -33,10 +40,10 @@ export default class HdsPaginationBarIndexComponent extends Component {
   get itemsPerPage() {
     assert(
       '@itemsPerPage must be defined',
-      this._currentItemsPerPage !== undefined
+      this.currentItemsPerPage !== undefined
     );
 
-    return this._currentItemsPerPage;
+    return this.currentItemsPerPage;
   }
 
   get itemsRangeStart() {
@@ -51,12 +58,12 @@ export default class HdsPaginationBarIndexComponent extends Component {
   get itemsRangeEnd() {
     // Calculate ending range of items displayed on current page
     // 2 cases: 1) full page of items or 2) last page of items
-    if (this.currentPage * this.itemsPerPage < this.totalItems) {
+    if (this.currentPage * this.itemsPerPage < this.args.totalItems) {
       // 1) full page of items (pages 1 to page before last):
       return this.itemsRangeStart + this.itemsPerPage - 1;
     } else {
       // 2) last page of items:
-      return this.totalItems;
+      return this.args.totalItems;
     }
   }
 
@@ -67,12 +74,12 @@ export default class HdsPaginationBarIndexComponent extends Component {
 
   @action
   onPageSizeChange(newPageSize) {
-    this._currentItemsPerPage = newPageSize;
+    this.currentItemsPerPage = newPageSize;
     this.currentPage = 1;
     this.totalPages = this.calculateTotalPages();
   }
 
   calculateTotalPages() {
-    return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
+    return Math.max(Math.ceil(this.args.totalItems / this.itemsPerPage), 1);
   }
 }
