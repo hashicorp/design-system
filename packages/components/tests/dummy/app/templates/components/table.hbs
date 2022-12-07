@@ -198,14 +198,11 @@
     @language="handlebars"
     @code="<!-- app/templates/components/table.hbs -->
 
-<Hds::Table>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
-    </H.Tr>
-  </:head>
+<Hds::Table @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist'))
+    (hash key='album' label=(t 'components.table.headers.album'))
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}>
   <:body as |B|>
     <B.Tr>
       <B.Td>Custom Cell Content</B.Td>
@@ -230,14 +227,11 @@
     @language="handlebars"
     @code="<!-- app/templates/components/table.hbs -->
 
-<Hds::Table @model=\{{this.model}}>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
-    </H.Tr>
-  </:head>
+<Hds::Table @model=\{{this.model}} @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist'))
+    (hash key='album' label=(t 'components.table.headers.album'))
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}>
   <:body as |B|>
     <B.Tr>
       <B.Td>\{{B.data.artist}}</B.Td>
@@ -863,10 +857,10 @@
   <Hds::Table
     @model={{this.model.data}}
     @caption="table with multi-line content"
-    @column={{array
+    @columns={{array
       (hash key="artist" label="Artist")
       (hash key="album" label="Album")
-      (hash key="quote" label="Quote" width="33%")
+      (hash key="quote" label="Quote" width="50%")
     }}
   >
     <:body as |B|>
