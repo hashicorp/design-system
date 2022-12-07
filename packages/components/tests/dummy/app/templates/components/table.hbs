@@ -3,12 +3,13 @@
   Table
 </h2>
 <section>
-  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
-    Note: this component has some features that are still in flux, such as how to indicate column width, the
-    implementation of column sorting, and how to apply non-standard text-aligment. Your feedback on these particular
-    features is very important to us.</p>
-  <p class="dummy-paragraph">If, when trying this component out, you find that you have a particular use case that is
-    not covered, or you have difficulty using this component, please reach out to the HDS team.</p>
+  <div class="dummy-banner dummy-banner--info">
+    <p class="dummy-paragraph"><FlightIcon @name="info" />Note: this component has some features that are still in flux,
+      such as how to indicate column width, the implementation of column sorting, and how to apply non-standard
+      text-aligment. Your feedback on these particular features is very important to us.</p>
+    <p class="dummy-paragraph">If, when trying this component out, you find that you have a particular use case that is
+      not covered, or you have difficulty using this component, please reach out to the HDS team.</p>
+  </div>
 </section>
 <section>
   <h3 class="dummy-h3" id="overview">
@@ -214,7 +215,7 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <h4 class="dummy-h4">Simple Table with model defined (non-sortable)</h4>
+  <h4 class="dummy-h4">Non-sortable Table with model defined</h4>
   <p class="dummy-paragraph">In this invocation of the table component, you would define the data model and insert your
     own content into the
     <code class="dummy-code">:head</code>
@@ -250,7 +251,9 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Invoke the
     <span class="dummy-code">Hds::Table</span>
-    component in your template file.</p>
+    component in your template file, adding
+    <span class="dummy-code">isSortable="true"</span>
+    to the hash for the column(s) that you want to make sortable.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -276,33 +279,9 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">If you want, you can indicate that only specific columns should be sortable.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="handlebars"
-    @code="<!-- app/templates/components/table.hbs -->
-
-<Hds::Table
-  @model=\{{this.model.data}}
-  @columns=\{{array
-    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
-    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
-    (hash key='year' label=(t 'components.table.headers.year'))
-  }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>\{{B.data.artist}}</B.Td>
-      <B.Td>\{{B.data.album}}</B.Td>
-      <B.Td>\{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>"
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted.</p>
+  <p class="dummy-paragraph">To indicate that a specific column should be pre-sorted, add
+    <span class="dummy-code">@sortBy</span>
+    to the table component invocation, setting the value to the key of the column to pre-sort.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -329,7 +308,11 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted in a specific direction.</p>
+  <p class="dummy-paragraph">To indicate that the
+    <span class="dummy-code">@sortBy</span>
+    column should be pre-sorted in a specific direction, use
+    <span class="dummy-code">@sortOrder</span>
+    Note that pre-sorted columns are sorted ascending (asc) by default.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -357,8 +340,12 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Here's a table implementation that uses an array hash with localized strings for the column
-    headers, indicates which columns should be sortable, and adds an overflow menu.</p>
+  <h4 class="dummy-h4">Other column options</h4>
+  <p class="dummy-paragraph"><strong>Column Width:</strong>
+    If a custom width is desired, add
+    <span class="dummy-code">width</span>
+    to the column's hash. Common measurement units (%, px, em, rem) are all acceptable for use, although using relative
+    units is better for accessibility. For example, this is a common use case for the overflow dropdown menu:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -371,7 +358,7 @@
       (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
       (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
       (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
-      (hash key='other' label=(t 'global.titles.other'))
+      (hash key='other' label=(t 'global.titles.other') width='20%')
     }}
 >
   <:body as |B|>
@@ -405,7 +392,41 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><strong>Text Alignment:</strong>
+    Text alignment is set to
+    <span class="dummy-code">left</span>
+    by default, but can be changed to "right" or "center". For example, if a table had a column that contained numbers
+    with decimal points (or similar), that column should have right-aligned contents. Table headers and their associated
+    columns should have the same content aligment. In the table component, alignment can be indicated by using the
+    <span class="dummy-code">align</span>
+    in two places: the column's hash, and the associated
+    <span class="dummy-code">Td</span>
+    component.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
 
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{array
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+      (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+      (hash key='vinyl-cost' label=(t 'components.table.headers.vinyl-cost') align='right')
+    }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td @align='right'>\{{B.data.vinyl-cost}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 </section>
 <section>
   <h3 class="dummy-h3" id="design-guidelines">
@@ -808,7 +829,7 @@
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
       (hash key="year" label="Release Year" isSortable="true")
-      (hash key="vinyl-cost" label="Current Vinyl Cost" align="right")
+      (hash key="vinyl-cost" label="Vinyl Cost (USD)" align="right")
     }}
   >
     <:body as |B|>
@@ -816,7 +837,6 @@
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
-        {{!-- <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td> --}}
         <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
