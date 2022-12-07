@@ -26,6 +26,23 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return type;
   }
 
+  /**
+   * Gets the current page
+   *
+   * @param currentPage
+   * @type {integer}
+   */
+  get currentPage() {
+    let { currentPage = 1 } = this.args;
+
+    assert(
+      `@currentPage must be defined for "Hds::PaginationBar::Pagination"`,
+      currentPage !== undefined
+    );
+
+    return currentPage;
+  }
+
   get pages() {
     let pages = [];
 
