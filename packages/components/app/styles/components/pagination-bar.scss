@@ -146,8 +146,10 @@ $pagination-height: calc(36px + 6px);
     padding-right: calc(0px + 24px);
     padding-bottom: 0;
     padding-left: 8px;
-    font-weight: inherit;
-    font-size: inherit;
+    // font style for this select is not the standard one for `Form::Select::Base`
+    font-size: var(--token-typography-body-100-font-size);
+    font-family: var(--token-typography-body-100-font-family);
+    line-height: var(--token-typography-body-100-line-height);
     background-position: center right 5px;
   }
 }
