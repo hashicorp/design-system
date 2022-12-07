@@ -16,6 +16,22 @@ module.exports = function (defaults) {
       // override defaults to also include json files which our markdown is compiled to. without this images don't render properly.
       replaceExtensions: ['html', 'css', 'js', 'json'],
     },
+    'ember-prism': {
+      components: [
+        'apacheconf',
+        'bash',
+        'css',
+        'handlebars',
+        'http',
+        'javascript',
+        'json',
+        'markup-templating',
+        'ruby',
+        'scss',
+      ],
+
+      plugins: ['line-numbers', 'normalize-whitespace'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
