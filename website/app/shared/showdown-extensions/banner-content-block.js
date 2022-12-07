@@ -12,11 +12,14 @@ export const bannerContentBlock = function () {
     // https://regex101.com/r/j4PHPo/1
     regex: langRegex,
     replace: function (text) {
-      console.log('langExtension1', text);
-      return text.replace(langRegex, function (_match, type, content) {
+      console.log('langExtension1 text', text);
+      const newText = text.replace(langRegex, function (_match, type, content) {
         console.log('langExtension2', _match, type, content);
-        return `<${PLACEHOLDER} data-banner-type="${type}" data-markdown="1">\n${content}\n</${PLACEHOLDER}>`;
+        // return `<${PLACEHOLDER} data-banner-type="${type}" data-markdown="1">\n${content}\n</${PLACEHOLDER}>`;
+        return `\n\n<?php start data-banner-type="${type}" ?>\n<div data-markdown="1">\n${content}\n</div>\n<?php end ?>\n\n`;
       });
+      console.log('langExtension1 newText', newText);
+      return newText;
     },
   };
   var outputExtension = {
@@ -31,9 +34,11 @@ export const bannerContentBlock = function () {
     // },
     filter: function (text) {
       // TODO maybe we can use this regex https://regex101.com/r/Z91et6/1 to replace both tags at the same time?
-      console.log('outputExtension old text', text);
-      const newText = text.replace(outputRegex, `<$1Doc::Banner`);
-      console.log('outputExtension newText', newText);
+      console.log('outputExtension old text', '\n\n', text, '\n\n');
+      let newText = text.replace(/<\?php start/g, '<Doc::Banner');
+      newText = newText.replace(/<\?php end/g, '</Doc::Banner');
+      newText = newText.replace(/\?>/g, '>');
+      console.log('outputExtension newText', '\n\n', newText, '\n\n');
       return newText;
     },
     // filter: function (text) {
