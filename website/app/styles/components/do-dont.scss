@@ -1,5 +1,6 @@
 // DO-DONT
 
+@use "../breakpoints" as breakpoint;
 @use "../typography/mixins" as *;
 
 .doc-do-dont {
@@ -25,10 +26,18 @@
 }
 
 .doc-do-dont__content {
-  padding: 24px;
+  padding: 12px;
   border-style: solid;
   border-width: 1px;
   border-radius: 3px;
+
+  @include breakpoint.medium () {
+    padding: 18px;
+  }
+
+  @include breakpoint.large () {
+    padding: 24px;
+  }
 
   .doc-do-dont--type-do & {
     border-color: #007854;
@@ -36,5 +45,21 @@
 
   .doc-do-dont--type-dont & {
     border-color: #ba2226;
+  }
+
+  // we need to override the margin of the children in some cases
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  // TODO! fix this once Alex has completed the work on the code blocks
+  .doc-code-block__code-snippet,
+  .doc-code-block {
+    margin: 0 !important;
   }
 }
