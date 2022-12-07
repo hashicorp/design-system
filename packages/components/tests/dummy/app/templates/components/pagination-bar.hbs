@@ -264,10 +264,9 @@
 
     <h5 class="dummy-h5">Pagination::NavButton</h5>
     <h6 class="dummy-h6">
-      Type
-      <code class="dummy-code">compact</code>
-      (includes text label) TODO: Update name
+      with text label displaying:
     </h6>
+    <p class="dummy-paragraph">(text label is shown with Pagination type set to "compact" which doesn't include page numbers)</p>
 
     <div class="dummy-pagination-base-sample">
       {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
@@ -282,10 +281,11 @@
         {{/each}}
       {{/let}}
     </div>
-
-    <h6 class="dummy-h6">Type
-      <code class="dummy-code">numbered</code>
-      (normal) type (no text label) TODO: Update name</h6>
+    
+    <h6 class="dummy-h6">
+      without text label displaying:
+    </h6>
+    <p class="dummy-paragraph">(text label is not shown with Pagination type set to "numbered" which includes page numbers)</p>
     <div class="dummy-pagination-base-sample">
       {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
         {{#each states as |state|}}
