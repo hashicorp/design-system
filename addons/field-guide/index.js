@@ -107,11 +107,12 @@ module.exports = {
   },
 
   // TODO! not sure how to test if this logic below works
-  urlsForPrember(distDir) {
-    const flatPageListJson = fs.readJsonSync(`${distDir}/toc.json`);
-    // TODO is there a way to have this list generated automatically (or exported) from the routes (`website/app/router.js`)?
-    const staticURLs = ['/', 'about', 'foundations', 'components', 'patterns'];
-    const docsURLs = flatPageListJson.map((page) => page.pageURL);
-    return [...staticURLs, ...docsURLs];
-  },
+  // https://github.com/ef4/prember#using-prember-from-an-addon
+  // urlsForPrember(distDir) {
+  //   const flatPageListJson = fs.readJsonSync(`${distDir}/toc.json`);
+  //   // TODO is there a way to have this list generated automatically (or exported) from the routes (`website/app/router.js`)?
+  //   const staticURLs = ['/', 'about', 'foundations', 'components', 'patterns'];
+  //   const docsURLs = flatPageListJson.map((page) => page.pageURL);
+  //   return [...staticURLs, ...docsURLs];
+  // },
 };
