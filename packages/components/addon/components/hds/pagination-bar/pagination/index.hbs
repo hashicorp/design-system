@@ -2,7 +2,7 @@
   <Hds::PaginationBar::Pagination::NavButton
     @direction="prev"
     @type={{this.type}}
-    @onClick={{this.changePage}}
+    @onClick={{this.onPageChange}}
     @disabled={{this.isDisabledPrev}}
   />
 
@@ -11,7 +11,7 @@
       {{#each this.pages as |page|}}
         <Hds::PaginationBar::Pagination::PageNumber
           @page={{page}}
-          @onClick={{this.onSelectPage}}
+          @onClick={{this.onPageChange}}
           @isSelected={{if (eq page @currentPage) true false}}
         />
       {{/each}}
@@ -21,7 +21,7 @@
   <Hds::PaginationBar::Pagination::NavButton
     @direction="next"
     @type={{this.type}}
-    @onClick={{this.changePage}}
+    @onClick={{this.onPageChange}}
     @disabled={{this.isDisabledNext}}
   />
 </nav>

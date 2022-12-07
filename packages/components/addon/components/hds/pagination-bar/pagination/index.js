@@ -26,6 +26,23 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     return type;
   }
 
+  /**
+   * Gets the current page
+   *
+   * @param currentPage
+   * @type {integer}
+   */
+  get currentPage() {
+    let { currentPage = 1 } = this.args;
+
+    assert(
+      `@currentPage must be defined for "Hds::PaginationBar::Pagination"`,
+      currentPage !== undefined
+    );
+
+    return currentPage;
+  }
+
   get pages() {
     let pages = [];
 
@@ -37,36 +54,30 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
   }
 
   get isDisabledPrev() {
-    return this.args.currentPage === 1;
+    return this.currentPage === 1;
   }
 
   get isDisabledNext() {
-    return this.args.currentPage === this.args.totalPages;
+    return this.currentPage === this.args.totalPages;
   }
 
   @action
-  changePage(direction) {
-    if (direction === 'prev') {
-      if (this.args.currentPage > 1) {
-        let { onPageChange } = this.args;
-        if (typeof onPageChange === 'function') {
-          onPageChange(this.args.currentPage - 1);
-        }
-      }
-    } else if (this.args.currentPage < this.args.totalPages) {
-      let { onPageChange } = this.args;
-      if (typeof onPageChange === 'function') {
-        onPageChange(this.args.currentPage + 1);
-      }
+  onPageChange(page) {
+    let gotoPage = this.currentPage;
+    if (page === 'prev' && this.currentPage > 1) {
+      gotoPage = this.currentPage - 1;
+    } else if (page === 'next' && this.currentPage < this.args.totalPages) {
+      gotoPage = this.currentPage + 1;
+    } else {
+      gotoPage = page;
     }
-  }
 
-  @action
-  onSelectPage(page) {
-    if (page !== this.args.currentPage) {
+    // we want to invoke the `onPageChange` callback only on actual page change
+    if (gotoPage !== this.currentPage) {
       let { onPageChange } = this.args;
+
       if (typeof onPageChange === 'function') {
-        onPageChange(page);
+        onPageChange(gotoPage);
       }
     }
   }
