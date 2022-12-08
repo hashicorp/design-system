@@ -1,6 +1,6 @@
 <div class="doc-icons-list-filter">
+  <Doc::IconsList::Select @onSelect={{this.toggleselectedIconSize}} />
   <Doc::IconsList::Search @searchQuery={{this.searchQuery}} @onInput={{this.searchIcons}} />
-  <Doc::IconsList::Toggle @onToggle={{this.toggleselectedIconSize}} />
 </div>
 
 <Doc::IconsList::Grid @icons={{this.filteredIcons}} />
