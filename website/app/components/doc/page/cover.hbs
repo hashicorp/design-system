@@ -1,6 +1,28 @@
 <div class="doc-page-cover" ...attributes>
-  <h1 class="doc-page-cover__title doc-text-h1">{{@title}}</h1>
-  <pre>{{@extra}}</pre>
+  <div class="doc-page-cover__title-extra-wrapper">
+    <h1 class="doc-page-cover__title doc-text-h1">{{@title}}</h1>
+    <div class="doc-page-cover__extra">
+      {{#if this.status}}
+        <Doc::Badge @type={{this.status.badgeType}}>{{this.status.badgeText}}</Doc::Badge>
+      {{/if}}
+      {{#if this.links}}
+        {{#each-in this.links as |service url|}}
+          {{#if (eq service 'figma')}}
+            <a class="doc-page-cover__link doc-link-generic" href={{url}} target="_blank" rel="noopener noreferrer">
+              <FlightIcon @name="figma-color" />
+              Figma
+            </a>
+          {{/if}}
+          {{#if (eq service 'github')}}
+            <a class="doc-page-cover__link doc-link-generic" href={{url}} target="_blank" rel="noopener noreferrer">
+              <FlightIcon @name="github-color" />
+              GitHub
+            </a>
+          {{/if}}
+        {{/each-in}}
+      {{/if}}
+    </div>
+  </div>
   {{#if @description}}
     <p class="doc-page-cover__description doc-text-body">{{@description}}</p>
   {{/if}}

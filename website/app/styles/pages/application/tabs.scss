@@ -1,8 +1,6 @@
 // TABS
 
 .doc-page-tabs {
-  position: absolute;
-  bottom: 0;
   display: flex;
   gap: 16px;
   margin: 0;
@@ -23,7 +21,7 @@
     cursor: pointer;
 
     &:hover {
-      color: #2264d6;
+      color: var(--doc-color-black);
     }
   }
 
@@ -34,12 +32,12 @@
       bottom: -1px;
       left: 0;
       height: 3px;
-      background-color: #2264d6;
+      background-color: var(--doc-color-black);
       content: "";
     }
 
     button {
-      color: #2264d6;
+      color: var(--doc-color-black);
     }
   }
 }
