@@ -1,1 +1,31 @@
-{{yield}}
+{{#each this.colors as |color|}}
+  <div class="doc-color-swatch">
+    <div class="doc-color-swatch__preview doc-color-swatch__preview-{{color.css-helper}}"></div>
+    <div class="doc-color-swatch__info">
+      <h3 class="doc-color-swatch__name">{{color.name}}</h3>
+      <ul class="doc-color-swatch__list" role="list">
+        <li class="doc-color-swatch__listitem">
+          <span class="doc-color-swatch__listitem--context">CSS Variable</span>
+          <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
+            <span>{{color.css-variable}}</span>
+            <FlightIcon @name="clipboard" />
+          </button>
+        </li>
+        <li class="doc-color-swatch__listitem">
+          <span class="doc-color-swatch__listitem--context">CSS Helper</span>
+          <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
+            <span>.{{color.css-helper}}</span>
+            <FlightIcon @name="clipboard" />
+          </button>
+        </li>
+        <li class="doc-color-swatch__listitem">
+          <span class="doc-color-swatch__listitem--context">HEX</span>
+          <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
+            <span>{{color.css-hex}}</span>
+            <FlightIcon @name="clipboard" />
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+{{/each}}
