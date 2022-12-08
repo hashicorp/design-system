@@ -24,11 +24,29 @@ const getTOCs = (container) => {
 };
 
 export default class ShowController extends Controller {
+  queryParams = [
+    {
+      selectedTab: 'tab',
+    },
+  ];
+
   @service fastboot;
 
   @tracked sections = A([]);
   @tracked tabs = A([]);
   @tracked tocs = A([]);
+
+  get selectedTabIndex() {
+    if (!this.selectedTab) {
+      return 0;
+    }
+
+    let tab = this.tabs.find((el) => {
+      // trim trailing slashes from query param
+      return el.label === this.selectedTab.replace(/\/$/, '');
+    });
+    return tab ? tab.index : 0;
+  }
 
   get title() {
     return this.model.frontmatter?.title ?? '';
@@ -101,8 +119,7 @@ export default class ShowController extends Controller {
     this.sections.setObjects(sections);
     this.tabs.setObjects(tabs);
     this.tocs.setObjects(tocs);
-    // TODO handle when the page loads which one is the current, based on the URL query params
-    this.setCurrent(0);
+    this.setCurrent(this.selectedTabIndex);
     // leave for debugging
     // console.log('show didInsert', this.sections, this.tabs, this.tocs);
   };
@@ -131,6 +148,9 @@ export default class ShowController extends Controller {
     this.tocs.forEach((toc) => {
       set(toc, 'isCurrent', toc.index === current);
     });
+
+    set(this, 'selectedTab', this.tabs[current].label);
+
     // leave for debugging
     // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
   }
