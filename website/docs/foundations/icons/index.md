@@ -5,7 +5,12 @@ layout:
 ---
 
 <section id="section-library">
-  <Doc::IconsList />
+  <Doc::IconsList
+    @icons={{this.filteredIcons}}
+    @onSelect={{this.selectIconSize}}
+    @searchQuery={{this.searchQuery}}
+    @searchIcons={{this.searchIcons}}
+  />
 </section>
 
 <section id="section-code" data-markdown="1">

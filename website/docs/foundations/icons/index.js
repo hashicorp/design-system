@@ -7,11 +7,10 @@ import catalog from '@hashicorp/flight-icons/catalog.json';
 
 const DEBOUNCE_MS = 250;
 
-export default class DocIconsListComponent extends Component {
+export default class Index extends Component {
   // TODO fix issue with query param not being added to the page URL
-  // this is in a component, not a controller,
-  // so we have to understand how to do it in this context
-  queryParams = ['searchQuery'];
+  // probably because technically this is a component, while "show" is the actual controller
+  queryParams = ['searchQuery', 'selectedIconSize'];
 
   @tracked searchQuery = null;
   @tracked selectedIconSize = '16';
@@ -44,18 +43,13 @@ export default class DocIconsListComponent extends Component {
   }
 
   @action
-  toggleselectedIconSize() {
-    if (this.selectedIconSize === '16') {
-      this.selectedIconSize = '24';
-    } else {
-      this.selectedIconSize = '16';
-    }
+  selectIconSize(event) {
+    this.selectedIconSize = event.target.value;
   }
 
   @restartableTask *searchIcons(searchQuery) {
     yield timeout(DEBOUNCE_MS);
 
     this.searchQuery = searchQuery;
-    return this.filteredIcons;
   }
 }

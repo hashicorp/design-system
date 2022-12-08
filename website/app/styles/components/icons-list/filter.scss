@@ -63,4 +63,15 @@
   ::placeholder {
     color: var(--doc-color-gray-300);
   }
+
+  &::-webkit-search-cancel-button {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+    background-position: center center;
+    background-size: 20px 20px;
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -webkit-appearance: none;
+  }
 }
