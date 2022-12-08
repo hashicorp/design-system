@@ -1,4 +1,4 @@
-## Consumer instructions
+## Engineering guidelines
 
 There are multiple ways to use these icons in your codebase. The package can be installed as an [Ember addon](#ember-flight-icons) for the convenience of using a component with strong defaults, or it can be [consumed in React applications](#use-react) via direct import of the SVG file or as standalone React/SVG icon component.
 
