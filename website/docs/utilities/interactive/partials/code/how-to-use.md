@@ -1,4 +1,4 @@
-#### Basic use (<button>)
+#### Basic use (`<button>`)
 
 Invocation of the component would look something like this:
 
@@ -12,7 +12,7 @@ In this case, since no `@href` or `@route` argument is provided it will generate
 
 _Notice: a `type="button"` HTML attribute is applied by default to the element, but this can be overwritten using the "splattributes"._
 
-#### With "@href" parameter (<a>)
+#### With "@href" parameter (`<a>`)
 
 **🚨 ATTENTION**: we can't support the direct use of the `href` HTML attribute because we need to rely on the `@href` Ember argument to differentiate between different types of generated output.
 
@@ -38,7 +38,7 @@ If an `@isHrefExternal` argument is provided with `false` value:
 
 it will generate in output an HTML `<a>` link element **without** the HTML `target` and `rel` attributes.
 
-#### With "@route" parameter (<LinkTo>/<LinkToExternal>)
+#### With "@route" parameter (`<LinkTo>`/`<LinkToExternal>`)
 
 If a `@route` argument is provided:
 
