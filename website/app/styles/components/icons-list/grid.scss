@@ -1,18 +1,26 @@
 // ICONS-LIST > GRID
 
+@use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
-
 
 // grid
 
 .doc-icons-list-grid {
   display: grid;
   grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @include breakpoint.medium () {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  @include breakpoint.large () {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
 
 
@@ -23,9 +31,9 @@
   flex-direction: row;
   align-items: center;
   padding: 0;
-  background: #fff;
-  border: 1px solid #dbdbdc;
-  border-radius: 5px;
+  background: var(--doc-color-white);
+  border: 1px solid var(--doc-color-gray-500);
+  border-radius: 3px;
 }
 
 .doc-icons-list-grid-item__frame {
@@ -33,28 +41,46 @@
   flex: none;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 120px;
   height: 100%;
-  border-right: 1px solid #dbdbdc;
+  border-right: 1px solid var(--doc-color-gray-500);
 }
 
 .doc-icons-list-grid-item__outline {
-  outline: 1px dotted #ccc;
+  outline: 1px dotted var(--doc-color-feedback-information-200);
 }
 
 .doc-icons-list-grid-item__meta {
-  @include doc-font-family("sans");
-  display: grid;
-  grid-column-gap: 0.5em;
-  grid-template-columns: auto 1fr;
-  margin: 0;
-  padding: 8px 8px 8px 16px;
-  font-size: 12px;
-  line-height: 1.5;
-
-  em {
-    color: #666;
-    font-style: normal;
-  }
+  align-self: flex-start;
+  padding: 16px;
 }
 
+.doc-icons-list-grid-item__meta-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  min-height: 32px;
+}
+
+.doc-icons-list-grid-item__meta-label {
+  @include doc-font-family("gilmer");
+  flex: none;
+  min-width: 56px;
+  margin-top: 7px; // optical alignment
+  color: var(--doc-color-gray-300);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.doc-icons-list-grid-item__meta-value {
+  @include doc-font-family("mono");
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 2px; // optical alignment
+  color: var(--doc-color-black);
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.926;
+}

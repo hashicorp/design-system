@@ -4,12 +4,9 @@
       <FlightIcon class="doc-icons-list-grid-item__icon"  @name={{@meta.iconName}} @size="{{@meta.size}}" @isInlineBlock={{false}} />
     </div>
   </div>
-  <p class="doc-icons-list-grid-item__meta">
-    <em>Ember:</em>
-    <span>{{@meta.iconName}}</span>
-    <em>React:</em>
-    <span>{{@meta.name}}</span>
-    <em>Keywords:</em>
-    <span>{{@meta.description}}</span>
-  </p>
+  <div class="doc-icons-list-grid-item__meta">
+    <Doc::IconsList::MetaRow @label="Ember" @value={{@meta.iconName}} />
+    <Doc::IconsList::MetaRow @label="React" @value={{@meta.name}} />
+    <Doc::IconsList::MetaRow @label="Keywords" @value={{@meta.description}} />
+  </div>
 </li>
