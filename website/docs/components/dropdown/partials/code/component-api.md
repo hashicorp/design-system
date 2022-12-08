@@ -25,7 +25,7 @@ Here is the API for the main ("container") component:
     _Notice: by default the dropdown list has a `min-width` of `200px` and a `max-width` of `400px` applied to it, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width._
   </C.Property>
   <C.Property @name="close" @type="function">
-    Function that can be called to programmatically close the dropdown. _Notice: if this function is invoked using an `{{on click}}` modifier applied to the `ListItem::Interactive` element, there is a quirk behaviour of the Ember `<LinkTo>` component that will require some workaround to have the events executed in the right order (this happens only if it has a `@route` argument). [Jamie White](https://github.com/jgwhite) has detailed the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772)._
+    Function that can be called to programmatically close the dropdown. _Notice: if this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirk behaviour of the Ember `<LinkTo>` component that will require some workaround to have the events executed in the right order (this happens only if it has a `@route` argument). [Jamie White](https://github.com/jgwhite) has detailed the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772)._
   </C.Property>
   <C.Property @name="onClose" @type="function">
     Callback function invoked when the dropdown is closed (if provided).
