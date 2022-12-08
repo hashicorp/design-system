@@ -7,7 +7,7 @@
     "./flight-website",
     "./website",
     "./website-html-to-markdown",
-    "./node-temp-playground",
+    "./node-temp-playground"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
