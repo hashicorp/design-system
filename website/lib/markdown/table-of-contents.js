@@ -21,17 +21,6 @@ const _ = require('lodash');
 //   'testing',
 // ];
 
-function getStructuredPageTree(pageList) {
-  const tree = {};
-
-  pageList.forEach((page) => {
-    // we have to rebuild the full structure here
-    _.set(tree, [...page.pageParents, page.pageName], page);
-  });
-
-  return tree;
-}
-
 class TableOfContents extends Plugin {
   constructor(inputNodes, folder) {
     super([inputNodes]);

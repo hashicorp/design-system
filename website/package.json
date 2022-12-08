@@ -37,9 +37,11 @@
     "@hashicorp/design-system-components": "workspace:^",
     "@hashicorp/design-system-tokens": "workspace:^",
     "@hashicorp/ember-flight-icons": "workspace:^",
-    "@hashicorp/field-guide": "*",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
+    "broccoli-funnel": "^3.0.3",
+    "broccoli-merge-trees": "^4.2.0",
+    "broccoli-multifilter": "^2.0.0",
     "ember-auto-import": "^2.4.2",
     "ember-cli": "~4.7.0",
     "ember-cli-app-version": "^5.0.0",
@@ -56,7 +58,9 @@
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
     "ember-math-helpers": "^2.18.2",
+    "ember-meta": "^2.0.0",
     "ember-page-title": "^7.0.0",
+    "ember-prism": "^0.10.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
     "ember-source": "~4.8.1",
@@ -68,20 +72,30 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^7.3.1",
+    "jsdom": "^20.0.3",
+    "jsonapi-serializer": "^3.6.7",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
+    "resolve": "^1.17.0",
+    "showdown": "^2.1.0",
     "stylelint": "^14.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "yaml-front-matter": "^4.1.1"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
   "ember": {
     "edition": "octane"
+  },
+  "ember-addon": {
+    "paths": [
+      "lib/markdown"
+    ]
   }
 }

@@ -40,14 +40,6 @@ The simplest way to invoke a modal is by doing something like this:
 {{/if}}
 ```
 
-Renders to:
-
-{{#if this.basicModalActive}} Modal title
-
-Modal content
-
-{{/if}}
-
 Note: When a modal dialog is open with the keyboard, the focus is automatically set to the first focusable element inside the dialog, which is the "Dismiss" button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming.
 
 #### Form within a modal dialog
@@ -95,13 +87,5 @@ When the modal dialog contains information that might be lost on close, we recom
   </Hds::Modal>
 {{/if}}
 ```
-
-Renders to:
-
-{{! template-lint-disable no-autofocus-attribute }} {{#if this.formModalActive}} Why do you want to leave the beta?
-
-Select the primary reason Your feedback
-
-{{/if}} {{! template-lint-enable no-autofocus-attribute }}
 
 Note: If a modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.

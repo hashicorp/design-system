@@ -3,47 +3,44 @@
 @use "../typography/mixins" as *;
 
 .doc-badge {
+  @include doc-font-family("sans");
   display: inline-flex;
   align-items: center;
   max-width: 100%;
-  padding: 0 8px;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  border-radius: 5px;
-
-  @include doc-font-style-body-small();
+  height: 24px;
+  padding: 3px 12px 4px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  // TODO should be the standard 3px?
+  border-radius: 100px;
 }
 
 
-// colors
+// types
 
-.doc-badge--color-neutral-light {
-  color: #212529;
-  background-color: #f8f9fa;
+.doc-badge--type-neutral {
+  color: var(--doc-color-gray-600);
+  background-color: var(--doc-color-gray-200);
 }
 
-.doc-badge--color-neutral-dark {
-  color: #fff;
-  background-color: #343a40;
+.doc-badge--type-information {
+  color: var(--doc-color-feedback-information-400);
+  background-color: var(--doc-color-feedback-information-100);
 }
 
-.doc-badge--color-highlight {
-  color: #fff;
-  background-color: #17a2b8;
+.doc-badge--type-success {
+  color: var(--doc-color-feedback-success-400);
+  background-color: var(--doc-color-feedback-success-100);
 }
 
-.doc-badge--color-success {
-  color: #fff;
-  background-color: #28a745;
+.doc-badge--type-warning {
+  color: var(--doc-color-feedback-warning-400);
+  background-color: var(--doc-color-feedback-warning-100);
 }
 
-.doc-badge--color-warning {
-  color: #212529;
-  background-color: #ffc107;
-}
-
-.doc-badge--color-critical {
-  color: #fff;
-  background-color: #dc3545;
+.doc-badge--type-critical {
+  color: var(--doc-color-feedback-critical-400);
+  background-color: var(--doc-color-feedback-critical-100);
 }
 
