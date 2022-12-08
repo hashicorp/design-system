@@ -6,7 +6,8 @@
     "play": "ts-node --transpile-only ./scripts/play",
     "play2": "ts-node --transpile-only ./scripts/play2",
     "play3": "ts-node --transpile-only ./scripts/play3",
-    "play3:debug": "node --inspect-brk ts-node --transpile-only ./scripts/play3"
+    "play3:debug": "node --inspect-brk ts-node --transpile-only ./scripts/play3",
+    "play4": "ts-node --transpile-only ./scripts/play4"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
