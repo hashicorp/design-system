@@ -8,21 +8,21 @@
           <span class="doc-color-swatch__listitem--context">CSS Variable</span>
           <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
             <span>{{color.css-variable}}</span>
-            <FlightIcon @name="clipboard" />
+            <FlightIcon @name="clipboard-copy" />
           </button>
         </li>
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">CSS Helper</span>
           <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
             <span>.{{color.css-helper}}</span>
-            <FlightIcon @name="clipboard" />
+            <FlightIcon @name="clipboard-copy" />
           </button>
         </li>
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">HEX</span>
           <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
             <span>{{color.css-hex}}</span>
-            <FlightIcon @name="clipboard" />
+            <FlightIcon @name="clipboard-copy" />
           </button>
         </li>
       </ul>
