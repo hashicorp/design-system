@@ -8,6 +8,8 @@ import {
 } from 'ember-fetch/errors';
 import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import { reject } from 'rsvp';
 
 export default class ShowRoute extends Route {
   @service router;
@@ -25,6 +27,10 @@ export default class ShowRoute extends Route {
     // which is not necessarily the same as the URL path (eg. we remove the "index" from the URL)
     const toc = this.modelFor('application').toc;
     const pageData = toc.flat.find((page) => page.pageURL === path);
+
+    if (!pageData) {
+      return reject('Path not found');
+    }
 
     return fetch(`${config.rootURL}docs/${pageData.filePath}.json`)
       .then((res) => {
@@ -101,5 +107,10 @@ export default class ShowRoute extends Route {
           hasSidecar,
         };
       });
+  }
+
+  @action
+  error() {
+    this.router.replaceWith('error');
   }
 }
