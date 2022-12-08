@@ -1,19 +1,15 @@
 {{! template-lint-configure no-inline-styles {"allowDynamicStyles": true} }}
 
-<ul class='doc-table-of-contents'>
+<ul class="doc-table-of-contents">
   {{#each-in @structuredPageTree as |key item|}}
     {{#if item.pageURL}}
-      <li
-        class='doc-table-of-contents__item doc-table-of-contents__item--with-link'
-        style={{this.leftPadStyle}}
-      >
-        {{! convert to LinkTo with @route='show' and @model=item.id }}
-        <a href="/{{item.pageURL}}">
+      <li class="doc-table-of-contents__item doc-table-of-contents__item--with-link" style={{this.leftPadStyle}}>
+        <LinkTo @route="show" @model={{item.pageURL}}>
           {{capitalize item.pageAttributes.title}}
-        </a>
+        </LinkTo>
       </li>
     {{else}}
-      <li class='doc-table-of-contents__item'>
+      <li class="doc-table-of-contents__item">
         <span style={{this.leftPadStyle}}>
           {{capitalize key}}
         </span>
