@@ -126,12 +126,14 @@
       <p>Default: <span class="default">false</span></p>
       <p>If set to <code class="dummy-code">true</code>, zebra striping on the table will be applied.</p>
     </dd>
-    <dt>isFixed <code>boolean</code></dt>
+    <dt>isFixedLayout <code>boolean</code></dt>
     <dd>
       <p>Default: <span class="default">false</span></p>
       <p>If set to
-        <code class="dummy-code">true</code>, table-display will be set to fixed, which will automatically distribute
-        columns equally based on the total width of the table.</p>
+        <code class="dummy-code">true</code>, the
+        <code class="dummy-code">table-display</code>)(CSS) property will be set to
+        <code class="dummy-code">fixed</code>, which will automatically distribute columns equally based on the total
+        width of the table.</p>
     </dd>
     <dt>density <code>enum</code></dt>
     <dd>
@@ -146,7 +148,7 @@
     <dt>valign <code>enum</code></dt>
     <dd>
       <p>If set, determines the vertical alignment of table's cell (td) content. While it is set to top by default,
-        content will be middle aligned vertically unless there are two or more lines of contentin any cell in a given
+        content will be middle aligned vertically unless there are two or more lines of content in any cell in a given
         row.</p>
       <p>Acceptable values:</p>
       <ol>
@@ -722,9 +724,9 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Static table with striping
+    Static table with row striping
   </h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{true}} @caption="Static table with no striping">
+  <Hds::Table @model={{this.model.data}} @isStriped={{true}} @caption="Static table with row striping">
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>

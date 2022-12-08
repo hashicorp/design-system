@@ -28,13 +28,13 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   /**
-   * @param isFixed
+   * @param isFixedLayout
    * @type {boolean}
    * @default false
    * @description Determines whether the table-display should be set to fixed; meaning, the table columns are of equal width no matter the content; defaults to false.
    */
-  get isFixed() {
-    return this.args.isFixed ?? false;
+  get isFixedLayout() {
+    return this.args.isFixedLayout ?? false;
   }
 
   /**
@@ -88,9 +88,9 @@ export default class HdsTableIndexComponent extends Component {
       classes.push('hds-table--striped');
     }
 
-    // add a class based on the @isFixed argument
-    if (this.isFixed) {
-      classes.push('hds-table--fixed');
+    // add a class based on the @isFixedLayout argument
+    if (this.isFixedLayout) {
+      classes.push('hds-table--layout-fixed');
     }
 
     // add a class based on the @density argument
