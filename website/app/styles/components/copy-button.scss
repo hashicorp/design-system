@@ -1,0 +1,84 @@
+// COPY BUTTON
+
+@use "../typography/mixins" as *;
+
+.doc-copy-button {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.doc-copy-button--type-solid {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 2px 8px;
+  color: var(--doc-color-white);
+  background-color: var(--doc-color-link-on-white);
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #1b50ac; // TODO not a standard token
+  }
+
+  &:active {
+    background-color: #143c80; // TODO not a standard token
+  }
+}
+
+.doc-copy-button--type-ghost {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 8px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  .doc-copy-button__icon {
+    color: #1b50ac; // TODO not a standard token
+  }
+
+  &:hover {
+    background-color: var(--doc-color-gray-600);
+
+    .doc-copy-button__icon {
+      color: #2265d8; // TODO not a standard token
+    }
+  }
+
+  &:active {
+    background-color: var(--doc-color-gray-500);
+
+    .doc-copy-button__icon {
+      color: #143c80; // TODO not a standard token
+    }
+  }
+}
+
+.doc-copy-button__icon {
+  flex: none;
+  width: 12px;
+  height: 12px;
+}
+
+.doc-copy-button__label {
+  @include doc-font-family("sans");
+  margin-right: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.doc-copy-button__visible-value {
+  @include doc-font-family("mono");
+  margin-right: 8px;
+  color: var(--doc-color-black);
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.926;
+  text-align: left;
+}
