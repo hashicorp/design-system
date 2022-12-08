@@ -1,12 +1,12 @@
 <header class="doc-page-header" ...attributes>
   <div class="doc-page-header__identity">
-    <LinkTo @route="index" class="doc-page-header__identity-logo">
+    <LinkTo @route="index" class="doc-page-header__identity-logo" aria-label="home page">
       <img src="/assets/logos/hds-avatar-inverted.svg" alt="" role="none" />
     </LinkTo>
     <LinkTo @route="index" class="doc-page-header__identity-name">HashiCorp Design System</LinkTo>
     <DocNpmVersion class="doc-page-header__identity-version" />
   </div>
-  <nav class="doc-page-header__top-menu">
+  <nav class="doc-page-header__top-menu" aria-label="primary navigation">
     <ul>
       <li><LinkTo @route="about">About</LinkTo></li>
       <li><LinkTo @route="foundations">Foundations</LinkTo></li>
