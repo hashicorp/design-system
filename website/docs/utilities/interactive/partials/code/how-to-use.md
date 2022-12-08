@@ -43,7 +43,7 @@ it will generate in output an HTML `<a>` link element **without** the HTML `targ
 If a `@route` argument is provided:
 
 ```handlebars
-<Hds::Interactive @route="list" @model="...">
+<Hds::Interactive @route="components" >
     your content here
 </Hds::Interactive>
 ```
@@ -53,7 +53,7 @@ it will generate in output a `<LinkTo>` component.
 If the `@route` is external to the current engine ([more details here](https://ember-engines.com/docs/link-to-external)), you need to provide an extra `@isRouteExternal` parameter:
 
 ```handlebars
-<Hds::Interactive @route="list" @isRouteExternal={{true}} @model="..." >
+<Hds::Interactive @route="components" @isRouteExternal={{true}} >
     your content here
 </Hds::Interactive>
 ```
