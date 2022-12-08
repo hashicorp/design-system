@@ -227,13 +227,13 @@ _Banner (information):_ Buttons in a modal should follow the same content guidel
 #### with Title icon
 
 <section>
-  <Hds::Modal::Header @icon="info">Title</Hds::Modal::Header>
+  <Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 </section>
 
 #### without Title icon
 
 <section>
-  <Hds::Modal::Header @icon="info">Title</Hds::Modal::Header>
+  <Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 </section>
 
 ##### Usage
@@ -247,13 +247,13 @@ _Banner (information):_ Buttons in a modal should follow the same content guidel
 #### with Tagline
 
 <section>
-  <Hds::Modal::Header @tagline="Tagline">Title</Hds::Modal::Header>
+  <Hds::Modal::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 </section>
 
 #### with Tagline + Icon
 
 <section>
-  <Hds::Modal::Header @tagline="Tagline" @icon="info">Title</Hds::Modal::Header>
+  <Hds::Modal::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 </section>
 
 ##### Usage
