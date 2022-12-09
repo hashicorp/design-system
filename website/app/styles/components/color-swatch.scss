@@ -1,38 +1,39 @@
 .doc-color-swatch {
   display: grid;
   grid-template-rows: 64px 1fr;
-  width: 90%;
+  width: 271px;
   margin: 16px auto;
   padding: 0;
   border: 1px solid #dbdbdc;
   border-radius: 3px;
 
-  @media screen and (min-width: 43em) {
-    grid-template-rows: 1fr;
-    grid-template-columns: (minmax(80px, 80px) auto);
-    width: 89.5%;
+  @media screen and (min-width: 768px) {
+    width: 355px;
     margin: 16px 0;
   }
 
-  @media screen and (min-width: 62em) {
-    width: 73.333%;
+  @media screen and (min-width: 1280px) {
+    grid-template-rows: 1fr;
+    grid-template-columns: (minmax(80px, 80px) auto); // just 80px auto didn't work, maybe a bug?
+    width: 70%;
   }
 }
 
 .doc-color-swatch__preview {
-  @media screen and (min-width: 43em) {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  @media screen and (min-width: 1280px) {
     grid-area: 1 / 1 / 2 / 2;
     max-width: 80px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 0;
   }
 }
 
 .doc-color-swatch__info {
   width: 100%;
   padding: 16px;
-
-  @media screen and (min-width: 43em) {
-    grid-area: 1 / 2 / 2 / 3;
-  }
 }
 
 .doc-color-swatch__list {
@@ -42,6 +43,7 @@
 }
 
 .doc-color-swatch__name {
+  margin: 0 0 8px 0;
   font-weight: bold;
   font-weight: 700;
   font-size: 1.125rem;
@@ -51,26 +53,33 @@
 
 .doc-color-swatch__listitem {
   display: grid;
-  grid-column-gap: 1.5rem;
-  grid-template-columns: minmax(78px, max-content) 1fr;
   margin: 0 0 0.5rem 0;
   padding: 0;
   place-content: center start;
+
+  @media screen and (min-width: 1280px) {
+    grid-column-gap: 1.5rem;
+    grid-template-columns: minmax(78px, max-content) 1fr;
+  }
 
   &--context {
     display: flex;
     align-items: center;
     color: #727374;
+    font-weight: 700;
     font-size: 0.8125rem;
-    font-family: "Metro Sans", sans-serif;
+    font-family: Gilmer, sans-serif;
     line-height: 1;
   }
 }
 
+// TODO update this to be similar to what you did in the sortable header buttons,
+// so the icons don't shrink
 .doc-color-swatch__listitem__button {
   display: flex;
   align-items: center;
   padding: 0;
+  font-weight: normal;
   font-size: 0.8125rem;
   font-family: Menlo, sans-serif;
   text-align: left;
@@ -86,6 +95,7 @@
   }
 }
 
+// TODO figure out how these should be done, this is too manual
 .doc-color-swatch__preview-hds-palette-blue-50 {
   background-color: #f2f8ff;
 }
