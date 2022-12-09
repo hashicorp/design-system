@@ -39,7 +39,7 @@ export default class ShowController extends Controller {
     let tabs = [];
     let tocs = [];
     document
-      .querySelectorAll(`section[id^=section-]`)
+      .querySelectorAll(`.doc-page-content section[id^=section-]`)
       .forEach((section, index) => {
         // SECTIONS
         const name = section.id.replace(/^section-/, '');
