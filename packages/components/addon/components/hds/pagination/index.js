@@ -3,7 +3,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class HdsPaginationBarIndexComponent extends Component {
+export default class HdsPaginationIndexComponent extends Component {
   @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;

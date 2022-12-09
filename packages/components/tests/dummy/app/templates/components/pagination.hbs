@@ -1,6 +1,6 @@
-{{page-title "PaginationBar Component"}}
+{{page-title "Pagination Component"}}
 
-<h2 class="dummy-h2">PaginationBar</h2>
+<h2 class="dummy-h2">Pagination</h2>
 
 {{! ADD YOUR CONTENT BELOW }}
 {{! Please follow as much as possible what it's already done in other components. }}
@@ -11,7 +11,7 @@
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
   <p class="dummy-paragraph">
-    The PaginationBar component allows users to navigate through a large dataset split into pages. These pages could be
+    The Pagination component allows users to navigate through a large dataset split into pages. These pages could be
     either links (different URLs) or content rendered within the same page/URL.
   </p>
   <p class="dummy-paragraph">
@@ -24,36 +24,36 @@
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph">
     The
-    <code class="dummy-code">PaginationBar</code>
+    <code class="dummy-code">Pagination</code>
     component is a wrapper component for the Pagination-related sub-components, each with their own APIs:
   </p>
 
   <ul class="dummy-list">
     <li>
       a
-      <code class="dummy-code">PaginationBar</code>
+      <code class="dummy-code">Pagination</code>
       “container” component which controls the layout and some of the logic that connects the different sub-components
     </li>
     <li>
       an optional
-      <code class="dummy-code">TotalCount</code>
+      <code class="dummy-code">Info</code>
       component which displays the current range of items shown and the total number of items
     </li>
     <li>
       a
-      <code class="dummy-code">Pagination</code>
+      <code class="dummy-code">Nav</code>
       component which provides navigation controls and optionally displays page numbers
     </li>
     <li>
       an optional
-      <code class="dummy-code">PageSize</code>
+      <code class="dummy-code">SizeSelector</code>
       component which allows users to change the number of items displayed per page
     </li>
   </ul>
 
-  <h4 class="dummy-h4">PaginationBar</h4>
-  <p class="dummy-paragraph" id="component-api-pagination-bar">Here is the API for the main (“container”) component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-bar">
+  <h4 class="dummy-h4">Pagination</h4>
+  <p class="dummy-paragraph" id="component-api-pagination">Here is the API for the main (“container”) component:</p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination">
     <dt>totalItems <code>number</code> <strong class="required">required</strong></dt>
     <dd>Pass the total number of items to be paginated. If no value is defined an error will be thrown.</dd>
 
@@ -70,10 +70,10 @@
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">TotalCount</h4>
+  <h4 class="dummy-h4">Info</h4>
   <p class="dummy-paragraph" id="component-api-total-count">
     Here is the API for the
-    <code class="dummy-code">TotalCount</code>
+    <code class="dummy-code">Info</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-total-count">
@@ -84,16 +84,16 @@
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">Pagination</h4>
+  <h4 class="dummy-h4">Nav</h4>
   <p class="dummy-paragraph" id="component-api-pagination">
     Here is the API for the
-    <code class="dummy-code">Pagination</code>
+    <code class="dummy-code">Nav</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination">
     <dt>type <code>string</code></dt>
     <dd>
-      <p>Sets the type of Pagination.</p>
+      <p>Sets the type of Pagination Nav.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">compact</li>
@@ -102,10 +102,10 @@
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">PageSize</h4>
+  <h4 class="dummy-h4">SizeSelector</h4>
   <p class="dummy-paragraph" id="component-api-page-size">
     Here is the API for the
-    <code class="dummy-code">PageSize</code>
+    <code class="dummy-code">SizeSelector</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-page-size">
@@ -137,22 +137,22 @@
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::PaginationBar @totalItems=\{{103}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
-        <P.TotalCount />
-        <P.Pagination />
-        <P.PageSize @sizes=\{{array 10 30 50}} />
-      </Hds::PaginationBar>
+      <Hds::Pagination @totalItems=\{{103}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
+        <P.Info />
+        <P.Nav />
+        <P.SizeSelector @sizes=\{{array 10 30 50}} />
+      </Hds::Pagination>
     "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
 
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::PaginationBar @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info />
+    <P.Nav />
+    <P.SizeSelector @sizes={{array 10 30 50}} />
+  </Hds::Pagination>
 
   <h4 class="dummy-h4">“Numbered” pagination</h4>
   {{! prettier-ignore-start }}
@@ -160,22 +160,22 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::PaginationBar @totalItems=\{{100}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
-        <P.TotalCount />
-        <P.Pagination @type="numbered" />
-        <P.PageSize @sizes=\{{array 10 30 50}} />
-      </Hds::PaginationBar>
+      <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
+        <P.Info />
+        <P.Nav @type="numbered" />
+        <P.SizeSelector @sizes=\{{array 10 30 50}} />
+      </Hds::Pagination>
     '
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
 
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination @type="numbered" />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info />
+    <P.Nav @type="numbered" />
+    <P.SizeSelector @sizes={{array 10 30 50}} />
+  </Hds::Pagination>
 </section>
 
 <section>
@@ -188,7 +188,7 @@
       <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
     </p>
     <br />
-    <img class="dummy-figma-docs" src="/assets/images/pagination-bar-design-usage.png" alt="" role="none" />
+    <img class="dummy-figma-docs" src="/assets/images/pagination-design-usage.png" alt="" role="none" />
   </div>
   }}
 </section>
@@ -233,12 +233,12 @@
 
     <h4 class="dummy-h4">Base elements</h4>
 
-    <h5 class="dummy-h5">TotalCount</h5>
+    <h5 class="dummy-h5">Pagination::Info</h5>
 
     <div class="dummy-pagination-base-sample">
       <div>
         <span class="dummy-text-small">default</span>
-        <Hds::PaginationBar::TotalCount @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
+        <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
       </div>
 
       <div>
@@ -250,7 +250,7 @@
           >@showTotalItems=\{{false}}</code>{{! template-lint-enable no-unbalanced-curlies }}
           {{! prettier-ignore-end }}
         </span>
-        <Hds::PaginationBar::TotalCount
+        <Hds::Pagination::Info
           @itemsRangeStart={{1}}
           @itemsRangeEnd={{10}}
           @totalItems={{103}}
@@ -259,10 +259,10 @@
       </div>
     </div>
 
-    <h5 class="dummy-h5">PageSize</h5>
-    <Hds::PaginationBar::PageSize @sizes={{array 10 30 50}} />
+    <h5 class="dummy-h5">Pagination::SizeSelector</h5>
+    <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
 
-    <h5 class="dummy-h5">Pagination::NavButton</h5>
+    <h5 class="dummy-h5">Pagination::Nav::NavButton</h5>
     <h6 class="dummy-h6">
       with text label displaying:
     </h6>
@@ -275,16 +275,16 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="compact" />
-              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" />
+              <Hds::Pagination::Nav::NavButton @direction="prev" @type="compact" />
+              <Hds::Pagination::Nav::NavButton @direction="next" @type="compact" />
             </div>
           </div>
         {{/each}}
         <div class="dummy-pagination-base-sample-item">
           <span class="dummy-text-small">disabled</span>
           <div class="dummy-pagination-base-sample-row">
-            <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="compact" @disabled={{true}} />
-            <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="compact" @disabled={{true}} />
+            <Hds::Pagination::Nav::NavButton @direction="prev" @type="compact" @disabled={{true}} />
+            <Hds::Pagination::Nav::NavButton @direction="next" @type="compact" @disabled={{true}} />
           </div>
         </div>
       {{/let}}
@@ -301,8 +301,8 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="numbered" />
-              <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" />
+              <Hds::Pagination::Nav::NavButton @direction="prev" @type="numbered" />
+              <Hds::Pagination::Nav::NavButton @direction="next" @type="numbered" />
             </div>
           </div>
         {{/each}}
@@ -310,13 +310,13 @@
       <div class="dummy-pagination-base-sample-item">
         <span class="dummy-text-small">disabled</span>
         <div class="dummy-pagination-base-sample-row">
-          <Hds::PaginationBar::Pagination::NavButton @direction="prev" @type="numbered" @disabled={{true}} />
-          <Hds::PaginationBar::Pagination::NavButton @direction="next" @type="numbered" @disabled={{true}} />
+          <Hds::Pagination::Nav::NavButton @direction="prev" @type="numbered" @disabled={{true}} />
+          <Hds::Pagination::Nav::NavButton @direction="next" @type="numbered" @disabled={{true}} />
         </div>
       </div>
     </div>
 
-    <h5 class="dummy-h5">Pagination::PageNumber</h5>
+    <h5 class="dummy-h5">Pagination::Nav::PageNumber</h5>
     <p class="dummy-paragraph">Generic vs current page</p>
     <div class="dummy-pagination-base-sample">
       {{#let (array "default" "hover" "active" "focus") as |states|}}
@@ -324,75 +324,75 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::PaginationBar::Pagination::PageNumber @page="1" />
-              <Hds::PaginationBar::Pagination::PageNumber @page="1" @isSelected={{true}} />
+              <Hds::Pagination::Nav::PageNumber @page="1" />
+              <Hds::Pagination::Nav::PageNumber @page="1" @isSelected={{true}} />
             </div>
           </div>
         {{/each}}
       {{/let}}
     </div>
 
-    <h4 class="dummy-h4">Pagination</h4>
+    <h4 class="dummy-h4">Pagination::Nav</h4>
     <div class="dummy-paragraph">
-      <Hds::PaginationBar::Pagination @totalItems={{100}} @itemsPerPage={{10}} />
+      <Hds::Pagination::Nav @totalItems={{100}} @itemsPerPage={{10}} />
     </div>
     <div class="dummy-paragraph">
-      <Hds::PaginationBar::Pagination @totalItems={{100}} @itemsPerPage={{10}} @type="numbered" />
+      <Hds::Pagination::Nav @totalItems={{100}} @itemsPerPage={{10}} @type="numbered" />
     </div>
   </div>
 
-  <h4 class="dummy-h4">PaginationBar with sub-components</h4>
+  <h4 class="dummy-h4">Pagination with sub-components</h4>
 
-  <h5 class="dummy-h5">Simplest use case: PaginationBar with Pagination</h5>
+  <h5 class="dummy-h5">Simplest use case: Pagination with Nav</h5>
 
   <h6 class="dummy-h6">Type="compact" (the default)</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.Pagination />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Nav />
+  </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.Pagination @type="numbered" />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Nav @type="numbered" />
+  </Hds::Pagination>
 
-  <h5 class="dummy-h5">PaginationBar with Pagination and TotalCount</h5>
+  <h5 class="dummy-h5">Pagination with Nav, and Info</h5>
   <h6 class="dummy-h6">Type="compact"</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info />
+    <P.Nav />
+  </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination @type="numbered" />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info />
+    <P.Nav @type="numbered" />
+  </Hds::Pagination>
 
-  <h6 class="dummy-h6">TotalCount with showTotalItems set to "false"</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount @showTotalItems={{false}} />
-    <P.Pagination />
-  </Hds::PaginationBar>
+  <h6 class="dummy-h6">Info with showTotalItems set to "false"</h6>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info @showTotalItems={{false}} />
+    <P.Nav />
+  </Hds::Pagination>
 
-  <h6 class="dummy-h6">PaginationBar with Pagination, TotalCount, and PageSize</h6>
+  <h6 class="dummy-h6">Pagination with Nav, Info, and SizeSelector</h6>
   <h6 class="dummy-h6">Type="compact"</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info />
+    <P.Nav />
+    <P.SizeSelector @sizes={{array 10 30 50}} />
+  </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-    <P.TotalCount />
-    <P.Pagination @type="numbered" />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+    <P.Info />
+    <P.Nav @type="numbered" />
+    <P.SizeSelector @sizes={{array 10 30 50}} />
+  </Hds::Pagination>
 
-  <h5 class="dummy-h5">Numbered Pagination with currentPage set to "3" and items per page = "30"</h5>
-  <Hds::PaginationBar @totalItems={{100}} @itemsPerPage={{30}} @currentPage={{3}} as |P|>
-    <P.TotalCount />
-    <P.Pagination @type="numbered" />
-    <P.PageSize @sizes={{array 10 30 50}} />
-  </Hds::PaginationBar>
+  <h5 class="dummy-h5">Numbered Pagination Nav with currentPage set to "3" and items per page = "30"</h5>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{30}} @currentPage={{3}} as |P|>
+    <P.Info />
+    <P.Nav @type="numbered" />
+    <P.SizeSelector @sizes={{array 10 30 50}} />
+  </Hds::Pagination>
 </section>

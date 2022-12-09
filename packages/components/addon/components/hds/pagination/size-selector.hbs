@@ -1,6 +1,6 @@
-<div class="hds-pagination-page-size" ...attributes>
+<div class="hds-pagination-size-selector" ...attributes>
   <label class="hds-typography-body-100 hds-font-weight-medium" for={{this.pageSizeId}}>Items per page</label>
-  <Hds::Form::Select::Base id={{this.pageSizeId}} {{on "change" this.onChange}} as |S|>
+  <Hds::Form::Select::Base id={{this.SizeSelectorId}} {{on "change" this.onChange}} as |S|>
     <S.Options>
       {{#each this.sizes as |size|}}
         <option value={{size}} selected={{if (eq size @itemsPerPage) true null}}>{{size}}</option>

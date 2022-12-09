@@ -3,13 +3,13 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsPaginationBarPageSizeComponent extends Component {
+export default class HdsPaginationBarSizeSelectorComponent extends Component {
   /**
    * Generates a unique ID for the pageSize select
    *
-   * @param pageSizeId
+   * @param SizeSelectorId
    */
-  pageSizeId = 'pagination-page-size-' + guidFor(this);
+   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
   /**
    * @param sizes

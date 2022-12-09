@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PaginationBarController extends Controller {
+export default class PaginationController extends Controller {
   @tracked showHighlight = false;
 
   @action

@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export const DEFAULT_TYPE = 'compact';
 export const TYPES = ['compact', 'numbered'];
 
-export default class HdsPaginationBarPaginationIndexComponent extends Component {
+export default class HdsPaginationBarNavIndexComponent extends Component {
   /**
    * Gets the type of pagination
    *
@@ -17,7 +17,7 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     let { type = DEFAULT_TYPE } = this.args;
 
     assert(
-      `@type for "Hds::PaginationBar" must be one of the following: ${TYPES.join(
+      `@type for "Hds::Pagination::Nav" must be one of the following: ${TYPES.join(
         ', '
       )}; received: ${type}`,
       TYPES.includes(type)
@@ -36,7 +36,7 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
     let { currentPage = 1 } = this.args;
 
     assert(
-      `@currentPage must be defined for "Hds::PaginationBar::Pagination"`,
+      `@currentPage must be defined for "Hds::Pagination::Nav"`,
       currentPage !== undefined
     );
 

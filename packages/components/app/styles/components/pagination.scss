@@ -1,5 +1,5 @@
 //
-// PAGINATIONBAR
+// PAGINATION
 //
 
 @use "../mixins/focus-ring" as *;
@@ -8,7 +8,7 @@ $pagination-height: calc(36px + 6px);
 
 // * Pagination Parent (wrapper) component
 // ----------------------------------------
-.hds-pagination-bar {
+.hds-pagination {
   display: grid;
   grid-template-areas: "left center right";
   grid-template-rows: auto;
@@ -18,17 +18,17 @@ $pagination-height: calc(36px + 6px);
   margin: 20px auto;
 }
 
-// * Sub-component: TotalCount
+// * Sub-component: Info
 // ---------------------------------------
-.hds-pagination-total-count {
+.hds-pagination-info {
   grid-area: left;
   justify-self: flex-start;
 }
 
 
-// * Sub-component: Pagination
+// * Sub-component: Nav
 // ----------------------------------------
-.hds-pagination {
+.hds-pagination-nav {
   display: flex;
   grid-area: center;
   align-self: stretch;
@@ -140,9 +140,9 @@ $pagination-height: calc(36px + 6px);
   }
 }
 
-// * Sub-component: PaginationPageSize
+// * Sub-component: SizeSelector
 // ----------------------------------------
-.hds-pagination-page-size {
+.hds-pagination-size-selector {
   display: flex;
   grid-area: right;
   align-items: center;

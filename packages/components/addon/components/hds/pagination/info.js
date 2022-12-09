@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export default class HdsPaginationBarTotalCountComponent extends Component {
+export default class HdsPaginationBarInfoComponent extends Component {
   /**
    * @param showTotalItems
    * @type {boolean}
