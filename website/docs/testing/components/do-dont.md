@@ -1,8 +1,8 @@
 ---
-title: Test with "Do/Dont" content blocks
+title: Doc::DoDont
+layout:
+  sidecar: false
 ---
-
-## Do/Dont blocks
 
 Lorem ipsum dolor
 
