@@ -15,16 +15,12 @@ This should be a short TL;DR that includes the purpose of the PR.
 ### :link: External links
 
 <!-- Issues, RFC, etc. -->
+Jira ticket: [if it applies]
+Figma file: [if it applies]
 
 ***
 
-### 👀 How to review
-
-<!-- Suggest how it's best for the reviewer to review the code (choose one, or remove) -->
-👉 Review commit-by-commit
-👉 Review by files changed
-
-Reviewer's checklist:
+### 👀 Reviewer's checklist:
 
 - [ ] +1 Percy if applicable
 - [ ] Confirm that PR has a changelog update via [Changesets](https://github.com/changesets/changesets) if needed
