@@ -4,30 +4,10 @@ import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 
-const MENU = [
-  {
-    label: 'About',
-    route: 'about',
-  },
-  {
-    label: 'Foundations',
-    route: 'foundations',
-  },
-  {
-    label: 'Components',
-    route: 'components',
-  },
-  {
-    label: 'Patterns',
-    route: 'patterns',
-  },
-];
-
 export default class DocPageHeaderComponent extends Component {
   @service router;
   @service fastboot;
 
-  @tracked showLayoutColors = false;
   @tracked currentTopRoute = 'foundations';
 
   constructor() {
@@ -63,26 +43,10 @@ export default class DocPageHeaderComponent extends Component {
     this.removeExitHandler();
   }
 
-  get menu() {
-    let xxx = MENU.map((item) => {
-      // console.log('item1', item);
-      item.isCurrent = item.route === this.currentTopRoute;
-      // console.log('item2', item);
-      return item;
-    });
-    console.log('called getMenu', xxx);
-    return xxx;
-  }
-
-  @action
+  // @action
   updateNavigation() {
     // eg. /foundations/colors/
     this.currentTopRoute = this.router.currentURL.split('/')[1];
-    console.log('updateNavigation', this.router, this.router.currentURL);
-    // this.menu.forEach((item) => {
-    //   item.isCurrent = true;
-    // });
-    // console.log('called updateNavigation', this.menu);
   }
 
   @action
