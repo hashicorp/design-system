@@ -2,13 +2,12 @@
 
 @use "../typography/mixins" as *;
 
-$doc-markdown-table-border-color: rgba(101, 106, 118, 20%);
 
 .doc-markdown-table {
   width: 100%;
   max-width: 100%;
   overflow: auto;
-  border: 1px solid $doc-markdown-table-border-color;
+  border: 1px solid var(--doc-color-gray-500);
   border-radius: 4px;
   border-spacing: 0;
 }
@@ -16,7 +15,7 @@ $doc-markdown-table-border-color: rgba(101, 106, 118, 20%);
 .doc-markdown-th {
   @include doc-font-style-body-small();
   padding: 12px 16px;
-  color: #0c0c0e;  // TODO convert to design token
+  color: var(--doc-color-black);
   font-weight: bold;
   text-align: left;
   text-transform: uppercase;
@@ -27,7 +26,7 @@ $doc-markdown-table-border-color: rgba(101, 106, 118, 20%);
   @include doc-font-style-body-small();
   padding: 12px 16px;
   text-align: left;
-  border-bottom: 1px solid $doc-markdown-table-border-color;
+  border: 1px solid var(--doc-color-gray-500);
 
   .doc-markdown-tr:last-child & {
     border-bottom: none;
