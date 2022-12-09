@@ -1,4 +1,4 @@
-{{! template-lint-disable no-invalid-role }}
+{{! template-lint-disable no-invalid-role require-context-role }}
 {{#if @tabs}}
   <ul class='doc-page-tabs' role='tablist' ...attributes>
     {{#each @tabs as |tab|}}
@@ -21,3 +21,4 @@
     {{/each}}
   </ul>
 {{/if}}
+{{! template-lint-disable no-invalid-role require-context-role }}
