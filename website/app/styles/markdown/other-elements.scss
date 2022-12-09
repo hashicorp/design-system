@@ -1,3 +1,5 @@
+@use "../typography/mixins";
+
 // LINKS
 
 .doc-markdown-a {
@@ -12,19 +14,25 @@
 }
 
 // CODE SNIPPETS
-// TODO do we need this or in reality we will not use them directly?
 
-.doc-markdown-code { // for the typographic styles see "typography"
-  margin: 0;
-  padding: 4px 8px;
-  color: white; // TODO
-  background-color: black; // TODO
-  border-radius: 3px;
+// TBD if we need a more specific selector to target only the "inline code" elements and not overlap with the other types of code snippets
+.doc-markdown-code {
+  @include doc-font-family("mono");
+  padding: 0.25em 0.5em;
+  color: var(--doc-color-black);
+  font-weight: inherit;
+  font-size: 0.8em; // no need to set the line-height, it's an inline element!
+  background-color: var(--doc-color-gray-600);
+  border-radius: 0.22em;
 }
 
 .doc-markdown-pre {
+  @include doc-font-style-code ();
+  margin-top: 0;
+  margin-bottom: 12px;
   word-wrap: normal;
 
+  // this is different, and needs to override most of the styles declared above
   .doc-markdown-code {
     display: inline;
     max-width: auto;

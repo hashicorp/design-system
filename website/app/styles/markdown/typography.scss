@@ -39,17 +39,6 @@
   margin-bottom: 12px;
 }
 
-.doc-markdown-h1,
-.doc-markdown-h2,
-.doc-markdown-h3,
-.doc-markdown-h4,
-.doc-markdown-h5,
-.doc-markdown-h6 {
-  .doc-markdown-code {
-    font-size: inherit;
-  }
-}
-
 // BODY COPY
 
 .doc-markdown-p,
@@ -74,13 +63,4 @@
   > :last-child {
     margin-bottom: 0;
   }
-}
-
-// CODE
-
-.doc-markdown-pre,
-.doc-markdown-code {
-  @include doc-font-style-code ();
-  margin-top: 0;
-  margin-bottom: 12px;
 }
