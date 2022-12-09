@@ -1,10 +1,10 @@
+// TYPOGRAPHIC STYLES
+
 @import "./font-faces";
 @import "./mixins";
 
-// TYPOGRAPHIC STYLES
 
 // HEADERS
-// TODO! discuss with Heather if we use `docs-text-h1` or `docs-text-display1`
 
 .doc-text-h1 {
   @include doc-font-style-h1 ();
@@ -38,14 +38,6 @@
 
 .doc-text-body-small {
   @include doc-font-style-body-small ();
-}
-
-.doc-text-body-large {
-  @include doc-font-style-body-large();
-}
-
-.doc-text-body-long {
-  @include doc-font-style-body-long();
 }
 
 // CODE
