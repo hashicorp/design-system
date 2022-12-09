@@ -8,7 +8,7 @@
   max-width: 100%;
   overflow: auto;
   border: 1px solid var(--doc-color-gray-500);
-  border-radius: 4px;
+  border-radius: 3px;
   border-spacing: 0;
 }
 
@@ -18,15 +18,14 @@
   color: var(--doc-color-black);
   font-weight: bold;
   text-align: left;
-  text-transform: uppercase;
-  background-color: var(--doc-color-gray-gray-600);
+  border-bottom: 1px solid var(--doc-color-gray-500);
 }
 
 .doc-markdown-td {
   @include doc-font-style-body-small();
   padding: 12px 16px;
   text-align: left;
-  border: 1px solid var(--doc-color-gray-500);
+  border-bottom: 1px solid var(--doc-color-gray-500);
 
   .doc-markdown-tr:last-child & {
     border-bottom: none;
