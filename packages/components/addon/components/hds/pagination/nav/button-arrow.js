@@ -6,7 +6,7 @@ import { assert } from '@ember/debug';
 
 export const DIRECTIONS = ['prev', 'next'];
 
-export default class HdsPaginationBarPaginationIndexComponent extends Component {
+export default class HdsPaginationNavIndexComponent extends Component {
   get content() {
     let { direction } = this.args;
 
@@ -43,18 +43,18 @@ export default class HdsPaginationBarPaginationIndexComponent extends Component 
    */
   get classNames() {
     let classes = [
-      'hds-pagination__nav-button',
-      'hds-pagination__page-link',
+      'hds-pagination-nav__button-arrow',
+      'hds-pagination-nav__control',
       'hds-typography-body-100',
       'hds-font-weight-medium',
     ];
 
     classes.push(
-      `hds-pagination__nav-button--direction-${this.args.direction}`
+      `hds-pagination-nav__button-arrow--direction-${this.args.direction}`
     );
 
     if (this.args.type === 'compact') {
-      classes.push(`hds-pagination__nav-button--labeled`);
+      classes.push(`hds-pagination-nav__button-arrow--labeled`);
     }
 
     return classes.join(' ');

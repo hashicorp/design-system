@@ -7,7 +7,7 @@
   />
 
   {{#if (eq this.type "numbered")}}
-    <ul class="hds-pagination__page-list">
+    <ul class="hds-pagination-nav__page-list">
       {{#each this.pages as |page|}}
         <Hds::Pagination::Nav::ButtonNumber
           @page={{page}}

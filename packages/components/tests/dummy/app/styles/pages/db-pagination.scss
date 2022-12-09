@@ -2,9 +2,9 @@
 
 .dummy-pagination-layout-highlight {
   .hds-pagination-info,
-  .hds-pagination,
-  .hds-pagination__page-link,
-  .hds-pagination__ellipsis,
+  .hds-pagination-nav,
+  .hds-pagination-nav__control,
+  .hds-pagination-nav__ellipsis,
   .hds-pagination-size-selector {
     width: max-content;
     outline: 1px dashed #78909c;

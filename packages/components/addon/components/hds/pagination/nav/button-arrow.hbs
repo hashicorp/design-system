@@ -5,9 +5,9 @@
   disabled={{@disabled}}
   ...attributes
 >
-  <FlightIcon class="hds-pagination__page-icon" @name={{this.content.icon}} />
+  <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
   {{#if (eq @type "compact")}}
-    <span class="hds-pagination__page-label" aria-hidden="true">
+    <span class="hds-pagination-nav__page-label" aria-hidden="true">
       {{this.content.label}}
     </span>
   {{/if}}

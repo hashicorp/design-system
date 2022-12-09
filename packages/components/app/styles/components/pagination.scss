@@ -34,22 +34,22 @@ $pagination-height: calc(36px + 6px);
   align-self: stretch;
 }
 
-.hds-pagination__page-list {
+.hds-pagination-nav__page-list {
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-.hds-pagination__page-item { list-style-type: none; }
+.hds-pagination-nav__page-item { list-style-type: none; }
 
-.hds-pagination__page-link,
-.hds-pagination__ellipsis {
+.hds-pagination-nav__control,
+.hds-pagination-nav__ellipsis {
   display: flex;
   align-items: center;
   padding: 0 12px;
 }
 
-.hds-pagination__page-link {
+.hds-pagination-nav__control {
   height: $pagination-height;
   text-decoration: none;
   background: transparent;
@@ -79,33 +79,33 @@ $pagination-height: calc(36px + 6px);
 }
 
 // Make buttons with "Previous" & "Next" labels the same min-width
-.hds-pagination__nav-button--labeled {
+.hds-pagination-nav__button-arrow--labeled {
   min-width: 103px;
 }
 
-.hds-pagination__nav-button--direction-prev {
+.hds-pagination-nav__button-arrow--direction-prev {
   flex-direction: row;
   justify-content: flex-start;
 
-  .hds-pagination__page-label {
+  .hds-pagination-nav__page-label {
     margin-left: 6px;
   }
 }
 
-.hds-pagination__nav-button--direction-next {
+.hds-pagination-nav__button-arrow--direction-next {
   flex-direction: row-reverse;
   justify-content: flex-end;
 
-  .hds-pagination__page-label {
+  .hds-pagination-nav__page-label {
     margin-right: 6px;
   }
 }
 
-.hds-pagination__ellipsis {
+.hds-pagination-nav__ellipsis {
   color: var(--token-color-foreground-faint);
 }
 
-.hds-pagination__page-selected {
+.hds-pagination-nav__button-number--is-selected {
   position: relative;
   color: var(--token-color-foreground-action);
 
@@ -117,7 +117,7 @@ $pagination-height: calc(36px + 6px);
     color: var(--token-color-foreground-action-active);
   }
 
-  .hds-pagination__page-link {
+  .hds-pagination-nav__control {
     &,
     &:hover,
     &:active {
@@ -159,7 +159,7 @@ $pagination-height: calc(36px + 6px);
     padding-right: calc(0px + 24px);
     padding-bottom: 0;
     padding-left: 8px;
-    // font style for this select is not the standard one for `Form::Select::Base`
+    // font styles for this select differ from standard `Form::Select::Base` styles
     font-size: var(--token-typography-body-100-font-size);
     font-family: var(--token-typography-body-100-font-family);
     line-height: var(--token-typography-body-100-line-height);
