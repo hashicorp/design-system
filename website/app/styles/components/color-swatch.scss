@@ -1,21 +1,20 @@
 .doc-color-swatch {
   display: grid;
   grid-template-rows: 64px 1fr;
-  width: 271px;
-  margin: 16px auto;
+  width: 90%;
+  margin: 16px 0;
   padding: 0;
   border: 1px solid #dbdbdc;
   border-radius: 3px;
 
   @media screen and (min-width: 768px) {
-    width: 355px;
-    margin: 16px 0;
+    width: 70%;
   }
 
   @media screen and (min-width: 1280px) {
     grid-template-rows: 1fr;
     grid-template-columns: (minmax(80px, 80px) auto); // just 80px auto didn't work, maybe a bug?
-    width: 70%;
+    width: 80%;
   }
 }
 
@@ -57,7 +56,7 @@
   padding: 0;
   place-content: center start;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     grid-column-gap: 1.5rem;
     grid-template-columns: minmax(90px, max-content) 1fr;
   }
