@@ -1,7 +1,6 @@
 {
   "name": "markdown",
   "keywords": [
-    "ember-addon",
-    "prember-plugin"
+    "ember-addon"
   ]
 }

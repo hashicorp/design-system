@@ -20,10 +20,6 @@ module.exports = function (environment) {
     },
 
     historySupportMiddleware: true,
-
-    fastboot: {
-      hostWhitelist: [/^localhost:\d+$/],
-    },
   };
 
   if (environment === 'development') {

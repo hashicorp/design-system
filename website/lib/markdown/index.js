@@ -2,8 +2,6 @@
 /* eslint-env node */
 
 'use strict';
-
-const fs = require('fs-extra');
 const path = require('path');
 const resolve = require('resolve');
 
@@ -61,13 +59,5 @@ module.exports = {
     );
 
     return new MergeTrees([processedDocsJsonFilesTree, processedTocFiles]);
-  },
-  urlsForPrember(distDir) {
-    const flatPageListJson = fs.readJsonSync(`${distDir}/toc.json`);
-    // TODO is there a way to have this list generated automatically (or exported) from the routes (`website/app/router.js`)?
-    const staticURLs = ['/', 'about', 'foundations', 'components', 'patterns'];
-    const docsURLs = flatPageListJson.flat.map((page) => page.pageURL);
-
-    return [...staticURLs, ...docsURLs];
   },
 };
