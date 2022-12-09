@@ -15,7 +15,7 @@ This should be a short TL;DR that includes the purpose of the PR.
 ### :link: External links
 
 <!-- Issues, RFC, etc. -->
-Jira ticket: [if it applies]
+Jira ticket: [HDS-XXX](https://hashicorp.atlassian.net/browse/HDS-XXX)
 Figma file: [if it applies]
 
 ***
