@@ -30,12 +30,5 @@ export default class IndexController extends Controller {
         'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
       href: 'patterns',
     },
-    {
-      image: 'https://picsum.photos/seed/5/232/124',
-      title: 'Testing',
-      description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
-      href: 'testing',
-    },
   ];
 }
