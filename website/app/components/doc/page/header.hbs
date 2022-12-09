@@ -2,12 +2,13 @@
   <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
     <Doc::HdsLogo alt="HashiCorp Design System" />
   </LinkTo>
-  <nav class="doc-page-header__top-menu" aria-label="primary navigation">
+  <nav class="doc-page-header__menu" aria-label="primary navigation">
     <ul>
-      <li><LinkTo @route="about">About</LinkTo></li>
-      <li><LinkTo @route="foundations">Foundations</LinkTo></li>
-      <li><LinkTo @route="components">Components</LinkTo></li>
-      <li><LinkTo @route="patterns">Patterns</LinkTo></li>
+      {{#each this.menu as |item|}}
+      <pre>{{item.isCurrent}}</pre>
+        <li class={{if item.isCurrent 'doc-page-header__menu-item--is-current'}}><LinkTo @route={{item.route}} class="aaa {{if item.isCurrent 'doc-page-header__menu-item--is-current'}}">{{item.label}}</LinkTo></li>
+      {{/each}}
     </ul>
   </nav>
+  <button type="button" {{on "click" this.test}}>🚧</button>
 </header>

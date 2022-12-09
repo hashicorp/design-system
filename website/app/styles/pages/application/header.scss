@@ -1,7 +1,8 @@
 // HEADER
 
+@use "../../typography/mixins" as *;
+
 .doc-page-header {
-  // TBD with Heather if we want it sticky or not
   position: sticky;
   top: 0;
   // TODO review all the z-index stacking once the navigation has been finalized
@@ -9,31 +10,19 @@
   display: flex;
   flex-direction: row;
   grid-area: header;
+  gap: 32px;
   align-items: center;
   justify-content: flex-start;
   height: var(--doc-page-header-height);
   padding: 0 24px;
-  color: #fff;
-  background: #000;
+  color: var(--doc-color-white);
+  background: var(--doc-color-black);
 }
 
-// IDENTITY
-
-.doc-page-header__identity {
-  display: grid;
-  grid-template-areas:
-    "logo name"
-    "logo version";
-  grid-template-rows: auto 1fr;
-  grid-template-columns: auto 1fr;
-  gap: 4px 8px;
-  align-items: center;
-}
+// LOGO
 
 .doc-page-header__logo {
   display: block;
-  grid-area: logo;
-  width: auto;
   height: 32px;
   color: inherit;
 
@@ -49,45 +38,41 @@
   }
 }
 
-.doc-page-header__identity-name {
-  grid-area: name;
-  color: #fff;
-  font-size: 16px;
-  font-family: sans-serif;
-  line-height: 1em;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.doc-page-header__identity-version {
-  grid-area: version;
-}
-
 // MENU
 
-.doc-page-header__top-menu {
-  margin-left: 40px;
+.doc-page-header__menu {
+  align-self: stretch;
 
   ul {
     display: flex;
-    gap: 16px;
+    gap: 12px;
+    height: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
+    outline: 2px dotted green;
   }
 
   a {
-    color: #fff;
-    font-size: 24px;
-    font-family: sans-serif;
-    line-height: 1em;
+    @include doc-font-family("sans");
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 8px 12px 5px 12px;
+    color: var(--doc-color-gray-400);
+    font-weight: 600;
+    font-size: 0.9375rem; // 15px
+    line-height: 1.667; // 25px
     text-decoration: none;
+    border-bottom: 3px solid transparent;
 
     &:hover {
-      text-decoration: underline;
+      color: var(--doc-color-white);
+      border-bottom-color: var(--doc-color-gray-400);
+    }
+
+    &:active {
+      border-bottom-color: var(--doc-color-white);
     }
   }
 }
