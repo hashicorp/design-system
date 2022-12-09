@@ -50,11 +50,11 @@
 }
 
 .doc-markdown-blockquote {
+  @include doc-font-style-body();
   margin: 0 0 12px 0;
   padding: 0 0 0 16px;
-  border-left: 2px solid lightgray;
-
-  @include doc-font-style-body();
+  color: var(--doc-color-gray-200);
+  border-left: 6px solid var(--doc-color-gray-400);
 
   > :first-child {
     margin-top: 0;
