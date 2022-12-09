@@ -6,20 +6,14 @@
   display: inline-flex;
   align-items: center;
   max-width: 100%;
-  padding: 0 8px;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .doc-copy-button--type-solid {
-  display: inline-flex;
-  align-items: center;
-  max-width: 100%;
   padding: 2px 8px;
   color: var(--doc-color-white);
   background-color: var(--doc-color-link-on-white);
-  border: 1px solid transparent;
-  border-radius: 4px;
 
   &:hover {
     background-color: #1b50ac; // TODO not a standard token
@@ -31,13 +25,9 @@
 }
 
 .doc-copy-button--type-ghost {
-  display: inline-flex;
-  align-items: center;
-  max-width: 100%;
+  min-height: 26px; // this is the line-height of the "visible value" text
   padding: 0 8px;
   background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
 
   .doc-copy-button__icon {
     color: #1b50ac; // TODO not a standard token
