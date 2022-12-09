@@ -6,24 +6,18 @@
       <ul class="doc-color-swatch__list" role="list">
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">CSS Variable</span>
-          <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
-            <span>{{color.css-variable}}</span>
-            <FlightIcon @name="clipboard-copy" />
-          </button>
+          <Doc::CopyButton @textToCopy={{color.css-variable}} @type="ghost" />
+
         </li>
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">CSS Helper</span>
-          <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
-            <span>.{{color.css-helper}}</span>
-            <FlightIcon @name="clipboard-copy" />
-          </button>
+          <Doc::CopyButton @textToCopy={{color.css-helper}} @textToShow=".{{color.css-helper}}" @type="ghost" />
+
         </li>
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">HEX</span>
-          <button class="doc-color-swatch__listitem__button" type="button" {{on "click" this.copyToClipboard}}>
-            <span>{{color.css-hex}}</span>
-            <FlightIcon @name="clipboard-copy" />
-          </button>
+          <Doc::CopyButton @textToCopy={{color.css-hex}} @type="ghost" />
+
         </li>
       </ul>
     </div>
