@@ -11,33 +11,33 @@
 }
 
 .doc-copy-button--type-solid {
-  padding: 2px 8px;
+  padding: 1px 7px; // take in account 1px transparent border
   color: var(--doc-color-white);
-  background-color: var(--doc-color-link-on-white);
+  background-color: var(--doc-color-feedback-information-200);
 
   &:hover {
-    background-color: #1b50ac; // TODO not a standard token
+    background-color: var(--doc-color-feedback-information-100);
   }
 
   &:active {
-    background-color: #143c80; // TODO not a standard token
+    background-color: #0a37a7;
   }
 }
 
 .doc-copy-button--type-ghost {
   min-height: 26px; // this is the line-height of the "visible value" text
-  padding: 0 8px;
+  padding: 0 7px; // take in account 1px transparent border
   background-color: transparent;
 
   .doc-copy-button__icon {
-    color: #1b50ac; // TODO not a standard token
+    color: var(--doc-color-feedback-information-200);
   }
 
   &:hover {
     background-color: var(--doc-color-gray-600);
 
     .doc-copy-button__icon {
-      color: #2265d8; // TODO not a standard token
+      color: var(--doc-color-feedback-information-100);
     }
   }
 
@@ -45,7 +45,7 @@
     background-color: var(--doc-color-gray-500);
 
     .doc-copy-button__icon {
-      color: #143c80; // TODO not a standard token
+      color: #0a37a7;
     }
   }
 }
@@ -57,18 +57,13 @@
 }
 
 .doc-copy-button__label {
-  @include doc-font-family("sans");
+  @include doc-font-style-body-small();
   margin-right: 8px;
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 .doc-copy-button__visible-value {
-  @include doc-font-family("mono");
+  @include doc-font-style-code();
   margin-right: 8px;
   color: var(--doc-color-black);
-  font-weight: 400;
-  font-size: 13.5px;
-  line-height: 1.926;
   text-align: left;
 }
