@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export const DEFAULT_TYPE = 'compact';
 export const TYPES = ['compact', 'numbered'];
 
-export default class HdsPaginationBarNavIndexComponent extends Component {
+export default class HdsPaginationNavIndexComponent extends Component {
   /**
    * Gets the type of pagination
    *

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class HdsPaginationBarPaginationIndexComponent extends Component {
+export default class HdsPaginationNavIndexComponent extends Component {
   @action
   onClick() {
     let { onClick } = this.args;

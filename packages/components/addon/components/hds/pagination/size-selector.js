@@ -9,7 +9,7 @@ export default class HdsPaginationBarSizeSelectorComponent extends Component {
    *
    * @param SizeSelectorId
    */
-   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
+  SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
   /**
    * @param sizes

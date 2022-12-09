@@ -85,12 +85,12 @@
   </dl>
 
   <h4 class="dummy-h4">Nav</h4>
-  <p class="dummy-paragraph" id="component-api-pagination">
+  <p class="dummy-paragraph" id="component-api-pagination-nav">
     Here is the API for the
     <code class="dummy-code">Nav</code>
     component:
   </p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-pagination">
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav">
     <dt>type <code>string</code></dt>
     <dd>
       <p>Sets the type of Pagination Nav.</p>
@@ -262,11 +262,11 @@
     <h5 class="dummy-h5">Pagination::SizeSelector</h5>
     <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
 
-    <h5 class="dummy-h5">Pagination::Nav::NavButton</h5>
+    <h5 class="dummy-h5">Pagination::Nav::ButtonArrow</h5>
     <h6 class="dummy-h6">
       with text label displaying:
     </h6>
-    <p class="dummy-paragraph">(text label is shown with Pagination type set to "compact" which doesn't include page
+    <p class="dummy-paragraph">(text label is shown with Pagination Nav type set to "compact" which doesn't include page
       numbers)</p>
 
     <div class="dummy-pagination-base-sample">
@@ -275,16 +275,16 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::Pagination::Nav::NavButton @direction="prev" @type="compact" />
-              <Hds::Pagination::Nav::NavButton @direction="next" @type="compact" />
+              <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="compact" />
+              <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="compact" />
             </div>
           </div>
         {{/each}}
         <div class="dummy-pagination-base-sample-item">
           <span class="dummy-text-small">disabled</span>
           <div class="dummy-pagination-base-sample-row">
-            <Hds::Pagination::Nav::NavButton @direction="prev" @type="compact" @disabled={{true}} />
-            <Hds::Pagination::Nav::NavButton @direction="next" @type="compact" @disabled={{true}} />
+            <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="compact" @disabled={{true}} />
+            <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="compact" @disabled={{true}} />
           </div>
         </div>
       {{/let}}
@@ -301,8 +301,8 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::Pagination::Nav::NavButton @direction="prev" @type="numbered" />
-              <Hds::Pagination::Nav::NavButton @direction="next" @type="numbered" />
+              <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="numbered" />
+              <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="numbered" />
             </div>
           </div>
         {{/each}}
@@ -310,13 +310,13 @@
       <div class="dummy-pagination-base-sample-item">
         <span class="dummy-text-small">disabled</span>
         <div class="dummy-pagination-base-sample-row">
-          <Hds::Pagination::Nav::NavButton @direction="prev" @type="numbered" @disabled={{true}} />
-          <Hds::Pagination::Nav::NavButton @direction="next" @type="numbered" @disabled={{true}} />
+          <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="numbered" @disabled={{true}} />
+          <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="numbered" @disabled={{true}} />
         </div>
       </div>
     </div>
 
-    <h5 class="dummy-h5">Pagination::Nav::PageNumber</h5>
+    <h5 class="dummy-h5">Pagination::Nav::ButtonNumber</h5>
     <p class="dummy-paragraph">Generic vs current page</p>
     <div class="dummy-pagination-base-sample">
       {{#let (array "default" "hover" "active" "focus") as |states|}}
@@ -324,8 +324,8 @@
           <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
             <span class="dummy-text-small">{{state}}</span>
             <div class="dummy-pagination-base-sample-row">
-              <Hds::Pagination::Nav::PageNumber @page="1" />
-              <Hds::Pagination::Nav::PageNumber @page="1" @isSelected={{true}} />
+              <Hds::Pagination::Nav::ButtonNumber @page="1" />
+              <Hds::Pagination::Nav::ButtonNumber @page="1" @isSelected={{true}} />
             </div>
           </div>
         {{/each}}
@@ -355,7 +355,7 @@
     <P.Nav @type="numbered" />
   </Hds::Pagination>
 
-  <h5 class="dummy-h5">Pagination with Nav, and Info</h5>
+  <h5 class="dummy-h5">Pagination with Nav and Info</h5>
   <h6 class="dummy-h6">Type="compact"</h6>
   <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
     <P.Info />

@@ -1,5 +1,5 @@
 <nav class="hds-pagination-nav" aria-label="Pagination navigation" ...attributes>
-  <Hds::Pagination::Nav::NavButton
+  <Hds::Pagination::Nav::ButtonArrow
     @direction="prev"
     @type={{this.type}}
     @onClick={{this.onPageChange}}
@@ -9,7 +9,7 @@
   {{#if (eq this.type "numbered")}}
     <ul class="hds-pagination__page-list">
       {{#each this.pages as |page|}}
-        <Hds::Pagination::Nav::PageNumber
+        <Hds::Pagination::Nav::ButtonNumber
           @page={{page}}
           @onClick={{this.onPageChange}}
           @isSelected={{if (eq page @currentPage) true false}}
@@ -18,7 +18,7 @@
     </ul>
   {{/if}}
 
-  <Hds::Pagination::Nav::NavButton
+  <Hds::Pagination::Nav::ButtonArrow
     @direction="next"
     @type={{this.type}}
     @onClick={{this.onPageChange}}
