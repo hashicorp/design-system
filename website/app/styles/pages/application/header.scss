@@ -50,7 +50,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    outline: 2px dotted green;
   }
 
   a {
@@ -68,11 +67,14 @@
 
     &:hover {
       color: var(--doc-color-white);
-      border-bottom-color: var(--doc-color-gray-400);
     }
 
-    &:active {
-      border-bottom-color: var(--doc-color-white);
+    // &:active {
+    //   border-bottom-color: var(--doc-color-white);
+    // }
+
+    &.doc-page-header__menu-item--is-current {
+      border-bottom-color: var(--doc-color-gray-600);
     }
   }
 }

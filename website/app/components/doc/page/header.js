@@ -35,18 +35,39 @@ export default class DocPageHeaderComponent extends Component {
 
     // schedule nav udpate for after this content is rendered
     // if (!this.fastboot.isFastBoot) { // TODO! this is not working?
-    schedule('afterRender', () => {
-      console.log('called afterRender');
+    schedule('routerTransitions', () => {
+      console.log('called routerTransitions');
       this.updateNavigation();
+      this.addExitHandler();
     });
     // }
   }
 
+  addExitHandler() {
+    console.log('addExitHandler called');
+    // should I use addObserver instead?
+    // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
+    this.router.on('routeDidChange', this, this.updateNavigation);
+  }
+
+  removeExitHandler() {
+    console.log('removeExitHandler called');
+    // should I use addObserver instead?
+    // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
+    this.router.off('routeDidChange', this, this.updateNavigation);
+  }
+
+  willDestroy() {
+    console.log('willDestroy called');
+    super.willDestroy(...arguments);
+    this.removeExitHandler();
+  }
+
   get menu() {
     let xxx = MENU.map((item) => {
-      console.log('item1', item);
+      // console.log('item1', item);
       item.isCurrent = item.route === this.currentTopRoute;
-      console.log('item2', item);
+      // console.log('item2', item);
       return item;
     });
     console.log('called getMenu', xxx);
@@ -55,7 +76,9 @@ export default class DocPageHeaderComponent extends Component {
 
   @action
   updateNavigation() {
-    this.currentTopRoute = MENU[Math.floor(Math.random() * MENU.length)];
+    // eg. /foundations/colors/
+    this.currentTopRoute = this.router.currentURL.split('/')[1];
+    console.log('updateNavigation', this.router, this.router.currentURL);
     // this.menu.forEach((item) => {
     //   item.isCurrent = true;
     // });
