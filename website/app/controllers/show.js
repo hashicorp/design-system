@@ -3,10 +3,14 @@ import showdown from 'showdown';
 import { set, action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
+import { schedule } from '@ember/runloop';
+import { inject as service } from '@ember/service';
 
 import { showdownConfig } from '../shared/showdown-config';
 
 export default class ShowController extends Controller {
+  @service fastboot;
+
   @tracked sections = A([]);
   @tracked tabs = A([]);
   @tracked tocs = A([]);
@@ -20,17 +24,22 @@ export default class ShowController extends Controller {
   }
 
   get renderedContent() {
+    // schedule tabs logic for after this content is rendered
+    if (!this.fastboot.isFastBoot) {
+      schedule('afterRender', () => {
+        this.didInsertContent();
+      });
+    }
     const converter = new showdown.Converter(showdownConfig);
     return converter.makeHtml(this.model.content);
   }
 
-  @action
-  didInsertContent(docPageContentElement) {
+  didInsertContent = () => {
     let sections = [];
     let tabs = [];
     let tocs = [];
-    docPageContentElement
-      .querySelectorAll(`section[id^=section-]`)
+    document
+      .querySelectorAll(`.doc-page-content section[id^=section-]`)
       .forEach((section, index) => {
         // SECTIONS
         const name = section.id.replace(/^section-/, '');
@@ -75,7 +84,7 @@ export default class ShowController extends Controller {
     this.setCurrent(0);
     // leave for debugging
     // console.log('show didInsert', this.sections, this.tabs, this.tocs);
-  }
+  };
 
   @action
   onClickTab(tab) {
