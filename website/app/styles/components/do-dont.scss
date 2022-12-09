@@ -4,10 +4,10 @@
 @use "../typography/mixins" as *;
 
 .doc-do-dont {
-  margin: 16px 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin: 16px 0;
 }
 
 .doc-do-dont__badge {
