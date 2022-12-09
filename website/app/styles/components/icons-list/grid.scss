@@ -85,6 +85,13 @@
   line-height: 1.926;
 }
 
+.doc-icons-list-grid-item__meta-value-not-copyable {
+  // keep this in sync with the `.doc-copy-button__visible-value` style
+  @include doc-font-style-code();
+  padding-left: 8px;
+  color: var(--doc-color-black);
+}
+
 
 // not found
 
