@@ -1,0 +1,14 @@
+<Hds::Interactive
+  class={{this.classNames}}
+  {{on "click" this.onClick}}
+  aria-label={{this.content.ariaLabel}}
+  disabled={{@disabled}}
+  ...attributes
+>
+  <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
+  {{#if (eq @type "compact")}}
+    <span class="hds-pagination-nav__page-label" aria-hidden="true">
+      {{this.content.label}}
+    </span>
+  {{/if}}
+</Hds::Interactive>

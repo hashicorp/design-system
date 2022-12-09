@@ -1,0 +1,168 @@
+//
+// PAGINATION
+//
+
+@use "../mixins/focus-ring" as *;
+
+$pagination-height: calc(36px + 6px);
+
+// * Pagination Parent (wrapper) component
+// ----------------------------------------
+.hds-pagination {
+  display: grid;
+  grid-template-areas: "left center right";
+  grid-template-rows: auto;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: $pagination-height;
+  margin: 20px auto;
+}
+
+// * Sub-component: Info
+// ---------------------------------------
+.hds-pagination-info {
+  grid-area: left;
+  justify-self: flex-start;
+}
+
+
+// * Sub-component: Nav
+// ----------------------------------------
+.hds-pagination-nav {
+  display: flex;
+  grid-area: center;
+  align-self: stretch;
+}
+
+.hds-pagination-nav__page-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.hds-pagination-nav__page-item { list-style-type: none; }
+
+.hds-pagination-nav__control,
+.hds-pagination-nav__ellipsis {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.hds-pagination-nav__control {
+  height: $pagination-height;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+
+  @include hds-focus-ring-with-pseudo-element(
+    $top: 5px,
+    $right: 5px,
+    $bottom: 5px,
+    $left: 5px,
+  );
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
+  }
+
+  &:disabled,
+  &.mock-disabled {
+    color: var(--token-color-foreground-disabled);
+  }
+}
+
+// Make buttons with "Previous" & "Next" labels the same min-width
+.hds-pagination-nav__button-arrow--labeled {
+  min-width: 103px;
+}
+
+.hds-pagination-nav__button-arrow--direction-prev {
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .hds-pagination-nav__page-label {
+    margin-left: 6px;
+  }
+}
+
+.hds-pagination-nav__button-arrow--direction-next {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  .hds-pagination-nav__page-label {
+    margin-right: 6px;
+  }
+}
+
+.hds-pagination-nav__ellipsis {
+  color: var(--token-color-foreground-faint);
+}
+
+.hds-pagination-nav__button-number--is-selected {
+  position: relative;
+  color: var(--token-color-foreground-action);
+
+  &:hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active {
+    color: var(--token-color-foreground-action-active);
+  }
+
+  .hds-pagination-nav__control {
+    &,
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+  }
+
+  // indicator underline
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 19px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: currentColor;
+    border-radius: 2px;
+    content: "";
+  }
+}
+
+// * Sub-component: SizeSelector
+// ----------------------------------------
+.hds-pagination-size-selector {
+  display: flex;
+  grid-area: right;
+  align-items: center;
+  justify-self: flex-end;
+
+  > label {
+    white-space: nowrap;
+  }
+
+  > select {
+    height: 28px;
+    margin-left: 12px;
+    padding-top: 0;
+    padding-right: calc(0px + 24px);
+    padding-bottom: 0;
+    padding-left: 8px;
+    // font styles for this select differ from standard `Form::Select::Base` styles
+    font-size: var(--token-typography-body-100-font-size);
+    font-family: var(--token-typography-body-100-font-family);
+    line-height: var(--token-typography-body-100-line-height);
+    background-position: center right 5px;
+  }
+}
