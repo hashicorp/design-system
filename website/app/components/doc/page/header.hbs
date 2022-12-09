@@ -1,10 +1,7 @@
 <header class="doc-page-header" ...attributes>
-  <div class="doc-page-header__identity">
-    <LinkTo @route="index" class="doc-page-header__identity-logo" aria-label="home page">
-      <img src="/assets/logos/hds-avatar-inverted.svg" alt="" role="none" />
-    </LinkTo>
-    <LinkTo @route="index" class="doc-page-header__identity-name">HashiCorp Design System</LinkTo>
-  </div>
+  <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
+    <Doc::HdsLogo alt="HashiCorp Design System" />
+  </LinkTo>
   <nav class="doc-page-header__top-menu" aria-label="primary navigation">
     <ul>
       <li><LinkTo @route="about">About</LinkTo></li>

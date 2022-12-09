@@ -30,13 +30,22 @@
   align-items: center;
 }
 
-.doc-page-header__identity-logo {
+.doc-page-header__logo {
+  display: block;
   grid-area: logo;
+  width: auto;
+  height: 32px;
+  color: inherit;
 
-  img {
-    display: block;
-    width: 48px;
-    height: 48px;
+  &:hover,
+  &:active,
+  &:visited {
+    color: inherit;
+  }
+
+  svg {
+    width: auto;
+    height: 100%;
   }
 }
 
