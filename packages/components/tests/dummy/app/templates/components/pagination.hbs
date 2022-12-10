@@ -128,6 +128,16 @@
         {{! prettier-ignore-end }}
       </p>
     </dd>
+
+    <dt>itemsPerPage</dt>
+    <dd>
+      <p>Instead of selecting the initial option which is the default, you can select one of the other
+        <code class="dummy-code">sizes</code>
+        options.</p>
+      <p>Normally passed in as an argument on the Pagination wrapper component but can be added to
+        <code class="dummy-code">Pagination::SizeSelector</code>
+        itself when used as a stand alone component</p>
+    </dd>
   </dl>
 </section>
 
@@ -266,6 +276,11 @@
 
     <h5 class="dummy-h5">Pagination::SizeSelector</h5>
     <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
+
+    <h6 class="dummy-h6">
+      with itemsPerPage set to "30" instead of the first option:
+    </h6>
+    <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @itemsPerPage={{30}} />
 
     <h5 class="dummy-h5">Pagination::Nav::ButtonArrow</h5>
     <h6 class="dummy-h6">

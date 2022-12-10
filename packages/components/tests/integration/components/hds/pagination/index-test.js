@@ -89,24 +89,6 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
     assert.dom('.hds-pagination-nav__page-list').exists();
   });
 
-  test('it should display options for the passed in page sizes', async function (assert) {
-    await render(hbs`
-    <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-      <P.Nav />
-      <P.SizeSelector @sizes={{array 10 30 50}} />
-    </Hds::Pagination>
-    `);
-    assert
-      .dom('.hds-pagination-size-selector option[value="10"]')
-      .hasText('10');
-    assert
-      .dom('.hds-pagination-size-selector option[value="30"]')
-      .hasText('30');
-    assert
-      .dom('.hds-pagination-size-selector option[value="50"]')
-      .hasText('50');
-  });
-
   // Test interactivity:
 
   test('when on the first page, the "Previous" NavButton should be disabled', async function (assert) {
