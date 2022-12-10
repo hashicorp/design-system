@@ -1,0 +1,69 @@
+// COPY BUTTON
+
+@use "../typography/mixins" as *;
+
+.doc-copy-button {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.doc-copy-button--type-solid {
+  padding: 1px 7px; // take in account 1px transparent border
+  color: var(--doc-color-white);
+  background-color: var(--doc-color-feedback-information-200);
+
+  &:hover {
+    background-color: var(--doc-color-feedback-information-100);
+  }
+
+  &:active {
+    background-color: #0a37a7;
+  }
+}
+
+.doc-copy-button--type-ghost {
+  min-height: 26px; // this is the line-height of the "visible value" text
+  padding: 0 7px; // take in account 1px transparent border
+  background-color: transparent;
+
+  .doc-copy-button__icon {
+    color: var(--doc-color-feedback-information-200);
+  }
+
+  &:hover {
+    background-color: var(--doc-color-gray-600);
+
+    .doc-copy-button__icon {
+      color: var(--doc-color-feedback-information-100);
+    }
+  }
+
+  &:active {
+    background-color: var(--doc-color-gray-500);
+
+    .doc-copy-button__icon {
+      color: #0a37a7;
+    }
+  }
+}
+
+.doc-copy-button__icon {
+  flex: none;
+  width: 12px;
+  height: 12px;
+}
+
+.doc-copy-button__label {
+  @include doc-font-style-body-small();
+  margin-right: 8px;
+}
+
+.doc-copy-button__visible-value {
+  @include doc-font-style-code();
+  margin-right: 8px;
+  color: var(--doc-color-black);
+  text-align: left;
+}
