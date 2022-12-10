@@ -89,26 +89,6 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
     assert.dom('.hds-pagination-nav__page-list').exists();
   });
 
-  test('it should display the total items in TotalCount by default', async function (assert) {
-    await render(hbs`
-    <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-      <P.Info />
-      <P.Nav />
-    </Hds::Pagination>
-    `);
-    assert.dom('.hds-pagination-info').includesText('of 100');
-  });
-
-  test('it should not display the total items when showTotalItems is set to false', async function (assert) {
-    await render(hbs`
-    <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-      <P.Info @showTotalItems={{false}} />
-      <P.Nav />
-    </Hds::Pagination>
-    `);
-    assert.dom('.hds-pagination-info').doesNotIncludeText('of 100');
-  });
-
   test('it should display options for the passed in page sizes', async function (assert) {
     await render(hbs`
     <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
