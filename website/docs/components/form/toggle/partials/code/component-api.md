@@ -55,7 +55,7 @@ Label, helper text and error content are passed to the field as yielded componen
 Here is the API for the "group" component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="layout" @type="enum" @value="vertical, horizontal" @default="vertical">
+  <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
     Sets the layout of group.
   </C.Property>
   <C.Property @name="isRequired" @type="boolean">
