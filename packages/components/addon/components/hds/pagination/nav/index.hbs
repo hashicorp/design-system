@@ -12,7 +12,7 @@
         <Hds::Pagination::Nav::ButtonNumber
           @page={{page}}
           @onClick={{this.onPageChange}}
-          @isSelected={{if (eq page @currentPage) true false}}
+          @isSelected={{if (eq page this.currentPage) true false}}
         />
       {{/each}}
     </ul>

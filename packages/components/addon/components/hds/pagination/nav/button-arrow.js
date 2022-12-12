@@ -1,5 +1,3 @@
-// TODO: Test button in isolation (the API, the UI, the interaction)
-
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';

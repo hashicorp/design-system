@@ -36,17 +36,17 @@
     </li>
     <li>
       an optional
-      <code class="dummy-code">Info</code>
+      <code class="dummy-code">Pagination::Info</code>
       component which displays the current range of items shown and the total number of items
     </li>
     <li>
       a
-      <code class="dummy-code">Nav</code>
+      <code class="dummy-code">Pagination::Nav</code>
       component which provides navigation controls and optionally displays page numbers
     </li>
     <li>
       an optional
-      <code class="dummy-code">SizeSelector</code>
+      <code class="dummy-code">Pagination::SizeSelector</code>
       component which allows users to change the number of items displayed per page
     </li>
   </ul>
@@ -70,10 +70,10 @@
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">Info</h4>
+  <h4 class="dummy-h4">Pagination::Info</h4>
   <p class="dummy-paragraph" id="component-api-total-count">
     Here is the API for the
-    <code class="dummy-code">Info</code>
+    <code class="dummy-code">Pagination::Info</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-total-count">
@@ -84,28 +84,35 @@
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">Nav</h4>
+  <h4 class="dummy-h4">Pagination::Nav</h4>
   <p class="dummy-paragraph" id="component-api-pagination-nav">
     Here is the API for the
-    <code class="dummy-code">Nav</code>
+    <code class="dummy-code">Pagination::Nav</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav">
     <dt>type <code>string</code></dt>
     <dd>
-      <p>Sets the type of Pagination Nav.</p>
+      <p>Sets the type of Pagination::Nav.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">compact</li>
         <li>numbered</li>
       </ol>
     </dd>
+
+    <dt>totalPages <code>number</code></dt>
+    <dd>
+      <p>Used in displaying the page numbers for "numbered" type and for determining the next page to navigate to.</p>
+      <p>totalPages is calculated by HDS::Pagination wrapper component but must be passed into HDS::Pagination::Nav if
+        used as a stand alone component.</p>
+    </dd>
   </dl>
 
-  <h4 class="dummy-h4">SizeSelector</h4>
+  <h4 class="dummy-h4">Pagination::SizeSelector</h4>
   <p class="dummy-paragraph" id="component-api-page-size">
     Here is the API for the
-    <code class="dummy-code">SizeSelector</code>
+    <code class="dummy-code">Pagination::SizeSelector</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-page-size">
@@ -120,6 +127,16 @@
         {{! template-lint-enable no-unbalanced-curlies }}
         {{! prettier-ignore-end }}
       </p>
+    </dd>
+
+    <dt>itemsPerPage</dt>
+    <dd>
+      <p>Instead of selecting the initial option which is the default, you can select one of the other
+        <code class="dummy-code">sizes</code>
+        options.</p>
+      <p>Normally passed in as an argument on the Pagination wrapper component but can be added to
+        <code class="dummy-code">Pagination::SizeSelector</code>
+        itself when used as a stand alone component</p>
     </dd>
   </dl>
 </section>
@@ -137,7 +154,7 @@
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::Pagination @totalItems=\{{103}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
+      <Hds::Pagination @totalItems=\{{103}} @itemsPerPage=\{{10}} as |P|>
         <P.Info />
         <P.Nav />
         <P.SizeSelector @sizes=\{{array 10 30 50}} />
@@ -148,7 +165,7 @@
   {{! prettier-ignore-end }}
 
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination @totalItems={{103}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{103}} @itemsPerPage={{10}} as |P|>
     <P.Info />
     <P.Nav />
     <P.SizeSelector @sizes={{array 10 30 50}} />
@@ -160,7 +177,7 @@
   <CodeBlock
     @language="markup"
     @code='
-      <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{10}} @currentPage=\{{1}} as |P|>
+      <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{10}} as |P|>
         <P.Info />
         <P.Nav @type="numbered" />
         <P.SizeSelector @sizes=\{{array 10 30 50}} />
@@ -171,7 +188,7 @@
   {{! prettier-ignore-end }}
 
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Info />
     <P.Nav @type="numbered" />
     <P.SizeSelector @sizes={{array 10 30 50}} />
@@ -230,9 +247,7 @@
   </button>
 
   <div class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
-
     <h4 class="dummy-h4">Base elements</h4>
-
     <h5 class="dummy-h5">Pagination::Info</h5>
 
     <div class="dummy-pagination-base-sample">
@@ -261,6 +276,11 @@
 
     <h5 class="dummy-h5">Pagination::SizeSelector</h5>
     <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
+
+    <h6 class="dummy-h6">
+      with itemsPerPage set to "30" instead of the first option:
+    </h6>
+    <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @itemsPerPage={{30}} />
 
     <h5 class="dummy-h5">Pagination::Nav::ButtonArrow</h5>
     <h6 class="dummy-h6">
@@ -334,10 +354,10 @@
 
     <h4 class="dummy-h4">Pagination::Nav</h4>
     <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalItems={{100}} @itemsPerPage={{10}} />
+      <Hds::Pagination::Nav @totalPages={{10}} />
     </div>
     <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalItems={{100}} @itemsPerPage={{10}} @type="numbered" />
+      <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
     </div>
   </div>
 
@@ -346,44 +366,44 @@
   <h5 class="dummy-h5">Simplest use case: Pagination with Nav</h5>
 
   <h6 class="dummy-h6">Type="compact" (the default)</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Nav />
   </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Nav @type="numbered" />
   </Hds::Pagination>
 
   <h5 class="dummy-h5">Pagination with Nav and Info</h5>
   <h6 class="dummy-h6">Type="compact"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Info />
     <P.Nav />
   </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Info />
     <P.Nav @type="numbered" />
   </Hds::Pagination>
 
   <h6 class="dummy-h6">Info with showTotalItems set to "false"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Info @showTotalItems={{false}} />
     <P.Nav />
   </Hds::Pagination>
 
   <h6 class="dummy-h6">Pagination with Nav, Info, and SizeSelector</h6>
   <h6 class="dummy-h6">Type="compact"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Info />
     <P.Nav />
     <P.SizeSelector @sizes={{array 10 30 50}} />
   </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
     <P.Info />
     <P.Nav @type="numbered" />
     <P.SizeSelector @sizes={{array 10 30 50}} />
