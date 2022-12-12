@@ -23,6 +23,11 @@ export default class ShowController extends Controller {
     return this.model.frontmatter?.description ?? false;
   }
 
+  get extra() {
+    let { status, links } = this.model.frontmatter;
+    return { status, links };
+  }
+
   get renderedContent() {
     // schedule tabs logic for after this content is rendered
     if (!this.fastboot.isFastBoot) {
