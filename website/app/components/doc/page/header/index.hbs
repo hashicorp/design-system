@@ -1,6 +1,7 @@
 <header class={{this.classNames}} ...attributes>
   <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
     <Doc::HdsLogo alt="HashiCorp Design System" />
+    <pre>{{@currentPath}}</pre>
   </LinkTo>
   <nav class="doc-page-header__nav-menu" aria-label="primary navigation">
     <ul>

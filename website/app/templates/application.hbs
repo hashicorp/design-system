@@ -1,5 +1,5 @@
 <div class="doc-page-wrapper">
-  <Doc::Page::Header />
+  <Doc::Page::Header @currentPath={{this.target.currentPath}} />
   {{! `this.model.toc` comes from `routes/application.js` }}
   <Doc::Page::Sidebar @toc={{this.model.toc}} @currentPath={{this.target.currentPath}} @currentRoute={{this.target.currentRoute}} />
   {{outlet}}
