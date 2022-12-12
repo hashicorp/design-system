@@ -135,23 +135,20 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it should render a table based on the data model passed', async function (assert) {
     this.set('model', [
-      { id: 1, name: 'Test 1', description: 'Test 1 description' },
-      { id: 2, name: 'Test 2', description: 'Test 2 description' },
-      { id: 3, name: 'Test 3', description: 'Test 3 description' },
+      { key: 'artist', name: 'Test 1', description: 'Test 1 description' },
+      { key: 'album', name: 'Test 2', description: 'Test 2 description' },
+      { key: 'year', name: 'Test 3', description: 'Test 3 description' },
     ]);
 
     await render(hbs`
-      <Hds::Table id="data-test-table" @model={{this.model}}>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Id</H.Th>
-            <H.Th>Name</H.Th>
-            <H.Th>Description</H.Th>
-          </H.Tr>
-        </:head>
+      <Hds::Table id="data-test-table" @model={{this.model}} @columns={{array
+        (hash key='artist' label='components.table.headers.artist')
+        (hash key='album' label='components.table.headers.album')
+        (hash key='year' label='components.table.headers.year')
+      }}>
         <:body as |B|>
           <B.Tr>
-            <B.Td>{{B.data.id}}</B.Td>
+            <B.Td>{{B.data.key}}</B.Td>
             <B.Td>{{B.data.name}}</B.Td>
             <B.Td>{{B.data.description}}</B.Td>
           </B.Tr>
@@ -160,11 +157,11 @@ module('Integration | Component | hds/table/index', function (hooks) {
     `);
 
     assert
-      .dom('#data-test-table tr:first-of-type td:first-of-type')
-      .hasText('1');
+      .dom('#data-test-table tr:first-of-type td:nth-of-type(2n)')
+      .hasText('Test 1');
     assert
-      .dom('#data-test-table tr:last-of-type td:first-of-type')
-      .hasText('3');
+      .dom('#data-test-table tr:last-of-type td:last-of-type')
+      .hasText('Test 3 description');
   });
 
   test('it should render caption if @caption is defined', async function (assert) {
