@@ -7,9 +7,6 @@
   border: 1px solid #dbdbdc;
   border-radius: 3px;
 
-  @media screen and (min-width: 768px) {
-    width: 70%;
-  }
 
   @media screen and (min-width: 1280px) {
     grid-template-rows: 1fr;
