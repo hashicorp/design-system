@@ -4,19 +4,6 @@
   {{else if @caption}}
     <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
-  <colgroup>
-    {{#if @columns}}
-      {{#each @columns as |column|}}
-        {{#if column.width}}
-          {{!template-lint-disable no-shadowed-elements}}
-          <col width={{column.width}} />
-        {{else}}
-          <col />
-        {{/if}}
-        {{!template-lint-enable no-shadowed-elements}}
-      {{/each}}
-    {{/if}}
-  </colgroup>
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr>
@@ -27,11 +14,12 @@
               @sortOrder={{this.sortOrder}}
               @onClick={{(fn this.setSortBy column.key)}}
               @align={{column.align}}
+              @width={{column.width}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
           {{else}}
-            <Hds::Table::Th @align={{column.align}}>{{column.label}}</Hds::Table::Th>
+            <Hds::Table::Th @align={{column.align}} @width={{column.width}}>{{column.label}}</Hds::Table::Th>
           {{/if}}
         {{/each}}
       </Hds::Table::Tr>

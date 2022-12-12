@@ -2,6 +2,7 @@
   scope="col"
   class="hds-table__th-sort {{if @align (concat 'hds-table__th-sort--text-' @align)}}"
   aria-sort={{this.ariaSort}}
+  {{style width=@width}}
   ...attributes
 >
   <button type="button" {{on "click" this.onClick}}>
