@@ -22,7 +22,7 @@
       <ul class="doc-component-api__property-values">
         {{#each @values as |value|}}
           <li class="doc-component-api__property-value{{if (eq @default value) "--default"}}">
-            {{value}}
+            {{value}}{{#if (eq @default value)}} <span class="doc-sr-only">(default)</span>{{/if}}
           </li>
         {{/each}}
       </ul>
