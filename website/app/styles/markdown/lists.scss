@@ -20,3 +20,10 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+// custom marker colors
+
+.doc-markdown-ul > li::marker,
+.doc-markdown-ol > li::marker {
+  color: var(--doc-color-gray-300);
+}

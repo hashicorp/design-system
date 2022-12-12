@@ -1,17 +1,17 @@
 <header class="doc-page-header" ...attributes>
   <div class="doc-page-header__identity">
-    <LinkTo @route="index" class="doc-page-header__identity-logo">
+    <LinkTo @route="index" class="doc-page-header__identity-logo" aria-label="home page">
       <img src="/assets/logos/hds-avatar-inverted.svg" alt="" role="none" />
     </LinkTo>
     <LinkTo @route="index" class="doc-page-header__identity-name">HashiCorp Design System</LinkTo>
     <DocNpmVersion class="doc-page-header__identity-version" />
   </div>
-  <nav class="doc-page-header__top-menu">
+  <nav class="doc-page-header__top-menu" aria-label="primary navigation">
     <ul>
-      <li><a href="/about">About</a></li>
-      <li><a href="/foundations">Foundations</a></li>
-      <li><a href="/components">Components</a></li>
-      <li><a href="/patterns">Patterns</a></li>
+      <li><LinkTo @route="about">About</LinkTo></li>
+      <li><LinkTo @route="foundations">Foundations</LinkTo></li>
+      <li><LinkTo @route="components">Components</LinkTo></li>
+      <li><LinkTo @route="patterns">Patterns</LinkTo></li>
     </ul>
   </nav>
   <button type="button" class="doc-page-header__🌈" {{on "click" this.toggleLayoutColors}}>🌈</button>

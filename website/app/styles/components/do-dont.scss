@@ -1,0 +1,67 @@
+// DO-DONT
+
+@use "../breakpoints" as breakpoint;
+@use "../typography/mixins" as *;
+
+.doc-do-dont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 16px 0;
+}
+
+.doc-do-dont__badge {
+  @include doc-font-style-body-small();
+  width: min-content;
+  padding: 3px 12px 4px;
+  color: white; // TODO transform to token
+  font-weight: 600;
+  border-radius: 100px;
+
+  .doc-do-dont--type-do & {
+    background-color: #007854;
+  }
+
+  .doc-do-dont--type-dont & {
+    background-color: #ba2226;
+  }
+}
+
+.doc-do-dont__content {
+  padding: 16px;
+  border-style: solid;
+  border-width: 4px 1px 1px 1px;
+  border-radius: 3px;
+
+  @include breakpoint.medium () {
+    padding: 24px;
+  }
+
+  @include breakpoint.large () {
+    padding: 32px;
+  }
+
+  .doc-do-dont--type-do & {
+    border-color: #007854;
+  }
+
+  .doc-do-dont--type-dont & {
+    border-color: #ba2226;
+  }
+
+  // we need to override the margin of the children in some cases
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  // TODO! fix this once Alex has completed the work on the code blocks
+  .doc-code-block__code-snippet,
+  .doc-code-block {
+    margin: 0 !important;
+  }
+}

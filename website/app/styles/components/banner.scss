@@ -1,0 +1,99 @@
+// BANNER
+
+@use "../breakpoints" as breakpoint;
+@use "../typography/mixins" as *;
+
+.doc-banner {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 16px 0;
+  padding: 12px;
+  border: 1px solid var(--doc-banner-border-color);
+  border-left-width: 4px;
+  border-radius: 3px;
+
+  @include breakpoint.medium () {
+    padding: 18px;
+  }
+
+  @include breakpoint.large () {
+    padding: 24px;
+  }
+}
+
+.doc-banner__icon {
+  flex: none;
+  color: var(--doc-banner-title-color);
+}
+
+.doc-banner__content {
+
+  // we need to override the margin of the children in some cases
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  // this is the title, and it's based on convention (it's supposed to be the first "strong" element inside the paragraph)
+  > p:first-child strong {
+    @include doc-font-style-h6();
+    color: var(--doc-banner-title-color);
+  }
+
+  > p:first-child:has(strong) {
+    margin: 0 0 6px 0;
+  }
+
+  // we need to override the font size of some of the most commonly used type of content
+  .doc-markdown-p,
+  .doc-markdown-li {
+    @include doc-font-style-body-small();
+  }
+}
+
+
+// variants
+
+.doc-banner--type-info,
+.doc-banner--type-information {
+  --doc-banner-border-color: var(--doc-color-feedback-information-200);
+  --doc-banner-title-color: var(--doc-color-feedback-information-200);
+}
+
+.doc-banner--type-warning {
+  --doc-banner-border-color: var(--doc-color-feedback-warning-100);
+  --doc-banner-title-color: var(--doc-color-feedback-warning-100);
+}
+
+.doc-banner--type-critical {
+  --doc-banner-border-color: var(--doc-color-feedback-critical-100);
+  --doc-banner-title-color: var(--doc-color-feedback-critical-100);
+}
+
+.doc-banner--type-insight {
+  --doc-banner-title-color: var(--doc-color-black);
+  position: relative;
+  background: linear-gradient(50.7deg, #63d0ff 0%, #844fba 100%);
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 4px;
+    z-index: 0;
+    background-color: var(--doc-color-white);
+    border-radius: 0 2px 2px 0;
+    content: "";
+  }
+
+  .doc-banner__icon,
+  .doc-banner__content {
+    z-index: 1;
+  }
+}

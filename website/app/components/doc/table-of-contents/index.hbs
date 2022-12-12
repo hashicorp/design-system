@@ -1,0 +1,20 @@
+{{! template-lint-configure no-inline-styles {"allowDynamicStyles": true} }}
+
+<ul class="doc-table-of-contents">
+  {{#each-in @structuredPageTree as |key item|}}
+    {{#if item.pageURL}}
+      <li class="doc-table-of-contents__item doc-table-of-contents__item--with-link" style={{this.leftPadStyle}}>
+        <LinkTo @route="show" @model={{item.pageURL}}>
+          {{capitalize item.pageAttributes.title}}
+        </LinkTo>
+      </li>
+    {{else}}
+      <li class="doc-table-of-contents__item">
+        <span style={{this.leftPadStyle}}>
+          {{capitalize key}}
+        </span>
+        <Doc::TableOfContents @structuredPageTree={{item}} @level={{add @level 1}} />
+      </li>
+    {{/if}}
+  {{/each-in}}
+</ul>

@@ -19,9 +19,9 @@ In the example above, we have omitted a few parameters for clarity. In reality, 
 
 ```handlebars
 <Hds::Breadcrumb>
-  <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="index" />
-  <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="list" />
-  <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="detail.index" @model={{@cluster.id}} />
+  <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
+  <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
+  <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="components" @model={{@cluster.id}} />
   <Hds::Breadcrumb::Item @text="Overview" @current={{true}} />
 </Hds::Breadcrumb>
 ```

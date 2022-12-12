@@ -1,0 +1,20 @@
+{{! template-lint-disable no-invalid-role require-context-role }}
+<ul class='doc-page-tabs' role='tablist' ...attributes>
+  {{#each @tabs as |tab|}}
+    <li
+      class='doc-page-tabs__tab
+        {{if tab.isCurrent "doc-page-tabs__tab--is-current"}}'
+      role='presentation'
+    >
+      <button
+        id={{tab.id}}
+        class='doc-text-navigation'
+        type='button'
+        role='tab'
+        aria-controls={{tab.target}}
+        aria-selected={{tab.isCurrent}}
+        {{on 'click' (fn tab.onClickTab tab)}}
+      >{{capitalize tab.label}}</button>
+    </li>
+  {{/each}}
+</ul>

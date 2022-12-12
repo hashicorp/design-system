@@ -1,0 +1,43 @@
+// TABS
+
+.doc-page-tabs {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-page-tabs__tab {
+  position: relative;
+
+  button {
+    position: relative;
+    padding: 3px 11px; // we need to take in account the transparent border
+    color: var(--doc-color-gray-300);
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--doc-color-black);
+    }
+  }
+
+  &.doc-page-tabs__tab--is-current {
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 3px;
+      background-color: var(--doc-color-black);
+      content: "";
+    }
+
+    button {
+      color: var(--doc-color-black);
+    }
+  }
+}
