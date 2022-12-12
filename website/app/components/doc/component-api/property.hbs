@@ -1,8 +1,36 @@
-<tr class="doc-markdown-tr" ...attributes>
-  <td class="doc-markdown-td">{{@name}}</td>
-  <td class="doc-markdown-td">{{@type}}</td>
-  <td class="doc-markdown-td">{{@value}}</td>
-  <td class="doc-markdown-td">
-    {{yield}}
-  </td>
-</tr>
+<dl class="doc-component-api__property">
+  <dt class="doc-component-api__term doc-component-api__term--name">Name</dt>
+  <dd class="doc-component-api__description doc-component-api__description--name">
+    <code class="doc-component-api__property-name">{{@name}}</code>
+  </dd>
+  {{#if @type}}
+    <dt class="doc-component-api__term doc-component-api__term--type">Type</dt>
+    <dd class="doc-component-api__description doc-component-api__description--type">
+      <code class="doc-component-api__property-type">{{@type}}</code>
+    </dd>
+  {{/if}}
+  {{#if @required}}
+    <dt class="doc-component-api__term doc-component-api__term--required">Required</dt>
+    <dd class="doc-component-api__description doc-component-api__description--required">
+        <span class="doc-component-api__property-required">Required</span>
+    </dd>
+  {{/if}}
+  {{#if @values}}
+    <dt class="doc-component-api__term doc-component-api__term--values">Values</dt> 
+    <dd class="doc-component-api__description doc-component-api__description--values">
+      <ul class="doc-component-api__property-values">
+        {{#each @values as |value|}}
+          <li class="doc-component-api__property-value{{if (eq @default value) "--default"}}">
+            {{value}}
+          </li>
+        {{/each}}
+      </ul>
+    </dd>
+  {{/if}}
+  {{#if (has-block)}}
+    <dt class="doc-component-api__term doc-component-api__term--description">Description</dt>
+    <dd class="doc-component-api__description doc-component-api__description--description">
+      {{yield}}
+    </dd>
+  {{/if}}
+</dl>
