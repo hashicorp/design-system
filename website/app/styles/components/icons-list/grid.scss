@@ -63,31 +63,22 @@
 }
 
 .doc-icons-list-grid-item__meta-label {
-  @include doc-font-family("gilmer");
   flex: none;
   min-width: 56px;
   margin-top: 7px; // optical alignment
   color: var(--doc-color-gray-300);
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.5;
 }
 
 .doc-icons-list-grid-item__meta-value {
-  @include doc-font-family("mono");
   display: flex;
   gap: 8px;
   align-items: center;
   margin-top: 2px; // optical alignment
   color: var(--doc-color-black);
-  font-weight: 400;
-  font-size: 13.5px;
-  line-height: 1.926;
 }
 
 .doc-icons-list-grid-item__meta-value-not-copyable {
-  // keep this in sync with the `.doc-copy-button__visible-value` style
-  @include doc-font-style-code();
+  padding-top: 2px; // optical alignment with the copyable one
   padding-left: 8px;
   color: var(--doc-color-black);
 }
