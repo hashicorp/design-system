@@ -490,13 +490,13 @@ export default class ComponentsTableRoute extends Route {
   </p>
   <p class="dummy-paragraph">There are a few critical items for developers to note:
     <ul>
-      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions (e.g.,
+      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions (i.e.,
         cannot have an onClick event handler attached directly to it). If an interactive element is desired, place it
-        within a table cell element (<code class="dummy-code">td</code>).</li>
+        within the table cell element (<code class="dummy-code">td</code>), e.g.,
+        <code class="dummy-code">&lt;td>&lt;button type="button">click me&lt;/button>&lt;/td></code>.</li>
       <li>When providing additional or alternative styles to the table element, do not change the
         <code class="dummy-code">display</code>
-        property in the CSS. This alters how the table is presented to the user with assistive technology, and they will
-        no longer be presented with a table, as the table element will have lost its implicit role.
+        property in the CSS. This alters how the table is presented to the user with assistive technology.
       </li>
     </ul>
   </p>
