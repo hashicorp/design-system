@@ -54,7 +54,7 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
       .dom(
         '.hds-pagination-nav__button-number--is-selected .hds-pagination-nav__control'
       )
-      .includesText('2');
+      .hasText('page 2');
   });
 
   test('it should use "compact" type by default', async function (assert) {
