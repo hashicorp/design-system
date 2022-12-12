@@ -26,7 +26,7 @@ module('Integration | Component | hds/pagination/info', function (hooks) {
     await render(hbs`
       <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
     `);
-    assert.dom('.hds-pagination-info').includesText('1–10 of 103');
+    assert.dom('.hds-pagination-info').hasText('1–10 of 103');
   });
 
   test('it should display the totalItems by default', async function (assert) {
