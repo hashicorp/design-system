@@ -30,7 +30,8 @@ module(
       await render(hbs`
         <Hds::Pagination::Nav::ButtonNumber @page="5" />
       `);
-      assert.dom('.hds-pagination-nav__control').includesText('5');
+      assert.dom('.hds-pagination-nav__control').hasText('page 5');
+      assert.dom('.hds-pagination-nav__control span').hasText('page');
     });
 
     test('it is selected if isSelected is set to true', async function (assert) {
