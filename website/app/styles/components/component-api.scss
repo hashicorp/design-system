@@ -31,14 +31,11 @@
 }
 
 .doc-component-api__term {
-  @include doc-font-family("gilmer");
+  @include doc-font-style-label();
   margin: 0;
   margin-bottom: 8px;
   padding: 0;
   color: var(--doc-color-gray-300);
-  font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1.5;
 
   &--name {
     grid-area: 1 / 1 / 2 / 2;
