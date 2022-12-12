@@ -19,11 +19,11 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(hbs`
-      <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} id="test-pagination-bar" as |P|>
+      <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} id="test-pagination" as |P|>
         <P.Nav />
       </Hds::Pagination>
     `);
-    assert.dom('#test-pagination-bar').hasClass('hds-pagination');
+    assert.dom('#test-pagination').hasClass('hds-pagination');
   });
 
   test('it renders the passed in child components', async function (assert) {
