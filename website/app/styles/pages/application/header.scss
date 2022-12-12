@@ -1,5 +1,6 @@
 // HEADER
 
+@use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
 
 .doc-page-header {
@@ -43,8 +44,12 @@
 
 .doc-page-header__nav-menu {
   display: none;
-  flex: 1 0 auto;
-  align-self: stretch;
+
+  @include breakpoint.medium-and-above() {
+    display: block;
+    flex: 1 0 auto;
+    align-self: stretch;
+  }
 
   ul {
     display: flex;
