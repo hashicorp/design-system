@@ -49,5 +49,16 @@ module(
         .dom('.hds-pagination-size-selector .hds-form-select')
         .hasValue('30');
     });
+
+    test('it has a label with a "for" attribute value matching the select id value', async function (assert) {
+      await render(hbs`
+        <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} id="test-pagination-size-selector" />
+      `);
+
+      let controlId = this.element.querySelector('.hds-form-select').id;
+      assert
+        .dom('.hds-pagination-size-selector label')
+        .hasAttribute('for', controlId);
+    });
   }
 );
