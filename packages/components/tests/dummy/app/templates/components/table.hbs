@@ -106,8 +106,11 @@
         <code class="dummy-code">column</code>. If defined, indicates that a column should be sortable.</p></dd>
     <dt>align <code>enum</code></dt>
     <dd>
-      <p>Use with
-        <code class="dummy-code">column</code>. If set, determines the text alignment of table column's content.</p>
+      <p>Determines the text alignment of table column's content. Use with
+        <code class="dummy-code">column</code>, or add to a
+        <code class="dummy-code">th</code>
+        or
+        <code class="dummy-code">td</code>, depending on your component invocation approach.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">left</li>
@@ -117,9 +120,10 @@
     </dd>
     <dt>width <code>string</code></dt>
     <dd>
-      <p>Use with
-        <code class="dummy-code">column</code>. If set, determines width of the column. Otherwise, the column width will
-        be automatically determined by the content (the browser default).</p>
+      <p>If set, determines column width through use of the
+        <code class="dummy-code">style</code>modifier. Use with
+        <code class="dummy-code">column</code>, or add directly to a
+        <code class="dummy-code">th</code>, depending on your component invocation approach.</p>
     </dd>
     <dt>sortBy <code>string</code></dt>
     <dd><p>If defined, indicates which column should be pre-sorted when the table is rendered. For more information
