@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 
@@ -18,29 +17,16 @@ export default class DocPageHeaderComponent extends Component {
     schedule('routerTransitions', () => {
       console.log('called routerTransitions');
       this.updateNavigation();
-      this.addExitHandler();
+      // should I use addObserver instead?
+      // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
+      this.router.on('routeDidChange', this, this.updateNavigation);
     });
     // }
   }
 
-  addExitHandler() {
-    console.log('addExitHandler called');
-    // should I use addObserver instead?
-    // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
-    this.router.on('routeDidChange', this, this.updateNavigation);
-  }
-
-  removeExitHandler() {
-    console.log('removeExitHandler called');
-    // should I use addObserver instead?
-    // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
-    this.router.off('routeDidChange', this, this.updateNavigation);
-  }
-
   willDestroy() {
-    console.log('willDestroy called');
     super.willDestroy(...arguments);
-    this.removeExitHandler();
+    this.router.off('routeDidChange', this, this.updateNavigation);
   }
 
   // @action
@@ -53,10 +39,5 @@ export default class DocPageHeaderComponent extends Component {
     let classes = ['doc-page-header'];
 
     return classes.join(' ');
-  }
-
-  @action
-  test() {
-    this.updateNavigation();
   }
 }
