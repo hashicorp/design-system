@@ -1,51 +1,53 @@
 // HOME PAGE
 
 @use "../breakpoints" as breakpoint;
+@use "../typography/mixins" as *;
 
 
 .doc-page-home {
+  position: relative;
   grid-area: sidebar / sidebar / content / content;
+  // padding-bottom: 100px;
   background-color: var(--doc-color-black);
+
+  --doc-page-home-content-max-width: 1200px;
 }
 
-// hero
+// top-right decoration
 
-.doc-page-home__hero {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 160px 120px;
-  background-color: red;
+.doc-page-home::before {
+  position: absolute;
+  top: calc(-1 * var(--doc-page-header-height));
+  right: 0;
+  left: 0;
+  height: 50vw; // make it responsive?
+  background-color: inherit;
+  background-image: url(/assets/illustrations/home-abstract.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+  border-bottom: 3px solid red;
+  content: "";
+  pointer-events: none;
 
   @include breakpoint.medium() {
-    background-color: orange;
+    height: 40vw;
+    max-height: 500px;
+    border-bottom-color: orange;
   }
 
   @include breakpoint.large() {
-    background-color: green;
+    height: 60vw;
+    max-height: 700px;
+    border-bottom-color: green;
   }
 }
 
-.doc-page-home__hero-inner-wrapper {
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-}
 
-.doc-page-home__hero-title {
-  margin: 0;
-  color: #fff;
-}
-
-.doc-page-home__hero-description {
-  max-width: 600px;
-  margin: 24px 0 0 0;
-  color: #bfbfc0;
-}
-
-// cards
+// content (container)
 
 .doc-page-home__content {
+  z-index: 1;
   // looking at the current design, seems it's not like the normal <Doc::Page::Content @breakthrough={{true}}>
   // so I have to create a custom thing for now (later when designs will be final I'll review everything)
   grid-area: content / content / _extra/ _extra;
@@ -56,28 +58,84 @@
   padding: 16px var(--doc-page-stage-gutter-small);
   color: var(--doc-color-white);
 
-  @include breakpoint.medium () {
+  @include breakpoint.medium() {
     padding: 32px var(--doc-page-stage-gutter-medium);
   }
 
-  @include breakpoint.large () {
+  @include breakpoint.large() {
     padding: 64px var(--doc-page-stage-gutter-medium);
   }
 }
+
+
+// hero
+
+.doc-page-home__hero {
+  --vpad: 60px;
+  --title-font-size: 2.625rem; // 42px
+  --tagline-font-size: 1rem; // 16px
+
+  @include breakpoint.medium() {
+    --vpad: 70px;
+    --title-font-size: 3.75rem; // 60px
+    --tagline-font-size: 1.25rem; // 20px
+  }
+
+  @include breakpoint.large() {
+    --vpad: 180px;
+    --title-font-size: 4.375rem; // 70px
+    --tagline-font-size: 1.25rem; // 24px
+  }
+
+  display: flex;
+  flex-direction: column;
+  max-width: var(--doc-page-home-content-max-width);
+  padding: var(--vpad) 0;
+
+  h1 {
+    @include doc-font-family("gilmer");
+    margin: 0;
+    color: var(--doc-color-white);
+    font-weight: 500;
+    font-size: var(--title-font-size);
+    line-height: 1;
+  }
+
+  p {
+    @include doc-font-family("gilmer");
+    max-width: 350px;
+    margin: 2em 0;
+    color: var(--doc-color-gray-500);
+    font-size: var(--tagline-font-size);
+    line-height: 1.55;
+
+    @include breakpoint.medium-and-above() {
+      max-width: 600px;
+    }
+  }
+}
+
+.doc-page-home__hero-links {
+  display: flex;
+  gap: 40px;
+}
+
+// cards
 
 .doc-page-home__cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  max-width: var(--doc-page-home-content-max-width);
   margin: 0;
   padding: 0;
 
-  @include breakpoint.medium () {
+  @include breakpoint.medium() {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
-  @include breakpoint.large () {
+  @include breakpoint.large() {
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
   }
@@ -91,12 +149,12 @@
   border: 1px solid var(--doc-color-gray-200);
   border-radius: 3px;
 
-  @include breakpoint.medium () {
+  @include breakpoint.medium() {
     min-height: 200px;
     padding: 24px;
   }
 
-  @include breakpoint.large () {
+  @include breakpoint.large() {
     min-height: 280px;
     padding: 32px;
   }
@@ -113,7 +171,7 @@
   margin: 8px 0 12px 0;
   color: var(--doc-color-gray-500);
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium-and-above() {
     margin: 16 0 24 0;
   }
 }
