@@ -1,5 +1,7 @@
 ---
 title: Doc::Badge
+layout:
+  sidecar: false
 ---
 
 **Basic badge**
