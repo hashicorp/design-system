@@ -13,11 +13,11 @@
 
   button {
     position: relative;
-    padding: 4px 12px;
+    padding: 3px 11px; // we need to take in account the transparent border
     color: var(--doc-color-gray-300);
     font-weight: 600;
     background-color: transparent;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
 
     &:hover {
