@@ -3,7 +3,7 @@
     {{if @align (concat 'hds-table__th--text-' @align)}}"
   {{style width=@width}}
   ...attributes
-  scope="col"
+  scope={{@scope}}
 >
   {{yield}}
 </th>

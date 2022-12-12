@@ -15,17 +15,26 @@
               @onClick={{(fn this.setSortBy column.key)}}
               @align={{column.align}}
               @width={{column.width}}
+              @scope="col"
             >
               {{column.label}}
             </Hds::Table::ThSort>
           {{else}}
-            <Hds::Table::Th @align={{column.align}} @width={{column.width}}>{{column.label}}</Hds::Table::Th>
+            <Hds::Table::Th
+              @align={{column.align}}
+              @width={{column.width}}
+              @scope="col"
+            >{{column.label}}</Hds::Table::Th>
           {{/if}}
         {{/each}}
       </Hds::Table::Tr>
     {{else}}
       {{yield
-        (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th") ThSort=(component "hds/table/th-sort"))
+        (hash
+          Tr=(component "hds/table/tr")
+          Th=(component "hds/table/th" scope="col")
+          ThSort=(component "hds/table/th-sort" scope="col")
+        )
         to="head"
       }}
     {{/if}}
