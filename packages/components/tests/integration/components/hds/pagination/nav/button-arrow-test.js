@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -33,11 +33,13 @@ module(
     `);
       assert
         .dom('#test-button-arrow-next')
-        .hasClass('hds-pagination-nav__button-arrow--direction-next');
+        .hasClass('hds-pagination-nav__button-arrow--direction-next')
+        .hasAttribute('aria-label', 'Next page');
       assert.dom('#test-button-arrow-next .flight-icon-chevron-right').exists();
       assert
         .dom('#test-button-arrow-prev')
-        .hasClass('hds-pagination-nav__button-arrow--direction-prev');
+        .hasClass('hds-pagination-nav__button-arrow--direction-prev')
+        .hasAttribute('aria-label', 'Previous page');
       assert.dom('#test-button-arrow-prev .flight-icon-chevron-left').exists();
     });
 
@@ -56,6 +58,27 @@ module(
           '.hds-pagination-nav__button-arrow--direction-next .hds-pagination-nav__page-label'
         )
         .hasText('Next');
+    });
+
+    test('i should render a disabled button when @disabled is set to true', async function (assert) {
+      await render(hbs`
+        <Hds::Pagination::Nav::ButtonArrow @direction="prev" @disabled={{true}} />
+      `);
+      assert
+        .dom('.hds-pagination-nav__button-arrow--direction-prev')
+        .hasAttribute('disabled');
+    });
+
+    test('it should call the onClick handler with the value of the direction of the button', async function (assert) {
+      let direction = 'next';
+      this.set('onClick', (dir) => (direction = dir));
+      await render(
+        hbs`
+          <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="compact" @onClick={{this.onClick}} />
+        `
+      );
+      await click('.hds-pagination-nav__button-arrow--direction-prev');
+      assert.strictEqual(direction, 'prev');
     });
   }
 );

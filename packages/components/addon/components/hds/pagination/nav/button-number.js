@@ -2,15 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 export default class HdsPaginationNavIndexComponent extends Component {
-  @action
-  onClick() {
-    let { onClick } = this.args;
-
-    if (typeof onClick === 'function') {
-      onClick(this.args.page);
-    }
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames
@@ -24,5 +15,14 @@ export default class HdsPaginationNavIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  onClick() {
+    let { onClick } = this.args;
+
+    if (typeof onClick === 'function') {
+      onClick(this.args.page);
+    }
   }
 }

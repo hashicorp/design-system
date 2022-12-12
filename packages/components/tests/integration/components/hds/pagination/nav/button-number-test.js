@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -31,7 +31,6 @@ module(
         <Hds::Pagination::Nav::ButtonNumber @page="5" />
       `);
       assert.dom('.hds-pagination-nav__control').hasText('page 5');
-      assert.dom('.hds-pagination-nav__control span').hasText('page');
     });
 
     test('it is selected if @isSelected is set to true', async function (assert) {
@@ -43,8 +42,26 @@ module(
         .dom('#test-is-selected')
         .hasClass('hds-pagination-nav__button-number--is-selected');
       assert
+        .dom('#test-is-selected .hds-pagination-nav__control')
+        .hasAttribute('aria-selected', 'page');
+      assert
         .dom('#test-not-selected')
         .doesNotHaveClass('hds-pagination-nav__button-number--is-selected');
+      assert
+        .dom('#test-not-selected .hds-pagination-nav__control')
+        .doesNotHaveAttribute('aria-selected', 'page');
+    });
+
+    test('it should call the onClick handler with the value of the page number', async function (assert) {
+      let pageNumber = '1';
+      this.set('onClick', (pageNum) => (pageNumber = pageNum));
+      await render(
+        hbs`
+          <Hds::Pagination::Nav::ButtonNumber @page="3" id="test-button" @onClick={{this.onClick}} />
+        `
+      );
+      await click('#test-button .hds-pagination-nav__control');
+      assert.strictEqual(pageNumber, '3');
     });
   }
 );
