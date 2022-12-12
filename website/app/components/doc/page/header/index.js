@@ -2,11 +2,13 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { schedule } from '@ember/runloop';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class DocPageHeaderComponent extends Component {
   @service router;
   @service fastboot;
 
+  @tracked burgerMenuOpen = false;
   @tracked currentTopRoute = 'foundations';
 
   constructor() {
@@ -39,5 +41,10 @@ export default class DocPageHeaderComponent extends Component {
     let classes = ['doc-page-header'];
 
     return classes.join(' ');
+  }
+
+  @action
+  toggleBurgerMenu() {
+    this.burgerMenuOpen = !this.burgerMenuOpen;
   }
 }
