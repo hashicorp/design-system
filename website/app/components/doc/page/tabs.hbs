@@ -8,12 +8,11 @@
     >
       <button
         id={{tab.id}}
-        class='doc-text-body-small'
+        class='doc-text-navigation'
         type='button'
         role='tab'
         aria-controls={{tab.target}}
         aria-selected={{tab.isCurrent}}
-        tabindex='-1'
         {{on 'click' (fn tab.onClickTab tab)}}
       >{{capitalize tab.label}}</button>
     </li>

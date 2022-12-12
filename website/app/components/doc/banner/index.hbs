@@ -1,3 +1,6 @@
 <div class={{this.classNames}} ...attributes>
-  {{yield}}
+  <FlightIcon class="doc-banner__icon" @name={{this.icon}} @size="24" @isInlineBlock={{false}} />
+  <div class="doc-banner__content">
+    {{yield}}
+  </div>
 </div>

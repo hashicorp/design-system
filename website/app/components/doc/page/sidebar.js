@@ -66,7 +66,12 @@ export default class DocPageSidebarComponent extends Component {
 
     const subSectionTree = {};
     getTocSectionBundle(currentSection).forEach((section) => {
-      subSectionTree[section] = this.args.toc.tree[section];
+      let subTree = this.args.toc.tree[section];
+      // the "about" section doesn't exist, it's there only to make sure the related sections appear for the "About" landing page
+      // with this check we avoid that it appears in the sidebar as empty container
+      if (subTree) {
+        subSectionTree[section] = subTree;
+      }
     });
 
     return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;

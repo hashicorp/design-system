@@ -1,5 +1,11 @@
 ---
 title: Alert
+description: Displays a brief message without interrupting a user’s task.
+caption: Displays a brief message without interrupting a user’s task.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=1377%3A11987
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/alert
 ---
 
 <section id="section-guidelines" data-markdown="1">
