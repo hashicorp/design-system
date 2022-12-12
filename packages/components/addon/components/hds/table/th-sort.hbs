@@ -1,10 +1,4 @@
-<th
-  scope="col"
-  class="hds-table__th-sort {{if @align (concat 'hds-table__th-sort--text-' @align)}}"
-  aria-sort={{this.ariaSort}}
-  {{style width=@width}}
-  ...attributes
->
+<th class={{this.classNames}} aria-sort={{this.ariaSort}} {{style width=@width}} ...attributes scope="col">
   <button type="button" {{on "click" this.onClick}}>
     <div class="hds-table__th-sort--button-content">
       <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>

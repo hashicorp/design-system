@@ -50,7 +50,6 @@ export default class HdsTableThSortComponent extends Component {
       )}; received: ${align}`,
       ALIGNMENTS.includes(align)
     );
-    console.log(`align: ${align}`);
     return align;
   }
 
@@ -74,7 +73,7 @@ export default class HdsTableThSortComponent extends Component {
 
     // add a class based on the @align argument
     if (this.align) {
-      classes.push(`text-${this.align}`);
+      classes.push(`.hds-table__th-sort--text-${this.align}`);
     }
 
     return classes.join(' ');

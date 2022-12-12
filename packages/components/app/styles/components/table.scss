@@ -136,11 +136,13 @@ $hds-table-cell-padding-tall: 20px 16px;
 }
 
 // TABLE CELL TEXT ALIGNMENT (LEFT IS DEFAULT)
+.hds-table__th-sort--text-right,
 .hds-table__th--text-right,
 .hds-table__td--text-right {
   text-align: right;
 }
 
+.hds-table__th-sort--text-center,
 .hds-table__th--text-center,
 .hds-table__td--text-center {
   text-align: center;
