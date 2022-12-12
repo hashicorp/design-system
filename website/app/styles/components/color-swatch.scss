@@ -14,7 +14,6 @@
   @media screen and (min-width: 1280px) {
     grid-template-rows: 1fr;
     grid-template-columns: (minmax(80px, 80px) auto); // just 80px auto didn't work, maybe a bug?
-    width: 80%;
   }
 }
 
