@@ -29,8 +29,8 @@ const setSortableTableData = (context) => {
     },
   ]);
   context.set('columns', [
-    { key: 'artist', label: 'Artist' },
-    { key: 'album', label: 'Album' },
+    { key: 'artist', label: 'Artist', isSortable: true },
+    { key: 'album', label: 'Album', isSortable: true },
     { key: 'year', label: 'Year' },
   ]);
   context.set('sortBy', 'artist');
