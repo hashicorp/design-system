@@ -23,6 +23,7 @@
 
 .doc-page-header__logo {
   display: block;
+  flex: none;
   height: 32px;
   color: inherit;
 
@@ -41,6 +42,8 @@
 // NAV MENU (PRIMARY + SECONDARY)
 
 .doc-page-header__nav-menu {
+  display: none;
+  flex: 1 0 auto;
   align-self: stretch;
 
   ul {
@@ -52,10 +55,6 @@
     padding: 0;
     list-style: none;
   }
-}
-
-.doc-page-header__nav-menu--secondary {
-  margin: auto 0 auto auto;
 }
 
 .doc-page-header__nav-item-text {

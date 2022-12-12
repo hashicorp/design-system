@@ -2,17 +2,13 @@
   <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
     <Doc::HdsLogo alt="HashiCorp Design System" />
   </LinkTo>
-  <nav class="doc-page-header__nav-menu doc-page-header__nav-menu--primary" aria-label="primary navigation">
+  <nav class="doc-page-header__nav-menu" aria-label="primary navigation">
     <ul>
       <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{this.currentTopRoute}} />
-    </ul>
-  </nav>
-  <nav class="doc-page-header__nav-menu doc-page-header__nav-menu--secondary" aria-label="secondary navigation">
-    <ul>
-      <Doc::Page::Header::NavItem @label="Support" @route="support" @currentTopRoute={{this.currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Support" @route="support" @currentTopRoute={{this.currentTopRoute}} class="doc-page-header__nav-item--split"/>
       <li class="doc-page-header__nav-item-generic"><a
           href="https://github.com/hashicorp/design-system"
           target="_blank"
