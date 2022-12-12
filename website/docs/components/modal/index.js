@@ -19,6 +19,10 @@ export default class Index extends Component {
   get COLORS() {
     return COLORS;
   }
+  @action
+  noop() {
+    //
+  }
 
   @action
   activateModal(modal) {

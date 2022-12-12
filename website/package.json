@@ -25,6 +25,7 @@
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
     "lint:css:fix": "npm-run-all \"lint:css --fix\"",
     "start": "ember serve",
+    "start:prember": "PREMBER=true ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
   },
@@ -36,13 +37,16 @@
     "@hashicorp/design-system-components": "workspace:^",
     "@hashicorp/design-system-tokens": "workspace:^",
     "@hashicorp/ember-flight-icons": "workspace:^",
-    "@hashicorp/field-guide": "*",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
+    "broccoli-funnel": "^3.0.3",
+    "broccoli-merge-trees": "^4.2.0",
+    "broccoli-multifilter": "^2.0.0",
     "ember-auto-import": "^2.4.2",
     "ember-cli": "~4.7.0",
     "ember-cli-app-version": "^5.0.0",
     "ember-cli-babel": "^7.26.11",
+    "ember-cli-clipboard": "^1.0.0",
     "ember-cli-dependency-checker": "^3.3.1",
     "ember-cli-deprecation-workflow": "^2.1.0",
     "ember-cli-fastboot": "^3.3.2",
@@ -52,11 +56,12 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-string-helpers": "^6.1.0",
     "ember-cli-terser": "^4.0.2",
-    "ember-composable-helpers": "4.4.1",
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
     "ember-math-helpers": "^2.18.2",
+    "ember-meta": "^2.0.0",
     "ember-page-title": "^7.0.0",
+    "ember-prism": "^0.10.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
     "ember-source": "~4.8.1",
@@ -68,21 +73,32 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^7.3.1",
+    "jsdom": "^20.0.3",
+    "jsonapi-serializer": "^3.6.7",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prember": "^1.1.1",
+    "prember-middleware": "^0.1.0",
     "prettier": "^2.7.1",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
+    "resolve": "^1.17.0",
+    "showdown": "^2.1.0",
     "stylelint": "^14.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "yaml-front-matter": "^4.1.1"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
   "ember": {
     "edition": "octane"
+  },
+  "ember-addon": {
+    "paths": [
+      "lib/markdown"
+    ]
   }
 }

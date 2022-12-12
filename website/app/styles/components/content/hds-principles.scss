@@ -19,10 +19,10 @@
 
 .doc-content-principles__title {
   margin: 24px 0 0 0;
-  color: #000; // TODO convert to token
+  color: var(--doc-color-black);
 }
 
 .doc-content-principles__description {
   margin: 4px 0 0 0;
-  color: #343536; // TODO convert to token
+  color: var(--doc-color-gray-200);
 }

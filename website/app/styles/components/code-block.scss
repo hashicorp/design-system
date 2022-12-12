@@ -1,0 +1,54 @@
+// CODE BLOCK
+
+// Notice: this is temporary! The actual styling work will be done in https://hashicorp.atlassian.net/browse/HDS-938
+
+// TODO check how this overlaps with the other similar classes (`.doc-markdown-pre`, `.doc-markdown-code`) and the syntax highlighting too, and what we need to override here
+
+@use "../breakpoints" as breakpoint;
+@use "../typography/mixins";
+
+
+.doc-code-block {
+  margin: 24px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+// TODO do we need this?
+// .doc-code-block--self-executing {}
+
+.doc-code-block__code-rendered {
+  padding: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'%3E%3Cpath d='M1 2V0h1v1H0v1z' fill-opacity='.05'/%3E%3C/svg%3E");
+  // use this to fine tune the size of the checkered pattern
+  background-size: 16px 16px;
+
+  @include breakpoint.medium () {
+    padding: 18px;
+  }
+
+  @include breakpoint.large () {
+    padding: 24px;
+  }
+}
+
+// notice: in some cases it's rendered as standalone element, so we have to have
+.doc-code-block__code-snippet {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  // artificial specificity to override the syntax highligter
+  &#{&}#{&} {
+    @include doc-font-style-code ();
+    margin: 24px 0;
+    padding: 10px;
+  }
+
+  .doc-code-block & {
+    margin: 0 !important; // sorry, temporary
+    border: none;
+    border-top: 1px solid #ccc;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

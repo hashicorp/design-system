@@ -1,0 +1,14 @@
+<CopyButton
+  class={{this.classNames}}
+  @text={{this.textToCopy}}
+  @onSuccess={{this.onSuccess}}
+  @onError={{this.onError}}
+>
+  {{#if this.textToShow}}
+    <span class="doc-copy-button__visible-value">{{this.textToShow}}</span>
+  {{/if}}
+  {{#if this.label}}
+    <span class="doc-copy-button__label">{{this.label}}</span>
+  {{/if}}
+  <FlightIcon class="doc-copy-button__icon" @name={{this.iconName}} @isInlineBlock={{false}} @stretched={{true}} />
+</CopyButton>

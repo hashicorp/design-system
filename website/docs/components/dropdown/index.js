@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 import { COLORS as TOGGLE_BUTTON_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
@@ -20,5 +21,10 @@ export default class Index extends Component {
 
   get ITEM_INTERACTIVE_COLORS() {
     return ITEM_INTERACTIVE_COLORS;
+  }
+
+  @action
+  myAction() {
+    //
   }
 }

@@ -39,17 +39,6 @@
   margin-bottom: 12px;
 }
 
-.doc-markdown-h1,
-.doc-markdown-h2,
-.doc-markdown-h3,
-.doc-markdown-h4,
-.doc-markdown-h5,
-.doc-markdown-h6 {
-  .doc-markdown-code {
-    font-size: inherit;
-  }
-}
-
 // BODY COPY
 
 .doc-markdown-p,
@@ -61,11 +50,11 @@
 }
 
 .doc-markdown-blockquote {
+  @include doc-font-style-body();
   margin: 0 0 12px 0;
   padding: 0 0 0 16px;
-  border-left: 2px solid lightgray;
-
-  @include doc-font-style-body();
+  color: var(--doc-color-gray-200);
+  border-left: 6px solid var(--doc-color-gray-400);
 
   > :first-child {
     margin-top: 0;
@@ -74,13 +63,4 @@
   > :last-child {
     margin-bottom: 0;
   }
-}
-
-// CODE
-
-.doc-markdown-pre,
-.doc-markdown-code {
-  @include doc-font-style-code ();
-  margin-top: 0;
-  margin-bottom: 12px;
 }

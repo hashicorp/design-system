@@ -57,13 +57,3 @@
     local("Metro Sans Bold"),
     url("/assets/fonts/metro-700-normal.woff2") format("woff2");
 }
-
-@font-face {
-  font-weight: 400;
-  font-family: dejavu-sans-mono-web;
-  font-style: normal;
-  font-display: swap;
-  src:
-    local("DejaVu Sans Mono"),
-    url("/assets/fonts/dejavu_sans_mono-400-normal.woff2") format("woff");
-}

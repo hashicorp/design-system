@@ -1,0 +1,14 @@
+@mixin doc-link-generic-styles() {
+  color: var(--doc-color-link-on-white);
+
+  // TODO check with Heather and Melanie if this is what we want
+  :hover,
+  :visited,
+  :active {
+    color: var(--doc-color-link-on-white);
+  }
+}
+
+.doc-link-generic {
+  @include doc-link-generic-styles();
+}
