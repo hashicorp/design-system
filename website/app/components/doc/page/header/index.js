@@ -49,6 +49,12 @@ export default class DocPageHeaderComponent extends Component {
     this.currentTopRoute = this.router.currentURL.split('/')[1];
   }
 
+  get classNames() {
+    let classes = ['doc-page-header'];
+
+    return classes.join(' ');
+  }
+
   @action
   test() {
     this.updateNavigation();
