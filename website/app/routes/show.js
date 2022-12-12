@@ -69,7 +69,7 @@ export default class ShowRoute extends Route {
         // instead of having them spread across the whole model
         // (super-hacky for now, we will find a better way later)
         const frontmatter = {};
-        // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `addons/field-guide/index.js`
+        // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `website/lib/markdown/markdown-to-jsonapi.js`
         const frontmatterAttributes = [
           'title',
           'description',

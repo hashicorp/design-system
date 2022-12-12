@@ -18,7 +18,7 @@ class MarkdownToJsonApi extends PersistentFilter {
     this.targetExtension = 'json';
     this.serializerAttributes = {
       content: ['path', 'content', 'toc'],
-      // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `website/lib/markdown/markdown-to-jsonapi.js`
+      // NOTICE: this list for now needs to be _manually_ aligned with a similar one found in `website/app/routes/show.js`
       frontmatter: [
         'title',
         'description',
