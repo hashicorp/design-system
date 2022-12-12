@@ -4,11 +4,14 @@
 @use "../typography/mixins" as *;
 
 
-.doc-page-home {
-  position: relative;
-  grid-area: sidebar / sidebar / content / content;
-  // padding-bottom: 100px;
+// `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+body.application.index {
   background-color: var(--doc-color-black);
+}
+
+.doc-page-home {
+  grid-area: sidebar / sidebar / content / content;
+  padding-bottom: 100px;
 
   --doc-page-home-content-max-width: 1200px;
 }
@@ -17,7 +20,7 @@
 
 .doc-page-home::before {
   position: absolute;
-  top: calc(-1 * var(--doc-page-header-height));
+  top: 0; // important: this is relative to the `<body>` itself (there are no parents with a non-static position)
   right: 0;
   left: 0;
   height: 50vw; // make it responsive?
