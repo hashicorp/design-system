@@ -1,0 +1,27 @@
+// LINK WITH ICON
+
+@use "../typography/mixins" as *;
+
+.doc-link-with-icon {
+  @include doc-font-style-body();
+  display: inline-flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: min-content;
+  margin: auto 0 0 0;
+  color: inherit;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.doc-link-with-icon__icon {
+  // TODO add animation
+}
