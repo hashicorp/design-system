@@ -16,10 +16,14 @@ $hds-table-cell-padding-tall: 20px 16px;
 
 .hds-table {
   width: 100%;
-  table-layout: fixed;
   border: $hds-table-border-width solid $hds-table-border-color;
   border-radius: $hds-table-border-radius;
   border-spacing: 0;
+}
+
+// TABLE DISPLAY
+.hds-table--layout-fixed {
+  table-layout: fixed;
 }
 
 // TABLE HEADER
@@ -131,21 +135,6 @@ $hds-table-cell-padding-tall: 20px 16px;
   vertical-align: middle;
 }
 
-.hds-table--valign-bottom .hds-table__tbody td {
-  vertical-align: bottom;
-}
-
-.hds-table--valign-baseline .hds-table__tbody td {
-  vertical-align: baseline;
-}
-
-.hds-table--valign-sub .hds-table__tbody td {
-  vertical-align: sub;
-}
-
-.hds-table--valign-text-top .hds-table__tbody td {
-  vertical-align: text-top;
-}
 
 .hds-table__tbody {
   .hds-table__tr {
