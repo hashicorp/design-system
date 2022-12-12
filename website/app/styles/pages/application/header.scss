@@ -3,6 +3,9 @@
 @use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
 
+// notice: we use an ad-hoc breakpoint here
+$header-custom-breakpoint: 1000px;
+
 .doc-page-header {
   position: sticky;
   top: 0;
@@ -11,13 +14,17 @@
   display: flex;
   flex-direction: row;
   grid-area: header;
-  gap: 32px;
+  gap: 16px;
   align-items: center;
   justify-content: flex-start;
   height: var(--doc-page-header-height);
   padding: 0 24px;
   color: var(--doc-color-white);
   background: var(--doc-color-black);
+
+  @media (min-width: $header-custom-breakpoint) {
+    gap: 32px;
+  }
 }
 
 // LOGO
@@ -27,6 +34,7 @@
   flex: none;
   height: 32px;
   color: inherit;
+  text-decoration: none;
 
   &:hover,
   &:active,
@@ -37,6 +45,16 @@
   svg {
     width: auto;
     height: 100%;
+  }
+
+  // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
+
+  .logo-logo-hds__hashicorp {
+    display: none;
+
+    @media (min-width: $header-custom-breakpoint) {
+      display: initial;
+    }
   }
 }
 
@@ -53,12 +71,16 @@
 
   ul {
     display: flex;
-    gap: 12px;
+    gap: 0;
     align-items: center;
     height: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @media (min-width: $header-custom-breakpoint) {
+      gap: 12px;
+    }
   }
 }
 
