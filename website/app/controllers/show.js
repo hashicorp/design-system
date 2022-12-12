@@ -28,6 +28,8 @@ export default class ShowController extends Controller {
     {
       selectedTab: 'tab',
     },
+    'searchQuery',
+    'selectedIconSize',
   ];
 
   @service fastboot;
