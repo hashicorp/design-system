@@ -34,11 +34,9 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
         <P.SizeSelector @sizes={{array 10 30 50}} id="test-pagination-size-selector" />
       </Hds::Pagination>
     `);
-    assert.dom('#test-pagination-info').hasClass('hds-pagination-info');
-    assert.dom('#test-pagination-nav').hasClass('hds-pagination-nav');
-    assert
-      .dom('#test-pagination-size-selector')
-      .hasClass('hds-pagination-size-selector');
+    assert.dom('#test-pagination-info').exists();
+    assert.dom('#test-pagination-nav').exists();
+    assert.dom('#test-pagination-size-selector').exists();
   });
 
   // Test user API:
