@@ -36,8 +36,8 @@ module(
 
     test('it is selected if @isSelected is set to true', async function (assert) {
       await render(hbs`
-        <Hds::Pagination::Nav::ButtonNumber @page="3" id="test-not-selected" />
         <Hds::Pagination::Nav::ButtonNumber @page="1" @isSelected={{true}} id="test-is-selected" />
+        <Hds::Pagination::Nav::ButtonNumber @page="3" id="test-not-selected" />
       `);
       assert
         .dom('#test-is-selected')
