@@ -21,7 +21,7 @@ Here is the API for the main ("container") component:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="listPosition" @type="string" @values={{array "left" "right" }} @default="right"/>
-  <C.Property @name="width" @type="string" @values={{array "any valid CSS width (px, rem, etc)" }}>
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the dropdown list has a `min-width` of `200px` and a `max-width` of `400px` applied to it, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width._
   </C.Property>
   <C.Property @name="close" @type="function">

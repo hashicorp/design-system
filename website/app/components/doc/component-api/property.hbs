@@ -15,9 +15,10 @@
         <span class="doc-component-api__property-required">Required</span>
     </dd>
   {{/if}}
-  {{#if @values}}
+  {{#if (or @values @valueNote)}}
     <dt class="doc-component-api__term doc-component-api__term--values">Values</dt> 
     <dd class="doc-component-api__description doc-component-api__description--values">
+      {{#if @values}}
       <ul class="doc-component-api__property-values">
         {{#each @values as |value|}}
           <li class="doc-component-api__property-value{{if (eq @default value) "--default"}}">
@@ -25,6 +26,9 @@
           </li>
         {{/each}}
       </ul>
+      {{else if @valueNote}}
+        {{@valueNote}}
+      {{/if}}
     </dd>
   {{/if}}
   {{#if (has-block)}}

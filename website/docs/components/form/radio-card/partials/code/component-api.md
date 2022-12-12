@@ -24,7 +24,7 @@ Here is the API for the `RadioCard` component:
   <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
     _Notice: by default the card will expand to fit the parent container. When used in a group the cards will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed` a `@maxWidth` value must be specified to constrain the card._
   </C.Property>
-  <C.Property @name="maxWidth" @type="string" @values={{array "any valid CSS width (%, vw, etc)" }}>
+  <C.Property @name="maxWidth" @type="string" @valueNote="any valid CSS width (%, vw, etc)">
     When used with a `fluid` layout, this parameter will determine the number of cards shown per row (for example `25%` will result in 4 cards). When used with a `fixed` layout, this parameter will preserve the width of the card and wrap cards on multiple rows if necessary.
   </C.Property>
   <C.Property @name="extraAriaDescribedBy" @type="string">
