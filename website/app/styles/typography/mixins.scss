@@ -161,3 +161,20 @@
   line-height: 1.714; // 24px
 }
 
+
+// ---------
+// SUPPORTING STYLES
+// ---------
+
+@mixin doc-font-style-navigation { // same as body-small but different weight
+  @include doc-font-style-body-small();
+  font-weight: 500;
+}
+
+@mixin doc-font-style-label {
+  @include doc-font-family("gilmer");
+  font-weight: 700;
+  font-size: 0.75rem; // 12px
+  line-height: 1.5;
+}
+
