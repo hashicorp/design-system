@@ -45,37 +45,37 @@ Contributing is not required to get new icons added to the library, but HashiCor
 
 #### 24px
 
-![](/assets/foundations/flight-icons/icon-dimensions-sq-24.png =112x112)
+![](/assets/getting-started/contribution/icon-dimensions-sq-24.png =112x112)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 18.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 2.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-3.png) 2px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 18.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 2.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-3.png) 2px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### 16px
 
-![](/assets/foundations/flight-icons/icon-dimensions-sq-16.png =80x80)
+![](/assets/getting-started/contribution/icon-dimensions-sq-16.png =80x80)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 12.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 1.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-3.png) 1.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 12.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 1.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-3.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### 24px
 
-![](/assets/foundations/flight-icons/icon-dimensions-cr-24.png =112x112)
+![](/assets/getting-started/contribution/icon-dimensions-cr-24.png =112x112)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 20.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 1.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 20.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 1.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### 16px
 
-![](/assets/foundations/flight-icons/icon-dimensions-cr-16.png =80x80)
+![](/assets/getting-started/contribution/icon-dimensions-cr-16.png =80x80)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 14.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 0.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 14.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 0.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### Geometry
 
