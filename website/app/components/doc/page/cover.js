@@ -5,6 +5,10 @@ const STATUSES = {
     badgeType: 'success',
     badgeText: 'Released',
   },
+  comingSoon: {
+    badgeType: 'information',
+    badgeText: 'Coming soon',
+  },
 };
 
 export default class DocPageContentComponent extends Component {
