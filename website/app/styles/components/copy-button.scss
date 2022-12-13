@@ -5,9 +5,13 @@
 .doc-copy-button {
   display: inline-flex;
   align-items: center;
-  max-width: 100%;
+  max-width: fit-content;
   border: 1px solid transparent;
   border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .doc-copy-button--type-solid {
