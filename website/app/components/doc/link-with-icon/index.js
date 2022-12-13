@@ -12,4 +12,20 @@ export default class DocLinkWithIconComponent extends Component {
       return [];
     }
   }
+
+  get classNames() {
+    let classes = ['doc-link-with-icon'];
+
+    // add a class based on the @isAnimated argument
+    if (this.args.isAnimated) {
+      classes.push(`doc-link-with-icon--is-animated`);
+    }
+
+    // add a class based on the @fillParent argument
+    if (this.args.fillParent) {
+      classes.push(`doc-link-with-icon--fill-parent`);
+    }
+
+    return classes.join(' ');
+  }
 }

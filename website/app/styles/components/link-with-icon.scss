@@ -32,3 +32,16 @@
   inset: 0;
   content: "";
 }
+
+.doc-link-with-icon--is-animated {
+  // same animation as the marketing website
+  svg {
+    transform: translate(0);
+    transition: transform 0.2s;
+  }
+
+  &:hover svg {
+    transform: translate(2px);
+  }
+}
+

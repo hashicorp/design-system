@@ -8,8 +8,8 @@
         <p>HashiCorp Design System provides the building blocks to design and implement consistent, accessible, and
           delightful product experiences across HashiCorp.</p>
         <div class="doc-page-home__hero-links">
-          <Doc::LinkWithIcon @route="show" @model="getting-started/01--for-designers" @label="Designers" @icon="arrow-right" />
-          <Doc::LinkWithIcon @route="show" @model="getting-started/02--for-engineers" @label="Engineers" @icon="arrow-right" />
+          <Doc::LinkWithIcon @route="show" @model="getting-started/01--for-designers" @label="Designers" @icon="arrow-right" @isAnimated={{true}} />
+          <Doc::LinkWithIcon @route="show" @model="getting-started/02--for-engineers" @label="Engineers" @icon="arrow-right" @isAnimated={{true}} />
         </div>
       </div>
       <ul class="doc-page-home__cards">
@@ -17,7 +17,7 @@
           <li class="doc-page-home__card">
             <p class="doc-page-home__card-title">{{capitalize card.title}}</p>
             <p class="doc-page-home__card-description">{{capitalize card.description}}</p>
-            <Doc::LinkWithIcon @route={{card.route}} @label="Explore" @icon="arrow-right" @fillParent={{true}} />
+            <Doc::LinkWithIcon @route={{card.route}} @label="Explore" @icon="arrow-right" @fillParent={{true}} @isAnimated={{true}} />
           </li>
         {{/each}}
       </ul>
