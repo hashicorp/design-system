@@ -15,7 +15,9 @@ Patterns are not currently supported by the HashiCorp Design System, but there a
 
 !!! Info
 
-**Note:** There are a small number of HDS components that showcase a pattern-like level of complexity ([Modal](/components/modal), [Table](/components/table), [Pagination](/components/pagination)) but are considered components and published as such.
+**Note:** 
+
+There are a small number of HDS components that showcase a pattern-like level of complexity ([Modal](/components/modal), [Table](/components/table), [Pagination](/components/pagination)) but are considered components and published as such.
 !!!
 
 If you find yourself building the same type of pattern frequently using HDS components, consider [contributing](/getting-started-contribution) back to the HashiCorp Design System and making your work available to other designers and developers!
