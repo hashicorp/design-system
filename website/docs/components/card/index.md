@@ -2,17 +2,17 @@
 title: Card
 ---
 
-<section id="section-code" data-markdown="1">
+<section data-tab="Code">
   @include "partials/code/component-api.md"
   @include "partials/code/how-to-use.md"
   @include "partials/code/showcase.md"
 </section>
 
-<section id="section-specifications" data-markdown="1">
+<section data-tab="Specifications">
   @include "partials/specifications/design-guidelines.md"
 </section>
 
-<section id="section-accessibility" data-markdown="1">
+<section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
 

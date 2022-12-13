@@ -11,6 +11,7 @@ Router.map(function () {
   this.route('foundations');
   this.route('components');
   this.route('patterns');
+  this.route('support');
   // this will be removed later
   this.route('testing');
   // this is a fake route that we use for the "how to use" and "showcase" sections
