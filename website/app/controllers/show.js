@@ -44,19 +44,20 @@ export default class ShowController extends Controller {
     let tabs = [];
     let tocs = [];
     document
-      .querySelectorAll(`.doc-page-content section[id^=section-]`)
+      .querySelectorAll(`.doc-page-content section[data-tab]`)
       .forEach((section, index) => {
         // SECTIONS
-        const name = section.id.replace(/^section-/, '');
+        const id = section.id;
+        const name = section.getAttribute('data-tab');
         section.setAttribute('role', 'tabpanel');
         section.setAttribute('tabindex', '0');
-        section.setAttribute('aria-labelledby', `tab-${name}`);
+        section.setAttribute('aria-labelledby', `tab-${id}`);
         section.setAttribute('hidden', true);
         sections.push(section);
         // TABS
         tabs.push({
           index,
-          id: `tab-${name}`,
+          id: `tab-${id}`,
           label: name,
           target: section.id,
           onClickTab: this.onClickTab,
