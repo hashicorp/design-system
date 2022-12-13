@@ -21,7 +21,6 @@ export default class Index extends Component {
   });
 
   get filteredIcons() {
-    // this.router.currentRoute.queryParams['searchQuery'];
     const searchQuery = this.router.currentRoute.queryParams['searchQuery'];
     const selectedIconSize =
       this.router.currentRoute.queryParams['selectedIconSize'] || '16';
