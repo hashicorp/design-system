@@ -43,13 +43,13 @@ module(
         .hasClass('hds-pagination-nav__button-number--is-selected');
       assert
         .dom('#test-is-selected .hds-pagination-nav__control')
-        .hasAttribute('aria-selected', 'page');
+        .hasAttribute('aria-current', 'page');
       assert
         .dom('#test-not-selected')
         .doesNotHaveClass('hds-pagination-nav__button-number--is-selected');
       assert
         .dom('#test-not-selected .hds-pagination-nav__control')
-        .doesNotHaveAttribute('aria-selected', 'page');
+        .doesNotHaveAttribute('aria-current', 'page');
     });
 
     test('it should call the onClick handler with the value of the page number', async function (assert) {
