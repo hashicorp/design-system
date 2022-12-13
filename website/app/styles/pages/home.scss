@@ -145,6 +145,7 @@ body.application.index {
 }
 
 .doc-page-home__card {
+  position: relative; // needed so the link will fill the whole card
   display: flex;
   flex-direction: column;
   padding: 18px;

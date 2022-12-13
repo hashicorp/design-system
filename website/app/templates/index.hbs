@@ -17,7 +17,7 @@
           <li class="doc-page-home__card">
             <p class="doc-page-home__card-title">{{capitalize card.title}}</p>
             <p class="doc-page-home__card-description">{{capitalize card.description}}</p>
-            <Doc::LinkWithIcon @route={{card.route}} @label="Explore" @icon="arrow-right" />
+            <Doc::LinkWithIcon @route={{card.route}} @label="Explore" @icon="arrow-right" @fillParent={{true}} />
           </li>
         {{/each}}
       </ul>

@@ -25,3 +25,10 @@
 .doc-link-with-icon__icon {
   // TODO add animation
 }
+
+
+.doc-link-with-icon--fill-parent::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
