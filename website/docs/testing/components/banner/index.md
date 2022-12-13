@@ -67,3 +67,9 @@ This is a paragraph
 Banner included directly via `partial`
 
 @include "partials/simple-banner.md"
+
+Banner included via `partial` inside a `&lt;section&gt;`
+
+<section id="section-guidelines" data-markdown="1">
+    @include "partials/simple-banner.md"
+</section>
