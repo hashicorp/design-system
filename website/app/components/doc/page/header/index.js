@@ -14,21 +14,23 @@ export default class DocPageHeaderComponent extends Component {
   constructor() {
     super(...arguments);
 
-    // schedule nav udpate for after this content is rendered
-    // if (!this.fastboot.isFastBoot) { // TODO! this is not working?
-    schedule('routerTransitions', () => {
-      console.log('called routerTransitions');
-      this.updateNavigation();
-      // should I use addObserver instead?
-      // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
-      this.router.on('routeDidChange', this, this.updateNavigation);
-    });
-    // }
+    if (!this.fastboot.isFastBoot) {
+      // schedule nav udpate for after this content is rendered
+      schedule('routerTransitions', () => {
+        console.log('called routerTransitions');
+        this.updateNavigation();
+        // should I use addObserver instead?
+        // https://api.emberjs.com/ember/4.8/classes/RouterService/methods?anchor=addObserver
+        this.router.on('routeDidChange', this, this.updateNavigation);
+      });
+    }
   }
 
   willDestroy() {
     super.willDestroy(...arguments);
-    this.router.off('routeDidChange', this, this.updateNavigation);
+    if (!this.fastboot.isFastBoot) {
+      this.router.off('routeDidChange', this, this.updateNavigation);
+    }
   }
 
   // @action
