@@ -1,14 +1,14 @@
 Here is the API for the component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="color" @type="enum" @value="primary, secondary" @default="primary"/>
+  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
   <C.Property @name="yield">
     Elements passed as children are yielded to the content of the `<a>` HTML element.
   </C.Property>
   <C.Property @name="icon" @type="string">
     Use this parameter to show an icon. Acceptable value: any Flight icon name.
   </C.Property>
-  <C.Property @name="iconPosition" @type="enum" @value="leading, trailing" @default="trailing">
+  <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing" }} @default="trailing">
     Positions the icon before or after the text.
   </C.Property>
   <C.Property @name="href">

@@ -2,7 +2,7 @@
 
 Invocation of the component would look something like this:
 
-```handlebars
+```handlebars{data-execute=false}
 <Hds::Interactive>
     your content here (will be yielded)
 </Hds::Interactive>
@@ -18,7 +18,7 @@ _Notice: a `type="button"` HTML attribute is applied by default to the element, 
 
 If an `@href` argument is provided:
 
-```handlebars
+```handlebars{data-execute=false}
 <Hds::Interactive @href="https://google.com">
     your content here
 </Hds::Interactive>
@@ -30,7 +30,7 @@ _We add these attributes by default because this is the most common case (intern
 
 If an `@isHrefExternal` argument is provided with `false` value:
 
-```handlebars
+```handlebars{data-execute=false}
 <Hds::Interactive @href="#your-local-anchor-id" @isHrefExternal={{false}}>
     your content here
 </Hds::Interactive>
@@ -42,7 +42,7 @@ it will generate in output an HTML `<a>` link element **without** the HTML `targ
 
 If a `@route` argument is provided:
 
-```handlebars
+```handlebars{data-execute=false}
 <Hds::Interactive @route="components" >
     your content here
 </Hds::Interactive>
@@ -52,7 +52,7 @@ it will generate in output a `<LinkTo>` component.
 
 If the `@route` is external to the current engine ([more details here](https://ember-engines.com/docs/link-to-external)), you need to provide an extra `@isRouteExternal` parameter:
 
-```handlebars
+```handlebars{data-execute=false}
 <Hds::Interactive @route="components" @isRouteExternal={{true}} >
     your content here
 </Hds::Interactive>

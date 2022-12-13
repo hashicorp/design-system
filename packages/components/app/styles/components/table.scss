@@ -16,10 +16,14 @@ $hds-table-cell-padding-tall: 20px 16px;
 
 .hds-table {
   width: 100%;
-  table-layout: fixed;
   border: $hds-table-border-width solid $hds-table-border-color;
   border-radius: $hds-table-border-radius;
   border-spacing: 0;
+}
+
+// TABLE DISPLAY
+.hds-table--layout-fixed {
+  table-layout: fixed;
 }
 
 // TABLE HEADER
@@ -27,63 +31,6 @@ $hds-table-cell-padding-tall: 20px 16px;
   .hds-table__tr {
     color: var(--token-color-foreground-strong);
     background-color: var(--token-color-surface-strong);
-
-    .hds-table__th,
-    .hds-table__th-sort {
-      height: $hds-table-header-height;
-      text-align: left;
-      border-top: none;
-      border-right: none;
-      border-bottom: $hds-table-border-width solid $hds-table-border-color;
-      border-left: none;
-    }
-
-    .hds-table__th {
-      padding: $hds-table-cell-padding-medium;
-    }
-
-    .hds-table__th-sort {
-      padding: 0;
-
-      button {
-        width: 100%;
-        height: 100%;
-        min-height: $hds-table-header-height;
-        margin: 0;
-        padding: $hds-table-cell-padding-medium;
-        text-align: inherit;
-        background-color: transparent;
-        border: 1px solid transparent;
-        border-radius: inherit;
-
-        .hds-table__th-sort--button-content {
-          display: flex; // we can't put flex on the button itself so we drop the content into its own container
-          align-items: center;
-
-          .flight-icon {
-            flex: none;
-            margin-left: 8px;
-            color: var(--token-color-foreground-action);
-          }
-        }
-
-        &:hover,
-        &.mock-hover {
-          color: var(--token-color-foreground-strong);
-          background-color: var(--token-color-palette-neutral-200);
-          cursor: pointer;
-        }
-
-        @include hds-focus-ring-with-pseudo-element($radius: inherit);
-
-        &:active,
-        &.mock-active {
-          color: var(--token-color-foreground-strong);
-          background-color: var(--token-color-palette-neutral-300);
-        }
-      }
-    }
-
     // BORDER RADIUS: TARGET FIRST AND LAST TH ELEMENTS IN THE ROW
     &:first-of-type {
       th:first-child {
@@ -97,6 +44,63 @@ $hds-table-cell-padding-tall: 20px 16px;
     }
   }
 }
+
+.hds-table__th,
+.hds-table__th-sort {
+  height: $hds-table-header-height;
+  text-align: left;
+  border-top: none;
+  border-right: none;
+  border-bottom: $hds-table-border-width solid $hds-table-border-color;
+  border-left: none;
+}
+
+.hds-table__th {
+  padding: $hds-table-cell-padding-medium;
+}
+
+.hds-table__th-sort {
+  padding: 0;
+
+  button {
+    width: 100%;
+    height: 100%;
+    min-height: $hds-table-header-height;
+    margin: 0;
+    padding: $hds-table-cell-padding-medium;
+    text-align: inherit;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: inherit;
+
+    .hds-table__th-sort--button-content {
+      display: flex; // we can't put flex on the button itself so we drop the content into its own container
+      align-items: center;
+
+      .flight-icon {
+        flex: none;
+        margin-left: 8px;
+        color: var(--token-color-foreground-action);
+      }
+    }
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-color-foreground-strong);
+      background-color: var(--token-color-palette-neutral-200);
+      cursor: pointer;
+    }
+
+    @include hds-focus-ring-with-pseudo-element($radius: inherit);
+
+    &:active,
+    &.mock-active {
+      color: var(--token-color-foreground-strong);
+      background-color: var(--token-color-palette-neutral-300);
+    }
+  }
+}
+
 
 // TABLE BODY
 
@@ -131,21 +135,19 @@ $hds-table-cell-padding-tall: 20px 16px;
   vertical-align: middle;
 }
 
-.hds-table--valign-bottom .hds-table__tbody td {
-  vertical-align: bottom;
+// TABLE CELL TEXT ALIGNMENT (LEFT IS DEFAULT)
+.hds-table__th-sort--text-right,
+.hds-table__th--text-right,
+.hds-table__td--text-right {
+  text-align: right;
 }
 
-.hds-table--valign-baseline .hds-table__tbody td {
-  vertical-align: baseline;
+.hds-table__th-sort--text-center,
+.hds-table__th--text-center,
+.hds-table__td--text-center {
+  text-align: center;
 }
 
-.hds-table--valign-sub .hds-table__tbody td {
-  vertical-align: sub;
-}
-
-.hds-table--valign-text-top .hds-table__tbody td {
-  vertical-align: text-top;
-}
 
 .hds-table__tbody {
   .hds-table__tr {

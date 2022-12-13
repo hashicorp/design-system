@@ -1,0 +1,93 @@
+// ICONS-LIST > GRID
+
+@use "../../breakpoints" as breakpoint;
+@use "../../typography/mixins" as *;
+
+// grid
+
+.doc-icons-list-grid {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include breakpoint.medium () {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  @include breakpoint.large () {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+
+// item
+
+.doc-icons-list-grid-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  background: var(--doc-color-white);
+  border: 1px solid var(--doc-color-gray-500);
+  border-radius: 3px;
+}
+
+.doc-icons-list-grid-item__frame {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 100%;
+  border-right: 1px solid var(--doc-color-gray-500);
+}
+
+.doc-icons-list-grid-item__outline {
+  outline: 1px dotted var(--doc-color-feedback-information-200);
+}
+
+.doc-icons-list-grid-item__meta {
+  align-self: flex-start;
+  padding: 16px;
+}
+
+.doc-icons-list-grid-item__meta-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  min-height: 32px;
+}
+
+.doc-icons-list-grid-item__meta-label {
+  flex: none;
+  min-width: 56px;
+  margin-top: 7px; // optical alignment
+  color: var(--doc-color-gray-300);
+}
+
+.doc-icons-list-grid-item__meta-value {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 2px; // optical alignment
+  color: var(--doc-color-black);
+}
+
+.doc-icons-list-grid-item__meta-value-not-copyable {
+  padding-top: 2px; // optical alignment with the copyable one
+  padding-left: 8px;
+  color: var(--doc-color-black);
+}
+
+
+// not found
+
+.doc-icons-list-grid__not-found {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}

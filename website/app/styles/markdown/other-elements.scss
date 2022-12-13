@@ -1,9 +1,10 @@
 @use "../typography/mixins";
+@use "../global/link";
 
 // LINKS
 
 .doc-markdown-a {
-  color: teal;
+  @include doc-link-generic-styles();
 }
 
 // IMAGES

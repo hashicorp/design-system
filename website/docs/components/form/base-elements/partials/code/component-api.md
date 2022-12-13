@@ -89,7 +89,7 @@ Here is the API for the component:
 Here is the API for the component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="layout" @type="enum" @value="vertical, flag">
+  <C.Property @name="layout" @type="enum" @values={{array "vertical" "flag" }}>
     Sets the layout of the component. "Vertical" layout is used for `TextInput`, `Textarea` and `Select` fields. "Flag" layout is used for `Checkbox`, `Radio` and `Toggle` fields.
   </C.Property>
   <C.Property @name="id" @type="string">
@@ -142,7 +142,7 @@ Control, label, helper text and error content are passed to the field as yielded
 Here is the API for the component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="layout" @type="enum" @value="vertical, horizontal" @default="vertical">
+  <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
     Sets the layout of the field controls in the component.
   </C.Property>
   <C.Property @name="id" @type="string">

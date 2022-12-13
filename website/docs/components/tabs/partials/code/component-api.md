@@ -30,7 +30,7 @@ Here is the API for the “Tab” component:
     Sets a custom initial tab to display when the page is loaded. (The first tab is selected on page load by default.)
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `<button>` element.
+    Elements passed as children of this component are yielded inside a `button` element.
   </C.Property>
   <C.Property @name="...attributes">
     `...attributes` spreading is supported on this component.
@@ -43,7 +43,7 @@ Here is the API for the “Panel” component:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `<section>` element.
+    Elements passed as children of this component are yielded inside a `section` element.
   </C.Property>
   <C.Property @name="...attributes">
     `...attributes` spreading is supported on this component.

@@ -30,26 +30,22 @@
 
   @if $responsive {
     @include breakpoint.small () {
-      font-size: 2.125rem;
-      line-height: 1.265;
-      letter-spacing: -0.008em;
+      font-size: 2.125rem; // 34px
+      line-height: 1.265; // 43px
     }
 
     @include breakpoint.medium () {
-      font-size: 2.625rem;
-      line-height: 1.19;
-      letter-spacing: -0.01em;
+      font-size: 2.625rem; // 42px
+      line-height: 1.19; // 50px
     }
 
     @include breakpoint.large () {
-      font-size: 3.125rem;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
+      font-size: 3.125rem; // 50px
+      line-height: 1.2; // 60px
     }
   } @else {
-    font-size: 3.125rem;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    font-size: 3.125rem; // 50px
+    line-height: 1.2; // 60px
   }
 }
 
@@ -61,26 +57,22 @@
 
   @if $responsive {
     @include breakpoint.small () {
-      font-size: 1.75rem;
-      line-height: 1.286;
-      letter-spacing: -0.004em;
+      font-size: 1.5rem; // 24px
+      line-height: 2.063; // 33px
     }
 
     @include breakpoint.medium () {
-      font-size: 2.125rem;
-      line-height: 1.265;
-      letter-spacing: -0.008em;
+      font-size: 28px; // 28px
+      line-height: 1.321; // 37px
     }
 
     @include breakpoint.large () {
-      font-size: 2.5rem;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
+      font-size: 32px; // 32px
+      line-height: 1.3125; // 42px
     }
   } @else {
-    font-size: 2.5rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-size: 32px; // 32px
+    line-height: 1.3125; // 42px
   }
 }
 
@@ -92,26 +84,22 @@
 
   @if $responsive {
     @include breakpoint.small () {
-      font-size: 1.5rem;
-      line-height: 1.375;
-      letter-spacing: -0.004em;
+      font-size: 1.313rem; // 21px
+      line-height: 1.429; // 30px
     }
 
     @include breakpoint.medium () {
-      font-size: 1.75rem;
-      line-height: 1.321;
-      letter-spacing: -0.004em;
+      font-size: 1.438rem; // 23px
+      line-height: 1.391; // 32px
     }
 
     @include breakpoint.large () {
-      font-size: 2rem;
-      line-height: 1.313;
-      letter-spacing: -0.006em;
+      font-size: 24px; // 24px
+      line-height: 1.417; // 34px
     }
   } @else {
-    font-size: 2rem;
-    line-height: 1.313;
-    letter-spacing: -0.006em;
+    font-size: 24px; // 24px
+    line-height: 1.417; // 34px
   }
 }
 
@@ -120,29 +108,8 @@
 @mixin doc-font-style-h4($responsive: true) {
   @include doc-font-family("gilmer");
   font-weight: 700;
-
-  @if $responsive {
-    @include breakpoint.small () {
-      font-size: 1.313rem;
-      line-height: 1.429;
-    }
-
-    @include breakpoint.medium () {
-      font-size: 1.438rem;
-      line-height: 1.391;
-      letter-spacing: -0.004em;
-    }
-
-    @include breakpoint.large () {
-      font-size: 1.5rem;
-      line-height: 1.417;
-      letter-spacing: -0.004em;
-    }
-  } @else {
-    font-size: 1.5rem;
-    line-height: 1.417;
-    letter-spacing: -0.004em;
-  }
+  font-size: 1.125rem; // 18px
+  line-height: 1.556; // 28px
 }
 
 // H5
@@ -150,8 +117,8 @@
 @mixin doc-font-style-h5 {
   @include doc-font-family("gilmer");
   font-weight: 700;
-  font-size: 1.125rem;
-  line-height: 1.556;
+  font-size: 1rem; // 16px
+  line-height: 1.5; // 24px
 }
 
 // H6
@@ -159,8 +126,8 @@
 @mixin doc-font-style-h6 {
   @include doc-font-family("gilmer");
   font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.938rem; // 15px
+  line-height: 1.333; // 20px
 }
 
 
@@ -172,59 +139,17 @@
 
 @mixin doc-font-style-body {
   @include doc-font-family("sans");
-  font-size: 1.063rem;
-  line-height: 1.647;
-  letter-spacing: 0.01em;
+  font-size: 1.063rem; // 17px;
+  line-height: 1.765; // 30px
 }
 
 // SMALL
 
 @mixin doc-font-style-body-small {
   @include doc-font-family("sans");
-  font-size: 0.938rem;
-  line-height: 1.667;
-  letter-spacing: 0.01em;
+  font-size: 0.938rem; // 15px
+  line-height: 1.667; // 25px
 }
-
-// LARGE
-
-@mixin doc-font-style-body-large($responsive: true) {
-  @include doc-font-family("sans");
-
-  @if $responsive {
-    @include breakpoint.small () {
-      font-size: 1.188rem;
-      line-height: 1.579;
-      letter-spacing: 0.01em;
-    }
-
-    @include breakpoint.medium () {
-      font-size: 1.188rem;
-      line-height: 1.579;
-      letter-spacing: 0.01em;
-    }
-
-    @include breakpoint.large () {
-      font-size: 1.25rem;
-      line-height: 1.55;
-      letter-spacing: 0.01em;
-    }
-  } @else {
-    font-size: 1.25rem;
-    line-height: 1.55;
-    letter-spacing: 0.01em;
-  }
-}
-
-// LONG
-
-@mixin doc-font-style-body-long {
-  @include doc-font-family("sans");
-  font-size: 1.063rem;
-  line-height: 1.765;
-  letter-spacing: 0.01em;
-}
-
 
 // ---------
 // CODE
@@ -232,7 +157,24 @@
 
 @mixin doc-font-style-code {
   @include doc-font-family("mono");
-  font-size: 0.875rem;
-  line-height: 1.714;
+  font-size: 0.875rem; // 14px
+  line-height: 1.714; // 24px
+}
+
+
+// ---------
+// SUPPORTING STYLES
+// ---------
+
+@mixin doc-font-style-navigation { // same as body-small but different weight
+  @include doc-font-style-body-small();
+  font-weight: 500;
+}
+
+@mixin doc-font-style-label {
+  @include doc-font-family("gilmer");
+  font-weight: 700;
+  font-size: 0.75rem; // 12px
+  line-height: 1.5;
 }
 
