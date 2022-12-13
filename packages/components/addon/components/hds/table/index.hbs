@@ -8,26 +8,18 @@
     {{#if @columns}}
       <Hds::Table::Tr>
         {{#each @columns as |column|}}
-          {{#if @sortingKeys}}
-            {{#if (includes column.key @sortingKeys)}}
-              <Hds::Table::ThSort
-                @isSorted={{eq column.key this.sortBy}}
-                @sortOrder={{this.sortOrder}}
-                @onClick={{(fn this.setSortBy column.key)}}
-              >
-                {{column.label}}
-              </Hds::Table::ThSort>
-            {{else}}
-              <Hds::Table::Th>{{column.label}}</Hds::Table::Th>
-            {{/if}}
-          {{else}}
+          {{#if column.isSortable}}
             <Hds::Table::ThSort
               @isSorted={{eq column.key this.sortBy}}
               @sortOrder={{this.sortOrder}}
               @onClick={{(fn this.setSortBy column.key)}}
+              @align={{column.align}}
+              @width={{column.width}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
+          {{else}}
+            <Hds::Table::Th @align={{column.align}} @width={{column.width}}>{{column.label}}</Hds::Table::Th>
           {{/if}}
         {{/each}}
       </Hds::Table::Tr>
@@ -41,14 +33,25 @@
   <tbody class="hds-table__tbody">
     {{#if @columns}}
       {{#each (sort-by this.getSortCriteria @model) as |data|}}
-        {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
-      {{/each}}
-    {{else if @model}}
-      {{#each @model as |data|}}
-        {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td") data=data) to="body"}}
+        {{yield
+          (hash
+            Tr=(component "hds/table/tr")
+            Th=(component "hds/table/th" scope="row")
+            Td=(component "hds/table/td" align=@align)
+            data=data
+          )
+          to="body"
+        }}
       {{/each}}
     {{else}}
-      {{yield (hash Tr=(component "hds/table/tr") Td=(component "hds/table/td")) to="body"}}
+      {{yield
+        (hash
+          Tr=(component "hds/table/tr")
+          Th=(component "hds/table/th" scope="row")
+          Td=(component "hds/table/td" align=@align)
+        )
+        to="body"
+      }}
     {{/if}}
   </tbody>
 </table>

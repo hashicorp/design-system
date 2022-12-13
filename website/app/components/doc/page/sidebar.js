@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 // we want to limit the content of the sidebar navigation to only the links related to the current "section".
 // notice: super hacky way to do it, but... it works™ !
 const getTocSectionBundle = (section) => {
-  const ABOUT = ['about', 'overview', 'getting-started', 'updates'];
+  const ABOUT = ['about', 'getting-started', 'updates'];
   const FOUNDATIONS = ['foundations'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];

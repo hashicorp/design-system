@@ -15,16 +15,16 @@ Here is the API for the `RadioCard` component:
   <C.Property @name="disabled" @type="boolean">
     The input control's disabled attribute
   </C.Property>
-  <C.Property @name="controlPosition" @type="enum" @value="bottom, left" @default="bottom">
+  <C.Property @name="controlPosition" @type="enum" @values={{array "bottom" "left" }} @default="bottom">
     Sets the position of the form control in relation to the card content.
   </C.Property>
-  <C.Property @name="alignment" @type="enum" @value="left, center" @default="left">
+  <C.Property @name="alignment" @type="enum" @values={{array "left" "center" }} @default="left">
     Sets the alignment of the card content.
   </C.Property>
-  <C.Property @name="layout" @type="string" @value="fluid, fixed" @default="fluid">
+  <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
     _Notice: by default the card will expand to fit the parent container. When used in a group the cards will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed` a `@maxWidth` value must be specified to constrain the card._
   </C.Property>
-  <C.Property @name="maxWidth" @type="string" @value="any valid CSS width (%, vw, etc)">
+  <C.Property @name="maxWidth" @type="string" @valueNote="any valid CSS width (%, vw, etc)">
     When used with a `fluid` layout, this parameter will determine the number of cards shown per row (for example `25%` will result in 4 cards). When used with a `fixed` layout, this parameter will preserve the width of the card and wrap cards on multiple rows if necessary.
   </C.Property>
   <C.Property @name="extraAriaDescribedBy" @type="string">
@@ -62,10 +62,10 @@ Here is the API for the `RadioCard` component:
 Here is the API for the "group" component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="controlPosition" @type="enum" @value="bottom, left" @default="bottom">
+  <C.Property @name="controlPosition" @type="enum" @values={{array "bottom" "left" }} @default="bottom">
     Sets the position of the form control in relation to the card content.
   </C.Property>
-  <C.Property @name="alignment" @type="enum" @value="left, center" @default="left">
+  <C.Property @name="alignment" @type="enum" @values={{array "left" "center" }} @default="left">
     Sets the alignment of the card content.
   </C.Property>
   <C.Property @name="name" @type="string">
@@ -74,7 +74,7 @@ Here is the API for the "group" component:
   <C.Property @name="isRequired" @type="boolean">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
   </C.Property>
-  <C.Property @name="layout" @type="string" @value="fluid, fixed" @default="fluid">
+  <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
     _Notice: by default the cards will expand to fit the parent container and will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed` a `@maxWidth` value must be specified for each `RadioCard` to constrain them._
   </C.Property>
 </Doc::ComponentApi>

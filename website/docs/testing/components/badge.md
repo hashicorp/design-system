@@ -17,7 +17,7 @@ layout:
 <Doc::Badge @type="success">success</Doc::Badge>
 <Doc::Badge @type="warning">warning</Doc::Badge>
 <Doc::Badge @type="critical">critical</Doc::Badge>
-
+<Doc::Badge @type="outlined">outlined</Doc::Badge>
 
 ------
 

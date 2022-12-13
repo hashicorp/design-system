@@ -2,12 +2,12 @@
 title: Elevation
 ---
 
-<section id="section-code" data-markdown="1">
+<section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/showcase.md"
 </section>
 
-<section id="section-specifications" data-markdown="1">
+<section data-tab="Specifications">
   @include "partials/specifications/design-guidelines.md"
 </section>
 

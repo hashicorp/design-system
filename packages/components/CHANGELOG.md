@@ -1,5 +1,14 @@
 # @hashicorp/design-system-components
 
+## 1.4.1
+
+### Patch Changes
+
+- [#740](https://github.com/hashicorp/design-system/pull/740) [`cd1a09307`](https://github.com/hashicorp/design-system/commit/cd1a09307aef9617e7a31a5d9e722417f4c9045e) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `indeterminate` style to `Checkbox` component
+
+- Updated dependencies [[`92c83961f`](https://github.com/hashicorp/design-system/commit/92c83961f0e8b01e52e3c596c85871ec5cf8c94d)]:
+  - @hashicorp/design-system-tokens@1.3.0
+
 ## 1.4.0
 
 ### Minor Changes

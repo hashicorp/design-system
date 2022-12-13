@@ -1,5 +1,5 @@
 ---
-title: About
+title: Overview
 description: This is the (missing) long description of the component, that will come from the frontmatter attributes
 ---
 
