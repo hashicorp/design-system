@@ -68,8 +68,8 @@ Banner included directly via `partial`
 
 @include "partials/simple-banner.md"
 
-Banner included via `partial` inside a `&lt;section&gt;`
+Banner included via `partial` inside a `<section>`
 
-<section id="section-guidelines" data-markdown="1">
+<section data-tab="Guidelines">
     @include "partials/simple-banner.md"
 </section>
