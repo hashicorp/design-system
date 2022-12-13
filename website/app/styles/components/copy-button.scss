@@ -8,6 +8,10 @@
   max-width: 100%;
   border: 1px solid transparent;
   border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .doc-copy-button--type-solid {

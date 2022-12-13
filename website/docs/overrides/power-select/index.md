@@ -2,11 +2,11 @@
 title: PowerSelect
 ---
 
-<section id="section-guidelines" data-markdown="1">
+<section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
 </section>
 
-<section id="section-code" data-markdown="1">
+<section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/showcase.md"
 </section>
