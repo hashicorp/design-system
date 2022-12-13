@@ -49,7 +49,7 @@ $header-custom-breakpoint: 1000px;
 
   // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
 
-  .logo-logo-hds__hashicorp {
+  .doc-logo-hds__hashicorp {
     display: none;
 
     @media (min-width: $header-custom-breakpoint) {
