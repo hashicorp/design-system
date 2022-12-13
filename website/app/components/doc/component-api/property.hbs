@@ -12,7 +12,7 @@
   {{#if @required}}
     <dt class="doc-component-api__term doc-component-api__term--required">Required</dt>
     <dd class="doc-component-api__description doc-component-api__description--required">
-        <span class="doc-component-api__property-required">Required</span>
+      <Doc::Badge @type="outlined">Required</Doc::Badge>
     </dd>
   {{/if}}
   {{#if (or @values @valueNote)}}
