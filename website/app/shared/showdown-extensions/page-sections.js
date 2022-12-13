@@ -6,7 +6,7 @@ export const pageSections = function () {
     // see: https://github.com/showdownjs/showdown/wiki/Extensions#type-propertyrequired
     type: 'lang',
     filter: function (text) {
-      console.log('langExtension1 text', '\n', text, '\n\n');
+      // console.log('langExtension1 text', '\n', text, '\n\n');
       // https://regex101.com/r/ZMRcG9/1
       const langRegex = new RegExp(
         /^<section data-tab="([^>]*)">((.|\n)*?)<\/section>$/,
@@ -17,14 +17,14 @@ export const pageSections = function () {
         // see: https://github.com/showdownjs/showdown/blob/master/src/subParsers/makehtml/hashHTMLBlocks.js#L93-L95
         return `\n<%asp start="page-section" tab="${tab}" %>\n${content}\n<%asp end="page-section" %>\n`;
       });
-      console.log('langExtension2 text', '\n', text, '\n\n');
+      // console.log('langExtension2 text', '\n', text, '\n\n');
       return text;
     },
   };
   var outputExtension = {
     type: 'output',
     filter: function (text) {
-      console.log('outputExtension1 text', '\n', text, '\n\n');
+      // console.log('outputExtension1 text', '\n', text, '\n\n');
       text = text.replace(
         /<%asp start="page-section" tab="(.*)" %>\n?/g,
         function (_match, tab) {
@@ -34,7 +34,7 @@ export const pageSections = function () {
         }
       );
       text = text.replace(/\n?<%asp end="page-section" %>/g, '</section>');
-      console.log('outputExtension2 text', '\n', text, '\n\n');
+      // console.log('outputExtension2 text', '\n', text, '\n\n');
       return text;
     },
   };
