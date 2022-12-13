@@ -1,10 +1,10 @@
 Here is the API for the component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @required="true" @type="enum" @value="page, inline, compact">
+  <C.Property @name="type" @required="true" @type="enum" @values={{array "page" "inline" "compact" }}>
     Sets the type of alert.
   </C.Property>
-  <C.Property @name="color" @type="enum" @value="neutral, highlight, success, warning, critical" @default="neutral">
+  <C.Property @name="color" @type="enum" @values={{array "neutral" "highlight" "success" "warning" "critical" }} @default="neutral">
     Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden. `color` results in a default `icon`, which **can** be overridden.
   </C.Property>
   <C.Property @name="icon" @type="string | false">

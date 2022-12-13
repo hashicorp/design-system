@@ -15,10 +15,10 @@ In addition this component provides this extra API:
   <C.Property @name="isInvalid" @type="boolean">
     It applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
   </C.Property>
-  <C.Property @name="width" @type="string" @value="any valid CSS width (px, rem, etc)">
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the `<textarea>` has a `width` of `100%` applied to it, so it fills the parent container. If a `@width` parameter is provided then the control will have a fixed width._
   </C.Property>
-  <C.Property @name="height" @type="string" @value="any valid CSS height (px, rem, etc)">
+  <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     _Notice: by default the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a `@height` parameter is provided then the control will have a fixed height._
   </C.Property>
   <C.Property @name="...attributes">

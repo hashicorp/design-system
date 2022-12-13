@@ -16,7 +16,7 @@ Here is the API for the component:
   <C.Property @name="isRouteExternal" @type="boolean">
     This controls if the "LinkTo" is external to the Ember engine ([more details here](https://ember-engines.com/docs/link-to-external)) in which case it will use a `<LinkToExternal>` instead of a simple `<LinkTo>` for the @route.
   </C.Property>
-  <C.Property @name="color" @type="enum" @value="primary, secondary" @default="primary">
+  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary">
     Sets the color of a link and it is allowed only when `@route` or `@href` are set.
   </C.Property>
   <C.Property @name="onDismiss" @type="function">
