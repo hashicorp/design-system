@@ -45,7 +45,7 @@ export default class ShowController extends Controller {
 
     let tab = this.tabs.find((el) => {
       // trim trailing slashes from query param
-      return el.label === this.selectedTab.replace(/\/$/, '');
+      return el.label.toLowerCase() === this.selectedTab.replace(/\/$/, '');
     });
     return tab ? tab.index : 0;
   }
@@ -151,7 +151,7 @@ export default class ShowController extends Controller {
       set(toc, 'isCurrent', toc.index === current);
     });
 
-    set(this, 'selectedTab', this.tabs[current].label);
+    set(this, 'selectedTab', this.tabs[current].label.toLowerCase());
 
     // leave for debugging
     // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
