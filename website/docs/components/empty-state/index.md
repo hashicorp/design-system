@@ -1,5 +1,6 @@
 ---
 title: EmptyState
+hidden: true
 ---
 
 <section id="section-code" data-markdown="1">

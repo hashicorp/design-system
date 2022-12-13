@@ -1,8 +1,6 @@
 // TABS
 
 .doc-page-tabs {
-  position: absolute;
-  bottom: 0;
   display: flex;
   gap: 16px;
   margin: 0;
@@ -15,15 +13,15 @@
 
   button {
     position: relative;
-    padding: 4px 12px;
+    padding: 3px 11px; // we need to take in account the transparent border
     color: var(--doc-color-gray-300);
     font-weight: 600;
     background-color: transparent;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
 
     &:hover {
-      color: #2264d6;
+      color: var(--doc-color-black);
     }
   }
 
@@ -34,12 +32,12 @@
       bottom: -1px;
       left: 0;
       height: 3px;
-      background-color: #2264d6;
+      background-color: var(--doc-color-black);
       content: "";
     }
 
     button {
-      color: #2264d6;
+      color: var(--doc-color-black);
     }
   }
 }

@@ -3,14 +3,6 @@
   Table
 </h2>
 <section>
-  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
-    Note: this component has some features that are still in flux, such as how to indicate column width, the
-    implementation of column sorting, and how to apply non-standard text-aligment. Your feedback on these particular
-    features is very important to us.</p>
-  <p class="dummy-paragraph">If, when trying this component out, you find that you have a particular use case that is
-    not covered, or you have difficulty using this component, please reach out to the HDS team.</p>
-</section>
-<section>
   <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
@@ -60,7 +52,8 @@
         <code class="dummy-code">Hds::Table::Tr</code>
         component is a template-only component. It supports
         <code class="dummy-code">...attributes</code>
-        but is not eligible to receive interactions. It can contain
+        but is not eligible to receive interactions (e.g., cannot have an onClick event handler attached directly to
+        it). It can contain
         <code class="dummy-code">Hds::Table::Th</code>
         or
         <code class="dummy-code">Hds::Table::Td</code>
@@ -80,7 +73,8 @@
         <code class="dummy-code">Hds::Table::Td</code>
         component is a template-only component. It supports
         <code class="dummy-code">...attributes</code>
-        but is not eligible to receive interactions itself; however it can contain interactive elements.
+        but is not eligible to receive interactions itself (e.g., cannot have an onClick event handler attached directly
+        to it); however it can contain interactive elements.
       </li>
     </ul>
   </p>
@@ -98,13 +92,39 @@
         <code class="dummy-code">:body</code>
         named block.</p></dd>
     <dt>columns <code>array</code></dt>
-    <dd><p>If defined, sets the column header content and indicates that the table should be sorted. For more
-        information about how this array is shaped, look at the code examples in the "How to Use" section.</p></dd>
-    <dt>sortingKeys <code>array</code></dt>
-    <dd><p>If defined, indicates which columns should be sortable (if only
-        <code class="dummy-code">columns</code>
-        is defined, all columns will be sortable). For more information about how this array is shaped, look at the code
-        examples in the "How to Use" section.</p></dd>
+    <dd><p>Use an array hash to define your table columns. While
+        <code class="dummy-code">key</code>
+        and
+        <code class="dummy-code">label</code>
+        are required, other options include
+        <code class="dummy-code">isSortable</code>,
+        <code class="dummy-code">align</code>
+        (for text-alignment), and
+        <code class="dummy-code">width</code>.</p></dd>
+    <dt>isSortable <code>boolean</code></dt>
+    <dd><p>Use with
+        <code class="dummy-code">column</code>. If defined, indicates that a column should be sortable.</p></dd>
+    <dt>align <code>enum</code></dt>
+    <dd>
+      <p>Determines the text alignment of table column's content. Use with
+        <code class="dummy-code">column</code>, or add to a
+        <code class="dummy-code">th</code>
+        or
+        <code class="dummy-code">td</code>, depending on your component invocation approach.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li class="default">left</li>
+        <li>center</li>
+        <li>right</li>
+      </ol>
+    </dd>
+    <dt>width <code>string</code></dt>
+    <dd>
+      <p>If set, determines column width through use of the
+        <code class="dummy-code">style</code>modifier. Use with
+        <code class="dummy-code">column</code>, or add directly to a
+        <code class="dummy-code">th</code>, depending on your component invocation approach.</p>
+    </dd>
     <dt>sortBy <code>string</code></dt>
     <dd><p>If defined, indicates which column should be pre-sorted when the table is rendered. For more information
         about how this value, look at the code examples in the "How to Use" section.</p></dd>
@@ -121,8 +141,17 @@
     </dd>
     <dt>isStriped <code>boolean</code></dt>
     <dd>
-      <p>Default: <span class="default">true</span></p>
-      <p>If set to <code class="dummy-code">false</code>, zebra striping on the table will not be applied.</p>
+      <p>Default: <span class="default">false</span></p>
+      <p>If set to <code class="dummy-code">true</code>, zebra striping on the table will be applied.</p>
+    </dd>
+    <dt>isFixedLayout <code>boolean</code></dt>
+    <dd>
+      <p>Default: <span class="default">false</span></p>
+      <p>If set to
+        <code class="dummy-code">true</code>, the
+        <code class="dummy-code">table-display</code>)(CSS) property will be set to
+        <code class="dummy-code">fixed</code>, which will automatically distribute columns equally based on the total
+        width of the table.</p>
     </dd>
     <dt>density <code>enum</code></dt>
     <dd>
@@ -136,16 +165,13 @@
     </dd>
     <dt>valign <code>enum</code></dt>
     <dd>
-      <p>If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all
-        of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.</p>
+      <p>If set, determines the vertical alignment of table's cell (td) content. While it is set to top by default,
+        content will be middle aligned vertically unless there are two or more lines of content in any cell in a given
+        row.</p>
       <p>Acceptable values:</p>
       <ol>
         <li class="default">top</li>
         <li>middle</li>
-        <li>bottom</li>
-        <li>baseline</li>
-        <li>sub</li>
-        <li>text-top</li>
       </ol>
     </dd>
     <dt>caption <code>string</code></dt>
@@ -168,14 +194,11 @@
     @language="handlebars"
     @code="<!-- app/templates/components/table.hbs -->
 
-<Hds::Table>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
-    </H.Tr>
-  </:head>
+<Hds::Table @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist'))
+    (hash key='album' label=(t 'components.table.headers.album'))
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}>
   <:body as |B|>
     <B.Tr>
       <B.Td>Custom Cell Content</B.Td>
@@ -187,7 +210,7 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <h4 class="dummy-h4">Simple Table with model defined (non-sortable)</h4>
+  <h4 class="dummy-h4">Non-sortable Table with model defined</h4>
   <p class="dummy-paragraph">In this invocation of the table component, you would define the data model and insert your
     own content into the
     <code class="dummy-code">:head</code>
@@ -200,14 +223,11 @@
     @language="handlebars"
     @code="<!-- app/templates/components/table.hbs -->
 
-<Hds::Table @model=\{{this.model}}>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
-    </H.Tr>
-  </:head>
+<Hds::Table @model=\{{this.model}} @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist'))
+    (hash key='album' label=(t 'components.table.headers.album'))
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}>
   <:body as |B|>
     <B.Tr>
       <B.Td>\{{B.data.artist}}</B.Td>
@@ -219,74 +239,16 @@
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">For documentation purposes, we imitated fetching data from an API and working with that as
-    our data model.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="javascript"
-    @code="import Route from '@ember/routing/route';
-
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    let response = await fetch('/api/folk.json');
-    let { data } = await response.json();
-
-    return data.map((model) => {
-      let { attributes } = model;
-      return { ...attributes };
-    });
-  }
-}"
-  />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <h4 class="dummy-h4">Sortable Table</h4>
-  <p class="dummy-paragraph">For the sortable table, the invocation and use is a little bit different:</p>
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">1. Shape the data model for use; in this example we've placed it in the page's route. In
-    this example, we're identifying the column headers (keys) and also capitalizing them. Each column object has two
-    pieces: a
-    <code class="dummy-code">key</code>-- used for the model, the
-    <code class="dummy-code">sortingKeys</code>
-    and
-    <code class="dummy-code">sortBy</code>; and the
-    <code class="dummy-code">label</code>-- used in the table header cells.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="javascript"
-    @code="// app/routes/components/table.js
-
-import Route from '@ember/routing/route';
-import { capitalize } from '@ember/string';
-
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    let response = await fetch('/api/folk.json');
-    let { data } = await response.json();
-
-    // make sure the variable is declared outside of the loop
-    // so we can return it in the model response
-    let columns;
-    let dataResponse = data.map((model) => {
-      let { id, attributes } = model;
-      columns = Object.keys(attributes);
-      return { id, ...attributes };
-    });
-    columns = columns.map((column) => {
-      return { key: column, label: capitalize(column) };
-    });
-    return { data: dataResponse, columns };
-  }
-}"
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">2. Invoke the
+  <p class="dummy-paragraph">Invoke the
     <span class="dummy-code">Hds::Table</span>
-    component in your template file.</p>
+    component in your template file, adding
+    <span class="dummy-code">isSortable="true"</span>
+    to the hash for the column(s) that you want to make sortable.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -295,7 +257,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
+  }}
 >
   <:body as |B|>
     <B.Tr>
@@ -308,7 +274,9 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">If you want, you can indicate that only specific columns should be sortable.</p>
+  <p class="dummy-paragraph">To indicate that a specific column should be pre-sorted, add
+    <span class="dummy-code">@sortBy</span>
+    to the table component invocation, setting the value to the key of the column to pre-sort.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -317,31 +285,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
-  @sortingKeys=\{{array 'artist' 'album'}}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>\{{B.data.artist}}</B.Td>
-      <B.Td>\{{B.data.album}}</B.Td>
-      <B.Td>\{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>"
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted.</p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="handlebars"
-    @code="<!-- app/templates/components/table.hbs -->
-
-<Hds::Table
-  @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
-  @sortingKeys=\{{array 'artist' 'album'}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year'))
+  }}
   @sortBy='artist'
 >
   <:body as |B|>
@@ -355,7 +303,11 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">You can also indicate that a specific column should be pre-sorted in a specific direction.</p>
+  <p class="dummy-paragraph">To indicate that the
+    <span class="dummy-code">@sortBy</span>
+    column should be pre-sorted in a specific direction, use
+    <span class="dummy-code">@sortOrder</span>
+    Note that pre-sorted columns are sorted ascending (asc) by default.</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -364,8 +316,11 @@ export default class ComponentsTableRoute extends Route {
 
 <Hds::Table
   @model=\{{this.model.data}}
-  @columns=\{{this.model.columns}}
-  @sortingKeys=\{{array 'artist' 'album'}}
+  @columns=\{{array
+    (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+    (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+    (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
+  }}
   @sortBy='artist'
   @sortOrder='desc'
 >
@@ -380,8 +335,12 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Here's a table implementation that uses an array hash with localized strings for the column
-    headers, indicates which columns should be sortable, and adds an overflow menu.</p>
+  <h4 class="dummy-h4">Other column options</h4>
+  <p class="dummy-paragraph"><strong>Column Width:</strong>
+    If a custom width is desired, add
+    <span class="dummy-code">width</span>
+    to the column's hash. Common measurement units (%, px, em, rem) are all acceptable for use, although using relative
+    units is better for accessibility. For example, this is a common use case for the overflow dropdown menu:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -391,12 +350,11 @@ export default class ComponentsTableRoute extends Route {
 <Hds::Table
   @model=\{{this.model.data}}
   @columns=\{{array
-      (hash key='artist' label=(t 'components.table.headers.artist'))
-      (hash key='album' label=(t 'components.table.headers.album'))
-      (hash key='year' label=(t 'components.table.headers.year'))
-      (hash key='other' label=(t 'global.titles.other'))
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+      (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+      (hash key='year' label=(t 'components.table.headers.year') isSortable='true')
+      (hash key='other' label=(t 'global.titles.other') width='20%')
     }}
-  @sortingKeys=\{{array 'artist' 'album' 'year'}}
 >
   <:body as |B|>
     <B.Tr>
@@ -429,7 +387,41 @@ export default class ComponentsTableRoute extends Route {
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
+  <p class="dummy-paragraph"><strong>Text Alignment:</strong>
+    Text alignment is set to
+    <span class="dummy-code">left</span>
+    by default, but can be changed to "right" or "center". For example, if a table had a column that contained numbers
+    with decimal points (or similar), that column should have right-aligned contents. Table headers and their associated
+    columns should have the same content aligment. In the table component, alignment can be indicated by using the
+    <span class="dummy-code">align</span>
+    in two places: the column's hash, and the associated
+    <span class="dummy-code">Td</span>
+    component.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="handlebars"
+    @code="<!-- app/templates/components/table.hbs -->
 
+<Hds::Table
+  @model=\{{this.model.data}}
+  @columns=\{{array
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable='true')
+      (hash key='album' label=(t 'components.table.headers.album') isSortable='true')
+      (hash key='vinyl-cost' label=(t 'components.table.headers.vinyl-cost') align='right')
+    }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>\{{B.data.artist}}</B.Td>
+      <B.Td>\{{B.data.album}}</B.Td>
+      <B.Td @align='right'>\{{B.data.vinyl-cost}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>"
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
 </section>
 <section>
   <h3 class="dummy-h3" id="design-guidelines">
@@ -482,12 +474,13 @@ export default class ComponentsTableRoute extends Route {
   </p>
   <p class="dummy-paragraph">There are a few critical items for developers to note:
     <ul>
-      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions. If an
-        interactive element is desired, place it within a table cell element (<code class="dummy-code">td</code>).</li>
+      <li>The table row element (<code class="dummy-code">tr</code>) is not eligible to receive interactions (i.e.,
+        cannot have an onClick event handler attached directly to it). If an interactive element is desired, place it
+        within the table cell element (<code class="dummy-code">td</code>), e.g.,
+        <code class="dummy-code">&lt;td>&lt;button type="button">click me&lt;/button>&lt;/td></code>.</li>
       <li>When providing additional or alternative styles to the table element, do not change the
         <code class="dummy-code">display</code>
-        property in the CSS. This alters how the table is presented to the user with assistive technology, and they will
-        no longer be presented with a table.
+        property in the CSS. This alters how the table is presented to the user with assistive technology.
       </li>
     </ul>
   </p>
@@ -631,14 +624,14 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with model defined
   </h4>
-  <Hds::Table @model={{this.model.data}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -650,14 +643,15 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with density set to "short"
   </h4>
-  <Hds::Table @model={{this.model.data}} @density="short">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @density="short"
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -669,14 +663,15 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Static table with density set to "tall"
   </h4>
-  <Hds::Table @model={{this.model.data}} @density="tall">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @density="tall"
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -693,12 +688,12 @@ export default class ComponentsTableRoute extends Route {
       <H.Tr>
         <H.Th>Cell Header</H.Th>
         <H.Th>Cell Header</H.Th>
-        <H.Th>Cell Header</H.Th>
+        <H.Th @width="20%">Custom Width</H.Th>
       </H.Tr>
     </:head>
     <:body as |B|>
       <B.Tr>
-        <B.Td>Cell Content</B.Td>
+        <B.Th>Scope Row</B.Th>
         <B.Td>Cell Content</B.Td>
         <B.Td>Cell Content</B.Td>
       </B.Tr>
@@ -715,9 +710,9 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Static table with no striping
+    Static table with row striping
   </h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}} @caption="Static table with no striping">
+  <Hds::Table @model={{this.model.data}} @isStriped={{true}} @caption="Static table with row striping">
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
@@ -736,7 +731,14 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Sortable table (all columns sortable)
   </h4>
-  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}}>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -748,7 +750,14 @@ export default class ComponentsTableRoute extends Route {
   <h4 class="dummy-h4">
     Sortable table (only some columns sortable)
   </h4>
-  <Hds::Table @model={{this.model.data}} @columns={{take 3 this.model.columns}} @sortingKeys={{array "artist" "album"}}>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
@@ -762,8 +771,11 @@ export default class ComponentsTableRoute extends Route {
   </h4>
   <Hds::Table
     @model={{this.model.data}}
-    @columns={{take 3 this.model.columns}}
-    @sortingKeys={{array "artist" "album"}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year")
+    }}
     @sortBy="artist"
   >
     <:body as |B|>
@@ -775,14 +787,16 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table, some columns sortable, artist column pre-sorted in descending order.
+    Sortable table, last column not sortable and has custom width.
   </h4>
   <Hds::Table
     @model={{this.model.data}}
-    @columns={{union (take 3 this.model.columns) (hash key="other" label="Other")}}
-    @sortingKeys={{array "artist" "album"}}
-    @sortBy="artist"
-    @sortOrder="desc"
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="other" label="Other" width="55px")
+    }}
     @valign="middle"
   >
     <:body as |B|>
@@ -803,35 +817,35 @@ export default class ComponentsTableRoute extends Route {
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with a custom-width column and right-aligned text column</h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th class="db-table-w1-7">Release Year</H.Th>
-        <H.Th class="db-table-text-right">Current Vinyl Cost (USD)</H.Th>
-      </H.Tr>
-    </:head>
+  <h4 class="dummy-h4">Table where last column has right-aligned text</h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="vinyl-cost" label="Vinyl Cost (USD)" align="right")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
-        <B.Td class="db-table-w1-7">{{B.data.year}}</B.Td>
-        <B.Td class="db-table-text-right">{{B.data.vinyl-cost}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with different types of cell content (no striping because badges are used)</h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{false}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-        <H.Th>Additional Actions As Buttons</H.Th>
-      </H.Tr>
-    </:head>
+  <h4 class="dummy-h4">Table with various cell content</h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="other" label="Additional Actions")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
@@ -855,14 +869,15 @@ export default class ComponentsTableRoute extends Route {
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">Table with multi-line content</h4>
-  <Hds::Table @model={{this.model.data}} @caption="table with multi-line content">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Related Quote about the artist</H.Th>
-      </H.Tr>
-    </:head>
+  <Hds::Table
+    @model={{this.model.data}}
+    @caption="table with multi-line content"
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="quote" label="Quote" width="50%")
+    }}
+  >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>

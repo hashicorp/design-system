@@ -2743,7 +2743,7 @@ __metadata:
     "@embroider/test-setup": ^1.8.3
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@hashicorp/design-system-tokens": ^1.2.0
+    "@hashicorp/design-system-tokens": ^1.3.0
     "@hashicorp/ember-flight-icons": ^3.0.2
     "@percy/cli": ^1.16.0
     "@percy/ember": ^4.0.0
@@ -2803,7 +2803,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@^1.2.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@^1.3.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -23136,6 +23136,7 @@ __metadata:
     ember-math-helpers: ^2.18.2
     ember-meta: ^2.0.0
     ember-page-title: ^7.0.0
+    ember-power-select: ^6.0.0
     ember-prism: ^0.10.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3

@@ -61,6 +61,7 @@
     "ember-math-helpers": "^2.18.2",
     "ember-meta": "^2.0.0",
     "ember-page-title": "^7.0.0",
+    "ember-power-select": "^6.0.0",
     "ember-prism": "^0.10.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",

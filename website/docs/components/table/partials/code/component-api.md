@@ -25,16 +25,16 @@ Additionally, there are child components that can also be used to provide custom
   <C.Property @name="sortBy" @type="string">
     If defined, indicates which column should be pre-sorted when the table is rendered. For more information about how this value, look at the code examples in the "How to Use" section.
   </C.Property>
-  <C.Property @name="sortOrder" @type="string" @value="asc, desc" @default="asc">
+  <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. All columns are unsorted by default.
   </C.Property>
   <C.Property @name="isStriped" @type="boolean">
     If set to `false`, zebra striping on the table will not be applied.
   </C.Property>
-  <C.Property @name="density" @type="enum" @value="short, medium, tall" @default="medium">
+  <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density, or height, of the row.
   </C.Property>
-  <C.Property @name="valign" @type="enum" @value="top, middle, bottom, baseline, sub, text-top" @default="top">
+  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" "bottom" "baseline" "sub" "text-top" }} @default="top">
     If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.
   </C.Property>
   <C.Property @name="caption" @type="string">

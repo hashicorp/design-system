@@ -1,4 +1,0 @@
----
-title: Missing component title
----
-

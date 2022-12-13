@@ -4,13 +4,15 @@
 @use "../typography/mixins" as *;
 
 .doc-do-dont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin: 16px 0;
 }
 
 .doc-do-dont__badge {
   @include doc-font-style-body-small();
   width: min-content;
-  margin-bottom: 8px;
   padding: 3px 12px 4px;
   color: white; // TODO transform to token
   font-weight: 600;
@@ -26,17 +28,17 @@
 }
 
 .doc-do-dont__content {
-  padding: 12px;
+  padding: 16px;
   border-style: solid;
-  border-width: 1px;
+  border-width: 4px 1px 1px 1px;
   border-radius: 3px;
 
   @include breakpoint.medium () {
-    padding: 18px;
+    padding: 24px;
   }
 
   @include breakpoint.large () {
-    padding: 24px;
+    padding: 32px;
   }
 
   .doc-do-dont--type-do & {

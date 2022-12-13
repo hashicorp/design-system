@@ -58,7 +58,11 @@ class TableOfContents extends Plugin {
       if (fs.existsSync(fullFilePath)) {
         const jsonData = fs.readJSONSync(fullFilePath);
         // notice: the page attributes are quite verbose, so we select only a subset (what we really need for the TOC generation)
-        pageAttributes = _.pick(jsonData.data.attributes, ['title']);
+        pageAttributes = _.pick(jsonData.data.attributes, [
+          'title',
+          'weight',
+          'hidden',
+        ]);
       } else {
         console.log('File NOT found!', fullFilePath);
         pageAttributes = {};
@@ -68,13 +72,15 @@ class TableOfContents extends Plugin {
       // notice: it's used for sorting criteria in the navigation
       pageAttributes.weight = pageAttributes.weight ?? 100;
 
-      flatPageList.push({
-        filePath,
-        pageURL,
-        pageName,
-        pageParents,
-        pageAttributes,
-      });
+      if (!pageAttributes.hidden) {
+        flatPageList.push({
+          filePath,
+          pageURL,
+          pageName,
+          pageParents,
+          pageAttributes,
+        });
+      }
     });
 
     // notice: we pre-sort the list so we don't need to do it in the structured tree (much harder!)
