@@ -58,3 +58,12 @@ This is a paragraph
 - This is
 - A list
 !!!
+
+-----
+
+## Imported banners
+
+
+Banner included directly via `partial`
+
+@include "partials/simple-banner.md"
