@@ -2,6 +2,6 @@
 title: Border
 ---
 
-<section id="section-specs" data-markdown="1">
+<section data-tab="Guidelines">
   @include "partials/border-radius.md"
 </section>
