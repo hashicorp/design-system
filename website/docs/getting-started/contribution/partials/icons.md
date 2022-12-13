@@ -1,8 +1,6 @@
-## Contributing
-
 Contributing is not required to get new icons added to the library, but HashiCorp designers are welcome and encouraged to contribute to Flight.
 
-### Contribution workflow
+## Contribution workflow
 
 1.  [File an icon request](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform) to kick-off work on adding a new icon.
     - Outline the use case for a new icon, why an existing icon isn't a good fit if there is one, and include any screenshots or WIP if you've done some initial work on a proposal for the icon.
@@ -17,11 +15,11 @@ Contributing is not required to get new icons added to the library, but HashiCor
 5.  When your icon is ready, post the link on #team-design-system or tag the design system designers on a Figma comment to close the loop.
     - The Design Systems team can then add the icon to the grid, productionize it, and publish from the production file.
 
-### Drawing icons
+## Drawing icons
 
-#### Dimensions
+### Dimensions
 
-#### 24px
+### 24px
 
 ![](/assets/foundations/flight-icons/icon-dimensions-sq-24.png =112x112)
 
@@ -30,7 +28,7 @@ Contributing is not required to get new icons added to the library, but HashiCor
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-3.png) 2px
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
 
-#### 16px
+### 16px
 
 ![](/assets/foundations/flight-icons/icon-dimensions-sq-16.png =80x80)
 
@@ -39,7 +37,7 @@ Contributing is not required to get new icons added to the library, but HashiCor
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-3.png) 1.5px
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
 
-#### 24px
+### 24px
 
 ![](/assets/foundations/flight-icons/icon-dimensions-cr-24.png =112x112)
 
@@ -47,7 +45,7 @@ Contributing is not required to get new icons added to the library, but HashiCor
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 1.75px
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
 
-#### 16px
+### 16px
 
 ![](/assets/foundations/flight-icons/icon-dimensions-cr-16.png =80x80)
 
@@ -55,7 +53,7 @@ Contributing is not required to get new icons added to the library, but HashiCor
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 0.75px
 - ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
 
-#### Geometry
+### Geometry
 
 - Stroke weight is always 1.5px, center with round joins and round end points
 

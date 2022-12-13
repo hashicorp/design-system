@@ -21,6 +21,3 @@ layout:
   @include "partials/design-guidelines.md"
 </section>
 
-<section data-tab="Contributing">
-  @include "partials/contributing.md"
-</section>

@@ -1,7 +1,3 @@
----
-title: Contribution
----
-
 ## Overview
 
 While we don't accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
