@@ -11,7 +11,7 @@ Here is the API for the "base" component:
   <C.Property @name="isInvalid" @type="boolean">
     It applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
   </C.Property>
-  <C.Property @name="width" @type="string" @value="any valid CSS width (px, rem, etc)">
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the `<select>` has an intrinsic width based on its content. If a `@width` parameter is provided then the control will have a fixed width._
   </C.Property>
   <C.Property @name="...attributes">
@@ -37,7 +37,7 @@ Here is the API for the "field" component:
   <C.Property @name="isInvalid" @type="boolean">
     It applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
   </C.Property>
-  <C.Property @name="width" @type="string" @value="any valid CSS width (px, rem, etc)">
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the `<select>` has an intrinsic width based on its content. If a `@width` parameter is provided then the control will have a fixed width. This width will be applied **only** to the control, not the other elements of the field._
   </C.Property>
   <C.Property @name="id" @type="string">

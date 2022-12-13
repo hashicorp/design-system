@@ -1,9 +1,9 @@
 Here is the API for the component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="size" @type="enum" @value="small, medium, large" @default="medium"/>
-  <C.Property @name="type" @type="enum" @value="filled, inverted, outlined" @default="filled"/>
-  <C.Property @name="color" @type="enum" @value="neutral, neutral-dark-mode, highlight, critical, success, warning" @default="neutral"/>
+  <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
+  <C.Property @name="type" @type="enum" @values={{array "filled" "inverted" "outlined" }} @default="filled"/>
+  <C.Property @name="color" @type="enum" @values={{array "neutral" "neutral-dark-mode" "highlight" "critical" "success" "warning" }} @default="neutral"/>
   <C.Property @name="text" @type="string">
     The text of the badge or value of the screen-reader only element if `isIconOnly` is set to `true`. _If no text value is defined an error will be thrown._
   </C.Property>

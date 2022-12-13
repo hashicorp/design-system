@@ -62,7 +62,6 @@
 }
 
 .doc-copy-button__visible-value {
-  @include doc-font-style-code();
   margin-right: 8px;
   color: var(--doc-color-black);
   text-align: left;

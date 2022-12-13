@@ -4,7 +4,7 @@ There are several ways to implement the table component. These examples will be 
 
 If you have your own content and don't want to use a model, you can still benefit from the components themselves. Here is an example of such an invocation in a template:
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table>
@@ -29,7 +29,7 @@ If you have your own content and don't want to use a model, you can still benefi
 
 In this invocation of the table component, you would define the data model and insert your own content into the `:head` and `:body` blocks. Here is an example of such an invocation in a template:
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table @model={{this.model}}>
@@ -103,7 +103,7 @@ export default class ComponentsTableRoute extends Route {
 
 2\. Invoke the Hds::Table component in your template file.
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table
@@ -122,7 +122,7 @@ export default class ComponentsTableRoute extends Route {
 
 If you want, you can indicate that only specific columns should be sortable.
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table
@@ -142,7 +142,7 @@ If you want, you can indicate that only specific columns should be sortable.
 
 You can also indicate that a specific column should be pre-sorted.
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table
@@ -163,7 +163,7 @@ You can also indicate that a specific column should be pre-sorted.
 
 You can also indicate that a specific column should be pre-sorted in a specific direction.
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table
@@ -185,7 +185,7 @@ You can also indicate that a specific column should be pre-sorted in a specific 
 
 Here's a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
-```handlebars
+```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
 <Hds::Table

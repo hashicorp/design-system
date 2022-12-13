@@ -7,6 +7,7 @@
 @import "tokens";
 
 // Global declarations
+@import "global";
 @import "typography";
 
 // Pages declarations
@@ -19,8 +20,10 @@
 @import "components/cards";
 @import "components/code-block";
 @import "components/color-card";
+@import "components/component-api";
 @import "components/copy-button";
 @import "components/do-dont";
+@import "components/icons-list";
 @import "components/placeholder";
 @import "components/token-card";
 @import "components/vars-list";
@@ -52,6 +55,18 @@ body {
   padding: 0;
 }
 
+.doc-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+}
 
 // PERCY
 

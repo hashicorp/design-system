@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.3.0
+
+### Minor Changes
+
+- [#740](https://github.com/hashicorp/design-system/pull/740) [`92c83961f`](https://github.com/hashicorp/design-system/commit/92c83961f0e8b01e52e3c596c85871ec5cf8c94d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design tokens for indeterminate `Checkbox`
+
 ## 1.2.0
 
 ### Minor Changes

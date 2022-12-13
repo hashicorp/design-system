@@ -9,11 +9,13 @@
   padding: 0 var(--doc-page-stage-gutter-small);
 
   // TODO! temp until we decide with Heather the correct vertical padding of the "content" area
-  > :first-child {
+  > :first-child,
+  > section {
     margin-top: 48px;
   }
 
-  > :last-child {
+  > :last-child,
+  > section {
     margin-bottom: 48px;
   }
 

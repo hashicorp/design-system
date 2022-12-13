@@ -1,0 +1,146 @@
+// COMPONENT API
+
+// Property grid areas
+// | 1 | 3 | 5 |
+// | 2 | 4 | 5 |
+// | 6 | 6 | 6 |
+// | 7 | 7 | 7 |
+// | 8 | 8 | 8 |
+// | 9 | 9 | 9 |
+
+@use "../breakpoints" as breakpoint;
+@use "../typography/mixins";
+
+
+.doc-component-api {
+  margin-bottom: 24px;
+}
+
+.doc-component-api__property {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--doc-color-gray-500);
+
+  @include breakpoint.small () {
+    display: block;
+  }
+}
+
+.doc-component-api__term {
+  @include doc-font-style-label();
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  color: var(--doc-color-gray-300);
+
+  &--name {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  &--type {
+    grid-area: 1 / 2 / 2 / 3;
+    padding-left: 8px;
+
+    @include breakpoint.small () {
+      padding-left: 0;
+    }
+  }
+
+  &--required {
+    display: none;
+  }
+
+  &--values {
+    grid-area: 3 / 1 / 4 / 4;
+  }
+
+  &--description {
+    grid-area: 5 / 1 / 6 / 4;
+  }
+}
+
+.doc-component-api__description {
+  @include doc-font-style-body-small ();
+  margin: 0 0 16px;
+  padding: 0;
+
+  &--name {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  &--type {
+    grid-area: 2 / 2 / 3 / 3;
+    padding-left: 8px;
+
+    @include breakpoint.small () {
+      padding-left: 0;
+    }
+  }
+
+  &--required {
+    grid-area: 1 / 3 / 3 / 4;
+    text-align: right;
+
+    @include breakpoint.small () {
+      position: absolute;
+      top: 24px;
+      right: 16px;
+    }
+  }
+
+  &--values {
+    grid-area: 4 / 1 / 5 / 4;
+  }
+
+  &--description {
+    grid-area: 6 / 1 / 7 / 4;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.doc-component-api__property-name {
+  @include doc-font-style-code ();
+  display: inline-block;
+  padding: 0 7px;
+  color: var(--doc-color-white);
+  font-weight: 700;
+  background-color: var(--doc-color-gray-200);
+  border-radius: 3px;
+}
+
+.doc-component-api__property-type {
+  @include doc-font-style-code ();
+  display: inline-block;
+  color: var(--doc-color-gray-100);
+}
+
+.doc-component-api__property-values {
+  @include doc-font-style-code ();
+  margin: 0;
+  padding: 0;
+}
+
+.doc-component-api__property-value {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 0 7px;
+  color: var(--doc-color-feedback-information-200);
+  background-color: var(--doc-color-feedback-information-400);
+  border-radius: 3px;
+}
+
+.doc-component-api__property-value--default {
+  display: inline-block;
+  padding: 0 7px;
+  color: var(--doc-color-white);
+  font-weight: 700;
+  background-color: var(--doc-color-feedback-information-200);
+  border-radius: 3px;
+}

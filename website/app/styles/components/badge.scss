@@ -43,3 +43,7 @@
   background-color: var(--doc-color-feedback-critical-100);
 }
 
+.doc-badge--type-outlined {
+  color: var(--doc-color-gray-300);
+  border: 1px solid var(--doc-color-gray-400);
+}

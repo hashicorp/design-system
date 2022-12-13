@@ -1,5 +1,6 @@
 ---
 title: Avatar
+hidden: true
 ---
 
 <section id="section-guidelines" data-markdown="1">
