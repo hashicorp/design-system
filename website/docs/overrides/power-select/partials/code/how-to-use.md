@@ -20,8 +20,8 @@ Invocation of the component with overrides would look something like this:
 ```handlebars
 <div class="hds-power-select">
   <PowerSelect
-    @options={{@model.OPTIONS}}
-    @selected={{@model.SELECTED}}
+    @options={{this.OPTIONS}}
+    @selected={{this.SELECTED}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
     as |option|
@@ -42,8 +42,8 @@ When used with the `@searchEnabled` argument, the input is automatically styled 
 ```handlebars
 <div class="hds-power-select">
   <PowerSelect
-    @options={{@model.OPTIONS}}
-    @selected={{@model.SELECTED}}
+    @options={{this.OPTIONS}}
+    @selected={{this.SELECTED}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
@@ -54,10 +54,6 @@ When used with the `@searchEnabled` argument, the input is automatically styled 
 </div>
 ```
 
-Renders to:
-
-{{option}}
-
 #### After options block
 
 To consistently style the `@afterOptionsComponent` use the `hds-power-select__after-options` class on the outermost element of the after options component.
@@ -65,8 +61,8 @@ To consistently style the `@afterOptionsComponent` use the `hds-power-select__af
 ```handlebars
 <div class="hds-power-select">
   <PowerSelect
-    @options={{@model.OPTIONS}}
-    @selected={{@model.SELECTED}}
+    @options={{this.OPTIONS}}
+    @selected={{this.SELECTED}}
     @afterOptionsComponent={{"power-select/after-options"}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
@@ -85,10 +81,6 @@ Where `power-select/after-options.hbs` would look like this:
 </div>
 ```
 
-Renders to:
-
-{{option}}
-
 #### Multiple selection
 
 When multiple options are allowed the selected items are automatically styled to resemble the [`Tag`](/components/tag/) component.
@@ -96,8 +88,8 @@ When multiple options are allowed the selected items are automatically styled to
 ```handlebars
 <div class="hds-power-select">
   <PowerSelectMultiple
-    @options={{@model.OPTIONS}}
-    @selected={{@model.SELECTEDMULTIPLE}}
+    @options={{this.OPTIONS}}
+    @selected={{this.SELECTEDMULTIPLE}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
     as |option|
