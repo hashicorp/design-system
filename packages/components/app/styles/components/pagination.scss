@@ -168,7 +168,7 @@ $pagination-height: calc(36px + 6px);
 }
 
 // Responsive layout
-// max-width is based on where component layout breaks down currently, not finalized
+// max-width is based on where component layout breaks down
 @media screen and (max-width: 1000px) {
   .hds-pagination {
     display: flex !important;
