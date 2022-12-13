@@ -1,27 +1,26 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { htmlSafe } from '@ember/template';
 
 export default class DocColorSwatchComponent extends Component {
-  colors = [
-    {
-      type: 'blue',
-      name: 'palette-blue-100',
-      'css-variable': '--token-color-palette-blue-100',
-      'css-helper': 'hds-palette-blue-100',
-      'css-hex': '#cce3fe',
-    },
-    {
-      type: 'blue',
-      name: 'palette-blue-200',
-      'css-variable': '--token-color-palette-blue-200',
-      'css-helper': 'hds-palette-blue-200',
-      'css-hex': '#1060ff',
-    },
-  ];
+  get colorName() {
+    return this.args.color.colorName;
+  }
 
-  @action
-  copyToClipboard() {
-    let consoleLog = 'Clicked!';
-    console.log(consoleLog);
+  get cssVariable() {
+    return this.args.color.cssVariable;
+  }
+
+  get cssHelper() {
+    return this.args.color.cssHelper ?? false;
+  }
+
+  get hexValue() {
+    return this.args.color.value;
+  }
+
+  get cardStyle() {
+    let style = '';
+    style += `background-color: ${this.hexValue};`;
+    return htmlSafe(style);
   }
 }

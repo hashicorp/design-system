@@ -1,25 +1,24 @@
-{{#each this.colors as |color|}}
+
   <div class="doc-color-swatch">
-    <div class="doc-color-swatch__preview doc-color-swatch__preview-{{color.css-helper}}"></div>
+    <div class="doc-color-swatch__preview doc-color-swatch__preview-{{this.cssHelper}}" style={{this.cardStyle}}></div>
     <div class="doc-color-swatch__info">
-      <h3 class="doc-color-swatch__name">{{color.name}}</h3>
+      <h3 class="doc-color-swatch__name">{{this.colorName}}</h3>
       <ul class="doc-color-swatch__list" role="list">
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">CSS Variable</span>
-          <Doc::CopyButton @textToCopy={{color.css-variable}} @type="ghost" />
+          <Doc::CopyButton @textToCopy={{this.cssVariable}} @type="ghost" />
 
         </li>
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">CSS Helper</span>
-          <Doc::CopyButton @textToCopy={{color.css-helper}} @textToShow=".{{color.css-helper}}" @type="ghost" />
+          <Doc::CopyButton @textToCopy={{this.cssHelper}} @textToShow=".{{this.cssHelper}}" @type="ghost" />
 
         </li>
         <li class="doc-color-swatch__listitem">
           <span class="doc-color-swatch__listitem--context">HEX</span>
-          <Doc::CopyButton @textToCopy={{color.css-hex}} @type="ghost" />
+          <Doc::CopyButton @textToCopy={{this.hexValue}} @type="ghost" />
 
         </li>
       </ul>
     </div>
   </div>
-{{/each}}
