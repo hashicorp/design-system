@@ -1,17 +1,15 @@
 <footer class="doc-page-footer" ...attributes>
-  <a class="doc-page-footer__logo" href="https://www.hashicorp.com/" target="_blank" rel="noopener noreferrer">
-    <Doc::Logo::HashiCorp />
-  </a>
   <div class="doc-page-footer__links doc-text-body-small">
     <a href="#">Accessibility</a>
     <a href="#">Careers</a>
     <a href="#">Cookie Manager</a>
     <a href="#">Terms of Use</a>
     <a href="#">Privacy</a>
+    <span role="presentation">–</span>
     <LinkTo @route="testing">Testing</LinkTo>
-  </div>
-  <div class="doc-page-footer__extra">
-    <Doc::NpmVersion />
     <button type="button" class="doc-page-footer__🌈" {{on "click" this.toggleLayoutColors}}>🌈</button>
   </div>
+  <a class="doc-page-footer__logo" href="https://www.hashicorp.com/" target="_blank" rel="noopener noreferrer">
+    <Doc::Logo::HashiCorp />
+  </a>
 </footer>

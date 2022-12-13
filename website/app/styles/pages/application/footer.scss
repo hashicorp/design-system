@@ -12,14 +12,19 @@
   padding: 1rem 2rem;
   color: var(--doc-color-black);
 
-  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
-  body.application.index & {
-    color: var(--doc-color-white);
-  }
-
   @include breakpoint.medium-and-above () {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+  body.application.index & {
+    flex-direction: column-reverse;
+    color: var(--doc-color-white);
+
+    @include breakpoint.medium-and-above () {
+      flex-direction: row-reverse;
+    }
   }
 }
 
@@ -55,12 +60,4 @@
       color: var(--doc-color-gray-400);
     }
   }
-}
-
-.doc-page-footer__extra {
-  display: flex;
-  flex: none;
-  flex-wrap: nowrap;
-  gap: 16px;
-  align-items: center;
 }
