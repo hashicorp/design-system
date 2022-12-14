@@ -1,4 +1,5 @@
 import { elementsToClassNames } from './showdown-extensions/elements-to-classnames';
+import { pageSections } from './showdown-extensions/page-sections';
 import { contentBlocks } from './showdown-extensions/content-blocks';
 
 // SET SHOWDOWN SETTINGS HERE:
@@ -24,5 +25,5 @@ export const showdownConfig = {
   ghCompatibleHeaderId: true,
   // add default class for each HTML element generated
   // see: https://github.com/showdownjs/showdown/wiki/Extensions + https://showdownjs.com/docs/tutorials/add-default-class-to-html/
-  extensions: [...elementsToClassNames, contentBlocks],
+  extensions: [pageSections, ...elementsToClassNames, contentBlocks],
 };

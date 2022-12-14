@@ -558,6 +558,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-string-parser@npm:^7.19.4":
+  version: 7.19.4
+  resolution: "@babel/helper-string-parser@npm:7.19.4"
+  checksum: b2f8a3920b30dfac81ec282ac4ad9598ea170648f8254b10f475abe6d944808fb006aab325d3eb5a8ad3bea8dfa888cfa6ef471050dae5748497c110ec060943
+  languageName: node
+  linkType: hard
+
 "@babel/helper-validator-identifier@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/helper-validator-identifier@npm:7.16.7"
@@ -1892,6 +1899,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/types@npm:^7.12.13":
+  version: 7.20.5
+  resolution: "@babel/types@npm:7.20.5"
+  dependencies:
+    "@babel/helper-string-parser": ^7.19.4
+    "@babel/helper-validator-identifier": ^7.19.1
+    to-fast-properties: ^2.0.0
+  checksum: 773f0a1ad9f6ca5c5beaf751d1d8d81b9130de87689d1321fc911d73c3b1167326d66f0ae086a27fb5bfc8b4ee3ffebf1339be50d3b4d8015719692468c31f2d
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:^7.18.10, @babel/types@npm:^7.18.6, @babel/types@npm:^7.19.0":
   version: 7.19.0
   resolution: "@babel/types@npm:7.19.0"
@@ -2881,7 +2899,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@^2.12.0, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@^2.12.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
@@ -10704,6 +10722,22 @@ __metadata:
     ember-compatibility-helpers: ^1.2.0
     ember-destroyable-polyfill: ^2.0.2
   checksum: 23627a12ecce3ffa8d9785bc75a9373915c1f08e93e548df2a654f5342e7477a3f2b195fdb1a8ee7d29cbb2aa9640b29d8b8f1723ee742ee797c1ac11d2e0477
+  languageName: node
+  linkType: hard
+
+"ember-concurrency@npm:^2.3.7":
+  version: 2.3.7
+  resolution: "ember-concurrency@npm:2.3.7"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.12.13
+    "@babel/types": ^7.12.13
+    "@glimmer/tracking": ^1.0.4
+    ember-cli-babel: ^7.26.11
+    ember-cli-babel-plugin-helpers: ^1.1.1
+    ember-cli-htmlbars: ^5.7.1
+    ember-compatibility-helpers: ^1.2.0
+    ember-destroyable-polyfill: ^2.0.2
+  checksum: 29fabb073e1f651200f3d6f29266f7316fba41ccae00267e60249ad0e0f7b6abd04e733cc698eb849761bfefd4d43cc42b8dbfaba84cf6ac5f242d9126d90d86
   languageName: node
   linkType: hard
 
@@ -23112,6 +23146,7 @@ __metadata:
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
     "@hashicorp/ember-flight-icons": "workspace:^"
+    "@hashicorp/flight-icons": "workspace:^"
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     broccoli-funnel: ^3.0.3
@@ -23131,6 +23166,7 @@ __metadata:
     ember-cli-sri: ^2.1.1
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
+    ember-concurrency: ^2.3.7
     ember-fetch: ^8.1.2
     ember-load-initializers: ^2.1.2
     ember-math-helpers: ^2.18.2
