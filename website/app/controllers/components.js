@@ -15,9 +15,7 @@ export default class ComponentsController extends Controller {
               page.pageURL.replaceAll('/', '-')
             )}/232/124`,
             title: page.pageAttributes.title,
-            description:
-              page.pageAttributes.description ||
-              'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+            description: page.pageAttributes.description,
             route: 'show',
             model: page.pageURL,
           };
