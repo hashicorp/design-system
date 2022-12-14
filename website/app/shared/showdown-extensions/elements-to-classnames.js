@@ -29,12 +29,12 @@ export const elementsToClassNames = Object.keys(mapElementsToClassNames).map(
     // this is a custom regex, modified from the one found in the original tutolrial, to make it more solid and encompass more use cases
     // for testing see: https://regex101.com/r/jLk7wN/2 + https://regex101.com/r/jLk7wN/5
     // IMPORTANT: we NEED to set the "g" global option here!
-    regex: new RegExp(`<${element}>|<${element} (.*)>`, 'g'),
+    regex: new RegExp(`<${element}>|<${element} ([^>]*)>`, 'g'),
     replace: function (text) {
       // IMPORTANT: we DO NOT NEED to set the "g" global option here!
       const regexBasic = new RegExp(`<${element}>`);
       const matchBasic = text.match(regexBasic);
-      const regexWithAttrs = new RegExp(`<${element} (.*)>`);
+      const regexWithAttrs = new RegExp(`<${element} ([^>]*)>`);
       const matchWithAttrs = text.match(regexWithAttrs);
 
       let attrs;
