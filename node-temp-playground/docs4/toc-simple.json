@@ -21,7 +21,7 @@
             ],
             "pageAttributes": {
                 "title": "Avatar",
-                "weight": 100
+                "weight": 99
             }
         },
         {
@@ -37,19 +37,6 @@
             }
         },
         {
-            "filePath": "components/form/base-elements/index",
-            "pageURL": "components/form/base-elements",
-            "pageName": "base-elements",
-            "pageParents": [
-                "components",
-                "form"
-            ],
-            "pageAttributes": {
-                "title": "Form / Base elements",
-                "weight": 100
-            }
-        },
-        {
             "filePath": "components/form/checkbox/index",
             "pageURL": "components/form/checkbox",
             "pageName": "checkbox",
@@ -59,7 +46,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Checkbox",
-                "weight": 100
+                "weight": 99
             }
         },
         {
@@ -74,87 +61,67 @@
                 "title": "Form::Radio",
                 "weight": 100
             }
-        }
-    ],
-    "tree": {
-        "components": {
-            "alert": {
-                "filePath": "components/alert/index",
-                "pageURL": "components/alert",
-                "pageName": "alert",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Alert",
-                    "weight": 100
-                }
-            },
-            "avatar": {
-                "filePath": "components/avatar/index",
-                "pageURL": "components/avatar",
-                "pageName": "avatar",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Avatar",
-                    "weight": 100
-                }
-            },
-            "badge": {
-                "filePath": "components/badge/index",
-                "pageURL": "components/badge",
-                "pageName": "badge",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Badge",
-                    "weight": 100
-                }
-            },
-            "form": {
-                "base-elements": {
-                    "filePath": "components/form/base-elements/index",
-                    "pageURL": "components/form/base-elements",
-                    "pageName": "base-elements",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form / Base elements",
-                        "weight": 100
-                    }
-                },
-                "checkbox": {
-                    "filePath": "components/form/checkbox/index",
-                    "pageURL": "components/form/checkbox",
-                    "pageName": "checkbox",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Checkbox",
-                        "weight": 100
-                    }
-                },
-                "radio": {
-                    "filePath": "components/form/radio/index",
-                    "pageURL": "components/form/radio",
-                    "pageName": "radio",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Radio",
-                        "weight": 100
-                    }
-                }
+        },
+        {
+            "filePath": "components/icon-tile/index",
+            "pageURL": "components/icon-tile",
+            "pageName": "icon-tile",
+            "pageParents": [
+                "components"
+            ],
+            "pageAttributes": {
+                "title": "IconTile",
+                "weight": 10
+            }
+        },
+        {
+            "filePath": "components/link/inline/index",
+            "pageURL": "components/link/inline",
+            "pageName": "inline",
+            "pageParents": [
+                "components",
+                "link"
+            ],
+            "pageAttributes": {
+                "title": "Link::Inline",
+                "weight": 100
+            }
+        },
+        {
+            "filePath": "utilities/disclosure/index",
+            "pageURL": "utilities/disclosure",
+            "pageName": "disclosure",
+            "pageParents": [
+                "utilities"
+            ],
+            "pageAttributes": {
+                "title": "Disclosure",
+                "weight": 98
+            }
+        },
+        {
+            "filePath": "utilities/dismiss-button/index",
+            "pageURL": "utilities/dismiss-button",
+            "pageName": "dismiss-button",
+            "pageParents": [
+                "utilities"
+            ],
+            "pageAttributes": {
+                "title": "DismissButton",
+                "weight": 99
+            }
+        },
+        {
+            "filePath": "utilities/interactive/index",
+            "pageURL": "utilities/interactive",
+            "pageName": "interactive",
+            "pageParents": [
+                "utilities"
+            ],
+            "pageAttributes": {
+                "title": "Interactive",
+                "weight": 100
             }
         }
-    }
+    ]
 }
