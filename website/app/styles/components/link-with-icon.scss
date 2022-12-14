@@ -11,6 +11,7 @@
   width: min-content;
   margin: auto 0 0 0;
   color: inherit;
+  white-space: nowrap;
   text-decoration: none;
 
   &:visited {
@@ -23,7 +24,7 @@
 }
 
 .doc-link-with-icon__icon {
-  // TODO add animation
+  flex: none;
 }
 
 
