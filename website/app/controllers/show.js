@@ -44,8 +44,7 @@ export default class ShowController extends Controller {
     }
 
     let tab = this.tabs.find((el) => {
-      // trim trailing slashes from query param
-      return el.label.toLowerCase() === this.selectedTab.replace(/\/$/, '');
+      return el.label.toLowerCase() === this.selectedTab;
     });
     return tab ? tab.index : 0;
   }
