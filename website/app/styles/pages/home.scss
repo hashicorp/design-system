@@ -10,8 +10,7 @@ body.application.index {
 }
 
 .doc-page-home {
-  grid-area: sidebar / sidebar / content / content;
-  padding-bottom: 100px;
+  grid-area: sidebar / sidebar / stage / stage;
 }
 
 // top-right decoration
@@ -46,17 +45,18 @@ body.application.index {
   z-index: 1;
   width: 100%; // needed (otherwise it collapses, because is in a grid)
   margin: 0 auto;
-  padding: 0 var(--doc-page-stage-gutter-small);
+  // padding top is controlled in the "hero" element
+  padding: 0 var(--doc-page-stage-gutter-small) 64px;
   color: var(--doc-color-white);
 
   @include breakpoint.medium() {
-    padding: 0 var(--doc-page-stage-gutter-medium);
+    padding: 0 var(--doc-page-stage-gutter-medium) 64px;
   }
 
   @include breakpoint.large() {
     // 1216px by design
     max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-large));
-    padding: 0 var(--doc-page-stage-gutter-large);
+    padding: 0 var(--doc-page-stage-gutter-large) 128px;
   }
 }
 
