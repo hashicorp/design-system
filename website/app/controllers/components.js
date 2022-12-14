@@ -15,11 +15,9 @@ export default class ComponentsController extends Controller {
               page.pageURL.replaceAll('/', '-')
             )}/232/124`,
             title: page.pageAttributes.title,
-            description:
-              page.pageAttributes.description ||
-              'The description should be here',
             caption:
-              page.pageAttributes.caption || 'The caption should be here',
+              page.pageAttributes.caption ||
+              'Don\'t forget to add the "caption" to the frontmatter for this page',
             route: 'show',
             model: page.pageURL,
           };

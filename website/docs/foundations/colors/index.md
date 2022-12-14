@@ -1,5 +1,7 @@
 ---
 title: Colors
+description: This is the description of the colors that will appear in the page cover
+caption: This is the caption of the colors page that will appear in the cards lists
 ---
 
 <section data-tab="Code">
