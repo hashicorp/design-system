@@ -1,5 +1,5 @@
 ---
-title: Accessibility Foundations
+title: Accessibility
 ---
 
 While the HashiCorp Design System components were designed and developed with accessibility as a core requirement, they could still be implemented in a way that results in an application that is not conformant with WCAG Guidelines. To that end, this page provides some considerations for application-level concerns to think about.
