@@ -46,13 +46,13 @@ export default class Index extends Component {
       styles: [],
     };
     this.families.forEach((family) => {
-      cssHelpers.families.push(`.hds-font-family-${family}`);
+      cssHelpers.families.push(`hds-font-family-${family}`);
     });
     this.weights.forEach((weight) => {
-      cssHelpers.weights.push(`.hds-font-weight-${weight}`);
+      cssHelpers.weights.push(`hds-font-weight-${weight}`);
     });
     this.styles.forEach((style) => {
-      cssHelpers.styles.push(`.hds-typography-${style}`);
+      cssHelpers.styles.push(`hds-typography-${style}`);
     });
     return cssHelpers;
   }
