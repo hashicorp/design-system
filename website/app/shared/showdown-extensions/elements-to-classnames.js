@@ -31,7 +31,6 @@ export const elementsToClassNames = Object.keys(mapElementsToClassNames).map(
     // IMPORTANT: we NEED to set the "g" global option here!
     regex: new RegExp(`<${element}>|<${element} ([^>]*)>`, 'g'),
     replace: function (text) {
-      console.log('text', text);
       // IMPORTANT: we DO NOT NEED to set the "g" global option here!
       const regexBasic = new RegExp(`<${element}>`);
       const matchBasic = text.match(regexBasic);
