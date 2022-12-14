@@ -4,7 +4,7 @@
 
 @use "../mixins/focus-ring" as *;
 
-$pagination-height: calc(36px + 6px);
+$pagination-height: 36px;
 
 // * Pagination Parent (wrapper) component
 // ----------------------------------------
@@ -31,7 +31,6 @@ $pagination-height: calc(36px + 6px);
 .hds-pagination-nav {
   display: flex;
   grid-area: center;
-  align-self: stretch;
 }
 
 .hds-pagination-nav__page-list {
@@ -75,6 +74,7 @@ $pagination-height: calc(36px + 6px);
   &:disabled,
   &.mock-disabled {
     color: var(--token-color-foreground-disabled);
+    cursor: not-allowed;
   }
 }
 
