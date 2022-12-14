@@ -14,7 +14,7 @@ To ensure that route transitions are appropriately announced to users with assis
 
 ## Titles and Labels
 
-### Page Titles
+### Page titles
 
 Additionally, teams should ensure that each page has a relevant page title. This is included in Ember applications by default, but older applications that have been updated over the years may need to manually add this in with [ember-page-title](https://github.com/ember-cli/ember-page-title).
 
@@ -22,11 +22,11 @@ Additionally, teams should ensure that each page has a relevant page title. This
 
 Headings (h1-h6) should follow a logical order and not skip any levels. This can be tricky in dynamic applications so watch out for this one.
 
-### Input Labels
+### Input labels
 
 All inputs should have associated labels. These are provided for in the design system form components, but if you build your own make sure to check for these, remembering that a `placeholder` attribute is not an acceptable substitute.
 
-### Accessible Name
+### Accessible name
 
 Remember, not every element is allowed to use `aria-label`. Check the [element's role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. Just remember, when in doubt, ask! As the saying goes, "no ARIA is better than bad ARIA!"
 
