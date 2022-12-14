@@ -4,7 +4,10 @@
 
 @use "../mixins/focus-ring" as *;
 
-$pagination-height: 36px;
+// TODO: Move (Create component-level design tokens)
+:root {
+  --token-pagination-control-height: 36px;
+}
 
 // * Pagination Parent (wrapper) component
 // ----------------------------------------
@@ -14,7 +17,6 @@ $pagination-height: 36px;
   grid-template-rows: auto;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  height: $pagination-height;
   margin: 20px auto;
 }
 
@@ -49,7 +51,7 @@ $pagination-height: 36px;
 }
 
 .hds-pagination-nav__control {
-  height: $pagination-height;
+  height: var(--token-pagination-control-height);
   text-decoration: none;
   background: transparent;
   border: none;
