@@ -2,6 +2,7 @@
 title: Icons
 layout:
   sidecar: false
+caption: Icons can be used to support and enhance meaning...
 ---
 
 <section data-tab="Library">

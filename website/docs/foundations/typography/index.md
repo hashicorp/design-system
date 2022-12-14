@@ -1,5 +1,6 @@
 ---
 title: Typography
+caption: Words, words, words
 ---
 
 <section data-tab="Other">
