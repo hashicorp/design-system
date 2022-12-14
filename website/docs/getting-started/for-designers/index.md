@@ -8,5 +8,5 @@ description: Guide and resources for designers getting started with the HashiCor
 </section>
 
 <section data-tab="Setup guide">
-    @include "partials/design-tooling.md"
+    @include "partials/setup-guide.md"
 </section>

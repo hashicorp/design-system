@@ -30,6 +30,8 @@ Figma's [asset panel](https://help.figma.com/hc/en-us/articles/360038663994-Name
 
 ### Copy from the stickersheet
 
+If you would rather visually select a component to use in your project, each component in the [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) has a stickersheet capturing the different variants and properties available in each component. Simply copy and past
+
 ![Copy from the stickersheet](/assets/getting-started/designers/alert-stickersheet.jpg)
 
 ### Using library styles
