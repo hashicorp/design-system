@@ -60,6 +60,7 @@ class TableOfContents extends Plugin {
         // notice: the page attributes are quite verbose, so we select only a subset (what we really need for the TOC generation)
         pageAttributes = _.pick(jsonData.data.attributes, [
           'title',
+          'caption',
           'weight',
           'hidden',
         ]);
