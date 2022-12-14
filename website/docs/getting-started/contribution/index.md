@@ -2,25 +2,26 @@
 title: Contribution
 ---
 
-## Overview
+## Types of contribution
 
 While we don't accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
 
 * [Reporting bugs](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform) and [giving feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
 * [Proposing new components or patterns](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform)
+* [Add an icon](#icon-contributions)
 * Improving our documentation
 * Participating in discussions or coming to Office Hours
 
 We continue to listen to feedback as we consider the best way to open contributions further.
 
-## Code Contributions 
+## Code contributions 
 
-For contributions to the individual code packages that make up the design system, please consult the `CONTRIBUTING.md` files in each package.
-* [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
-* [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md)
+For contributions to the individual code packages, consult the `CONTRIBUTING.md` files.
 * [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md)
+* [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md)
+* [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
 
-## Icons
+## Icon contributions
 
 Contributing is not required to get new icons added to the library, but HashiCorp designers are welcome and encouraged to contribute to Flight.
 
