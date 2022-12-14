@@ -1,5 +1,7 @@
 ---
 title: Stepper Indicator
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

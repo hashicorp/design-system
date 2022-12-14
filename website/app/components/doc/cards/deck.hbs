@@ -4,7 +4,7 @@
       <Doc::Cards::Card
         @image={{card.image}}
         @title={{card.title}}
-        @description={{card.description}}
+        @description={{if card.caption card.caption card.description}}
         @route={{card.route}}
         @model={{card.model}}
         @href={{card.href}}

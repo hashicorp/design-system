@@ -1,5 +1,7 @@
 ---
 title: Link::Standalone
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

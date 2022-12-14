@@ -1,5 +1,7 @@
 ---
 title: Form::TextInput
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

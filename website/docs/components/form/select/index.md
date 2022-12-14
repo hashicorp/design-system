@@ -1,5 +1,7 @@
 ---
 title: Form::Select
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Other">

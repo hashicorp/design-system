@@ -1,5 +1,7 @@
 ---
 title: Form::Checkbox
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

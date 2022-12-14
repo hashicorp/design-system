@@ -1,5 +1,7 @@
 ---
 title: Link::Inline
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Other">

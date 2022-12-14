@@ -1,5 +1,7 @@
 ---
 title: Badge
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

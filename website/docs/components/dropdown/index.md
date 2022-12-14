@@ -1,5 +1,7 @@
 ---
 title: Dropdown
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Other">

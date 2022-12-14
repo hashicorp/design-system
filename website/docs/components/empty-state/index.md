@@ -1,6 +1,8 @@
 ---
 title: EmptyState
 hidden: true
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Code">

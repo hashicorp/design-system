@@ -1,5 +1,7 @@
 ---
 title: Form::Radio
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

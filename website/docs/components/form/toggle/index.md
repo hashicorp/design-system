@@ -1,5 +1,7 @@
 ---
 title: Form::Toggle
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">

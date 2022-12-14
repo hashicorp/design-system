@@ -1,5 +1,7 @@
 ---
 title: ButtonSet
+description: aaa
+caption: bbb
 ---
 
 <section data-tab="Guidelines">
