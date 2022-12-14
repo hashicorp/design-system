@@ -21,6 +21,8 @@ export default class Index extends Component {
   });
 
   get filteredIcons() {
+    // query params come from `controllers/show.js` and we access them here because there
+    // is no "controller" for individual component documentation routes
     const searchQuery = this.router.currentRoute.queryParams['searchQuery'];
     const selectedIconSize =
       this.router.currentRoute.queryParams['selectedIconSize'] || '16';
