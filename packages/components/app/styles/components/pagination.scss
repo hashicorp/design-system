@@ -11,8 +11,8 @@
   --token-pagination-control-padding-horizontal: 12px;
   --token-pagination-control-focus-inset: 5px;
   // indicator for current page:
-  --token-pagination-indictor-height: 2px;
-  --token-pagination-indictor-width: 19px;
+  --token-pagination-indicator-height: 2px;
+  --token-pagination-indicator-width: 19px;
 }
 
 // * Pagination Parent (wrapper) component
@@ -140,8 +140,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: var(--token-pagination-indictor-width);
-    height: var(--token-pagination-indictor-height);
+    width: var(--token-pagination-indicator-width);
+    height: var(--token-pagination-indicator-height);
     margin: 0 auto;
     background-color: currentColor;
     border-radius: 2px;
