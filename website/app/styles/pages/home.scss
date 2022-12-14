@@ -12,8 +12,6 @@ body.application.index {
 .doc-page-home {
   grid-area: sidebar / sidebar / content / content;
   padding-bottom: 100px;
-
-  --doc-page-home-content-max-width: 1200px;
 }
 
 // top-right decoration
@@ -23,26 +21,20 @@ body.application.index {
   top: 0; // important: this is relative to the `<body>` itself (there are no parents with a non-static position)
   right: 0;
   left: 0;
-  height: 50vw; // make it responsive?
+  height: calc(200px + var(--doc-page-header-height));
   background-color: inherit;
-  background-image: url("/assets/illustrations/home-abstract.png");
+  background-image: url("/assets/illustrations/home-abstract-small.jpg");
   background-repeat: no-repeat;
   background-position: top right;
-  background-size: contain;
-  border-bottom: 3px solid red;
+  background-size: auto 100%;
   content: "";
   pointer-events: none;
 
-  @include breakpoint.medium() {
+  @include breakpoint.medium-and-above() {
     height: 40vw;
-    max-height: 500px;
-    border-bottom-color: orange;
-  }
-
-  @include breakpoint.large() {
-    height: 60vw;
     max-height: 700px;
-    border-bottom-color: green;
+    background-image: url("/assets/illustrations/home-abstract.jpg");
+    background-size: contain;
   }
 }
 
@@ -50,23 +42,21 @@ body.application.index {
 // content (container)
 
 .doc-page-home__content {
+  position: relative;
   z-index: 1;
-  // looking at the current design, seems it's not like the normal <Doc::Page::Content @breakthrough={{true}}>
-  // so I have to create a custom thing for now (later when designs will be final I'll review everything)
-  grid-area: content / content / _extra/ _extra;
   width: 100%; // needed (otherwise it collapses, because is in a grid)
-  max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-medium));
   margin: 0 auto;
-  // TODO check with heather what she wants to do with the vertical padding (responsive)
-  padding: 16px var(--doc-page-stage-gutter-small);
+  padding: 0 var(--doc-page-stage-gutter-small);
   color: var(--doc-color-white);
 
   @include breakpoint.medium() {
-    padding: 32px var(--doc-page-stage-gutter-medium);
+    padding: 0 var(--doc-page-stage-gutter-medium);
   }
 
   @include breakpoint.large() {
-    padding: 64px var(--doc-page-stage-gutter-medium);
+    // 1216px by design
+    max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-large));
+    padding: 0 var(--doc-page-stage-gutter-large);
   }
 }
 
@@ -74,26 +64,30 @@ body.application.index {
 // hero
 
 .doc-page-home__hero {
-  --vpad: 60px;
-  --title-font-size: 2.625rem; // 42px
-  --tagline-font-size: 1rem; // 16px
+  @include breakpoint.small() {
+    --padding-top: 260px; // 200 of decoration on top + 60px of negative space
+    --padding-bottom: 100px;
+    --title-font-size: 2.625rem; // 42px
+    --tagline-font-size: 1rem; // 16px
+  }
 
   @include breakpoint.medium() {
-    --vpad: 70px;
+    --padding-top: 120px;
+    --padding-bottom: 100px;
     --title-font-size: 3.75rem; // 60px
     --tagline-font-size: 1.25rem; // 20px
   }
 
   @include breakpoint.large() {
-    --vpad: 180px;
+    --padding-top: 300px;
+    --padding-bottom: 180px;
     --title-font-size: 4.375rem; // 70px
     --tagline-font-size: 1.25rem; // 24px
   }
 
   display: flex;
   flex-direction: column;
-  max-width: var(--doc-page-home-content-max-width);
-  padding: var(--vpad) 0;
+  padding: var(--padding-top) 0 var(--padding-bottom);
 
   h1 {
     @include doc-font-family("gilmer");
@@ -120,7 +114,8 @@ body.application.index {
 
 .doc-page-home__hero-links {
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 10px 40px;
 }
 
 // cards
@@ -129,7 +124,6 @@ body.application.index {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  max-width: var(--doc-page-home-content-max-width);
   margin: 0;
   padding: 0;
 

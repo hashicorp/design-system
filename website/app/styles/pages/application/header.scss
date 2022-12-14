@@ -58,7 +58,7 @@ $header-custom-breakpoint: 1000px;
   }
 }
 
-// NAV MENU (PRIMARY + SECONDARY)
+// NAV MENU (PRIMARY)
 
 .doc-page-header__nav-menu {
   display: none;
@@ -132,7 +132,8 @@ $header-custom-breakpoint: 1000px;
   margin: 0 0 0 auto;
 }
 
-// burger menu
+
+// BURGER MENU
 
 .doc-page-header__burger-menu {
   display: flex;
@@ -147,6 +148,14 @@ $header-custom-breakpoint: 1000px;
 
   &:hover {
     color: var(--doc-color-white);
+  }
+
+  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+  body.application.index & {
+    // in homepage the top-level links in the header are still accessible, so no need to show the menu
+    @include breakpoint.medium () {
+      display: none;
+    }
   }
 
   @include breakpoint.large () {
