@@ -1,7 +1,7 @@
 ---
 title: Link::Inline
-description: aaa
-caption: bbb
+description: Description placeholder content
+caption: Caption placeholder content
 ---
 
 <section data-tab="Other">

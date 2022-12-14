@@ -16,8 +16,10 @@ export default class ComponentsController extends Controller {
             )}/232/124`,
             title: page.pageAttributes.title,
             description:
-              page.pageAttributes.description || 'description placeholder',
-            caption: page.pageAttributes.caption || 'caption placeholder',
+              page.pageAttributes.description ||
+              'The description should be here',
+            caption:
+              page.pageAttributes.caption || 'The caption should be here',
             route: 'show',
             model: page.pageURL,
           };

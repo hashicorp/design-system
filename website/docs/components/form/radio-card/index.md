@@ -1,7 +1,7 @@
 ---
 title: Form::RadioCard
-description: aaa
-caption: bbb
+description: Description placeholder content
+caption: Caption placeholder content
 ---
 
 <section data-tab="Guidelines">
