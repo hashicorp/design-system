@@ -1,0 +1,10 @@
+<ul class="doc-font-helpers-list">
+  {{#each @items as |item|}}
+    <li class="doc-font-helpers-list__item">
+      <div class="doc-font-helpers-list__preview {{item}}">Aa</div>
+      <div class="doc-font-helpers-list__content">
+        <Doc::CopyButton @textToShow=".{{item}}" @textToCopy={{item}} @type="ghost" />
+      </div>
+    </li>
+  {{/each}}
+</ul>

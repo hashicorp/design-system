@@ -8,6 +8,21 @@ import { inject as service } from '@ember/service';
 
 import { showdownConfig } from '../shared/showdown-config';
 
+const getTOCs = (container) => {
+  let headings = [];
+  container.querySelectorAll(`:scope > h2, :scope > h3`).forEach((element) => {
+    // we need to add a class to avoid the element being hidden behind the fixed top header
+    element.classList.add('doc-page-sidecar-scroll-margin-top');
+    // we add it to the list of headings used as TOC in the sidecar
+    headings.push({
+      target: element.id,
+      text: element.innerText,
+      depth: element.tagName.replace(/h/i, ''),
+    });
+  });
+  return headings;
+};
+
 export default class ShowController extends Controller {
   @service fastboot;
 
@@ -43,9 +58,14 @@ export default class ShowController extends Controller {
     let sections = [];
     let tabs = [];
     let tocs = [];
-    document
-      .querySelectorAll(`.doc-page-content section[data-tab]`)
-      .forEach((section, index) => {
+
+    // check if the content is split in sections (and we need tabs) or is all together
+    const documentSections = document.querySelectorAll(
+      `.doc-page-content section[data-tab]`
+    );
+
+    if (documentSections.length > 0) {
+      documentSections.forEach((section, index) => {
         // SECTIONS
         const id = section.id;
         const name = section.getAttribute('data-tab');
@@ -63,26 +83,21 @@ export default class ShowController extends Controller {
           onClickTab: this.onClickTab,
           isCurrent: false,
         });
-        // TOCS
-        let headings = [];
-        section
-          .querySelectorAll(`#${section.id} > h2, #${section.id} > h3`)
-          .forEach((element) => {
-            // we need to add a class to avoid the element being hidden behind the fixed top header
-            element.classList.add('doc-page-sidecar-scroll-margin-top');
-            // we add it to the list of headings used as TOC in the sidecar
-            headings.push({
-              target: element.id,
-              text: element.innerText,
-              depth: element.tagName.replace(/h/i, ''),
-            });
-          });
         tocs.push({
           index,
           id: `toc-${name}`,
-          list: headings,
+          list: getTOCs(section),
         });
       });
+    } else {
+      const container = document.querySelector('.doc-page-content');
+      tocs.push({
+        index: 0,
+        id: 'toc-all',
+        list: getTOCs(container),
+      });
+    }
+
     this.sections.setObjects(sections);
     this.tabs.setObjects(tabs);
     this.tocs.setObjects(tocs);
