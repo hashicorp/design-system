@@ -6683,12 +6683,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-asset-rewrite@npm:^2.0.0":
+"broccoli-asset-rewrite@npm:2.0.0":
   version: 2.0.0
   resolution: "broccoli-asset-rewrite@npm:2.0.0"
   dependencies:
     broccoli-filter: ^1.2.3
   checksum: 05a8d882ca6e3f2fd073650acb65e0f2c0945529c09a47b1b220455a0a67099e0d5bed7a0c52b7aaee40ad5f07f8e6db20b641aceb5330256b801fe1b8e39952
+  languageName: node
+  linkType: hard
+
+"broccoli-asset-rewrite@patch:broccoli-asset-rewrite@npm%3A2.0.0#./.yarn/patches/broccoli-asset-rewrite-npm-2.0.0-c4ce42084a.patch::locator=%40hashicorp%2Fdesign-system%40workspace%3A.":
+  version: 2.0.0
+  resolution: "broccoli-asset-rewrite@patch:broccoli-asset-rewrite@npm%3A2.0.0#./.yarn/patches/broccoli-asset-rewrite-npm-2.0.0-c4ce42084a.patch::version=2.0.0&hash=ee1922&locator=%40hashicorp%2Fdesign-system%40workspace%3A."
+  dependencies:
+    broccoli-filter: ^1.2.3
+  checksum: 7923f2bd6587536b9383062b281dac2ca5a89e6a793a0f4e458a0a395126434f5fe6b3037b72a3fb725a3e329bc4a230f76aa40a09b7745ef109f0f1a8f834cb
   languageName: node
   linkType: hard
 
