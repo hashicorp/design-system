@@ -1,8 +1,8 @@
 ## Border radius
 
-Figma doesn't currently support border radius as a style and the HashiCorp Design System doesn't yet publish tokens for border radius. These are a set of high-level guidelines for how border-radius is used in components of various types.
+We don't currently offer border radius tokens or Figma styles.
 
-At this time the strategy for applying border radius is determined by the size of the component.
+The size of the component determines the border radius. These are high-level guidelines for how border radius is used in our components.
 
 | Size        | Value | Examples                       |
 | ----------- | ----- | ------------------------------ |
