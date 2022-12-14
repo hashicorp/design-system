@@ -39,6 +39,7 @@ export default class ShowController extends Controller {
   @tracked tocs = A([]);
 
   get selectedTabIndex() {
+    // if no query param is set then default to the first tab
     if (!this.selectedTab) {
       return 0;
     }
