@@ -19,20 +19,15 @@
 }
 
 .doc-page-sidecar__on-this-page {
-  @include doc-font-family("gilmer");
-  color: var(--doc-color-gray-100);
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 1;
-  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  color: var(--doc-color-black);
 }
 
 .doc-page-sidecar__list {
-  @include doc-font-style-body-small();
   margin: 0;
   padding: 0;
   list-style: none;
-  border-left: 1px solid #dbdbdc;
+  border-left: 1px solid var(--doc-color-gray-500);
 }
 
 .doc-page-sidecar__item {
@@ -43,12 +38,11 @@
   a {
     position: relative;
     padding: 0 0 0 var(--padding-left);
-    color: #727374;
-    font-weight: var(--font-weight);
+    color: var(--doc-color-gray-300);
     text-decoration: none;
 
     &:hover {
-      color: #2264d6;
+      color: var(--doc-color-black);
 
       &::after {
         position: absolute;
@@ -56,26 +50,24 @@
         bottom: 0;
         left: -1px;
         width: 3px;
-        background-color: #2264d6;
+        background-color: var(--doc-color-black);
         content: "";
       }
     }
 
     &:active,
     &:visited {
-      color: #727374;
+      color: var(--doc-color-gray-300);
     }
   }
 }
 
 .doc-page-sidecar__item--depth-2 {
   --padding-left: 12px;
-  --font-weight: bold;
 }
 
 .doc-page-sidecar__item--depth-3 {
   --padding-left: 24px;
-  --font-weight: medium;
 }
 
 

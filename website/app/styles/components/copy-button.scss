@@ -8,6 +8,10 @@
   max-width: 100%;
   border: 1px solid transparent;
   border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .doc-copy-button--type-solid {
@@ -62,7 +66,6 @@
 }
 
 .doc-copy-button__visible-value {
-  @include doc-font-style-code();
   margin-right: 8px;
   color: var(--doc-color-black);
   text-align: left;

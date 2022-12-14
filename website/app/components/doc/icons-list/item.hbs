@@ -1,0 +1,12 @@
+<li class="doc-icons-list-grid-item {{if @meta.isHidden 'doc-icons-list-grid-item--is-hidden'}}">
+  <div class="doc-icons-list-grid-item__frame">
+    <div class="doc-icons-list-grid-item__outline">
+      <FlightIcon class="doc-icons-list-grid-item__icon"  @name={{@meta.iconName}} @size="{{@meta.size}}" @isInlineBlock={{false}} />
+    </div>
+  </div>
+  <div class="doc-icons-list-grid-item__meta">
+    <Doc::IconsList::MetaRow @label="Ember" @value={{@meta.iconName}} @copyable={{true}} />
+    <Doc::IconsList::MetaRow @label="React" @value={{@meta.name}} @copyable={{true}} />
+    <Doc::IconsList::MetaRow @label="Keywords" @value={{@meta.description}} />
+  </div>
+</li>
