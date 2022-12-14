@@ -1,5 +1,7 @@
 ---
 title: PowerSelect
+description: Description placeholder content
+caption: Caption placeholder content
 ---
 
 <section data-tab="Guidelines">

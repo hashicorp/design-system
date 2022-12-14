@@ -1,5 +1,7 @@
 ---
 title: Avatar
+description: Description placeholder content
+caption: Caption placeholder content
 hidden: true
 ---
 

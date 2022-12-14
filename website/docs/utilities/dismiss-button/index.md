@@ -1,5 +1,7 @@
 ---
 title: DismissButton
+description: Description placeholder content
+caption: Caption placeholder content
 ---
 
 <section data-tab="Other">
