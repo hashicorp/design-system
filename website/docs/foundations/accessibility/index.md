@@ -45,7 +45,7 @@ Product applications should endeavor to use the automated tooling for static and
 ## Manual Testing
 
 - *keyboard support:* ensure that your application is keyboard navigable. Everything that you can do with a mouse should have an equivalent experience with a keyboard!
-- *browser extensions:* there are a few browser extensions that can help you with accessibility. Check out Microsoft's [Accessibility Insights]() and Deque's [aXe]() are two popular extensions that can help you check for accessibility issues right in your browser!
+- *browser extensions:* there are a few browser extensions that can help you with accessibility. Check out Microsoft's [Accessibility Insights](https://accessibilityinsights.io/) and Deque's [aXe](https://www.deque.com/axe/browser-extensions/) are two popular extensions that can help you check for accessibility issues right in your browser!
 - *Safari and VoiceOver:* your development environment has a screen reader built in! Become familiar with VoiceOver use it to test your application with Safari, especially if you are creating a non-standard UI and want to make sure that it will be inclusive for our users.
 
 ## Accessibility Support
