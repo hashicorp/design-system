@@ -12,7 +12,7 @@ export const contentBlocks = function () {
       text = text.replace(langRegex, function (_match, type, content) {
         // we use the PHP tag as passthrough "tag" because is simply ignored by the `hashHTMLBlocks` function in Showdown
         // see: https://github.com/showdownjs/showdown/blob/master/src/subParsers/makehtml/hashHTMLBlocks.js#L93-L95
-        return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n<div data-markdown="1">\n${content}\n</div>\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
+        return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n${content}\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
       });
       // console.log('langExtension2 text', '\n', text, '\n\n');
       return text;
@@ -24,7 +24,7 @@ export const contentBlocks = function () {
       // console.log('outputExtension1 text', '\n', text, '\n\n');
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
-        /<\?php start="content-block" type="(.*?)" \?>\n?<div data-markdown="1">\n?/,
+        /<\?php start="content-block" type="(.*?)" \?>\n?/,
         'g'
       );
       text = text.replace(outputRegex, function (_match, type) {
@@ -35,7 +35,7 @@ export const contentBlocks = function () {
         }
       });
       text = text.replace(
-        /\n?<\/div>\n?<\?php end="content-block" type="(.*?)" \?>/g,
+        /\n?<\?php end="content-block" type="(.*?)" \?>/g,
         function (_match, type) {
           if (type === 'do' || type === 'dont') {
             return '</Doc::DoDont>';

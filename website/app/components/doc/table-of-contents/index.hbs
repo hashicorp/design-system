@@ -13,7 +13,7 @@
         <span style={{this.leftPadStyle}}>
           {{capitalize key}}
         </span>
-        <DocTableOfContents @structuredPageTree={{item}} @level={{add @level 1}} />
+        <Doc::TableOfContents @structuredPageTree={{item}} @level={{add @level 1}} />
       </li>
     {{/if}}
   {{/each-in}}

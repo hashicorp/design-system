@@ -20,8 +20,8 @@ _Notice: to make the invocation more intuitive for developers, all the sub-compo
 Here is the API for the main ("container") component:
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="listPosition" @type="string" @value="left, right" @default="right"/>
-  <C.Property @name="width" @type="string" @value="any valid CSS width (px, rem, etc)">
+  <C.Property @name="listPosition" @type="string" @values={{array "left" "right" }} @default="right"/>
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the dropdown list has a `min-width` of `200px` and a `max-width` of `400px` applied to it, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width._
   </C.Property>
   <C.Property @name="close" @type="function">
@@ -43,8 +43,8 @@ Here is the API for the "button-like" toggle component (yielded in a hash under 
   <C.Property @name="text" @required="true" @type="string">
     The text of the toggle button. _If no text value is defined an error will be thrown._
   </C.Property>
-  <C.Property @name="color" @type="enum" @value="primary, secondary" @default="primary"/>
-  <C.Property @name="size" @type="enum" @value="medium, small" @default="medium"/>
+  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
+  <C.Property @name="size" @type="enum" @values={{array "medium" "small" }} @default="medium"/>
   <C.Property @name="...attributes">
     `...attributes` spreading is supported on this component.
   </C.Property>
@@ -113,7 +113,7 @@ Here is the API for the "interactive" list item component (yielded in a hash und
   <C.Property @name="text" @required="true" @type="string">
     The text to be used in the item. _If no text value is defined an error will be thrown._
   </C.Property>
-  <C.Property @name="color" @type="enum" @value="action, critical" @default="action">
+  <C.Property @name="color" @type="enum" @values={{array "action" "critical" }} @default="action">
     Acceptabe values:
   </C.Property>
   <C.Property @name="icon" @type="string">

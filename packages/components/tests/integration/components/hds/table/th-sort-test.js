@@ -24,6 +24,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     assert.dom('#data-test-table-th-sort').hasClass('hds-table__th-sort');
   });
 
+  test('it should add inline styles if `@width` is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%" />`
+    );
+    assert.dom('#data-test-table-th-sort').hasAttribute('style');
+  });
+
   test('if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {
     await render(
       hbs`<Hds::Table::ThSort @sortBy='artist'>Artist</Hds::Table::ThSort>`

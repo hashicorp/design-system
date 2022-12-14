@@ -18,6 +18,10 @@ $with-sidedar-breakpoint: 1000px;
   @media (min-width: $medium-lower-breakpoint) and (max-width: $medium-upper-breakpoint) { @content; }
 }
 
+@mixin medium-and-above {
+  @media (min-width: $medium-lower-breakpoint) { @content; }
+}
+
 @mixin large {
   @media (min-width: $large-lower-breakpoint) { @content; }
 }

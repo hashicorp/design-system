@@ -5,7 +5,7 @@ import { assert } from '@ember/debug';
 
 const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
-const VALIGNMENTS = ['top', 'middle', 'bottom', 'baseline', 'sub', 'text-top'];
+const VALIGNMENTS = ['top', 'middle'];
 const DEFAULT_VALIGN = 'top';
 
 export default class HdsTableIndexComponent extends Component {
@@ -20,11 +20,21 @@ export default class HdsTableIndexComponent extends Component {
   /**
    * @param isStriped
    * @type {boolean}
-   * @default true
-   * @description Determines whether the table rows should have alternating background colors; defaults to true.
+   * @default false
+   * @description Determines whether the table rows should have alternating background colors; defaults to false.
    */
   get isStriped() {
-    return this.args.isStriped ?? true;
+    return this.args.isStriped ?? false;
+  }
+
+  /**
+   * @param isFixedLayout
+   * @type {boolean}
+   * @default false
+   * @description Determines whether the table-display should be set to fixed; meaning, the table columns are of equal width no matter the content; defaults to false.
+   */
+  get isFixedLayout() {
+    return this.args.isFixedLayout ?? false;
   }
 
   /**
@@ -50,7 +60,7 @@ export default class HdsTableIndexComponent extends Component {
    * @param valign
    * @type {string}
    * @default 'top'
-   * @description Determines the vertical alignment of the table cells; options are all of the values accepted by the CSS "vertical-align" property: "top", "middle", "bottom", "baseline", "sub", and "text-top". If no valign is defined, "top" is used.
+   * @description Determines the vertical alignment of the table cells; options are: "top", "middle". If no valign is defined, "top" is used.
    */
   get valign() {
     let { valign = DEFAULT_VALIGN } = this.args;
@@ -76,6 +86,11 @@ export default class HdsTableIndexComponent extends Component {
     // add a class based on the @isStriped argument
     if (this.isStriped) {
       classes.push('hds-table--striped');
+    }
+
+    // add a class based on the @isFixedLayout argument
+    if (this.isFixedLayout) {
+      classes.push('hds-table--layout-fixed');
     }
 
     // add a class based on the @density argument
