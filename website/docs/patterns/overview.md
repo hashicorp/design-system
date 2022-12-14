@@ -9,7 +9,7 @@ A pattern is a combination of components that work together to accomplish a func
 
 ## HDS pattern support
 
-Patterns are not currently supported by the HashiCorp Design System, but there are future plans to introduce guidelines, documentation, and best practices around assembling HDS components in a consistent and scalable manner.
+We don't currently support patterns, but we have a few on our [roadmap](URL). We're also planning to introduce guidelines and best practices around assembling components in a consistent and scalable manner.
 
 !!! Info
 
