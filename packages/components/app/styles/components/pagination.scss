@@ -166,25 +166,3 @@ $pagination-height: calc(36px + 6px);
     background-position: center right 5px;
   }
 }
-
-// Responsive layout
-// max-width is based on where component layout breaks down
-@media screen and (max-width: 1000px) {
-  .hds-pagination {
-    display: flex !important;
-    flex-direction: column;
-    height: auto !important;
-
-    > * {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  }
-
-  .hds-pagination-nav {
-    order: -1;
-    margin-bottom: 8px;
-  }
-
-  .hds-pagination-size-selector { display: none; }
-}
