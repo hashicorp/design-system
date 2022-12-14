@@ -3,7 +3,7 @@
 @use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
 
-// notice: we use an ad-hoc breakpoint here
+// notice: we use an ad-hoc breakpoint here to avoid overlapping of content
 $header-custom-breakpoint: 1000px;
 
 .doc-page-header {
@@ -50,10 +50,8 @@ $header-custom-breakpoint: 1000px;
   // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
 
   .doc-logo-hds__hashicorp {
-    display: none;
-
-    @media (min-width: $header-custom-breakpoint) {
-      display: initial;
+    @media (max-width: calc($header-custom-breakpoint - 1px)) {
+      display: none;
     }
   }
 }
@@ -91,7 +89,7 @@ $header-custom-breakpoint: 1000px;
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 8px 12px 5px 12px;
+    padding: 8px 12px 5px 12px; // we have to take in account the border-bottom
     color: var(--doc-color-gray-400);
     text-decoration: none;
     border-bottom: 3px solid transparent;

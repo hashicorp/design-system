@@ -11,12 +11,6 @@ export default class DocPageHeaderComponent extends Component {
     return this.router.currentURL.split('/')[1];
   }
 
-  get classNames() {
-    let classes = ['doc-page-header'];
-
-    return classes.join(' ');
-  }
-
   @action
   toggleBurgerMenu() {
     this.burgerMenuOpen = !this.burgerMenuOpen;

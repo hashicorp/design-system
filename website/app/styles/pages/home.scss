@@ -21,7 +21,6 @@ body.application.index {
   right: 0;
   left: 0;
   height: calc(200px + var(--doc-page-header-height));
-  background-color: inherit;
   background-image: url("/assets/illustrations/home-abstract-small.jpg");
   background-repeat: no-repeat;
   background-position: top right;
@@ -43,9 +42,8 @@ body.application.index {
 .doc-page-home__content {
   position: relative;
   z-index: 1;
-  width: 100%; // needed (otherwise it collapses, because is in a grid)
   margin: 0 auto;
-  // padding top is controlled in the "hero" element
+  // visual top padding is controlled by the "hero" element, so we set 0 here
   padding: 0 var(--doc-page-stage-gutter-small) 64px;
   color: var(--doc-color-white);
 
@@ -72,14 +70,14 @@ body.application.index {
   }
 
   @include breakpoint.medium() {
-    --padding-top: 120px;
+    --padding-top: 120px; // decoration is below the content
     --padding-bottom: 100px;
     --title-font-size: 3.75rem; // 60px
     --tagline-font-size: 1.25rem; // 20px
   }
 
   @include breakpoint.large() {
-    --padding-top: 300px;
+    --padding-top: 300px; // decoration is below the content
     --padding-bottom: 180px;
     --title-font-size: 4.375rem; // 70px
     --tagline-font-size: 1.25rem; // 24px

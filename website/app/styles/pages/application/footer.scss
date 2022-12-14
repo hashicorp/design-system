@@ -8,8 +8,7 @@
   flex-direction: column;
   grid-area: footer;
   gap: 16px;
-  margin: auto 0 0 0;
-  padding: 1rem 2rem;
+  padding: 16px 24px;
   color: var(--doc-color-black);
 
   @include breakpoint.medium-and-above () {

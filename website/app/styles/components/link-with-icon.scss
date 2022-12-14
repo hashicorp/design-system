@@ -9,7 +9,6 @@
   gap: 8px;
   align-items: center;
   width: min-content;
-  margin: auto 0 0 0;
   color: inherit;
   white-space: nowrap;
   text-decoration: none;
@@ -28,11 +27,7 @@
 }
 
 
-.doc-link-with-icon--fill-parent::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-}
+// animation
 
 .doc-link-with-icon--is-animated {
   // same animation as the marketing website
@@ -44,5 +39,14 @@
   &:hover svg {
     transform: translate(2px);
   }
+}
+
+
+// special case (eg. when used in a "card")
+
+.doc-link-with-icon--fill-parent::before {
+  position: absolute;
+  inset: 0;
+  content: "";
 }
 
