@@ -12,6 +12,10 @@ To ensure that route transitions are appropriately announced to users with assis
 2. It moves the focus to that message for the screen reader user, effectively resetting focus in Ember apps (similar to how a native web page/site works).
 3. It provides a bypass mechanism so the user can skip to the page's primary content (see [https://www.w3.org/TR/WCAG20-TECHS/G1.html](https://www.w3.org/TR/WCAG20-TECHS/G1.html)). You can opt out of this if you want (see the `Options` section in the documentation for available options).
 
+## Page Organization
+
+All content should be contained in elements with [landmark roles](https://www.w3.org/TR/wai-aria/#landmark_roles). Typically this will be the `header`, `main`, and `footer` elements, but depending on your page layout, you might also be using `aside` and `nav` as direct descendants of the `body` element as well.
+
 ## Titles and Labels
 
 ### Page titles
