@@ -44,7 +44,6 @@
   }
 
   // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
-
   .doc-logo-hds__hashicorp {
     @include breakpoint.with-mobile-sidebar() {
       display: none;
@@ -143,15 +142,14 @@
     color: var(--doc-color-white);
   }
 
-  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+  @include breakpoint.with-fixed-sidebar () {
+    display: none;
+  }
+
   body.application.index & {
-    // in homepage the top-level links in the header are still accessible, so no need to show the menu
+    // this is a special case: in homepage the top-level links in the header are still accessible at the "medium" viewport, so no need to show the burger menu
     @include breakpoint.medium () {
       display: none;
     }
-  }
-
-  @include breakpoint.large () {
-    display: none;
   }
 }
