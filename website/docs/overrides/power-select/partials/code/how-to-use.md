@@ -31,10 +31,6 @@ Invocation of the component with overrides would look something like this:
 </div>
 ```
 
-Renders to:
-
-{{option}}
-
 #### Search enabled
 
 When used with the `@searchEnabled` argument, the input is automatically styled to resemble the [`Form::TextInput`](/components/form/text-input/) component.
@@ -98,7 +94,3 @@ When multiple options are allowed the selected items are automatically styled to
   </PowerSelectMultiple>
 </div>
 ```
-
-Renders to:
-
-{{option}}
