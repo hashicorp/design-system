@@ -1,15 +1,34 @@
 // SIDE NAVIGATION
 
-.doc-page-sidebar {
-  display: none; // TODO! - We have to implement the whole "mobile" experience, for now we simply hide it
+@use "../../breakpoints" as breakpoint;
 
-  @media (min-width: 1000px) {
-    display: flex;
-    flex-direction: column;
+.doc-page-sidebar {
+  z-index: var(--doc-z-index-sidebar);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--doc-page-header-height));
+  background: var(--doc-color-white);
+  box-shadow: 0 8px 12px rgba(37, 38, 45, 8%);
+
+  @include breakpoint.with-mobile-sidebar() {
+    position: fixed;
+    top: var(--doc-page-header-height);
+    right: 0;
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+    // transition: transform 0.25s ease-in;
+
+    &.doc-page-sidebar--show-sidebar-on-small-viewport {
+      transform: translate3d(0, 0, 0);
+      transition-timing-function: ease-out;
+    }
+  }
+
+  @include breakpoint.with-fixed-sidebar() {
+    position: sticky;
+    top: var(--doc-page-header-height);
     grid-area: sidebar;
     width: var(--doc-page-sidebar-width); // TODO discuss with Heather if we want to reduce this width when the viewport is "medium"
-    background: white;
-    border-right: 1px solid #ddd;
   }
 }
 
@@ -19,6 +38,8 @@
   min-height: 0;
   padding: 2rem 0.5rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .doc-page-sidebar__top-routes {
