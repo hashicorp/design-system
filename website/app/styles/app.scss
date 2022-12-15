@@ -14,6 +14,9 @@
 @import "pages/application"; // main application frame
 @import "pages/home"; // homepage (index)
 
+// Third-party declarations
+@import "prism-dracula";
+
 // "Doc" components
 @import "components/badge";
 @import "components/banner";
