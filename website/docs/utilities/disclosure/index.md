@@ -1,5 +1,7 @@
 ---
 title: Disclosure
+description: An internal utility that provides hide/show functionality.
+caption: An internal utility that provides hide/show functionality.
 ---
 
 <section data-tab="Other">
