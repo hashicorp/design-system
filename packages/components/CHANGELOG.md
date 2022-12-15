@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 1.5.0
+
+### Minor Changes
+
+- [#827](https://github.com/hashicorp/design-system/pull/827) [`c775030b0`](https://github.com/hashicorp/design-system/commit/c775030b0337d630159ce3a108b61f336efca7bb) Thanks [@MelSumner](https://github.com/MelSumner)! - [PR 760](https://github.com/hashicorp/design-system/pull/760) Finalized Hds::Table component; resolved text alignment and column width invocation options. Added support for `th` elements with the scope of `row`.
+
+### Patch Changes
+
+- [#816](https://github.com/hashicorp/design-system/pull/816) [`325cdaa2a`](https://github.com/hashicorp/design-system/commit/325cdaa2aa3859058de9f79758e1f1d1c5e4246e) Thanks [@jorytindall](https://github.com/jorytindall)! - Updated the modal border radius based on revised design guidelines.
+
 ## 1.4.1
 
 ### Patch Changes
