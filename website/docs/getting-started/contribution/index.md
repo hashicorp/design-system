@@ -1,6 +1,6 @@
 ---
 title: Contribution
-weight: 104
+order: 104
 ---
 
 ## Types of contribution

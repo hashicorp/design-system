@@ -78,7 +78,7 @@ export default class ShowRoute extends Route {
           'links',
           'layout',
           'hidden',
-          'weight',
+          'order',
         ];
         frontmatterAttributes.forEach((attribute) => {
           if (attribute in res.data.attributes) {

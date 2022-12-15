@@ -29,10 +29,10 @@ const sortPages = (s1, s2) => {
   }
   // if they are siblings...
   if (isEqual(s1.pageParents, s2.pageParents)) {
-    //  we use the weight first...
-    if (s1.pageAttributes.weight < s2.pageAttributes.weight) {
+    //  we use the order first...
+    if (s1.pageAttributes.order < s2.pageAttributes.order) {
       return -1;
-    } else if (s1.pageAttributes.weight > s2.pageAttributes.weight) {
+    } else if (s1.pageAttributes.order > s2.pageAttributes.order) {
       return 1;
     } else {
       // or we fallback to sort alphabethically
@@ -111,7 +111,7 @@ class TableOfContents extends Plugin {
         pageAttributes = pick(jsonData.data.attributes, [
           'title',
           'caption',
-          'weight',
+          'order',
           'hidden',
         ]);
       } else {
@@ -119,9 +119,9 @@ class TableOfContents extends Plugin {
         pageAttributes = {};
       }
 
-      // assign a "weight" using the frontmatter value (or a default)
+      // assign an "order" using the frontmatter value (or a default)
       // notice: it's used for sorting criteria in the navigation
-      pageAttributes.weight = pageAttributes.weight ?? 100;
+      pageAttributes.order = pageAttributes.order ?? 100;
 
       if (!pageAttributes.hidden) {
         flatPageList.push({
