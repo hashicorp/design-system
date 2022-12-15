@@ -32,7 +32,7 @@ All inputs should have associated labels. These are built-in to the form compone
 
 ### Accessible name
 
-Remember, not every element is allowed to use `aria-label`. Check the [element's role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. Just remember, when in doubt, ask! As the saying goes, "no ARIA is better than bad ARIA!"
+Not every element is allowed to use `aria-label`. Check the [element's role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. When in doubt, ask in [#team-design-system](https://hashicorp.slack.com/archives/C7KTUHNUS)! As the saying goes, "no ARIA is better than bad ARIA!"
 
 ## Focus Management
 
