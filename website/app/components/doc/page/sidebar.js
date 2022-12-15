@@ -79,4 +79,15 @@ export default class DocPageSidebarComponent extends Component {
 
     return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;
   }
+
+  get classNames() {
+    let classes = ['doc-page-sidebar'];
+
+    // add a class based on the @showSidebarOnSmallViewport argument
+    if (this.args.showSidebarOnSmallViewport) {
+      classes.push(`doc-page-sidebar--show-sidebar-on-small-viewport`);
+    }
+
+    return classes.join(' ');
+  }
 }

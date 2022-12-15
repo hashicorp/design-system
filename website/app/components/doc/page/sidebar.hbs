@@ -1,9 +1,9 @@
-{{#if this.structuredPageTree}}
-  <aside class="doc-page-sidebar" ...attributes>
-    <div class="doc-page-sidebar__inner-wrapper">
+<aside class={{this.classNames}} ...attributes>
+  <div class="doc-page-sidebar__inner-wrapper">
+    {{#if this.structuredPageTree}}
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
         <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @level={{1}} />
       </nav>
-    </div>
-  </aside>
-{{/if}}
+    {{/if}}
+  </div>
+</aside>

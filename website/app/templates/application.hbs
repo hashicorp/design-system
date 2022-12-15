@@ -1,7 +1,12 @@
 <div class="doc-page-wrapper">
-  <Doc::Page::Header />
-  {{! `this.model.toc` comes from `routes/application.js` }}
-  <Doc::Page::Sidebar @toc={{this.model.toc}} @currentPath={{this.target.currentPath}} @currentRoute={{this.target.currentRoute}} />
+  <Doc::Page::Header @onToggleBurgerMenu={{this.onToggleBurgerMenu}} />
+  <Doc::Page::Sidebar
+    {{! `this.model.toc` comes from `routes/application.js` }}
+    @toc={{this.model.toc}}
+    @currentPath={{this.target.currentPath}}
+    @currentRoute={{this.target.currentRoute}}
+    @showSidebarOnSmallViewport={{this.showSidebarOnSmallViewport}}
+  />
   {{outlet}}
   <Doc::Page::Footer />
 </div>
