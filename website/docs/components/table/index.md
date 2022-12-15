@@ -1,5 +1,7 @@
 ---
 title: Table
+description: Used to display organized, two-dimensional tabular data.
+caption: Used to display organized, two-dimensional tabular data.
 ---
 
 <section data-tab="Other">
