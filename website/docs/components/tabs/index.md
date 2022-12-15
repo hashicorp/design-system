@@ -1,5 +1,7 @@
 ---
 title: Tabs
+description: Allows users to move among different views within the same context and at the same level of hierarchy.
+caption: Allows users to move among different views within the same context.
 ---
 
 <section data-tab="Guidelines">
