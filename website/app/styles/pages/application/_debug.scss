@@ -1,11 +1,9 @@
 // stylelint-disable selector-class-pattern
 
+@use "../../breakpoints" as breakpoint;
+
 .🌈 {
   background-color: pink;
-
-  .doc-page-hero {
-    background-color: cyan;
-  }
 
   .doc-page-header {
     background-color: red;
@@ -35,16 +33,27 @@
   .doc-page-footer {
     background-color: #111f5d;
   }
+
+  // page specific debug
+
+  .doc-page-home::before {
+    border-bottom: 3px solid red;
+
+    @include breakpoint.medium() {
+      border-bottom-color: orange;
+    }
+
+    @include breakpoint.large() {
+      border-bottom-color: green;
+    }
+  }
 }
 
-.doc-page-header__🌈 {
-  justify-self: flex-end;
-  margin: auto 0 auto auto;
+.doc-page-footer__🌈 {
   padding: 1px 3px;
-  font-size: 20px;
-  background-color: #fff;
+  font-size: 12px;
+  background-color: transparent;
   border-color: transparent;
-  border-radius: 4px;
+  border-radius: 3px;
   cursor: pointer;
 }
-

@@ -2,7 +2,6 @@
 
 @import "./header";
 @import "./sidebar";
-@import "./hero";
 @import "./stage";
 @import "./cover";
 @import "./tabs";
@@ -34,7 +33,7 @@
   grid-template-areas:
     "header header"
     "sidebar stage"
-    "footer footer";
+    "sidebar footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
