@@ -1,6 +1,6 @@
 ---
 title: Button
-description: An interactive element that initiates an action or event, like a form submission.
+description: An interactive element that initiates an action or event, such as a form submission.
 caption: An interactive element that initiates an action.
 ---
 
