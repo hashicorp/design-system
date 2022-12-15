@@ -1,5 +1,7 @@
 ---
 title: Dropdown
+description: Displays a list (typically of actions or links) revealed by a toggle button. Identifiable by the chevron icon in the button.
+caption: Hide/Show a list of actions or links with a toggle button.
 ---
 
 <section data-tab="Other">
