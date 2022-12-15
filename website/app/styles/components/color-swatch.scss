@@ -1,11 +1,13 @@
+$doc-color-swatch-border-radius: 3px;
+
 .doc-color-swatch {
   display: grid;
   grid-template-rows: 64px 1fr;
   width: 100%;
   margin: 16px 0;
   padding: 0;
-  border: 1px solid #dbdbdc;
-  border-radius: 3px;
+  border: 1px solid var(--doc-color-gray-500);
+  border-radius: $doc-color-swatch-border-radius;
 
 
   @media screen and (min-width: 1280px) {
@@ -15,15 +17,14 @@
 }
 
 .doc-color-swatch__preview {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-top-left-radius: $doc-color-swatch-border-radius;
+  border-top-right-radius: $doc-color-swatch-border-radius;
 
   @media screen and (min-width: 1280px) {
     grid-area: 1 / 1 / 2 / 2;
     max-width: 80px;
-    border-top-left-radius: 3px;
     border-top-right-radius: 0;
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: $doc-color-swatch-border-radius;
   }
 }
 
@@ -66,9 +67,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-    color: #727374;
+    color: var(--doc-color-gray-300);
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.75rem; // 12px ÷ 16px
     font-family: Gilmer, sans-serif;
     line-height: 1.2;
     letter-spacing: 0.0125em;
@@ -77,17 +78,4 @@
       margin-bottom: 0;
     }
   }
-}
-
-// TODO figure out how these should be done, this is too manual
-.doc-color-swatch__preview-hds-palette-blue-50 {
-  background-color: #f2f8ff;
-}
-
-.doc-color-swatch__preview-hds-palette-blue-100 {
-  background-color: #cce3fe;
-}
-
-.doc-color-swatch__preview-hds-palette-blue-200 {
-  background-color: #1060ff;
 }
