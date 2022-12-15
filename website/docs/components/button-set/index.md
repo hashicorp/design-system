@@ -1,7 +1,7 @@
 ---
 title: ButtonSet
 description: Provides consistent layout and spacing for a set of buttons.
-caption: Group of buttons.
+caption: A set of buttons.
 ---
 
 <section data-tab="Guidelines">
