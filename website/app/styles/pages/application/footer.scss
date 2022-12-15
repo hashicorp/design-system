@@ -4,6 +4,7 @@
 @use "../../typography/mixins" as *;
 
 .doc-page-footer {
+  // z-index: var(--doc-z-index-footer);
   display: flex;
   flex-direction: column;
   grid-area: footer;
