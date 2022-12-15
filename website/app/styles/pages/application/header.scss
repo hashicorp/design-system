@@ -89,25 +89,24 @@ $header-custom-breakpoint: 1000px;
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 8px 12px 5px 12px; // we have to take in account the border-bottom
+    padding: 8px 12px 8px 12px;
     color: var(--doc-color-gray-400);
     text-decoration: none;
-    border-bottom: 3px solid transparent;
 
     &:visited {
       color: var(--doc-color-gray-400);
     }
 
     &:hover {
-      color: var(--doc-color-white);
+      color: var(--doc-color-gray-600);
     }
 
     &:active {
-      border-bottom-color: var(--doc-color-white);
+      color: var(--doc-color-white);
     }
 
     &.is-current-route {
-      border-bottom-color: var(--doc-color-gray-600);
+      color: var(--doc-color-gray-600);
     }
   }
 }
