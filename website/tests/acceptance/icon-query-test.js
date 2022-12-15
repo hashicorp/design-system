@@ -11,7 +11,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.strictEqual(
       currentURL(),
-      '/foundations/icons?searchQuery=loading&selectedIconSize=24&tab=library'
+      '/foundations/icons?searchQuery=loading&selectedIconSize=24'
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
@@ -22,7 +22,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.strictEqual(
       currentURL(),
-      '/foundations/icons?searchQuery=loading&selectedIconSize=16&tab=library'
+      '/foundations/icons?searchQuery=loading&selectedIconSize=16'
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
