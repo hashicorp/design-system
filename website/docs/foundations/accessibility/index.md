@@ -6,7 +6,7 @@ While our components are designed and developed with accessibility as a core req
 
 ## Accessible Routing
 
-To ensure that route transitions are appropriately announced to users with assistive technology, applications should consider adding support for accessible routing. We currently recommend [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus), an addon that provides three things:
+Adding support for accessible routing ensures that route transitions are appropriately announced to users with assistive technology. We recommend [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus), an addon that provides three things:
 
 1. It adds a message to the page to let the screen reader user know that the route has changed and regular page navigation can resume (it is similar to [https://github.com/ember-a11y/a11y-announcer](https://github.com/ember-a11y/a11y-announcer) but does not use `aria-live`).
 2. It moves the focus to that message for the screen reader user, effectively resetting focus in Ember apps (similar to how a native web page/site works).
