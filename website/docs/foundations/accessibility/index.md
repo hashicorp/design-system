@@ -49,7 +49,7 @@ Use available automated tooling for static and dynamic analysis. Ember apps can 
 ## Manual Testing
 
 - *Keyboard support:* ensure that your application is keyboard navigable. Everything that you can do with a mouse should have an equivalent experience with a keyboard!
-- *Browser extensions:* there are a few browser extensions that can help you with accessibility. Check out Microsoft's [Accessibility Insights](https://accessibilityinsights.io/) and Deque's [aXe](https://www.deque.com/axe/browser-extensions/) are two popular extensions that can help you check for accessibility issues right in your browser!
+- *Browser extensions:* there are a few browser extensions that can help you with accessibility. Microsoft's [Accessibility Insights](https://accessibilityinsights.io/) and Deque's [aXe](https://www.deque.com/axe/browser-extensions/) are two popular extensions that can help you check for accessibility issues right in your browser.
 - *Safari and VoiceOver:* your development environment has a screen reader built in! Become familiar with VoiceOver use it to test your application with Safari, especially if you are creating a non-standard UI and want to make sure that it will be inclusive for our users.
 
 ## Accessibility Support
