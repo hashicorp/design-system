@@ -44,7 +44,7 @@ There are some key points to remember about focus management:
 
 ## Automated Testing
 
-Product applications should endeavor to use the automated tooling for static and dynamic analysis that are available to them. Ember apps can use [ember-template-lint](https://github.com/ember-template-lint/ember-template-lint) for static analysis and [ember-a11y-testing](https://github.com/ember-a11y/ember-a11y-testing) for dynamic analysis. Additionally, consider adding HTML validation to your CI.
+Use available automated tooling for static and dynamic analysis. Ember apps can use [ember-template-lint](https://github.com/ember-template-lint/ember-template-lint) for static analysis and [ember-a11y-testing](https://github.com/ember-a11y/ember-a11y-testing) for dynamic analysis. Additionally, consider adding HTML validation to your CI.
 
 ## Manual Testing
 
