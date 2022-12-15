@@ -33,31 +33,6 @@ export default class DocPageSidebarComponent extends Component {
   get structuredPageTree() {
     const { currentPath, currentRoute } = this.args;
 
-    // eg. currentPath = 'about'
-    // console.log('sidebar >>> currentPath', currentPath);
-
-    // eg. currentRoute = {
-    //      name: 'about',
-    //      parent: {
-    //        name: 'application',
-    //        parent: null,
-    //        ...
-    //      },
-    //      localName: 'about',
-    //      attributes: [
-    //        { id: 'components', title: 'components', pages: [Array] },
-    //        { id: 'content', title: 'content', pages: [Array] },
-    //        { id: 'foundations', title: 'foundations', pages: [Array] },
-    //        { id: 'getting-started', title: 'getting-started', pages: [Array] },
-    //        { id: 'overrides', title: 'overrides', pages: [Array] },
-    //        { id: 'overview', title: 'overview', pages: [Array] },
-    //        { id: 'testing', title: 'testing', pages: [Array] },
-    //        { id: 'updates', title: 'updates', pages: [Array] },
-    //        { id: 'utilities', title: 'utilities', pages: [Array] }
-    //      ]
-    //   }
-    // console.log('sidebar >>> currentRoute', currentRoute);
-
     let currentSection;
     if (currentRoute.localName === 'show') {
       // eg. "foundations/tokens/"
@@ -70,8 +45,7 @@ export default class DocPageSidebarComponent extends Component {
     const subSectionTree = {};
     getTocSectionBundle(currentSection).forEach((section) => {
       let subTree = this.args.toc.tree[section];
-      // the "about" section doesn't exist, it's there only to make sure the related sections appear for the "About" landing page
-      // with this check we avoid that it appears in the sidebar as empty container
+      // this check avoids that we show in the sidebar empty "containers"
       if (subTree) {
         subSectionTree[section] = subTree;
       }
