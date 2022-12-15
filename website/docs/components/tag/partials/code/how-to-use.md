@@ -10,8 +10,6 @@ Invocation of the component would look something like this:
 
 In this case, since no `@href` or `@route` argument is provided it will render the tag as plain text.
 
-Renders to:
-
 #### Color
 
 There are two available colors for a link: `primary` and `secondary`. The default is `primary`.
@@ -20,8 +18,6 @@ There are two available colors for a link: `primary` and `secondary`. The defaul
 <Hds::Tag @color="primary" @text="My link tag" @route="show" @model="components/tag" @onDismiss={{this.yourOnDismissFunction}} />
 ```
 
-Renders to:
-
 #### Dismiss
 
 In most cases the tag needs to be dismissable. If you don't provide a callback function to the `onDismiss` argument the "dismiss/remove" button will not be rendered.
@@ -29,5 +25,3 @@ In most cases the tag needs to be dismissable. If you don't provide a callback f
 ```handlebars
 <Hds::Tag @color="primary" @text="My link tag" @route="show" @model="components/tag" />
 ```
-
-Renders to:

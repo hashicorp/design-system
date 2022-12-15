@@ -13,9 +13,9 @@ export default class DocBadgeComponent extends Component {
         'We provide balance between configurability and composability while driving consistency.',
     },
     {
-      title: 'Don’t iterate on quality',
+      title: 'Quality by default',
       description:
-        'We recognize that we are providing a service and commit to a baseline of quality to provide value.',
+        'We recognize that we are providing a service and commit to a baseline of quality to provide value and leverage for our consumers. We iterate on features, not quality.',
     },
     {
       title: 'Design in context',

@@ -168,7 +168,7 @@
 
 @mixin doc-font-style-navigation { // same as body-small but different weight
   @include doc-font-style-body-small();
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @mixin doc-font-style-label {

@@ -1,17 +1,24 @@
-{{page-title 'HDS - HashiCorp Design System'}}
+{{page-title "HDS - HashiCorp Design System"}}
 
-<div class="doc-page-home">
-  <div class="doc-page-home__hero">
-    <Doc::Page::Hero
-      @title="HDS - HashiCorp Design System"
-      @description="HashiCorp Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp."
-    />
-  </div>
-  <Doc::Page::Stage>
-    <div class="doc-page-home__content">
-      <div class="doc-page-home__cards">
-        <Doc::Cards::Deck @cols="4" @cards={{this.cards}} />
+<main class="doc-page-home">
+  <div class="doc-page-home__content">
+    <div class="doc-page-home__hero">
+      <h1>HashiCorp<br />Design System</h1>
+      <p>HashiCorp Design System provides the building blocks to design and implement consistent, accessible, and
+        delightful product experiences across HashiCorp.</p>
+      <div class="doc-page-home__hero-links">
+        <Doc::LinkWithIcon @route="show" @model="getting-started/01--for-designers" @label="Start designing with HDS" @icon="arrow-right" @isAnimated={{true}} />
+        <Doc::LinkWithIcon @route="show" @model="getting-started/02--for-engineers" @label="Install HDS in your project" @icon="arrow-right" @isAnimated={{true}} />
       </div>
     </div>
-  </Doc::Page::Stage>
-</div>
+    <ul class="doc-page-home__cards">
+      {{#each this.cards as |card|}}
+        <li class="doc-page-home__card">
+          <p class="doc-page-home__card-title">{{capitalize card.title}}</p>
+          <p class="doc-page-home__card-description">{{capitalize card.description}}</p>
+          <Doc::LinkWithIcon class="doc-page-home__card-link" @route={{card.route}} @label="Explore" @icon="arrow-right" @fillParent={{true}} @isAnimated={{true}} />
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</main>

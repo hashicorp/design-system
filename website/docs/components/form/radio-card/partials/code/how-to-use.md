@@ -28,10 +28,6 @@ The simplest way to invoke a "radio" group is using something like this:
 </Hds::Form::RadioCard::Group>
 ```
 
-Renders to:
-
-Create connection Quick peering with Quick Links Quick peering with quick links will provide the fastest way to connect to your providers’ network. Manual peering using AWS CLI Provide you AWS CLI template to apply connection settings. Manual peering using HCP and AWS web console Manually follow UI instructions to complete configuring a connection at provider side.
-
 This "group" component creates:
 
 *   a `<fieldset>` container
@@ -75,18 +71,3 @@ You can define custom content using the `Generic` block and a custom width for t
   </G.RadioCard>
 </Hds::Form::RadioCard::Group>
 ```
-
-Renders to:
-
-Cluster type HCP-managed Consul
-
-*   Connect workloads in your cloud provider network with HCP
-*   Offload Consul operations to Hashicorp Experts
-
-Self-managed Consul
-
-*   Multi-cloud artifact registry
-*   Golden images workflow
-*   Terraform Cloud integration
-*   10 free images/month
-*   250 free requests/month
