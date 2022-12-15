@@ -17,7 +17,6 @@
     justify-content: space-between;
   }
 
-  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
   body.application.index & {
     flex-direction: column-reverse;
     color: var(--doc-color-white);
@@ -55,7 +54,6 @@
       text-decoration: underline;
     }
 
-    // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
     body.application.index & {
       color: var(--doc-color-gray-400);
     }
