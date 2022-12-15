@@ -1,6 +1,6 @@
 ---
 title: Breadcrumb
-description: A breadcrumb is a type of secondary navigation that reveals the user's location in a website.
+description: A breadcrumb is a type of secondary navigation that reveals the user's location in an application.
 caption: A secondary navigation that shows the user's current location.
 ---
 
