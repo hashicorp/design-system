@@ -1,5 +1,7 @@
 ---
 title: Button
+description: An interactive element that initiates an action or event, like a form submission.
+caption: An interactive element that initiates an action.
 ---
 
 <section data-tab="Code">
