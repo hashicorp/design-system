@@ -1,5 +1,19 @@
 <aside class={{this.classNames}} ...attributes>
   <div class="doc-page-sidebar__inner-wrapper">
+    <nav class="doc-page-sidebar__top-routes" aria-label="primary page navigation">
+      <ul>
+        <li><LinkTo @route="about">About</LinkTo></li>
+        <li><LinkTo @route="foundations">Foundations</LinkTo></li>
+        <li><LinkTo @route="components">Components</LinkTo></li>
+        <li><LinkTo @route="patterns">Patterns</LinkTo></li>
+        <li><LinkTo @route="support">Support</LinkTo></li>
+        <li class="doc-page-header__nav-item-generic"><a
+            href="https://github.com/hashicorp/design-system"
+            target="_blank"
+            rel="noopener noreferrer"
+          ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
+      </ul>
+    </nav>
     {{#if this.structuredPageTree}}
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
         <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @level={{1}} />
