@@ -63,8 +63,14 @@
 }
 
 .doc-page-sidebar__top-routes {
-  // TODO style the items
-  display: none;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  @include breakpoint.with-fixed-sidebar() {
+    // display: none;
+  }
 
   body.application.index & {
     display: block;

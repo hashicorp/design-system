@@ -1,13 +1,24 @@
 <aside class={{this.classNames}} ...attributes>
   <div class="doc-page-sidebar__inner-wrapper">
     <nav class="doc-page-sidebar__top-routes" aria-label="primary page navigation">
-      <ul>
-        <li><LinkTo @route="about">About</LinkTo></li>
-        <li><LinkTo @route="foundations">Foundations</LinkTo></li>
-        <li><LinkTo @route="components">Components</LinkTo></li>
-        <li><LinkTo @route="patterns">Patterns</LinkTo></li>
-        <li><LinkTo @route="support">Support</LinkTo></li>
-        <li class="doc-page-header__nav-item-generic"><a
+      {{! TODO decide if this is the style that we really want }}
+      <ul class="doc-table-of-contents">
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="about">About</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="foundations">Foundations</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="components">Components</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="patterns">Patterns</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="support">Support</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item"><a
             href="https://github.com/hashicorp/design-system"
             target="_blank"
             rel="noopener noreferrer"
