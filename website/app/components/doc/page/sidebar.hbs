@@ -16,7 +16,7 @@
     </nav>
     {{#if this.structuredPageTree}}
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
-        <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @level={{1}} />
+        <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
       </nav>
     {{/if}}
   </div>

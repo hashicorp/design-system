@@ -2,19 +2,19 @@
 
 <ul class="doc-table-of-contents">
   {{#each-in @structuredPageTree as |key item|}}
-    {{#if item.pageURL}}
-      <li class="doc-table-of-contents__item doc-table-of-contents__item--with-link" style={{this.leftPadStyle}}>
-        <LinkTo @route="show" @model={{item.pageURL}}>
-          {{capitalize item.pageAttributes.title}}
+    <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-{{@depth}}">
+      {{#if item.pageURL}}
+        <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="show" @model={{item.pageURL}}>
+          {{item.pageAttributes.title}}
         </LinkTo>
-      </li>
-    {{else}}
-      <li class="doc-table-of-contents__item">
-        <span style={{this.leftPadStyle}}>
-          {{capitalize key}}
-        </span>
-        <Doc::TableOfContents @structuredPageTree={{item}} @level={{add @level 1}} />
-      </li>
-    {{/if}}
+      {{else}}
+        {{#if (eq @depth 1)}}
+          <div class="doc-table-of-contents__heading doc-text-label">{{capitalize key}}</div>
+        {{else}}
+          <div class="doc-table-of-contents__folder doc-text-navigation">{{capitalize key}}</div>
+        {{/if}}
+        <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
+      {{/if}}
+    </li>
   {{/each-in}}
 </ul>

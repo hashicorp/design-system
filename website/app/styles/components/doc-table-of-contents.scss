@@ -1,25 +1,72 @@
-/* stylelint-disable selector-class-pattern */
+// TABLE OF CONTENTS
+
+$doc-toc-item-inset: 8px;
+
 .doc-table-of-contents {
   width: 100%;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .doc-table-of-contents__item {
-  padding: 0.5rem 0;
+  margin-bottom: 2px;
+  padding: 0;
+  list-style: none;
+
+  &.doc-table-of-contents__item--depth-1 {
+    &::after {
+      display: block;
+      height: 1px;
+      margin: 20px $doc-toc-item-inset;
+      background-color: var(--doc-color-gray-500);
+      content: "";
+    }
+  }
 }
 
-.doc-table-of-contents__item--with-link {
-  a {
-    color: inherit;
+.doc-table-of-contents__heading {
+  padding: 0 $doc-toc-item-inset 12px $doc-toc-item-inset;
+}
 
-    &.active {
-      font-weight: bold;
+.doc-table-of-contents__folder {
+  padding: $doc-toc-item-inset;
+  color: var(--doc-color-gray-300);
+}
+
+.doc-table-of-contents__link {
+  display: block;
+  padding-top: $doc-toc-item-inset;
+  padding-right: $doc-toc-item-inset;
+  padding-bottom: $doc-toc-item-inset;
+  color: var(--doc-color-gray-300);
+  text-decoration: none;
+  border-radius: 3px;
+
+  &:hover {
+    color: var(--doc-color-black);
+  }
+
+  &.active {
+    color: var(--doc-color-gray-200);
+    background-color: var(--doc-color-gray-500);
+
+    &:hover {
+      color: var(--doc-color-black);
+      background-color: var(--doc-color-gray-400);
     }
   }
 
-  &:hover {
-    background-color: #f0f0f0;
+  // left padding depends on the depth of nesting
+
+  .doc-table-of-contents__item--depth-2 & {
+    padding-left: 1 * $doc-toc-item-inset;
+  }
+
+  .doc-table-of-contents__item--depth-3 & {
+    padding-left: 3 * $doc-toc-item-inset;
+  }
+
+  .doc-table-of-contents__item--depth-4 & {
+    padding-left: 5 * $doc-toc-item-inset;
   }
 }
