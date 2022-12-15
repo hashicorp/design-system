@@ -6839,6 +6839,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"broccoli-file-creator@npm:^1.1.1":
+  version: 1.2.0
+  resolution: "broccoli-file-creator@npm:1.2.0"
+  dependencies:
+    broccoli-plugin: ^1.1.0
+    mkdirp: ^0.5.1
+  checksum: 591be2b9a9e2aadd0f5c07fb85a2125eebf29a50ca8dbed4c67f8b75d7e5a296f7740f41e1a441d3861bb2b298a76201995ca2df59c34e1c641521e4f3555d50
+  languageName: node
+  linkType: hard
+
 "broccoli-file-creator@npm:^2.1.1":
   version: 2.1.1
   resolution: "broccoli-file-creator@npm:2.1.1"
@@ -9967,6 +9977,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-body-class@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "ember-body-class@npm:3.0.0"
+  dependencies:
+    ember-cli-babel: ^7.26.10
+    ember-get-config: ^0.5.0
+  checksum: 3bf7378760410280155998c139755c661fb181e03bd265bd4befc8fca49455b11046488cbc05bd3c7f0a8647cb610b184f8cbd991a1ab3bda0233cf8b383ae73
+  languageName: node
+  linkType: hard
+
 "ember-cache-primitive-polyfill@npm:^1.0.1":
   version: 1.0.1
   resolution: "ember-cache-primitive-polyfill@npm:1.0.1"
@@ -10029,7 +10049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.1.3, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.26.8, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.1.3, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.26.8, ember-cli-babel@npm:^7.7.3":
   version: 7.26.11
   resolution: "ember-cli-babel@npm:7.26.11"
   dependencies:
@@ -10788,6 +10808,17 @@ __metadata:
     "@embroider/addon-shim": ^1.0.0
     focus-trap: ^6.7.1
   checksum: 1c4b218b0991b3c90411733cf578aa59cc1b7b08ba7654d2ac9540218c07f8c2879ed98c6472c9dea813863500e9dc3279d517ac422d4861a4e4442a1b651e0e
+  languageName: node
+  linkType: hard
+
+"ember-get-config@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "ember-get-config@npm:0.5.0"
+  dependencies:
+    broccoli-file-creator: ^1.1.1
+    ember-cli-babel: ^7.26.6
+    ember-cli-htmlbars: ^5.7.1
+  checksum: c9ca75a44764705ea62324dba90770ae608d8614c1222ddc9f22ede506f056e65d0e2e518fbc3aa2665ea32e2d4c2735fff9fe4e031d1827c3ebaad3b03bfea2
   languageName: node
   linkType: hard
 
@@ -23139,6 +23170,7 @@ __metadata:
     broccoli-merge-trees: ^4.2.0
     broccoli-multifilter: ^2.0.0
     ember-auto-import: ^2.4.2
+    ember-body-class: ^3.0.0
     ember-cli: ~4.7.0
     ember-cli-app-version: ^5.0.0
     ember-cli-babel: ^7.26.11

@@ -1,0 +1,20 @@
+<header class="doc-page-header" ...attributes>
+  <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
+    <Doc::Logo::DesignSystem />
+  </LinkTo>
+  <nav class="doc-page-header__nav-menu" aria-label="primary navigation">
+    <ul>
+      <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{this.currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{this.currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{this.currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{this.currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Support" @route="support" @currentTopRoute={{this.currentTopRoute}} class="doc-page-header__nav-item--split"/>
+      <li class="doc-page-header__nav-item-generic"><a
+          href="https://github.com/hashicorp/design-system"
+          target="_blank"
+          rel="noopener noreferrer"
+        ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
+    </ul>
+  </nav>
+  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.toggleBurgerMenu}}><FlightIcon @name={{if this.burgerMenuOpen "x" "menu"}} /> <span class="doc-text-navigation">Menu</span></button>
+</header>

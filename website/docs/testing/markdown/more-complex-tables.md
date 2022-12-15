@@ -56,7 +56,7 @@ If you need to use block elements inside a table, you have to use HTML code:
     <tr>
         <td> Ember component </td>
         <td>
-            <DocNpmVersion class="doc-test-markdown-basic-styling" />
+            <Doc::NpmVersion class="doc-test-markdown-basic-styling" />
         </td>
     </tr>
 </table>
