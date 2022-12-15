@@ -2,23 +2,22 @@
 
 @use "../../breakpoints" as breakpoint;
 
-.doc-page-sidebar {
-  z-index: var(--doc-z-index-sidebar);
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - var(--doc-page-header-height));
-  background: var(--doc-color-white);
-  box-shadow: 0 8px 12px rgba(37, 38, 45, 8%);
 
-  // home page (special case)
+// ⚠️ ---  the sidebar "navigation" is different between the homepage and the other pages --- ⚠️
 
-  body.application.index & {
+
+// HOME PAGE (SPECIAL CASE)
+
+body.application.index {
+  .doc-page-sidebar {
     position: fixed;
     top: var(--doc-page-header-height);
     right: 0;
     left: 0;
-    transform: translate3d(-100%, 0, 0);
-    // transition: transform 0.25s ease-in;
+    z-index: var(--doc-z-index-sidebar);
+    background: linear-gradient(92.03deg, #4f53d0 -0.05%, #7545cb 100.68%);
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.25s ease-in;
 
     &.doc-page-sidebar--show-sidebar-on-small-viewport {
       transform: translate3d(0, 0, 0);
@@ -26,16 +25,56 @@
     }
   }
 
-  // all the other pages
+  // for the homepage we have a special treatment
+  // and for now we simply override the styles of the TOC
+  // when we will have the final designs we'll clean up things
+  .doc-page-sidebar__top-routes {
+    .doc-table-of-contents {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 16px;
+    }
 
-  body.application:not(.index) & {
+    .doc-table-of-contents__item {
+      margin: 0;
+    }
+
+    .doc-table-of-contents__heading {
+      display: none;
+    }
+
+    .doc-table-of-contents__link {
+      color: var(--doc-color-white);
+
+      &:hover,
+      &:active {
+        color: var(--doc-color-white);
+      }
+    }
+  }
+}
+
+
+// ALL THE OTHER PAGES
+
+body.application:not(.index) {
+  .doc-page-sidebar {
+    top: var(--doc-page-header-height);
+    left: 0;
+    z-index: var(--doc-z-index-sidebar);
+    display: flex;
+    flex-direction: column;
+    width: var(--doc-page-sidebar-width);
+    height: calc(100vh - var(--doc-page-header-height));
+    background: var(--doc-color-white);
+    box-shadow: 0 8px 16px rgba(37, 38, 45, 20%);
+
     @include breakpoint.with-mobile-sidebar() {
       position: fixed;
-      top: var(--doc-page-header-height);
-      right: 0;
-      left: 0;
       transform: translate3d(-100%, 0, 0);
-      // transition: transform 0.25s ease-in;
+      transition: transform 0.25s ease-in;
 
       &.doc-page-sidebar--show-sidebar-on-small-viewport {
         transform: translate3d(0, 0, 0);
@@ -45,34 +84,34 @@
 
     @include breakpoint.with-fixed-sidebar() {
       position: sticky;
-      top: var(--doc-page-header-height);
       grid-area: sidebar;
-      width: var(--doc-page-sidebar-width);
+      transform: none;
+      transition: none;
     }
   }
-}
 
-.doc-page-sidebar__inner-wrapper {
-  position: relative;
-  flex: 1 0 0;
-  min-height: 0;
-  padding: 32px 24px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-}
-
-.doc-page-sidebar__top-routes {
-  ul {
-    margin: 0;
-    padding: 0;
+  .doc-page-sidebar__inner-wrapper {
+    position: relative;
+    flex: 1 0 0;
+    min-height: 0;
+    padding: 32px 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
-  @include breakpoint.with-fixed-sidebar() {
-    // display: none;
-  }
+  .doc-page-sidebar__top-routes {
+    &::after {
+      display: block;
+      height: 3px;
+      margin: 20px 0;
+      // background-color: var(--doc-color-gray-500);
+      background: linear-gradient(92.03deg, #4f53d0 -0.05%, #7545cb 100.68%);
+      content: "";
+    }
 
-  body.application.index & {
-    display: block;
+    @include breakpoint.with-fixed-sidebar() {
+      display: none;
+    }
   }
 }

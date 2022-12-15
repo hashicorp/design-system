@@ -43,16 +43,15 @@ $doc-toc-item-inset: 8px;
   border-radius: 3px;
 
   &:hover {
-    color: var(--doc-color-black);
+    color: var(--doc-color-gray-100);
   }
 
   &.active {
-    color: var(--doc-color-gray-200);
-    background-color: var(--doc-color-gray-500);
+    color: var(--doc-color-black);
+    font-weight: 700;
 
     &:hover {
       color: var(--doc-color-black);
-      background-color: var(--doc-color-gray-400);
     }
   }
 
