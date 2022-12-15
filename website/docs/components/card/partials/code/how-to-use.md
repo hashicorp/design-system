@@ -6,10 +6,6 @@ Invocation of the component would look something like this:
 <Hds::Card::Container @level="mid" @hasBorder={{true}}>[Your content here]</Hds::Card::Container>
 ```
 
-Renders to:
-
-\[Your content here\]
-
 _Notice: as you can see the layout of the card itself, and its content, is left to the consumer of the component. The `Hds::Card::Container` is nothing more than a block container – a `<div>` – that provides styling for the elevation, border and backgroung. Sizing of the card, internal padding, and content alignment, are all left to the consumer of the component._
 
 In this example we apply custom classes to control the layout of the card and its content:
@@ -23,10 +19,6 @@ In this example we apply custom classes to control the layout of the card and it
   </Hds::Card::Container>
 </div>
 ```
-
-Renders to:
-
-\[Your content here\]
 
 In this case we've added an external element that wraps the card, with a custom class that controls the width of the wrapper itself (but could also be a CSS `flex` or `grid` container, for example) and an internal element that wraps the content and applies padding around it (resulting in visual internal padding for the card) and aligns the text to the center.
 
@@ -47,9 +39,5 @@ In the following example the card transitions between these elevation _mid → h
   </Hds::Card::Container>
 </div>
 ```
-
-Renders to:
-
-\[Your content here\]
 
 **Important**: this is just an example and not a recommendation: if you have any doubt about which level to use for the different states, please speak with your product designer or with the HDS team.
