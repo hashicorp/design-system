@@ -1,6 +1,199 @@
 {
     "flat": [
         {
+            "filePath": "about/overview",
+            "pageURL": "about/overview",
+            "pageName": "overview",
+            "pageParents": [
+                "about"
+            ],
+            "pageAttributes": {
+                "title": "Overview",
+                "order": 101
+            }
+        },
+        {
+            "filePath": "about/hds-principles",
+            "pageURL": "about/hds-principles",
+            "pageName": "hds-principles",
+            "pageParents": [
+                "about"
+            ],
+            "pageAttributes": {
+                "title": "HDS principles",
+                "order": 102
+            }
+        },
+        {
+            "filePath": "getting-started/for-designers",
+            "pageURL": "getting-started/for-designers",
+            "pageName": "for-designers",
+            "pageParents": [
+                "getting-started"
+            ],
+            "pageAttributes": {
+                "title": "For designers",
+                "order": 101
+            }
+        },
+        {
+            "filePath": "getting-started/for-engineers",
+            "pageURL": "getting-started/for-engineers",
+            "pageName": "for-engineers",
+            "pageParents": [
+                "getting-started"
+            ],
+            "pageAttributes": {
+                "title": "For engineers",
+                "order": 102
+            }
+        },
+        {
+            "filePath": "getting-started/adoption",
+            "pageURL": "getting-started/adoption",
+            "pageName": "adoption",
+            "pageParents": [
+                "getting-started"
+            ],
+            "pageAttributes": {
+                "title": "Adoption",
+                "order": 103
+            }
+        },
+        {
+            "filePath": "getting-started/contribution/index",
+            "pageURL": "getting-started/contribution",
+            "pageName": "contribution",
+            "pageParents": [
+                "getting-started"
+            ],
+            "pageAttributes": {
+                "title": "Contribution",
+                "order": 104
+            }
+        },
+        {
+            "filePath": "getting-started/tutorials",
+            "pageURL": "getting-started/tutorials",
+            "pageName": "tutorials",
+            "pageParents": [
+                "getting-started"
+            ],
+            "pageAttributes": {
+                "title": "Tutorials",
+                "order": 105
+            }
+        },
+        {
+            "filePath": "updates/release-notes",
+            "pageURL": "updates/release-notes",
+            "pageName": "release-notes",
+            "pageParents": [
+                "updates"
+            ],
+            "pageAttributes": {
+                "title": "Release notes",
+                "order": 101
+            }
+        },
+        {
+            "filePath": "updates/roadmap",
+            "pageURL": "updates/roadmap",
+            "pageName": "roadmap",
+            "pageParents": [
+                "updates"
+            ],
+            "pageAttributes": {
+                "title": "Roadmap",
+                "order": 102
+            }
+        },
+        {
+            "filePath": "updates/newsletter",
+            "pageURL": "updates/newsletter",
+            "pageName": "newsletter",
+            "pageParents": [
+                "updates"
+            ],
+            "pageAttributes": {
+                "title": "Newsletter",
+                "order": 103
+            }
+        },
+        {
+            "filePath": "foundations/colors/index",
+            "pageURL": "foundations/colors",
+            "pageName": "colors",
+            "pageParents": [
+                "foundations"
+            ],
+            "pageAttributes": {
+                "title": "Colors",
+                "caption": "This is the caption of the colors page that will appear in the cards lists",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "foundations/elevation/index",
+            "pageURL": "foundations/elevation",
+            "pageName": "elevation",
+            "pageParents": [
+                "foundations"
+            ],
+            "pageAttributes": {
+                "title": "Elevation",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "foundations/focus-ring/index",
+            "pageURL": "foundations/focus-ring",
+            "pageName": "focus-ring",
+            "pageParents": [
+                "foundations"
+            ],
+            "pageAttributes": {
+                "title": "Focus ring",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "foundations/icons/index",
+            "pageURL": "foundations/icons",
+            "pageName": "icons",
+            "pageParents": [
+                "foundations"
+            ],
+            "pageAttributes": {
+                "title": "Icons",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "foundations/tokens/index",
+            "pageURL": "foundations/tokens",
+            "pageName": "tokens",
+            "pageParents": [
+                "foundations"
+            ],
+            "pageAttributes": {
+                "title": "Design tokens",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "foundations/typography/index",
+            "pageURL": "foundations/typography",
+            "pageName": "typography",
+            "pageParents": [
+                "foundations"
+            ],
+            "pageAttributes": {
+                "title": "Typography",
+                "order": 100
+            }
+        },
+        {
             "filePath": "components/alert/index",
             "pageURL": "components/alert",
             "pageName": "alert",
@@ -9,19 +202,8 @@
             ],
             "pageAttributes": {
                 "title": "Alert",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "components/avatar/index",
-            "pageURL": "components/avatar",
-            "pageName": "avatar",
-            "pageParents": [
-                "components"
-            ],
-            "pageAttributes": {
-                "title": "Avatar",
-                "weight": 100
+                "caption": "Displays a brief message without interrupting a user’s task.",
+                "order": 100
             }
         },
         {
@@ -33,7 +215,7 @@
             ],
             "pageAttributes": {
                 "title": "BadgeCount",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -45,7 +227,7 @@
             ],
             "pageAttributes": {
                 "title": "Badge",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -57,7 +239,7 @@
             ],
             "pageAttributes": {
                 "title": "Breadcrumb",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -69,7 +251,7 @@
             ],
             "pageAttributes": {
                 "title": "ButtonSet",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -81,7 +263,7 @@
             ],
             "pageAttributes": {
                 "title": "Button",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -93,7 +275,7 @@
             ],
             "pageAttributes": {
                 "title": "Card",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -105,19 +287,7 @@
             ],
             "pageAttributes": {
                 "title": "Dropdown",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "components/empty-state/index",
-            "pageURL": "components/empty-state",
-            "pageName": "empty-state",
-            "pageParents": [
-                "components"
-            ],
-            "pageAttributes": {
-                "title": "EmptyState",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -130,7 +300,7 @@
             ],
             "pageAttributes": {
                 "title": "Form / Base elements",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -143,7 +313,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Checkbox",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -156,7 +326,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::RadioCard",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -169,7 +339,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Radio",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -182,7 +352,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Select",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -195,7 +365,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::TextInput",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -208,7 +378,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Textarea",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -221,7 +391,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Toggle",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -233,7 +403,7 @@
             ],
             "pageAttributes": {
                 "title": "IconTile",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -246,7 +416,7 @@
             ],
             "pageAttributes": {
                 "title": "Link::Inline",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -259,7 +429,7 @@
             ],
             "pageAttributes": {
                 "title": "Link::Standalone",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -271,20 +441,7 @@
             ],
             "pageAttributes": {
                 "title": "Modal",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "components/power-select/after-options/index",
-            "pageURL": "components/power-select/after-options",
-            "pageName": "after-options",
-            "pageParents": [
-                "components",
-                "power-select"
-            ],
-            "pageAttributes": {
-                "title": "Missing component title",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -296,7 +453,7 @@
             ],
             "pageAttributes": {
                 "title": "Stepper Indicator",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -308,7 +465,7 @@
             ],
             "pageAttributes": {
                 "title": "Table",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -320,7 +477,7 @@
             ],
             "pageAttributes": {
                 "title": "Tabs",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -332,7 +489,7 @@
             ],
             "pageAttributes": {
                 "title": "Tag",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -344,127 +501,7 @@
             ],
             "pageAttributes": {
                 "title": "Toast",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "foundations/colors/index",
-            "pageURL": "foundations/colors",
-            "pageName": "colors",
-            "pageParents": [
-                "foundations"
-            ],
-            "pageAttributes": {
-                "title": "Colors",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "foundations/elevation/index",
-            "pageURL": "foundations/elevation",
-            "pageName": "elevation",
-            "pageParents": [
-                "foundations"
-            ],
-            "pageAttributes": {
-                "title": "Elevation",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "foundations/focus-ring/index",
-            "pageURL": "foundations/focus-ring",
-            "pageName": "focus-ring",
-            "pageParents": [
-                "foundations"
-            ],
-            "pageAttributes": {
-                "title": "Focus ring",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "foundations/tokens/index",
-            "pageURL": "foundations/tokens",
-            "pageName": "tokens",
-            "pageParents": [
-                "foundations"
-            ],
-            "pageAttributes": {
-                "title": "Design tokens",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "foundations/typography/index",
-            "pageURL": "foundations/typography",
-            "pageName": "typography",
-            "pageParents": [
-                "foundations"
-            ],
-            "pageAttributes": {
-                "title": "Typography",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "getting-started/01--for-designers",
-            "pageURL": "getting-started/01--for-designers",
-            "pageName": "01--for-designers",
-            "pageParents": [
-                "getting-started"
-            ],
-            "pageAttributes": {
-                "title": "For designers",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "getting-started/02--for-engineers",
-            "pageURL": "getting-started/02--for-engineers",
-            "pageName": "02--for-engineers",
-            "pageParents": [
-                "getting-started"
-            ],
-            "pageAttributes": {
-                "title": "For engineers",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "getting-started/03--adoption",
-            "pageURL": "getting-started/03--adoption",
-            "pageName": "03--adoption",
-            "pageParents": [
-                "getting-started"
-            ],
-            "pageAttributes": {
-                "title": "Adoption",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "getting-started/04--contribution",
-            "pageURL": "getting-started/04--contribution",
-            "pageName": "04--contribution",
-            "pageParents": [
-                "getting-started"
-            ],
-            "pageAttributes": {
-                "title": "Contribution",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "getting-started/05--tutorials",
-            "pageURL": "getting-started/05--tutorials",
-            "pageName": "05--tutorials",
-            "pageParents": [
-                "getting-started"
-            ],
-            "pageAttributes": {
-                "title": "Tutorials",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -476,331 +513,43 @@
             ],
             "pageAttributes": {
                 "title": "PowerSelect",
-                "weight": 100
+                "order": 100
             }
         },
         {
-            "filePath": "overview/01--about",
-            "pageURL": "overview/01--about",
-            "pageName": "01--about",
+            "filePath": "utilities/disclosure/index",
+            "pageURL": "utilities/disclosure",
+            "pageName": "disclosure",
             "pageParents": [
-                "overview"
+                "utilities"
             ],
             "pageAttributes": {
-                "title": "About",
-                "weight": 100
+                "title": "Disclosure",
+                "order": 100
             }
         },
         {
-            "filePath": "overview/02--hds-principles",
-            "pageURL": "overview/02--hds-principles",
-            "pageName": "02--hds-principles",
+            "filePath": "utilities/dismiss-button/index",
+            "pageURL": "utilities/dismiss-button",
+            "pageName": "dismiss-button",
             "pageParents": [
-                "overview"
+                "utilities"
             ],
             "pageAttributes": {
-                "title": "HDS principles",
-                "weight": 100
+                "title": "DismissButton",
+                "order": 100
             }
         },
         {
-            "filePath": "testing/00-testing-markdown-formatting/basic-spacing",
-            "pageURL": "testing/00-testing-markdown-formatting/basic-spacing",
-            "pageName": "basic-spacing",
+            "filePath": "utilities/interactive/index",
+            "pageURL": "utilities/interactive",
+            "pageName": "interactive",
             "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
+                "utilities"
             ],
             "pageAttributes": {
-                "title": "Basic spacing",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-markdown-formatting/basic-styling",
-            "pageURL": "testing/00-testing-markdown-formatting/basic-styling",
-            "pageName": "basic-styling",
-            "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
-            ],
-            "pageAttributes": {
-                "title": "Basic styling",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-markdown-formatting/more-complex-code",
-            "pageURL": "testing/00-testing-markdown-formatting/more-complex-code",
-            "pageName": "more-complex-code",
-            "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
-            ],
-            "pageAttributes": {
-                "title": "More complex code",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-markdown-formatting/more-complex-images",
-            "pageURL": "testing/00-testing-markdown-formatting/more-complex-images",
-            "pageName": "more-complex-images",
-            "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
-            ],
-            "pageAttributes": {
-                "title": "More complex images",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-markdown-formatting/more-complex-lists",
-            "pageURL": "testing/00-testing-markdown-formatting/more-complex-lists",
-            "pageName": "more-complex-lists",
-            "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
-            ],
-            "pageAttributes": {
-                "title": "More complex lists",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-markdown-formatting/more-complex-tables",
-            "pageURL": "testing/00-testing-markdown-formatting/more-complex-tables",
-            "pageName": "more-complex-tables",
-            "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
-            ],
-            "pageAttributes": {
-                "title": "More complex tables",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-markdown-formatting/with-ember-components",
-            "pageURL": "testing/00-testing-markdown-formatting/with-ember-components",
-            "pageName": "with-ember-components",
-            "pageParents": [
-                "testing",
-                "00-testing-markdown-formatting"
-            ],
-            "pageAttributes": {
-                "title": "With Ember components",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/00-testing-new-designs/typography",
-            "pageURL": "testing/00-testing-new-designs/typography",
-            "pageName": "typography",
-            "pageParents": [
-                "testing",
-                "00-testing-new-designs"
-            ],
-            "pageAttributes": {
-                "title": "Testing new designs / Typography",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/01-testing-normal-folder/01--test-file-with-number-prefix",
-            "pageURL": "testing/01-testing-normal-folder/01--test-file-with-number-prefix",
-            "pageName": "01--test-file-with-number-prefix",
-            "pageParents": [
-                "testing",
-                "01-testing-normal-folder"
-            ],
-            "pageAttributes": {
-                "title": "Testing file under a single folder level with a number prefix and a double dash",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/01-testing-normal-folder/02_test-file-with-number-prefix-and-underscore",
-            "pageURL": "testing/01-testing-normal-folder/02_test-file-with-number-prefix-and-underscore",
-            "pageName": "02_test-file-with-number-prefix-and-underscore",
-            "pageParents": [
-                "testing",
-                "01-testing-normal-folder"
-            ],
-            "pageAttributes": {
-                "title": "Testing file number prefix and an underscore in both the markdown and the javascript file",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/01-testing-normal-folder/03_test-file-with-number-prefix-and-mixed",
-            "pageURL": "testing/01-testing-normal-folder/03_test-file-with-number-prefix-and-mixed",
-            "pageName": "03_test-file-with-number-prefix-and-mixed",
-            "pageParents": [
-                "testing",
-                "01-testing-normal-folder"
-            ],
-            "pageAttributes": {
-                "title": "Testing file number prefix and an underscore in the markdown file name and dash in the javascript file name",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/01-testing-normal-folder/test-file",
-            "pageURL": "testing/01-testing-normal-folder/test-file",
-            "pageName": "test-file",
-            "pageParents": [
-                "testing",
-                "01-testing-normal-folder"
-            ],
-            "pageAttributes": {
-                "title": "Testing file under a single folder level with a normal name",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/01-testing-normal-folder/test-file_with_underscore",
-            "pageURL": "testing/01-testing-normal-folder/test-file_with_underscore",
-            "pageName": "test-file_with_underscore",
-            "pageParents": [
-                "testing",
-                "01-testing-normal-folder"
-            ],
-            "pageAttributes": {
-                "title": "Testing file a filename that contains an underscore character",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/01-testing-normal-folder/test-sub-folder/test-file",
-            "pageURL": "testing/01-testing-normal-folder/test-sub-folder/test-file",
-            "pageName": "test-file",
-            "pageParents": [
-                "testing",
-                "01-testing-normal-folder",
-                "test-sub-folder"
-            ],
-            "pageAttributes": {
-                "title": "Testing file within a sub-folder",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/02_testing-folder_with_underscore/test-file",
-            "pageURL": "testing/02_testing-folder_with_underscore/test-file",
-            "pageName": "test-file",
-            "pageParents": [
-                "testing",
-                "02_testing-folder_with_underscore"
-            ],
-            "pageAttributes": {
-                "title": "Testing file under a folder with a name that contains an underline",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/03-test-folder-with-hds-components/test-backing-class",
-            "pageURL": "testing/03-test-folder-with-hds-components/test-backing-class",
-            "pageName": "test-backing-class",
-            "pageParents": [
-                "testing",
-                "03-test-folder-with-hds-components"
-            ],
-            "pageAttributes": {
-                "title": "Test of different ways to use the JS backing class",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/03-test-folder-with-hds-components/test-showcase",
-            "pageURL": "testing/03-test-folder-with-hds-components/test-showcase",
-            "pageName": "test-showcase",
-            "pageParents": [
-                "testing",
-                "03-test-folder-with-hds-components"
-            ],
-            "pageAttributes": {
-                "title": "Test showcase with \"mock\" state set via DOM manipulation at runtime",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/04-mock-states/showcase",
-            "pageURL": "testing/04-mock-states/showcase",
-            "pageName": "showcase",
-            "pageParents": [
-                "testing",
-                "04-mock-states"
-            ],
-            "pageAttributes": {
-                "title": "Mock states (Tag / Showcase)",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/05-test-frontmatter/file-with-frontmatter",
-            "pageURL": "testing/05-test-frontmatter/file-with-frontmatter",
-            "pageName": "file-with-frontmatter",
-            "pageParents": [
-                "testing",
-                "05-test-frontmatter"
-            ],
-            "pageAttributes": {
-                "title": "Page with frontmatter",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/05-test-frontmatter/no-cover-no-sidecar",
-            "pageURL": "testing/05-test-frontmatter/no-cover-no-sidecar",
-            "pageName": "no-cover-no-sidecar",
-            "pageParents": [
-                "testing",
-                "05-test-frontmatter"
-            ],
-            "pageAttributes": {
-                "title": "Page with no sidecar and no cover",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/05-test-frontmatter/no-sidecar",
-            "pageURL": "testing/05-test-frontmatter/no-sidecar",
-            "pageName": "no-sidecar",
-            "pageParents": [
-                "testing",
-                "05-test-frontmatter"
-            ],
-            "pageAttributes": {
-                "title": "Page with no sidecar",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/07-test-content-blocks/do-dont",
-            "pageURL": "testing/07-test-content-blocks/do-dont",
-            "pageName": "do-dont",
-            "pageParents": [
-                "testing",
-                "07-test-content-blocks"
-            ],
-            "pageAttributes": {
-                "title": "Test with \"Do/Dont\" content blocks",
-                "weight": 100
-            }
-        },
-        {
-            "filePath": "testing/07-test-content-blocks/generic",
-            "pageURL": "testing/07-test-content-blocks/generic",
-            "pageName": "generic",
-            "pageParents": [
-                "testing",
-                "07-test-content-blocks"
-            ],
-            "pageAttributes": {
-                "title": "Test with \"content blocks\" in markdown / HTML / Ember",
-                "weight": 100
+                "title": "Interactive",
+                "order": 100
             }
         },
         {
@@ -813,435 +562,277 @@
             ],
             "pageAttributes": {
                 "title": "Doc::Badge",
-                "weight": 100
+                "order": 100
             }
         },
         {
-            "filePath": "updates/01--release-notes",
-            "pageURL": "updates/01--release-notes",
-            "pageName": "01--release-notes",
+            "filePath": "testing/components/banner/index",
+            "pageURL": "testing/components/banner",
+            "pageName": "banner",
             "pageParents": [
-                "updates"
+                "testing",
+                "components"
             ],
             "pageAttributes": {
-                "title": "Release notes",
-                "weight": 100
+                "title": "Doc::Banner",
+                "order": 100
             }
         },
         {
-            "filePath": "updates/02--roadmap",
-            "pageURL": "updates/02--roadmap",
-            "pageName": "02--roadmap",
+            "filePath": "testing/components/copy-button",
+            "pageURL": "testing/components/copy-button",
+            "pageName": "copy-button",
             "pageParents": [
-                "updates"
+                "testing",
+                "components"
             ],
             "pageAttributes": {
-                "title": "Roadmap",
-                "weight": 100
+                "title": "Doc::CopyButton",
+                "order": 100
             }
         },
         {
-            "filePath": "updates/03--newsletter",
-            "pageURL": "updates/03--newsletter",
-            "pageName": "03--newsletter",
+            "filePath": "testing/components/do-dont",
+            "pageURL": "testing/components/do-dont",
+            "pageName": "do-dont",
             "pageParents": [
-                "updates"
+                "testing",
+                "components"
             ],
             "pageAttributes": {
-                "title": "Newsletter",
-                "weight": 100
+                "title": "Doc::DoDont",
+                "order": 100
             }
         },
         {
-            "filePath": "utilities/disclosure/index",
-            "pageURL": "utilities/disclosure",
-            "pageName": "disclosure",
+            "filePath": "testing/components/typography",
+            "pageURL": "testing/components/typography",
+            "pageName": "typography",
             "pageParents": [
-                "utilities"
+                "testing",
+                "components"
             ],
             "pageAttributes": {
-                "title": "Disclosure",
-                "weight": 100
+                "title": "Typography",
+                "order": 100
             }
         },
         {
-            "filePath": "utilities/dismiss-button/index",
-            "pageURL": "utilities/dismiss-button",
-            "pageName": "dismiss-button",
+            "filePath": "testing/markdown/basic-spacing",
+            "pageURL": "testing/markdown/basic-spacing",
+            "pageName": "basic-spacing",
             "pageParents": [
-                "utilities"
+                "testing",
+                "markdown"
             ],
             "pageAttributes": {
-                "title": "DismissButton",
-                "weight": 100
+                "title": "Basic spacing",
+                "order": 100
             }
         },
         {
-            "filePath": "utilities/interactive/index",
-            "pageURL": "utilities/interactive",
-            "pageName": "interactive",
+            "filePath": "testing/markdown/basic-styling",
+            "pageURL": "testing/markdown/basic-styling",
+            "pageName": "basic-styling",
             "pageParents": [
-                "utilities"
+                "testing",
+                "markdown"
             ],
             "pageAttributes": {
-                "title": "Interactive",
-                "weight": 100
+                "title": "Basic styling",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "testing/markdown/more-complex-code",
+            "pageURL": "testing/markdown/more-complex-code",
+            "pageName": "more-complex-code",
+            "pageParents": [
+                "testing",
+                "markdown"
+            ],
+            "pageAttributes": {
+                "title": "More complex code",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "testing/markdown/more-complex-images",
+            "pageURL": "testing/markdown/more-complex-images",
+            "pageName": "more-complex-images",
+            "pageParents": [
+                "testing",
+                "markdown"
+            ],
+            "pageAttributes": {
+                "title": "More complex images",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "testing/markdown/more-complex-lists",
+            "pageURL": "testing/markdown/more-complex-lists",
+            "pageName": "more-complex-lists",
+            "pageParents": [
+                "testing",
+                "markdown"
+            ],
+            "pageAttributes": {
+                "title": "More complex lists",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "testing/markdown/more-complex-tables",
+            "pageURL": "testing/markdown/more-complex-tables",
+            "pageName": "more-complex-tables",
+            "pageParents": [
+                "testing",
+                "markdown"
+            ],
+            "pageAttributes": {
+                "title": "More complex tables",
+                "order": 100
+            }
+        },
+        {
+            "filePath": "testing/markdown/with-ember-components",
+            "pageURL": "testing/markdown/with-ember-components",
+            "pageName": "with-ember-components",
+            "pageParents": [
+                "testing",
+                "markdown"
+            ],
+            "pageAttributes": {
+                "title": "With Ember components",
+                "order": 100
             }
         }
     ],
     "tree": {
-        "components": {
-            "alert": {
-                "filePath": "components/alert/index",
-                "pageURL": "components/alert",
-                "pageName": "alert",
+        "about": {
+            "overview": {
+                "filePath": "about/overview",
+                "pageURL": "about/overview",
+                "pageName": "overview",
                 "pageParents": [
-                    "components"
+                    "about"
                 ],
                 "pageAttributes": {
-                    "title": "Alert",
-                    "weight": 100
+                    "title": "Overview",
+                    "order": 101
                 }
             },
-            "avatar": {
-                "filePath": "components/avatar/index",
-                "pageURL": "components/avatar",
-                "pageName": "avatar",
+            "hds-principles": {
+                "filePath": "about/hds-principles",
+                "pageURL": "about/hds-principles",
+                "pageName": "hds-principles",
                 "pageParents": [
-                    "components"
+                    "about"
                 ],
                 "pageAttributes": {
-                    "title": "Avatar",
-                    "weight": 100
+                    "title": "HDS principles",
+                    "order": 102
                 }
-            },
-            "badge-count": {
-                "filePath": "components/badge-count/index",
-                "pageURL": "components/badge-count",
-                "pageName": "badge-count",
+            }
+        },
+        "getting-started": {
+            "for-designers": {
+                "filePath": "getting-started/for-designers",
+                "pageURL": "getting-started/for-designers",
+                "pageName": "for-designers",
                 "pageParents": [
-                    "components"
+                    "getting-started"
                 ],
                 "pageAttributes": {
-                    "title": "BadgeCount",
-                    "weight": 100
+                    "title": "For designers",
+                    "order": 101
                 }
             },
-            "badge": {
-                "filePath": "components/badge/index",
-                "pageURL": "components/badge",
-                "pageName": "badge",
+            "for-engineers": {
+                "filePath": "getting-started/for-engineers",
+                "pageURL": "getting-started/for-engineers",
+                "pageName": "for-engineers",
                 "pageParents": [
-                    "components"
+                    "getting-started"
                 ],
                 "pageAttributes": {
-                    "title": "Badge",
-                    "weight": 100
+                    "title": "For engineers",
+                    "order": 102
                 }
             },
-            "breadcrumb": {
-                "filePath": "components/breadcrumb/index",
-                "pageURL": "components/breadcrumb",
-                "pageName": "breadcrumb",
+            "adoption": {
+                "filePath": "getting-started/adoption",
+                "pageURL": "getting-started/adoption",
+                "pageName": "adoption",
                 "pageParents": [
-                    "components"
+                    "getting-started"
                 ],
                 "pageAttributes": {
-                    "title": "Breadcrumb",
-                    "weight": 100
+                    "title": "Adoption",
+                    "order": 103
                 }
             },
-            "button-set": {
-                "filePath": "components/button-set/index",
-                "pageURL": "components/button-set",
-                "pageName": "button-set",
+            "contribution": {
+                "filePath": "getting-started/contribution/index",
+                "pageURL": "getting-started/contribution",
+                "pageName": "contribution",
                 "pageParents": [
-                    "components"
+                    "getting-started"
                 ],
                 "pageAttributes": {
-                    "title": "ButtonSet",
-                    "weight": 100
+                    "title": "Contribution",
+                    "order": 104
                 }
             },
-            "button": {
-                "filePath": "components/button/index",
-                "pageURL": "components/button",
-                "pageName": "button",
+            "tutorials": {
+                "filePath": "getting-started/tutorials",
+                "pageURL": "getting-started/tutorials",
+                "pageName": "tutorials",
                 "pageParents": [
-                    "components"
+                    "getting-started"
                 ],
                 "pageAttributes": {
-                    "title": "Button",
-                    "weight": 100
+                    "title": "Tutorials",
+                    "order": 105
                 }
-            },
-            "card": {
-                "filePath": "components/card/index",
-                "pageURL": "components/card",
-                "pageName": "card",
+            }
+        },
+        "updates": {
+            "release-notes": {
+                "filePath": "updates/release-notes",
+                "pageURL": "updates/release-notes",
+                "pageName": "release-notes",
                 "pageParents": [
-                    "components"
+                    "updates"
                 ],
                 "pageAttributes": {
-                    "title": "Card",
-                    "weight": 100
+                    "title": "Release notes",
+                    "order": 101
                 }
             },
-            "dropdown": {
-                "filePath": "components/dropdown/index",
-                "pageURL": "components/dropdown",
-                "pageName": "dropdown",
+            "roadmap": {
+                "filePath": "updates/roadmap",
+                "pageURL": "updates/roadmap",
+                "pageName": "roadmap",
                 "pageParents": [
-                    "components"
+                    "updates"
                 ],
                 "pageAttributes": {
-                    "title": "Dropdown",
-                    "weight": 100
+                    "title": "Roadmap",
+                    "order": 102
                 }
             },
-            "empty-state": {
-                "filePath": "components/empty-state/index",
-                "pageURL": "components/empty-state",
-                "pageName": "empty-state",
+            "newsletter": {
+                "filePath": "updates/newsletter",
+                "pageURL": "updates/newsletter",
+                "pageName": "newsletter",
                 "pageParents": [
-                    "components"
+                    "updates"
                 ],
                 "pageAttributes": {
-                    "title": "EmptyState",
-                    "weight": 100
-                }
-            },
-            "form": {
-                "base-elements": {
-                    "filePath": "components/form/base-elements/index",
-                    "pageURL": "components/form/base-elements",
-                    "pageName": "base-elements",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form / Base elements",
-                        "weight": 100
-                    }
-                },
-                "checkbox": {
-                    "filePath": "components/form/checkbox/index",
-                    "pageURL": "components/form/checkbox",
-                    "pageName": "checkbox",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Checkbox",
-                        "weight": 100
-                    }
-                },
-                "radio-card": {
-                    "filePath": "components/form/radio-card/index",
-                    "pageURL": "components/form/radio-card",
-                    "pageName": "radio-card",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::RadioCard",
-                        "weight": 100
-                    }
-                },
-                "radio": {
-                    "filePath": "components/form/radio/index",
-                    "pageURL": "components/form/radio",
-                    "pageName": "radio",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Radio",
-                        "weight": 100
-                    }
-                },
-                "select": {
-                    "filePath": "components/form/select/index",
-                    "pageURL": "components/form/select",
-                    "pageName": "select",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Select",
-                        "weight": 100
-                    }
-                },
-                "text-input": {
-                    "filePath": "components/form/text-input/index",
-                    "pageURL": "components/form/text-input",
-                    "pageName": "text-input",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::TextInput",
-                        "weight": 100
-                    }
-                },
-                "textarea": {
-                    "filePath": "components/form/textarea/index",
-                    "pageURL": "components/form/textarea",
-                    "pageName": "textarea",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Textarea",
-                        "weight": 100
-                    }
-                },
-                "toggle": {
-                    "filePath": "components/form/toggle/index",
-                    "pageURL": "components/form/toggle",
-                    "pageName": "toggle",
-                    "pageParents": [
-                        "components",
-                        "form"
-                    ],
-                    "pageAttributes": {
-                        "title": "Form::Toggle",
-                        "weight": 100
-                    }
-                }
-            },
-            "icon-tile": {
-                "filePath": "components/icon-tile/index",
-                "pageURL": "components/icon-tile",
-                "pageName": "icon-tile",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "IconTile",
-                    "weight": 100
-                }
-            },
-            "link": {
-                "inline": {
-                    "filePath": "components/link/inline/index",
-                    "pageURL": "components/link/inline",
-                    "pageName": "inline",
-                    "pageParents": [
-                        "components",
-                        "link"
-                    ],
-                    "pageAttributes": {
-                        "title": "Link::Inline",
-                        "weight": 100
-                    }
-                },
-                "standalone": {
-                    "filePath": "components/link/standalone/index",
-                    "pageURL": "components/link/standalone",
-                    "pageName": "standalone",
-                    "pageParents": [
-                        "components",
-                        "link"
-                    ],
-                    "pageAttributes": {
-                        "title": "Link::Standalone",
-                        "weight": 100
-                    }
-                }
-            },
-            "modal": {
-                "filePath": "components/modal/index",
-                "pageURL": "components/modal",
-                "pageName": "modal",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Modal",
-                    "weight": 100
-                }
-            },
-            "power-select": {
-                "after-options": {
-                    "filePath": "components/power-select/after-options/index",
-                    "pageURL": "components/power-select/after-options",
-                    "pageName": "after-options",
-                    "pageParents": [
-                        "components",
-                        "power-select"
-                    ],
-                    "pageAttributes": {
-                        "title": "Missing component title",
-                        "weight": 100
-                    }
-                }
-            },
-            "stepper": {
-                "filePath": "components/stepper/index",
-                "pageURL": "components/stepper",
-                "pageName": "stepper",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Stepper Indicator",
-                    "weight": 100
-                }
-            },
-            "table": {
-                "filePath": "components/table/index",
-                "pageURL": "components/table",
-                "pageName": "table",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Table",
-                    "weight": 100
-                }
-            },
-            "tabs": {
-                "filePath": "components/tabs/index",
-                "pageURL": "components/tabs",
-                "pageName": "tabs",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Tabs",
-                    "weight": 100
-                }
-            },
-            "tag": {
-                "filePath": "components/tag/index",
-                "pageURL": "components/tag",
-                "pageName": "tag",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Tag",
-                    "weight": 100
-                }
-            },
-            "toast": {
-                "filePath": "components/toast/index",
-                "pageURL": "components/toast",
-                "pageName": "toast",
-                "pageParents": [
-                    "components"
-                ],
-                "pageAttributes": {
-                    "title": "Toast",
-                    "weight": 100
+                    "title": "Newsletter",
+                    "order": 103
                 }
             }
         },
@@ -1255,7 +846,8 @@
                 ],
                 "pageAttributes": {
                     "title": "Colors",
-                    "weight": 100
+                    "caption": "This is the caption of the colors page that will appear in the cards lists",
+                    "order": 100
                 }
             },
             "elevation": {
@@ -1267,7 +859,7 @@
                 ],
                 "pageAttributes": {
                     "title": "Elevation",
-                    "weight": 100
+                    "order": 100
                 }
             },
             "focus-ring": {
@@ -1279,7 +871,19 @@
                 ],
                 "pageAttributes": {
                     "title": "Focus ring",
-                    "weight": 100
+                    "order": 100
+                }
+            },
+            "icons": {
+                "filePath": "foundations/icons/index",
+                "pageURL": "foundations/icons",
+                "pageName": "icons",
+                "pageParents": [
+                    "foundations"
+                ],
+                "pageAttributes": {
+                    "title": "Icons",
+                    "order": 100
                 }
             },
             "tokens": {
@@ -1291,7 +895,7 @@
                 ],
                 "pageAttributes": {
                     "title": "Design tokens",
-                    "weight": 100
+                    "order": 100
                 }
             },
             "typography": {
@@ -1303,69 +907,324 @@
                 ],
                 "pageAttributes": {
                     "title": "Typography",
-                    "weight": 100
+                    "order": 100
                 }
             }
         },
-        "getting-started": {
-            "01--for-designers": {
-                "filePath": "getting-started/01--for-designers",
-                "pageURL": "getting-started/01--for-designers",
-                "pageName": "01--for-designers",
+        "components": {
+            "alert": {
+                "filePath": "components/alert/index",
+                "pageURL": "components/alert",
+                "pageName": "alert",
                 "pageParents": [
-                    "getting-started"
+                    "components"
                 ],
                 "pageAttributes": {
-                    "title": "For designers",
-                    "weight": 100
+                    "title": "Alert",
+                    "caption": "Displays a brief message without interrupting a user’s task.",
+                    "order": 100
                 }
             },
-            "02--for-engineers": {
-                "filePath": "getting-started/02--for-engineers",
-                "pageURL": "getting-started/02--for-engineers",
-                "pageName": "02--for-engineers",
+            "badge-count": {
+                "filePath": "components/badge-count/index",
+                "pageURL": "components/badge-count",
+                "pageName": "badge-count",
                 "pageParents": [
-                    "getting-started"
+                    "components"
                 ],
                 "pageAttributes": {
-                    "title": "For engineers",
-                    "weight": 100
+                    "title": "BadgeCount",
+                    "order": 100
                 }
             },
-            "03--adoption": {
-                "filePath": "getting-started/03--adoption",
-                "pageURL": "getting-started/03--adoption",
-                "pageName": "03--adoption",
+            "badge": {
+                "filePath": "components/badge/index",
+                "pageURL": "components/badge",
+                "pageName": "badge",
                 "pageParents": [
-                    "getting-started"
+                    "components"
                 ],
                 "pageAttributes": {
-                    "title": "Adoption",
-                    "weight": 100
+                    "title": "Badge",
+                    "order": 100
                 }
             },
-            "04--contribution": {
-                "filePath": "getting-started/04--contribution",
-                "pageURL": "getting-started/04--contribution",
-                "pageName": "04--contribution",
+            "breadcrumb": {
+                "filePath": "components/breadcrumb/index",
+                "pageURL": "components/breadcrumb",
+                "pageName": "breadcrumb",
                 "pageParents": [
-                    "getting-started"
+                    "components"
                 ],
                 "pageAttributes": {
-                    "title": "Contribution",
-                    "weight": 100
+                    "title": "Breadcrumb",
+                    "order": 100
                 }
             },
-            "05--tutorials": {
-                "filePath": "getting-started/05--tutorials",
-                "pageURL": "getting-started/05--tutorials",
-                "pageName": "05--tutorials",
+            "button-set": {
+                "filePath": "components/button-set/index",
+                "pageURL": "components/button-set",
+                "pageName": "button-set",
                 "pageParents": [
-                    "getting-started"
+                    "components"
                 ],
                 "pageAttributes": {
-                    "title": "Tutorials",
-                    "weight": 100
+                    "title": "ButtonSet",
+                    "order": 100
+                }
+            },
+            "button": {
+                "filePath": "components/button/index",
+                "pageURL": "components/button",
+                "pageName": "button",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Button",
+                    "order": 100
+                }
+            },
+            "card": {
+                "filePath": "components/card/index",
+                "pageURL": "components/card",
+                "pageName": "card",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Card",
+                    "order": 100
+                }
+            },
+            "dropdown": {
+                "filePath": "components/dropdown/index",
+                "pageURL": "components/dropdown",
+                "pageName": "dropdown",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Dropdown",
+                    "order": 100
+                }
+            },
+            "form": {
+                "base-elements": {
+                    "filePath": "components/form/base-elements/index",
+                    "pageURL": "components/form/base-elements",
+                    "pageName": "base-elements",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form / Base elements",
+                        "order": 100
+                    }
+                },
+                "checkbox": {
+                    "filePath": "components/form/checkbox/index",
+                    "pageURL": "components/form/checkbox",
+                    "pageName": "checkbox",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::Checkbox",
+                        "order": 100
+                    }
+                },
+                "radio-card": {
+                    "filePath": "components/form/radio-card/index",
+                    "pageURL": "components/form/radio-card",
+                    "pageName": "radio-card",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::RadioCard",
+                        "order": 100
+                    }
+                },
+                "radio": {
+                    "filePath": "components/form/radio/index",
+                    "pageURL": "components/form/radio",
+                    "pageName": "radio",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::Radio",
+                        "order": 100
+                    }
+                },
+                "select": {
+                    "filePath": "components/form/select/index",
+                    "pageURL": "components/form/select",
+                    "pageName": "select",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::Select",
+                        "order": 100
+                    }
+                },
+                "text-input": {
+                    "filePath": "components/form/text-input/index",
+                    "pageURL": "components/form/text-input",
+                    "pageName": "text-input",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::TextInput",
+                        "order": 100
+                    }
+                },
+                "textarea": {
+                    "filePath": "components/form/textarea/index",
+                    "pageURL": "components/form/textarea",
+                    "pageName": "textarea",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::Textarea",
+                        "order": 100
+                    }
+                },
+                "toggle": {
+                    "filePath": "components/form/toggle/index",
+                    "pageURL": "components/form/toggle",
+                    "pageName": "toggle",
+                    "pageParents": [
+                        "components",
+                        "form"
+                    ],
+                    "pageAttributes": {
+                        "title": "Form::Toggle",
+                        "order": 100
+                    }
+                }
+            },
+            "icon-tile": {
+                "filePath": "components/icon-tile/index",
+                "pageURL": "components/icon-tile",
+                "pageName": "icon-tile",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "IconTile",
+                    "order": 100
+                }
+            },
+            "link": {
+                "inline": {
+                    "filePath": "components/link/inline/index",
+                    "pageURL": "components/link/inline",
+                    "pageName": "inline",
+                    "pageParents": [
+                        "components",
+                        "link"
+                    ],
+                    "pageAttributes": {
+                        "title": "Link::Inline",
+                        "order": 100
+                    }
+                },
+                "standalone": {
+                    "filePath": "components/link/standalone/index",
+                    "pageURL": "components/link/standalone",
+                    "pageName": "standalone",
+                    "pageParents": [
+                        "components",
+                        "link"
+                    ],
+                    "pageAttributes": {
+                        "title": "Link::Standalone",
+                        "order": 100
+                    }
+                }
+            },
+            "modal": {
+                "filePath": "components/modal/index",
+                "pageURL": "components/modal",
+                "pageName": "modal",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Modal",
+                    "order": 100
+                }
+            },
+            "stepper": {
+                "filePath": "components/stepper/index",
+                "pageURL": "components/stepper",
+                "pageName": "stepper",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Stepper Indicator",
+                    "order": 100
+                }
+            },
+            "table": {
+                "filePath": "components/table/index",
+                "pageURL": "components/table",
+                "pageName": "table",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Table",
+                    "order": 100
+                }
+            },
+            "tabs": {
+                "filePath": "components/tabs/index",
+                "pageURL": "components/tabs",
+                "pageName": "tabs",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Tabs",
+                    "order": 100
+                }
+            },
+            "tag": {
+                "filePath": "components/tag/index",
+                "pageURL": "components/tag",
+                "pageName": "tag",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Tag",
+                    "order": 100
+                }
+            },
+            "toast": {
+                "filePath": "components/toast/index",
+                "pageURL": "components/toast",
+                "pageName": "toast",
+                "pageParents": [
+                    "components"
+                ],
+                "pageAttributes": {
+                    "title": "Toast",
+                    "order": 100
                 }
             }
         },
@@ -1379,406 +1238,7 @@
                 ],
                 "pageAttributes": {
                     "title": "PowerSelect",
-                    "weight": 100
-                }
-            }
-        },
-        "overview": {
-            "01--about": {
-                "filePath": "overview/01--about",
-                "pageURL": "overview/01--about",
-                "pageName": "01--about",
-                "pageParents": [
-                    "overview"
-                ],
-                "pageAttributes": {
-                    "title": "About",
-                    "weight": 100
-                }
-            },
-            "02--hds-principles": {
-                "filePath": "overview/02--hds-principles",
-                "pageURL": "overview/02--hds-principles",
-                "pageName": "02--hds-principles",
-                "pageParents": [
-                    "overview"
-                ],
-                "pageAttributes": {
-                    "title": "HDS principles",
-                    "weight": 100
-                }
-            }
-        },
-        "testing": {
-            "00-testing-markdown-formatting": {
-                "basic-spacing": {
-                    "filePath": "testing/00-testing-markdown-formatting/basic-spacing",
-                    "pageURL": "testing/00-testing-markdown-formatting/basic-spacing",
-                    "pageName": "basic-spacing",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "Basic spacing",
-                        "weight": 100
-                    }
-                },
-                "basic-styling": {
-                    "filePath": "testing/00-testing-markdown-formatting/basic-styling",
-                    "pageURL": "testing/00-testing-markdown-formatting/basic-styling",
-                    "pageName": "basic-styling",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "Basic styling",
-                        "weight": 100
-                    }
-                },
-                "more-complex-code": {
-                    "filePath": "testing/00-testing-markdown-formatting/more-complex-code",
-                    "pageURL": "testing/00-testing-markdown-formatting/more-complex-code",
-                    "pageName": "more-complex-code",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "More complex code",
-                        "weight": 100
-                    }
-                },
-                "more-complex-images": {
-                    "filePath": "testing/00-testing-markdown-formatting/more-complex-images",
-                    "pageURL": "testing/00-testing-markdown-formatting/more-complex-images",
-                    "pageName": "more-complex-images",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "More complex images",
-                        "weight": 100
-                    }
-                },
-                "more-complex-lists": {
-                    "filePath": "testing/00-testing-markdown-formatting/more-complex-lists",
-                    "pageURL": "testing/00-testing-markdown-formatting/more-complex-lists",
-                    "pageName": "more-complex-lists",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "More complex lists",
-                        "weight": 100
-                    }
-                },
-                "more-complex-tables": {
-                    "filePath": "testing/00-testing-markdown-formatting/more-complex-tables",
-                    "pageURL": "testing/00-testing-markdown-formatting/more-complex-tables",
-                    "pageName": "more-complex-tables",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "More complex tables",
-                        "weight": 100
-                    }
-                },
-                "with-ember-components": {
-                    "filePath": "testing/00-testing-markdown-formatting/with-ember-components",
-                    "pageURL": "testing/00-testing-markdown-formatting/with-ember-components",
-                    "pageName": "with-ember-components",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-markdown-formatting"
-                    ],
-                    "pageAttributes": {
-                        "title": "With Ember components",
-                        "weight": 100
-                    }
-                }
-            },
-            "00-testing-new-designs": {
-                "typography": {
-                    "filePath": "testing/00-testing-new-designs/typography",
-                    "pageURL": "testing/00-testing-new-designs/typography",
-                    "pageName": "typography",
-                    "pageParents": [
-                        "testing",
-                        "00-testing-new-designs"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing new designs / Typography",
-                        "weight": 100
-                    }
-                }
-            },
-            "01-testing-normal-folder": {
-                "01--test-file-with-number-prefix": {
-                    "filePath": "testing/01-testing-normal-folder/01--test-file-with-number-prefix",
-                    "pageURL": "testing/01-testing-normal-folder/01--test-file-with-number-prefix",
-                    "pageName": "01--test-file-with-number-prefix",
-                    "pageParents": [
-                        "testing",
-                        "01-testing-normal-folder"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing file under a single folder level with a number prefix and a double dash",
-                        "weight": 100
-                    }
-                },
-                "02_test-file-with-number-prefix-and-underscore": {
-                    "filePath": "testing/01-testing-normal-folder/02_test-file-with-number-prefix-and-underscore",
-                    "pageURL": "testing/01-testing-normal-folder/02_test-file-with-number-prefix-and-underscore",
-                    "pageName": "02_test-file-with-number-prefix-and-underscore",
-                    "pageParents": [
-                        "testing",
-                        "01-testing-normal-folder"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing file number prefix and an underscore in both the markdown and the javascript file",
-                        "weight": 100
-                    }
-                },
-                "03_test-file-with-number-prefix-and-mixed": {
-                    "filePath": "testing/01-testing-normal-folder/03_test-file-with-number-prefix-and-mixed",
-                    "pageURL": "testing/01-testing-normal-folder/03_test-file-with-number-prefix-and-mixed",
-                    "pageName": "03_test-file-with-number-prefix-and-mixed",
-                    "pageParents": [
-                        "testing",
-                        "01-testing-normal-folder"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing file number prefix and an underscore in the markdown file name and dash in the javascript file name",
-                        "weight": 100
-                    }
-                },
-                "test-file": {
-                    "filePath": "testing/01-testing-normal-folder/test-file",
-                    "pageURL": "testing/01-testing-normal-folder/test-file",
-                    "pageName": "test-file",
-                    "pageParents": [
-                        "testing",
-                        "01-testing-normal-folder"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing file under a single folder level with a normal name",
-                        "weight": 100
-                    }
-                },
-                "test-file_with_underscore": {
-                    "filePath": "testing/01-testing-normal-folder/test-file_with_underscore",
-                    "pageURL": "testing/01-testing-normal-folder/test-file_with_underscore",
-                    "pageName": "test-file_with_underscore",
-                    "pageParents": [
-                        "testing",
-                        "01-testing-normal-folder"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing file a filename that contains an underscore character",
-                        "weight": 100
-                    }
-                },
-                "test-sub-folder": {
-                    "test-file": {
-                        "filePath": "testing/01-testing-normal-folder/test-sub-folder/test-file",
-                        "pageURL": "testing/01-testing-normal-folder/test-sub-folder/test-file",
-                        "pageName": "test-file",
-                        "pageParents": [
-                            "testing",
-                            "01-testing-normal-folder",
-                            "test-sub-folder"
-                        ],
-                        "pageAttributes": {
-                            "title": "Testing file within a sub-folder",
-                            "weight": 100
-                        }
-                    }
-                }
-            },
-            "02_testing-folder_with_underscore": {
-                "test-file": {
-                    "filePath": "testing/02_testing-folder_with_underscore/test-file",
-                    "pageURL": "testing/02_testing-folder_with_underscore/test-file",
-                    "pageName": "test-file",
-                    "pageParents": [
-                        "testing",
-                        "02_testing-folder_with_underscore"
-                    ],
-                    "pageAttributes": {
-                        "title": "Testing file under a folder with a name that contains an underline",
-                        "weight": 100
-                    }
-                }
-            },
-            "03-test-folder-with-hds-components": {
-                "test-backing-class": {
-                    "filePath": "testing/03-test-folder-with-hds-components/test-backing-class",
-                    "pageURL": "testing/03-test-folder-with-hds-components/test-backing-class",
-                    "pageName": "test-backing-class",
-                    "pageParents": [
-                        "testing",
-                        "03-test-folder-with-hds-components"
-                    ],
-                    "pageAttributes": {
-                        "title": "Test of different ways to use the JS backing class",
-                        "weight": 100
-                    }
-                },
-                "test-showcase": {
-                    "filePath": "testing/03-test-folder-with-hds-components/test-showcase",
-                    "pageURL": "testing/03-test-folder-with-hds-components/test-showcase",
-                    "pageName": "test-showcase",
-                    "pageParents": [
-                        "testing",
-                        "03-test-folder-with-hds-components"
-                    ],
-                    "pageAttributes": {
-                        "title": "Test showcase with \"mock\" state set via DOM manipulation at runtime",
-                        "weight": 100
-                    }
-                }
-            },
-            "04-mock-states": {
-                "showcase": {
-                    "filePath": "testing/04-mock-states/showcase",
-                    "pageURL": "testing/04-mock-states/showcase",
-                    "pageName": "showcase",
-                    "pageParents": [
-                        "testing",
-                        "04-mock-states"
-                    ],
-                    "pageAttributes": {
-                        "title": "Mock states (Tag / Showcase)",
-                        "weight": 100
-                    }
-                }
-            },
-            "05-test-frontmatter": {
-                "file-with-frontmatter": {
-                    "filePath": "testing/05-test-frontmatter/file-with-frontmatter",
-                    "pageURL": "testing/05-test-frontmatter/file-with-frontmatter",
-                    "pageName": "file-with-frontmatter",
-                    "pageParents": [
-                        "testing",
-                        "05-test-frontmatter"
-                    ],
-                    "pageAttributes": {
-                        "title": "Page with frontmatter",
-                        "weight": 100
-                    }
-                },
-                "no-cover-no-sidecar": {
-                    "filePath": "testing/05-test-frontmatter/no-cover-no-sidecar",
-                    "pageURL": "testing/05-test-frontmatter/no-cover-no-sidecar",
-                    "pageName": "no-cover-no-sidecar",
-                    "pageParents": [
-                        "testing",
-                        "05-test-frontmatter"
-                    ],
-                    "pageAttributes": {
-                        "title": "Page with no sidecar and no cover",
-                        "weight": 100
-                    }
-                },
-                "no-sidecar": {
-                    "filePath": "testing/05-test-frontmatter/no-sidecar",
-                    "pageURL": "testing/05-test-frontmatter/no-sidecar",
-                    "pageName": "no-sidecar",
-                    "pageParents": [
-                        "testing",
-                        "05-test-frontmatter"
-                    ],
-                    "pageAttributes": {
-                        "title": "Page with no sidecar",
-                        "weight": 100
-                    }
-                }
-            },
-            "07-test-content-blocks": {
-                "do-dont": {
-                    "filePath": "testing/07-test-content-blocks/do-dont",
-                    "pageURL": "testing/07-test-content-blocks/do-dont",
-                    "pageName": "do-dont",
-                    "pageParents": [
-                        "testing",
-                        "07-test-content-blocks"
-                    ],
-                    "pageAttributes": {
-                        "title": "Test with \"Do/Dont\" content blocks",
-                        "weight": 100
-                    }
-                },
-                "generic": {
-                    "filePath": "testing/07-test-content-blocks/generic",
-                    "pageURL": "testing/07-test-content-blocks/generic",
-                    "pageName": "generic",
-                    "pageParents": [
-                        "testing",
-                        "07-test-content-blocks"
-                    ],
-                    "pageAttributes": {
-                        "title": "Test with \"content blocks\" in markdown / HTML / Ember",
-                        "weight": 100
-                    }
-                }
-            },
-            "components": {
-                "badge": {
-                    "filePath": "testing/components/badge",
-                    "pageURL": "testing/components/badge",
-                    "pageName": "badge",
-                    "pageParents": [
-                        "testing",
-                        "components"
-                    ],
-                    "pageAttributes": {
-                        "title": "Doc::Badge",
-                        "weight": 100
-                    }
-                }
-            }
-        },
-        "updates": {
-            "01--release-notes": {
-                "filePath": "updates/01--release-notes",
-                "pageURL": "updates/01--release-notes",
-                "pageName": "01--release-notes",
-                "pageParents": [
-                    "updates"
-                ],
-                "pageAttributes": {
-                    "title": "Release notes",
-                    "weight": 100
-                }
-            },
-            "02--roadmap": {
-                "filePath": "updates/02--roadmap",
-                "pageURL": "updates/02--roadmap",
-                "pageName": "02--roadmap",
-                "pageParents": [
-                    "updates"
-                ],
-                "pageAttributes": {
-                    "title": "Roadmap",
-                    "weight": 100
-                }
-            },
-            "03--newsletter": {
-                "filePath": "updates/03--newsletter",
-                "pageURL": "updates/03--newsletter",
-                "pageName": "03--newsletter",
-                "pageParents": [
-                    "updates"
-                ],
-                "pageAttributes": {
-                    "title": "Newsletter",
-                    "weight": 100
+                    "order": 100
                 }
             }
         },
@@ -1792,7 +1252,7 @@
                 ],
                 "pageAttributes": {
                     "title": "Disclosure",
-                    "weight": 100
+                    "order": 100
                 }
             },
             "dismiss-button": {
@@ -1804,7 +1264,7 @@
                 ],
                 "pageAttributes": {
                     "title": "DismissButton",
-                    "weight": 100
+                    "order": 100
                 }
             },
             "interactive": {
@@ -1816,7 +1276,169 @@
                 ],
                 "pageAttributes": {
                     "title": "Interactive",
-                    "weight": 100
+                    "order": 100
+                }
+            }
+        },
+        "testing": {
+            "components": {
+                "badge": {
+                    "filePath": "testing/components/badge",
+                    "pageURL": "testing/components/badge",
+                    "pageName": "badge",
+                    "pageParents": [
+                        "testing",
+                        "components"
+                    ],
+                    "pageAttributes": {
+                        "title": "Doc::Badge",
+                        "order": 100
+                    }
+                },
+                "banner": {
+                    "filePath": "testing/components/banner/index",
+                    "pageURL": "testing/components/banner",
+                    "pageName": "banner",
+                    "pageParents": [
+                        "testing",
+                        "components"
+                    ],
+                    "pageAttributes": {
+                        "title": "Doc::Banner",
+                        "order": 100
+                    }
+                },
+                "copy-button": {
+                    "filePath": "testing/components/copy-button",
+                    "pageURL": "testing/components/copy-button",
+                    "pageName": "copy-button",
+                    "pageParents": [
+                        "testing",
+                        "components"
+                    ],
+                    "pageAttributes": {
+                        "title": "Doc::CopyButton",
+                        "order": 100
+                    }
+                },
+                "do-dont": {
+                    "filePath": "testing/components/do-dont",
+                    "pageURL": "testing/components/do-dont",
+                    "pageName": "do-dont",
+                    "pageParents": [
+                        "testing",
+                        "components"
+                    ],
+                    "pageAttributes": {
+                        "title": "Doc::DoDont",
+                        "order": 100
+                    }
+                },
+                "typography": {
+                    "filePath": "testing/components/typography",
+                    "pageURL": "testing/components/typography",
+                    "pageName": "typography",
+                    "pageParents": [
+                        "testing",
+                        "components"
+                    ],
+                    "pageAttributes": {
+                        "title": "Typography",
+                        "order": 100
+                    }
+                }
+            },
+            "markdown": {
+                "basic-spacing": {
+                    "filePath": "testing/markdown/basic-spacing",
+                    "pageURL": "testing/markdown/basic-spacing",
+                    "pageName": "basic-spacing",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "Basic spacing",
+                        "order": 100
+                    }
+                },
+                "basic-styling": {
+                    "filePath": "testing/markdown/basic-styling",
+                    "pageURL": "testing/markdown/basic-styling",
+                    "pageName": "basic-styling",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "Basic styling",
+                        "order": 100
+                    }
+                },
+                "more-complex-code": {
+                    "filePath": "testing/markdown/more-complex-code",
+                    "pageURL": "testing/markdown/more-complex-code",
+                    "pageName": "more-complex-code",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "More complex code",
+                        "order": 100
+                    }
+                },
+                "more-complex-images": {
+                    "filePath": "testing/markdown/more-complex-images",
+                    "pageURL": "testing/markdown/more-complex-images",
+                    "pageName": "more-complex-images",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "More complex images",
+                        "order": 100
+                    }
+                },
+                "more-complex-lists": {
+                    "filePath": "testing/markdown/more-complex-lists",
+                    "pageURL": "testing/markdown/more-complex-lists",
+                    "pageName": "more-complex-lists",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "More complex lists",
+                        "order": 100
+                    }
+                },
+                "more-complex-tables": {
+                    "filePath": "testing/markdown/more-complex-tables",
+                    "pageURL": "testing/markdown/more-complex-tables",
+                    "pageName": "more-complex-tables",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "More complex tables",
+                        "order": 100
+                    }
+                },
+                "with-ember-components": {
+                    "filePath": "testing/markdown/with-ember-components",
+                    "pageURL": "testing/markdown/with-ember-components",
+                    "pageName": "with-ember-components",
+                    "pageParents": [
+                        "testing",
+                        "markdown"
+                    ],
+                    "pageAttributes": {
+                        "title": "With Ember components",
+                        "order": 100
+                    }
                 }
             }
         }

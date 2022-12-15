@@ -9,7 +9,7 @@
             ],
             "pageAttributes": {
                 "title": "Alert",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -21,7 +21,7 @@
             ],
             "pageAttributes": {
                 "title": "Avatar",
-                "weight": 99
+                "order": 99
             }
         },
         {
@@ -33,7 +33,7 @@
             ],
             "pageAttributes": {
                 "title": "Badge",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -46,7 +46,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Checkbox",
-                "weight": 99
+                "order": 99
             }
         },
         {
@@ -59,7 +59,7 @@
             ],
             "pageAttributes": {
                 "title": "Form::Radio",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -71,7 +71,7 @@
             ],
             "pageAttributes": {
                 "title": "IconTile",
-                "weight": 10
+                "order": 10
             }
         },
         {
@@ -84,7 +84,7 @@
             ],
             "pageAttributes": {
                 "title": "Link::Inline",
-                "weight": 100
+                "order": 100
             }
         },
         {
@@ -96,7 +96,7 @@
             ],
             "pageAttributes": {
                 "title": "Disclosure",
-                "weight": 98
+                "order": 98
             }
         },
         {
@@ -108,7 +108,7 @@
             ],
             "pageAttributes": {
                 "title": "DismissButton",
-                "weight": 99
+                "order": 99
             }
         },
         {
@@ -120,7 +120,7 @@
             ],
             "pageAttributes": {
                 "title": "Interactive",
-                "weight": 100
+                "order": 100
             }
         }
     ]

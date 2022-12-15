@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import * as TOC from '../docs4/toc-simple.json'; // or "toc-full"
+import * as TOC from '../docs4/toc-full.json'; // or "toc-full" / "toc-simple"
 
 const CATEGORIES = [
   'about',
@@ -48,11 +48,11 @@ function sortPages(s1, s2) {
   // }
   // if they are siblings...
   if (_.isEqual(s1.pageParents, s2.pageParents)) {
-    //  we use the weight first...
-    if (s1.pageAttributes.weight < s2.pageAttributes.weight) {
-      return 1;
-    } else if (s1.pageAttributes.weight > s2.pageAttributes.weight) {
+    //  we use the "order" first...
+    if (s1.pageAttributes.order < s2.pageAttributes.order) {
       return -1;
+    } else if (s1.pageAttributes.order > s2.pageAttributes.order) {
+      return 1;
     } else {
       // or we fallback to sort alphabethically
       const p1 = s1.pageName.toLowerCase;
@@ -74,21 +74,16 @@ function sortPages(s1, s2) {
     } else if (c1 > c2) {
       return 1;
     } else {
-      console.log(`s1-s2 (${s1.filePath} vs ${s2.filePath})`, s1, s2);
-      // or we fallback to sort based on the parent's "path"
-      const p1 = s1.pageParents.join('/');
-      const p2 = s2.pageParents.join('/');
-      console.log(`p1-p2 (${s1.filePath} vs ${s2.filePath})`, p1, p2);
-      if (p1 < p2) {
-        console.log('p1<p2');
-        return -1;
-      } else if (p1 > p2) {
-        console.log('p1>p2');
-        return 1;
-      } else {
-        console.log('p1=p2');
-        return 0;
-      }
+      // const p1 = s1.filePath;
+      // const p2 = s2.filePath;
+      // if (p1 < p2) {
+      //   return -1;
+      // } else if (p1 > p2) {
+      //   return 1;
+      // } else {
+      //   return 0;
+      // }
+      return 0;
     }
   }
 }
