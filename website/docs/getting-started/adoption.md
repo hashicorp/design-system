@@ -1,6 +1,7 @@
 ---
-title: Release notes
+title: Adoption
 description: This is the (missing) long description of the component, that will come from the frontmatter attributes
+weight: 103
 ---
 
 ## Lorem ipsum dolor

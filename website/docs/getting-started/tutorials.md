@@ -1,6 +1,7 @@
 ---
-title: Roadmap
+title: Tutorials
 description: This is the (missing) long description of the component, that will come from the frontmatter attributes
+weight: 105
 ---
 
 ## Lorem ipsum dolor

@@ -1,5 +1,6 @@
 ---
 title: Contribution
+weight: 104
 ---
 
 ## Types of contribution
@@ -14,7 +15,7 @@ While we don't accept direct contributions of new components or patterns, we do 
 
 We continue to listen to feedback as we consider the best way to open contributions further.
 
-## Code contributions 
+## Code contributions
 
 For contributions to the individual code packages, consult the `CONTRIBUTING.md` files.
 * [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md)
