@@ -20,3 +20,13 @@
   padding: 2rem 0.5rem;
   overflow-y: auto;
 }
+
+.doc-page-sidebar__top-routes {
+  // TODO style the items
+  display: none;
+
+  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+  body.application.index & {
+    display: block;
+  }
+}
