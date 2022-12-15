@@ -1,31 +1,33 @@
 // BREAKPOINTS
 
 // general breakdpoints
-$small-upper-breakpoint: 767px;
-$medium-lower-breakpoint: 768px;
-$medium-upper-breakpoint: 1279px;
-$large-lower-breakpoint: 1280px;
+$doc-breakpoint-medium: 768px;
+$doc-breakpoint-large: 1280px;
 
 // we have a special breakpoint for when we show the sidebar
-$with-sidedar-breakpoint: 1000px;
+$doc-breakpoint-for-sidebar: 1000px;
 
 
 @mixin small {
-  @media (max-width: $small-upper-breakpoint) { @content; }
+  @media (max-width: calc(#{$doc-breakpoint-medium} - 1px)) { @content; }
 }
 
 @mixin medium {
-  @media (min-width: $medium-lower-breakpoint) and (max-width: $medium-upper-breakpoint) { @content; }
+  @media (min-width: $doc-breakpoint-medium) and (max-width: calc(#{$doc-breakpoint-large} - 1px)) { @content; }
 }
 
 @mixin medium-and-above {
-  @media (min-width: $medium-lower-breakpoint) { @content; }
+  @media (min-width: $doc-breakpoint-medium) { @content; }
 }
 
 @mixin large {
-  @media (min-width: $large-lower-breakpoint) { @content; }
+  @media (min-width: $doc-breakpoint-large) { @content; }
 }
 
-@mixin with-sidebar {
-  @media (min-width: $with-sidedar-breakpoint) { @content; }
+@mixin with-mobile-sidebar {
+  @media (max-width: calc(#{$doc-breakpoint-for-sidebar} - 1px)) { @content; }
+}
+
+@mixin with-fixed-sidebar {
+  @media (min-width: $doc-breakpoint-for-sidebar) { @content; }
 }
