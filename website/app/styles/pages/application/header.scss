@@ -6,8 +6,7 @@
 .doc-page-header {
   position: sticky;
   top: 0;
-  // TODO review all the z-index stacking once the navigation has been finalized
-  z-index: 2; // needs to be above the sidebar (when the content scrolls)
+  z-index: var(--doc-z-index-header);
   display: flex;
   flex-direction: row;
   grid-area: header;
