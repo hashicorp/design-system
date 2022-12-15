@@ -28,7 +28,7 @@ Headings (h1-h6) should follow a logical order and not skip any levels. This can
 
 ### Input labels
 
-All inputs should have associated labels. These are provided for in the design system form components, but if you build your own make sure to check for these, remembering that a `placeholder` attribute is not an acceptable substitute.
+All inputs should have associated labels. These are built-in to the form components. If you need to compose custom fields using the base elements, remember that a `placeholder` attribute is not an acceptable substitute.
 
 ### Accessible name
 
