@@ -12,10 +12,6 @@
 </Hds::Tabs>
 ```
 
-Renders to:
-
-One Two Three Content 1 Content 2 Content 3
-
 #### With a custom starting tab
 
 Optionally, you can set a custom starting tab to display on page load. (By default the first tab is selected.)
@@ -32,10 +28,6 @@ Optionally, you can set a custom starting tab to display on page load. (By defau
 </Hds::Tabs>
 ```
 
-Renders to:
-
-One Two Three Content 1 Content 2 Content 3, I am displayed on page load.
-
 #### With optional Count and Icon
 
 ```handlebars
@@ -49,10 +41,6 @@ One Two Three Content 1 Content 2 Content 3, I am displayed on page load.
   <T.Panel>Content 3!</T.Panel>
 </Hds::Tabs>
 ```
-
-Renders to:
-
-One Two Three Content 1 Content 2 Content 3!
 
 #### Pass in a function that gets called when a tab is clicked
 
@@ -69,7 +57,3 @@ You can use the `@onClickTab` handler to pass in your own custom function. For e
   <T.Panel>Content three</T.Panel>
 </Hds::Tabs>
 ```
-
-Renders to:
-
-One Two Three Content 1 Content 2 Content 3

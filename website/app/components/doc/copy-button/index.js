@@ -28,7 +28,9 @@ export default class DocCopyButtonComponent extends Component {
   }
 
   get textToCopy() {
-    return this.args.textToCopy;
+    return this.args.encoded
+      ? decodeURI(this.args.textToCopy)
+      : this.args.textToCopy;
   }
 
   get textToShow() {

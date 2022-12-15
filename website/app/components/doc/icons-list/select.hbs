@@ -5,7 +5,7 @@
     id="doc-foundations-icons-filter-select"
     {{on "change" @onSelect}}
   >
-    <option value="16">16px</option>
-    <option value="24">24px</option>
+    <option value="16" selected={{eq @selectedIconSize "16"}}>16px</option>
+    <option value="24" selected={{eq @selectedIconSize "24"}}>24px</option>
   </select>
 </div>
