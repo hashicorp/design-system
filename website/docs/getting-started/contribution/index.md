@@ -1,4 +1,28 @@
-## Contributing
+---
+title: Contribution
+order: 104
+---
+
+## Types of contribution
+
+While we don't accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
+
+* [Reporting](https://github.com/hashicorp/design-system/issues/new/choose) or [fixing](#code-contributions) bugs and [giving feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
+* [Proposing new components or patterns](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform)
+* [Add an icon](#icon-contributions)
+* Improving our documentation
+* Participating in discussions or coming to Office Hours
+
+We continue to listen to feedback as we consider the best way to open contributions further.
+
+## Code contributions
+
+For contributions to the individual code packages, consult the `CONTRIBUTING.md` files.
+* [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md)
+* [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md)
+* [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
+
+## Icon contributions
 
 Contributing is not required to get new icons added to the library, but HashiCorp designers are welcome and encouraged to contribute to Flight.
 
@@ -23,37 +47,37 @@ Contributing is not required to get new icons added to the library, but HashiCor
 
 #### 24px
 
-![](/assets/foundations/flight-icons/icon-dimensions-sq-24.png =112x112)
+![](/assets/getting-started/contribution/icon-dimensions-sq-24.png =112x112)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 18.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 2.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-3.png) 2px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 18.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 2.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-3.png) 2px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### 16px
 
-![](/assets/foundations/flight-icons/icon-dimensions-sq-16.png =80x80)
+![](/assets/getting-started/contribution/icon-dimensions-sq-16.png =80x80)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 12.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 1.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-3.png) 1.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 12.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 1.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-3.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### 24px
 
-![](/assets/foundations/flight-icons/icon-dimensions-cr-24.png =112x112)
+![](/assets/getting-started/contribution/icon-dimensions-cr-24.png =112x112)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 20.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 1.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 20.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 1.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### 16px
 
-![](/assets/foundations/flight-icons/icon-dimensions-cr-16.png =80x80)
+![](/assets/getting-started/contribution/icon-dimensions-cr-16.png =80x80)
 
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-1.png) 14.5px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-2.png) 0.75px
-- ![](/assets/foundations/flight-icons/icon-dimensions-helper-4.png) 1.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-1.png) 14.5px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-2.png) 0.75px
+- ![](/assets/getting-started/contribution/icon-dimensions-helper-4.png) 1.5px
 
 #### Geometry
 
@@ -68,3 +92,4 @@ Contributing is not required to get new icons added to the library, but HashiCor
 - Line length should round to a 0.5px value and x and y co-ords should land on 0.25px and 0.75px values
 
   By using these values alongside the 1.5px stroke, we can align glyph edges to the pixel grid, ensuring crisp icon linework and reducing scenarios where the stroke weight doesn't sit on the whole pixel bounds.
+

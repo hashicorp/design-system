@@ -30,10 +30,6 @@ The simplest way to invoke a "radio" group is using something like this:
 </Hds::Form::Radio::Group>
 ```
 
-Renders to:
-
-Choose datacenter NYC1 DC1 NYC2 SF1
-
 This "group" component creates:
 
 *   a `<fieldset>` container
@@ -64,10 +60,6 @@ You can choose between two different layout orientations, to better fit your spa
 </Hds::Form::Radio::Group>
 ```
 
-Renders to:
-
-Choose datacenter NYC1 DC1 NYC2 SF1
-
 ##### Helper text
 
 You can add extra information to the group using an "helper" text:
@@ -91,10 +83,6 @@ You can add extra information to the group using an "helper" text:
 </Hds::Form::Radio::Group>
 ```
 
-Renders to:
-
-Choose datacenter Select which datacenter to use for the initial setup. NYC1 DC1 NYC2 SF1
-
 When the "helper" text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID` of the helper text element.
 
 ##### Extra content in legend and helper text
@@ -116,10 +104,6 @@ The `Label` and `HelperText` contextual components used in the "field" are yield
   </G.Radio::Field>
 </Hds::Form::Radio::Group>
 ```
-
-Renders to:
-
-Method Choose which HTTP method to use for the communication channel. See HTTP protocol for more details. POST GET PUT
 
 _Notice: If a link is used within a legend, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. Interactive elements in text (associated with the input through aria-describedby) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined._
 
@@ -144,11 +128,6 @@ It's possible to add a visual indication if a group is "required" or is "optiona
   <G.Radio::Field as |F|><F.Label>PUT</F.Label></G.Radio::Field>
 </Hds::Form::Radio::Group>
 ```
-
-Renders to:
-
-Methods Choose which HTTP method to use for the communication channel. POST GET PUT  
-Methods Choose which HTTP method to use for the communication channel. POST GET PUT
 
 _Notice: for complex forms we suggest to indicate **required** fields, since this is the most explicit and transparent method and ensures users don’t have to make assumptions. For shorter, simpler forms (ie. login/signup and feedback requests) we suggest to indicate **optional** fields._
 
@@ -176,10 +155,6 @@ To show the user that their input is not valid, you have to provide an error mes
   <G.Error>Error: you need to choose at least one datacenter.</G.Error>
 </Hds::Form::Radio::Group>
 ```
-
-Renders to:
-
-Choose datacenter NYC1 DC1 NYC2 SF1 Error: you need to choose at least one datacenter.
 
 _Notice:_
 
@@ -212,9 +187,7 @@ As explained above, a "group" of radios is made of one or more "field" radio com
 </Hds::Form::Radio::Group>
 ```
 
-Renders to:
-
-Choose datacenter NYC1 CoreSite- 32 Avenue of the Americas DC1 CoreSite- K Street NYC1 H5 Data Center - 325 Hudson Street SF1 INAP - 650 Townsend Street {{! ========================= }} {{! ===== BASE + FIELD ===== }} {{! ========================= }}
+{{! ========================= }} {{! ===== BASE + FIELD ===== }} {{! ========================= }}
 
 #### Form::Radio::Base / Form::Radio::Field
 
@@ -233,8 +206,6 @@ To give just an example, this could be an invocation of the "base" component you
 />
 ```
 
-Renders to:
-
 This "base" component creates just the `<input type="radio">` control with an automatically generated `ID` attribute.
 
 Similarly, this could be an invocation of the "field" component:
@@ -244,10 +215,6 @@ Similarly, this could be an invocation of the "field" component:
   <F.Label>SF1</F.Label>
 </Hds::Form::Radio::Field>
 ```
-
-Renders to:
-
-SF1
 
 This "field" component creates:
 

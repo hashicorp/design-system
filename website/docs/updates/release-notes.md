@@ -1,6 +1,7 @@
 ---
-title: For designers
+title: Release notes
 description: This is the (missing) long description of the component, that will come from the frontmatter attributes
+order: 101
 ---
 
 ## Lorem ipsum dolor

@@ -11,8 +11,8 @@ const DEBOUNCE_MS = 250;
 export default class Index extends Component {
   @service router;
 
-  @tracked searchQuery = null;
-  @tracked selectedIconSize = '16';
+  @tracked selectedIconSize =
+    this.router.currentRoute.queryParams['selectedIconSize'] || '24';
 
   allIcons = catalog.assets.map(({ iconName, fileName, size, description }) => {
     return {
@@ -25,11 +25,14 @@ export default class Index extends Component {
   });
 
   get filteredIcons() {
-    if (this.searchQuery) {
+    // query params come from `controllers/show.js` and we access them here because there
+    // is no "controller" for individual component documentation routes
+    const searchQuery = this.router.currentRoute.queryParams['searchQuery'];
+    if (searchQuery) {
       return this.allIcons.filter(
         (i) =>
           i.size === this.selectedIconSize &&
-          i.searchable.indexOf(this.searchQuery) !== -1
+          i.searchable.indexOf(searchQuery) !== -1
       );
     } else {
       return this.allIcons.filter((i) => i.size === this.selectedIconSize);
@@ -45,10 +48,6 @@ export default class Index extends Component {
     if (this.selectedIconSize) {
       newQueryParams.queryParams.selectedIconSize = this.selectedIconSize;
     }
-    console.log('updateQueryParams', this.router, newQueryParams);
-    // TODO this should work but it doesn't
-    // https://api.emberjs.com/ember/4.4/classes/RouterService/methods/transitionTo?anchor=transitionTo
-    // maybe related to this? https://github.com/emberjs/ember.js/issues/18282
     this.router.transitionTo(newQueryParams);
   }
 

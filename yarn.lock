@@ -2774,7 +2774,7 @@ __metadata:
     ember-cached-decorator-polyfill: ^0.1.4
     ember-cli: ~4.7.0
     ember-cli-babel: ^7.26.11
-    ember-cli-clipboard: ^0.16.0
+    ember-cli-clipboard: ^1.0.0
     ember-cli-dependency-checker: ^3.3.1
     ember-cli-deprecation-workflow: ^2.1.0
     ember-cli-htmlbars: ^6.1.0
@@ -8297,7 +8297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipboard@npm:^2.0.11, clipboard@npm:^2.0.6":
+"clipboard@npm:^2.0.11":
   version: 2.0.11
   resolution: "clipboard@npm:2.0.11"
   dependencies:
@@ -10084,19 +10084,6 @@ __metadata:
     rimraf: ^3.0.1
     semver: ^5.5.0
   checksum: 72b2819018d4d29b5250284cab5fa992a7fd6b0cf958a1fc4abed4a4f6394c0aca4ee32d4c8981d8643fef7280763fadf70ebd807f262967899f4898679bcb90
-  languageName: node
-  linkType: hard
-
-"ember-cli-clipboard@npm:^0.16.0":
-  version: 0.16.0
-  resolution: "ember-cli-clipboard@npm:0.16.0"
-  dependencies:
-    "@ember/render-modifiers": ^1.0.2 || ^2.0.0
-    clipboard: ^2.0.6
-    ember-auto-import: ^1.11.3
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
-  checksum: dea292fb8116d657cc2ac00695c7cdfc6fd71db3ff444b8418a3bdb641165d632e4281e06eb6fabfb82a58eb3a3ed5ea3e861539961501bb141725df7dc75604
   languageName: node
   linkType: hard
 
@@ -12786,7 +12773,6 @@ __metadata:
     ember-cli: ~4.7.0
     ember-cli-app-version: ^5.0.0
     ember-cli-babel: ^7.26.11
-    ember-cli-clipboard: ^0.16.0
     ember-cli-dependency-checker: ^3.3.1
     ember-cli-htmlbars: ^6.1.0
     ember-cli-inject-live-reload: ^2.1.0

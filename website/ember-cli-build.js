@@ -35,7 +35,7 @@ module.exports = function (defaults) {
         'ruby',
         'scss',
       ],
-
+      theme: 'dracula',
       plugins: ['line-numbers', 'normalize-whitespace'],
     },
   });

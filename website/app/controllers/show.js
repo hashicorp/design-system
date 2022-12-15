@@ -24,11 +24,32 @@ const getTOCs = (container) => {
 };
 
 export default class ShowController extends Controller {
+  queryParams = [
+    {
+      selectedTab: 'tab',
+    },
+    'searchQuery',
+    'selectedIconSize',
+  ];
+
   @service fastboot;
 
   @tracked sections = A([]);
   @tracked tabs = A([]);
   @tracked tocs = A([]);
+
+  get selectedTabIndex() {
+    // if no query param is set then default to the first tab
+    if (!this.selectedTab) {
+      return 0;
+    }
+
+    let tab = this.tabs.find((el) => {
+      // for consistency we always compare the query param tab to a lowercase version of the tab label
+      return el.label.toLowerCase() === this.selectedTab;
+    });
+    return tab ? tab.index : 0;
+  }
 
   get title() {
     return this.model.frontmatter?.title ?? '';
@@ -101,8 +122,7 @@ export default class ShowController extends Controller {
     this.sections.setObjects(sections);
     this.tabs.setObjects(tabs);
     this.tocs.setObjects(tocs);
-    // TODO handle when the page loads which one is the current, based on the URL query params
-    this.setCurrent(0);
+    this.setCurrent(this.selectedTabIndex);
     // leave for debugging
     // console.log('show didInsert', this.sections, this.tabs, this.tocs);
   };
@@ -131,6 +151,15 @@ export default class ShowController extends Controller {
     this.tocs.forEach((toc) => {
       set(toc, 'isCurrent', toc.index === current);
     });
+
+    // only attempt to update the query params if tabs exist
+    if (this.tabs.length > 1) {
+      // for consistency we always set the query param tab to a lowercase version of the tab label
+      set(this, 'selectedTab', this.tabs[current].label.toLowerCase());
+    } else {
+      set(this, 'selectedTab', null);
+    }
+
     // leave for debugging
     // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
   }

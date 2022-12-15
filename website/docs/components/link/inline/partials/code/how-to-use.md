@@ -6,10 +6,6 @@ The most basic invocation requires some content to be passed as children and one
 <Hds::Link::Inline @href="...">Watch tutorial video</Hds::Link::Inline>
 ```
 
-Renders to:
-
-Watch tutorial video
-
 #### Add an icon
 
 To add an icon to your inline link, give the `@icon` a [Flight icon](https://flight-hashicorp.vercel.app/) name:
@@ -17,10 +13,6 @@ To add an icon to your inline link, give the `@icon` a [Flight icon](https://fli
 ```handlebars
 <Hds::Link::Inline @href="..." @icon="external-link">Watch tutorial video</Hds::Link::Inline>
 ```
-
-Renders to:
-
-Watch tutorial video
 
 _Notice: since the `Hds::Link::Inline` doesn't have an intrinsic size, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text_ .
 
@@ -32,10 +24,6 @@ By default, if you define an icon, it is placed after the text. If you would lik
 <Hds::Link::Inline @href="..." @icon="film" @iconPosition="leading">Watch tutorial video</Hds::Link::Inline>
 ```
 
-Renders to:
-
-Watch tutorial video
-
 #### Color
 
 There are two available colors for a Link (Inline): `primary` and `secondary`. The default is `primary`. To use a different color, declare another value for `@color`:
@@ -43,11 +31,6 @@ There are two available colors for a Link (Inline): `primary` and `secondary`. T
 ```handlebars
 <Hds::Link::Inline @color="primary" @href="...">Read tutorial</Hds::Link::Inline>
 ```
-
-Renders to:
-
-Read tutorial  
-Read tutorial
 
 #### URLs and routes handling
 
@@ -63,10 +46,6 @@ If you pass a `@href` argument a `<a>` link will be generated:
 <Hds::Link::Inline @href="https://www.hashicorp.com/request-demo/terraform">Request a demo</Hds::Link::Inline>
 ```
 
-Renders to:
-
-Request a demo
-
 **Important**: when using the `@href` argument the component adds by default the attributes `target="_blank"` and `rel="noopener noreferrer"` to the `<a>` element (because this is the most common use case: internal links are generally handled using a `@route` argument). If the `href` points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass `@isHrefExternal={{true}}` to the component and it will not add the `target` and `rel` attributes (but you can pass yours if needed, using the `...attributes` spreading. For more details see the [Hds::Interactive component](/utilities/interactive/).
 
 ##### With @route
@@ -76,10 +55,6 @@ If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>
 ```handlebars
 <Hds::Link::Inline @route="my.page.route" @model="my.page.model">Go to the index page</Hds::Link::Inline>
 ```
-
-Renders to:
-
-Go to the index page
 
 **Important**: if the route is external to your current engine you have to pass also `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a simple `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive/)
 
