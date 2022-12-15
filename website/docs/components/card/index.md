@@ -1,5 +1,7 @@
 ---
 title: Card
+description: A block container that provides styling for elevation, border and background.
+caption: A block container that provides styling for elevation, border and background.
 ---
 
 <section data-tab="Code">
