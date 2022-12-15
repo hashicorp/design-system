@@ -20,7 +20,7 @@ All content should be contained in elements with [landmark roles](https://www.w3
 
 ### Page titles
 
-Additionally, teams should ensure that each page has a relevant page title. This is included in Ember applications by default, but older applications that have been updated over the years may need to manually add this in with [ember-page-title](https://github.com/ember-cli/ember-page-title).
+Ensure that each page has a relevant page title. This is included in Ember applications by default, but older applications that have been updated over the years may need to manually add this in with [ember-page-title](https://github.com/ember-cli/ember-page-title).
 
 ### Headings
 
