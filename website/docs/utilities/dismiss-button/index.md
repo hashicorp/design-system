@@ -1,5 +1,7 @@
 ---
 title: DismissButton
+description: An internal utility component used to provide "dismiss" functionality in other components.
+caption: An internal utility component used to provide "dismiss" functionality in other components.
 ---
 
 <section data-tab="Other">
