@@ -2,6 +2,10 @@
 title: Badge
 description: Concise, non-interactive labels that represent metadata.
 caption: Concise, non-interactive labels that represent metadata.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2%3A8
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/badge
 ---
 
 <section data-tab="Guidelines">
