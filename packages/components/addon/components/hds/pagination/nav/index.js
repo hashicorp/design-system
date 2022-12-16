@@ -68,10 +68,6 @@ export default class HdsPaginationNavIndexComponent extends Component {
   }
 
   get truncatedPages() {
-    console.log(
-      this.elliptize({ pages: this.pages, current: this.currentPage })
-    );
-    console.log(this.currentPage);
     return this.elliptize({ pages: this.pages, current: this.currentPage });
   }
 
