@@ -27,3 +27,5 @@ These best practices have been curated by the HashiCorp design system team, Figm
 ## Component instances
 
 ## Local components
+
+While the core component and foundation set published in the HashiCorp Design System covers most use cases for low-level atoms and molecules, combinations of components and [patterns](/patterns) are not currently supported. As a best practice use components and foundational styles when extending the system and creating local components and patterns.
