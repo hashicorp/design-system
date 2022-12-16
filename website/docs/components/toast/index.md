@@ -1,5 +1,7 @@
 ---
 title: Toast
+description: Used to display messages that are the result of a user's actions.
+caption: Used to display messages that are the result of a user's actions.
 ---
 
 <section data-tab="Guidelines">
