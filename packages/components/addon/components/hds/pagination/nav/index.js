@@ -80,7 +80,7 @@ export default class HdsPaginationNavIndexComponent extends Component {
   }
 
   elliptize({ pages, current }) {
-    const limit = 7; // limit # of page numbers shown at a time (should always be an even number!)
+    const limit = 7; // limit # of page numbers shown at a time (should always be an odd number!)
     const length = pages.length;
     const ellipsis = '…';
     let result = [];
@@ -115,7 +115,7 @@ export default class HdsPaginationNavIndexComponent extends Component {
       // we need to calculate how many items there are before/after the current item
       // since both the initial and ending blocks are always 2 items long (number + ellipsis)
       // and there is always the "current" item, we can just subtract 5 from the limit
-      const delta = (limit - 5) / 2; // this is why the limit needs to be an even number
+      const delta = (limit - 5) / 2; // this is why the limit needs to be an odd number
       // we slice the array starting at the "current" index, minus the delta, minus one because it's an array (zero-based)
       const sliceCurr = pages.slice(current - delta - 1, current + delta);
       result = [].concat(
