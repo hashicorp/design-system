@@ -51,10 +51,14 @@ These are the **CSS helper classes** that you can use:
 
 To use this classes you have to import the CSS file `[products|devdot]/css/helpers/typography.css` from the `@hashicorp/design-system-tokens` package.
 
-!!! info
+#### Combinations font style / font weight
 
-**Important**
+!!! Info
 
-While the _font-family/font-weight/typography_ helpers can be combined together in code, in reality not all the combinations are valid from the design perspective: please refer to the design documentation to see which styles combinations are allowed.
+**Notice**
+
+We are showing only the combinations of `font-size` ("style") and `font-weight` that the design system **suggests** to use.
 
 !!!
+
+<Doc::FontHelpersList @items={{this.stylesCombinations}} />
