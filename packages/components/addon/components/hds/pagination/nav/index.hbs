@@ -22,7 +22,7 @@
     <ul class="hds-pagination-nav__page-list">
       {{#each this.truncatedPages as |page|}}
         {{#if (eq page "…")}}
-          <Hds::Pagination::Nav::Ellipses />
+          <Hds::Pagination::Nav::Ellipsis />
         {{else}}
           <Hds::Pagination::Nav::ButtonNumber
             @page={{page}}

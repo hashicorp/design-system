@@ -35,7 +35,7 @@ module('Integration | Component | hds/pagination/nav/index', function (hooks) {
     `);
     // displays 7 items (the max number displayed)
     assert.dom('.hds-pagination-nav__page-item').exists({ count: 7 });
-    // It displays an ellipses for the 5th item
+    // It displays an ellipsis for the 5th item
     assert.dom('.hds-pagination-nav__page-item:nth-child(5)').hasText('...');
   });
 
