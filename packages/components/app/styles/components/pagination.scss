@@ -51,14 +51,14 @@
 
 // nav controls: button-arrow, button-number, ellipsis:
 .hds-pagination-nav__control,
-.hds-pagination-nav__ellipsis {
+.hds-pagination-nav__ellipses {
   display: flex;
   align-items: center;
+  height: var(--token-pagination-control-height);
   padding: 0 var(--token-pagination-control-padding-horizontal);
 }
 
 .hds-pagination-nav__control {
-  height: var(--token-pagination-control-height);
   text-decoration: none;
   background: transparent;
   border: none;

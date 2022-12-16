@@ -18,6 +18,22 @@
     </ul>
   {{/if}}
 
+  {{#if (eq this.type "truncated")}}
+    <ul class="hds-pagination-nav__page-list">
+      {{#each this.truncatedPages as |page|}}
+        {{#if (eq page "…")}}
+          <Hds::Pagination::Nav::Ellipses />
+        {{else}}
+          <Hds::Pagination::Nav::ButtonNumber
+            @page={{page}}
+            @onClick={{this.onPageChange}}
+            @isSelected={{if (eq page this.currentPage) true false}}
+          />
+        {{/if}}
+      {{/each}}
+    </ul>
+  {{/if}}
+
   <Hds::Pagination::Nav::ButtonArrow
     @direction="next"
     @type={{this.type}}
