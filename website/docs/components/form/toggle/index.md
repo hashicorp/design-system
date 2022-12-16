@@ -1,5 +1,7 @@
 ---
 title: Form::Toggle
+description: A form element that allows users to select between two mutually exclusive states.
+caption: A form element that allows users to select between two mutually exclusive states.
 ---
 
 <section data-tab="Guidelines">

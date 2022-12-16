@@ -1,5 +1,7 @@
 ---
 title: Stepper Indicator
+description: Helps the user maintain context and directionality when advancing through a multi-step flow or feature; generally assembled as part of a larger stepper pattern.
+caption: Helps the user maintain context and directionality when advancing through a multi-step flow or feature.
 ---
 
 <section data-tab="Guidelines">

@@ -1,5 +1,7 @@
 ---
 title: Form::TextInput
+description: A form element that provides users with a way to read, input, or edit data.
+caption: A form element that provides users with a way to read, input, or edit data.
 ---
 
 <section data-tab="Guidelines">
