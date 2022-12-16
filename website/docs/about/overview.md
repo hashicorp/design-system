@@ -32,11 +32,11 @@ While increasing visual and functional consistency accross products is the most 
 
 The HashiCorp Design System has been adopted at varying levels by all products within the R&D organization. We work closely with these teams at the integration and implementation level while collecting feedback to better understand consumer needs and inform our [roadmap](https://go.hashi.co/hds-rollout).
 
-For more information on how to adopt visit our getting started documentation (for [engineers](/getting-started/for-engineers) and [designers](/getting-started/for-designers)) or visit our public [GitHub](https://github.com/hashicorp/design-system) repository.
+For more information on adoption, visit our getting started documentation (for [engineers](/getting-started/for-engineers) and [designers](/getting-started/for-designers)) or visit our public [GitHub](https://github.com/hashicorp/design-system) repository.
 
 ## Resources
 
-### Design system inspriation
+### Design system inspiration
 
 - [Carbon Design System (IBM)](https://carbondesignsystem.com/)
 - [Polaris Design System (Shopify)](https://polaris.shopify.com/)
