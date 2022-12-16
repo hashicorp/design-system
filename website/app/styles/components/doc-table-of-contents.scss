@@ -6,6 +6,8 @@ $doc-toc-item-inset: 8px;
   width: 100%;
   margin: 0;
   padding: 0;
+  // avoid accidental text selection (expecially with the `<details>` element)
+  user-select: none;
 }
 
 .doc-table-of-contents__item {
@@ -28,9 +30,24 @@ $doc-toc-item-inset: 8px;
   padding: 0 $doc-toc-item-inset 12px $doc-toc-item-inset;
 }
 
-.doc-table-of-contents__folder {
-  padding: $doc-toc-item-inset;
+.doc-table-of-contents__summary {
+  display: block;
+  width: 100%;
+  padding: $doc-toc-item-inset 32px $doc-toc-item-inset $doc-toc-item-inset;
   color: var(--doc-color-gray-300);
+  text-align: left;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23727374' fill-rule='evenodd' d='M5.205 3.235a.75.75 0 00.03 1.06L9.158 8l-3.923 3.705a.75.75 0 001.03 1.09l4.5-4.25a.75.75 0 000-1.09l-4.5-4.25a.75.75 0 00-1.06.03z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top 12.5px right 8px;
+  background-size: 16px 16px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  // it's using a `<detail>` HMTL tag
+  [open] > & {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23727374' fill-rule='evenodd' d='M3.235 5.205a.75.75 0 011.06.03L8 9.158l3.705-3.923a.75.75 0 011.09 1.03l-4.25 4.5a.75.75 0 01-1.09 0l-4.25-4.5a.75.75 0 01.03-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  }
 }
 
 .doc-table-of-contents__link {

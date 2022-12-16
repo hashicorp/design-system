@@ -10,10 +10,13 @@
       {{else}}
         {{#if (eq @depth 1)}}
           <div class="doc-table-of-contents__heading doc-text-label">{{capitalize key}}</div>
+          <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
         {{else}}
-          <div class="doc-table-of-contents__folder doc-text-navigation">{{capitalize key}}</div>
+          <details class="doc-table-of-contents__folder" open>
+            <summary class="doc-table-of-contents__summary doc-text-navigation">{{capitalize key}}</summary>
+            <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
+          </details>
         {{/if}}
-        <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
       {{/if}}
     </li>
   {{/each-in}}
