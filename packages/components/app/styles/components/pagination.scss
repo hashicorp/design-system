@@ -137,10 +137,9 @@
   // indicator underline
   &::before {
     position: absolute;
-    right: 0;
+    right: 6px;
     bottom: 0;
-    left: 0;
-    width: var(--token-pagination-indicator-width);
+    left: 6px;
     height: var(--token-pagination-indicator-height);
     margin: 0 auto;
     background-color: currentColor;
