@@ -4,15 +4,7 @@
 
 {{#each-in @groupedTokens as |category categoryList|}}
   <h2 class="doc-text-h2">{{capitalize category}}</h2>
-  {{#if categoryList}}
-    <div class="dummy-tokens-list">
-      {{#each categoryList as |token|}}
-        <Doc::TokenCard @token={{token}} />
-      {{/each}}
-    </div>
-  {{else}}
-    <p class="doc-text-body-small">No tokens found in this category</p>
-  {{/if}}
+  <Doc::TokensList::Grid @categoryList={{categoryList}} />
 {{else}}
   <p class="doc-text-body">No tokens found 🤷‍♀️</p>
 {{/each-in}}

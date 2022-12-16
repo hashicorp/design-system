@@ -1,0 +1,9 @@
+{{#if @categoryList}}
+  <ul class="doc-tokens-list">
+    {{#each @categoryList as |token|}}
+      <Doc::TokensList::Item @token={{token}} />
+    {{/each}}
+  </ul>
+{{else}}
+  <p class="doc-text-body-small">No tokens found in this category</p>
+{{/if}}

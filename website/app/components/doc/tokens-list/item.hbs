@@ -1,0 +1,26 @@
+<li
+  class="doc-tokens-list__item
+    {{if this.isExpanded 'doc-tokens-list__item--is-expanded' ''}}
+    {{if this.isDeprecated 'doc-tokens-list__item--is-deprecated' ''}}"
+>
+  <div class="doc-tokens-list__preview {{this.token.previewClass}}">
+    {{#if this.isColor}}
+      {{! template-lint-disable no-inline-styles }}
+      <span class="doc-tokens-list__item-color" style={{this.colorPreviewStyle}}></span>
+    {{/if}}
+    {{this.token.previewText}}
+  </div>
+  <div class="doc-tokens-list__content">
+    <Doc::TokensList::MetaRow @label="CSS variable" @value={{this.token.name}} @copyable={{true}} />
+        {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
+    <Doc::TokensList::MetaRow @label="Value" @value={{this.token.value}} />
+
+    <button class="doc-tokens-list__item-summary" type="button" {{on "click" this.toggle}}>TOGGLE</button>
+    {{#if this.isAlias}}
+      <Doc::TokensList::MetaRow @label="Alias of" @value={{this.token.original_value}} />
+    {{/if}}
+    {{#if this.token.comment}}
+      <Doc::TokensList::MetaRow @label="Comment" @value={{this.token.comment}} />
+    {{/if}}
+  </div>
+</li>
