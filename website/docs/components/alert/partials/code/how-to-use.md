@@ -43,7 +43,7 @@ A different color can be applied to the alert using the `color` argument. This w
 </Hds::Alert>
 ```
 
-### Icon
+### Icons
 A different icon can be used in the alert using the `icon` argument. This accepts any [icon](https://flight-hashicorp.vercel.app/) name.
 
 ```handlebars

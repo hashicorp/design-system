@@ -157,7 +157,15 @@ When displaying an alert without an icon, the title or description should contai
 #### With generic content
 Building alerts with generic content may require additional time to set up correctly. Use this method with caution and reach out to us if needing help.
 
-![Example of an Alert with custom content](/assets/components/alert/alert-with_custom_content.png)
+<Hds::Alert @type="inline" @color="success" as |A|>
+  <A.Title>An alert with extra/custom content</A.Title>
+  <A.Description>In special cases, you can pass extra content to the alert using the
+    <code>A.Generic</code>
+    contextual component.</A.Description>
+  <A.Generic>
+    <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
+  </A.Generic>
+</Hds::Alert>
 
 
 ### Placement
