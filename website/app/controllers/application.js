@@ -9,7 +9,6 @@ export default class ApplicationController extends Controller {
 
   @action
   onToggleBurgerMenu(isOpen) {
-    console.log('onToggleBurgerMenu', isOpen);
     this.showSidebarOnSmallViewport = isOpen;
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }
