@@ -10,16 +10,20 @@ import { showdownConfig } from '../shared/showdown-config';
 
 const getTOCs = (container) => {
   let headings = [];
-  container.querySelectorAll(`:scope > h2, :scope > h3`).forEach((element) => {
-    // we need to add a class to avoid the element being hidden behind the fixed top header
-    element.classList.add('doc-page-sidecar-scroll-margin-top');
-    // we add it to the list of headings used as TOC in the sidecar
-    headings.push({
-      target: element.id,
-      text: element.innerText,
-      depth: element.tagName.replace(/h/i, ''),
+  container
+    .querySelectorAll(
+      `:scope :not([class*=hds]) h2, :scope :not([class*=hds]) h3`
+    )
+    .forEach((element) => {
+      // we need to add a class to avoid the element being hidden behind the fixed top header
+      element.classList.add('doc-page-sidecar-scroll-margin-top');
+      // we add it to the list of headings used as TOC in the sidecar
+      headings.push({
+        target: element.id,
+        text: element.innerText,
+        depth: element.tagName.replace(/h/i, ''),
+      });
     });
-  });
   return headings;
 };
 
