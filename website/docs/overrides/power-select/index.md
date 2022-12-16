@@ -1,5 +1,7 @@
 ---
 title: PowerSelect
+description: Style overrides for the ember-power-select addon.
+caption: Style overrides for the ember-power-select addon.
 ---
 
 <section data-tab="Guidelines">

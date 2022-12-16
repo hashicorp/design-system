@@ -1,5 +1,7 @@
 ---
 title: Form::Checkbox
+description: A form element that allows users to select one or more items from a group of items.
+caption: A form element that allows users to select one or more items from a group of items.
 ---
 
 <section data-tab="Guidelines">

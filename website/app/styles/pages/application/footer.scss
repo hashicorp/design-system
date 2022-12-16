@@ -1,10 +1,62 @@
 // FOOTER
 
+@use "../../breakpoints" as breakpoint;
+@use "../../typography/mixins" as *;
+
 .doc-page-footer {
   display: flex;
+  flex-direction: column;
   grid-area: footer;
-  margin: auto 0 0 0;
-  padding: 1rem 2rem;
-  color: #fff;
-  background: #000;
+  gap: 16px;
+  padding: 16px 24px;
+  color: var(--doc-color-black);
+
+  @include breakpoint.medium-and-above () {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+  body.application.index & {
+    flex-direction: column-reverse;
+    color: var(--doc-color-white);
+
+    @include breakpoint.medium-and-above () {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.doc-page-footer__logo {
+  display: block;
+  flex: none;
+  height: 24px;
+  color: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+
+  svg {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.doc-page-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+
+  a {
+    color: var(--doc-color-gray-300);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+    body.application.index & {
+      color: var(--doc-color-gray-400);
+    }
+  }
 }

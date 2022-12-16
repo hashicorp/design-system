@@ -11,6 +11,12 @@ module.exports = function (defaults) {
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
       ],
     },
+    // we need to add this or Ember Sass compilation will mess up the generated CSS
+    minifyCSS: {
+      options: {
+        advanced: false,
+      },
+    },
     // https://cli.emberjs.com/release/advanced-use/asset-compilation/#fingerprintingandcdnurls
     fingerprint: {
       // override defaults to also include json files which our markdown is compiled to. without this images don't render properly.
@@ -29,7 +35,7 @@ module.exports = function (defaults) {
         'ruby',
         'scss',
       ],
-
+      theme: 'dracula',
       plugins: ['line-numbers', 'normalize-whitespace'],
     },
   });

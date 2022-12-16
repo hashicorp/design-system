@@ -7,6 +7,7 @@ const getTocSectionBundle = (section) => {
   const FOUNDATIONS = ['foundations'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
+  const SUPPORT = ['support'];
   // this will be removed later
   const TESTING = ['testing'];
 
@@ -20,6 +21,8 @@ const getTocSectionBundle = (section) => {
     return PATTERNS;
   } else if (TESTING.includes(section)) {
     return TESTING;
+  } else if (SUPPORT.includes(section)) {
+    return SUPPORT;
   } else {
     // eg. the website "root" index page
     return [];

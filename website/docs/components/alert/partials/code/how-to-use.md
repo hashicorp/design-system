@@ -9,10 +9,6 @@ The most basic invocation requires the `type` argument to be passed, along with 
 </Hds::Alert>
 ```
 
-Renders to:
-
-Title here Description here
-
 If needed, you can pass only `title` or only `description`.
 
 ```handlebars
@@ -27,11 +23,6 @@ If needed, you can pass only `title` or only `description`.
 </Hds::Alert>
 ```
 
-Renders to:
-
-Title here  
-Description here
-
 #### Type
 
 A different type of alert can be invoked using the `type` argument.
@@ -42,10 +33,6 @@ A different type of alert can be invoked using the `type` argument.
   <A.Description>Description here</A.Description>
 </Hds::Alert>
 ```
-
-Renders to:
-
-Title here Description here
 
 #### Color
 
@@ -58,10 +45,6 @@ A different color can be applied to the alert using the `color` argument. This w
 </Hds::Alert>
 ```
 
-Renders to:
-
-Title here Description here
-
 #### Icon
 
 A different icon can be used in the alert using the `icon` argument.
@@ -73,10 +56,6 @@ A different icon can be used in the alert using the `icon` argument.
 </Hds::Alert>
 ```
 
-Renders to:
-
-Title here Description here
-
 If instead you want to completely hide the icon you have to pass a `false` value to the `icon` argument.
 
 ```handlebars
@@ -85,10 +64,6 @@ If instead you want to completely hide the icon you have to pass a `false` value
   <A.Description>Description here</A.Description>
 </Hds::Alert>
 ```
-
-Renders to:
-
-Title here Description here
 
 #### Dismiss
 
@@ -103,10 +78,6 @@ In some cases the alert needs to be dismissable. In this case you have to pass a
 </Hds::Alert>
 ```
 
-Renders to:
-
-Title here Description here
-
 #### Actions
 
 Actions can optionally be passed to component using one of the suggested `Button` or `Link::Standalone` contextual components.
@@ -120,10 +91,6 @@ Actions can optionally be passed to component using one of the suggested `Button
   <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" @href="#" />
 </Hds::Alert>
 ```
-
-Renders to:
-
-Title here Description here
 
 #### Structured content
 
@@ -145,16 +112,6 @@ When needed the `Description` contextual component can contain logic, rich HTML 
 </Hds::Alert>
 ```
 
-Renders to:
-
-Title here The description can contain {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like **strong text**, _emphasized text_, `code`,
-
-pre
-
-, [inline](#) [links](/).
-
-_Notice: for a few simple HTML elements (like `strong`, `em`, `a`, `code/pre`) we apply styling. If you use other elements you will need to take care of styling them accordingly._
-
 You can pass more than one `D.Description` contextual components to have multiple description lines.
 
 ```handlebars
@@ -164,10 +121,6 @@ You can pass more than one `D.Description` contextual components to have multipl
   <A.Description>Second line of description.</A.Description>
 </Hds::Alert>
 ```
-
-Renders to:
-
-Title here First line of description. Second line of description.
 
 #### Generic content
 
@@ -184,9 +137,5 @@ _Notice: the content will appear at the bottom, after title, description and act
   </A.Generic>
 </Hds::Alert>
 ```
-
-Renders to:
-
-Title here Description here \[your content here\]
 
 **Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria.

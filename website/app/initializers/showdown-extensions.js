@@ -58,6 +58,9 @@ export function initialize(/* application */) {
         var end = (options.omitExtraWLInCodeBlocks) ? '' : '\n';
 
         let codeblock = inputCodeblock;
+        
+        // We encode the codeblock so we can safely pass multi-line code and ember syntax to the `Doc::CopyButton` component
+        let codeblockEncoded =  encodeURI(inputCodeblock);
 
         // First parse the github code block
         // codeblock = showdown.subParser('encodeCode')(codeblock, options, globals);
@@ -97,6 +100,7 @@ export function initialize(/* application */) {
         selfExecutingBlock += '  <div class="doc-code-block__code-rendered">';
         selfExecutingBlock += `    ${inputCodeblock}`;
         selfExecutingBlock += '  </div>';
+        selfExecutingBlock += `  <Doc::CopyButton @type="solid" @textToCopy='${codeblockEncoded}' @encoded={{true}} />`;
         selfExecutingBlock += `  ${preBlock}`;
         selfExecutingBlock += '</div>';
 
