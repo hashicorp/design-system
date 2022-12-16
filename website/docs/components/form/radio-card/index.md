@@ -2,6 +2,10 @@
 title: Form::RadioCard
 description: A type of radio input represented as a card.
 caption: A type of radio input represented as a card.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=17482%3A56258&t=pDgL7LJUJXZUN7Xq-3
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/radio-card
 ---
 
 <section data-tab="Guidelines">
@@ -21,4 +25,3 @@ caption: A type of radio input represented as a card.
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-
