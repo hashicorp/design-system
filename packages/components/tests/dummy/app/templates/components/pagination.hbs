@@ -444,6 +444,11 @@
     <P.Nav @type="truncated" />
   </Hds::Pagination>
 
+  <p class="dummy-paragraph">With "current" initial page equal to <code class="dummy-code">11</code>.</p>
+  <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} @currentPage={{11}} as |P|>
+    <P.Nav @type="truncated" />
+  </Hds::Pagination>
+
   <h5 class="dummy-h5">Pagination with Nav and Info</h5>
   <h6 class="dummy-h6">Type="compact"</h6>
   <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
