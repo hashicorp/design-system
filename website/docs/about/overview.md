@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: <<Need to update this description>>
+description: Learn about the HashiCorp Design System, why it exists, and the strategy behind the system.
 order: 101
 ---
 
@@ -20,7 +20,7 @@ While the scale of a design system largely depends on the needs of those consumi
 
 At HaschiCorp we structure our components, icons, and tokens in a [monorepo](https://github.com/hashicorp/design-system) using yarn workspaces and publish a collection of libraries in [Figma](https://www.figma.com/files/team/1030156573400567478) for designers.
 
-### Why use a design system?
+### Why use the HashiCorp Design System?
 
 While increasing visual and functional consistency accross products is the most outwardly notable result of design system adoption, the instrinsic value a design system brings can often result in a groundswell of benefits:
 
