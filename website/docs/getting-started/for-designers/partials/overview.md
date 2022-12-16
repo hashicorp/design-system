@@ -1,17 +1,6 @@
-- [x] Which Figma libraries to use
-  - [x] Product Components
-  - [x] Product Foundations
-  - [x] Flight Icons
-- [ ] How to use the Figma libraries
-  - [x] How to enable them in their projects
-  - [x] How to use components
-  - [x] How to use styles
-- [ ] Overview of the design language
-- [ ] Best Practices
-  - [ ] Recommended plugins
-- [ ] Support
+If you're a designer new to the HashiCorp Design System or are looking to get up to speed on the strategy, best practices, and design language used, this getting started guide should be your first stop. We'll walk through enabling relevant Figma libraries, how to use them, and best practices when working in Figma and using the HashiCorp Design System components and styles.
 
-Some sort of introduction goes here.
+This guide contrasts [getting started for engineers](/getting-started/engineers), but understanding the core concepts of each will aid in communicating your designs and understanding the implementation methods in code.
 
 ## Figma libraries
 
@@ -23,12 +12,23 @@ The HashiCorp design system team publishes and maintains a set of core Figma lib
 
 All of these libraries are published under the [HDS Design System UI Kit](https://www.figma.com/files/team/1030156573400567478) team for use in HashiCorp product design. We do not currently support marketing design efforts directly, but occasionally plays a consulting role in component and pattern design.
 
-For a more detailed guide for using our Figma libraries, view the design tooling tab.
+For a more detailed guide for using our Figma libraries, view the **setup guide** tab.
 
 ## Design language
 
-## Best practices
+## Recommended plugins
 
-### Recommended plugins
+Plugins can be used to extend Figma's functionality, and while new features are constantly being added there are several plugins that make life a bit easier and simplify repetitive tasks.
+
+- [Lorem Ipsum](https://www.figma.com/community/plugin/736000994034548392): generate varying lengths of placeholder "lorem ipsum" content in a text layer.
+- [Stark](https://www.figma.com/community/plugin/732603254453395948): a toolkit for measuring accessibility criteria in your designs.
+- [Super Tidy](https://www.figma.com/community/plugin/731260060173130163): bulk rename, reorder, and organize layers, frames, and other elements within Figma.
+- [Flyover](https://www.figma.com/community/plugin/1008819354278038466): showcase your designs with smooth animations in a presentation-like format.
+
+This is just a small selection of the plugins that can be found in the [Figma community](https://www.figma.com/community) as well as other resources for documenting your designs, wireframing, and collaborating with your team.
+
+![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png)
 
 ## Support
+
+If you have any questions or need assistance using the HashiCorp Design System libraries, don't hesitate to <LinkTo @route="support">reach out for support</LinkTo>.
