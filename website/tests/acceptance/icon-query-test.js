@@ -7,7 +7,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
   test('visiting a icons page and interacting with search by default', async function (assert) {
     await visit('/foundations/icons');
-    await fillIn('#doc-foundations-icons-filter-search', 'loading');
+    await fillIn('[data-test="icons-filter"]', 'loading');
 
     assert.strictEqual(
       currentURL(),

@@ -3,7 +3,7 @@
     <Doc::Form::Select @label="Size" @onSelect={{@onSelect}} @selectedValue={{@selectedIconSize}}/>
   </div>
   <div class="doc-icons-list-filter__search">
-    <Doc::Form::Search @label="Filter" @placeholder="Type a name or keyword (e.g. arrow)" @searchQuery={{@searchQuery}} @onInput={{@searchIcons}} />
+    <Doc::Form::Search @label="Filter" @placeholder="Type a name or keyword (e.g. arrow)" @searchQuery={{@searchQuery}} @onInput={{@searchIcons}} data-test="icons-filter" />
   </div>
 </div>
 
