@@ -80,9 +80,8 @@ export default class HdsPaginationNavIndexComponent extends Component {
   }
 
   elliptize({ pages, current }) {
-    const array = Array.from(pages);
     const limit = 7; // limt # of page numbers shown at a time
-    const length = array.length;
+    const length = pages.length;
     const ellipsis = '…';
     let result = [];
     let start;
@@ -96,8 +95,8 @@ export default class HdsPaginationNavIndexComponent extends Component {
       start = limit - end;
     }
 
-    const sliceStart = array.slice(0, start);
-    const sliceEnd = array.slice(-end);
+    const sliceStart = pages.slice(0, start);
+    const sliceEnd = pages.slice(-end);
     const sliceCurr = [current - 1, current, current + 1];
 
     if (sliceStart.includes(current) && sliceStart.includes(current + 1)) {
