@@ -87,6 +87,10 @@ export default class HdsPaginationNavIndexComponent extends Component {
     let start;
     let end;
 
+    if (length <= limit) {
+      return pages;
+    }
+
     if (current <= length / 2) {
       start = Math.ceil(limit / 2);
       end = limit - start;
