@@ -1,36 +1,176 @@
+// HOME PAGE
+
 @use "../breakpoints" as breakpoint;
+@use "../typography/mixins" as *;
+
+
+// `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+body.application.index {
+  background-color: var(--doc-color-black);
+}
 
 .doc-page-home {
-  grid-area: sidebar / sidebar / content / content;
+  grid-area: sidebar / sidebar / stage / stage;
 }
 
-.doc-page-home__hero {
-  padding-bottom: 80px;
-  background-color: #727374;
+// top-right decoration
+
+.doc-page-home::before {
+  position: absolute;
+  top: 0; // important: this is relative to the `<body>` itself (there are no parents with a non-static position)
+  right: 0;
+  left: 0;
+  height: calc(200px + var(--doc-page-header-height));
+  background-image: url("/assets/illustrations/home-abstract-small.jpg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: auto 100%;
+  content: "";
+  pointer-events: none;
+
+  @include breakpoint.medium-and-above() {
+    height: 40vw;
+    max-height: 700px;
+    background-image: url("/assets/illustrations/home-abstract.jpg");
+    background-size: contain;
+  }
 }
+
+
+// content (container)
 
 .doc-page-home__content {
-  // looking at the current design, seems it's not like the normal <Doc::Page::Content @breakthrough={{true}}>
-  // so I have to create a custom thing for now (later when designs will be final I'll review everything)
-  grid-area: content / content / _extra/ _extra;
-  width: 100%; // needed (otherwise it collapses, because is in a grid)
-  max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-medium));
+  position: relative;
+  z-index: 1;
   margin: 0 auto;
-  // TODO check with heather what she wants to do with the vertical padding (responsive)
-  padding: 16px var(--doc-page-stage-gutter-small);
+  // visual top padding is controlled by the "hero" element, so we set 0 here
+  padding: 0 var(--doc-page-stage-gutter-small) 64px;
+  color: var(--doc-color-white);
 
-  @include breakpoint.medium () {
-    padding: 32px var(--doc-page-stage-gutter-medium);
+  @include breakpoint.medium() {
+    padding: 0 var(--doc-page-stage-gutter-medium) 64px;
   }
 
-  @include breakpoint.large () {
-    padding: 64px var(--doc-page-stage-gutter-medium);
+  @include breakpoint.large() {
+    // 1216px by design
+    max-width: calc(1216px + 2 * var(--doc-page-stage-gutter-large));
+    padding: 0 var(--doc-page-stage-gutter-large) 128px;
   }
 }
 
+
+// hero
+
+.doc-page-home__hero {
+  @include breakpoint.small() {
+    --padding-top: 260px; // 200 of decoration on top + 60px of negative space
+    --padding-bottom: 100px;
+    --title-font-size: 2.625rem; // 42px
+    --tagline-font-size: 1rem; // 16px
+  }
+
+  @include breakpoint.medium() {
+    --padding-top: 120px; // decoration is below the content
+    --padding-bottom: 100px;
+    --title-font-size: 3.75rem; // 60px
+    --tagline-font-size: 1.25rem; // 20px
+  }
+
+  @include breakpoint.large() {
+    --padding-top: 140px; // decoration is below the content
+    --padding-bottom: 180px;
+    --title-font-size: 4.375rem; // 70px
+    --tagline-font-size: 1.25rem; // 24px
+  }
+
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-top) 0 var(--padding-bottom);
+
+  h1 {
+    @include doc-font-family("gilmer");
+    margin: 0;
+    color: var(--doc-color-white);
+    font-weight: 500;
+    font-size: var(--title-font-size);
+    line-height: 1;
+  }
+
+  p {
+    @include doc-font-family("gilmer");
+    max-width: 350px;
+    margin: 2em 0;
+    color: var(--doc-color-gray-500);
+    font-size: var(--tagline-font-size);
+    line-height: 1.55;
+
+    @include breakpoint.medium-and-above() {
+      max-width: 600px;
+    }
+  }
+}
+
+.doc-page-home__hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 40px;
+}
+
+// cards
+
 .doc-page-home__cards {
-  margin-top: -132px;
-  padding: 32px;
-  background-color: #fff;
-  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+
+  @include breakpoint.medium() {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @include breakpoint.large() {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+}
+
+.doc-page-home__card {
+  position: relative; // needed so the link will fill the whole card
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  list-style: none;
+  border: 1px solid var(--doc-color-gray-200);
+  border-radius: 3px;
+
+  @include breakpoint.medium() {
+    padding: 24px;
+  }
+
+  @include breakpoint.large() {
+    padding: 32px;
+  }
+}
+
+.doc-page-home__card-title {
+  @include doc-font-style-h4();
+  margin: 0;
+  color: var(--doc-color-white);
+}
+
+.doc-page-home__card-description {
+  @include doc-font-style-body();
+  margin: 8px 0 12px 0;
+  color: var(--doc-color-gray-500);
+
+  @include breakpoint.medium-and-above() {
+    margin: 16 0 24 0;
+  }
+}
+
+.doc-page-home__card-link {
+  // TODO check if use flex
+  margin: auto 0 0 0;
 }

@@ -4,4 +4,3 @@ Invocation of the component would look something like this:
 <Hds::DismissButton {{on "click" this.onClickDismissButton}} />
 ```
 
-Renders to:

@@ -1,5 +1,7 @@
 ---
 title: Modal
+description: A pop-up window used to request information or feedback from the user, confirm a decision, or provide additional context about a function or feature.
+caption: A pop-up window used to request information, confirm a decision, or provide additional context.
 ---
 
 <section data-tab="Guidelines">

@@ -8,29 +8,17 @@ The most basic invocation just needs a text passed to the component and a `contr
 <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
 ```
 
-Renders to:
-
-My label
-
 Pass in an `isRequired` argument when the user input is required for the associated form control:
 
 ```handlebars
 <Hds::Form::Label @controlId="control-ID" @isRequired={{true}}>My label</Hds::Form::Label>
 ```
 
-Renders to:
-
-My label
-
 Pass in an `isOptional` argument when the user input is optional for the associated form control:
 
 ```handlebars
 <Hds::Form::Label @controlId="control-ID" @isOptional={{true}}>My label</Hds::Form::Label>
 ```
-
-Renders to:
-
-My label
 
 There may be cases in which the label needs to contain more than just text. In this case it's possible to pass structured content to it (it's just yielded in output):
 
@@ -40,10 +28,6 @@ There may be cases in which the label needs to contain more than just text. In t
   <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
 </Hds::Form::Label>
 ```
-
-Renders to:
-
-Some text
 
 **Important:** in this case, while the correct text styling is applied to the component's container, the layout/organization of the content inside the component is left to the consumer.
 
@@ -56,10 +40,6 @@ The most basic invocation just needs a text passed to the component and a `contr
 ```handlebars
 <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
 ```
-
-Renders to:
-
-This is some helper text
 
 Note: the `controlId` value will be used to generate an ID, prefixed with `helper-text-`, so that this ID can be referenced in the `aria-describedby` attribute of the form control. If no `controlId` is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).
 
@@ -75,8 +55,6 @@ To implement additional nested components within the helper text, use the block 
 </Hds::Form::HelperText>
 ```
 
-Renders to:
-
 Some text with a Hds::Link::Inline, or `some formatted code` or a **strong message**.
 
 #### Form::Indicator
@@ -87,15 +65,11 @@ To render a `Required` indicator provide a `@isRequired` argument:
 <Hds::Form::Indicator @isRequired={{true}} />
 ```
 
-Renders to:
-
 To render instead an `Optional` indicator provide a `@isOptional` argument:
 
 ```handlebars
 <Hds::Form::Indicator @isOptional={{true}} />
 ```
-
-Renders to:
 
 _Notice: if no `@isRequired/@isOptional` argument is provided, the component will not render anything._
 
@@ -106,10 +80,6 @@ The most basic invocation just needs a text passed to the component and a `contr
 ```handlebars
 <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
 ```
-
-Renders to:
-
-This is a simple error message
 
 Note: the `controlId` value will be used to generate an ID, prefixed with `error-`, so that this ID can be referenced in the `aria-describedby` attribute of the form control. If no `controlId` is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).
 
@@ -123,10 +93,6 @@ There may be cases in which the error is made of multiple messages. In this case
 </Hds::Form::Error>
 ```
 
-Renders to:
-
-{{#each @model.SAMPLE\_ERROR\_MESSAGES as |message|}} {{message}} {{/each}}
-
 #### Form::Legend
 
 The most basic invocation just needs a text passed to the component:
@@ -135,29 +101,17 @@ The most basic invocation just needs a text passed to the component:
 <Hds::Form::Legend>My legend</Hds::Form::Legend>
 ```
 
-Renders to:
-
-My legend
-
 Pass in an `isRequired` argument when the user input is required for the associated form controls:
 
 ```handlebars
 <Hds::Form::Legend @isRequired={{true}}>My legend</Hds::Form::Legend>
 ```
 
-Renders to:
-
-My legend
-
 Pass in an `isOptional` argument when the user input is optional for the associated form controls:
 
 ```handlebars
 <Hds::Form::Legend @isOptional={{true}}>My legend</Hds::Form::Legend>
 ```
-
-Renders to:
-
-My legend
 
 There may be cases in which the legend needs to contain more than just text. In this case it's possible to pass structured content to it (it's just yielded in output):
 
@@ -167,10 +121,6 @@ There may be cases in which the legend needs to contain more than just text. In 
   <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
 </Hds::Form::Legend>
 ```
-
-Renders to:
-
-Some text
 
 **Important:** in this case, while the correct text styling is applied to the component's container, the layout/organization of the content inside the component is left to the consumer.
 
@@ -197,10 +147,6 @@ The more general invocation for this component sees a set of contextual componen
   <F.Error>This is the error</F.Error>
 </Hds::Form::Field>
 ```
-
-Renders to:
-
-This is the label This is the helper text {{! add your control here }}  This is the error
 
 Depending on the context/need, one may want to pass just the label, or the label _and_ the helper text, while the error message is likely conditional to the validation of the input provided by the user.
 
@@ -234,10 +180,6 @@ The more general invocation for this component sees a set of contextual componen
   <F.Error>This is the error</F.Error>
 </Hds::Form::Fieldset>
 ```
-
-Renders to:
-
-This is the legend This is the helper text {{! add your control here }}  selection #1 selection #2 This is the error
 
 Depending on the context/need, one may want to pass just the legend, just the helper text, both or none, while the error message is likely conditional to the validation of the inputs provided by the user.
 

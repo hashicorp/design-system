@@ -1,5 +1,7 @@
 ---
 title: Form::Textarea
+description: A form input that accepts multi-line text.
+caption: A form input that accepts multi-line text.
 ---
 
 <section data-tab="Guidelines">

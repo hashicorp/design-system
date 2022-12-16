@@ -1,5 +1,7 @@
 ---
 title: Tag
+description: Used to indicate an object's categorization.
+caption: Used to indicate an object's categorization.
 ---
 
 <section data-tab="Code">

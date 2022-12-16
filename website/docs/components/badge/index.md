@@ -1,5 +1,7 @@
 ---
 title: Badge
+description: Concise, non-interactive labels that represent metadata.
+caption: Concise, non-interactive labels that represent metadata.
 ---
 
 <section data-tab="Guidelines">
