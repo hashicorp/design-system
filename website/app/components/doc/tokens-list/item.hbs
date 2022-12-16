@@ -1,8 +1,4 @@
-<li
-  class="doc-tokens-list__item
-    {{if this.isExpanded 'doc-tokens-list__item--is-expanded' ''}}
-    {{if this.isDeprecated 'doc-tokens-list__item--is-deprecated' ''}}"
->
+<li class="doc-tokens-list__item">
   <div class="doc-tokens-list__preview {{this.token.previewClass}}">
     {{#if this.isColor}}
       {{! template-lint-disable no-inline-styles }}
@@ -11,16 +7,23 @@
     {{this.token.previewText}}
   </div>
   <div class="doc-tokens-list__content">
-    <Doc::TokensList::MetaRow @label="CSS variable" @value={{this.token.name}} @copyable={{true}} />
-        {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
-    <Doc::TokensList::MetaRow @label="Value" @value={{this.token.value}} />
-
-    <button class="doc-tokens-list__item-summary" type="button" {{on "click" this.toggle}}>TOGGLE</button>
-    {{#if this.isAlias}}
-      <Doc::TokensList::MetaRow @label="Alias of" @value={{this.token.original_value}} />
+    <button type="button" class="doc-tokens-list__toggle" {{on "click" this.toggle}}><FlightIcon @name={{if this.isExpanded "chevron-up" "chevron-down"}} /><span class="doc-sr-only">{{this.isExpanded 'Collapse' 'Expand'}}</span></button>
+    {{#if this.token.deprecated}}
+      <Doc::MetaRow @label="Don't use" @valueToShow="This token is now deprecated" />
+      <Doc::MetaRow class="doc-tokens-list__item--is-deprecated" @label="CSS var" @valueToShow={{this.token.name}}  />
+    {{else}}
+      <Doc::MetaRow @label="CSS var" @valueToCopy={{this.token.name}} @copyable={{true}} />
+      {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
+      <Doc::MetaRow @label="Value" @valueToShow={{this.token.value}} />
     {{/if}}
-    {{#if this.token.comment}}
-      <Doc::TokensList::MetaRow @label="Comment" @value={{this.token.comment}} />
+    {{#if this.isExpanded}}
+      <Doc::MetaRow @label="Type" @valueToShow={{this.token.type}} />
+      {{#if this.isAlias}}
+        <Doc::MetaRow @label="Alias of" @valueToShow={{this.token.original_value}} />
+      {{/if}}
+      {{#if this.token.comment}}
+        <Doc::MetaRow @label="Comment" @valueToShow={{this.token.comment}} />
+      {{/if}}
     {{/if}}
   </div>
 </li>

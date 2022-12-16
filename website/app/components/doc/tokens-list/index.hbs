@@ -2,9 +2,9 @@
   <Doc::Form::Search @label="Filter" @placeholder="Type a name or keyword (e.g. red)" @searchQuery={{@searchQuery}} @onInput={{@searchTokens}} />
 </div>
 
-{{#each-in @groupedTokens as |category categoryList|}}
+{{#each-in @groupedTokens as |category categoryTokens|}}
   <h2 class="doc-text-h2">{{capitalize category}}</h2>
-  <Doc::TokensList::Grid @categoryList={{categoryList}} />
+  <Doc::TokensList::Grid @categoryTokens={{categoryTokens}} />
 {{else}}
   <p class="doc-text-body">No tokens found 🤷‍♀️</p>
 {{/each-in}}

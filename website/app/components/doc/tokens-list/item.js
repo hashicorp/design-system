@@ -10,6 +10,7 @@ export default class DocTokenCardIndexComponent extends Component {
     let { token } = this.args;
     return {
       name: token.name,
+      type: token.type,
       value: token.value,
       category: token.attributes.category,
       original_value: token.original.value,

@@ -1,6 +1,6 @@
-{{#if @categoryList}}
+{{#if @categoryTokens}}
   <ul class="doc-tokens-list">
-    {{#each @categoryList as |token|}}
+    {{#each @categoryTokens as |token|}}
       <Doc::TokensList::Item @token={{token}} />
     {{/each}}
   </ul>
