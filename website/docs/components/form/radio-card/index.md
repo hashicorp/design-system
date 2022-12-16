@@ -1,5 +1,7 @@
 ---
 title: Form::RadioCard
+description: A type of radio input represented as a card.
+caption: A type of radio input represented as a card.
 ---
 
 <section data-tab="Guidelines">
