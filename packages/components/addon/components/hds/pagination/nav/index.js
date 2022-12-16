@@ -64,11 +64,11 @@ export default class HdsPaginationNavIndexComponent extends Component {
       pages.push(i);
     }
 
-    return pages;
-  }
-
-  get truncatedPages() {
-    return this.elliptize({ pages: this.pages, current: this.currentPage });
+    if (this.type === 'truncated') {
+      return this.elliptize({ pages, current: this.currentPage });
+    } else {
+      return pages;
+    }
   }
 
   get isDisabledPrev() {

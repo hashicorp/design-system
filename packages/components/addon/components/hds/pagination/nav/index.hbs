@@ -20,7 +20,7 @@
 
   {{#if (eq this.type "truncated")}}
     <ul class="hds-pagination-nav__page-list">
-      {{#each this.truncatedPages as |page|}}
+      {{#each this.pages as |page|}}
         {{#if (eq page "…")}}
           <Hds::Pagination::Nav::Ellipsis />
         {{else}}
