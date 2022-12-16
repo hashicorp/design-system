@@ -10,7 +10,7 @@ System fonts also offer many benefits that many web fonts don’t. They are broa
 
 !!! Info
 
-HashiCorp has general writing guidelines for copy standards e.g. capitalization and punctuation. Refer to [this document](https://docs.google.com/document/d/1ABNkYIp6aLwPYNpuYOFcDFBFCcnH_4ePRaLP-gD_tKE/edit#heading=h.w9d2qpiz1vpb) for more details.
+HashiCorp has [general writing guidelines](https://docs.google.com/document/d/1ABNkYIp6aLwPYNpuYOFcDFBFCcnH_4ePRaLP-gD_tKE/edit#heading=h.w9d2qpiz1vpb) for copy standards e.g. capitalization and punctuation.
 
 !!!
 

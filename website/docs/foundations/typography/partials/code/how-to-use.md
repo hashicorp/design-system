@@ -55,7 +55,7 @@ To use this classes you have to import the CSS file `[products|devdot]/css/helpe
 
 !!! Info
 
-**Notice**
+**Note**
 
 We are showing only the combinations of `font-size` ("style") and `font-weight` that the design system **suggests** to use.
 
