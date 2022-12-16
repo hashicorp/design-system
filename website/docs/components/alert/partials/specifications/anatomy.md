@@ -1,42 +1,25 @@
 ## Anatomy
 
-### Page and Inline
+### Page and inline alerts
 
-All alert types share the same anatomy except for AlertCompact.
+![Anatomy of the page alert](/assets/components/alert/alert-anatomy-inline.png)
 
-![Anatomy of the page Alert](/assets/components/alert/alert-anatomy-page.png)
-
-![Anatomy of the inline Alert](/assets/components/alert/alert-anatomy-inline.png)
-
-#### Icon
-
-Optional (recommended)
-
-#### Title
-
-Required only when description is false, optional otherwise
-
-#### Description
-
-Required only when Title is false, optional otherwise
-
-#### Actions
-
-Optional
-
-#### Dismiss Button
-
-Optional
-
-#### Container
-
-Optional
-
-#### Content
-
-Required
+| Element          |                                                 |
+|------------------|-------------------------------------------------|
+| Icon             | Optional, but recommended                       |
+| Title            | Required, if no description Optional, otherwise |
+| Description      | Required, if no title Optional, otherwise       |
+| Actions          | Optional                                        |
+| Dismiss button   | Optional                                        |
+| Content          | Required                                        |
+| Container        | Required                                        |
 
 
-### Compact
+### Compact alerts
 
-![Anatomy of the compact Alert](/assets/components/alert/alert-anatomy-compact.png)
+![Anatomy of the compact alert](/assets/components/alert/alert-anatomy-compact.png)
+
+| Element          |                               |
+|------------------|-------------------------------|
+| Icon             | Required                      |
+| Description      | Required                      |

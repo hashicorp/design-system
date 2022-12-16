@@ -51,6 +51,15 @@ Use color logically.
 Use `neutral` or `hightlight` as equivalents to Structure's `information` banner depending on the level of prominence desired.
 !!!
 
+### Icons
+All alerts have icons by default. They are intentially tied to the alert type. Icons in `neutral` and `highlight` can be swapped out with any other icon, including animated ones. Change them only when the new icon provides the user with extra value. Otherwise, we recommend using the default icons provided.
+
+<Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
+  <A.Title>New features available</A.Title>
+  <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be oprational, just as they were in prior versions.</A.Description>
+  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
+</Hds::Alert>
+
 ### Dismissal
 #### Persistent
 All alerts are set to persist by default. Compact alerts are always persistent.
@@ -82,15 +91,6 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
-
-### Icons
-All alerts have icons by default. They are intentially tied to the alert type. Icons in `neutral` and `highlight` can be swapped out with any other icon, including animated ones. Change them only when the new icon provides the user with extra value. Otherwise, we recommend using the default icons provided.
-
-<Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
-  <A.Title>New features available</A.Title>
-  <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be oprational, just as they were in prior versions.</A.Description>
-  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
-</Hds::Alert>
 
 ### Actions
 Use small buttons to avoid competing with other actions on the page. Use more than two actions sparingly.
@@ -154,12 +154,10 @@ When displaying an alert without an icon, the title or description should contai
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
 </Hds::Alert>
 
-#### With custom content or custom actions
-Building alerts with custom content may require additional time to set up correctly. Use this method with caution and reach out to us if needing help.
+#### With generic content
+Building alerts with generic content may require additional time to set up correctly. Use this method with caution and reach out to us if needing help.
 
 ![Example of an Alert with custom content](/assets/components/alert/alert-with_custom_content.png)
-
-![Example of an Alert with custom actions](/assets/components/alert/alert-with_custom_actions.png)
 
 
 ### Placement

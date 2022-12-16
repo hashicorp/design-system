@@ -1,6 +1,5 @@
-#### Basic use
-
-The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default a `neutral` alert is generated (with a neutral color applied and a specific icon visible).
+## How to use this component
+The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default, a `neutral` alert is generated.
 
 ```handlebars
 <Hds::Alert @type="inline" as |A|>
@@ -9,22 +8,7 @@ The most basic invocation requires the `type` argument to be passed, along with 
 </Hds::Alert>
 ```
 
-If needed, you can pass only `title` or only `description`.
-
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-</Hds::Alert>
-```
-
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
-
-#### Type
-
+### Type
 A different type of alert can be invoked using the `type` argument.
 
 ```handlebars
@@ -34,9 +18,23 @@ A different type of alert can be invoked using the `type` argument.
 </Hds::Alert>
 ```
 
-#### Color
+### Content
+Optionally, you can pass only `title` or only `description`.
 
-A different color can be applied to the alert using the `color` argument. This will also determine the icon default used in the alert (unless overwritten, see below).
+```handlebars
+<Hds::Alert @type="inline" as |A|>
+  <A.Title>Title here</A.Title>
+</Hds::Alert>
+```
+
+```handlebars
+<Hds::Alert @type="inline" as |A|>
+  <A.Description>Description here</A.Description>
+</Hds::Alert>
+```
+
+### Color
+A different color can be applied to the alert using the `color` argument. This will determine the default icon used in the alert (unless overwritten).
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
@@ -45,9 +43,8 @@ A different color can be applied to the alert using the `color` argument. This w
 </Hds::Alert>
 ```
 
-#### Icon
-
-A different icon can be used in the alert using the `icon` argument.
+### Icon
+A different icon can be used in the alert using the `icon` argument. This accepts any [icon](https://flight-hashicorp.vercel.app/) name.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
@@ -56,7 +53,7 @@ A different icon can be used in the alert using the `icon` argument.
 </Hds::Alert>
 ```
 
-If instead you want to completely hide the icon you have to pass a `false` value to the `icon` argument.
+If you need to hide the icon, pass `false` to the `icon` argument. This is only an option on page and inline alerts as compact alerts require an icon.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon={{false}} as |A|>
@@ -65,11 +62,10 @@ If instead you want to completely hide the icon you have to pass a `false` value
 </Hds::Alert>
 ```
 
-#### Dismiss
+### Dismissal
+To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a "dismiss/close" button to the alert. When that button is clicked, the callback function will be executed. 
 
-In some cases the alert needs to be dismissable. In this case you have to pass a callback function to the `onDismiss` argument. This will also automatically add a "dismiss/close" button to the alert, that when clicked will execute the callback function.
-
-**Important**: the actual implementation of what happens to the alert when the callback function is invoked is left to the developer (this will likely depent on the type of alert, on the context of where it's used, on the specific use case, etc.).
+Given the variety of use cases and contexts in which alerts are used across products, application teams will need to implement the callback function.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
@@ -78,23 +74,20 @@ In some cases the alert needs to be dismissable. In this case you have to pass a
 </Hds::Alert>
 ```
 
-#### Actions
-
-Actions can optionally be passed to component using one of the suggested `Button` or `Link::Standalone` contextual components.
+### Actions
+Actions can be passed to the component using one of the suggested `Button` or `Link::Standalone` contextual components.
 
 ```handlebars
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="components" />
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="leading" @text="Another action" @href="#" />
+  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
 </Hds::Alert>
 ```
 
-#### Structured content
-
-When needed the `Description` contextual component can contain logic, rich HTML or structured content.
+### Structured content
+When needed, the `Description` contextual component can contain logic, rich HTML, or structured content.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
@@ -112,7 +105,7 @@ When needed the `Description` contextual component can contain logic, rich HTML 
 </Hds::Alert>
 ```
 
-You can pass more than one `D.Description` contextual components to have multiple description lines.
+You can pass more than one `D.Description` contextual component to have multiple description lines.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
@@ -122,11 +115,13 @@ You can pass more than one `D.Description` contextual components to have multipl
 </Hds::Alert>
 ```
 
-#### Generic content
+### Generic content
+Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Application teams will need to implement spacing, layout, and styling for generic content.
 
-It's also possible to insert custom content in the component using the `Generic` contextual component.
+!!! Warning
 
-_Notice: the content will appear at the bottom, after title, description and actions, and the developer will need to take care of spacing, layout and styling of the custom content in this case._
+Use this method with caution and as an escape hatch. We recommend speaking with a member of the design systems team to check that the solution is conformant and satisfies accessibility criteria.
+!!!
 
 ```handlebars
 <Hds::Alert @type="inline" as |A|>
@@ -137,5 +132,3 @@ _Notice: the content will appear at the bottom, after title, description and act
   </A.Generic>
 </Hds::Alert>
 ```
-
-**Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria.
