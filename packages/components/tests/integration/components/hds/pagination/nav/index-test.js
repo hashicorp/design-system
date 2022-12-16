@@ -22,7 +22,7 @@ module('Integration | Component | hds/pagination/nav/index', function (hooks) {
 
   // Test API:
 
-  test('it has the same number of pages displayed as are passed in for the "numbereed" type', async function (assert) {
+  test('it has the same number of pages displayed as are passed in for the "numbered" type', async function (assert) {
     await render(hbs`
       <Hds::Pagination::Nav @totalPages={{10}} @currentPage={{1}} @type="numbered" />
     `);
