@@ -1,0 +1,38 @@
+// META ROW
+
+.doc-meta-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  min-height: 32px;
+}
+
+.doc-meta-row__label {
+  flex: none;
+  min-width: 60px;
+  margin-top: 7px; // optical alignment
+  color: var(--doc-color-gray-300);
+}
+
+.doc-meta-row__value {
+  min-width: 0; // needed to avoid the parent to explode if the content is too wide (when it's clipped)
+}
+
+.doc-meta-row__value-not-copyable {
+  display: inline-block;
+  padding-top: 2px; // optical alignment with the copyable one
+  padding-left: 8px;
+  color: var(--doc-color-black);
+  word-break: break-word;
+
+  &.doc-meta-row__value-not-copyable--is-clipped {
+    position: relative;
+    display: block;
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}

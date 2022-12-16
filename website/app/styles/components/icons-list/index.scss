@@ -87,36 +87,7 @@
 }
 
 .doc-icons-list-grid-item__meta {
-  align-self: flex-start;
   padding: 16px;
-}
-
-.doc-icons-list-grid-item__meta-row {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  min-height: 32px;
-}
-
-.doc-icons-list-grid-item__meta-label {
-  flex: none;
-  min-width: 56px;
-  margin-top: 7px; // optical alignment
-  color: var(--doc-color-gray-300);
-}
-
-.doc-icons-list-grid-item__meta-value {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-top: 2px; // optical alignment
-  color: var(--doc-color-black);
-}
-
-.doc-icons-list-grid-item__meta-value-not-copyable {
-  padding-top: 2px; // optical alignment with the copyable one
-  padding-left: 8px;
-  color: var(--doc-color-black);
 }
 
 
