@@ -1,5 +1,7 @@
 ---
 title: Interactive
+description: An internal utility component used to provide interactivity to other components.
+caption: An internal utility component used to provide interactivity to other components.
 ---
 
 <section data-tab="Other">
