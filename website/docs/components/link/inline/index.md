@@ -1,5 +1,7 @@
 ---
 title: Link::Inline
+description: A link that is used within a body of text.
+caption: A link that is used within a body of text.
 ---
 
 <section data-tab="Other">
