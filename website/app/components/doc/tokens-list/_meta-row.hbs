@@ -1,0 +1,10 @@
+<div class="doc-icons-list-grid-item__meta-row">
+  <div class="doc-icons-list-grid-item__meta-label doc-text-label">{{@label}}</div>
+  <div class="doc-icons-list-grid-item__meta-value">
+    {{#if @copyable}}
+      <Doc::CopyButton @textToCopy={{@value}} @type="ghost" />
+    {{else}}
+      <code class="doc-icons-list-grid-item__meta-value-not-copyable doc-text-code">{{@value}}</code>
+    {{/if}}
+  </div>
+</div>

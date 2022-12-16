@@ -1,0 +1,19 @@
+<div class="doc-tokens-list-filter">
+  <Doc::Form::Search @label="Filter" @placeholder="Type a name or keyword (e.g. red)" @searchQuery={{@searchQuery}} @onInput={{@searchTokens}} />
+</div>
+
+{{#each-in @groupedTokens as |category categoryList|}}
+  <h2 class="doc-text-h2">{{capitalize category}}</h2>
+  {{#if categoryList}}
+    <div class="dummy-tokens-list">
+      {{#each categoryList as |token|}}
+        <Doc::TokenCard @token={{token}} />
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="doc-text-body-small">No tokens found in this category</p>
+  {{/if}}
+{{else}}
+  <p class="doc-text-body">No tokens found 🤷‍♀️</p>
+{{/each-in}}
+
