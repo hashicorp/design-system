@@ -12,7 +12,6 @@
   --token-pagination-control-focus-inset: 5px;
   // indicator for current page:
   --token-pagination-indicator-height: 2px;
-  --token-pagination-indicator-width: 19px;
 }
 
 // * Pagination Parent (wrapper) component
@@ -60,7 +59,7 @@
 
 .hds-pagination-nav__control {
   text-decoration: none;
-  background: transparent;
+  background-color: transparent;
   border: none;
 
   @include hds-focus-ring-with-pseudo-element(
@@ -88,6 +87,7 @@
 }
 
 // Make buttons with "Previous" & "Next" labels the same min-width
+// to make them more visually centered in relationship to other sub-components
 .hds-pagination-nav__button-arrow--labeled {
   min-width: 103px;
 }
@@ -137,10 +137,9 @@
   // indicator underline
   &::before {
     position: absolute;
-    right: 0;
+    right: 7px;
     bottom: 0;
-    left: 0;
-    width: var(--token-pagination-indicator-width);
+    left: 7px;
     height: var(--token-pagination-indicator-height);
     margin: 0 auto;
     background-color: currentColor;
@@ -164,10 +163,7 @@
   > select {
     height: 28px;
     margin-left: 12px;
-    padding-top: 0;
-    padding-right: calc(0px + 24px);
-    padding-bottom: 0;
-    padding-left: 8px;
+    padding: 0 calc(0px + 24px) 0 8px;
     // font styles for this select differ from standard `Form::Select::Base` styles
     font-size: var(--token-typography-body-100-font-size);
     font-family: var(--token-typography-body-100-font-family);
