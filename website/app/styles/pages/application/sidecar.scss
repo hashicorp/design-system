@@ -37,6 +37,7 @@
 
   a {
     position: relative;
+    display: inline-block;
     padding: 0 0 0 var(--padding-left);
     color: var(--doc-color-gray-300);
     text-decoration: none;

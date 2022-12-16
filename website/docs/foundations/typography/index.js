@@ -36,9 +36,6 @@ export default class Index extends Component {
   get styles() {
     return [...DISPLAY_STYLES, ...BODY_STYLES, ...CODE_STYLES];
   }
-  get stylesCombinations() {
-    return STYLES_COMBINATIONS;
-  }
   get cssHelpers() {
     const cssHelpers = {
       families: [],
@@ -46,14 +43,39 @@ export default class Index extends Component {
       styles: [],
     };
     this.families.forEach((family) => {
-      cssHelpers.families.push(`hds-font-family-${family}`);
+      cssHelpers.families.push({
+        previewText: 'Aa',
+        previewClass: `hds-font-family-${family}`,
+        copyText: `hds-font-family-${family}`,
+      });
     });
     this.weights.forEach((weight) => {
-      cssHelpers.weights.push(`hds-font-weight-${weight}`);
+      cssHelpers.weights.push({
+        previewText: 'Aa',
+        previewClass: `hds-font-weight-${weight}`,
+        copyText: `hds-font-weight-${weight}`,
+      });
     });
     this.styles.forEach((style) => {
-      cssHelpers.styles.push(`hds-typography-${style}`);
+      cssHelpers.styles.push({
+        previewText: 'Aa',
+        previewClass: `hds-typography-${style}`,
+        copyText: `hds-typography-${style}`,
+      });
     });
     return cssHelpers;
+  }
+  get stylesCombinations() {
+    const combinations = [];
+    Object.keys(STYLES_COMBINATIONS).forEach((style) => {
+      STYLES_COMBINATIONS[style].forEach((weight) => {
+        combinations.push({
+          previewText: 'The fox jumped over the lazy dog',
+          previewClass: `hds-typography-${style} hds-font-weight-${weight}`,
+          otherText: `${style} (${weight})`,
+        });
+      });
+    });
+    return combinations;
   }
 }
