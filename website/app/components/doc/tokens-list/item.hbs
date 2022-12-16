@@ -1,10 +1,21 @@
 <li class="doc-tokens-list__item">
   <div class="doc-tokens-list__preview {{this.token.previewClass}}">
-    {{#if this.isColor}}
-      {{! template-lint-disable no-inline-styles }}
-      <span class="doc-tokens-list__item-color" style={{this.colorPreviewStyle}}></span>
+    {{! template-lint-disable no-inline-styles }}
+    {{#if this.colorPreviewStyle}}
+      <span class="doc-tokens-list__preview-color" style={{this.colorPreviewStyle}}></span>
+    {{else if this.backgroundImagePreviewStyle}}
+      <span class="doc-tokens-list__preview-image" style={{this.backgroundImagePreviewStyle}}></span>
+    {{else if this.fontPreviewStyle}}
+      <span class="doc-tokens-list__preview-font" style={{this.fontSizePreviewStyle}}>Aa</span>
+    {{else if this.sizePreviewStyle}}
+      <span class="doc-tokens-list__preview-size" style={{this.sizePreviewStyle}}></span>
+    {{else if this.boxShadowPreviewStyle}}
+      <span class="doc-tokens-list__preview-boxshadow" style={{this.boxShadowPreviewStyle}}></span>
+    {{else}}
+      <span class="doc-tokens-list__preview-unknown"></span>
     {{/if}}
     {{this.token.previewText}}
+    {{! template-lint-enable no-inline-styles }}
   </div>
   <div class="doc-tokens-list__content">
     <button type="button" class="doc-tokens-list__toggle" {{on "click" this.toggle}}><FlightIcon @name={{if this.isExpanded "chevron-up" "chevron-down"}} /><span class="doc-sr-only">{{this.isExpanded 'Collapse' 'Expand'}}</span></button>
@@ -14,10 +25,12 @@
     {{else}}
       <Doc::MetaRow @label="CSS var" @valueToCopy={{this.token.name}} @copyable={{true}} />
       {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
-      <Doc::MetaRow @label="Value" @valueToShow={{this.token.value}} />
+      <Doc::MetaRow @label="Value" @valueToShow={{this.token.value}} @isClipped={{not this.isExpanded}}/>
     {{/if}}
     {{#if this.isExpanded}}
-      <Doc::MetaRow @label="Type" @valueToShow={{this.token.type}} />
+      {{#if this.token.type}}
+        <Doc::MetaRow @label="Type" @valueToShow={{this.token.type}} />
+      {{/if}}
       {{#if this.isAlias}}
         <Doc::MetaRow @label="Alias of" @valueToShow={{this.token.original_value}} />
       {{/if}}

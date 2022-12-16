@@ -3,8 +3,7 @@
 </div>
 
 {{#each-in @groupedTokens as |category categoryTokens|}}
-  <h2 class="doc-text-h2">{{capitalize category}}</h2>
-  <Doc::TokensList::Grid @categoryTokens={{categoryTokens}} />
+  <Doc::TokensList::Grid @category={{category}} @categoryTokens={{categoryTokens}} />
 {{else}}
   <p class="doc-text-body">No tokens found 🤷‍♀️</p>
 {{/each-in}}
