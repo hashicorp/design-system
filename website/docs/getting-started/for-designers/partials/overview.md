@@ -14,8 +14,6 @@ All of these libraries are published under the [HDS Design System UI Kit](https:
 
 For a more detailed guide for using our Figma libraries, view the **setup guide** tab.
 
-## Design language
-
 ## Recommended plugins
 
 Plugins can be used to extend Figma's functionality, and while new features are constantly being added there are several plugins that make life a bit easier and simplify repetitive tasks.
