@@ -1,9 +1,29 @@
 import Component from '@glimmer/component';
 
 const STATUSES = {
+  'on-roadmap': {
+    badgeType: 'neutral',
+    badgeText: 'On roadmap',
+  },
   released: {
     badgeType: 'success',
     badgeText: 'Released',
+  },
+  experimental: {
+    badgeType: 'warning',
+    badgeText: 'Experimental',
+  },
+  'code-only': {
+    badgeType: 'information',
+    badgeText: 'Code only',
+  },
+  'design-only': {
+    badgeType: 'information',
+    badgeText: 'Design only',
+  },
+  deprecated: {
+    badgeType: 'critical',
+    badgeText: 'Deprecated',
   },
 };
 
