@@ -121,3 +121,18 @@ This is a list that contains other block elements:
     var foo = 'bar';
     console.log(foo);
     ```
+
+----------------
+
+This list should not generate `<p>` elements as children of `<li>` items
+
+* Lorem
+* Ipsum
+* Dolor
+
+This list instead should generate the `<p>` elements inside the `<li>` items
+
+* Lorem
+* Ipsum
+
+* Dolor
