@@ -1,4 +1,5 @@
 {{! template-lint-disable no-invalid-role require-context-role }}
+{{#if @tabs}}
 <ul class='doc-page-tabs' role='tablist' ...attributes>
   {{#each @tabs as |tab|}}
     <li
@@ -18,3 +19,4 @@
     </li>
   {{/each}}
 </ul>
+{{/if}}
