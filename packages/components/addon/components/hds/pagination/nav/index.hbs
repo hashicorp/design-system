@@ -6,19 +6,7 @@
     @disabled={{this.isDisabledPrev}}
   />
 
-  {{#if (eq this.type "numbered")}}
-    <ul class="hds-pagination-nav__page-list">
-      {{#each this.pages as |page|}}
-        <Hds::Pagination::Nav::ButtonNumber
-          @page={{page}}
-          @onClick={{this.onPageChange}}
-          @isSelected={{if (eq page this.currentPage) true false}}
-        />
-      {{/each}}
-    </ul>
-  {{/if}}
-
-  {{#if (eq this.type "truncated")}}
+  {{#if (or (eq this.type "numbered") (eq this.type "truncated"))}}
     <ul class="hds-pagination-nav__page-list">
       {{#each this.pages as |page|}}
         {{#if (eq page "…")}}
