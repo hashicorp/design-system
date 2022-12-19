@@ -13,7 +13,7 @@
         type='button'
         role='tab'
         aria-controls={{tab.target}}
-        aria-selected={{tab.isCurrent}}
+        aria-selected={{if tab.isCurrent "true" "false"}}
         {{on 'click' (fn tab.onClickTab tab)}}
       >{{capitalize tab.label}}</button>
     </li>
