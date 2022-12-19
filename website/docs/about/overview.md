@@ -1,5 +1,6 @@
 ---
 title: Overview
+caption: Get an overview of the design system.
 description: Learn about the HashiCorp Design System, why it exists, and the strategy behind the system.
 order: 101
 ---

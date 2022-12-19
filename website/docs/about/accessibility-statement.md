@@ -1,6 +1,7 @@
 ---
 title: Accessibility Statement
 description: This is an accessibility statement from the HashiCorp Design Systems team.
+caption: Learn more about the accessibility intentions of the design system.
 order: 103
 ---
 
