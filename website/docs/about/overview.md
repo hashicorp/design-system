@@ -18,7 +18,7 @@ While the scale of a design system largely depends on the needs of those consumi
 - **Components**: component design, component development, tokens, development standards
 - **Documentation**: education, issue tracking, contribution, content management, processes
 
-At HaschiCorp we structure our components, icons, and tokens in a [monorepo](https://github.com/hashicorp/design-system) using yarn workspaces and publish a collection of libraries in [Figma](https://www.figma.com/files/team/1030156573400567478) for designers.
+At HaschiCorp we structure our components, icons, and design tokens in a [monorepo](https://github.com/hashicorp/design-system) using yarn workspaces and publish a collection of libraries in [Figma](https://www.figma.com/files/team/1030156573400567478) for designers.
 
 ### Why use the HashiCorp Design System?
 
@@ -27,6 +27,7 @@ While increasing visual and functional consistency accross products is the most 
 - Increased velocity in the design and development of new products and features
 - Dismantling of silos between departments that adopt and use the system
 - More time spent on solving complex problems, less time spent on duplicative work rebuilding small atoms and molecules
+- Components, foundations, and usage guidelines published by the the HashiCorp Design System meet or exceed WCAG 2.1 AA conformance out of the box in accordance with our [accessibility statement](/about/accessibility-statement).
 
 ### Our consumers
 
@@ -37,6 +38,8 @@ For more information on adoption, visit our getting started documentation (for [
 ## Resources
 
 ### Design system inspiration
+
+As part of our design process we analyze and compare the strategy and implementation of prominent design systems across industries. These examples inspire us and helped paved the way for the design system community.
 
 - [Carbon Design System (IBM)](https://carbondesignsystem.com/)
 - [Polaris Design System (Shopify)](https://polaris.shopify.com/)
