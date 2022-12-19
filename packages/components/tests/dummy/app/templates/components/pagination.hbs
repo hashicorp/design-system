@@ -105,8 +105,8 @@
     <dt>totalPages <code>number</code></dt>
     <dd>
       <p>Used in displaying the page numbers for "numbered" type and for determining the next page to navigate to.</p>
-      <p>totalPages is calculated by HDS::Pagination wrapper component but must be passed into HDS::Pagination::Nav if
-        used as a stand alone component.</p>
+      <p>totalPages is calculated by HDS::Pagination wrapper component when used. However, it is required if
+        HDS::Pagination::Nav is used as a stand alone component.</p>
     </dd>
   </dl>
 
@@ -438,6 +438,9 @@
     </div>
     <div class="dummy-paragraph">
       <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
+    </div>
+    <div class="dummy-paragraph">
+      <Hds::Pagination::Nav @totalPages={{100}} @type="truncated" />
     </div>
   </div>
 
