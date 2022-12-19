@@ -12,7 +12,7 @@
           <div class="doc-table-of-contents__heading doc-text-label">{{capitalize key}}</div>
           <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
         {{else}}
-          <details class="doc-table-of-contents__folder" open>
+          <details class="doc-table-of-contents__folder">
             <summary class="doc-table-of-contents__summary doc-text-navigation">{{capitalize key}}</summary>
             <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
           </details>
