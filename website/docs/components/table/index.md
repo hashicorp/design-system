@@ -2,6 +2,10 @@
 title: Table
 description: Used to display organized, two-dimensional tabular data.
 caption: Used to display organized, two-dimensional tabular data.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18814%3A54972&t=XC8SUxxJOFHgqYzK-1
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/table
 ---
 
 <section data-tab="Other">
@@ -25,4 +29,3 @@ caption: Used to display organized, two-dimensional tabular data.
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-
