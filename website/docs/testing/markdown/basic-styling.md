@@ -1,5 +1,6 @@
 ---
 title: Basic styling
+order: 99
 ---
 
 # Header 1
@@ -45,6 +46,10 @@ A simple image
 ----------------
 
 A simple inline code snippet `var foo = "bar";` like this.
+
+Code snippet with link [`var foo = "bar";`](https://github.com)
+
+Code snippet bold **`var foo = "bar";`** and italic _`var foo = "bar";`_
 
 A simple code block.
 

@@ -61,6 +61,26 @@ This is a paragraph
 
 -----
 
+!!! Info
+
+A banner without a title
+!!!
+
+!!! Info
+
+A banner without a title but a **strong** in the content (in the first child)
+!!!
+
+!!! Info
+
+**This is the title**
+
+A banner with a title and a **strong** in the content
+!!!
+
+
+-----
+
 ## Imported banners
 
 

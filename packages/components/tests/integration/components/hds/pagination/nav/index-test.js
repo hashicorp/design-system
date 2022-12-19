@@ -22,11 +22,21 @@ module('Integration | Component | hds/pagination/nav/index', function (hooks) {
 
   // Test API:
 
-  test('it has the same numbr of pages displayed as are passed in', async function (assert) {
+  test('it has the same number of pages displayed as are passed in for the "numbereed" type', async function (assert) {
     await render(hbs`
       <Hds::Pagination::Nav @totalPages={{10}} @currentPage={{1}} @type="numbered" />
     `);
     assert.dom('.hds-pagination-nav__page-item:nth-child(10)').exists();
+  });
+
+  test('it displays a truncated list of page numbers for the "truncated" type', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Nav @totalPages={{1000}} @currentPage={{1}} @type="truncated" />
+    `);
+    // displays 7 items (the max number displayed)
+    assert.dom('.hds-pagination-nav__page-item').exists({ count: 7 });
+    // It displays an ellipses for the 5th item
+    assert.dom('.hds-pagination-nav__page-item:nth-child(5)').hasText('...');
   });
 
   test('it selects the 1st page by default', async function (assert) {
