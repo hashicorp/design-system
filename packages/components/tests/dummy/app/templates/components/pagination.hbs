@@ -413,6 +413,24 @@
         {{/each}}
       {{/let}}
     </div>
+    <p class="dummy-paragraph">With different text lengths</p>
+    <div class="dummy-pagination-base-sample">
+      {{#let (array "default" "focus") as |states|}}
+        {{#each states as |state|}}
+          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
+            <span class="dummy-text-small">{{state}}</span>
+            <div class="dummy-pagination-base-sample-row">
+              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="1" /></ul>
+              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="12" /></ul>
+              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="123" /></ul>
+              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="1" @isSelected={{true}} /></ul>
+              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="12" @isSelected={{true}} /></ul>
+              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="123" @isSelected={{true}} /></ul>
+            </div>
+          </div>
+        {{/each}}
+      {{/let}}
+    </div>
 
     <h4 class="dummy-h4">Pagination::Nav</h4>
     <div class="dummy-paragraph">

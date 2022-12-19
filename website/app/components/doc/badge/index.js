@@ -1,5 +1,26 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+
+export const TYPES = [
+  'neutral',
+  'information',
+  'success',
+  'warning',
+  'critical',
+  'outlined',
+];
+
 export default class DocBadgeComponent extends Component {
+  constructor() {
+    super(...arguments);
+    assert(
+      `@type for "Doc::Badge" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${this.args.type}`,
+      TYPES.includes(this.args.type)
+    );
+  }
+
   get type() {
     return this.args.type ?? 'neutral';
   }
