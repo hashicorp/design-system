@@ -1,25 +1,92 @@
-/* stylelint-disable selector-class-pattern */
+// TABLE OF CONTENTS
+
+$doc-toc-item-inset: 8px;
+
 .doc-table-of-contents {
   width: 100%;
   margin: 0;
   padding: 0;
-  list-style: none;
+  // avoid accidental text selection (expecially with the `<details>` element)
+  user-select: none;
 }
 
 .doc-table-of-contents__item {
-  padding: 0.5rem 0;
+  margin-bottom: 2px;
+  padding: 0;
+  list-style: none;
+
+  &.doc-table-of-contents__item--depth-1 {
+    &::after {
+      display: block;
+      height: 1px;
+      margin: 20px $doc-toc-item-inset;
+      background-color: var(--doc-color-gray-500);
+      content: "";
+    }
+  }
 }
 
-.doc-table-of-contents__item--with-link {
-  a {
-    color: inherit;
+.doc-table-of-contents__heading {
+  padding: 0 $doc-toc-item-inset 12px $doc-toc-item-inset;
+}
 
-    &.active {
-      font-weight: bold;
+.doc-table-of-contents__summary {
+  display: block;
+  width: 100%;
+  padding: $doc-toc-item-inset 32px $doc-toc-item-inset $doc-toc-item-inset;
+  color: var(--doc-color-gray-300);
+  text-align: left;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23727374' fill-rule='evenodd' d='M5.205 3.235a.75.75 0 00.03 1.06L9.158 8l-3.923 3.705a.75.75 0 001.03 1.09l4.5-4.25a.75.75 0 000-1.09l-4.5-4.25a.75.75 0 00-1.06.03z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top 12.5px right 8px;
+  background-size: 16px 16px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  // it's using a `<detail>` HMTL tag
+  [open] > & {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23727374' fill-rule='evenodd' d='M3.235 5.205a.75.75 0 011.06.03L8 9.158l3.705-3.923a.75.75 0 011.09 1.03l-4.25 4.5a.75.75 0 01-1.09 0l-4.25-4.5a.75.75 0 01.03-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  }
+}
+
+.doc-table-of-contents__link {
+  display: block;
+  padding-top: $doc-toc-item-inset;
+  padding-right: $doc-toc-item-inset;
+  padding-bottom: $doc-toc-item-inset;
+  color: var(--doc-color-gray-300);
+  text-decoration: none;
+  border-radius: 3px;
+
+  &:hover {
+    color: var(--doc-color-gray-100);
+  }
+
+  &.active {
+    color: var(--doc-color-black);
+    font-weight: 700;
+
+    &:hover {
+      color: var(--doc-color-black);
     }
   }
 
-  &:hover {
-    background-color: #f0f0f0;
+  // left padding depends on the depth of nesting
+
+  .doc-table-of-contents__item--depth-2 & {
+    padding-left: 1 * $doc-toc-item-inset;
+  }
+
+  .doc-table-of-contents__item--depth-3 & {
+    padding-left: 3 * $doc-toc-item-inset;
+  }
+
+  .doc-table-of-contents__item--depth-4 & {
+    padding-left: 5 * $doc-toc-item-inset;
   }
 }

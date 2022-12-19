@@ -16,5 +16,11 @@
         ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
     </ul>
   </nav>
-  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.toggleBurgerMenu}}><FlightIcon @name={{if this.burgerMenuOpen "x" "menu"}} /> <span class="doc-text-navigation">Menu</span></button>
+  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.onToggleBurgerMenu}}>
+    {{#if this.burgerMenuOpen}}
+      <FlightIcon @name="x" /> <span class="doc-text-navigation">Close</span>
+    {{else}}
+      <FlightIcon @name="menu" /> <span class="doc-text-navigation">Menu</span>
+    {{/if}}
+  </button>
 </header>

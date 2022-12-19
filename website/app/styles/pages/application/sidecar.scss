@@ -7,14 +7,17 @@
   display: none;
 
   @include breakpoint.large () {
+    position: sticky;
+    top: var(--doc-page-header-height);
     display: block;
     grid-area: sidecar;
+    // TIL this is needed because is inside a grid, otherwise the stickyness will not work
+    // see: https://melanie-richards.com/blog/css-grid-sticky/
+    // see: https://ishadeed.com/article/position-sticky-css-grid/
+    align-self: start;
     width: var(--doc-page-sidecar-width);
     margin-right: calc(var(--doc-page-stage-gutter-large) / 2);
-
-    > :first-child {
-      margin-top: 48px;
-    }
+    padding-top: 48px;
   }
 }
 
