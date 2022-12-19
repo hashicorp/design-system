@@ -2,8 +2,16 @@
 
 - [Website / Editing existing content (playbook)](#website--editing-existing-content-playbook)
   - [Frontmatter](#frontmatter)
+  - [Sections/tabs](#sections-tabs)
+    - [Guidelines](#guidelines)
+    - [Code](#code)
+    - [Specifications](#specifications)
+    - [Accessibility](#accessibility)
   - [Markdown content](#markdown-content)
-  - [Things to check/fix:](#things-to-checkfix)
+  - [Steps to getting started](#steps-to-getting-started)
+  - [Content improvement tips](#content-improvement-tips)
+  - [Terminology cheat sheet](#terminology-cheat-sheet)
+  - [Review (What to expect)](#reviews-what-to-expect)
 
 ---
 
@@ -13,19 +21,10 @@ Below you can find a list of things to do when working on the content of an exis
 Check that the correct frontmatter attributes are in place. Technically, only the `title` is required, but depending on the page other attributes may be needed as well. Please refer to [the "Frontmatter" documentation](./Website-Doc-folder.md#frontmatter) for details about what attributes are recognized and how to use them, or check in similar pages what attributes are used.
 
 ## Sections/tabs
-Ensure consistent tab names and order. For components, we use: Guidelines, Code, Specifications, and Accessibility.
-
-As a general rule of thumb, 
-- **Guidelines** are used for design guidelines and general best practices for usage.
-- **Code** houses all engineering documentation.
-- **Specifications** are used for more tactical, technical details about the structure of the component (eg. anatomy, token specs, interactive states, etc).
-- **Accessibility** houses content related to the built-in accessibility features we provide, gotchas and best practices for implementing the component, compliance ratings, and known issues.
-
-If needing to add a section that is not listed above, speak with the HDS team.
+Ensure consistent tab names and order. For components, we use: **Guidelines**, **Code**, **Specifications**, and **Accessibility**. If needing to add a section that is not listed above, speak with the HDS team.
 
 ### Guidelines
-Content should generally follow this order: 
-
+Guidelines are used for design guidelines and general best practices for usage. Content should generally follow this order: 
 - Overview description (no heading)
 - Type (if multiple exists, see `Alert`)
 - Usage
@@ -36,30 +35,27 @@ Content should generally follow this order:
 - Related
 
 ### Code
-Content should generally follow this order: 
-
+Code houses all engineering documentation. Content should generally follow this order: 
 - How to use this component
 - Component API
 - Showcase
 
 ### Specifications
-Content should generally follow this order: 
-
+Specifications are used for more tactical, technical details about the structure of the component (eg. anatomy, token specs, interactive states, etc). Content should generally follow this order: 
 - Anatomy (image, then table)
 - Interactive states
 - Any token-related content (this likely doesn't exist yet)
 
 ### Accessibility
-Content should generally follow this order: 
-
+Accessibility houses content related to the built-in accessibility features we provide, gotchas, and best practices for implementing the component, compliance ratings, and known issues. Content should generally follow this order: 
 - Conformance rating
     - Rating badge
     - Details
-- Best practices
+- Best practices (typically found throughout the docs)
 - WCAG Success Criteria
 
 ## Markdown content
-Large portion of the content in the new documentation website has been ported over automatically, from the old "scrappy" documentation website, or manually from the design guidelines in Figma. This means that, unless it's already been reviewed and updated, it will require **a lot** of love and editing.
+A large portion of the content in the new documentation website has been ported over automatically, from the old "scrappy" documentation website, or manually from the design guidelines in Figma. This means that, unless it's already been reviewed and updated, it will require **a lot** of love and editing.
 
 To see how to write markdown and which syntax to use, refer to [the specific Markdown documentation](./Website-Markdown.md).
 
@@ -69,14 +65,14 @@ To see how to write markdown and which syntax to use, refer to [the specific Mar
 3. Update `index.md` accordingly.
 4. Remove content related to the old `design guidelines` (preview image + link to Figma file), if it still exists.
     1. Make sure the associated images are removed from the `public` folder.
-5. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont)
-6. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner)
+5. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont).
+6. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner).
 7. Update the anatomy assets to use the new website colors. This can be done in the [Website Assets file](https://www.figma.com/file/42LK10XbP5IERhzzgMOiI2/Website-assets?node-id=66%3A6622&t=WpqvfoziubA4azgP-0), see [the "Media" documentation](./Website-Media.md) for more details on exporting assets.
 8. Check that code snippets work as expected. Speak with Alex Jurubita, if something looks incorrect.
 9. Check and update links, as necessary.
-    1. If they are **internal/cross-page** links (eg. `/components/alert/`) fix them with the correct route/model
-    2. If they are **external** links (eg. `https://hashicorp.com`) make sure they have `target="blank" rel="noopener noreferrer"`
-    3. If you are not sure what to do, speak with Brian Runnells
+    1. If they are **internal/cross-page** links (eg. `/components/alert/`) fix them with the correct route/model.
+    2. If they are **external** links (eg. `https://hashicorp.com`) make sure they have `target="blank" rel="noopener noreferrer"`.
+    3. If you are not sure what to do, speak with Brian Runnells.
 
 ⚠️ **Important**: Leave the **Showcase** section as is, for now. If it breaks the page, try to resolve the issue. We will reconsider this section more holistically in January.
 
