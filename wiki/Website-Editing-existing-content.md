@@ -60,16 +60,23 @@ A large portion of the content in the new documentation website has been ported 
 To see how to write markdown and which syntax to use, refer to [the specific Markdown documentation](./Website-Markdown.md).
 
 ## Steps to getting started
+At any time, you can check out the `components/template` folder to get an idea of how the sections and files should be structured, but here's a list of specific steps to take when updating the documentation for an existing component. 
+
 1. Rename `design-guidelines.md` to `guidelines.md` and move it to `/guidelines`. 
-2. Within `guidelines.md`, find the "Anatomy" section and move that into a new file called `anatomy.md`. This new file should live in `/specifications`.
-3. Update `index.md` accordingly.
-4. Remove content related to the old `design guidelines` (preview image + link to Figma file), if it still exists.
-    1. Make sure the associated images are removed from the `public` folder.
-5. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont).
-6. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner).
-7. Update the anatomy assets to use the new website colors. This can be done in the [Website Assets file](https://www.figma.com/file/42LK10XbP5IERhzzgMOiI2/Website-assets?node-id=66%3A6622&t=WpqvfoziubA4azgP-0), see [the "Media" documentation](./Website-Media.md) for more details on exporting assets.
-8. Check that code snippets work as expected. Speak with Alex Jurubita, if something looks incorrect.
-9. Check and update links, as necessary.
+2. Within `guidelines.md`, find the "Anatomy" section and move that into a new file called `anatomy.md`. This new file should live in `/specifications`. Remove that content from `guidelines.md`.
+3. Within `guidelines.md`, find the "Accessibility" section (if available) and move that into `/accessibility/accessibility.md`. Remove that content from `guidelines.md`.
+4. Update `index.md` according to the change above.
+5. Within `index.md`, update the order of content for the "Code" section to be: 
+    - how-to-use.md
+    - component-api.md
+    - showcase.md
+6. Remove the old `design guidelines` image and Figma link, if they still exist.
+    1. Make sure the associated images are also removed from the `public` folder.
+7. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont).
+8. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner).
+9. Update the anatomy assets to use the new website colors. This can be done in the [Website Assets file](https://www.figma.com/file/42LK10XbP5IERhzzgMOiI2/Website-assets?node-id=66%3A6622&t=WpqvfoziubA4azgP-0), see [the "Media" documentation](./Website-Media.md) for more details on exporting assets.
+10. Check that code snippets work as expected. Speak with Alex Jurubita, if something looks incorrect.
+11. Check and update links, as necessary.
     1. If they are **internal/cross-page** links (eg. `/components/alert/`) fix them with the correct route/model.
     2. If they are **external** links (eg. `https://hashicorp.com`) make sure they have `target="blank" rel="noopener noreferrer"`.
     3. If you are not sure what to do, speak with Brian Runnells.
@@ -88,6 +95,8 @@ To see how to write markdown and which syntax to use, refer to [the specific Mar
 - Remove directionality language, such as "see below". This is not inclusive language, nor is it very scalable.
 - Check that assets represent what they're meant to.
     - If you need to add/remove assets, see [the "Media" documentation](./Website-Media.md).
+
+For more information and best practices around content writing, see [the HDS Writing Guidelines](https://docs.google.com/document/d/1WyoJVpWFVgWbCnZ28WW0gRJwJlj-qV5oY0ExhDR2obs/edit?usp=sharing).
 
 ## Terminology cheat sheet
 - Avoid overusing "the HashiCorp Design System" and "the design system", consider "we" or "our" instead (eg. "the design system components" to "our components").
