@@ -1,7 +1,6 @@
-// LISTS (MARKDOWN)
+// LISTS (GENERIC)
 
-.doc-markdown-ul,
-.doc-markdown-ol {
+.doc-list-generic {
   padding-left: 16px;
 
   > li > p {
@@ -18,10 +17,7 @@
   }
 }
 
-.doc-markdown-ul .doc-markdown-ul,
-.doc-markdown-ul .doc-markdown-ol,
-.doc-markdown-ol .doc-markdown-ul,
-.doc-markdown-ol .doc-markdown-ol {
+.doc-list-generic .doc-list-generic {
   margin-top: 0;
   margin-bottom: 0;
 }
