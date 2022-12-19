@@ -7,35 +7,107 @@
 
 ---
 
-🚨 To be extended/integrated with the work @Heather Larsen is doing. 🚨
-
-Below you can find a ;ist of things to do when working on the content of an existing documentation page.
+Below you can find a list of things to do when working on the content of an existing documentation page.
 
 ## Frontmatter
 Check that the correct frontmatter attributes are in place. Technically, only the `title` is required, but depending on the page other attributes may be needed as well. Please refer to [the "Frontmatter" documentation](./Website-Doc-folder.md#frontmatter) for details about what attributes are recognized and how to use them, or check in similar pages what attributes are used.
 
-## Markdown content
-Large portion of the content in the new documentation website has been ported or automatically, from the old "scrappy" documentation website, or manually from the design guidelines in Figma. This means that, unless it's already been reviewed an updated, it will require **a lot** of love and editing.
+## Sections/tabs
+Ensure consistent tab names and order. For components, we use: Guidelines, Code, Specifications, and Accessibility.
 
-🚧 Heather not sure how to fit your content in this section or otherwise how to reorganize the entire content of this document file. I'll leave it to you to figure out 😀
+As a general rule of thumb, 
+- **Guidelines** are used for design guidelines and general best practices for usage.
+- **Code** houses all engineering documentation.
+- **Specifications** are used for more tactical, technical details about the structure of the component (eg. anatomy, token specs, interactive states, etc).
+- **Accessibility** houses content related to the built-in accessibility features we provide, gotchas and best practices for implementing the component, compliance ratings, and known issues.
+
+If needing to add a section that is not listed above, speak with the HDS team.
+
+### Guidelines
+Content should generally follow this order: 
+
+- Overview description (no heading)
+- Type (if multiple exists, see `Alert`)
+- Usage
+    - When to use
+    - When not to use
+    - Variant/property sections (in the order of likely use)
+- Content
+- Related
+
+### Code
+Content should generally follow this order: 
+
+- How to use this component
+- Component API
+- Showcase
+
+### Specifications
+Content should generally follow this order: 
+
+- Anatomy (image, then table)
+- Interactive states
+- Any token-related content (this likely doesn't exist yet)
+
+### Accessibility
+Content should generally follow this order: 
+
+- Conformance rating
+    - Rating badge
+    - Details
+- Best practices
+- WCAG Success Criteria
+
+## Markdown content
+Large portion of the content in the new documentation website has been ported over automatically, from the old "scrappy" documentation website, or manually from the design guidelines in Figma. This means that, unless it's already been reviewed and updated, it will require **a lot** of love and editing.
 
 To see how to write markdown and which syntax to use, refer to [the specific Markdown documentation](./Website-Markdown.md).
 
-## Things to check/fix:
+## Steps to getting started
+1. Rename `design-guidelines.md` to `guidelines.md` and move it to `/guidelines`. 
+2. Within `guidelines.md`, find the "Anatomy" section and move that into a new file called `anatomy.md`. This new file should live in `/specifications`.
+3. Update `index.md` accordingly.
+4. Remove content related to the old `design guidelines` (preview image + link to Figma file), if it still exists.
+    1. Make sure the associated images are removed from the `public` folder.
+5. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont)
+6. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner)
+7. Update the anatomy assets to use the new website colors. This can be done in the [Website Assets file](https://www.figma.com/file/42LK10XbP5IERhzzgMOiI2/Website-assets?node-id=66%3A6622&t=WpqvfoziubA4azgP-0), see [the "Media" documentation](./Website-Media.md) for more details on exporting assets.
+8. Check that code snippets work as expected. Speak with Alex Jurubita, if something looks incorrect.
+9. Check and update links, as necessary.
+    1. If they are **internal/cross-page** links (eg. `/components/alert/`) fix them with the correct route/model
+    2. If they are **external** links (eg. `https://hashicorp.com`) make sure they have `target="blank" rel="noopener noreferrer"`
+    3. If you are not sure what to do, speak with Brian Runnells
 
-- Check all the headings in the page (titles and levels)
-- Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont)
-- Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner)
-- Check that code snippets work as expected (if not, speak with Alex Jurubita)
-- Remove content related to the old `design guidelines` (preview image + link to Figma file) if still exist
-    - Make sure the associated images are removed from the `public` folder too
-- Check all the links
-    - If they are **internal/cross-page** links (eg. `/components/alert/`) fix them with the correct route/model
-    - If they are **external** links (eg. `https://hashicorp.com`) make sure they have `target="blank" rel="noopener noreferrer"`
-    - If you are not sure what to do, speak with Brian Runnells
-- Assets
-    - Check that what they represent is still correct
+⚠️ **Important**: Leave the **Showcase** section as is, for now. If it breaks the page, try to resolve the issue. We will reconsider this section more holistically in January.
+
+
+## Content improvement tips
+- Check that all headings are in sequential order and that they accurately represent the content within the paragraph.
+- Check for and remove extra filler language.
+- Look for inaccuracies and misused terminology (eg. if we use the word "description" for the main body text of the `alert`, update "alert message" to "alert description").
+- Consider if all banners in the current documentation should really be housed in an alert or if it can be a normal paragraph. 
+- Re-organize content into logical chunks. 
+    - If it feels like a new topic has started but is a continuation of a paragraph, consider creating a new paragraph for that topic. Bonus points if you can add a meaningful heading above it. 
+    - Conversely, if a topic feels related to a prior topic, consider merging them into one section.
+- Remove directionality language, such as "see below". This is not inclusive language, nor is it very scalable.
+- Check that assets represent what they're meant to.
     - If you need to add/remove assets, see [the "Media" documentation](./Website-Media.md).
-- "Showcase" section
-    - Leave it as is for now, (unless it breaks the page) as we will re-consider the "Showcase" holistically in January (we have to understand how to use it in the context of the new documentation format).
 
+## Terminology cheat sheet
+- Avoid overusing "the HashiCorp Design System" and "the design system", consider "we" or "our" instead (eg. "the design system components" to "our components").
+- Never use "a design system", use "the design system", as "a" is impersonal.
+- "Use" instead of "utilize" (and other large word swaps in favor of more simple terms). 
+- Use contractions when it feels natural. If you'd say "don't" out loud in a conversationm use "don't" in the documentation instead of "do not".
+- Use "application" instead of "website".
+- Use "product team" when referring to an entire consuming team, instead of "application team".
+
+---
+
+## Reviews (What to expect)
+When reviewing documentation, we check for: 
+- accuracy
+- spelling and grammar
+- consistency in voice, tone, and terminology
+- instructional design (content hierarchy, how the content flows, can it be easily scanned)
+
+You can expect a few to a few dozen copy edits to update grammar and spelling. It is completely normal to have dozens of copy edit suggestions. You may also receive instructional design recommendations, such as reordering content or adding additional explanations.
