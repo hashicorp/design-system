@@ -1,6 +1,7 @@
 ---
 title: Design tokens
-caption: Provided as CSS custom properties and used to share and standardize foundation styles...
+caption: Provided as CSS custom properties and used to share and standardize foundation styles.
+description: Provided as CSS custom properties and used to share and standardize foundation styles.
 ---
 
 <section data-tab="Code">

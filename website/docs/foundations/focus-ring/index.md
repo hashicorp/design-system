@@ -1,6 +1,7 @@
 ---
 title: Focus ring
-caption: HDS - “All interactive elements must be able to receive focus and focus must be visible.”
+caption: Focus rings are a vital tool in communicating interactivity.
+description: Focus rings display when interactive components including links and buttons are focused by the user. They are a vital tool in communicating interactivity.
 ---
 
 <section data-tab="Code">

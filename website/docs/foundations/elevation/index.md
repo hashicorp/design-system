@@ -1,6 +1,7 @@
 ---
 title: Elevation
-caption: MD - “Elevation is the relative distance between two surfaces along the z-axis.”
+caption: Elevation can be used to offset and draw attention to content or indicate interactivity.
+description: Elevation can be used to offset and draw attention to content or indicate interactivity.
 ---
 
 <section data-tab="Code">

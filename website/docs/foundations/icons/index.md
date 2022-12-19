@@ -2,7 +2,8 @@
 title: Icons
 layout:
   sidecar: false
-caption: Icons can be used to support and enhance meaning...
+caption: Icons can be used to support and enhance meaning and can be useful in calling out information.
+description: Icons can be used to support and enhance meaning and can be useful in calling out information. They should not be used as a substitue for meaningful text content and accessible text should always be included for non-decorative uses.
 ---
 
 <section data-tab="Library">
