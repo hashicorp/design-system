@@ -16,11 +16,9 @@
 
 // CODE SNIPPETS
 
-// TBD if we need a more specific selector to target only the "inline code" elements and not overlap with the other types of code snippets
 .doc-markdown-code {
   @include doc-font-family("mono");
   padding: 0.25em 0.5em;
-  color: var(--doc-color-black);
   font-weight: inherit;
   font-size: 0.8em; // no need to set the line-height, it's an inline element!
   background-color: var(--doc-color-gray-600);
