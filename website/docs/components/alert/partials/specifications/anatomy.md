@@ -4,7 +4,7 @@
 
 ![Anatomy of the page alert](/assets/components/alert/alert-anatomy-inline.png)
 
-| Element          |                                                 |
+| Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Icon             | Optional, but recommended                       |
 | Title            | Required, if no description Optional, otherwise |
@@ -19,7 +19,7 @@
 
 ![Anatomy of the compact alert](/assets/components/alert/alert-anatomy-compact.png)
 
-| Element          |                               |
+| Element          | Usage                         |
 |------------------|-------------------------------|
 | Icon             | Required                      |
 | Description      | Required                      |
