@@ -1,5 +1,7 @@
 ---
 title: Form::Select
+description: A form element that allows users to choose one option from a list.
+caption: A form element that allows users to choose one option from a list.
 ---
 
 <section data-tab="Other">
@@ -23,4 +25,3 @@ title: Form::Select
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-

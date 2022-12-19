@@ -1,5 +1,7 @@
 ---
 title: BadgeCount
+description: A numeric label used to display things like version number or collection enumerations.
+caption: A non-interactive numeric label.
 ---
 
 <section data-tab="Guidelines">

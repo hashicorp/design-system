@@ -18,10 +18,6 @@ The simplest way to invoke a "textarea" field is using something like this:
 </Hds::Form::Textarea::Field>
 ```
 
-Renders to:
-
-Short description
-
 This "field" component creates:
 
 *   a `<label>` element with a `for` attribute automatically associated with the textarea `ID` attribute
@@ -37,10 +33,6 @@ You can pre-populate the textarea passing to it a `@value` argument:
 </Hds::Form::Textarea::Field>
 ```
 
-Renders to:
-
-Short description
-
 ##### Helper text
 
 You can add extra information to the field using an "helper" text:
@@ -51,10 +43,6 @@ You can add extra information to the field using an "helper" text:
   <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
 </Hds::Form::Textarea::Field>
 ```
-
-Renders to:
-
-Short description Add a short description about the workspace you are creating.
 
 When the "helper" text is added, the component automatically adds an `aria-describedby` attribute to the textarea control, associating it with the automatically generated `ID` of the helper text element.
 
@@ -68,10 +56,6 @@ The `Label` and `HelperText` contextual components used in the "field" are yield
   <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
 </Hds::Form::Textarea::Field>
 ```
-
-Renders to:
-
-Short description This is an experimental feature (read more).
 
 _Notice: If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. Interactive elements in text (associated with the textarea through aria-describedby) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined._
 
@@ -91,11 +75,6 @@ It's possible to add a visual indication if a field is "required" or is "optiona
 </Hds::Form::Textarea::Field>
 ```
 
-Renders to:
-
-Short description Add a short description about the workspace you are creating.  
-Short description Add a short description about the workspace you are creating.
-
 _Notice: for complex forms we suggest to indicate **required** fields, since this is the most explicit and transparent method and ensures users don’t have to make assumptions. For shorter, simpler forms (ie. login/signup and feedback requests) we suggest to indicate **optional** fields._
 
 ##### Validation
@@ -111,10 +90,6 @@ To show the user that their input is not valid, you have to do two things: decla
 </Hds::Form::Textarea::Field>
 ```
 
-Renders to:
-
-Short description Error: the description text is too short.
-
 It's possible to provide more than one error message using the more specific `Message` contextual component:
 
 ```handlebars
@@ -127,10 +102,6 @@ It's possible to provide more than one error message using the more specific `Me
   </F.Error>
 </Hds::Form::Textarea::Field>
 ```
-
-Renders to:
-
-Short description Length should be at least 12 characters Can not contain HTML
 
 ##### Custom control ID
 
@@ -166,10 +137,6 @@ As explained above in the [Component API](#component-api) section, the textarea 
 </Hds::Form::Textarea::Field>
 ```
 
-Renders to:
-
-Short description
-
 This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `min` `max` `minlength` `maxlength` `pattern` attributes to it)
 
 ##### Events handling
@@ -181,10 +148,6 @@ Thanks to the `...attributes` spreading over the `<textarea>` element, you can u
   <F.Label>Email</F.Label>
 </Hds::Form::Textarea::Field>
 ```
-
-Renders to:
-
-Email
 
 You can use different events, depending on your context/need (eg. `input`, `blur`, `change`).
 
@@ -198,9 +161,7 @@ By default the textarea control width is set to fill the parent container. It's 
 </Hds::Form::Textarea::Field>
 ```
 
-Renders to:
-
-Short description {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
+{{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
 #### Form::Textarea::Base
 
@@ -219,7 +180,5 @@ To give just an example, this could be an invocation of the "base" component you
   {{on "blur" this.yourOnBlurFunction}}
 />
 ```
-
-Renders to:
 
 This "base" component creates just the `<textarea>` control with an automatically generated `ID` attribute.

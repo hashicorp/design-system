@@ -1,5 +1,7 @@
 ---
 title: Form / Base elements
+description: Elements used to compose form fields.
+caption: Elements used to compose form fields.
 ---
 
 <section data-tab="Guidelines">

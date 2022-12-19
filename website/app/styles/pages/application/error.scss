@@ -1,0 +1,40 @@
+// ERROR
+
+@use "../../breakpoints" as breakpoint;
+@use "../../typography/mixins";
+
+.doc-page-error {
+  display: flex;
+  grid-area: sidebar / sidebar / stage / stage;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
+.doc-page-error__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+  width: 100%;
+  min-width: 0;
+  max-width: 320px;
+
+  @include breakpoint.medium-and-above () {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+    max-width: 720px;
+  }
+
+  @include breakpoint.large () {
+    max-width: 880px;
+  }
+}
+
+.doc-page-error__image {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  overflow: hidden;
+  border-radius: 3px;
+}

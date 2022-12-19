@@ -22,10 +22,6 @@ The simplest way to invoke a "select" field is using something like this:
 </Hds::Form::Select::Field>
 ```
 
-Renders to:
-
-Target infrastructure Kubernetes Other
-
 This "field" component creates:
 
 *   a `<label>` element with a `for` attribute automatically associated with the select `ID` attribute
@@ -44,10 +40,6 @@ You can pre-select one of the options passing to it the native `selected` attrib
   </F.Options>
 </Hds::Form::Select::Field>
 ```
-
-Renders to:
-
-Target infrastructure Kubernetes Other
 
 ##### Grouped options
 
@@ -70,10 +62,6 @@ Since the `Options` container yields the content to the `<select>` element, it's
 </Hds::Form::Select::Field>
 ```
 
-Renders to:
-
-Target infrastructure Kubernetes AWS CloudWise SWA Other
-
 ##### Helper text
 
 You can add extra information to the field using an "helper" text:
@@ -88,10 +76,6 @@ You can add extra information to the field using an "helper" text:
   </F.Options>
 </Hds::Form::Select::Field>
 ```
-
-Renders to:
-
-Target infrastructure The target infrastructure is where you want to deploy your apps. Kubernetes Other
 
 When the "helper" text is added, the component automatically adds an `aria-describedby` attribute to the select control, associating it with the automatically generated `ID` of the helper text element.
 
@@ -109,10 +93,6 @@ The `Label` and `HelperText` contextual components used in the "field" are yield
   </F.Options>
 </Hds::Form::Select::Field>
 ```
-
-Renders to:
-
-Target infrastructure This is an experimental feature (read more). Kubernetes Other
 
 _Notice: If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. Interactive elements in text (associated with the select through aria-describedby) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined._
 
@@ -142,11 +122,6 @@ It's possible to add a visual indication if a field is "required" or is "optiona
 </Hds::Form::Select::Field>
 ```
 
-Renders to:
-
-Target infrastructure The target infrastructure is where you want to deploy your apps. Kubernetes Other  
-Target infrastructure The target infrastructure is where you want to deploy your apps. Kubernetes Other
-
 _Notice: for complex forms we suggest to indicate **required** fields, since this is the most explicit and transparent method and ensures users don’t have to make assumptions. For shorter, simpler forms (ie. login/signup and feedback requests) we suggest to indicate **optional** fields._
 
 ##### Validation
@@ -167,10 +142,6 @@ To show the user that their input is not valid, you have to do two things: decla
   <F.Error>Error: select one of the options.</F.Error>
 </Hds::Form::Select::Field>
 ```
-
-Renders to:
-
-Target infrastructure The target infrastructure is where you want to deploy your apps. Kubernetes Other Error: select one of the options.
 
 ##### Custom control ID
 
@@ -229,10 +200,6 @@ Similarly, you can pass HTML attributes to the `<option/optgroup>` elements.
 </Hds::Form::Select::Field>
 ```
 
-Renders to:
-
-Target infrastructure Kubernetes AWS Azure Alibaba CloudWise SWA Other
-
 This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `multiple` and `size` attributes to it)
 
 ##### Events handling
@@ -250,10 +217,6 @@ Thanks to the `...attributes` spreading over the `<select>` element, you can use
 </Hds::Form::Select::Field>
 ```
 
-Renders to:
-
-Target infrastructure Kubernetes Other
-
 You can use different events, depending on your context/need (eg. `blur`, `change`).
 
 ##### Custom width
@@ -270,9 +233,7 @@ By default the select control width is set to fill the parent container. It's po
 </Hds::Form::Select::Field>
 ```
 
-Renders to:
-
-Target infrastructure Kubernetes Other {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
+{{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
 #### Form::Select::Base
 
@@ -290,9 +251,5 @@ To give just an example, this could be an invocation of the "base" component you
   </S.Options>
 </Hds::Form::Select::Base>
 ```
-
-Renders to:
-
-Kubernetes Other
 
 This "base" component creates just the `<select>` control with an automatically generated `ID` attribute.
