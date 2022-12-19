@@ -7,6 +7,7 @@ layout:
 Lorem ipsum dolor
 
 !!! Do
+
 This is a paragraph
 - This is
 - A list
@@ -15,6 +16,7 @@ This is a paragraph
 Lorem ipsum dolor
 
 !!! Dont
+
 This is a paragraph
 - This is
 - A list

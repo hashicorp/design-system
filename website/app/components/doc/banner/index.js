@@ -1,6 +1,26 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+
+export const TYPES = [
+  'info',
+  'information',
+  // 'success',
+  'warning',
+  'critical',
+  'insight',
+];
 
 export default class DocBannerComponent extends Component {
+  constructor() {
+    super(...arguments);
+    assert(
+      `@type for "Doc::Banner" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${this.args.type}`,
+      TYPES.includes(this.args.type)
+    );
+  }
+
   get icon() {
     let icon;
     switch (this.args.type) {
