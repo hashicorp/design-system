@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: This is the (missing) long description of the component, that will come from the frontmatter attributes
+caption: Get an overview of the design system.
 order: 101
 ---
 
