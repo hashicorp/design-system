@@ -1,6 +1,18 @@
-This component is conditionally conformant. That is, it is conformant when there are no interactive elements present inside of the alert. There is future work planned to make this component WCAG conformant by adding support for the correct ARIA roles when interactive elements are contained within the alert.
+## Conformance rating
 
-#### Applicable WCAG Success Criteria (Reference)
+<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
+
+Alerts are conformant when there are no interactive elements present inside of the alert. There is future work planned to make this component WCAG conformant by adding support for the correct ARIA roles when interactive elements are contained within the alert.
+
+## Best practices
+
+### Notification
+An Alert is a live region with important, usually time-sensitive information. The use of this alert component will cause immediate notifications for users with assistive technology.
+
+### Dismissing the alert
+Since alerts are not required to receive focus, it should not be required that the user close the alert.
+
+## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG success criteria:
 
