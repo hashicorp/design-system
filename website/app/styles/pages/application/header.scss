@@ -3,14 +3,10 @@
 @use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
 
-// notice: we use an ad-hoc breakpoint here to avoid overlapping of content
-$header-custom-breakpoint: 1000px;
-
 .doc-page-header {
   position: sticky;
   top: 0;
-  // TODO review all the z-index stacking once the navigation has been finalized
-  z-index: 2; // needs to be above the sidebar (when the content scrolls)
+  z-index: var(--doc-z-index-header);
   display: flex;
   flex-direction: row;
   grid-area: header;
@@ -22,7 +18,7 @@ $header-custom-breakpoint: 1000px;
   color: var(--doc-color-white);
   background: var(--doc-color-black);
 
-  @media (min-width: $header-custom-breakpoint) {
+  @include breakpoint.with-fixed-sidebar() {
     gap: 32px;
   }
 }
@@ -48,9 +44,8 @@ $header-custom-breakpoint: 1000px;
   }
 
   // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
-
   .doc-logo-hds__hashicorp {
-    @media (max-width: calc($header-custom-breakpoint - 1px)) {
+    @include breakpoint.with-mobile-sidebar() {
       display: none;
     }
   }
@@ -76,7 +71,7 @@ $header-custom-breakpoint: 1000px;
     padding: 0;
     list-style: none;
 
-    @media (min-width: $header-custom-breakpoint) {
+    @include breakpoint.with-fixed-sidebar() {
       gap: 12px;
     }
   }
@@ -147,15 +142,14 @@ $header-custom-breakpoint: 1000px;
     color: var(--doc-color-white);
   }
 
-  // `ember-body-class` sets specific classes on the `<body>` element and we use this to have a full black background even in case of overscrolling
+  @include breakpoint.with-fixed-sidebar () {
+    display: none;
+  }
+
   body.application.index & {
-    // in homepage the top-level links in the header are still accessible, so no need to show the menu
+    // this is a special case: in homepage the top-level links in the header are still accessible at the "medium" viewport, so no need to show the burger menu
     @include breakpoint.medium () {
       display: none;
     }
-  }
-
-  @include breakpoint.large () {
-    display: none;
   }
 }
