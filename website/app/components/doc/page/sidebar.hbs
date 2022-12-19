@@ -1,9 +1,34 @@
-{{#if this.structuredPageTree}}
-  <aside class="doc-page-sidebar" ...attributes>
-    <div class="doc-page-sidebar__inner-wrapper">
+<aside class={{this.classNames}} ...attributes>
+  <div class="doc-page-sidebar__inner-wrapper">
+    <nav class="doc-page-sidebar__top-routes" aria-label="primary page navigation">
+      <ul class="doc-table-of-contents">
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <div class="doc-table-of-contents__heading doc-text-label">Main categories</div>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="about">About</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="foundations">Foundations</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="components">Components</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="patterns">Patterns</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
+          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="support">Support</LinkTo>
+        </li>
+        <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2" >
+          <a class="doc-table-of-contents__link doc-text-navigation" href="https://github.com/hashicorp/design-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+      </ul>
+    </nav>
+    {{#if this.structuredPageTree}}
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
-        <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @level={{1}} />
+        <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
       </nav>
-    </div>
-  </aside>
-{{/if}}
+    {{/if}}
+  </div>
+</aside>

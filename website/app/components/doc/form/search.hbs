@@ -1,0 +1,14 @@
+<div class="doc-form-search">
+  {{#let (unique-id) as |searchId|}}
+    <Doc::Form::Label @for={{searchId}} @label={{@label}} />
+    <input
+      type="search"
+      name="search"
+      id={{searchId}}
+      class="doc-form-search__control"
+      placeholder={{@placeholder}}
+      value={{@searchQuery}}
+      {{on "input" (perform @onInput value="target.value")}}
+    />
+  {{/let}}
+</div>
