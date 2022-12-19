@@ -1,7 +1,7 @@
 ---
 title: Tokens
-caption: Provided as CSS custom properties and used to share and standardize foundation styles.
-description: Provided as CSS custom properties and used to share and standardize foundation styles.
+caption: Design tokens are provided as CSS custom properties and used to share and standardize foundation styles.
+description: Design tokens are provided as CSS custom properties and used to share and standardize foundation styles.
 ---
 
 <section data-tab="Library">
