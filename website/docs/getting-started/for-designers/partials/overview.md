@@ -16,7 +16,7 @@ For a more detailed guide for using our Figma libraries, view the **setup guide*
 
 ## Recommended plugins
 
-Plugins can be used to extend Figma's functionality, and while new features are constantly being added there are several plugins that make life a bit easier and simplify repetitive tasks.
+Plugins can be used to extend Figma's native functionality and make life a little easier by simplifying repetitve tasks.
 
 - [Lorem Ipsum](https://www.figma.com/community/plugin/736000994034548392): generate varying lengths of placeholder "lorem ipsum" content in a text layer.
 - [Stark](https://www.figma.com/community/plugin/732603254453395948): a toolkit for measuring accessibility criteria in your designs.
@@ -27,6 +27,23 @@ This is just a small selection of the plugins that can be found in the [Figma co
 
 ![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png)
 
-## Support
+!!! Warning
 
-If you have any questions or need assistance using the HashiCorp Design System libraries, don't hesitate to <LinkTo @route="support">reach out for support</LinkTo>.
+**Warning**
+
+As a general rule of thumb, we don't recommend tying core design functionality to third-party plugins. While Figma's support is mostly broad, these plugins are not supported directly by Figma and are subject to errors if Figma's API or core functionality changes. Only use plugins as a support mechanism within your design files.
+
+!!!
+
+## Should I use the Figma desktop or web application?
+
+While Figma's industry prominence as a design tool is largely driven by its feature set, platform-agnostic availability plays a large part in Figma's increased adoption.
+
+Your organization, projects, and files can be accessed via any modern web browser as well as native [desktop applications](https://www.figma.com/downloads/) for macOS and Windows.
+
+How you choose to access Figma is up to you, but the desktop application has several advantages over the web app:
+
+- More efficient management of GPU resources from your system
+- Native integration for using local fonts ([more information on using fonts within the browser application](https://help.figma.com/hc/en-us/articles/360039956894-Access-local-fonts-on-your-computer#browser))
+
+Unfortunately Figma doesn't support any form of offline mode at this time, you must be connected to the internet to view and edit any of your design files and projects.
