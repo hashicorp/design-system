@@ -1,6 +1,6 @@
 {{#if @categoryTokens}}
   <h2 class="doc-text-h2">{{capitalize @category}}</h2>
-  <ul class="doc-tokens-list">
+  <ul class="doc-tokens-list" role="list">
     {{#each @categoryTokens as |token|}}
       <Doc::TokensList::Item @token={{token}} />
     {{/each}}
