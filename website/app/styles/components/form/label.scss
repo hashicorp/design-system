@@ -1,0 +1,12 @@
+// FORM > LABEL
+
+@use "../../typography/mixins" as *;
+
+
+.doc-form-label {
+  display: block;
+  width: min-content;
+  margin-bottom: 8px;
+  color: var(--doc-color-gray-200);
+  white-space: nowrap;
+}

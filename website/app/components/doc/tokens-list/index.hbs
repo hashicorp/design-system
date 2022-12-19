@@ -1,0 +1,10 @@
+<div class="doc-tokens-list-filter">
+  <Doc::Form::Search @label="Filter" @placeholder="Type a name or keyword (e.g. red)" @searchQuery={{@searchQuery}} @onInput={{@searchTokens}} />
+</div>
+
+{{#each-in @groupedTokens as |category categoryTokens|}}
+  <Doc::TokensList::Grid @category={{category}} @categoryTokens={{categoryTokens}} />
+{{else}}
+  <p class="doc-text-body">No tokens found 🤷‍♀️</p>
+{{/each-in}}
+
