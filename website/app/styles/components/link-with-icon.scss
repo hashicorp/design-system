@@ -1,0 +1,52 @@
+// LINK WITH ICON
+
+@use "../typography/mixins" as *;
+
+.doc-link-with-icon {
+  @include doc-font-style-body();
+  display: inline-flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: min-content;
+  color: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.doc-link-with-icon__icon {
+  flex: none;
+}
+
+
+// animation
+
+.doc-link-with-icon--is-animated {
+  // same animation as the marketing website
+  svg {
+    transform: translate(0);
+    transition: transform 0.2s;
+  }
+
+  &:hover svg {
+    transform: translate(2px);
+  }
+}
+
+
+// special case (eg. when used in a "card")
+
+.doc-link-with-icon--fill-parent::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+

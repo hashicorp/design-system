@@ -31,32 +31,26 @@ If you need to use block elements inside a table, you have to use HTML code:
 
 <table>
     <tr>
-        <td> Block type </td>
-        <td> Example </td>
+        <th> Block type </th>
+        <th> Example </th>
     </tr>
     <tr>
-        <td> Code </td>
+        <td> Code in &lt;pre&gt; </td>
         <td>
-            ```json
-            {
-            "id": 10,
-            "username": "marcoeidinger",
-            "created_at": "2021-02-097T20:45:26.433Z",
-            "updated_at": "2015-02-10T19:27:16.540Z"
-            }
-            ```
-        </td>
-    </tr>
-    <tr>
-        <td> Blackquote </td>
-        <td>
-            > blockquote text
+<pre>
+{
+  "id": 10,
+  "username": "janedoe",
+  "created_at": "2021-02-097T20:45:26.433Z",
+  "updated_at": "2015-02-10T19:27:16.540Z"
+}
+</pre>
         </td>
     </tr>
     <tr>
         <td> Ember component </td>
         <td>
-            <DocNpmVersion class="doc-test-markdown-basic-styling" />
+            <Doc::NpmVersion class="doc-test-markdown-basic-styling" />
         </td>
     </tr>
 </table>

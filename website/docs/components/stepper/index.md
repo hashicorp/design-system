@@ -1,5 +1,11 @@
 ---
 title: Stepper Indicator
+description: Helps the user maintain context and directionality when advancing through a multi-step flow or feature; generally assembled as part of a larger stepper pattern.
+caption: Helps the user maintain context and directionality when advancing through a multi-step flow or feature.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=15313%3A50538&t=XC8SUxxJOFHgqYzK-1
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/stepper
 ---
 
 <section data-tab="Guidelines">
@@ -19,4 +25,3 @@ title: Stepper Indicator
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-

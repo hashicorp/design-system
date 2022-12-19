@@ -11,7 +11,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.strictEqual(
       currentURL(),
-      '/foundations/icons?searchQuery=loading&tab=library'
+      '/foundations/icons?searchQuery=loading&selectedIconSize=24&tab=library'
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });

@@ -6,9 +6,7 @@
 const PersistentFilter = require('broccoli-persistent-filter');
 const { mv } = require('broccoli-stew');
 const yamlFront = require('yaml-front-matter');
-const showdown = require('showdown');
 const { Serializer } = require('jsonapi-serializer');
-const { JSDOM } = require('jsdom');
 const _ = require('lodash');
 
 class MarkdownToJsonApi extends PersistentFilter {
@@ -27,10 +25,9 @@ class MarkdownToJsonApi extends PersistentFilter {
         'links',
         'layout',
         'hidden',
+        'order',
       ],
     };
-
-    this.converter = new showdown.Converter();
 
     // build serialiser for jsonapi
     const serializerOptions = {
@@ -47,18 +44,6 @@ class MarkdownToJsonApi extends PersistentFilter {
   processString(content, relativePath) {
     const frontmatter = yamlFront.loadFront(content);
     const markdown = frontmatter.__content.trim();
-    const html = this.converter.makeHtml(markdown);
-
-    const dom = new JSDOM(html);
-    const headingNodes =
-      dom.window.document.querySelectorAll('h1, h2, h3, h4, h5');
-
-    // TODO! TBD if we want to do the TOC here, in this way, or dynamically at runtime via JS (probably better)
-    const toc = [...headingNodes].map((heading) => ({
-      text: heading.textContent,
-      depth: heading.nodeName.replace(/\D/g, ''),
-      id: heading.getAttribute('id'),
-    }));
 
     const baseProperties = {
       // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
@@ -70,8 +55,6 @@ class MarkdownToJsonApi extends PersistentFilter {
       path: this.getDestFilePath(relativePath), // relativePath = 'components/alert/index.md' –> path = 'components/alert/index.json'
       // TODO! rename this property to `markdown` (more semantic)
       content: markdown,
-      html,
-      toc,
     };
 
     const mergedData = { ...baseProperties, ...frontmatter };

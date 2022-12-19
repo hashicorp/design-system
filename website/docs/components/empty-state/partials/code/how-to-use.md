@@ -12,10 +12,6 @@ Invocation of the component would look something like this:
 </Hds::EmptyState>
 ```
 
-Renders to:
-
-Meaningful Header Text Body text content that provides a meaningful message to the end user Footer Content - text, or a link or maybe even a (secondary) button.
-
 #### Header and Body
 
 Invocation of the component would look something like this:
@@ -26,7 +22,3 @@ Invocation of the component would look something like this:
   <E.Body>Body Text</E.Body>
 </Hds::EmptyState>
 ```
-
-Renders to:
-
-Header Text Body Text

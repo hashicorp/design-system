@@ -1,5 +1,7 @@
 ---
 title: Form::Radio
+description: A form element that allows users to select a single item from group of items.
+caption: A form element that allows users to select a single item from group of items.
 ---
 
 <section data-tab="Guidelines">

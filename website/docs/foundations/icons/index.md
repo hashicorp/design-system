@@ -9,6 +9,7 @@ caption: Icons can be used to support and enhance meaning...
   <Doc::IconsList
     @icons={{this.filteredIcons}}
     @onSelect={{this.selectIconSize}}
+    @selectedIconSize={{this.selectedIconSize}}
     @searchQuery={{this.searchQuery}}
     @searchIcons={{this.searchIcons}}
   />

@@ -1,0 +1,478 @@
+/* PrismJS 1.14.0
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+/*
+* Dracula Theme for Prism.JS
+*
+* @author Gustavo Costa
+* e-mail: gusbemacbe@gmail.com
+*
+* @contributor Jon Leopard
+* e-mail: jonlprd@gmail.com
+*
+* @license MIT 2016-2020
+*
+* This theme has been weaked to meet HDS needs – see comments for original values
+*/
+
+:root {
+  --background: #252937; // #282a36;
+  --comment: #6272a4;
+  --foreground: #f8f8f2;
+  --selection: #44475a;
+  --cyan: #66d9ef; // #8be9fd;
+  --green: #a6e22e; // #50fa7b;
+  --orange: #ffb86c;
+  --pink: #f92672; // #ff79c6;
+  --purple: #bd93f9;
+  --red: #f55;
+  --yellow: #e6db74; // #f1fa8c;
+
+  /* Transparency */
+
+  /** 30% of transparency **/
+  --background-30: #25293733;
+  --comment-30: #6272a433;
+  --foreground-30: #f8f8f233;
+  --selection-30: #44475a33;
+  --cyan-30: #8be9fd33;
+  --green-30: #50fa7b33;
+  --orange-30: #ffb86c33;
+  --pink-30: #ff79c633;
+  --purple-30: #bd93f933;
+  --red-30: #f553;
+  --yellow-30: #f1fa8c33;
+
+  /** 40% of transparency **/
+  --background-40: #25293766;
+  --comment-40: #6272a466;
+  --foreground-40: #f8f8f266;
+  --selection-40: #44475a66;
+  --cyan-40: #8be9fd66;
+  --green-40: #50fa7b66;
+  --orange-40: #ffb86c66;
+  --pink-40: #ff79c666;
+  --purple-40: #bd93f966;
+  --red-40: #f556;
+  --yellow-40: #f1fa8c66;
+}
+
+/* Selection */
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background-color: var(--selection);
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background-color: var(--selection);
+}
+
+/* Line numbers */
+
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  top: 0;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  font-size: 100%;
+  letter-spacing: -1px;
+  border-right: 1px solid #999;
+  user-select: none;
+  pointer-events: none;
+}
+
+.line-numbers-rows > span {
+  display: block;
+  counter-increment: linenumber;
+  pointer-events: none;
+}
+
+.line-numbers-rows > span::before {
+  display: block;
+  padding-right: 0.8em;
+  color: #999;
+  text-align: right;
+  content: counter(linenumber);
+}
+
+/* Toolbar for copying */
+
+div.code-toolbar {
+  position: relative;
+}
+
+div.code-toolbar > .toolbar {
+  position: absolute;
+  top: 0.3em;
+  right: 0.2em;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
+}
+
+div.code-toolbar > .toolbar .toolbar-item {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+div.code-toolbar > .toolbar a {
+  cursor: pointer;
+}
+
+div.code-toolbar > .toolbar button {
+  padding: 0;
+  overflow: visible;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  background: none;
+  border: 0;
+  user-select: none;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+  padding: 0.5em;
+  color: var(--foreground);
+  font-size: 0.8em;
+  background: var(--comment);
+  border-radius: 0.5em;
+}
+
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
+  color: inherit;
+  text-decoration: none;
+  background-color: var(--green);
+}
+
+/* Remove text shadow for printing */
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @include doc-font-style-code ();
+  color: var(--foreground);
+  white-space: pre;
+  text-align: left;
+  text-shadow: none;
+  word-wrap: normal;
+  word-break: normal;
+  word-spacing: normal;
+
+  tab-size: 4;
+
+  hyphens: none;
+  background: var(--background);
+}
+
+/* Code blocks */
+
+pre[class*="language-"] {
+  height: auto;
+  margin: 0.5em 0;
+  padding: 16px;
+  overflow: auto;
+  background: var(--background);
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--background);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 4px 7px;
+  white-space: normal;
+}
+
+/* Code box limit */
+
+.limit-300 {
+  height: 300px !important;
+}
+
+.limit-300 {
+  height: 400px !important;
+}
+
+.limit-500 {
+  height: 500px !important;
+}
+
+.limit-600 {
+  height: 600px !important;
+}
+
+.limit-700 {
+  height: 700px !important;
+}
+
+.limit-800 {
+  height: 800px !important;
+}
+
+.language-css {
+  color: var(--purple);
+}
+
+.token {
+  color: var(--pink);
+}
+
+.language-css .token {
+  color: var(--pink);
+}
+
+.token.script {
+  color: var(--foreground);
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.atrule,
+.token.attr-name,
+.token.attr-value {
+  color: var(--green);
+}
+
+.language-css .token.atrule {
+  color: var(--purple);
+}
+
+.language-html .token.attr-value,
+.language-markup .token.attr-value,
+.language-handlebars .token.attr-value {
+  color: var(--yellow);
+}
+
+.token.boolean {
+  color: var(--purple);
+}
+
+.token.builtin,
+.token.class-name {
+  color: var(--cyan);
+}
+
+.token.comment {
+  color: var(--comment);
+}
+
+.token.constant {
+  color: var(--purple);
+}
+
+.language-javascript .token.constant {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.token.entity {
+  color: var(--pink);
+}
+
+.language-css .token.entity {
+  color: var(--green);
+}
+
+.language-html .token.entity.named-entity {
+  color: var(--purple);
+}
+
+.language-html .token.entity:not(.named-entity) {
+  color: var(--pink);
+}
+
+.language-markup .token.entity.named-entity {
+  color: var(--purple);
+}
+
+.language-markup .token.entity:not(.named-entity) {
+  color: var(--pink);
+}
+
+.token.function {
+  color: var(--green);
+}
+
+.language-css .token.function {
+  color: var(--cyan);
+}
+
+.token.important,
+.token.keyword {
+  color: var(--pink);
+}
+
+.token.prolog {
+  color: var(--foreground);
+}
+
+.token.property {
+  color: var(--orange);
+}
+
+.language-css .token.property {
+  color: var(--cyan);
+}
+
+.token.punctuation {
+  color: var(--foreground);
+}
+
+.language-css .token.punctuation {
+  color: var(--orange);
+}
+
+.language-html .token.punctuation,
+.language-markup .token.punctuation {
+  color: var(--foreground);
+}
+
+.token.selector {
+  color: var(--pink);
+}
+
+.language-css .token.selector {
+  color: var(--green);
+}
+
+.token.regex {
+  color: var(--red);
+}
+
+.language-css .token.rule:not(.atrule) {
+  color: var(--foreground);
+}
+
+.token.string {
+  color: var(--yellow);
+  background: inherit;
+}
+
+.token.tag {
+  color: var(--pink);
+}
+
+.token.url {
+  color: var(--cyan);
+}
+
+.language-css .token.url {
+  color: var(--orange);
+}
+
+.token.variable {
+  color: var(--cyan);
+}
+
+.token.number {
+  color: rgba(189, 147, 249, 100%);
+}
+
+.token.operator {
+  color: rgba(139, 233, 253, 100%);
+  background: inherit;
+}
+
+.token.char {
+  color: rgba(255, 135, 157, 100%);
+}
+
+.token.symbol {
+  color: rgba(255, 184, 108, 100%);
+}
+
+.token.deleted {
+  color: #e2777a;
+}
+
+.token.namespace {
+  color: var(--pink);
+  opacity: 1;
+}
+
+/* Line Highlighter */
+
+.highlight-line {
+  display: inline-block;
+  padding: 2px 10px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.highlight-line:empty::before {
+  content: " ";
+}
+
+.highlight-line:not(:last-child) {
+  min-width: 100%;
+}
+
+.highlight-line .highlight-line:not(:last-child) {
+  min-width: 0;
+}
+
+.highlight-line-isdir {
+  color: var(--foreground);
+  background-color: var(--selection-30);
+}
+
+.highlight-line-active {
+  background-color: var(--comment-30);
+}
+
+.highlight-line-add {
+  background-color: var(--green-30);
+}
+
+.highlight-line-remove {
+  background-color: var(--red-30);
+}
