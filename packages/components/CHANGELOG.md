@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.5.1
+
+### Patch Changes
+
+- [#867](https://github.com/hashicorp/design-system/pull/867) [`a26f3da41`](https://github.com/hashicorp/design-system/commit/a26f3da4158ea75e7bb06ba284d62f5169e7759d) Thanks [@MelSumner](https://github.com/MelSumner)! - Bugfix: removed extra space in label that was causing label and legend to be inconsistent. Moved the `&nbsp;` to the `required` indicator instead for consistency.
+
 ## 1.5.0
 
 ### Minor Changes
