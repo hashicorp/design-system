@@ -22,7 +22,7 @@ Please add the original source of every image or illustration that you add to th
 
 As mentioned above, the generated files should be exported in the `website/public` folder.
 
-Regading the format and settings of the "Export" panel in Figma, please follow these guidelines:
+Regarding the format and settings of the "Export" panel in Figma, please follow these guidelines:
 
 - assets should be ready to be exported as they are, without the need for someone to do something
   - give them frame the exact name that will be used in the code
@@ -32,7 +32,7 @@ Regading the format and settings of the "Export" panel in Figma, please follow t
         - it’s just vectors, with normal paths? probably an `SVG` is best
         - it’s vectors, but with thousands of points? export in `SVG` and `PNG` and compare the size, then choose
         - it’s both vectors and bitmap (eg. the new illustrations)? then `JPG` is the one that compress better
-  - decide if the frame should be clipped or not (generally is not necessary if it’s `SVG`, but if it’s `JPG` is better because in some cases it may create visual artefacts on the borders)
+  - decide if the frame should be clipped or not (generally is not necessary if it’s `SVG`, but if it’s `JPG` is better because in some cases it may create visual artifacts on the borders)
     - ![The "Frame" panel in Figma with the "Clip content" option selected](images/doc-figma-clip-content.png)
   - decide if the background color applied to the frame should be exported or not (if it’s `SVG` almost certainly not, if it’s `PNG` or `JPG` almost certainly yes)
     - ![The "Fill" panel in Figma with the "Show in exports" option selected](images/doc-figma-show-in-exports.png)
@@ -40,4 +40,4 @@ Regading the format and settings of the "Export" panel in Figma, please follow t
   - is it a fixed size in the page? use the exact same size (and export at `@2x`)
   - is it an image that resize when the viewport changes? speak with the developer and decide what is the right size to use
 
-If you have any doubts or problems expoerting the files, speak with one of the designers of the HDS team.
+If you have any doubts or problems exporting the files, speak with one of the designers of the HDS team.
