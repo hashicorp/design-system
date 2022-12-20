@@ -7,19 +7,24 @@ The most basic invocation requires text to be passed and a `controlId` argument 
 <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
 ```
 
-When user input is required for the associated form control, pass in an `isRequired` argument.
+Pass an `isRequired` argument, when user input is required for the associated form control.
 
 ```handlebars
 <Hds::Form::Label @controlId="control-ID" @isRequired={{true}}>My label</Hds::Form::Label>
 ```
 
-Pass in an `isOptional` argument when the user input is optional for the associated form control:
+Pass an `isOptional` argument, when the user input is optional for the associated form control.
 
 ```handlebars
 <Hds::Form::Label @controlId="control-ID" @isOptional={{true}}>My label</Hds::Form::Label>
 ```
 
-There may be cases in which the label needs to contain more than just text. In this case it's possible to pass structured content to it (it's just yielded in output):
+If the label needs to contain more than just text, it's possible to pass structured content to component. While the correct text styling is applied to the component's container, the layout of the content inside the component is the responsibility of the product team.
+
+!!! Warning
+
+The `<label>` element is linked via `for` attribute to the `<input/select/textarea>` elements. Because this is an interactive element, it cannot have links inside of it, as nested interactive elements cannot be reached by a user with assistive technology.
+!!!
 
 ```handlebars
 <Hds::Form::Label @controlId="control-ID">
@@ -28,23 +33,22 @@ There may be cases in which the label needs to contain more than just text. In t
 </Hds::Form::Label>
 ```
 
-**Important:** in this case, while the correct text styling is applied to the component's container, the layout/organization of the content inside the component is left to the consumer.
-
-Note: The `<label>` element is linked via `for` attribute to the `<input/select/textarea>` elements. This means it becomes an interactive element, and for this reason it's not possible to have links inside it (nested interactive elements cannot be reached by a user with assistive technology).
-
 ### Form::HelperText
 
-The most basic invocation just needs a text passed to the component and a `controlId` argument:
+The most basic invocation requires text to be passed and a `controlId` argument.
+
+The `controlId` value is used to generate an ID, prefixed with `helper-text-`, so that this ID can be referenced in the `aria-describedby` attribute of the form control. If no `controlId` is provided, no ID is generated. If needed, it can be passed directly as an HTML attribute.
 
 ```handlebars
 <Hds::Form::HelperText @controlId="control-ID">This is some helper text</Hds::Form::HelperText>
 ```
 
-Note: the `controlId` value will be used to generate an ID, prefixed with `helper-text-`, so that this ID can be referenced in the `aria-describedby` attribute of the form control. If no `controlId` is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).
+If the helper text needs to contain more than just text, use the block form of the component. While the correct styling is applied to the component itself, the nested components may need additional styling and are the responsibility of the product team.
 
-There may be some cases in which the helper text needs to contain more than just text. First, it is important to note that interactive elements in text (associated with the input through `aria-describedby`) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required.
+!!! Warning
 
-To implement additional nested components within the helper text, use the block form of the component. Note that the correct text styling will be applied to the component itself, but the nested components may need additional styling. For example:
+Interactive elements in text (associated with the input through `aria-describedby`) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, we recommend including a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
 
 ```handlebars
 <Hds::Form::HelperText @controlId="control-ID">
@@ -54,35 +58,17 @@ To implement additional nested components within the helper text, use the block 
 </Hds::Form::HelperText>
 ```
 
-Some text with a Hds::Link::Inline, or `some formatted code` or a **strong message**.
-
-### Form::Indicator
-
-To render a `Required` indicator provide a `@isRequired` argument:
-
-```handlebars
-<Hds::Form::Indicator @isRequired={{true}} />
-```
-
-To render instead an `Optional` indicator provide a `@isOptional` argument:
-
-```handlebars
-<Hds::Form::Indicator @isOptional={{true}} />
-```
-
-_Notice: if no `@isRequired/@isOptional` argument is provided, the component will not render anything._
-
 ### Form::Error
 
-The most basic invocation just needs a text passed to the component and a `controlId` argument:
+The most basic invocation requires text to be passed and a `controlId` argument.
+
+The `controlId` value will be used to generate an ID, prefixed with `error-`, so that this ID can be referenced in the `aria-describedby` attribute of the form control. If no `controlId` is provided, no ID is generated. If needed, it can be passed directly as an HTML attribute.
 
 ```handlebars
 <Hds::Form::Error @controlId="control-ID">This is a simple error message</Hds::Form::Error>
 ```
 
-Note: the `controlId` value will be used to generate an ID, prefixed with `error-`, so that this ID can be referenced in the `aria-describedby` attribute of the form control. If no `controlId` is provided, no ID is generated (but if needed it can be passed directly as HTML attribute).
-
-There may be cases in which the error is made of multiple messages. In this case it's possible to iterate over a collection of error messages:
+If the error is made up of multiple messages, it's possible to iterate over a collection of error messages. 
 
 ```handlebars
 <Hds::Form::Error @controlId="control-ID" as |Error|>
@@ -92,27 +78,42 @@ There may be cases in which the error is made of multiple messages. In this case
 </Hds::Form::Error>
 ```
 
+### Form::Indicator
+If no `isRequired/isOptional` argument is provided, the component will not render anything.
+
+Pass an `isRequired` argument, to render a `Required` indicator.
+
+```handlebars
+<Hds::Form::Indicator @isRequired={{true}} />
+```
+
+Pass an `isOptional` argument, to render an `Optional` indicator.
+
+```handlebars
+<Hds::Form::Indicator @isOptional={{true}} />
+```
+
 ### Form::Legend
 
-The most basic invocation just needs a text passed to the component:
+The most basic invocation requires text to be passed.
 
 ```handlebars
 <Hds::Form::Legend>My legend</Hds::Form::Legend>
 ```
 
-Pass in an `isRequired` argument when the user input is required for the associated form controls:
+Pass an `isRequired` argument, when user input is required for the associated form control.
 
 ```handlebars
 <Hds::Form::Legend @isRequired={{true}}>My legend</Hds::Form::Legend>
 ```
 
-Pass in an `isOptional` argument when the user input is optional for the associated form controls:
+Pass an `isOptional` argument, when user input is optional for the associated form control.
 
 ```handlebars
 <Hds::Form::Legend @isOptional={{true}}>My legend</Hds::Form::Legend>
 ```
 
-There may be cases in which the legend needs to contain more than just text. In this case it's possible to pass structured content to it (it's just yielded in output):
+If the legend needs to contain more than just text, it's possible to pass structured content to component. While the correct text styling is applied to the component's container, the layout of the content inside the component is the responsibility of the product team.
 
 ```handlebars
 <Hds::Form::Legend>
@@ -121,13 +122,16 @@ There may be cases in which the legend needs to contain more than just text. In 
 </Hds::Form::Legend>
 ```
 
-**Important:** in this case, while the correct text styling is applied to the component's container, the layout/organization of the content inside the component is left to the consumer.
-
 ### Form::Field
+!!! Warning
 
-Note: it's very unlikely that you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants to it.
+It's unlikely that you'll need to use this component direcly. If you need to use it in your codebase, please contact the design systems team so we can provide support and guidance.
+!!!
 
-The more general invocation for this component sees a set of contextual components passed to it, a control (in this case a text input) and a `@layout` argument provided, and a few hashed values passed back to the control:
+A basic invocation includes a set of contextual components, a control (in this case a text input) with hashed values passed back to it, and a `@layout` argument. Depending on the context, you may want to pass just the label, or the label _and_ the helper text, while the error message is likely conditional to the validation of the input provided by the user. The arguments `id` and `ariaDescribedBy` are automatically generated by the component and passed back to the control.
+
+The layout of the content inside the "control" container is the responsibility of the product team.
+
 
 ```handlebars
 <Hds::Form::Field @layout="vertical" @isRequired={{true}} as |F|>
@@ -147,17 +151,15 @@ The more general invocation for this component sees a set of contextual componen
 </Hds::Form::Field>
 ```
 
-Depending on the context/need, one may want to pass just the label, or the label _and_ the helper text, while the error message is likely conditional to the validation of the input provided by the user.
-
-Note also how the arguments `id` and `ariaDescribedBy`, automatically generated by the component, are passed back to the control.
-
-**Important:** in this case the layout/styling of the content inside the "control" container is left to the consumer.
-
 ### Form::Fieldset
+!!! Warning
 
-Note: it's very unlikely that you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants to it.
+It's unlikely that you'll need to use this component direcly. If you need to use it in your codebase, please contact the design systems team so we can provide support and guidance.
+!!!
 
-The more general invocation for this component sees a set of contextual components passed to it, one or more fields (in this case radio buttons within a label), a `@layout` argument:
+A basic invocation includes a set of contextual components, one or more fields (in this case radio buttons within a label), and a `@layout` argument. Depending on the context, you may want to pass just the legend, just the helper text, both or none, while the error message is likely conditional to the validation of the inputs provided by the user.
+
+The layout of the content inside the "control" container is the responsibility of the product team.
 
 ```handlebars
 <Hds::Form::Fieldset @layout="horizontal" @isRequired={{true}} as |F|>
@@ -179,7 +181,3 @@ The more general invocation for this component sees a set of contextual componen
   <F.Error>This is the error</F.Error>
 </Hds::Form::Fieldset>
 ```
-
-Depending on the context/need, one may want to pass just the legend, just the helper text, both or none, while the error message is likely conditional to the validation of the inputs provided by the user.
-
-**Important:** in this case the layout/styling of the content inside the "control" container is left to the consumer.

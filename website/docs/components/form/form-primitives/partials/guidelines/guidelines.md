@@ -3,7 +3,7 @@
 ### Form::Error
 While we provide the structure and visual consistency for errors, the messaging and functionality are to be handled by the product teams.
 
-#### Client side versus server side validation
+#### Types of validation
 Use a combination of client side and server side validation for the best user experience. Catching basic errors with client side validation allows the user to quickly resolve the error **before** submitting the form. 
 
 ##### Client side validation
