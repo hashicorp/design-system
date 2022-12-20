@@ -19,18 +19,3 @@ links:
 <section data-tab="Best practices">
     @include "partials/best-practices.md"
 </section>
-
-<!--
-- [x] Which Figma libraries to use
-  - [x] Product Components
-  - [x] Product Foundations
-  - [x] Flight Icons
-- [x] How to use the Figma libraries
-  - [x] How to enable them in their projects
-  - [x] How to use components
-  - [x] How to use styles
-- [ ] Overview of the design language
-- [ ] Best Practices
-  - [x] Recommended plugins
-- [x] Support
--->
