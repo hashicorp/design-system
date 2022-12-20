@@ -13,7 +13,8 @@ export default class ComponentsController extends Controller {
           return {
             image:
               `/public/images/components/` +
-              page.pageAttributes.title.toLowerCase(),
+              page.pageAttributes.title.trim().toLowerCase() +
+              `.png`,
             title: page.pageAttributes.title,
             caption:
               page.pageAttributes.caption ||
