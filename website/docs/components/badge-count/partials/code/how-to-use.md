@@ -1,7 +1,5 @@
 ## How to use this component
 
-Use `BadgeCount` as a numeric label to display version numbers, collection counts in tabs, and similar information. For non-numeric information, use [Badge](/components/badge/).
-
 ### Basic
 The most basic invocation requires the text argument to be passed. By default, a filled, medium size, neutral color badgeCount is generated.
 

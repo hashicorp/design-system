@@ -1,3 +1,5 @@
+Use `BadgeCount` as a numeric label to display version numbers, collection counts in tabs, and similar information. For non-numeric information, use [Badge](/components/badge/).
+
 ## Usage
 
 ### When to use
