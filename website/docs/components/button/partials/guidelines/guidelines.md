@@ -9,10 +9,12 @@
 - When navigating to another destination, use an [Inline](/components/link/inline/overview) or [Standalone](/components/link/standalone/overview) link.
 - To display multiple actions under a single button, use [Dropdown](/components/dropdown/overview).
 
-### Size
+### Sizes
 
 <Hds::Button @size="small" @text="Small" />
+
 <Hds::Button @size="medium" @text="Medium" />
+
 <Hds::Button @size="large" @text="Large" />
 
 Medium is the preferred size, but use a button size that best fits the UI.
