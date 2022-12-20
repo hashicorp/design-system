@@ -115,7 +115,13 @@ Disabled buttons should be used sparingly and with intention. Acceptable use cas
 
 Buttons are provided with flexible icon use; allowing for leading, trailing, or icon only buttons. Use icons intentionally and only when they provide the user with extra value. Do not create buttons with both leading and trailing icons. Tertiary buttons are required to have either a leading or trailing icon layout to be accessible.
 
-_Banner (highlight):_ Buttons used for a dropdown (with the Caret Icon in the Trailing Icon Spot) can be found in [Dropdown](/components/dropdown/overview).
+!!! Insight
+
+**Looking for Dropdowns?**
+
+Buttons used for a dropdown (with the Caret Icon in the Trailing Icon Spot) can be found in [Dropdown](/components/dropdown/overview).
+
+!!!
 
 ### Button set
 
