@@ -72,11 +72,12 @@ At any time, you can check out the `components/template` folder to get an idea o
     - showcase.md
 6. Remove the old `design guidelines` image and Figma link, if they still exist.
     1. Make sure the associated images are also removed from the `public` folder.
-7. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont).
-8. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner).
-9. Update the anatomy assets to use the new website colors. This can be done in the [Website Assets file](https://www.figma.com/file/42LK10XbP5IERhzzgMOiI2/Website-assets?node-id=66%3A6622&t=WpqvfoziubA4azgP-0), see [the "Media" documentation](./Website-Media.md) for more details on exporting assets.
-10. Check that code snippets work as expected. Speak with Alex Jurubita, if something looks incorrect.
-11. Check and update links, as necessary.
+7. Update mentions of "HashiCorp Design System" to "Helios" (in rare cases "Helios Design System") and "the design systems team" to "Helios team". 
+8. Replace temporary `Do/Dont` blocks in the design guidelines with [the new "Do/Dont" syntax](./Website-Markdown.md#dodont).
+9. Replace content that needs to go in a `Banner` block using [the new specific "Banner" syntax](./Website-Markdown.md#banner).
+10. Update the anatomy assets to use the new website colors. This can be done in the [Website Assets file](https://www.figma.com/file/42LK10XbP5IERhzzgMOiI2/Website-assets?node-id=66%3A6622&t=WpqvfoziubA4azgP-0), see [the "Media" documentation](./Website-Media.md) for more details on exporting assets.
+11. Check that code snippets work as expected. Speak with Alex Jurubita, if something looks incorrect.
+12. Check and update links, as necessary.
     1. If they are **internal/cross-page** links (eg. `/components/alert/`) fix them with the correct route/model.
     2. If they are **external** links (eg. `https://hashicorp.com`) make sure they have `target="blank" rel="noopener noreferrer"`.
     3. If you are not sure what to do, speak with Brian Runnells.
@@ -102,7 +103,7 @@ At any time, you can check out the `components/template` folder to get an idea o
 For more information and best practices around content writing, see [the HDS Writing Guidelines](https://docs.google.com/document/d/1WyoJVpWFVgWbCnZ28WW0gRJwJlj-qV5oY0ExhDR2obs/edit?usp=sharing).
 
 ## Terminology cheat sheet
-- Avoid overusing "the HashiCorp Design System" and "the design system", consider "we" or "our" instead (eg. "the design system components" to "our components").
+- Avoid overusing "Helios Design System" and "the design system", consider "we" or "our" instead (eg. "the design system components" to "our components").
 - Never use "a design system", use "the design system", as "a" is impersonal.
 - "Use" instead of "utilize" (and other large word swaps in favor of more simple terms). 
 - Use contractions when it feels natural. If you'd say "don't" in a conversation use "don't" instead of "do not" in the documentation.
