@@ -52,7 +52,7 @@ Accessibility houses content related to the built-in accessibility features we p
     - Rating badge
     - Details
 - Best practices (typically found throughout the docs)
-- WCAG Success Criteria
+- Applicable WCAG Success Criteria
 
 ## Markdown content
 A large portion of the content in the new documentation website has been ported over automatically, from the old "scrappy" documentation website, or manually from the design guidelines in Figma. This means that, unless it's already been reviewed and updated, it will require **a lot** of love and editing.
