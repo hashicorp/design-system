@@ -105,8 +105,8 @@
     <dt>totalPages <code>number</code></dt>
     <dd>
       <p>Used in displaying the page numbers for "numbered" type and for determining the next page to navigate to.</p>
-      <p>totalPages is calculated by HDS::Pagination wrapper component but must be passed into HDS::Pagination::Nav if
-        used as a stand alone component.</p>
+      <p>totalPages is calculated by HDS::Pagination wrapper component when used. However, it is required if
+        HDS::Pagination::Nav is used as a stand alone component.</p>
     </dd>
   </dl>
 
@@ -439,6 +439,9 @@
     <div class="dummy-paragraph">
       <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
     </div>
+    <div class="dummy-paragraph">
+      <Hds::Pagination::Nav @totalPages={{100}} @type="truncated" />
+    </div>
   </div>
 
   <h4 class="dummy-h4">Pagination with sub-components</h4>
@@ -456,9 +459,14 @@
   </Hds::Pagination>
 
   <h6 class="dummy-h6">Type="truncated"</h6>
-  <p class="dummy-paragraph">A variation of the "numbered" type that displays an ellipses for some numbers to save
+  <p class="dummy-paragraph">A variation of the "numbered" type that displays an ellipsis for some numbers to save
     space.</p>
   <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} as |P|>
+    <P.Nav @type="truncated" />
+  </Hds::Pagination>
+
+  <p class="dummy-paragraph">With "current" initial page equal to <code class="dummy-code">11</code>.</p>
+  <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} @currentPage={{11}} as |P|>
     <P.Nav @type="truncated" />
   </Hds::Pagination>
 
