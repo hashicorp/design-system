@@ -16,11 +16,13 @@ Styles published by a library are available in the **layer styles panel** on the
 
 ![Layer styles panel](/assets/getting-started/designers/layer-style-panel.png)
 
-### Inserting components from the assets panel
+## Inserting components into your project
 
 [Official Figma component documentation](https://help.figma.com/hc/en-us/articles/360038662654-Guide-to-components-in-Figma)
 
-Figma's [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) is an easy way to access all of the library components enabled in your project. Select the name or expand the category of the component you would like to use and click or drag it into your project. Alternatively, you can use the search bar at the top of the panel which returns results based on the name, category, and description of the component.
+### From the assets panel
+
+Access library components via Figma's [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel). Select the name or expand the category of the component you would like to use and click or drag it into your project. Alternatively, you can use the search bar at the top of the panel, which returns results based on the component's name, category, and description.
 
 The shortcut `shift + i` opens the resources panel which exposes a list of recently used components, plugins, and widgets you have enabled in your project.
 
@@ -28,15 +30,15 @@ The shortcut `shift + i` opens the resources panel which exposes a list of recen
 
 ### Copy from the stickersheet
 
-If you prefer to visually select a component to use in your project, each component in the [Product Components library](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) has a stickersheet displaying the different variants and properties available in each component. Copying the component variant from the stickersheet and pasting into your project will maintian the link to the master component in the library and receive updates as they are rolled out.
+If you prefer to select a component visually, the [Product Components library](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) has a stickersheet for each component displaying the different variants and properties available. Copying the component variant from the stickersheet and pasting into your project will maintain the link to the main component in the library, which means it will receive updates as they become available.
 
 ![Copy from the stickersheet](/assets/getting-started/designers/copy-from-stickersheet.png)
 
-### Using library styles
+## Using library styles
 
 [Official Figma style documentation](https://help.figma.com/hc/en-us/articles/360039238753-Styles-in-Figma)
 
-Figma styles allow consistent application of color (as a fill or stroke), typography, and effects within your project, and are published by the [Product Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4&t=5MKbTaM2QzE0F5KA-1). Styles can be added to a text layer, shape, or frame from the layer styles panel by hovering and clicking the four dot icon next to each style property (either text, color, stroke, or effect).
+Figma styles allow consistent application of color (as a fill or stroke), typography, and effects within your project, and are published in the [Product Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4&t=5MKbTaM2QzE0F5KA-1). Styles can be added to a text layer, shape, or frame from the layer styles panel by hovering and clicking the four-dot icon next to each style property (either text, color, stroke, or effect).
 
 ![Applying styles to a text layer](/assets/getting-started/designers/apply-text-style.png)
 

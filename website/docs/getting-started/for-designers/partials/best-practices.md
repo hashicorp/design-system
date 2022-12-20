@@ -34,9 +34,9 @@ Whatever method you choose to use, the most important thing is maintaining a con
 
 ## Component availability
 
-The HashiCorp Design System succeeds [Structure](https://github.com/hashicorp/structure) which is in the process of being sunsetted and deprecated. Work is underway to achieve parity between Structure and the HashiCorp Design System but is not 100% complete yet, and some components will most likely not exist in future versions of the Design System.
+We are in the process of sunsetting [Structure](https://github.com/hashicorp/structure). As we work to achieve parity between Structure and the HashiCorp Design System, use this decision tree to understand how to move forward within your project:
 
-Use this decision tree when assessing current and future support for a component, pattern, or foundation you need:
+![Decision tree flow chart](/assets/getting-started/designers/hds-decision-tree.png)
 
 **Does the element (or a comparible alternative) exist in the HashiCorp Design System?**
 
@@ -54,16 +54,18 @@ If no, or having future support is a must: design and build your own local eleme
 
 ### Local components
 
-While the core component and foundation set published in the HashiCorp Design System covers most use cases for low-level atoms and molecules, combinations of components and [patterns](/patterns) are not currently supported. As a best practice use HashiCorp Design System **components** and **foundations** when extending the system and creating local components and patterns.
+Functions and experiences that are unique to your product should be designed and built locally, extending Helios components and foundations.
+
+![Local component patterns](/assets/getting-started/designers/local-component-patterns.png)
+
+<LinkTo @route='patterns'>Patterns</LinkTo> and guidance around combining and extending Helios components are not currently supported, but are on our [roadmap](https://go.hashi.co/hds-rollout)
 
 ## Component instances & detaching
 
-A component inserted from a library into a project is referred to as an **instance** and maintains a link to the master component in the library. This has significatn benefits for deploying components quickly and iterating, but can introduce some challenges if the component doesn't meet all of your needs and is detached.
+A component inserted from a library into a project is referred to as an **instance**. Instances maintain a link to the main component in the library, which has significant benefits for deploying components and iterating quickly.
 
-!!! Critical
+Our Figma components are coupled closely with their code counterparts to maintain consistency in the API and design language. In most scenarios, we don't recommend detaching a component or foundation from the library. If you find that a component doesn't meet your needs, reach out to us for [support](/support) or [submit a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform) for a new component, foundation, or feature.
 
-Detached components **will not** receive updates when new features or changes are made in the library. This can cause Figma projects and production applications to drift out of sync very quickly. This can introduce tech debt and complex updates in the future, and can be avoided by working closely with the design system team to meet your needs and extend components as necessary.
+### Why to avoid detaching components
 
-!!!
-
-Figma components in the HashiCorp Design System are coupled closely with their code counterparts to maintain consistency in the API and design language. Detaching a component or foundation frome the HashiCorp Design System libraries is not recommended in almost **every** scenario, if you find that a component doesn't meet your needs, don't hesitate to reach out for [support](/support) or [submit a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform) for a new component, foundation, or feature.
+When you detach a component, that component will no longer receive updates when new features or changes are published in the library. This can cause Figma projects and production applications to drift out of sync quickly. This can introduce tech debt and complex updates in the future. It can be avoided by working closely with the design system team and learning how to extend components as necessary.
