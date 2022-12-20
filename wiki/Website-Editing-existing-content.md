@@ -21,7 +21,7 @@ Below you can find a list of things to do when working on the content of an exis
 Check that the correct frontmatter attributes are in place. Technically, only the `title` is required, but depending on the page other attributes may be needed as well. Please refer to [the "Frontmatter" documentation](./Website-Doc-folder.md#frontmatter) for details about what attributes are recognized and how to use them, or check in similar pages what attributes are used.
 
 ## Sections/tabs
-Ensure consistent tab names and order. For components, we use: **Guidelines**, **Code**, **Specifications**, and **Accessibility**. If needing to add a section that is not listed above, speak with the HDS team.
+Ensure consistent tab names and order. For components, we use: **Guidelines**, **Code**, **Specifications**, and **Accessibility**. If needing to add a section that is not listed above, speak with the HDS team. Note that not all sections may be necessary for all components. In that case, remove the section from `index.md`.
 
 ### Guidelines
 Guidelines are used for design guidelines and general best practices for usage. Content should generally follow this order: 
@@ -102,9 +102,10 @@ For more information and best practices around content writing, see [the HDS Wri
 - Avoid overusing "the HashiCorp Design System" and "the design system", consider "we" or "our" instead (eg. "the design system components" to "our components").
 - Never use "a design system", use "the design system", as "a" is impersonal.
 - "Use" instead of "utilize" (and other large word swaps in favor of more simple terms). 
-- Use contractions when it feels natural. If you'd say "don't" out loud in a conversationm use "don't" in the documentation instead of "do not".
+- Use contractions when it feels natural. If you'd say "don't" in a conversation use "don't" instead of "do not" in the documentation.
 - Use "application" instead of "website".
 - Use "product team" when referring to an entire consuming team, instead of "application team".
+- Use "consumer" when referring to folks who use the design system.
 
 ---
 
