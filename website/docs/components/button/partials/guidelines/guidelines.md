@@ -23,7 +23,7 @@
 
 **Migrating Tip** 
 
-Medium buttons are the same size as default Structure buttons. Small buttons are the same size as Compact Structure buttons.
+Medium buttons are the same size as default Structure buttons. Small buttons are the same size as compact Structure buttons.
 
 !!!
 
