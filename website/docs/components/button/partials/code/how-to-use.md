@@ -84,7 +84,13 @@ Read the Ember.js guides for more information: [Patterns for Actions](https://gu
 
 You can generate a link with the visual appearence of a button passing a `@href` or a `@route` argument to the component.
 
-_Notice: the `Hds::Button` component internally uses the generic `Hds::Interactive` component. For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/)._
+!!! Info
+
+**Interaction** 
+
+The `Hds::Button` component internally uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive/).
+
+!!!
 
 #### With @href
 
