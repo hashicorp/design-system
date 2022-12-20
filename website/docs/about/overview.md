@@ -17,6 +17,7 @@ While the scale of a design system largely depends on the needs of those consumi
 
 - **Visual Language**: colors, typography, icons, imagery, content strategy
 - **Components**: component design, component development, tokens, development standards
+- **Patterns**: repetitive combinations of components and foundational styles that yield more complex functions and features
 - **Documentation**: education, issue tracking, contribution, content management, processes
 
 At HaschiCorp we structure our components, icons, and design tokens in a [monorepo](https://github.com/hashicorp/design-system) using yarn workspaces and publish a collection of libraries in [Figma](https://www.figma.com/files/team/1030156573400567478) for designers.
