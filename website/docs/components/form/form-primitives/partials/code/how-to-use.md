@@ -1,8 +1,6 @@
-The base form elements collected in this page are used internally as building blocks for the "field" and "group" controls, but can also be used in special cases when you need to implement custom layouts or controls in forms. Unless strictly needed, we **strongly** suggest to use the pre-defined "field" and "group" controls provided by the system (you can find them in the other "form" documentation pages).
+## Form::Label
 
-#### Form::Label
-
-The most basic invocation just needs a text passed to the component and a `controlId` argument (the ID of the form control associated with the label):
+The most basic invocation requires text to be passed and a `controlId` argument (the ID of the form control associated with the label):
 
 ```handlebars
 <Hds::Form::Label @controlId="control-ID">My label</Hds::Form::Label>
@@ -33,7 +31,7 @@ There may be cases in which the label needs to contain more than just text. In t
 
 Note: The `<label>` element is linked via `for` attribute to the `<input/select/textarea>` elements. This means it becomes an interactive element, and for this reason it's not possible to have links inside it (nested interactive elements cannot be reached by a user with assistive technology).
 
-#### Form::HelperText
+## Form::HelperText
 
 The most basic invocation just needs a text passed to the component and a `controlId` argument:
 
@@ -57,7 +55,7 @@ To implement additional nested components within the helper text, use the block 
 
 Some text with a Hds::Link::Inline, or `some formatted code` or a **strong message**.
 
-#### Form::Indicator
+## Form::Indicator
 
 To render a `Required` indicator provide a `@isRequired` argument:
 
@@ -73,7 +71,7 @@ To render instead an `Optional` indicator provide a `@isOptional` argument:
 
 _Notice: if no `@isRequired/@isOptional` argument is provided, the component will not render anything._
 
-#### Form::Error
+## Form::Error
 
 The most basic invocation just needs a text passed to the component and a `controlId` argument:
 
@@ -93,7 +91,7 @@ There may be cases in which the error is made of multiple messages. In this case
 </Hds::Form::Error>
 ```
 
-#### Form::Legend
+## Form::Legend
 
 The most basic invocation just needs a text passed to the component:
 
@@ -124,7 +122,7 @@ There may be cases in which the legend needs to contain more than just text. In 
 
 **Important:** in this case, while the correct text styling is applied to the component's container, the layout/organization of the content inside the component is left to the consumer.
 
-#### Form::Field
+## Form::Field
 
 Note: it's very unlikely that you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants to it.
 
@@ -154,7 +152,7 @@ Note also how the arguments `id` and `ariaDescribedBy`, automatically generated 
 
 **Important:** in this case the layout/styling of the content inside the "control" container is left to the consumer.
 
-#### Form::Fieldset
+## Form::Fieldset
 
 Note: it's very unlikely that you will ever need to use this component direcly (it's mainly intended to be used inside the "form" controls). If for any reasons you need to use it in your codebase, please contact the HDS team so they can provide support and guidance. Below we provide in any case an example of how it can be used, but there are many more possible variants to it.
 
