@@ -123,7 +123,9 @@ You can see a showcase of different variants for this component here: https://hd
 ![Badge variants](images/doc-badge.png)
 
 ##### Accessibility conformance rating badges
-Badges are used to show the conformance rating in the accessibility section of our component documentation. There are 3 conformance ratings: `Conformant`, `Conditionally Conformant`, and `Not Conformant`. Most of our components are `Conformant` or `Conditionally Conformant`. If finding that you need to use `Not Conformant`, reach out to the design systems team to confirm you have the proper status.
+Badges are used to show the conformance rating in the accessibility section of our component documentation. There are 3 conformance ratings: `Conformant`, `Conditionally Conformant`, and `Not Conformant`. Most of our components are `Conformant` or `Conditionally Conformant`. 
+
+⚠️ **Important:** If finding that you need to use `Not Conformant`, reach out to the design systems team to confirm you have the proper status.
 
 ![Accessibility badge variants](images/doc-a11y-badge.png)
 
