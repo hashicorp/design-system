@@ -3,7 +3,7 @@
     <Doc::Logo::DesignSystem />
   </LinkTo>
   <nav class="doc-page-header__nav-menu" aria-label="primary navigation">
-    <ul>
+    <ul role="list">
       <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{this.currentTopRoute}} />
@@ -16,5 +16,11 @@
         ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
     </ul>
   </nav>
-  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.toggleBurgerMenu}}><FlightIcon @name={{if this.burgerMenuOpen "x" "menu"}} /> <span class="doc-text-navigation">Menu</span></button>
+  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.onToggleBurgerMenu}}>
+    {{#if this.burgerMenuOpen}}
+      <FlightIcon @name="x" /> <span class="doc-text-navigation">Close</span>
+    {{else}}
+      <FlightIcon @name="menu" /> <span class="doc-text-navigation">Menu</span>
+    {{/if}}
+  </button>
 </header>

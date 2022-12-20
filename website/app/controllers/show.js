@@ -46,7 +46,7 @@ export default class ShowController extends Controller {
 
     let tab = this.tabs.find((el) => {
       // for consistency we always compare the query param tab to a lowercase version of the tab label
-      return el.label.toLowerCase() === this.selectedTab;
+      return el.label.toLowerCase() === this.selectedTab.replace(/\/+$/, '');
     });
     return tab ? tab.index : 0;
   }
@@ -62,6 +62,13 @@ export default class ShowController extends Controller {
   get extra() {
     let { status, links } = this.model.frontmatter;
     return { status, links };
+  }
+
+  get currentActiveTabIndex() {
+    const tab = this.tabs.find((tab) => {
+      return tab.isCurrent;
+    });
+    return tab.index;
   }
 
   get renderedContent() {
@@ -153,7 +160,7 @@ export default class ShowController extends Controller {
     });
 
     // only attempt to update the query params if tabs exist
-    if (this.tabs.length > 1) {
+    if (this.tabs.length > 1 && this.currentActiveTabIndex != 0) {
       // for consistency we always set the query param tab to a lowercase version of the tab label
       set(this, 'selectedTab', this.tabs[current].label.toLowerCase());
     } else {

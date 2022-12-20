@@ -9,7 +9,7 @@
         <Doc::LinkWithIcon @route="show" @model="getting-started/02--for-engineers" @label="Install HDS in your project" @icon="arrow-right" @isAnimated={{true}} />
       </div>
     </div>
-    <ul class="doc-page-home__cards">
+    <ul class="doc-page-home__cards" role="list">
       {{#each this.cards as |card|}}
         <li class="doc-page-home__card">
           <p class="doc-page-home__card-title">{{capitalize card.title}}</p>

@@ -1,29 +1,14 @@
-An Alert is an element intended for **system-generated messages**. It is a live region with important, usually time-sensitive information. The use of this alert component will cause immediate notifications for users with assistive technology. Since alerts are not required to receive focus, it should not be required that the user close the alert.
+Use alerts to display brief but important system-generated messages. They attract the user's attention without interrupting their task. For messages that are the result of a user's actions, see [Toast](/components/toast/).
 
-For messages that are the result of a user's actions see the [Toast](/components/toast/) component.
 
-Typically it displays a brief, important message in a way that attracts the user's attention, without interrupting the user's task.
+## Types of alerts
+There are three types of alerts: page, inline, and compact.
 
-There are three types of alerts, each slightly different one from another.
+### Page
+Use page-level alerts on the top of the page, between the navigation and the breadcrumb to inform users of an event that may require the user's attention or action.
 
-#### Page
+### Inline
+Use inline alerts when the message is contextual or specific to the section it is placed in.
 
-It is rectangular (without a radius) and a visible border only at the bottom. Typically only has adjacent whitespace to the bottom of it, meaning it's usually flush to the parent container.
-
-It can have an **icon** (optional), a **title** and/or **description** (required to have at least one of the two), some **actions** (optional) and a **dismiss/close** button (optional).
-
-#### Inline
-
-It has a border on all sides and a radius. Typically it has adjacent whitespace on all four sides.
-
-It can have an **icon** (optional), a **title** and/or **description** (required to have at least one of the two), some **actions** (optional) and a **dismiss/close** button (optional).
-
-_Notice: the "inline" alert is used to build the [Toast](/components/toast/) component._
-
-#### Compact
-
-It's without border or internal padding, and so it has smaller proportions than the others.
-
-It only contains an **icon** and **description** (hence they are both required for this type of alert).
-
-The default icon is also slightly different from the other alert types: it's filled instead of outlined.
+### Compact
+Use compact alerts when a less prominent alert is needed.

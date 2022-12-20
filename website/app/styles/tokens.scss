@@ -1,6 +1,7 @@
 // TOKENS (CSS PROPS)
 
 :root {
+  // COLORS
   --doc-color-white: #fff;
   --doc-color-gray-600: #f2f2f3;
   --doc-color-gray-500: #dbdbdc;
@@ -27,13 +28,8 @@
   --doc-color-feedback-critical-200: #f25054;
   --doc-color-feedback-critical-300: #ffd4d6;
   --doc-color-feedback-critical-400: #fcf0f2;
-  // --color-code-dark: #252937;
-  // --color-code-light: #f8f8f2;
-  // --color-code-light-transparent: #1d1e23;
-  // --color-code-comments: #75715e;
-  // --color-code-strings: #e6db74;
-  // --color-code-numbers: #ae81ff;
-  // --color-code-operators: #f92672;
-  // --color-code-properties: #a6e22e;
-  // --color-code-control: #66d9ef;
+  // Z-INDEXES
+  --doc-z-index-header: 200;
+  --doc-z-index-sidebar: 150;
+  --doc-z-index-footer: 100;
 }
