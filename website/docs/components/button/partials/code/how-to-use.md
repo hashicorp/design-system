@@ -114,7 +114,13 @@ If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>
 
 **Important**: if the route is external to your current engine you have to pass also `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a simple `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive/).
 
-_Notice: all the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`)._
+!!! Info
+
+**LinkTo**
+
+All of the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
+
+!!!
 
 ### Disabled buttons
 
