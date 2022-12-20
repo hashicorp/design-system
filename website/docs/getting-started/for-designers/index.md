@@ -1,7 +1,5 @@
 ---
 title: Getting started for designers
-links:
-  figma: https://www.figma.com/files/team/1030156573400567478
 ---
 
 <section data-tab="Overview">
