@@ -28,15 +28,14 @@ export default class Index extends Component {
   });
 
   get filteredIcons() {
-    const selectedIconSize = this.selectedIconSize;
     if (this.searchQuery) {
       return this.allIcons.filter(
         (i) =>
-          i.size === selectedIconSize &&
+          i.size === this.selectedIconSize &&
           i.searchable.indexOf(this.searchQuery) !== -1
       );
     } else {
-      return this.allIcons.filter((i) => i.size === selectedIconSize);
+      return this.allIcons.filter((i) => i.size === this.selectedIconSize);
     }
   }
 
