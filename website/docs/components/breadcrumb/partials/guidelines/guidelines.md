@@ -20,11 +20,11 @@ The last item in a the breadcrumb should always be the current page.
 ## Icons
 
 <Hds::Breadcrumb>
-<Hds::Breadcrumb::Item @text="Level one" @icon="org" />
-<Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
-<Hds::Breadcrumb::Item @text="Level three" @icon="org" />
-<Hds::Breadcrumb::Item @text="Level four" />
-<Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+  <Hds::Breadcrumb::Item @text="Level three" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level four" />
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
 - Icons should only be added to the first three levels to avoid unnecessary visual noise.
@@ -37,23 +37,23 @@ If truncation is needed due to depth or lack of space, use one of the following 
 ### Truncate middle
 
 <Hds::Breadcrumb>
-<Hds::Breadcrumb::Item @text="Level one" />
-<Hds::Breadcrumb::Item @text="Level two" />
-<Hds::Breadcrumb::Truncation>
-<Hds::Breadcrumb::Item @text="Level three" />
-</Hds::Breadcrumb::Truncation>
-<Hds::Breadcrumb::Item @text="Level four" />
-<Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  <Hds::Breadcrumb::Item @text="Level one" />
+  <Hds::Breadcrumb::Item @text="Level two" />
+  <Hds::Breadcrumb::Truncation>
+  <Hds::Breadcrumb::Item @text="Level three" />
+  </Hds::Breadcrumb::Truncation>
+  <Hds::Breadcrumb::Item @text="Level four" />
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
 ### Truncate squeeze
 
 <Hds::Breadcrumb>
-<Hds::Breadcrumb::Item @text="Level one" />
-<Hds::Breadcrumb::Truncation>
-<Hds::Breadcrumb::Item @text="Level two"/>
-</Hds::Breadcrumb::Truncation>
-<Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  <Hds::Breadcrumb::Item @text="Level one" />
+  <Hds::Breadcrumb::Truncation>
+  <Hds::Breadcrumb::Item @text="Level two"/>
+  </Hds::Breadcrumb::Truncation>
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
 Each text-based item can truncate using a pixel-based max-width at the discretion users discretion. This option should be reserved for instances when items have long text strings.
@@ -61,11 +61,11 @@ Each text-based item can truncate using a pixel-based max-width at the discretio
 ### Width-based
 
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
-<Hds::Breadcrumb::Item @text="Level one" />
-<Hds::Breadcrumb::Item @text="Level two" />
-<Hds::Breadcrumb::Item @text="Level three truncation" @maxWidth="120px" />
-<Hds::Breadcrumb::Item @text="Level four" />
-<Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  <Hds::Breadcrumb::Item @text="Level one" />
+  <Hds::Breadcrumb::Item @text="Level two" />
+  <Hds::Breadcrumb::Item @text="Level three truncation" @maxWidth="120px" />
+  <Hds::Breadcrumb::Item @text="Level four" />
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
 ### Width-based (Hover)
@@ -73,11 +73,11 @@ Each text-based item can truncate using a pixel-based max-width at the discretio
 <!-- I don't think this functionality actually exists on this component -->
 
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
-<Hds::Breadcrumb::Item @text="Level one" />
-<Hds::Breadcrumb::Item @text="Level two" />
-<Hds::Breadcrumb::Item @text="Level three truncation" @maxWidth="120px" />
-<Hds::Breadcrumb::Item @text="Level four" />
-<Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  <Hds::Breadcrumb::Item @text="Level one" />
+  <Hds::Breadcrumb::Item @text="Level two" />
+  <Hds::Breadcrumb::Item @text="Level three truncation" @maxWidth="120px" />
+  <Hds::Breadcrumb::Item @text="Level four" />
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
 !!! Info
