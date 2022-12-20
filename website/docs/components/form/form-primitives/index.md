@@ -19,10 +19,6 @@ links:
   @include "partials/code/showcase.md"
 </section>
 
-<section data-tab="Specifications">
-  
-</section>
-
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>

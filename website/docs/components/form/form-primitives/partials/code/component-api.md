@@ -1,6 +1,6 @@
-#### Form::Label
+## Component API
 
-Here is the API for the component:
+### Form::Label
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="controlId" @type="string">
@@ -20,9 +20,7 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::HelperText
-
-Here is the API for the component:
+### Form::HelperText
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="controlId" @type="string">
@@ -36,9 +34,7 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Indicator
-
-Here is the API for the component:
+### Form::Indicator
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isRequired" @type="boolean">
@@ -49,9 +45,7 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Error
-
-Here is the API for the component:
+### Form::Error
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="controlId" @type="string">
@@ -65,9 +59,7 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Legend
-
-Here is the API for the component:
+### Form::Legend
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isRequired" @type="boolean">
@@ -84,9 +76,7 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Field
-
-Here is the API for the component:
+### Form::Field
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="layout" @type="enum" @values={{array "vertical" "flag" }}>
@@ -109,8 +99,7 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-##### Contextual components
-
+#### Contextual components
 Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys.
 
 <Doc::ComponentApi as |C|>
@@ -137,9 +126,7 @@ Control, label, helper text and error content are passed to the field as yielded
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Fieldset
-
-Here is the API for the component:
+### Form::Fieldset
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
@@ -159,9 +146,8 @@ Here is the API for the component:
   </C.Property>
 </Doc::ComponentApi>
 
-##### Contextual components
-
-Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys. The component exposes also two hashed methods, `id` and `ariaDescribedBy`
+#### Contextual components
+Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys. The component also exposes two hashed methods, `id` and `ariaDescribedBy`.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Legend>" @type="yielded component">
