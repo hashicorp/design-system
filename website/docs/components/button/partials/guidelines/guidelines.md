@@ -9,7 +9,7 @@
 - When navigating to another destination, use an [Inline](/components/link/inline/overview) or [Standalone](/components/link/standalone/overview) link.
 - To display multiple actions under a single button, use [Dropdown](/components/dropdown/overview).
 
-## Size
+### Size
 
 <Hds::Button @size="small" @text="Small" />
 <Hds::Button @size="medium" @text="Medium" />
@@ -29,9 +29,7 @@ Buttons are able to be manually stretched to accommodate a need for a full-width
 
 _Banner (informational):_ **Figma Tip:** Select the 'button' layer and manually adjust the width to the wdith needed, then select the child layer (ie '\_main/[size]') and change _Resizing_ for width to 'Fill Container'
 
----
-
-## Type
+### Type
 
 <Hds::Button @color="primary" @icon="arrow-right" @iconPosition="trailing" @text="Primary" />
 
@@ -67,9 +65,7 @@ For example:
 - for actions on a page that require even less visual weight or priority than a secondary button (our default for less important actions)
 - for controlling form fields (such as adding an additional form field)
 
----
-
-## State
+### State
 
 Primary
 
@@ -92,9 +88,7 @@ Disabled buttons should be used sparingly and with intention. Acceptable use cas
 - Incomplete flows (ie. user has not yet completed a required action needed to move forward).
 - Permissions restriction.
 
----
-
-## Icon position
+### Icon position
 
   <Hds::ButtonSet>
     <Hds::Button @color="secondary" @text="No icon" />
@@ -107,9 +101,7 @@ Buttons are provided with flexible icon use; allowing for leading, trailing, or 
 
 _Banner (highlight):_ Buttons used for a dropdown (with the Caret Icon in the Trailing Icon Spot) can be found in [Dropdown](/components/dropdown/overview).
 
----
-
-## Button set
+### Button set
 
 Button Sets are patterns when multiple buttons need to be displayed in a single row; not to be confused with Button Groups.
 
@@ -119,8 +111,6 @@ Button Sets are patterns when multiple buttons need to be displayed in a single 
   </Hds::ButtonSet>
 
 Primary buttons are displayed on the left, Secondary or Tertiary buttons on the right, with 16px between them.
-
----
 
 ## Content
 
