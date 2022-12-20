@@ -12,7 +12,7 @@ The most basic invocation requires text to be passed:
 
 ### Add an icon
 
-To add an icon to your button, give the `@icon` any [icon](https://flight-hashicorp.vercel.app/) name:
+To add an icon to your button, give the `@icon` any [icon](/foundations/icons/) name:
 
 ```handlebars
 <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />

@@ -17,21 +17,29 @@
 
 <Hds::Button @size="large" @text="Large" />
 
-Medium is the preferred size, but use a button size that best fits the UI.
-
-For example:
-
-- don't use large buttons in tables.
-
-_Banner (informational):_ Medium buttons are the same size as default Structure buttons. Small buttons are the same size as Compact Structure buttons.
-
 <Hds::Button @size="large" @isFullWidth={{true}} @text="Full-width button" />
+
+!!! Insight
+
+**Migrating Tip** 
+
+Medium buttons are the same size as default Structure buttons. Small buttons are the same size as Compact Structure buttons.
+
+!!!
+
+Medium is the preferred size, but use a button size that best fits the UI (i.e., don't use a `large` button in a table).
 
 Buttons are able to be manually stretched to accommodate a need for a full-width button. Full-width buttons should fill 100% of the parent container.
 
-_Banner (informational):_ **Figma Tip:** Select the 'button' layer and manually adjust the width to the wdith needed, then select the child layer (ie '\_main/[size]') and change _Resizing_ for width to 'Fill Container'
+!!! Info
 
-### Type
+**Figma Tip:** Select the `button` layer and manually adjust the width to the width needed, then select the child layer (i.e., `\_main/[size]`) and change _Resizing_ for width to 'Fill Container'
+
+!!!
+
+### Types
+
+#### Primary
 
 <Hds::Button @color="primary" @icon="arrow-right" @iconPosition="trailing" @text="Primary" />
 
@@ -43,14 +51,18 @@ For example:
 
   <Hds::Button @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Secondary" />
 
+#### Secondary
+
 Use **Secondary** for less important actions or when multiple actions of the same importance are needed.
 
 For example:
 
-- for 'Cancel' next to a 'Submit' button
-- when needing to let the user do things like 'Download' or 'Generate' a report but neither are the primary focus or goal of the page
+- for `Cancel` next to a `Submit` button
+- when needing to let the user do things like `Download` or `Generate` a report but neither are the primary focus or goal of the page
 
   <Hds::Button @color="critical" @icon="arrow-right" @iconPosition="trailing" @text="Critical" />
+
+#### Critical
 
 Use **Critical** when users take an action that is potentially dangerous.
 
@@ -59,6 +71,8 @@ For example:
 - deleting a cluster.
 
 <Hds::Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
+
+#### Tertiary
 
 Use **Tertiary** for low-priority actions when lighter visual weight is required.
 
