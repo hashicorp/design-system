@@ -1,7 +1,7 @@
 ---
 title: Colors
-description: This is the description of the colors that will appear in the page cover
-caption: This is the caption of the colors page that will appear in the cards lists
+caption: Color and contrast are used to convey information, highlight content, and communicate intent.
+description: Color and contrast are used to convey information, highlight content, and communicate intent.
 ---
 
 <section data-tab="Code">
