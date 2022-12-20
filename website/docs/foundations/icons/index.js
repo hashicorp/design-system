@@ -11,8 +11,11 @@ const DEBOUNCE_MS = 250;
 export default class Index extends Component {
   @service router;
 
+  // query params come from `controllers/show.js` and we access them here because there
+  // is no "controller" for individual component documentation routes
   @tracked selectedIconSize =
     this.router.currentRoute.queryParams['selectedIconSize'] || '24';
+  @tracked searchQuery = this.router.currentRoute.queryParams['searchQuery'];
 
   allIcons = catalog.assets.map(({ iconName, fileName, size, description }) => {
     return {
@@ -25,26 +28,26 @@ export default class Index extends Component {
   });
 
   get filteredIcons() {
-    // query params come from `controllers/show.js` and we access them here because there
-    // is no "controller" for individual component documentation routes
-    const searchQuery = this.router.currentRoute.queryParams['searchQuery'];
-    if (searchQuery) {
+    const selectedIconSize = this.selectedIconSize;
+    if (this.searchQuery) {
       return this.allIcons.filter(
         (i) =>
-          i.size === this.selectedIconSize &&
-          i.searchable.indexOf(searchQuery) !== -1
+          i.size === selectedIconSize &&
+          i.searchable.indexOf(this.searchQuery) !== -1
       );
     } else {
-      return this.allIcons.filter((i) => i.size === this.selectedIconSize);
+      return this.allIcons.filter((i) => i.size === selectedIconSize);
     }
   }
 
   updateQueryParams() {
-    // TODO later when we will have the tabs and sidecar parameters too, we have to preserve them
     const newQueryParams = { queryParams: {} };
     if (this.searchQuery) {
       newQueryParams.queryParams.searchQuery = this.searchQuery;
+    } else {
+      newQueryParams.queryParams.searchQuery = null;
     }
+
     if (this.selectedIconSize) {
       newQueryParams.queryParams.selectedIconSize = this.selectedIconSize;
     }
