@@ -1,6 +1,6 @@
 ## How to use this component
 
-The button component is used to trigger an action or event. For accessibility, buttons should not be used to route to a URL.
+The button component is used to trigger an action or event. For accessibility, buttons should not be used to route to a URL; use a link instead.
 
 ### Basic use
 
