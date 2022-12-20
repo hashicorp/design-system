@@ -9,9 +9,7 @@
 
 ---
 
-## Anatomy
 
-![Button anatomy](/assets/components/button/button-anatomy.png)
 
 #### Text\*
 
@@ -170,11 +168,3 @@ Primary buttons are displayed on the left, Secondary or Tertiary buttons on the 
 
 - Text should be short and to the point (~25 characters). They should not consist of full sentences, but should provide enough context to be useful.
 - Language should be used consistently within each product (ie. when using "Edit" on one page, use that same convention throughout the rest of the application, not "Change").
-
----
-
-## Accessibility
-
-Provide annotations alongside each design of the non-visual experience. This could look like:
-
-![Accessibility annotation example](/assets/components/button/button-annotation_example.png)
