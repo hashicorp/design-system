@@ -95,6 +95,9 @@ At any time, you can check out the `components/template` folder to get an idea o
 - Remove directionality language, such as "see below". This is not inclusive language, nor is it very scalable.
 - Check that assets represent what they're meant to.
     - If you need to add/remove assets, see [the "Media" documentation](./Website-Media.md).
+- Ensure complete sentences and periods are on the `caption` and `description`.
+- Include "(Internal only)" on links that go to internal resources.
+- Remove any reference to "Flight" when talking about Icons.
 
 For more information and best practices around content writing, see [the HDS Writing Guidelines](https://docs.google.com/document/d/1WyoJVpWFVgWbCnZ28WW0gRJwJlj-qV5oY0ExhDR2obs/edit?usp=sharing).
 
