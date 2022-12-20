@@ -1,6 +1,5 @@
 ---
-title: For designers
-description: Guide and resources for designers getting started with the HashiCorp Design System
+title: Getting started for designers
 links:
   figma: https://www.figma.com/files/team/1030156573400567478
 ---
