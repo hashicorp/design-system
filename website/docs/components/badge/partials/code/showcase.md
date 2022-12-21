@@ -1,6 +1,6 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
-  <h2>Showcase</h2>
-  
   <h3 class="dummy-h4">Content</h3>
   <div class="dummy-badge-base-sample">
     <Hds::Badge @text="Only text" />
