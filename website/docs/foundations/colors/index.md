@@ -8,7 +8,7 @@ description: Color and contrast are used to convey information, highlight conten
   @include "partials/code/how-to-use.md"
 </section>
 
-<section data-tab="Other">
-  @include "partials/other/generic-2.md"
+<section data-tab="Palette">
+  @include "partials/other/palette.md"
 </section>
 
