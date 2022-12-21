@@ -4,7 +4,7 @@ Use tags to indicate an object's categorization, i.e., for filtering. Use a [bad
 
 ### Basic use
 
-Invocation of the component would look something like this:
+Invocation of the component would look like this:
 
 ```handlebars
 <Hds::Tag @text="My text tag" @onDismiss={{this.yourOnDismissFunction}} />
