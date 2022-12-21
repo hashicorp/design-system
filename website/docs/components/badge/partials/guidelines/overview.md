@@ -19,7 +19,7 @@ Badges are concise, non-interactive labels that represent metadata.
 
 ### Color
 
-There are six colors: neutral, neutral-dark-mode, highlight, critical, success, and warning.
+There are six colors: `neutral`, `neutral-dark-mode`, `highlight`, `critical`, `success`, and `warning`.
 
 <Hds::Badge @text="Neutral" @color="neutral" />
 <Hds::Badge @text="Neutral-dark-mode" @color="neutral-dark-mode" />
@@ -38,7 +38,7 @@ An icon can be shown in addition to or instead of text.
 
 ### Size
 
-There are three sizes: small, medium, and large.
+There are three sizes: `small`, `medium`, and `large`.
 
 <Hds::Badge @text="Small" @size="small" />
 <Hds::Badge @text="Medium" @size="medium" />
@@ -46,7 +46,7 @@ There are three sizes: small, medium, and large.
 
 ### Type
 
-There are three types of Badges: filled, inverted, and outlined.
+There are three types of Badges: `filled`, `inverted`, and `outlined`.
 
 <Hds::Badge @text="Filled" @type="filled" />
 <Hds::Badge @text="Inverted" @type="inverted" />
