@@ -1,3 +1,6 @@
+@use "../typography/mixins" as *;
+
+
 $doc-color-swatch-border-radius: 3px;
 
 .doc-color-swatch {
@@ -40,11 +43,12 @@ $doc-color-swatch-border-radius: 3px;
 }
 
 .doc-color-swatch__name {
+  @include doc-font-family("gilmer");
+
   margin: 0 0 8px 0;
   font-weight: bold;
   font-weight: 700;
   font-size: 1.125rem;
-  @include doc-font-family("gilmer");
   line-height: 1.75;
 }
 
@@ -64,13 +68,14 @@ $doc-color-swatch-border-radius: 3px;
   }
 
   &--context {
+    @include doc-font-family("gilmer");
+
     display: flex;
     align-items: center;
     margin-bottom: 5px;
     color: var(--doc-color-gray-300);
     font-weight: 600;
     font-size: 0.75rem; // 12px ÷ 16px
-    font-family: Gilmer, sans-serif;
     line-height: 1.2;
     letter-spacing: 0.0125em;
 
