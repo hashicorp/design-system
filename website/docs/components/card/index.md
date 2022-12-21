@@ -8,6 +8,10 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/card
 ---
 
+<section data-tab="Guidelines">
+  @include "partials/guidelines/guidelines.md"
+</section>
+
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
