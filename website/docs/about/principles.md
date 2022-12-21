@@ -1,6 +1,7 @@
 ---
 title: Principles
 description: Consider the whole when creating the parts
+caption: Read the principles that guide the design system team.
 order: 102
 layout:
   sidecar: false

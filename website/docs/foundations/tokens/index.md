@@ -1,12 +1,17 @@
 ---
-title: Design tokens
+title: Tokens
+caption: Design tokens are provided as CSS custom properties and used to share and standardize foundation styles.
+description: Design tokens are provided as CSS custom properties and used to share and standardize foundation styles.
 ---
+
+<section data-tab="Library">
+  <Doc::TokensList
+    @groupedTokens={{this.filteredGroupedTokens}}
+    @searchQuery={{this.searchQuery}}
+    @searchTokens={{this.searchTokens}}
+  />
+</section>
 
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
 </section>
-
-<section data-tab="Other">
-  @include "partials/other/generic-2.md"
-</section>
-

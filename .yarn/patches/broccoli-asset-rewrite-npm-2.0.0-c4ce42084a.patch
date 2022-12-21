@@ -1,0 +1,13 @@
+diff --git a/index.js b/index.js
+index 7d3e96c4fafc3ef01e7f6a5a884d0500fa031b31..c78d43eff3a69b24fc23605d8ee0e8c3a15e64e3 100644
+--- a/index.js
++++ b/index.js
+@@ -106,7 +106,7 @@ AssetRewrite.prototype.rewriteAssetPath = function (string, assetPath, replaceme
+    * ["\')>\s] - Match one of "'(\n> exactly one time
+    */
+ 
+-  var re = new RegExp('["\'(=]\\s*([^"\'()=]*' + escapeRegExp(assetPath) + '[^"\n\'()\\>=]*)(\\?[^"\')> ]*)?\\s*\\\\*\\s*["\')>\s]', 'g');
++  var re = new RegExp('["\'(=]\\s*([^"\'()=]*' + escapeRegExp(assetPath) + '[^"\n\'()\\>=]*)(\\?[^"\')> ]*)?\\s*\\\\*\\s*["=\')>\s]', 'g');
+   var match = null;
+   
+   /*

@@ -12,7 +12,12 @@ export default class DocPageHeaderComponent extends Component {
   }
 
   @action
-  toggleBurgerMenu() {
+  onToggleBurgerMenu() {
     this.burgerMenuOpen = !this.burgerMenuOpen;
+    let { onToggleBurgerMenu } = this.args;
+
+    if (typeof onToggleBurgerMenu === 'function') {
+      onToggleBurgerMenu(this.burgerMenuOpen);
+    }
   }
 }

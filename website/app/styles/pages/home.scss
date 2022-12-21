@@ -30,7 +30,7 @@ body.application.index {
 
   @include breakpoint.medium-and-above() {
     height: 40vw;
-    max-height: 700px;
+    max-height: 640px;
     background-image: url("/assets/illustrations/home-abstract.jpg");
     background-size: contain;
   }

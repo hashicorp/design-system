@@ -1,5 +1,10 @@
 ---
 title: Form / Base elements
+description: Elements used to compose form fields.
+caption: Elements used to compose form fields.
+status: released
+links:
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form
 ---
 
 <section data-tab="Guidelines">
@@ -19,4 +24,3 @@ title: Form / Base elements
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-

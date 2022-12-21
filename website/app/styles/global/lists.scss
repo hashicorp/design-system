@@ -1,0 +1,23 @@
+// LISTS (GENERIC)
+
+.doc-list-generic {
+  padding-left: 16px;
+
+  > li > p {
+    margin-top: 12px;
+  }
+
+  > li + li {
+    margin-top: 12px;
+  }
+
+  // custom marker color
+  > li::marker {
+    color: var(--doc-color-gray-300);
+  }
+}
+
+.doc-list-generic .doc-list-generic {
+  margin-top: 0;
+  margin-bottom: 0;
+}

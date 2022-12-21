@@ -1,5 +1,11 @@
 ---
 title: Link::Inline
+description: A link that is used within a body of text.
+caption: A link that is used within a body of text.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2365%3A21590&t=XC8SUxxJOFHgqYzK-1
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/link
 ---
 
 <section data-tab="Other">
@@ -19,4 +25,3 @@ title: Link::Inline
 <section data-tab="Specifications">
   @include "partials/specifications/design-guidelines.md"
 </section>
-

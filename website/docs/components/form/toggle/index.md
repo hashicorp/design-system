@@ -1,5 +1,11 @@
 ---
 title: Form::Toggle
+description: A form element that allows users to select between two mutually exclusive states.
+caption: A form element that allows users to select between two mutually exclusive states.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36435&t=pDgL7LJUJXZUN7Xq-3
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/toggle
 ---
 
 <section data-tab="Guidelines">
@@ -19,4 +25,3 @@ title: Form::Toggle
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-

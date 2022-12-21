@@ -1,5 +1,11 @@
 ---
 title: Form::TextInput
+description: A form element that provides users with a way to read, input, or edit data.
+caption: A form element that provides users with a way to read, input, or edit data.
+status: released
+links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=11530%3A28348&t=pDgL7LJUJXZUN7Xq-3
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/text-input
 ---
 
 <section data-tab="Guidelines">
@@ -19,4 +25,3 @@ title: Form::TextInput
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-

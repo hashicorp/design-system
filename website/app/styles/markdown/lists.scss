@@ -1,4 +1,4 @@
-// LISTS
+// LISTS (MARKDOWN)
 
 .doc-markdown-ul,
 .doc-markdown-ol {
@@ -11,6 +11,11 @@
   > li + li {
     margin-top: 12px;
   }
+
+  // custom marker color
+  > li::marker {
+    color: var(--doc-color-gray-300);
+  }
 }
 
 .doc-markdown-ul .doc-markdown-ul,
@@ -19,11 +24,4 @@
 .doc-markdown-ol .doc-markdown-ol {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-// custom marker colors
-
-.doc-markdown-ul > li::marker,
-.doc-markdown-ol > li::marker {
-  color: var(--doc-color-gray-300);
 }

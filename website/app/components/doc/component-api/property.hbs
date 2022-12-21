@@ -19,7 +19,7 @@
     <dt class="doc-component-api__term doc-component-api__term--values">Values</dt> 
     <dd class="doc-component-api__description doc-component-api__description--values">
       {{#if @values}}
-      <ul class="doc-component-api__property-values">
+      <ul class="doc-component-api__property-values" role="list">
         {{#each @values as |value|}}
           <li class="doc-component-api__property-value{{if (eq @default value) "--default"}}">
             {{value}}{{#if (eq @default value)}} <span class="doc-sr-only">(default)</span>{{/if}}
