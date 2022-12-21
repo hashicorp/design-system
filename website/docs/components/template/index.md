@@ -1,6 +1,6 @@
 ---
 title: Template
-hidden: true
+hidden: false
 description: {Optional long description that appears in the cover}
 caption: {Short description that appears in the cards}
 status: released
