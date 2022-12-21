@@ -1,6 +1,6 @@
-<section data-test-percy data-section="showcase">
-  
+## Section
 
+<section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">Size</h4>
   {{#each this.SIZES as |size|}}
     <p class="dummy-paragraph">{{capitalize size}}</p>
@@ -24,7 +24,7 @@
   {{/each}}
 
   <h4 class="dummy-h4">Color</h4>
-  {{#each @model.COLORS as |color|}}
+  {{#each this.COLORS as |color|}}
     <p class="dummy-paragraph">{{capitalize color}}</p>
     <br />
     <div class="dummy-modal-sample-item">
