@@ -31,4 +31,5 @@ When the content is disclosed, the container can be closed in different way: tog
 !!! Warning
 
 The "content" is not positioned in any way in relation to the toggle: this responsibility is left to the consumers (eg by applying a `position: absolute` to a wrapper around the content that is passed to the `:content` block).
+
 !!!
