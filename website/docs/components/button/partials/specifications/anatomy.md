@@ -10,4 +10,4 @@
 | Focus Ring       | Focus State Only                                |
 | Trailing Icon*   | Optional                                        |
 
-/* One of these must be present.
+\* One of these must be present.
