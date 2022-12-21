@@ -13,7 +13,11 @@ export default class ComponentsController extends Controller {
           return {
             image:
               `/assets/illustrations/components/` +
-              page.pageAttributes.title.trim().toLowerCase() +
+              page.pageAttributes.title
+                .trim()
+                .toLowerCase()
+                .replace(' ', '-')
+                .replace('::', '-') +
               `.png`,
             title: page.pageAttributes.title,
             caption:
