@@ -4,7 +4,7 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
-## Accessibility in Design
+## Accessibility in design
 
 Provide annotations alongside each design of the non-visual experience. This could look like:
 
