@@ -31,7 +31,6 @@ Medium is the preferred size, but use a button size that best fits the UI (i.e.,
 
 Buttons are able to be manually stretched to accommodate a need for a full-width button. Full-width buttons should fill 100% of the parent container.
 
-!!! Info
 
 
 
