@@ -41,6 +41,16 @@ export default class DocCopyButtonComponent extends Component {
     return textToShow;
   }
 
+  /**
+   * @param isFullWidth
+   * @type {boolean}
+   * @default false
+   * @description Indicates that a button should take up the full width of the parent container. The default is false.
+   */
+  get isFullWidth() {
+    return this.args.isFullWidth ?? false;
+  }
+
   @action
   onSuccess() {
     this.status = 'success';
@@ -68,6 +78,9 @@ export default class DocCopyButtonComponent extends Component {
     let classes = ['doc-copy-button'];
     classes.push(`doc-copy-button--type-${this.type}`);
     classes.push(`doc-copy-button--status-${this.type}`);
+    if (this.isFullWidth) {
+      classes.push(`doc-copy-button--width-full`);
+    }
     return classes.join(' ');
   }
 }
