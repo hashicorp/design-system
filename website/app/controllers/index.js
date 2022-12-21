@@ -5,25 +5,25 @@ export default class IndexController extends Controller {
     {
       title: 'About',
       description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+        'Our aims, principles, and strategy and how to get started with HDS.',
       route: 'about',
     },
     {
       title: 'Foundations',
       description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+        'Design decisions and guidance for colors, icons, typography, and more.',
       route: 'foundations',
     },
     {
       title: 'Components',
       description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+        'Reusable building blocks to speed up your work and focus on your users.',
       route: 'components',
     },
     {
       title: 'Patterns',
       description:
-        'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+        'Guidelines and best practices for consistent and scalable interfaces.',
       route: 'patterns',
     },
   ];

@@ -192,3 +192,8 @@ Compact alerts can be wrapped with a section or component of the page or inline 
 - For warning and critical alerts, guide the users on how to prevent or fix the issue.
 - We support basic text formatting capabilities, such as inline links, bold, italic, code, and bulleted lists.
 - For actions, refer to [Button](/components/button) and [Link](/components/link/standalone) content guidelines.
+
+## Related
+
+- [Toast](/components/toast)
+- [Modal](/components/modal)
