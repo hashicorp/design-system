@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'website',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
 
     EmberENV: {
       FEATURES: {
