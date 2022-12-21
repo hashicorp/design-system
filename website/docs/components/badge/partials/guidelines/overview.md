@@ -46,7 +46,7 @@ There are three sizes: `small`, `medium`, and `large`.
 
 ### Type
 
-There are three types of Badges: filled, inverted, and outlined.
+There are three types of Badges: `filled`, `inverted`, and `outlined`.
 
 <Hds::Badge @text="Filled" @type="filled" />
 <Hds::Badge @text="Inverted" @type="inverted" />
