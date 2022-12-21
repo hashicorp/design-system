@@ -8,7 +8,7 @@ export default class DocDoDontComponent extends Component {
         label = 'Do';
         break;
       case 'dont':
-        label = 'Dont';
+        label = 'Don’t';
         break;
       default:
         break;
