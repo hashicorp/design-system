@@ -1,6 +1,8 @@
-The button component is used to trigger an action or event. For accessibility, buttons should not be used to route to a URL.
+## How to use this component
 
-#### Basic use
+The button component is used to trigger an action or event. For accessibility, buttons should not be used to route to a URL; use a link instead.
+
+### Basic use
 
 The most basic invocation requires text to be passed:
 
@@ -8,15 +10,15 @@ The most basic invocation requires text to be passed:
 <Hds::Button @text="Copy to clipboard" />
 ```
 
-#### Add an icon
+### Add an icon
 
-To add an icon to your button, give the `@icon` a [Flight icon](https://flight-hashicorp.vercel.app/) name:
+To add an icon to your button, give the `@icon` any [icon](/foundations/icons/) name:
 
 ```handlebars
 <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
 ```
 
-#### Icon position
+### Icon position
 
 By default, if you define an icon, it is placed before the text. If you would like to position the icon after the text, define `@iconPosition`:
 
@@ -24,7 +26,7 @@ By default, if you define an icon, it is placed before the text. If you would li
 <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
 ```
 
-#### Icon-only button
+### Icon-only button
 
 If you would like to create an icon-only button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `button` element.
 
@@ -34,7 +36,7 @@ If you would like to create an icon-only button, set `@isIconOnly` to `true`. No
 
 Note: If you need to add a tooltip to an icon-only button, here is an example of how to do it in an accessible way: [Accessible Button Tooltip Pattern](https://codepen.io/melsumner/pen/bGGdmMV).
 
-#### Color
+### Color
 
 There are four available colors for a button: `primary`, `secondary`, `tertiary`, and `critical`. The default is `primary`. To use a different color, declare another value for `@color`:
 
@@ -42,7 +44,7 @@ There are four available colors for a button: `primary`, `secondary`, `tertiary`
 <Hds::Button @text="Critical" @color="critical" />
 ```
 
-#### Size
+### Size
 
 There are three sizes available for buttons: `small`, `medium` and `large`. The default is `medium`. To use a different size, declare a value for `@size`:
 
@@ -50,7 +52,7 @@ There are three sizes available for buttons: `small`, `medium` and `large`. The 
 <Hds::Button @text="Large button" @size="large" />
 ```
 
-#### Full-width
+### Full-width
 
 This allows indication that a button should take up the full-width of the parent container. It is set to `false` by default.
 
@@ -58,7 +60,7 @@ This allows indication that a button should take up the full-width of the parent
 <Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
 ```
 
-#### Type
+### Type
 
 This is the native button attribute, `type`. There are three possible values: `button`, `submit`, and `reset`. The default `type` for the button is `submit`. To prevent a button from submitting a form, set `type` to `button`.
 
@@ -68,7 +70,7 @@ This is the native button attribute, `type`. There are three possible values: `b
 
 _Notice: if you're passing a `@href` or a `@route` argument to the component, this will generate a `<a>` link, not a `<button>` (see below). In this case no `type` is needed._
 
-#### Actions
+### Actions
 
 Define the action in your route or controller, and add it to the component invocation in your template:
 
@@ -78,13 +80,19 @@ Define the action in your route or controller, and add it to the component invoc
 
 Read the Ember.js guides for more information: [Patterns for Actions](https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/) .
 
-#### Links
+### Links
 
 You can generate a link with the visual appearence of a button passing a `@href` or a `@route` argument to the component.
 
-_Notice: the `Hds::Button` component internally uses the generic `Hds::Interactive` component. For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/)._
+!!! Info
 
-##### With @href
+**Interaction** 
+
+The `Hds::Button` component internally uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive/).
+
+!!!
+
+#### With @href
 
 If you pass a `@href` argument a `<a>` link will be generated:
 
@@ -96,7 +104,7 @@ If you pass a `@href` argument a `<a>` link will be generated:
 
 **Important**: if a `href` HTML attribute is used instead of the `@href` Ember argument we apply this visual treatment to alert the developer:
 
-##### With @route
+#### With @route
 
 If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>` Ember component:
 
@@ -106,9 +114,15 @@ If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>
 
 **Important**: if the route is external to your current engine you have to pass also `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a simple `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive/).
 
-_Notice: all the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`)._
+!!! Info
 
-#### Disabled buttons
+**LinkTo**
+
+All of the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
+
+!!!
+
+### Disabled buttons
 
 To disable a button, manually add the native `disabled` attribute:
 
