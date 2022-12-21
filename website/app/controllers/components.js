@@ -12,7 +12,7 @@ export default class ComponentsController extends Controller {
         .map((page) => {
           return {
             image:
-              `/public/assets/illustrations/components/` +
+              `/assets/illustrations/components/` +
               page.pageAttributes.title.trim().toLowerCase() +
               `.png`,
             title: page.pageAttributes.title,
