@@ -1,4 +1,5 @@
 ## Usage
+
 ### When to use
 
 Use tags to indicate an object's categorization, i.e., for filtering.
