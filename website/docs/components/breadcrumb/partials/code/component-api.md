@@ -8,8 +8,6 @@ The breadcrumb component is composed of three different parts, each with their o
 
 ### Breadcrumb container
 
-Here is the API for the main "container" component:
-
 <Doc::ComponentApi as |C|>
 <C.Property @name="itemsCanWrap" @type="boolean">
 This controls if the breadcrumb items can wrap in case they don't fit in the container width.
@@ -23,8 +21,6 @@ This hook method is called when the component is inserted in the DOM. _Note: int
 </Doc::ComponentApi>
 
 ### Breadcrumb::Item
-
-Here is the API for the "item" sub-component:
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="text" @type="string">
@@ -45,8 +41,6 @@ Determines if an item is the last item in the breadcrumb, in which case it doesn
 </Doc::ComponentApi>
 
 ### Breadcrumb::Truncation
-
-Here is the API for the "truncation" sub-component:
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="yield">
