@@ -12,13 +12,15 @@ Invocation of the component would look like this:
 In this case, since no `@href` or `@route` argument is provided it will generate in output an HTML `<button>` element.
 
 !!! Info
-type="button" HTML attribute is applied by default to the element, but this can be overwritten using the "splattributes".
+
+`type="button"` HTML attribute is applied by default to the element, but this can be overwritten using the "splattributes".
 !!!
 
 ### With `@href` parameter (`<a>`)
 
 !!! Critical
-We can't support the direct use of the href HTML attribute because we need to rely on the @href Ember argument to differentiate between different types of generated output.
+
+We can't support the direct use of the `href` HTML attribute because we need to rely on the `@href` Ember argument to differentiate between different types of generated output.
 !!!
 
 If an `@href` argument is provided:
@@ -32,6 +34,7 @@ If an `@href` argument is provided:
 it will generate in output an HTML `<a>` link element with `target="_blank"` and `rel="noopener noreferrer"` attributes.
 
 !!! Info
+
 We add these attributes by default because this is the most common case (internal links are generally handled using a `@route` argument). This behavior can be overridden.
 !!!
 
