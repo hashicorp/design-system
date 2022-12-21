@@ -11,7 +11,7 @@
 | Size             | Optional                                                             |
 | Type             | Optional                                                             |
 
-# TODO: Keep or delete below?
+<!-- TODO: Keep or delete below?
 
 ## Text
 
@@ -128,4 +128,4 @@ Status badges (Success, Warning, Critical) should always include an icon to avoi
 
 When using badges, provide annotations of the non-visual experience to the team. This could look like:
 
-![Example of an annotation of a badge to provide more context](/assets/components/badge/badge-annotation.png)
+![Example of an annotation of a badge to provide more context](/assets/components/badge/badge-annotation.png) -->
