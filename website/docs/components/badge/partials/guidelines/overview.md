@@ -19,7 +19,7 @@ Badges are concise, non-interactive labels that represent metadata.
 
 ### Color
 
-There are six colors: neutral, neutral-dark-mode, highlight, critical, success, and warning.
+There are six colors: `neutral`, `neutral-dark-mode`, `highlight`, `critical`, `success`, and `warning`.
 
 <Hds::Badge @text="Neutral" @color="neutral" />
 <Hds::Badge @text="Neutral-dark-mode" @color="neutral-dark-mode" />
