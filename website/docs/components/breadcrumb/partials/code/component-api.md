@@ -16,7 +16,7 @@ This controls if the breadcrumb items can wrap in case they don't fit in the con
 This hook method is called when the component is inserted in the DOM. _Note: internally we use the "did-insert" modifier from `@ember/render-modifiers`._
 </C.Property>
 <C.Property @name="...attributes">
-`...attributes` spreading is supported on this component. _Note: by default an attribute `aria-label="breadcrumbs"` is assigned to the component. If you want to localize it you can override it passing the same attribute with a different value._
+This component supports use of `...attributes`. _Note: by default an attribute `aria-label="breadcrumbs"` is assigned to the component. If you want to localize it you can override it passing the same attribute with a different value._
 </C.Property>
 </Doc::ComponentApi>
 
