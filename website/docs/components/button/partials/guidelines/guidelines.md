@@ -34,7 +34,6 @@ Buttons are able to be manually stretched to accommodate a need for a full-width
 !!! Info
 
 
-!!!
 
 ### Types
 
