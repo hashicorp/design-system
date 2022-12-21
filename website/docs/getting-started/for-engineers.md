@@ -3,11 +3,11 @@ title: For engineers
 order: 102
 ---
 
-The Design System team maintains design tokens, icons, and components in a [monorepo](https://github.com/hashicorp/design-system) and publishes them regularly to npm.
+The Design Systems team maintains design tokens, icons, and components in a [monorepo](https://github.com/hashicorp/design-system) and publishes them regularly to npm.
 
 ## Components
 
-We provide components as an [Ember](https://emberjs.com/) addon with associated styles written in [Sass](https://sass-lang.com/). By installing the components you also have access to the design tokens and CSS helper classes.
+We provide components as an [Ember](https://emberjs.com/) addon with associated styles written in [Sass](https://sass-lang.com/). By installing the components, you also have access to the design tokens and CSS helper classes.
 
 ### Install package
 
@@ -78,7 +78,7 @@ For more details, examples and guidelines read [the complete icons documentation
 
 ## Tokens
 
-If the Ember components are not an option for your project you can use design tokens to keep in sync with the styles we provide.
+If the Ember components are not an option for your project, you can still use the design tokens to keep in sync with the styles we provide.
 
 ### Install package
 
