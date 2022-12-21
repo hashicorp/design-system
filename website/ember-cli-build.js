@@ -21,6 +21,7 @@ module.exports = function (defaults) {
     fingerprint: {
       // override defaults to also include json files which our markdown is compiled to. without this images don't render properly.
       replaceExtensions: ['html', 'css', 'js', 'json'],
+      enabled: false,
     },
     'ember-prism': {
       components: [
