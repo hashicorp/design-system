@@ -1,57 +1,17 @@
-## When to use
-
-- Use tabs to organize related content within the same context and at the same level of hierarchy.
-
-## When not to use
-
-- In place of navigation
-- For comparing information
-- For quick filters or any other filtering type function
-- If finding a need for nested tabs, consider using a different navigation pattern.
-
----
-
 ## Anatomy
 
 ![Tab container anatomy](/assets/components/tabs/tabs-anatomy.png)
 
-#### Tabs
-
-Two tab items required
-
-#### Content area
-
-(not part of the component) Required, as in Tabs should never be used alone.
-
-![Tab items anatomy](/assets/components/tabs/tabs-tab_items-anatomy.png)
-
-#### Selected
-
-One is always selected
-
-#### Bottom border
-
-Required
-
-![Tab item anatomy](/assets/components/tabs/tabs-tab_item-anatomy.png)
-
-#### Icon
-
-Optional
-
-#### Text
-
-Required
-
-#### Count
-
-Optional
-
-#### Indicator
-
-Displayed on selected tabs
-
----
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Tab              | Required, two minimum                           |
+| Content area     | Required, Tabs should never be used alone       |
+| Selected         | Required, one is always selected                |
+| Bottom border    | Required                                        |
+| Icon             | Optional                                        |
+| Text             | Required                                        |
+| Count            | Optional                                        |
+| Indicator        | Required, displayed on selected Tab             |
 
 ## States
 
@@ -113,46 +73,35 @@ Refer to [HashiCorp's Style, Language, and Voice Guidelines](https://docs.google
 
 ---
 
-## Accessibility
-
-### Animation
-
-No indicator animation will be present for users that have enabled `prefers-reduced-motion`.
-
 ### Keyboard navigation
 
 Focus
 
-<section>
-  <Hds::Badge @color="neutral" @text="Tab" @size="small" />
-</section>
+<Hds::Badge @color="neutral" @text="Tab" @size="small" />
 
 ![Keyboard tab navigation example](/assets/components/tabs/tabs-accessibility-tab-01.png)
 
 Activate tab to display matching content area
 
-<section>
-  <Hds::Badge @color="neutral" @text="Spacebar" @size="small" />
-  <Hds::Badge @color="neutral" @text="Enter" @size="small" />
-</section>
+<Hds::Badge @color="neutral" @text="Spacebar" @size="small" />
+<Hds::Badge @color="neutral" @text="Enter" @size="small" />
 
 ![Keyboard tab navigation example](/assets/components/tabs/tabs-accessibility-spacebar_enter.png)
 
 Move between tabs
 
-<section>
-  <Hds::Badge @color="neutral" @text="Arrow left" @isIconOnly={{true}} @icon="arrow-left" @size="small" />
-  <Hds::Badge @color="neutral" @text="Arrow right" @isIconOnly={{true}} @icon="arrow-right" @size="small" />
-</section>
+<Hds::Badge @color="neutral" @text="Arrow left" @isIconOnly={{true}} @icon="arrow-left" @size="small" />
+<Hds::Badge @color="neutral" @text="Arrow right" @isIconOnly={{true}} @icon="arrow-right" @size="small" />
 
 ![Keyboard tab navigation example](/assets/components/tabs/tabs-accessibility-arrow_keys.png)
 
 Move to interactive element within the content area
 
-<section>
-  <Hds::Badge @color="neutral" @text="Tab" @size="small" />
-</section>
+<Hds::Badge @color="neutral" @text="Tab" @size="small" />
 
 ![Keyboard tab navigation example](/assets/components/tabs/tabs-accessibility-tab-02.png)
 
-_Banner (informational):_ If focus is on the first tab, `left arrow` moves focus to the last tab. If focus is on the last tab, `right arrow` moves focus to the first tab.
+!!! Info
+
+ If focus is on the first tab, `left arrow` moves focus to the last tab. If focus is on the last tab, `right arrow` moves focus to the first tab.
+!!!

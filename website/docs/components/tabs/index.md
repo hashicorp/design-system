@@ -13,8 +13,8 @@ links:
 </section>
 
 <section data-tab="Code">
-  @include "partials/code/component-api.md"
   @include "partials/code/how-to-use.md"
+  @include "partials/code/component-api.md"
   @include "partials/code/showcase.md"
 </section>
 
@@ -24,4 +24,5 @@ links:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+  @include "partials/accessibility/support.md"
 </section>
