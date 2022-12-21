@@ -39,7 +39,7 @@ sassOptions: {
 Add the following line to the main Sass file in your application (for example, in `app.scss`):
 
 ```scss
-@import '@hashicorp/design-system-components';
+@import "@hashicorp/design-system-components";
 ```
 
 !!! Info
@@ -92,19 +92,19 @@ You can import design tokens as CSS variables by adding one of the following lin
 
 ```scss
 // for product applications
-@import '~@hashicorp/design-system-tokens/dist/products/css/tokens.css';
+@import "~@hashicorp/design-system-tokens/dist/products/css/tokens.css";
 
 // for devdot platform
-@import '~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css';
+@import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
 ```
 
 You can import CSS helper classes by adding any of the following lines to the main Sass file in your application (for example, in `app.scss`). Replace `products` with `devdot` as necessary.
 
 ```scss
-@import '~@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css';
-@import '~@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css';
-@import '~@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css';
-@import '~@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css';
+@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
+@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
+@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
+@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
 ```
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens/).
