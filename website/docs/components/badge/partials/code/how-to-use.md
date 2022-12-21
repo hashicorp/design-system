@@ -42,7 +42,7 @@ A different size of Badge can be invoked using the `size` argument.
 
 ### Type
 
-Use the type argument to invoke different Badge types.
+Use the `type` argument to invoke different Badge types.
 
 ```handlebars
 <Hds::Badge @text="Outlined badge" @type="outlined" />
