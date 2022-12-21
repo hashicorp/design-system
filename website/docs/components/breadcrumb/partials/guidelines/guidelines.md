@@ -13,7 +13,7 @@
 
 !!! Info
 
-The last item in a the breadcrumb should always be the current page.
+The last item in a the breadcrumb should always be the current page, and it should not be interactive.
 
 !!!
 

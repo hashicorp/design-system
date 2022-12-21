@@ -27,7 +27,7 @@ This hook method is called when the component is inserted in the DOM. _Note: int
 The text shown within the item, or "crumb".
 </C.Property>
 <C.Property @name="icon" @type="string">
-Use this parameter to show an icon. Any [Flight](/foundations/icons) icon name is acceptable.
+Use this parameter to show an icon. Any [icon name](/foundations/icons) is acceptable.
 </C.Property>
 <C.Property @name="route/models/model/query">
 These are the parameters that are passed down as arguments to the `<LinkTo>` component.
@@ -36,7 +36,7 @@ These are the parameters that are passed down as arguments to the `<LinkTo>` com
 Determines if an item is the last item in the breadcrumb, in which case it doesn't generate a link.
 </C.Property>
 <C.Property @name="...attributes">
-`...attributes` spreading is supported on this component.
+This component supports use of `...attributes`.
 </C.Property>
 </Doc::ComponentApi>
 
@@ -47,6 +47,6 @@ Determines if an item is the last item in the breadcrumb, in which case it doesn
 Elements passed as children of this sub-component are yielded to the content of the [Disclosure](../utilities/disclosure) component (used to show/hide the yielded breadcrumb items via a "toggle" button).
 </C.Property>
 <C.Property @name="...attributes">
-`...attributes` spreading is supported on this component.
+This component supports use of `...attributes`.
 </C.Property>
 </Doc::ComponentApi>

@@ -32,7 +32,7 @@ In the basic example a few parameters are omitted for clarity. In reality, each 
 
 #### No wrapping
 
-By default, the breadcrumb allows items to wrap on multiple lines if the container width is too small. If you don't want this to happen, pass `false` to the `itemsCanWrap` parameter, but keep in mind that the text will be automatically replaced with an ellipsis to fit the container:
+By default, the breadcrumb allows items to wrap on multiple lines if the container width is too small. If you don’t want this to happen, pass `false` to the `itemsCanWrap` parameter, but keep in mind that the text will be automatically replaced with an ellipsis to fit the container:
 
 ```handlebars
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
