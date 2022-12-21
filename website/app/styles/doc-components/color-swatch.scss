@@ -44,7 +44,7 @@ $doc-color-swatch-border-radius: 3px;
   font-weight: bold;
   font-weight: 700;
   font-size: 1.125rem;
-  font-family: Gilmer, sans-serif;
+  @include doc-font-family("gilmer");
   line-height: 1.75;
 }
 
