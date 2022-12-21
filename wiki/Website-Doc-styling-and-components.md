@@ -122,6 +122,13 @@ You can see a showcase of different variants for this component here: https://hd
 
 ![Badge variants](images/doc-badge.png)
 
+##### Accessibility conformance rating badges
+Badges are used to show the conformance rating in the accessibility section of our component documentation. There are 3 conformance ratings: `Conformant`, `Conditionally Conformant`, and `Not Conformant`. Most of our components are `Conformant` or `Conditionally Conformant`. 
+
+⚠️ **Important:** If finding that you need to use `Not Conformant`, reach out to the design systems team to confirm you have the proper status.
+
+![Accessibility badge variants](images/doc-a11y-badge.png)
+
 #### Banner
 
 The `Doc::Banner` component is used to highlight a certain piece of content in a page. It should be used **preferably** via [markdown custom syntax](./Website-Markdown.md#banner) or it could be used directly as an Ember component, but **only if necessary** (for example in Handlebar template files).
@@ -129,6 +136,13 @@ The `Doc::Banner` component is used to highlight a certain piece of content in a
 You can see a showcase of different variants for this component here: https://hds-website-hashicorp.vercel.app/testing/components/banner/
 
 ![Banner variants](images/doc-banner.png)
+
+##### Recommended banner usage
+- `Information`: Use for informational content and tips. 
+  - Consider if the content in an information banner really needs to have prominence on the page. 
+- `Warning`: Use for important messages cautioning consumers about a topic or to communicate breaking changes.
+- `Critical`: Use for sunset notices and deprecation messaging.
+- `Insight`: Use for migration tips from Structure.
 
 #### CopyButton
 

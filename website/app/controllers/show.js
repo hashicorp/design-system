@@ -46,7 +46,7 @@ export default class ShowController extends Controller {
 
     let tab = this.tabs.find((el) => {
       // for consistency we always compare the query param tab to a lowercase version of the tab label
-      return el.label.toLowerCase() === this.selectedTab.replace(/\/+$/, '');
+      return el.label.toLowerCase() === this.selectedTab;
     });
     return tab ? tab.index : 0;
   }

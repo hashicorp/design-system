@@ -4,6 +4,7 @@ self.deprecationWorkflow = self.deprecationWorkflow || {};
 self.deprecationWorkflow.config = {
   workflow: [
     { handler: "silence", matchId: "remove-owner-inject" },
-    { handler: "silence", matchId: "ember-modifier.function-based-options" }
+    { handler: "silence", matchId: "ember-modifier.function-based-options" },
+    { handler: "throw", matchId: "deprecate-auto-location" }
   ]
 };

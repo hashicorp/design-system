@@ -5,7 +5,7 @@ import { setupApplicationTest } from 'website/tests/helpers';
 module('Acceptance | Icon Search', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting a icons page and interacting with search by default', async function (assert) {
+  test('should update query param and content based on search', async function (assert) {
     await visit('/foundations/icons');
     await fillIn('.doc-icons-list-filter input[type="search"]', 'loading');
 
@@ -17,7 +17,7 @@ module('Acceptance | Icon Search', function (hooks) {
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
   });
 
-  test('visiting a icons page with a query param', async function (assert) {
+  test('should load content based on query param', async function (assert) {
     await visit('/foundations/icons?searchQuery=loading&selectedIconSize=16');
 
     assert.strictEqual(
@@ -28,7 +28,17 @@ module('Acceptance | Icon Search', function (hooks) {
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
   });
 
-  test('visiting icons page with no results', async function (assert) {
+  test('should clear search results if input is cleared', async function (assert) {
+    await visit('/foundations/icons?searchQuery=loading&selectedIconSize=16');
+
+    await fillIn('.doc-icons-list-filter input[type="search"]', '');
+
+    // naive way of seeing if all the results come back
+    assert.dom('[data-test-icon="activity"]').exists();
+    assert.strictEqual(currentURL(), '/foundations/icons?selectedIconSize=16');
+  });
+
+  test('should show message when no results are found', async function (assert) {
     await visit('/foundations/icons?searchQuery=wubalubadubdub');
 
     assert.dom('.doc-icons-list-grid__not-found').exists();

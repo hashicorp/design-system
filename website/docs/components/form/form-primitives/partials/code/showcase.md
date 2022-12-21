@@ -1,6 +1,6 @@
-<section data-test-percy data-section="showcase">
-  
+## Showcase
 
+<section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">Label</h4>
   <span class="dummy-text-small">With simple text</span>
   <Hds::Form::Label>This is a simple label</Hds::Form::Label>
