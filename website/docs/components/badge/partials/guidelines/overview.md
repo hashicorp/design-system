@@ -38,7 +38,7 @@ An icon can be shown in addition to or instead of text.
 
 ### Size
 
-There are three sizes: small, medium, and large.
+There are three sizes: `small`, `medium`, and `large`.
 
 <Hds::Badge @text="Small" @size="small" />
 <Hds::Badge @text="Medium" @size="medium" />
