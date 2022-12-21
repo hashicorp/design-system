@@ -4,9 +4,7 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
-## Best practices
-
-### Animations
+## Animation
 
  Animations on Toast will not take place if the user has `prefers-reduced-motion` enabled in their browser or operating system.
 
