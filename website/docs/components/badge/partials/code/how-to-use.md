@@ -34,7 +34,7 @@ To display an icon without text set the `isIconOnly` argument to true. Text is s
 
 ### Size
 
-A different size of Badge can be invoked using the size argument.
+A different size of Badge can be invoked using the `size` argument.
 
 ```handlebars
 <Hds::Badge @text="Large badge" @size="large" />
