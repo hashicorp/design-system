@@ -1,0 +1,86 @@
+@use "../typography/mixins" as *;
+
+
+$doc-color-swatch-border-radius: 3px;
+
+.doc-color-swatch {
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  width: 100%;
+  margin: 16px 0;
+  padding: 0;
+  border: 1px solid var(--doc-color-gray-500);
+  border-radius: $doc-color-swatch-border-radius;
+
+
+  @media screen and (min-width: 1280px) {
+    grid-template-rows: 1fr;
+    grid-template-columns: (minmax(80px, 80px) auto); // just 80px auto didn't work, maybe a bug?
+  }
+}
+
+.doc-color-swatch__preview {
+  border-top-left-radius: $doc-color-swatch-border-radius;
+  border-top-right-radius: $doc-color-swatch-border-radius;
+
+  @media screen and (min-width: 1280px) {
+    grid-area: 1 / 1 / 2 / 2;
+    max-width: 80px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: $doc-color-swatch-border-radius;
+  }
+}
+
+.doc-color-swatch__info {
+  width: 100%;
+  padding: 16px;
+}
+
+.doc-color-swatch__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-color-swatch__name {
+  @include doc-font-family("gilmer");
+
+  margin: 0 0 8px 0;
+  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.doc-color-swatch__listitem {
+  display: grid;
+  margin: 0 0 12px 0;
+  padding: 0;
+  place-content: center start;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    grid-column-gap: 1rem;
+    grid-template-columns: minmax(90px, max-content) 1fr;
+  }
+
+  &--context {
+    @include doc-font-family("gilmer");
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: var(--doc-color-gray-300);
+    font-weight: 600;
+    font-size: 0.75rem; // 12px ÷ 16px
+    line-height: 1.2;
+    letter-spacing: 0.0125em;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+}
