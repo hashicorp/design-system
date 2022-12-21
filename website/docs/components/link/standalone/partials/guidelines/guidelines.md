@@ -46,15 +46,6 @@ For example in an Install page, 'Learn more about Vault'
 
 <Hds::Link::Standalone @text="View clusters" @icon="external-link" @iconPosition="trailing" @color="secondary" @route="components" />
 
-### State
-#### Primary
-
-TBD Image here?
-
-#### Secondary
-
-TBD Image here?
-
 ### Icon position
 
 A **Link (Standalone)** can include leading or trailing icons. Avoid creating links with both leading and trailing icons.
