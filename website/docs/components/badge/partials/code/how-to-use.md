@@ -8,6 +8,14 @@ For a neutral text-based Badge, just pass in text.
 <Hds::Badge @text="Simple badge" />
 ```
 
+### Color
+
+The color argument can be used to change the color from the default neutral value.
+
+```handlebars
+<Hds::Badge @text="Success badge" @color="success" />
+```
+
 ### Icon
 
 Use the icon argument to pass in the name of an icon to be displayed to the left of text.
@@ -24,14 +32,6 @@ To display an icon without text set the isIconOnly argument to true. Text is sti
 <Hds::Badge @text="With text" @icon="terraform" @isIconOnly={{true}} />
 ```
 
-### Type
-
-Use the type argument to invoke different Badge types.
-
-```handlebars
-<Hds::Badge @text="Outlined badge" @type="outlined" />
-```
-
 ### Size
 
 A different size of Badge can be invoked using the size argument.
@@ -40,10 +40,10 @@ A different size of Badge can be invoked using the size argument.
 <Hds::Badge @text="Large badge" @size="large" />
 ```
 
-### Color
+### Type
 
-The color argument can be used to change the color from the default neutral value.
+Use the type argument to invoke different Badge types.
 
 ```handlebars
-<Hds::Badge @text="Success badge" @color="success" />
+<Hds::Badge @text="Outlined badge" @type="outlined" />
 ```

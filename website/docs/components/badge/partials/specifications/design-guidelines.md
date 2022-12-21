@@ -6,10 +6,10 @@
 |------------------|----------------------------------------------------------------------|
 | Text             | Required                                                             |
 | Color            | Optional                                                             |
-| Size             | Optional                                                             |
-| Type             | Optional                                                             |
 | Icon             | Optional, but required on Status badges (Success, Warning, Critical) |
 | isIconOnly       | Optional                                                             |
+| Size             | Optional                                                             |
+| Type             | Optional                                                             |
 
 # TODO: Keep or delete below?
 
