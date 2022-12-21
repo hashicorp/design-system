@@ -8,9 +8,11 @@ Alerts are conformant when there are no interactive elements present inside of t
 ## Best practices
 
 ### Heading 3
+
 {description of best practice}
 
 ### Heading 3
+
 {description of best practice}
 
 ## Applicable WCAG Success Criteria
