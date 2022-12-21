@@ -24,4 +24,5 @@ links:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+  @include "partials/accessibility/support.md"
 </section>
