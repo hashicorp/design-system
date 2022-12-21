@@ -2,7 +2,7 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-Form primitives aren't conformant until used in conjunction with the other components/elements that will make them conformant.
+Form primitives aren’t conformant until used in conjunction with the other components/elements that will make them conformant.
 
 ## Known issues
 
