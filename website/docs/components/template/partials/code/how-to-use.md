@@ -11,6 +11,7 @@
 ```
 
 ### Variant/property name
+
 {description}
 
 ```handlebars
