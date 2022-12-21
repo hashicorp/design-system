@@ -33,7 +33,6 @@ Buttons are able to be manually stretched to accommodate a need for a full-width
 
 !!! Info
 
-**Figma Tip:** Select the `button` layer and manually adjust the width to the width needed, then select the child layer (i.e., `\_main/[size]`) and change _Resizing_ for width to 'Fill Container'
 
 !!!
 
