@@ -1,19 +1,6 @@
 ## How to use this component
 
-Invocation of the component would look like this:
-
-```handlebars
-<Hds::Disclosure>
-  <:toggle>
-    your interactive element here (usually a button)
-  </:toggle>
-  <:content>
-    your content here
-  </:content>
-</Hds::Disclosure>
-```
-
-To actually work, you need an interactive element that can trigger a custom event handler provided by the `:toggle` block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a button (for accessibility reasons).
+Use an interactive element that can trigger a custom event handler provided by the `:toggle` block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a button (for accessibility reasons).
 
 ```handlebars
 <Hds::Disclosure>
