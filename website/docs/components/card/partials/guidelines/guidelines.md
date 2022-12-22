@@ -6,7 +6,7 @@ Use a **Card Container** to help design more consistent cards.
 
 ### Types
 
-#### Static Cards
+#### Static cards
 
 A Static Card may have interactive elements within it, but is not itself actionable or interactive.
 
