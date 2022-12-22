@@ -10,6 +10,6 @@ description: Elevation can be used to offset and draw attention to content or in
 </section>
 
 <section data-tab="Specifications">
-  @include "partials/specifications/design-guidelines.md"
+  @include "partials/specifications/anatomy.md"
 </section>
 
