@@ -8,7 +8,12 @@
       <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{this.currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{this.currentTopRoute}} />
-      <Doc::Page::Header::NavItem @label="Support" @route="support" @currentTopRoute={{this.currentTopRoute}} class="doc-page-header__nav-item--split"/>
+      <Doc::Page::Header::NavItem
+        @label="Support"
+        @route="support"
+        @currentTopRoute={{this.currentTopRoute}}
+        class="doc-page-header__nav-item--split"
+      />
       <li class="doc-page-header__nav-item-generic"><a
           href="https://github.com/hashicorp/design-system"
           target="_blank"
@@ -18,9 +23,11 @@
   </nav>
   <button type="button" class="doc-page-header__burger-menu" {{on "click" this.onToggleBurgerMenu}}>
     {{#if this.burgerMenuOpen}}
-      <FlightIcon @name="x" /> <span class="doc-text-navigation">Close</span>
+      <FlightIcon @name="x" />
+      <span class="doc-text-navigation">Close</span>
     {{else}}
-      <FlightIcon @name="menu" /> <span class="doc-text-navigation">Menu</span>
+      <FlightIcon @name="menu" />
+      <span class="doc-text-navigation">Menu</span>
     {{/if}}
   </button>
 </header>
