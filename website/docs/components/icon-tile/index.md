@@ -1,5 +1,5 @@
 ---
-title: IconTile
+title: Icon Tile
 description: Used to display an icon in a tile-like object.
 caption: Used to display an icon in a tile-like object.
 status: released

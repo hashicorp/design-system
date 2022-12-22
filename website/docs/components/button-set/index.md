@@ -1,5 +1,5 @@
 ---
-title: ButtonSet
+title: Button Set
 description: Provides consistent layout and spacing for a set of buttons.
 caption: A set of buttons.
 status: code-only

@@ -1,4 +1,4 @@
-Here is the API for the component:
+## Component API
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">
