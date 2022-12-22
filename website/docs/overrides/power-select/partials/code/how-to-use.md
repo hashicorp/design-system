@@ -1,8 +1,8 @@
-To use this component in your application follow [the getting started guide on the add-on website](https://ember-power-select.com) then add the PowerSelect overrides as shown below.
+To use this component in your application follow [the getting started guide on the add-on website](https://ember-power-select.com), then add the PowerSelect overrides.
 
-#### Overrides import
+## Overrides import
 
-If you are already using [design-system-components](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md) in your project the overrides import would look something like this:
+If you are already using [design-system-components](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md) in your project the overrides import would look like this:
 
 ```
 @import "@hashicorp/design-system-components";
@@ -11,11 +11,11 @@ If you are already using [design-system-components](https://github.com/hashicorp
 
 If you are not yet using [design-system-components](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md) in your project but you want to use these PowerSelect custom styles you will need to add [design-system-tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/README.md) to your project.
 
-#### Basic usage
+## How to use these overrides
 
 As these overrides rely on specificity, to apply them you need to wrap each PowerSelect instance in an element with `hds-power-select` class applied to it.
 
-Invocation of the component with overrides would look something like this:
+Invocation of the component with overrides would look like this:
 
 ```handlebars
 <div class="hds-power-select">
@@ -31,7 +31,7 @@ Invocation of the component with overrides would look something like this:
 </div>
 ```
 
-#### Search enabled
+### Search enabled
 
 When used with the `@searchEnabled` argument, the input is automatically styled to resemble the [`Form::TextInput`](/components/form/text-input/) component.
 
@@ -50,7 +50,7 @@ When used with the `@searchEnabled` argument, the input is automatically styled 
 </div>
 ```
 
-#### After options block
+### After options block
 
 To consistently style the `@afterOptionsComponent` use the `hds-power-select__after-options` class on the outermost element of the after options component.
 
@@ -77,7 +77,7 @@ Where `power-select/after-options.hbs` would look like this:
 </div>
 ```
 
-#### Multiple selection
+### Multiple selection
 
 When multiple options are allowed the selected items are automatically styled to resemble the [`Tag`](/components/tag/) component.
 

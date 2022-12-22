@@ -1,16 +1,22 @@
-Note: depending on how you're going to process the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, in the examples provided we will omit these specific arguments, for sake of simplicity.
+## How to use this component
 
-As mentioned above, there are two possible ways to use the `Form::TextInput` component: using the "base" variant (essentially just the control itself) or using the "field" variant (the control plus label, helper text and error).
+!!! Info
 
-The "field" one is the one that you will likely want to use, because it provides – for free and out of the box – a lot of accessibility-related functionalities. The "base" one is to be used if and when you need to achieve custom layouts or have special use cases not covered by the "field" variant.
+Depending on how you’re processing the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, we omit these specific arguments in the examples, for sake of simplicity.
+!!!
+
+There are two ways to use the `Form::TextInput` component: using the "base" variant (essentially just the control itself) or using the "field" variant (the control plus label, helper text and error). We recommend using "field" because it provides built-in accessibility functionality. Use "base" if needing to achieve custom layouts or have special use cases not covered by the "field" variant.
 
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
-#### Form::TextInput::Field
+### Form::TextInput::Field
 
-##### Basic use
+The basic invocation requires a `Label`.
 
-The simplest way to invoke a "text input" field is using something like this:
+This creates:
+
+- a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute
+- a `<input type="text">` control with an automatically generated `ID` attribute
 
 ```handlebars
 <Hds::Form::TextInput::Field as |F|>
@@ -18,14 +24,9 @@ The simplest way to invoke a "text input" field is using something like this:
 </Hds::Form::TextInput::Field>
 ```
 
-This "field" component creates:
+#### Input value
 
-*   a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute
-*   a `<input type="text">` control with an automatically generated `ID` attribute
-
-##### Input value
-
-You can pre-populate the input passing to it a `@value` argument:
+Pass a `@value` argument to pre-populate the input.
 
 ```handlebars
 <Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>
@@ -33,9 +34,9 @@ You can pre-populate the input passing to it a `@value` argument:
 </Hds::Form::TextInput::Field>
 ```
 
-##### Type
+#### Type
 
-You can change the type of input passing to it a `@type` argument:
+Pass a `@type` argument to change the type of input. For the list of supported types, see [Component API](#component-api).
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="email" @value="janedoe@email.com" as |F|>
@@ -47,11 +48,9 @@ You can change the type of input passing to it a `@type` argument:
 </Hds::Form::TextInput::Field>
 ```
 
-For the list of supported types look at the [Component API section](#component-api) in this page.
+#### Helper text
 
-##### Helper text
-
-You can add extra information to the field using an "helper" text:
+You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
 <Hds::Form::TextInput::Field @value="036140285924" as |F|>
@@ -60,11 +59,14 @@ You can add extra information to the field using an "helper" text:
 </Hds::Form::TextInput::Field>
 ```
 
-When the "helper" text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
+#### Extra content in label and helper text
 
-##### Extra content in label and helper text
+The `Label` and `HelperText` contextual components used in the "field" yield their content. This means you can also pass structured content.
 
-The `Label` and `HelperText` contextual components used in the "field" are yielding their content: this means you can pass not just plain text, but also structured content. For example:
+!!! Warning
+
+If a link is used within a label, helper text, or error text, it will not be presented as a link to a user with a screen reader; only the text content is read out. We recommend not using links, but if you need to do so sparingly and include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required. 
+!!!
 
 ```handlebars
 <Hds::Form::TextInput::Field as |F|>
@@ -73,11 +75,9 @@ The `Label` and `HelperText` contextual components used in the "field" are yield
 </Hds::Form::TextInput::Field>
 ```
 
-_Notice: If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. Interactive elements in text (associated with the input through aria-describedby) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined._
+#### Required / Optional
 
-##### Required / Optional
-
-It's possible to add a visual indication if a field is "required" or is "optional" using the `@isRequired` and `@isOptional` arguments:
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
 <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
@@ -91,22 +91,18 @@ It's possible to add a visual indication if a field is "required" or is "optiona
 </Hds::Form::TextInput::Field>
 ```
 
-_Notice: for complex forms we suggest to indicate **required** fields, since this is the most explicit and transparent method and ensures users don’t have to make assumptions. For shorter, simpler forms (ie. login/signup and feedback requests) we suggest to indicate **optional** fields._
+#### Validation
 
-##### Validation
-
-Note: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
-
-To show the user that their input is not valid, you have to do two things: declare that the field is "invalid" (using the `@isInvalid`) argument and provide an error message (using the `Error` contextual component):
+To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="email" @value="jane.doe@.com" @isInvalid={{true}} as |F|>
   <F.Label>Email</F.Label>
-  <F.Error>Error: the provided email is not valid.</F.Error>
+  <F.Error>The provided email is not valid.</F.Error>
 </Hds::Form::TextInput::Field>
 ```
 
-It's possible to provide more than one error message using the more specific `Message` contextual component:
+Add more than one error message using the more specific `Message` contextual component.
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="password" @value="1234" @isInvalid={{true}} as |F|>
@@ -118,9 +114,14 @@ It's possible to provide more than one error message using the more specific `Me
 </Hds::Form::TextInput::Field>
 ```
 
-##### Custom control ID
+#### Custom control ID
 
-In case it's necessary to have custom ID for the control, instead of the one automatically generated by the component (eg. because it needs to be referenced in the code for other reasons), you just need to pass a `@id` argument to the "field":
+If it’s necessary to have custom ID for the control, instead of the one automatically generated by the component (i.e., because it needs to be referenced in the code for other reasons), pass the `@id` argument to the field.
+
+!!! Info
+
+In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
+!!!
 
 ```handlebars
 <Hds::Form::TextInput::Field @id="my-control" as |F|>
@@ -129,11 +130,9 @@ In case it's necessary to have custom ID for the control, instead of the one aut
 </Hds::Form::TextInput::Field>
 ```
 
-_Notice: in this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated, only they will use the custom ID provided._
+#### Additional `aria-describedby`
 
-##### Extra "aria-describedby"
-
-If you want to connect one or more extra elements describing the field to the control, it's possible to provide extra ID values to the `aria-describedby` attribute of the control, in addition to the ones automatically generated by the component, passing a `@extraAriaDescribedBy` argument to the "field":
+Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
 <Hds::Form::TextInput::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
@@ -142,9 +141,9 @@ If you want to connect one or more extra elements describing the field to the co
 </Hds::Form::TextInput::Field>
 ```
 
-##### HTML native attributes
+#### HTML native attributes
 
-As explained above in the [Component API](#component-api) section, the input "field" supports the `...attributes` spreading of HTML attributes over the `<input>` element. This means you can use all the standard HTML attributes of the `<input>` element.
+`...attributes` spreading is supported in the field. This means you can use all the standard HTML attributes of the `<input>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `min` `max` `minlength` `maxlength` `pattern` attributes to it).
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="password" name="user-password" placeholder="Insert your password here" minlength="4" maxlength="64" as |F|>
@@ -152,11 +151,9 @@ As explained above in the [Component API](#component-api) section, the input "fi
 </Hds::Form::TextInput::Field>
 ```
 
-This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `min` `max` `minlength` `maxlength` `pattern` attributes to it)
+#### Events handling
 
-##### Events handling
-
-Thanks to the `...attributes` spreading over the `<input>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
+Thanks to the `...attributes` spreading over the `<input>` element, you can use all the usual Ember techniques for event handling, validation, etc. You can use different events, depending on your context (eg. `input`, `blur`, `change`).
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="email" placeholder="eg. name.surname@email.com" {{on "blur" this.yourOnBlurFunction}} as |F|>
@@ -164,11 +161,11 @@ Thanks to the `...attributes` spreading over the `<input>` element, you can use 
 </Hds::Form::TextInput::Field>
 ```
 
-You can use different events, depending on your context/need (eg. `input`, `blur`, `change`).
+#### Custom width
 
-##### Custom width
+By default the input control width is set to fill the parent container, with the exception of "date" and "time" input types. 
 
-By default the input control width is set to fill the parent container (with the exception of "date" and "time" input types). It's possible to pass a custom width for the control using the `@width` argument:
+Pass a custom width for the control using the `@width` argument.
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="search" placeholder="Search clusters" @width="200px" as |F|>
@@ -178,13 +175,20 @@ By default the input control width is set to fill the parent container (with the
 
 {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
-#### Form::TextInput::Base
+### Form::TextInput::Base
 
-As mentioned above, the "base" element is intended **only** for those rare cases where the "field" variant can't be used, and a custom implementation needs to be done. For this reason we will not go too much in detail on how to use it: most of the explanations above apply also to the "base" variant of the component, and for further details refer to the [Component API](#component-api) section on this page, or speak with one of the design system team members.
+The "base" element is intended for rare cases where the "field" variant can’t be used and a custom implementation is needed. Most of the details for the "field" variant also apply to the "base" variant, but see the [Component API](#component-api) for more details.
 
-Note: when the "base" input is used, the developer is completely responsible for the correct implementation of the form control, including its accessibility conformance.
+!!! Warning
 
-To give just an example, this could be an invocation of the "base" component you would use:
+`Form::TextInput::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
+!!!
+
+A basic invocation requires a `@type` argument to be passed.
+
+This creates:
+
+- a `<input type="text">` control with an automatically generated `ID` attribute
 
 ```handlebars
 <Hds::Form::TextInput::Base
@@ -196,5 +200,3 @@ To give just an example, this could be an invocation of the "base" component you
   {{on "blur" this.yourOnBlurFunction}}
 />
 ```
-
-This "base" component creates just the `<input type="text">` control with an automatically generated `ID` attribute.
