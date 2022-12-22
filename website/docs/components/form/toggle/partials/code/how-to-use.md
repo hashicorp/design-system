@@ -5,7 +5,7 @@
 Depending on how you're going to process the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, the examples provided omit these specific arguments for sake of simplicity.
 !!!
 
-There are different possible ways to use the `Form::Toggle` component: using the "base" variant (essentially just the control itself), using the "field" variant (the control plus label, helper text and error), or using the "group" variant (a list of fields with legend, helper text and error).
+There are different possible ways to use the `Form::Toggle` component: using the ”base” variant (essentially just the control itself), using the “field” variant (the control plus label, helper text and error), or using the “group” variant (a list of fields with legend, helper text and error).
 
 The "field" and "group" are the most common variants to use because they provide, for free and out of the box, a lot of accessibility-related enhancements. The "base" variant is to be used if and when you need to achieve custom layouts or have special use cases not covered by the other variants.
 
@@ -38,7 +38,7 @@ You can provide a value to the input passing to it a `@value` argument:
 
 #### Checked
 
-You can set the toggle to "checked" by passing to it the standard HTML `checked` attribute:
+You can set the toggle to “checked” by passing to it the standard HTML `checked` attribute:
 
 ```handlebars
 <Hds::Form::Toggle::Field @value="enable" checked as |F|>
@@ -92,7 +92,7 @@ To show the user that their input is not valid, you have to provide an error mes
 </Hds::Form::Toggle::Field>
 ```
 
-Unlike for the `TextInput/Textarea/Select`, you don't need to pass a `@isInvalid` argument to the field, because the `toggle` control doesn't have an "invalid" visual state.
+Unlike for the `TextInput/Textarea/Select`, you don’t need to pass a `@isInvalid` argument to the field, because the `toggle` control doesn’t have an "invalid" visual state.
 
 #### Custom control ID
 
@@ -120,7 +120,7 @@ If you want to connect one or more extra elements describing the field to the co
 
 #### HTML native attributes
 
-As explained in the [Component API](#component-api) section, the input "field" supports the `...attributes` spreading of HTML attributes over the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element.
+As explained in the [Component API](#component-api) section, the input “field” supports the `...attributes` spreading of HTML attributes over the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element.
 
 ```handlebars
 <Hds::Form::Toggle::Field name="enable" as |F|>
