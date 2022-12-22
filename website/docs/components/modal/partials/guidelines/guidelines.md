@@ -12,7 +12,7 @@
 - In place of an alert, instead use a [Toast](/components/toast) or other alert type.
 - For complex editing, long forms, and experiences with a high level of detail. In these cases the task or function should exist at the page level.
 
-### Size
+## Size
 
 Small
 
@@ -65,12 +65,12 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-#### Best practices
+### Best practices
 
-- Use a Modal size that best accounts for the complexity and intended speed of interaction.
+- Use a Modal size that best accounts for the complexity of the content and intended speed of interaction.
 - The **medium** size accounts for the _majority_ of scenarios and is the default recommended size.
 
-### Color
+## Color
 
 #### Neutral
 
@@ -89,7 +89,7 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-The **neutral** color should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal's function doesn't change or alter areas of the application that aren't directly tied to the current context of the user. Common usage examples include:
+**Neutral** should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal's function doesn't change or alter areas of the application that aren't directly tied to the current context of the user. Common usage examples include:
 
 - functions for creating, editing, or updating objects
 - simple requests of information from the user
@@ -112,7 +112,7 @@ The **neutral** color should be used for the majority of Modal instances and is 
   </M.Footer>
 </Hds::Modal>
 
-A **warning** Modal indicates that the Modal's action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
+**warning** indicates that the Modal's action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
 
 This action may impact areas of the application outside of the scope of the current feature or function, but can also be tied to the context that the user is currently in. Common examples include:
 
@@ -137,33 +137,26 @@ This action may impact areas of the application outside of the scope of the curr
   </M.Footer>
 </Hds::Modal>
 
-A **critical** Modal is used to indicate a destructive action that is irreversible and will impact other settings, items, or objects within the current feature or in other areas of the application. Common examples include:
+**critical** is used to indicate a destructive action that is irreversible and will impact other settings, items, or objects within the current feature or in other areas of the application. Common examples include:
 
 - deleting an item or object that cannot be recovered
 - modifying a setting that cannot be changed or reversed in the future
 - alerting the user of unsaved changes that will be discarded.
 
-### Title icon
+## Modal body
 
-#### Best practices
-
-- A **titleIcon** can help reinforce the severity, strength, and importance of the **warning** and **critical** color variants.
-- The primary action in the **critical** variant should use a critical action button variant.
-
-### Modal body
-
-#### Body type
+### Body type
 
 ![Modal body types](/assets/components/modal/modal-body-type.png)
 
 - The **default** body type is meant for simple text-based content and could be used for a quick confirmation of an action or disclosure of information.
 - The **custom** body type is suitable for the majority of use cases when collecting information or feedback from the user. It can accept any custom component and nested components by swapping out the placeholder instance with a local component or relevant HDS component.
 
-### Modal footer
+## Modal footer
 
-#### Actions
+### Actions
 
-##### General best practices
+#### General best practices
 
 - The only property that should be changed in the actions within the footer is the text property, except in the case of a **critical** or destructive function (in which the button should reflect the destructive action).
 - Action buttons should remain consistent with the variants defined in the number of actions in the footer; **primary**, **secondary**, and **tertiary**, in that order.
@@ -198,7 +191,7 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
   </Hds::ButtonSet>
 </Hds::Modal::Footer>
 
-##### Tertiary best practices
+#### Tertiary best practices
 
 - If a tertiary action is necessary it should not be grouped with the button set of primary and secondary actions, as button grouping should be determined by functionality.
 - Common examples of tertiary actions include:
@@ -221,8 +214,6 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
     <Hds::Button @text="Cancel" @color="secondary" />
   </Hds::ButtonSet>
 </Hds::Modal::Footer>
-
-
 !!!
 
 !!! Dont
@@ -233,7 +224,6 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
     <Hds::Button @text="Don't rename this cluster" @color="secondary" />
   </Hds::ButtonSet>
 </Hds::Modal::Footer>
-
 !!!
 
 **If using two actions within a Modal, the messages (and functions) should be inverses of each other**
@@ -242,9 +232,9 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
 - Most Modals should have a low to medium level of complexity and promote interaction with a simple "yes/no" or "ok/cancel".
 - If the complexity of the Modal breaks this pattern, consider moving the function being performed by the Modal to it's own page.
 
-### Title
+## Title
 
-#### Title icon
+### Title icon
 
 **with Title icon**
 
@@ -262,7 +252,7 @@ Icons can be used to communicate the severity and importance of interacting with
 
 The purpose and function of the Modal should not rely solely on an icon, instead the title should be explicit and pragmatic while the icon provides visual support.
 
-#### Tagline
+### Tagline
 
 **with Tagline**
 
@@ -284,7 +274,7 @@ Even though adding a title icon and tagline can help the user better understand 
 
 !!!
 
-### Dismissal
+## Dismissal
 
 The most common dismissal method for a Modal is via the dismiss button in the Modal header. This acts as a simple escape hatch for the user and helps prevent the user from getting stuck.
 
@@ -296,7 +286,7 @@ The most common dismissal method for a Modal is via the dismiss button in the Mo
 
 The entry point for a Modal should be straightforward enough that if a user accidentally dismisses it, the Modal can be easily triggered again.
 
-#### Dismissal actions
+### Dismissal actions
 
 The following actions will dismiss or close the Modal except if `isDismissDisabled` is set to true in the production component:
 
@@ -320,7 +310,7 @@ Note: Both of the above steps are recommendations of the HDS team, but are the r
 
 ![Default browser notification](/assets/components/modal/modal-default-browser-notification.png)
 
-### Position and responsive sizing
+## Position and responsive sizing
 
 ![Modal positioning](/assets/components/modal/modal-positioning.png)
 
