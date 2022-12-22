@@ -8,7 +8,7 @@ Tabs allow users to move between different views within the same context at the 
 
 ### When not to use
 
-- Tabs are not intended for navigation, for this purpose consider using a sidebar, links, or [Breadcrumb](/components/breadcrumb/).
+- Tabs are not intended for navigation, for this purpose consider using a sidebar, [links](/components/links/standalone/), or [Breadcrumb](/components/breadcrumb/).
 
 ### Basic Tabs
 
