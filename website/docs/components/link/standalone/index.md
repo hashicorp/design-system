@@ -1,5 +1,5 @@
 ---
-title: Link::Standalone
+title: Link (Standalone)
 description: A link used in isolation and not as a part of surrounding body text.
 caption: A link used in isolation and not as a part of surrounding body text.
 status: released
