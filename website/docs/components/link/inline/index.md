@@ -1,5 +1,5 @@
 ---
-title: Link::Inline
+title: Inline Link
 description: A link that is used within a body of text.
 caption: A link that is used within a body of text.
 status: released
