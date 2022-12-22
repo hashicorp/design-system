@@ -66,10 +66,7 @@ Label, helper text, and error content are passed to the field as yielded compone
 
 Legend, group of fields, and error content are passed to the group as yielded components, using the `Legend`, `Toggle::Field`, and `Error` keys.
 
-!!! Info
-
 The group of elements is automatically wrapped in a `<fieldset>` element.
-!!!
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[G].Legend>" @type="yielded component">
