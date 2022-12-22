@@ -1,9 +1,17 @@
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status -->
+<!-- Update conformance rating badge with correct status and remove the others -->
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+When used as recommended, there should not be any WCAG conformance issues with this component.
+
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-Alerts are conformant when there are no interactive elements present inside of the alert. There is future work planned to make this component WCAG conformant by adding support for the correct ARIA roles when interactive elements are contained within the alert.
+Explain how the component is conditionally conformant. For example, any component that offers text truncation is conditionally conformant- it is conformant as long as the text truncation feature is not used.
+
+<Doc::Badge @type="critical">Not conformant</Doc::Badge>
+
+The `Component Name` component is not WCAG-conformant on its own. (Explain how to use it in a conformant way)
 
 ## Best practices
 
