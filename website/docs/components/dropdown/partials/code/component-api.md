@@ -1,3 +1,5 @@
+## Component API
+
 The `Dropdown` component is composed of different child components, each with their own APIs:
 
 *   the dropdown component (parent to the child components)
