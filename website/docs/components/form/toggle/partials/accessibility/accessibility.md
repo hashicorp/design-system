@@ -1,10 +1,10 @@
 ## Conformance rating
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-The `Form::Toggle::Base` variation of this component is conditionally conformant; that is, it is not conformant until it has an accessible name
+The `Form::Toggle::Base` variation of this component is conditionally conformant; that is, it is not conformant until it has an accessible name.
 ## Known Issues
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. It is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined.
 
 ## Applicable WCAG Success Criteria
 

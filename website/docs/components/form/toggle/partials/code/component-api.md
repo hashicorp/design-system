@@ -31,7 +31,7 @@ The `Form::Toggle` component has two different variants, with their own APIs:
 
 #### Contextual components
 
-Label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Error` keys.
+Label, helper text, and error content are passed to the field as yielded components using the `Label`, `HelperText`, and `Error` keys.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
@@ -64,7 +64,7 @@ Label, helper text and error content are passed to the field as yielded componen
 
 #### Contextual components
 
-Legend, group of fields and error content are passed to the group as yielded components, using the `Legend`, `Toggle::Field`, `Error` keys.
+Legend, group of fields, and error content are passed to the group as yielded components, using the `Legend`, `Toggle::Field`, and `Error` keys.
 
 !!! Info
 
