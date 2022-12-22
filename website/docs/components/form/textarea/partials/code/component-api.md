@@ -9,7 +9,7 @@ This component has two different variants, with their own APIs:
 
 ### Form::Textarea::Base
 
-The "base" component under the hood uses the Ember `Textarea` built-in component. Please refer to the [`Textarea` API documentation](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/Textarea?anchor=Textarea) for more details.
+The "base" component under the hood uses the Ember `Textarea` built-in component. Refer to the [`Textarea` API documentation](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/Textarea?anchor=Textarea) for more details.
 
 In addition this component provides this extra API:
 
