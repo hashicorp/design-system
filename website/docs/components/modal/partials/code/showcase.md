@@ -1,4 +1,4 @@
-## Section
+## Showcase
 
 <section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">Size</h4>
