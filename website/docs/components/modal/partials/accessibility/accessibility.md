@@ -1,3 +1,9 @@
+## Conformance
+
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+The Modal component is conformant when used as directed.
+
 ## Focus and focus order
 
 - When the Modal is triggered via the keyboard, focus is trapped within the Modal.
@@ -18,7 +24,7 @@ Given the Modal is triggered via a keyboard, the dismiss button is first in the 
 
 ![Complex focus within a modal](/assets/components/modal/modal-focus-order-complex.png)
 
-#### Applicable WCAG Success Criteria (Reference)
+#### Applicable WCAG Success Criteria
 
 This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG success criteria:
 

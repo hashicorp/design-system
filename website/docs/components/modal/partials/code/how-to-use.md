@@ -4,11 +4,11 @@ The `Hds::Modal` component leverages the `<dialog>` element which is currently s
 
 ## Page scroll
 
-When an `Hds::Modal` component is open the rest of the page is disabled. However, scrolling at the page level is still available. To make it clear to the user that the underlying elements are not interactive and to avoid confusion, we recommend disabling the page scroll `onOpen` and enabling it back `onClose` (for example, by setting `overflow: hidden;` and `overflow: auto;` respectively) by applying it to the `<body>` element.
+When an `Hds::Modal` component is open, the rest of the page is disabled (via `inert`). However, scrolling at the page level is still available. To make it clear to the user that the underlying elements are not interactive and to avoid confusion, we recommend disabling the page scroll `onOpen` and enabling it back `onClose` (for example, by setting `overflow: hidden;` and `overflow: auto;` respectively) by applying it to the `<body>` element.
 
 ## Positioning
 
-As an overlaying component, the `Hds::Modal` requires a high value on the z-axis. We are currently setting `50` as a default value, but we recommend you review the `z-index` values used across the project and either adjust them accordingly or increase this value by defining an override.
+As an overlaying component, the `Hds::Modal` requires a high value on the z-axis. We are currently setting `50` as a default value, but we recommend you review the `z-index` values used across your project and either adjust them accordingly or increase this value by defining an override.
 
 ## Focus trap
 
@@ -39,8 +39,6 @@ This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-
 ```
 
 !!! Info
-
-**Note:**
 
 When a modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the modal, which is the "Dismiss" button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the modal.
 
@@ -93,8 +91,6 @@ When the modal dialog contains information that might be lost on close, use a co
 ```
 
 !!! Info
-
-**Note:**
 
 If a modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.
 

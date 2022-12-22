@@ -39,7 +39,7 @@ _Medium Modal goes here_
 
 <!-- <Hds::Modal @size="medium" id="size-medium-Modal" as |M|>
     <M.Header as |H|>
-        Small Modal
+        Medium Modal
     </M.Header>
     <M.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
@@ -58,7 +58,7 @@ _Large Modal goes here_
 
 <!-- <Hds::Modal @size="large" id="size-small-Modal" as |M|>
     <M.Header as |H|>
-        Small Modal
+        Large Modal
     </M.Header>
     <M.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
@@ -74,7 +74,7 @@ _Large Modal goes here_
 ### Best practices
 
 - Use a Modal size that best accounts for the complexity and intended speed of interaction.
-- The **medium** size accounts for the _majority_ of scendarios and is the default recommended size.
+- The **medium** size accounts for the _majority_ of scenarios and is the default recommended size.
 
 ## Color
 
@@ -160,7 +160,7 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
 
 ### Body type
 
-![Modal body types](/assets/components/modal/modal-body-typespng)
+![Modal body types](/assets/components/modal/modal-body-type.png)
 
 - The **default** body type is meant for simple text-based content and could be used for a quick confirmation of an action or disclosure of information.
 - The **custom** body type is suitable for the majority of use cases when collecting information or feedback from the user. It can accept any custom component and nested components by swapping out the placeholder instance with a local component or relevant HDS component.
@@ -171,10 +171,10 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
 
 #### General best practices
 
-- To main consistency the only property that should be changed in the actions within the footer is the text property. An exception to this is in the case of a Modal with critical or destruction function, in which the primary button should be changed to **critical**.
+- The only property that should be changed in the actions within the footer is the text property, except in the case of a **critical** or destructive function (in which the button should reflect the destructive action).
 - Action buttons should remain consistent with the variants defined in the number of actions in the footer; **primary**, **secondary**, and **tertiary**, in that order.
-- Action buttons should not use an icon within the context of the Modal. Pairing an icon with text in a button is meant to more clearly outline the button function, in the context of a Modal the function should be apparent through the use of other elements like **title**, **tagline**, and **icon**.
-- Action buttons should use size **medium** to maintain hierarchy and visual weight.
+- Action buttons should not use an icon within the context of the Modal. In the context of a Modal the function should be apparent through the use of other elements like **title**, **tagline**, and **icon**.
+- Most Modals should use two inverse actions; or two actions which perform opposite functions (i.e. “ok/cancel”, “yes/no”).
 
 #### One action
 
@@ -194,13 +194,6 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
   </Hds::ButtonSet>
 </Hds::Modal::Footer>
 
-#### Action best practices
-
-- Most Modals should use two inverse actions; or two actions which perform opposite functions (i.e. “ok/cancel”, “yes/no”).
-- In the case of a single action, the dismiss acts as an escape hatch if the user needs to return to the main page content.
-  - Depending on the information being requested a secondary action that closes or cancels the model may not perform the same function as dismissing the Modal. For example; responding “no” to a “yes/no” question is not the same as dismissing the Modal, the latter of which does not submit a response.
-  - While certain experiences may only call for a single action button, most Modal instances should have a “cancel” button as a more explicit method to close the Modal.
-
 #### Three actions
 
 <Hds::Modal::Footer>
@@ -213,24 +206,18 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
 
 ##### Tertiary best practices
 
-- If a tertiary action is necessary it should not be grouped with the button set of primary and secondary actions.
-  - Button grouping should be determined by functionality; since the primary and secondary buttons are performing related (inverse) functions they are grouped. In the case of a tertiary button within a Modal, it’s function is generally unrelated to the primary and secondary actions and therefore shouldn’t be grouped in the same way.
+- If a tertiary action is necessary it should not be grouped with the button set of primary and secondary actions, as button grouping should be determined by functionality.
 - Common examples of tertiary actions include:
-  - Linking to external documentation
-  - Linking to another related area or function within the application; best used to help the user better understand or collect the information needed to interact with the Modal.
+    - Linking to external documentation
+    - Linking to another related area or function within the application; best used to help the user better understand or collect the information needed to interact with the Modal.
 
 #### Action content guidelines
-
-!!! Info
-
-Buttons in a Modal should follow the same content guidelines covered in the [button component](/components/button).
-
-!!!
 
 **Modal actions should be concise and not written as sentences**
 
 - Most of the time one or two words are adequate for an action, air on the side of simplicity whenever possible.
 - The expected function of the action (positive/negative, confirm/cancel) is reinforced by the button type and visual language expressed within.
+- Buttons in a Modal should follow the same content guidelines covered in the [button component](/components/button).
 
 !!! Do
 
@@ -309,6 +296,9 @@ The most common dismissal method for a Modal is via the dismiss button in the Mo
 
 - It is recommended to provide the user with a clear dismissal option in most Modal instances, most easily handled by the dismiss button.
 - A Modal lacking a dismiss action should be rare, but can be done to elevate the importance of the Modal and lower the possibility of accidental dismissal.
+- In the case of a single action, the dismiss acts as an escape hatch if the user needs to return to the main page content.
+    - Depending on the information being requested a secondary action that closes or cancels the model may not perform the same function as dismissing the Modal. For example; responding “no” to a “yes/no” question is not the same as dismissing the Modal, the latter of which does not submit a response.
+    - While certain experiences may only call for a single action button, most Modal instances should have a “cancel” button as a more explicit method to close the Modal.
 
 The entry point for a Modal should be straightforward enough that if a user accidentally dismisses it, the Modal can be easily triggered again.
 
@@ -338,7 +328,7 @@ Note: Both of the above steps are recommendations of the HDS team, but are the r
 
 ## Position and responsive sizing
 
-![Modal positioning](/assets/components/modal/Modal-positioning.png)
+![Modal positioning](/assets/components/modal/modal-positioning.png)
 
 Modals should be positioned in the center of the viewport, paired with the overlay component, and on top of the main page content.
 
