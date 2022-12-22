@@ -4,7 +4,10 @@
     {{#if @copyable}}
       <Doc::CopyButton @textToCopy={{@valueToCopy}} @textToShow={{(or @valueToShow @valueToCopy)}} @type="ghost" />
     {{else}}
-      <code class="doc-meta-row__value-not-copyable doc-text-code {{if @isClipped 'doc-meta-row__value-not-copyable--is-clipped'}}">{{@valueToShow}}</code>
+      <code
+        class="doc-meta-row__value-not-copyable doc-text-code
+          {{if @isClipped 'doc-meta-row__value-not-copyable--is-clipped'}}"
+      >{{@valueToShow}}</code>
     {{/if}}
   </div>
 </div>

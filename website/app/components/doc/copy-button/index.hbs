@@ -1,9 +1,4 @@
-<CopyButton
-  class={{this.classNames}}
-  @text={{this.textToCopy}}
-  @onSuccess={{this.onSuccess}}
-  @onError={{this.onError}}
->
+<CopyButton class={{this.classNames}} @text={{this.textToCopy}} @onSuccess={{this.onSuccess}} @onError={{this.onError}}>
   {{#if this.textToShow}}
     <span class="doc-copy-button__visible-value doc-text-code">{{this.textToShow}}</span>
   {{/if}}
