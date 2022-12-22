@@ -22,7 +22,7 @@
     </:head>
 </Hds::Table>
 
-- Column placement determines the visual styling based on where the column is placed relatively to other columns in a table header.
+Column placement determines the visual styling based on where the column is placed relatively to other columns in a table header.
 
 !!! Info
 
