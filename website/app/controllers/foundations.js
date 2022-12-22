@@ -11,9 +11,10 @@ export default class FoundationsController extends Controller {
         .filter((page) => page.pageParents[0] === section)
         .map((page) => {
           return {
-            image: `https://picsum.photos/seed/s${encodeURI(
-              page.pageURL.replaceAll('/', '-')
-            )}/232/124`,
+            image:
+              `/assets/illustrations/foundations/` +
+              page.pageAttributes.title.trim().toLowerCase().replace(' ', '-') +
+              `.png`,
             title: page.pageAttributes.title,
             caption:
               page.pageAttributes.caption ||
