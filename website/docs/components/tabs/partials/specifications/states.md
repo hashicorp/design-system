@@ -8,3 +8,7 @@
 | Text             | Required                                        |
 | Count            | Optional                                        |
 | Indicator        | Required, displayed on selected Tab             |
+
+## States
+
+![Tab states](/assets/components/tabs/tabs-state.png)
