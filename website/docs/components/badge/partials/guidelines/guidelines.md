@@ -40,7 +40,7 @@ Badges come in a few icon, text combinations; text only, icon only, and icon + t
 
 !!! Info
 
-We realize the Small badges use an icon size that is not supported by our icons and thus have scaled it down to fit within the badge. We weighed the pros and cons of doing this vs using the 16px size in the smaller badges and ultimately landed here as it works better visually. You should still be able to use the 16px size within the badge and not see any issues, but please let us know if you do.
+We realize that the small badges use an icon size that is not supported by our icons and thus have scaled it down to fit within the badge. We weighed the pros and cons of doing this versus using the 16px size in the smaller badges and ultimately landed here as it works better visually. You should still be able to use the 16px size within the badge and not see any issues, but please let us know if you do.
 
 !!!
 
