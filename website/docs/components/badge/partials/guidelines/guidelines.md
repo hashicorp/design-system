@@ -36,7 +36,7 @@ An icon can be shown in addition to or instead of text.
 <Hds::Badge @color="neutral" @type="filled" @icon="corner-down-left" @isIconOnly={{true}} @text="" />
 <Hds::Badge @color="neutral" @type="filled" @icon="hexagon" @text="Text + Icon" />
 
-Badges come in a few icon, text combinations; text only, icon only, and icon + text (where icons are always on the left). Use icons intentionally and only when the provide the user with extra value.
+Badges come in a few icon and text combinations; text only, icon only, and icon + text (where icons are always on the left). Use icons intentionally and only when they provide the user with extra value.
 
 !!! Info
 
