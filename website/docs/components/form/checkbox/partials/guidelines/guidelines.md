@@ -137,8 +137,7 @@ Labels are part of the checkbox’s selectable area, making them interactive ele
 ### Form::Error
 
 - Error messages need to provide the user with enough context to guide them in resolving the error.
-- Keep messages short and to the point.
-  - ie. "Select at least one option"
+- Keep messages short and to the point (ie. "Select at least one option")
 - Avoid overt politeness; don’t use "please" or "thank you" in your messaging.
 - [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html): If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
 - [3.3.3 Error Suggestion (AA)](https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html): If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.
@@ -149,5 +148,5 @@ Refer to [HashiCorp’s Style, Language, and Voice Guidelines](https://docs.goog
 
 ## Related
 
-- [Select](/components/form/radio)
-- [Textarea](/components/form/toggle)
+- [Radio](/components/form/radio)
+- [Toggle](/components/form/toggle)
