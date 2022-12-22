@@ -160,7 +160,7 @@ A **critical** Modal is used to indicate a destructive action that is irreversib
 
 ### Body type
 
-![Modal body types](/assets/components/modal/modal-body-typespng)
+![Modal body types](/assets/components/modal/modal-body-type.png)
 
 - The **default** body type is meant for simple text-based content and could be used for a quick confirmation of an action or disclosure of information.
 - The **custom** body type is suitable for the majority of use cases when collecting information or feedback from the user. It can accept any custom component and nested components by swapping out the placeholder instance with a local component or relevant HDS component.
