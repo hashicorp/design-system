@@ -13,7 +13,7 @@ When the content area consists of a contained component (ie. table, card, etc), 
 
 ### Nested
 
-_Banner (warning):_ We don't recommend using a nested tab structure, but if you must, don't go beyond 2 levels of nesting. If finding that you need to go beyond 2 levels of nesting, consider using another navigation pattern or re-evaluating the information architecture of your product.
+_Banner (warning):_ We don’t recommend using a nested tab structure, but if you must, don’t go beyond 2 levels of nesting. If finding that you need to go beyond 2 levels of nesting, consider using another navigation pattern or re-evaluating the information architecture of your product.
 
 when nesting tabs, regardless of if your content area consists of contained or non-contained components; we recommed:
 
@@ -48,7 +48,7 @@ _Banner (informational):_ Do you have a need for a more elegant overflow experie
 
 Tabs should be short and concise, and a good indication of what content the user can expect to find within the TabPanel. They should not consist of full sentences.
 
-Refer to [HashiCorp's Style, Language, and Voice Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit?usp=sharing) for more content tips.
+Refer to [HashiCorp’s Style, Language, and Voice Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit?usp=sharing) for more content tips.
 
 ---
 
