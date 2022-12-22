@@ -16,60 +16,54 @@
 
 Small
 
-_Small Modal goes here_
-
-<!-- <Hds::Modal @size="small" id="size-small-Modal" as |M|>
-    <M.Header as |H|>
-        Small Modal
-    </M.Header>
-    <M.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer>
-        <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Confirm" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-    </M.Footer>
-</Hds::Modal> -->
+<Hds::Modal @size="small" id="size-small-Modal" open as |M|>
+  <M.Header as |H|>
+    Small Modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 Medium
 
-_Medium Modal goes here_
-
-<!-- <Hds::Modal @size="medium" id="size-medium-Modal" as |M|>
-    <M.Header as |H|>
-        Small Modal
-    </M.Header>
-    <M.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer>
-        <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Confirm" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-    </M.Footer>
-</Hds::Modal> -->
+<Hds::Modal @size="medium" id="size-medium-Modal" open as |M|>
+  <M.Header as |H|>
+    Small Modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 Large
 
-_Large Modal goes here_
-
-<!-- <Hds::Modal @size="large" id="size-small-Modal" as |M|>
-    <M.Header as |H|>
-        Small Modal
-    </M.Header>
-    <M.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer>
-        <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Confirm" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-    </M.Footer>
-</Hds::Modal> -->
+<Hds::Modal @size="large" id="size-small-Modal" open as |M|>
+  <M.Header as |H|>
+    Small Modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 ### Best practices
 
@@ -80,20 +74,20 @@ _Large Modal goes here_
 
 ### Neutral
 
-<!-- <Hds::Modal @size="medium" @color="neutral" as |M|>
-    <M.Header as |H|>
-        Neutral Modal
-    </M.Header>
-    <M.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer>
-        <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Confirm" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-    </M.Footer>
-</Hds::Modal> -->
+<Hds::Modal @size="medium" @color="neutral" open as |M|>
+  <M.Header as |H|>
+    Neutral Modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 The **neutral** color should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal's function doesn't change or alter areas of the application that aren't directly tied to the current context of the user. Common usage examples include:
 
@@ -103,20 +97,20 @@ The **neutral** color should be used for the majority of Modal instances and is 
 
 ### Warning
 
-<!-- <Hds::Modal @size="medium" @color="warning" as |M|>
-    <M.Header as |H|>
-        Warning Modal
-    </M.Header>
-    <M.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer>
-        <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Confirm" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-    </M.Footer>
-</Hds::Modal> -->
+<Hds::Modal @size="medium" @color="warning" open as |M|>
+  <M.Header as |H|>
+    Warning Modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 A **warning** Modal indicates that the Modal's action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
 
@@ -128,20 +122,20 @@ This action may impact areas of the application outside of the scope of the curr
 
 ### Critical
 
-<!-- <Hds::Modal @size="medium" @color="critical" as |M|>
-    <M.Header as |H|>
-        Critical Modal
-    </M.Header>
-    <M.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-    </M.Body>
-    <M.Footer>
-        <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Confirm" />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" />
-        </Hds::ButtonSet>
-    </M.Footer>
-</Hds::Modal> -->
+<Hds::Modal @size="medium" @color="critical" open as |M|>
+  <M.Header as |H|>
+    Critical Modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 A **critical** Modal is used to indicate a destructive action that is irreversible and will impact other settings, items, or objects within the current feature or in other areas of the application. Common examples include:
 
