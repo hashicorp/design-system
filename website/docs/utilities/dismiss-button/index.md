@@ -1,16 +1,17 @@
 ---
-title: DismissButton
+title: Dismiss Button
 description: An internal utility component used to provide "dismiss" functionality in other components.
 caption: An internal utility component used to provide "dismiss" functionality in other components.
 ---
 
-<section data-tab="Other">
-  @include "partials/other/generic-1.md"
+<section data-tab="Guidelines">
+  @include "partials/guidelines/guidelines.md"
 </section>
 
 <section data-tab="Code">
-  @include "partials/code/component-api.md"
+  
   @include "partials/code/how-to-use.md"
+  @include "partials/code/component-api.md"
   @include "partials/code/showcase.md"
 </section>
 

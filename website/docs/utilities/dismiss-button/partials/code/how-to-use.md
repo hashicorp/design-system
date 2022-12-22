@@ -1,4 +1,4 @@
-Invocation of the component would look something like this:
+## How to use this component
 
 ```handlebars
 <Hds::DismissButton {{on "click" this.onClickDismissButton}} />

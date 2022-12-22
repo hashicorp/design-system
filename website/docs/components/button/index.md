@@ -8,16 +8,23 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/button
 ---
 
+<section data-tab="Guidelines">
+  <!-- @include "partials/guidelines/overview.md" -->
+  @include "partials/guidelines/guidelines.md"
+  <!-- @include "partials/guidelines/related.md" -->
+</section>
+
 <section data-tab="Code">
-  @include "partials/code/component-api.md"
   @include "partials/code/how-to-use.md"
+  @include "partials/code/component-api.md"
   @include "partials/code/showcase.md"
 </section>
 
 <section data-tab="Specifications">
-  @include "partials/specifications/design-guidelines.md"
+  @include "partials/specifications/anatomy.md"
 </section>
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+  <!-- @include "partials/accessibility/support.md" -->
 </section>

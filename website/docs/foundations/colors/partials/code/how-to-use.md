@@ -1,3 +1,5 @@
+## How to Use
+
 There are two different ways to apply a color to a UI element, via **design tokens** or via **CSS helper classes**.
 
 Which one to use will depend on the context: since both refer to the same design token values, from the design system perspective there's no difference between the two methods (it's more of a preference for the "consumer" codebase).
@@ -6,7 +8,7 @@ To see the full list of available design tokens (CSS variables) and CSS helpers 
 
 **👉 Notice:** at the moment the CSS helpers are available only for "semantic" colors. In the future we may make available helpers for "palette" and "product/branding" colors, but for now for these colors you have to use the design tokens as CSS variables.
 
-#### Design tokens
+### Design tokens
 
 You can use the color [design tokens](../foundations/tokens) directly in your CSS definitions:
 
@@ -22,7 +24,7 @@ You can use the color [design tokens](../foundations/tokens) directly in your CS
 }
 ```
 
-#### CSS helper classes
+### CSS helper classes
 
 You can use one of the predefined "color" CSS helper classes:
 

@@ -1,3 +1,5 @@
+## How to use
+
 Invocation of the component would look something like this:
 
 ```handlebars
