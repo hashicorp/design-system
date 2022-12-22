@@ -13,7 +13,11 @@ When the content area consists of a contained component (ie. table, card, etc), 
 
 ### Nested
 
-_Banner (warning):_ We don’t recommend using a nested tab structure, but if you must, don’t go beyond 2 levels of nesting. If finding that you need to go beyond 2 levels of nesting, consider using another navigation pattern or re-evaluating the information architecture of your product.
+!!! Warning
+
+We don’t recommend using a nested tab structure, but if you must, don’t go beyond 2 levels of nesting. If finding that you need to go beyond 2 levels of nesting, consider using another navigation pattern or re-evaluating the information architecture of your product.
+
+!!!
 
 when nesting tabs, regardless of if your content area consists of contained or non-contained components; we recommed:
 
@@ -40,7 +44,11 @@ When the content area does not consist of a contained component (ie. text block,
 
 Tabs will fill 100% of the parent container, unless explicitly set to something else. When there are too many tabs to fit within the TabList, a horizontal scrollbar will help the user navigation hiddne tabs.
 
-_Banner (informational):_ Do you have a need for a more elegant overflow experience? Please let us know by [submitting a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform)
+!!! Info
+
+Do you have a need for a more elegant overflow experience? Please let us know by [submitting a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform)
+
+!!!
 
 ---
 
