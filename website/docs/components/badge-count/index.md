@@ -1,5 +1,5 @@
 ---
-title: BadgeCount
+title: Badge Count
 description: A numeric label used to display things like version number or collection enumerations.
 caption: A non-interactive numeric label.
 status: released
