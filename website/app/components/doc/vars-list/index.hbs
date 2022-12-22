@@ -2,7 +2,7 @@
   {{#each @items as |item|}}
     <li class="doc-vars-list__item">
       <code>{{item}}</code>
-      <CopyButton @text="{{item}}" @isFullWidth={{true}}>Copy</CopyButton>
+      <Doc::CopyButton @textToCopy={{item}}>Copy</Doc::CopyButton>
     </li>
   {{/each}}
 </ul>
