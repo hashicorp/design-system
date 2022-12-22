@@ -6,13 +6,13 @@ Use tags to indicate an object's categorization, i.e., for filtering.
 
 ### When not to use
 
-- For static metadata, status, or to display a new feature, use [Badge](/components/badge/overview)
-- For collection enumeration or version number, use [BadgeCount](/components/badge-count/overview)
+- For static metadata, status, or to display a new feature, use [Badge](/components/badge/overview).
+- For collection enumeration or version number, use [BadgeCount](/components/badge-count/overview).
 
 ### Layout
 
-- The Tag component can be seen in several different layouts, but we commonly see them in a list or a gorup.
-- Tags will fill the parent container and then wrap, as necessary
+- The tag component can be seen in several different layouts, but we commonly see them in a list or a group.
+- Tags will fill the parent container and then wrap, as necessary.
 
 #### List
 
@@ -26,7 +26,7 @@ Use tags to indicate an object's categorization, i.e., for filtering.
 
 ### Spacing
 
-As a best practice, we recommend a vertical spacing of 12px and horiztonal spacing of 8px between tags.
+As a best practice, we recommend a vertical spacing of 12px and horizontal spacing of 8px between tags.
 
 ![Spacing between tags](/assets/components/tag/tag-spacing.png)
 
