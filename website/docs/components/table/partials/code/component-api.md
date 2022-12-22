@@ -1,10 +1,10 @@
-The `Table` component itself is where most of options will be applied. Use of the component API (below) will automatically render sortable columns if desired.
+## Component API
 
-Additionally, there are child components that can also be used to provide custom options.
+The `Table` component itself is where most of options will be applied. However, the child components can also be used if a custom implementation is desired.
 
-*   The `Hds::Table::Tr` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions. It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
-*   The `Hds::Table::Th` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions itself, although it can contain interactive elements. However, it is not likely that you will need to add interactive elements to this component as the sorting is already otherwise provided for.
-*   The `Hds::Table::Td` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions itself; however it can contain interactive elements.
+- The `Hds::Table::Tr` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
+- The `Hds::Table::Th` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions itself, although it can _contain_ interactive elements. However, it is not likely that you will need to add interactive elements to this component as the sorting is already otherwise provided for.
+- The `Hds::Table::Td` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions itself (e.g., it cannot have an `onClick` event handler attached directly to it); however, it can _contain_ interactive elements (e.g., `<td><a href="user-info.html">User info</a></td>`)
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
@@ -34,7 +34,7 @@ Additionally, there are child components that can also be used to provide custom
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density, or height, of the row.
   </C.Property>
-  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" "bottom" "baseline" "sub" "text-top" }} @default="top">
+  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" "bottom" }} @default="top">
     If set, determines the vertical alignment of table's cell (td) content. While the acceptable values contain all of the values that the CSS property accepts, the default (top) and middle are the values most likely to be used.
   </C.Property>
   <C.Property @name="caption" @type="string">
