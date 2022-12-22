@@ -87,7 +87,7 @@ Intentionally not defined as a component with HDS Figma tooling, the header colu
 
 Within Figma column width is determined manually by resizing the header column and cells. As a best practice, column width should be adjusted to fit the longest data type within the cell.
 
-### Content
+## Content
 
 #### Label
 
