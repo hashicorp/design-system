@@ -3,8 +3,8 @@
 The breadcrumb component is composed of three different parts, each with their own APIs:
 
 - a main "container" (the breadcrumb itself)
-- an "item" sub-component (a single "crumb")
-- a "truncation" sub-component (a hidden list of "crumbs" that can be made visible via a toggle)
+- an "item" child component (a single "crumb")
+- a "truncation" child component (a hidden list of "crumbs" that can be made visible via a toggle)
 
 ### Breadcrumb container
 
@@ -44,7 +44,7 @@ This component supports use of `...attributes`.
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="yield">
-Elements passed as children of this sub-component are yielded to the content of the [Disclosure](../utilities/disclosure) component (used to show/hide the yielded breadcrumb items via a "toggle" button).
+Elements passed as children of this child component are yielded to the content of the [Disclosure](../utilities/disclosure) component (used to show/hide the yielded breadcrumb items via a "toggle" button).
 </C.Property>
 <C.Property @name="...attributes">
 This component supports use of `...attributes`.
