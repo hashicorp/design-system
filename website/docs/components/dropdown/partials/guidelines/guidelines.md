@@ -4,31 +4,12 @@
 
 ## When not to use
 
-- In forms, when needing to select one or more options, use a [Select](/components/form/select/overview)
-- When selecting an option results in immediate navigation or update to the page content, use a Context Switcher _(coming soon)_
+- In forms. When providing more than 5-7 options in a form, use a [Select](/components/form/select/overview) instead.
+- When selecting an option results in immediate navigation or update to the page content, use a Context Switcher _(coming soon)_.
 
 ## ToggleButton Size
 
 ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
-
-### Medium
-
-<Hds::ButtonSet>
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleButton @text="Primary" />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
-  </Hds::Dropdown>
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleButton @text="Secondary" @color="secondary" />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
-  </Hds::Dropdown>
-</Hds::ButtonSet>
 
 ### Small
 
@@ -42,6 +23,25 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
   </Hds::Dropdown>
   <Hds::Dropdown as |dd|>
     <dd.ToggleButton @text="Secondary" @color="secondary" @size="small" />
+    <dd.Interactive @text="Item One" />
+    <dd.Interactive @text="Item Two" />
+    <dd.Interactive @text="Item Three" />
+    <dd.Interactive @text="Item Four" />
+  </Hds::Dropdown>
+</Hds::ButtonSet>
+
+### Medium
+
+<Hds::ButtonSet>
+  <Hds::Dropdown as |dd|>
+    <dd.ToggleButton @text="Primary" />
+    <dd.Interactive @text="Item One" />
+    <dd.Interactive @text="Item Two" />
+    <dd.Interactive @text="Item Three" />
+    <dd.Interactive @text="Item Four" />
+  </Hds::Dropdown>
+  <Hds::Dropdown as |dd|>
+    <dd.ToggleButton @text="Secondary" @color="secondary" />
     <dd.Interactive @text="Item One" />
     <dd.Interactive @text="Item Two" />
     <dd.Interactive @text="Item Three" />
@@ -81,7 +81,7 @@ Set `isOpen=true` when displaying the toggle with a menu and `isOpen=false` when
 
 ### ToggleIcon
 
-Chevrons provide a stronger signifier that ToggleIcon's open the list, so they’re required for all variations except those used for the more icon.
+Chevrons indicate that ToggleIcon opens the list, so they’re required for all variations. The only (temporary) exception is the overflow menu, which uses the more icon.
 
 <Hds::Dropdown::Toggle::Icon @text="Icon" @icon="user" />
 <Hds::Dropdown::Toggle::Icon @text="Avatar" @imageSrc="/assets/images/avatar.png" />
@@ -92,13 +92,9 @@ Chevrons provide a stronger signifier that ToggleIcon's open the list, so they�
 
 #### Right (default)
 
-The list will align to the right side of the toggle and will be placed 4px below the toggle.
-
 ![Right placement example](/assets/components/dropdown/dropdown-placement-right_example.png)
 
 #### Left
-
-In the event that the toggle is positioned on the left side of the screen, the list can be aligned to the left side to fit more appropriately within the UI.
 
 ![Left placement example](/assets/components/dropdown/dropdown-placement-left_example.png)
 
@@ -108,13 +104,13 @@ In the event that the toggle is positioned on the left side of the screen, the l
 
 The default List has a min-width of 200px and a max-width of 400px.
 
-This means if there's a list item with a lot of text (ie. Description), the list will automatically expand up to 400px to accommodate the content of the widest list item.
+This means if there’s a list item with a lot of text (ie. Description), the list will automatically expand up to 400px to accommodate the content of the widest list item.
 
 <Hds::Dropdown::Toggle::Icon @text="Manage" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" style="margin-bottom: 4px;" />
-<ul class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Interactive @text="Account settings" />
   <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
-</ul>
+</Doc::ListContainer>
 
 ### Fixed width
 
