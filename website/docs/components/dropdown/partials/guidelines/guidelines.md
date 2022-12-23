@@ -100,7 +100,7 @@ Chevrons indicate that ToggleIcon opens the list, so they’re required for all 
 
 ## List Size
 
-### Default ("fluid") width
+### Default width
 
 The default List has a min-width of 200px and a max-width of 400px.
 
@@ -114,7 +114,7 @@ This means if there’s a list item with a lot of text (ie. Description), the li
 
 ### Fixed width
 
-If you do not want the width of the List to expand automatically to accommodate the widest list item, we offer a Fixed width list.
+If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width.
 
 As a best practice we do not recommend lists wider than 400px.
 
@@ -138,7 +138,7 @@ As a best practice we do not recommend lists wider than 400px.
 
 ### Height
 
-The height of the list container is based on the contents within the list. The list will not scroll.
+The height of the list container is automatically determined based on the contents within the list.
 
 <Hds::Dropdown::Toggle::Button @text="Integrate with Terraform Cloud" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
@@ -163,7 +163,7 @@ The height of the list container is based on the contents within the list. The l
 
 **A note on loading**
 
-Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (ie. on page load). If that is not possible, you could consider providing a more informative loading message, such as “Checking permissions”.
+Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, consider providing a more informative loading message.
 
 !!!
 
@@ -188,7 +188,7 @@ Ask yourself, "Which icon should I use here?" If the answer isn’t obvious with
 
 ### Critical
 
-While icons are optional, we do recommend using a relevant icon for Critical ListItems. Using the right icon provides a stronger affordance that the action is destructive. See the section on [color blind users and critical actions](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=7192%3A13227) for more details about making these actions more accessible.
+While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the right icon provides a stronger/more immediate visual indication that the action is destructive. See the section on [color blind users and critical actions](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=7192%3A13227) (internal link) for more details about making these actions more accessible.
 
 <Hds::Dropdown::Toggle::Icon @text="Icon" @icon="more-horizontal" @isOpen={{true}} />
 <Doc::ListContainer class="hds-dropdown-list">
@@ -202,16 +202,10 @@ While icons are optional, we do recommend using a relevant icon for Critical Lis
 
 ### General
 
-We recommend only using dropdowns to display a list of links or actions. A dropdown should not be a catch-all used to squeeze a lot of content into a small, contained area. If there is a lot of content in a dropdown, it is difficult for the user to parse and not a good user experience. When finding that you need to add more custom content to the dropdown, please [reach out the HDS team](https://hashicorp.slack.com/archives/C7KTUHNUS) to discuss alternative options.
+We recommend using dropdowns only to display a list of links or actions. A dropdown should **not** be a catch-all used to squeeze a lot of content into a small, contained area. A crowded dropdown is difficult for the user to parse and can result in a poor user experience.
+
+If you find that you need additional custom content in the dropdown, please [reach out the HDS team](https://hashicorp.slack.com/archives/C7KTUHNUS) (internal link) to discuss alternative options.
 
 ### ListItems
 
-There is no character limit for interactive ListItems but we recommend keeping them short and concise (~36 characters before needing to expand the width of the list).
-
-!!! Info
-
-**CopyItem** 
-
-This is a temporary built-in component. It was built so we could support existing use cases found during the audit. We will eventually be tackling this as its own component, at which point, the design and functionality are likely to change, so we don’t recommend using it outside of the dropdown component.
-
-!!!
+There is no character limit for interactive ListItems, but we recommend keeping them short and concise (~36 characters).

@@ -11,7 +11,7 @@ This component is conditionally conformant.
 
 Color blind users (specifically those with [Achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia)) may have a hard time perceiving Critical ListItems within our dropdown. To provide a more accessible experience, we recommend:
 
-- Using strong, clear language for the text (ie. “Delete...”, “Revoke...”, etc)
+- Using strong, clear language for the text (e.g., “Delete...”, “Revoke...”, etc.)
 - Adding a relevant icon
 - Moving the Critical ListItem to the bottom of the list or the section
   - If at the bottom of a list, consider adding a separator above the Critical ListItem to help separate it from other ListItems
@@ -27,7 +27,7 @@ Color blind users (specifically those with [Achromatopsia](https://en.wikipedia.
 
 ### Keyboard navigation
 
-[Many types of users](https://webaim.org/techniques/keyboard/) rely on their keyboard to navigate the web, so it’s important that we annotate the [focus order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html#:~:text=3%3A%20Focus%20Order-,Success%20Criterion%202.4.,that%20preserves%20meaning%20and%20operability) (how keyboard users navigate the web) to ensure we’re providing them with a natural path and great experience.
+[Many types of users](https://webaim.org/techniques/keyboard/) rely on their keyboard to navigate the web, so it’s important that our designs have annotations for the [focus order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html#:~:text=3%3A%20Focus%20Order-,Success%20Criterion%202.4.,that%20preserves%20meaning%20and%20operability) (how keyboard users navigate the web) to ensure we’re providing them with a natural path and great experience.
 
 !!! Info
 

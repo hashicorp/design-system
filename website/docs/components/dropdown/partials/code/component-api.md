@@ -1,23 +1,17 @@
 ## Component API
 
-The `Dropdown` component is composed of different child components, each with their own APIs:
+The `Hds::Dropdown` component is composed of different child components, each with their own APIs:
 
-- The dropdown component
+- The Dropdown component
 - Toggle components to open/close the dropdown
   - ToggleButton
   - ToggleIcon
-- List item components, to build the dropdown’s list items
+- ListItem components, to build the dropdown’s list items
   - Description
   - Generic
   - Interactive
   - Separator
   - Title
-
-!!! Info
-
-To make the invocation more intuitive for developers, the child components are named yields, and the yielded name is a simplified version of the full component name (e.g., `Hds::ListItem::Interactive` becomes `Interactive`).
-
-!!!
 
 ### Dropdown
 
