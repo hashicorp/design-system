@@ -1,4 +1,5 @@
 ## How to use this component
+
 ### Basic use (`<button>`)
 
 Invocation of the component would look like this:
@@ -20,7 +21,7 @@ In this case, since no `@href` or `@route` argument is provided it will generate
 
 !!! Critical
 
-We can't support the direct use of the `href` HTML attribute because we need to rely on the `@href` Ember argument to differentiate between different types of generated output.
+We can’t support the direct use of the `href` HTML attribute because we need to rely on the `@href` Ember argument to differentiate between different types of generated output.
 !!!
 
 If an `@href` argument is provided:
