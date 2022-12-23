@@ -9839,6 +9839,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-a11y-refocus@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "ember-a11y-refocus@npm:3.0.2"
+  dependencies:
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.0.1
+  checksum: c192e80514adad4928207f4025975f225fde0b135a9156f257999dc49a8eb16b84d6f7a8c489b33a87a17c5b6325e48fc152055e6d4ecee45cdddfd2cd4d2c0a
+  languageName: node
+  linkType: hard
+
 "ember-a11y-testing@npm:^5.0.0":
   version: 5.0.0
   resolution: "ember-a11y-testing@npm:5.0.0"
@@ -23178,6 +23188,7 @@ __metadata:
     broccoli-funnel: ^3.0.3
     broccoli-merge-trees: ^4.2.0
     broccoli-multifilter: ^2.0.0
+    ember-a11y-refocus: ^3.0.2
     ember-auto-import: ^2.4.2
     ember-body-class: ^3.0.0
     ember-cli: ~4.7.0
