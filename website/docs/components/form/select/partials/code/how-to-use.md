@@ -217,7 +217,7 @@ Similarly, you can pass HTML attributes to the `<option/optgroup>` elements.
 
 This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `multiple` and `size` attributes to it)
 
-#### Events handling
+#### Event handling
 
 Thanks to the `...attributes` spreading over the `<select>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
 
