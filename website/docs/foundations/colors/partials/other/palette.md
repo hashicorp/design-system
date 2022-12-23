@@ -44,7 +44,7 @@ Use to indicate an element is in a focused state. Critical values for critical a
   {{#each this.colors.semantic.focus as |color|}}
     <Doc::ColorSwatch @color={{color}} />
   {{else}}
-    <p class="dummy-paragraph">No tokens found for "semantic/focus" colors 🤷‍♀️</p>
+    <p class="dummy-paragraph">No tokens found for “semantic/focus” colors.</p>
   {{/each}}
 </div>
 
