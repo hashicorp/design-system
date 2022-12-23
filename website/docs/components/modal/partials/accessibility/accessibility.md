@@ -13,7 +13,7 @@ The Modal component is conformant when used as directed.
 
 ### Focus order within a simple Modal
 
-Given the Modal is triggered via a keyboard, the dismiss button is first in the focus order since there isn't any content within the body eligible to receive focus.
+Given the Modal is triggered via a keyboard, the dismiss button is first in the focus order since there isn’t any content within the body that is eligible to receive focus.
 
 ![Simple focus within a modal](/assets/components/modal/modal-focus-order-simple.png)
 

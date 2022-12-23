@@ -1,7 +1,7 @@
 ---
 title: Toast
-description: Used to display messages that are the result of a user's actions.
-caption: Used to display messages that are the result of a user's actions.
+description: Used to display messages that are the result of a user’s actions.
+caption: Used to display messages that are the result of a user’s actions.
 status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=7636%3A30467&t=XC8SUxxJOFHgqYzK-1

@@ -2,7 +2,7 @@
 
 There are two different ways to apply an "elevation" or "surface" effect to a UI element, via **design tokens** or via **CSS helper classes**.
 
-Which one to use will depend on the context: since both refer to the same design token values, from the design system perspective there's no difference between the two methods (it’s more of a preference for the "consumer" codebase).
+Which one to use will depend on the context: since both refer to the same design token values, from the design system perspective there is no difference between the two methods (it’s more of a preference for the "consumer" codebase).
 
 ### Design tokens
 

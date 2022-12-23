@@ -42,7 +42,7 @@ Take care when needing multiple links on a page; using too many primary links ca
 
 Use the Secondary variant for less important links, when the action color can’t be used, or when creating a list of links.
 
-For example in an Install page, 'Learn more about Vault'
+For example in an Install page, “Learn more about Vault”
 
 <Hds::Link::Standalone @text="View clusters" @icon="external-link" @iconPosition="trailing" @color="secondary" @route="components" />
 
@@ -52,7 +52,7 @@ A **Link (Standalone)** can include leading or trailing icons. Avoid creating li
 
 #### Leading
 
-In most cases, use leading icons. Choose icons that add meaning and clarity to the action described in the link's text.
+In most cases, use leading icons. Choose icons that add meaning and clarity to the action described in the link’s text.
 
 You may also want to use the leading position when using service icons (i.e. GitHub).
 

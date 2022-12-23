@@ -72,7 +72,7 @@ Large
 
 ## Color
 
-#### Neutral
+### Neutral
 
 <Hds::Modal @size="medium" @color="neutral" open as |M|>
   <M.Header as |H|>
@@ -89,13 +89,13 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-**Neutral** should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal's function doesn’t change or alter areas of the application that aren't directly tied to the current context of the user. Common usage examples include:
+**Neutral** should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal’s function doesn’t change or alter areas of the application that aren’t directly tied to the current context of the user. Common usage examples include:
 
 - functions for creating, editing, or updating objects
 - simple requests of information from the user
 - quick confirmations of actions taken by the user.
 
-#### Warning
+### Warning
 
 <Hds::Modal @size="medium" @color="warning" open as |M|>
   <M.Header as |H|>
@@ -112,7 +112,7 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-**warning** indicates that the Modal's action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
+**warning** indicates that the Modal’s action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
 
 This action may impact areas of the application outside of the scope of the current feature or function, but can also be tied to the context that the user is currently in. Common examples include:
 
@@ -120,7 +120,7 @@ This action may impact areas of the application outside of the scope of the curr
 - archiving an item that can be recovered
 - changing a setting that may require the user to re-authenticate or perform an action again.
 
-#### Critical
+### Critical
 
 <Hds::Modal @size="medium" @color="critical" open as |M|>
   <M.Header as |H|>

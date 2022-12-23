@@ -13,7 +13,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 Since columns within the table header can control sorting within the table, the header column is not eligible to receive additional interactive elements such as tooltip/toggletip or other components that rely on interactivity to display content (nested interactive elements).
 
-If you feel you need to use a tooltip, then there probably isn't enough contextual information about the table or the label within the header isn't clear enough.
+If you feel you need to use a tooltip, then there probably isn’t enough contextual information about the table or the label within the header isn’t clear enough.
 
 ![Example of a nested tooltip within a table header](/assets/components/table/table-header_column-nested_tooltip.png)
 

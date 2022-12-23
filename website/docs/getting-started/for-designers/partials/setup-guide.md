@@ -10,7 +10,7 @@ To start using HashiCorp Design System libraries in your Figma project, open the
 
 ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries.png)
 
-Once a library has been enabled in your project you'll have access to it’s components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources panel](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) with the hotkey `shift + i`.
+Once a library has been enabled in your project you’ll have access to it’s components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources panel](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) with the hotkey `shift + i`.
 
 Styles published by a library are available in the **layer styles panel** on the right side of the application window.
 
@@ -22,7 +22,7 @@ Styles published by a library are available in the **layer styles panel** on the
 
 ### From the assets panel
 
-Access library components via Figma's [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel). Select the name or expand the category of the component you would like to use and click or drag it into your project. Alternatively, you can use the search bar at the top of the panel, which returns results based on the component's name, category, and description.
+Access library components via Figma’s [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel). Select the name or expand the category of the component you would like to use and click or drag it into your project. Alternatively, you can use the search bar at the top of the panel, which returns results based on the component’s name, category, and description.
 
 The shortcut `shift + i` opens the resources panel which exposes a list of recently used components, plugins, and widgets you have enabled in your project.
 

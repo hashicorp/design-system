@@ -52,7 +52,7 @@ The component comes with the following defaults:
 5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent)—defaults to "false".
 6.  (CSS) `class`: flight-icon, flight-icon-NAME, flight-icon-display-inline.
 7.  CSS display: set to `display:inline-block`.
-8.  `data-test-icon` attribute: for the author's testing convenience; set to the value of the `@name` property.
+8.  `data-test-icon` attribute: for the author’s testing convenience; set to the value of the `@name` property.
 
 This makes the base, required invocation quite terse—`@name` is the only property that requires specification. So this invocation:
 
