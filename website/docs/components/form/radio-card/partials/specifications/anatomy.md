@@ -1,7 +1,7 @@
 ## Anatomy
 
 ### Item
-![RadioCard item anatomy](/assets/components/form/radio-card/radio_card-item-anatomy.png =70%x*)
+![RadioCard item anatomy](/assets/components/form/radio-card/radio-card-anatomy.png)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|
@@ -15,7 +15,7 @@
 
 ### Group
 
-![Anatomy of the RadioCard group](/assets/components/form/radio-card/radio_card-group-anatomy.png)
+![Anatomy of the RadioCard group](/assets/components/form/radio-card/radio-card-group-anatomy.png)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|

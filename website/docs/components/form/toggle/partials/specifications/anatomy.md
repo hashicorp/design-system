@@ -2,7 +2,7 @@
 ## Anatomy
 
 ### Base
-![Toggle field anatomy](/assets/components/form/toggle/toggle-field-anatomy.png)
+![Toggle field anatomy](/assets/components/form/toggle/toggle-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|

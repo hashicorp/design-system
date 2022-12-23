@@ -2,7 +2,7 @@
 
 ### Field
 
-![Checkbox field anatomy](/assets/components/form/checkbox/checkbox-field-anatomy.png =70%x*)
+![Checkbox field anatomy](/assets/components/form/checkbox/checkbox-anatomy.png)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|
@@ -13,7 +13,7 @@
 
 ### Group
 
-![Checkbox group anatomy](/assets/components/form/checkbox/checkbox-group-anatomy.png =70%x*)
+![Checkbox group anatomy](/assets/components/form/checkbox/checkbox-group-anatomy.png)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|

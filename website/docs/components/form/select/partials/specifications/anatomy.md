@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of the Select component](/assets/components/select/select-anatomy.png)
+![Anatomy of the Select component](/assets/components/form/select/select-anatomy.png)
 
 | Elements | Usage |
 | -------- | ----- |
