@@ -4,13 +4,13 @@
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
-`Form::Textarea::Field` is conformant when lorem ipsum
+`Form::Textarea::Field` is conformant when used as directed
 
 ### Form::Textarea::Base
 
-<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
+<Doc::Badge @type="success">Conditionally</Doc::Badge>
 
-`Form::Textarea::Base` is not conformant until lorem ipsum 
+`Form::Textarea::Base` is conformant when used as directed
 
 !!! Info  
 
