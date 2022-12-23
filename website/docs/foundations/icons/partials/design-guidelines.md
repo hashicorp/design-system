@@ -1,6 +1,6 @@
 ## Icon types
 
-There are 4 types of icons in Flight: Outlined, Filled, Off, and Contained.
+There are 4 types of icons: Outlined, Filled, Off, and Contained.
 
 ### Outlined
 
@@ -8,14 +8,14 @@ Glyph with standard outline.
 
 - Preferred default style.
 
-![](/assets/foundations/flight-icons/icon-types-generic.png)
+![](/assets/foundations/flight-icons/icon-types-outlined.png)
 
 - Use the Outlined style icons by default.
 - Use the Filled style where contrast against other icons is important.
 
   For example, when showing 1 failure in a list of 20 otherwise successful builds, use a filled "failure" icon but keep the remaining checkmarks outlined "success" icons, so the failure stands out more.
 
-  ![](/assets/foundations/flight-icons/icon-types-bp-filled-1.png)
+  ![](/assets/foundations/flight-icons/icon-best-practices-filled-1.png)
 
 ### Filled
 
@@ -29,21 +29,21 @@ Glyph with a solid fill.
 
   For example, if an object can receive a "favorite" action, it would show the "generic" outlined variant, and then switch to the "filled" variant once favorited.
 
-  ![](/assets/foundations/flight-icons/icon-types-bp-filled-2.png)
+  ![](/assets/foundations/flight-icons/icon-best-practices-filled-2.png)
 
-### Off`
+### Off
 
 Glyph with a strike-through.
 
 - Disabled state.
 
-![](/assets/foundations/flight-icons/icon-types-st.png)
+![](/assets/foundations/flight-icons/icon-types-off.png)
 
 - Use the Off style icons to indicate a disabled state.
 
   For example, in the favoriting example above, if you wanted to "unfavorite" an object you could swap the "filled" variant for "off" on hover to show what the state will become on click.
 
-  ![](/assets/foundations/flight-icons/icon-types-bp-off.png)
+  ![](/assets/foundations/flight-icons/icon-best-practices-off.png)
 
 ### Contained
 
@@ -57,7 +57,7 @@ Glyph with containing shape, e.g. square, circle, diamond, etc.
 
   For example, in a list of objects, an object might have multiple states. A "contained" icon could be used for the overall state, and additional metadata that has state could use the "outlined" variants.
 
-  ![](/assets/foundations/flight-icons/icon-types-bp-contained.png)
+  ![](/assets/foundations/flight-icons/icon-best-practices-contained.png)
 
 ## Icon sizes
 
@@ -65,21 +65,7 @@ Flight icons are optimized for two icon sizes: 16px and 24px.
 
 ### Optimized sizes
 
-#### 16
-
-Standard size.
-
-- Use in product interfaces.
-
-![](/assets/foundations/flight-icons/icon-sizes-16.png)
-
-#### 24
-
-Larger size.
-
-- Use in marketing pages.
-
-![](/assets/foundations/flight-icons/icon-sizes-24.png)
+![](/assets/foundations/flight-icons/icon-sizes.png)
 
 ### Best practices
 
@@ -107,59 +93,13 @@ Icons frequently get used to represent different states within product interface
 
 An object in our interfaces is any object in our API that can return with a state, such as a Build, a Deployment, a Run, a Job, a Cluster or a Network. Objects are typically displayed in lists or as cards and include their state when presented to the user.
 
-#### In progress
-
-"Building".
-
-![](/assets/foundations/flight-icons/icon-states-progress.png)
-
-#### Succeeded
-
-"Build passed".
-
-![](/assets/foundations/flight-icons/icon-states-succeeded.png)
-
-#### Failed
-
-"Build failed".
-
-![](/assets/foundations/flight-icons/icon-states-failed.png)
-
-
-#### Skipped
-
-"Build skipped".
-
-![](/assets/foundations/flight-icons/icon-states-skipped.png)
+![](/assets/foundations/flight-icons/states-object.png)
 
 ### States of feedback
 
 Feedback is presented in our interfaces when actions occur in response to user interaction, such as pressing a button to submit a form, or prior to an action taking place, such as displaying a warning, or when presenting more information.
 
-#### Success
-
-"Created user".
-
-![](/assets/foundations/flight-icons/icon-states-success.png)
-
-#### Error
-
-"Couldn't create user".
-
-![](/assets/foundations/flight-icons/icon-states-error.png)
-
-#### Warning
-
-"User is near limits".
-
-![](/assets/foundations/flight-icons/icon-states-warning.png)
-
-#### Informational
-
-"User has 5 invites".
-
-
-![](/assets/foundations/flight-icons/icon-states-informational.png)
+![](/assets/foundations/flight-icons/states-feedback.png)
 
 ---
 
@@ -169,76 +109,17 @@ Some icons represent common actions within the product interfaces.
 
 ### Editing actions
 
-#### Create
-
-"Create new team".
-
-![](/assets/foundations/flight-icons/icon-actions-create.png)
-
-
-#### Edit
-
-"Edit this team".
-
-![](/assets/foundations/flight-icons/icon-actions-edit.png)
-
-
-#### Delete
-
-"Delete this item".
-
-![](/assets/foundations/flight-icons/icon-actions-delete.png)
-
-
-#### Copy
-
-"Copy to clipboard".
-
-![](/assets/foundations/flight-icons/icon-actions-copy.png)
+![](/assets/foundations/flight-icons/editing-actions.png)
 
 
 ### Navigation actions
 
-#### Back
-
-"Go back".
-
-![](/assets/foundations/flight-icons/icon-actions-back.png)
-
-
-#### Link
-
-"Visit AWS".
-
-![](/assets/foundations/flight-icons/icon-actions-link.png)
-
-
-#### Close
-
-"Dismiss".
-
-![](/assets/foundations/flight-icons/icon-actions-close.png)
+![](/assets/foundations/flight-icons/navigation-actions.png)
 
 
 ### Help actions
 
-#### Tutorial link
-
-When linking to learn.hashicorp.com.
-
-![](/assets/foundations/flight-icons/icon-help-tutorial-link.png)
-
-#### Doc link
-
-When linking to documentation.
-
-![](/assets/foundations/flight-icons/icon-help-doc-link.png)
-
-#### Support
-
-When referencing HashiCorp support.
-
-![](/assets/foundations/flight-icons/icon-help-support.png)
+![](/assets/foundations/flight-icons/help-actions.png)
 
 ---
 
