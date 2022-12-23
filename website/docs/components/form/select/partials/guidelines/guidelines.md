@@ -8,7 +8,7 @@
 ### When not to use
 
 - When a user can select more than on option, consider using [Checkbox](/components/form/checkbox/overview).
-- When the set of options is fewer than 5, consider using [Radio](/components/form/radio/overview).
+- When there are fewer than 5 options, consider using [Radio](/components/form/radio/overview) instead.
 - When need to display a list of buttons or links in a menu, us [Dropdown](/components/dropdown/overview).
 
 ## Required and optional
