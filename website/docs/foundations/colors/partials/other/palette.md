@@ -85,5 +85,5 @@ Core Palette colors should be used sparingly and only when the correct semantic 
       {{/each}}
     </div>
 {{else}}
-    <p class="dummy-paragraph">No tokens found for "palette" colors 🤷‍♀️</p>
+    <p class="dummy-paragraph">No tokens found for “palette” colors.</p>
 {{/each-in}}
