@@ -2,7 +2,7 @@
 
 **Coming soon!**
 
-Border tokens are coming soon! Once Figma adds support for `border-radius` as a style they will be added 🕰.
+Border tokens are coming soon! Once Figma adds support for `border-radius` as a style, they will be added.
 
 !!!
 
