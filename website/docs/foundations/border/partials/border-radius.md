@@ -1,3 +1,11 @@
+!!! Insight
+
+**Coming soon!**
+
+Border tokens are coming soon! Once Figma adds support for `border-radius` as a style, they will be added.
+
+!!!
+
 ## Border radius
 
 We don't currently offer border radius tokens or Figma styles.
