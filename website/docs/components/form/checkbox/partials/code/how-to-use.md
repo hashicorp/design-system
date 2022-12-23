@@ -85,7 +85,7 @@ You can add extra information to the field using helper text. When helper text i
 
 #### Extra content in legend and helper text
 
-The `Legend` and `HelperText` contextual components used in the "group" are yielding their content: this means you can pass not just plain text, but also structured content.
+The `Legend` and `HelperText` contextual components used in the "group" yield their content: meaning you can pass not just plain text, but also structured content.
 
 !!! Warning
 
@@ -132,7 +132,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Validation
 
-To show the user that their input is not valid, you have to provide an error message (using the `Error` contextual component).
+If an input is not valid, provide the user with an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
@@ -245,7 +245,7 @@ You can add extra information to the field using helper text. When helper text i
 
 #### Extra content in label and helper text
 
-The `Label` and `HelperText` contextual components used in the "field" are yielding their content. This means you can also pass structured content.
+The `Label` and `HelperText` contextual components used in the "field" yield their content, meaning you can also pass structured content.
 
 !!! Warning
 
