@@ -173,7 +173,7 @@ Icons in ListItems are optional.
 
 We recommend letting the text speak for itself unless an icon provides additional value.
 
-Ask yourself, "Which icon should I use here?" If the answer isn’t obvious within 5 seconds, consider whether the icons is really providing additional value.
+Ask yourself, “Which icon should I use here?” If the answer isn’t obvious within 5 seconds, consider whether the icon is really providing additional value.
 
 <Hds::Dropdown::Toggle::Button @text="More" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
