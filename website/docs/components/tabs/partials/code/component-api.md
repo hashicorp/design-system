@@ -2,9 +2,9 @@
 
 The `Tabs` component is composed of different parts, with their own APIs:
 
-*  `Tabs` “container”
-*  multiple `Tab` sub-components
-*  multiple `Panel` sub-components (corresponding to each Tab)
+- `Tabs` “container”
+- multiple `Tab` child components
+- multiple `Panel` child components (corresponding to each Tab)
 
 ### Tabs API
 
