@@ -138,7 +138,7 @@ Note that `toggleText` is still required–it provides the `aria-label` for the 
 
 ### With a loading "interactive" item
 
-Example: there may be use cases when it’s necessary to put an item in a "loading" state while the app performs some operations (eg. checking asynchronously the user’s permission to execute a certain operation, once the toggle has been clicked).
+Example: there may be use cases when it’s necessary to put an item in a "loading" state while the app performs some operations (e.g., checking asynchronously the user’s permission to execute a certain operation, once the toggle has been clicked).
 
 In that case the argument `@isLoading={{true}}` can be passed to the item: this will show a "loading" icon (even if an argument `@icon` is provided) and set the item as non-interactive until the value of `@isLoading` is set to `false` again.
 
