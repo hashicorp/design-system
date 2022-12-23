@@ -32,7 +32,7 @@ Use for container and component borders. Neutral values can also be used for hor
   {{#each this.colors.semantic.border as |color|}}
     <Doc::ColorSwatch @color={{color}} />
   {{else}}
-    <p class="dummy-paragraph">No tokens found for "semantic/border" colors 🤷‍♀️</p>
+    <p class="dummy-paragraph">No tokens found for “semantic/border” colors.</p>
   {{/each}}
 </div>
 
