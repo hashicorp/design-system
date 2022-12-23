@@ -4,7 +4,7 @@
 
 ## When not to use
 
-- In forms. When providing more than 5-7 options in a form, use a [Select](/components/form/select/overview) instead.
+- In forms. When providing more than 5–7 options in a form, use a [Select](/components/form/select/overview) instead.
 - When selecting an option results in immediate navigation or update to the page content, use a Context Switcher _(coming soon)_.
 
 ## ToggleButton Size
@@ -173,7 +173,7 @@ Icons in ListItems are optional.
 
 We recommend letting the text speak for itself unless an icon provides additional value.
 
-Ask yourself, "Which icon should I use here?" If the answer isn’t obvious within 5 seconds, consider whether the icons is really providing additional value.
+Ask yourself, “Which icon should I use here?” If the answer isn’t obvious within 5 seconds, consider whether the icon is really providing additional value.
 
 <Hds::Dropdown::Toggle::Button @text="More" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">

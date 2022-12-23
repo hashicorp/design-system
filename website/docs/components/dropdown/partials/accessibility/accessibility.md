@@ -14,7 +14,7 @@ Color blind users (specifically those with [Achromatopsia](https://en.wikipedia.
 - Using strong, clear language for the text (e.g., “Delete...”, “Revoke...”, etc.)
 - Adding a relevant icon
 - Moving the Critical ListItem to the bottom of the list or the section
-  - If at the bottom of a list, consider adding a separator above the Critical ListItem to help separate it from other ListItems
+    - If at the bottom of a list, consider adding a separator above the Critical ListItem to help separate it from other ListItems
 - Adding a second confirmation layer after the user clicks “Delete” (ie. showing a confirmation modal that requires the user to type “Delete” into a field before proceeding)
 
 <Hds::Dropdown::Toggle::Icon @text="Icon" @icon="more-horizontal" @isOpen={{true}} />
