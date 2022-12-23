@@ -57,15 +57,6 @@ The column placement property is only relevant within Figma design tooling and d
 - Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
 - A table may only be sorted by a single value at a time.
 
-### State
-
-![Header column state example](/assets/components/table/table-header_column-state.png)
-
-!!! Info
-
-Only header columns that contain a sortable data type have state variants. Non-sortable header columns are not interactive and therefore do not have interactive states.
-!!!
-
 ### Header column pattern
 
 Intentionally not defined as a component with HDS Figma tooling, the header column component is intended to be assembled into a larger table header pattern consisting of multiple columns.
