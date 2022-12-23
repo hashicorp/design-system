@@ -1,5 +1,5 @@
 ---
-title: Form::Select
+title: Select
 description: A form element that allows users to choose one option from a list.
 caption: A form element that allows users to choose one option from a list.
 status: released
@@ -8,22 +8,20 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/select
 ---
 
-<section data-tab="Other">
-  @include "partials/other/generic-1.md"
-</section>
-
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
+  @include "partials/guidelines/guidelines.md"
 </section>
 
 <section data-tab="Code">
-  @include "partials/code/component-api.md"
   @include "partials/code/how-to-use.md"
+  @include "partials/code/component-api.md"
   @include "partials/code/showcase.md"
 </section>
 
 <section data-tab="Specifications">
-  @include "partials/specifications/design-guidelines.md"
+  @include "partials/specifications/anatomy.md"
+  @include "partials/specifications/states.md"
 </section>
 
 <section data-tab="Accessibility">

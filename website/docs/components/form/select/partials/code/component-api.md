@@ -1,11 +1,11 @@
+## Component API
+
 The `Form::Select` component has two different variants, with their own APIs:
 
-*   `Form::Select::Base` - the "basic" component: just the `<select>` control
-*   `Form::Select::Field` - the "field" parent component: the `<select>` control, with label, helper text and error messaging (in a wrapping container)
+- `Form::Select::Base` - the "basic" component: just the `<select>` control
+- `Form::Select::Field` - the "field" parent component: the `<select>` control, with label, helper text and error messaging (in a wrapping container)
 
-#### Form::Select::Base
-
-Here is the API for the "base" component:
+### Form::Select::Base
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isInvalid" @type="boolean">
