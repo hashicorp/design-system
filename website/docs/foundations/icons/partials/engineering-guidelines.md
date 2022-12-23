@@ -52,7 +52,7 @@ The component comes with the following defaults:
 5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent)—defaults to "false".
 6.  (CSS) `class`: flight-icon, flight-icon-NAME, flight-icon-display-inline.
 7.  CSS display: set to `display:inline-block`.
-8.  `data-test-icon` attribute: for the author's testing convenience; set to the value of the `@name` property.
+8.  `data-test-icon` attribute: for the author’s testing convenience; set to the value of the `@name` property.
 
 This makes the base, required invocation quite terse—`@name` is the only property that requires specification. So this invocation:
 
@@ -225,17 +225,17 @@ Some of the icons are supposed to be animated (e.g. “loading” and “running
 To use them, first of all, you must to import the CSS that controls the icons' animation in your CSS:
 
 ```css
-// the path here depends if you're using 'svg-react' or 'svg' icons @import ~@hashicorp/flight-icons/svg-react/animation.css';
+// the path here depends if you’re using 'svg-react' or 'svg' icons @import ~@hashicorp/flight-icons/svg-react/animation.css';
 ```
 
 and declare them the same way you would with any other icon.
 
 ```javascript
-// if you're using the 'svg-react' icons
+// if you’re using the 'svg-react' icons
 import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
 <IconLoading16 />
 
-// if you're using the 'svg' icons
+// if you’re using the 'svg' icons
 import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
 <InlineSvg src={svgLoading16} />
 ```

@@ -72,7 +72,7 @@ Large
 
 ## Color
 
-#### Neutral
+### Neutral
 
 <Hds::Modal @size="medium" @color="neutral" open as |M|>
   <M.Header as |H|>
@@ -89,13 +89,13 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-**Neutral** should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal's function doesn't change or alter areas of the application that aren't directly tied to the current context of the user. Common usage examples include:
+**Neutral** should be used for the majority of Modal instances and is best used in circumstances where the outcome of the Modal’s function doesn’t change or alter areas of the application that aren’t directly tied to the current context of the user. Common usage examples include:
 
 - functions for creating, editing, or updating objects
 - simple requests of information from the user
 - quick confirmations of actions taken by the user.
 
-#### Warning
+### Warning
 
 <Hds::Modal @size="medium" @color="warning" open as |M|>
   <M.Header as |H|>
@@ -112,7 +112,7 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-**warning** indicates that the Modal's action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
+**Warning** indicates that the Modal’s action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
 
 This action may impact areas of the application outside of the scope of the current feature or function, but can also be tied to the context that the user is currently in. Common examples include:
 
@@ -120,7 +120,7 @@ This action may impact areas of the application outside of the scope of the curr
 - archiving an item that can be recovered
 - changing a setting that may require the user to re-authenticate or perform an action again.
 
-#### Critical
+### Critical
 
 <Hds::Modal @size="medium" @color="critical" open as |M|>
   <M.Header as |H|>
@@ -221,7 +221,7 @@ This action may impact areas of the application outside of the scope of the curr
 <Hds::Modal::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Rename this cluster" />
-    <Hds::Button @text="Don't rename this cluster" @color="secondary" />
+    <Hds::Button @text="Don’t rename this cluster" @color="secondary" />
   </Hds::ButtonSet>
 </Hds::Modal::Footer>
 !!!
@@ -230,7 +230,7 @@ This action may impact areas of the application outside of the scope of the curr
 
 - Adhering to an inverse action pattern is more pragmatic and straightforward to the user. This pattern clearly communicates the outcome and intended results of whatever action the user chooses.
 - Most Modals should have a low to medium level of complexity and promote interaction with a simple "yes/no" or "ok/cancel".
-- If the complexity of the Modal breaks this pattern, consider moving the function being performed by the Modal to it's own page.
+- If the complexity of the Modal breaks this pattern, consider moving the function being performed by the Modal to it’s own page.
 
 ## Title
 
@@ -293,7 +293,7 @@ The following actions will dismiss or close the Modal except if `isDismissDisabl
 - Dismiss button in the Modal header
 - Clicking with a mouse outside of the Modal on the overlay
 - Hitting the escape (`ESC`) key on the keyboard
-- A cancel or close button in the footer can also act as a way to dismiss the Modal, but doesn't always function in the same way (see the section on actions for more details).
+- A cancel or close button in the footer can also act as a way to dismiss the Modal, but doesn’t always function in the same way (see the section on actions for more details).
 
 ![Dismissal options for the Modal](/assets/components/modal/modal-dismissal-actions.png)
 

@@ -100,7 +100,7 @@ Some common examples are:
 
 !!! Warning
 
-When using links, avoid using CTA link; it may take users' attention away from other actions on the page. Use [LinkStandalone](/components/link/link-standalone/overview)
+When using links, avoid using CTA link; it may take user’s attention away from other actions on the page. Use [LinkStandalone](/components/link/link-standalone/overview)
 !!!
 
 ### Composition
@@ -169,7 +169,7 @@ Toast width: The Figma component is 360px, which is the minimum width. You can m
 
 - Keep the title short, as this will be the most prominent element when users scan the toast.
 - Do not end the title with a period.
-- Toast messages should be short bu clear and descriptive enough to explain what's happening and guide users on how to prevent or fix the issue. We recommend keeping messages under 90 characters.
+- Toast messages should be short bu clear and descriptive enough to explain what’s happening and guide users on how to prevent or fix the issue. We recommend keeping messages under 90 characters.
 - Text formatting capabilities such as inline links, bold, italic, code, and bulleted lists are supported.
 - For actions, refer to [Button](/components/button/overview) and [Link](/components/link/overview) content guidelines.
 

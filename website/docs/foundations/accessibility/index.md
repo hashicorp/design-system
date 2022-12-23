@@ -12,7 +12,7 @@ Adding support for accessible routing ensures that route transitions are appropr
 
 1. It adds a message to the page to let the screen reader user know that the route has changed and regular page navigation can resume (it is similar to [https://github.com/ember-a11y/a11y-announcer](https://github.com/ember-a11y/a11y-announcer) but does not use `aria-live`).
 2. It moves the focus to that message for the screen reader user, effectively resetting focus in Ember apps (similar to how a native web page/site works).
-3. It provides a bypass mechanism so the user can skip to the page's primary content (see [https://www.w3.org/TR/WCAG20-TECHS/G1.html](https://www.w3.org/TR/WCAG20-TECHS/G1.html)). You can opt out of this if you want (see the `Options` section in the documentation for available options).
+3. It provides a bypass mechanism so the user can skip to the page’s primary content (see [https://www.w3.org/TR/WCAG20-TECHS/G1.html](https://www.w3.org/TR/WCAG20-TECHS/G1.html)). You can opt out of this if you want (see the `Options` section in the documentation for available options).
 
 ## Page Organization
 
@@ -34,7 +34,7 @@ All inputs should have associated labels. These are built-in to the form compone
 
 ### Accessible name
 
-Not every element is allowed to use `aria-label`. Check the [element's role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. When in doubt, ask in [#team-design-system](https://hashicorp.slack.com/archives/C7KTUHNUS)! As the saying goes, "no ARIA is better than bad ARIA!"
+Not every element is allowed to use `aria-label`. Check the [element’s role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. When in doubt, ask in [#team-design-system](https://hashicorp.slack.com/archives/C7KTUHNUS)! As the saying goes, "no ARIA is better than bad ARIA!"
 
 ## Focus Management
 
@@ -51,12 +51,12 @@ Use available automated tooling for static and dynamic analysis. Ember apps can 
 ## Manual Testing
 
 - *Keyboard support:* ensure that your application is keyboard navigable. Everything that you can do with a mouse should have an equivalent experience with a keyboard!
-- *Browser extensions:* there are a few browser extensions that can help you with accessibility. Microsoft's [Accessibility Insights](https://accessibilityinsights.io/) and Deque's [aXe](https://www.deque.com/axe/browser-extensions/) are two popular extensions that can help you check for accessibility issues right in your browser.
+- *Browser extensions:* there are a few browser extensions that can help you with accessibility. Microsoft’s [Accessibility Insights](https://accessibilityinsights.io/) and Deque’s [aXe](https://www.deque.com/axe/browser-extensions/) are two popular extensions that can help you check for accessibility issues right in your browser.
 - *Safari and VoiceOver:* your development environment has a screen reader built in! Become familiar with VoiceOver use it to test your application with Safari, especially if you are creating a non-standard UI and want to make sure that it will be inclusive for our users.
 
 ## Accessibility Support
 
-Don't forget that there are other ways to learn more about implementing accessible applications. Training is available for HashiCorp employees through our internal learning library; look for the Accessibility section!
+don’t forget that there are other ways to learn more about implementing accessible applications. Training is available for HashiCorp employees through our internal learning library; look for the Accessibility section!
 
 There is also the Accessibility Guild where HashiCorp employees of all roles can join and learn more about accessibility topics. With multiple meeting days/times that accommodate a globally-distributed workforce, there is sure to be something for everyone. We also record meetings and make those available for those who are unable to attend.
 

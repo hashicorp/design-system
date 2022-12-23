@@ -13,13 +13,13 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 Since columns within the table header can control sorting within the table, the header column is not eligible to receive additional interactive elements such as tooltip/toggletip or other components that rely on interactivity to display content (nested interactive elements).
 
-If you feel you need to use a tooltip, then there probably isn't enough contextual information about the table or the label within the header isn't clear enough.
+If you feel you need to use a tooltip, then there probably isn’t enough contextual information about the table or the label within the header isn’t clear enough.
 
 ![Example of a nested tooltip within a table header](/assets/components/table/table-header_column-nested_tooltip.png)
 
 **How is focus handled within the table header?**
 
-Focus is only relevant for columns that you define as sortable which is not a predefined or default property. While sorting by numerical and string-based values is helpful, sorting doesn't make sense for all data types within a table.
+Focus is only relevant for columns that you define as sortable which is not a predefined or default property. While sorting by numerical and string-based values is helpful, sorting doesn’t make sense for all data types within a table.
 
 ![Example of focus around a table header column](/assets/components/table/table-header_column-focus_example.png)
 

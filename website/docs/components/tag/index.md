@@ -1,7 +1,7 @@
 ---
 title: Tag
-description: Used to indicate an object's categorization.
-caption: Used to indicate an object's categorization.
+description: Used to indicate an object’s categorization.
+caption: Used to indicate an object’s categorization.
 status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13720%3A34360&t=XC8SUxxJOFHgqYzK-1

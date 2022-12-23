@@ -1,4 +1,4 @@
-If you're a designer new to the HashiCorp Design System or are looking to get up to speed on the strategy, design language, and best practices used in our libraries, this getting started guide should be your first stop. We'll walk through:
+If you’re a designer new to the HashiCorp Design System or are looking to get up to speed on the strategy, design language, and best practices used in our libraries, this getting started guide should be your first stop. We’ll walk through:
 
 1. enabling relevant Figma libraries
 2. how to use them in the context of a project
@@ -25,11 +25,11 @@ For a more detailed guide to using our Figma libraries, view the [setup guide](/
 
 **Warning**
 
-As a general rule of thumb, we don't recommend tying core design functionality to third-party plugins. These plugins are not supported directly by Figma and are subject to errors if Figma's API or core functionality changes. Only use plugins as a support mechanism within your design files.
+As a general rule of thumb, we don’t recommend tying core design functionality to third-party plugins. These plugins are not supported directly by Figma and are subject to errors if Figma’s API or core functionality changes. Only use plugins as a support mechanism within your design files.
 
 !!!
 
-Plugins can be used to extend Figma's native functionality and make life a little easier by simplifying repetitive tasks. Here is a small curation of the plugins that our team members like to use:
+Plugins can be used to extend Figma’s native functionality and make life a little easier by simplifying repetitive tasks. Here is a small curation of the plugins that our team members like to use:
 
 - [Lorem Ipsum](https://www.figma.com/community/plugin/736000994034548392): generate varying lengths of placeholder "lorem ipsum" content in a text layer.
 - [Stark](https://www.figma.com/community/plugin/732603254453395948): a toolkit for measuring accessibility criteria in your designs.

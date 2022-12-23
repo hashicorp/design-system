@@ -2,7 +2,7 @@ Figma is an incredibly versatile tool, but this versatility can sometimes backfi
 
 !!! Info
 
-These best practices have been curated by the HashiCorp design system team, Figma has it's own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
+These best practices have been curated by the HashiCorp design system team, Figma has it’s own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
 
 !!!
 
@@ -64,7 +64,7 @@ Functions and experiences that are unique to your product should be designed and
 
 A component inserted from a library into a project is referred to as an **instance**. Instances maintain a link to the main component in the library, which has significant benefits for deploying components and iterating quickly.
 
-Our Figma components are coupled closely with their code counterparts to maintain consistency in the API and design language. In most scenarios, we don't recommend detaching a component or foundation from the library. If you find that a component doesn't meet your needs, reach out to us for [support](/support) or [submit a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform) for a new component, foundation, or feature.
+Our Figma components are coupled closely with their code counterparts to maintain consistency in the API and design language. In most scenarios, we don’t recommend detaching a component or foundation from the library. If you find that a component doesn’t meet your needs, reach out to us for [support](/support) or [submit a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform) for a new component, foundation, or feature.
 
 ### Why to avoid detaching components
 

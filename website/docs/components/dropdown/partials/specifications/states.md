@@ -16,7 +16,7 @@ Because disabled states completely remove the interactive function of an element
 
 !!!
 
-<!-- Can't get the mock states to work here for some reason -->
+<!-- Can’t get the mock states to work here for some reason -->
 
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Interactive @color="action" @icon="hexagon" @text="Hover" mock-state-value="hover" />

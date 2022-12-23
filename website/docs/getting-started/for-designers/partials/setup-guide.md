@@ -1,6 +1,6 @@
 !!! Info
 
-While the steps included in this documentation are specific to HashiCorp's Figma organization and libraries, [Figma's documentation](https://help.figma.com/hc/en-us/articles/360041051154-Guide-to-libraries-in-Figma) is equally useful when learning how to enable libraries and use them in your projects.
+While the steps included in this documentation are specific to HashiCorp’s Figma organization and libraries, [Figma’s documentation](https://help.figma.com/hc/en-us/articles/360041051154-Guide-to-libraries-in-Figma) is equally useful when learning how to enable libraries and use them in your projects.
 
 !!!
 
@@ -10,7 +10,7 @@ To start using HashiCorp Design System libraries in your Figma project, open the
 
 ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries.png)
 
-Once a library has been enabled in your project you'll have access to it's components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources panel](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) with the hotkey `shift + i`.
+Once a library has been enabled in your project you’ll have access to it’s components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources panel](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) with the hotkey `shift + i`.
 
 Styles published by a library are available in the **layer styles panel** on the right side of the application window.
 
@@ -22,7 +22,7 @@ Styles published by a library are available in the **layer styles panel** on the
 
 ### From the assets panel
 
-Access library components via Figma's [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel). Select the name or expand the category of the component you would like to use and click or drag it into your project. Alternatively, you can use the search bar at the top of the panel, which returns results based on the component's name, category, and description.
+Access library components via Figma’s [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel). Select the name or expand the category of the component you would like to use and click or drag it into your project. Alternatively, you can use the search bar at the top of the panel, which returns results based on the component’s name, category, and description.
 
 The shortcut `shift + i` opens the resources panel which exposes a list of recently used components, plugins, and widgets you have enabled in your project.
 
@@ -44,4 +44,4 @@ Figma styles allow consistent application of color (as a fill or stroke), typogr
 
 ## Support
 
-If you have any questions or need assistance using the HashiCorp Design System libraries, don't hesitate to <LinkTo @route="support">reach out for support</LinkTo>.
+If you have any questions or need assistance using the HashiCorp Design System libraries, don’t hesitate to <LinkTo @route="support">reach out for support</LinkTo>.

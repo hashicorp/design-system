@@ -68,7 +68,7 @@ This is the native button attribute, `type`. There are three possible values: `b
 <Hds::Button @text="Submit" type="submit" />
 ```
 
-_Notice: if you're passing a `@href` or a `@route` argument to the component, this will generate a `<a>` link, not a `<button>` (see below). In this case no `type` is needed._
+_Notice: if you’re passing a `@href` or a `@route` argument to the component, this will generate a `<a>` link, not a `<button>` (see below). In this case no `type` is needed._
 
 ### Actions
 
@@ -130,4 +130,4 @@ To disable a button, manually add the native `disabled` attribute:
 <Hds::Button @text="Copy to clipboard" disabled />
 ```
 
-_Notice: since a `<a>` link can't be disabled, if you're passing a `@href` or a `@route` argument to the component you will need to take care of intercepting the events in case you want to disable it._
+_Notice: since a `<a>` link can’t be disabled, if you’re passing a `@href` or a `@route` argument to the component you will need to take care of intercepting the events in case you want to disable it._

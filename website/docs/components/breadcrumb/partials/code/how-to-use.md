@@ -1,6 +1,6 @@
 ## How to use this component
 
-The breadcrumb is an application-level UI element, so it's likely that it will be implemented once per application.
+The breadcrumb is an application-level UI element, so it’s likely that it will be implemented once per application.
 
 ### Basic use
 

@@ -36,7 +36,7 @@ Use a **product-specific color** for objects or pages that are directly related 
 
 ## Size
 
-Medium is the default size, but use the size that best fits any supporting text or UI. For example, don't use large IconTiles in tables
+Medium is the default size, but use the size that best fits any supporting text or UI. For example, don’t use large IconTiles in tables
 
 <Hds::IconTile @color="neutral" @icon="dashboard" @size="large" />
 <Hds::IconTile @color="neutral" @icon="dashboard" @size="medium" />

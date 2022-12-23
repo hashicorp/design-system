@@ -38,7 +38,7 @@ Use for container and component borders. Neutral values can also be used for hor
 
 ### Focus
 
-Use to indicate an element is in a focused state. Critical values for critical actions only, Action values for everything else. _Notice: they're used internally by the design system to define focus states_.
+Use to indicate an element is in a focused state. Critical values for critical actions only, Action values for everything else. _Notice: they’re used internally by the design system to define focus states_.
 
 <div class="dummy-colors-list">
   {{#each this.colors.semantic.focus as |color|}}

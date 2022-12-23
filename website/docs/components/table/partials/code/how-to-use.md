@@ -2,7 +2,7 @@
 
 ### Static Table (non-sortable)
 
-If you have your own content and don't want to use a model, you can still benefit from the components themselves. Here is an example of such an invocation in a template:
+If you have your own content and don’t want to use a model, you can still benefit from the components themselves. Here is an example of such an invocation in a template:
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->

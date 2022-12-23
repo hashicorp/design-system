@@ -57,7 +57,7 @@
         <T.Title>A toast with a rich description (HTML)</T.Title>
         <T.Description>Using the
           <code>A.Description</code>
-          contextual component it's possible to have content that contains HTML tags, like
+          contextual component it’s possible to have content that contains HTML tags, like
           <strong>strong text</strong>
           and
           <em>emphasized text</em>

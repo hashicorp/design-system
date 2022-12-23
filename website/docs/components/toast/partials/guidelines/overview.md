@@ -1,4 +1,4 @@
-A Toast is an element intended for **messages that are the result of a user's actions**.
+A Toast is an element intended for **messages that are the result of a user’s actions**.
 
 For system-generated messages see the [Alert](/components/alert/) component.
 

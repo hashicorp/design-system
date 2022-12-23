@@ -10,7 +10,7 @@ The breadcrumb component is composed of three different parts, each with their o
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="itemsCanWrap" @type="boolean">
-This controls if the breadcrumb items can wrap in case they don't fit in the container width.
+This controls if the breadcrumb items can wrap in case they don’t fit in the container width.
 </C.Property>
 <C.Property @name="didInsert" @type="function">
 This hook method is called when the component is inserted in the DOM. _Note: internally we use the "did-insert" modifier from `@ember/render-modifiers`._
@@ -33,7 +33,7 @@ Use this parameter to show an icon. Any [icon name](/foundations/icons) is accep
 These are the parameters that are passed down as arguments to the `<LinkTo>` component.
 </C.Property>
 <C.Property @name="current" @type="boolean">
-Determines if an item is the last item in the breadcrumb, in which case it doesn't generate a link.
+Determines if an item is the last item in the breadcrumb, in which case it doesn’t generate a link.
 </C.Property>
 <C.Property @name="...attributes">
 This component supports use of `...attributes`.
