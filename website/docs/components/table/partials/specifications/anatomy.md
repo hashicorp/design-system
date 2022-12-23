@@ -2,10 +2,7 @@
 
 ![Table header anatomy](/assets/components/table/table-header_column-anatomy.png)
 
-### Label
-
-Required
-
-### Sort direction
-
-Options: none, indeterminate, ascending, descending
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Label            | Required                                        |
+| Sort Direction   | Options: none, ascending, descending            |
