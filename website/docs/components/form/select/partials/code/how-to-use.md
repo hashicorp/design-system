@@ -11,8 +11,6 @@ The "field" variant is used most commonly, because it provides, for free and out
 
 #### Basic use
 
-The simplest way to invoke a "select" field is using something like this:
-
 ```handlebars
 <Hds::Form::Select::Field as |F|>
   <F.Label>Target infrastructure</F.Label>

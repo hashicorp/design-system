@@ -1,7 +1,5 @@
 ## Usage
 
-Invocation of the component would look something like this:
-
 ```handlebars
 <Hds::Card::Container @level="mid" @hasBorder={{true}}>[Your content here]</Hds::Card::Container>
 ```

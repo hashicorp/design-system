@@ -2,8 +2,6 @@
 
 ### Basic use
 
-Invocation of the component would look like this:
-
 ```handlebars
 <Hds::Tag @text="My text tag" @onDismiss={{this.yourOnDismissFunction}} />
 ```

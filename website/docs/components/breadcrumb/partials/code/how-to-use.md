@@ -2,8 +2,6 @@ The breadcrumb is a high-level UI element, so it's likely that it will be implem
 
 #### Basic use
 
-A simple breadcrumb can be invoked like this:
-
 ```handlebars
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" />

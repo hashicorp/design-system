@@ -2,8 +2,6 @@
 
 ### Basic use (`<button>`)
 
-Invocation of the component would look like this:
-
 ```handlebars{data-execute=false}
 <Hds::Interactive>
     your content here (will be yielded)
