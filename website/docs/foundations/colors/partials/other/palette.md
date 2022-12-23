@@ -70,7 +70,7 @@ Use for page backgrounds.
       {{/each}}
     </div>
 {{else}}
-    <p class="dummy-paragraph">No tokens found for "branding" colors 🤷‍♀️</p>
+    <p class="dummy-paragraph">No tokens found for “branding” colors.</p>
 {{/each-in}}
 
 ## Core Palette
