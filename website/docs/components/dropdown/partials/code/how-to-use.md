@@ -15,7 +15,7 @@ To make the invocation more intuitive for developers, we’ve provided contextua
 </Hds::Dropdown>
 ```
 
-### URL and route handling
+### ListItem::Interactive
 
 The `Interactive` list item renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event.
 
@@ -24,11 +24,11 @@ The `Interactive` list item renders the correct element based on the passing of 
 `{{on "click" this.myAction}}`). 
 -->
 
-Internally, the `Hds::Dropdown::ListItem::Interactive` component uses the generic `Hds::Interactive` component. For more details, see the [Hds::Interactive component](/utilities/interactive/) documentation.
+Internally, the component uses the [Hds::Interactive](/utilities/interactive/) utility component.
 
 #### Rendering a button
 
-If you add an event handler (no `@href` or `@route`), a simple `<button>` will be generated:
+If you add an event handler (no `@href` or `@route`), a `<button>` element will be rendered:
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
@@ -52,13 +52,13 @@ If you pass a `@href` argument, a link (`<a>` element) will be generated:
 
 **Internal Link?**
 
-When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added–`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really does point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{true}}` to the component and it will not add any extra HTML attributes.
+When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added–`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really _does_ point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{true}}` to the component and it will not add any extra HTML attributes.
 
 !!!
 
 #### Rendering a LinkTo (with `@route`)
 
-If you pass a `@route` argument, Ember’s `<LinkTo>` will be used:
+If you pass a `@route`, Ember’s `<LinkTo>` will be used:
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
