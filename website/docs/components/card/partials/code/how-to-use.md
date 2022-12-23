@@ -10,7 +10,7 @@ Invocation of the component would look something like this:
 
 **Just a container**
 
-The layout of the card itself, and its content, is left to the consumer of the component. The `Hds::Card::Container` is nothing more than a block container – a `<div>` – that provides styling for the `elevation`, `border` and `background`. Sizing of the card, internal padding, and content alignment are all the consumer’s responsibility.
+The layout of the card itself, and its content, is left to the consumer of the component. The `Hds::Card::Container` is nothing more than a block container—a `<div>`—that provides styling for the `elevation`, `border`, and `background`. Sizing of the card, internal padding, and content alignment are all the consumer’s responsibility.
 
 !!!
 
