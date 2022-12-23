@@ -9,15 +9,15 @@ This guide contrasts [getting started for engineers](/getting-started/engineers)
 
 ## Figma libraries
 
-The HashiCorp design system team publishes and maintains a set of core Figma libraries for use in any HashiCorp team within our Figma organization. These libraries are currently **not** available for public consumption outside of HashiCorp.
+We publish and maintain a set of core Figma libraries for use by any product team within HashiCorp. These libraries are only available for internal consumption.
 
 - [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1): the set of components published in the HashiCorp Design System
-- [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by HashiCorp Design System components and published for reuse in your projects
+- [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by HashiCorp Design System components for reuse in your projects
 - [Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1): core icon set for reuse in your projects
 
 All of these libraries are published under the [HDS Design System UI Kit](https://www.figma.com/files/team/1030156573400567478) team for use in HashiCorp product design. We do not currently support marketing design efforts directly, but occasionally play a consulting role in component and pattern design.
 
-For a more detailed guide for using our Figma libraries, view the **setup guide** tab.
+For a more detailed guide to using our Figma libraries, view the [setup guide](/getting-started/for-designers?tab=setup%20guide/).
 
 ## Recommended plugins
 
@@ -39,16 +39,3 @@ Plugins can be used to extend Figma's native functionality and make life a littl
 The [Figma community](https://www.figma.com/community) contains many other useful resources for documenting your designs, wireframing, and collaborating with your team.
 
 ![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png)
-
-## Should I use the Figma desktop or web application?
-
-While Figma's industry prominence as a design tool is largely driven by its feature set, platform-agnostic availability plays a large part in Figma's broad adoption.
-
-Your organization, projects, and files can be accessed via any modern web browser as well as native [desktop applications](https://www.figma.com/downloads/) for macOS and Windows.
-
-How you choose to access Figma is up to you, but the desktop application has several advantages over the web application:
-
-- More efficient management of GPU resources
-- Native integration for using local fonts ([more information on using fonts within the browser application](https://help.figma.com/hc/en-us/articles/360039956894-Access-local-fonts-on-your-computer#browser))
-
-Unfortunately Figma doesn't support any form of offline mode at this time, you must be connected to the internet to view and edit any of your design files and projects.
