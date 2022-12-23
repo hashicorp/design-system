@@ -1,3 +1,5 @@
+## Component API
+
 The `Form::Textarea` component is based on the Ember [`Textarea` built-in component](https://guides.emberjs.com/release/components/built-in-components/).
 
 This component has two different variants, with their own APIs:
@@ -5,9 +7,9 @@ This component has two different variants, with their own APIs:
 *   `Form::Textarea::Base` - the "basic" component: the `<Textarea>` Ember component
 *   `Form::Textarea::Field` - the "field" parent component: the `<Textarea>` Ember component, with label, helper text and error messaging (in a wrapping container)
 
-#### Form::Textarea::Base
+### Form::Textarea::Base
 
-The "base" component under the hood uses the Ember `Textarea` built-in component. Please refer to the [`Textarea` API documentation](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/Textarea?anchor=Textarea) for more details.
+The "base" component under the hood uses the Ember `Textarea` built-in component. Refer to the [`Textarea` API documentation](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/Textarea?anchor=Textarea) for more details.
 
 In addition this component provides this extra API:
 
@@ -26,7 +28,7 @@ In addition this component provides this extra API:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Textarea::Field
+### Form::Textarea::Field
 
 Here is the API for the "field" component:
 
@@ -51,7 +53,7 @@ Here is the API for the "field" component:
   </C.Property>
 </Doc::ComponentApi>
 
-##### Contextual components
+#### Contextual components
 
 Label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Error` keys.
 

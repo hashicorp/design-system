@@ -1,66 +1,24 @@
-## When to use
+## Usage
+
+### When to use
 
 - As a form element that provides users with a way to read, input, or edit data in a multi-line field.
 
-## When not to use
+### When not to use
 
 - If needing a single-line input, use [TextInput](/components/form/text-input/overview).
 - If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox/overview), [Radio button](/components/form/radio/overview), [Select](/components/form/select/overview).
 
----
 
-## Anatomy
+### Required and optional
 
-![Textarea anatomy](/assets/components/form/textarea/textarea-anatomy.png)
+<Hds::Form::Textarea::Field @isRequired={{true}} @width="300px" as |F|>
+  <F.Label>Label</F.Label>
+</Hds::Form::Textarea::Field>
 
-#### Label
-
-Required
-
-#### Helper text
-
-Optional
-
-#### Base text
-
-Options: empty, placeholder, filled. Shown in _"placeholder"_
-
-#### Base control
-
-Required
-
-#### Error message
-
-Triggered by system
-
----
-
-## State
-
-![Textarea state](/assets/components/form/textarea/textarea-states.png)
-
-### Readonly vs Disabled
-
-- Readonly and disabled fields are not editable by the user.
-- Data in readonly fields gets passed to the form, while data in disabled fields does not.
-- If the user doesn't need to review the data, consider using a hidden field instead.
-- Use these fields sparingly.
-
----
-
-## Required and optional
-
-<section>
-  <Hds::Form::Textarea::Field @isRequired={{true}} @width="300px" as |F|>
-    <F.Label>Label</F.Label>
-  </Hds::Form::Textarea::Field>
-</section>
-
-<section>
-  <Hds::Form::Textarea::Field @isOptional={{true}} @width="300px" as |F|>
-    <F.Label>Label</F.Label>
-  </Hds::Form::Textarea::Field>
-</section>
+<Hds::Form::Textarea::Field @isOptional={{true}} @width="300px" as |F|>
+  <F.Label>Label</F.Label>
+</Hds::Form::Textarea::Field>
 
 ### Best practices
 
@@ -69,51 +27,49 @@ Triggered by system
 
 [Marking required fields in forms](https://www.nngroup.com/articles/required-fields/)
 
----
+### Validation
 
-## Validation
+!!! Warning 
 
-_Banner (warning):_ While we provide the structure and visual consistency for validation, the messaging and functionality are to be handled by the application teams.
+While we provide the structure and visual consistency for validation, the messaging and functionality are to be handled by the application teams.
+!!!
 
-### Single error message
+#### Single error message
 
-<section>
-  <Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>Reason</F.Label>
-    <F.Error>Reason cannot be blank</F.Error>
-  </Hds::Form::Textarea::Field>
-</section>
+<Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
+  <F.Label>Reason</F.Label>
+  <F.Error>Reason cannot be blank</F.Error>
+</Hds::Form::Textarea::Field>
 
-<section>
-  <Hds::Form::Textarea::Field @value="5&3y" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>VPC ID</F.Label>
-    <F.Error>VPC ID may only contain letters, numbers, or hyphens.</F.Error>
-  </Hds::Form::Textarea::Field>
-</section>
+<Hds::Form::Textarea::Field @value="5&3y" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
+  <F.Label>VPC ID</F.Label>
+  <F.Error>VPC ID may only contain letters, numbers, or hyphens.</F.Error>
+</Hds::Form::Textarea::Field>
 
-### Multiple error messages
+#### Multiple error messages
 
 Show **all** applicable error messages directly under their corresponding form field.
 
-_Banner (informational):_ To display multiple error messages in your designs, hit `return` or `enter` between messages.
+!!! Info
 
-<section>
-  <Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
-    <F.Label>Network ID</F.Label>
-    <F.HelperText>Must be a unique set of 3-36 characters. May include numbers, hyphens, and lowercase letters. Must start with a letter and end with a letter or number</F.HelperText>
-    <F.Error as |E|>
-      <E.Message>Network ID must be 3 to 36 characters long.</E.Message>
-      <E.Message>Network ID must start with a letter.</E.Message>
-      <E.Message>Network ID must end with a letter or number.</E.Message>
-    </F.Error>
-  </Hds::Form::Textarea::Field>
-</section>
+To display multiple error messages in your designs, hit `return` or `enter` between messages.
+!!!
 
-### Client side and Server side validation
+<Hds::Form::Textarea::Field @value="" @isRequired={{true}} @isInvalid={{true}} @width="300px" as |F|>
+  <F.Label>Network ID</F.Label>
+  <F.HelperText>Must be a unique set of 3-36 characters. May include numbers, hyphens, and lowercase letters. Must start with a letter and end with a letter or number</F.HelperText>
+  <F.Error as |E|>
+    <E.Message>Network ID must be 3 to 36 characters long.</E.Message>
+    <E.Message>Network ID must start with a letter.</E.Message>
+    <E.Message>Network ID must end with a letter or number.</E.Message>
+  </F.Error>
+</Hds::Form::Textarea::Field>
+
+#### Client side and Server side validation
 
 Use a combination of client side and server side validation for the best user experience. Catching basic erros with client side validation allows the user to quickly resolve the error **before** submitting the form.
 
-#### Client side (or inline) validation
+##### Client side (or inline) validation
 
 Client side validation is an initial check that happens in the browser to ensure required fields are filled out and that the value is in the correct format.
 
@@ -121,7 +77,7 @@ Client side validation is an initial check that happens in the browser to ensure
 
 ![Example of client side (inline) validation](/assets/components/general/validation-client_side.png)
 
-#### Server side validation
+##### Server side validation
 
 Server side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
 
@@ -129,22 +85,23 @@ When using server side validation, display a Critical [AlertInline](/components/
 
 ![Example of server side validation](/assets/components/general/validation-server_side.png)
 
----
-
 ## Content
 
-### Label
+### Form::Label
 
 - We recommend keeping labels clear and concise.
 - [3.2.2 Labels or Instructions (A)](https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html): Labels or instructions are provided when content requires user input.
 
-_Banner (informational):_ Labels and link: Labels are part of the checkbox's selectable area, making them interactive elements. This means that links inside them are nested interactive elements and cannot be reached by assistive technology. If you plan to add links to checkboxes, please contact the design system team for guidance.
+!!! Info
 
-### Helper text
+Labels and link: Labels are part of the checkbox's selectable area, making them interactive elements. This means that links inside them are nested interactive elements and cannot be reached by assistive technology. If you plan to add links to checkboxes, contact the design system team for guidance.
+!!!
 
-- Use helper text when needing to provide the user with extra details about the option(s) you're asking them to select, ie. Learn more about our pricing.
+### Form::HelperText
 
-### Error messages
+- Use `Form::HelperText` when needing to provide the user with extra details about the option(s) you're asking them to select, ie. Learn more about our pricing.
+
+### Form::Error
 
 - Error messages need to provide the user with enough context to guide them in resolving the error.
 - Keep messages short and to the point.
