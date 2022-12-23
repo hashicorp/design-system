@@ -1,3 +1,5 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">States of the sortable table header (buttons)</h4>
   <Hds::Table>
