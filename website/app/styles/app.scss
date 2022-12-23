@@ -57,6 +57,21 @@ body {
   clip-path: inset(50%) !important;
 }
 
+// TODO: move these custom styles meant for presentation pursposes
+// to their own section when agreed with the team
+#guidelines {
+  .hds-modal[open] {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    .hds-modal__dismiss {
+      pointer-events: none;
+    }
+  }
+}
+
 // PERCY
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
