@@ -52,7 +52,7 @@ If you pass a `@href` argument, a link (`<a>` element) will be generated:
 
 **Internal Link?**
 
-When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added–`target="_blank"` and `rel="noopener noreferrer"`. If the `href` points to an internal link, or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{true}}` to the component and it will not add any extra HTML attributes.
+When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added–`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really does point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{true}}` to the component and it will not add any extra HTML attributes.
 
 !!!
 
