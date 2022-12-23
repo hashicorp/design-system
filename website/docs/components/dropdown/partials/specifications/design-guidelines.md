@@ -7,42 +7,6 @@
 - In forms, when needing to select one or more options, use a [Select](/components/form/select/overview)
 - When selecting an option results in immediate navigation or update to the page contentx, use a Context Switcher _(coming soon)_
 
----
-
-_Dropdown_
-
-## Anatomy
-
-![Dropdown anatomy](/assets/components/dropdown/dropdown-anatomy.png)
-
-#### Toggle
-
-Required
-
-#### List
-
-Required, but only visible when open
-
----
-
-_Toggle_
-
-## Anatomy
-
-### Button
-
-![Toggle button anatomy](/assets/components/dropdown/dropdown-toggle-button-anatomy.png)
-
-### Icon
-
-![Toggle icon anatomy](/assets/components/dropdown/dropdown-toggle-button-anatomy.png)
-
-![Toggle avatar anatomy](/assets/components/dropdown/dropdown-toggle-avatar-anatomy.png)
-
-![Toggle icon only anatomy](/assets/components/dropdown/dropdown-toggle-icon_only-anatomy.png)
-
----
-
 ## States
 
 ### Button
