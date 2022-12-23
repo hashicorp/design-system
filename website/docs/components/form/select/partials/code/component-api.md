@@ -1,15 +1,15 @@
+## Component API
+
 The `Form::Select` component has two different variants, with their own APIs:
 
-*   `Form::Select::Base` - the "basic" component: just the `<select>` control
-*   `Form::Select::Field` - the "field" parent component: the `<select>` control, with label, helper text and error messaging (in a wrapping container)
+- `Form::Select::Base` - the "basic" component: just the `<select>` control
+- `Form::Select::Field` - the "field" parent component: the `<select>` control, with label, helper text and error messaging (in a wrapping container)
 
-#### Form::Select::Base
-
-Here is the API for the "base" component:
+### Form::Select::Base
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isInvalid" @type="boolean">
-    It applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
+    Applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the `<select>` has an intrinsic width based on its content. If a `@width` parameter is provided then the control will have a fixed width._
@@ -21,21 +21,19 @@ Here is the API for the "base" component:
 
 ##### Contextual components
 
-Select's options are passed to the field as yielded components, using the `Options` key.
+The select options are passed to the field as yielded components, using the `Options` key.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Options>" @type="yielded component">
-    It is a container that yields its content inside the `<select>` element. The content needs to be a set of native HTML `<option>` and `<optgroup>` elements (as such, you can provide to them also native HTML attributes).
+    A container that yields its content inside the `<select>` element. The content needs to be a set of native HTML `<option>` and `<optgroup>` elements (as such, you can provide to them also native HTML attributes).
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Select::Field
-
-Here is the API for the "field" component:
+### Form::Select::Field
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isInvalid" @type="boolean">
-    It applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
+    Applies an "invalid" appearance to the control (_notice: this does \_not\_ modify its logical validity_).
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     _Notice: by default the `<select>` has an intrinsic width based on its content. If a `@width` parameter is provided then the control will have a fixed width. This width will be applied **only** to the control, not the other elements of the field._
@@ -57,22 +55,22 @@ Here is the API for the "field" component:
   </C.Property>
 </Doc::ComponentApi>
 
-##### Contextual components
+#### Contextual components
 
-Options, label, helper text and error content are passed to the field as yielded components, using the `Options`, `Label`, `HelperText`, `Error` keys.
+Options, label, helper text, and error content are passed to the field as yielded components, using the `Options`, `Label`, `HelperText`, and `Error` keys.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Options>" @type="yielded component">
-    It is a container that yields its content inside the `<select>` element. The content needs to be a set of native HTML `<option>` and `<optgroup>` elements.
+    A container that yields its content inside the `<select>` element. The content needs to be a set of native HTML `<option>` and `<optgroup>` elements.
   </C.Property>
   <C.Property @name="<[F].Label>" @type="yielded component">
-    It is a container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/base-elements/) component. _Notice: the `for` attribute of the label is automatically generated, using the `controlId` value of the control._
+    A container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/base-elements/) component. _Notice: the `for` attribute of the label is automatically generated, using the `controlId` value of the control._
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
-    It is a container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/base-elements/) component. _Notice: the `id` attribute of the element is automatically generated, using the `controlId` value of the control._
+    A container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/base-elements/) component. _Notice: the `id` attribute of the element is automatically generated, using the `controlId` value of the control._
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    It is a container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/base-elements/) component. _Notice: the `id` attribute of the `Error` element is automatically generated._
+    A container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/base-elements/) component. _Notice: the `id` attribute of the `Error` element is automatically generated._
   </C.Property>
   <C.Property @name="<[E].Message>" @type="yielded component">
     If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
