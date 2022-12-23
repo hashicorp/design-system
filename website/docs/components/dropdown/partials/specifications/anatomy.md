@@ -19,7 +19,7 @@
 
 ## ListItem Anatomy
 
-![](/assets/components/dropdown/dropdown-listitem-anatomy.png)
+![Dropdown ListItem anatomy](/assets/components/dropdown/dropdown-listitem-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -32,7 +32,7 @@
 
 <!-- ![Dropdown CopyItem anatomy](/assets/components/dropdown/dropdown-copybutton-anatomy.png) -->
 
-![](/assets/components/dropdown/dropdown-copybutton-anatomy.png)
+![Dropdown CopyButton anatomy](/assets/components/dropdown/dropdown-copybutton-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
