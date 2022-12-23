@@ -25,39 +25,20 @@
 
 ![ListItem Anatomy](/assets/components/dropdown/dropdown-list_item-anatomy.png)
 
-### Text
-
-Required
-
-### Icon
-
-Required for Critical ListItems. Optional otherwise.
-
-### Indicator
-
-Visible in hover and active state
-
-### Focus ring
-
-Visible in focus state
-
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Text             | Required                                        |
+| Icon             | Required for Critical ListItems, otherwise optional.               |
+| Indicator        | Visible in hover and active state               |
+| Focus ring       | Visible in focus state                          |
 
 ## CopyItem Anatomy
 
 ![Dropdown CopyItem anatomy](/assets/components/dropdown/dropdown-copy_item-anatomy.png)
 
-#### Title
-
-Optional
-
-#### Text
-
-Required
-
-#### Copy icon
-
-Required
-
-#### Focus ring
-
-Visible in focus state
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Title            | Optional                                        |
+| Text             | Required                                        |
+| Copy Icon        | Required                                        |
+| Focus ring       | Visible in focus state                          |
