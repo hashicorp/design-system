@@ -1,16 +1,16 @@
 ## Conformance rating
 
-### Form::Checkbox::Field
-
-<Doc::Badge @type="success">Conformant</Doc::Badge>
-
-`Form::Checkbox::Field` is conformant when used as directed.
-
 ### Form::Checkbox::Group
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
 `Form::Checkbox::Group` is conformant when used as directed.
+
+### Form::Checkbox::Field
+
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+`Form::Checkbox::Field` is conformant when used as directed.
 
 ### Form::Checkbox::Base
 

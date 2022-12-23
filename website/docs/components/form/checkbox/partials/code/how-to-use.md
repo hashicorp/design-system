@@ -9,6 +9,190 @@ There are different possible ways to use the `Form::Checkbox` component: using t
 
 The "field" and "group" ones are the one that likely you will want to use, because they provide – for free and out of the box – a lot of accessibility-related functionalities. The "base" one is to be used if and when you need to achieve custom layouts or have special use cases not covered by the other variants.
 
+{{! ================= }} {{! ===== GROUP ===== }} {{! ================= }}
+
+### Form::Checkbox::Group
+
+The "group" variant of the checkbox component is to be used when there are multiple related choices to make for the user, or a single one that needs to be presented with an extra "legend". If there is a single choice with no need for an extra "legend", the "field" variant should be used instead.
+
+The basic invocation creates:
+
+- a `<fieldset>` container
+- a `<legend>` element
+- a list of rendered `<Form::Checkbox::Field>` components
+
+The `@name` argument offers an easy way to provide the same name for all the radio controls in a single place.
+
+```handlebars
+<Hds::Form::Checkbox::Group @name="datacenter" as |G|>
+  <G.Legend>Valid datacenters</G.Legend>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>DC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC2</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>SF1</F.Label>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
+#### Layout
+
+You can choose between two different layout orientations, to better fit your spacing requirements.
+
+```handlebars
+<Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <G.Legend>Valid datacenters</G.Legend>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>DC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC2</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>SF1</F.Label>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
+#### Helper text
+
+You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID` of the helper text element.
+
+```handlebars
+<Hds::Form::Checkbox::Group @name="methods-demo1" as |G|>
+  <G.Legend>Methods</G.Legend>
+  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
+  <G.Checkbox::Field checked as |F|>
+    <F.Label>POST</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|>
+    <F.Label>GET</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|>
+    <F.Label>PUT</F.Label>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
+#### Extra content in legend and helper text
+
+The `Legend` and `HelperText` contextual components used in the "group" yield their content: meaning you can pass not just plain text, but also structured content.
+
+!!! Warning
+
+If a link is used within a legend, helper text, or error text, it will not be presented as a link to a user with a screen reader; only the text content is read out. We recommend not using links, but if you need to do so sparingly and include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
+
+```handlebars
+<Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
+  <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
+  <G.HelperText>All methods are applied by default unless specified. See <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline> for more details.</G.HelperText>
+  <G.Checkbox::Field checked as |F|>
+    <F.Label>POST</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|>
+    <F.Label>GET</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|>
+    <F.Label>PUT</F.Label>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
+#### Required / Optional
+
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that a choice is "required" or "optional".
+
+```handlebars
+<Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="methods-demo3" as |G|>
+  <G.Legend>Methods</G.Legend>
+  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
+  <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+<br />
+<Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="methods-demo4" as |G|>
+  <G.Legend>Methods</G.Legend>
+  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
+  <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
+  <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
+#### Validation
+
+If an input is not valid, provide the user with an error message using the `Error` contextual component.
+
+```handlebars
+<Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+  <G.Legend>Valid datacenters</G.Legend>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>DC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC2</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>SF1</F.Label>
+  </G.Checkbox::Field>
+  <G.Error>Error: you need to choose at least one datacenter.</G.Error>
+</Hds::Form::Checkbox::Group>
+```
+
+#### "Field" items
+
+A "group" of checkboxes is made of one or more "field" checkbox components (`Form::Checkbox::Field`). So all the arguments, attributes and modifiers that can be passed to the "field" component, can be passed to the same items in the "group" declaration.
+
+```handlebars
+<Hds::Form::Checkbox::Group @layout="vertical" as |G|>
+  <G.Legend>Valid datacenters</G.Legend>
+  <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
+    <F.Label>NYC1</F.Label>
+    <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field name="datacenter2" @id="datacenter-DC1" checked @value="DC1" {{on "change" this.yourOnChangeFunction}} as |F|>
+    <F.Label>DC1</F.Label>
+    <F.HelperText>CoreSite- K Street</F.HelperText>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field name="datacenter3" @id="datacenter-NYC2" checked @value="NYC2" {{on "change" this.yourOnChangeFunction}} as |F|>
+    <F.Label>NYC2</F.Label>
+    <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field name="datacenter4" @id="datacenter-SF1" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
+    <F.Label>SF1</F.Label>
+    <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
+#### "Group" with a single choice
+
+There may be use cases in which you need to create a checkbox "group" that contains a single "field" element (eg. for design reasons, to show the "legend" in a similar position for other control’s labels). In that case is acceptable to have a group with a single "field" element.
+
+```handlebars
+<Hds::Form::Checkbox::Group as |G|>
+  <G.Legend>Visibility</G.Legend>
+  <G.Checkbox::Field name="private" @id="visibility-private" as |F|>
+    <F.Label>Private</F.Label>
+    <F.HelperText>Making a box private prevents users from accessing it unless given permission.</F.HelperText>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
+
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
 ### Form::Checkbox::Field
@@ -61,7 +245,7 @@ You can add extra information to the field using helper text. When helper text i
 
 #### Extra content in label and helper text
 
-The `Label` and `HelperText` contextual components used in the "field" are yielding their content. This means you can also pass structured content.
+The `Label` and `HelperText` contextual components used in the "field" yield their content, meaning you can also pass structured content.
 
 !!! Warning
 
@@ -131,215 +315,6 @@ Thanks to the `...attributes` spreading over the `<input>` element, you can use 
 <Hds::Form::Checkbox::Field {{on "change" this.yourOnChangeFunction}} as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
-```
-
-{{! ================= }} {{! ===== GROUP ===== }} {{! ================= }}
-
-### Form::Checkbox::Group
-
-The "group" variant of the checkbox component is to be used when there are multiple related choices to make for the user, or a single one that needs to be presented with an extra "legend". If there is a single choice with no need for an extra "legend", the "field" variant should be used instead.
-
-The basic invocation creates:
-
-- a `<fieldset>` container
-- a `<legend>` element
-- a list of rendered `<Form::Checkbox::Fields>` components
-
-```handlebars
-<Hds::Form::Checkbox::Group as |G|>
-  <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-#### Layout
-
-You can choose between two different layout orientations, to better fit your spacing requirements.
-
-```handlebars
-<Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
-  <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-##### Helper text
-
-You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID` of the helper text element.
-
-```handlebars
-<Hds::Form::Checkbox::Group @name="methods-demo1" as |G|>
-  <G.Legend>Methods</G.Legend>
-  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>POST</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>GET</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>PUT</F.Label>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-#### Extra content in legend and helper text
-
-The `Legend` and `HelperText` contextual components used in the "group" are yielding their content: this means you can pass not just plain text, but also structured content.
-
-!!! Warning
-
-If a link is used within a legend, helper text, or error text, it will not be presented as a link to a user with a screen reader; only the text content is read out. We recommend not using links, but if you need to do so sparingly and include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
-!!!
-
-```handlebars
-<Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
-  <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
-  <G.HelperText>All methods are applied by default unless specified. See <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline> for more details.</G.HelperText>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>POST</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>GET</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>PUT</F.Label>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-##### Required / Optional
-
-Use the `@isRequired` and `@isOptional` arguments to add a visual indication that a choice is "required" or "optional".
-
-```handlebars
-<Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="methods-demo3" as |G|>
-  <G.Legend>Methods</G.Legend>
-  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-<br />
-<Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="methods-demo4" as |G|>
-  <G.Legend>Methods</G.Legend>
-  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-##### Validation
-
-To show the user that their input is not valid, you have to provide an error message (using the `Error` contextual component).
-
-```handlebars
-<Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
-  <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
-  <G.Error>Error: you need to choose at least one datacenter.</G.Error>
-</Hds::Form::Checkbox::Group>
-```
-
-#### Name attribute
-
-It’s possible to provide a shared name between for the controls in a group using the `@name` argument.
-
-!!! Info
-
-Using a single name or distinct names for multiple checkboxes depends on the context where these checkboxes are used. If you are not sure learn more about [handling multiple checkboxes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#handling_multiple_checkboxes).
-!!!
-
-```handlebars
-<Hds::Form::Checkbox::Group @layout="horizontal" @name="datacenter-group" as |G|>
-  <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
-    <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
-    <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-##### "Field" items
-
-A "group" of checkboxes is made of one or more "field" checkbox components (`Form::Checkbox::Field`). So all the arguments, attributes and modifiers that can be passed to the "field" component, can be passed to the same items in the "group" declaration.
-
-```handlebars
-<Hds::Form::Checkbox::Group @layout="vertical" as |G|>
-  <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
-    <F.Label>NYC1</F.Label>
-    <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter2" @id="datacenter-DC1" checked @value="DC1" {{on "change" this.yourOnChangeFunction}} as |F|>
-    <F.Label>DC1</F.Label>
-    <F.HelperText>CoreSite- K Street</F.HelperText>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter3" @id="datacenter-NYC2" checked @value="NYC2" {{on "change" this.yourOnChangeFunction}} as |F|>
-    <F.Label>NYC2</F.Label>
-    <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter4" @id="datacenter-SF1" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
-    <F.Label>SF1</F.Label>
-    <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
-##### "Group" with single choice
-
-There may be use cases in which you need to create a checkbox "group" that contains a single "field" element (eg. for design reasons, to show the "legend" in a similar position for other control’s labels). In that case is acceptable to have a group with a single "field" element.
-
-```handlebars
-<Hds::Form::Checkbox::Group as |G|>
-  <G.Legend>Visibility</G.Legend>
-  <G.Checkbox::Field name="private" @id="visibility-private" as |F|>
-    <F.Label>Private</F.Label>
-    <F.HelperText>Making a box private prevents users from accessing it unless given permission.</F.HelperText>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
 ```
 
 {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
