@@ -11,7 +11,7 @@ Use tags to indicate an object's categorization, i.e., for filtering.
 
 ### Layout
 
-- The tag component can be seen in several different layouts, but we commonly see them in a list or a group.
+- The tag component can be used in several different layouts, but we commonly see them in a list or a group.
 - Tags will fill the parent container and then wrap, as necessary.
 
 #### List
@@ -26,7 +26,7 @@ Use tags to indicate an object's categorization, i.e., for filtering.
 
 ### Spacing
 
-As a best practice, we recommend a vertical spacing of 12px and horizontal spacing of 8px between tags.
+As a best practice, use a vertical spacing of 12px and horizontal spacing of 8px between tags.
 
 ![Spacing between tags](/assets/components/tag/tag-spacing.png)
 
@@ -35,7 +35,7 @@ As a best practice, we recommend a vertical spacing of 12px and horizontal spaci
 ### Leading vs. Trailing Icon
 
 
-The leading dismiss icon allows mouse users to clear multiple tags quicker, because they do not need to move their mouse, especially when tags have a more extended width.
+The leading dismiss icon allows mouse users to clear multiple tags quicker because they do not need to move their mouse, especially when tags have a more extended width.
 
 !!! Do
 
