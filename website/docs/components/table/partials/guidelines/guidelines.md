@@ -89,7 +89,7 @@ Within Figma column width is determined manually by resizing the header column a
 
 ## Content
 
-#### Label
+### Label
 
 - Labels should be clear, concise, and straightforward.
 - The label should infer clearly what type (string, number, status, etc) of content is contained within the cell.
