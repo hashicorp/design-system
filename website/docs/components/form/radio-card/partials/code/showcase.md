@@ -1,6 +1,6 @@
-<section data-test-percy data-section="showcase">
-  
+## Showcase
 
+<section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">States</h4>
   <div class="dummy-form-radio-card-states-grid">
     {{#each this.STATES as |state|}}

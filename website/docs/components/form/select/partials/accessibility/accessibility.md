@@ -1,6 +1,73 @@
-#### Known Issues
+## Conformance
 
-**Links within labels, help text, or error text:** If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined.
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+`Form::Select` is conformant when used as directed.
+
+## Accessibility
+
+### Mouse
+
+Hover
+
+![Image of hover interaction on the select](/assets/components/select/accessibility/mouse/select-hover.png)
+
+Click to open OptionList
+
+![Image of the interaction of opening the OptionList](/assets/components/select/accessibility/mouse/select-click-to-open.png)
+
+Hover between items
+
+![Image of the hover interaction between two items in an OptionList](/assets/components/select/accessibility/mouse/select-hover-between-items.png)
+
+Click to select OptionList/Item
+
+![Image of the selected state of a item in the OptionList](/assets/components/select/accessibility/mouse/select-click-to-select.png)
+
+### Keyboard
+
+Focus
+
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Tab" @size="small" />
+</div>
+
+![Example image of focusing on the select with tab on a keyboard](/assets/components/select/accessibility/keyboard/select-focus.png)
+
+Open OptionList
+
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Spacebar" @size="small" />
+  <Hds::Badge @color="neutral" @type="filled" @text="↓" @size="small" />
+</div>
+
+![Example image of selecting an item in the OptionList with spacebar](/assets/components/select/accessibility/keyboard/select-spacebar.png)
+
+Move between items
+
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="↑" @size="small" />
+  <Hds::Badge @color="neutral" @type="filled" @text="↓" @size="small" />
+</div>
+
+![Example image of moving between items with up and down arrow keys](/assets/components/select/accessibility/keyboard/select-arrow-keys.png)
+
+Select OptionList/Item
+
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Enter" @size="small" />
+</div>
+
+![Example image of selecting an item in an OptionList with enter](/assets/components/select/accessibility/keyboard/select-enter.png)
+
+Close with changing
+
+<div>
+  <Hds::Badge @color="neutral" @type="filled" @text="Esc" @size="small" />
+</div>
+
+![Example image of closing the select with the escape key](/assets/components/select/accessibility/keyboard/select-focus.png)
+
 
 #### Applicable WCAG Success Criteria (Reference)
 

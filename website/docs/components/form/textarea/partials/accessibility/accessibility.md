@@ -1,8 +1,25 @@
-#### Known Issues
+## Conformance rating
 
-**Links within labels, help text, or error text:** If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined.
+### Form::Textarea::Field
 
-#### Applicable WCAG Success Criteria (Reference)
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+`Form::Textarea::Field` is conformant when used as directed
+
+### Form::Textarea::Base
+
+<Doc::Badge @type="success">Conditionally</Doc::Badge>
+
+`Form::Textarea::Base` is conformant when used as directed
+
+!!! Info  
+
+**Links within labels, help text, or error text:** 
+
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. It is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Use sparingly until a good known alternative approach is determined.
+!!!
+
+## Applicable WCAG Success Criteria
 
 This section is for reference only, some descriptions have been truncated for brevity. The `Form::Textarea::Base` variation of this component is conditionally conformant; that is, it is not conformant until it has an accessible name. Otherwise, this component intends to conform to the following WCAG success criteria:
 

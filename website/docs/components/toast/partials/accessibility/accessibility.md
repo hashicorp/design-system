@@ -1,6 +1,14 @@
-This component has been designed and implemented with accessibility in mind. When used as designed, there should not be any accessibility issues with this component.
+## Conformance rating
 
-#### Applicable WCAG Success Criteria (Reference)
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+When used as recommended, there should not be any WCAG conformance issues with this component.
+
+## Animation
+
+ Animations on Toast will not take place if the user has `prefers-reduced-motion` enabled in their browser or operating system.
+
+## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG success criteria:
 

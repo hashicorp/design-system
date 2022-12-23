@@ -1,11 +1,11 @@
+## Component API
+
 The `Form::Toggle` component has two different variants, with their own APIs:
 
 *   `Form::Toggle::Base` - the "basic" component: just the `<input>` control
 *   `Form::Toggle::Field` - the "field" parent component: the `<input>` control, with label, helper text and error messaging (in a wrapping container)
 
-#### Form::Toggle::Base
-
-Here is the API for the "base" component:
+### Form::Toggle::Base
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="...attributes">
@@ -14,9 +14,7 @@ Here is the API for the "base" component:
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Toggle::Field
-
-Here is the API for the "field" component:
+### Form::Toggle::Field
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="id" @type="string">
@@ -31,9 +29,9 @@ Here is the API for the "field" component:
   </C.Property>
 </Doc::ComponentApi>
 
-##### Contextual components
+#### Contextual components
 
-Label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Error` keys.
+Label, helper text, and error content are passed to the field as yielded components using the `Label`, `HelperText`, and `Error` keys.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
@@ -50,9 +48,7 @@ Label, helper text and error content are passed to the field as yielded componen
   </C.Property>
 </Doc::ComponentApi>
 
-#### Form::Toggle::Group
-
-Here is the API for the "group" component:
+### Form::Toggle::Group
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
@@ -66,11 +62,11 @@ Here is the API for the "group" component:
   </C.Property>
 </Doc::ComponentApi>
 
-##### Contextual components
+#### Contextual components
 
-Legend, group of fields and error content are passed to the group as yielded components, using the `Legend`, `Toggle::Field`, `Error` keys.
+Legend, group of fields, and error content are passed to the group as yielded components, using the `Legend`, `Toggle::Field`, and `Error` keys.
 
-_Notice: the group of elements is automatically wrapped in a `<fieldset>` element._
+The group of elements is automatically wrapped in a `<fieldset>` element.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[G].Legend>" @type="yielded component">

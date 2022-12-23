@@ -1,4 +1,5 @@
 ## How to use this component
+
 The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default, a `neutral` alert is generated.
 
 ```handlebars
@@ -9,6 +10,7 @@ The most basic invocation requires the `type` argument to be passed, along with 
 ```
 
 ### Type
+
 A different type of alert can be invoked using the `type` argument.
 
 ```handlebars
@@ -19,6 +21,7 @@ A different type of alert can be invoked using the `type` argument.
 ```
 
 ### Content
+
 Optionally, you can pass only `title` or only `description`.
 
 ```handlebars
@@ -34,6 +37,7 @@ Optionally, you can pass only `title` or only `description`.
 ```
 
 ### Color
+
 A different color can be applied to the alert using the `color` argument. This will determine the default icon used in the alert (unless overwritten).
 
 ```handlebars
@@ -44,7 +48,8 @@ A different color can be applied to the alert using the `color` argument. This w
 ```
 
 ### Icons
-A different icon can be used in the alert using the `icon` argument. This accepts any [icon](https://flight-hashicorp.vercel.app/) name.
+
+A different icon can be used in the alert using the `icon` argument. This accepts any [icon](/foundations/icons/) name.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
@@ -63,6 +68,7 @@ If you need to hide the icon, pass `false` to the `icon` argument. This is only 
 ```
 
 ### Dismissal
+
 To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a "dismiss/close" button to the alert. When that button is clicked, the callback function will be executed. 
 
 Given the variety of use cases and contexts in which alerts are used across products, application teams will need to implement the callback function.
@@ -75,6 +81,7 @@ Given the variety of use cases and contexts in which alerts are used across prod
 ```
 
 ### Actions
+
 Actions can be passed to the component using one of the suggested `Button` or `Link::Standalone` contextual components.
 
 ```handlebars
@@ -87,6 +94,7 @@ Actions can be passed to the component using one of the suggested `Button` or `L
 ```
 
 ### Structured content
+
 When needed, the `Description` contextual component can contain logic, rich HTML, or structured content.
 
 ```handlebars
@@ -116,6 +124,7 @@ You can pass more than one `D.Description` contextual component to have multiple
 ```
 
 ### Generic content
+
 Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Application teams will need to implement spacing, layout, and styling for generic content.
 
 !!! Warning
