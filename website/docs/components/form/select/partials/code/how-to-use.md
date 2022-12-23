@@ -190,7 +190,7 @@ If you want to connect one or more extra elements describing the field to the co
 </Hds::Form::Select::Field>
 ```
 
-#### HTML native attributes
+#### Native HTML attributes
 
 As explained in the [Component API](#component-api) section, the select "field" supports the `...attributes` spreading of HTML attributes over the `<select>` element. This means you can use all the standard HTML attributes of the `<select>` element.
 
