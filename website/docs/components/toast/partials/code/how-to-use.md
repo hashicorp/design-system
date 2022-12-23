@@ -110,7 +110,7 @@ You can pass more than one `D.Description` contextual components to have multipl
 
 ### Generic content
 
-It's also possible to insert custom content in the `Generic` contextual component.
+it’s also possible to insert custom content in the `Generic` contextual component.
 
 !!! Info
 

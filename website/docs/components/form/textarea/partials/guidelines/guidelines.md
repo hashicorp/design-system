@@ -22,7 +22,7 @@
 
 ### Best practices
 
-- For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don't have to make assumptions.
+- For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions.
 - For shorter, simpler forms (ie. login/signup and feedback requests), indicate **optional** fields instead.
 
 [Marking required fields in forms](https://www.nngroup.com/articles/required-fields/)
@@ -94,22 +94,22 @@ When using server side validation, display a Critical [AlertInline](/components/
 
 !!! Info
 
-Labels and link: Labels are part of the checkbox's selectable area, making them interactive elements. This means that links inside them are nested interactive elements and cannot be reached by assistive technology. If you plan to add links to checkboxes, contact the design system team for guidance.
+Labels and link: Labels are part of the checkbox’s selectable area, making them interactive elements. This means that links inside them are nested interactive elements and cannot be reached by assistive technology. If you plan to add links to checkboxes, contact the design system team for guidance.
 !!!
 
 ### Form::HelperText
 
-- Use `Form::HelperText` when needing to provide the user with extra details about the option(s) you're asking them to select, ie. Learn more about our pricing.
+- Use `Form::HelperText` when needing to provide the user with extra details about the option(s) you’re asking them to select, ie. Learn more about our pricing.
 
 ### Form::Error
 
 - Error messages need to provide the user with enough context to guide them in resolving the error.
 - Keep messages short and to the point.
   - ie. "Select at least one option"
-- Avoid over politeness; don't use 'please' or 'thank you' in your messages.
+- Avoid over politeness; don’t use “please” or “thank you” in your messages.
 - [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html): If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
 - [3.3.3 Error Suggestion (AA)](https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html): If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.
 - [3.3.4 Error Prevention (Legal, Financial, Data) (AA)](https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data.html): For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-contrallable data in data storage systems, or that submit user test responses, at least one of the following is true: submissions are reversible, data is checked and the user is provided an opportunity to correct them, a mechanism is available for reviewing, confirming, and correcting the information before finalizing the submission.
 - [4.1.4 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html): In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without recieving focus.
 
-Refer to [HashiCorp's Style, Language, and Voice Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit?usp=sharing) for more content tips.
+Refer to [HashiCorp’s Style, Language, and Voice Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit?usp=sharing) for more content tips.

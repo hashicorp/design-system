@@ -17,7 +17,7 @@ Focus
 #### Disabled
 
 - Disabled fields are not editable by the user.
-- If the user doesn't need to review the data, consider using a hidden field instead.
+- If the user doesn’t need to review the data, consider using a hidden field instead.
 - Use these fields sparingly.
 
 Default

@@ -125,7 +125,7 @@ Some icons represent common actions within the product interfaces.
 
 ## Usage
 
-Whether you're bringing in new icons or replacing existing icons, using icons in your projects is simple.
+Whether you’re bringing in new icons or replacing existing icons, using icons in your projects is simple.
 
 ### Bring in new icons
 

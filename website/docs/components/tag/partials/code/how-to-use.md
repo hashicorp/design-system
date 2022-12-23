@@ -18,7 +18,7 @@ There are two available colors for a link: `primary` and `secondary`. The defaul
 
 ### Dismiss
 
-In most cases the tag needs to be dismissable. If you don't provide a callback function to the `onDismiss` argument the "dismiss/remove" button will not be rendered.
+In most cases the tag needs to be dismissable. If you don’t provide a callback function to the `onDismiss` argument the "dismiss/remove" button will not be rendered.
 
 ```handlebars
 <Hds::Tag @color="primary" @text="My link tag" @route="show" @model="components/tag" />

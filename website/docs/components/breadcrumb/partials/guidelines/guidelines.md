@@ -104,7 +104,7 @@ Each text-based item can truncate using a pixel-based max-width at the discretio
 
 ### Width-based (Hover)
 
-<!-- I don't think this functionality actually exists on this component -->
+<!-- I don’t think this functionality actually exists on this component -->
 
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
   <Hds::Breadcrumb::Item @text="Level one" />

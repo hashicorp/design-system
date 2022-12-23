@@ -26,7 +26,7 @@ Column placement determines the visual styling based on where the column is plac
 
 !!! Info
 
-The column placement property is only relevant within Figma design tooling and doesn't exist as a property within the production code component.
+The column placement property is only relevant within Figma design tooling and doesn’t exist as a property within the production code component.
 
 !!!
 

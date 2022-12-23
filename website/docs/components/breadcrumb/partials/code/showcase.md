@@ -115,7 +115,7 @@
 
   </div>
 
-  <p class="dummy-paragraph">with long strings / items can't wrap (text is elliptized)</p>
+  <p class="dummy-paragraph">with long strings / items can’t wrap (text is elliptized)</p>
   <div class="dummy-breadcrumb-max-width-container-large">
     <Hds::Breadcrumb @itemsCanWrap={{false}}>
       <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />

@@ -22,7 +22,7 @@ In most cases use a medium size, but use a link size that best fits the UI.
 
 For example:
 
-- Don't use large links in tables.
+- don’t use large links in tables.
 
 ### Type
 
@@ -40,7 +40,7 @@ Take care when needing multiple links on a page; using too many primary links ca
 !!!
 #### Secondary
 
-Use the Secondary variant for less important links, when the action color can't be used, or when creating a list of links.
+Use the Secondary variant for less important links, when the action color can’t be used, or when creating a list of links.
 
 For example in an Install page, 'Learn more about Vault'
 

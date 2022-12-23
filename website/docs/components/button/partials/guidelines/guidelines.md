@@ -27,7 +27,7 @@ Medium buttons are the same size as default Structure buttons. Small buttons are
 
 !!!
 
-Medium is the preferred size, but use a button size that best fits the UI (i.e., don't use a `large` button in a table).
+Medium is the preferred size, but use a button size that best fits the UI (i.e., don’t use a `large` button in a table).
 
 Buttons are able to be manually stretched to accommodate a need for a full-width button. Full-width buttons should fill 100% of the parent container.
 

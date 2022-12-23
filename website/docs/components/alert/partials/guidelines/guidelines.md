@@ -1,11 +1,11 @@
 ## Usage
 ### When to use
 
-- To display a concise, important message that requires the user's attention.
+- To display a concise, important message that requires the user’s attention.
 
 ### When not to use
 
-- To communicate feedback on a user's action, consider [Toast](/components/toast/overview).
+- To communicate feedback on a user’s action, consider [Toast](/components/toast/overview).
 - As a dialog to confirm an action, consider using a dialog or [Modal](/components/modal/overview).
 - As feature flags, such as "In Preview", "Beta", "New", etc, consider [Badge](/components/badge/overview).
 
@@ -48,7 +48,7 @@ Use color logically.
 
 **Migration tip**
 
-Use `neutral` or `hightlight` as equivalents to Structure's `information` banner depending on the level of prominence desired.
+Use `neutral` or `hightlight` as equivalents to Structure’s `information` banner depending on the level of prominence desired.
 !!!
 
 ### Icons
@@ -76,7 +76,7 @@ We recommend setting `neutral` and `highlight` alerts to be dismissible, as they
 </Hds::Alert>
 !!!
 
-We recommend keeping `critical` alerts non-dismissible as they are essential to the user's journey and can get dismissed by mistake. 
+We recommend keeping `critical` alerts non-dismissible as they are essential to the user’s journey and can get dismissed by mistake.
 
 !!! Do
 <Hds::Alert @type="inline" @color="critical" as |A|>
@@ -117,7 +117,7 @@ Avoid using critical buttons in alerts as the prominence and importance are hand
 !!!
 
 #### Links
-Use [LinkStandalone](/components/link/standalone/overview) when an action takes the user to a new destination (URL). Follow LinkStandalone's [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant "type" to use.
+Use [LinkStandalone](/components/link/standalone/overview) when an action takes the user to a new destination (URL). Follow LinkStandalone’s [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant "type" to use.
 
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
@@ -188,7 +188,7 @@ Compact alerts can be wrapped with a section or component of the page or inline 
 ## Content
 - Keep the title short, as this will be the most prominent element when users scan the alert.
 - Do not end the title with a period.
-- Alert descriptions should be short but clear enough to explain what's happening. We recommend keeping messages under 90 characters.
+- Alert descriptions should be short but clear enough to explain what’s happening. We recommend keeping messages under 90 characters.
 - For warning and critical alerts, guide the users on how to prevent or fix the issue.
 - We support basic text formatting capabilities, such as inline links, bold, italic, code, and bulleted lists.
 - For actions, refer to [Button](/components/button) and [Link](/components/link/standalone) content guidelines.

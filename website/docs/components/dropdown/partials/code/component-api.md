@@ -106,7 +106,7 @@ The `Hds::Dropdown` component is composed of different child components, each wi
     Acceptable value: any icon name.
   </C.Property>
   <C.Property @name="isLoading" @type="boolean">
-    This controls if the item is in "loading" state. _Note: when in this state, the item is not actually interactive, but you can pass the other expected arguments for the item (they're simply ignored)._
+    This controls if the item is in "loading" state. _Note: when in this state, the item is not actually interactive, but you can pass the other expected arguments for the item (they’re simply ignored)._
   </C.Property>
   <C.Property @name="href">
     This is the URL passed to the `<a>` element.

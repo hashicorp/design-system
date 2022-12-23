@@ -1,4 +1,4 @@
-The breadcrumb is a high-level UI element, so it's likely that it will be implemented once per application, and then never changed (apart from follow-up redesigns and improvements).
+The breadcrumb is a high-level UI element, so it’s likely that it will be implemented once per application, and then never changed (apart from follow-up redesigns and improvements).
 
 #### Basic use
 

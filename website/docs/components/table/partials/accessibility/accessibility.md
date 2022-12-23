@@ -19,7 +19,7 @@ If you feel you need to use a tooltip, then there probably isn't enough contextu
 
 **How is focus handled within the table header?**
 
-Focus is only relevant for columns that you define as sortable which is not a predefined or default property. While sorting by numerical and string-based values is helpful, sorting doesn't make sense for all data types within a table.
+Focus is only relevant for columns that you define as sortable which is not a predefined or default property. While sorting by numerical and string-based values is helpful, sorting doesn’t make sense for all data types within a table.
 
 ![Example of focus around a table header column](/assets/components/table/table-header_column-focus_example.png)
 
