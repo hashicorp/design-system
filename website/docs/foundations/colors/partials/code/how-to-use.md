@@ -2,7 +2,7 @@
 
 There are two different ways to apply a color to a UI element, via **design tokens** or via **CSS helper classes**.
 
-Which one to use depends on the context. Since both refer to the same design token values, from the design system perspective there’s no difference between the two methods (it’s more of a preference for the “consumer” codebase).
+Which one to use depends on the context since both refer to the same design token values. From the design system perspective there’s no difference between the two methods (it’s more of a preference for the “consumer” codebase).
 
 To see the full list of available design tokens (CSS variables) and CSS helpers for the colors, see the showcase of color palettes below.
 
