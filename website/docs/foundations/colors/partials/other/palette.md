@@ -56,7 +56,7 @@ Use for page backgrounds.
   {{#each this.colors.semantic.page as |color|}}
     <Doc::ColorSwatch @color={{color}} />
   {{else}}
-    <p class="dummy-paragraph">No tokens found for "semantic/page" colors 🤷‍♀️</p>
+    <p class="dummy-paragraph">No tokens found for “semantic/page” colors.</p>
   {{/each}}
 </div>
 
