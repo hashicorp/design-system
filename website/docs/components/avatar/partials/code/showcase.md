@@ -1,8 +1,11 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
   
-  <h4 class="dummy-h4">Default:</h4>
+  <h3>Default:</h3>
   <Hds::Avatar />
-  <h4 class="dummy-h4">With image src defined:</h4>
+
+  <h3 >With image src defined:</h3>
   <Hds::Avatar @src="/assets/images/avatar.png" />
 
 </section>

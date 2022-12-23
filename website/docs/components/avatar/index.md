@@ -1,10 +1,14 @@
 ---
 title: Avatar
+description: An avatar
+caption: An avatar
 hidden: true
 ---
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
+  @include "partials/guidelines/guidelines.md"
+
 </section>
 
 <section data-tab="Code">
@@ -13,11 +17,6 @@ hidden: true
   @include "partials/code/showcase.md"
 </section>
 
-<section data-tab="Specifications">
-  @include "partials/specifications/design-guidelines.md"
-</section>
-
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-
