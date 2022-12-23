@@ -1,6 +1,6 @@
-There are several ways to implement the table component. These examples will be in order of increasing complexity. Additional implementation examples are in the Showcase section.
+## How to use this component
 
-#### Static Table (non-sortable)
+### Static Table (non-sortable)
 
 If you have your own content and don't want to use a model, you can still benefit from the components themselves. Here is an example of such an invocation in a template:
 
@@ -25,7 +25,7 @@ If you have your own content and don't want to use a model, you can still benefi
 </Hds::Table>
 ```
 
-#### Simple Table with model defined (non-sortable)
+### Simple Table with model defined (non-sortable)
 
 In this invocation of the table component, you would define the data model and insert your own content into the `:head` and `:body` blocks. Here is an example of such an invocation in a template:
 
@@ -68,7 +68,7 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
-#### Sortable Table
+### Sortable Table
 
 For the sortable table, the invocation and use is a little bit different:
 
