@@ -38,7 +38,7 @@ yarn add @hashicorp/ember-flight-icons
 
 **Note**
 
-Because this addon exposes a `data-test-icon` helper it is suggested consumers install `ember-test-selectors`. [This Ember addon](https://github.com/simplabs/ember-test-selectors) strips out all `data-test-*` attributes for production builds.
+Because this addon exposes a `data-test-icon` helper, it is suggested consumers install `ember-test-selectors`. [This Ember addon](https://github.com/simplabs/ember-test-selectors) strips out all `data-test-*` attributes for production builds.
 !!!
 
 #### Understanding the component
@@ -49,12 +49,12 @@ The component comes with the following defaults:
 2.  `id` attribute: a unique, automatically generated id.
 3.  `aria-hidden` attribute: set to true.
 4.  `height` and `width`: default size of 16x16 (px).
-5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent) - defaults to "false".
+5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent)—defaults to "false".
 6.  (CSS) `class`: flight-icon, flight-icon-NAME, flight-icon-display-inline.
 7.  CSS display: set to `display:inline-block`.
 8.  `data-test-icon` attribute: for the author's testing convenience; set to the value of the `@name` property.
 
-This makes the base, required invocation quite terse — `@name` is the only property that requires specification. So this invocation:
+This makes the base, required invocation quite terse—`@name` is the only property that requires specification. So this invocation:
 
 ```markup
 <FlightIcon @name="alert-circle" />
@@ -213,15 +213,15 @@ The code above is an example; please update it accordingly to your codebase.
 
 The component exposes the following _props_:
 
-1.  `color` - the color (applied as _fill_) to the SVG - by default is `currentColor` but any valid HTML/CSS color is accepted.
-2.  `title` - the title of the SVG - by default, the icon has an _aria-hidden_ attribute applied to it because it is expected to be used in context (check out [§ Accessibility](#accessibility)); if instead you need to use it without text associated to it, you have to pass a _title_ attribute to make it accessible.
+1.  `color`—the color (applied as _fill_) to the SVG—by default is `currentColor` but any valid HTML/CSS color is accepted.
+2.  `title`—the title of the SVG—by default, the icon has an _aria-hidden_ attribute applied to it because it is expected to be used in context (check out [§ Accessibility](#accessibility)); if instead you need to use it without text associated to it, you have to pass a _title_ attribute to make it accessible.
 3.  `...props` - any other _prop_ passed to the component will be applied via spread.
 
 The size of the icon is determined by the size of the asset imported (each icon is exported in two sizes, _16_ and _24_). If you need a different size, use CSS to override its intrinsic size.
 
 ##### Animated icons
 
-Some of the icons are supposed to be animated (.g. "loading" and"running").
+Some of the icons are supposed to be animated (e.g. “loading” and “running”).
 To use them, first of all, you must to import the CSS that controls the icons' animation in your CSS:
 
 ```css

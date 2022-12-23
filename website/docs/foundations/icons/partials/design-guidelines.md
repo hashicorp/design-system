@@ -74,7 +74,7 @@ Flight icons are optimized for two icon sizes: 16px and 24px.
 - Consider using 24px icons in product interfaces for empty states.
 - Take care if choosing to display icons at sizes other than 16px and 24px.
 
-  There may be cases where 16px and 24px values don't fit a design - Icons can be resized in these cases but be aware that the design is not optimized for values other than these.
+  There may be cases where 16px and 24px values don’t fit a design—Icons can be resized in these cases but be aware that the design is not optimized for values other than these.
 
 ### Updating existing interfaces
 
@@ -91,7 +91,7 @@ Icons frequently get used to represent different states within product interface
 
 ### States of an object
 
-An object in our interfaces is any object in our API that can return with a state, such as a Build, a Deployment, a Run, a Job, a Cluster or a Network. Objects are typically displayed in lists or as cards and include their state when presented to the user.
+An object in our interfaces is any object in our API that can return with a state, such as a Build, a Deployment, a Run, a Job, a Cluster, or a Network. Objects are typically displayed in lists or as cards and include their state when presented to the user.
 
 ![](/assets/foundations/flight-icons/states-object.png)
 
