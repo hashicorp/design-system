@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of the Standalone Link](/assets/components/link/standalone/link_standalone-anatomy.png)
+![Anatomy of the Standalone Link](/assets/components/link/link-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
