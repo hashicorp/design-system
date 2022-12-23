@@ -1,3 +1,5 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
   
   <h4 class="dummy-h4">Status</h4>
@@ -12,9 +14,9 @@
     {{/each}}
   </div>
   <h5 class="dummy-h5">Interactive</h5>
-  {{#each @model.STEP_STATUSES as |status|}}
+  {{#each this.STEP_STATUSES as |status|}}
     <div class="dummy-stepper-indicator-grid">
-      {{#each @model.STATES as |state|}}
+      {{#each this.STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
           <br />
@@ -31,7 +33,7 @@
   <h4 class="dummy-h4">Task</h4>
   <h5 class="dummy-h5">Default</h5>
   <div class="dummy-stepper-indicator-grid">
-    {{#each @model.TASK_STATUSES as |status|}}
+    {{#each this.TASK_STATUSES as |status|}}
       <div>
         <span class="dummy-text-small">{{capitalize status}}</span>
         <br />
@@ -40,9 +42,9 @@
     {{/each}}
   </div>
   <h5 class="dummy-h5">Interactive</h5>
-  {{#each @model.TASK_STATUSES as |status|}}
+  {{#each this.TASK_STATUSES as |status|}}
     <div class="dummy-stepper-indicator-grid">
-      {{#each @model.STATES as |state|}}
+      {{#each this.STATES as |state|}}
         <div>
           <span class="dummy-text-small">{{capitalize status}}/{{state}}</span>
           <br />
