@@ -1,8 +1,8 @@
 ## Anataomy
 
-### Step indicator
+![Step Indicator Anatomy](/assets/components/stepper/stepper-anatomy.png)
 
-![Step Indicator Anatomy](/assets/components/stepper/stepper-step_indicator-anatomy.png)
+### Step indicator
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -12,8 +12,6 @@
 
 
 ### Task indicator
-
-![Task Indicator Anatomy](/assets/components/stepper/stepper-task_indicator-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|

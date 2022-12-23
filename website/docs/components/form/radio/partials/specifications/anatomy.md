@@ -2,7 +2,8 @@
 
 ### Field
 
-![Radio field anatomy](/assets/components/form/radio/radio-field-anatomy.png =70%x*)
+
+![Radio Field anatomy](/assets/components/form/radio/radio-anatomy.png)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|
@@ -13,7 +14,7 @@
 
 ### Group
 
-![Radio group anatomy](/assets/components/form/radio/radio-group-anatomy.png =70%x*)
+![Radio group anatomy](/assets/components/form/radio/radio-group-anatomy.png)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|

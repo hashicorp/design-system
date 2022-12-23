@@ -2,7 +2,9 @@
 
 ### Page and inline alerts
 
-![Anatomy of the page alert](/assets/components/alert/alert-anatomy-inline.png)
+![Anatomy of the page alert](/assets/components/alert/alert-anatomy-page.png)
+
+![Anatomy of the inline alert](/assets/components/alert/alert-anatomy-inline.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|

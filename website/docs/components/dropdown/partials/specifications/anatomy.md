@@ -11,19 +11,15 @@
 
 ### Button
 
-![Toggle button anatomy](/assets/components/dropdown/dropdown-toggle-button-anatomy.png)
+![Toggle button anatomy](/assets/components/dropdown/dropdown-button-anatomy.png)
 
 ### Icon
 
-![Toggle icon anatomy](/assets/components/dropdown/dropdown-toggle-button-anatomy.png)
-
-![Toggle avatar anatomy](/assets/components/dropdown/dropdown-toggle-avatar-anatomy.png)
-
-![Toggle icon only anatomy](/assets/components/dropdown/dropdown-toggle-icon_only-anatomy.png)
+![Toggle icon anatomy](/assets/components/dropdown/dropdown-icon-anatomy.png)
 
 ## ListItem Anatomy
 
-![ListItem Anatomy](/assets/components/dropdown/dropdown-list_item-anatomy.png)
+![Dropdown ListItem anatomy](/assets/components/dropdown/dropdown-listitem-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -34,7 +30,9 @@
 
 ## CopyItem Anatomy
 
-![Dropdown CopyItem anatomy](/assets/components/dropdown/dropdown-copy_item-anatomy.png)
+<!-- ![Dropdown CopyItem anatomy](/assets/components/dropdown/dropdown-copybutton-anatomy.png) -->
+
+![Dropdown CopyButton anatomy](/assets/components/dropdown/dropdown-copybutton-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
