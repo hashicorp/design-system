@@ -1,4 +1,4 @@
-## How to use
+## How to use this component
 
 To make the invocation more intuitive for developers, we’ve provided contextual components for toggles and list items. For example, `<Hds::Dropdown::ListItem::Separator />` is yielded in a hash, using the key `<XX.Separator />` when invoked:
 
