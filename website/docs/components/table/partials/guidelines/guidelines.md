@@ -53,8 +53,8 @@ The column placement property is only relevant within Figma design tooling and d
 #### Sorting Best practices
 
 - Sorting is not relevant for all content, therefore the default sort variant of the header column is none.
-  - Whether a column is sortable is left up to the consumer building the table and should be addressed on a case-by-case basis.
-- Columns that do not contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
+    - Whether a column is sortable is left up to the consumer building the table and should be addressed on a case-by-case basis.
+- Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
 - A table may only be sorted by a single value at a time.
 
 ### State
