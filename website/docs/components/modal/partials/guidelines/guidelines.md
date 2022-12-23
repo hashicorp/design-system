@@ -112,7 +112,7 @@ Large
   </M.Footer>
 </Hds::Modal>
 
-**warning** indicates that the Modal’s action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
+**Warning** indicates that the Modal’s action may impact a setting, item, or object and is used to message the potential impact while confirming that the user wants to continue.
 
 This action may impact areas of the application outside of the scope of the current feature or function, but can also be tied to the context that the user is currently in. Common examples include:
 
