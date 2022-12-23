@@ -221,7 +221,7 @@ This action may impact areas of the application outside of the scope of the curr
 <Hds::Modal::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Rename this cluster" />
-    <Hds::Button @text="don’t rename this cluster" @color="secondary" />
+    <Hds::Button @text="Don’t rename this cluster" @color="secondary" />
   </Hds::ButtonSet>
 </Hds::Modal::Footer>
 !!!
