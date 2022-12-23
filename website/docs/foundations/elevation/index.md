@@ -9,7 +9,7 @@ description: Elevation can be used to offset and draw attention to content or in
   @include "partials/code/showcase.md"
 </section>
 
-<section data-tab="Specifications">
-  @include "partials/specifications/design-guidelines.md"
+<section data-tab="Guidelines">
+  @include "partials/guidelines/guidelines.md"
 </section>
 
