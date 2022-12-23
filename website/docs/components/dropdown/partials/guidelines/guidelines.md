@@ -204,7 +204,7 @@ While icons are optional, we recommend using a relevant icon for Critical ListIt
 
 We recommend using dropdowns only to display a list of links or actions. A dropdown should **not** be a catch-all used to squeeze a lot of content into a small, contained area. A crowded dropdown is difficult for the user to parse and can result in a poor user experience.
 
-If you find that you need additional custom content in the dropdown, please [reach out the HDS team](https://hashicorp.slack.com/archives/C7KTUHNUS) (internal link) to discuss alternative options.
+If you find that you need additional custom content in the dropdown, please [reach out to the HDS team](https://hashicorp.slack.com/archives/C7KTUHNUS) (internal link) to discuss alternative options.
 
 ### ListItems
 
