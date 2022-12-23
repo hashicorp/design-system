@@ -1,3 +1,5 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">Toggles</h4>
   <h5 class="dummy-h5">Toggle::Button</h5>
