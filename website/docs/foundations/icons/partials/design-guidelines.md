@@ -262,7 +262,7 @@ We maintain [a mapping of icon names between Structure and Flight](https://githu
 
 ### Resources
 
-- [Request an icon](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform?).
+- [Request an icon](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform?) (Internal only).
 - [Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1) (Internal only).
 - [SVG assets (ZIP file)](/assets/zip/flight-icons-svg.zip).
 - [Report an issue](https://github.com/hashicorp/design-system/issues/new/choose).
