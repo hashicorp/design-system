@@ -18,7 +18,7 @@
 
 <Hds::Link::Standalone @size="small" @text="Small" @icon="arrow-right" @iconPosition="trailing" @route="components" />
 
-Medium is the preferred size, but use a link size that best fits the UI.
+In most cases use a medium size, but use a link size that best fits the UI.
 
 For example:
 
@@ -68,7 +68,7 @@ You may also want to use the leading position when using service icons (i.e. Git
 
 #### Trailing
 
-When none of the icons add any meaning to the link or meet your needs, we recommend using a simple <span><FlightIcon @name="arrow-right" @color="var(--token-color-palette-blue-200)" /></span> (arrow-right) trailing icon if it is an internal link.
+If the link is internal and when none of the icons add any meaning to the link or meet your needs, we recommend using a simple <span><FlightIcon @name="arrow-right" @color="var(--token-color-palette-blue-200)" /></span> (arrow-right).
 
 Using the <span><FlightIcon @name="external-link" @color="var(--token-color-palette-blue-200)" /></span> (external-link) icon in the trailing position is highly recommended for external links if the link points to an external URL.
 
@@ -99,9 +99,9 @@ If adding a specific icon is relevant to the user experience, and none of the ic
   <Hds::Button @text="Cancel" @color="secondary" />
 </Hds::ButtonSet>
 
-Often when included in a ButtonSet, Link (Standalone) is used for navigating between steps in a multi-page form (ie. directing the user back to the previous step). As such, they should be displayed as the left most button in the row.
+When included in a ButtonSet, Link (Standalone) is generally used for navigating between steps in a multi-page form (ie. directing the user back to the previous step) or for linking to external documentation. As such, they should be displayed as the right most button in the row.
 
 ## Content
 
-- Text should be short and to the point (~25 characters). They should not consist of full sentences, but should provide enough context to be useful.
+- Text should be short and to the point (~25 characters). Text labels should not consist of full sentences, but should provide enough context to be useful.
 - Language should be used consistently within each product (ie. when using "Edit" on one page, use that same convention throughout the rest of the application, not "Change").
