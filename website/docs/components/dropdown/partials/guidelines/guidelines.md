@@ -81,7 +81,7 @@ Set `isOpen=true` when displaying the toggle with a menu and `isOpen=false` when
 
 ### ToggleIcon
 
-Chevrons indicate that ToggleIcon opens the list, so they’re required for all variations. The only (temporary) exception is the overflow menu, which uses the more icon.
+Chevrons indicate that ToggleIcon opens the list, so they’re required for all variations. The only (temporary) exception is the overflow menu, which uses the “more-horizontal” icon.
 
 <Hds::Dropdown::Toggle::Icon @text="Icon" @icon="user" />
 <Hds::Dropdown::Toggle::Icon @text="Avatar" @imageSrc="/assets/images/avatar.png" />
@@ -104,7 +104,7 @@ Chevrons indicate that ToggleIcon opens the list, so they’re required for all 
 
 The default List has a min-width of 200px and a max-width of 400px.
 
-This means if there’s a list item with a lot of text (ie. Description), the list will automatically expand up to 400px to accommodate the content of the widest list item.
+This means if there’s a list item with a lot of text (i.e., Description), the list will automatically expand up to 400px to accommodate the content of the widest list item.
 
 <Hds::Dropdown::Toggle::Icon @text="Manage" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
@@ -116,7 +116,7 @@ This means if there’s a list item with a lot of text (ie. Description), the li
 
 If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width.
 
-As a best practice we do not recommend lists wider than 400px.
+As a best practice, we do not recommend lists wider than 400px.
 
 <Hds::Dropdown::Toggle::Button @text="Manage" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">

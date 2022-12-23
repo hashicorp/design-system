@@ -4,14 +4,14 @@ The `Hds::Dropdown` component is composed of different child components, each wi
 
 - The Dropdown component
 - Toggle components to open/close the dropdown
-  - ToggleButton
-  - ToggleIcon
+    - ToggleButton
+    - ToggleIcon
 - ListItem components, to build the dropdown’s list items
-  - Description
-  - Generic
-  - Interactive
-  - Separator
-  - Title
+    - Description
+    - Generic
+    - Interactive
+    - Separator
+    - Title
 
 ### Dropdown
 

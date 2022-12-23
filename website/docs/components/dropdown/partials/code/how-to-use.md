@@ -17,12 +17,8 @@ To make the invocation more intuitive for developers, we’ve provided contextua
 
 ### ListItem::Interactive
 
-The `Interactive` list item renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event.
-
-<!-- TODO This breaks the page...why?
 The `Interactive` list item renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event (i.e.,
-`{{on "click" this.myAction}}`). 
--->
+`\{{on "click" this.myAction}}`).
 
 Internally, the component uses the [Hds::Interactive](/utilities/interactive/) utility component.
 

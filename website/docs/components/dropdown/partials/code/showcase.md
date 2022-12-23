@@ -200,7 +200,7 @@
       <Hds::Dropdown::ListItem::Interactive @icon="trash" @text="critical" @color="critical" />
     </Doc::ListContainer>
   </div>
-  <h5>States (in each color)</h5>
+  <h4>States (in each color)</h4>
   {{#each @model.ITEM_INTERACTIVE_COLORS as |color|}}
     <span class="doc-text-body-small">{{capitalize color}}</span>
     <div class="dummy-dropdown-list-items-base-sample">
