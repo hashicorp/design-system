@@ -1,28 +1,40 @@
+// ABOUT > PRINCIPLES
+
+@use "../../typography/mixins" as *;
+@use "../../breakpoints" as breakpoint;
+
 .doc-content-principles {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 64px;
+  gap: 64px 52px;
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-.doc-content-principles__item {
-  // border-radius: 10px;
+  @include breakpoint.medium-and-above () {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .doc-content-principles__image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+  width: 178px;
+  height: 178px;
+  border-radius: 5px;
+}
+
+.doc-content-principles__number {
+  @include doc-font-family("sans");
+  margin: 24px 0 0 0;
+  color: var(--doc-color-black);
+  font-size: 1.25rem; // 20px
+  line-height: 1.55; // 31px
 }
 
 .doc-content-principles__title {
-  margin: 24px 0 0 0;
+  margin: 0;
   color: var(--doc-color-black);
 }
 
 .doc-content-principles__description {
-  margin: 4px 0 0 0;
+  margin: 8px 0 0 0;
   color: var(--doc-color-gray-200);
 }
