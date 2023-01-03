@@ -1,26 +1,42 @@
 <footer class="doc-page-footer" ...attributes>
-  <div class="doc-page-footer__links doc-text-body-small">
-    <LinkTo @route="show" @model="about/accessibility-statement">Accessibility</LinkTo>
-    <a href="https://hashicorp.com/careers" target="_blank" rel="noopener noreferrer">Careers</a>
-    <a href="https://www.hashicorp.com/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Use</a>
-    <a href="https://www.hashicorp.com/security" target="_blank" rel="noopener noreferrer">Security</a>
-    <a href="https://www.hashicorp.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-    <span role="presentation">–</span>
-    <LinkTo @route="testing">Testing</LinkTo>
-    <button
-      type="button"
-      class="doc-page-footer__🌈"
-      {{on "click" this.toggleLayoutColors}}
-      aria-label="toggle layout colors"
-    >🌈</button>
-  </div>
-  <a
-    class="doc-page-footer__logo"
-    href="https://www.hashicorp.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="hashicorp dot com"
-  >
-    <Doc::Logo::HashiCorp />
-  </a>
+  <nav class="doc-page-footer__nav-menu" aria-label="footer navigation">
+    <ul class="doc-page-footer__nav-list doc-text-body-small" role="list">
+      <li class="doc-page-footer__nav-item">
+        <LinkTo @route="show" @model="about/accessibility-statement">Accessibility</LinkTo>
+      </li>
+      <li class="doc-page-footer__nav-item">
+        <a href="https://hashicorp.com/careers" target="_blank" rel="noopener noreferrer">Careers</a>
+      </li>
+      <li class="doc-page-footer__nav-item">
+        <a href="https://www.hashicorp.com/terms-of-service" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+      </li>
+      <li class="doc-page-footer__nav-item">
+        <a href="https://www.hashicorp.com/security" target="_blank" rel="noopener noreferrer">Security</a>
+      </li>
+      <li class="doc-page-footer__nav-item">
+        <a href="https://www.hashicorp.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+      </li>
+      <li class="doc-page-footer__nav-item" role="separator"><span aria-hidden="true">–</span></li>
+      <li class="doc-page-footer__nav-item">
+        <LinkTo @route="testing">Testing</LinkTo>
+      </li>
+      <li class="doc-page-footer__nav-item">
+        <button
+          type="button"
+          class="doc-page-footer__🌈"
+          {{on "click" this.toggleLayoutColors}}
+          aria-label="toggle layout colors"
+        >🌈</button>
+      </li>
+    </ul>
+    <a
+      class="doc-page-footer__logo"
+      href="https://www.hashicorp.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="hashicorp dot com"
+    >
+      <Doc::Logo::HashiCorp />
+    </a>
+  </nav>
 </footer>
