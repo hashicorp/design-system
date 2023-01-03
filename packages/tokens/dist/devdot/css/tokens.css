@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 30 Nov 2022 15:22:24 GMT
+ * Generated on Tue, 03 Jan 2023 23:07:34 GMT
  */
 
 :root {
@@ -246,6 +246,13 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
+  --token-pagination-control-height: 36px;
+  --token-pagination-control-padding-horizontal: 11px;
+  --token-pagination-control-padding-vertical: 0px;
+  --token-pagination-control-focus-inset: 4px;
+  --token-pagination-ellipsis-padding-horizontal: 12px;
+  --token-pagination-ellipsis-padding-vertical: 0px;
+  --token-pagination-indicator-height: 2px;
   --token-tabs-tab-height: 36px;
   --token-tabs-tab-padding-horizontal: 12px;
   --token-tabs-tab-padding-vertical: 0px;
