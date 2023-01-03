@@ -1,12 +1,12 @@
 ---
-title: Template
+title: Pagination
 hidden: false
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
-status: released
+description: Used to let users navigate through content broken down into pages. Usually paired with tables.
+caption: Used to let users navigate through content broken down into pages.
+status: experimental
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=nsKJzzKtdX5A7zpz-7
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18709%3A42011&t=pIE459t8qucXP9uR-1
+  github: 
 ---
 
 <section data-tab="Guidelines">
