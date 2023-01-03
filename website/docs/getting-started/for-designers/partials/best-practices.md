@@ -1,8 +1,8 @@
-Figma is an incredibly versatile tool, but this versatility can sometimes backfire leading to disorganization, inconsistency, and difficulty in handoffs and collaboration. Use these best practices to better organize your designs and use the components and styles provided by the HashiCorp Design System effectively.
+Figma is an incredibly versatile tool, but this versatility can sometimes backfire leading to disorganization, inconsistency, and difficulty in handoffs and collaboration. Use these best practices to better organize your designs and use the components and styles provided by the design system effectively.
 
 !!! Info
 
-These best practices have been curated by the HashiCorp design system team, Figma has it’s own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
+These best practices have been curated by the Design Systems Team, Figma has its own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
 
 !!!
 
@@ -34,13 +34,13 @@ Whatever method you choose to use, the most important thing is maintaining a con
 
 ## Component availability
 
-We are in the process of sunsetting [Structure](https://github.com/hashicorp/structure). As we work to achieve parity between Structure and the HashiCorp Design System, use this decision tree to understand how to move forward within your project:
+We are in the process of sunsetting [Structure](https://github.com/hashicorp/structure). As we work to achieve parity between Structure and the Helios Design System, use this decision tree to understand how to move forward within your project:
 
 ![Decision tree flow chart](/assets/getting-started/designers/hds-decision-tree.png)
 
-**Does the element (or a comparible alternative) exist in the HashiCorp Design System?**
+**Does the element (or a comparible alternative) exist in Helios?**
 
-If so, great! Using this element ensures it will be supported in future versions of the HashiCorp Design System and that it shares a common visual language with the rest of the elements.
+If so, great! Using this element ensures it will be supported in future versions of Helios and that it shares a common visual language with the rest of the elements.
 
 **If no, does the element (or a comparible alternative) exist in Structure?**
 
@@ -50,7 +50,7 @@ If yes, use this component with the understanding that:
 2. Not all Figma components are built in code
 3. There is no longer a support structure in place if errors/bugs arise
 
-If no, or having future support is a must: design and build your own local element using HashiCorp Design System Foundations (color, typography, elevation, etc) as a starting point.
+If no, or having future support is a must: design and build your own local element using Helios foundations (color, typography, elevation, etc) as a starting point.
 
 ### Local components
 
@@ -68,4 +68,4 @@ Our Figma components are coupled closely with their code counterparts to maintai
 
 ### Why to avoid detaching components
 
-When you detach a component, that component will no longer receive updates when new features or changes are published in the library. This can cause Figma projects and production applications to drift out of sync quickly. This can introduce tech debt and complex updates in the future. It can be avoided by working closely with the design system team and learning how to extend components as necessary.
+When you detach a component, that component will no longer receive updates when new features or changes are published in the library. This can cause Figma projects and production applications to drift out of sync quickly. This can introduce tech debt and complex updates in the future. It can be avoided by working closely with the Design Systems Team and learning how to extend components as necessary.
