@@ -8,15 +8,15 @@
         <Doc::CopyButton @textToCopy={{this.cssVariable}} @type="ghost" />
 
       </li>
-      <li class="doc-color-swatch__listitem">
-        <span class="doc-color-swatch__listitem--context">CSS Helper</span>
-        <Doc::CopyButton @textToCopy={{this.cssHelper}} @textToShow=".{{this.cssHelper}}" @type="ghost" />
-
-      </li>
+      {{#if this.cssHelper}}
+        <li class="doc-color-swatch__listitem">
+          <span class="doc-color-swatch__listitem--context">CSS Helper</span>
+          <Doc::CopyButton @textToCopy={{this.cssHelper}} @textToShow=".{{this.cssHelper}}" @type="ghost" />
+        </li>
+      {{/if}}
       <li class="doc-color-swatch__listitem">
         <span class="doc-color-swatch__listitem--context">HEX</span>
         <Doc::CopyButton @textToCopy={{this.hexValue}} @type="ghost" />
-
       </li>
     </ul>
   </div>
