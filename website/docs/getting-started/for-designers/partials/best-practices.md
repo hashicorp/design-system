@@ -2,7 +2,7 @@ Figma is an incredibly versatile tool, but this versatility can sometimes backfi
 
 !!! Info
 
-These best practices have been curated by the design system team, Figma has it’s own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
+These best practices have been curated by the Design Systems Team, Figma has it’s own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
 
 !!!
 
@@ -68,4 +68,4 @@ Our Figma components are coupled closely with their code counterparts to maintai
 
 ### Why to avoid detaching components
 
-When you detach a component, that component will no longer receive updates when new features or changes are published in the library. This can cause Figma projects and production applications to drift out of sync quickly. This can introduce tech debt and complex updates in the future. It can be avoided by working closely with the design system team and learning how to extend components as necessary.
+When you detach a component, that component will no longer receive updates when new features or changes are published in the library. This can cause Figma projects and production applications to drift out of sync quickly. This can introduce tech debt and complex updates in the future. It can be avoided by working closely with the Design Systems Team and learning how to extend components as necessary.
