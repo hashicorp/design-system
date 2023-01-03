@@ -1,7 +1,8 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
 
-
-  <h4 class="dummy-h4">Variants</h4>
+  <h3 class="dummy-h3">Variants</h3>
 
   <p class="dummy-paragraph">text only</p>
   <Hds::Breadcrumb>
@@ -38,7 +39,7 @@
     <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
   </Hds::Breadcrumb>
 
-  <h4 class="dummy-h4">States</h4>
+  <h3 class="dummy-h3">States</h3>
 
   <p class="dummy-paragraph">default</p>
   <Hds::Breadcrumb>
@@ -100,7 +101,7 @@
     <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="focus" mock-state-selector="a" />
   </Hds::Breadcrumb>
 
-  <h4 class="dummy-h4">Truncation options</h4>
+  <h3 class="dummy-h3">Truncation options</h3>
 
   <p class="dummy-paragraph">with long strings / items can wrap (default)</p>
   <div class="dummy-breadcrumb-max-width-container-large">

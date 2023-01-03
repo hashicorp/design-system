@@ -1,4 +1,5 @@
 ## Component API
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="type" @required="true" @type="enum" @values={{array "page" "inline" "compact"}}>
     Sets the type of alert.
@@ -18,6 +19,7 @@
 </Doc::ComponentApi>
 
 ### Contextual components
+
 Title, description, actions, and generic content are passed into the alert as yielded components, using the `Title`, `Description`, `Button`, `Link::Standalone`, `Generic` keys.
 
 <Doc::ComponentApi as |C|>

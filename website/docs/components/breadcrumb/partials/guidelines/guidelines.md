@@ -9,7 +9,7 @@
 
 - As links outside of the page header.
   - Within a body of text, use [InlineLink](/components/link/inline/overview)
-  - As a standaloneelement or within a Button Set, use a [StandaloneLink](/components/link/standalone/overview)
+  - As a standalone element or within a Button Set, use a [StandaloneLink](/components/link/standalone/overview)
 
 !!! Info
 

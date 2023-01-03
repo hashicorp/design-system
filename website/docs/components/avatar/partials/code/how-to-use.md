@@ -1,4 +1,4 @@
-Default invocation:
+## How to use this component
 
 ```handlebars
 <Hds::Avatar />

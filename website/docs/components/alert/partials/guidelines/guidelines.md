@@ -1,4 +1,5 @@
 ## Usage
+
 ### When to use
 
 - To display a concise, important message that requires the user’s attention.
@@ -10,6 +11,7 @@
 - As feature flags, such as "In Preview", "Beta", "New", etc, consider [Badge](/components/badge/overview).
 
 ### Color
+
 <div style="display: flex; gap: 1rem;">
   <Hds::Alert @type="inline" @color="neutral" as |A|>
     <A.Title>Neutral alert title</A.Title>
@@ -48,11 +50,12 @@ Use color logically.
 
 **Migration tip**
 
-Use `neutral` or `hightlight` as equivalents to Structure’s `information` banner depending on the level of prominence desired.
+Use `neutral` or `highlight` as equivalents to Structure’s `information` banner depending on the level of prominence desired.
 !!!
 
 ### Icons
-All alerts have icons by default. They are intentially tied to the alert type. Icons in `neutral` and `highlight` can be swapped out with any other icon, including animated ones. Change them only when the new icon provides the user with extra value. Otherwise, we recommend using the default icons provided.
+
+All alerts have icons by default. They are intentionally tied to the alert type. Icons in `neutral` and `highlight` can be swapped out with any other icon, including animated ones. Change them only when the new icon provides the user with extra value. Otherwise, we recommend using the default icons provided.
 
 <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
   <A.Title>New features available</A.Title>
@@ -61,11 +64,14 @@ All alerts have icons by default. They are intentially tied to the alert type. I
 </Hds::Alert>
 
 ### Dismissal
+
 #### Persistent
+
 All alerts are set to persist by default. Compact alerts are always persistent.
 
 #### Dismissible
-Page and inline alerts can be dismissible. 
+
+Page and inline alerts can be dismissible.
 
 We recommend setting `neutral` and `highlight` alerts to be dismissible, as they are not critical for users to complete their journey.
 
@@ -93,9 +99,11 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
 !!!
 
 ### Actions
+
 Use small buttons to avoid competing with other actions on the page. Use more than two actions sparingly.
 
 #### Buttons
+
 We recommend using the `secondary` button variant for primary actions and the `tertiary` button variant for secondary actions.
 
 <Hds::Alert @type="inline" as |A|>
@@ -106,6 +114,7 @@ We recommend using the `secondary` button variant for primary actions and the `t
 </Hds::Alert>
 
 ##### A note about critical buttons
+
 Avoid using critical buttons in alerts as the prominence and importance are handled by the styling of the alert container itself. If needed, consider adding a confirmation modal after the action is triggered.
 
 !!! Dont
@@ -117,6 +126,7 @@ Avoid using critical buttons in alerts as the prominence and importance are hand
 !!!
 
 #### Links
+
 Use [LinkStandalone](/components/link/standalone/overview) when an action takes the user to a new destination (URL). Follow LinkStandalone’s [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant "type" to use.
 
 <Hds::Alert @type="inline" as |A|>
@@ -126,20 +136,24 @@ Use [LinkStandalone](/components/link/standalone/overview) when an action takes 
 </Hds::Alert>
 
 ### Composition
+
 Page and inline alerts can be configured in a variety of ways. For instance: 
 
 #### With icon and title
+
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
 </Hds::Alert>
 
 #### With icon, title, and description
+
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
 </Hds::Alert>
 
 #### Title and description only
+
 When displaying an alert without an icon, the title or description should contain the alert type, ie. "Warning".
 
 <Hds::Alert @type="inline" @color="warning" @icon={{false}} as |A|>
@@ -147,6 +161,7 @@ When displaying an alert without an icon, the title or description should contai
 </Hds::Alert>
 
 #### With actions
+
 <Hds::Alert @type="inline" @color="success" as |A|>
   <A.Title>Success alert</A.Title>
   <A.Description>Description here</A.Description>
@@ -155,6 +170,7 @@ When displaying an alert without an icon, the title or description should contai
 </Hds::Alert>
 
 #### With generic content
+
 Building alerts with generic content may require additional time to set up correctly. Use this method with caution and reach out to us if needing help.
 
 <Hds::Alert @type="inline" @color="success" as |A|>
@@ -167,25 +183,28 @@ Building alerts with generic content may require additional time to set up corre
   </A.Generic>
 </Hds::Alert>
 
-
 ### Placement
+
 #### Page
+
 Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
 
 ![Placement of page alert](/assets/components/alert/alert-placement-page.png)
 
 #### Inline
+
 Inline alerts can be wrapped within a section or component of the page or inline with content.
 
 ![Placement of inline alert](/assets/components/alert/alert-placement-inline.png)
 
 #### Compact
+
 Compact alerts can be wrapped with a section or component of the page or inline with content.
 
 ![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png)
 
-
 ## Content
+
 - Keep the title short, as this will be the most prominent element when users scan the alert.
 - Do not end the title with a period.
 - Alert descriptions should be short but clear enough to explain what’s happening. We recommend keeping messages under 90 characters.
