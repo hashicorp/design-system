@@ -4,10 +4,6 @@ description: An internal utility component used to provide "dismiss" functionali
 caption: An internal utility component used to provide "dismiss" functionality in other components.
 ---
 
-<section data-tab="Guidelines">
-  @include "partials/guidelines/guidelines.md"
-</section>
-
 <section data-tab="Code">
   
   @include "partials/code/how-to-use.md"
