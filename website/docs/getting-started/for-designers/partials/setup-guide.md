@@ -44,4 +44,4 @@ Figma styles allow consistent application of color (as a fill or stroke), typogr
 
 ## Support
 
-If you have any questions or need assistance using Helios libraries, don’t hesitate to <LinkTo @route="support">reach out for support</LinkTo>.
+If you have any questions or need assistance using Helios libraries, don’t hesitate to <LinkTo class="doc-link-generic" @route="support">reach out for support</LinkTo>.
