@@ -38,7 +38,7 @@ The Web Content Accessibility Guidelines (WCAG) defines requirements for designe
 
 Despite our best efforts to ensure accessibility of the HashiCorp Design System, there may be some limitations.
 
-If we are unable to provide conformance through the component itself, we will provide documentation for the implementation of an equivalent experience. Other accessibility-related exceptions and considerations will be documented on each component's page, where we also provide the relevant WCAG Success Criteria for that specific component.
+If we are unable to provide conformance through the component itself, we will provide documentation for the implementation of an equivalent experience. Other accessibility-related exceptions and considerations will be documented on each component’s page, where we also provide the relevant WCAG Success Criteria for that specific component.
 
 #### Known limitations
 

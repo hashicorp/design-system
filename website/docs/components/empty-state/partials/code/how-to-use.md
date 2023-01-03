@@ -2,8 +2,6 @@ The EmptyState component is a block-yielding component that contains three child
 
 #### Basic use
 
-Invocation of the component would look something like this:
-
 ```handlebars
 <Hds::EmptyState as |E|>
   <E.Header>Meaningful Header Text</E.Header>
@@ -13,8 +11,6 @@ Invocation of the component would look something like this:
 ```
 
 #### Header and Body
-
-Invocation of the component would look something like this:
 
 ```handlebars
 <Hds::EmptyState as |E|>

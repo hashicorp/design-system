@@ -1,5 +1,5 @@
 ---
-title: BadgeCount
+title: Badge Count
 description: A numeric label used to display things like version number or collection enumerations.
 caption: A non-interactive numeric label.
 status: released
@@ -13,8 +13,8 @@ links:
 </section>
 
 <section data-tab="Code">
-  @include "partials/code/component-api.md"
   @include "partials/code/how-to-use.md"
+  @include "partials/code/component-api.md"
   @include "partials/code/showcase.md"
 </section>
 

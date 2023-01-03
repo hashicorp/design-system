@@ -1,1 +1,1 @@
-Provides consistent layout and spacing of buttons.
+Use a button set to ensure a consistent layout when using multiple buttons in a single row.

@@ -4682,9 +4682,9 @@ __metadata:
   linkType: hard
 
 "@xmldom/xmldom@npm:^0.8.0":
-  version: 0.8.3
-  resolution: "@xmldom/xmldom@npm:0.8.3"
-  checksum: 087303060fc794f0ec8c0e9031362c1ae56eb1cf06b291cc178602462c072fb9f84657a430ae9c8c1b4c0d33549259e89ed14ebc86ca1a696f253bdd7f0dffcf
+  version: 0.8.6
+  resolution: "@xmldom/xmldom@npm:0.8.6"
+  checksum: f17ac6d99a971a6aeb831fcfc5cfa86f367664e45815046548814b2deb17ccc421fef4e0d5ba29e66179d112b552f6caa5680064f8e7bd8a389b788a60404c8e
   languageName: node
   linkType: hard
 
@@ -9316,9 +9316,9 @@ __metadata:
   linkType: hard
 
 "decode-uri-component@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "decode-uri-component@npm:0.2.0"
-  checksum: f3749344ab9305ffcfe4bfe300e2dbb61fc6359e2b736812100a3b1b6db0a5668cba31a05e4b45d4d63dbf1a18dfa354cd3ca5bb3ededddabb8cd293f4404f94
+  version: 0.2.2
+  resolution: "decode-uri-component@npm:0.2.2"
+  checksum: 95476a7d28f267292ce745eac3524a9079058bbb35767b76e3ee87d42e34cd0275d2eb19d9d08c3e167f97556e8a2872747f5e65cbebcac8b0c98d83e285f139
   languageName: node
   linkType: hard
 
@@ -9836,6 +9836,16 @@ __metadata:
     ember-cli-babel: ^7.26.11
     ember-cli-htmlbars: ^6.0.1
   checksum: a90bc2d5a21e1752003b82b5b3f29e53f614b4d1cbdf97f62087079b5fa12d22adb3af97581bd53b9811268d9f8f6bb0100d457215bb6b4782e4dc7f69dfdc35
+  languageName: node
+  linkType: hard
+
+"ember-a11y-refocus@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "ember-a11y-refocus@npm:3.0.2"
+  dependencies:
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.0.1
+  checksum: c192e80514adad4928207f4025975f225fde0b135a9156f257999dc49a8eb16b84d6f7a8c489b33a87a17c5b6325e48fc152055e6d4ecee45cdddfd2cd4d2c0a
   languageName: node
   linkType: hard
 
@@ -11383,8 +11393,8 @@ __metadata:
   linkType: hard
 
 "engine.io@npm:~6.2.0":
-  version: 6.2.0
-  resolution: "engine.io@npm:6.2.0"
+  version: 6.2.1
+  resolution: "engine.io@npm:6.2.1"
   dependencies:
     "@types/cookie": ^0.4.1
     "@types/cors": ^2.8.12
@@ -11396,7 +11406,7 @@ __metadata:
     debug: ~4.3.1
     engine.io-parser: ~5.0.3
     ws: ~8.2.3
-  checksum: cc485c5ba2e0c4f6ca02dcafd192b22f9dad89d01dc815005298780d3fb910db4cebab4696e8615290c473c2eeb259e8bee2a1fb7ab594d9c80f9f3485771911
+  checksum: 626d7a77f2f6d3e1f888c43932e2f34222201b6c0bc4bcbb0ead054cc170a1df3bf0d6f8b34432e68d7223346b7aa5ed34fbda1e706ef02b7801789465e34f40
   languageName: node
   linkType: hard
 
@@ -23178,6 +23188,7 @@ __metadata:
     broccoli-funnel: ^3.0.3
     broccoli-merge-trees: ^4.2.0
     broccoli-multifilter: ^2.0.0
+    ember-a11y-refocus: ^3.0.2
     ember-auto-import: ^2.4.2
     ember-body-class: ^3.0.0
     ember-cli: ~4.7.0
@@ -23205,6 +23216,7 @@ __metadata:
     ember-resolver: ^8.0.3
     ember-source: ~4.8.1
     ember-template-lint: ^4.14.0
+    ember-test-selectors: ^6.0.0
     ember-truth-helpers: ^3.1.1
     eslint: ^7.32.0
     eslint-config-prettier: ^8.5.0

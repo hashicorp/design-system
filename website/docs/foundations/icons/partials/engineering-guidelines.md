@@ -1,12 +1,12 @@
 ## Engineering guidelines
 
-There are multiple ways to use these icons in your codebase. The package can be installed as an [Ember addon](#ember-flight-icons) for the convenience of using a component with strong defaults, or it can be [consumed in React applications](#use-react) via direct import of the SVG file or as standalone React/SVG icon component.
+There are multiple ways to use these icons in your codebase. The package can be installed as an [Ember addon](#ember-flight-icons) for the convenience of using a component with strong defaults, or it can be [consumed in React applications](#use-react) via direct import of the SVG file or as a standalone React/SVG icon component.
 
 ### Accessibility
 
-Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, best practice is to set the `aria-hidden` attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will need to be used _in context_. The icons themselves are for presentation purposes only and should never be used on their own.
+Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, the best practice is to set the `aria-hidden` attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will need to be used _in context_. The icons themselves are for presentation purposes only and should never be used on their own.
 
-However: As a _temporary_ bridge while we work to provide the accessible components in the design system, we have provided the ability to add a title element to the Ember component by defining a value for the `@title` property. This is a temporary measure and we strongly encourage UI engineering teams to work with their designers and plan to convert any standalone icon use.
+However, as a _temporary_ bridge, while we work to provide the accessible components in the design system, we have provided the ability to add a title element to the Ember component by defining a value for the `@title` property. This is a temporary measure, and we strongly encourage UI engineering teams to work with their designers and plan to convert any standalone icon use.
 
 #### Examples of correct use
 
@@ -34,22 +34,27 @@ To install, run:
 yarn add @hashicorp/ember-flight-icons
 ```
 
-Note: Because this addon exposes a `data-test-icon` helper it is suggested consumers install `ember-test-selectors`. [This Ember addon](https://github.com/simplabs/ember-test-selectors) strips out all `data-test-*` attributes for production builds.
+!!! Information
+
+**Note**
+
+Because this addon exposes a `data-test-icon` helper, it is suggested consumers install `ember-test-selectors`. [This Ember addon](https://github.com/simplabs/ember-test-selectors) strips out all `data-test-*` attributes for production builds.
+!!!
 
 #### Understanding the component
 
 The component comes with the following defaults:
 
-1.  `fill` attribute: set to currentColor
-2.  `id` attribute: a unique, automatically generated id
-3.  `aria-hidden` attribute: set to true
-4.  `height` and `width`: default size of 16x16 (px)
-5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent) - defaults to "false"
-6.  (CSS) `class`: flight-icon, flight-icon-NAME, flight-icon-display-inline
-7.  CSS display: set to `display:inline-block`
-8.  `data-test-icon` attribute: for the author's testing convenience; set to the value of the `@name` property.
+1.  `fill` attribute: set to currentColor.
+2.  `id` attribute: a unique, automatically generated id.
+3.  `aria-hidden` attribute: set to true.
+4.  `height` and `width`: default size of 16x16 (px).
+5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent)—defaults to "false".
+6.  (CSS) `class`: flight-icon, flight-icon-NAME, flight-icon-display-inline.
+7.  CSS display: set to `display:inline-block`.
+8.  `data-test-icon` attribute: for the author’s testing convenience; set to the value of the `@name` property.
 
-This makes the base, required invocation quite terse — `@name` is the only property that requires specification. So this invocation:
+This makes the base, required invocation quite terse—`@name` is the only property that requires specification. So this invocation:
 
 ```markup
 <FlightIcon @name="alert-circle" />
@@ -73,17 +78,17 @@ Renders to this (where the ID will be unique each time):
 </svg>
 ```
 
-The `<use>` element will then render the correct svg to the shadow dom.
+The `<use>` element will then render the correct SVG to the shadow DOM.
 
 #### Customizable properties
 
 The following properties are customizable:
 
-1.  fill (the color)
-2.  size (at this time, only 16 (default) and 24 are supported)
-3.  stretched (true/false)
-4.  display (inline-block or block)
-5.  additional CSS classes
+1.  fill (color).
+2.  size (only 16 and 24 are supported).
+3.  stretched (true/false).
+4.  display (inline-block or block).
+5.  additional CSS classes.
 
 ##### Examples
 
@@ -128,20 +133,30 @@ Other accepted values include named colors and color values themselves.
 
 ##### Animated icons
 
-Some of the icons are animated by default (eg. "loading" and "running").
-To use them just declare them in the same way that you would withany other icon.
+Some of the icons are animated by default (e.g. "loading" and "running").
+To use them, declare them the same way you would with any other icon.
 
 ```markup
 <FlightIcon @name="loading" @size="24" />
 ```
 
-Note: a `prefers-reduced-motion` media query will automatically take care for you of disabling the animation if the user sets this preference in their environment.
+!!! Information
+
+**Note on accessibility**
+
+A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
+!!!
 
 ### Use in React apps
 
 It is also possible to install `@hashicorp/flight-icons` and use the icons in React applications.
 
-_Notice: if you want to have more context you can [see the pull-request here](https://github.com/hashicorp/flight/pull/325) where this implementation has been discussed and agreed upon._
+!!! Information
+
+**Note**
+
+For more context, you can check out the [pull-request](https://github.com/hashicorp/flight/pull/325), where this implementation has been discussed and agreed upon.
+!!!
 
 #### Installation
 
@@ -168,7 +183,10 @@ import iconArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?inclu
 <InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
 ```
 
-_Notice: the code above is an example, please update it accordingly to your codebase._
+!!! Information
+
+The code above is an example; please update it accordingly to your codebase.
+!!!
 
 Since this is just an SVG asset, there are no _props_ that can be passed to it. You should refer to the [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) documentation to know how to apply color and size to the SVG icon.
 
@@ -186,42 +204,49 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 <IconArrowRight24 />
 ```
 
-_Notice: the code above is an example, please update it accordingly to your codebase._
+!!! Information
+
+The code above is an example; please update it accordingly to your codebase.
+!!!
 
 #### Props
 
 The component exposes the following _props_:
 
-1.  `color` - the color (applied as _fill_) to the SVG - by default is `currentColor` but any valid HTML/CSS color is accepted
-2.  `title` - the title of the SVG - by default the icon has an _aria-hidden_ attribute applied to it, because is expected to be used _in contex_ (see [§ Accessibility](#accessibility)); if instead you need to use it without text associated to it, you have to pass a _title_ attribute to make it accessible.
-3.  `...props` - any other _prop_ passed to the component will be applied via spread
+1.  `color`—the color (applied as _fill_) to the SVG—by default is `currentColor` but any valid HTML/CSS color is accepted.
+2.  `title`—the title of the SVG—by default, the icon has an _aria-hidden_ attribute applied to it because it is expected to be used in context (check out [§ Accessibility](#accessibility)); if instead you need to use it without text associated to it, you have to pass a _title_ attribute to make it accessible.
+3.  `...props` - any other _prop_ passed to the component will be applied via spread.
 
-The size of the icon is determined by the size of the asset that is imported (each icon is exported in two sizes, _16_ and _24_). If you need a different size, you have to use CSS to override its intrinsic size.
+The size of the icon is determined by the size of the asset imported (each icon is exported in two sizes, _16_ and _24_). If you need a different size, use CSS to override its intrinsic size.
 
 ##### Animated icons
 
-Some of the icons are supposed to be animated (eg. "loading" and"running").
-To use them first of all you have to import the CSS that controls th
-e icons' animation in your CSS:
+Some of the icons are supposed to be animated (e.g. “loading” and “running”).
+To use them, first of all, you must to import the CSS that controls the icons' animation in your CSS:
 
 ```css
-// the path here depends if you're using 'svg-react' or 'svg' icons @import ~@hashicorp/flight-icons/svg-react/animation.css';
+// the path here depends if you’re using 'svg-react' or 'svg' icons @import ~@hashicorp/flight-icons/svg-react/animation.css';
 ```
 
-and the just declare them in the same way that you would with any other icon.
+and declare them the same way you would with any other icon.
 
 ```javascript
-// if you're using the 'svg-react' icons
+// if you’re using the 'svg-react' icons
 import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
 <IconLoading16 />
 
-// if you're using the 'svg' icons
+// if you’re using the 'svg' icons
 import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
 <InlineSvg src={svgLoading16} />
 ```
 
-Note: a `prefers-reduced-motion` media query will automatically take care for you of disabling the animation if the user sets this preference in their environment.
+!!! Information
+
+**Note on accessibility**
+
+A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
+!!!
 
 ### Updating existing interfaces
 
-- We maintain [a mapping of icon names between Structure and Flight](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/structure-mappings.json) that can be referenced to migrate an icon from Structure to Flight. It is also possible to write codemods to automate this migration. If you are interested in learning more, reach out in [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS).
+- We maintain [a name mapping between Structure and Flight](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/structure-mappings.json) that can be referenced to migrate an icon from Structure to Flight. It is also possible to write codemods to automate this migration. If you are interested in learning more, reach out to [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) (Internal only).

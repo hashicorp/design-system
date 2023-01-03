@@ -5,7 +5,7 @@ order: 104
 
 ## Types of contribution
 
-While we don't accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
+While we don’t accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
 
 * [Reporting](https://github.com/hashicorp/design-system/issues/new/choose) or [fixing](#code-contributions) bugs and [giving feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
 * [Proposing new components or patterns](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform)
@@ -29,8 +29,8 @@ Contributing is not required to get new icons added to the library, but HashiCor
 ### Contribution workflow
 
 1.  [File an icon request](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform) to kick-off work on adding a new icon.
-    - Outline the use case for a new icon, why an existing icon isn't a good fit if there is one, and include any screenshots or WIP if you've done some initial work on a proposal for the icon.
-    - If you don't feel comfortable contributing to Flight, filing the request will be enough for the design system team to take on your request.
+    - Outline the use case for a new icon, why an existing icon isn’t a good fit if there is one, and include any screenshots or WIP if you’ve done some initial work on a proposal for the icon.
+    - If you don’t feel comfortable contributing to Flight, filing the request will be enough for the design system team to take on your request.
 2.  If you want to contribute and are ready to develop the new icon, create a new branch in [✏️ Flight Development](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=1300%3A1385).
     - You can do this from the Main menu (File > Create branch...)
     - Take care to avoid working directly in the default branch!
@@ -91,5 +91,5 @@ Contributing is not required to get new icons added to the library, but HashiCor
 
 - Line length should round to a 0.5px value and x and y co-ords should land on 0.25px and 0.75px values
 
-  By using these values alongside the 1.5px stroke, we can align glyph edges to the pixel grid, ensuring crisp icon linework and reducing scenarios where the stroke weight doesn't sit on the whole pixel bounds.
+  By using these values alongside the 1.5px stroke, we can align glyph edges to the pixel grid, ensuring crisp icon linework and reducing scenarios where the stroke weight doesn’t sit on the whole pixel bounds.
 

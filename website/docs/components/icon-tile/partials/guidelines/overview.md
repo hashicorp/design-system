@@ -1,0 +1,1 @@
+IconTiles are used to represent objects and resources, either unrelated, or directly related to a product.

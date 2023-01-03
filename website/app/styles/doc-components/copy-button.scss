@@ -5,6 +5,7 @@
 .doc-copy-button {
   display: inline-flex;
   align-items: center;
+  width: fit-content;
   max-width: 100%;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -69,4 +70,8 @@
   margin-right: 8px;
   color: var(--doc-color-black);
   text-align: left;
+}
+
+.doc-copy-button--width-full {
+  width: 100%;
 }

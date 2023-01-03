@@ -1,3 +1,5 @@
+## How to use this component
+
 ```handlebars
 <Hds::ButtonSet>
   <Hds::Button @text="Submit" type="submit" />

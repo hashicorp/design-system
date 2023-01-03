@@ -6,10 +6,10 @@ export default class ElevationController extends Controller {
   get cssVariables() {
     const cssVariables = { elevations: [], surfaces: [] };
     ELEVATIONS.forEach((elevation) => {
-      cssVariables.elevations.push(`--hds-elevation-${elevation}-box-shadow`);
+      cssVariables.elevations.push(`--token-elevation-${elevation}-box-shadow`);
     });
     SURFACES.forEach((surface) => {
-      cssVariables.surfaces.push(`--hds-surface-${surface}-box-shadow`);
+      cssVariables.surfaces.push(`--token-surface-${surface}-box-shadow`);
     });
     return cssVariables;
   }

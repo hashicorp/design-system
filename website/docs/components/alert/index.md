@@ -11,7 +11,6 @@ links:
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
-  @include "partials/guidelines/related.md"
 </section>
 
 <section data-tab="Code">

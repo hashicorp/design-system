@@ -1,8 +1,6 @@
-Use tags to indicate an object's categorization, i.e., for filtering. Use a [badge](/components/badge/) instead for static metadata, status, or to indicate a new feature.
+## How to use this component
 
-#### Basic use
-
-Invocation of the component would look something like this:
+### Basic use
 
 ```handlebars
 <Hds::Tag @text="My text tag" @onDismiss={{this.yourOnDismissFunction}} />
@@ -10,7 +8,7 @@ Invocation of the component would look something like this:
 
 In this case, since no `@href` or `@route` argument is provided it will render the tag as plain text.
 
-#### Color
+### Color
 
 There are two available colors for a link: `primary` and `secondary`. The default is `primary`.
 
@@ -18,9 +16,9 @@ There are two available colors for a link: `primary` and `secondary`. The defaul
 <Hds::Tag @color="primary" @text="My link tag" @route="show" @model="components/tag" @onDismiss={{this.yourOnDismissFunction}} />
 ```
 
-#### Dismiss
+### Dismiss
 
-In most cases the tag needs to be dismissable. If you don't provide a callback function to the `onDismiss` argument the "dismiss/remove" button will not be rendered.
+In most cases the tag needs to be dismissable. If you don’t provide a callback function to the `onDismiss` argument the "dismiss/remove" button will not be rendered.
 
 ```handlebars
 <Hds::Tag @color="primary" @text="My link tag" @route="show" @model="components/tag" />

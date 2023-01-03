@@ -1,4 +1,4 @@
-#### Basic use
+## How to use this component
 
 The most basic invocation requires the `type` arguments to be passed, and an `onDismiss` callback function, along with the `title` and/or `description` content. By default a `neutral` toast is generated (with a neutral color applied and a specific icon visible).
 
@@ -9,7 +9,10 @@ The most basic invocation requires the `type` arguments to be passed, and an `on
 </Hds::Toast>
 ```
 
-**Important**: the actual implementation of what happens to the alert when the `onDismiss` function is invoked is left to the developer.
+!!! Critical 
+
+The actual implementation of what happens to the alert when the `onDismiss` function is invoked is left to the developer.
+!!!
 
 If needed, you can pass only `title` or only `text` as argument.
 
@@ -25,9 +28,9 @@ If needed, you can pass only `title` or only `text` as argument.
 </Hds::Toast>
 ```
 
-#### Color
+### Color
 
-A different color can be applied to the toast using the `color` argument. This will also determine the icon default used in the toast (unless overwritten, see below).
+A different color can be applied to the toast using the `color` argument. This will also determine the icon default used in the toast unless it is overwritten.
 
 ```handlebars
 <Hds::Toast @color="success" @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -36,7 +39,7 @@ A different color can be applied to the toast using the `color` argument. This w
 </Hds::Toast>
 ```
 
-#### Icon
+### Icon
 
 A different icon can be used in the toast using the `icon` argument.
 
@@ -57,7 +60,7 @@ If instead you want to completely hide the icon you have to pass a `false` value
 </Hds::Toast>
 ```
 
-#### Actions
+### Actions
 
 Actions can optionally be passed into the component using one of the suggested `Button` or `Link::Standalone` yielded components.
 
@@ -70,7 +73,7 @@ Actions can optionally be passed into the component using one of the suggested `
 </Hds::Toast>
 ```
 
-#### Structured content
+### Structured content
 
 When needed the `Description` contextual component can contain logic, rich HTML or structured content.
 
@@ -90,7 +93,10 @@ When needed the `Description` contextual component can contain logic, rich HTML 
 </Hds::Toast>
 ```
 
-_Notice: for a few simple HTML elements (like `strong`, `em`, `a`, `code/pre`) we apply styling. If you use other elements you will need to take care of styling them accordingly._
+!!! Info
+
+For a few simple HTML elements (like `strong`, `em`, `a`, `code/pre`) we apply styling. If you use other elements you will need to take care of styling them accordingly.
+!!!
 
 You can pass more than one `D.Description` contextual components to have multiple description lines.
 
@@ -102,11 +108,14 @@ You can pass more than one `D.Description` contextual components to have multipl
 </Hds::Toast>
 ```
 
-#### Generic content
+### Generic content
 
-It's also possible to insert custom content in the `Generic` contextual component.
+it’s also possible to insert custom content in the `Generic` contextual component.
 
-_Notice: the content will appear at the bottom, after title, description and actions, and the developer will need to take care of spacing, layout and styling of the custom content in this case._
+!!! Info
+
+The content will appear at the bottom, after title, description and actions, and the developer will need to take care of spacing, layout and styling of the custom content in this case.
+!!!
 
 ```handlebars
 <Hds::Toast @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -118,4 +127,7 @@ _Notice: the content will appear at the bottom, after title, description and act
 </Hds::Toast>
 ```
 
-**Important**: this method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria.
+!!! Info
+
+This method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the design system team to check that the solution is conformant and satifies the accessibility criteria.
+!!!

@@ -1,4 +1,8 @@
-You can use the design tokens in your CSS code as CSS custom properties:
+## How to use
+
+### In styles
+
+You can use the design tokens in your style declarations as CSS custom properties.
 
 ```css
 .your-selector {
@@ -11,7 +15,9 @@ You can use the design tokens in your CSS code as CSS custom properties:
 }
 ```
 
-If a component accepts a color parameter you can use a design token too:
+### In components
+
+If a component accepts a color parameter you can use a design token too.
 
 ```handlebars
 <FlightIcon @name="alert-circle" @color="var(--token-color-foreground-success)" />

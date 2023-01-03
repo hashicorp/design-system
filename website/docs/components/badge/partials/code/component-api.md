@@ -1,4 +1,4 @@
-Here is the API for the component:
+## Component API
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>

@@ -21,6 +21,7 @@ The compact alert is borderless, but shown with a dotted border for clarity.
 </Hds::Alert>
 
 ### Content
+
 <Hds::Alert @type="inline" @color="success" as |A|>
   <A.Title>A simple title</A.Title>
   <A.Description>A simple description text</A.Description>
@@ -44,7 +45,7 @@ The compact alert is borderless, but shown with a dotted border for clarity.
   <A.Title>An alert with a rich description (HTML)</A.Title>
   <A.Description>Using the
     <code>A.Description</code>
-    contextual component it's possible to have content that contains HTML tags, like
+    contextual component it’s possible to have content that contains HTML tags, like
     <strong>strong text</strong>
     and
     <em>emphasized text</em>
@@ -56,7 +57,7 @@ The compact alert is borderless, but shown with a dotted border for clarity.
 </Hds::Alert>
 
 <Hds::Alert @type="inline" @color="success" as |A|>
-  <A.Title>Multiple lines of description using more than one 'description' contextual component</A.Title>
+  <A.Title>Multiple lines of description using more than one `description` contextual component</A.Title>
   <A.Description>This is the first line of description, yielded to a
     <code>A.Description</code>
     contextual component.</A.Description>
@@ -75,8 +76,8 @@ The compact alert is borderless, but shown with a dotted border for clarity.
   </A.Generic>
 </Hds::Alert>
 
-
 ### Color
+
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Neutral alert</A.Title>
   <A.Description>Lorem ipsum dolor sit amet.</A.Description>
@@ -103,6 +104,7 @@ The compact alert is borderless, but shown with a dotted border for clarity.
 </Hds::Alert>
 
 ### Icons
+
 <Hds::Alert @type="inline" @color="highlight" as |A|>
   <A.Title>Default icon</A.Title>
   <A.Description>Lorem ipsum dolor sit amet.</A.Description>
@@ -124,6 +126,7 @@ The compact alert is borderless, but shown with a dotted border for clarity.
 </Hds::Alert>
 
 ### Dismissal
+
 <Hds::Alert @type="inline" @color="neutral" as |A|>
   <A.Title>Without the dismiss button (default)</A.Title>
   <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
@@ -150,6 +153,7 @@ The compact alert is borderless, but shown with a dotted border for clarity.
 </Hds::Alert>
 
 ### Actions
+
 <Hds::Alert @type="inline" @color="warning" as |A|>
   <A.Title>Action passed as yielded component</A.Title>
   <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
