@@ -2,7 +2,7 @@ Figma is an incredibly versatile tool, but this versatility can sometimes backfi
 
 !!! Info
 
-These best practices have been curated by the Design Systems Team, Figma has it’s own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
+These best practices have been curated by the Design Systems Team, Figma has its own set of [best practices](https://www.figma.com/best-practices/) for using the tool effectively.
 
 !!!
 
