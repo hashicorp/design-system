@@ -39,7 +39,7 @@ Contributing is not required to get new icons added to the library, but HashiCor
 4.  Draw your icon glyph using vectors.
     - Be sure to follow the [Drawing icons guide](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=314%3A844) in Figma, taking care to follow the conventions around strokes, corner radius and aligning to the grid. Try to preserve the ability to edit the glyph where possible (avoid flattening).
 5.  When your icon is ready, post the link on #team-design-system or tag the design system designers on a Figma comment to close the loop.
-    - The Design Systems team can then add the icon to the grid, productionize it, and publish from the production file.
+    - The Design Systems Team can then add the icon to the grid, productionize it, and publish from the production file.
 
 ### Drawing icons
 

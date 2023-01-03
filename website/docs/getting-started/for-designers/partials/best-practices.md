@@ -50,7 +50,7 @@ If yes, use this component with the understanding that:
 2. Not all Figma components are built in code
 3. There is no longer a support structure in place if errors/bugs arise
 
-If no, or having future support is a must: design and build your own local element using Helios Foundations (color, typography, elevation, etc) as a starting point.
+If no, or having future support is a must: design and build your own local element using Helios foundations (color, typography, elevation, etc) as a starting point.
 
 ### Local components
 
