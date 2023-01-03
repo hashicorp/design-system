@@ -10,6 +10,3 @@ caption: FILL THIS IN
 <section data-tab="Code">
   @include "partials/engineering-guidelines.md"
 </section>
-
-
-
