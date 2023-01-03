@@ -56,7 +56,7 @@ Use available automated tooling for static and dynamic analysis. Ember apps can 
 
 ## Accessibility Support
 
-don’t forget that there are other ways to learn more about implementing accessible applications. Training is available for HashiCorp employees through our internal learning library; look for the Accessibility section!
+Don’t forget that there are other ways to learn more about implementing accessible applications. Training is available for HashiCorp employees through our internal learning library; look for the Accessibility section!
 
 There is also the Accessibility Guild where HashiCorp employees of all roles can join and learn more about accessibility topics. With multiple meeting days/times that accommodate a globally-distributed workforce, there is sure to be something for everyone. We also record meetings and make those available for those who are unable to attend.
 
