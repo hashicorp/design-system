@@ -5,7 +5,7 @@ export default class IndexController extends Controller {
     {
       title: 'About',
       description:
-        'Our aims, principles, and strategy and how to get started with HDS.',
+        'Our aims, principles, and strategy and how to get started with Helios.',
       route: 'about',
     },
     {
