@@ -1,9 +1,9 @@
-If you’re a designer new to the HashiCorp Design System or are looking to get up to speed on the strategy, design language, and best practices used in our libraries, this getting started guide should be your first stop. We’ll walk through:
+If you’re a designer new to the Helios Design System or are looking to get up to speed on the strategy, design language, and best practices used in our libraries, this getting started guide should be your first stop. We’ll walk through:
 
 1. enabling relevant Figma libraries
 2. how to use them in the context of a project
 3. the design language at the core of the the system
-4. and best practices when working in Figma and using the HashiCorp Design System components and styles.
+4. and best practices when working in Figma and using the design system components and styles.
 
 This guide contrasts [getting started for engineers](/getting-started/engineers), but understanding the core concepts of each will aid in communicating your designs and understanding the implementation methods in code.
 
@@ -11,8 +11,8 @@ This guide contrasts [getting started for engineers](/getting-started/engineers)
 
 We publish and maintain a set of core Figma libraries for use by any product team within HashiCorp. These libraries are only available for internal consumption.
 
-- [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1): the set of components published in the HashiCorp Design System
-- [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by HashiCorp Design System components for reuse in your projects
+- [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1): the set of components published in the Helios Design System
+- [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
 - [Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1): core icon set for reuse in your projects
 
 All of these libraries are published under the [HDS Design System UI Kit](https://www.figma.com/files/team/1030156573400567478) team for use in HashiCorp product design. We do not currently support marketing design efforts directly, but occasionally play a consulting role in component and pattern design.
