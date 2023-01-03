@@ -4,7 +4,7 @@ export default class FoundationsController extends Controller {
   get cards() {
     // we want to use a flat tree here...
     const tocTree = this.model.toc.flat;
-    const sections = ['foundations'];
+    const sections = ['foundations', 'icons'];
     const cards = {};
     sections.forEach((section) => {
       cards[section] = tocTree
