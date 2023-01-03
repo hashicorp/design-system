@@ -16,7 +16,9 @@ This controls if the breadcrumb items can wrap in case they don’t fit in the c
 This hook method is called when the component is inserted in the DOM. _Note: internally we use the "did-insert" modifier from `@ember/render-modifiers`._
 </C.Property>
 <C.Property @name="...attributes">
-This component supports use of `...attributes`. _Note: by default an attribute `aria-label="breadcrumbs"` is assigned to the component. If you want to localize it you can override it passing the same attribute with a different value._
+This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+<br/><br/>
+_Note: by default an attribute `aria-label="breadcrumbs"` is assigned to the component. If you want to localize it you can override it passing the same attribute with a different value._
 </C.Property>
 </Doc::ComponentApi>
 
@@ -36,7 +38,7 @@ These are the parameters that are passed down as arguments to the `<LinkTo>` com
 Determines if an item is the last item in the breadcrumb, in which case it doesn’t generate a link.
 </C.Property>
 <C.Property @name="...attributes">
-This component supports use of `...attributes`.
+This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
 </C.Property>
 </Doc::ComponentApi>
 
@@ -47,6 +49,6 @@ This component supports use of `...attributes`.
 Elements passed as children of this child component are yielded to the content of the [Disclosure](../utilities/disclosure) component (used to show/hide the yielded breadcrumb items via a "toggle" button).
 </C.Property>
 <C.Property @name="...attributes">
-This component supports use of `...attributes`.
+This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
 </C.Property>
 </Doc::ComponentApi>

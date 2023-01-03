@@ -2,9 +2,9 @@
 
 The `Table` component itself is where most of options will be applied. However, the child components can also be used if a custom implementation is desired.
 
-- The `Hds::Table::Tr` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
-- The `Hds::Table::Th` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions itself, although it can _contain_ interactive elements. However, it is not likely that you will need to add interactive elements to this component as the sorting is already otherwise provided for.
-- The `Hds::Table::Td` component is a template-only component. It supports `...attributes` but is not eligible to receive interactions itself (e.g., it cannot have an `onClick` event handler attached directly to it); however, it can _contain_ interactive elements (e.g., `<td><a href="user-info.html">User info</a></td>`)
+- The `Hds::Table::Tr` component is a template-only component. It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) but is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
+- The `Hds::Table::Th` component is a template-only component. It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) but is not eligible to receive interactions itself, although it can _contain_ interactive elements. However, it is not likely that you will need to add interactive elements to this component as the sorting is already otherwise provided for.
+- The `Hds::Table::Td` component is a template-only component. It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) but is not eligible to receive interactions itself (e.g., it cannot have an `onClick` event handler attached directly to it); however, it can _contain_ interactive elements (e.g., `<td><a href="user-info.html">User info</a></td>`)
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">

@@ -11,7 +11,7 @@ The `Tabs` component is composed of different parts, with their own APIs:
 <Doc::ComponentApi as |C|>
   <C.Property @name="onClickTab" @type="function"/>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -31,7 +31,7 @@ The `Tabs` component is composed of different parts, with their own APIs:
     Elements passed as children of this component are yielded inside a `button` element.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -42,6 +42,6 @@ The `Tabs` component is composed of different parts, with their own APIs:
     Elements passed as children of this component are yielded inside a `section` element.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
