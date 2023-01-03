@@ -1,5 +1,5 @@
 ---
-title: Form Primitives
+title: Primitives
 description: Elements used to compose form fields.
 caption: Elements used to compose form fields.
 status: released
