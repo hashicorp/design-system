@@ -3,7 +3,7 @@ title: Primitives
 description: Elements used to compose form fields.
 caption: Elements used to compose form fields.
 status: released
-order: 100
+order: 99
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form
 ---
