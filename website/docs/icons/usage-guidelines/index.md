@@ -1,6 +1,6 @@
 ---
 title: Usage Guidelines
-caption: FILL THIS IN
+caption: Guidelines for using and implementing icons consistently.
 ---
 
 <section data-tab="Guidelines">

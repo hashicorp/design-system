@@ -2,7 +2,7 @@
 title: Library
 layout:
   sidecar: false
-caption: FILL THIS IN
+caption: Icons can be used to support and enhance meaning and can help call out information.
 ---
 
 <Doc::IconsList
