@@ -16,4 +16,13 @@ export default class CustomHeadDataService extends HeadDataService {
       config['ember-meta'].description
     );
   }
+
+  get imgSrc() {
+    return this.currentRouteMeta?.id
+      ? `/assets/illustrations/${this.currentRouteMeta?.id.replace(
+          /\/index$/,
+          ''
+        )}.jpg`
+      : config['ember-meta'].imgSrc;
+  }
 }
