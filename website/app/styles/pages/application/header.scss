@@ -44,7 +44,7 @@
   }
 
   // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
-  .doc-logo-hds__hashicorp {
+  .doc-logo-hds__design-system {
     @include breakpoint.with-mobile-sidebar() {
       display: none;
     }
