@@ -1,24 +1,19 @@
 import HeadDataService from 'ember-meta/services/head-data';
+import config from 'ember-get-config';
 
 export default class CustomHeadDataService extends HeadDataService {
-  // this is needed or `head-data.js` will crush
-  get config() {
-    return {};
-  }
-
   get title() {
     return (
       this.currentRouteMeta?.title ??
       this.currentRouteMeta?.frontmatter?.title ??
-      'Helios Design System'
+      config['ember-meta'].title
     );
   }
 
-  get siteName() {
-    return 'Helios Design System';
-  }
-
   get description() {
-    return this.currentRouteMeta?.frontmatter?.description ?? null;
+    return (
+      this.currentRouteMeta?.frontmatter?.description ??
+      config['ember-meta'].description
+    );
   }
 }

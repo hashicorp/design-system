@@ -1,0 +1,90 @@
+{{!
+
+Per https://github.com/shipshapecode/ember-meta#defining-your-own-headhbs this is a place where we can customize what information is injected by the ember-meta addon
+
+We've made some small customizations to simplify this compared to the default template
+
+}}
+
+{{! Begin General }}
+
+{{! TODO: Determine how to avoid this conflict between ember-meta and ember-page-title where they both set a <title> which causes the latter addon to throw an exception }}
+{{!-- {{#if this.model.title}}
+  <title>{{this.model.title}}</title>
+{{/if}} --}}
+
+{{#if this.model.description}}
+  <meta name="description" content={{this.model.description}} />
+{{/if}}
+
+<meta name="referrer" content="unsafe-url" />
+
+{{#if this.model.canonical}}
+  <link rel="canonical" href={{this.model.canonical}} />
+{{else if this.model.url}}
+  <link rel="canonical" href={{this.model.url}} />
+{{/if}}
+{{! End General }}
+
+{{! Begin Article }}
+{{!-- {{#if this.model.date}}
+  <meta property="article:published_time" content={{this.model.date}} />
+{{/if}}
+
+{{#each this.model.tags as |tag|}}
+  <meta property="article:tag" content={{tag}} />
+{{/each}} --}}
+{{! End Article }}
+
+{{! Begin opengraph (Facebook, Slack, etc) }}
+{{#if this.model.siteName}}
+  <meta property="og:site_name" content={{this.model.siteName}} />
+{{/if}}
+
+{{#if (or this.model.articleTitle this.model.title)}}
+  <meta property="og:title" content={{if this.model.articleTitle this.model.articleTitle this.model.title}} />
+{{/if}}
+
+{{#if this.model.url}}
+  <meta property="og:url" content={{this.model.url}} />
+{{/if}}
+
+{{#if this.model.description}}
+  <meta property="og:description" content={{this.model.description}} />
+{{/if}}
+
+{{!-- {{#if this.model.type}}
+  <meta property="og:type" content={{this.model.type}} />
+{{/if}} --}}
+
+{{#if this.model.imgSrc}}
+  <meta property="og:image" content={{this.model.imgSrc}} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="256" />
+  <meta property="og:image:height" content="256" />
+{{/if}}
+{{! End opengraph }}
+
+{{! Begin Twitter }}
+<meta name="twitter:card" content="summary" />
+
+{{!-- {{#if this.model.twitterUsername}}
+  <meta name="twitter:site" content={{this.model.twitterUsername}} />
+  <meta name="twitter:creator" content={{this.model.twitterUsername}} />
+{{/if}} --}}
+
+{{#if this.model.imgSrc}}
+  <meta name="twitter:image" content={{this.model.imgSrc}} />
+{{/if}}
+
+{{#if (or this.model.articleTitle this.model.title)}}
+  <meta name="twitter:title" content={{if this.model.articleTitle this.model.articleTitle this.model.title}} />
+{{/if}}
+
+{{#if this.model.url}}
+  <meta name="twitter:url" content={{this.model.url}} />
+{{/if}}
+
+{{#if this.model.description}}
+  <meta name="twitter:description" content={{this.model.description}} />
+{{/if}}
