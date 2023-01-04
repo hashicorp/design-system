@@ -1,3 +1,10 @@
+[PowerSelect](https://ember-power-select.com/) is a popular Ember add-on aiming to overcome some limitations of the `<select>` tag. The design system only provides style overrides for this add-on to keep it in line with other form components.
+
+!!! Info
+
+These style overrides assume the PowerSelect component is set up in your project using the default theme.
+!!!
+
 To use this component in your application follow [the getting started guide on the add-on website](https://ember-power-select.com), then add the PowerSelect overrides.
 
 ## Overrides import
