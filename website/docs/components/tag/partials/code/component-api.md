@@ -23,6 +23,6 @@
     The tag can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>

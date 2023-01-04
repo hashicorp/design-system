@@ -50,16 +50,22 @@
     Yields an icon inside the card container. For details about its API check the [`FlightIcon`](/foundations/icons?tab=code) component.
   </C.Property>
   <C.Property @name="<[R].Label>" @type="yielded component">
-    A container that yields its content emphasized inside the card. `...attributes` spreading is supported on this component.
+    A container that yields its content emphasized inside the card. 
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[R].Badge>">
     A badge inside the card container. For details about its API check the [`Badge`](/components/badge/) component.
   </C.Property>
   <C.Property @name="<[R].Description>" @type="yielded component">
-    A container that yields its content inside the card. The content can be a simple string or a more complex/structured one, in which case it inherits the text style. `...attributes` spreading is supported on this component.
+    A container that yields its content inside the card. The content can be a simple string or a more complex/structured one, in which case it inherits the text style. 
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[R].Generic>" @type="yielded component">
-    A container that yields its content inside the card. The content does not inherit any styles and can be customized as desired. `...attributes` spreading is supported on this component.
+    A container that yields its content inside the card. The content does not inherit any styles and can be customized as desired.
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 

@@ -15,6 +15,6 @@
     _Note: the `@color` parameter is overwritten if a `@logo` parameter is passed, in which case the product "brand" color is used._
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports use of `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>

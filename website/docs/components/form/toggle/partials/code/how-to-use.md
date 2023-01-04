@@ -146,7 +146,7 @@ You can use different events, depending on your context/need (eg. `input`, `chan
 
 The "group" variant of the toggle component is to be used when there are multiple related choices to make for the user, or a single one that needs to be presented with an extra "legend". If there is a single choice with no need for an extra "legend", the "field" variant should be used instead.
 
-It’s unlikely that you will ever need to use a "group" of toggle fields (from a design/UX perspective in this case is better to use a group of checkboxes). For this reason we will not explain in detail how to use the "group" variant (apart from the case of a toggle "group" with single choice). Please refer to the documentation for the [`Form::Toggle::Group`](/components/form/checkbox/) documentation for more details, or speak with the design system team for guidance on what to do in this specific case.
+It’s unlikely that you will ever need to use a "group" of toggle fields (from a design/UX perspective in this case is better to use a group of checkboxes). For this reason we will not explain in detail how to use the "group" variant (apart from the case of a toggle "group" with single choice). Please refer to the documentation for the [`Form::Toggle::Group`](/components/form/checkbox/) documentation for more details, or speak with the Design Systems Team for guidance on what to do in this specific case.
 
 #### "Group" with single choice
 

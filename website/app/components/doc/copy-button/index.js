@@ -77,7 +77,6 @@ export default class DocCopyButtonComponent extends Component {
   get classNames() {
     let classes = ['doc-copy-button'];
     classes.push(`doc-copy-button--type-${this.type}`);
-    classes.push(`doc-copy-button--status-${this.type}`);
     if (this.isFullWidth) {
       classes.push(`doc-copy-button--width-full`);
     }

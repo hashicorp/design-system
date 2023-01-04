@@ -129,7 +129,7 @@ Use the `Generic` contextual component to insert custom content. Generic content
 
 !!! Warning
 
-Use this method with caution and as an escape hatch. We recommend speaking with a member of the design systems team to check that the solution is conformant and satisfies accessibility criteria.
+Use this method with caution and as an escape hatch. We recommend speaking with a member of the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
 !!!
 
 ```handlebars

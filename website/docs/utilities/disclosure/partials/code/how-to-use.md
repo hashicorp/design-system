@@ -1,3 +1,8 @@
+!!! Info
+
+This component is intended only for internal use (for now). If you need to use it please speak with the HDS team.
+!!!
+
 ## How to use this component
 
 Use an interactive element that can trigger a custom event handler provided by the `:toggle` block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a button (for accessibility reasons).

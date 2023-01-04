@@ -4,7 +4,7 @@ import Component from '@glimmer/component';
 // notice: super hacky way to do it, but... it works™ !
 const getTocSectionBundle = (section) => {
   const ABOUT = ['about', 'getting-started', 'updates'];
-  const FOUNDATIONS = ['foundations'];
+  const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
   const SUPPORT = ['support'];

@@ -14,11 +14,11 @@
         </LinkTo>
       {{else}}
         {{#if (eq @depth 1)}}
-          <div class="doc-table-of-contents__heading doc-text-label">{{capitalize key}}</div>
+          <div class="doc-table-of-contents__heading doc-text-label">{{humanize key}}</div>
           <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
         {{else}}
           <details class="doc-table-of-contents__folder">
-            <summary class="doc-table-of-contents__summary doc-text-navigation">{{capitalize key}}</summary>
+            <summary class="doc-table-of-contents__summary doc-text-navigation">{{humanize key}}</summary>
             <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
           </details>
         {{/if}}

@@ -248,7 +248,7 @@ By default the select control width is set to fill the parent container. It’s 
 
 #### Form::Select::Base
 
-The "base" element is intended **only** for those rare cases where the "field" variant can’t be used and a custom implementation is needed. For this reason we will not go into to much detail on how to use it: most of the explanations above apply also to the "base" variant of the component. For further details refer to the [Component API](#component-api) section on this page, or speak with one of the design system team members.
+The "base" element is intended **only** for those rare cases where the "field" variant can’t be used and a custom implementation is needed. For this reason we will not go into to much detail on how to use it: most of the explanations above apply also to the "base" variant of the component. For further details refer to the [Component API](#component-api) section on this page, or speak with one of the Design Systems Team members.
 
 !!! Info
 
