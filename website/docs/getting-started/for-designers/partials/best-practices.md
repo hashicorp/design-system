@@ -58,7 +58,7 @@ Functions and experiences that are unique to your product should be designed and
 
 ![Local component patterns](/assets/getting-started/designers/local-component-patterns.png)
 
-<LinkTo @route='patterns'>Patterns</LinkTo> and guidance around combining and extending Helios components are not currently supported, but are on our [roadmap](https://go.hashi.co/hds-rollout)
+<LinkTo class="doc-link-generic" @route="patterns">Patterns</LinkTo> and guidance around combining and extending Helios components are not currently supported, but are on our [roadmap](https://go.hashi.co/hds-rollout)
 
 ## Component instances & detaching
 
