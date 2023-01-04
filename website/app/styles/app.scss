@@ -10,18 +10,21 @@
 @import "global";
 @import "typography";
 
-// Pages declarations
-@import "pages/application"; // main application frame
-@import "pages/home"; // homepage (index)
-
-// Third-party declarations
-@import "prism-dracula";
-
 // "Doc" components
 @import "doc-components";
 
 // Markdown
 @import "markdown";
+
+// Page-specific declarations
+@import "pages/application"; // main application frame
+@import "pages/home"; // homepage (index)
+@import "pages/about/principles";
+@import "pages/foundations/landing";
+@import "pages/components/landing";
+
+// Third-party declarations
+@import "prism-dracula";
 
 
 // GLOBALS

@@ -10,12 +10,12 @@ export default class CustomHeadDataService extends HeadDataService {
     return (
       this.currentRouteMeta?.title ??
       this.currentRouteMeta?.frontmatter?.title ??
-      'HDS - HashiCorp Design System'
+      'Helios Design System'
     );
   }
 
   get siteName() {
-    return 'HDS - HashiCorp Design System';
+    return 'Helios Design System';
   }
 
   get description() {

@@ -6,7 +6,7 @@ While the steps included in this documentation are specific to HashiCorp’s Fig
 
 ## Enabling libraries in your project
 
-To start using HashiCorp Design System libraries in your Figma project, open the library selection dialog from the Figma icon menu in the top left. This menu lists all available libraries within your Figma organization; enable relevant libraries by toggling them on.
+To start using Helios libraries in your Figma project, open the library selection dialog from the Figma icon menu in the top left. This menu lists all available libraries within your Figma organization; enable relevant libraries by toggling them on.
 
 ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries.png)
 
@@ -44,4 +44,4 @@ Figma styles allow consistent application of color (as a fill or stroke), typogr
 
 ## Support
 
-If you have any questions or need assistance using the HashiCorp Design System libraries, don’t hesitate to <LinkTo @route="support">reach out for support</LinkTo>.
+If you have any questions or need assistance using Helios libraries, don’t hesitate to <LinkTo class="doc-link-generic" @route="support">reach out for support</LinkTo>.

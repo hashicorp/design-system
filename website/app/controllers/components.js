@@ -11,14 +11,10 @@ export default class ComponentsController extends Controller {
         .filter((page) => page.pageParents[0] === section)
         .map((page) => {
           return {
-            image:
-              `/assets/illustrations/components/` +
-              page.pageAttributes.title
-                .trim()
-                .toLowerCase()
-                .replace(' ', '-')
-                .replace('::', '-') +
-              `.png`,
+            image: `/assets/illustrations/${page.filePath.replace(
+              /\/index$/,
+              ''
+            )}.jpg`,
             title: page.pageAttributes.title,
             caption:
               page.pageAttributes.caption ||

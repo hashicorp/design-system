@@ -17,7 +17,7 @@
     Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in an unsubmitted form). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -37,7 +37,7 @@ It is a container that yields its content as the title of the modal dialog.
     A string that helps the user maintain context when a modal dialog is open. _Note: this is NOT the title text, but a small piece of text above the title text._
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -47,7 +47,7 @@ The body of the Modal is an unstyled, generic container that yields as the main 
 
 When the yielded content exceeds the available space, a srollbar is introduced to the container.
 
-This component supports `...attributes`.
+This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
 
 #### Modal::Footer
 
@@ -58,6 +58,6 @@ We recommend using it exclusively for actions using the [ButtonSet](/components/
 <Doc::ComponentApi as |C|>
   <C.Property @name="close" @type="function"/>
   <C.Property @name="...attributes">
-    This component supports `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>

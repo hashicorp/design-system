@@ -94,7 +94,7 @@ When using server side validation, display a Critical [AlertInline](/components/
 
 !!! Info
 
-Labels and link: Labels are part of the checkbox’s selectable area, making them interactive elements. This means that links inside them are nested interactive elements and cannot be reached by assistive technology. If you plan to add links to checkboxes, contact the design system team for guidance.
+Labels and link: Labels are part of the checkbox’s selectable area, making them interactive elements. This means that links inside them are nested interactive elements and cannot be reached by assistive technology. If you plan to add links to checkboxes, contact the Design Systems Team for guidance.
 !!!
 
 ### Form::HelperText
