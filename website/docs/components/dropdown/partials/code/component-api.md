@@ -121,7 +121,9 @@ The `Hds::Dropdown` component is composed of different child components, each wi
     This controls if the "LinkTo" is external to the Ember engine ([more details here](https://ember-engines.com/docs/link-to-external)) in which case it will use a `<LinkToExternal>` instead of a simple `<LinkTo>` for the @route.
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). **Important**: in this specific component, the `...attributes` are not spread on the root element of the component (an `<li>` element) but on the underlying element/component (`<button>`, `<a>`, `<LinkTo>` or `<LinkToExternal>` depending on the `@route/@href` arguments).
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+    <br/><br/>
+    **Important**: in this specific component, the `...attributes` are not spread on the root element of the component (an `<li>` element) but on the underlying element/component (`<button>`, `<a>`, `<LinkTo>` or `<LinkToExternal>` depending on the `@route/@href` arguments).
   </C.Property>
 </Doc::ComponentApi>
 

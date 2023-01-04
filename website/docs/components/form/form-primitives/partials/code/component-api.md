@@ -16,7 +16,7 @@
     Elements passed as children of this component are yielded inside the `<label>` element.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -30,7 +30,7 @@
     Elements passed as children of this component are yielded inside the element.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -44,7 +44,7 @@
     Elements passed as children of this component are yielded inside the element.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -72,7 +72,7 @@
     Elements passed as children of this component are yielded inside the `<legend>` element.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -99,7 +99,7 @@
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -155,7 +155,7 @@ Control, label, helper text and error content are passed to the field as yielded
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
