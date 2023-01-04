@@ -1,6 +1,6 @@
-<section data-test-percy data-section="showcase">
-  
+## Showcase
 
+<section data-test-percy data-section="showcase">
   <h4 class="dummy-h4">"Base" control</h4>
   <h5 class="dummy-h6">Interaction status</h5>
   <div class="dummy-form-toggle-base-sample">

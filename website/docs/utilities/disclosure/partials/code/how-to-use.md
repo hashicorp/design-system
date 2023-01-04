@@ -1,17 +1,11 @@
-Invocation of the component would look something like this:
+!!! Info
 
-```handlebars
-<Hds::Disclosure>
-  <:toggle>
-    your interactive element here (usually a button)
-  </:toggle>
-  <:content>
-    your content here
-  </:content>
-</Hds::Disclosure>
-```
+This component is intended only for internal use (for now). If you need to use it please speak with the HDS team.
+!!!
 
-To actually work, you need an interactive element that can trigger a custom event handler provided by the `:toggle` block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a button (for accessibility reasons).
+## How to use this component
+
+Use an interactive element that can trigger a custom event handler provided by the `:toggle` block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a button (for accessibility reasons).
 
 ```handlebars
 <Hds::Disclosure>
@@ -26,4 +20,8 @@ To actually work, you need an interactive element that can trigger a custom even
 
 When the content is disclosed, the container can be closed in different way: toggling again the visibility via the button (`click` or `enter/return`), clicking outside of the content, or via the `esc` key.
 
-**Important:** The "content" is not positioned in any way in relation to the toggle: this responsibility is left to the consumers (eg by applying a `position: absolute` to a wrapper around the content that is passed to the `:content` block).
+!!! Warning
+
+The "content" is not positioned in any way in relation to the toggle: this responsibility is left to the consumers (eg by applying a `position: absolute` to a wrapper around the content that is passed to the `:content` block).
+
+!!!

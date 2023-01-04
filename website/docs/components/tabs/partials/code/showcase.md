@@ -1,13 +1,13 @@
-<section data-test-percy data-section="showcase">
-  
+## Showcase
 
-  <h4 class="dummy-h4">Tab</h4>
+<section data-test-percy data-section="showcase">
+  <h3 class="dummy-h4">Tab</h3>
   <button id="dummy-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
-    {{if this.showHighlight "Hide" "Show"}}
-    layout highlight
+    {{if this.showHighlight "Hide" "Show"}} layout highlight
   </button>
+
   <div class="{{if this.showHighlight 'dummy-tabs-layout-highlight'}}">
-    <h5 class="dummy-h6">Content</h5>
+    <h4 class="dummy-h6">Content</h4>
     <div class="dummy-tab-base-sample">
       <div>
         <span class="dummy-text-small">Text only</span>
@@ -35,7 +35,8 @@
       </div>
     </div>
 
-    <h5 class="dummy-h6">States</h5>
+    <h4 class="dummy-h6">States</h4>
+
     <div class="dummy-tab-base-sample">
       <div class="dummy-tab-base-sample-item">
         <span class="dummy-text-small">Default:</span>
@@ -67,14 +68,14 @@
     </div>
   </div>
 
-  <h4 class="dummy-h4">Panel</h4>
-  <h5 class="dummy-h6">Content</h5>
+  <h3 class="dummy-h4">Panel</h3>
+  <h4 class="dummy-h6">Content</h4>
   <Hds::Tabs::Panel>
     <Doc::Placeholder @text="Panel with generic content" @height="50" @background="#eee" />
   </Hds::Tabs::Panel>
 
-  <h4 class="dummy-h4">Tabs</h4>
-  <h5 class="dummy-h6">Basic usage</h5>
+  <h3 class="dummy-h4">Tabs</h3>
+  <h4 class="dummy-h6">Basic usage</h4>
   <Hds::Tabs as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
@@ -89,7 +90,7 @@
     <T.Panel><Doc::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
-  <h5 class="dummy-h6">With optional icon and badge count</h5>
+  <h4 class="dummy-h6">With optional icon and badge count</h4>
   <Hds::Tabs as |T|>
     <T.Tab @count="5">One</T.Tab>
     <T.Tab @icon="info">Two</T.Tab>
@@ -102,7 +103,7 @@
     <T.Panel><Doc::Placeholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
-  <h5 class="dummy-h6">With pre-selected tab</h5>
+  <h4 class="dummy-h6">With pre-selected tab</h4>
   <Hds::Tabs as |T|>
     <T.Tab>One</T.Tab>
     <T.Tab>Two</T.Tab>
@@ -115,7 +116,7 @@
     </T.Panel>
   </Hds::Tabs>
 
-  <h5 class="dummy-h6">With overflowing tabs</h5>
+  <h4 class="dummy-h6">With overflowing tabs</h4>
   <Hds::Tabs as |T|>
     <T.Tab>One one-thousand</T.Tab>
     <T.Tab>Two one-thousand</T.Tab>
@@ -140,7 +141,7 @@
     <T.Panel><Doc::Placeholder @text="Content ten" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
-  <h5 class="dummy-h6">Call a passed function when a tab is clicked</h5>
+  <h4 class="dummy-h6">Call a passed function when a tab is clicked</h4>
   <p class="dummy-paragraph">Logs the tab id to the console</p>
 
   <Hds::Tabs @onClickTab={{this.logClickedTab}} as |T|>

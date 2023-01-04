@@ -1,4 +1,4 @@
-Invocation of the component would look something like this:
+## How to use
 
 ```handlebars
 <Hds::IconTile @logo="boundary" @size="medium" iconSecondary="plus" />

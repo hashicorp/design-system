@@ -1,6 +1,6 @@
 {{#if @isOptional}}
-  <span class={{this.classNames}}>(Optional)</span>
+  <span aria-hidden="true" class={{this.classNames}}>(Optional)</span>
 {{/if}}
 {{#if @isRequired}}
-  &nbsp;<Hds::Badge class={{this.classNames}} @size="small" @color="neutral" @text="Required" />
+  &nbsp;<Hds::Badge aria-hidden="true" class={{this.classNames}} @size="small" @color="neutral" @text="Required" />
 {{/if}}

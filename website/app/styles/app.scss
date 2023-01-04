@@ -10,34 +10,21 @@
 @import "global";
 @import "typography";
 
-// Pages declarations
-@import "pages/application"; // main application frame
-@import "pages/home"; // homepage (index)
-
-// Third-party declarations
-@import "prism-dracula";
-
 // "Doc" components
-@import "components/badge";
-@import "components/banner";
-@import "components/cards";
-@import "components/code-block";
-@import "components/color-card";
-@import "components/component-api";
-@import "components/copy-button";
-@import "components/do-dont";
-@import "components/font-helpers-list";
-@import "components/link-with-icon";
-@import "components/icons-list";
-@import "components/placeholder";
-@import "components/token-card";
-@import "components/vars-list";
-@import "components/wcag-list";
-@import "components/doc-table-of-contents";
-@import "components/content/hds-principles";
+@import "doc-components";
 
 // Markdown
 @import "markdown";
+
+// Page-specific declarations
+@import "pages/application"; // main application frame
+@import "pages/home"; // homepage (index)
+@import "pages/about/principles";
+@import "pages/foundations/landing";
+@import "pages/components/landing";
+
+// Third-party declarations
+@import "prism-dracula";
 
 
 // GLOBALS
@@ -71,6 +58,21 @@ body {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   clip-path: inset(50%) !important;
+}
+
+// TODO: move these custom styles meant for presentation pursposes
+// to their own section when agreed with the team
+#guidelines {
+  .hds-modal[open] {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    .hds-modal__dismiss {
+      pointer-events: none;
+    }
+  }
 }
 
 // PERCY

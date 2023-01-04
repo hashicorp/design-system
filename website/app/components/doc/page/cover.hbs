@@ -7,13 +7,13 @@
       {{/if}}
       {{#if this.links}}
         {{#each-in this.links as |service url|}}
-          {{#if (eq service 'figma')}}
+          {{#if (eq service "figma")}}
             <a class="doc-page-cover__link doc-link-generic" href={{url}} target="_blank" rel="noopener noreferrer">
               <FlightIcon @name="figma-color" />
               Figma
             </a>
           {{/if}}
-          {{#if (eq service 'github')}}
+          {{#if (eq service "github")}}
             <a class="doc-page-cover__link doc-link-generic" href={{url}} target="_blank" rel="noopener noreferrer">
               <FlightIcon @name="github-color" />
               GitHub

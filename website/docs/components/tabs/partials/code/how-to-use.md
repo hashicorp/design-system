@@ -1,4 +1,6 @@
-#### Basic use
+## How to use this component
+
+### Basic
 
 ```handlebars
 <Hds::Tabs as |T|>
@@ -12,9 +14,9 @@
 </Hds::Tabs>
 ```
 
-#### With a custom starting tab
+### Custom starting tab
 
-Optionally, you can set a custom starting tab to display on page load. (By default the first tab is selected.)
+Set a custom starting tab to display on page load. (The first tab is selected by default.)
 
 ```handlebars
 <Hds::Tabs as |T|>
@@ -28,7 +30,7 @@ Optionally, you can set a custom starting tab to display on page load. (By defau
 </Hds::Tabs>
 ```
 
-#### With optional Count and Icon
+### Count and Icon
 
 ```handlebars
 <Hds::Tabs as |T|>
@@ -42,9 +44,9 @@ Optionally, you can set a custom starting tab to display on page load. (By defau
 </Hds::Tabs>
 ```
 
-#### Pass in a function that gets called when a tab is clicked
+### Call a function on tab click
 
-You can use the `@onClickTab` handler to pass in your own custom function. For example, if you need to store the active tab in the URL for persistence.
+Use the `@onClickTab` handler to pass in a custom function. For example, to store the active tab in the URL for persistence.
 
 ```handlebars
 <Hds::Tabs @onClickTab={{this.logClickedTab}} as |T|>

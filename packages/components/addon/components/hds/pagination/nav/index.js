@@ -64,15 +64,11 @@ export default class HdsPaginationNavIndexComponent extends Component {
       pages.push(i);
     }
 
-    return pages;
-  }
-
-  get truncatedPages() {
-    console.log(
-      this.elliptize({ pages: this.pages, current: this.currentPage })
-    );
-    console.log(this.currentPage);
-    return this.elliptize({ pages: this.pages, current: this.currentPage });
+    if (this.type === 'truncated') {
+      return this.elliptize({ pages, current: this.currentPage });
+    } else {
+      return pages;
+    }
   }
 
   get isDisabledPrev() {
@@ -84,13 +80,16 @@ export default class HdsPaginationNavIndexComponent extends Component {
   }
 
   elliptize({ pages, current }) {
-    const array = Array.from(pages);
-    const limit = 7; // limt # of page numbers shown at a time
-    const length = array.length;
+    const limit = 7; // limit # of page numbers shown at a time (should always be an odd number!)
+    const length = pages.length;
     const ellipsis = '…';
     let result = [];
     let start;
     let end;
+
+    if (length <= limit) {
+      return pages;
+    }
 
     if (current <= length / 2) {
       start = Math.ceil(limit / 2);
@@ -100,17 +99,25 @@ export default class HdsPaginationNavIndexComponent extends Component {
       start = limit - end;
     }
 
-    const sliceStart = array.slice(0, start);
-    const sliceEnd = array.slice(-end);
-    const sliceCurr = [current - 1, current, current + 1];
+    const sliceStart = pages.slice(0, start);
+    const sliceEnd = pages.slice(-end);
 
     if (sliceStart.includes(current) && sliceStart.includes(current + 1)) {
+      // "current" (and its next sibling) is contained within the "sliceStart" block
       sliceEnd.splice(0, 1, ellipsis);
       result = [].concat(sliceStart, sliceEnd);
     } else if (sliceEnd.includes(current - 1) && sliceEnd.includes(current)) {
+      // "current" (and its prev sibling) is contained within the "sliceEnd" block
       sliceStart.splice(-1, 1, ellipsis);
       result = [].concat(sliceStart, sliceEnd);
     } else {
+      // this is a bit more tricky :)
+      // we need to calculate how many items there are before/after the current item
+      // since both the initial and ending blocks are always 2 items long (number + ellipsis)
+      // and there is always the "current" item, we can just subtract 5 from the limit
+      const delta = (limit - 5) / 2; // this is why the limit needs to be an odd number
+      // we slice the array starting at the "current" index, minus the delta, minus one because it's an array (zero-based)
+      const sliceCurr = pages.slice(current - delta - 1, current + delta);
       result = [].concat(
         sliceStart.shift(),
         ellipsis,

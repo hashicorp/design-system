@@ -1,3 +1,5 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
   
 
@@ -39,7 +41,7 @@
       <span class="dummy-text-small">(with @route argument and @isRouteExternal set to true)</span>
     </p>
     {{!-- <Hds::Interactive @route="index" @isRouteExternal={{true}}>This is a <code>&lt;LinkToExternal&gt;</code> link</Hds::Interactive> --}}
-    <pre>⚠️ We can't render this component in this application (it will work only on Ember engines).</pre>
+    <pre>⚠️ We can’t render this component in this application (it will work only on Ember engines).</pre>
   </div>
 
 </section>

@@ -1,4 +1,4 @@
-Here is the API for the component:
+## Component API
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
@@ -14,6 +14,6 @@ Here is the API for the component:
     This indicates if the button will only contain an icon. _Notice: an internal check is in place to ensure that accessible text is still applied to the component._
   </C.Property>
   <C.Property @name="...attributes">
-    `...attributes` spreading is supported on this component.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>

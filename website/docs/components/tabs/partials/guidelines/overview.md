@@ -1,5 +1,64 @@
-Tabs allow users to **move between different views within the same context** and at the same level of hierarchy, ie. UI vs. CLI, macOS vs. Windows vs. Linux, etc.
+Tabs allow users to move between different views within the same context at the same level of hierarchy, ie. UI vs. CLI, macOS vs. Windows vs. Linux, etc.
 
-Tabs are not intended for navigation. For this reason, we chose to use HTML `button` elements for activating individual tabs vs. links. If your use case includes a usage of a Tabs-like component for navigation, consider using other navigation patterns, such as sidebar, links, or breadcrumbs.
+## Usage
 
-Use the `@onClickTab` handler if you need to store the active tab in the URL for persistence.
+### When to use
+
+- Use to allow users to move between different views within the same context.
+
+### When not to use
+
+- Tabs are not intended for navigation, for this purpose consider using a sidebar, [links](/components/links/standalone/), or [Breadcrumb](/components/breadcrumb/).
+
+### Basic Tabs
+
+<Hds::Tabs as |T|>
+  <T.Tab>One</T.Tab>
+  <T.Tab>Two</T.Tab>
+  <T.Tab>Three</T.Tab>
+  <T.Panel>Content one</T.Panel>
+  <T.Panel>Content two</T.Panel>
+  <T.Panel>Content three</T.Panel>
+</Hds::Tabs>
+
+### With icon and badge count
+
+<Hds::Tabs as |T|>
+  <T.Tab @count="5">One</T.Tab>
+  <T.Tab @icon="info">Two</T.Tab>
+  <T.Tab>Three</T.Tab>
+  <T.Tab @icon="alert-triangle" @count="5">Four</T.Tab>
+  <T.Panel>Content one</T.Panel>
+  <T.Panel>Content two</T.Panel>
+  <T.Panel>Content three</T.Panel>
+  <T.Panel>Content four</T.Panel>
+</Hds::Tabs>
+
+### With overflowing tabs
+
+<Hds::Tabs as |T|>
+  <T.Tab>One one-thousand</T.Tab>
+  <T.Tab>Two one-thousand</T.Tab>
+  <T.Tab>Three one-thousand</T.Tab>
+  <T.Tab>Four one-thousand</T.Tab>
+  <T.Tab>Five one-thousand</T.Tab>
+  <T.Tab>Six one-thousand</T.Tab>
+  <T.Tab>Seven one-thousand</T.Tab>
+  <T.Tab>Eight one-thousand</T.Tab>
+  <T.Tab>Nine one-thousand</T.Tab>
+  <T.Tab>Ten one-thousand</T.Tab>
+  <T.Panel>Content one</T.Panel>
+  <T.Panel>Content two</T.Panel>
+  <T.Panel>Content three</T.Panel>
+  <T.Panel>Content four</T.Panel>
+  <T.Panel>Content five</T.Panel>
+  <T.Panel>Content six</T.Panel>
+  <T.Panel>Content seven</T.Panel>
+  <T.Panel>Content eight</T.Panel>
+  <T.Panel>Content nine</T.Panel>
+  <T.Panel>Content ten</T.Panel>
+</Hds::Tabs>
+
+## Related
+
+- [Breadcrumb](/components/breadcrumb/)

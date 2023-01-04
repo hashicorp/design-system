@@ -2,9 +2,9 @@
   color: var(--doc-color-link-on-white);
 
   // TODO check with Heather and Melanie if this is what we want
-  :hover,
-  :visited,
-  :active {
+  &:hover,
+  &:visited,
+  &:active {
     color: var(--doc-color-link-on-white);
   }
 }

@@ -1,6 +1,7 @@
+## Showcase
+
 <section data-test-percy data-section="showcase">
-  
-  <h4 class="dummy-h4">Content</h4>
+  <h3 class="dummy-h4">Content</h3>
   <div class="dummy-badge-base-sample">
     <Hds::Badge @text="Only text" />
     <Hds::Badge @icon="activity" @text="Text + icon" />
@@ -14,7 +15,7 @@
       <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
   </div>
 
-  <h5 class="dummy-h5">Containers</h5>
+  <h4 class="dummy-h5">Containers</h4>
   <div class="dummy-badge-containers">
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
@@ -33,26 +34,26 @@
     {{/let}}
   </div>
 
-  <h4 class="dummy-h4">Size</h4>
+  <h3 class="dummy-h4">Size</h3>
   <div class="dummy-badge-base-sample">
     {{#each this.BADGE_SIZES as |size|}}
       <Hds::Badge @icon="activity" @text={{capitalize size}} @size={{size}} />
     {{/each}}
   </div>
 
-  <h4 class="dummy-h4">Type</h4>
+  <h3 class="dummy-h4">Type</h3>
   <div class="dummy-badge-base-sample">
-    {{#each @model.BADGE_TYPES as |type|}}
+    {{#each this.BADGE_TYPES as |type|}}
       <Hds::Badge @icon="activity" @text={{capitalize type}} @type={{type}} />
     {{/each}}
   </div>
 
-  <h4 class="dummy-h4">Color:</h4>
-  {{#each @model.BADGE_COLORS as |color|}}
-    <p class="dummy-h6">{{capitalize color}}</p>
+  <h3 class="dummy-h4">Color:</h3>
+  {{#each this.BADGE_COLORS as |color|}}
+    <h4 class="dummy-h6">{{capitalize color}}</h4>
     <div class="dummy-badge-color-grid">
-      {{#each @model.BADGE_SIZES as |size|}}
-        {{#each @model.BADGE_TYPES as |type|}}
+      {{#each this.BADGE_SIZES as |size|}}
+        {{#each this.BADGE_TYPES as |type|}}
           <div
             class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}}
               dummy-badge-base-sample--color-{{color}}"

@@ -4,16 +4,17 @@ export default class FoundationsController extends Controller {
   get cards() {
     // we want to use a flat tree here...
     const tocTree = this.model.toc.flat;
-    const sections = ['foundations'];
+    const sections = ['foundations', 'icons'];
     const cards = {};
     sections.forEach((section) => {
       cards[section] = tocTree
         .filter((page) => page.pageParents[0] === section)
         .map((page) => {
           return {
-            image: `https://picsum.photos/seed/s${encodeURI(
-              page.pageURL.replaceAll('/', '-')
-            )}/232/124`,
+            image: `/assets/illustrations/${page.filePath.replace(
+              /\/index$/,
+              ''
+            )}.jpg`,
             title: page.pageAttributes.title,
             caption:
               page.pageAttributes.caption ||

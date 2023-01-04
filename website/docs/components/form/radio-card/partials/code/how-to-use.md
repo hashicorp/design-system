@@ -1,8 +1,17 @@
-#### Form::Radio::Group
+## How to use this component
 
-##### Basic use
+The "group" component creates:
 
-The simplest way to invoke a "radio" group is using something like this:
+- a `<fieldset>` container
+- a `<legend>` element
+- a list of rendered `<Form::RadioCard>` components (with `aria-describedby` attributes automatically generated).
+
+The `@name` argument offers an easy way to provide the same name for all the radio controls with a single declaration.
+
+!!! Info
+
+The `<Hds::Form::RadioCard::Group>` component does not provide the logic for handling the mutually exclusive nature of radio controls (when a radio card is checked, any other radio cards with the same name that were previously checked become unchecked). You can implement this yourself in an `\{{on "change" this.onChange}}` function or manage the `checked` state of radio cards by updating the underlying data.
+!!!
 
 ```handlebars
 <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
@@ -28,17 +37,7 @@ The simplest way to invoke a "radio" group is using something like this:
 </Hds::Form::RadioCard::Group>
 ```
 
-This "group" component creates:
-
-*   a `<fieldset>` container
-*   a `<legend>` element
-*   a list of rendered `<Form::RadioCard>` components (with `aria-describedby` attributes automatically generated).
-
-The `@name` argument offers an easy way to provide the same name for all the radio controls with a single declaration.
-
-Note: The `<Hds::Form::RadioCard::Group>` component does not provide the logic for handling the mutually exclusive nature of radio controls (when a radio card is checked, any other radio cards with the same name that were previously checked become unchecked). You can implement this yourself in an `\{{on "change" this.onChange}}` function or manage the `checked` state of radio cards by updating the underlying data.
-
-##### Custom content
+### Custom content
 
 You can define custom content using the `Generic` block and a custom width for the cards using the `maxWidth` argument. It is also possible to use multiple `Badge` component with custom icon or color.
 
