@@ -30,9 +30,9 @@ We strongly recommend talking to your engineering team before using a specific v
 When pairing the pagination or pagination bar with tables, we recommend:
 - 12px or 16px between the pagination or pagination bar and the content it relates to.
 
-![Spacing of pagination paired with tables example](/assets/components/pagination/pagination-spacing-tables.png)
+![Spacing for pagination paired with tables](/assets/components/pagination/pagination-spacing-tables.png)
 
 When pairing with not contained content (e.g. cards, lists), we recommend:
 - At least 16px for consistency. If your product uses a scale where the spacing between elements tends to be higher or lower, or the paginated content looks optically loose or tight to the component, increase or decrease the spacing accordingly.
 
-![Spacing of pagination paired with not contained content example](/assets/components/pagination/pagination-spacing-not-contained.png)
+![Spacing for pagination paired with not contained content](/assets/components/pagination/pagination-spacing-not-contained.png)
