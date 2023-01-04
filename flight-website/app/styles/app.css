@@ -91,6 +91,7 @@ main.ds-main {
 
 .ds-beta-banner a {
   color: inherit;
+  text-decoration: underline;
 }
 
 .ds-info {
