@@ -1,41 +1,35 @@
 {
     "pagination": {
-        "control": {
-            "height": {
-                "value": "36",
-                "type": "size"
-            },
-            "padding": {
-                "horizontal": {
-                    "value": "11",
+        "nav": {
+            "control": {
+                "height": {
+                    "value": "36",
                     "type": "size"
                 },
-                "vertical": {
-                    "value": "0",
+                "padding": {
+                    "horizontal": {
+                        "value": "12",
+                        "type": "size"
+                    }
+                },
+                "focus-inset": {
+                    "value": "4",
+                    "type": "size"
+                },
+                "icon-spacing": {
+                    "value": "6",
                     "type": "size"
                 }
             },
-            "focus-inset": {
-                "value": "4",
-                "type": "size"
-            }
-        },
-        "ellipsis": {
-            "padding": {
-                "horizontal": {
-                    "value": "12",
+            "indicator": {
+                "height": {
+                    "value": "2",
                     "type": "size"
                 },
-                "vertical": {
-                    "value": "0",
+                "spacing": {
+                    "value": "6",
                     "type": "size"
                 }
-            }
-        },
-        "indicator": {
-            "height": {
-                "value": "2",
-                "type": "size"
             }
         }
     }
