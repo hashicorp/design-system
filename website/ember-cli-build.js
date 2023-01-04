@@ -28,7 +28,6 @@ module.exports = function (defaults) {
         'illustrations/overrides',
         'illustrations/utilities',
       ],
-      enabled: true,
     },
     'ember-prism': {
       components: [
