@@ -1,7 +1,7 @@
 ## Anatomy
 
 <!-- image then table -->
-![Anatomy of the page alert](/assets/components/alert/alert-anatomy-inline.png)
+![Anatomy of the page alert](/assets/components/pagination/pagination-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|

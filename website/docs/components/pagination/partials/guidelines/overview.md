@@ -1,1 +1,1 @@
-{description}
+Use Pagination to let users navigate through content broken down into pages. Usually paired with tables, but works with other types of page content.
