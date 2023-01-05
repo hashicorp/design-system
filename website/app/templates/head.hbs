@@ -1,0 +1,67 @@
+{{!
+
+Per https://github.com/shipshapecode/ember-meta#defining-your-own-headhbs this is a place where we can customize what information is injected by the ember-meta addon
+
+We've made some small customizations to simplify this compared to the default template
+
+}}
+
+{{! BEGIN GENERAL }}
+
+{{#if this.model.description}}
+  <meta name="description" content={{this.model.description}} />
+{{/if}}
+
+<meta name="referrer" content="unsafe-url" />
+
+{{#if this.model.url}}
+  <link rel="canonical" href={{this.model.url}} />
+  <meta property="og:url" content={{this.model.url}} />
+{{/if}}
+
+{{! END GENERAL }}
+
+{{! BEGIN OPENGRAPH }}
+
+{{#if this.model.siteName}}
+  <meta property="og:site_name" content={{this.model.siteName}} />
+{{/if}}
+
+{{#if this.model.title}}
+  <meta property="og:title" content={{this.model.title}} />
+{{/if}}
+
+{{#if this.model.description}}
+  <meta property="og:description" content={{this.model.description}} />
+{{/if}}
+
+{{#if this.model.imgSrc}}
+  <meta property="og:image" content={{this.model.imgSrc}} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="256" />
+  <meta property="og:image:height" content="256" />
+{{/if}}
+
+{{! END OPENGRAPH }}
+
+{{! BEGIN TWITTER }}
+
+<meta name="twitter:card" content="summary" />
+
+{{#if this.model.imgSrc}}
+  <meta name="twitter:image" content={{this.model.imgSrc}} />
+{{/if}}
+
+{{#if this.model.title}}
+  <meta name="twitter:title" content={{this.model.title}} />
+{{/if}}
+
+{{#if this.model.url}}
+  <meta name="twitter:url" content={{this.model.url}} />
+{{/if}}
+
+{{#if this.model.description}}
+  <meta name="twitter:description" content={{this.model.description}} />
+{{/if}}
+
+{{! END TWITTER }}
