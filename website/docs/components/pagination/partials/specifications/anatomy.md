@@ -39,3 +39,13 @@
 |------------------|-------------------------------------------------|
 | Label            | Required                                        |
 | Select           | Required                                        |
+
+## States
+
+### Default
+
+![Default states](/assets/components/pagination/pagination-state-default.png)
+
+### Selected
+
+![Default states](/assets/components/pagination/pagination-state-selected.png)
