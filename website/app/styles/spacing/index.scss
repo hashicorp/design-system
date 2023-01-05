@@ -1,0 +1,101 @@
+// HEADINGS
+
+// add spacing here if and when we will need an H1 as markdown
+// .doc-markdown-h1 {
+// .doc-text-h1,
+// }
+
+.doc-markdown-h2,
+.doc-text-h2 {
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+
+.doc-markdown-h3,
+.doc-text-h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.doc-markdown-h4,
+.doc-text-h4 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.doc-markdown-h5,
+.doc-markdown-h6,
+.doc-text-h6,
+.doc-text-h5 {
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+// BODY COPY
+
+.doc-markdown-p,
+.doc-text-body,
+.doc-text-body-small {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.doc-markdown-blockquote {
+  margin: 24px 0;
+}
+
+.doc-markdown-hr {
+  margin: 16px 0;
+}
+
+// LISTS
+
+.doc-markdown-ul,
+.doc-markdown-ol,
+.doc-list-generic {
+  margin-top: 16px;
+  margin-bottom: 24px;
+
+  > li > p {
+    margin-top: 12px;
+  }
+
+  > li + li {
+    margin-top: 12px;
+  }
+}
+
+.doc-markdown-ul .doc-markdown-ul,
+.doc-markdown-ul .doc-markdown-ol,
+.doc-markdown-ol .doc-markdown-ul,
+.doc-markdown-ol .doc-markdown-ol {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+// CODE BLOCK(S)
+
+.doc-code-block,
+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
+  margin: 16px 0 32px;
+}
+
+.doc-code-block + .doc-code-block,
+.doc-code-block + pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet,
+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + .doc-code-block,
+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
+  // we want to reduce the spacing between to consecutive code blocks
+  margin-top: -16px;
+}
+
+
+// SPECIAL CASES
+
+// Body (paragraph) + Code block
+// Body margin-bottom: 12px
+
+// Banner + Heading (any)
+// Banner margin-bottom: 32px
+
+// Code block + code block
+// (all code blocks except last one) Margin-bottom: 16px

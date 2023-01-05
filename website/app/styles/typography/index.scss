@@ -6,6 +6,8 @@
 
 // HEADERS
 
+// Notice: vertical spacing is declared in `/styles/spacing`
+
 .doc-text-h1 {
   @include doc-font-style-h1 ();
 }
@@ -32,6 +34,8 @@
 
 // BODY
 
+// Notice: vertical spacing is declared in `/styles/spacing`
+
 .doc-text-body {
   @include doc-font-style-body ();
 }
@@ -41,6 +45,8 @@
 }
 
 // CODE
+
+// Notice: vertical spacing is declared in `/styles/spacing`
 
 .doc-text-code {
   @include doc-font-style-code();
