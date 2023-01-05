@@ -3,6 +3,8 @@
 - [Website / Doc styling and components](#website--doc-styling-and-components)
   - [Styling](#styling)
     - [Typography](#typography)
+      - [CSS helper classes](#css-helper-classes)
+      - [Sass mixins](#sass-mixins)
     - [Colors](#colors)
     - [Breakpoints](#breakpoints)
     - [Grids (layout)](#grids-layout)
@@ -10,7 +12,9 @@
     - [Page-related components](#page-related-components)
     - [Documentation components](#documentation-components)
       - [Badge](#badge)
+        - [Accessibility conformance rating badges](#accessibility-conformance-rating-badges)
       - [Banner](#banner)
+        - [Recommended banner usage](#recommended-banner-usage)
       - [CopyButton](#copybutton)
       - [DoDont](#dodont)
       - [CodeBlock](#codeblock)
@@ -26,25 +30,25 @@
 
 ### Typography
 
-This is the list of CSS class names (helpers) that you can assign to an HTML element to apply one of the pre-defined typographic styles:
+There are two ways to apply one of the pre-defined typographic styles (defined in Figma) to UI elements: one via CSS helper classes and one via Sass mixins. Depending on what you need to do, one or the other is preferable.
 
-```
-.doc-text-h1
-.doc-text-h2
-.doc-text-h3
-.doc-text-h4
-.doc-text-h5
-.doc-text-h6
-.doc-text-body
-.doc-text-body-small
-.doc-text-code
-.doc-text-navigation
-.doc-text-label
-```
+#### CSS helper classes
 
-A low-level set of Sass mixins is also available, if it's not possible to use one of these class names directly.
+You should use CSS helper classes names whenever you need to apply typographic styles to generic textual content (see for example the pages under the "About" section, that are built using Handlebars markup).
 
-You can look at source code for the typography here: https://github.com/hashicorp/design-system/blob/main/website/app/styles/typography/
+Notice: these CSS classes **add vertical spacing** (`margin-top/bottom`) to the elements they're applied to.
+
+You can see the list of available CSS helper class names that you can use here: [website/app/styles/typography/helpers.scss](https://github.com/hashicorp/design-system/blob/main/website/app/styles/typography/helpers.scss).
+
+#### Sass mixins
+
+You should use Sass mixins whenever you need to apply typographic styles to custom elements or component elements (see for example the `Doc` components that contain textual elements).
+
+A low-level set of Sass mixins is also available,
+
+Notice: these Sass mixins **don't add vertical spacing** (it's left to you, because it depends on the context where they're used), just the font style (`font-family/size/weight + line-height`).
+
+You can see the list of available Sass mixins that you can use  here: [website/app/styles/typography/mixins.scss](https://github.com/hashicorp/design-system/blob/main/website/app/styles/typography/mixins.scss) (it includes some extra "supporting styles" for navigation and labels).
 
 ### Colors
 
@@ -56,7 +60,7 @@ You can find the list of available color tokens here: https://github.com/hashico
 
 We have defined a set of breakpoints for each media query needed for the application (and created Sass mixins for them).
 
-You can find the list of available breakpoinst and associated media-query mixins here: https://github.com/hashicorp/design-system/blob/main/website/app/styles/breakpoints/index.scss
+You can find the list of available breakpoinst and associated media-query mixins here: [website/app/styles/breakpoints/index.scss](https://github.com/hashicorp/design-system/blob/main/website/app/styles/breakpoints/index.scss).
 
 
 ### Grids (layout)
@@ -123,7 +127,7 @@ You can see a showcase of different variants for this component here: https://hd
 ![Badge variants](images/doc-badge.png)
 
 ##### Accessibility conformance rating badges
-Badges are used to show the conformance rating in the accessibility section of our component documentation. There are 3 conformance ratings: `Conformant`, `Conditionally Conformant`, and `Not Conformant`. Most of our components are `Conformant` or `Conditionally Conformant`. 
+Badges are used to show the conformance rating in the accessibility section of our component documentation. There are 3 conformance ratings: `Conformant`, `Conditionally Conformant`, and `Not Conformant`. Most of our components are `Conformant` or `Conditionally Conformant`.
 
 ⚠️ **Important:** If finding that you need to use `Not Conformant`, reach out to the design systems team to confirm you have the proper status.
 
@@ -138,8 +142,8 @@ You can see a showcase of different variants for this component here: https://hd
 ![Banner variants](images/doc-banner.png)
 
 ##### Recommended banner usage
-- `Information`: Use for informational content and tips. 
-  - Consider if the content in an information banner really needs to have prominence on the page. 
+- `Information`: Use for informational content and tips.
+  - Consider if the content in an information banner really needs to have prominence on the page.
 - `Warning`: Use for important messages cautioning consumers about a topic or to communicate breaking changes.
 - `Critical`: Use for sunset notices and deprecation messaging.
 - `Insight`: Use for migration tips from Structure.
