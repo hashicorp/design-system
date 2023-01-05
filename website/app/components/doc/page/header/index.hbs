@@ -23,8 +23,8 @@
         ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
     </ul>
   </nav>
-  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.onToggleBurgerMenu}}>
-    {{#if this.burgerMenuOpen}}
+  <button type="button" class="doc-page-header__burger-menu" {{on "click" @onToggleBurgerMenu}}>
+    {{#if @isSidebarVisible}}
       <FlightIcon @name="x" />
       <span class="doc-text-navigation">Close</span>
     {{else}}
