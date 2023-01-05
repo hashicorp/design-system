@@ -6,12 +6,7 @@ We've made some small customizations to simplify this compared to the default te
 
 }}
 
-{{! Begin General }}
-
-{{! TODO: Determine how to avoid this conflict between ember-meta and ember-page-title where they both set a <title> which causes the latter addon to throw an exception }}
-{{!-- {{#if this.model.title}}
-  <title>{{this.model.title}}</title>
-{{/if}} --}}
+{{! BEGIN GENERAL }}
 
 {{#if this.model.description}}
   <meta name="description" content={{this.model.description}} />
@@ -19,43 +14,26 @@ We've made some small customizations to simplify this compared to the default te
 
 <meta name="referrer" content="unsafe-url" />
 
-{{#if this.model.canonical}}
-  <link rel="canonical" href={{this.model.canonical}} />
-{{else if this.model.url}}
+{{#if this.model.url}}
   <link rel="canonical" href={{this.model.url}} />
-{{/if}}
-{{! End General }}
-
-{{! Begin Article }}
-{{!-- {{#if this.model.date}}
-  <meta property="article:published_time" content={{this.model.date}} />
+  <meta property="og:url" content={{this.model.url}} />
 {{/if}}
 
-{{#each this.model.tags as |tag|}}
-  <meta property="article:tag" content={{tag}} />
-{{/each}} --}}
-{{! End Article }}
+{{! END GENERAL }}
 
-{{! Begin opengraph (Facebook, Slack, etc) }}
+{{! BEGIN OPENGRAPH }}
+
 {{#if this.model.siteName}}
   <meta property="og:site_name" content={{this.model.siteName}} />
 {{/if}}
 
-{{#if (or this.model.articleTitle this.model.title)}}
-  <meta property="og:title" content={{if this.model.articleTitle this.model.articleTitle this.model.title}} />
-{{/if}}
-
-{{#if this.model.url}}
-  <meta property="og:url" content={{this.model.url}} />
+{{#if this.model.title}}
+  <meta property="og:title" content={{this.model.title}} />
 {{/if}}
 
 {{#if this.model.description}}
   <meta property="og:description" content={{this.model.description}} />
 {{/if}}
-
-{{!-- {{#if this.model.type}}
-  <meta property="og:type" content={{this.model.type}} />
-{{/if}} --}}
 
 {{#if this.model.imgSrc}}
   <meta property="og:image" content={{this.model.imgSrc}} />
@@ -63,22 +41,19 @@ We've made some small customizations to simplify this compared to the default te
   <meta property="og:image:width" content="256" />
   <meta property="og:image:height" content="256" />
 {{/if}}
-{{! End opengraph }}
 
-{{! Begin Twitter }}
+{{! END OPENGRAPH }}
+
+{{! BEGIN TWITTER }}
+
 <meta name="twitter:card" content="summary" />
-
-{{!-- {{#if this.model.twitterUsername}}
-  <meta name="twitter:site" content={{this.model.twitterUsername}} />
-  <meta name="twitter:creator" content={{this.model.twitterUsername}} />
-{{/if}} --}}
 
 {{#if this.model.imgSrc}}
   <meta name="twitter:image" content={{this.model.imgSrc}} />
 {{/if}}
 
-{{#if (or this.model.articleTitle this.model.title)}}
-  <meta name="twitter:title" content={{if this.model.articleTitle this.model.articleTitle this.model.title}} />
+{{#if this.model.title}}
+  <meta name="twitter:title" content={{this.model.title}} />
 {{/if}}
 
 {{#if this.model.url}}
@@ -88,3 +63,5 @@ We've made some small customizations to simplify this compared to the default te
 {{#if this.model.description}}
   <meta name="twitter:description" content={{this.model.description}} />
 {{/if}}
+
+{{! END TWITTER }}
