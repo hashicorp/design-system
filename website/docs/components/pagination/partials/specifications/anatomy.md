@@ -1,14 +1,41 @@
 ## Anatomy
 
 <!-- image then table -->
-![Anatomy of the page alert](/assets/components/pagination/pagination-anatomy.png)
+### Pagination
+
+![Anatomy of the pagination](/assets/components/pagination/pagination-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Info             | Optional                                        |
+| Nav              | Required                                        |
+| Size Selector    | Optional                                        |
+
+### Pagination Nav
+
+![Anatomy of the pagination nav](/assets/components/pagination/pagination-nav-anatomy.png)
+
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Prev page        | Required                                        |
+| Next page        | Required                                        |
+| Page number      | Required for Compact, otherwise optional        |
+| Current page     | Required                                        |
+
+### Pagination Info
+
+![Anatomy of the pagination info](/assets/components/pagination/pagination-info-anatomy.png)
+
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Page items       | Required                                        |
+| Total items      | Optional                                        |
+
+### Size Selector
+
+![Anatomy of the size selector](/assets/components/pagination/pagination-size-selector-anatomy.png)
+
+| Element          | Usage                                           |
+|------------------|-------------------------------------------------|
+| Label            | Required                                        |
+| Select           | Required                                        |
