@@ -1,6 +1,6 @@
 Below are best practices for using Helios components and foundations effectively.
 
-For documentation around broader Figma best practices within HashiCorp design teams, reach out to the HashiCorp [Design Ops team](https://sites.google.com/hashicorp.com/designknowledgehub/design-system) or visit the [#design-ops slack channel](https://hashicorp.slack.com/archives/C029GL8GJDV).
+For documentation around & broader Figma best practices within HashiCorp design teams, reach out to the HashiCorp [Design Ops team](https://sites.google.com/hashicorp.com/designknowledgehub/design-system) or visit the [#design-ops slack channel](https://hashicorp.slack.com/archives/C029GL8GJDV).
 
 ## When to use Helios
 
@@ -34,7 +34,7 @@ If the component or pattern doesn't exist in Helios or in Structure, design and 
 
 A component inserted from a library into a project is referred to as an **instance**. Instances maintain a link to the main component in the library, which has significant benefits for deploying updates and iterating quickly on components.
 
-## Detaching components
+### Detaching components
 
 Our Figma components are coupled closely with their code counterparts to maintain consistency in the API and design language, so in most scenarios, we don’t recommend detaching a component or foundation from the library.
 
@@ -75,15 +75,15 @@ Helios publishes a set of **semantic** styles and tokens that are labeled with t
 - `Foreground / Primary` would be used for primary text elements or elements that sit on top of a surface background.
 - `Foreground / Action` would be used for an actionable or interactive element within a component or page (i.e. a [Link](/components/link/standalone), or primary [Button](/components/button))
 
-At this time color styles are the only category for which semantic tokens are available. Semantic styles and tokens have yet to be defined for typography and border.
+At this time, color styles are the only category for which semantic tokens are available. Semantic styles and tokens have yet to be defined for typography and borders.
 
 ### Palette color styles
 
 When choosing what color style to use in your design, we recommend starting with semantic styles as their usage is clearly defined. If you don't find a semantic style that meets your needs, a set of base `Palette` styles that are labeled with a numerical scale are also available. These styles are more usage agnostic which can introduce challenges in consistently scaling a complex design.
 
-For more information and details on styles and their intended usage visit [foundations](/foundations).
+For more information and details on styles and their intended usage, visit [foundations](/foundations).
 
-### Designing local components
+## Designing local components
 
 Components and patterns that are unique to your product should be designed and built locally, extending Helios components and foundations.
 
@@ -93,7 +93,7 @@ When creating your own library of local components to use in your projects, it's
 
 !!! Info
 
-When design and building local components, consider [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods whenever possible. Helios components generally correspond with the `atom` and `molecule` levels, with some more complex components being considered `organisms`.
+When designing and building local components, consider [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods whenever possible. Helios components generally correspond with the `atom` and `molecule` levels, with some more complex components being considered `organisms`.
 !!!
 
-<LinkTo class="doc-link-generic" @route="patterns">Patterns</LinkTo> and guidance around combining and extending Helios components are not currently supported, but are on our [roadmap](https://go.hashi.co/hds-rollout).
+We've spent much of the past year building lower level components, and therefore, don't yet offer <LinkTo class="doc-link-generic" @route="patterns">patterns</LinkTo>. See which patterns we plan to work on in the [Helios roadmap](https://go.hashi.co/hds-rollout).
