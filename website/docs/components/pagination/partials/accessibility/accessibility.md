@@ -22,10 +22,12 @@ In most cases, the numbered pagination provides a greater user experience. It al
 If your product only has cursor pagination, it won't be able to support the numbered variant. Only applications with offset pagination can implement the numbered pagination variant.
 
 Focus and move between pagination controls.
-![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png)
+
+![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png =50%x50%)
 
 Trigger button to navigate to another page.
-![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png)
+
+![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png =50%x50%)
 
 ### Heading 3
 

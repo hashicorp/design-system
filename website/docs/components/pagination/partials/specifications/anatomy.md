@@ -24,7 +24,7 @@
 
 ### Pagination Info
 
-![Anatomy of the pagination info](/assets/components/pagination/pagination-info-anatomy.png)
+![Anatomy of the pagination info](/assets/components/pagination/pagination-info-anatomy.png =20%x20%)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -33,7 +33,7 @@
 
 ### Size Selector
 
-![Anatomy of the size selector](/assets/components/pagination/pagination-size-selector-anatomy.png)
+![Anatomy of the size selector](/assets/components/pagination/pagination-size-selector-anatomy.png =25%x25%)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
