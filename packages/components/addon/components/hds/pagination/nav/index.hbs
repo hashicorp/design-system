@@ -6,8 +6,8 @@
     {{! Default - Uses button with onClick: }}
     @onClick={{unless @model (this.onPageChange)}}
     {{! Optional - Uses model with url query & route: }}
-    @query={{if @model (hash next=undefined prev=@model.previousPageToken)}}
-    @route={{if @model this.currentRouteName}}
+    @query={{if (and @model @model.previousPageToken) (hash next=undefined prev=@model.previousPageToken)}}
+    @route={{if (and @model @model.previousPageToken) this.currentRouteName}}
   />
 
   {{#if (or (eq this.type "numbered") (eq this.type "truncated"))}}
@@ -33,7 +33,8 @@
     {{! Default - Uses button with onClick: }}
     @onClick={{unless @model (this.onPageChange)}}
     {{! Optional - Uses model with url query & route: }}
-    @query={{if @model (hash prev=undefined next=@model.nextPageToken)}}
-    @route={{if @model this.currentRouteName}}
+    {{! Check if there's a model AND a next page token }}
+    @query={{if (and @model @model.nextPageToken) (hash prev=undefined next=@model.nextPageToken)}}
+    @route={{if (and @model @model.nextPageToken) this.currentRouteName}}
   />
 </nav>
