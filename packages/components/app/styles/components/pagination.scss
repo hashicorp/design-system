@@ -4,17 +4,6 @@
 
 @use "../mixins/focus-ring" as *;
 
-// TODO: Move (Create component-level design tokens)
-:root {
-  // control - button-number, button-arrow:
-  --token-pagination-control-height: 36px;
-  --token-pagination-control-padding-horizontal: 11px;
-  --token-pagination-control-focus-inset: 4px;
-  --token-pagination-ellipsis-padding-horizontal: 12px;
-  // indicator for current page:
-  --token-pagination-indicator-height: 2px;
-}
-
 // * Pagination Parent (wrapper) component
 // ----------------------------------------
 .hds-pagination {
@@ -54,20 +43,21 @@
 .hds-pagination-nav__ellipsis {
   display: flex;
   align-items: center;
-  height: var(--token-pagination-control-height);
-  padding: 0 var(--token-pagination-control-padding-horizontal);
+  height: var(--token-pagination-nav-control-height);
 }
 
 .hds-pagination-nav__control {
+  // border width is subtracted from padding:
+  padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
 
   @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-pagination-control-focus-inset),
-    $right: var(--token-pagination-control-focus-inset),
-    $bottom: var(--token-pagination-control-focus-inset),
-    $left: var(--token-pagination-control-focus-inset),
+    $top: var(--token-pagination-nav-control-focus-inset),
+    $right: var(--token-pagination-nav-control-focus-inset),
+    $bottom: var(--token-pagination-nav-control-focus-inset),
+    $left: var(--token-pagination-nav-control-focus-inset),
   );
 
   &:hover,
@@ -98,7 +88,7 @@
   justify-content: flex-start;
 
   .hds-pagination-nav__page-label {
-    margin-left: 6px;
+    margin-left: var(--token-pagination-nav-control-icon-spacing);
   }
 }
 
@@ -112,7 +102,7 @@
 }
 
 .hds-pagination-nav__ellipsis {
-  padding: 0 var(--token-pagination-ellipsis-padding-horizontal);
+  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
   color: var(--token-color-foreground-faint);
 }
 
@@ -139,10 +129,10 @@
   // indicator underline
   &::before {
     position: absolute;
-    right: 6px;
+    right: var(--token-pagination-nav-indicator-spacing);
     bottom: 0;
-    left: 6px;
-    height: var(--token-pagination-indicator-height);
+    left: var(--token-pagination-nav-indicator-spacing);
+    height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;
     background-color: currentColor;
     border-radius: 2px;
