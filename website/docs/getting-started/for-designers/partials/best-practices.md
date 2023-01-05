@@ -29,16 +29,18 @@ If no, or having future support is a must: design and build your own local eleme
 
 ### Local components
 
-Functions and experiences that are unique to your product should be designed and built locally, extending Helios components and foundations.
+Compoents and patterns that are unique to your product should be designed and built locally, extending Helios components and foundations.
 
 ![Local component patterns](/assets/getting-started/designers/local-component-patterns.png)
 
-<LinkTo class="doc-link-generic" @route="patterns">Patterns</LinkTo> and guidance around combining and extending Helios components are not currently supported, but are on our [roadmap](https://go.hashi.co/hds-rollout)
+<LinkTo class="doc-link-generic" @route="patterns">Patterns</LinkTo> and guidance around combining and extending Helios components are not currently supported, but are on our [roadmap](https://go.hashi.co/hds-rollout).
 
 !!! Insight
 
 When creating your own library of local components to use in your projects, it's helpful to separate the components from the main design file in their own Figma file. This simplifies publishing and creates a single consistent dependency for your design files. For more information on creating and publishing libraries, visit [Figma's official documentation.](https://www.figma.com/best-practices/components-styles-and-shared-libraries/organizing-and-creating-libraries/)
 !!!
+
+When design and building local components, consider [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods whenever possible. Helios components generally correspond with the `atom` and `molecule` levels, with some more complex components being considered `organisms`.
 
 ## Component instances & detaching
 
