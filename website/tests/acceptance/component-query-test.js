@@ -15,6 +15,10 @@ module('Acceptance | Component Tabs', function (hooks) {
       .dom('.doc-page-tabs__tab:nth-child(1)')
       .hasClass('doc-page-tabs__tab--is-current');
 
+    // Sidebar should show this component as the active "link"
+    assert.dom('.doc-table-of-contents__link.active').hasText('Alert');
+    assert.dom('.doc-table-of-contents__link.active').exists({ count: 1 });
+
     await click('#tab-code');
 
     assert
@@ -22,6 +26,10 @@ module('Acceptance | Component Tabs', function (hooks) {
       .doesNotHaveClass('doc-page-tabs__tab--is-current');
 
     assert.strictEqual(currentURL(), '/components/alert?tab=code');
+
+    // Sidebar should show this component as the active "link"
+    assert.dom('.doc-table-of-contents__link.active').hasText('Alert');
+    assert.dom('.doc-table-of-contents__link.active').exists({ count: 1 });
   });
 
   test('visiting a tabbed component page and interacting with tabs by specific tab', async function (assert) {
