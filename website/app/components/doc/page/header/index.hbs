@@ -24,7 +24,7 @@
     </ul>
   </nav>
   <button type="button" class="doc-page-header__burger-menu" {{on "click" @onToggleBurgerMenu}}>
-    {{#if @isSidebarVisible}}
+    {{#if @isSidebarVisibleOnSmallViewport}}
       <FlightIcon @name="x" />
       <span class="doc-text-navigation">Close</span>
     {{else}}

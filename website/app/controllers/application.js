@@ -9,7 +9,7 @@ export default class ApplicationController extends Controller {
   @service fastboot;
 
   // notice: don't set it to false, otherwise the sidebar menu will appear open on page load
-  @tracked showSidebarOnSmallViewport;
+  @tracked isSidebarVisibleOnSmallViewport;
 
   constructor() {
     super(...arguments);
@@ -30,13 +30,13 @@ export default class ApplicationController extends Controller {
 
   @action
   onToggleBurgerMenu() {
-    if (this.showSidebarOnSmallViewport === false) {
-      this.showSidebarOnSmallViewport = true;
+    if (this.isSidebarVisibleOnSmallViewport === false) {
+      this.isSidebarVisibleOnSmallViewport = true;
     } else {
-      this.showSidebarOnSmallViewport = false;
+      this.isSidebarVisibleOnSmallViewport = false;
     }
     if (!this.fastboot.isFastBoot) {
-      document.body.style.overflow = this.showSidebarOnSmallViewport
+      document.body.style.overflow = this.isSidebarVisibleOnSmallViewport
         ? 'hidden'
         : 'auto';
     }

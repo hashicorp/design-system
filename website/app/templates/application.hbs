@@ -2,7 +2,7 @@
 
 <div class="doc-page-wrapper">
   <Doc::Page::Header
-    @isSidebarVisible={{this.showSidebarOnSmallViewport}}
+    @isSidebarVisibleOnSmallViewport={{this.isSidebarVisibleOnSmallViewport}}
     @onToggleBurgerMenu={{this.onToggleBurgerMenu}}
   />
   <Doc::Page::Sidebar
@@ -10,7 +10,7 @@
     @toc={{this.model.toc}}
     @currentPath={{this.target.currentPath}}
     @currentRoute={{this.target.currentRoute}}
-    @showSidebarOnSmallViewport={{this.showSidebarOnSmallViewport}}
+    @isSidebarVisibleOnSmallViewport={{this.isSidebarVisibleOnSmallViewport}}
   />
   {{outlet}}
   <Doc::Page::Footer />

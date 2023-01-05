@@ -57,8 +57,8 @@ export default class DocPageSidebarComponent extends Component {
   get classNames() {
     let classes = ['doc-page-sidebar'];
 
-    // add a class based on the @showSidebarOnSmallViewport argument
-    if (this.args.showSidebarOnSmallViewport) {
+    // add a class based on the @isSidebarVisibleOnSmallViewport argument
+    if (this.args.isSidebarVisibleOnSmallViewport) {
       classes.push(`doc-page-sidebar--show-sidebar-on-small-viewport`);
     }
 
