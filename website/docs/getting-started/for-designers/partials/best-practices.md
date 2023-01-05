@@ -1,4 +1,4 @@
-Below are best practices for using Helios components and foundations effectively.
+Effectively use Helios components and foundations with these best practices.
 
 For documentation around & broader Figma best practices within HashiCorp design teams, reach out to the HashiCorp [Design Ops team](https://sites.google.com/hashicorp.com/designknowledgehub/design-system) or visit the [#design-ops slack channel](https://hashicorp.slack.com/archives/C029GL8GJDV).
 
