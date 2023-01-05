@@ -1,11 +1,19 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export const DEFAULT_TYPE = 'compact';
 export const TYPES = ['compact', 'numbered', 'truncated'];
 
 export default class HdsPaginationNavIndexComponent extends Component {
+  @service router;
+
+  /* Cloud-ui ... */
+  get currentRouteName() {
+    return this.router.currentRouteName;
+  }
+
   /**
    * Gets the type of pagination
    *
@@ -72,11 +80,19 @@ export default class HdsPaginationNavIndexComponent extends Component {
   }
 
   get isDisabledPrev() {
-    return this.currentPage === 1;
+    if (this.args.model) {
+      return this.args.model.previousPageToken ? false : true;
+    } else {
+      return this.currentPage === 1;
+    }
   }
 
   get isDisabledNext() {
-    return this.currentPage === this.totalPages;
+    if (this.args.model) {
+      return this.args.model.nextPageToken ? false : true;
+    } else {
+      return this.currentPage === this.totalPages;
+    }
   }
 
   elliptize({ pages, current }) {

@@ -2,8 +2,12 @@
   <Hds::Pagination::Nav::ButtonArrow
     @direction="prev"
     @type={{this.type}}
-    @onClick={{this.onPageChange}}
     @disabled={{this.isDisabledPrev}}
+    {{! Default - Uses button with onClick: }}
+    @onClick={{unless @model (this.onPageChange)}}
+    {{! Optional - Uses model with url query & route: }}
+    @query={{if @model (hash next=undefined prev=@model.previousPageToken)}}
+    @route={{if @model this.currentRouteName}}
   />
 
   {{#if (or (eq this.type "numbered") (eq this.type "truncated"))}}
@@ -25,7 +29,11 @@
   <Hds::Pagination::Nav::ButtonArrow
     @direction="next"
     @type={{this.type}}
-    @onClick={{this.onPageChange}}
     @disabled={{this.isDisabledNext}}
+    {{! Default - Uses button with onClick: }}
+    @onClick={{unless @model (this.onPageChange)}}
+    {{! Optional - Uses model with url query & route: }}
+    @query={{if @model (hash prev=undefined next=@model.nextPageToken)}}
+    @route={{if @model this.currentRouteName}}
   />
 </nav>

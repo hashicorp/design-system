@@ -1,8 +1,12 @@
 <Hds::Interactive
   class={{this.classNames}}
+  {{! Default - Uses button with onCLick: }}
   {{on "click" this.onClick}}
   aria-label={{this.content.ariaLabel}}
   disabled={{@disabled}}
+  {{! Optional - Uses model with url query & route: }}
+  @query={{@query}}
+  @route={{@route}}
   ...attributes
 >
   <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />

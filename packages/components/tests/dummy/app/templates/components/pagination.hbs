@@ -166,6 +166,24 @@
     <P.Nav />
   </Hds::Pagination>
 
+  <h4 class="dummy-h4">Passing a model a la Cloud-ui</h4>
+  <p class="dummy-paragraph">Previous and Next buttons use links instead of buttons with onClick in this case.</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Nav @model=\{{@model.pagination}} @totalPages={{0}} />
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Pagination::Nav
+    @model={{hash previousPageToken=undefined nextPageToken="https://www.hashicorp.com/"}}
+    @totalPages={{0}}
+  />
+
   <h4 class="dummy-h4">“Numbered” Pagination with Nav</h4>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
