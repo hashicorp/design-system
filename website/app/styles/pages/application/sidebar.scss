@@ -56,6 +56,7 @@ body.application.index {
 body.application:not(.index) {
   // Notice: for `display` and animation/transition look below
   .doc-page-sidebar {
+    position: fixed;
     top: var(--doc-page-header-height);
     left: 0;
     z-index: var(--doc-z-index-sidebar);
@@ -65,15 +66,6 @@ body.application:not(.index) {
     height: calc(100vh - var(--doc-page-header-height));
     background: var(--doc-color-white);
     box-shadow: 0 8px 16px rgba(37, 38, 45, 20%);
-
-    @include breakpoint.with-mobile-sidebar() {
-      position: fixed;
-    }
-
-    @include breakpoint.with-fixed-sidebar() {
-      position: sticky;
-      grid-area: sidebar;
-    }
   }
 
   .doc-page-sidebar__inner-wrapper {
@@ -99,15 +91,6 @@ body.application:not(.index) {
     @include breakpoint.medium-and-above() {
       display: none;
     }
-  }
-}
-
-
-// BODY OVERFLOW
-
-@include breakpoint.with-mobile-sidebar() {
-  body.application.isSidebarVisibleOnSmallViewport {
-    overflow: hidden;
   }
 }
 
@@ -155,7 +138,7 @@ body.application:not(.index) {
 
     // when the `isSidebarInRenderTree` class is added to the `<body>` (via JS) we add the sidebar to the render tree (so we can then animate it)
     &.isSidebarInRenderTree .doc-page-sidebar {
-      display: block;
+      display: flex;
       transform: translate3d(-100%, 0, 0);
       transition: transform 0.25s ease-in;
     }
@@ -164,6 +147,10 @@ body.application:not(.index) {
       transform: translate3d(0, 0, 0);
       transition: transform 0.25s ease-out;
     }
+
+    // we also lock the overflow scrolling on the `<body>` element
+    &.isSidebarVisibleOnSmallViewport {
+      overflow: hidden;
+    }
   }
 }
-
