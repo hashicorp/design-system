@@ -15,6 +15,12 @@ In most cases, the numbered pagination provides a greater user experience. It al
 
 If your product only has cursor pagination, it won't be able to support the numbered variant. Only applications with offset pagination can implement the numbered pagination variant.
 
+![Numbered pagination example](/assets/components/pagination/pagination-offset-example.png =50%x50%)
+- Supported by offset (page-based) pagination.
+
+![Compact pagination example](/assets/components/pagination/pagination-cursor-example.png =25%x25%)
+- Supported by offset and cursor based pagination.
+
 !!! Warning 
 
 We strongly recommend talking to your engineering team before using a specific variant. Learn more about [offset and cursor pagination] (https://ignaciochiazzo.medium.com/paginating-requests-in-apis-d4883d4c1c4c)
