@@ -51,13 +51,3 @@
 .doc-text-code {
   @include doc-font-style-code();
 }
-
-// SUPPORTING STYLES
-
-.doc-text-navigation {
-  @include doc-font-style-navigation();
-}
-
-.doc-text-label {
-  @include doc-font-style-label();
-}

@@ -28,6 +28,7 @@
 }
 
 .doc-page-cover__title {
+  @include doc-font-style-h1();
   margin: 0;
   color: var(--doc-color-gray-100);
 }
@@ -46,6 +47,7 @@
 }
 
 .doc-page-cover__description {
+  @include doc-font-style-body();
   max-width: var(--doc-page-content-max-width);
   margin: 16px 0 0 0;
   color: var(--doc-color-gray-300);

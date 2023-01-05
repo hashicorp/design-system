@@ -1,5 +1,7 @@
 // META ROW
 
+@use "../typography/mixins" as *;
+
 .doc-meta-row {
   display: flex;
   gap: 8px;
@@ -8,6 +10,7 @@
 }
 
 .doc-meta-row__label {
+  @include doc-font-style-label();
   flex: none;
   min-width: 60px;
   margin-top: 7px; // optical alignment
@@ -19,6 +22,7 @@
 }
 
 .doc-meta-row__value-not-copyable {
+  @include doc-font-style-code();
   display: inline-block;
   padding-top: 2px; // optical alignment with the copyable one
   padding-left: 8px;
