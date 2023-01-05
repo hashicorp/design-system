@@ -115,3 +115,13 @@ body.application:not(.index) {
     }
   }
 }
+
+// BODY OVERFLOW
+
+body.application.isSidebarVisibleOnSmallViewport {
+  overflow: hidden;
+
+  @include breakpoint.with-fixed-sidebar() {
+    overflow: auto;
+  }
+}

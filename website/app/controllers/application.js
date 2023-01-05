@@ -32,13 +32,14 @@ export default class ApplicationController extends Controller {
   onToggleBurgerMenu() {
     if (this.isSidebarVisibleOnSmallViewport === false) {
       this.isSidebarVisibleOnSmallViewport = true;
+      if (!this.fastboot.isFastBoot) {
+        document.body.classList.add('isSidebarVisibleOnSmallViewport');
+      }
     } else {
       this.isSidebarVisibleOnSmallViewport = false;
-    }
-    if (!this.fastboot.isFastBoot) {
-      document.body.style.overflow = this.isSidebarVisibleOnSmallViewport
-        ? 'hidden'
-        : 'auto';
+      if (!this.fastboot.isFastBoot) {
+        document.body.classList.remove('isSidebarVisibleOnSmallViewport');
+      }
     }
   }
 }
