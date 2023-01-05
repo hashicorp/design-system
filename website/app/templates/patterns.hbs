@@ -3,22 +3,29 @@
 <Doc::Page::Stage>
   <Doc::Page::Cover @title="Patterns" @description="Coming soon" />
   <Doc::Page::Content>
-    <h2 class="doc-text-h2">What is a pattern?</h2>
-    <p class="doc-text-body">A pattern is a combination of components that work together to accomplish a function or
-      render a layout. They are often used to solve the same problem consistently. Common examples of patterns are
-      forms, navigation, button sets, etc.</p>
-    <h2 class="doc-text-h2">Helios pattern support</h2>
-    <p class="doc-text-body">We don't currently support patterns, but we have a few on our
-      <a href="https://go.hashi.co/hds-rollout">roadmap</a>. We're also planning to introduce guidelines and best
-      practices around assembling components in a consistent and scalable manner.
+    <div class="doc-banner doc-banner--type-insight">
+      <FlightIcon class="doc-banner__icon" @name="bulb" @size="24" @isInlineBlock="false" />
+      <div class="doc-banner__content">
+        <p class="doc-markdown-p"><strong>What is a pattern?</strong></p>
+        <p class="doc-markdown-p">A pattern is a combination of components that work together to accomplish a function or
+          render a layout. They are often used to solve the same problem consistently. Common examples of patterns are
+          forms, navigation, button sets, etc.</p>
+      </div>
+    </div>
+    <h2 class="doc-text-h2">Patterns in Helios</h2>
+    <p class="doc-text-body">We've spent much of the past year building lower level components, and therefore, don't yet
+      offer patterns. See which patterns we plan to work on in the
+      <a href="https://go.hashi.co/hds-rollout">Helios roadmap</a>. 
     </p>
-    <p class="doc-text-body">If you find yourself building the same pattern often,
+    <h3 class="doc-text-h3">Request a pattern</h3>
+    <p class="doc-text-body">If you find yourself building the same pattern often or know of a pattern being used across products,
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform"
       >submit a new pattern request</a>.
     </p>
-    <p class="doc-text-body">Don't hesitate to
-      <LinkTo @route="support">contact the Design Systems Team</LinkTo>
+    <h3 class="doc-text-h3">Creating your own pattern?</h3>
+    <p class="doc-text-body">
+      <LinkTo @route="support">Contact the Design Systems Team</LinkTo>
       for best practices and suggestions when building and defining local components and patterns.
     </p>
   </Doc::Page::Content>
