@@ -33,7 +33,6 @@
     {{! Default - Uses button with onClick: }}
     @onClick={{unless @model (this.onPageChange)}}
     {{! Optional - Uses model with url query & route: }}
-    {{! Check if there's a model AND a next page token }}
     @query={{if (and @model @model.nextPageToken) (hash prev=undefined next=@model.nextPageToken)}}
     @route={{if (and @model @model.nextPageToken) this.currentRouteName}}
   />
