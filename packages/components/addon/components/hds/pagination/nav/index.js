@@ -60,7 +60,9 @@ export default class HdsPaginationNavIndexComponent extends Component {
   get totalPages() {
     let { totalPages } = this.args;
 
-    assert('@totalPages must be defined.', totalPages !== undefined);
+    if (!this.args.model) {
+      assert('@totalPages must be defined.', totalPages !== undefined);
+    }
 
     return totalPages;
   }
