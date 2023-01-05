@@ -9736,7 +9736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^8.1.0":
+"dotenv@npm:^8.0.0, dotenv@npm:^8.1.0":
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
@@ -10068,7 +10068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.1.3, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.26.8, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.1.3, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.26.8, ember-cli-babel@npm:^7.7.3":
   version: 7.26.11
   resolution: "ember-cli-babel@npm:7.26.11"
   dependencies:
@@ -10145,6 +10145,17 @@ __metadata:
     broccoli-plugin: ^4.0.5
     ember-cli-htmlbars: ^5.3.2
   checksum: 3382d34001db61fa04069d0f5f143b39fbeeac124d961dbef932c5a15b67669b8124c504018c7333b2716e2d7a5b299eae53591d8e55bafe447fda7aefaa2deb
+  languageName: node
+  linkType: hard
+
+"ember-cli-dotenv@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "ember-cli-dotenv@npm:3.1.0"
+  dependencies:
+    dotenv: ^8.0.0
+    ember-cli-babel: ^7.1.2
+    minimist: ^1.2.0
+  checksum: ffd2efb6545a369b5ef56374ec2437ab4cf2a897f8c9f85c84064d9290ed9c3b1ab169cf2316d975bae71c0e223dce2e2cd2a7b0274b509a60541e72077268bd
   languageName: node
   linkType: hard
 
@@ -23197,6 +23208,7 @@ __metadata:
     ember-cli-clipboard: ^1.0.0
     ember-cli-dependency-checker: ^3.3.1
     ember-cli-deprecation-workflow: ^2.1.0
+    ember-cli-dotenv: ^3.1.0
     ember-cli-fastboot: ^3.3.2
     ember-cli-htmlbars: ^6.1.0
     ember-cli-inject-live-reload: ^2.1.0
