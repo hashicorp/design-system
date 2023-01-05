@@ -6,28 +6,22 @@
 // ⚠️ ---  the sidebar "navigation" is different between the homepage and the other pages --- ⚠️
 
 
-// HOME PAGE (SPECIAL CASE)
+// HOME PAGE
+// This is a special case: the sidebar is horizontal and is visible *only* on small viewports (when opened)
 
 body.application.index {
   .doc-page-sidebar {
+    // Notice: for `display` and animation/transition look below
     position: fixed;
     top: var(--doc-page-header-height);
     right: 0;
     left: 0;
     z-index: var(--doc-z-index-sidebar);
     background: linear-gradient(92.03deg, #4f53d0 -0.05%, #7545cb 100.68%);
-    transform: translate3d(0, -100%, 0);
-    transition: transform 0.25s ease-in;
-
-    &.doc-page-sidebar--show-sidebar-on-small-viewport {
-      transform: translate3d(0, 0, 0);
-      transition-timing-function: ease-out;
-    }
+    transform: translate3d(0, 0, 0);
   }
 
-  // for the homepage we have a special treatment
-  // and for now we simply override the styles of the TOC
-  // when we will have the final designs we'll clean up things
+  // for the homepage we have a special treatment so we override the styles of the TOC
   .doc-page-sidebar__top-routes {
     .doc-table-of-contents {
       display: flex;
@@ -60,6 +54,7 @@ body.application.index {
 // ALL THE OTHER PAGES
 
 body.application:not(.index) {
+  // Notice: for `display` and animation/transition look below
   .doc-page-sidebar {
     top: var(--doc-page-header-height);
     left: 0;
@@ -73,20 +68,11 @@ body.application:not(.index) {
 
     @include breakpoint.with-mobile-sidebar() {
       position: fixed;
-      transform: translate3d(-100%, 0, 0);
-      transition: transform 0.25s ease-in;
-
-      &.doc-page-sidebar--show-sidebar-on-small-viewport {
-        transform: translate3d(0, 0, 0);
-        transition-timing-function: ease-out;
-      }
     }
 
     @include breakpoint.with-fixed-sidebar() {
       position: sticky;
       grid-area: sidebar;
-      transform: none;
-      transition: none;
     }
   }
 
@@ -116,12 +102,68 @@ body.application:not(.index) {
   }
 }
 
+
 // BODY OVERFLOW
 
-body.application.isSidebarVisibleOnSmallViewport {
-  overflow: hidden;
-
-  @include breakpoint.with-fixed-sidebar() {
-    overflow: auto;
+@include breakpoint.with-mobile-sidebar() {
+  body.application.isSidebarVisibleOnSmallViewport {
+    overflow: hidden;
   }
 }
+
+
+// ------------------------------------------
+
+
+// ANIMATION (for small viewports)
+
+// HOME PAGE
+
+body.application.index {
+
+  // by default we remove the sidebar from the render tree, so its children can't receive focus
+  .doc-page-sidebar {
+    display: none;
+    transition: none;
+  }
+
+  // when the `isSidebarInRenderTree` class is added to the `<body>` (via JS) we add the sidebar to the render tree (so we can then animate it)
+  &.isSidebarInRenderTree .doc-page-sidebar {
+    display: block;
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.25s ease-in;
+  }
+
+  &.isSidebarVisibleOnSmallViewport .doc-page-sidebar {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.25s ease-out;
+  }
+}
+
+// ALL THE OTHER PAGES
+
+body.application:not(.index) {
+
+  // the sidebar is animated only on small viewports
+  @include breakpoint.with-mobile-sidebar() {
+
+    // by default we remove the sidebar from the render tree, so its children can't receive focus
+    .doc-page-sidebar {
+      display: none;
+      transition: none;
+    }
+
+    // when the `isSidebarInRenderTree` class is added to the `<body>` (via JS) we add the sidebar to the render tree (so we can then animate it)
+    &.isSidebarInRenderTree .doc-page-sidebar {
+      display: block;
+      transform: translate3d(-100%, 0, 0);
+      transition: transform 0.25s ease-in;
+    }
+
+    &.isSidebarVisibleOnSmallViewport .doc-page-sidebar {
+      transform: translate3d(0, 0, 0);
+      transition: transform 0.25s ease-out;
+    }
+  }
+}
+
