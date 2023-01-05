@@ -21,12 +21,6 @@ const CATEGORIES = [
 ];
 
 const sortPages = (s1, s2) => {
-  if (
-    s1.filePath === 'components/form/checkbox/index' &&
-    s2.filePath === 'components/badge/index'
-  ) {
-    console.log('s1-s2 (form/checkbox vs badge)', s1, s2);
-  }
   // if they are siblings...
   if (isEqual(s1.pageParents, s2.pageParents)) {
     //  we use the order first...
