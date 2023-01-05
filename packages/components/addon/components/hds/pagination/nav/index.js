@@ -150,6 +150,11 @@ export default class HdsPaginationNavIndexComponent extends Component {
 
   @action
   onPageChange(page) {
+    // Do nothing if model is passed
+    if (this.args.model) {
+      return;
+    }
+
     let gotoPage = this.currentPage;
     if (page === 'prev' && this.currentPage > 1) {
       gotoPage = this.currentPage - 1;
