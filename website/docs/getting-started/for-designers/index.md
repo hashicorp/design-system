@@ -1,5 +1,5 @@
 ---
-title: Getting started for designers
+title: For designers
 ---
 
 <section data-tab="Overview">
