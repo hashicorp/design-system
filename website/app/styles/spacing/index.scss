@@ -43,7 +43,7 @@
 }
 
 .doc-markdown-hr {
-  margin: 16px 0;
+  margin: 48px 0 0;
 }
 
 // LISTS
@@ -54,11 +54,11 @@
   margin-top: 16px;
   margin-bottom: 24px;
 
-  > li > p {
+  >li>p {
     margin-top: 12px;
   }
 
-  > li + li {
+  >li+li {
     margin-top: 12px;
   }
 }
@@ -78,12 +78,18 @@ pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
   margin: 16px 0 32px;
 }
 
-.doc-code-block + .doc-code-block,
-.doc-code-block + pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet,
-pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + .doc-code-block,
-pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
+.doc-code-block+.doc-code-block,
+.doc-code-block+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet,
+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet+.doc-code-block,
+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet+pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet {
   // we want to reduce the spacing between to consecutive code blocks
   margin-top: -16px;
+}
+
+// TABLES
+
+.doc-markdown-table {
+  margin-top: 32px;
 }
 
 
@@ -93,16 +99,24 @@ pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[clas
 
 .doc-banner,
 .doc-do-dont {
-  & + .doc-markdown-h2,
-  & + .doc-markdown-h3,
-  & + .doc-markdown-h4,
-  & + .doc-markdown-h5,
-  & + .doc-markdown-h6,
-  & + .doc-text-h2,
-  & + .doc-text-h3,
-  & + .doc-text-h4,
-  & + .doc-text-h6,
-  & + .doc-text-h5 {
+
+  &+.doc-markdown-h2,
+  &+.doc-markdown-h3,
+  &+.doc-markdown-h4,
+  &+.doc-markdown-h5,
+  &+.doc-markdown-h6,
+  &+.doc-text-h2,
+  &+.doc-text-h3,
+  &+.doc-text-h4,
+  &+.doc-text-h6,
+  &+.doc-text-h5 {
     margin-top: 32px;
   }
+}
+
+// Hack for adding spacing to HDS components within a paragraph tag
+// PLEASE REMOVE THIS, IT'S TERRIBLE
+
+.doc-markdown-p>*[class*="hds-"] {
+  margin-top: 24px;
 }

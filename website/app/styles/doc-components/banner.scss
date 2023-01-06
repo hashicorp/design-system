@@ -7,7 +7,7 @@
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  margin: 16px 0;
+  margin: 16px 0 24px;
   padding: 12px;
   border: 1px solid var(--doc-banner-border-color);
   border-left-width: 4px;
@@ -30,21 +30,21 @@
 .doc-banner__content {
 
   // we need to override the margin of the children in some cases
-  > *:first-child {
+  >*:first-child {
     margin-top: 0;
   }
 
-  > *:last-child {
+  >*:last-child {
     margin-bottom: 0;
   }
 
   // this is the title, and it's based on convention (it's supposed to be the first "strong" element inside the paragraph)
-  > p:first-child strong {
+  >p:first-child strong {
     @include doc-font-style-h6();
     color: var(--doc-banner-title-color);
   }
 
-  > p:first-child:has(strong) {
+  >p:first-child:has(strong) {
     margin: 0 0 6px 0;
   }
 
