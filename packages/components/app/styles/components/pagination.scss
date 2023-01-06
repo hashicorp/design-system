@@ -49,6 +49,7 @@
 .hds-pagination-nav__control {
   // border width is subtracted from padding:
   padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
+  color: var(--token-color-foreground-primary);
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
