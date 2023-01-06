@@ -3,7 +3,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 
 export const DEFAULT_TYPE = 'compact';
-export const TYPES = ['compact', 'numbered', 'truncated'];
+export const TYPES = ['compact', 'numbered'];
 
 export default class HdsPaginationNavIndexComponent extends Component {
   /**
@@ -35,10 +35,12 @@ export default class HdsPaginationNavIndexComponent extends Component {
   get currentPage() {
     let { currentPage = 1 } = this.args;
 
-    assert(
-      `@currentPage must be defined for "Hds::Pagination::Nav"`,
-      currentPage !== undefined
-    );
+    if (this.type === 'numbered') {
+      assert(
+        `@currentPage must be defined for "Hds::Pagination::Nav"`,
+        currentPage !== undefined
+      );
+    }
 
     return currentPage;
   }
@@ -52,8 +54,6 @@ export default class HdsPaginationNavIndexComponent extends Component {
   get totalPages() {
     let { totalPages } = this.args;
 
-    assert('@totalPages must be defined.', totalPages !== undefined);
-
     return totalPages;
   }
 
@@ -64,7 +64,7 @@ export default class HdsPaginationNavIndexComponent extends Component {
       pages.push(i);
     }
 
-    if (this.type === 'truncated') {
+    if (this.args.isTruncated) {
       return this.elliptize({ pages, current: this.currentPage });
     } else {
       return pages;

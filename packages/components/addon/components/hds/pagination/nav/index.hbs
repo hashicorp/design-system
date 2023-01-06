@@ -6,7 +6,7 @@
     @disabled={{this.isDisabledPrev}}
   />
 
-  {{#if (or (eq this.type "numbered") (eq this.type "truncated"))}}
+  {{#if (eq this.type "numbered")}}
     <ul class="hds-pagination-nav__page-list">
       {{#each this.pages as |page|}}
         {{#if (eq page "…")}}
