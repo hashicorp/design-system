@@ -42,14 +42,11 @@ export default class HdsPaginationNavIndexComponent extends Component {
   get classNames() {
     let classes = [
       'hds-pagination-nav__button-arrow',
+      `hds-pagination-nav__button-arrow--direction-${this.args.direction}`,
       'hds-pagination-nav__control',
       'hds-typography-body-100',
       'hds-font-weight-medium',
     ];
-
-    classes.push(
-      `hds-pagination-nav__button-arrow--direction-${this.args.direction}`
-    );
 
     if (this.args.type === 'compact') {
       classes.push(`hds-pagination-nav__button-arrow--labeled`);
