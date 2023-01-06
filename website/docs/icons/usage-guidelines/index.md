@@ -1,6 +1,7 @@
 ---
 title: Usage Guidelines
 caption: Guidelines for using and implementing icons consistently.
+previewImage: assets/illustrations/icons/usage-guidelines.jpg
 ---
 
 <section data-tab="Guidelines">

@@ -2,6 +2,7 @@
 title: Tokens
 caption: Design tokens are provided as CSS custom properties and used to share and standardize foundation styles.
 description: Design tokens are provided as CSS custom properties and used to share and standardize foundation styles.
+previewImage: assets/illustrations/foundations/tokens.jpg
 ---
 
 <section data-tab="Library">

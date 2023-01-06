@@ -6,6 +6,7 @@ caption: Icons can be used to support and enhance meaning and can help call out 
 links:
   figma: https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0
   github: https://github.com/hashicorp/design-system/tree/main/packages/flight-icons
+previewImage: assets/illustrations/icons/library.jpg
 ---
 
 <Doc::IconsList
