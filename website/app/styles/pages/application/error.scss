@@ -10,6 +10,12 @@
 // `ember-body-class` sets specific classes on the `<body>` element
 body.application.error {
   background-color: var(--doc-color-white) !important;
+
+  @include breakpoint.with-fixed-sidebar() {
+    .doc-page-sidebar {
+      display: none;
+    }
+  }
 }
 
 
