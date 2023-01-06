@@ -432,15 +432,20 @@
     </div>
 
     <h4 class="dummy-h4">Pagination::Nav</h4>
-    <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{10}} />
-    </div>
-    <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
-    </div>
-    <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{100}} @isTruncated={{true}} />
-    </div>
+
+    <p class="dummy-paragraph">Standard use</p>
+    <Hds::Pagination::Nav @totalPages={{10}} />
+    <br />
+    <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
+    <br />
+    <Hds::Pagination::Nav @totalPages={{100}} @isTruncated={{true}} />
+
+    <p class="dummy-paragraph">With controls as contextual components</p>
+    <Hds::Pagination::Nav as |N|>
+      <N.ButtonPrev @href="#" @disabled={{true}}/>
+      <N.ButtonNext @href="#" />
+    </Hds::Pagination::Nav>
+
   </div>
 
   <h4 class="dummy-h4">Pagination with sub-components</h4>
@@ -457,7 +462,7 @@
     <P.Nav @type="numbered" />
   </Hds::Pagination>
 
-  <h6 class="dummy-h6">Type="truncated"</h6>
+  <h6 class="dummy-h6">With isTruncated=true</h6>
   <p class="dummy-paragraph">A variation of the "numbered" type that displays an ellipsis for some numbers to save
     space.</p>
   <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} as |P|>
@@ -467,6 +472,15 @@
   <p class="dummy-paragraph">With "current" initial page equal to <code class="dummy-code">11</code>.</p>
   <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} @currentPage={{11}} as |P|>
     <P.Nav @isTruncated={{true}} />
+  </Hds::Pagination>
+
+
+  <h6 class="dummy-h6">With prev/next as contextual components</h6>
+  <Hds::Pagination as |P|>
+    <P.Nav as |N|>
+      <N.ButtonPrev @href="#" @disabled={{true}} />
+      <N.ButtonNext @href="#" />
+    </P.Nav>
   </Hds::Pagination>
 
   <h5 class="dummy-h5">Pagination with Nav and Info</h5>
