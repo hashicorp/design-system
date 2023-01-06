@@ -107,6 +107,7 @@ class TableOfContents extends Plugin {
           'caption',
           'order',
           'hidden',
+          'previewImage',
         ]);
       } else {
         console.log('File NOT found!', fullFilePath);
