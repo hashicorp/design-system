@@ -6,7 +6,7 @@
 .doc-do-dont {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
   margin: 16px 0;
 }
 
@@ -51,11 +51,11 @@
 
   // we need to override the margin of the children in some cases
 
-  > *:first-child {
+  >*:first-child {
     margin-top: 0;
   }
 
-  > *:last-child {
+  >*:last-child {
     margin-bottom: 0;
   }
 
