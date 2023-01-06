@@ -442,7 +442,7 @@
 
     <p class="dummy-paragraph">With controls as contextual components</p>
     <Hds::Pagination::Nav as |N|>
-      <N.ButtonPrev @href="#" @disabled={{true}}/>
+      <N.ButtonPrev @href="#" @disabled={{true}} />
       <N.ButtonNext @href="#" />
     </Hds::Pagination::Nav>
 
@@ -473,7 +473,6 @@
   <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} @currentPage={{11}} as |P|>
     <P.Nav @isTruncated={{true}} />
   </Hds::Pagination>
-
 
   <h6 class="dummy-h6">With prev/next as contextual components</h6>
   <Hds::Pagination as |P|>
