@@ -23,6 +23,10 @@ $doc-toc-item-inset: 8px;
       background-color: var(--doc-color-gray-500);
       content: "";
     }
+    // last one doesn't have the separator
+    &:last-child::after {
+      content: none;
+    }
   }
 }
 
