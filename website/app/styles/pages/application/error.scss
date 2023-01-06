@@ -3,6 +3,16 @@
 @use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins";
 
+// temporary fix - see:
+// - https://github.com/hashicorp/design-system/pull/1021
+// - https://hashicorp.atlassian.net/browse/HDS-1309?focusedCommentId=178673
+
+// `ember-body-class` sets specific classes on the `<body>` element
+body.application.error {
+  background-color: var(--doc-color-white) !important;
+}
+
+
 .doc-page-error {
   display: flex;
   grid-area: sidebar / sidebar / stage / stage;
