@@ -6,9 +6,9 @@
   ...attributes
 >
   <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
-  {{#if (eq @type "compact")}}
+  {{#unless @hideLabel}}
     <span class="hds-pagination-nav__page-label" aria-hidden="true">
       {{this.content.label}}
     </span>
-  {{/if}}
+  {{/unless}}
 </Hds::Interactive>
