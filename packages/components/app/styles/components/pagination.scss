@@ -70,10 +70,18 @@
     color: var(--token-color-foreground-action-active);
   }
 
+  // IMPORTANT: we need to use also the [disabled] selector because if the "disabled" attribute is applied to the control that,
+  // since internally it's using the `Hds::Interactive` component, it can be a link or a button, depending on the parameters provided, but
+  // the ":disabled" pseudo-selector is not applied to the element in the browser (rightly) because a link can't be disabled
+  // but from the product perspective there may be use cases where they need to have a the control as a link that looks disabled anyway
+
   &:disabled,
+  &[disabled],
   &.mock-disabled {
     color: var(--token-color-foreground-disabled);
     cursor: not-allowed;
+    // TODO discuss with Kristin if we want to do it (removes the cursor too!)
+    pointer-events: none;
   }
 }
 
