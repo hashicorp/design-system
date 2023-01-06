@@ -2,6 +2,7 @@
 title: Dismiss Button
 description: An internal utility component used to provide "dismiss" functionality in other components.
 caption: An internal utility component used to provide "dismiss" functionality in other components.
+previewImage: assets/illustrations/utilities/dismiss-button.jpg
 ---
 
 <section data-tab="Code">

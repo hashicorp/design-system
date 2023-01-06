@@ -5,6 +5,7 @@ caption: A set of buttons.
 status: code-only
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/button-set
+previewImage: assets/illustrations/components/button-set.jpg
 ---
 
 <section data-tab="Guidelines">

@@ -6,6 +6,7 @@ status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=5633%3A16319&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dropdown
+previewImage: assets/illustrations/components/dropdown.jpg
 ---
 
 <section data-tab="Guidelines">
