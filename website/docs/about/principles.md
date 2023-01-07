@@ -1,6 +1,6 @@
 ---
 title: Principles
-description: We consider the whole when creating the parts
+description: We consider the whole when creating the parts.
 caption: Read the principles that guide the design system team.
 order: 102
 layout:
