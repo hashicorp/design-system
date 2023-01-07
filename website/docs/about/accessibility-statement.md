@@ -2,7 +2,7 @@
 title: Accessibility Statement
 description: This is an accessibility statement from the Design Systems Team.
 caption: Learn more about the accessibility intentions of the design system.
-order: 103
+order: 104
 ---
 
 Accessibility is a core requirement, not an optional feature; this aligns with our [company principles](https://www.hashicorp.com/our-principles), especially our principle of integrity.
