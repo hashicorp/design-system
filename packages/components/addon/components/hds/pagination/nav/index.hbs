@@ -4,7 +4,7 @@
   {{#unless (has-block)}}
     <Hds::Pagination::Nav::ButtonArrow
       @direction="prev"
-      @hideLabel={{eq this.type "numbered"}}
+      @hideLabel={{this.hideLabels}}
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledPrev}}
     />
@@ -31,7 +31,7 @@
   {{#unless (has-block)}}
     <Hds::Pagination::Nav::ButtonArrow
       @direction="next"
-      @hideLabel={{eq this.type "numbered"}}
+      @hideLabel={{this.hideLabels}}
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledNext}}
     />
