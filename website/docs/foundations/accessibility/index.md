@@ -2,6 +2,7 @@
 title: Accessibility
 caption: Content should be usable and accessible for all users of differing abilities.
 description: Content should be usable and accessible for all users of differing abilities.
+previewImage: assets/illustrations/foundations/accessibility.jpg
 ---
 
 While our components are designed and developed with accessibility as a core requirement, they can still be implemented in a way that results in an application that is not conformant with WCAG Guidelines. To that end, we provide some considerations for application-level concerns.

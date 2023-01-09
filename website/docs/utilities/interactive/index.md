@@ -2,6 +2,7 @@
 title: Interactive
 description: An internal utility component used to provide interactivity to other components.
 caption: An internal utility component used to provide interactivity to other components.
+previewImage: assets/illustrations/utilities/interactive.jpg
 ---
 
 <section data-tab="Code">

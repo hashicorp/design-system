@@ -2,6 +2,7 @@
 title: Colors
 caption: Color and contrast are used to convey information, highlight content, and communicate intent.
 description: Color and contrast are used to convey information, highlight content, and communicate intent.
+previewImage: assets/illustrations/foundations/colors.jpg
 ---
 
 <section data-tab="Code">

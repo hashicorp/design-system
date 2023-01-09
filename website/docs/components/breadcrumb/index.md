@@ -6,6 +6,7 @@ status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=3073%3A11771&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/breadcrumb
+previewImage: assets/illustrations/components/breadcrumb.jpg
 ---
 
 <section data-tab="Guidelines">
