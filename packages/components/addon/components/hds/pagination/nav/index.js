@@ -52,6 +52,18 @@ export default class HdsPaginationNavIndexComponent extends Component {
     }
   }
 
+  get hideLabels() {
+    let { hideLabels } = this.args;
+
+    if (hideLabels !== undefined) {
+      // if `this.args.hideLabels` is explicitly set by the user, we respect their decision
+      return hideLabels;
+    } else {
+      // by default we hide the labels only if "type" is "numbered"
+      return this.type === 'numbered';
+    }
+  }
+
   get isDisabledPrev() {
     return this.currentPage === 1;
   }
