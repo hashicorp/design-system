@@ -9,4 +9,9 @@ export default class PaginationController extends Controller {
   toggleHighlight() {
     this.showHighlight = !this.showHighlight;
   }
+
+  @action
+  logClickedControl(control) {
+    console.log(`Control "${control}" clicked!`);
+  }
 }
