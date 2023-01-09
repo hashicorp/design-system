@@ -2,11 +2,6 @@
 
 <h2 class="dummy-h2">Pagination</h2>
 
-{{! ADD YOUR CONTENT BELOW }}
-{{! Please follow as much as possible what it's already done in other components. }}
-{{! You can start by copy&pasting it, if you want, and then adapt it according to your needs. }}
-{{! Once done, please remove these comments (they're created by the generator). }}
-
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
@@ -91,21 +86,106 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav">
-    <dt>type <code>string</code></dt>
-    <dd>
-      <p>Sets the type of Pagination::Nav.</p>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">compact</li>
-        <li>numbered</li>
-      </ol>
-    </dd>
-
     <dt>totalPages <code>number</code></dt>
     <dd>
       <p>Used in displaying the page numbers for "numbered" type and for determining the next page to navigate to.</p>
-      <p>totalPages is calculated by HDS::Pagination wrapper component when used. However, it is required if
-        HDS::Pagination::Nav is used as a stand alone component.</p>
+      <p><code class="dummy-code">@totalPages</code>
+        is calculated by the
+        <code class="dummy-code">HDS::Pagination</code>
+        wrapper component when used.</p>
+      <p>If no value is provided to
+        <code class="dummy-code">@totalPages</code>
+        the
+        <code class="dummy-code">HDS::Pagination::Nav</code>
+        assumes a "compact" type (without page numbers, only "prev/next" controls).</p>
+    </dd>
+    <dt>currentPage <code>number</code></dt>
+    <dd>
+      <p>Used to select the "current" number in the list of pages.</p>
+      <p>Default: <span class="default">1</span></p>
+    </dd>
+    <dt>hideLabels <code>boolean</code></dt>
+    <dd>
+      <p>Used to control the visibility of the "prev/next" text labels.</p>
+      <p>Default: <span class="default">true</span> if "numbered" - <span class="default">false</span> if "compact"</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Pagination::Nav::ButtonArrow</h4>
+  <p class="dummy-paragraph" id="component-api-pagination-nav-button-arrow">
+    Here is the API for the
+    <code class="dummy-code">Pagination::Nav::ButtonArrow</code>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav-button-arrow">
+    <dt>direction <code>enum</code></dt>
+    <dd>
+      <p>Sets the "direction" of the icon and label in the control.</p>
+      <p>Acceptable values:</p>
+      <ol>
+        <li>prev</li>
+        <li>next</li>
+      </ol>
+    </dd>
+    <dt>href + route/models/model/query/current-when/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
+    </dd>
+    <dt>disabled <code>boolean</code></dt>
+    <dd>
+      <p>If the control is disabled</p>
+      <p>Default: <span class="default">false</span></p>
+      <p>Notice: when the control is disabled, it's always rendered as an HTML
+        <code class="dummy-code">Button</code>
+        element.</p>
+    </dd>
+    <dt>hideLabel <code>boolean</code></dt>
+    <dd>
+      <p>Used to control the visibility of the text label in the control.</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>onClick <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked when the control is clicked (if provided).</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
+    </dd>
+  </dl>
+
+  <h4 class="dummy-h4">Pagination::Nav::ButtonNumber</h4>
+  <p class="dummy-paragraph" id="component-api-pagination-nav-button-number">
+    Here is the API for the
+    <code class="dummy-code">Pagination::Nav::ButtonNumber</code>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav-button-number">
+    <dt>page <code>string|number</code></dt>
+    <dd>
+      <p>The text value that should go in the control as page number.</p>
+    </dd>
+    <dt>isSelected <code>boolean</code></dt>
+    <dd>
+      <p>If the page has a "selected" visual state (usually used to highlight the current page).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>onClick <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked when the control is clicked (if provided).</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code>
+        spreading is supported on this component.</p>
+      <p><em>Notice: it will not be applied to the
+          <code class="dummy-code">&lt;li&gt;</code>
+          wrapping element but to the
+          <code class="dummy-code">&lt;button&gt;/&lt;a&gt;</code>
+          controls.</em></p>
     </dd>
   </dl>
 
