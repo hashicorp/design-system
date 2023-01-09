@@ -9,7 +9,7 @@
 |------------------|-------------------------------------------------|
 | Info             | Optional                                        |
 | Nav              | Required                                        |
-| Size Selector    | Optional                                        |
+| Size selector    | Optional                                        |
 
 ### Pagination Nav
 

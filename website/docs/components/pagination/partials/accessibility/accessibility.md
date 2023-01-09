@@ -19,19 +19,19 @@ The `Component Name` component is not WCAG-conformant on its own. (Explain how t
 
 In most cases, the numbered pagination provides a greater user experience. It allows users to jump between pages and always return to the first page or go to the last page without navigating through the pages manually.
 
-If your product only has cursor pagination, it won't be able to support the numbered variant. Only applications with offset pagination can implement the numbered pagination variant.
-
-![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png =50%x50%)
+If your product only has cursor pagination, it won’t be able to support the numbered variant. Only applications with offset pagination can implement the numbered pagination variant.
 
 Focus and move between pagination controls.
 
-![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-02.png =50%x50%)
+`tab`
+
+![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png =50%x50%)
 
 Trigger button to navigate to another page.
 
-### Heading 3
+`enter`
 
-{description of best practice}
+![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-02.png =50%x50%)
 
 ## Applicable WCAG Success Criteria
 
