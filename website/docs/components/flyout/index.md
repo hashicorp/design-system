@@ -1,7 +1,7 @@
 ---
 title: Flyout
 description: Contains additional detail information relevant to an item or object without navigating or routing to a new page.
-status: inprogress
+status: experimental
 ---
 
 <section data-tab="Guidelines">
