@@ -113,6 +113,10 @@ export default class ShowRoute extends Route {
 
   @action
   error() {
-    this.router.replaceWith('error');
+    if (this.error.status === '404') {
+      this.router.replaceWith('error');
+    } else {
+      return true;
+    }
   }
 }

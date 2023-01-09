@@ -12,7 +12,9 @@ Router.map(function () {
   this.route('components');
   this.route('patterns');
 
-  this.route('error');
+  // we don't have to add an error route, Ember automatically looks for it
+  // see https://guides.emberjs.com/release/routing/loading-and-error-substates/#toc_error-substates
+  // this.route('error');
 
   // this will be removed later
   this.route('testing');
