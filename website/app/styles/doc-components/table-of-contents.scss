@@ -16,16 +16,12 @@ $doc-toc-item-inset: 8px;
   list-style: none;
 
   &.doc-table-of-contents__item--depth-1 {
-    &::after {
+    & + &::before {
       display: block;
       height: 1px;
       margin: 20px $doc-toc-item-inset;
       background-color: var(--doc-color-gray-500);
       content: "";
-    }
-    // last one doesn't have the separator
-    &:last-child::after {
-      content: none;
     }
   }
 }
