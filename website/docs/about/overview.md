@@ -7,7 +7,7 @@ order: 101
 
 ## What is a design system?
 
-A design system is a set of guidelines, standards, assets, and processes to help organizations rapidly design, build, and consistently deploy products.
+A design system is a set of guidelines, standards, assets, and processes to help organizations design, build, and deploy products rapidly and consistently.
 
 Design systems are often equated with a UI kit or component library. In reality, an effective design system spans the entire lifecycle of a product, from ideation to iteration and everything in between.
 
