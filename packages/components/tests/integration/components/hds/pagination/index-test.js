@@ -57,7 +57,7 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
 
   test('it should use "compact" type by default', async function (assert) {
     await render(hbs`
-      <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
+      <Hds::Pagination as |P|>
         <P.Nav />
       </Hds::Pagination>
     `);
@@ -71,10 +71,10 @@ module('Integration | Component | hds/pagination/index', function (hooks) {
     assert.dom('.hds-pagination-nav__page-list').doesNotExist();
   });
 
-  test('it should use the passed in "numbered" type', async function (assert) {
+  test('it should use "numbered" type if @totalItems is provided', async function (assert) {
     await render(hbs`
-      <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{1}} as |P|>
-        <P.Nav @type="numbered" />
+      <Hds::Pagination @totalItems={{100}} as |P|>
+        <P.Nav />
       </Hds::Pagination>
     `);
     // type="numbered", do NOT display navButton labels, display list of page numbers

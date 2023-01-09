@@ -22,16 +22,42 @@ module('Integration | Component | hds/pagination/nav/index', function (hooks) {
 
   // Test API:
 
+  test('it should use "compact" type by default', async function (assert) {
+    await render(hbs`<Hds::Pagination::Nav />`);
+    // type="compact", display navButton labels, do NOT display list of page numbers
+    assert
+      .dom('.hds-pagination-nav__button-arrow--direction-prev')
+      .includesText('Previous');
+    assert
+      .dom('.hds-pagination-nav__button-arrow--direction-next')
+      .includesText('Next');
+    assert.dom('.hds-pagination-nav__page-list').doesNotExist();
+  });
+
+  test('it should use the passed in "numbered" type', async function (assert) {
+    await render(
+      hbs`<Hds::Pagination::Nav @totalPages={{10}} @currentPage={{1}} @type="numbered" />`
+    );
+    // type="numbered", do NOT display navButton labels, display list of page numbers
+    assert
+      .dom('.hds-pagination-nav__button-arrow--direction-next')
+      .doesNotIncludeText('Previous');
+    assert
+      .dom('.hds-pagination-nav__button-arrow--direction-prev')
+      .doesNotIncludeText('Next');
+    assert.dom('.hds-pagination-nav__page-list').exists();
+  });
+
   test('it has the same number of pages displayed as are passed in for the "numbered" type', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Nav @totalPages={{10}} @currentPage={{1}} @type="numbered" />
+      <Hds::Pagination::Nav @totalPages={{10}} @currentPage={{1}} @type="numbered"  />
     `);
     assert.dom('.hds-pagination-nav__page-item:nth-child(10)').exists();
   });
 
-  test('it displays a truncated list of page numbers for the "truncated" type', async function (assert) {
+  test('it displays a truncated list of page numbers when @isTruncated is set to true', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Nav @totalPages={{100}} @currentPage={{1}} @type="truncated" />
+      <Hds::Pagination::Nav @totalPages={{100}} @currentPage={{1}} @type="numbered" @isTruncated={{true}} />
     `);
     // displays 7 items (the max number displayed)
     assert.dom('.hds-pagination-nav__page-item').exists({ count: 7 });
@@ -44,7 +70,7 @@ module('Integration | Component | hds/pagination/nav/index', function (hooks) {
 
   test('it should display an ellipsis for the 2nd and 6th items when a middle page number is selected', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Nav @totalPages={{100}} @currentPage={{4}} @type="truncated" />
+      <Hds::Pagination::Nav @totalPages={{100}} @currentPage={{4}} @type="numbered" @isTruncated={{true}} />
     `);
     assert.dom('.hds-pagination-nav__page-item:nth-child(2)').hasText('...');
     assert.dom('.hds-pagination-nav__page-item:nth-child(6)').hasText('...');
@@ -57,7 +83,7 @@ module('Integration | Component | hds/pagination/nav/index', function (hooks) {
 
   test('it should display an ellipsis for the 3rd item when the last page number is selected', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Nav @totalPages={{100}} @currentPage={{100}} @type="truncated" />
+      <Hds::Pagination::Nav @totalPages={{100}} @currentPage={{100}} @type="numbered" @isTruncated={{true}} />
     `);
     assert.dom('.hds-pagination-nav__page-item:nth-child(3)').hasText('...');
     assert
