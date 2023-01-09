@@ -3,10 +3,10 @@
     (hash
       Info=(component
         "hds/pagination/info"
-        showTotalItems=@showTotalItems
-        totalItems=this.totalItems
         itemsRangeStart=this.itemsRangeStart
         itemsRangeEnd=this.itemsRangeEnd
+        totalItems=this.totalItems
+        showTotalItems=@showTotalItems
       )
     )
   }}
@@ -14,10 +14,7 @@
   {{yield
     (hash
       Nav=(component
-        "hds/pagination/nav"
-        totalPages=this.totalPages
-        currentPage=this.currentPage
-        onPageChange=this.onPageChange
+        "hds/pagination/nav" totalPages=this.totalPages currentPage=this.currentPage onPageChange=this.onPageChange
       )
     )
   }}
