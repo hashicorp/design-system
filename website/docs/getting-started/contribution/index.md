@@ -24,4 +24,4 @@ For contributions to the individual code packages, consult the `CONTRIBUTING.md`
 
 ## Icon contributions
 
-Contributing is not required to get new icons added to the library, but HashiCorp employees are welcome and encouraged to contribute to icons. [File an icon request](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform) and if you'd like to design the icon yourself, start by reading through the  [contribution workflow](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4) for creating a new icon.
+Contributing is not required to get new icons added to the library, but HashiCorp employees are welcome and encouraged to contribute to icons. [File an icon request](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform) and if you’d like to design the icon yourself, start by reading through the  [contribution workflow](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4) for creating a new icon.
