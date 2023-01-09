@@ -48,7 +48,7 @@ export default class HdsPaginationNavIndexComponent extends Component {
       'hds-font-weight-medium',
     ];
 
-    if (this.args.type === 'compact') {
+    if (!this.args.hideLabel) {
       classes.push(`hds-pagination-nav__button-arrow--labeled`);
     }
 
