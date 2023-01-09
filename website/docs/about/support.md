@@ -8,11 +8,11 @@ order: 103
 Many resources and links on this page are only available to HashiCorp employees.
 !!!
 
-We’re happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help if you get stuck.
+We’re happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help.
 
 ## Live support
 
-Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) Slack channel to ask questions, request and provide feedback, or start a conversation with our team. As a globally-distributed team, there may be a slight delay in answering some questions, but we're committed to responding in a timely manner.
+Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) Slack channel to ask questions, request and provide feedback, or start a conversation with our team. As a globally-distributed team, there may be a slight delay in answering some questions, but we’re committed to responding in a timely manner.
 
 ## Office hours
 

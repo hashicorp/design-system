@@ -35,11 +35,14 @@ While increasing visual and functional consistency across products is the most v
 
 ## Who is Helios for
 
-To bring the different product lines and teams towards a common design language, Helios is available and recommended for HashiCorp product teams. We work closely with these teams on integration and implementation while collecting feedback to understand consumer needs better and inform our [roadmap](https://go.hashi.co/hds-rollout).
+Helios is available and recommended for all HashiCorp product teams using Ember to build their applications. We also support teams using alternative frameworks or libraries, such as HashiCorp Developer, via our design assets, tokens, and best practice guidance.
 
-Helios does not currently support HashiCorp marketing teams. 
+Using Helios ensures the different product lines move towards a common design language. We work closely with these teams on integration and implementation while collecting feedback to understand consumer needs better and inform our [roadmap](https://go.hashi.co/hds-rollout).
 
 For more information on adoption, visit our getting started guides for [designers](/getting-started/for-designers) and for [engineers](/getting-started/for-engineers) or visit our public [GitHub](https://github.com/hashicorp/design-system) repository.
+
+
+
 
 ## Resources
 
