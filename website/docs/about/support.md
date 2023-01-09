@@ -8,7 +8,7 @@ order: 103
 Many resources and links on this page are only available to HashiCorp employees.
 !!!
 
-We're happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help if you get stuck.
+We’re happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help if you get stuck.
 
 ## Live support
 
