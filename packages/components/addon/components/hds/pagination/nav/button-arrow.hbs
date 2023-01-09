@@ -1,11 +1,5 @@
 {{#if @disabled}}
-  <Hds::Interactive
-    class={{this.classNames}}
-    {{on "click" this.onClick}}
-    aria-label={{this.content.ariaLabel}}
-    disabled={{true}}
-    ...attributes
-  >
+  <Hds::Interactive class={{this.classNames}} aria-label={{this.content.ariaLabel}} disabled={{true}} ...attributes>
     <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
     {{#unless @hideLabel}}
       <span class="hds-pagination-nav__page-label" aria-hidden="true">
@@ -21,9 +15,9 @@
     @query={{hds-link-to-query @query}}
     @replace={{@replace}}
     @route={{@route}}
-    @isRouteExternal={{@isRouteExternal}}
     @href={{@href}}
-    @isHrefExternal={{@isHrefExternal}}
+    {{! This can be removed once this is fixed: https://hashicorp.atlassian.net/browse/HDS-705 }}
+    @isHrefExternal={{false}}
     {{on "click" this.onClick}}
     aria-label={{this.content.ariaLabel}}
     ...attributes
