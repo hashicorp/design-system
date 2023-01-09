@@ -1,22 +1,38 @@
-<Hds::Interactive
-  class={{this.classNames}}
-  @current-when={{@current-when}}
-  @models={{hds-link-to-models @model @models}}
-  @query={{hds-link-to-query @query}}
-  @replace={{@replace}}
-  @route={{@route}}
-  @isRouteExternal={{@isRouteExternal}}
-  @href={{@href}}
-  @isHrefExternal={{@isHrefExternal}}
-  {{on "click" this.onClick}}
-  aria-label={{this.content.ariaLabel}}
-  disabled={{@disabled}}
-  ...attributes
->
-  <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
-  {{#unless @hideLabel}}
-    <span class="hds-pagination-nav__page-label" aria-hidden="true">
-      {{this.content.label}}
-    </span>
-  {{/unless}}
-</Hds::Interactive>
+{{#if @disabled}}
+  <Hds::Interactive
+    class={{this.classNames}}
+    {{on "click" this.onClick}}
+    aria-label={{this.content.ariaLabel}}
+    disabled={{true}}
+    ...attributes
+  >
+    <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
+    {{#unless @hideLabel}}
+      <span class="hds-pagination-nav__page-label" aria-hidden="true">
+        {{this.content.label}}
+      </span>
+    {{/unless}}
+  </Hds::Interactive>
+{{else}}
+  <Hds::Interactive
+    class={{this.classNames}}
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    {{on "click" this.onClick}}
+    aria-label={{this.content.ariaLabel}}
+    ...attributes
+  >
+    <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
+    {{#unless @hideLabel}}
+      <span class="hds-pagination-nav__page-label" aria-hidden="true">
+        {{this.content.label}}
+      </span>
+    {{/unless}}
+  </Hds::Interactive>
+{{/if}}
