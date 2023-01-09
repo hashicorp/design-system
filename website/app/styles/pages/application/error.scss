@@ -3,12 +3,19 @@
 @use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins";
 
+body.error {
+  aside.doc-page-sidebar {
+    visibility: hidden;
+  }
+}
+
 .doc-page-error {
   display: flex;
-  grid-area: sidebar / sidebar / stage / stage;
   align-items: center;
   justify-content: center;
   padding: 5%;
+  color: var(--doc-color-black);
+  background-color: var(--doc-color-white);
 }
 
 .doc-page-error__wrapper {
