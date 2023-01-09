@@ -37,8 +37,24 @@
   list-style: none;
 }
 
-.dummy-plain-list {
+.dummy-pagination-sample-status-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 0.25rem 1.5rem;
+  align-items: center;
+  width: fit-content;
+}
+
+.dummy-pagination-sample-fake-list {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  list-style: none;
+}
+
+// special overrides
+
+.dummy-pagination-base-sample--nav-button-number {
+  .dummy-pagination-sample-fake-list {
+    width: fit-content;
+  }
 }
