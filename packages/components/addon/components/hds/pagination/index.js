@@ -7,15 +7,6 @@ export default class HdsPaginationIndexComponent extends Component {
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
 
-  // constructor() {
-  //   super(...arguments);
-  //   TODO add logic here that checks the different parameters dependencies
-  // }
-
-  get type() {
-    return this.totalItems ? 'numbered' : 'compact';
-  }
-
   /**
    * @param totalItems
    * @type {number}
@@ -70,6 +61,10 @@ export default class HdsPaginationIndexComponent extends Component {
   }
 
   calculateTotalPages() {
-    return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
+    if (this.totalItems) {
+      return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
+    } else {
+      return undefined;
+    }
   }
 }
