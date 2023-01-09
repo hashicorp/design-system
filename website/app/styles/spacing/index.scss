@@ -43,7 +43,7 @@
 }
 
 .doc-markdown-hr {
-  margin: 16px 0;
+  margin: 48px 0;
 }
 
 // LISTS
@@ -86,6 +86,11 @@ pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[clas
   margin-top: -16px;
 }
 
+// TABLES
+
+.doc-markdown-table {
+  margin-top: 32px;
+}
 
 // SPECIAL CASES
 
