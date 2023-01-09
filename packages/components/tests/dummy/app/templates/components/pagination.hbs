@@ -98,7 +98,6 @@
       <ol>
         <li class="default">compact</li>
         <li>numbered</li>
-        <li>truncated</li>
       </ol>
     </dd>
 
@@ -247,14 +246,14 @@
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Pagination::Nav @totalPages={{1000}} @type="truncated" />
-    '
+    @code="
+      <Hds::Pagination::Nav @totalPages={{1000}} @isTruncated=\{{true}} />
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination::Nav @totalPages={{1000}} @type="truncated" />
+  <Hds::Pagination::Nav @totalPages={{1000}} @isTruncated={{true}} />
 </section>
 
 <section>
@@ -440,7 +439,7 @@
       <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
     </div>
     <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{100}} @type="truncated" />
+      <Hds::Pagination::Nav @totalPages={{100}} @isTruncated={{true}} />
     </div>
   </div>
 
@@ -462,12 +461,12 @@
   <p class="dummy-paragraph">A variation of the "numbered" type that displays an ellipsis for some numbers to save
     space.</p>
   <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} as |P|>
-    <P.Nav @type="truncated" />
+    <P.Nav @isTruncated={{true}} />
   </Hds::Pagination>
 
   <p class="dummy-paragraph">With "current" initial page equal to <code class="dummy-code">11</code>.</p>
   <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} @currentPage={{11}} as |P|>
-    <P.Nav @type="truncated" />
+    <P.Nav @isTruncated={{true}} />
   </Hds::Pagination>
 
   <h5 class="dummy-h5">Pagination with Nav and Info</h5>
