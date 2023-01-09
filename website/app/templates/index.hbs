@@ -23,21 +23,19 @@
     </div>
     <ul class="doc-page-home__cards" role="list">
       {{#each this.cards as |card|}}
-        {{#let (unique-id) as |describedbyId|}}
-          <li class="doc-page-home__card">
-            <p class="doc-page-home__card-title">{{capitalize card.title}}</p>
-            <p class="doc-page-home__card-description" id={{describedbyId}}>{{capitalize card.description}}</p>
-            <Doc::LinkWithIcon
-              class="doc-page-home__card-link"
-              @route={{card.route}}
-              @label="Explore"
-              @icon="arrow-right"
-              @fillParent={{true}}
-              @isAnimated={{true}}
-              aria-describedby={{describedbyId}}
-            />
-          </li>
-        {{/let}}
+        <li class="doc-page-home__card">
+          <p class="doc-page-home__card-title">{{capitalize card.title}}</p>
+          <p class="doc-page-home__card-description">{{capitalize card.description}}</p>
+          <Doc::LinkWithIcon
+            class="doc-page-home__card-link"
+            @route={{card.route}}
+            @label="Explore"
+            @icon="arrow-right"
+            @fillParent={{true}}
+            @isAnimated={{true}}
+            aria-label={{concat "Explore " card.title ": " card.description}}
+          />
+        </li>
       {{/each}}
     </ul>
   </div>
