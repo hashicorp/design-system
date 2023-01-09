@@ -2,9 +2,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 
-export const DEFAULT_TYPE = 'compact';
-export const TYPES = ['compact', 'numbered'];
-
 export default class HdsPaginationNavIndexComponent extends Component {
   /**
    * Gets the type of pagination
@@ -14,16 +11,7 @@ export default class HdsPaginationNavIndexComponent extends Component {
    * @default 'compact'
    */
   get type() {
-    let { type = DEFAULT_TYPE } = this.args;
-
-    assert(
-      `@type for "Hds::Pagination::Nav" must be one of the following: ${TYPES.join(
-        ', '
-      )}; received: ${type}`,
-      TYPES.includes(type)
-    );
-
-    return type;
+    return this.totalPages !== undefined ? 'numbered' : 'compact';
   }
 
   /**
@@ -34,13 +22,6 @@ export default class HdsPaginationNavIndexComponent extends Component {
    */
   get currentPage() {
     let { currentPage = 1 } = this.args;
-
-    if (this.type === 'numbered') {
-      assert(
-        `@currentPage must be defined for "Hds::Pagination::Nav"`,
-        currentPage !== undefined
-      );
-    }
 
     return currentPage;
   }
