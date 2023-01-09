@@ -1,7 +1,7 @@
 design-system-components
 ==============================================================================
 
-A package containing the components for the HashiCorp Design System.
+A package containing the components for the Helios Design System.
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
 

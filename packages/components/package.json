@@ -1,9 +1,10 @@
 {
   "name": "@hashicorp/design-system-components",
   "version": "1.5.1",
-  "description": "HashiCorp Design System Components",
+  "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
+    "helios",
     "design system",
     "components",
     "ember-addon"
