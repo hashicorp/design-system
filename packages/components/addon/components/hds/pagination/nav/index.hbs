@@ -16,7 +16,7 @@
     <ul class="hds-pagination-nav__page-list">
       {{#each this.pages as |page|}}
         {{#if (eq page "…")}}
-          <Hds::Pagination::Nav::Ellipsis />
+          <Hds::Pagination::Control::Ellipsis />
         {{else}}
           <Hds::Pagination::Nav::ButtonNumber
             @page={{page}}
