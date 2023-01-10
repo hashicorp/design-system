@@ -61,6 +61,25 @@
   @onPageChange={{this.handleOnPageChange}}
 />
 
+<h4 class="dummy-h4">Possible variants</h4>
+<p class="dummy-paragraph">Without "info" and "size-selector":</p>
+<Hds::Pagination::Numbered
+  @totalItems={{100}}
+  @itemsPerPage={{10}}
+  @showInfo={{false}}
+  @showSizeSelector={{false}}
+  @onPageChange={{this.handleOnPageChange}}
+/>
+<p class="dummy-paragraph">Without "page numbers":</p>
+<Hds::Pagination::Numbered
+  @totalItems={{30}}
+  @itemsPerPage={{10}}
+  @showLabels={{true}}
+  @showPageNumbers={{false}}
+  @sizes={{array 10 30 50}}
+  @onPageChange={{this.handleOnPageChange}}
+/>
+
 <h3 class="dummy-h3">Compact</h3>
 <h4 class="dummy-h4">Previous implementation</h4>
 {{! prettier-ignore-start }}

@@ -7,13 +7,37 @@
       @showTotalItems={{@showTotalItems}}
     />
   {{/if}}
-  <Hds::Pagination::Nav
-    @totalPages={{this.totalPages}}
-    @currentPage={{this.currentPage}}
-    @onPageChange={{this.onPageChange}}
-    @hideLabels={{(not this.showLabels)}}
-    @isTruncated={{@isTruncated}}
-  />
+
+  <nav class="hds-pagination-nav" aria-label="Pagination navigation">
+    <Hds::Pagination::Nav::ButtonArrow
+      @direction="prev"
+      @hideLabel={{(not this.showLabels)}}
+      @onClick={{this.onPageChange}}
+      @disabled={{this.isDisabledPrev}}
+    />
+    {{#if this.showPageNumbers}}
+      <ul class="hds-pagination-nav__page-list">
+        {{#each this.pages as |page|}}
+          {{#if (eq page "…")}}
+            <Hds::Pagination::Nav::Ellipsis />
+          {{else}}
+            <Hds::Pagination::Nav::ButtonNumber
+              @page={{page}}
+              @onClick={{this.onPageChange}}
+              @isSelected={{if (eq page this.currentPage) true false}}
+            />
+          {{/if}}
+        {{/each}}
+      </ul>
+    {{/if}}
+    <Hds::Pagination::Nav::ButtonArrow
+      @direction="next"
+      @hideLabel={{(not this.showLabels)}}
+      @onClick={{this.onPageChange}}
+      @disabled={{this.isDisabledNext}}
+    />
+  </nav>
+
   {{#if this.showSizeSelector}}
     <Hds::Pagination::SizeSelector
       @sizes={{@sizes}}
