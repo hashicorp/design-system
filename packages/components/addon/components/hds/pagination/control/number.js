@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class HdsPaginationNavIndexComponent extends Component {
+export default class HdsPaginationControlNumberComponent extends Component {
   /**
    * Get the class names to apply to the component.
    * @method classNames

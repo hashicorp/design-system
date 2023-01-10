@@ -18,7 +18,7 @@
         {{#if (eq page "…")}}
           <Hds::Pagination::Control::Ellipsis />
         {{else}}
-          <Hds::Pagination::Nav::ButtonNumber
+          <Hds::Pagination::Control::Number
             @page={{page}}
             @onClick={{this.onPageChange}}
             @isSelected={{if (eq page this.currentPage) true false}}
