@@ -14,4 +14,9 @@ export default class PaginationController extends Controller {
   logClickedControl(control) {
     console.log(`Control "${control}" clicked!`);
   }
+
+  @action
+  handlePageChange(page) {
+    console.log(`Page changed to "${page}"!`);
+  }
 }

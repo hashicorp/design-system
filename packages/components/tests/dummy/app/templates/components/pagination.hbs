@@ -93,6 +93,20 @@
       <p>Controls the visibility of the total items in the informational text.</p>
       <p>Default: <span class="default">true</span></p>
     </dd>
+    <dt>onPageChange <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when one of the navigation controls is clicked (a "page" change is
+        triggered).</p>
+      <p>If the pagination is "compact" one of the two values is returned:</p>
+      <ol>
+        <li>prev</li>
+        <li>next</li>
+      </ol>
+      <p>If the pagination is "numbered" the actual "go to" page number is returned:</p>
+      <ol>
+        <li>integer</li>
+      </ol>
+    </dd>
   </dl>
 
   <h4 class="dummy-h4">Pagination::Nav</h4>
@@ -129,6 +143,20 @@
     <dd>
       <p>Used to control the visibility of the "prev/next" text labels.</p>
       <p>Default: <span class="default">true</span> if "numbered" - <span class="default">false</span> if "compact"</p>
+    </dd>
+    <dt>onPageChange <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when one of the navigation controls is clicked (a "page" change is
+        triggered).</p>
+      <p>If the pagination is "compact" one of the two values is returned:</p>
+      <ol>
+        <li>prev</li>
+        <li>next</li>
+      </ol>
+      <p>If the pagination is "numbered" the actual "go to" page number is returned:</p>
+      <ol>
+        <li>integer</li>
+      </ol>
     </dd>
   </dl>
   <h5 class="dummy-h5">Contextual components</h5>
@@ -191,7 +219,7 @@
     </dd>
     <dt>onClick <code>function</code></dt>
     <dd>
-      <p>Callback function invoked when the control is clicked (if provided).</p>
+      <p>Callback function invoked (if provided) when the control is clicked.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -217,7 +245,7 @@
     </dd>
     <dt>onClick <code>function</code></dt>
     <dd>
-      <p>Callback function invoked when the control is clicked (if provided).</p>
+      <p>Callback function invoked (if provided) when the control is clicked.</p>
     </dd>
     <dt>...attributes</dt>
     <dd>
@@ -379,7 +407,7 @@
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::Pagination as |P|>
+      <Hds::Pagination @onPageChange=\{{this.handlePageChange}} as |P|>
         <P.Nav />
       </Hds::Pagination>
     "
@@ -387,7 +415,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination as |P|>
+  <Hds::Pagination @onPageChange={{this.handlePageChange}} as |P|>
     <P.Nav />
   </Hds::Pagination>
   <p class="dummy-paragraph">This is considered the <strong>“compact”</strong> version of the pagination.</p>
