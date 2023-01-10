@@ -1,0 +1,9 @@
+{{#if @path}}
+  {{! TODO discuss with Melanie how can we solve this }}
+  {{! template-lint-disable require-iframe-title }}
+  <iframe
+    id="doc-embed-showcase-{{dasherize @path}}"
+    src="https://design-system-components-hashicorp.vercel.app/{{@path}}"
+    {{iframe-resizer log=true checkOrigin=false}}
+  ></iframe>
+{{/if}}
