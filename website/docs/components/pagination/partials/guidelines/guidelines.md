@@ -11,9 +11,11 @@
 
 ### Numbered vs Compact
 
-In most cases, the numbered pagination provides a better user experience. It allows users to jump between pages and always return to the first page or go to the last page without navigating through the pages manually.
+Cursor and offset are the most common types of pagination. Currently, most HashiCorp products use cursor-based navigation.
 
-If your product only has cursor pagination, it won't be able to support the numbered variant. Only applications with offset pagination can implement the numbered pagination variant.
+Cursor navigation allows users to navigate to the next or previous set of records no matter where the user is located within the dataset (record 1 or 300). With this type of pagination, the system doesn’t know which page the current page is and can’t show page numbers (1, 2, 3, etc…). If your product supports it, you should use compact pagination.
+
+Offset or page-based pagination allows you to divide datasets into pages, letting users navigate to any particular page. If your product supports it, you can use either numbered or compact pagination. In most cases, the numbered pagination provides a better user experience. It allows users to jump between pages and always return to the first page or go to the last page without navigating through the pages manually.
 
 ![Numbered pagination example](/assets/components/pagination/pagination-offset-example.png =50%x50%)
 - Supported by offset (page-based) pagination.
@@ -23,7 +25,7 @@ If your product only has cursor pagination, it won't be able to support the numb
 
 !!! Warning 
 
-We strongly suggest that you talk to your engineering team to see if offset or cursor pagination are right for your project. Learn more about [offset and cursor pagination] (https://ignaciochiazzo.medium.com/paginating-requests-in-apis-d4883d4c1c4c).
+We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
 
 !!!
 
