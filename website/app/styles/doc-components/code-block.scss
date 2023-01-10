@@ -3,9 +3,10 @@
 @use "../breakpoints" as breakpoint;
 @use "../typography/mixins";
 
+// Notice: vertical spacing is declared in `/styles/spacing`
+
 .doc-code-block {
   position: relative;
-  margin: 24px 0;
   border-radius: 3px;
 
   .doc-copy-button {
@@ -40,8 +41,8 @@
   border: none;
   border-radius: 3px;
 
-  .doc-code-block & {
-    margin: 0;
+  .doc-code-block & { // this is the "CodeBlock" component
+    margin: 0 !important;
     border: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;

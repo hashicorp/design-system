@@ -3,13 +3,16 @@
 {{page-title "Helios Design System"}}
 
 <div class="doc-page-wrapper">
-  <Doc::Page::Header @onToggleBurgerMenu={{this.onToggleBurgerMenu}} />
+  <Doc::Page::Header
+    @currentTopRoute={{this.currentTopRoute}}
+    @isSidebarVisibleOnSmallViewport={{this.isSidebarVisibleOnSmallViewport}}
+    @onToggleBurgerMenu={{this.onToggleBurgerMenu}}
+  />
   <Doc::Page::Sidebar
     {{! `this.model.toc` comes from `routes/application.js` }}
     @toc={{this.model.toc}}
     @currentPath={{this.target.currentPath}}
     @currentRoute={{this.target.currentRoute}}
-    @showSidebarOnSmallViewport={{this.showSidebarOnSmallViewport}}
   />
   {{outlet}}
   <Doc::Page::Footer />

@@ -13,6 +13,10 @@
   grid-template-columns: 1fr;
   width: 100%; // needed (otherwise it collapses, because is in a grid)
 
+  @include breakpoint.with-fixed-sidebar() {
+    padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
+  }
+
   @include breakpoint.large () {
     --max-content-width: calc(var(--doc-page-content-max-width) + 2 * var(--doc-page-stage-gutter-large));
     grid-template-areas:

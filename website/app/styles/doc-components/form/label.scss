@@ -4,6 +4,7 @@
 
 
 .doc-form-label {
+  @include doc-font-style-label();
   display: block;
   width: min-content;
   margin-bottom: 8px;
