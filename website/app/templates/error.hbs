@@ -13,17 +13,22 @@
         <LinkTo class="doc-link-generic" @route="index">homepage</LinkTo>.
       </p>
       <h2 class="doc-text-h4">Other helpful resources</h2>
-      <ul class="doc-list-generic doc-text-body">
+      <ul class="doc-list-generic">
         <li>
-          <LinkTo class="doc-link-generic" @route="about">About</LinkTo>
+          <p class="doc-text-body"><LinkTo class="doc-link-generic" @route="about">About</LinkTo></p>
         </li>
         <li>
-          <LinkTo class="doc-link-generic" @route="show" @model="about/support">Support</LinkTo>
+          <p class="doc-text-body"><LinkTo
+              class="doc-link-generic"
+              @route="show"
+              @model="about/support"
+            >Support</LinkTo></p>
         </li>
-        <li><a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform"
-            class="doc-link-generic"
-          >Share feedback</a></li>
+        <li>
+          <p class="doc-text-body"><a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform"
+              class="doc-link-generic"
+            >Share feedback</a></p></li>
       </ul>
     </div>
   </div>

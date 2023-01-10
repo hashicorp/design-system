@@ -3,30 +3,26 @@
     <nav class="doc-page-sidebar__top-routes" aria-label="primary page navigation">
       <ul class="doc-table-of-contents">
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
-          <div class="doc-table-of-contents__heading doc-text-label">Main categories</div>
+          <div class="doc-table-of-contents__heading">Main categories</div>
         </li>
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
-          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="about">About</LinkTo>
+          <LinkTo class="doc-table-of-contents__link" @route="about">About</LinkTo>
         </li>
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
-          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="foundations">Foundations</LinkTo>
+          <LinkTo class="doc-table-of-contents__link" @route="foundations">Foundations</LinkTo>
         </li>
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
-          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="components">Components</LinkTo>
+          <LinkTo class="doc-table-of-contents__link" @route="components">Components</LinkTo>
         </li>
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
-          <LinkTo class="doc-table-of-contents__link doc-text-navigation" @route="patterns">Patterns</LinkTo>
+          <LinkTo class="doc-table-of-contents__link" @route="patterns">Patterns</LinkTo>
         </li>
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
-          <LinkTo
-            class="doc-table-of-contents__link doc-text-navigation"
-            @route="show"
-            @model="about/support"
-          >Support</LinkTo>
+          <LinkTo class="doc-table-of-contents__link" @route="show" @model="about/support">Support</LinkTo>
         </li>
         <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-2">
           <a
-            class="doc-table-of-contents__link doc-text-navigation"
+            class="doc-table-of-contents__link"
             href="https://github.com/hashicorp/design-system"
             target="_blank"
             rel="noopener noreferrer"

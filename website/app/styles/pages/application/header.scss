@@ -83,6 +83,7 @@
   align-self: stretch;
 
   a {
+    @include doc-font-style-navigation();
     display: flex;
     align-items: center;
     height: 100%;
@@ -130,6 +131,7 @@
 // BURGER MENU
 
 .doc-page-header__burger-menu {
+  @include doc-font-style-navigation();
   display: flex;
   gap: 8px;
   align-items: center;
