@@ -9,7 +9,7 @@
   {{/if}}
 
   <nav class="hds-pagination-nav" aria-label="Pagination navigation">
-    <Hds::Pagination::Nav::ButtonArrow
+    <Hds::Pagination::Control::Arrow
       @direction="prev"
       @hideLabel={{(not this.showLabels)}}
       @onClick={{this.onPageChange}}
@@ -30,7 +30,7 @@
         {{/each}}
       </ul>
     {{/if}}
-    <Hds::Pagination::Nav::ButtonArrow
+    <Hds::Pagination::Control::Arrow
       @direction="next"
       @hideLabel={{(not this.showLabels)}}
       @onClick={{this.onPageChange}}

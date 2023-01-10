@@ -3,13 +3,13 @@
   <nav class="hds-pagination-nav" aria-label="Pagination navigation">
     {{! TODO use `has-block-params`? https://api.emberjs.com/ember/4.4/classes/Ember.Templates.helpers/methods/action?anchor=has-block-params }}
     {{#unless (has-block)}}
-      <Hds::Pagination::Nav::ButtonArrow
+      <Hds::Pagination::Control::Arrow
         @direction="prev"
         @hideLabel={{(not this.showLabels)}}
         @onClick={{this.onPageChange}}
         @disabled={{@isDisabledPrev}}
       />
-      <Hds::Pagination::Nav::ButtonArrow
+      <Hds::Pagination::Control::Arrow
         @direction="next"
         @hideLabel={{(not this.showLabels)}}
         @onClick={{this.onPageChange}}
@@ -18,8 +18,8 @@
     {{else}}
       {{yield
         (hash
-          ButtonPrev=(component "hds/pagination/nav/button-arrow" direction="prev" onClick=this.onPageChange)
-          ButtonNext=(component "hds/pagination/nav/button-arrow" direction="next" onClick=this.onPageChange)
+          ButtonPrev=(component "hds/pagination/control/arrow" direction="prev" onClick=this.onPageChange)
+          ButtonNext=(component "hds/pagination/control/arrow" direction="next" onClick=this.onPageChange)
         )
       }}
     {{/unless}}

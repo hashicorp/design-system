@@ -4,12 +4,12 @@ import { assert } from '@ember/debug';
 
 export const DIRECTIONS = ['prev', 'next'];
 
-export default class HdsPaginationNavIndexComponent extends Component {
+export default class HdsPaginationControlArrowComponent extends Component {
   get content() {
     let { direction } = this.args;
 
     assert(
-      `@direction for "PaginationBar::Pagination::NavButton" must be one of the following: ${DIRECTIONS.join(
+      `@direction for "Pagination::Control::Arrow" must be one of the following: ${DIRECTIONS.join(
         ', '
       )}; received: ${direction}`,
       DIRECTIONS.includes(direction)
