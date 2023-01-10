@@ -112,6 +112,11 @@ export default class ShowRoute extends Route {
   }
 
   @action
+  didTransition() {
+    window.scrollTo(0, 0);
+  }
+
+  @action
   error() {
     this.router.replaceWith('error');
   }
