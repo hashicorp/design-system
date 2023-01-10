@@ -1,0 +1,24 @@
+<div class="hds-pagination" ...attributes>
+  {{#if this.showInfo}}
+    <Hds::Pagination::Info
+      @itemsRangeStart={{this.itemsRangeStart}}
+      @itemsRangeEnd={{this.itemsRangeEnd}}
+      @totalItems={{this.totalItems}}
+      @showTotalItems={{@showTotalItems}}
+    />
+  {{/if}}
+  <Hds::Pagination::Nav
+    @totalPages={{this.totalPages}}
+    @currentPage={{this.currentPage}}
+    @onPageChange={{this.onPageChange}}
+    @hideLabels={{(not this.showLabels)}}
+    @isTruncated={{@isTruncated}}
+  />
+  {{#if this.showSizeSelector}}
+    <Hds::Pagination::SizeSelector
+      @sizes={{@sizes}}
+      @selectedSize={{this.itemsPerPage}}
+      @onChange={{this.onPageSizeChange}}
+    />
+  {{/if}}
+</div>

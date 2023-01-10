@@ -1,6 +1,69 @@
 {{page-title "Pagination Component"}}
 
-<h2 class="dummy-h2">Pagination</h2>
+<h2 class="dummy-h2">Pagination (SPLIT IN TWO)</h2>
+
+<h3 class="dummy-h3">Numbered</h3>
+<h4 class="dummy-h4">Previous implementation</h4>
+{{! prettier-ignore-start }}
+{{! template-lint-disable no-unbalanced-curlies }}
+<CodeBlock
+  @language="markup"
+  @code="
+    <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{30}} @currentPage=\{{3}} as |P|>
+      <P.Info @showTotalItems=\{{false}} />
+      <P.Nav @hideLabels=\{{false}} @isTruncated=\{{true}} />
+      <P.SizeSelector @sizes=\{{array 10 30 50}} />
+    </Hds::Pagination>
+  "
+/>
+{{! template-lint-enable no-unbalanced-curlies }}
+{{! prettier-ignore-end }}
+<p class="dummy-paragraph">Renders to:</p>
+<Hds::Pagination @totalItems={{100}} @itemsPerPage={{30}} @currentPage={{3}} as |P|>
+  <P.Info @showTotalItems={{false}} />
+  <P.Nav @hideLabels={{false}} @isTruncated={{true}} />
+  <P.SizeSelector @sizes={{array 10 30 50}} />
+</Hds::Pagination>
+
+<h4 class="dummy-h4">Proposed implementation</h4>
+{{! prettier-ignore-start }}
+{{! template-lint-disable no-unbalanced-curlies }}
+<CodeBlock
+  @language="markup"
+  @code="
+    <Hds::Pagination::Numbered
+      @totalItems=\{{100}}
+      @itemsPerPage=\{{30}}
+      @currentPage=\{{3}}
+      @showInfo=\{{true}}
+      @showTotalItems=\{{false}}
+      @showLabels=\{{true}}
+      @isTruncated=\{{true}}
+      @showSizeSelector=\{{true}}
+      @sizes=\{{array 10 30 50}}
+      @onPageChange=\{{this.handleOnPageChange}}
+    />
+  "
+/>
+{{! template-lint-enable no-unbalanced-curlies }}
+{{! prettier-ignore-end }}
+<p class="dummy-paragraph">Renders to:</p>
+<Hds::Pagination::Numbered
+  @totalItems={{100}}
+  @itemsPerPage={{30}}
+  @currentPage={{3}}
+  @showInfo={{true}}
+  @showTotalItems={{false}}
+  @showLabels={{true}}
+  @isTruncated={{true}}
+  @showSizeSelector={{true}}
+  @sizes={{array 10 30 50}}
+  @onPageChange={{this.handleOnPageChange}}
+/>
+
+<hr class="dummy-divider" />
+
+<h2 class="dummy-h2">Pagination (PREVIOUS IMPLEMENTATION)</h2>
 
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
