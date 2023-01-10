@@ -51,6 +51,12 @@ export default class HdsPaginationIndexComponent extends Component {
   @action
   onPageChange(newPage) {
     this.currentPage = newPage;
+
+    let { onPageChange } = this.args;
+
+    if (typeof onPageChange === 'function') {
+      onPageChange(newPage);
+    }
   }
 
   @action
