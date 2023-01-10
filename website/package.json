@@ -62,6 +62,7 @@
     "ember-cli-terser": "^4.0.2",
     "ember-concurrency": "^2.3.7",
     "ember-fetch": "^8.1.2",
+    "ember-iframe-resizer-modifier": "^1.0.2",
     "ember-load-initializers": "^2.1.2",
     "ember-math-helpers": "^2.18.2",
     "ember-meta": "^2.0.0",
