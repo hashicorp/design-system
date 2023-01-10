@@ -20,6 +20,10 @@ previewImage: assets/illustrations/components/alert.jpg
   @include "partials/code/showcase.md"
 </section>
 
+<section data-tab="Showcase">
+  @include "partials/code/showcase-embedded.md"
+</section>
+
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
 </section>
