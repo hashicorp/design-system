@@ -56,6 +56,18 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   /**
+   * @param isTruncated
+   * @type {boolean}
+   * @default true
+   * @description Limit the visible "page numbers" (elliptize them)
+   */
+  get isTruncated() {
+    let { isTruncated = true } = this.args;
+
+    return isTruncated;
+  }
+
+  /**
    * Gets the current page
    *
    * @param currentPage
