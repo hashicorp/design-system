@@ -9,13 +9,13 @@ The Design Systems Team maintains design tokens, icons, and components in a [mon
 
 We provide components as an [Ember](https://emberjs.com/) addon with associated styles written in [Sass](https://sass-lang.com/). By installing the components, you also have access to the design tokens and CSS helper classes.
 
-### Install package
+### Install components package
 
 ```bash
 yarn add @hashicorp/design-system-components
 ```
 
-### Import styles
+### Import component styles
 
 1. Install and configure Sass to preprocess styles, handle source maps, and include paths in your application.
 
@@ -57,7 +57,7 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 There are multiple ways to use icons in your codebase. We provide icons as an Ember addon and as a generic package that can also be consumed in React applications.
 
-### Install package
+### Install icons package
 
 #### Ember application
 
@@ -80,7 +80,7 @@ For more details, examples, and guidelines read [the complete icons documentatio
 
 If the Ember components are not an option for your project, you can still use the design tokens to keep in sync with the styles we provide.
 
-### Install package
+### Install tokens package
 
 ```bash
 yarn add @hashicorp/design-system-tokens
