@@ -42,7 +42,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @include breakpoint.x-large {
+  @include breakpoint.x-large () {
     grid-template-columns: repeat(4, 1fr);
   }
 }
