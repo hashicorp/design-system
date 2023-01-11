@@ -89,7 +89,7 @@
   flex-direction: row;
   justify-content: flex-start;
 
-  .hds-pagination-nav__page-label {
+  .hds-pagination-nav__arrow-label {
     margin-left: var(--token-pagination-nav-control-icon-spacing);
   }
 }
@@ -98,7 +98,7 @@
   flex-direction: row-reverse;
   justify-content: flex-end;
 
-  .hds-pagination-nav__page-label {
+  .hds-pagination-nav__arrow-label {
     margin-right: 6px;
   }
 }
