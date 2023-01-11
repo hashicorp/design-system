@@ -35,6 +35,18 @@ export default class HdsPaginationControlArrowComponent extends Component {
   }
 
   /**
+   * @param showLabel
+   * @type {boolean}
+   * @default true
+   * @description Show the labels for the control
+   */
+  get showLabel() {
+    let { showLabel = true } = this.args;
+
+    return showLabel;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -48,7 +60,7 @@ export default class HdsPaginationControlArrowComponent extends Component {
       'hds-font-weight-medium',
     ];
 
-    if (!this.args.hideLabel) {
+    if (this.showLabel) {
       classes.push(`hds-pagination-nav__button-arrow--labeled`);
     }
 

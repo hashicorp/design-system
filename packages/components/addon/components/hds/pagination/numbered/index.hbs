@@ -11,7 +11,7 @@
   <nav class="hds-pagination-nav" aria-label="Pagination navigation">
     <Hds::Pagination::Control::Arrow
       @direction="prev"
-      @hideLabel={{(not this.showLabels)}}
+      @showLabel={{this.showLabels}}
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledPrev}}
     />
@@ -32,7 +32,7 @@
     {{/if}}
     <Hds::Pagination::Control::Arrow
       @direction="next"
-      @hideLabel={{(not this.showLabels)}}
+      @showLabel={{this.showLabels}}
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledNext}}
     />
