@@ -23,4 +23,9 @@ export default class PaginationController extends Controller {
         : `Page changed to "${page}"!`
     );
   }
+
+  @action
+  handlePageSizeChange(size) {
+    console.log(`Page size changed to "${size}"!`);
+  }
 }
