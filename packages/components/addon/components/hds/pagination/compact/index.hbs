@@ -5,13 +5,13 @@
     {{#unless (has-block)}}
       <Hds::Pagination::Control::Arrow
         @direction="prev"
-        @hideLabel={{(not this.showLabels)}}
+        @showLabel={{this.showLabels}}
         @onClick={{this.onPageChange}}
         @disabled={{@isDisabledPrev}}
       />
       <Hds::Pagination::Control::Arrow
         @direction="next"
-        @hideLabel={{(not this.showLabels)}}
+        @showLabel={{this.showLabels}}
         @onClick={{this.onPageChange}}
         @disabled={{@isDisabledNext}}
       />
