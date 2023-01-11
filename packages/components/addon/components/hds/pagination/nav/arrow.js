@@ -9,7 +9,7 @@ export default class HdsPaginationControlArrowComponent extends Component {
     let { direction } = this.args;
 
     assert(
-      `@direction for "Pagination::Control::Arrow" must be one of the following: ${DIRECTIONS.join(
+      `@direction for "Pagination::Nav::Arrow" must be one of the following: ${DIRECTIONS.join(
         ', '
       )}; received: ${direction}`,
       DIRECTIONS.includes(direction)
