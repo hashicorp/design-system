@@ -204,14 +204,14 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
       gotoPageNumber = page;
     }
 
-    this.currentPage = gotoPageNumber;
-
     // we want to invoke the `onPageChange` callback only on actual page change
     if (gotoPageNumber !== this.currentPage) {
+      this.currentPage = gotoPageNumber;
+
       let { onPageChange } = this.args;
 
       if (typeof onPageChange === 'function') {
-        onPageChange(gotoPageNumber);
+        onPageChange(this.currentPage, this.currentItemsPerPage);
       }
     }
   }
@@ -219,7 +219,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @action
   onPageSizeChange(newPageSize) {
     this.currentItemsPerPage = newPageSize;
-    this.currentPage = 1;
+    this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     this.totalPages = this.calculateTotalPages();
 
     let { onPageSizeChange } = this.args;
