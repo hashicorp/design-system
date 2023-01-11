@@ -9,7 +9,7 @@
   {{/if}}
 
   <nav class="hds-pagination-nav" aria-label="Pagination navigation">
-    <Hds::Pagination::Control::Arrow
+    <Hds::Pagination::Nav::Arrow
       @direction="prev"
       @showLabel={{this.showLabels}}
       @onClick={{this.onPageChange}}
@@ -19,9 +19,9 @@
       <ul class="hds-pagination-nav__page-list">
         {{#each this.pages as |page|}}
           {{#if (eq page "…")}}
-            <Hds::Pagination::Control::Ellipsis />
+            <Hds::Pagination::Nav::Ellipsis />
           {{else}}
-            <Hds::Pagination::Control::Number
+            <Hds::Pagination::Nav::Number
               @page={{page}}
               @onClick={{this.onPageChange}}
               @isSelected={{if (eq page this.currentPage) true false}}
@@ -30,7 +30,7 @@
         {{/each}}
       </ul>
     {{/if}}
-    <Hds::Pagination::Control::Arrow
+    <Hds::Pagination::Nav::Arrow
       @direction="next"
       @showLabel={{this.showLabels}}
       @onClick={{this.onPageChange}}
