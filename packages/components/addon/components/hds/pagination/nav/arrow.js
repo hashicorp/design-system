@@ -53,9 +53,9 @@ export default class HdsPaginationControlArrowComponent extends Component {
    */
   get classNames() {
     let classes = [
-      'hds-pagination-nav__button-arrow',
-      `hds-pagination-nav__button-arrow--direction-${this.args.direction}`,
       'hds-pagination-nav__control',
+      'hds-pagination-nav__arrow',
+      `hds-pagination-nav__arrow--direction-${this.args.direction}`,
       'hds-typography-body-100',
       'hds-font-weight-medium',
     ];

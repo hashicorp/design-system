@@ -38,15 +38,11 @@
 
 .hds-pagination-nav__page-item { list-style-type: none; }
 
-// nav controls: button-arrow, button-number, ellipsis:
-.hds-pagination-nav__control,
-.hds-pagination-nav__ellipsis {
+// "controls" are "prev/next" (`arrow`) and "page" numbers (`number`)
+.hds-pagination-nav__control {
   display: flex;
   align-items: center;
   height: var(--token-pagination-nav-control-height);
-}
-
-.hds-pagination-nav__control {
   // border width is subtracted from padding:
   padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
   color: var(--token-color-foreground-primary);
@@ -72,9 +68,10 @@
   }
 }
 
-// only the "Previous" & "Next" (`ButtonArrow`) controls can be disabled
-.hds-pagination-nav__button-arrow {
+// only the "Previous" & "Next" (`Arrow`) controls can be disabled
+.hds-pagination-nav__arrow {
   // notice: when `@disabled={{true}}` is applied, the code always renders a `<button>` element
+  // so no need to add the [disabled] selector here (elsewhere it's done to cover the `a[disabled]` case)
   &:disabled,
   &.mock-disabled {
     color: var(--token-color-foreground-disabled);
@@ -82,7 +79,7 @@
   }
 }
 
-.hds-pagination-nav__button-arrow--direction-prev {
+.hds-pagination-nav__arrow--direction-prev {
   flex-direction: row;
   justify-content: flex-start;
 
@@ -91,7 +88,7 @@
   }
 }
 
-.hds-pagination-nav__button-arrow--direction-next {
+.hds-pagination-nav__arrow--direction-next {
   flex-direction: row-reverse;
   justify-content: flex-end;
 
@@ -101,11 +98,14 @@
 }
 
 .hds-pagination-nav__ellipsis {
+  display: flex;
+  align-items: center;
+  height: var(--token-pagination-nav-control-height);
   padding: 0 var(--token-pagination-nav-control-padding-horizontal);
   color: var(--token-color-foreground-faint);
 }
 
-.hds-pagination-nav__button-number--is-selected {
+.hds-pagination-nav__number--is-selected {
   position: relative;
   color: var(--token-color-foreground-action);
 
