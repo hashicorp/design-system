@@ -16,7 +16,11 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  handlePageChange(page) {
-    console.log(`Page changed to "${page}"!`);
+  handlePageChange(page, pageSize) {
+    console.log(
+      pageSize !== undefined
+        ? `Page changed to "${page}" with page size equal to "${pageSize}"!`
+        : `Page changed to "${page}"!`
+    );
   }
 }
