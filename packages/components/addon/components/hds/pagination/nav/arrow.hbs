@@ -1,8 +1,8 @@
 {{#if @disabled}}
   <Hds::Interactive class={{this.classNames}} aria-label={{this.content.ariaLabel}} disabled={{true}} ...attributes>
-    <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
+    <FlightIcon @name={{this.content.icon}} />
     {{#if this.showLabel}}
-      <span class="hds-pagination-nav__page-label" aria-hidden="true">
+      <span class="hds-pagination-nav__arrow-label" aria-hidden="true">
         {{this.content.label}}
       </span>
     {{/if}}
@@ -22,9 +22,9 @@
     aria-label={{this.content.ariaLabel}}
     ...attributes
   >
-    <FlightIcon class="hds-pagination-nav__page-icon" @name={{this.content.icon}} />
+    <FlightIcon @name={{this.content.icon}} />
     {{#if this.showLabel}}
-      <span class="hds-pagination-nav__page-label" aria-hidden="true">
+      <span class="hds-pagination-nav__arrow-label" aria-hidden="true">
         {{this.content.label}}
       </span>
     {{/if}}
