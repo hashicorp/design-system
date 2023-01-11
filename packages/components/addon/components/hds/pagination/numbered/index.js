@@ -221,6 +221,12 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     this.currentItemsPerPage = newPageSize;
     this.currentPage = 1;
     this.totalPages = this.calculateTotalPages();
+
+    let { onPageSizeChange } = this.args;
+
+    if (typeof onPageSizeChange === 'function') {
+      onPageSizeChange(newPageSize);
+    }
   }
 
   calculateTotalPages() {
