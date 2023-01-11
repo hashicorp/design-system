@@ -5,6 +5,10 @@ description: Color and contrast are used to convey information, highlight conten
 previewImage: assets/illustrations/foundations/colors.jpg
 ---
 
+<section data-tab="Guidelines">
+  @include "partials/guidelines/overview.md"
+</section>
+
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
 </section>
