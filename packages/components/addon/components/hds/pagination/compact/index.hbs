@@ -1,28 +1,16 @@
-{{! template-lint-disable simple-unless }}
 <div class="hds-pagination" ...attributes>
   <nav class="hds-pagination-nav" aria-label="Pagination navigation">
-    {{! TODO use `has-block-params`? https://api.emberjs.com/ember/4.4/classes/Ember.Templates.helpers/methods/action?anchor=has-block-params }}
-    {{#unless (has-block)}}
-      <Hds::Pagination::Control::Arrow
-        @direction="prev"
-        @showLabel={{this.showLabels}}
-        @onClick={{this.onPageChange}}
-        @disabled={{@isDisabledPrev}}
-      />
-      <Hds::Pagination::Control::Arrow
-        @direction="next"
-        @showLabel={{this.showLabels}}
-        @onClick={{this.onPageChange}}
-        @disabled={{@isDisabledNext}}
-      />
-    {{else}}
-      {{yield
-        (hash
-          ButtonPrev=(component "hds/pagination/control/arrow" direction="prev" onClick=this.onPageChange)
-          ButtonNext=(component "hds/pagination/control/arrow" direction="next" onClick=this.onPageChange)
-        )
-      }}
-    {{/unless}}
+    <Hds::Pagination::Control::Arrow
+      @direction="prev"
+      @showLabel={{this.showLabels}}
+      @onClick={{this.onPageChange}}
+      @disabled={{@isDisabledPrev}}
+    />
+    <Hds::Pagination::Control::Arrow
+      @direction="next"
+      @showLabel={{this.showLabels}}
+      @onClick={{this.onPageChange}}
+      @disabled={{@isDisabledNext}}
+    />
   </nav>
 </div>
-{{! template-lint-enable simple-unless }}
