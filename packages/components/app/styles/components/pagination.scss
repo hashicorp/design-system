@@ -4,8 +4,10 @@
 
 @use "../mixins/focus-ring" as *;
 
+
 // * Pagination Parent (wrapper) component
-// ----------------------------------------
+// -------------------------------------------------------------------
+
 .hds-pagination {
   display: grid;
   grid-template-areas: "left center right";
@@ -15,16 +17,20 @@
   margin: 0 auto;
 }
 
+
 // * Sub-component: Info
 // ---------------------------------------
+
 .hds-pagination-info {
   grid-area: left;
   justify-self: flex-start;
   white-space: nowrap;
 }
 
-// * Sub-component: Nav
-// ----------------------------------------
+
+// * Sub-components: Arrow/Number/Ellipsis (aka "navigation controls")
+// -------------------------------------------------------------------
+
 .hds-pagination-nav {
   display: flex;
   grid-area: center;
@@ -97,14 +103,6 @@
   }
 }
 
-.hds-pagination-nav__ellipsis {
-  display: flex;
-  align-items: center;
-  height: var(--token-pagination-nav-control-height);
-  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
-  color: var(--token-color-foreground-faint);
-}
-
 .hds-pagination-nav__number--is-selected {
   position: relative;
   color: var(--token-color-foreground-action);
@@ -117,20 +115,13 @@
     color: var(--token-color-foreground-action-active);
   }
 
-  .hds-pagination-nav__control {
-    &,
-    &:hover,
-    &:active {
-      color: inherit;
-    }
-  }
-
   // indicator underline
-  &::before {
+  // notice: in all these calculations we have to take in account that there's a 1px transparent border
+  &::after { // notice: we use the `::before` for the focus
     position: absolute;
-    right: var(--token-pagination-nav-indicator-spacing);
-    bottom: 0;
-    left: var(--token-pagination-nav-indicator-spacing);
+    right: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
+    bottom: -1px;
+    left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;
     background-color: currentColor;
@@ -139,8 +130,18 @@
   }
 }
 
+.hds-pagination-nav__ellipsis {
+  display: flex;
+  align-items: center;
+  height: var(--token-pagination-nav-control-height);
+  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
+  color: var(--token-color-foreground-faint);
+}
+
+
 // * Sub-component: SizeSelector
-// ----------------------------------------
+// -------------------------------------------------------------------
+
 .hds-pagination-size-selector {
   display: flex;
   grid-area: right;
