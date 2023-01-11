@@ -1,6 +1,6 @@
-<li class={{this.classNames}}>
+<li class="hds-pagination-nav__page-item">
   <Hds::Interactive
-    class="hds-pagination-nav__number hds-pagination-nav__control hds-typography-body-100 hds-font-weight-medium"
+    class={{this.classNames}}
     aria-current={{if @isSelected "page" null}}
     {{on "click" this.onClick}}
     ...attributes

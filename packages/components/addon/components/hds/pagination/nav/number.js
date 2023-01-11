@@ -8,7 +8,12 @@ export default class HdsPaginationControlNumberComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-pagination-nav__page-item'];
+    let classes = [
+      'hds-pagination-nav__control',
+      'hds-pagination-nav__number',
+      'hds-typography-body-100',
+      'hds-font-weight-medium"',
+    ];
 
     if (this.args.isSelected) {
       classes.push(`hds-pagination-nav__number--is-selected`);
