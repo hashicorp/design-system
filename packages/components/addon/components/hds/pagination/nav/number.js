@@ -1,7 +1,19 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { assert } from '@ember/debug';
 
 export default class HdsPaginationControlNumberComponent extends Component {
+  get page() {
+    let { page } = this.args;
+
+    assert(
+      '@page for "Pagination::Nav::Number" must have a valid value',
+      page !== undefined
+    );
+
+    return page;
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames
