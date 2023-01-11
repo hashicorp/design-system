@@ -3,6 +3,7 @@
 // general breakdpoints
 $doc-breakpoint-medium: 768px;
 $doc-breakpoint-large: 1280px;
+$doc-breakpoint-x-large: 1450px;
 
 // we have a special breakpoint for when we show the sidebar
 $doc-breakpoint-for-sidebar: 880px;
@@ -22,6 +23,10 @@ $doc-breakpoint-for-sidebar: 880px;
 
 @mixin large {
   @media (min-width: $doc-breakpoint-large) { @content; }
+}
+
+@mixin x-large {
+  @media (min-width: $doc-breakpoint-x-large) { @content; }
 }
 
 @mixin with-mobile-sidebar {

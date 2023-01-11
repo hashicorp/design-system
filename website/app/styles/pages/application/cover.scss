@@ -18,6 +18,10 @@
   @include breakpoint.large () {
     padding: 64px var(--doc-page-stage-gutter-large) 68px;
   }
+
+  @include breakpoint.x-large() {
+    padding: 64px var(--doc-page-stage-gutter-x-large) 68px;
+  }
 }
 
 .doc-page-cover__title-extra-wrapper {
