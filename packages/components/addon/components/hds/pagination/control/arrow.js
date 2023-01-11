@@ -60,10 +60,6 @@ export default class HdsPaginationControlArrowComponent extends Component {
       'hds-font-weight-medium',
     ];
 
-    if (this.showLabel) {
-      classes.push(`hds-pagination-nav__button-arrow--labeled`);
-    }
-
     return classes.join(' ');
   }
 

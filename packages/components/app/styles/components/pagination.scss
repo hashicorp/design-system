@@ -82,12 +82,6 @@
   }
 }
 
-// Make buttons with "Previous" & "Next" buttons the same min-width
-// to make them more visually centered in relationship to other sub-components
-.hds-pagination-nav__button-arrow--labeled {
-  min-width: 103px;
-}
-
 .hds-pagination-nav__button-arrow--direction-prev {
   flex-direction: row;
   justify-content: flex-start;
