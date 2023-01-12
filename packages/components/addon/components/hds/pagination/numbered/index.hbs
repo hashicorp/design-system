@@ -18,15 +18,17 @@
     {{#if this.showPageNumbers}}
       <ul class="hds-pagination-nav__page-list">
         {{#each this.pages as |page|}}
-          {{#if (eq page "…")}}
-            <Hds::Pagination::Nav::Ellipsis />
-          {{else}}
-            <Hds::Pagination::Nav::Number
-              @page={{page}}
-              @onClick={{this.onPageChange}}
-              @isSelected={{if (eq page this.currentPage) true false}}
-            />
-          {{/if}}
+          <li class="hds-pagination-nav__page-item">
+            {{#if (eq page "…")}}
+              <Hds::Pagination::Nav::Ellipsis />
+            {{else}}
+              <Hds::Pagination::Nav::Number
+                @page={{page}}
+                @onClick={{this.onPageChange}}
+                @isSelected={{if (eq page this.currentPage) true false}}
+              />
+            {{/if}}
+          </li>
         {{/each}}
       </ul>
     {{/if}}
