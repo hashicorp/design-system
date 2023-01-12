@@ -36,8 +36,6 @@ Title, description, actions, and generic content are passed into the alert as yi
     A yielded `HDS::Link::Standalone` component. It exposes the same API of the [`Link::Standalone` component](/components/link/standalone/), apart from the `@size` argument, which is pre-defined to be `small`.
   </C.Property>
   <C.Property @name="<[A].Generic>" @type="yielded component">
-    A component that yields its content. See ["How to use > Generic content"](#how-to-use-generic).
+    A component that yields its content.
   </C.Property>
 </Doc::ComponentApi>
-
-For more details about how to invoke these contextual components see the sections ["How to use > Description"](#how-to-use-description), ["How to use > Actions"](#how-to-use-actions) and ["How to use > Generic content"](#how-to-use-generic).

@@ -9,10 +9,10 @@
   <C.Property @name="value" @type="string">
     The input control’s value attribute
   </C.Property>
-  <C.Property @name="checked" @type="boolean">
+  <C.Property @name="checked" @type="boolean" @values={{array "false" "true" }} @default="false">
     The input control’s checked attribute
   </C.Property>
-  <C.Property @name="disabled" @type="boolean">
+  <C.Property @name="disabled" @type="boolean" @values={{array "false" "true" }} @default="false">
     The input control’s disabled attribute
   </C.Property>
   <C.Property @name="controlPosition" @type="enum" @values={{array "bottom" "left" }} @default="bottom">
@@ -21,7 +21,7 @@
   <C.Property @name="alignment" @type="enum" @values={{array "left" "center" }} @default="left">
     Sets the alignment of the card content.
   </C.Property>
-  <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
+  <C.Property @name="layout" @type="enum" @values={{array "fluid" "fixed" }} @default="fluid">
     By default, the card will expand to fit the parent container. When used in a group the cards will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed` a `@maxWidth` value must be specified to constrain the card.
   </C.Property>
   <C.Property @name="maxWidth" @type="string" @valueNote="any valid CSS width (%, vw, etc)">
@@ -47,10 +47,10 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[R].Icon>">
-    Yields an icon inside the card container. For details about its API check the [`FlightIcon`](/foundations/icons?tab=code) component.
+    Yields an icon inside the card container. For details about its API check the [`icon`](/foundations/icons?tab=code) component.
   </C.Property>
   <C.Property @name="<[R].Label>" @type="yielded component">
-    A container that yields its content emphasized inside the card. 
+    A container that yields its content emphasized inside the card.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -58,7 +58,7 @@
     A badge inside the card container. For details about its API check the [`Badge`](/components/badge/) component.
   </C.Property>
   <C.Property @name="<[R].Description>" @type="yielded component">
-    A container that yields its content inside the card. The content can be a simple string or a more complex/structured one, in which case it inherits the text style. 
+    A container that yields its content inside the card. The content can be a simple string or a more complex/structured one, in which case it inherits the text style.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -81,7 +81,7 @@
   <C.Property @name="name" @type="string">
     Sets the `name` attribute for each form control within the group.
   </C.Property>
-  <C.Property @name="isRequired" @type="boolean">
+  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
   </C.Property>
   <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">

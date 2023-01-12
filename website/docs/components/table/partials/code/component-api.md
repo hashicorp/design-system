@@ -25,10 +25,10 @@ The `Table` component itself is where most of options will be applied. However, 
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
-  <C.Property @name="isStriped" @type="boolean" @default="false">
+  <C.Property @name="isStriped" @type="boolean" @values={{array "false" "true" }} @default="false">
     Define on the table invocation. If set to `true`, row striping ("zebra striping") will be applied to the table.
   </C.Property>
-  <C.Property @name="isFixed" @type="boolean" @default="false">
+  <C.Property @name="isFixed" @type="boolean" @values={{array "false" "true" }} @default="false">
     If set to `true`, the `table-display`(CSS) property will be set to `fixed`, which will automatically distribute columns equally based on the total width of the table.
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">

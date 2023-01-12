@@ -1,16 +1,8 @@
-!!! Insight
-
-**Coming soon!**
-
-Border tokens are coming soon! Once Figma adds support for `border-radius` as a style, they will be added.
-
-!!!
-
 ## Border radius
 
-We don’t currently offer border radius tokens or Figma styles.
+We don’t currently offer border radius tokens or Figma styles, but as general guidance, the size of the component determines the border radius. 
 
-The size of the component determines the border radius. These are high-level guidelines for how border radius is used in our components.
+This is how we use border radius in Helios components.
 
 | Size        | Value | Examples                       |
 | ----------- | ----- | ------------------------------ |
