@@ -17,10 +17,10 @@ Given the nature of the "radio" control (always used in a list of options) the m
   <C.Property @name="name" @type="string">
     Sets the `name` attribute for each form control within the group.
   </C.Property>
-  <C.Property @name="isRequired" @type="boolean">
+  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
   </C.Property>
-  <C.Property @name="isOptional" @type="boolean">
+  <C.Property @name="isOptional" @type="boolean" @values={{array "false" "true" }} @default="false">
     Appends an `Optional` indicator next to the legend text when user input is optional.
   </C.Property>
 </Doc::ComponentApi>

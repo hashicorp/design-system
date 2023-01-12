@@ -6,7 +6,7 @@ Here is the API for the `Step::Indicator` component:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="status" @type="enum" @values={{array "incomplete" "progress" "processing" "complete" }} @default="incomplete"/>
-  <C.Property @name="isInteractive" @type="boolean">
+  <C.Property @name="isInteractive" @type="boolean" @values={{array "false" "true" }} @default="false">
     By default the `Indicator::Step` is not interactive and has no hover state. Usage for this variant is generally recommended for onboarding-type sequences or list-item steps.
   </C.Property>
   <C.Property @name="text" @type="string">
@@ -20,5 +20,5 @@ Here is the API for the `Task::Indicator` component:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="status" @type="enum" @values={{array "incomplete" "progress" "processing" "complete" }} @default="incomplete"/>
-  <C.Property @name="isInteractive" @type="boolean"/>
+  <C.Property @name="isInteractive" @type="boolean" @values={{array "false" "true" }} @default="false"/>
 </Doc::ComponentApi>
