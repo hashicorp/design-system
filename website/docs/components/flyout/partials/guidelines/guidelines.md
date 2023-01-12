@@ -31,7 +31,7 @@ The Flyout header features several properties to better communicate the purpose 
 
 ### Description
 
-A header **description** helps to provide additional information about the Flyout.
+A header **description** provides additional detail information about the Flyout.
 
 #### With description
 
@@ -44,7 +44,7 @@ Even though adding a title icon and tagline can help the user better understand 
 
 ## Body
 
-The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code `{{yeild}}` is supported. 
+The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code `yeild` is supported. 
 
 #### With custom content
 
@@ -52,7 +52,7 @@ The body of the Flyout supports any custom content, local components, or Helios 
 
 The primary dismissal method for the Flyout is the dismiss action in the header. The Flyout does not support action buttons to "confirm" or "cancel" the Flyout which is contrary to the intended usage of the component.
 
-The Flyout features multiple dismissal options that can be customized in production with a callback function:
+Multiple dismissal options are available that can be customized in production with a callback (on `onClose`, or `onOpen`) function:
 
 - Dismiss button in the header
 - Clicking with a mouse outside of the Flyout on the main page
@@ -69,7 +69,7 @@ A Flyout should slide out from the right side of the viewport on top of the main
 
 !!! Info
 
-We recommend pairing the Flyout with the overlay component which obscures the main page the Flyout sits on top of. However, the components are decoupled, if there’s a benefit to the user having more visibility of the main page while the Flyout is open, not pairing the overlay with the Flyout may be acceptable.
+We recommend pairing the Flyout with the overlay component which obscures the main page the Flyout sits on top of. However, these components are decoupled, if there’s a benefit to the user having more visibility of the main page while the Flyout is open, not pairing the overlay with the Flyout may be acceptable.
 !!!
 
 ![Flyout position](/assets/components/flyout/flyout-position.png)
