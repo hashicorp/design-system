@@ -18,8 +18,8 @@
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph">
-    The term «<code class="dummy-code">Pagination</code>
-    component» is an umbrella term used to indicate a set of Pagination-related components and sub-components, each with
+    The term “<code class="dummy-code">Pagination</code>
+    component” is an umbrella term used to indicate a set of Pagination-related components and sub-components, each with
     their own APIs.</p>
 
   <p class="dummy-paragraph">There are two main
@@ -71,7 +71,7 @@
   </ul>
 
   <p class="dummy-paragraph">
-    These pagination sub-elements may be used directly if you need to cover a very specific use need that is not covered
+    These pagination sub-elements may be used directly if you need to cover a very specific use case that is not covered
     by the "numbered" or "compact" paginations. In that case, refer to the "Component API" below to see details about
     their APIs.
   </p>
@@ -112,7 +112,7 @@
     </dd>
     <dt>isTruncated <code>boolean</code></dt>
     <dd>
-      <p>Used to to limit the number of pages visualized (to save space, it will display an ellipsis for some numbers).</p>
+      <p>Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some numbers).</p>
       <p>Default: <span class="default">true</span></p>
     </dd>
     <dt>showLabels <code>boolean</code></dt>
@@ -147,7 +147,7 @@
     <dd>
       <p>The
         <code>@route</code>
-        parameter passed down as arguments to internal render a
+        parameter passed down as arguments to internally render a
         <code>&lt;LinkTo&gt;</code>
         Ember component instead of a
         <code>&lt;button&gt;</code>
@@ -163,7 +163,7 @@
     </dd>
     <dt>isDisabled[Prev|Next] <code>boolean</code></dt>
     <dd>
-      <p>Used to disable the "prev" or "next" controls</p>
+      <p>Used to disable the "prev" or "next" controls.</p>
       <p>Default: <span class="default">false</span></p>
       <p>Notice: when the control is disabled, it's always rendered as an HTML
         <code class="dummy-code">Button</code>
@@ -177,7 +177,7 @@
     <dt>onPageChange <code>function</code></dt>
     <dd>
       <p>Callback function invoked (if provided) when a "prev" or "next" control is clicked.</p>
-      <p>The function receives as argument one of the two possible values:</p>
+      <p>The function receives as argument one of two possible values:</p>
       <ol>
         <li>prev</li>
         <li>next</li>
@@ -302,7 +302,7 @@
         spreading is supported on this component.</p>
       <p><em>Notice: it will not be applied to the
           <code class="dummy-code">&lt;li&gt;</code>
-          wrapping element but to the
+          wrapping element but to the nested
           <code class="dummy-code">&lt;button&gt;/&lt;a&gt;</code>
           controls.</em></p>
     </dd>
@@ -321,7 +321,7 @@
         spreading is supported on this component.</p>
       <p><em>Notice: it will not be applied to the
           <code class="dummy-code">&lt;li&gt;</code>
-          wrapping element but to the
+          wrapping element but to the nested
           <code class="dummy-code">&lt;span&gt;</code>
           text element.</em></p>
     </dd>
@@ -354,7 +354,7 @@
       <p>Normally this value is passed automatically by the Pagination wrapper component but can be provided as argument
         to the
         <code class="dummy-code">Pagination::SizeSelector</code>
-        component itself when used as a stand alone component</p>
+        component itself when used as a stand alone component.</p>
     </dd>
   </dl>
 </section>
@@ -368,7 +368,7 @@
   <h5 class="dummy-h6">Pagination "compact" and "numbered"</h5>
   <p class="dummy-paragraph">As mentioned above, there are two different variants of the
     <code class="dummy-code">Pagination</code>
-    component (with different ways to invoke them) built to cover different use cases, contexts and designs you may need
+    component (with different ways to invoke them) built to cover different use cases, contexts, and designs you may need
     them for.</p>
   <p class="dummy-paragraph">This differentiation is necessary to cover both use cases of a pagination for a list with a
     known number of elements (<strong>"numbered"</strong>) and one in which this information is not available or is
@@ -379,10 +379,10 @@
     >cursor-based</a>
     (<strong>"compact"</strong>).</p>
   <p class="dummy-paragraph">In the first one, the user is presented with a list of navigation controls ("prev/next" and
-    "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler, the
+    "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one, the
     user is presented with only the "prev/next" controls.</p>
 
-  <p class="dummy-paragraph">When the pagination is invoked using directly one of these two components, it will
+  <p class="dummy-paragraph">When pagination is invoked directly using one of these two components, it will
     <strong>automatically</strong>:</p>
   <ul>
     <li>
@@ -390,7 +390,7 @@
     </li>
     <li>
       <p class="dummy-paragraph">manage the "current page" status across the different sub-components it's made of
-        (based on the arguments provided to it and its children)</p>
+        (based on the arguments provided to it and its children).</p>
     </li>
     <li>
       <p class="dummy-paragraph">when one of the "navigation controls" is clicked, a callback function (if provided) is
@@ -411,13 +411,13 @@
   <p class="dummy-paragraph">In this case, you will have to take care of different things <strong>yourself</strong></p>
   <ul>
     <li>
-      <p class="dummy-paragraph">the organization/layout of the elemens in the page</p>
+      <p class="dummy-paragraph">the organization/layout of the elements on the page.</p>
     </li>
     <li>
-      <p class="dummy-paragraph">the logic to handle the "current page" status</p>
+      <p class="dummy-paragraph">the logic to handle the "current page" status.</p>
     </li>
     <li>
-      <p class="dummy-paragraph">the logic connecting the different parts (if "numbered")</p>
+      <p class="dummy-paragraph">the logic connecting the different parts (if using "numbered").</p>
     </li>
   </ul>
 
@@ -435,11 +435,11 @@
     event that calls the
     <code class="dummy-code">onPageChange</code>
     function.</p>
-  <p class="dummy-paragraph">This means that if you need to update the URL when the user changes "page" in the
-    Pagination (eg. to add/remove/update some query parameters) you have to do it inside the
+  <p class="dummy-paragraph">This means that if you need to update the URL when the user changes the "page" in the
+    Pagination (eg. to add/remove/update some query parameters), you have to do it inside the
     <code class="dummy-code">onPageChange</code>
     callback you provide to the component.</p>
-  <p class="dummy-paragraph">If instead you need to update direcly the URL when the user clicks on one of the
+  <p class="dummy-paragraph">If instead you need to update the URL directly when the user clicks on one of the
     "navigation control" elements, you have to provide routing parameters (<code class="dummy-code">route/query</code>)
     to the component; refer to the "Component API" section above for specifications about these parameters (the APIs are
     slightly different for the two components).</p>
@@ -452,7 +452,7 @@
 
   <p class="dummy-paragraph">The basic invocation of the "numbered" pagination requires the
     <code class="dummy-code">@totalItems</code>
-    <code class="dummy-code">@itemsPerPage</code>
+    <code class="dummy-code">@itemsPerPage</code>,
     and
     <code class="dummy-code">@pageSizes</code>
     arguments to be provided (plus the event/routing handlers, see below):</p>
@@ -474,7 +474,7 @@
   <h5 class="dummy-h5">Extra arguments</h5>
   <p class="dummy-paragraph">It's possible to customize the "Info", "Controls", and "SizeSelector" providing additional
     arguments to them. For more details about these parameters, refer to the "Components API" section.</p>
-  <p class="dummy-paragraph">Below an example of some of these extra arguments:</p>
+  <p class="dummy-paragraph">Below is an example of some of these extra arguments:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -520,7 +520,7 @@
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Pagination::Numbered @totalItems={{150}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
-  <p class="dummy-paragraph">If it's necessary it's possible to disable this functionality using a specific
+  <p class="dummy-paragraph">If necessary, it's possible to disable this functionality using a specific
     <code class="dummy-code">@isTruncated</code>
     argument:</p>
   {{! prettier-ignore-start }}
@@ -578,10 +578,10 @@
   <p class="dummy-paragraph">The second function
     <code class="dummy-code">onPageSizeChange</code>
     is invoked when a user interacts with the "size selector" and so can be used to respond to a "page size" change (eg.
-    updating the number of items listed in the page, updating the routing/URL, updating other elements in the page).</p>
+    updating the number of items listed in the page, updating the routing/URL, and/or updating other elements in the page).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
-  <p class="dummy-paragraph">If you want the pagination to change directly the URL of the page (eg. adding/removing
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
     query parameters) you need to pass the routing parameters to the component:</p>
   <pre>🚨 TODO </pre>
   <p class="dummy-paragraph">Renders to:</p>
@@ -592,9 +592,9 @@
   {{! =============================== }}
 
   <h4 class="dummy-h4">Pagination::Compact</h4>
-  <p class="dummy-paragraph">By default, the basic use of the pagination provides .</p>
+  <p class="dummy-paragraph">By default, the basic use of the pagination provides:</p>
 
-  <p class="dummy-paragraph">The basic invocation of the "compact" pagination doesn't require any argument (apart from
+  <p class="dummy-paragraph">The basic invocation of the "compact" pagination doesn't require any arguments (apart from
     the event/routing handlers, see below):</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
@@ -611,7 +611,7 @@
   <p class="dummy-paragraph">In this variant only the "prev" and "next" navigation controls are displayed.</p>
 
   <h5 class="dummy-h5">Extra arguments</h5>
-  <p class="dummy-paragraph">If necessry, it's possible to hide the labels in the controls:</p>
+  <p class="dummy-paragraph">If necessary, it's possible to hide the labels in the controls:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -645,8 +645,8 @@
     "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
-  <p class="dummy-paragraph">If you want the pagination to change directly the URL of the page (eg. adding/removing
-    query parameters) you need to pass the routing parameters to the component:</p>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
+    query parameters), you need to pass the routing parameters to the component:</p>
   <pre>🚨 TODO </pre>
   <p class="dummy-paragraph">Renders to:</p>
   <pre>🚨 TODO 🚨</pre>
