@@ -3,11 +3,11 @@ title: Accessibility statement
 order: 104
 ---
 
-Accessibility is a core requirement and not an optional feature. Our approach to accessibility closely aligns with our [HashiCorp principles](https://www.hashicorp.com/our-principles), such as our core principle of integrity.
+We believe accessibility is a core requirement and not an optional feature. Our approach to accessibility closely aligns with our [HashiCorp principles](https://www.hashicorp.com/our-principles), such as our core principle of integrity.
 
 > Integrity requires a consistency of our thoughts, words, and actions and a dedication to the truth.
 
-To this end, we have built the Helios Design System with accessibility as a core requirement. In this way, we’re giving HashiCorp product designers and engineers a greater ability to deliver accessible product experiences for all HashiCorp users.
+Because we build the Helios Design System with accessibility as a core requirement we’re giving HashiCorp product designers and engineers a greater ability to deliver accessible product experiences for all HashiCorp users.
 
 ## Ensuring accessible outcomes
 
