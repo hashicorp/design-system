@@ -14,7 +14,7 @@ Provide annotations alongside each design of the non-visual experience. This cou
 
 Years of misuse have muddled the purpose of a button element vs. a link element, so here is a good rule of thumb to follow:
 
-If it _goes to URL_, use a link. If it does an _action_ (toggle a state, submit a form, etc.), then use a button.
+If it _goes to a URL_, use a link. If it does an _action_ (toggles a state, submits a form, etc.), then use a button.
 
 Now, you may be thinking, “What about instances where I submit a form and redirect a user to a different URL?” This is still a button use case.
 
