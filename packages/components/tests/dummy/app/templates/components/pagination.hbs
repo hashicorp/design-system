@@ -572,7 +572,21 @@
     query parameters) you need to pass the routing parameters to the component:</p>
   <pre>🚨 TODO </pre>
   <p class="dummy-paragraph">Renders to:</p>
-  <pre>🚨 TODO 🚨</pre>
+
+  {{log this.consumerRouteName }}
+  {{log this.consumerQueryFunction }}
+  <pre>this.consumerRouteName {{this.consumerRouteName}}</pre>
+  <pre>this.consumerQueryFunction {{this.consumerQueryFunction}}</pre>
+
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @itemsPerPage={{10}}
+    @pageSizes={{array 10 30 50}}
+    @route={{this.consumerRouteName}}
+    @queryFunction={{this.consumerQueryFunction}}
+    @onPageChange={{this.handlePageChange}}
+    @onPageSizeChange={{this.handlePageSizeChange}}
+  />
 
   {{! =============================== }}
   {{! ===== PAGINATION::COMPACT ===== }}

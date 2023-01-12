@@ -1,6 +1,8 @@
 <Hds::Interactive
   class={{this.classNames}}
   aria-current={{if @isSelected "page" null}}
+  @route={{@route}}
+  @query={{@query}}
   {{on "click" this.onClick}}
   ...attributes
 >

@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { assert } from '@ember/debug';
 
 export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked currentItemsPerPage = this.args.itemsPerPage;
@@ -191,6 +192,76 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   get isDisabledNext() {
     return this.currentPage === this.totalPages;
+  }
+
+  get routing() {
+    console.log('get routing');
+
+    let routing = {
+      route: undefined,
+      queryFunction: function (aaa) {
+        return (aaa) => aaa;
+      },
+      // TODO decide if we want to add these
+      // models: undefined,
+      replace: undefined,
+    };
+
+    if (this.args.route) {
+      console.log(
+        'get routing → route',
+        this.args.route,
+        typeof this.args.route
+      );
+      routing.route = this.args.route;
+    }
+    if (this.args.queryFunction) {
+      console.log(
+        'get routing → queryFunction',
+        this.args.queryFunction,
+        typeof this.args.queryFunction
+      );
+      if (typeof this.args.queryFunction === 'function') {
+        routing.queryFunction = (page) => {
+          let gotoPageNumber;
+          if (page === 'prev') {
+            gotoPageNumber = this.currentPage - 1;
+          } else if (page === 'next') {
+            gotoPageNumber = this.currentPage + 1;
+          } else {
+            gotoPageNumber = page;
+          }
+
+          console.log(
+            'get routing → results of `this.args.queryFunction` from consumers',
+            `gotoPageNumber="${gotoPageNumber}"`,
+            this.args.queryFunction(gotoPageNumber, this.currentItemsPerPage)
+          );
+          // we use the function provided by the consumers
+          // to build the query object and then we return it
+          // so it can be consumed by the @query argument
+          return this.args.queryFunction(
+            gotoPageNumber,
+            this.currentItemsPerPage
+          );
+        };
+      } else {
+        assert(
+          '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+          false
+        );
+      }
+    }
+    if (this.args.replace) {
+      console.log(
+        'get routing → replace',
+        this.args.replace,
+        typeof this.args.replace
+      );
+      routing.replace = this.args.replace;
+    }
+
+    return routing;
   }
 
   @action

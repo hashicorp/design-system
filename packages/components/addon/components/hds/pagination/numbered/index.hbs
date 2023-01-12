@@ -1,3 +1,19 @@
+{{#if this.routing.route}}
+  {{log this.routing.route}}
+  <pre>this.routing.route {{this.routing.route}}</pre>
+{{/if}}
+{{#if this.routing.queryFunction}}
+  {{log this.routing.queryFunction}}
+  <pre>this.routing.queryFunction 2 = {{(fn this.routing.queryFunction 2)}}</pre>
+  <pre>this.routing.queryFunction 'prev' {{(fn this.routing.queryFunction "prev")}}</pre>
+  <pre>this.routing.queryFunction 'next' {{(fn this.routing.queryFunction "next")}}</pre>
+{{/if}}
+{{#if (and this.routing.route this.routing.queryFunctionXXXX)}}
+  <pre>
+    <LinkTo @route={{this.routing.route}} @query={{this.routing.queryNumber}}>Test ot link with provided params</LinkTo>
+  </pre>
+{{/if}}
+
 <div class="hds-pagination" ...attributes>
   {{#if this.showInfo}}
     <Hds::Pagination::Info
@@ -12,6 +28,9 @@
     <Hds::Pagination::Nav::Arrow
       @direction="prev"
       @showLabel={{this.showLabels}}
+      {{!-- @route={{this.routing.route}} --}}
+      {{!-- @query={{(fn this.routing.queryFunction "prev")}} --}}
+      @replace={{this.routing.replace}}
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledPrev}}
     />
@@ -23,7 +42,10 @@
               <Hds::Pagination::Nav::Ellipsis />
             {{else}}
               <Hds::Pagination::Nav::Number
-                @page={{page}}
+                @page="{{page}}"
+                {{!-- @route={{this.routing.route}} --}}
+                {{!-- @query={{(fn this.routing.queryFunction page)}} --}}
+                @replace={{this.routing.replace}}
                 @onClick={{this.onPageChange}}
                 @isSelected={{if (eq page this.currentPage) true false}}
               />
@@ -35,6 +57,9 @@
     <Hds::Pagination::Nav::Arrow
       @direction="next"
       @showLabel={{this.showLabels}}
+      {{!-- @route={{this.routing.route}} --}}
+      {{!-- @query={{(fn this.routing.queryFunction "next")}} --}}
+      @replace={{this.routing.replace}}
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledNext}}
     />
