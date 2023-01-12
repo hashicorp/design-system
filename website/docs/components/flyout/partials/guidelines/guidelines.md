@@ -2,7 +2,7 @@
 
 ### Best practices
 
-**Insert image here**
+![Sizes of the Flyout](/assets/components/flyout/flyout-sizes.png)
 
 - Use a Flyout size that best accounts for the complexity and detail of the content.
 - The **medium** size accounts for the _majority_ of scenarios and is the default recommended size.
@@ -58,7 +58,7 @@ The Flyout features multiple dismissal options that can be customized in product
 - Clicking with a mouse outside of the Flyout on the main page
 - Hitting the escape (`ESC`) key on a keyboard
 
-**Add image here**
+![Flyout dismissal options](/assets/components/flyout/flyout-dismissal.png)
 
 ## Positioning and responsive sizing
 
@@ -69,10 +69,10 @@ A Flyout should slide out from the right side of the viewport on top of the main
 
 !!! Info
 
-The Flyout isn't required to be paired with an overlay if maintaining some view of the main page content is deemed useful. A Modal _must_ be paired with an overlay that obscures the main page; a key difference between the two components.
+We recommend pairing the Flyout with the overlay component which obscures the main page the Flyout sits on top of. However, the components are decoupled, if there’s a benefit to the user having more visibility of the main page while the Flyout is open, not pairing the overlay with the Flyout may be acceptable.
 !!!
 
-**Add image here**
+![Flyout position](/assets/components/flyout/flyout-position.png)
 
 On smaller viewports, the Flyout should occupy 100% of the viewport width minus a 40px margin from the viewport edge.
 
@@ -80,4 +80,4 @@ On smaller viewports, the Flyout should occupy 100% of the viewport width minus 
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
 - The Flyout should _not_ be resized manually, rather select the size that best accommodates the content.
 
-**Add image here**
+![Flyout resizing](/assets/components/flyout/flyout-resizing)
