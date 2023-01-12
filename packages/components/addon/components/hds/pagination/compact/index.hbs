@@ -3,12 +3,16 @@
     <Hds::Pagination::Nav::Arrow
       @direction="prev"
       @showLabel={{this.showLabels}}
+      @route={{@routePrev}}
+      @query={{@queryPrev}}
       @onClick={{this.onPageChange}}
       @disabled={{@isDisabledPrev}}
     />
     <Hds::Pagination::Nav::Arrow
       @direction="next"
       @showLabel={{this.showLabels}}
+      @route={{@routeNext}}
+      @query={{@queryNext}}
       @onClick={{this.onPageChange}}
       @disabled={{@isDisabledNext}}
     />
