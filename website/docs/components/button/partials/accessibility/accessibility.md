@@ -18,7 +18,7 @@ If it _goes to a URL_, use a link. If it does an _action_ (toggles a state, subm
 
 Now, you may be thinking, “What about instances where I submit a form and redirect a user to a different URL?” This is still a button use case.
 
-Buttons and links especially make a difference for keyboard-only users and users with assistive technology(AT). A button element can be activated with the ENTER/RETURN key OR the SPACEBAR; a link can only be activated with the ENTER/RETURN key.
+Buttons and links especially make a difference for keyboard-only users and users with assistive technology (AT). A button element can be activated with the `Enter/Return` key _or_ the `Spacebar`; a link can only be activated with the `Enter/Return` key.
 
 If you are working on a UI that already uses buttons and links interchangeably, this is a great opportunity for a team discussion on which one is appropriate for use in your situation. It’s totally okay for it to be a goal that you work toward; there are always opportunities to care for, and improve, our code.
 
