@@ -1,6 +1,6 @@
 # design-system-tokens
 
-A package containing the design tokens of the HashiCorp Design System.
+A package containing the design tokens of the Helios Design System.
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens)
 

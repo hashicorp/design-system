@@ -1,4 +1,4 @@
-# HashiCorp Design System
+# Helios Design System
 
 ## Packages
 
