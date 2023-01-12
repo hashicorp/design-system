@@ -21,7 +21,7 @@
   <C.Property @name="alignment" @type="enum" @values={{array "left" "center" }} @default="left">
     Sets the alignment of the card content.
   </C.Property>
-  <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
+  <C.Property @name="layout" @type="enum" @values={{array "fluid" "fixed" }} @default="fluid">
     By default, the card will expand to fit the parent container. When used in a group the cards will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed` a `@maxWidth` value must be specified to constrain the card.
   </C.Property>
   <C.Property @name="maxWidth" @type="string" @valueNote="any valid CSS width (%, vw, etc)">
