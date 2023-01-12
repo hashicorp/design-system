@@ -19,7 +19,10 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
   get sizes() {
     let { sizes } = this.args;
 
-    assert('@sizes must be defined', sizes !== undefined);
+    assert(
+      '@sizes for "Pagination::SizeSelector" must be defined',
+      sizes !== undefined
+    );
 
     return sizes;
   }
