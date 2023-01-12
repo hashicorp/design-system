@@ -2,9 +2,11 @@
   <div class="doc-page-cover__title-extra-wrapper">
     <h1 class="doc-page-cover__title">{{@title}}</h1>
     <div class="doc-page-cover__extra">
+      {{!--
+      Temporarily disabled: https://hashicorp.atlassian.net/browse/HDS-1329
       {{#if this.status}}
         <Doc::Badge @type={{this.status.badgeType}}>{{this.status.badgeText}}</Doc::Badge>
-      {{/if}}
+      {{/if}} --}}
       {{#if this.links}}
         {{#each-in this.links as |service url|}}
           {{#if (eq service "figma")}}
