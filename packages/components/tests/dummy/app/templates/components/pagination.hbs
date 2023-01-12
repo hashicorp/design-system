@@ -105,7 +105,7 @@
         {{! prettier-ignore-end }}
       </p>
     </dd>
-    <dt>currentPage <code>number</code></dt>
+    <dt>currentPage <code>integer</code></dt>
     <dd>
       <p>Set a custom initial selected page.</p>
       <p>Default: <span class="default">1</span></p>
@@ -125,7 +125,7 @@
     <dd>
       <p>Callback function invoked (if provided) when one of the navigation controls is clicked, and a "page" change is
         triggered.</p>
-      <p>The function receives the value of the "go to" page as argument (integer number).</p>
+      <p>The function receives the value of the "go to" page and "page size" as arguments (integer numbers).</p>
     </dd>
     <dt>onPageSizeChange <code>function</code></dt>
     <dd>
@@ -140,7 +140,7 @@
   <h4 class="dummy-h4">Pagination::Compact</h4>
   <p class="dummy-paragraph" id="component-api-pagination-compact">
     Here is the API for the
-    <code class="dummy-code">Pagination::Nav</code>
+    <code class="dummy-code">Pagination::Compact</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-compact">
@@ -215,20 +215,6 @@
       <p>Controls the visibility of the total items in the informational text.</p>
       <p>Default: <span class="default">true</span></p>
     </dd>
-    <dt>onPageChange <code>function</code></dt>
-    <dd>
-      <p>Callback function invoked (if provided) when one of the navigation controls is clicked (a "page" change is
-        triggered).</p>
-      <p>If the pagination is "compact" one of the two values is returned:</p>
-      <ol>
-        <li>prev</li>
-        <li>next</li>
-      </ol>
-      <p>If the pagination is "numbered" the actual "go to" page number is returned:</p>
-      <ol>
-        <li>integer</li>
-      </ol>
-    </dd>
   </dl>
 
   <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
@@ -284,9 +270,9 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav-number">
-    <dt>page <code>string|number</code> <strong class="required">required</strong></dt>
+    <dt>page <code>number</code> <strong class="required">required</strong></dt>
     <dd>
-      <p>The text value that should go in the control as page number.</p>
+      <p>The value that should go in the control as page number.</p>
     </dd>
     <dt>isSelected <code>boolean</code></dt>
     <dd>
