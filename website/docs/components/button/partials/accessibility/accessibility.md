@@ -12,7 +12,7 @@ Provide annotations alongside each design of the non-visual experience. This cou
 
 ## Accessibility in engineering
 
-Years of misuse have muddled the purpose of a button element and a link element, so here is a good rule of thumb to follow:
+Years of misuse have muddled the purpose of a button element vs. a link element, so here is a good rule of thumb to follow:
 
 If it _goes to URL_, use a link. If it does an _action_ (toggle a state, submit a form, etc.), then use a button.
 
