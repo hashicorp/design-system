@@ -3,6 +3,11 @@ title: Contribution
 order: 104
 ---
 
+!!! Info
+
+At this time we are not accepting external contributions from non-HashiCorp employees. Many resources and links on this page are only available to HashiCorp employees.
+!!!
+
 ## Types of contribution
 
 While we don’t accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
