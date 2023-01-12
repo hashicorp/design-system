@@ -9,5 +9,11 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/content/writing-guidelines",
+      "destination": "/foundations/tokens"
+    }
   ]
 }
