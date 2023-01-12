@@ -10,7 +10,7 @@ Provide annotations alongside each design of the non-visual experience. This cou
 
 ![Accessibility annotation example](/assets/components/button/button-annotation_example.png)
 
-## Accessibility in engineering
+## Accessibility considerations
 
 Years of misuse have muddled the purpose of a button element vs. a link element, so here is a good rule of thumb to follow:
 
