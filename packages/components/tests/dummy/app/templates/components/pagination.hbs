@@ -112,7 +112,8 @@
     </dd>
     <dt>isTruncated <code>boolean</code></dt>
     <dd>
-      <p>Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some numbers).</p>
+      <p>Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some
+        numbers).</p>
       <p>Default: <span class="default">true</span></p>
     </dd>
     <dt>showLabels <code>boolean</code></dt>
@@ -255,7 +256,7 @@
     </dd>
     <dt>disabled <code>boolean</code></dt>
     <dd>
-      <p>If the control is disabled</p>
+      <p>If the control is disabled.</p>
       <p>Default: <span class="default">false</span></p>
       <p>Notice: when the control is disabled, it's always rendered as an HTML
         <code class="dummy-code">Button</code>
@@ -368,8 +369,8 @@
   <h5 class="dummy-h6">Pagination "compact" and "numbered"</h5>
   <p class="dummy-paragraph">As mentioned above, there are two different variants of the
     <code class="dummy-code">Pagination</code>
-    component (with different ways to invoke them) built to cover different use cases, contexts, and designs you may need
-    them for.</p>
+    component (with different ways to invoke them) built to cover different use cases, contexts, and designs you may
+    need them for.</p>
   <p class="dummy-paragraph">This differentiation is necessary to cover both use cases of a pagination for a list with a
     known number of elements (<strong>"numbered"</strong>) and one in which this information is not available or is
     <a
@@ -379,8 +380,8 @@
     >cursor-based</a>
     (<strong>"compact"</strong>).</p>
   <p class="dummy-paragraph">In the first one, the user is presented with a list of navigation controls ("prev/next" and
-    "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one, the
-    user is presented with only the "prev/next" controls.</p>
+    "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one,
+    the user is presented with only the "prev/next" controls.</p>
 
   <p class="dummy-paragraph">When pagination is invoked directly using one of these two components, it will
     <strong>automatically</strong>:</p>
@@ -452,8 +453,7 @@
 
   <p class="dummy-paragraph">The basic invocation of the "numbered" pagination requires the
     <code class="dummy-code">@totalItems</code>
-    <code class="dummy-code">@itemsPerPage</code>,
-    and
+    <code class="dummy-code">@itemsPerPage</code>, and
     <code class="dummy-code">@pageSizes</code>
     arguments to be provided (plus the event/routing handlers, see below):</p>
   {{! prettier-ignore-start }}
@@ -571,14 +571,15 @@
     @onPageChange={{this.handlePageChange}}
     @onPageSizeChange={{this.handlePageSizeChange}}
   />
-  <p class="dummy-paragraph">The first function
+  <p class="dummy-paragraph">The first
     <code class="dummy-code">onPageChange</code>
-    is invoked when a user interacts with a navigation control ("prev/next" or "page number") and so can be used to
-    respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
-  <p class="dummy-paragraph">The second function
+    function is invoked when a user interacts with a navigation control ("prev/next" or "page number") and so can be
+    used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
+  <p class="dummy-paragraph">The second
     <code class="dummy-code">onPageSizeChange</code>
-    is invoked when a user interacts with the "size selector" and so can be used to respond to a "page size" change (eg.
-    updating the number of items listed in the page, updating the routing/URL, and/or updating other elements in the page).</p>
+    function is invoked when a user interacts with the "size selector" and so can be used to respond to a "page size"
+    change (eg. updating the number of items listed in the page, updating the routing/URL, and/or updating other
+    elements in the page).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
   <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
@@ -626,7 +627,7 @@
   <Hds::Pagination::Compact @showLabels={{false}} />
 
   <h5 class="dummy-h5">Events handling</h5>
-  <p class="dummy-paragraph">The component exposes a callback function that can be used to respond to :</p>
+  <p class="dummy-paragraph">The component exposes a callback function that can be used to respond to page changes:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
@@ -639,10 +640,10 @@
   />
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Pagination::Compact @onPageChange={{this.handlePageChange}} />
-  <p class="dummy-paragraph">The function
+  <p class="dummy-paragraph">The
     <code class="dummy-code">onPageChange</code>
-    is invoked when a user interacts with a "prev" or "next" navigation control and so can be used to respond to a
-    "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
+    function is invoked when a user interacts with a "prev" or "next" navigation control and so can be used to respond
+    to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
   <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
