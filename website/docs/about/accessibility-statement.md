@@ -7,7 +7,7 @@ We believe accessibility is a core requirement and not an optional feature. Our 
 
 > Integrity requires a consistency of our thoughts, words, and actions and a dedication to the truth.
 
-Because we build the Helios Design System with accessibility as a core requirement we’re giving HashiCorp product designers and engineers a greater ability to deliver accessible product experiences for all HashiCorp users.
+Because we build the Helios Design System with accessibility as a core requirement, we’re giving HashiCorp product designers and engineers a greater ability to deliver accessible product experiences for all HashiCorp users.
 
 ## Ensuring accessible outcomes
 
