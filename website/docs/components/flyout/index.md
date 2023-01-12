@@ -1,6 +1,6 @@
 ---
 title: Flyout
-description: Contains additional detail information relevant to an item or object without navigating or routing to a new page.
+description: Displays additional details and information about an item or object overlaid on the main page content.
 status: experimental
 ---
 

@@ -9,7 +9,7 @@
 
 ## Flyout header
 
-The Flyout header features several properties to better communicate the purpose and content within the component:
+The Flyout header features several properties to better communicate the purpose and content within the component.
 
 ### Title icon
 
