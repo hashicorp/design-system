@@ -1,17 +1,19 @@
 ---
 title: Focus ring
-caption: Focus rings are a vital tool in communicating interactivity.
-description: Focus rings display when interactive components including links and buttons are focused by the user. They are a vital tool in communicating interactivity.
+caption: Focus rings are vital for communicating interactivity.
+description: Focus rings display when interactive components are focused by the user. They are vital for communicating interactivity.
 previewImage: assets/illustrations/foundations/focus-ring.jpg
 ---
 
 ## How to use this style
 
-The suggested way to apply a “focus-ring” style to a UI element is by using the specific **design token** provided as a CSS custom property.
+We recommend applying the “focus-ring” style to an element using the **design token** provided as a custom CSS property.
 
-### Design tokens
+Note that `border-radius` is not included with this token and needs to be set according to the specs of the UI element. Consider using `inherit`.
 
-You can use the `--token-focus-ring-action-box-shadow` [design token](./tokens) directly in your CSS definitions:
+### Design tokens (recommended)
+
+Use the `--token-focus-ring-action-box-shadow` [design token](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
 
 ```css
 .your-selector {
@@ -19,34 +21,39 @@ You can use the `--token-focus-ring-action-box-shadow` [design token](./tokens) 
   &:focus,
   &:focus-visible {
     box-shadow: var(--token-focus-ring-action-box-shadow);
+    border-radius: inherit;
   }
 }
 ```
 
-!!! Critical
-
-*   The design token as CSS variable can be used **only** with a `box-shadow` property.
-*   The border radius depends on the UI element to which it is applied, so it’s up to you to apply the correct `border-radius`. (Tip: Consider using the `inherit` value.)
-!!!
-
 ### CSS helper classes
 
-We provide a **CSS helper class** `.hds-focus-ring-box-shadow`, that is a wrapper of the design token. It’s unlikely you can use it directly in a template because this style is connected to the “focused” pseudo-state of an element (more likely it would be used in composition with other classes).
+The CSS helper class `.hds-focus-ring-box-shadow` is a wrapper of the design token. It’s likely you’ll need to use this helper class in composition with other classes (instead of directly in a template) because it’s connected to the element’s “focused” pseudo-state.
 
-To use this class you have to import the CSS file `[products|devdot]/css/helpers/focus-ring.css` from the `@hashicorp/design-system-tokens` package.
+To use this class, import the CSS file:
 
-!!! Critical
+```scss
+// for product applications
+@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
 
-The border radius depends on the UI element to which it is applied to, so it’s up to you to apply the right `border-radius` (tip: consider to use the `inherit` value).
-!!!
+// for hashicorp developer platform
+@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
+```
 
 ### Sass mixins
 
-We have created two **Sass mixins** `hds-focus-ring-basic` and `hds-focus-ring-with-pseudo-element`, but they’re mainly used for internal use (to the design system codebase). These mixins do more than just apply the focus style: they also take care of all the different way to declare the `:focus/:focus-visible` for different browsers.
+While we offer two Sass mixins `hds-focus-ring-basic` and `hds-focus-ring-with-pseudo-element`, they’re mainly used in the design system codebase. 
 
-To use these mixins you have to import the Sass file `packages/components/app/styles/mixins/_focus-ring.scss` contained in the `@hashicorp/design-system` monorepo or the same file `app/styles/mixins/_focus-ring.scss` distributed in the `@hashicorp/design-system-components` package.
+In addition to applying the focus style, these mixins also account for all declarations of `:focus/:focus-visible` in the different browsers.
 
-Then the mixins can be invoked in this way:
+If needing to use these mixins, import the Sass file: 
+
+<!-- IS THIS CORRECT? ARE THERE OTHER DETAILS WE NEED TO INCLUDE? -->
+```scss
+@import "~@hashicorp/design-system-components/app/styles/mixins/_focus-ring.scss";
+```
+
+You can then invoke the mixins:
 
 ```css
 /* include the mixin file via @use (path will depend on your context) */
@@ -65,10 +72,30 @@ Then the mixins can be invoked in this way:
 }
 ```
 
-## Showcase
+## Examples
 
-<section data-test-percy data-section="showcase">
-  
+### Border radius
+
+<div class="hds-focus-ring-action-box-shadow" style="margin-bottom: 16px;">
+  <Doc::Placeholder @text="no radius" @width="100" @height="100" @background="transparent" />
+</div>
+
+<div class="hds-focus-ring-action-box-shadow" style="margin-bottom: 16px; border-radius: 5px;">
+  <Doc::Placeholder @text="with border radius" @width="100" @height="100" @background="transparent" />
+</div>
+
+### Colors
+
+<div class="hds-focus-ring-action-box-shadow" style="margin-bottom: 16px;">
+  <Doc::Placeholder @text="action" @width="100" @height="100" @background="transparent" />
+</div>
+
+<div class="hds-focus-ring-critical-box-shadow" style="margin-bottom: 16px;">
+  <Doc::Placeholder @text="critical" @width="100" @height="100" @background="transparent" />
+</div>
+
+<!--
+<section data-test-percy data-section="showcase">  
   <h4 class="dummy-h4">Focus ring:</h4>
   <p class="dummy-paragraph">Standalone "focus ring" effect</p>
   <div class="dummy-focus-ring-samples">
@@ -96,3 +123,4 @@ Then the mixins can be invoked in this way:
     </div>
   </div>
 </section>
+-->
