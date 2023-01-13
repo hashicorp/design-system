@@ -11,18 +11,12 @@ export default class PaginationController extends Controller {
   @tracked showHighlight = false;
 
   get consumerRouteName() {
-    console.log('get consumerRouteName called');
     // return this.router.currentRouteName;
     return 'components.pagination';
   }
 
   get consumerQueryFunction() {
-    console.log('get currentQueryHash called');
     return function (page, pageSize) {
-      console.log(
-        'inner currentQueryFunction function called with args',
-        ...arguments
-      );
       return {
         myCurrentPage: page,
         myCurrentPageSize: pageSize,

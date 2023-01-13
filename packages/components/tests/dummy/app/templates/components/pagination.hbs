@@ -1,12 +1,15 @@
 {{page-title "Pagination Component"}}
 
-{{log this.consumerRouteName }}
-{{log this.consumerQueryFunction }}
-<pre>this.consumerRouteName {{this.consumerRouteName}}</pre>
-<pre>this.consumerQueryFunction {{this.consumerQueryFunction}}</pre>
+<Hds::Pagination::Numbered
+  @totalItems={{200}}
+  @itemsPerPage={{10}}
+  @pageSizes={{array 10 30 50}}
+  @onPageChange={{this.handlePageChange}}
+  @onPageSizeChange={{this.handlePageSizeChange}}
+/>
 
 <Hds::Pagination::Numbered
-  @totalItems={{40}}
+  @totalItems={{200}}
   @itemsPerPage={{10}}
   @pageSizes={{array 10 30 50}}
   @route={{this.consumerRouteName}}

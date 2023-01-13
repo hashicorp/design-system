@@ -8,24 +8,6 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
 
-  // get debug() {
-  //   if (this.args.queryFunction) {
-  //     console.log(typeof this.args.queryFunction());
-  //     return JSON.stringify(this.args.queryFunction(2, 10));
-  //   } else {
-  //     return 'NOH!!';
-  //   }
-  // }
-
-  // @action
-  // wtf1(page) {
-  //   return `WTF1=${page}`;
-  // }
-
-  // wtf2(page) {
-  //   return this.args.queryFunction(page, 10);
-  // }
-
   /**
    * @param showInfo
    * @type {boolean}
@@ -153,61 +135,6 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     }
   }
 
-  get pageNumbers() {
-    let pageNumbers = [];
-
-    this.pages.forEach((page) => {
-      let pageNumber = {
-        page,
-        isSelected: page === this.currentPage,
-      };
-
-      if (this.args.route) {
-        console.log(
-          'get pageNumbers → route',
-          this.args.route,
-          typeof this.args.route
-        );
-        pageNumber.route = this.args.route;
-      }
-      if (this.args.queryFunction) {
-        console.log(
-          'get pageNumbers → queryFunction',
-          this.args.queryFunction,
-          typeof this.args.queryFunction
-        );
-        if (typeof this.args.queryFunction === 'function') {
-          console.log(
-            'get routing → queryFunction INSIDE',
-            this.args.queryFunction,
-            typeof this.args.queryFunction
-          );
-          pageNumber.query = this.args.queryFunction(
-            page,
-            this.currentItemsPerPage
-          );
-        } else {
-          assert(
-            '@queryFunction for "Hds::Pagination::Numbered" must be a function',
-            false
-          );
-        }
-      }
-      if (this.args.replace) {
-        console.log(
-          'get pageNumbers → replace',
-          this.args.replace,
-          typeof this.args.replace
-        );
-        pageNumber.replace = this.args.replace;
-      }
-
-      pageNumbers.push(pageNumber);
-    });
-
-    return pageNumbers;
-  }
-
   elliptize({ pages, current }) {
     const limit = 7; // limit # of page numbers shown at a time (should always be an odd number!)
     const length = pages.length;
@@ -259,87 +186,55 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     return result;
   }
 
+  get routing() {
+    let routing = {
+      route: this.args.route ?? undefined,
+      model: this.args.model ?? undefined,
+      models: this.args.models ?? undefined,
+      replace: this.args.replace ?? undefined,
+    };
+
+    // the "query" is dynamic and needs to be calculated
+    if (this.args.queryFunction) {
+      assert(
+        '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+        typeof this.args.queryFunction === 'function'
+      );
+
+      routing.queryPrev = this.args.queryFunction(
+        this.currentPage - 1,
+        this.currentItemsPerPage
+      );
+      routing.queryNext = this.args.queryFunction(
+        this.currentPage + 1,
+        this.currentItemsPerPage
+      );
+      // important: we neeed to use an object and not an array
+      // otherwise the {{get object page}} will be shifted by one
+      // because the pages are 1-based while the array would be zero-based
+      routing.queryByPage = {};
+      this.pages.forEach(
+        (page) =>
+          (routing.queryByPage[page] = this.args.queryFunction(
+            page,
+            this.currentItemsPerPage
+          ))
+      );
+    } else {
+      routing.queryPrev = undefined;
+      routing.queryNext = undefined;
+      routing.queryByPage = {};
+    }
+
+    return routing;
+  }
+
   get isDisabledPrev() {
     return this.currentPage === 1;
   }
 
   get isDisabledNext() {
     return this.currentPage === this.totalPages;
-  }
-
-  get routing() {
-    console.log('get routing');
-
-    let routing = {
-      route: undefined,
-      queryFunction: () => 'AAAA!',
-      replace: undefined,
-      // TODO decide if we want to add these
-      // models: undefined,
-    };
-
-    if (this.args.route) {
-      console.log(
-        'get routing → route',
-        this.args.route,
-        typeof this.args.route
-      );
-      routing.route = this.args.route;
-    }
-    if (this.args.queryFunction) {
-      console.log(
-        'get routing → queryFunction',
-        this.args.queryFunction,
-        typeof this.args.queryFunction
-      );
-      if (typeof this.args.queryFunction === 'function') {
-        console.log(
-          'get routing → queryFunction INSIDE',
-          this.args.queryFunction,
-          typeof this.args.queryFunction
-        );
-        /*
-        routing.queryFunction = (page) => {
-          let gotoPageNumber;
-          if (page === 'prev') {
-            gotoPageNumber = this.currentPage - 1;
-          } else if (page === 'next') {
-            gotoPageNumber = this.currentPage + 1;
-          } else {
-            gotoPageNumber = page;
-          }
-
-          console.log(
-            'get routing → results of `this.args.queryFunction` from consumers',
-            `gotoPageNumber="${gotoPageNumber}"`,
-            this.args.queryFunction(gotoPageNumber, this.currentItemsPerPage)
-          );
-          // we use the function provided by the consumers
-          // to build the query object and then we return it
-          // so it can be consumed by the @query argument
-          return this.args.queryFunction(
-            gotoPageNumber,
-            this.currentItemsPerPage
-          );
-        };
-        */
-      } else {
-        assert(
-          '@queryFunction for "Hds::Pagination::Numbered" must be a function',
-          false
-        );
-      }
-    }
-    if (this.args.replace) {
-      console.log(
-        'get routing → replace',
-        this.args.replace,
-        typeof this.args.replace
-      );
-      routing.replace = this.args.replace;
-    }
-
-    return routing;
   }
 
   @action
