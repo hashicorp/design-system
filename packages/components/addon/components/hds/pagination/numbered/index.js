@@ -227,17 +227,18 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         typeof this.args.queryFunction === 'function'
       );
 
-      routing.queryPrev = this.args.queryFunction(
-        this.currentPage - 1,
-        this.currentItemsPerPage,
-        'prev',
-        this.currentPage.toString()
+      // const pagePrev = 1;
+      // const pageNext = 3;
+      const pagePrev = this.currentPage - 1;
+      const pageNext = this.currentPage + 1;
+      const pageSize = this.currentItemsPerPage;
+      routing.queryPrev = Object.assign(
+        {},
+        this.args.queryFunction(pagePrev, pageSize)
       );
-      routing.queryNext = this.args.queryFunction(
-        this.currentPage + 1,
-        this.currentItemsPerPage,
-        'next',
-        this.currentPage.toString()
+      routing.queryNext = Object.assign(
+        {},
+        this.args.queryFunction(pageNext, pageSize)
       );
       // important: we neeed to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
@@ -248,7 +249,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         (page) =>
           (routing.queryByPage[page] = this.args.queryFunction(
             page,
-            this.currentItemsPerPage,
+            pageSize,
             'page',
             this.currentPage.toString()
           ))
