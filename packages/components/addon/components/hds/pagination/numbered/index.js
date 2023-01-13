@@ -2,11 +2,37 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { inject as service } from '@ember/service';
 
 export default class HdsPaginationNumberedIndexComponent extends Component {
+  @service router;
+
   @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
+
+  constructor() {
+    super(...arguments);
+
+    this.router.on('routeWillChange', this.onRouteWillChange);
+    this.router.on('routeDidChange', this.onRouteDidChange);
+  }
+
+  @action
+  onRouteWillChange(transition) {
+    console.log(
+      `onRoute[WILL]Change - will transition from ${transition.from.name} with queryParam[demoCurrentPage]=${transition.from?.queryParams?.demoCurrentPage} to ${transition.to.name} with queryParam[demoCurrentPage]=${transition.to?.queryParams?.demoCurrentPage}`,
+      transition
+    );
+  }
+
+  @action
+  onRouteDidChange(transition) {
+    console.log(
+      `onRoute[DID]Change - will transition from ${transition.from.name} with queryParam[demoCurrentPage]=${transition.from?.queryParams?.demoCurrentPage} to ${transition.to.name} with queryParam[demoCurrentPage]=${transition.to?.queryParams?.demoCurrentPage}`,
+      transition
+    );
+  }
 
   /**
    * @param showInfo
@@ -203,22 +229,28 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
       routing.queryPrev = this.args.queryFunction(
         this.currentPage - 1,
-        this.currentItemsPerPage
+        this.currentItemsPerPage,
+        'prev',
+        this.currentPage.toString()
       );
       routing.queryNext = this.args.queryFunction(
         this.currentPage + 1,
-        this.currentItemsPerPage
+        this.currentItemsPerPage,
+        'next',
+        this.currentPage.toString()
       );
       // important: we neeed to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
       // because the pages are 1-based while the array would be zero-based
-      debugger;
+      // debugger;
       routing.queryByPage = {};
       this.pages.forEach(
         (page) =>
           (routing.queryByPage[page] = this.args.queryFunction(
             page,
-            this.currentItemsPerPage
+            this.currentItemsPerPage,
+            'page',
+            this.currentPage.toString()
           ))
       );
     } else {
@@ -254,7 +286,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     // we want to invoke the `onPageChange` callback only on actual page change
     if (gotoPageNumber !== this.currentPage) {
-      debugger;
+      // debugger;
       this.currentPage = gotoPageNumber;
 
       let { onPageChange } = this.args;
