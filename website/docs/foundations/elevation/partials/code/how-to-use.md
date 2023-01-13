@@ -1,47 +1,52 @@
 ## How to use these styles
 
-There are two different ways to apply an "elevation" or "surface" effect to a UI element, via **design tokens** or via **CSS helper classes**.
+You can apply an `elevation` or `surface` effect to an element via **design tokens** or **CSS helper classes**.
 
-Which one to use will depend on the context: since both refer to the same design token values, from the design system perspective there is no difference between the two methods (it’s more of a preference for the "consumer" codebase).
+!!! Info
+
+Note that `border-radius` is not included with this token and needs to be set according to the specs of the UI element.
+!!!
 
 ### Design tokens
 
-You can use the "elevation" and "surface" [design tokens](./tokens) directly in your CSS definitions:
+Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
 
 ```css
 .your-selector {
-  box-shadow: var(--token-elevation-mid-box-shadow);
+  box-shadow: var(--token-elevation-high-box-shadow);
 }
 ```
 
-These are the **CSS variables** that you can use:
+#### Available CSS variables
 
+##### Elevation variables
 <Doc::VarsList @items={{this.cssVariables.elevations}} />
+
+##### Surface variables
 <Doc::VarsList @items={{this.cssVariables.surfaces}} />
 
-!!! Warning
-
-*   The "elevation" and "surface" CSS variables can be used **only** with a `box-shadow` property.
-*   The border radius depends on the UI element to which is applied to, so it’s up to you to apply the right `border-radius`.
-!!!
 
 ### CSS helper classes
 
-You can use one of the predefined CSS helper classes:
+1. Ensure you’ve imported the relevant CSS file. 
 
-```handlebars
-<div class="hds-elevation-mid">...</div>
+```scss
+// for product applications
+@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
+
+// for hashicorp developer platform
+@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
 ```
 
-These are the **CSS helper classes** that you can use:
+2. Use a predefined CSS helper class.
 
+```handlebars
+<div class="hds-elevation-high">...</div>
+```
+#### Available CSS helper classes
+
+##### Elevation helpers
 <Doc::VarsList @items={{this.cssHelpers.elevations}} />
+
+##### Surface helpers
 <Doc::VarsList @items={{this.cssHelpers.surfaces}} />
-
-
-To use this classes you have to import the CSS file `[products|devdot]/css/helpers/elevation.css` from the `@hashicorp/design-system-tokens` package.
-
-!!! Warning
-
-The border radius depends on the UI element to which is applied to, so it’s up to you to apply the right `border-radius`
-!!!
