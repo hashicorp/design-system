@@ -8,6 +8,24 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
 
+  // get debug() {
+  //   if (this.args.queryFunction) {
+  //     console.log(typeof this.args.queryFunction());
+  //     return JSON.stringify(this.args.queryFunction(2, 10));
+  //   } else {
+  //     return 'NOH!!';
+  //   }
+  // }
+
+  // @action
+  // wtf1(page) {
+  //   return `WTF1=${page}`;
+  // }
+
+  // wtf2(page) {
+  //   return this.args.queryFunction(page, 10);
+  // }
+
   /**
    * @param showInfo
    * @type {boolean}
@@ -135,6 +153,61 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     }
   }
 
+  get pageNumbers() {
+    let pageNumbers = [];
+
+    this.pages.forEach((page) => {
+      let pageNumber = {
+        page,
+        isSelected: page === this.currentPage,
+      };
+
+      if (this.args.route) {
+        console.log(
+          'get pageNumbers → route',
+          this.args.route,
+          typeof this.args.route
+        );
+        pageNumber.route = this.args.route;
+      }
+      if (this.args.queryFunction) {
+        console.log(
+          'get pageNumbers → queryFunction',
+          this.args.queryFunction,
+          typeof this.args.queryFunction
+        );
+        if (typeof this.args.queryFunction === 'function') {
+          console.log(
+            'get routing → queryFunction INSIDE',
+            this.args.queryFunction,
+            typeof this.args.queryFunction
+          );
+          pageNumber.query = this.args.queryFunction(
+            page,
+            this.currentItemsPerPage
+          );
+        } else {
+          assert(
+            '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+            false
+          );
+        }
+      }
+      if (this.args.replace) {
+        console.log(
+          'get pageNumbers → replace',
+          this.args.replace,
+          typeof this.args.replace
+        );
+        pageNumber.replace = this.args.replace;
+      }
+
+      pageNumbers.push(pageNumber);
+    });
+
+    return pageNumbers;
+  }
+
   elliptize({ pages, current }) {
     const limit = 7; // limit # of page numbers shown at a time (should always be an odd number!)
     const length = pages.length;
@@ -199,12 +272,10 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     let routing = {
       route: undefined,
-      queryFunction: function (aaa) {
-        return (aaa) => aaa;
-      },
+      queryFunction: () => 'AAAA!',
+      replace: undefined,
       // TODO decide if we want to add these
       // models: undefined,
-      replace: undefined,
     };
 
     if (this.args.route) {
@@ -222,6 +293,12 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         typeof this.args.queryFunction
       );
       if (typeof this.args.queryFunction === 'function') {
+        console.log(
+          'get routing → queryFunction INSIDE',
+          this.args.queryFunction,
+          typeof this.args.queryFunction
+        );
+        /*
         routing.queryFunction = (page) => {
           let gotoPageNumber;
           if (page === 'prev') {
@@ -245,6 +322,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
             this.currentItemsPerPage
           );
         };
+        */
       } else {
         assert(
           '@queryFunction for "Hds::Pagination::Numbered" must be a function',
