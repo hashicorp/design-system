@@ -10,6 +10,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
+  @tracked currentTime = new Date().toTimeString();
 
   constructor() {
     super(...arguments);
@@ -227,10 +228,11 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         typeof this.args.queryFunction === 'function'
       );
 
-      // const pagePrev = 1;
-      // const pageNext = 3;
-      const pagePrev = this.currentPage - 1;
-      const pageNext = this.currentPage + 1;
+      const pagePrev = 2;
+      // const pageNext = 10;
+      const pageNext = this.currentTime;
+      // const pagePrev = this.currentPage - 1;
+      // const pageNext = this.currentPage + 1;
       const pageSize = this.currentItemsPerPage;
       routing.queryPrev = Object.assign(
         {},
@@ -240,6 +242,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         {},
         this.args.queryFunction(pageNext, pageSize)
       );
+      debugger;
       // important: we neeed to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
       // because the pages are 1-based while the array would be zero-based
@@ -289,6 +292,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     if (gotoPageNumber !== this.currentPage) {
       // debugger;
       this.currentPage = gotoPageNumber;
+      this.currentTime = new Date().toTimeString();
 
       let { onPageChange } = this.args;
 
