@@ -12,7 +12,7 @@ We currently use [Fathom](https://usefathom.com/) to track analytics and monitor
 
 ## Enabling
 
-Whether analytics are tracked is controlled by the `FATHOM_ENABLED` environment variable being set to `true`. Currently this is only [enabled in the production app in Vercel](https://vercel.com/hashicorp/hds-website/settings/environment-variables) and **should not be enabled in other environments** without a specific reason as this will pollute our statistics.
+Analytics are enabled when the app is in Vercel's production [environment](https://vercel.com/docs/concepts/projects/environment-variables#system-environment-variables): `VERCEL_ENV==="production"`
 
 ## Configuration of analytics & monitoring
 
