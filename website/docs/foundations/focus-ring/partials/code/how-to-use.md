@@ -27,7 +27,7 @@ Use the `--token-focus-ring-action-box-shadow` [design token](./tokens) directly
 
 The CSS helper class `.hds-focus-ring-box-shadow` is a wrapper of the design token. It’s likely you’ll need to use this helper class in composition with other classes (instead of directly in a template) because it’s connected to the element’s “focused” pseudo-state.
 
-To use this class, import the CSS file:
+To use this class, ensure you’ve imported the relevant CSS file:
 
 ```scss
 // for product applications
@@ -43,7 +43,7 @@ While we offer two Sass mixins `hds-focus-ring-basic` and `hds-focus-ring-with-p
 
 In addition to applying the focus style, these mixins also account for all declarations of `:focus/:focus-visible` in the different browsers.
 
-If needing to use these mixins, import the Sass file: 
+If needing to use these mixins, ensure you’ve imported the necessary Sass file: 
 
 <!-- IS THIS CORRECT? ARE THERE OTHER DETAILS WE NEED TO INCLUDE? -->
 ```scss
