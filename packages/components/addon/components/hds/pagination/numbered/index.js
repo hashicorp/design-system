@@ -212,6 +212,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
       // important: we neeed to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
       // because the pages are 1-based while the array would be zero-based
+      debugger;
       routing.queryByPage = {};
       this.pages.forEach(
         (page) =>
@@ -239,6 +240,9 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   @action
   onPageChange(page) {
+    console.log(
+      `Pagination::Numbered onPageChange called with page=${page} where this.currentPage=${this.currentPage}`
+    );
     let gotoPageNumber;
     if (page === 'prev' && this.currentPage > 1) {
       gotoPageNumber = this.currentPage - 1;
@@ -250,6 +254,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     // we want to invoke the `onPageChange` callback only on actual page change
     if (gotoPageNumber !== this.currentPage) {
+      debugger;
       this.currentPage = gotoPageNumber;
 
       let { onPageChange } = this.args;

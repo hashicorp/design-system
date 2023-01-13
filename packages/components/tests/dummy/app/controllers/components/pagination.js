@@ -19,6 +19,9 @@ export default class PaginationController extends Controller {
 
   get consumerQueryFunction() {
     return function (page, pageSize) {
+      console.log(
+        `consumerQueryFunction called / page=${page} / pageSize=${pageSize}`
+      );
       return {
         demoCurrentPage: page,
         demoCurrentPageSize: pageSize,
