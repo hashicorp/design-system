@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class PaginationController extends Controller {
-  queryParams = ['demoCurrentPage', 'demoCurrentPageSize', 'myExtraParam'];
+  queryParams = ['demoCurrentPage', 'demoCurrentPageSize', 'demoExtraParam'];
 
   @service router;
 
