@@ -22,8 +22,15 @@ export default class ApplicationRoute extends Route {
 
   @action
   didTransition() {
+    debugger;
     if (!this.fastboot.isFastBoot) {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
+      debugger;
+      const element = document.querySelector('#main');
+      console.log(
+        `element has an id of main: ${element.hasAttribute('id', 'main')}`
+      );
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
 }

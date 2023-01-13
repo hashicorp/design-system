@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { next, later, cancel } from '@ember/runloop';
+import { defaultValidator } from 'ember-a11y-refocus';
 
 export default class ApplicationController extends Controller {
   @service router;
@@ -64,6 +65,19 @@ export default class ApplicationController extends Controller {
       this.runLater = later(() => {
         document.body.classList.remove('isSidebarInRenderTree');
       }, 250);
+    }
+  }
+
+  // this made no difference (debugger doesn't hit it)
+  validateTransitionForNavigationNarrator(transition) {
+    if (transition.to.name.includes('#')) {
+      console.log(`transition to name does not include a hash`);
+      debugger;
+      return false;
+    } else {
+      debugger;
+      console.log(`transition to name does include a hash`);
+      return defaultValidator(transition);
     }
   }
 
