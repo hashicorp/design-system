@@ -4,11 +4,13 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class PaginationController extends Controller {
-  queryParams = ['myCurrentPage', 'myCurrentPageSize', 'myExtraParam'];
+  queryParams = ['demoCurrentPage', 'demoCurrentPageSize', 'myExtraParam'];
 
   @service router;
 
   @tracked showHighlight = false;
+  @tracked demoCurrentPage = 1;
+  @tracked demoCurrentPageSize = 10;
 
   get consumerRouteName() {
     // return this.router.currentRouteName;
@@ -18,11 +20,21 @@ export default class PaginationController extends Controller {
   get consumerQueryFunction() {
     return function (page, pageSize) {
       return {
-        myCurrentPage: page,
-        myCurrentPageSize: pageSize,
-        myExtraParam: 'hello',
+        demoCurrentPage: page,
+        demoCurrentPageSize: pageSize,
+        demoExtraParam: 'hello',
       };
     };
+  }
+
+  get demoTotalItems() {
+    return this.model.records.length;
+  }
+
+  get demoPaginatedData() {
+    const start = (this.demoCurrentPage - 1) * this.demoCurrentPageSize;
+    const end = this.demoCurrentPage * this.demoCurrentPageSize;
+    return this.model.records.slice(start, end);
   }
 
   @action

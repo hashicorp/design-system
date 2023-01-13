@@ -572,9 +572,29 @@
     query parameters) you need to pass the routing parameters to the component:</p>
   <pre>🚨 TODO </pre>
   <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Table
+    @model={{this.demoPaginatedData}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
   <Hds::Pagination::Numbered
-    @totalItems={{200}}
-    @itemsPerPage={{10}}
+    @totalItems={{this.demoTotalItems}}
+    @itemsPerPage={{this.demoCurrentPageSize}}
+    @currentPage={{this.demoCurrentPage}}
     @pageSizes={{array 10 30 50}}
     @route={{this.consumerRouteName}}
     @queryFunction={{this.consumerQueryFunction}}
