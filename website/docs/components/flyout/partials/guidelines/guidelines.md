@@ -44,7 +44,7 @@ Even though adding a title icon and tagline can help the user better understand 
 
 ## Body
 
-The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code `yeild` is supported. 
+The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported. 
 
 #### With custom content
 

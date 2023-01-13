@@ -9,4 +9,4 @@ When displaying additional information, context, or details about an object or e
 ### When not to use
 
 - When requesting the user for information or feedback, use a [Modal](/components/modal).
-- When displaying overly complex information, consider moving the content to it’s own page.
+- When displaying overly complex information, consider moving the content to its own page.

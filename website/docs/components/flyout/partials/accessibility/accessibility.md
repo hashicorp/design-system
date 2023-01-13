@@ -10,12 +10,12 @@ The Flyout component is conformant when used as directed.
 
 - When a Flyout is triggered, focus is trapped within the component.
     - If there are no interactive elements within the body of the Flyout, the dismiss button should receive focus as the first interactive element in the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
-    - If there is an interactive element within the body (link a link), that element should receive focus first.
+    - If there is an interactive element within the body (like a link), that element should receive focus first.
 - Since a Flyout is a complex component that can contain any combination of nested components and content, nested elements must adhere to their individual accessibility criteria.
 
 ### Focus within a simple Flyout
 
-If the Flyout is triggered via the keyboard and there isn't any content in the body eligible to recieve focus, the dismiss button recieves focus first.
+If the Flyout is triggered via the keyboard and there isn’t any content in the body eligible to receive focus, the dismiss button receives focus first.
 
 ![Focus order within a simple Flyout](/assets/components/flyout/flyout-focus-order-simple.png)
 
