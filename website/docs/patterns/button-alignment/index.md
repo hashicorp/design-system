@@ -1,5 +1,5 @@
 ---
-title: Button patterns
+title: Button alignment
 description: Guidelines for aligning, ordering, and grouping action buttons.
 status: released
 ---
@@ -8,14 +8,12 @@ status: released
   @include "partials/overview.md"
 </section>
 
-<section data-tab="Alignment">
+<section data-tab="Specifications">
   @include "partials/alignment.md"
+  @include "partials/grouping.md"
+  @include "partials/order.md"
 </section>
 
-<section data-tab="Grouping">
-  @include "partials/grouping.md"
-</section>
-
-<section data-tab="Order">
-  @include "partials/grouping.md"
+<section data-tab="Accessibility">
+  @include "partials/accessibility.md"
 </section>
