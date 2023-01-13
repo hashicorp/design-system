@@ -58,3 +58,9 @@
     width: fit-content;
   }
 }
+
+// to add space between the demo table and the pagination
+
+.hds-table + .hds-pagination {
+  margin-top: 12px;
+}
