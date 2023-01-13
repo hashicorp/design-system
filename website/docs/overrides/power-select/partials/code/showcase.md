@@ -10,7 +10,7 @@
     <div class="hds-power-select">
       <PowerSelect
         @options={{this.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{this.SELECTED}}
         @onChange={{this.noop}}
         @renderInPlace={{true}}
         as |option|
@@ -25,8 +25,8 @@
     <div class="hds-power-select">
       <PowerSelect
         class="mock-focus"
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @options={{this.OPTIONS}}
+        @selected={{this.SELECTED}}
         @onChange={{this.noop}}
         @renderInPlace={{true}}
         as |option|
@@ -40,8 +40,8 @@
   <div class="dummy-power-select-container">
     <div class="hds-power-select">
       <PowerSelect
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @options={{this.OPTIONS}}
+        @selected={{this.SELECTED}}
         @onChange={{this.noop}}
         @disabled={{true}}
         @renderInPlace={{true}}

@@ -1,0 +1,22 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers" : [
+        {
+          "key" : "X-Robots-Tag",
+          "value" : "all"
+        }
+      ]
+    },
+    {
+      "source": "/testing(.*)",
+      "headers" : [
+        {
+          "key" : "X-Robots-Tag",
+          "value" : "none"
+        }
+      ]
+    }
+  ]
+}
