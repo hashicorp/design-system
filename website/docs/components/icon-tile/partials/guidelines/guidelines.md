@@ -23,7 +23,122 @@ Use a **product-specific color** for objects or pages that are directly related 
 
 ### Examples
 
+TEST, horizontal:
+<Doc::Layout @spacing="10px">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
 
+TEST, vertical:
+<Doc::Layout @direction="vertical" @spacing="10px">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+
+----
+
+TEST, horizontal, align=right:
+<Doc::Layout @spacing="10px" @align="right">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+
+TEST, vertical, align=right:
+<Doc::Layout @direction="vertical" @spacing="10px" @align="right">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+
+----
+
+TEST, horizontal, align=center:
+<Doc::Layout @spacing="10px" @align="center">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+
+TEST, vertical, align=center:
+<Doc::Layout @direction="vertical" @spacing="10px" @align="center">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+
+
+----
+
+TEST, horizontal, align=justify:
+<Doc::Layout @spacing="10px" @align="justify">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+
+TEST, vertical, align=justify:
+<Doc::Layout @direction="vertical" @spacing="10px" @align="justify">
+  <Hds::IconTile @color="neutral" @icon="user" />
+  <Hds::IconTile @color="boundary" @icon="crosshair" />
+  <Hds::IconTile @color="consul" @icon="server-cluster" />
+  <Hds::IconTile @color="nomad" @icon="briefcase" />
+  <Hds::IconTile @color="packer" @icon="layers" />
+  <Hds::IconTile @color="terraform" @icon="grid" />
+  <Hds::IconTile @color="vagrant" @icon="box" />
+  <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
+</Doc::Layout>
+NOTE: Only shows an effect if height of container is taller than child items inside. Bug: Adds extra space after last child in this case. 
+(Seems like an edge case usage though.)
+
+----
+
+OLD:
 <Hds::IconTile @color="neutral" @icon="user" />
 <Hds::IconTile @color="boundary" @icon="crosshair" />
 <Hds::IconTile @color="consul" @icon="server-cluster" />
