@@ -1,13 +1,13 @@
 ---
-title: Usage Guidelines
+title: Icon usage
 caption: Guidelines for using and implementing icons consistently.
 previewImage: assets/illustrations/icons/usage-guidelines.jpg
 ---
 
 <section data-tab="Guidelines">
-  @include "partials/design-guidelines.md"
+  @include "partials/guidelines/overview.md"
 </section>
 
 <section data-tab="Code">
-  @include "partials/engineering-guidelines.md"
+  @include "partials/code/how-to-use.md"
 </section>
