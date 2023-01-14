@@ -1,22 +1,21 @@
-There are multiple ways to use these icons in your codebase. The package can be installed as an [Ember addon](#ember-flight-icons) for the convenience of using a component with strong defaults, or it can be [consumed in React applications](#use-react) via direct import of the SVG file or as a standalone React/SVG icon component.
+## How to use icons
 
-## Use in Ember apps
+Helios icons can be used in many ways. The package can be installed as an [Ember addon](#ember-flight-icons) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#use-react) via direct import of the SVG file or as a standalone React/SVG icon component.
 
-### Installation
+### Using icons in Ember apps
 
-To install, run:
+#### Installing the `ember-flight-icons` addon
+
 ```bash
 yarn add @hashicorp/ember-flight-icons
 ```
 
 !!! Information
 
-**Note**
-
-Because this addon exposes a `data-test-icon` helper, it is suggested consumers install `ember-test-selectors`. [This Ember addon](https://github.com/simplabs/ember-test-selectors) strips out all `data-test-*` attributes for production builds.
+Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors). `ember-test-selectors` strips out all `data-test-*` attributes for production builds.
 !!!
 
-### Understanding the component
+#### Understanding the component
 
 The component comes with the following defaults:
 
@@ -25,7 +24,7 @@ The component comes with the following defaults:
 3.  `aria-hidden` attribute: set to true.
 4.  `height` and `width`: default size of 16x16 (px).
 5.  `stretched`: if the SVG should have 100% width/height (stretch to fill the parent)—defaults to "false".
-6.  (CSS) `class`: flight-icon, flight-icon-NAME, flight-icon-display-inline.
+6.  (CSS) `class`: flight-icon, flight-icon-{name}, flight-icon-display-inline.
 7.  CSS display: set to `display:inline-block`.
 8.  `data-test-icon` attribute: for the author’s testing convenience; set to the value of the `@name` property.
 
@@ -55,65 +54,70 @@ Renders to this (where the ID will be unique each time):
 
 The `<use>` element will then render the correct SVG to the shadow DOM.
 
-### Customizable properties
+#### Customizable properties
 
 The following properties are customizable:
 
-1.  fill (color).
-2.  size (only 16 and 24 are supported).
-3.  stretched (true/false).
-4.  display (inline-block or block).
-5.  additional CSS classes.
+1.  [fill](#fill)
+2.  [size](#size)
+3.  [stretched](#stretched)
+4.  [additional CSS classes](#css-classes)
+5.  [display](#css-display)
 
-#### Examples
+##### Fill
 
-**Fill:** To customize the fill attribute, set the `@color` value (multiple supported ways). The recommended approach to ensure consistency is to use one of the pre-defined variables:
+To customize the fill attribute, set the `@color` value. To ensure consistency with our design language, we recommend using one of the pre-defined variables:
 
-```markup
+```handlebars
 <FlightIcon @name="zap" @color="var(--brand)" />
 ```
 
-Other accepted values include named colors and color values themselves.
+Other accepted values include named colors and color values themselves (e.g., hex, rgb, etc).
 
-```markup
+```handlebars
 <FlightIcon @name="zap" @color="rebeccapurple" />
 ```
 
-```markup
+```handlebars
 <FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
 ```
 
-**Size:** To use the 24x24 (px) icon size, set the `@size` value:
+##### Size
 
-```markup
+To use the 24px icon size, set the `@size` value:
+
+```handlebars
 <FlightIcon @name="zap" @size="24" />
 ```
 
-**Stretched:** To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the `@stretched` attribute:
+##### Stretched
 
-```markup
-<flighticon="" @name="zap" @size="24" @stretched="{{true}}">
+To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the `@stretched` attribute:
+
+```handlebars
+<FlightIcon @name="zap" @size="24" @stretched={{true}} />
 ```
 
-**CSS classes:** To append additional classes to the component, add `class` with value(s):
+##### CSS classes
+
+To append additional classes to the component, add `class` with value(s):
 
 ```markup
 <FlightIcon @name="triangle-fill" class="ds-rotate-90" />
 ```
 
-**CSS display:** To change the default display of _inline-block_ to _block_, set `@isInlineBlock` to false:
-```markup
-<flighticon="" @name="triangle-fill" @isinlineblock="{{false}}">
+##### CSS display
+
+To change the default display from `inline-block` to `block`, set `@isInlineBlock` to false:
+
+```handlebars
+<FlightIcon @name="triangle" @isInlineBlock={{false}} />
+<FlightIcon @name="triangle-fill" @isInlineBlock={{false}} />
 ```
 
-#### Animated icons
+##### Animated icons
 
-Some of the icons are animated by default (e.g. "loading" and "running").
-To use them, declare them the same way you would with any other icon.
-
-```markup
-<FlightIcon @name="loading" @size="24" />
-```
+Animated icons (e.g., "loading" and "running") are animated by default, meaning no additional properties are needed. 
 
 !!! Information
 
@@ -122,18 +126,20 @@ To use them, declare them the same way you would with any other icon.
 A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
 !!!
 
-## Use in React apps
+```handlebars
+<FlightIcon @name="loading" @size="24" />
+```
 
-It is also possible to install `@hashicorp/flight-icons` and use the icons in React applications.
+### Using icons in React apps
 
-!!! Information
+If needing icons in a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component. 
 
-**Note**
+!!! Info
 
-For more context, you can check out the [pull-request](https://github.com/hashicorp/flight/pull/325), where this implementation has been discussed and agreed upon.
+For more details about the decision to add this functionality, visit this [pull-request](https://github.com/hashicorp/flight/pull/325).
 !!!
 
-### Installation
+#### Installing the `flight-icons` package
 
 To install, run:
 
@@ -141,9 +147,11 @@ To install, run:
 yarn install @hashicorp/flight-icons
 ```
 
-### Inline SVG
+#### Importing icons as inline SVGs
 
-Single icons can be imported and used directly as SVG files using the [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) provided by the [@hashicorp/react-components](https://github.com/hashicorp/react-components) library:
+Single icons can be imported and used directly as SVG files using [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) provided by [@hashicorp/react-components](https://github.com/hashicorp/react-components).
+
+Since this is just an SVG asset, no _props_ can be passed. You should refer to the [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) documentation to know how to apply color and size to the SVG icon.
 
 ```javascript
 // import the SVG file (using 'require')
@@ -158,16 +166,9 @@ import iconArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?inclu
 <InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
 ```
 
-!!! Information
+#### Importing icons as React/SVG components
 
-The code above is an example; please update it accordingly to your codebase.
-!!!
-
-Since this is just an SVG asset, there are no _props_ that can be passed to it. You should refer to the [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) documentation to know how to apply color and size to the SVG icon.
-
-### React/SVG
-
-Single icons can be also imported and used directly as standalone React/SVG components:
+Single icons can be imported and used directly as standalone React/SVG components:
 
 ```javascript
 // import the React/TypeScript file (using 'require')
@@ -179,12 +180,7 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 <IconArrowRight24 />
 ```
 
-!!! Information
-
-The code above is an example; please update it accordingly to your codebase.
-!!!
-
-### Props
+#### Customizable properties
 
 The component exposes the following _props_:
 
@@ -196,14 +192,14 @@ The size of the icon is determined by the size of the asset imported (each icon 
 
 #### Animated icons
 
-Some of the icons are supposed to be animated (e.g. “loading” and “running”).
-To use them, first of all, you must to import the CSS that controls the icons' animation in your CSS:
+Some of the icons are meant to be animated (e.g., “loading” and “running”). To use them, import the CSS that controls the icons' animation:
 
-```css
-// the path here depends if you’re using 'svg-react' or 'svg' icons @import ~@hashicorp/flight-icons/svg-react/animation.css';
+```scss
+// the path here depends if you’re using 'svg-react' or 'svg' icons 
+@import ~@hashicorp/flight-icons/svg-react/animation.css';
 ```
 
-and declare them the same way you would with any other icon.
+Then declare them the same way you would with any other icon.
 
 ```javascript
 // if you’re using the 'svg-react' icons
@@ -222,10 +218,9 @@ import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
 A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
 !!!
 
-
 ## Accessibility
 
-Accessibility (a11y) support for SVGs is inconsistent across browsers and assistive technology. Currently, the best practice is to set the `aria-hidden` attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will need to be used _in context_. The icons themselves are for presentation purposes only and should never be used on their own.
+Accessibility support for SVGs is inconsistent across browsers and assistive technology. Currently, the best practice is to set the `aria-hidden` attribute to false on the SVG itself. This means that the icon (both the singular icon and the icon component) will need to be used _in context_. The icons themselves are for presentation purposes only and should never be used on their own.
 
 However, as a _temporary_ bridge, while we work to provide the accessible components in the design system, we have provided the ability to add a title element to the Ember component by defining a value for the `@title` property. This is a temporary measure, and we strongly encourage UI engineering teams to work with their designers and plan to convert any standalone icon use.
 
@@ -233,19 +228,25 @@ However, as a _temporary_ bridge, while we work to provide the accessible compon
 
 ```markup
 <button aria-label="Check activity">
-<FlightIcon @name="activity" />
+    <FlightIcon @name="activity" />
 </button>
 ```
 
 ```markup
-<h2>Activity report <FlightIcon @name="activity" />
+<h2>
+    Activity report <FlightIcon @name="activity" />
+</h2>
 ```
 
-Authors should also follow the following guidelines:
+Some additional best practices include:
 
-- The icons are sized as 16x16(px) and 24x24(px) and should not be used at different sizes without a design consult.
-- The icons do not have a unique id generated; authors should take precautions to avoid [related accessibility conformance failures](https://www.w3.org/TR/WCAG20-TECHS/F77.html).
+- Use icons at 16px or 24px. Use at other sizes sparingly.
+- Icons do not have a unique id generated; take precautions to avoid [related accessibility conformance failures](https://www.w3.org/TR/WCAG20-TECHS/F77.html).
 
-## Updating existing interfaces
+## Migrating from Structure
 
-- We maintain [a name mapping between Structure and Flight](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/structure-mappings.json) that can be referenced to migrate an icon from Structure to Flight. It is also possible to write codemods to automate this migration. If you are interested in learning more, reach out to [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) (Internal only).
+### Choosing the correct icon
+
+When migrating icons from Structure, reference our [mapping of icon names between Structure and Helios](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/structure-mappings.json).
+
+It’s possible to write codemods to automate this migration. If you’re interested in learning more, contact [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) (Internal only).
