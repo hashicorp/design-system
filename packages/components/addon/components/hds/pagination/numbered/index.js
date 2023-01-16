@@ -10,7 +10,10 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
-  @tracked currentTime = new Date().toTimeString();
+  @tracked currentTime = new Date()
+    .toISOString()
+    .substring(11, 19)
+    .replaceAll(':', '-');
 
   constructor() {
     super(...arguments);
@@ -228,21 +231,22 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         typeof this.args.queryFunction === 'function'
       );
 
-      const pagePrev = 2;
+      // const pagePrev = 2;
       // const pageNext = 10;
-      const pageNext = this.currentTime;
-      // const pagePrev = this.currentPage - 1;
-      // const pageNext = this.currentPage + 1;
+      // const pageNext = this.currentTime;
+      const pagePrev = this.currentPage - 1;
+      const pageNext = this.currentPage + 1;
       const pageSize = this.currentItemsPerPage;
+      const now = this.currentTime;
       routing.queryPrev = Object.assign(
         {},
-        this.args.queryFunction(pagePrev, pageSize)
+        this.args.queryFunction(pagePrev, pageSize, now)
       );
       routing.queryNext = Object.assign(
         {},
-        this.args.queryFunction(pageNext, pageSize)
+        this.args.queryFunction(pageNext, pageSize, now)
       );
-      debugger;
+      // debugger;
       // important: we neeed to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
       // because the pages are 1-based while the array would be zero-based
@@ -253,8 +257,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
           (routing.queryByPage[page] = this.args.queryFunction(
             page,
             pageSize,
-            'page',
-            this.currentPage.toString()
+            now
           ))
       );
     } else {
@@ -287,12 +290,22 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     } else {
       gotoPageNumber = page;
     }
+    console.log(
+      `Pagination::Numbered onPageChange called with page=${page} where this.currentPage=${this.currentPage} (before update) and gotoPageNumber=${gotoPageNumber}`
+    );
 
     // we want to invoke the `onPageChange` callback only on actual page change
     if (gotoPageNumber !== this.currentPage) {
       // debugger;
       this.currentPage = gotoPageNumber;
-      this.currentTime = new Date().toTimeString();
+      this.currentTime = new Date()
+        .toISOString()
+        .substring(11, 19)
+        .replaceAll(':', '-');
+
+      console.log(
+        `Pagination::Numbered onPageChange updated value of this.currentPage=${this.currentPage} (after update)`
+      );
 
       let { onPageChange } = this.args;
 

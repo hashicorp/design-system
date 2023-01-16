@@ -3,19 +3,13 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-const xxx = (page, pageSize, from, current) => {
-  console.log(
-    `consumerQueryFunction called / page=${page} / pageSize=${pageSize} / from=${from} / current=${current}`
-  );
-  return {
-    demoCurrentPage: page,
-    demoCurrentPageSize: pageSize,
-    demoExtraParam: 'hello',
-  };
-};
-
 export default class PaginationController extends Controller {
-  queryParams = ['demoCurrentPage', 'demoCurrentPageSize', 'demoExtraParam'];
+  queryParams = [
+    'demoTimeNow',
+    'demoCurrentPage',
+    'demoCurrentPageSize',
+    'demoExtraParam',
+  ];
 
   @service router;
 
@@ -29,7 +23,17 @@ export default class PaginationController extends Controller {
   }
 
   get consumerQueryFunction() {
-    return xxx;
+    return (page, pageSize, now) => {
+      console.log(
+        `consumerQueryFunction called / page=${page} / pageSize=${pageSize} / now=${now}`
+      );
+      return {
+        demoTimeNow: now,
+        demoCurrentPage: page,
+        demoCurrentPageSize: pageSize,
+        demoExtraParam: 'hello',
+      };
+    };
   }
 
   get demoTotalItems() {
@@ -37,10 +41,10 @@ export default class PaginationController extends Controller {
   }
 
   get demoPaginatedData() {
-    // const start = (this.demoCurrentPage - 1) * this.demoCurrentPageSize;
-    // const end = this.demoCurrentPage * this.demoCurrentPageSize;
-    // return this.model.records.slice(start, end);
-    return this.model.records.slice(0, 10);
+    const start = (this.demoCurrentPage - 1) * this.demoCurrentPageSize;
+    const end = this.demoCurrentPage * this.demoCurrentPageSize;
+    return this.model.records.slice(start, end);
+    // return this.model.records.slice(0, 10);
   }
 
   @action
