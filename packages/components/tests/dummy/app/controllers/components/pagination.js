@@ -32,6 +32,7 @@ export default class PaginationController extends Controller {
         demoCurrentPage: page,
         demoCurrentPageSize: pageSize,
         demoExtraParam: 'hello',
+        orgId: this.model.something,
       };
     };
   }

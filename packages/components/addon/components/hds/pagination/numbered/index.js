@@ -9,7 +9,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
-  @tracked currentPage = this.args.currentPage ?? 1;
+  @tracked _currentPage = this.args.currentPage ?? 1;
   @tracked currentTime = new Date()
     .toISOString()
     .substring(11, 19)
@@ -20,6 +20,16 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     this.router.on('routeWillChange', this.onRouteWillChange);
     this.router.on('routeDidChange', this.onRouteDidChange);
+  }
+
+  get currentPage() {
+    return this.args.currentPage ?? this._currentPage;
+  }
+
+  set currentPage(value) {
+    if (this.args.currentPage === null || this.args.currentPage === undefined) {
+      this._currentPage = value;
+    }
   }
 
   @action
@@ -297,11 +307,13 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     // we want to invoke the `onPageChange` callback only on actual page change
     if (gotoPageNumber !== this.currentPage) {
       // debugger;
-      this.currentPage = gotoPageNumber;
-      this.currentTime = new Date()
-        .toISOString()
-        .substring(11, 19)
-        .replaceAll(':', '-');
+      if (!this.args.queryFunction) {
+        this.currentPage = gotoPageNumber;
+        this.currentTime = new Date()
+          .toISOString()
+          .substring(11, 19)
+          .replaceAll(':', '-');
+      }
 
       console.log(
         `Pagination::Numbered onPageChange updated value of this.currentPage=${this.currentPage} (after update)`
