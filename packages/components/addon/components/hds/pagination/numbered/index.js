@@ -7,65 +7,11 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
 
-  /**
-   * @param showInfo
-   * @type {boolean}
-   * @default true
-   * @description Show the "info" block
-   */
-  get showInfo() {
-    let { showInfo = true } = this.args;
-
-    return showInfo;
-  }
-
-  /**
-   * @param showLabels
-   * @type {boolean}
-   * @default false
-   * @description Show the labels for the "prev/next" controls
-   */
-  get showLabels() {
-    let { showLabels = false } = this.args;
-
-    return showLabels;
-  }
-
-  /**
-   * @param showSizeSelector
-   * @type {boolean}
-   * @default true
-   * @description Show the "size selector" block
-   */
-  get showSizeSelector() {
-    let { showSizeSelector = true } = this.args;
-
-    return showSizeSelector;
-  }
-
-  /**
-   * @param showPageNumbers
-   * @type {boolean}
-   * @default true
-   * @description Show the "page numbers" block
-   */
-  get showPageNumbers() {
-    let { showPageNumbers = true } = this.args;
-
-    return showPageNumbers;
-  }
-
-  /**
-   * @param isTruncated
-   * @type {boolean}
-   * @default true
-   * @description Limit the visible "page numbers" (elliptize them)
-   */
-  get isTruncated() {
-    let { isTruncated = true } = this.args;
-
-    return isTruncated;
-  }
+  showInfo = this.args.showInfo ?? true; // if the "info" block is visible
+  showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
+  showSizeSelector = this.args.showSizeSelector ?? true; // if the "size selector" block is visible
+  showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
+  isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
   /**
    * Gets the current page
