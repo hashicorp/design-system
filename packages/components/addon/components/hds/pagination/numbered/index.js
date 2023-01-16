@@ -7,10 +7,8 @@ import { inject as service } from '@ember/service';
 export default class HdsPaginationNumberedIndexComponent extends Component {
   @service router;
 
-  @tracked currentItemsPerPage = this.args.itemsPerPage;
-  @tracked totalPages = this.calculateTotalPages();
   @tracked _currentPage = this.args.currentPage ?? 1;
-  @tracked _currentPageSize = this.args.itemsPerPage;
+  @tracked _currentPageSize = this.args.itemsPerPage ?? this.args.pageSizes[0];
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
   showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
@@ -18,57 +16,81 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
   isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
-  get routeQueryParams() {
-    return this.router.currentRoute?.queryParams || {};
+  constructor() {
+    super(...arguments);
+
+    let { queryParamPage, queryParamPageSize } = this.args;
+
+    assert(
+      '@queryParamPage and @queryParamPageSize for "Hds::Numbered" must be both or defined or undefined (you can\'t have only one defined)',
+      (queryParamPage !== undefined && queryParamPageSize !== undefined) ||
+        (queryParamPage === undefined && queryParamPageSize === undefined)
+    );
+
+    this.router.on('routeWillChange', this.onRouteWillChange);
+    this.router.on('routeDidChange', this.onRouteDidChange);
+  }
+
+  @action
+  onRouteWillChange(transition) {
+    console.log(
+      `onRoute[WILL]Change - will transition ` +
+        `from queryParam[demoCurrentPage]=${transition.from?.queryParams?.demoCurrentPage} and queryParam[demoCurrentPageSize]=${transition.from?.queryParams?.demoCurrentPageSize}` +
+        ` → → → → → → ` +
+        `to queryParam[demoCurrentPage]=${transition.to?.queryParams?.demoCurrentPage} && queryParam[demoCurrentPageSize]=${transition.to?.queryParams?.demoCurrentPageSize}`,
+      transition
+    );
+  }
+
+  @action
+  onRouteDidChange(transition) {
+    console.log(
+      `onRoute[DID]Change - transitioned` +
+        `from queryParam[demoCurrentPage]=${transition.from?.queryParams?.demoCurrentPage} and queryParam[demoCurrentPageSize]=${transition.from?.queryParams?.demoCurrentPageSize}` +
+        ` → → → → → → ` +
+        `to queryParam[demoCurrentPage]=${transition.to?.queryParams?.demoCurrentPage} && queryParam[demoCurrentPageSize]=${transition.to?.queryParams?.demoCurrentPageSize}`,
+      transition
+    );
   }
 
   get currentPage() {
-    console.log('get currentPage() called');
+    // console.log('get currentPage() called');
     // return this.args.currentPage ?? this._currentPage;
     return this._currentPage;
   }
 
   set currentPage(value) {
-    console.log(
-      `set currentPage() called [1] with value="${value}" and this._currentPage=${this._currentPage}`
-    );
+    // console.log(
+    //   `set currentPage() called [1] with value="${value}" and this._currentPage=${this._currentPage}`
+    // );
     // if (this.args.currentPage === null || this.args.currentPage === undefined) {
     this._currentPage = value;
-    console.log(
-      `set currentPage() called [2] with value="${value}" and this._currentPage=${this._currentPage}`
-    );
+    // console.log(
+    //   `set currentPage() called [2] with value="${value}" and this._currentPage=${this._currentPage}`
+    // );
     // }
   }
 
   get currentPageSize() {
-    console.log('get currentPageSize() called');
+    // console.log('get currentPageSize() called');
     // return this.args.currentPage ?? this._currentPage;
     return this._currentPageSize;
   }
 
   set currentPageSize(value) {
-    console.log(
-      `set currentPageSize() called [1] with value="${value}" and this._currentPageSize=${this._currentPageSize}`
-    );
+    // console.log(
+    //   `set currentPageSize() called [1] with value="${value}" and this._currentPageSize=${this._currentPageSize}`
+    // );
     // if (this.args.currentPage === null || this.args.currentPage === undefined) {
     this._currentPageSize = value;
-    console.log(
-      `set currentPageSize() called [2] with value="${value}" and this._currentPageSize=${this._currentPageSize}`
-    );
+    // console.log(
+    //   `set currentPageSize() called [2] with value="${value}" and this._currentPageSize=${this._currentPageSize}`
+    // );
     // }
   }
 
-  calculateTotalPages() {
-    return Math.max(Math.ceil(this.args.totalItems / this.itemsPerPage), 1);
-  }
-
-  /**
-   * @param itemsPerPage
-   * @type {number}
-   * @description Pass the maximum number of items to display on each page initially.
-   */
-  get itemsPerPage() {
-    return this.currentItemsPerPage;
+  get totalPages() {
+    return Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1);
   }
 
   get itemsRangeStart() {
@@ -77,15 +99,15 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     //  ( (1 - 1 = 0) * 10 = 0 ) + 1 = 1
     // if current page = 2nd page:
     // ( (2 - 1 = 1) * 10 = 10 ) + 1 = 11
-    return (this.currentPage - 1) * this.itemsPerPage + 1;
+    return (this.currentPage - 1) * this.currentPageSize + 1;
   }
 
   get itemsRangeEnd() {
     // Calculate ending range of items displayed on current page
     // 2 cases: 1) full page of items or 2) last page of items
-    if (this.currentPage * this.itemsPerPage < this.args.totalItems) {
+    if (this.currentPage * this.currentPageSize < this.args.totalItems) {
       // 1) full page of items (pages 1 to page before last):
-      return this.itemsRangeStart + this.itemsPerPage - 1;
+      return this.itemsRangeStart + this.currentPageSize - 1;
     } else {
       // 2) last page of items:
       return this.args.totalItems;
@@ -157,29 +179,32 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     return result;
   }
 
-  queryParamsByPage(page) {
+  get routeQueryParams() {
+    return this.router.currentRoute?.queryParams || {};
+  }
+
+  buildQueryParamsObject(page) {
     let queryParams = Object.assign({}, this.routeQueryParams);
-
-    if (this.args.queryParamPage) {
-      queryParams[this.args.queryParamPage] = page;
+    let { queryParamPage, queryParamPageSize } = this.args;
+    if (queryParamPage) {
+      queryParams[queryParamPage] = page;
     }
-    if (this.args.queryParamPageSize) {
-      queryParams[this.args.queryParamPageSize] = this.currentPageSize;
+    if (queryParamPageSize) {
+      queryParams[queryParamPageSize] = this.currentPageSize;
     }
-
     return queryParams;
   }
 
-  get queryParams() {
+  get templateQueryParams() {
     let queryParams = {};
-    queryParams.prev = this.queryParamsByPage(this.currentPage - 1);
-    queryParams.next = this.queryParamsByPage(this.currentPage + 1);
-    // important: we neeed to use an object and not an array
+    queryParams.prev = this.buildQueryParamsObject(this.currentPage - 1);
+    queryParams.next = this.buildQueryParamsObject(this.currentPage + 1);
+    // IMPORTANT: here we neeed to use an object and not an array
     // otherwise the {{get object page}} will be shifted by one
     // (the pages are 1-based while the array would be zero-based)
     queryParams.pages = {};
     this.pages.forEach(
-      (page) => (queryParams.pages[page] = this.queryParamsByPage(page))
+      (page) => (queryParams.pages[page] = this.buildQueryParamsObject(page))
     );
     return queryParams;
   }
@@ -210,7 +235,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
       let { onPageChange } = this.args;
 
       if (typeof onPageChange === 'function') {
-        onPageChange(this.currentPage, this.currentItemsPerPage);
+        onPageChange(this.currentPage, this.currentPageSize);
       }
     }
   }
@@ -218,28 +243,19 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   @action
   onPageSizeChange(newPageSize) {
     this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    this.currentItemsPerPage = newPageSize;
-    this.totalPages = this.calculateTotalPages();
+    this.currentPageSize = newPageSize;
 
-    let { onPageSizeChange, queryParamPage, queryParamPageSize } = this.args;
+    let { queryParamPage, queryParamPageSize, onPageSizeChange } = this.args;
 
-    if (typeof onPageSizeChange === 'function') {
-      onPageSizeChange(newPageSize);
+    // we need to manually update the query parameters in the route (it's not a link!)
+    if (queryParamPage && queryParamPageSize) {
+      let queryParams = this.buildQueryParamsObject(this.currentPage);
+      this.router.transitionTo({ queryParams });
     }
 
-    // TODO!!!
-    if (
-      queryParamPageSize &&
-      this.routeQueryParams[queryParamPage] &&
-      this.routeQueryParams[queryParamPageSize]
-    ) {
-      this.router.transitionTo({
-        queryParams: {
-          // we need to update also the `currentPage` because we've reset it to "1"
-          queryParamPage: this.currentPage,
-          queryParamPageSize: this.currentItemsPerPage,
-        },
-      });
+    // invoke the callback function
+    if (typeof onPageSizeChange === 'function') {
+      onPageSizeChange(newPageSize);
     }
   }
 }

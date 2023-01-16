@@ -2,9 +2,8 @@
 <pre>this.currentPage {{this.currentPage}}</pre>
 <pre>this.currentPageSize {{this.currentPageSize}}</pre>
 <pre>this._currentPageSize {{this._currentPageSize}}</pre>
-{{#each-in this.routeQueryParams as |key value|}}
-  <pre>this.routeQueryParams [{{key}}] = {{value}}</pre>
-{{/each-in}}
+<pre>queryParams[demoCurrentPage] {{this.routeQueryParams.demoCurrentPage}}</pre>
+<pre>queryParams[demoCurrentPageSize] {{this.routeQueryParams.demoCurrentPageSize}}</pre>
 
 <div class="hds-pagination" ...attributes>
   {{#if this.showInfo}}
@@ -21,7 +20,7 @@
       @direction="prev"
       @showLabel={{this.showLabels}}
       @route={{@route}}
-      @query={{this.queryParams.prev}}
+      @query={{this.templateQueryParams.prev}}
       @model={{@model}}
       @models={{@models}}
       @replace={{@replace}}
@@ -38,7 +37,7 @@
               <Hds::Pagination::Nav::Number
                 @page={{page}}
                 @route={{@route}}
-                @query={{get this.queryParams.pages page}}
+                @query={{get this.templateQueryParams.pages page}}
                 @model={{@model}}
                 @models={{@models}}
                 @replace={{@replace}}
@@ -54,7 +53,7 @@
       @direction="next"
       @showLabel={{this.showLabels}}
       @route={{@route}}
-      @query={{this.queryParams.next}}
+      @query={{this.templateQueryParams.next}}
       @model={{@model}}
       @models={{@models}}
       @replace={{@replace}}
@@ -66,7 +65,7 @@
   {{#if this.showSizeSelector}}
     <Hds::Pagination::SizeSelector
       @sizes={{@pageSizes}}
-      @selectedSize={{this.itemsPerPage}}
+      @selectedSize={{this.currentPageSize}}
       @onChange={{this.onPageSizeChange}}
     />
   {{/if}}
