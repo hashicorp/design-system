@@ -1,19 +1,22 @@
-// FORM > SEARCH
+// FORM > filter
 
 @use "../../typography/mixins" as *;
 
+.doc-form-filter {
+  position: relative;
+}
 
-.doc-form-search__control {
-  @include doc-font-style-body();
+.doc-form-filter__control {
+  @include doc-font-style-body-small();
   width: 100%;
-  height: 44px;
-  padding-left: 48px;
+  height: 36px;
+  padding: 0 0 0 32px;
   color: var(--doc-color-gray-200);
   background-color: var(--doc-color-white);
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23727374'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); // notice: the icon color is hardcoded here!
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%23727374'%3E%3Cpath d='M1 3.75A.75.75 0 011.75 3h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 3.75zM3.5 7.75A.75.75 0 014.25 7h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM6.75 11a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-2.5z'/%3E%3C/g%3E%3C/svg%3E"); // notice: the icon color is hardcoded here!
   background-repeat: no-repeat;
-  background-position: left 16px top 11px; // we have to take into account the border
-  background-size: 20px 20px;
+  background-position: left 8px top 7px; // we have to take into account the border
+  background-size: 16px 16px;
   border: 1px solid var(--doc-color-gray-300);
   border-radius: 3px;
 
@@ -30,10 +33,10 @@
   &::-webkit-search-cancel-button {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 6px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%231D1E1F' d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3E%3C/svg%3E"); // notice: the icon color is hardcoded here!
     background-position: center center;
-    background-size: 20px 20px;
+    background-size: 16px 16px;
     // stylelint-disable-next-line property-no-vendor-prefix
     -webkit-appearance: none;
   }

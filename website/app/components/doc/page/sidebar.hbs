@@ -31,6 +31,15 @@
       </ul>
     </nav>
     {{#if this.structuredPageTree}}
+      <div class="doc-page-sidebar__filter">
+        <Doc::Form::Filter
+          @placeholder="Filter sidebar"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+        />
+      </div>
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
         <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
       </nav>
