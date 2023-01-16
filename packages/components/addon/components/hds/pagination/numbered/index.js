@@ -21,11 +21,16 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     let { queryParamPage, queryParamPageSize } = this.args;
 
-    assert(
-      '@queryParamPage and @queryParamPageSize for "Hds::Numbered" must be both or defined or undefined (you can\'t have only one defined)',
-      (queryParamPage !== undefined && queryParamPageSize !== undefined) ||
-        (queryParamPage === undefined && queryParamPageSize === undefined)
-    );
+    if (queryParamPage === undefined && queryParamPageSize === undefined) {
+      this.hasRouting = false;
+    } else {
+      assert(
+        '@queryParamPage and @queryParamPageSize for "Hds::Numbered" must be both or undefined or defined as strings (you can\'t have only one defined)',
+        typeof queryParamPage === 'string' &&
+          typeof queryParamPageSize === 'string'
+      );
+      this.hasRouting = true;
+    }
 
     this.router.on('routeWillChange', this.onRouteWillChange);
     this.router.on('routeDidChange', this.onRouteDidChange);
@@ -184,15 +189,15 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   buildQueryParamsObject(page) {
-    let queryParams = Object.assign({}, this.routeQueryParams);
-    let { queryParamPage, queryParamPageSize } = this.args;
-    if (queryParamPage) {
+    if (this.hasRouting) {
+      let queryParams = Object.assign({}, this.routeQueryParams);
+      let { queryParamPage, queryParamPageSize } = this.args;
       queryParams[queryParamPage] = page;
-    }
-    if (queryParamPageSize) {
       queryParams[queryParamPageSize] = this.currentPageSize;
+      return queryParams;
+    } else {
+      return {};
     }
-    return queryParams;
   }
 
   get templateQueryParams() {
@@ -248,8 +253,12 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     let { queryParamPage, queryParamPageSize, onPageSizeChange } = this.args;
 
     // we need to manually update the query parameters in the route (it's not a link!)
-    if (queryParamPage && queryParamPageSize) {
+    if (this.hasRouting) {
       let queryParams = this.buildQueryParamsObject(this.currentPage);
+      console.log(
+        `About to transition with queryParamPage=${queryParams[queryParamPage]} (where this.currentPage=${this.currentPage}) and queryParamPageSize=${queryParams[queryParamPageSize]} (where this.currentPageSize=${this.currentPageSize})`,
+        queryParams
+      );
       this.router.transitionTo({ queryParams });
     }
 
