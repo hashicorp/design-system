@@ -34,7 +34,7 @@ For example, when showing one failure in a list of 20 otherwise successful build
 
 ### Off
 
-Off icons are icons including a strike-through. Off icons are indicated by `-off` in the icon name.
+Off icons are icons including a strike-through and are indicated by `-off` in the icon name.
 
 Use Off icons to indicate something is disabled, unavailable, or will return a toggled icon `off`.
 
