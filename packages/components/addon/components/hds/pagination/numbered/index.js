@@ -81,21 +81,20 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   get currentPageSize() {
-    // console.log('get currentPageSize() called');
-    // return this.args.currentPage ?? this._currentPage;
-    return this._currentPageSize;
+    if (this.hasRouting) {
+      return this.args.itemsPerPage;
+    } else {
+      return this._currentPageSize;
+    }
   }
 
   set currentPageSize(value) {
-    // console.log(
-    //   `set currentPageSize() called [1] with value="${value}" and this._currentPageSize=${this._currentPageSize}`
-    // );
-    // if (this.args.currentPage === null || this.args.currentPage === undefined) {
-    this._currentPageSize = value;
-    // console.log(
-    //   `set currentPageSize() called [2] with value="${value}" and this._currentPageSize=${this._currentPageSize}`
-    // );
-    // }
+    if (this.hasRouting) {
+      // noop
+      this._currentPageSize = value;
+    } else {
+      this._currentPageSize = value;
+    }
   }
 
   get totalPages() {
@@ -251,19 +250,22 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   @action
   onPageSizeChange(newPageSize) {
-    this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    this.currentPageSize = newPageSize;
-
     let { queryParamPage, queryParamPageSize, onPageSizeChange } = this.args;
 
     // we need to manually update the query parameters in the route (it's not a link!)
     if (this.hasRouting) {
-      let queryParams = this.buildQueryParamsObject(this.currentPage);
+      let queryParams = Object.assign({}, this.routeQueryParams);
+      // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+      queryParams[queryParamPage] = 1;
+      queryParams[queryParamPageSize] = newPageSize;
       console.log(
         `About to transition with queryParamPage=${queryParams[queryParamPage]} (where this.currentPage=${this.currentPage}) and queryParamPageSize=${queryParams[queryParamPageSize]} (where this.currentPageSize=${this.currentPageSize})`,
         queryParams
       );
       this.router.transitionTo({ queryParams });
+    } else {
+      this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+      this.currentPageSize = newPageSize;
     }
 
     // invoke the callback function
