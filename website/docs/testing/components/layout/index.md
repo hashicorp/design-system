@@ -6,6 +6,8 @@ title: Doc::Layout
 
 The `Doc::Layout` component is used to lay out a group of elements and add spacing between them.
 
+Currently it works best for creating simple layouts and adding spacing between example components within documentation pages vs. as a general layout tool. (It does not handle markdown as content for example.) In the future, we can enhance this component to support more complex layouts and various types of content if there is a need.
+
 **Default horizontal direction with 12px spacing**
 
 ```handlebars
