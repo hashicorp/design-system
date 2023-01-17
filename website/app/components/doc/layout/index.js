@@ -4,9 +4,11 @@ import { assert } from '@ember/debug';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
 export const ALIGNMENTS = ['left', 'right', 'center', 'justify'];
+export const CSS_UNITS = ['px', 'rem', 'em', '%'];
 
 // sanitize & validate custom spacing value:
-const cssUnitRegEx = /^-?((\d+)|(\d+\.\d+)|(\.\d+))(px|rem|em|%)$/;
+const regExStr = '^-?((\\d+)|(\\d+\\.\\d+)|(\\.\\d+))(' + CSS_UNITS.join('|') + ')$';
+const cssUnitRegEx = new RegExp(regExStr, 'i');
 
 export default class DocLayoutIndexComponent extends Component {
   /**
@@ -37,14 +39,12 @@ export default class DocLayoutIndexComponent extends Component {
     let { spacing } = this.args;
 
     assert(
-      '@spacing for "Doc::Layout" must have a valid value',
+      `@spacing for "Doc::Layout" must include a number and one of the following CSS units: ${CSS_UNITS.join(', ')}; received: "${spacing}"`,
       spacing === undefined || spacing.match(cssUnitRegEx)
     );
 
     if (spacing !== undefined) {
-      if (spacing.match(cssUnitRegEx)) {
-        return htmlSafe(`--doc-layout-spacing: ${spacing}`);
-      }
+      return htmlSafe(`--doc-layout-spacing: ${spacing}`);
     }
 
     return undefined;
