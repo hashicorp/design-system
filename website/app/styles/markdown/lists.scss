@@ -1,27 +1,13 @@
 // LISTS (MARKDOWN)
 
+// Notice: vertical spacing is declared in `/styles/spacing`
+
 .doc-markdown-ul,
 .doc-markdown-ol {
   padding-left: 16px;
-
-  > li > p {
-    margin-top: 12px;
-  }
-
-  > li + li {
-    margin-top: 12px;
-  }
 
   // custom marker color
   > li::marker {
     color: var(--doc-color-gray-300);
   }
-}
-
-.doc-markdown-ul .doc-markdown-ul,
-.doc-markdown-ul .doc-markdown-ol,
-.doc-markdown-ol .doc-markdown-ul,
-.doc-markdown-ol .doc-markdown-ol {
-  margin-top: 0;
-  margin-bottom: 0;
 }

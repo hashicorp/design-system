@@ -6,7 +6,7 @@ layout:
 
 **Basic badge**
 
-<Doc::Badge>Hello!</Doc::Badge>
+<Doc::Badge @type="information">Hello!</Doc::Badge>
 
 -----
 

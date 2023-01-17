@@ -1,6 +1,6 @@
 ---
 title: Template
-hidden: false
+hidden: true
 description: {Optional long description that appears in the cover}
 caption: {Short description that appears in the cards}
 status: released
@@ -17,7 +17,7 @@ links:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>
 
 <section data-tab="Specifications">

@@ -6,6 +6,7 @@ status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36977&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/radio
+previewImage: assets/illustrations/components/form/radio.jpg
 ---
 
 <section data-tab="Guidelines">
@@ -16,7 +17,7 @@ links:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>
 
 <section data-tab="Specifications">

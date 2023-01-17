@@ -30,11 +30,13 @@
 }
 
 .doc-content-principles__title {
+  @include doc-font-style-h3();
   margin: 0;
   color: var(--doc-color-black);
 }
 
 .doc-content-principles__description {
+  @include doc-font-style-body();
   margin: 8px 0 0 0;
   color: var(--doc-color-gray-200);
 }

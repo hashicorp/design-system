@@ -6,6 +6,12 @@
 .doc-page-footer {
   // z-index: var(--doc-z-index-footer);
   grid-area: footer;
+
+  body.application:not(.index) & {
+    @include breakpoint.with-fixed-sidebar() {
+      padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
+    }
+  }
 }
 
 .doc-page-footer__nav-menu {
@@ -40,6 +46,8 @@
 }
 
 .doc-page-footer__nav-item {
+  @include doc-font-style-body-small();
+
   a {
     color: var(--doc-color-gray-300);
     text-decoration: none;

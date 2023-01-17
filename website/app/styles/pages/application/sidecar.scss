@@ -22,6 +22,7 @@
 }
 
 .doc-page-sidecar__on-this-page {
+  @include doc-font-style-label();
   margin: 0 0 16px 0;
   color: var(--doc-color-black);
 }
@@ -39,6 +40,7 @@
   }
 
   a {
+    @include doc-font-style-navigation();
     position: relative;
     display: inline-block;
     padding: 0 0 0 var(--padding-left);

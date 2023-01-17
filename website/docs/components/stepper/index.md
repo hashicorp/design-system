@@ -6,6 +6,7 @@ status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=15313%3A50538&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/stepper
+previewImage: assets/illustrations/components/stepper.jpg
 ---
 
 <section data-tab="Guidelines">
@@ -16,7 +17,7 @@ links:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>
 
 <section data-tab="Specifications">

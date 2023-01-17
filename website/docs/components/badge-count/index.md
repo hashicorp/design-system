@@ -6,6 +6,7 @@ status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2340%3A20946&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/badge-count
+previewImage: assets/illustrations/components/badge-count.jpg
 ---
 
 <section data-tab="Guidelines">
@@ -15,7 +16,7 @@ links:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>
 
 <section data-tab="Accessibility">

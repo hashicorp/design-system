@@ -16,6 +16,8 @@
 
 // CODE SNIPPETS
 
+// Notice: vertical spacing is declared in `/styles/spacing`
+
 .doc-markdown-code {
   @include doc-font-family("mono");
   padding: 0.25em 0.5em;
@@ -27,15 +29,12 @@
 
 .doc-markdown-pre {
   @include doc-font-style-code ();
-  margin-top: 0;
-  margin-bottom: 12px;
   word-wrap: normal;
 
   // this is different, and needs to override most of the styles declared above
   .doc-markdown-code {
     display: inline;
     max-width: auto;
-    margin: 0;
     padding: 0;
     overflow: visible;
     white-space: pre;
@@ -48,9 +47,10 @@
 
 // HORIZONTAL RULE
 
+// Notice: vertical spacing is declared in `/styles/spacing`
+
 .doc-markdown-hr {
   height: 1px;
-  margin: 16px 0;
   padding: 0;
   background-color: lightgray; // TODO
   border: 0;

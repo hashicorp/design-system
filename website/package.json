@@ -97,13 +97,14 @@
     "yaml-front-matter": "^4.1.1"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": "12.* || 14.* || 16.*"
   },
   "ember": {
     "edition": "octane"
   },
   "ember-addon": {
     "paths": [
+      "lib/analytics",
       "lib/markdown"
     ]
   }

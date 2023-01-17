@@ -1,7 +1,7 @@
 <main class="doc-page-home" id="main">
   <div class="doc-page-home__content">
     <div class="doc-page-home__hero">
-      <h1>Helios Design System</h1>
+      <h1><span class="doc-page-home__hero-helios">Helios</span> Design System</h1>
       <p>The Helios Design System provides the building blocks to design and implement consistent, accessible, and
         delightful product experiences across HashiCorp.</p>
       <div class="doc-page-home__hero-links">
@@ -33,6 +33,7 @@
             @icon="arrow-right"
             @fillParent={{true}}
             @isAnimated={{true}}
+            aria-label={{concat "Explore " card.title ": " card.description}}
           />
         </li>
       {{/each}}

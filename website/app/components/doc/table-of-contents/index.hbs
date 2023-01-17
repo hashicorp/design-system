@@ -5,7 +5,7 @@
     <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-{{@depth}}">
       {{#if item.pageURL}}
         <LinkTo
-          class="doc-table-of-contents__link doc-text-navigation"
+          class="doc-table-of-contents__link"
           @route="show"
           @model={{item.pageURL}}
           @query={{hash tab=null}}
@@ -15,11 +15,11 @@
         </LinkTo>
       {{else}}
         {{#if (eq @depth 1)}}
-          <div class="doc-table-of-contents__heading doc-text-label">{{humanize key}}</div>
+          <div class="doc-table-of-contents__heading">{{humanize key}}</div>
           <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
         {{else}}
           <details class="doc-table-of-contents__folder">
-            <summary class="doc-table-of-contents__summary doc-text-navigation">{{humanize key}}</summary>
+            <summary class="doc-table-of-contents__summary">{{humanize key}}</summary>
             <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
           </details>
         {{/if}}

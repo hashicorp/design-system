@@ -78,7 +78,7 @@ To consistently style the `@afterOptionsComponent` use the `hds-power-select__af
 
 Where `power-select/after-options.hbs` would look like this:
 
-```handlebars
+```handlebars{data-execute=false}
 <div class="hds-power-select__after-options">
   5 results
 </div>

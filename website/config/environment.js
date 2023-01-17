@@ -24,6 +24,14 @@ module.exports = function (environment) {
     fastboot: {
       hostWhitelist: [/^localhost:\d+$/],
     },
+
+    'ember-meta': {
+      description:
+        'Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.',
+      siteName: 'Helios Design System',
+      title: 'Helios Design System',
+      imgSrc: '/assets/logos/share-card.jpg',
+    },
   };
 
   if (environment === 'development') {

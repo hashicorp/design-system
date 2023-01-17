@@ -6,6 +6,7 @@ status: released
 order: 99
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form
+previewImage: assets/illustrations/components/form/primitives.jpg
 ---
 
 <section data-tab="Guidelines">
@@ -16,7 +17,7 @@ links:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>
 
 <section data-tab="Accessibility">
