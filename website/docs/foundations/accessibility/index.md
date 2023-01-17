@@ -29,7 +29,7 @@ Ensure that each page has a relevant page title. This is included in Ember appli
 
 ### Headings
 
-Headings (`h1`-`h6`) should follow a logical order and shouldn’t skip any levels. Dynamic applications can make this challenging, so this may require extra attention in checking what renders to the browser.
+Headings (`h1`–`h6`) should follow a logical order and shouldn’t skip any levels. Dynamic applications can make this challenging, so this may require extra attention in checking what renders to the browser.
 
 ### Input labels
 
