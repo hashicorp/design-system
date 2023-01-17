@@ -52,7 +52,7 @@ If an object is toggled `on` and it can be toggled `off`, consider showing the O
 
 ### Contained
 
-Contained icons are icons with a containing shape. Contained icons are indicated by their shape type in the icon name, e.g., `-circle`, `-square`, etc.
+Contained icons are icons with a containing shape and are indicated by their shape type in the icon name, e.g., `-circle`, `-square`, etc.
 
 Use contained icons for emphasis in the hierarchy.
 
