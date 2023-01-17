@@ -7,7 +7,8 @@ export const ALIGNMENTS = ['left', 'right', 'center', 'justify'];
 export const CSS_UNITS = ['px', 'rem', 'em', '%'];
 
 // sanitize & validate custom spacing value:
-const regExStr = '^-?((\\d+)|(\\d+\\.\\d+)|(\\.\\d+))(' + CSS_UNITS.join('|') + ')$';
+const regExStr =
+  '^-?((\\d+)|(\\d+\\.\\d+)|(\\.\\d+))(' + CSS_UNITS.join('|') + ')$';
 const cssUnitRegEx = new RegExp(regExStr, 'i');
 
 export default class DocLayoutIndexComponent extends Component {
@@ -39,7 +40,9 @@ export default class DocLayoutIndexComponent extends Component {
     let { spacing } = this.args;
 
     assert(
-      `@spacing for "Doc::Layout" must include a number and one of the following CSS units: ${CSS_UNITS.join(', ')}; received: "${spacing}"`,
+      `@spacing for "Doc::Layout" must include a number and one of the following CSS units: ${CSS_UNITS.join(
+        ', '
+      )}; received: "${spacing}"`,
       spacing === undefined || spacing.match(cssUnitRegEx)
     );
 
