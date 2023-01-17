@@ -4,16 +4,20 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class PaginationController extends Controller {
-  queryParams = ['demoCurrentPage', 'demoCurrentPageSize', 'demoExtraParam'];
+  queryParams = [
+    'currentPage_demo2',
+    'currentPageSize_demo2',
+    'demoExtraParam',
+  ];
 
   @service router;
 
   @tracked showHighlight = false;
-  @tracked demoCurrentPage = 2;
-  @tracked demoCurrentPageSize = 30;
   @tracked currentPage_demo1 = 2;
   @tracked currentPageSize_demo1 = 5;
-  @tracked demoExtraParam = '';
+  @tracked currentPage_demo2 = 2;
+  @tracked currentPageSize_demo2 = 30;
+  // @tracked demoExtraParam = '';
 
   get consumerRouteName() {
     // eg. 'components.pagination';
@@ -22,12 +26,6 @@ export default class PaginationController extends Controller {
 
   get demoTotalItems() {
     return this.model.records.length;
-  }
-
-  get demoPaginatedData() {
-    const start = (this.demoCurrentPage - 1) * this.demoCurrentPageSize;
-    const end = this.demoCurrentPage * this.demoCurrentPageSize;
-    return this.model.records.slice(start, end);
   }
 
   // GENERIC EVENT HANDLERS
@@ -43,7 +41,7 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  handlePageChange(page, pageSize) {
+  genericHandlePageChange(page, pageSize) {
     console.log(
       pageSize !== undefined
         ? `Page changed to "${page}" with page size equal to "${pageSize}"!`
@@ -52,7 +50,7 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  handlePageSizeChange(pageSize) {
+  genericHandlePageSizeChange(pageSize) {
     console.log(`Page size changed to "${pageSize}"!`);
   }
 
@@ -74,6 +72,14 @@ export default class PaginationController extends Controller {
   get paginatedData_demo1() {
     const start = (this.currentPage_demo1 - 1) * this.currentPageSize_demo1;
     const end = this.currentPage_demo1 * this.currentPageSize_demo1;
+    return this.model.records.slice(start, end);
+  }
+
+  // DEMO #2
+
+  get paginatedData_demo2() {
+    const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
+    const end = this.currentPage_demo2 * this.currentPageSize_demo2;
     return this.model.records.slice(start, end);
   }
 }

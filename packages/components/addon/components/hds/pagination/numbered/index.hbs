@@ -4,16 +4,18 @@
       <pre>this._currentPage {{this._currentPage}}</pre>
       <pre>this.currentPage {{this.currentPage}}</pre>
       <pre>@currentPage {{@currentPage}}</pre>
-      <pre>queryParams[demoCurrentPage] {{this.routeQueryParams.demoCurrentPage}}</pre>
+      <pre>queryParams[currentPage_demo2] {{this.routeQueryParams.currentPage_demo2}}</pre>
     </td>
     <td>
       <pre>this._currentPageSize {{this._currentPageSize}}</pre>
       <pre>this.currentPageSize {{this.currentPageSize}}</pre>
       <pre>@itemsPerPage {{@itemsPerPage}}</pre>
-      <pre>queryParams[demoCurrentPageSize] {{this.routeQueryParams.demoCurrentPageSize}}</pre>
+      <pre>queryParams[currentPageSize_demo2] {{this.routeQueryParams.currentPageSize_demo2}}</pre>
     </td>
   </tr>
 </table>
+
+{{log this.routeQueryParams}}
 
 <div class="hds-pagination" ...attributes>
   {{#if this.showInfo}}
