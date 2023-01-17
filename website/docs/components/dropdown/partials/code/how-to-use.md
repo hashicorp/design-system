@@ -156,7 +156,7 @@ Note that `toggleText` is still required, because it supplies the `aria-label` f
 <Hds::Dropdown as |dd|>
   <dd.ToggleIcon @icon="user" @text="user menu" />
   <dd.Title @text="Signed In" />
-  <dd.Description @text="design-systems@hashicorp.com" />
+  <dd.Description @text="email@domain.com" />
   <dd.Separator />
   <dd.Interactive @route="components" @text="Settings and Preferences" />
   <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
@@ -177,7 +177,7 @@ Note that `toggleText` is still required, because it supplies the `aria-label` f
 <Hds::Dropdown as |dd|>
   <dd.ToggleIcon @icon="settings" @text="settings menu" />
   <dd.Title @text="Signed In" />
-  <dd.Description @text="design-systems@hashicorp.com" />
+  <dd.Description @text="email@domain.com" />
   <dd.Separator />
   <dd.Interactive @route="components" @text="Settings and Preferences" />
   <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
