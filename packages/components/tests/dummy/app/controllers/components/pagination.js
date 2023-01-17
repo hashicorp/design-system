@@ -25,6 +25,7 @@ export default class PaginationController extends Controller {
     prev: null,
     next: btoa(`next__1`),
   };
+  @tracked xxx = null;
   @tracked prevToken_demo4 = null;
   @tracked nextToken_demo4 = btoa(`next__1`);
 
@@ -117,13 +118,42 @@ export default class PaginationController extends Controller {
 
   // DEMO #4
 
-  updateCursor(newPrevCursor, newNextCursor) {
-    this.prevToken_demo4 =
-      newPrevCursor < 0 ? null : btoa(`prev_${newPrevCursor}`);
-    this.nextToken_demo4 =
-      newNextCursor > this.model.records.length - 1
-        ? null
-        : btoa(`next_${newNextCursor}`);
+  @action
+  updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex) {
+    // this.prevToken_demo4 =
+    //   newPrevCursor < 0 ? null : btoa(`prev_${newPrevCursor}`);
+    // this.nextToken_demo4 =
+    //   newNextCursor > this.model.records.length - 1
+    //     ? null
+    //     : btoa(`next_${newNextCursor}`);
+
+    debugger;
+
+    let newPrevToken;
+    let newNextToken;
+    if (newPrevCursorIndex >= 0) {
+      const newPrevRecordId = this.model.records[newPrevCursorIndex].id;
+      newPrevToken = btoa(`prev_${newPrevRecordId}`);
+    } else {
+      newPrevToken = null;
+    }
+    if (newNextCursorIndex < this.model.records.length) {
+      const newNextRecordId = this.model.records[newNextCursorIndex].id;
+      newNextToken = btoa(`next_${newNextRecordId}`);
+    } else {
+      newNextToken = null;
+    }
+
+    console.log(
+      '>>>>',
+      newPrevCursorIndex,
+      newPrevToken,
+      newNextCursorIndex,
+      newNextToken
+    );
+
+    this.prevToken_demo4 = newPrevToken;
+    this.nextToken_demo4 = newNextToken;
   }
 
   get pageCursor_demo4() {
@@ -135,7 +165,6 @@ export default class PaginationController extends Controller {
 
   get paginatedData_demo4() {
     const pageSize = 5;
-    debugger;
 
     let token;
     if (this.prevToken_demo4) {
@@ -166,34 +195,7 @@ export default class PaginationController extends Controller {
     // calculate new cursors
     const newPrevCursorIndex = start - 1 - pageSize;
     const newNextCursorIndex = start + pageSize;
-    let newPrevToken;
-    let newNextToken;
-    if (newPrevCursorIndex >= 0) {
-      const newPrevRecordId = this.model.records[newPrevCursorIndex].id;
-      newPrevToken = btoa(`prev_${newPrevRecordId}`);
-    } else {
-      newPrevToken = null;
-    }
-    if (newNextCursorIndex < this.model.records.length) {
-      const newNextRecordId = this.model.records[newNextCursorIndex].id;
-      newNextToken = btoa(`next_${newNextRecordId}`);
-    } else {
-      newNextToken = null;
-    }
-
-    console.log(
-      '>>>>',
-      newPrevCursorIndex,
-      newPrevToken,
-      newNextCursorIndex,
-      newNextToken
-    );
-
-    // we need to use this hack to avoid Ember complaining
-    // next(this, function () {
-    //   this.prevToken_demo4 = newPrevToken;
-    //   this.nextToken_demo4 = newNextToken;
-    // });
+    this.updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex);
 
     // return data
     records = this.model.records.splice(start, end);
