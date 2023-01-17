@@ -38,10 +38,15 @@
           autocorrect="off"
           autocapitalize="none"
           spellcheck="false"
+          @onInput={{this.filterPageTree}}
         />
       </div>
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
-        <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
+        <Doc::TableOfContents
+          @structuredPageTree={{this.structuredPageTree}}
+          @depth={{1}}
+          @isFiltered={{this.isFiltered}}
+        />
       </nav>
     {{/if}}
   </div>

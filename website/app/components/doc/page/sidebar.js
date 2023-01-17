@@ -1,4 +1,8 @@
 import Component from '@glimmer/component';
+import { restartableTask, timeout } from 'ember-concurrency';
+import { tracked } from '@glimmer/tracking';
+
+const DEBOUNCE_MS = 250;
 
 // we want to limit the content of the sidebar navigation to only the links related to the current "section".
 // notice: super hacky way to do it, but... it works™ !
@@ -30,6 +34,12 @@ const getTocSectionBundle = (section) => {
 };
 
 export default class DocPageSidebarComponent extends Component {
+  @tracked filterQuery = '';
+
+  get isFiltered() {
+    return this.filterQuery !== '';
+  }
+
   get structuredPageTree() {
     const { currentPath, currentRoute } = this.args;
 
@@ -52,5 +62,11 @@ export default class DocPageSidebarComponent extends Component {
     });
 
     return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;
+  }
+
+  @restartableTask *filterPageTree(filterQuery) {
+    yield timeout(DEBOUNCE_MS);
+
+    this.filterQuery = filterQuery;
   }
 }
