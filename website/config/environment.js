@@ -6,6 +6,8 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'history',
+    targetElement: '#main',
+    historySupportMiddleware: true,
 
     EmberENV: {
       FEATURES: {
@@ -18,8 +20,6 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    historySupportMiddleware: true,
 
     fastboot: {
       hostWhitelist: [/^localhost:\d+$/],
