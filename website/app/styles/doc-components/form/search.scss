@@ -21,6 +21,12 @@
     color: var(--doc-color-gray-300);
   }
 
+  // hide "search" icon in iOS
+  &::-webkit-search-decoration {
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -webkit-appearance: none;
+  }
+
   &::-webkit-search-cancel-button {
     width: 20px;
     height: 20px;
