@@ -1,7 +1,7 @@
 .doc-layout {
   display: flex;
   flex-flow: wrap;
-  gap: var(--doc-layout-spacing);
+  gap: var(--doc-layout-spacing, 0);
 }
 
 // Direction:
