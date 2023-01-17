@@ -9,7 +9,7 @@ Note that `border-radius` is not included with this token and needs to be set ac
 
 ### Design tokens
 
-Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS definitions. Note that it can only be used with the `box-shadow` property.
+Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS definitions. Note that they can only be used with the `box-shadow` property.
 
 ```css
 .your-selector {
