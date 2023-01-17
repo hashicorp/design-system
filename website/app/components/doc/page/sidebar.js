@@ -63,6 +63,12 @@ export default class DocPageSidebarComponent extends Component {
     return this.filterQuery !== '';
   }
 
+  get hasTableOfContents() {
+    return (
+      this.structuredPageTree && Object.keys(this.structuredPageTree).length > 0
+    );
+  }
+
   get structuredPageTree() {
     const { currentPath, currentRoute } = this.args;
 
