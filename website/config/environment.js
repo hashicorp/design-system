@@ -31,6 +31,7 @@ module.exports = function (environment) {
       siteName: 'Helios Design System',
       title: 'Helios Design System',
       imgSrc: '/assets/logos/share-card.jpg',
+      url: 'https://helios.hashicorp.design/',
     },
   };
 
