@@ -4,12 +4,12 @@ import { assert } from '@ember/debug';
 
 export const DIRECTIONS = ['prev', 'next'];
 
-export default class HdsPaginationNavIndexComponent extends Component {
+export default class HdsPaginationControlArrowComponent extends Component {
   get content() {
     let { direction } = this.args;
 
     assert(
-      `@direction for "PaginationBar::Pagination::NavButton" must be one of the following: ${DIRECTIONS.join(
+      `@direction for "Pagination::Nav::Arrow" must be one of the following: ${DIRECTIONS.join(
         ', '
       )}; received: ${direction}`,
       DIRECTIONS.includes(direction)
@@ -35,25 +35,30 @@ export default class HdsPaginationNavIndexComponent extends Component {
   }
 
   /**
+   * @param showLabel
+   * @type {boolean}
+   * @default true
+   * @description Show the labels for the control
+   */
+  get showLabel() {
+    let { showLabel = true } = this.args;
+
+    return showLabel;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
     let classes = [
-      'hds-pagination-nav__button-arrow',
       'hds-pagination-nav__control',
+      'hds-pagination-nav__arrow',
+      `hds-pagination-nav__arrow--direction-${this.args.direction}`,
       'hds-typography-body-100',
       'hds-font-weight-medium',
     ];
-
-    classes.push(
-      `hds-pagination-nav__button-arrow--direction-${this.args.direction}`
-    );
-
-    if (this.args.type === 'compact') {
-      classes.push(`hds-pagination-nav__button-arrow--labeled`);
-    }
 
     return classes.join(' ');
   }

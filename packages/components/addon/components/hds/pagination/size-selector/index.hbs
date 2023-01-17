@@ -3,7 +3,7 @@
   <Hds::Form::Select::Base id={{this.SizeSelectorId}} {{on "change" this.onChange}} as |S|>
     <S.Options>
       {{#each this.sizes as |size|}}
-        <option value={{size}} selected={{if (eq size @itemsPerPage) true null}}>{{size}}</option>
+        <option value={{size}} selected={{if (eq size @selectedSize) true null}}>{{size}}</option>
       {{/each}}
     </S.Options>
   </Hds::Form::Select::Base>

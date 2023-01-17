@@ -20,7 +20,7 @@ module('Integration | Component | hds/pagination/info', function (hooks) {
     assert.dom('#test-pagination-info').hasClass('hds-pagination-info');
   });
 
-  // Test API:
+  // CONTENT
 
   test('it should show the passed in itemsRangeStart and itemsRangeEnd values', async function (assert) {
     await render(hbs`

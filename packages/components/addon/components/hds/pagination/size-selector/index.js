@@ -3,7 +3,7 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsPaginationBarSizeSelectorComponent extends Component {
+export default class HdsPaginationSizeSelectorComponent extends Component {
   /**
    * Generates a unique ID for the pageSize select
    *
@@ -19,7 +19,10 @@ export default class HdsPaginationBarSizeSelectorComponent extends Component {
   get sizes() {
     let { sizes } = this.args;
 
-    assert('@sizes must be defined', sizes !== undefined);
+    assert(
+      '@sizes for "Pagination::SizeSelector" must be defined',
+      sizes !== undefined
+    );
 
     return sizes;
   }

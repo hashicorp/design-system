@@ -2,11 +2,6 @@
 
 <h2 class="dummy-h2">Pagination</h2>
 
-{{! ADD YOUR CONTENT BELOW }}
-{{! Please follow as much as possible what it's already done in other components. }}
-{{! You can start by copy&pasting it, if you want, and then adapt it according to your needs. }}
-{{! Once done, please remove these comments (they're created by the generator). }}
-
 <section>
   <h3 class="dummy-h3" id="overview"><a href="#overview" class="dummy-link-section">§</a> Overview</h3>
 
@@ -23,94 +18,303 @@
 <section>
   <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
   <p class="dummy-paragraph">
-    The
-    <code class="dummy-code">Pagination</code>
-    component is a wrapper component for the Pagination-related sub-components, each with their own APIs:
-  </p>
+    The term “<code class="dummy-code">Pagination</code>
+    component” is an umbrella term used to indicate a set of Pagination-related components and sub-components, each with
+    their own APIs.</p>
 
+  <p class="dummy-paragraph">There are two main
+    <strong>high-level “container” components</strong>, which control the layout and some of the logic that connects the
+    different sub-components:</p>
   <ul class="dummy-list">
     <li>
-      a
-      <code class="dummy-code">Pagination</code>
-      “container” component which controls the layout and some of the logic that connects the different sub-components
+      <code class="dummy-code">Pagination::Numbered</code>
+      - used when the number of items is known (this component handles all the complexity of the pagination information
+      shown to the user: "info", "page numbers", "current page", "page size")
     </li>
     <li>
-      an optional
+      <code class="dummy-code">Pagination::Compact</code>
+      - used when the number of items is unknown or the pagination needs to be
+      <a
+        href="https://jsonapi.org/profiles/ethanresnick/cursor-pagination/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >cursor-based</a>
+      (so there is no concept of "current page")
+    </li>
+  </ul>
+  <p class="dummy-paragraph">For more details on when and how to use these two components, refer to the "How to use"
+    section below.</p>
+
+  <p class="dummy-paragraph">There is also a set of
+    <strong>low-level sub-components</strong>, used to build the "numbered" and "compact" variants:</p>
+  <ul class="dummy-list">
+    <li>
       <code class="dummy-code">Pagination::Info</code>
-      component which displays the current range of items shown and the total number of items
+      - used to display the current range of items shown and the total number of items
     </li>
     <li>
-      a
-      <code class="dummy-code">Pagination::Nav</code>
-      component which provides navigation controls and optionally displays page numbers
+      <code class="dummy-code">Pagination::Nav::Arrow</code>
+      - used to provide "prev/next" navigation controls
     </li>
     <li>
-      an optional
+      <code class="dummy-code">Pagination::Nav::Number</code>
+      - used to provide "page number" navigation controls
+    </li>
+    <li>
+      <code class="dummy-code">Pagination::Nav::Ellipsis</code>
+      - used to display an ellipsis instead of a set of page numbers
+    </li>
+    <li>
       <code class="dummy-code">Pagination::SizeSelector</code>
-      component which allows users to change the number of items displayed per page
+      - used to allow users to change the number of items displayed per page
     </li>
   </ul>
 
-  <h4 class="dummy-h4">Pagination</h4>
-  <p class="dummy-paragraph" id="component-api-pagination">Here is the API for the main (“container”) component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-pagination">
-    <dt>totalItems <code>number</code> <strong class="required">required</strong></dt>
-    <dd>Pass the total number of items to be paginated. If no value is defined an error will be thrown.</dd>
+  <p class="dummy-paragraph">
+    These pagination sub-elements may be used directly if you need to cover a very specific use case that is not covered
+    by the "numbered" or "compact" paginations. In that case, refer to the "Component API" below to see details about
+    their APIs.
+  </p>
 
+  <h4 class="dummy-h4">Pagination::Numbered</h4>
+  <p class="dummy-paragraph" id="component-api-pagination-numbered">
+    Here is the API for the
+    <code class="dummy-code">Pagination::Nav</code>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-numbered">
+    <dt>totalItems <code>number</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>Pass the total number of items to be paginated.</p>
+      <p>If no value is defined an error will be thrown.</p>
+    </dd>
     <dt>itemsPerPage <code>number</code> <strong class="required">required</strong></dt>
     <dd>
-      Pass the maximum number of items to display on each page initially. If no value is defined an error will be
-      thrown.
+      <p>Pass the maximum number of items to display on each page.</p>
+      <p>If no value is defined an error will be thrown.</p>
     </dd>
-
-    <dt>currentPage <code>number</code></dt>
+    <dt>pageSizes <code>array of integers</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>Set the page sizes users can select from. If no value is defined an error will be thrown.</p>
+      <p>
+        Example:
+        {{! prettier-ignore-start }}
+        {{! template-lint-disable no-unbalanced-curlies }}
+        <code>@pageSizes=\{{array 10 30 50}}</code>
+        {{! template-lint-enable no-unbalanced-curlies }}
+        {{! prettier-ignore-end }}
+      </p>
+    </dd>
+    <dt>currentPage <code>integer</code></dt>
     <dd>
       <p>Set a custom initial selected page.</p>
-      <p>Default: <span class="default">1</span> (The first page is selected by default.)</p>
+      <p>Default: <span class="default">1</span></p>
+    </dd>
+    <dt>isTruncated <code>boolean</code></dt>
+    <dd>
+      <p>Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some
+        numbers).</p>
+      <p>Default: <span class="default">true</span></p>
+    </dd>
+    <dt>showLabels <code>boolean</code></dt>
+    <dd>
+      <p>Used to control the visibility of the "prev/next" text labels.</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>onPageChange <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when one of the navigation controls is clicked, and a "page" change is
+        triggered.</p>
+      <p>The function receives the value of the "go to" page and "page size" as arguments (integer numbers).</p>
+    </dd>
+    <dt>onPageSizeChange <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when the page size selector is changed, and a "page size" change is
+        triggered.</p>
+      <p>The function receives the value of the "page size" as argument (an integer number).</p>
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">Pagination::Info</h4>
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Pagination::Compact</h4>
+  <p class="dummy-paragraph" id="component-api-pagination-compact">
+    Here is the API for the
+    <code class="dummy-code">Pagination::Compact</code>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-compact">
+    <dt>route[Prev|Next] <code>string</code></dt>
+    <dd>
+      <p>The
+        <code>@route</code>
+        parameter passed down as arguments to internally render a
+        <code>&lt;LinkTo&gt;</code>
+        Ember component instead of a
+        <code>&lt;button&gt;</code>
+        in the "prev" or "next" control.</p>
+    </dd>
+    <dt>query[Prev|Next] <code>object</code></dt>
+    <dd>
+      <p>The
+        <code>@query</code>
+        parameter for the
+        <code>&lt;LinkTo&gt;</code>
+        Ember component in the "prev" or "next" control.</p>
+    </dd>
+    <dt>isDisabled[Prev|Next] <code>boolean</code></dt>
+    <dd>
+      <p>Used to disable the "prev" or "next" controls.</p>
+      <p>Default: <span class="default">false</span></p>
+      <p>Notice: when the control is disabled, it's always rendered as an HTML
+        <code class="dummy-code">Button</code>
+        element.</p>
+    </dd>
+    <dt>showLabels <code>boolean</code></dt>
+    <dd>
+      <p>Used to control the visibility of the "prev/next" text labels.</p>
+      <p>Default: <span class="default">true</span></p>
+    </dd>
+    <dt>onPageChange <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when a "prev" or "next" control is clicked.</p>
+      <p>The function receives as argument one of two possible values:</p>
+      <ol>
+        <li>prev</li>
+        <li>next</li>
+      </ol>
+    </dd>
+  </dl>
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Base elements</h4>
+
+  <h5 class="dummy-h5">Pagination::Info</h5>
   <p class="dummy-paragraph" id="component-api-total-count">
     Here is the API for the
     <code class="dummy-code">Pagination::Info</code>
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-total-count">
+    <dt>itemsRangeStart <code>string|number</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>The "start" value of the range in the informational text.</p>
+    </dd>
+    <dt>itemsRangeEnd <code>string|number</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>The "start" value of the range in the informational text.</p>
+    </dd>
+    <dt>totalItems <code>string|number</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>The "out of" total items in the informational text.</p>
+      <p>It's not required if <code>showTotalItems</code> is set to <code>false</code>.</p>
+    </dd>
     <dt>showTotalItems <code>boolean</code></dt>
     <dd>
-      <p>Hide display of total items in the UI.</p>
-      <p>Default: <span class="default">true</span> (Total items are displayed by default.)</p>
+      <p>Controls the visibility of the total items in the informational text.</p>
+      <p>Default: <span class="default">true</span></p>
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">Pagination::Nav</h4>
-  <p class="dummy-paragraph" id="component-api-pagination-nav">
+  <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
+  <p class="dummy-paragraph" id="component-api-pagination-nav-arrow">
     Here is the API for the
-    <code class="dummy-code">Pagination::Nav</code>
+    <code class="dummy-code">Pagination::Nav::Arrow</code>
     component:
   </p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav">
-    <dt>type <code>string</code></dt>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav-arrow">
+    <dt>direction <code>enum</code> <strong class="required">required</strong></dt>
     <dd>
-      <p>Sets the type of Pagination::Nav.</p>
+      <p>Sets the "direction" of the icon and label in the control.</p>
       <p>Acceptable values:</p>
       <ol>
-        <li class="default">compact</li>
-        <li>numbered</li>
-        <li>truncated</li>
+        <li>prev</li>
+        <li>next</li>
       </ol>
     </dd>
-
-    <dt>totalPages <code>number</code></dt>
+    <dt>href + route/models/model/query/current-when/replace</dt>
     <dd>
-      <p>Used in displaying the page numbers for "numbered" type and for determining the next page to navigate to.</p>
-      <p>totalPages is calculated by HDS::Pagination wrapper component when used. However, it is required if
-        HDS::Pagination::Nav is used as a stand alone component.</p>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
+    </dd>
+    <dt>disabled <code>boolean</code></dt>
+    <dd>
+      <p>If the control is disabled.</p>
+      <p>Default: <span class="default">false</span></p>
+      <p>Notice: when the control is disabled, it's always rendered as an HTML
+        <code class="dummy-code">Button</code>
+        element.</p>
+    </dd>
+    <dt>showLabel <code>boolean</code></dt>
+    <dd>
+      <p>Used to control the visibility of the text label in the control.</p>
+      <p>Default: <span class="default">true</span></p>
+    </dd>
+    <dt>onClick <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when the control is clicked.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
     </dd>
   </dl>
 
-  <h4 class="dummy-h4">Pagination::SizeSelector</h4>
+  <h5 class="dummy-h5">Pagination::Nav::Number</h5>
+  <p class="dummy-paragraph" id="component-api-pagination-nav-number">
+    Here is the API for the
+    <code class="dummy-code">Pagination::Nav::Number</code>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav-number">
+    <dt>page <code>number</code> <strong class="required">required</strong></dt>
+    <dd>
+      <p>The value that should go in the control as page number.</p>
+    </dd>
+    <dt>isSelected <code>boolean</code></dt>
+    <dd>
+      <p>If the page has a "selected" visual state (usually used to highlight the current page).</p>
+      <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>onClick <code>function</code></dt>
+    <dd>
+      <p>Callback function invoked (if provided) when the control is clicked.</p>
+    </dd>
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code>
+        spreading is supported on this component.</p>
+      <p><em>Notice: it will not be applied to the
+          <code class="dummy-code">&lt;li&gt;</code>
+          wrapping element but to the nested
+          <code class="dummy-code">&lt;button&gt;/&lt;a&gt;</code>
+          controls.</em></p>
+    </dd>
+  </dl>
+
+  <h5 class="dummy-h5">Pagination::Nav::Ellipsis</h5>
+  <p class="dummy-paragraph" id="component-api-pagination-nav-ellipsis">
+    Here is the API for the
+    <code class="dummy-code">Pagination::Nav::Ellipsis</code>
+    component:
+  </p>
+  <dl class="dummy-component-props" aria-labelledby="component-api-pagination-nav-ellipsis">
+    <dt>...attributes</dt>
+    <dd>
+      <p><code class="dummy-code">...attributes</code>
+        spreading is supported on this component.</p>
+      <p><em>Notice: it will not be applied to the
+          <code class="dummy-code">&lt;li&gt;</code>
+          wrapping element but to the nested
+          <code class="dummy-code">&lt;span&gt;</code>
+          text element.</em></p>
+    </dd>
+  </dl>
+
+  <h5 class="dummy-h5">Pagination::SizeSelector</h5>
   <p class="dummy-paragraph" id="component-api-page-size">
     Here is the API for the
     <code class="dummy-code">Pagination::SizeSelector</code>
@@ -124,20 +328,20 @@
         Example:
         {{! prettier-ignore-start }}
         {{! template-lint-disable no-unbalanced-curlies }}
-        <code>@sizes=\{{array 10 30 50}}</code>
+        <code>@pageSizes=\{{array 10 30 50}}</code>
         {{! template-lint-enable no-unbalanced-curlies }}
         {{! prettier-ignore-end }}
       </p>
     </dd>
-
-    <dt>itemsPerPage</dt>
+    <dt>selectedSize <code>integer</code></dt>
     <dd>
-      <p>Instead of selecting the initial option which is the default, you can select one of the other
+      <p>Used to indicate which of the provided
         <code class="dummy-code">sizes</code>
-        options.</p>
-      <p>Normally passed in as an argument on the Pagination wrapper component but can be added to
+        options is pre-selected.</p>
+      <p>Normally this value is passed automatically by the Pagination wrapper component but can be provided as argument
+        to the
         <code class="dummy-code">Pagination::SizeSelector</code>
-        itself when used as a stand alone component</p>
+        component itself when used as a stand alone component.</p>
     </dd>
   </dl>
 </section>
@@ -148,157 +352,295 @@
     How to use
   </h3>
 
-  <h4 class="dummy-h4">Default “compact” Pagination with Nav</h4>
+  <h5 class="dummy-h6">Pagination "compact" and "numbered"</h5>
+  <p class="dummy-paragraph">As mentioned above, there are two different variants of the
+    <code class="dummy-code">Pagination</code>
+    component (with different ways to invoke them) built to cover different use cases, contexts, and designs you may
+    need them for.</p>
+  <p class="dummy-paragraph">This differentiation is necessary to cover both use cases of a pagination for a list with a
+    known number of elements (<strong>"numbered"</strong>) and one in which this information is not available or is
+    <a
+      href="https://jsonapi.org/profiles/ethanresnick/cursor-pagination/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >cursor-based</a>
+    (<strong>"compact"</strong>).</p>
+  <p class="dummy-paragraph">In the first one, the user is presented with a list of navigation controls ("prev/next" and
+    "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one,
+    the user is presented with only the "prev/next" controls.</p>
+
+  <p class="dummy-paragraph">When pagination is invoked directly using one of these two components, it will
+    <strong>automatically</strong>:</p>
+  <ul>
+    <li>
+      <p class="dummy-paragraph">provide the correct responsive layout for the entire pagination and its sub-parts</p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">manage the "current page" status across the different sub-components it's made of
+        (based on the arguments provided to it and its children).</p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">when one of the "navigation controls" is clicked, a callback function (if provided) is
+        called, and a route (if provided) update is triggered.</p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">
+        when the "page size" is changed via the provided selector, it will automatically recalculate the total number of
+        pages to display to the user.</p>
+    </li>
+  </ul>
+
+  <h5 class="dummy-h6">Use the pagination sub-components</h5>
+  <p class="dummy-paragraph">If you need more control on the specific pagination parts, and/or you need to cover a very
+    specific use case, you can use the pagination sub-elements directly (<code
+      class="dummy-code"
+    >Pagination::Info/Nav(*)/SizeSelector</code>).</p>
+  <p class="dummy-paragraph">In this case, you will have to take care of different things <strong>yourself</strong></p>
+  <ul>
+    <li>
+      <p class="dummy-paragraph">the organization/layout of the elements on the page.</p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">the logic to handle the "current page" status.</p>
+    </li>
+    <li>
+      <p class="dummy-paragraph">the logic connecting the different parts (if using "numbered").</p>
+    </li>
+  </ul>
+
+  <h5 class="dummy-h6">Events handling and routing</h5>
+  <p class="dummy-paragraph">As described above, the main
+    <code class="dummy-code">Pagination::Numbered</code>
+    and
+    <code class="dummy-code">Pagination::Compact</code>
+    components expose an
+    <code class="dummy-code">onPageChange</code>
+    callback function, invoked whenever a page change occurs. All the "navigation controls" in this cases are
+    <code class="dummy-code">&lt;button&gt;</code>
+    elements that fire an
+    <code class="dummy-code">onClick</code>
+    event that calls the
+    <code class="dummy-code">onPageChange</code>
+    function.</p>
+  <p class="dummy-paragraph">This means that if you need to update the URL when the user changes the "page" in the
+    Pagination (eg. to add/remove/update some query parameters), you have to do it inside the
+    <code class="dummy-code">onPageChange</code>
+    callback you provide to the component.</p>
+  <p class="dummy-paragraph">If instead you need to update the URL directly when the user clicks on one of the
+    "navigation control" elements, you have to provide routing parameters (<code class="dummy-code">route/query</code>)
+    to the component; refer to the "Component API" section above for specifications about these parameters (the APIs are
+    slightly different for the two components).</p>
+
+  {{! ================================= }}
+  {{! ===== PAGINATION::NUMBERED ===== }}
+  {{! ================================= }}
+
+  <h4 class="dummy-h4">Pagination::Numbered</h4>
+
+  <p class="dummy-paragraph">The basic invocation of the "numbered" pagination requires the
+    <code class="dummy-code">@totalItems</code>
+    <code class="dummy-code">@itemsPerPage</code>, and
+    <code class="dummy-code">@pageSizes</code>
+    arguments to be provided (plus the event/routing handlers, see below):</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{10}} as |P|>
-        <P.Nav />
-      </Hds::Pagination>
+      <Hds::Pagination::Numbered @totalItems=\{{40}} @itemsPerPage=\{{10}} @pageSizes=\{{array 10 30 50}} />
     "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Nav />
-  </Hds::Pagination>
+  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
+  <p class="dummy-paragraph">By default the "Info" and "SizeSelector" are displayed, and the component takes care of
+    updating the values and the states of the different elements, according to the user interactions with the component.</p>
 
-  <h4 class="dummy-h4">“Numbered” Pagination with Nav</h4>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{10}} @type="numbered" as |P|>
-        <P.Nav />
-      </Hds::Pagination>
-    '
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} @type="numbered" as |P|>
-    <P.Nav />
-  </Hds::Pagination>
-
-  <h4 class="dummy-h4">“Compact” Pagination with all optional child components</h4>
+  <h5 class="dummy-h5">Extra arguments</h5>
+  <p class="dummy-paragraph">It's possible to customize the "Info", "Controls", and "SizeSelector" providing additional
+    arguments to them. For more details about these parameters, refer to the "Components API" section.</p>
+  <p class="dummy-paragraph">Below is an example of some of these extra arguments:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::Pagination @totalItems=\{{103}} @itemsPerPage=\{{10}} as |P|>
-        <P.Info />
-        <P.Nav />
-        <P.SizeSelector @sizes=\{{array 10 30 50}} />
-      </Hds::Pagination>
+      <Hds::Pagination::Numbered
+        @totalItems=\{{40}}
+        @itemsPerPage=\{{10}}
+        @showTotalItems=\{{false}}
+        @showSizeSelector=\{{false}}
+        @pageSizes=\{{array 10 30 50}}
+      />
     "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination @totalItems={{103}} @itemsPerPage={{10}} as |P|>
-    <P.Info />
-    <P.Nav />
-    <P.SizeSelector @sizes={{array 10 30 50}} />
-  </Hds::Pagination>
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @itemsPerPage={{10}}
+    @showLabels={{true}}
+    @showTotalItems={{false}}
+    @showSizeSelector={{false}}
+    @pageSizes={{array 10 30 50}}
+  />
 
-  <h4 class="dummy-h4">“Numbered” pagination with all optional child components</h4>
+  <h5 class="dummy-h5">Truncation</h5>
+  <p class="dummy-paragraph">When there is a large number of items and consequently the number of pages is also large,
+    by default the component automatically "truncates" the number of visible pages (using "ellipsises"):</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Pagination @totalItems=\{{100}} @itemsPerPage=\{{10}} as |P|>
-        <P.Info />
-        <P.Nav @type="numbered" />
-        <P.SizeSelector @sizes=\{{array 10 30 50}} />
-      </Hds::Pagination>
-    '
+    @code="
+      <Hds::Pagination::Numbered
+        @totalItems=\{{150}}
+        @itemsPerPage=\{{10}}
+        @pageSizes=\{{array 10 30 50}}
+      />
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Info />
-    <P.Nav @type="numbered" />
-    <P.SizeSelector @sizes={{array 10 30 50}} />
-  </Hds::Pagination>
-
-  <h4 class="dummy-h4">“Numbered” PaginationNav as a stand alone component</h4>
+  <Hds::Pagination::Numbered @totalItems={{150}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
+  <p class="dummy-paragraph">If necessary, it's possible to disable this functionality using a specific
+    <code class="dummy-code">@isTruncated</code>
+    argument:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
-    '
+    @code="
+      <Hds::Pagination::Numbered
+        @totalItems=\{{150}}
+        @itemsPerPage=\{{10}}
+        @isTruncated=\{{false}}
+        @pageSizes=\{{array 10 30 50}}
+      />
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
+  <Hds::Pagination::Numbered
+    @totalItems={{150}}
+    @itemsPerPage={{10}}
+    @isTruncated={{false}}
+    @pageSizes={{array 10 30 50}}
+  />
 
-  <h4 class="dummy-h4">“Truncated” PaginationNav</h4>
+  <h5 class="dummy-h5">Events handling</h5>
+  <p class="dummy-paragraph">The component exposes two callback functions that can be used to respond to specific
+    events:</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
-    @code='
-      <Hds::Pagination::Nav @totalPages={{1000}} @type="truncated" />
-    '
+    @code="
+      <Hds::Pagination::Numbered
+        @totalItems=\{{40}}
+        @itemsPerPage=\{{10}}
+        @pageSizes=\{{array 10 30 50}}
+        @onPageChange=\{{this.handlePageChange}}
+        @onPageSizeChange=\{{this.handlePageSizeChange}}
+      />
+    "
+  />
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @itemsPerPage={{10}}
+    @pageSizes={{array 10 30 50}}
+    @onPageChange={{this.handlePageChange}}
+    @onPageSizeChange={{this.handlePageSizeChange}}
+  />
+  <p class="dummy-paragraph">The first
+    <code class="dummy-code">onPageChange</code>
+    function is invoked when a user interacts with a navigation control ("prev/next" or "page number") and so can be
+    used to respond to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
+  <p class="dummy-paragraph">The second
+    <code class="dummy-code">onPageSizeChange</code>
+    function is invoked when a user interacts with the "size selector" and so can be used to respond to a "page size"
+    change (eg. updating the number of items listed in the page, updating the routing/URL, and/or updating other
+    elements in the page).</p>
+
+  <h5 class="dummy-h5">Routing/URL updates</h5>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
+    query parameters) you need to pass the routing parameters to the component:</p>
+  <pre>🚨 TODO </pre>
+  <p class="dummy-paragraph">Renders to:</p>
+  <pre>🚨 TODO 🚨</pre>
+
+  {{! =============================== }}
+  {{! ===== PAGINATION::COMPACT ===== }}
+  {{! =============================== }}
+
+  <h4 class="dummy-h4">Pagination::Compact</h4>
+  <p class="dummy-paragraph">By default, the basic use of the pagination provides:</p>
+
+  <p class="dummy-paragraph">The basic invocation of the "compact" pagination doesn't require any arguments (apart from
+    the event/routing handlers, see below):</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Compact />
+    "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination::Nav @totalPages={{1000}} @type="truncated" />
+  <Hds::Pagination::Compact />
+  <p class="dummy-paragraph">In this variant only the "prev" and "next" navigation controls are displayed.</p>
+
+  <h5 class="dummy-h5">Extra arguments</h5>
+  <p class="dummy-paragraph">If necessary, it's possible to hide the labels in the controls:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Compact @showLabels=\{{false}} />
+    "
+  />
+  {{! template-lint-enable no-unbalanced-curlies }}
+  {{! prettier-ignore-end }}
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Pagination::Compact @showLabels={{false}} />
+
+  <h5 class="dummy-h5">Events handling</h5>
+  <p class="dummy-paragraph">The component exposes a callback function that can be used to respond to page changes:</p>
+  {{! prettier-ignore-start }}
+  {{! template-lint-disable no-unbalanced-curlies }}
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Compact
+        @onPageChange=\{{this.handlePageChange}}
+      />
+    "
+  />
+  <p class="dummy-paragraph">Renders to:</p>
+  <Hds::Pagination::Compact @onPageChange={{this.handlePageChange}} />
+  <p class="dummy-paragraph">The
+    <code class="dummy-code">onPageChange</code>
+    function is invoked when a user interacts with a "prev" or "next" navigation control and so can be used to respond
+    to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
+
+  <h5 class="dummy-h5">Routing/URL updates</h5>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
+    query parameters), you need to pass the routing parameters to the component:</p>
+  <pre>🚨 TODO </pre>
+  <p class="dummy-paragraph">Renders to:</p>
+  <pre>🚨 TODO 🚨</pre>
+
 </section>
 
-<section>
-  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
-    Design guidelines</h3>
-  {{! UNCOMMENT THIS BLOCK (once the link and/or the image are available) }}
-  {{!
-  <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph">
-      <a href="[ADD THE LINK TO THE FIGMA FILE/PAGE HERE!]" target="_blank" rel="noopener noreferrer">Figma UI Kit</a>
-    </p>
-    <br />
-    <img class="dummy-figma-docs" src="/assets/images/pagination-design-usage.png" alt="" role="none" />
-  </div>
-  }}
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
-
-  <!-- <Doc::WcagList
-    @criteriaList={{array
-      "1.3.1"
-      "1.3.2"
-      "1.4.1"
-      "1.4.3"
-      "1.4.4"
-      "1.4.10"
-      "1.4.11"
-      "1.4.12"
-      "2.1.1"
-      "2.1.2"
-      "2.4.3"
-      "2.4.4"
-      "2.4.6"
-      "2.4.7"
-      "2.5.3"
-      "3.2.1"
-      "4.1.2"
-    }}
-  /> -->
-</section>
-
-<section data-test-percy>
+<section data-test-percy class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
   <h3 class="dummy-h3" id="showcase">
     <a href="#showcase" class="dummy-link-section">§</a>
     Showcase
@@ -308,206 +650,178 @@
     layout highlight
   </button>
 
-  <div class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
-    <h4 class="dummy-h4">Base elements</h4>
-    <h5 class="dummy-h5">Pagination::Info</h5>
+  <h4 class="dummy-h4">Pagination::Numbered</h4>
 
-    <div class="dummy-pagination-base-sample">
-      <div>
-        <span class="dummy-text-small">default</span>
-        <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
+  <p class="dummy-text-small">Base (default)</p>
+  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
+
+  <p class="dummy-text-small">With showTotalItems=false</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @itemsPerPage={{10}}
+    @showTotalItems={{false}}
+    @pageSizes={{array 10 30 50}}
+  />
+
+  <p class="dummy-text-small">With showSizeSelector=false</p>
+  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showSizeSelector={{false}} />
+
+  <p class="dummy-text-small">With showInfo=false</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @itemsPerPage={{10}}
+    @showInfo={{false}}
+    @pageSizes={{array 10 30 50}}
+  />
+
+  <p class="dummy-text-small">With showInfo=false + showSizeSelector=false</p>
+  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showInfo={{false}} @showSizeSelector={{false}} />
+
+  <p class="dummy-text-small">With @itemsPerPage=30 and @currentPage=2</p>
+  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{30}} @currentPage={{2}} @pageSizes={{array 10 30 50}} />
+
+  <p class="dummy-text-small">With @showPageNumbers=false + @showLabels=true</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @itemsPerPage={{10}}
+    @pageSizes={{array 10 30 50}}
+    @showPageNumbers={{false}}
+    @showLabels={{true}}
+  />
+
+  <h5 class="dummy-h6">Truncation</h5>
+  <p class="dummy-text-small">With large number of pages (truncated by default)</p>
+  <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
+  <p class="dummy-text-small">With large number of pages (truncated with initial page equal to <code>4</code>)</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{100}}
+    @itemsPerPage={{10}}
+    @currentPage={{4}}
+    @pageSizes={{array 10 30 50}}
+  />
+  <p class="dummy-text-small">With large number of pages (not truncated)</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{100}}
+    @itemsPerPage={{10}}
+    @pageSizes={{array 10 30 50}}
+    @isTruncated={{false}}
+  />
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Pagination::Compact</h4>
+
+  <p class="dummy-text-small">Base (default)</p>
+  <Hds::Pagination::Compact />
+
+  <p class="dummy-text-small">With "prev" disabled</p>
+  <Hds::Pagination::Compact @isDisabledPrev={{true}} />
+
+  <p class="dummy-text-small">With @showLabels=false</p>
+  <Hds::Pagination::Compact @showLabels={{false}} />
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Base elements</h4>
+
+  <h5 class="dummy-h5">Pagination::Info</h5>
+  <p class="dummy-text-small">Base (default)</p>
+  <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
+
+  <p class="dummy-text-small">With @showTotalItems=false</p>
+  <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} @showTotalItems={{false}} />
+
+  <h5 class="dummy-h5">Pagination::SizeSelector</h5>
+  <p class="dummy-text-small">Base (default)</p>
+  <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
+
+  <p class="dummy-text-small">With @itemsPerPage (selected option)</p>
+  <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @selectedSize={{30}} />
+
+  <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
+  <div class="dummy-pagination-base-sample">
+    <div>
+      <p class="dummy-text-small">With text label (default)</p>
+      <div class="dummy-pagination-base-sample-row">
+        <Hds::Pagination::Nav::Arrow @direction="prev" />
+        <Hds::Pagination::Nav::Arrow @direction="next" />
       </div>
-
-      <div>
-        <span class="dummy-text-small">
-          with
-          {{! prettier-ignore-start }}
-          {{! template-lint-disable no-unbalanced-curlies }}<code
-            class="dummy-code"
-          >@showTotalItems=\{{false}}</code>{{! template-lint-enable no-unbalanced-curlies }}
-          {{! prettier-ignore-end }}
-        </span>
-        <Hds::Pagination::Info
-          @itemsRangeStart={{1}}
-          @itemsRangeEnd={{10}}
-          @totalItems={{103}}
-          @showTotalItems={{false}}
-        />
+    </div>
+    <div>
+      <p class="dummy-text-small">With @showLabel=false</p>
+      <div class="dummy-pagination-base-sample-row">
+        <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
+        <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
       </div>
-    </div>
-
-    <h5 class="dummy-h5">Pagination::SizeSelector</h5>
-    <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
-
-    <h6 class="dummy-h6">
-      with itemsPerPage set to "30" instead of the first option:
-    </h6>
-    <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @itemsPerPage={{30}} />
-
-    <h5 class="dummy-h5">Pagination::Nav::ButtonArrow</h5>
-    <h6 class="dummy-h6">
-      with text label displaying:
-    </h6>
-    <p class="dummy-paragraph">(text label is shown with Pagination Nav type set to "compact" which doesn't include page
-      numbers)</p>
-
-    <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus") as |states|}}
-        {{#each states as |state|}}
-          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
-            <span class="dummy-text-small">{{state}}</span>
-            <div class="dummy-pagination-base-sample-row">
-              <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="compact" />
-              <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="compact" />
-            </div>
-          </div>
-        {{/each}}
-        <div class="dummy-pagination-base-sample-item">
-          <span class="dummy-text-small">disabled</span>
-          <div class="dummy-pagination-base-sample-row">
-            <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="compact" @disabled={{true}} />
-            <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="compact" @disabled={{true}} />
-          </div>
-        </div>
-      {{/let}}
-    </div>
-
-    <h6 class="dummy-h6">
-      without text label displaying:
-    </h6>
-    <p class="dummy-paragraph">(text label is not shown with Pagination type set to "numbered" which includes page
-      numbers)</p>
-    <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus") as |states|}}
-        {{#each states as |state|}}
-          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
-            <span class="dummy-text-small">{{state}}</span>
-            <div class="dummy-pagination-base-sample-row">
-              <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="numbered" />
-              <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="numbered" />
-            </div>
-          </div>
-        {{/each}}
-      {{/let}}
-      <div class="dummy-pagination-base-sample-item">
-        <span class="dummy-text-small">disabled</span>
-        <div class="dummy-pagination-base-sample-row">
-          <Hds::Pagination::Nav::ButtonArrow @direction="prev" @type="numbered" @disabled={{true}} />
-          <Hds::Pagination::Nav::ButtonArrow @direction="next" @type="numbered" @disabled={{true}} />
-        </div>
-      </div>
-    </div>
-
-    <h5 class="dummy-h5">Pagination::Nav::ButtonNumber</h5>
-    <p class="dummy-paragraph">Generic vs current page</p>
-    <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "hover" "active" "focus") as |states|}}
-        {{#each states as |state|}}
-          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
-            <span class="dummy-text-small">{{state}}</span>
-            <div class="dummy-pagination-base-sample-row">
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="2" /></ul>
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="2" @isSelected={{true}} /></ul>
-            </div>
-          </div>
-        {{/each}}
-      {{/let}}
-    </div>
-    <p class="dummy-paragraph">With different text lengths</p>
-    <div class="dummy-pagination-base-sample">
-      {{#let (array "default" "focus") as |states|}}
-        {{#each states as |state|}}
-          <div class="dummy-pagination-base-sample-item" mock-state-value={{state}} mock-state-selector="button,a">
-            <span class="dummy-text-small">{{state}}</span>
-            <div class="dummy-pagination-base-sample-row">
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="1" /></ul>
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="12" /></ul>
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="123" /></ul>
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="1" @isSelected={{true}} /></ul>
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="12" @isSelected={{true}} /></ul>
-              <ul class="dummy-plain-list"><Hds::Pagination::Nav::ButtonNumber @page="123" @isSelected={{true}} /></ul>
-            </div>
-          </div>
-        {{/each}}
-      {{/let}}
-    </div>
-
-    <h4 class="dummy-h4">Pagination::Nav</h4>
-    <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{10}} />
-    </div>
-    <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{10}} @type="numbered" />
-    </div>
-    <div class="dummy-paragraph">
-      <Hds::Pagination::Nav @totalPages={{100}} @type="truncated" />
     </div>
   </div>
+  <p class="dummy-text-small">States (With / Without labels)</p>
+  <div class="dummy-pagination-sample-status-grid">
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <span class="dummy-text-small">{{capitalize state}}</span>
+        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
+          <Hds::Pagination::Nav::Arrow @direction="prev" />
+          <Hds::Pagination::Nav::Arrow @direction="next" />
+        </div>
+        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
+          <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
+          <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
+        </div>
+      {{/each}}
+      <span class="dummy-text-small">Disabled</span>
+      <div class="dummy-pagination-base-sample-row">
+        <Hds::Pagination::Nav::Arrow @direction="prev" @disabled={{true}} />
+        <Hds::Pagination::Nav::Arrow @direction="next" @disabled={{true}} />
+      </div>
+      <div class="dummy-pagination-base-sample-row">
+        <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} @disabled={{true}} />
+        <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} @disabled={{true}} />
+      </div>
+    {{/let}}
+  </div>
 
-  <h4 class="dummy-h4">Pagination with sub-components</h4>
+  <h5 class="dummy-h5">Pagination::Nav::Number</h5>
+  <div class="dummy-pagination-base-sample dummy-pagination-base-sample--nav-button-number">
+    <div>
+      <p class="dummy-text-small">Generic (default)</p>
+      <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="1" /></ul>
+    </div>
+    <div>
+      <p class="dummy-text-small">Current (with @isSelected=true)</p>
+      <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="1" @isSelected={{true}} /></ul>
+    </div>
+  </div>
+  <p class="dummy-text-small">States (Generic / Current - With different text lengths)</p>
+  <div class="dummy-pagination-sample-status-grid">
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <span class="dummy-text-small">{{capitalize state}}</span>
+        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
+          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="1" /></ul>
+          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="12" /></ul>
+          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="123" /></ul>
+        </div>
+        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
+          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number
+              @page="1"
+              @isSelected={{true}}
+            /></ul>
+          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number
+              @page="12"
+              @isSelected={{true}}
+            /></ul>
+          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number
+              @page="123"
+              @isSelected={{true}}
+            /></ul>
+        </div>
+      {{/each}}
+    {{/let}}
+  </div>
 
-  <h5 class="dummy-h5">Simplest use case: Pagination with Nav</h5>
+  <h5 class="dummy-h5">Pagination::Nav::Ellipsis</h5>
+  <p class="dummy-text-small">Base</p>
+  <Hds::Pagination::Nav::Ellipsis />
 
-  <h6 class="dummy-h6">Type="compact" (the default)</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Nav />
-  </Hds::Pagination>
-
-  <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Nav @type="numbered" />
-  </Hds::Pagination>
-
-  <h6 class="dummy-h6">Type="truncated"</h6>
-  <p class="dummy-paragraph">A variation of the "numbered" type that displays an ellipsis for some numbers to save
-    space.</p>
-  <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} as |P|>
-    <P.Nav @type="truncated" />
-  </Hds::Pagination>
-
-  <p class="dummy-paragraph">With "current" initial page equal to <code class="dummy-code">11</code>.</p>
-  <Hds::Pagination @totalItems={{1000}} @itemsPerPage={{10}} @currentPage={{11}} as |P|>
-    <P.Nav @type="truncated" />
-  </Hds::Pagination>
-
-  <h5 class="dummy-h5">Pagination with Nav and Info</h5>
-  <h6 class="dummy-h6">Type="compact"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Info />
-    <P.Nav />
-  </Hds::Pagination>
-
-  <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Info />
-    <P.Nav @type="numbered" />
-  </Hds::Pagination>
-
-  <h6 class="dummy-h6">Info with showTotalItems set to "false"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Info @showTotalItems={{false}} />
-    <P.Nav />
-  </Hds::Pagination>
-
-  <h6 class="dummy-h6">Pagination with Nav, Info, and SizeSelector</h6>
-  <h6 class="dummy-h6">Type="compact"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Info />
-    <P.Nav />
-    <P.SizeSelector @sizes={{array 10 30 50}} />
-  </Hds::Pagination>
-
-  <h6 class="dummy-h6">Type="numbered"</h6>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{10}} as |P|>
-    <P.Info />
-    <P.Nav @type="numbered" />
-    <P.SizeSelector @sizes={{array 10 30 50}} />
-  </Hds::Pagination>
-
-  <h5 class="dummy-h5">Numbered Pagination Nav with currentPage set to "3" and items per page = "30"</h5>
-  <Hds::Pagination @totalItems={{100}} @itemsPerPage={{30}} @currentPage={{3}} as |P|>
-    <P.Info />
-    <P.Nav @type="numbered" />
-    <P.SizeSelector @sizes={{array 10 30 50}} />
-  </Hds::Pagination>
 </section>

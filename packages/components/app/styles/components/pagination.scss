@@ -4,8 +4,10 @@
 
 @use "../mixins/focus-ring" as *;
 
+
 // * Pagination Parent (wrapper) component
-// ----------------------------------------
+// -------------------------------------------------------------------
+
 .hds-pagination {
   display: grid;
   grid-template-areas: "left center right";
@@ -15,16 +17,20 @@
   margin: 0 auto;
 }
 
+
 // * Sub-component: Info
 // ---------------------------------------
+
 .hds-pagination-info {
   grid-area: left;
   justify-self: flex-start;
   white-space: nowrap;
 }
 
-// * Sub-component: Nav
-// ----------------------------------------
+
+// * Sub-components: Arrow/Number/Ellipsis (aka "navigation controls")
+// -------------------------------------------------------------------
+
 .hds-pagination-nav {
   display: flex;
   grid-area: center;
@@ -38,17 +44,14 @@
 
 .hds-pagination-nav__page-item { list-style-type: none; }
 
-// nav controls: button-arrow, button-number, ellipsis:
-.hds-pagination-nav__control,
-.hds-pagination-nav__ellipsis {
+// "controls" are "prev/next" (`arrow`) and "page" numbers (`number`)
+.hds-pagination-nav__control {
   display: flex;
   align-items: center;
   height: var(--token-pagination-nav-control-height);
-}
-
-.hds-pagination-nav__control {
   // border width is subtracted from padding:
   padding: 0 calc(var(--token-pagination-nav-control-padding-horizontal) - 1px);
+  color: var(--token-color-foreground-primary);
   text-decoration: none;
   background-color: transparent;
   border: 1px solid transparent;
@@ -69,7 +72,12 @@
   &.mock-active {
     color: var(--token-color-foreground-action-active);
   }
+}
 
+// only the "Previous" & "Next" (`Arrow`) controls can be disabled
+.hds-pagination-nav__arrow {
+  // notice: when `@disabled={{true}}` is applied, the code always renders a `<button>` element
+  // so no need to add the [disabled] selector here (elsewhere it's done to cover the `a[disabled]` case)
   &:disabled,
   &.mock-disabled {
     color: var(--token-color-foreground-disabled);
@@ -77,36 +85,25 @@
   }
 }
 
-// Make buttons with "Previous" & "Next" labels the same min-width
-// to make them more visually centered in relationship to other sub-components
-.hds-pagination-nav__button-arrow--labeled {
-  min-width: 103px;
-}
-
-.hds-pagination-nav__button-arrow--direction-prev {
+.hds-pagination-nav__arrow--direction-prev {
   flex-direction: row;
   justify-content: flex-start;
 
-  .hds-pagination-nav__page-label {
+  .hds-pagination-nav__arrow-label {
     margin-left: var(--token-pagination-nav-control-icon-spacing);
   }
 }
 
-.hds-pagination-nav__button-arrow--direction-next {
+.hds-pagination-nav__arrow--direction-next {
   flex-direction: row-reverse;
   justify-content: flex-end;
 
-  .hds-pagination-nav__page-label {
+  .hds-pagination-nav__arrow-label {
     margin-right: 6px;
   }
 }
 
-.hds-pagination-nav__ellipsis {
-  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
-  color: var(--token-color-foreground-faint);
-}
-
-.hds-pagination-nav__button-number--is-selected {
+.hds-pagination-nav__number--is-selected {
   position: relative;
   color: var(--token-color-foreground-action);
 
@@ -118,20 +115,13 @@
     color: var(--token-color-foreground-action-active);
   }
 
-  .hds-pagination-nav__control {
-    &,
-    &:hover,
-    &:active {
-      color: inherit;
-    }
-  }
-
   // indicator underline
-  &::before {
+  // notice: in all these calculations we have to take in account that there's a 1px transparent border
+  &::after { // notice: we use the `::before` for the focus
     position: absolute;
-    right: var(--token-pagination-nav-indicator-spacing);
-    bottom: 0;
-    left: var(--token-pagination-nav-indicator-spacing);
+    right: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
+    bottom: -1px;
+    left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;
     background-color: currentColor;
@@ -140,8 +130,18 @@
   }
 }
 
+.hds-pagination-nav__ellipsis {
+  display: flex;
+  align-items: center;
+  height: var(--token-pagination-nav-control-height);
+  padding: 0 var(--token-pagination-nav-control-padding-horizontal);
+  color: var(--token-color-foreground-faint);
+}
+
+
 // * Sub-component: SizeSelector
-// ----------------------------------------
+// -------------------------------------------------------------------
+
 .hds-pagination-size-selector {
   display: flex;
   grid-area: right;

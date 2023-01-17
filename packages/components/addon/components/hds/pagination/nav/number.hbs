@@ -1,0 +1,8 @@
+<Hds::Interactive
+  class={{this.classNames}}
+  aria-current={{if @isSelected "page" null}}
+  {{on "click" this.onClick}}
+  ...attributes
+>
+  <span class="sr-only">page </span>{{this.page}}
+</Hds::Interactive>
