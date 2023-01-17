@@ -12,7 +12,7 @@ Use Outlined icons by default.
 
 ### Filled
 
-Filled icons are icons with a solid fill. Filled icons are indicated by `-fill` in the icon name.
+Filled icons are icons with a solid fill and are indicated by `-fill` in the icon name.
 
 Use Filled icons to show a toggled state or for contrast with Outlined icons. 
 
