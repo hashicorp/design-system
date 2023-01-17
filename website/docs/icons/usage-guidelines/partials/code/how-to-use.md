@@ -132,7 +132,7 @@ A `prefers-reduced-motion` media query will automatically disable the animation 
 
 ### Using icons in React apps
 
-If needing icons in a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component. 
+To use icons in a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component. 
 
 !!! Info
 
