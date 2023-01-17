@@ -1,6 +1,6 @@
-While the alignment, order, and grouping of buttons and actions might seem like a trivial topic, the impact on users is immediate and often occurs in experiences of high important and interruption.
+While the alignment, order, and grouping of buttons and actions might seem trivial, the impact on users is immediate and often occurs in experiences of high important and interruption.
 
-While these guidelines aren't meant to be prescriptive in every scenario, our recommendations are backed up by research and analysis to best serve the user in a consistent manner and understand the impact on the user experience from a holistic perspective.
+These guidelines aren't meant to be prescriptive in every scenario, however, our recommendations are backed up by research and analysis to best serve the user in a consistent manner and understand the impact on the user experience from a holistic perspective.
 
 !!! Info
 
@@ -11,12 +11,12 @@ These guidelines aren't relevant for every component or pattern, but are rather 
 
 **Constrained** refers to a component or pattern that is wrapped within a container element, while **unconstrained** refers generally to components that exist at the page level.
 
-- Constrained
+- **Constrained**
     - Dialogs and modals
     - Toolbars
     - Alerts
     - Banners
-- Unconstrained
+- **Unconstrained**
     - General page content
     - In-page forms
     - The "window" in a general sense
@@ -88,6 +88,6 @@ The F-shaped pattern is a prominent example of how users scan through content, a
 
 ### Reading patterns in practice
 
-All three of these reading patterns are relevant and useful when observed in a vaccuum, however the reality of how users read, consume, and comprehend content is most likely a combination of all three. With that in mind, keeping these patterns top of mind and how they are relevant to different types of UX content will help to produce the best experience.
+All three of these reading patterns are relevant and useful when observed in isolation, however, the reality of how users read, consume, and comprehend content is likely a combination of multiple reading patterns that change and overlap depending on the context. With that in mind, keeping these patterns top of mind and how they are relevant to different types of UX content will help to produce the best experience.
 
 

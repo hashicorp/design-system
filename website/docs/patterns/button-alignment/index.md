@@ -5,15 +5,16 @@ status: released
 ---
 
 <section data-tab="Overview">
-  @include "partials/overview.md"
+  @include "partials/overview/overview.md"
 </section>
 
 <section data-tab="Specifications">
-  @include "partials/alignment.md"
-  @include "partials/grouping.md"
-  @include "partials/order.md"
+  @include "partials/specifications/specifications.md"
+  @include "partials/specifications/alignment.md"
+  @include "partials/specifications/grouping.md"
+  @include "partials/specifications/order.md"
 </section>
 
 <section data-tab="Accessibility">
-  @include "partials/accessibility.md"
+  @include "partials/accessibility/accessibility.md"
 </section>
