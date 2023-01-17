@@ -11,7 +11,6 @@ const getTocSectionBundle = (section) => {
   const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
-  const SUPPORT = ['support'];
   // this will be removed later
   const TESTING = ['testing'];
 
@@ -25,12 +24,36 @@ const getTocSectionBundle = (section) => {
     return PATTERNS;
   } else if (TESTING.includes(section)) {
     return TESTING;
-  } else if (SUPPORT.includes(section)) {
-    return SUPPORT;
   } else {
     // eg. the website "root" index page
     return [];
   }
+};
+
+const filterSubTree = (subTree, filterQuery) => {
+  let filteredTree = {};
+  Object.keys(subTree).forEach((key) => {
+    const item = subTree[key];
+    if (item.pageURL) {
+      const fq = filterQuery.toLowerCase();
+      if (
+        (item.pageAttributes.title &&
+          item.pageAttributes.title.toLowerCase().includes(fq)) ||
+        (item.pageAttributes.keywords &&
+          item.pageAttributes.keywords.some((k) =>
+            k.toLowerCase().includes(fq)
+          ))
+      ) {
+        filteredTree[key] = item;
+      }
+    } else {
+      const subSubTree = filterSubTree(item, filterQuery);
+      if (Object.keys(subSubTree).length > 0) {
+        filteredTree[key] = subSubTree;
+      }
+    }
+  });
+  return filteredTree;
 };
 
 export default class DocPageSidebarComponent extends Component {
@@ -54,9 +77,14 @@ export default class DocPageSidebarComponent extends Component {
 
     const subSectionTree = {};
     getTocSectionBundle(currentSection).forEach((section) => {
-      let subTree = this.args.toc.tree[section];
+      let subTree = {};
+      if (this.isFiltered) {
+        subTree = filterSubTree(this.args.toc.tree[section], this.filterQuery);
+      } else {
+        subTree = this.args.toc.tree[section];
+      }
       // this check avoids that we show in the sidebar empty "containers"
-      if (subTree) {
+      if (Object.keys(subTree).length > 0) {
         subSectionTree[section] = subTree;
       }
     });
