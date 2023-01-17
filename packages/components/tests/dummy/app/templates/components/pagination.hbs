@@ -95,7 +95,7 @@
 <h3>Demo #4 - Compact - With routing</h3>
 
 <Hds::Table
-  @model={{this.paginatedData_demo3}}
+  @model={{this.paginatedData_demo4}}
   @columns={{array
     (hash key="id" label="ID")
     (hash key="name" label="Name")
@@ -116,6 +116,8 @@
 <pre>this.pageCursor_demo4.prevToken = {{this.pageCursor_demo4.prevToken}}</pre>
 <pre>this.pageCursor_demo4.nextToken = {{this.pageCursor_demo4.nextToken}}</pre>
 <pre>this.consumerRouteName = {{this.consumerRouteName}}</pre>
+<pre>this.prevToken_demo4 = {{this.prevToken_demo4}}</pre>
+<pre>this.nextToken_demo4 = {{this.nextToken_demo4}}</pre>
 <Hds::Pagination::Compact
   @route={{this.consumerRouteName}}
   @queryPrev={{hash prevToken_demo4=this.pageCursor_demo4.prevToken nextToken_demo4=undefined}}

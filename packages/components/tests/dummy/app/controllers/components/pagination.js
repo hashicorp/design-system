@@ -24,14 +24,8 @@ export default class PaginationController extends Controller {
     prev: null,
     next: btoa(`next__1`),
   };
-  @tracked pageSize_demo3 = 5;
-  @tracked pageCursor_demo4 = {
-    prevToken: null,
-    nextToken: btoa(`next__1`),
-  };
-  @tracked prevToken_demo4;
-  @tracked nextToken_demo4;
-  @tracked pageSize_demo4 = 5;
+  @tracked prevToken_demo4 = null;
+  @tracked nextToken_demo4 = btoa(`next__1`);
 
   get consumerRouteName() {
     // eg. 'components.pagination';
@@ -122,16 +116,91 @@ export default class PaginationController extends Controller {
 
   // DEMO #4
 
+  updateCursor(newPrevCursor, newNextCursor) {
+    this.prevToken_demo4 =
+      newPrevCursor < 0 ? null : btoa(`prev_${newPrevCursor}`);
+    this.nextToken_demo4 =
+      newNextCursor > this.model.records.length - 1
+        ? null
+        : btoa(`next_${newNextCursor}`);
+  }
+
+  get pageCursor_demo4() {
+    return {
+      prevToken: this.prevToken_demo4,
+      nextToken: this.nextToken_demo4,
+    };
+  }
+
   get paginatedData_demo4() {
-    if (prevToken_demo4) {
+    /*
+    const pageSize = 5;
+    debugger;
 
-    } else if () {
-
+    let token;
+    if (this.prevToken_demo4) {
+      token = atob(this.nextToken_demo4);
+    } else if (this.nextToken_demo4) {
+      token = atob(this.nextToken_demo4);
     } else {
-
+      token = 'next__1';
     }
-    const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
-    const end = this.currentPage_demo2 * this.currentPageSize_demo2;
-    return this.model.records.slice(start, end);
+    const tokenParts = [...token.split('__')];
+    const direction = tokenParts[0];
+    const cursor = parseInt(tokenParts[1]);
+    const cursorIndex = this.model.records.findIndex(
+      (element) => element.id === parseInt(cursor)
+    );
+    console.log('>>>>', cursor, direction, cursorIndex);
+    let start;
+    let end;
+    let records;
+    if (direction === 'prev') {
+      end = cursorIndex - 1;
+      start = end - pageSize;
+    } else {
+      start = cursorIndex;
+      end = cursorIndex + pageSize;
+    }
+
+    // calculate new cursors
+    const newPrevCursorIndex = start - 1 - pageSize;
+    const newNextCursorIndex = start + pageSize;
+    let newPrevToken;
+    let newNextToken;
+    if (newPrevCursorIndex >= 0) {
+      const newPrevRecordId = this.model.records[newPrevCursorIndex].id;
+      newPrevToken = btoa(`prev_${newPrevRecordId}`);
+    } else {
+      newPrevToken = null;
+    }
+    if (newNextCursorIndex < this.model.records.length) {
+      const newNextRecordId = this.model.records[newNextCursorIndex].id;
+      newNextToken = btoa(`next_${newNextRecordId}`);
+    } else {
+      newNextToken = null;
+    }
+    console.log(
+      '>>>>',
+      newPrevCursorIndex,
+      newPrevToken,
+      newNextCursorIndex,
+      newNextToken
+    );
+    // eslint-disable-next-line ember/no-side-effects
+    // this.prevToken_demo4 =
+    //   newPrevCursor < 0 ? null : btoa(`prev_${newPrevCursor}`);
+    // eslint-disable-next-line ember/no-side-effects
+    // this.nextToken_demo4 =
+    //   newNextCursor > this.model.records.length - 1
+    //     ? null
+    //     : btoa(`next_${newNextCursor}`);
+    // this.updateCursor(newPrevCursor, newNextCursor);
+
+    // return data
+    records = this.model.records.splice(start, end);
+    return records;
+    */
+    return this.model.records.slice(0, 5);
   }
 }
