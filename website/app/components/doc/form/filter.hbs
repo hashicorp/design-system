@@ -3,6 +3,7 @@
     type="search"
     class="doc-form-filter__control"
     placeholder={{@placeholder}}
+    aria-label={{@placeholder}}
     value={{@filterQuery}}
     {{on "input" (perform @onInput value="target.value")}}
     ...attributes
