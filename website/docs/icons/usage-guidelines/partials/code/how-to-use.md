@@ -192,7 +192,7 @@ The size of the icon is determined by the size of the asset imported (each icon 
 
 #### Animated icons
 
-Some of the icons are meant to be animated (e.g., “loading” and “running”). To use them, import the CSS that controls the icons' animation:
+Some of the icons are meant to be animated (e.g., “loading” and “running”). To use them, import the CSS that controls the icons’ animation:
 
 ```scss
 // the path here depends if you’re using 'svg-react' or 'svg' icons 
