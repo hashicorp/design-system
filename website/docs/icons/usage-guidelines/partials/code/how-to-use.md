@@ -12,7 +12,7 @@ yarn add @hashicorp/ember-flight-icons
 
 !!! Information
 
-Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors). `ember-test-selectors` strips out all `data-test-*` attributes for production builds.
+Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 !!!
 
 #### Understanding the component
