@@ -7,7 +7,7 @@ const DEBOUNCE_MS = 250;
 // we want to limit the content of the sidebar navigation to only the links related to the current "section".
 // notice: super hacky way to do it, but... it works™ !
 const getTocSectionBundle = (section) => {
-  const ABOUT = ['about', 'getting-started', 'updates'];
+  const ABOUT = ['about', 'getting-started'];
   const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
@@ -83,11 +83,13 @@ export default class DocPageSidebarComponent extends Component {
 
     const subSectionTree = {};
     getTocSectionBundle(currentSection).forEach((section) => {
-      let subTree = {};
+      let subTree;
       if (this.isFiltered) {
         subTree = filterSubTree(this.args.toc.tree[section], this.filterQuery);
       } else {
-        subTree = this.args.toc.tree[section];
+        // the section may exist (eg. because it has an index page)
+        // but be without children, so we need to have a default empty object
+        subTree = this.args.toc.tree[section] ?? {};
       }
       // this check avoids that we show in the sidebar empty "containers"
       if (Object.keys(subTree).length > 0) {
