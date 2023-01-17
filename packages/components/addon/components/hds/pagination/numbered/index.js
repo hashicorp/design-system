@@ -59,21 +59,25 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   get currentPage() {
-    // console.log('get currentPage() called');
+    // Jamie's code
     // return this.args.currentPage ?? this._currentPage;
-    return this._currentPage;
+    // New code
+    if (this.hasRouting) {
+      return this.args.currentPage;
+    } else {
+      return this._currentPage;
+    }
   }
 
   set currentPage(value) {
-    // console.log(
-    //   `set currentPage() called [1] with value="${value}" and this._currentPage=${this._currentPage}`
-    // );
+    // Jamie's code
     // if (this.args.currentPage === null || this.args.currentPage === undefined) {
-    this._currentPage = value;
-    // console.log(
-    //   `set currentPage() called [2] with value="${value}" and this._currentPage=${this._currentPage}`
-    // );
-    // }
+    // New code
+    if (this.hasRouting) {
+      // noop
+    } else {
+      this._currentPage = value;
+    }
   }
 
   get currentPageSize() {

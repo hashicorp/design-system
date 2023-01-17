@@ -33,3 +33,14 @@
   @onPageChange={{this.handlePageChange}}
   @onPageSizeChange={{this.handlePageSizeChange}}
 />
+
+<h2>This is to test that the non-routed version works too</h2>
+
+<Hds::Pagination::Numbered
+  @totalItems={{this.demoTotalItems}}
+  @itemsPerPage={{10}}
+  @currentPage={{3}}
+  @pageSizes={{array 10 30 50}}
+  @onPageChange={{this.handlePageChange}}
+  @onPageSizeChange={{this.handlePageSizeChange}}
+/>
