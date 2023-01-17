@@ -11,6 +11,8 @@ export default class PaginationController extends Controller {
   @tracked showHighlight = false;
   @tracked demoCurrentPage = 2;
   @tracked demoCurrentPageSize = 30;
+  @tracked currentPage_demo1 = 2;
+  @tracked currentPageSize_demo1 = 5;
   @tracked demoExtraParam = '';
 
   get consumerRouteName() {
@@ -27,6 +29,8 @@ export default class PaginationController extends Controller {
     const end = this.demoCurrentPage * this.demoCurrentPageSize;
     return this.model.records.slice(start, end);
   }
+
+  // GENERIC EVENT HANDLERS
 
   @action
   toggleHighlight() {
@@ -48,7 +52,28 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  handlePageSizeChange(size) {
-    console.log(`Page size changed to "${size}"!`);
+  handlePageSizeChange(pageSize) {
+    console.log(`Page size changed to "${pageSize}"!`);
+  }
+
+  // DEMO #1
+
+  @action
+  onPageChange_demo1(page, pageSize) {
+    this.currentPage_demo1 = page;
+    this.currentPageSize_demo1 = pageSize;
+  }
+
+  @action
+  onPageSizeChange_demo1(pageSize) {
+    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    this.currentPage_demo1 = 1;
+    this.currentPageSize_demo1 = pageSize;
+  }
+
+  get paginatedData_demo1() {
+    const start = (this.currentPage_demo1 - 1) * this.currentPageSize_demo1;
+    const end = this.currentPage_demo1 * this.currentPageSize_demo1;
+    return this.model.records.slice(start, end);
   }
 }

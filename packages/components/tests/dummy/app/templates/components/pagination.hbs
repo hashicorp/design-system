@@ -2,7 +2,38 @@
 
 <h2 class="dummy-h2">Pagination</h2>
 
-<p class="dummy-paragraph">Renders to:</p>
+<h3>Numbered - With events</h3>
+
+<Hds::Table
+  @model={{this.paginatedData_demo1}}
+  @columns={{array
+    (hash key="id" label="ID")
+    (hash key="name" label="Name")
+    (hash key="email" label="Email")
+    (hash key="role" label="Role")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.id}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.role}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+
+<Hds::Pagination::Numbered
+  @totalItems={{this.demoTotalItems}}
+  @itemsPerPage={{this.currentPageSize_demo1}}
+  @currentPage={{2}}
+  @pageSizes={{array 5 10 30}}
+  @onPageChange={{this.onPageChange_demo1}}
+  @onPageSizeChange={{this.onPageSizeChange_demo1}}
+/>
+
+<h3>Numbered - With routing</h3>
+
 <Hds::Table
   @model={{this.demoPaginatedData}}
   @columns={{array
@@ -34,7 +65,7 @@
   @onPageSizeChange={{this.handlePageSizeChange}}
 />
 
-<h2>This is to test that the non-routed version works too</h2>
+<h3>This is to test that the non-routed version works too</h3>
 
 <Hds::Pagination::Numbered
   @totalItems={{this.demoTotalItems}}
