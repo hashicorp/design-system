@@ -7,13 +7,4 @@ export default class ComponentsPaginationRoute extends Route {
     let records = await response.json();
     return { records };
   }
-
-  beforeModel(transition) {
-    console.log(`pagination route -  beforeModel`, transition);
-  }
-
-  @action
-  willTransition(transition) {
-    console.log(`pagination route -  willTransition`, transition);
-  }
 }

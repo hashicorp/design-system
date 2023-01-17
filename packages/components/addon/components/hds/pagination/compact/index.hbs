@@ -1,18 +1,27 @@
+<pre>@route={{@route}}</pre>
 <div class="hds-pagination" ...attributes>
   <nav class="hds-pagination-nav" aria-label="Pagination navigation">
+    {{log "prev" @queryPrev}}
     <Hds::Pagination::Nav::Arrow
       @direction="prev"
       @showLabel={{this.showLabels}}
-      @route={{@routePrev}}
+      @route={{@route}}
       @query={{@queryPrev}}
+      @model={{@model}}
+      @models={{@models}}
+      @replace={{@replace}}
       @onClick={{this.onPageChange}}
       @disabled={{@isDisabledPrev}}
     />
+    {{log "next" @queryNext}}
     <Hds::Pagination::Nav::Arrow
       @direction="next"
       @showLabel={{this.showLabels}}
-      @route={{@routeNext}}
+      @route={{@route}}
       @query={{@queryNext}}
+      @model={{@model}}
+      @models={{@models}}
+      @replace={{@replace}}
       @onClick={{this.onPageChange}}
       @disabled={{@isDisabledNext}}
     />
