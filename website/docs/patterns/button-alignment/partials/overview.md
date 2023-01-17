@@ -41,20 +41,53 @@ The three most common reading patterns are:
 
 The Gutenberg diagram refers to a pattern the eyes follow when moving or scanning through **evenly distributed, homogenous content.** This pattern is most relevant in text-heavy scenarios like novels and newspapers/
 
-**Insert image here**
+![Visual example of a Gutenberg diagram](/assets/patterns/button-alignment/gutenberg-diagram.png)
 
 #### Characteristics
 
 - The users eyes progress through the content on an **axis of orientation** which moves further away from the start edge on each line or break in the content
 - Content that falls into the weak fallow area recieves less attention
 - This pattern indicates that important content and elements should be placed upon the **reading gravity path**
-- This pattern is most prevelant in content with little to no typographic hierarchy (i.e. long-form paragraphs)
+- This pattern is most prevalent in content with little to no typographic hierarchy (i.e. long-form paragraphs)
 - This pattern is considered "in harmony" with natural reading direction and gravity.
 
 ### Z-shaped pattern
 
+A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
+
+1. The readers eyes start in the top left and move horizontally to the right
+2. Upon reaching the end (or terminal) of the line, the eyes move diagonally to the next line.
+3. The readers eyes end in the bottom right of the content
+
+![Visual example of a Z-shaped pattern](/assets/patterns/button-alignment/z-shaped-pattern.png)
+
+#### Characteristics
+
+- There are _technically_ no fallow areas (areas that recieve less attention or lack comprehension) as in the Gutenberg pattern, though this is not always the case in practice.
+- This type of pattern is most prevalent in in task-based functions or sequences of elements; i.e. a form and series of onboarding steps.
+- This pattern assumes that users read through _all_ of the content sequentially.
+
 ### F-shaped pattern
 
+An F-shaped pattern like it's name, loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Neilsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
+
+![Visual example of an F-shaped pattern](/assets/patterns/button-alignment/f-shaped-pattern.png)
+
+**We probably can't use this image directly on our webiste :(**
+
+![An example of eye tracking and heatmaps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
+
+#### Characteristics
+
+The F-shaped pattern is a prominent example of how users scan through content, and how most users don't read content completely.
+
+- Information at the top will generally be read more and have increased comprehension than information further down the page.
+    - This is anecdotally true for all reading and layout patterns, but is best captured through heatmaps.
+- Information of lesser importance should be concise, potentially bulletted, and aligned to the left hand side of the page, pattern, or component.
+- This layout assumes users generally only scan content, rather than reading word-for-word.
+
 ### Reading patterns in practice
+
+All three of these reading patterns are relevant and useful when observed in a vaccuum, however the reality of how users read, consume, and comprehend content is most likely a combination of all three. With that in mind, keeping these patterns top of mind and how they are relevant to different types of UX content will help to produce the best experience.
 
 
