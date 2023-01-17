@@ -11,9 +11,7 @@
 }
 
 .doc-layout--direction-vertical {
-  // flex-direction: column;
-
-  // Experimental: make "align" values (left, right, center) have a consistent effect...
+  // Make "align" values (left, right, center) have a consistent effect (vs. using flex-direction: column;)
   // (forces each child item to occupy its own row)
   column-gap: 100%;
 }
