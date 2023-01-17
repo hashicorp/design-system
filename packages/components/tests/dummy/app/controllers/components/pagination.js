@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { next } from '@ember/runloop';
 
 export default class PaginationController extends Controller {
   queryParams = [
@@ -133,7 +134,6 @@ export default class PaginationController extends Controller {
   }
 
   get paginatedData_demo4() {
-    /*
     const pageSize = 5;
     debugger;
 
@@ -180,6 +180,7 @@ export default class PaginationController extends Controller {
     } else {
       newNextToken = null;
     }
+
     console.log(
       '>>>>',
       newPrevCursorIndex,
@@ -187,20 +188,15 @@ export default class PaginationController extends Controller {
       newNextCursorIndex,
       newNextToken
     );
-    // eslint-disable-next-line ember/no-side-effects
-    // this.prevToken_demo4 =
-    //   newPrevCursor < 0 ? null : btoa(`prev_${newPrevCursor}`);
-    // eslint-disable-next-line ember/no-side-effects
-    // this.nextToken_demo4 =
-    //   newNextCursor > this.model.records.length - 1
-    //     ? null
-    //     : btoa(`next_${newNextCursor}`);
-    // this.updateCursor(newPrevCursor, newNextCursor);
+
+    // we need to use this hack to avoid Ember complaining
+    // next(this, function () {
+    //   this.prevToken_demo4 = newPrevToken;
+    //   this.nextToken_demo4 = newNextToken;
+    // });
 
     // return data
     records = this.model.records.splice(start, end);
     return records;
-    */
-    return this.model.records.slice(0, 5);
   }
 }
