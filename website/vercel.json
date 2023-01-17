@@ -2,27 +2,26 @@
   "headers": [
     {
       "source": "/(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "X-Robots-Tag",
-          "value" : "all"
+          "key": "X-Robots-Tag",
+          "value": "all"
         }
       ]
     },
     {
       "source": "/testing(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "X-Robots-Tag",
-          "value" : "none"
+          "key": "X-Robots-Tag",
+          "value": "none"
         }
       ]
     }
-  ], 
+  ],
   "framework": "ember",
   "routes": [
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/error.html" }
   ]
-
 }
