@@ -1,9 +1,19 @@
-<pre>this._currentPage {{this._currentPage}}</pre>
-<pre>this.currentPage {{this.currentPage}}</pre>
-<pre>this.currentPageSize {{this.currentPageSize}}</pre>
-<pre>this._currentPageSize {{this._currentPageSize}}</pre>
-<pre>queryParams[demoCurrentPage] {{this.routeQueryParams.demoCurrentPage}}</pre>
-<pre>queryParams[demoCurrentPageSize] {{this.routeQueryParams.demoCurrentPageSize}}</pre>
+<table width="100%">
+  <tr>
+    <td>
+      <pre>this._currentPage {{this._currentPage}}</pre>
+      <pre>this.currentPage {{this.currentPage}}</pre>
+      <pre>@currentPage {{@currentPage}}</pre>
+      <pre>queryParams[demoCurrentPage] {{this.routeQueryParams.demoCurrentPage}}</pre>
+    </td>
+    <td>
+      <pre>this.currentPageSize {{this.currentPageSize}}</pre>
+      <pre>this._currentPageSize {{this._currentPageSize}}</pre>
+      <pre>@itemsPerPage {{@itemsPerPage}}</pre>
+      <pre>queryParams[demoCurrentPageSize] {{this.routeQueryParams.demoCurrentPageSize}}</pre>
+    </td>
+  </tr>
+</table>
 
 <div class="hds-pagination" ...attributes>
   {{#if this.showInfo}}
