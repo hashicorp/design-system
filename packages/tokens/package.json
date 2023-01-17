@@ -1,9 +1,10 @@
 {
   "name": "@hashicorp/design-system-tokens",
   "version": "1.3.0",
-  "description": "HashiCorp Design Tokens",
+  "description": "Helios Design Tokens",
   "keywords": [
     "hashicorp",
+    "helios",
     "design tokens",
     "tokens",
     "style dictionary"

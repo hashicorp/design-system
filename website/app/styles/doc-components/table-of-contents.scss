@@ -1,5 +1,7 @@
 // TABLE OF CONTENTS
 
+@use "../typography/mixins" as *;
+
 $doc-toc-item-inset: 8px;
 
 .doc-table-of-contents {
@@ -16,7 +18,7 @@ $doc-toc-item-inset: 8px;
   list-style: none;
 
   &.doc-table-of-contents__item--depth-1 {
-    &::after {
+    & + &::before {
       display: block;
       height: 1px;
       margin: 20px $doc-toc-item-inset;
@@ -27,10 +29,12 @@ $doc-toc-item-inset: 8px;
 }
 
 .doc-table-of-contents__heading {
+  @include doc-font-style-label();
   padding: 0 $doc-toc-item-inset 12px $doc-toc-item-inset;
 }
 
 .doc-table-of-contents__summary {
+  @include doc-font-style-navigation();
   display: block;
   width: 100%;
   padding: $doc-toc-item-inset 32px $doc-toc-item-inset $doc-toc-item-inset;
@@ -55,6 +59,7 @@ $doc-toc-item-inset: 8px;
 }
 
 .doc-table-of-contents__link {
+  @include doc-font-style-navigation();
   display: block;
   padding-top: $doc-toc-item-inset;
   padding-right: $doc-toc-item-inset;

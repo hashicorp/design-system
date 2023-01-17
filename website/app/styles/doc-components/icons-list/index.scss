@@ -94,6 +94,7 @@
 // not found
 
 .doc-icons-list-grid__not-found {
+  @include doc-font-style-body();
   display: flex;
   gap: 12px;
   align-items: center;

@@ -18,11 +18,8 @@ export default class CustomHeadDataService extends HeadDataService {
   }
 
   get imgSrc() {
-    return this.currentRouteMeta?.id
-      ? `/assets/illustrations/${this.currentRouteMeta?.id.replace(
-          /\/index$/,
-          ''
-        )}.jpg`
+    return this.currentRouteMeta?.frontmatter?.previewImage
+      ? this.currentRouteMeta.frontmatter.previewImage
       : config['ember-meta'].imgSrc;
   }
 }

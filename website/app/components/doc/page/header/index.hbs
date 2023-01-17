@@ -5,15 +5,15 @@
   </LinkTo>
   <nav class="doc-page-header__nav-menu" aria-label="primary navigation">
     <ul role="list">
-      <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{this.currentTopRoute}} />
-      <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{this.currentTopRoute}} />
-      <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{this.currentTopRoute}} />
-      <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{this.currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{@currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{@currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{@currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem
         @label="Support"
         @route="show"
         @model="about/support"
-        @currentTopRoute={{this.currentTopRoute}}
+        @currentTopRoute={{@currentTopRoute}}
         class="doc-page-header__nav-item--split"
       />
       <li class="doc-page-header__nav-item-generic"><a
@@ -23,13 +23,13 @@
         ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
     </ul>
   </nav>
-  <button type="button" class="doc-page-header__burger-menu" {{on "click" this.onToggleBurgerMenu}}>
-    {{#if this.burgerMenuOpen}}
+  <button type="button" class="doc-page-header__burger-menu" {{on "click" @onToggleBurgerMenu}}>
+    {{#if @isSidebarVisibleOnSmallViewport}}
       <FlightIcon @name="x" />
-      <span class="doc-text-navigation">Close</span>
+      Close
     {{else}}
       <FlightIcon @name="menu" />
-      <span class="doc-text-navigation">Menu</span>
+      Menu
     {{/if}}
   </button>
 </header>

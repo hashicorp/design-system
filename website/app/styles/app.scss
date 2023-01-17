@@ -9,6 +9,7 @@
 // Global declarations
 @import "global";
 @import "typography";
+@import "spacing";
 
 // "Doc" components
 @import "doc-components";
@@ -25,7 +26,7 @@
 
 // Third-party declarations
 @import "prism-dracula";
-
+@import "ember-power-select";
 
 // GLOBALS
 

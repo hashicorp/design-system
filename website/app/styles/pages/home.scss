@@ -91,9 +91,26 @@ body.application.index {
     @include doc-font-family("gilmer");
     margin: 0;
     color: var(--doc-color-white);
-    font-weight: 500;
+    font-weight: 400;
     font-size: var(--title-font-size);
     line-height: 1;
+
+    .doc-page-home__hero-helios {
+      display: block;
+      width: fit-content;
+      color: var(--doc-color-white);
+      font-weight: 500;
+
+      @supports (-webkit-background-clip: text) or (background-clip: text) {
+        background-color: #fff; // fallback
+        background-image: linear-gradient(89.92deg, #5ec7fc 0.06%, #4180eb 50.51%, #564ccc 99.93%);
+        // stylelint-disable-next-line property-no-vendor-prefix
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        fill-color: transparent;
+      }
+    }
   }
 
   p {

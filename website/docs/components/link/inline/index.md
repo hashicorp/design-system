@@ -6,6 +6,7 @@ status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2365%3A21590&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/link
+previewImage: assets/illustrations/components/link/inline.jpg
 ---
 
 <section data-tab="Guidelines">
@@ -16,5 +17,5 @@ links:
 <section data-tab="Code">
   @include "partials/code/component-api.md"
   @include "partials/code/how-to-use.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>

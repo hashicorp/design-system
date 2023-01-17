@@ -11,10 +11,7 @@ export default class ComponentsController extends Controller {
         .filter((page) => page.pageParents[0] === section)
         .map((page) => {
           return {
-            image: `/assets/illustrations/${page.filePath.replace(
-              /\/index$/,
-              ''
-            )}.jpg`,
+            image: page.pageAttributes.previewImage,
             title: page.pageAttributes.title,
             caption:
               page.pageAttributes.caption ||

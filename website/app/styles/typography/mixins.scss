@@ -1,9 +1,9 @@
+// TYPOGRAPHIC STYLES (SASS MIXINS)
+
 @use "../breakpoints" as breakpoint;
 
 
-// ---------
 // TYPEFACES
-// ---------
 
 @mixin doc-font-family($family) {
   @if ($family == "gilmer") {
@@ -18,9 +18,7 @@
 }
 
 
-// ---------
 // HEADINGS
-// ---------
 
 // H1
 
@@ -131,9 +129,7 @@
 }
 
 
-// ---------
 // BODY COPY
-// ---------
 
 // BASE
 
@@ -151,9 +147,8 @@
   line-height: 1.667; // 25px
 }
 
-// ---------
+
 // CODE
-// ---------
 
 @mixin doc-font-style-code {
   @include doc-font-family("mono");
@@ -162,9 +157,7 @@
 }
 
 
-// ---------
 // SUPPORTING STYLES
-// ---------
 
 @mixin doc-font-style-navigation { // same as body-small but different weight
   @include doc-font-style-body-small();

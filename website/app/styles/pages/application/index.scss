@@ -22,7 +22,8 @@
   --doc-page-sidebar-width: 260px;
   --doc-page-stage-gutter-small: 24px;
   --doc-page-stage-gutter-medium: 48px;
-  --doc-page-stage-gutter-large: 96px;
+  --doc-page-stage-gutter-large: 64px;
+  --doc-page-stage-gutter-x-large: 96px;
   --doc-page-content-max-width: 900px;
   --doc-page-text-limit-width: 720px;
   --doc-page-sidecar-width: 220px;
@@ -43,4 +44,5 @@
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
+  padding-top: var(--doc-page-header-height); // we need to compensate for the fixed position of the header
 }
