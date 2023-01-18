@@ -18,4 +18,5 @@ This component intends to conform to the following WCAG Success Criteria:
 ---
 
 ## Support
-If any accessibility issues have been found within these components, please let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
+
+If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
