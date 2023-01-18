@@ -11,8 +11,9 @@ status: released
 <section data-tab="Specifications">
   @include "partials/specifications/specifications.md"
   @include "partials/specifications/alignment.md"
-  @include "partials/specifications/grouping.md"
   @include "partials/specifications/order.md"
+  @include "partials/specifications/grouping.md"
+  @include "partials/specifications/exceptions.md"
 </section>
 
 <section data-tab="Accessibility">
