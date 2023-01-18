@@ -1,6 +1,6 @@
-## How to use
+## How to use these styles
 
-There are two different ways to apply a color to a UI element, via **design tokens** or via **CSS helper classes**.
+There are two different ways to apply color to a UI element, via **design tokens** or via **CSS helper classes**.
 
 Which one to use depends on the context since both refer to the same design token values. From the design system perspective there’s no difference between the two methods (it’s more of a preference for the “consumer” codebase).
 
@@ -8,7 +8,6 @@ Which one to use depends on the context since both refer to the same design toke
 !!! Info
 
 At the moment the CSS helpers are available only for “semantic” colors. In the future we may offer helpers for “palette” and “product/branding” colors, but for now for these colors you have to use the design tokens as CSS variables.
-
 !!!
 
 ### Design tokens
@@ -40,5 +39,4 @@ To use this classes you have to import the CSS file `[products|devdot]/css/helpe
 !!! Info
 
 When a “border-color” CSS helper is used on an element a `1px solid` border is applied to it: if you need a different border `width/style` you have to override it.
-
 !!!
