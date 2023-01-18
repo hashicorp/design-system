@@ -38,6 +38,10 @@ module.exports = function (defaults) {
       theme: 'dracula',
       plugins: ['line-numbers', 'normalize-whitespace'],
     },
+    // https://github.com/shipshapecode/prember-sitemap-generator#usage
+    prember: {
+      baseRoot: 'https://helios.hashicorp.design/',
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
