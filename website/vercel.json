@@ -20,5 +20,5 @@
     }
   ],
   "framework": "ember",
-  "rewrites": [{ "source": "/(.*)", "destination": "/error.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/_empty.html" }]
 }
