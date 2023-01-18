@@ -37,38 +37,6 @@ To use this class, ensure you’ve imported the relevant CSS file:
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
 ```
 
-### Sass mixins
-
-While we offer two Sass mixins `hds-focus-ring-basic` and `hds-focus-ring-with-pseudo-element`, they’re mainly used in the design system codebase. 
-
-In addition to applying the focus style, these mixins also account for all declarations of `:focus/:focus-visible` in the different browsers.
-
-If needing to use these mixins, ensure you’ve imported the necessary Sass file: 
-
-<!-- IS THIS CORRECT? ARE THERE OTHER DETAILS WE NEED TO INCLUDE? -->
-```scss
-@import "~@hashicorp/design-system-components/app/styles/mixins/_focus-ring.scss";
-```
-
-You can then invoke the mixins:
-
-```css
-/* include the mixin file via @use (path will depend on your context) */
-@use '../mixins/focus-ring' as *;
-
-/* apply the focus-ring as box-shadow ('action' will be the default color ) */
-.your-selector {
-  [...your CSS declarations]
-  @include hds-focus-ring-basic();
-}
-
-/* apply the focus-ring as pseudo-element (with 'critical' color ) */
-.your-selector {
-  [...your CSS declarations]
-  @include hds-focus-ring-with-pseudo-element($top: 0, $right: 0, $bottom: 0, $left: 0, $radius: 5px, $color: critical);
-}
-```
-
 ## Examples
 
 ### Border radius
