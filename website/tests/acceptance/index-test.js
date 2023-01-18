@@ -3,17 +3,17 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components table', function (hooks) {
+module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/table page exists', async function (assert) {
-    await visit('/components/table');
+  test('visiting the home page', async function (assert) {
+    await visit('/');
 
-    assert.strictEqual(currentURL(), '/components/table');
+    assert.strictEqual(currentURL(), '/');
   });
 
-  test('Components/table page passes a11y automated checks', async function (assert) {
-    await visit('/components/table');
+  test('Home page passes a11y automated checks', async function (assert) {
+    await visit('/');
 
     let axeOptions = {
       runOnly: [
