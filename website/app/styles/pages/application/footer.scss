@@ -7,7 +7,7 @@
   // z-index: var(--doc-z-index-footer);
   grid-area: footer;
 
-  body.application:not(.index, .error) & {
+  body.application:not(.index, .error, .patterns) & {
     @include breakpoint.with-fixed-sidebar() {
       padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
     }

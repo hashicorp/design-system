@@ -52,9 +52,10 @@ body.application.index {
   }
 }
 
-// ERROR PAGE
+// PAGES THAT DO NOT WANT SIDEBARS
 
-body.application.error {
+body.application.error,
+body.application.patterns {
   .doc-page-sidebar {
     display: none;
   }
@@ -62,7 +63,7 @@ body.application.error {
 
 // ALL THE OTHER PAGES
 
-body.application:not(.index, .error) {
+body.application:not(.index, .error, .patterns) {
   // Notice: for `display` and animation/transition look below
   .doc-page-sidebar {
     position: fixed;
@@ -134,7 +135,7 @@ body.application.index {
 
 // ALL THE OTHER PAGES
 
-body.application:not(.index, .error) {
+body.application:not(.index, .error, .patterns) {
 
   // the sidebar is animated only on small viewports
   @include breakpoint.with-mobile-sidebar() {
