@@ -8,6 +8,8 @@ export default class PaginationController extends Controller {
   queryParams = [
     'currentPage_demo2',
     'currentPageSize_demo2',
+    'currentSortBy_demo2',
+    'currentSortOrder_demo2',
     'demoExtraParam',
     'prevToken_demo4',
     'nextToken_demo4',
@@ -20,6 +22,9 @@ export default class PaginationController extends Controller {
   @tracked currentPageSize_demo1 = 5;
   @tracked currentPage_demo2 = 2;
   @tracked currentPageSize_demo2 = 30;
+  @tracked currentSortBy_demo2;
+  @tracked currentSortOrder_demo2;
+
   // @tracked demoExtraParam = '';
   @tracked pageCursor_demo3 = {
     prev: null,
@@ -86,6 +91,15 @@ export default class PaginationController extends Controller {
   }
 
   // DEMO #2
+
+  @action
+  onTableSort_demo2(sortBy, sortOrder) {
+    // console.log('onTableSort_demo2 called', sortBy, sortOrder);
+    this.currentSortBy_demo2 = sortBy;
+    this.currentSortOrder_demo2 = sortOrder;
+    // we should reset the selected page
+    // this.currentPage_demo2 = 1;
+  }
 
   get paginatedData_demo2() {
     const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
@@ -195,7 +209,7 @@ export default class PaginationController extends Controller {
     // calculate new cursors
     const newPrevCursorIndex = start - 1 - pageSize;
     const newNextCursorIndex = start + pageSize;
-    this.updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex);
+    // this.updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex);
 
     // return data
     records = this.model.records.slice(start, end);

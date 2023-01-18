@@ -37,11 +37,14 @@
 <Hds::Table
   @model={{this.paginatedData_demo2}}
   @columns={{array
-    (hash key="id" label="ID")
-    (hash key="name" label="Name")
+    (hash key="id" label="ID" isSortable="true")
+    (hash key="name" label="Name" isSortable="true")
     (hash key="email" label="Email")
     (hash key="role" label="Role")
   }}
+  @sortBy={{this.currentSortBy_demo2}}
+  @sortOrder={{this.currentSortOrder_demo2}}
+  @onSort={{this.onTableSort_demo2}}
 >
   <:body as |B|>
     <B.Tr>
