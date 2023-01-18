@@ -1,8 +1,9 @@
 ---
 title: Disclosure
-description: An internal utility that provides hide/show functionality.
-caption: An internal utility that provides hide/show functionality.
+description: An internal utility component that provides show/hide functionality.
+caption: An internal utility component that provides show/hide functionality.
 previewImage: assets/illustrations/utilities/disclosure.jpg
+keywords: ['show', 'hide', 'accordion', 'dropdown', 'reveal']
 ---
 
 <section data-tab="Code">
