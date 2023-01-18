@@ -6,6 +6,7 @@ status: code-only
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/button-set
 previewImage: assets/illustrations/components/button-set.jpg
+keywords: ['button group', 'button', 'button spacing', 'button alignment', 'button layout']
 ---
 
 <section data-tab="Guidelines">
