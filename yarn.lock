@@ -18543,6 +18543,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prember-sitemap-generator@git+https://github.com/shipshapecode/prember-sitemap-generator.git#c95f47042d86c4fa7b8b631f271da090672e13df":
+  version: 0.1.1
+  resolution: "prember-sitemap-generator@https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"
+  dependencies:
+    chalk: ^2.4.2
+    ember-cli-htmlbars: ^5.2.0
+  checksum: 63c0d77bd3664666556e4e919b372457eb86c5f1be06823ef4699bf119ec99ac3b4a7d4cc31b4837b7c8c49bbbbc08de8b21225062cf7c3f9fa27a215a4e7d2b
+  languageName: node
+  linkType: hard
+
 "prember@npm:*, prember@npm:^1.1.1":
   version: 1.1.1
   resolution: "prember@npm:1.1.1"
@@ -23230,6 +23240,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prember: ^1.1.1
     prember-middleware: ^0.1.0
+    prember-sitemap-generator: "git+https://github.com/shipshapecode/prember-sitemap-generator.git#c95f47042d86c4fa7b8b631f271da090672e13df"
     prettier: ^2.7.1
     qunit: ^2.19.1
     qunit-dom: ^2.0.0

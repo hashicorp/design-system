@@ -27,6 +27,7 @@ class MarkdownToJsonApi extends PersistentFilter {
         'hidden',
         'order',
         'previewImage',
+        'keywords',
       ],
     };
 

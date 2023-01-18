@@ -69,6 +69,23 @@ To learn more about how to use the foundational styles, visit:
 - [Borders](/foundations/border)
 - [Focus ring](/foundations/focus-ring)
 
+## Icons
+
+### Adding icons to your project
+
+To use icons within your project, first ensure the [Icons library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0) is enabled for your project (see [enabling Helios libraries](#enabling-helios-libraries)).
+
+1.  Open your project file within Figma.
+
+2.  Navigate to the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" at the top of the left sidebar.
+
+3.  Search or scroll to find the icon you need and drag it into your file.
+
+!!! Insight
+
+In Helios, icons are technically components. This means you can swap instances, sizes, and colors quickly within Figma’s design panel in the right sidebar.
+!!!
+
 ## Components
 
 A component inserted from a library into a project is called an [instance](https://help.figma.com/hc/en-us/articles/360039150173-Create-and-insert-component-instances). Instances maintain a link to the main component in the library, which has significant benefits for deploying updates and iterating quickly on designs.

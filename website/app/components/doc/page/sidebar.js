@@ -1,13 +1,16 @@
 import Component from '@glimmer/component';
+import { restartableTask, timeout } from 'ember-concurrency';
+import { tracked } from '@glimmer/tracking';
+
+const DEBOUNCE_MS = 250;
 
 // we want to limit the content of the sidebar navigation to only the links related to the current "section".
 // notice: super hacky way to do it, but... it works™ !
 const getTocSectionBundle = (section) => {
-  const ABOUT = ['about', 'getting-started', 'updates'];
+  const ABOUT = ['about', 'getting-started'];
   const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
-  const SUPPORT = ['support'];
   // this will be removed later
   const TESTING = ['testing'];
 
@@ -21,15 +24,51 @@ const getTocSectionBundle = (section) => {
     return PATTERNS;
   } else if (TESTING.includes(section)) {
     return TESTING;
-  } else if (SUPPORT.includes(section)) {
-    return SUPPORT;
   } else {
     // eg. the website "root" index page
     return [];
   }
 };
 
+const filterSubTree = (subTree, filterQuery) => {
+  let filteredTree = {};
+  Object.keys(subTree).forEach((key) => {
+    const item = subTree[key];
+    if (item.pageURL) {
+      const fq = filterQuery.toLowerCase();
+      if (
+        (item.pageAttributes.title &&
+          item.pageAttributes.title.toLowerCase().includes(fq)) ||
+        (item.pageAttributes.keywords &&
+          item.pageAttributes.keywords.some((k) =>
+            k.toLowerCase().includes(fq)
+          ))
+      ) {
+        filteredTree[key] = item;
+      }
+    } else {
+      const subSubTree = filterSubTree(item, filterQuery);
+      if (Object.keys(subSubTree).length > 0) {
+        filteredTree[key] = subSubTree;
+      }
+    }
+  });
+  return filteredTree;
+};
+
 export default class DocPageSidebarComponent extends Component {
+  @tracked filterQuery = '';
+
+  get isFiltered() {
+    return this.filterQuery !== '';
+  }
+
+  get hasTableOfContents() {
+    return (
+      this.structuredPageTree && Object.keys(this.structuredPageTree).length > 0
+    );
+  }
+
   get structuredPageTree() {
     const { currentPath, currentRoute } = this.args;
 
@@ -44,13 +83,26 @@ export default class DocPageSidebarComponent extends Component {
 
     const subSectionTree = {};
     getTocSectionBundle(currentSection).forEach((section) => {
-      let subTree = this.args.toc.tree[section];
+      let subTree;
+      if (this.isFiltered) {
+        subTree = filterSubTree(this.args.toc.tree[section], this.filterQuery);
+      } else {
+        // the section may exist (eg. because it has an index page)
+        // but be without children, so we need to have a default empty object
+        subTree = this.args.toc.tree[section] ?? {};
+      }
       // this check avoids that we show in the sidebar empty "containers"
-      if (subTree) {
+      if (Object.keys(subTree).length > 0) {
         subSectionTree[section] = subTree;
       }
     });
 
     return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;
+  }
+
+  @restartableTask *filterPageTree(filterQuery) {
+    yield timeout(DEBOUNCE_MS);
+
+    this.filterQuery = filterQuery;
   }
 }

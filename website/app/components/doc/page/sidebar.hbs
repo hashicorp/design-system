@@ -30,9 +30,27 @@
         </li>
       </ul>
     </nav>
-    {{#if this.structuredPageTree}}
+    {{#if (or this.structuredPageTree this.isFiltered)}}
+      <div class="doc-page-sidebar__filter">
+        <Doc::Form::Filter
+          @placeholder="Filter sidebar"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+          @onInput={{this.filterPageTree}}
+        />
+      </div>
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
-        <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
+        {{#if this.hasTableOfContents}}
+          <Doc::TableOfContents
+            @structuredPageTree={{this.structuredPageTree}}
+            @depth={{1}}
+            @isFiltered={{this.isFiltered}}
+          />
+        {{else}}
+          <p class="doc-text-body-small">No results found</p>
+        {{/if}}
       </nav>
     {{/if}}
   </div>
