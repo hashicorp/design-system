@@ -46,3 +46,15 @@
   min-height: 100vh;
   padding-top: var(--doc-page-header-height); // we need to compensate for the fixed position of the header
 }
+
+.doc-page-wrapper .doc-page-wrapper--hide-sidebar {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "stage"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  padding-top: var(--doc-page-header-height); // we need to compensate for the fixed position of the header
+}

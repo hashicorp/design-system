@@ -52,10 +52,10 @@ body.application.index {
   }
 }
 
-
 // ALL THE OTHER PAGES
 
-body.application:not(.index) {
+body.application:not(.index),
+body.application:not(.error) {
   // Notice: for `display` and animation/transition look below
   .doc-page-sidebar {
     position: fixed;

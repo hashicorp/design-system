@@ -67,6 +67,15 @@ export default class ApplicationController extends Controller {
     }
   }
 
+  get hideSidebar() {
+    if (this.currentTopRoute === 'error') {
+      console.log(`error page!`);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @action
   onToggleBurgerMenu() {
     if (this.isSidebarVisibleOnSmallViewport === false) {
