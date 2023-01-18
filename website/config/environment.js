@@ -8,7 +8,7 @@ module.exports = function (environment) {
     locationType: 'history',
     historySupportMiddleware: true,
     routerScroll: {
-      targetElement: '#main',
+      targetElement: '#topofpage',
       scrollWhenAfterRender: true,
     },
 
