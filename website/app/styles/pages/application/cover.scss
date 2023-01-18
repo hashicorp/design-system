@@ -63,7 +63,7 @@
   height: min-content;
   margin-top: 24px;
   overflow-x: auto;
-  overflow-y: visible; // needed or it will show a small vertical scrollbar
+  overflow-y: hidden; // .doc-page-tabs__tab--is-current has an ::after pseudoelement that always overflows with 3px, so we disable the vertical scrollbar and rely on the horizontal one
   -webkit-overflow-scrolling: touch;
 
   @include breakpoint.medium-and-above () {
