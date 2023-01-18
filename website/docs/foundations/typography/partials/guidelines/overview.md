@@ -5,7 +5,6 @@ Helios uses the default system fonts available on each OS. We opt for system fon
 
 While the text might display differently across each OS, contextually to a user of that OS, it won’t seem out of place.
 
-
 ### Sans-serif
 
 ![sans-serif on mac](/assets/foundations/typography/sans-serif-mac.png =660x*)
