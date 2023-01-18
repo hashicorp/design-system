@@ -1,5 +1,5 @@
 ---
-title: Icon Library
+title: Icon library
 layout:
   sidecar: false
 caption: Icons can be used to support and enhance meaning and can help call out information.
