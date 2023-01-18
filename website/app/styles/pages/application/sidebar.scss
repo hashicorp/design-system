@@ -11,8 +11,7 @@ $doc-page-sidebar-transition-duration: 0.25s;
 // HOME PAGE
 // This is a special case: the sidebar is horizontal and is visible *only* on small viewports (when opened)
 
-body.application.index,
-body.application.error {
+body.application.index {
   .doc-page-sidebar {
     // Notice: for `display` and animation/transition look below
     position: fixed;
@@ -50,6 +49,14 @@ body.application.error {
         color: var(--doc-color-white);
       }
     }
+  }
+}
+
+// ERROR PAGE
+
+body.application.error {
+  .doc-page-sidebar {
+    display: none;
   }
 }
 

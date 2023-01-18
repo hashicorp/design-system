@@ -2,20 +2,18 @@
 
 {{page-title "Helios Design System"}}
 
-<div class="doc-page-wrapper {{if this.hideSidebar 'doc-page-wrapper--hide-sidebar'}}">
+<div class="doc-page-wrapper">
   <Doc::Page::Header
     @currentTopRoute={{this.currentTopRoute}}
     @isSidebarVisibleOnSmallViewport={{this.isSidebarVisibleOnSmallViewport}}
     @onToggleBurgerMenu={{this.onToggleBurgerMenu}}
   />
-  {{#unless this.hideSidebar}}
-    <Doc::Page::Sidebar
-      {{! `this.model.toc` comes from `routes/application.js` }}
-      @toc={{this.model.toc}}
-      @currentPath={{this.target.currentPath}}
-      @currentRoute={{this.target.currentRoute}}
-    />
-  {{/unless}}
+  <Doc::Page::Sidebar
+    {{! `this.model.toc` comes from `routes/application.js` }}
+    @toc={{this.model.toc}}
+    @currentPath={{this.target.currentPath}}
+    @currentRoute={{this.target.currentRoute}}
+  />
   {{outlet}}
   <Doc::Page::Footer />
 </div>
