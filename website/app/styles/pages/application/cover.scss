@@ -7,7 +7,7 @@
   position: relative;
   grid-area: cover;
   min-width: 0; // This is needed to allow the scrolling of the tabs
-  padding: 16px var(--doc-page-stage-gutter-small) 0;
+  padding: 32px var(--doc-page-stage-gutter-small) 0;
   background-color: var(--doc-color-white);
   border-bottom: 1px solid var(--doc-color-gray-500);
 
