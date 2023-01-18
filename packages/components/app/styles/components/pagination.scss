@@ -10,11 +10,35 @@
 
 .hds-pagination {
   display: grid;
-  grid-template-areas: "left center right";
+  grid-template-areas: "info nav selector";
   grid-template-rows: auto;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   margin: 0 auto;
+}
+
+// Responsive layout
+// max-width is based on where component layout potentially breaks down
+@media screen and (max-width: 1000px) {
+  .hds-pagination {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    .hds-pagination-info,
+    .hds-pagination-nav,
+    .hds-pagination-size-selector {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  .hds-pagination-nav { order: -1; }
+
+  .hds-pagination-info,
+  .hds-pagination-size-selector {
+    margin-top: 8px;
+  }
 }
 
 
@@ -22,7 +46,7 @@
 // ---------------------------------------
 
 .hds-pagination-info {
-  grid-area: left;
+  grid-area: info;
   justify-self: flex-start;
   white-space: nowrap;
 }
@@ -33,7 +57,7 @@
 
 .hds-pagination-nav {
   display: flex;
-  grid-area: center;
+  grid-area: nav;
 }
 
 .hds-pagination-nav__page-list {
@@ -144,7 +168,7 @@
 
 .hds-pagination-size-selector {
   display: flex;
-  grid-area: right;
+  grid-area: selector;
   align-items: center;
   justify-self: flex-end;
 
