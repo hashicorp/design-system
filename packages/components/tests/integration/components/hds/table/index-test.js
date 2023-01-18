@@ -42,6 +42,7 @@ const hbsSortableTable = hbs`
   @model={{this.model}}
   @sortBy={{this.sortBy}}
   @sortOrder={{this.sortOrder}}
+  @onSort={{this.onSort}}
   @columns={{this.columns}}
   id="data-test-table"
 >
@@ -249,5 +250,22 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert
       .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
       .hasAttribute('aria-sort', 'ascending');
+  });
+
+  test('it invokes the `onSort` callback when a sort is performed', async function (assert) {
+    let sortBy, sortOrder;
+    this.set('onSort', (by, ord) => {
+      sortBy = by;
+      sortOrder = ord;
+    });
+    setSortableTableData(this);
+    await render(hbsSortableTable);
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.strictEqual(sortBy, 'artist');
+    assert.strictEqual(sortOrder, 'desc');
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.strictEqual(sortBy, 'artist');
+    assert.strictEqual(sortOrder, 'asc');
   });
 });
