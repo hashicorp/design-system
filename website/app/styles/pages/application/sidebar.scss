@@ -11,7 +11,8 @@ $doc-page-sidebar-transition-duration: 0.25s;
 // HOME PAGE
 // This is a special case: the sidebar is horizontal and is visible *only* on small viewports (when opened)
 
-body.application.index {
+body.application.index,
+body.application.error {
   .doc-page-sidebar {
     // Notice: for `display` and animation/transition look below
     position: fixed;
@@ -54,8 +55,7 @@ body.application.index {
 
 // ALL THE OTHER PAGES
 
-body.application:not(.index),
-body.application:not(.error) {
+body.application:not(.index, .error) {
   // Notice: for `display` and animation/transition look below
   .doc-page-sidebar {
     position: fixed;
@@ -127,7 +127,7 @@ body.application.index {
 
 // ALL THE OTHER PAGES
 
-body.application:not(.index) {
+body.application:not(.index, .error) {
 
   // the sidebar is animated only on small viewports
   @include breakpoint.with-mobile-sidebar() {
