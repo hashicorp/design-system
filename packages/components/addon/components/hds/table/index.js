@@ -117,5 +117,11 @@ export default class HdsTableIndexComponent extends Component {
     }
     // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
     this.sortedMessageText = `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+
+    let { onSort } = this.args;
+
+    if (typeof onSort === 'function') {
+      onSort(this.sortBy, this.sortOrder);
+    }
   }
 }
