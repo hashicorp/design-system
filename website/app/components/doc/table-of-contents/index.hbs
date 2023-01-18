@@ -16,11 +16,11 @@
       {{else}}
         {{#if (eq @depth 1)}}
           <div class="doc-table-of-contents__heading">{{humanize key}}</div>
-          <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
+          <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} @isFiltered={{@isFiltered}} />
         {{else}}
-          <details class="doc-table-of-contents__folder">
+          <details class="doc-table-of-contents__folder" open={{@isFiltered}}>
             <summary class="doc-table-of-contents__summary">{{humanize key}}</summary>
-            <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
+            <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} @isFiltered={{@isFiltered}} />
           </details>
         {{/if}}
       {{/if}}
