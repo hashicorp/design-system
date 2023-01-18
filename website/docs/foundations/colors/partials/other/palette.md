@@ -42,7 +42,7 @@ Use to indicate an element is in a focused state. Use critical values for critic
 
 !!! Info
 
-These are primarily used internally by the design system’s team to define focus states.
+These are primarily used internally by the Design Systems Team to define focus states.
 !!!
 
 <div class="dummy-colors-list">
