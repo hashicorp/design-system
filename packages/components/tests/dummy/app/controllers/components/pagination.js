@@ -198,7 +198,7 @@ export default class PaginationController extends Controller {
     this.updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex);
 
     // return data
-    records = this.model.records.splice(start, end);
+    records = this.model.records.slice(start, end);
     return records;
   }
 }
