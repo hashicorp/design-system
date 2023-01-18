@@ -15,3 +15,9 @@ IconTiles should be hidden from screen readers.
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
 
 <Doc::WcagList @criteriaList={{array "1.4.11" }} />
+
+---
+
+## Support
+
+If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
