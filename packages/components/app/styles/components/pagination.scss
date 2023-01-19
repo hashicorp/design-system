@@ -21,8 +21,13 @@
 // max-width is based on where component layout potentially breaks down
 @media screen and (max-width: 1000px) {
   .hds-pagination {
-    display: flex;
-    flex-direction: column;
+    grid-template-areas:
+      "nav"
+      "info"
+      "selector";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    row-gap: 8px;
     height: auto;
 
     .hds-pagination-info,
@@ -31,13 +36,6 @@
       margin-right: auto;
       margin-left: auto;
     }
-  }
-
-  .hds-pagination-nav { order: -1; }
-
-  .hds-pagination-info,
-  .hds-pagination-size-selector {
-    margin-top: 8px;
   }
 }
 
