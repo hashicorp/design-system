@@ -1,6 +1,6 @@
 <footer class="doc-page-footer" ...attributes>
-  <nav class="doc-page-footer__nav-menu" aria-label="footer navigation">
-    <ul class="doc-page-footer__nav-list" role="list">
+  <nav class="doc-page-footer__nav-menu" aria-label="footer">
+    <ul class="doc-page-footer__nav-list" aria-label="footer navigation">
       <li class="doc-page-footer__nav-item">
         <LinkTo @route="show" @model="about/accessibility-statement">Accessibility</LinkTo>
       </li>
@@ -16,7 +16,8 @@
       <li class="doc-page-footer__nav-item">
         <a href="https://www.hashicorp.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
       </li>
-      <li class="doc-page-footer__nav-item" role="separator"><span aria-hidden="true">–</span></li>
+      <li class="doc-page-footer__nav-item" role="separator">
+        <span aria-hidden="true">–</span></li>
       <li class="doc-page-footer__nav-item">
         <LinkTo @route="testing">Testing</LinkTo>
       </li>

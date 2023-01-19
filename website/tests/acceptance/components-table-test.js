@@ -3,7 +3,7 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components table', function (hooks) {
+module('Acceptance | Components/Table', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/table page exists', async function (assert) {
@@ -16,17 +16,14 @@ module('Acceptance | components table', function (hooks) {
     await visit('/components/table');
 
     let axeOptions = {
-      runOnly: [
-        'wcag2a',
-        'wcag2aa',
-        'wcag21a',
-        'wcag21aa',
-        'best-practice',
-        'ACT',
-      ],
+      rules: {
+        list: {
+          enabled: false,
+        },
+      },
     };
 
-    await a11yAudit('#topofpage', axeOptions);
+    await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });

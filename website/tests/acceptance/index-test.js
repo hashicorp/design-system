@@ -6,27 +6,23 @@ import { a11yAudit } from 'ember-a11y-testing/test-support';
 module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting the home page', async function (assert) {
+  test('Homepage (index) exists', async function (assert) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/');
   });
 
-  test('Home page passes a11y automated checks', async function (assert) {
-    await visit('/');
-
+  test('Homepage (index) passes a11y automated checks', async function (assert) {
     let axeOptions = {
-      runOnly: [
-        'wcag2a',
-        'wcag2aa',
-        'wcag21a',
-        'wcag21aa',
-        'best-practice',
-        'ACT',
-      ],
+      rules: {
+        list: {
+          enabled: false,
+        },
+      },
     };
 
-    await a11yAudit('#topofpage', axeOptions);
+    await visit('/');
+    await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });

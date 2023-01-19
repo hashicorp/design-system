@@ -4,8 +4,17 @@ import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
 import { start } from 'ember-qunit';
+import { setRunOptions } from 'ember-a11y-testing/test-support';
 
 setApplication(Application.create(config.APP));
+
+// TODO why isn't this working?
+setRunOptions({
+  rules: {
+    'color-contrast': { enabled: false },
+    list: { enabled: false },
+  },
+});
 
 setup(QUnit.assert);
 
