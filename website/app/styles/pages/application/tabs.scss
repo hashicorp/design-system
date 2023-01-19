@@ -1,5 +1,6 @@
 // TABS
 
+@use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
 
 .doc-page-tabs {
@@ -32,11 +33,15 @@
     &::after {
       position: absolute;
       right: 0;
-      bottom: -1px;
+      bottom: 0;
       left: 0;
       height: 3px;
       background-color: var(--doc-color-black);
       content: "";
+
+      @include breakpoint.medium-and-above () {
+        bottom: -1px;
+      }
     }
 
     button {
