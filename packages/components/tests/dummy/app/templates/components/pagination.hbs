@@ -89,10 +89,6 @@
   </:body>
 </Hds::Table>
 
-<pre>this.newPrevCursor_demo3 = {{this.newPrevCursor_demo3}} ({{this.newPrevCursor_demo3_decoded}})</pre>
-<pre>this.currentCursor_demo3 = {{this.currentCursor_demo3}} ({{this.currentCursor_demo3_decoded}})</pre>
-<pre>this.newNextCursor_demo3 = {{this.newNextCursor_demo3}} ({{this.newNextCursor_demo3_decoded}})</pre>
-
 <Hds::Pagination::Compact
   @isDisabledPrev={{this.isDisabledPrev_demo3}}
   @isDisabledNext={{this.isDisabledNext_demo3}}
@@ -120,11 +116,15 @@
   </:body>
 </Hds::Table>
 
+<pre>this.newPrevCursor_demo4 = {{this.newPrevCursor_demo4}} ({{this.newPrevCursor_demo4_decoded}})</pre>
+<pre>this.currentCursor_demo4 = {{this.currentCursor_demo4}} ({{this.currentCursor_demo4_decoded}})</pre>
+<pre>this.newNextCursor_demo4 = {{this.newNextCursor_demo4}} ({{this.newNextCursor_demo4_decoded}})</pre>
+
 <Hds::Pagination::Compact
   @route={{this.consumerRouteName}}
-  @queryPrev={{hash prevToken_demo4=this.newPrevCursor_demo4 nextToken_demo4=undefined}}
-  @isDisabledPrev={{if this.newPrevCursor_demo4 false true}}
-  @queryNext={{hash nextToken_demo4=this.newNextCursor_demo4 prevToken_demo4=undefined}}
-  @isDisabledNext={{if this.newNextCursor_demo4 false true}}
+  @queryPrev={{hash prevToken_demo4=this.newPrevNextCursors_demo4.newPrevToken nextToken_demo4=undefined}}
+  @isDisabledPrev={{if this.newPrevNextCursors_demo4.newPrevToken false true}}
+  @queryNext={{hash nextToken_demo4=this.newPrevNextCursors_demo4.newNextToken prevToken_demo4=undefined}}
+  @isDisabledNext={{if this.newPrevNextCursors_demo4.newNextToken false true}}
   @onPageChange={{this.genericHandlePageChange}}
 />

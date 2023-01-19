@@ -2,7 +2,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { next } from '@ember/runloop';
 
 const getCursorParts = (cursor, records) => {
   const token = atob(cursor);
@@ -151,16 +150,6 @@ export default class PaginationController extends Controller {
 
   // DEMO #3 - COMPACT / WITH EVENTS
 
-  get newPrevCursor_demo3_decoded() {
-    return this.newPrevCursor_demo3 ? atob(this.newPrevCursor_demo3) : '';
-  }
-  get currentCursor_demo3_decoded() {
-    return this.currentCursor_demo3 ? atob(this.currentCursor_demo3) : '';
-  }
-  get newNextCursor_demo3_decoded() {
-    return this.newNextCursor_demo3 ? atob(this.newNextCursor_demo3) : '';
-  }
-
   get paginatedData_demo3() {
     const { direction, cursorIndex } = getCursorParts(
       this.currentCursor_demo3,
@@ -171,7 +160,7 @@ export default class PaginationController extends Controller {
     let end;
     let pageSize = this.currentPageSize_demo3;
     if (direction === 'prev') {
-      end = cursorIndex - 1;
+      end = cursorIndex;
       start = cursorIndex - pageSize;
     } else {
       start = cursorIndex;
@@ -208,14 +197,41 @@ export default class PaginationController extends Controller {
 
   // DEMO #4 - COMPACT / WITH ROUTING
 
+  get newPrevCursor_demo4_decoded() {
+    return this.newPrevNextCursors_demo4.newPrevToken
+      ? atob(this.newPrevNextCursors_demo4.newPrevToken)
+      : '';
+  }
+  get currentCursor_demo4_decoded() {
+    const currentCursor = this.prevToken_demo4 || this.nextToken_demo4;
+    return currentCursor ? atob(currentCursor) : '';
+  }
+  get newNextCursor_demo4_decoded() {
+    return this.newPrevNextCursors_demo4.newNextToken
+      ? atob(this.newPrevNextCursors_demo4.newNextToken)
+      : '';
+  }
+
+  get newPrevNextCursors_demo4() {
+    let token;
+    if (this.prevToken_demo4) {
+      token = this.prevToken_demo4;
+    } else if (this.nextToken_demo4) {
+      token = this.nextToken_demo4;
+    }
+    return getNewPrevNextCursors(
+      token,
+      this.currentPageSize_demo3,
+      this.model.records
+    );
+  }
+
   get paginatedData_demo4() {
     let token;
     if (this.prevToken_demo4) {
       token = this.prevToken_demo4;
     } else if (this.nextToken_demo4) {
       token = this.nextToken_demo4;
-    } else {
-      token = btoa('next__1');
     }
 
     const { direction, cursorIndex } = getCursorParts(
@@ -227,26 +243,11 @@ export default class PaginationController extends Controller {
     let end;
     let pageSize = this.currentPageSize_demo4;
     if (direction === 'prev') {
-      end = cursorIndex - 1;
+      end = cursorIndex;
       start = cursorIndex - pageSize;
     } else {
       start = cursorIndex;
       end = cursorIndex + pageSize;
-    }
-
-    // update the prev/next cursors
-    const newCursors = getNewPrevNextCursors(
-      token,
-      this.currentPageSize_demo3,
-      this.model.records
-    );
-    if (this.newPrevCursor_demo4 !== newCursors.newPrevToken) {
-      // eslint-disable-next-line ember/no-side-effects
-      // this.newPrevCursor_demo4 = newCursors.newPrevToken;
-    }
-    if (this.newNextCursor_demo5 !== newCursors.newNextToken) {
-      // eslint-disable-next-line ember/no-side-effects
-      // this.newNextCursor_demo5 = newCursors.newNextToken;
     }
 
     // return data
