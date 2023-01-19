@@ -1,7 +1,6 @@
 ## How to use this component
 
-### Basic
-The most basic invocation requires the text argument to be passed. By default, a filled, medium size, neutral color badgeCount is generated.
+The default invocation requires a text argument. By default, a medium neutral filled Badge Count is generated.
 
 ```handlebars
 <Hds::BadgeCount @text="3" />
@@ -9,15 +8,23 @@ The most basic invocation requires the text argument to be passed. By default, a
 
 ### Type
 
-A different type of badgeCount can be invoked using the type argument.
+A different type of Badge Count can be invoked using the `@type` argument.
 
 ```handlebars
 <Hds::BadgeCount @text="3" @type="inverted" />
 ```
 
+```handlebars
+<Hds::BadgeCount @text="3" @type="outlined" />
+```
+
 ### Size
 
-A different size of badgeCount can be invoked using the size argument.
+A different size of Badge Count can be invoked using the `@size` argument.
+
+```handlebars
+<Hds::BadgeCount @text="3" @size="small" />
+```
 
 ```handlebars
 <Hds::BadgeCount @text="3" @size="large" />
@@ -25,7 +32,7 @@ A different size of badgeCount can be invoked using the size argument.
 
 ### Color
 
-A different color of badgeCount can be invoked using the color argument.
+A different color of Badge Count can be invoked using the `@color` argument.
 
 ```handlebars
 <Hds::BadgeCount @text="3" @color="neutral-dark-mode" />
