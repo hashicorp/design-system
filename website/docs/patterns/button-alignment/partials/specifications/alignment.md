@@ -11,7 +11,6 @@ Alignment refers to how buttons and actions are aligned relative to the containe
 When considering internationalization (i18n), **start** and **end** are suitable substitutes for **left** and **right** alignment to account for languages that are read right-to-left ([RTL](https://developer.mozilla.org/en-US/docs/Glossary/RTL)).
 !!!
 
-
 ![Button alignment options](/assets/patterns/button-alignment/alignment-methods.png)
 
 !!! Do

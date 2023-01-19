@@ -44,7 +44,7 @@ An often depicted alternative to this scenario is to **end** with the most impor
 
 !!! Do
 
-#### Nautral conversation based on priority
+#### Natural conversation based on priority
 ![Optimal order](/assets/patterns/button-alignment/optimal-ordering.png)
 
 - User edits the settings of a cluster

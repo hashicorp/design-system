@@ -4,7 +4,7 @@ These guidelines don't cover every scenario and are intended to aid in the decis
 
 !!! Info
 
-Button alignment isn't relevant for every component or pattern, but is rather aimed at functional elements; i.e. a modal, forms, and page-level actions.
+Button alignment isn't relevant for every component or pattern, but is rather aimed at functional elements; i.e. modals, forms, and page-level actions.
 !!!
 
 ## Constrained vs. unconstrained
@@ -96,5 +96,3 @@ All three of these reading patterns are relevant and useful when observed in iso
 - Adherence to specific reading pattern **is not** an excuse for lack of hierarchy within a layout.
     - Introducing hierarchical focal points using typography and color in tandem with reading patterns is often the most effective method to communicate the purpose and function of a layout, pattern, or component.
 - There is a fair amount of overlap between each pattern.
-
-
