@@ -8,7 +8,6 @@ import { setRunOptions } from 'ember-a11y-testing/test-support';
 
 setApplication(Application.create(config.APP));
 
-// TODO why isn't this working?
 setRunOptions({
   rules: {
     'color-contrast': { enabled: false },
