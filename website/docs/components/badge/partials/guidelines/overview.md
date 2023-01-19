@@ -11,10 +11,10 @@ Badges are concise, non-interactive labels that represent metadata.
 
 ### When not to use
 
-- To display version numbers or collection counts in Tabs, use [BadgeCount](/components/badge-count/overview)
-- For a list of metadata elements (like selected filters), consider using a [Tag](/components/tag/overview).
-- For dismissable elements, consider using a [Tag](/components/tag/overview).
-- For longer status messages, consider an [Alert](/components/alert/overview).
+- To display version numbers or collection counts in Tabs, use [BadgeCount](/components/badge-count)
+- For a list of metadata elements (like selected filters), consider using a [Tag](/components/tag).
+- For dismissable elements, consider using a [Tag](/components/tag).
+- For longer status messages, consider an [Alert](/components/alert).
 - Don’t use a link within a Badge, consider moving the link outside of the Badge.
 
 ## Related
