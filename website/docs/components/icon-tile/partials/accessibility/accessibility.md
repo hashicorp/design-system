@@ -6,9 +6,9 @@ When used as recommended, there should not be any accessibility issues with this
 
 ## Accounting for screen readers
 
-IconTiles should be hidden from screen readers.
+Because Icon Tiles are purely decorative, they’re hidden from screen readers by default.
 
-![Accessibility example of an IconTile](/assets/components/icon-tile/icontile-hidden-example.png)
+![Accessibility example of an IconTile](/assets/components/icon-tile/icontile-hidden-example.png =343x*)
 
 ## Applicable WCAG Success Criteria
 
