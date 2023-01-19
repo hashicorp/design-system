@@ -8,8 +8,8 @@
 ### When not to use
 
 - As links outside of the page header.
-  - Within a body of text, use [InlineLink](/components/link/inline/overview)
-  - As a standalone element or within a Button Set, use a [StandaloneLink](/components/link/standalone/overview)
+  - Within a body of text, use [InlineLink](/components/link/inline)
+  - As a standalone element or within a Button Set, use a [StandaloneLink](/components/link/standalone)
 
 !!! Info
 
