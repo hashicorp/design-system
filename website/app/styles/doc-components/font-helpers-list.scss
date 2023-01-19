@@ -39,6 +39,7 @@
   
   @include breakpoint.medium-and-above () {
     justify-content: center;
+    text-align: center;
     border-radius: 3px 0 0 3px;
   }
 }
