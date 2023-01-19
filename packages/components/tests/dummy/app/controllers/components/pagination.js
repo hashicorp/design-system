@@ -72,6 +72,9 @@ export default class PaginationController extends Controller {
   @tracked currentPageSize_demo3 = 5;
   @tracked prevToken_demo4 = null;
   @tracked nextToken_demo4 = btoa(`next__1`);
+  @tracked newPrevCursor_demo4;
+  @tracked newNextCursor_demo4;
+  @tracked currentPageSize_demo4 = 5;
 
   get consumerRouteName() {
     // eg. 'components.pagination';
@@ -201,102 +204,52 @@ export default class PaginationController extends Controller {
     );
     this.newPrevCursor_demo3 = newCursors.newPrevToken;
     this.newNextCursor_demo3 = newCursors.newNextToken;
-    // console.log(
-    //   `onPageChange_demo3 now with
-    //   this.currentCursor_demo3=${this.currentCursor_demo3}
-    //   this.newPrevCursor_demo3=${this.newPrevCursor_demo3}
-    //   this.newNextCursor_demo3=${this.newNextCursor_demo3}
-    //   `
-    // );
   }
 
   // DEMO #4 - COMPACT / WITH ROUTING
 
-  @action
-  updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex) {
-    // this.prevToken_demo4 =
-    //   newPrevCursor < 0 ? null : btoa(`prev_${newPrevCursor}`);
-    // this.nextToken_demo4 =
-    //   newNextCursor > this.model.records.length - 1
-    //     ? null
-    //     : btoa(`next_${newNextCursor}`);
-
-    let newPrevToken;
-    let newNextToken;
-    if (newPrevCursorIndex >= 0) {
-      const newPrevRecordId = this.model.records[newPrevCursorIndex].id;
-      newPrevToken = btoa(`prev_${newPrevRecordId}`);
-    } else {
-      newPrevToken = null;
-    }
-    if (newNextCursorIndex < this.model.records.length) {
-      const newNextRecordId = this.model.records[newNextCursorIndex].id;
-      newNextToken = btoa(`next_${newNextRecordId}`);
-    } else {
-      newNextToken = null;
-    }
-
-    console.log(
-      '>>>>',
-      newPrevCursorIndex,
-      newPrevToken,
-      newNextCursorIndex,
-      newNextToken
-    );
-
-    this.prevToken_demo4 = newPrevToken;
-    this.nextToken_demo4 = newNextToken;
-  }
-
-  get pageCursor_demo4() {
-    return {
-      prevToken: this.prevToken_demo4,
-      nextToken: this.nextToken_demo4,
-    };
-  }
-
   get paginatedData_demo4() {
-    const pageSize = 5;
-
     let token;
     if (this.prevToken_demo4) {
-      token = atob(this.nextToken_demo4);
+      token = this.prevToken_demo4;
     } else if (this.nextToken_demo4) {
-      token = atob(this.nextToken_demo4);
+      token = this.nextToken_demo4;
     } else {
-      token = 'next__1';
+      token = btoa('next__1');
     }
-    const tokenParts = [...token.split('__')];
-    const direction = tokenParts[0];
-    const cursor = parseInt(tokenParts[1]);
-    const cursorIndex = this.model.records.findIndex(
-      (element) => element.id === parseInt(cursor)
+
+    const { direction, cursorIndex } = getCursorParts(
+      token,
+      this.model.records
     );
-    console.log('>>>>', cursor, direction, cursorIndex);
+
     let start;
     let end;
-    let records;
+    let pageSize = this.currentPageSize_demo4;
     if (direction === 'prev') {
       end = cursorIndex - 1;
-      start = end - pageSize;
+      start = cursorIndex - pageSize;
     } else {
       start = cursorIndex;
       end = cursorIndex + pageSize;
     }
 
-    // calculate new cursors
-    // const newPrevCursorIndex = start - 1 - pageSize;
-    // const newNextCursorIndex = start + pageSize;
-    // const newNextPrevCursors = getNewPrevNextCursors(
-    //   newPrevCursorIndex,
-    //   newNextCursorIndex,
-    //   this.model.records
-    // );
-    // this.updateCursor_demo4(newPrevCursorIndex, newNextCursorIndex);
-    // console.log(newNextPrevCursors);
+    // update the prev/next cursors
+    const newCursors = getNewPrevNextCursors(
+      token,
+      this.currentPageSize_demo3,
+      this.model.records
+    );
+    if (this.newPrevCursor_demo4 !== newCursors.newPrevToken) {
+      // eslint-disable-next-line ember/no-side-effects
+      // this.newPrevCursor_demo4 = newCursors.newPrevToken;
+    }
+    if (this.newNextCursor_demo5 !== newCursors.newNextToken) {
+      // eslint-disable-next-line ember/no-side-effects
+      // this.newNextCursor_demo5 = newCursors.newNextToken;
+    }
 
     // return data
-    records = this.model.records.slice(start, end);
-    return records;
+    return this.model.records.slice(start, end);
   }
 }

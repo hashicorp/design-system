@@ -120,16 +120,11 @@
   </:body>
 </Hds::Table>
 
-<pre>this.pageCursor_demo4.prevToken = {{this.pageCursor_demo4.prevToken}}</pre>
-<pre>this.pageCursor_demo4.nextToken = {{this.pageCursor_demo4.nextToken}}</pre>
-<pre>this.consumerRouteName = {{this.consumerRouteName}}</pre>
-<pre>this.prevToken_demo4 = {{this.prevToken_demo4}}</pre>
-<pre>this.nextToken_demo4 = {{this.nextToken_demo4}}</pre>
 <Hds::Pagination::Compact
   @route={{this.consumerRouteName}}
-  @queryPrev={{hash prevToken_demo4=this.pageCursor_demo4.prevToken nextToken_demo4=undefined}}
-  @isDisabledPrev={{if this.pageCursor_demo4.prevToken false true}}
-  @queryNext={{hash nextToken_demo4=this.pageCursor_demo4.nextToken prevToken_demo4=undefined}}
-  @isDisabledNext={{if this.pageCursor_demo4.nextToken false true}}
+  @queryPrev={{hash prevToken_demo4=this.newPrevCursor_demo4 nextToken_demo4=undefined}}
+  @isDisabledPrev={{if this.newPrevCursor_demo4 false true}}
+  @queryNext={{hash nextToken_demo4=this.newNextCursor_demo4 prevToken_demo4=undefined}}
+  @isDisabledNext={{if this.newNextCursor_demo4 false true}}
   @onPageChange={{this.genericHandlePageChange}}
 />
