@@ -143,19 +143,19 @@ Use [standalone links](/components/link/standalone/overview) when an action take
 
 Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
 
-![Placement of page alert](/assets/components/alert/alert-placement-page.png)
+![Placement of page alert](/assets/components/alert/alert-placement-page.png =600x*)
 
 #### Inline
 
 Inline alerts can be added to a section or component or inline with content.
 
-![Placement of inline alert](/assets/components/alert/alert-placement-inline.png)
+![Placement of inline alert](/assets/components/alert/alert-placement-inline.png =600x*)
 
 #### Compact
 
 Compact alerts can be added to a section or component or inline with content.
 
-![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png)
+![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
 
 ### Composition
 
