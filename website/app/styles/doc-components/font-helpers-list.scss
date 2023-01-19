@@ -20,7 +20,6 @@
 .doc-font-helpers-list__item {
   display: flex;
   flex-direction: column;
-  gap: 0;
 
   @include breakpoint.medium-and-above () {
     display: contents;
