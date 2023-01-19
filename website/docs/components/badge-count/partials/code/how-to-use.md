@@ -1,6 +1,6 @@
 ## How to use this component
 
-The default invocation requires a text argument. By default, a medium neutral filled Badge Count is generated.
+The default invocation requires a text argument and renders a medium neutral filled Badge Count.
 
 ```handlebars
 <Hds::BadgeCount @text="3" />
