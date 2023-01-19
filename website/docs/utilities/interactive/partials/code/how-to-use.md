@@ -1,11 +1,15 @@
-!!! Info
+!!! Warning
 
-This component is intended only for internal use (for now). If you need to use it please speak with the HDS team.
+This component is intended only for internal Helios use. If you need to use it, please contact the Design Systems Team.
 !!!
 
 ## How to use this component
 
-### Basic use (`<button>`)
+### Default use for `<button>`
+
+When no `@href` or `@route` arguments are provided, it generates an HTML `<button>` element. 
+
+The `type=“button”` HTML attribute is applied to the element by default, but can be overwritten using the “splattributes”.
 
 ```handlebars{data-execute=false}
 <Hds::Interactive>
@@ -13,21 +17,16 @@ This component is intended only for internal use (for now). If you need to use i
 </Hds::Interactive>
 ```
 
-In this case, since no `@href` or `@route` argument is provided it will generate in output an HTML `<button>` element.
-
-!!! Info
-
-`type="button"` HTML attribute is applied by default to the element, but this can be overwritten using the "splattributes".
-!!!
-
-### With `@href` parameter (`<a>`)
+### With `@href` parameter for `<a>`
 
 !!! Critical
 
-We can’t support the direct use of the `href` HTML attribute because we need to rely on the `@href` Ember argument to differentiate between different types of generated output.
+We can’t support direct use of the `href` HTML attribute because we rely on the `@href` Ember argument to differentiate between different types of generated output.
 !!!
 
-If an `@href` argument is provided:
+Provide an `@href` argument to generate an HTML `<a>` link element.
+
+`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden.
 
 ```handlebars{data-execute=false}
 <Hds::Interactive @href="https://google.com">
@@ -35,14 +34,9 @@ If an `@href` argument is provided:
 </Hds::Interactive>
 ```
 
-it will generate in output an HTML `<a>` link element with `target="_blank"` and `rel="noopener noreferrer"` attributes.
+#### Adding `@isHrefExternal={{false}}`
 
-!!! Info
-
-We add these attributes by default because this is the most common case (internal links are generally handled using a `@route` argument). This behavior can be overridden.
-!!!
-
-If an `@isHrefExternal` argument is provided with `false` value:
+Provide an `@isHrefExternal` argument to generate an HTML `<a>` link element **without** the HTML `target` and `rel` attributes.
 
 ```handlebars{data-execute=false}
 <Hds::Interactive @href="#your-local-anchor-id" @isHrefExternal={{false}}>
@@ -50,11 +44,13 @@ If an `@isHrefExternal` argument is provided with `false` value:
 </Hds::Interactive>
 ```
 
-it will generate in output an HTML `<a>` link element **without** the HTML `target` and `rel` attributes.
+### With `@route` parameter for `<LinkTo>`/`<LinkToExternal>`
 
-### With `@route` parameter (`<LinkTo>`/`<LinkToExternal>`)
+All the standard arguments for the `<LinkTo>`/`<LinkToExternal>` components are supported (e.g., `models`, `model`, `query`, `current-when`, `replace`). For more details about these parameters see the [Ember documentation](https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component) or the [LinkTo component API specs](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/input?anchor=LinkTo).
 
-If a `@route` argument is provided:
+#### For `<LinkTo>`
+
+Provide a `@route` argument to generate a `<LinkTo>` component.
 
 ```handlebars{data-execute=false}
 <Hds::Interactive @route="components" >
@@ -62,16 +58,12 @@ If a `@route` argument is provided:
 </Hds::Interactive>
 ```
 
-it will generate in output a `<LinkTo>` component.
+#### For `<LinkToExternal>`
 
-If the `@route` is external to the current engine ([more details here](https://ember-engines.com/docs/link-to-external)), you need to provide an extra `@isRouteExternal` parameter:
+When the `@route` is external to the current engine , provide the `@isRouteExternal` parameter to generate a `<LinkToExternal>` component. Learn more about [LinkToExternal](https://ember-engines.com/docs/link-to-external).
 
 ```handlebars{data-execute=false}
 <Hds::Interactive @route="components" @isRouteExternal={{true}} >
     your content here
 </Hds::Interactive>
 ```
-
-and it will generate in output a `<LinkToExternal>` component.
-
-All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models`, `model`, `query`, `current-when`, `replace`). For more details about these parameters see the [Ember documentation](https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component) or the [LinkTo component API specs](https://api.emberjs.com/ember/release/classes/Ember.Templates.components/methods/input?anchor=LinkTo).

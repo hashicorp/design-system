@@ -1,11 +1,13 @@
-!!! Info
+!!! Warning
 
-This component is intended only for internal use (for now). If you need to use it please speak with the HDS team.
+This component is intended only for internal Helios use. If you need to use it, please contact the Design Systems Team.
 !!!
 
 ## How to use this component
 
-Use an interactive element that can trigger a custom event handler provided by the `:toggle` block (is passed via `hash` by Ember). This element is usually usually a button, or a component that renders a button (for accessibility reasons).
+The `disclosure` component renders an interactive element that triggers a custom event handler provided by the `:toggle` block (passed via `hash` by Ember). To comply with accessibility best practices, this element is usually a button or a component that renders a button.
+
+When the content is disclosed, the container can be closed in various way; toggling via the button (`click` or `enter/return`), clicking outside of the content, or via the `esc` key.
 
 ```handlebars
 <Hds::Disclosure>
@@ -18,10 +20,6 @@ Use an interactive element that can trigger a custom event handler provided by t
 </Hds::Disclosure>
 ```
 
-When the content is disclosed, the container can be closed in different way: toggling again the visibility via the button (`click` or `enter/return`), clicking outside of the content, or via the `esc` key.
+### Content positioning
 
-!!! Warning
-
-The "content" is not positioned in any way in relation to the toggle: this responsibility is left to the consumers (eg by applying a `position: absolute` to a wrapper around the content that is passed to the `:content` block).
-
-!!!
+The `:content` block is **not** positioned in relation to the `:toggle` block. We recommend applying `position: absolute` to a wrapper around the content that is then passed to the `:content` block.
