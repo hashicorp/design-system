@@ -6,8 +6,8 @@
 
 ### When not to use
 
-- If needing a single-line input, use [TextInput](/components/form/text-input/overview).
-- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox/overview), [Radio button](/components/form/radio/overview), [Select](/components/form/select/overview).
+- If needing a single-line input, use [TextInput](/components/form/text-input).
+- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox), [Radio button](/components/form/radio), [Select](/components/form/select).
 
 
 ### Required and optional
@@ -81,7 +81,7 @@ Client side validation is an initial check that happens in the browser to ensure
 
 Server side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
 
-When using server side validation, display a Critical [AlertInline](/components/alerts/overview) above the form listing all errors with links to each invalid field.
+When using server side validation, display a Critical [AlertInline](/components/alerts) above the form listing all errors with links to each invalid field.
 
 ![Example of server side validation](/assets/components/general/validation-server_side.png)
 

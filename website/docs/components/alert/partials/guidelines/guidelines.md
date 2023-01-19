@@ -6,9 +6,9 @@
 
 ### When not to use
 
-- To communicate feedback on a user’s action, consider [Toast](/components/toast/overview).
-- As a dialog to confirm an action, consider [Modal](/components/modal/overview).
-- To flag new features (e.g., "In Preview", "Beta", "New", etc), consider [Badge](/components/badge/overview).
+- To communicate feedback on a user’s action, consider [Toast](/components/toast).
+- As a dialog to confirm an action, consider [Modal](/components/modal).
+- To flag new features (e.g., "In Preview", "Beta", "New", etc), consider [Badge](/components/badge).
 
 ### Color
 
@@ -42,7 +42,7 @@ Use color logically.
 - **Neutral** to provide general information to the user regarding the current context or relevant actions.
 - **Highlight** to provide general or promotional information to the user prominently.
 - **Success** to indicate a successful action.
-    - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast/overview).
+    - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
 - **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
 - **Critical** to indicate critical errors that need immediate action.
 
@@ -129,7 +129,7 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 
 #### Links
 
-Use [standalone links](/components/link/standalone/overview) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant “type” to use.
+Use [standalone links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant “type” to use.
 
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Links in alerts</A.Title>
