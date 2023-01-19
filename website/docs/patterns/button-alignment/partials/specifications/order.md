@@ -62,5 +62,16 @@ An possible exception to this ordering method is in multi-step and progressive f
 
 ### Stacking order
 
-**Still working on this content**
+As the viewport size contracts, buttons should stack vertically in accordance with their order in the [DOM (Document Object Model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). 
+
+- Naturally adheres to our ordering guidelines; button order remains the same except the container is vertical rather than horiztonal.
+- Reduces complexity in engineering.
+- Ensures that a core accessibility requirement is met: [Making the DOM order match the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html)
+
+!!! Do
+
+![Stacked order](/assets/patterns/button-alignment/stacked-ordering.png)
+!!!
+
+
 
