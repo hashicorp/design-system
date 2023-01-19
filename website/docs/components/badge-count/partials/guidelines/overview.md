@@ -4,11 +4,11 @@ Use Badge Count as a label to display numeric values, such as version numbers an
 
 ### When to use
 
-- To display version numbers (e.g., “v1.2.0”), collection counts in tabs, or similar numeric information.
+To display version numbers (e.g., “v1.2.0”), collection counts in tabs, or similar numeric information.
 
 ### When not to use
 
-- To display non-numeric information, consider [Badge](/components/badge/).
+To display non-numeric information, consider [Badge](/components/badge/).
 
 ### Type
 
