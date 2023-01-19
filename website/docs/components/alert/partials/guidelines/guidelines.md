@@ -7,8 +7,8 @@
 ### When not to use
 
 - To communicate feedback on a user’s action, consider [Toast](/components/toast/overview).
-- As a dialog to confirm an action, consider using a dialog or [Modal](/components/modal/overview).
-- As feature flags, such as "In Preview", "Beta", "New", etc, consider [Badge](/components/badge/overview).
+- As a dialog to confirm an action, consider [Modal](/components/modal/overview).
+- To flag new features (e.g., "In Preview", "Beta", "New", etc), consider [Badge](/components/badge/overview).
 
 ### Color
 
@@ -43,23 +43,25 @@ Use color logically.
 - **Highlight** to provide general or promotional information to the user prominently.
 - **Success** to indicate a successful action.
     - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast/overview).
-- **Warning** to help users avoid an issue. Provide guidance and actions if possible.
-- **Critical** to indicate critical issues that need immediate action or help users understand a critical error.
+- **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
+- **Critical** to indicate critical errors that need immediate action.
 
 !!! Insight
 
-**Migration tip**
+**Structure migration tip**
 
-Use `neutral` or `highlight` as equivalents to Structure’s `information` banner depending on the level of prominence desired.
+Use `neutral` or `highlight` (depending on the level of prominence needed) in place of Structure’s `information` banner.
 !!!
 
 ### Icons
 
-All alerts have icons by default. They are intentionally tied to the alert type. Icons in `neutral` and `highlight` can be swapped out with any other icon, including animated ones. Change them only when the new icon provides the user with extra value. Otherwise, we recommend using the default icons provided.
+All alerts have icons by default that are intentionally tied to the alert type.
+
+Icons within the `neutral` and `highlight` alerts can be replaced with other Helios icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
 <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
   <A.Title>New features available</A.Title>
-  <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be oprational, just as they were in prior versions.</A.Description>
+  <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be operational, just as they were in prior versions.</A.Description>
   <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
 </Hds::Alert>
 
@@ -67,7 +69,7 @@ All alerts have icons by default. They are intentionally tied to the alert type.
 
 #### Persistent
 
-All alerts are set to persist by default. Compact alerts are always persistent.
+All alerts are persistent by default, while compact alerts are always persistent.
 
 #### Dismissible
 
@@ -107,80 +109,32 @@ Use small buttons to avoid competing with other actions on the page. Use more th
 We recommend using the `secondary` button variant for primary actions and the `tertiary` button variant for secondary actions.
 
 <Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
+  <A.Title>Recommended button usage</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
 </Hds::Alert>
 
-##### A note about critical buttons
+##### Usage of critical buttons
 
-Avoid using critical buttons in alerts as the prominence and importance are handled by the styling of the alert container itself. If needed, consider adding a confirmation modal after the action is triggered.
+Avoid using critical buttons in alerts. We handle the prominence and importance via the styling of the alert container itself. If needing to confirm that the user intended to interact with the action, consider displaying a confirmation modal.
 
 !!! Dont
 <Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
+  <A.Title>Critical button usage</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="critical" @onClick={{this.noop}} />
 </Hds::Alert>
 !!!
 
 #### Links
 
-Use [LinkStandalone](/components/link/standalone/overview) when an action takes the user to a new destination (URL). Follow LinkStandalone’s [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant "type" to use.
+Use [standalone links](/components/link/standalone/overview) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant “type” to use.
 
 <Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
+  <A.Title>Links in alerts</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
-</Hds::Alert>
-
-### Composition
-
-Page and inline alerts can be configured in a variety of ways. For instance: 
-
-#### With icon and title
-
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-</Hds::Alert>
-
-#### With icon, title, and description
-
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-
-#### Title and description only
-
-When displaying an alert without an icon, the title or description should contain the alert type, ie. "Warning".
-
-<Hds::Alert @type="inline" @color="warning" @icon={{false}} as |A|>
-  <A.Title>Warning: the action could not be completed</A.Title>
-</Hds::Alert>
-
-#### With actions
-
-<Hds::Alert @type="inline" @color="success" as |A|>
-  <A.Title>Success alert</A.Title>
-  <A.Description>Description here</A.Description>
-  <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
-</Hds::Alert>
-
-#### With generic content
-
-Building alerts with generic content may require additional time to set up correctly. Use this method with caution and reach out to us if needing help.
-
-<Hds::Alert @type="inline" @color="success" as |A|>
-  <A.Title>An alert with extra/custom content</A.Title>
-  <A.Description>In special cases, you can pass extra content to the alert using the
-    <code>A.Generic</code>
-    contextual component.</A.Description>
-  <A.Generic>
-    <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
-  </A.Generic>
 </Hds::Alert>
 
 ### Placement
@@ -193,24 +147,69 @@ Page alerts are placed between the global header navigation and the breadcrumb, 
 
 #### Inline
 
-Inline alerts can be wrapped within a section or component of the page or inline with content.
+Inline alerts can be added to a section or component or inline with content.
 
 ![Placement of inline alert](/assets/components/alert/alert-placement-inline.png)
 
 #### Compact
 
-Compact alerts can be wrapped with a section or component of the page or inline with content.
+Compact alerts can be added to a section or component or inline with content.
 
 ![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png)
+
+### Composition
+
+Page and inline alerts can be configured in a variety of ways. For example: 
+
+#### With icon and title
+
+<Hds::Alert @type="inline" as |A|>
+  <A.Title>With icon and title</A.Title>
+</Hds::Alert>
+
+#### With icon, title, and description
+
+<Hds::Alert @type="inline" as |A|>
+  <A.Title>With icon, title, and description</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+</Hds::Alert>
+
+#### Title and description only
+
+The title or description should contain the alert type, e.g., “Warning,” if no icon is present.
+
+<Hds::Alert @type="inline" @color="warning" @icon={{false}} as |A|>
+  <A.Title>Warning: the action could not be completed</A.Title>
+</Hds::Alert>
+
+#### With actions
+
+<Hds::Alert @type="inline" @color="success" as |A|>
+  <A.Title>Alert with actions</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
+  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
+</Hds::Alert>
+
+#### With generic content
+
+<Hds::Alert @type="inline" @color="success" as |A|>
+  <A.Title>An alert with extra/custom content</A.Title>
+  <A.Description>In special cases, you can pass extra content to the alert using the
+    <code>A.Generic</code>
+    contextual component.</A.Description>
+  <A.Generic>
+    <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
+  </A.Generic>
+</Hds::Alert>
 
 ## Content
 
 - Keep the title short, as this will be the most prominent element when users scan the alert.
-- Do not end the title with a period.
+- Avoid ending the title with a period.
 - Alert descriptions should be short but clear enough to explain what’s happening. We recommend keeping messages under 90 characters.
 - For warning and critical alerts, guide the users on how to prevent or fix the issue.
-- We support basic text formatting capabilities, such as inline links, bold, italic, code, and bulleted lists.
-- For actions, refer to [Button](/components/button) and [Link](/components/link/standalone) content guidelines.
+- For content guidelines on actions, refer to [Button](/components/button) and [Link](/components/link/standalone) documentation.
 
 ## Related
 
