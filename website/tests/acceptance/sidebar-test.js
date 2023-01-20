@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { fillIn, visit, pauseTest } from '@ember/test-helpers';
+import { fillIn, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 
 module('Acceptance | Sidebar filter', function (hooks) {
