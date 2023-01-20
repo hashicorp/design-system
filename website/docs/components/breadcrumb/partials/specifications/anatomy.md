@@ -17,5 +17,5 @@
 | Element      | Usage                             |
 | ------------ | --------------------------------- |
 | Item         | At least one is required          |
-| Separator    | Required between breadcrumb items | 
+| Separator    | Required between Breadcrumb Items | 
 | Current page | Required                          |

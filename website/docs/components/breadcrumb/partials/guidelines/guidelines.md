@@ -60,7 +60,7 @@ The last item in a the breadcrumb should always be the current page, and it shou
 
 #### Toggle and menu
 
-The truncated menu will include all of the hidden breadcrumb items. Clicking on the toggle or using `enter` or `spacebar` will open the truncated menu.
+The truncated menu will include all of the hidden Breadcrumb Items. Clicking on the toggle or using `enter` or `spacebar` will open the truncated menu.
 
 ![Example of the spacing of used in a truncated menu](/assets/components/breadcrumb/breadcrumb-truncated-dropdown.png =366x*)
 
@@ -118,7 +118,7 @@ We offer various options for truncation due to depth or lack of space.
 
 ### Truncate middle
 
-“Truncate middle” houses any number of breadcrumb items under a menu in the middle of the breadcrumb list. The number of items displayed before and after truncation depends on the use case and space available within the application.  We recommend this method if needing to truncate the breadcrumb.
+“Truncate middle” houses any number of Breadcrumb Items under a menu in the middle of the Breadcrumb. The number of items displayed before and after truncation depends on the use case and space available within the application.  We recommend this method if needing to truncate the Breadcrumb.
 
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="Level one" />
@@ -132,7 +132,7 @@ We offer various options for truncation due to depth or lack of space.
 
 ### Truncate squeeze
 
-“Truncate squeeze” reduces the persistent breadcrumb items to the first and last/current items and hides the other items under a menu. We recommend only using this method when space is limited, such as on mobile viewports.
+“Truncate squeeze” reduces the persistent Breadcrumb Items to the first and last/current items and hides the other items under a menu. We recommend only using this method when space is limited, such as on mobile viewports.
 
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="Level one" />

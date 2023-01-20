@@ -1,6 +1,6 @@
 ## How to use this component
 
-The breadcrumb is an application-level UI element, so it’s likely to be implemented once per application.
+The Breadcrumb is an application-level UI element, so it’s likely to be implemented once per application.
 
 ### Basic use
 
@@ -21,7 +21,7 @@ A few parameters were omitted for clarity.
 
 ### With routing parameters
 
-Add the correct `@route/@models/@model/@query` parameter to each breadcrumb item.
+Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item.
 
 ```handlebars
 <Hds::Breadcrumb>
@@ -38,7 +38,7 @@ Add the correct `@route/@models/@model/@query` parameter to each breadcrumb item
 
 ### No wrapping
 
-By default, the breadcrumb allows items to wrap on multiple lines if the container is too small. Pass `false` to the `@itemsCanWrap` parameter to avoid wrapping. 
+By default, the Breadcrumb allows items to wrap on multiple lines if the container is too small. Pass `false` to the `@itemsCanWrap` parameter to avoid wrapping. 
 
 !!! Warning
 
@@ -56,7 +56,7 @@ The text will automatically truncate and be replaced with an ellipsis to fit wit
 
 ### With truncation
 
-It’s possible to hide part of the breadcrumb tree under a "truncated" item that shows the elements on "toggle".
+It’s possible to hide part of the Breadcrumb tree under a "truncated" item that shows the elements on "toggle".
 
 !!! Warning
 
