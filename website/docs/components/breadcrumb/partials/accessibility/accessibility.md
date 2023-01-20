@@ -2,17 +2,17 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-This component has been designed and implemented with accessibility in mind. However, if the truncation feature is used, this component would not pass a WCAG conformance audit.
+Breadcrumbs are conformant unless using the truncation feature, which would not pass a WCAG conformance audit.
 
 ## Known issues
 
-When the browser zoom is used to scale content to 400%, if the breadcrumb has a `"truncation"` open, the dropdown may extend beyond the viewport and require the user to scroll in more than one direction (this is a failure of [Reflow – 1.4.10](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)).
+When the browser zoom is scaled to 400% and a truncated menu is open, the menu may extend beyond the viewport and require the user to scroll in multiple directions. This is a failure of [Reflow – 1.4.10](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
 
-![The breadcrumb component with the “truncation” dropdowm extending beyond the viewport](/assets/images/breadcrumb-known-issue-truncation-outside-viewport.png)
+![The breadcrumb component with the “truncation” dropdowm extending beyond the viewport](/assets/components/breadcrumb/breadcrumb-known-issue-truncation-outside-viewport.png =1208x*)
 
-When the browser zoom is used to scale content to 400%, if the breadcrumb is not allowed to wrap its items (via the `@itemsCanWrap` prop) the text will likely get truncated, making it impossible for a keyboard-only user to access the truncated content.
+When the browser zoom is scaled to 400% and `@itemsCanWrap` is set to `false`, the text may truncate and become unavailable to keyboard-only users.
 
-![The breadcrumb component with truncated text (ellipsis)](/assets/images/breadcrumb-known-issue-truncated-text.png)
+![The breadcrumb component with truncated text (ellipsis)](/assets/components/breadcrumb/breadcrumb-known-issue-truncated-text.png =1426x*)
 
 ## Applicable WCAG Success Criteria
 
@@ -25,3 +25,5 @@ This section is for reference only. This component intends to conform to the fol
 ## Support
 
 If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
+
+

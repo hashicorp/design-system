@@ -8,14 +8,8 @@
 ### When not to use
 
 - As links outside of the page header.
-  - Within a body of text, use [InlineLink](/components/link/inline)
-  - As a standalone element or within a Button Set, use a [StandaloneLink](/components/link/standalone)
-
-!!! Info
-
-The last item in a the breadcrumb should always be the current page, and it should not be interactive.
-
-!!!
+- Within a body of text, consider [Inline Link](/components/link/inline).
+- As a standalone link or within a [Button Set](/components/button-set), consider [Standalone Link](/components/link/standalone).
 
 ## Item types
 
@@ -29,6 +23,19 @@ The last item in a the breadcrumb should always be the current page, and it shou
   </Hds::Breadcrumb>
 </div>
 
+### Current page
+
+The last item in a the breadcrumb should always be the current page, and it should not be interactive.
+
+<div>
+	<Hds::Breadcrumb>
+  	<Hds::Breadcrumb::Item @text="Level 1" />
+  	<Hds::Breadcrumb::Item @text="Level 2" />
+  	<Hds::Breadcrumb::Item @text="Level 3" />
+    <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+  </Hds::Breadcrumb>
+</div>
+
 ### With icon
 
 <div>
@@ -39,20 +46,30 @@ The last item in a the breadcrumb should always be the current page, and it shou
   </Hds::Breadcrumb>
 </div>
 
-### Truncated
+### Truncation
 
 <div>
 	<Hds::Breadcrumb>
 		<Hds::Breadcrumb::Item @text="Level 1" />
 		<Hds::Breadcrumb::Truncation>
-			<Hds::Breadcrumb::Item @text="Level 2" @icon="org" />
+			<Hds::Breadcrumb::Item @text="Level 2" />
 		</Hds::Breadcrumb::Truncation>
-		<Hds::Breadcrumb::Item @text="Level 3" />
+    <Hds::Breadcrumb::Item @text="Level 3" />
 	</Hds::Breadcrumb>
 </div>
 
+#### Toggle and menu
+
+The truncated menu will include all of the hidden Breadcrumb Items. Clicking on the toggle or using `enter` or `spacebar` will open the truncated menu.
+
+![Example of the spacing of used in a truncated menu](/assets/components/breadcrumb/breadcrumb-truncated-dropdown.png =366x*)
+
 ## Icons
 
+### Number of icons
+We recommend only adding icons to the **first three items** to avoid unnecessary visual noise. 
+
+!!! Do
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
   <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
@@ -60,21 +77,54 @@ The last item in a the breadcrumb should always be the current page, and it shou
   <Hds::Breadcrumb::Item @text="Level four" />
   <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
+!!!
 
-- Icons should only be added to the first three levels to avoid unnecessary visual noise.
-- Icon usage should be inherited and not randomly added to a level (if a higher level uses an icon, the level just under it can also use one).
+!!! Dont
+<Hds::Breadcrumb>
+  <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+  <Hds::Breadcrumb::Item @text="Level three" @icon="server-cluster" />
+  <Hds::Breadcrumb::Item @text="Level four" @icon="user" />
+  <Hds::Breadcrumb::Item @text="Current" @icon="pencil-tool" @current={{true}} />
+</Hds::Breadcrumb>
+!!!
 
-## Truncation
+### Icon placement
+Icons shouldn’t be placed randomly within the list. If the preceding item doesn’t include an icon, the next item shouldn’t include an icon either.
 
-If truncation is needed due to depth or lack of space, use one of the following options. Breadcrumbs will truncate using **truncate middle** if there are more than five items to display. Truncate middle is recommended unless space is an issue.
+!!! Do
+<Hds::Breadcrumb>
+  <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+  <Hds::Breadcrumb::Item @text="Level three" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level four" />
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+</Hds::Breadcrumb>
+!!!
+
+!!! Dont
+<Hds::Breadcrumb>
+  <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
+  <Hds::Breadcrumb::Item @text="Level three" />
+  <Hds::Breadcrumb::Item @text="Level four" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+</Hds::Breadcrumb>
+!!!
+
+## Truncation methods
+
+We offer various options for truncation due to depth or lack of space.
 
 ### Truncate middle
+
+“Truncate middle” houses any number of Breadcrumb Items under a menu in the middle of the Breadcrumb. The number of items displayed before and after truncation depends on the use case and space available within the application.  We recommend this method if needing to truncate the Breadcrumb.
 
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="Level one" />
   <Hds::Breadcrumb::Item @text="Level two" />
   <Hds::Breadcrumb::Truncation>
-  <Hds::Breadcrumb::Item @text="Level three" />
+    <Hds::Breadcrumb::Item @text="Level three" />
   </Hds::Breadcrumb::Truncation>
   <Hds::Breadcrumb::Item @text="Level four" />
   <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
@@ -82,29 +132,19 @@ If truncation is needed due to depth or lack of space, use one of the following 
 
 ### Truncate squeeze
 
+“Truncate squeeze” reduces the persistent Breadcrumb Items to the first and last/current items and hides the other items under a menu. We recommend only using this method when space is limited, such as on mobile viewports.
+
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="Level one" />
   <Hds::Breadcrumb::Truncation>
-  <Hds::Breadcrumb::Item @text="Level two"/>
+    <Hds::Breadcrumb::Item @text="Level two"/>
   </Hds::Breadcrumb::Truncation>
   <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
-Each text-based item can truncate using a pixel-based max-width at the discretion users discretion. This option should be reserved for instances when items have long text strings.
-
 ### Width-based
 
-<Hds::Breadcrumb @itemsCanWrap={{false}}>
-  <Hds::Breadcrumb::Item @text="Level one" />
-  <Hds::Breadcrumb::Item @text="Level two" />
-  <Hds::Breadcrumb::Item @text="Level three truncation" @maxWidth="120px" />
-  <Hds::Breadcrumb::Item @text="Level four" />
-  <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
-</Hds::Breadcrumb>
-
-### Width-based (Hover)
-
-<!-- I don’t think this functionality actually exists on this component -->
+Each text-based item can truncate using a pixel-based max-width. We recommend this option for items with long text strings.
 
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
   <Hds::Breadcrumb::Item @text="Level one" />
@@ -113,19 +153,3 @@ Each text-based item can truncate using a pixel-based max-width at the discretio
   <Hds::Breadcrumb::Item @text="Level four" />
   <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
-
-!!! Info
-
-The tooltip will appear on hover with a mouse or on focus.
-
-!!!
-
-## Dropdowns
-
-For truncated breadcrumb items, clicking, pressing enter, or pressing spacebar will open the truncated dropdown. The truncated dropdown will align to the left side of the breadcrumb item and will be placed 4px below the breadcrumb item.
-
-Truncated dropdowns will include all of the hierarchal layers that have been hidden.
-
-### Truncated dropdown
-
-![Example of the spacing of used in a truncated dropdown](/assets/components/breadcrumb/breadcrumb-truncated-dropdown.png)
