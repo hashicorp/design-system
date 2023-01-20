@@ -1,4 +1,20 @@
-### Color
+## Usage
+
+### When to use
+
+- To indicate status, such as “Running”, “Applied”, “Errored”, etc.
+- As feature flags, such as “In Preview”, “Beta”, “New”, etc.
+- For categorizations, such as Product Lines and Account Levels.
+- For keyboard shortcut hints, such as `Esc`.
+
+### When not to use
+
+- To display version numbers or collection counts in Tabs, consider [Badge Count](/components/badge-count).
+- For a list of metadata elements (like selected filters), consider [Tag](/components/tag).
+- For dismissable elements, consider [Tag](/components/tag).
+- For longer status messages, consider [Alert](/components/alert).
+
+## Color
 
 There are six colors: `neutral`, `neutral-dark-mode`, `highlight`, `critical`, `success`, and `warning`.
 
@@ -11,67 +27,22 @@ There are six colors: `neutral`, `neutral-dark-mode`, `highlight`, `critical`, `
 
 Use color logically.
 
-- **Neutral** to call attention to general metadata, such as "New", "Beta", "In Preview", etc.
+- **Neutral** to call attention to general metadata, such as “New”, “Beta”, “In Preview”, etc.
 - **Neutral (dark mode)** for general metadata on dark backgrounds, such as sidebars and headers.
 - **Highlight** for general metadata that needs a more obvious callout or prominence on the page.
-- **Success** to indicate a successful or passive action, such as "Running".
+- **Success** to indicate a successful or passive action, such as “Running”.
 - **Warning** to indicate a warning.
-- **Critical** to indicate critical feedback or something that needs immediate action.
+- **Critical** to indicate critical feedback or something needing immediate action.
 
-<Hds::Badge @color="critical" @type="filled" @icon="award" @size="small" @text="Bronze" />
-<Hds::Badge @color="neutral" @type="filled" @icon="award" @size="small" @text="Silver" />
-<Hds::Badge @color="warning" @type="filled" @icon="award" @size="small" @text="Gold" />
+### Alternative color usage
 
-!!! Info
+Badges can also indicate different account levels: 
 
-An alternative use case for **Critical Filled**, **Neutral Filled**, and **Warning Filled** are for Account Levels.
+<Hds::Badge @color="critical" @type="filled" @icon="award" @text="Bronze" />
+<Hds::Badge @color="neutral" @type="filled" @icon="award" @text="Silver" />
+<Hds::Badge @color="warning" @type="filled" @icon="award" @text="Gold" />
 
-!!!
-
-### Icon
-
-An icon can be shown in addition to or instead of text.
-
-<Hds::Badge @color="neutral" @type="filled" @text="Text only" />
-<Hds::Badge @color="neutral" @type="filled" @icon="corner-down-left" @isIconOnly={{true}} @text="" />
-<Hds::Badge @color="neutral" @type="filled" @icon="hexagon" @text="Text + Icon" />
-
-Badges come in a few icon and text combinations; text only, icon only, and icon + text (where icons are always on the left). Use icons intentionally and only when they provide the user with extra value.
-
-!!! Info
-
-We realize that the small badges use an icon size that is not supported by our icons and thus have scaled it down to fit within the badge. We weighed the pros and cons of doing this versus using the 16px size in the smaller badges and ultimately landed here as it works better visually. You should still be able to use the 16px size within the badge and not see any issues, but please let us know if you do.
-
-!!!
-
----
-
-### Size
-
-There are three sizes: `small`, `medium`, and `large`.
-
-<Hds::Badge @text="Small" @size="small" />
-<Hds::Badge @text="Medium" @size="medium" />
-<Hds::Badge @text="Large" @size="large" />
-
-*Medium** is the preferred size, but use a badge size that best fits the UI.
-
-For example:
-
-- use large badges when inline with a heading
-- don’t use large badges in tables
-
-As badge widths need to get smaller (ie. for a responsive input), the content within the badge may truncate.
-
-!!! Info
-
-Small badges are closest in size to that of Structure badges.
-
-!!!
-
----
-
-### Type
+## Type
 
 There are three types of Badges: `filled`, `inverted`, and `outlined`.
 
@@ -79,44 +50,87 @@ There are three types of Badges: `filled`, `inverted`, and `outlined`.
 <Hds::Badge @text="Inverted" @type="inverted" />
 <Hds::Badge @text="Outlined" @type="outlined" />
 
-Use **Filled** badges when displaying many badges at once or to make subtle callouts.
+### Filled
+
+<Hds::Badge @text="Neutral filled" />
+<Hds::Badge @color="highlight" @text="Highlight filled" />
+<Hds::Badge @color="success" @text="Success filled" />
+<Hds::Badge @color="warning" @text="Warning filled" />
+<Hds::Badge @color="critical" @text="Critical filled" />
+
+Use filled Badges when displaying many on a single page or for subtle callouts.
 
 For example:
 
 - when listing statuses in a table
 - for successful or passive actions
 
-<Hds::Badge @color="neutral" @size="medium" @type="inverted" @text="Inverted" />
+### Inverted 
 
-Use **Inverted** when needing to draw extra attentio nto somthing. Use intentionally and sparingly.
+<Hds::Badge @type="inverted" @text="Neutral inverted" />
+<Hds::Badge @type="inverted" @color="highlight" @text="Highlight inverted" />
+<Hds::Badge @type="inverted" @color="success" @text="Success inverted" />
+<Hds::Badge @type="inverted" @color="warning" @text="Warning inverted" />
+<Hds::Badge @type="inverted" @color="critical" @text="Critical inverted" />
+
+Use inverted Badges when needing to draw extra attention to something. However, avoid using too many inverted Badges on one page, as it could overwhelm the user and reduce the importance of nearby elements.
 
 For example:
 
 - for errors or other critical feedback that needs addressing
-- when needing many badges on one page take care not to overwhelm the user with too many inverted badges.
 
-<Hds::Badge @color="neutral" @size="medium" @type="outlined" @text="Outlined" />
+!!! Dont
 
-Use **Outlined** as an alternative to Filled, but when extra attention is not required.
+![example of overuse of inverted badges in a table](/assets/components/badge/badge-inverted-dont.png =584x*)
+!!!
 
----
+### Outlined
+
+<Hds::Badge @type="outlined" @text="Neutral outlined" />
+<Hds::Badge @type="outlined" @color="highlight" @text="Highlight outlined" />
+<Hds::Badge @type="outlined" @color="success" @text="Success outlined" />
+<Hds::Badge @type="outlined" @color="warning" @text="Warning outlined" />
+<Hds::Badge @type="outlined" @color="critical" @text="Critical outlined" />
+
+Use outlined Badges as an alternative to filled Badges, but when extra attention is not required.
+
+## Size
+
+There are three sizes: `small`, `medium`, and `large`. Content within the Badges may truncate as screen sizes reduce.
+
+<Hds::Badge @text="Small" @size="small" />
+<Hds::Badge @text="Medium" @size="medium" />
+<Hds::Badge @text="Large" @size="large" />
+
+Medium is preferred, but use a badge size that best fits the UI.
+
+For example:
+
+- use large Badges when inline with a heading
+- use small or medium Badges in tables, depending on the data density
+
+!!! Insight
+
+**Structure migration tip**
+
+Use small Badges in place of Structure Badges.
+!!!
+
+## Icon
+
+Badges come in a few icon and text combinations; text only, icon only, and icon + text (where the icon is in the leading position). Use icons intentionally and only when they provide the user with extra value.
+
+<Hds::Badge @color="neutral" @type="filled" @text="Text only" />
+<Hds::Badge @color="neutral" @type="filled" @icon="corner-down-left" @isIconOnly={{true}} @text="Icon only" />
+<Hds::Badge @color="neutral" @type="filled" @icon="hexagon" @text="Text + Icon" />
 
 ## Content
 
-- Labels should be short and to the point (~25 characters). They should not consist of full sentences, but should provide enough context to be useful, especially when using status badges.
-- Language should be used consistently within each product (ie. when using “In Progress” for 1 badge, use that same convention throughout the rest of the application).
-- As badge widths need to get smaller (ie. for a responsive layout), the content within the badge may truncate.
+- Labels should be short and to the point (~25 characters). They should not consist of full sentences but should provide enough context to be useful, especially when using status badges.
+- Use language consistently within each product. For example, when using “In Progress” for one badge, use that same convention throughout the rest of the application.
+- Since Badges are not interactive, they don’t support links. Consider moving the link outside of the Badge instead.
 
----
 
-## Accessibility
+## Related
 
-<Hds::Badge @color="success" @type="filled" @icon="check" @text="Applied" />
-<Hds::Badge @color="warning" @type="filled" @icon="alert-triangle" @text="Policy override" />
-<Hds::Badge @color="critical" @type="filled" @icon="x" @text="Errored" />
-
-Status badges (Success, Warning, Critical) should always include an icon to avoid relying on color alone as a means to indicate status to the user.
-
-When using badges, provide annotations of the non-visual experience to the team. This could look like:
-
-![Example of an annotation of a badge to provide more context](/assets/components/badge/badge-annotation.png)
+- [Badge Count](/components/badge-count/)
