@@ -12,6 +12,12 @@ module('Acceptance | error', function (hooks) {
     assert.strictEqual(currentURL(), '/error');
   });
 
+  test('visiting a known bad route', async function (assert) {
+    await visit('/wubalubadubdub');
+
+    assert.strictEqual(currentURL(), '/error');
+  });
+
   test('error page passes a11y automated checks', async function (assert) {
     await visit('/error');
 
