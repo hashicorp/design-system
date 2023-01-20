@@ -6,7 +6,7 @@ const DEBOUNCE_MS = 250;
 
 // we want to limit the content of the sidebar navigation to only the links related to the current "section".
 // notice: super hacky way to do it, but... it works™ !
-const getTocSectionBundle = (section) => {
+const getTocSectionsBundle = (section) => {
   const ABOUT = ['about', 'getting-started'];
   const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'overrides', 'utilities'];
@@ -30,30 +30,52 @@ const getTocSectionBundle = (section) => {
   }
 };
 
-const filterSubTree = (subTree, filterQuery) => {
-  let filteredTree = {};
+const getSidebarStructuredTree = (subTree, filterQuery, currentURL) => {
+  let sidebarStructuredTree = {};
+  const isFiltered = filterQuery !== '';
   Object.keys(subTree).forEach((key) => {
     const item = subTree[key];
     if (item.pageURL) {
       const fq = filterQuery.toLowerCase();
-      if (
-        (item.pageAttributes.title &&
-          item.pageAttributes.title.toLowerCase().includes(fq)) ||
-        (item.pageAttributes.keywords &&
+      if (isFiltered) {
+        const titleMatch =
+          item.pageAttributes.title &&
+          item.pageAttributes.title.toLowerCase().includes(fq);
+        const keywordsMatch =
+          item.pageAttributes.keywords &&
           item.pageAttributes.keywords.some((k) =>
             k.toLowerCase().includes(fq)
-          ))
-      ) {
-        filteredTree[key] = item;
+          );
+        if (titleMatch || keywordsMatch) {
+          sidebarStructuredTree[key] = item;
+        }
+      } else {
+        sidebarStructuredTree[key] = item;
       }
     } else {
-      const subSubTree = filterSubTree(item, filterQuery);
+      const subSubTree = getSidebarStructuredTree(item, filterQuery);
       if (Object.keys(subSubTree).length > 0) {
-        filteredTree[key] = subSubTree;
+        sidebarStructuredTree[key] = {
+          children: subSubTree,
+          isOpen: isActiveTree(subSubTree, currentURL) || isFiltered,
+        };
       }
     }
   });
-  return filteredTree;
+  return sidebarStructuredTree;
+};
+
+const isActiveTree = (subTree, currentURL) => {
+  let isActive = false;
+  Object.keys(subTree).forEach((key) => {
+    const item = subTree[key];
+    if (item.pageURL) {
+      isActive = isActive || item.pageURL === currentURL;
+    } else {
+      isActive = isActive || isActiveTree(item);
+    }
+  });
+  return isActive;
 };
 
 export default class DocPageSidebarComponent extends Component {
@@ -82,27 +104,35 @@ export default class DocPageSidebarComponent extends Component {
     }
 
     const subSectionTree = {};
-    getTocSectionBundle(currentSection).forEach((section) => {
-      let subTree;
-      if (this.isFiltered) {
-        subTree = filterSubTree(this.args.toc.tree[section], this.filterQuery);
-      } else {
-        // the section may exist (eg. because it has an index page)
-        // but be without children, so we need to have a default empty object
-        subTree = this.args.toc.tree[section] ?? {};
-      }
-      // this check avoids that we show in the sidebar empty "containers"
-      if (Object.keys(subTree).length > 0) {
-        subSectionTree[section] = subTree;
+    getTocSectionsBundle(currentSection).forEach((section) => {
+      const sectionTocTree = this.args.toc.tree[section];
+      // the section may exist (eg. because it has an index page) but be without children,
+      // so we need to check if it has an entry in the TOC file
+      if (sectionTocTree) {
+        // the `getSidebarStructuredTree` function changes shape to the tree to
+        // adapt it to the sidebar implementation needs (eg adding a `isOpen` to the groups)
+        // and filter the items if a non-empty `filterQuery` parameter is provided
+        const sidebarSubTree = getSidebarStructuredTree(
+          sectionTocTree,
+          this.filterQuery,
+          currentRoute.params.path
+        );
+
+        // this check avoids that we show in the sidebar empty "containers" (eg. when filtered)
+        if (Object.keys(sidebarSubTree).length > 0) {
+          subSectionTree[section] = sidebarSubTree;
+        }
       }
     });
 
+    // if there are no sections with non-empty subtrees, we return false
+    // so the template will not show at all the "table of contents" block
     return Object.keys(subSectionTree).length > 0 ? subSectionTree : false;
   }
 
   @restartableTask *filterPageTree(filterQuery) {
     yield timeout(DEBOUNCE_MS);
 
-    this.filterQuery = filterQuery;
+    this.filterQuery = filterQuery.trim();
   }
 }
