@@ -2,6 +2,15 @@
 // FLYOUT
 //
 
+@mixin hds-flyout-position($size) {
+  width: min($size, calc(100vw - 40px));
+  max-width: calc(100vw - 40px);
+
+  &[open] {
+    margin-left: calc(100% - min($size, calc(100vw - 40px)));
+  }
+}
+
 .hds-flyout {
   z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless the DOM order
   flex-direction: column;
@@ -78,19 +87,9 @@
 }
 
 .hds-flyout--size-medium {
-  width: min(480px, calc(100vw - 40px));
-  max-width: calc(100vw - 40px);
-
-  &[open] {
-    margin-left: calc(100% - min(480px, calc(100vw - 40px)));
-  }
+  @include hds-flyout-position(480px);
 }
 
 .hds-flyout--size-large {
-  width: min(720px, calc(100vw - 40px));
-  max-width: calc(100vw - 40px);
-
-  &[open] {
-    margin-left: calc(100% - min(720px, calc(100vw - 40px)));
-  }
+  @include hds-flyout-position(720px);
 }
