@@ -73,7 +73,7 @@ For example:
 <Hds::Badge @type="inverted" @color="warning" @text="Warning inverted" />
 <Hds::Badge @type="inverted" @color="critical" @text="Critical inverted" />
 
-Use inverted Badges when needing to draw extra attention to something. However, avoid using too many inverted Badges on one page, as it could overwhelm the user and reduce the importance of nearby elements.
+Use inverted Badges to draw extra attention to something. However, avoid using too many inverted Badges on one page, as it could overwhelm the user and reduce the importance of nearby elements.
 
 For example:
 
