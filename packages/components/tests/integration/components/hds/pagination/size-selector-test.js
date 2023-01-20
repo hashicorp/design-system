@@ -1,11 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import {
-  select,
-  render,
-  resetOnerror,
-  setupOnerror,
-} from '@ember/test-helpers';
+import { select, render, resetOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -18,14 +13,14 @@ module(
 
     test('it renders the component', async function (assert) {
       await render(hbs`
-      <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
+      <Hds::Pagination::SizeSelector />
     `);
       assert.dom(this.element).exists();
     });
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(hbs`
-      <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} id="test-pagination-size-selector" />
+      <Hds::Pagination::SizeSelector id="test-pagination-size-selector" />
     `);
       assert
         .dom('#test-pagination-size-selector')
@@ -33,11 +28,10 @@ module(
     });
 
     // CONTENT
-
-    test('it should display options for the passed in page sizes', async function (assert) {
+    test('it should display the default page size options if none are passed in', async function (assert) {
       await render(hbs`
-      <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
-    `);
+        <Hds::Pagination::SizeSelector />
+      `);
       assert
         .dom('.hds-pagination-size-selector option[value="10"]')
         .hasText('10');
@@ -49,16 +43,31 @@ module(
         .hasText('50');
     });
 
+    test('it should display options for the passed in page sizes', async function (assert) {
+      await render(hbs`
+      <Hds::Pagination::SizeSelector @sizes={{array 20 35 60}} />
+    `);
+      assert
+        .dom('.hds-pagination-size-selector option[value="20"]')
+        .hasText('20');
+      assert
+        .dom('.hds-pagination-size-selector option[value="35"]')
+        .hasText('35');
+      assert
+        .dom('.hds-pagination-size-selector option[value="60"]')
+        .hasText('60');
+    });
+
     test('it should display the passed in @selectedSize as selected value', async function (assert) {
       await render(hbs`
-        <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @selectedSize={{30}} />
+        <Hds::Pagination::SizeSelector @sizes={{array 20 40 60}} @selectedSize={{40}} />
       `);
-      assert.dom('.hds-pagination-size-selector select').hasValue('30');
+      assert.dom('.hds-pagination-size-selector select').hasValue('40');
     });
 
     test('it has a label with a "for" attribute value matching the select id value', async function (assert) {
       await render(hbs`
-        <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} id="test-pagination-size-selector" />
+        <Hds::Pagination::SizeSelector id="test-pagination-size-selector" />
       `);
 
       let controlId = this.element.querySelector('.hds-form-select').id;
@@ -71,7 +80,7 @@ module(
 
     test('it should spread all the attributes passed to the component on the element', async function (assert) {
       await render(
-        hbs`<Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} id="test-pagination-size-selector" class="my-class" data-test1 data-test2="test" />`
+        hbs`<Hds::Pagination::SizeSelector id="test-pagination-size-selector" class="my-class" data-test1 data-test2="test" />`
       );
       assert.dom('#test-pagination-size-selector').hasClass('my-class');
       assert.dom('#test-pagination-size-selector').hasAttribute('data-test1');
@@ -87,26 +96,11 @@ module(
       this.set('onChange', (pageSize) => (size = pageSize));
       await render(
         hbs`
-        <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @selectedSize={{10}} id="test-pagination-size-selector" @onChange={{this.onChange}} />
+        <Hds::Pagination::SizeSelector @selectedSize={{10}} id="test-pagination-size-selector" @onChange={{this.onChange}} />
         `
       );
       await select('#test-pagination-size-selector select', '30'); // notice: '30' needs to be a string to work
       assert.strictEqual(size, 30); // notice: it's converted to an integer by the callback function
-    });
-
-    // ASSERTIONS
-
-    test('it should throw an assertion if @sizes is not defined', async function (assert) {
-      const errorMessage =
-        '@sizes for "Pagination::SizeSelector" must be defined';
-      assert.expect(2);
-      setupOnerror(function (error) {
-        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-      });
-      await render(hbs`<Hds::Pagination::SizeSelector />`);
-      assert.throws(function () {
-        throw new Error(errorMessage);
-      });
     });
   }
 );
