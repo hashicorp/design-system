@@ -1,8 +1,7 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
-
-export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
 export default class HdsPaginationSizeSelectorComponent extends Component {
   /**
@@ -18,7 +17,12 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
    * @description Set the page sizes users can select from.
    */
   get sizes() {
-    let { sizes = DEFAULT_PAGE_SIZES } = this.args;
+    let { sizes } = this.args;
+
+    assert(
+      '@sizes for "Pagination::SizeSelector" must be defined',
+      sizes !== undefined
+    );
 
     return sizes;
   }

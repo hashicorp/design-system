@@ -2,6 +2,8 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+export const DEFAULT_PAGE_SIZES = [10, 30, 50];
+
 export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked currentItemsPerPage = this.args.itemsPerPage;
   @tracked totalPages = this.calculateTotalPages();
@@ -43,6 +45,18 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
    */
   get itemsPerPage() {
     return this.currentItemsPerPage;
+  }
+
+  /**
+   * @param pageSizes
+   * @type {array of numbers}
+   * @description Set the page sizes users can select from.
+   * @default [10, 30, 50]
+   */
+  get pageSizes() {
+    let { sizes = DEFAULT_PAGE_SIZES } = this.args;
+
+    return sizes;
   }
 
   get itemsRangeStart() {

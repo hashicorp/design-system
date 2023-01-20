@@ -322,18 +322,17 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-page-size">
-    <dt>sizes <code>array of integers</code></dt>
+    <dt>sizes <code>array of integers</code> <strong class="required">required</strong></dt>
     <dd>
-      <p>Set the page sizes users can select from.</p>
+      <p>Set the page sizes users can select from. If no value is defined an error will be thrown.</p>
       <p>
         Example:
         {{! prettier-ignore-start }}
         {{! template-lint-disable no-unbalanced-curlies }}
-        <code>@pageSizes=\{{array 15 30 60}}</code>
+        <code>@pageSizes=\{{array 10 30 50}}</code>
         {{! template-lint-enable no-unbalanced-curlies }}
         {{! prettier-ignore-end }}
       </p>
-      <p>Default: <span class="default">array 10 30 50</span></p>
     </dd>
     <dt>selectedSize <code>integer</code></dt>
     <dd>
@@ -473,7 +472,6 @@
         @itemsPerPage=\{{10}}
         @showTotalItems=\{{false}}
         @showSizeSelector=\{{false}}
-        @pageSizes=\{{array 10 30 50}}
       />
     "
   />
@@ -499,7 +497,6 @@
       <Hds::Pagination::Numbered
         @totalItems=\{{150}}
         @itemsPerPage=\{{10}}
-        @pageSizes=\{{array 10 30 50}}
       />
     "
   />
@@ -519,7 +516,6 @@
         @totalItems=\{{150}}
         @itemsPerPage=\{{10}}
         @isTruncated=\{{false}}
-        @pageSizes=\{{array 10 30 50}}
       />
     "
   />
@@ -539,7 +535,6 @@
       <Hds::Pagination::Numbered
         @totalItems=\{{40}}
         @itemsPerPage=\{{10}}
-        @pageSizes=\{{array 10 30 50}}
         @onPageChange=\{{this.handlePageChange}}
         @onPageSizeChange=\{{this.handlePageSizeChange}}
       />
@@ -663,14 +658,14 @@
   <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showInfo={{false}} @showSizeSelector={{false}} />
 
   <p class="dummy-text-small">With @itemsPerPage=30 and @currentPage=2</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{30}} @currentPage={{2}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{30}} @currentPage={{2}} @pageSizes={{array 10 30 50}} />
 
   <p class="dummy-text-small">With @showPageNumbers=false + @showLabels=true</p>
   <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showPageNumbers={{false}} @showLabels={{true}} />
 
   <h5 class="dummy-h6">Truncation</h5>
   <p class="dummy-text-small">With large number of pages (truncated by default)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} />
+  <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
   <p class="dummy-text-small">With large number of pages (truncated with initial page equal to <code>4</code>)</p>
   <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{4}} />
   <p class="dummy-text-small">With large number of pages (not truncated)</p>
