@@ -7,18 +7,8 @@
 
   <h4 class="dummy-h4">Basic use</h4>
 
-  <Hds::ButtonSet>
-    <Hds::Button
-      @text="Open medium flyout"
-      @color="secondary"
-      {{on "click" (fn this.activateFlyout "mediumFlyoutActive")}}
-    />
-    <Hds::Button
-      @text="Open large flyout"
-      @color="secondary"
-      {{on "click" (fn this.activateFlyout "largeFlyoutActive")}}
-    />
-  </Hds::ButtonSet>
+  <button type="button" {{on "click" (fn this.activateFlyout "mediumFlyoutActive")}}>Open medium flyout</button>
+  <button type="button" {{on "click" (fn this.activateFlyout "largeFlyoutActive")}}>Open large flyout</button>
 
   {{#if this.mediumFlyoutActive}}
     <Hds::Flyout id="medium-flyout" @onClose={{fn this.deactivateFlyout "mediumFlyoutActive"}} as |F|>
@@ -56,12 +46,7 @@
   {{/if}}
 
   {{#if this.largeFlyoutActive}}
-    <Hds::Flyout
-      id="large-flyout"
-      @size="large"
-      @onClose={{fn this.deactivateFlyout "largeFlyoutActive"}}
-      as |F|
-    >
+    <Hds::Flyout id="large-flyout" @size="large" @onClose={{fn this.deactivateFlyout "largeFlyoutActive"}} as |F|>
       <F.Header>
         Large flyout title
       </F.Header>
