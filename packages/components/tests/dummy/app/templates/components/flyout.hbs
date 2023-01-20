@@ -14,7 +14,7 @@
       {{on "click" (fn this.activateFlyout "mediumFlyoutActive")}}
     />
     <Hds::Button
-      @text="Open large flyout – no overlay"
+      @text="Open large flyout"
       @color="secondary"
       {{on "click" (fn this.activateFlyout "largeFlyoutActive")}}
     />
@@ -22,7 +22,9 @@
 
   {{#if this.mediumFlyoutActive}}
     <Hds::Flyout id="medium-flyout" @onClose={{fn this.deactivateFlyout "mediumFlyoutActive"}} as |F|>
-      <F.Header @title="Medium flyout title" />
+      <F.Header>
+        Medium flyout title
+      </F.Header>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">
           Aliquam ac enim iaculis, faucibus enim id, dapibus quam. Nunc nibh mi, vehicula sed enim eget, lacinia
@@ -57,11 +59,12 @@
     <Hds::Flyout
       id="large-flyout"
       @size="large"
-      @hasOverlay={{false}}
       @onClose={{fn this.deactivateFlyout "largeFlyoutActive"}}
       as |F|
     >
-      <F.Header @title="Large flyout title" />
+      <F.Header>
+        Large flyout title
+      </F.Header>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">
           Aliquam ac enim iaculis, faucibus enim id, dapibus quam. Nunc nibh mi, vehicula sed enim eget, lacinia
@@ -95,7 +98,7 @@
     <br />
     <div class="dummy-flyout-sample-item">
       <Hds::Flyout open @size={{size}} id="flyout-example-{{size}}" as |F|>
-        <F.Header @title="Title" />
+        <F.Header>Title</F.Header>
         <F.Body>
           <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
         </F.Body>
@@ -108,7 +111,7 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-icon" as |F|>
-      <F.Header @icon="info" @title="Title" />
+      <F.Header @icon="info">Title</F.Header>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
       </F.Body>
@@ -118,7 +121,7 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-tagline" as |F|>
-      <F.Header @title="Title" @tagline="Tagline" />
+      <F.Header @tagline="Tagline">Title</F.Header>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
       </F.Body>
@@ -128,7 +131,7 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-tagline-icon" as |F|>
-      <F.Header @title="Title" @tagline="Tagline" @icon="info" />
+      <F.Header @tagline="Tagline" @icon="info">Title</F.Header>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
       </F.Body>
@@ -138,9 +141,8 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-description" as |F|>
-      <F.Header @title="Title">
-        Description
-      </F.Header>
+      <F.Header>Title</F.Header>
+      <F.Description>Description</F.Description>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
       </F.Body>
@@ -152,17 +154,16 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-basic-style" as |F|>
-      <F.Header
-        @tagline="Tagline"
-        @icon="info"
-        @title="A very, very long title that spans multiple lines to test this element"
-      >
+      <F.Header @tagline="Tagline" @icon="info">
+        A very, very long title that spans multiple lines to test this element
+      </F.Header>
+      <F.Description>
         This is a very long
         <strong>description</strong>
         to test appropriate text
         <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
         and formatting on this element
-      </F.Header>
+      </F.Description>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
           JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
@@ -178,7 +179,7 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-generic-content" as |F|>
-      <F.Header @icon="info" @title="Title" />
+      <F.Header @icon="info">Title</F.Header>
       <F.Body>
         <DummyPlaceholder @text="some generic content" @height="50" @background="#eee" />
       </F.Body>

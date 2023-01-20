@@ -18,13 +18,13 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it renders the component', async function (assert) {
     await render(
-      hbs`<Hds::Flyout as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom(this.element).exists();
   });
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('#test-flyout').hasClass('hds-flyout');
   });
@@ -33,14 +33,14 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should render the component with default size if no arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('#test-flyout').hasClass('hds-flyout--size-medium');
   });
 
   test('it should render the component with custom size if provided', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" @size="large" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" @size="large" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('#test-flyout').hasClass('hds-flyout--size-large');
   });
@@ -49,14 +49,14 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should render the component with an overlay element by default', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('.hds-flyout__overlay').isVisible();
   });
 
   test('it should render the component without an overlay element if @hasOverlay is false', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" @hasOverlay={{false}} as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" @hasOverlay={{false}} as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('.hds-flyout__overlay').doesNotExist();
   });
@@ -66,7 +66,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   test('it renders the title without icon and tagline if not provided', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|>
-            <F.Header @title="Title"/>
+            <F.Header>Title</F.Header>
           </Hds::Flyout>`
     );
     assert.dom('.hds-flyout__title').exists();
@@ -78,7 +78,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   test('it renders the title with icon and tagline if provided', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|>
-            <F.Header @icon="info" @tagline="Tagline" @title="Title"/>
+            <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
           </Hds::Flyout>`
     );
     assert.dom('.hds-flyout__title').exists();
@@ -91,7 +91,8 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   test('it renders the description if provided', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|>
-            <F.Header @title="Title">Description</F.Header>
+            <F.Header>Title</F.Header>
+            <F.Description>Description</F.Description>
           </Hds::Flyout>`
     );
     assert.dom('.hds-flyout__title').exists();
@@ -106,13 +107,13 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should always render the "dismiss" button', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('button.hds-flyout__dismiss').exists();
   });
   test('it should close the flyout when the "dismiss" button is pressed', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('#test-flyout').isVisible();
     await click('button.hds-flyout__dismiss');
@@ -123,7 +124,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     // the IDs are dynamically generated
     let titleElement = this.element.querySelector('.hds-flyout__title');
@@ -135,7 +136,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it sets initial focus on the dimiss button, as first focusable element', async function (assert) {
     await render(
-      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('button.hds-flyout__dismiss').isFocused();
   });
@@ -145,7 +146,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   test('it should spread all the attributes passed to the component and subcomponents', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" class="flyout-class" data-test-flyout1 data-test-flyout2="test" as |F|>
-            <F.Header @title="Title" id="test-flyout-header" data-test-flyout-header1 data-test-flyout-header2="test-header"/>
+            <F.Header id="test-flyout-header" data-test-flyout-header1 data-test-flyout-header2="test-header">Title</F.Header>
             <F.Body id="test-flyout-body" data-test-flyout-body1 data-test-flyout-body2="test-body">Body</F.Body>
           </Hds::Flyout>`
     );
@@ -169,7 +170,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     this.set('onOpen', () => (opened = true));
     await render(
       hbs`<Hds::Flyout id="test-onopen-callback" @onOpen={{this.onOpen}} as |F|>
-            <F.Header @title="Title"/>
+            <F.Header>Title</F.Header>
           </Hds::Flyout>`
     );
     assert.dom('#test-onopen-callback').isVisible();
@@ -181,7 +182,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     this.set('onClose', () => (closed = true));
     await render(
       hbs`<Hds::Flyout id="test-close-callback" @onClose={{this.onClose}} as |F|>
-            <F.Header @title="Title"/>
+            <F.Header>Title</F.Header>
           </Hds::Flyout>`
     );
     await click('button.hds-flyout__dismiss');
@@ -200,7 +201,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Flyout @size="foo" as |F|><F.Header @title="Title"/></Hds::Flyout>`
+      hbs`<Hds::Flyout @size="foo" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.throws(function () {
       throw new Error(errorMessage);

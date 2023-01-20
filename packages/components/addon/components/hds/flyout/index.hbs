@@ -6,6 +6,7 @@
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
   {{yield (hash Header=(component "hds/flyout/header" id=this.id onDismiss=this.onDismiss))}}
+  {{yield (hash Description=(component "hds/flyout/description"))}}
   {{yield (hash Body=(component "hds/flyout/body"))}}
 </dialog>
 {{#if this.showOverlay}}

@@ -8,12 +8,7 @@
         {{@tagline}}
       </div>
     {{/if}}
-    {{@title}}
+    {{yield}}
   </div>
   <Hds::DismissButton class="hds-flyout__dismiss" {{on "click" @onDismiss}} />
 </div>
-{{#if (has-block)}}
-  <div class="hds-flyout__description hds-typography-body-200">
-    {{yield}}
-  </div>
-{{/if}}
