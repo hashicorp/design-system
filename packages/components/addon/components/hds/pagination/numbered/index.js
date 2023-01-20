@@ -19,16 +19,27 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   constructor() {
     super(...arguments);
 
-    let { queryParamPage, queryParamPageSize } = this.args;
+    let { queryParamPage, queryParamPageSize, queryFunction } = this.args;
 
-    if (queryParamPage === undefined && queryParamPageSize === undefined) {
+    if (
+      queryParamPage === undefined &&
+      queryParamPageSize === undefined &&
+      queryFunction === undefined
+    ) {
       this.hasRouting = false;
     } else {
-      assert(
-        '@queryParamPage and @queryParamPageSize for "Hds::Numbered" must be both or undefined or defined as strings (you can\'t have only one defined)',
-        typeof queryParamPage === 'string' &&
-          typeof queryParamPageSize === 'string'
-      );
+      if (queryFunction) {
+        assert(
+          '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+          typeof queryFunction === 'function'
+        );
+      } else {
+        assert(
+          '@queryParamPage and @queryParamPageSize for "Hds::Numbered" must be both or undefined or defined as strings (you can\'t have only one defined)',
+          typeof queryParamPage === 'string' &&
+            typeof queryParamPageSize === 'string'
+        );
+      }
       this.hasRouting = true;
     }
 
@@ -91,7 +102,6 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   set currentPageSize(value) {
     if (this.hasRouting) {
       // noop
-      this._currentPageSize = value;
     } else {
       this._currentPageSize = value;
     }
@@ -192,29 +202,47 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   buildQueryParamsObject(page) {
+    let { queryParamPage, queryParamPageSize, queryFunction } = this.args;
     if (this.hasRouting) {
-      let queryParams = Object.assign({}, this.routeQueryParams);
-      let { queryParamPage, queryParamPageSize } = this.args;
-      queryParams[queryParamPage] = page;
-      queryParams[queryParamPageSize] = this.currentPageSize;
-      return queryParams;
+      if (queryFunction) {
+        return this.args.queryFunction(page, this.currentPage);
+      } else {
+        let queryParams = Object.assign({}, this.routeQueryParams);
+        queryParams[queryParamPage] = page;
+        queryParams[queryParamPageSize] = this.currentPageSize;
+        return queryParams;
+      }
     } else {
       return {};
     }
   }
 
-  get templateQueryParams() {
-    let queryParams = {};
-    queryParams.prev = this.buildQueryParamsObject(this.currentPage - 1);
-    queryParams.next = this.buildQueryParamsObject(this.currentPage + 1);
-    // IMPORTANT: here we neeed to use an object and not an array
-    // otherwise the {{get object page}} will be shifted by one
-    // (the pages are 1-based while the array would be zero-based)
-    queryParams.pages = {};
-    this.pages.forEach(
-      (page) => (queryParams.pages[page] = this.buildQueryParamsObject(page))
-    );
-    return queryParams;
+  get routing() {
+    let routing = {
+      route: this.args.route ?? undefined,
+      model: this.args.model ?? undefined,
+      models: this.args.models ?? undefined,
+      replace: this.args.replace ?? undefined,
+    };
+
+    // the "query" is dynamic and needs to be calculated
+    if (this.hasRouting) {
+      routing.queryPrev = this.buildQueryParamsObject(this.currentPage - 1);
+      routing.queryNext = this.buildQueryParamsObject(this.currentPage + 1);
+      // IMPORTANT: here we neeed to use an object and not an array
+      // otherwise the {{get object page}} will be shifted by one
+      // (the pages are 1-based while the array would be zero-based)
+      routing.queryPages = {};
+      this.pages.forEach(
+        (page) => (routing.queryPages[page] = this.buildQueryParamsObject(page))
+      );
+    } else {
+      routing.queryPrev = undefined;
+      routing.queryNext = undefined;
+      routing.queryByPage = {};
+    }
+
+    return routing;
   }
 
   get isDisabledPrev() {

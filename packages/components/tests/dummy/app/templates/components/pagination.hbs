@@ -32,7 +32,7 @@
   @onPageSizeChange={{this.onPageSizeChange_demo1}}
 />
 
-<h3>Demo #2 - Numbered - With routing</h3>
+<h3>Demo #2A - Numbered - With routing (via @queryParamPage/queryParamPageSize)</h3>
 
 <Hds::Table
   @model={{this.paginatedData_demo2}}
@@ -64,6 +64,41 @@
   @route={{this.consumerRouteName}}
   @queryParamPage="currentPage_demo2"
   @queryParamPageSize="currentPageSize_demo2"
+  @onPageChange={{this.genericHandlePageChange}}
+  @onPageSizeChange={{this.genericHandlePageSizeChange}}
+/>
+
+<h3>Demo #2B - Numbered - With routing (via @queryFunction)</h3>
+
+<Hds::Table
+  @model={{this.paginatedData_demo2}}
+  @columns={{array
+    (hash key="id" label="ID" isSortable="true")
+    (hash key="name" label="Name" isSortable="true")
+    (hash key="email" label="Email")
+    (hash key="role" label="Role")
+  }}
+  @sortBy={{this.currentSortBy_demo2}}
+  @sortOrder={{this.currentSortOrder_demo2}}
+  @onSort={{this.onTableSort_demo2}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.id}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.role}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+
+<Hds::Pagination::Numbered
+  @totalItems={{this.demoTotalItems}}
+  @itemsPerPage={{this.currentPageSize_demo2}}
+  @currentPage={{this.currentPage_demo2}}
+  @pageSizes={{array 5 10 30}}
+  @route={{this.consumerRouteName}}
+  @queryFunction={{this.consumerQueryFunction_demo2}}
   @onPageChange={{this.genericHandlePageChange}}
   @onPageSizeChange={{this.genericHandlePageSizeChange}}
 />

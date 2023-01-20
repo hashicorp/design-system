@@ -52,7 +52,7 @@ export default class PaginationController extends Controller {
     'currentSortOrder_demo2',
     'prevToken_demo4',
     'nextToken_demo4',
-    // 'demoExtraParam',
+    'demoExtraParam',
   ];
 
   @service router;
@@ -64,7 +64,7 @@ export default class PaginationController extends Controller {
   @tracked currentPageSize_demo2 = 30;
   @tracked currentSortBy_demo2;
   @tracked currentSortOrder_demo2;
-  // @tracked demoExtraParam = '';
+  @tracked demoExtraParam = '';
   @tracked currentCursor_demo3 = btoa(`next__1`);
   @tracked newPrevCursor_demo3 = null;
   @tracked newNextCursor_demo3 = btoa(`next__6`);
@@ -133,12 +133,28 @@ export default class PaginationController extends Controller {
 
   // DEMO #2 - NUMBERED / WITH ROUTING
 
+  get consumerQueryFunction_demo2() {
+    return (page, pageSize) => {
+      console.log(
+        `consumerQueryFunction called / page=${page} / pageSize=${pageSize}`
+      );
+      return {
+        currentPage_demo2: page,
+        currentPageSize_demo2: this.currentPageSize_demo2,
+        currentSortBy_demo2: this.currentSortBy_demo2,
+        currentSortOrder_demo2: this.currentSortOrder_demo2,
+        demoExtraParam: 'hello',
+        // orgId: this.model.something,
+      };
+    };
+  }
+
   @action
   onTableSort_demo2(sortBy, sortOrder) {
-    // console.log('onTableSort_demo2 called', sortBy, sortOrder);
+    console.log('onTableSort_demo2 called', sortBy, sortOrder);
     this.currentSortBy_demo2 = sortBy;
     this.currentSortOrder_demo2 = sortOrder;
-    // we should reset the selected page
+    // should we reset the selected page?
     // this.currentPage_demo2 = 1;
   }
 
