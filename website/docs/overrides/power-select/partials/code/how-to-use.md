@@ -1,26 +1,33 @@
-[PowerSelect](https://ember-power-select.com/) is a popular Ember add-on aiming to overcome some limitations of the `<select>` tag. The design system only provides style overrides for this add-on to keep it in line with other form components.
+[PowerSelect](https://ember-power-select.com/) is a popular Ember add-on aiming to overcome some limitations of the `<select>` tag. We only provide style overrides for this add-on to keep it in line with other form components.
 
 !!! Info
 
-These style overrides assume the PowerSelect component is set up in your project using the default theme.
+These style overrides assume the PowerSelect component is set up in your project using the **default theme**.
 !!!
 
-To use this component in your application follow [the getting started guide on the add-on website](https://ember-power-select.com), then add the PowerSelect overrides.
+To use this component in your application, follow [the getting started guide on the add-on website](https://ember-power-select.com), then add the PowerSelect overrides.
 
-## Overrides import
+## Import the overrides
 
-If you are already using [design-system-components](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md) in your project the overrides import would look like this:
+If you’re already using [`design-system-components`](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md), import the overrides:
 
-```
+```scss
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/design-system-power-select-overrides";
 ```
 
-If you are not yet using [design-system-components](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md) in your project but you want to use these PowerSelect custom styles you will need to add [design-system-tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/README.md) to your project.
+If you’re not using [`design-system-components`](https://github.com/hashicorp/design-system/blob/main/packages/components/README.md) but need to use these custom PowerSelect styles, add [`design-system-tokens`](https://github.com/hashicorp/design-system/blob/main/packages/tokens/README.md) to your project.
+
+```scss
+// for product applications
+@import "~@hashicorp/design-system-tokens/dist/products/css/tokens.css";
+// for hashicorp developer platform
+@import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
+```
 
 ## How to use these overrides
 
-As these overrides rely on specificity, to apply them you need to wrap each PowerSelect instance in an element with `hds-power-select` class applied to it.
+These overrides rely on specificity, so to apply them, wrap each PowerSelect instance in an element with the `hds-power-select` class applied to it.
 
 Invocation of the component with overrides would look like this:
 
@@ -57,9 +64,9 @@ When used with the `@searchEnabled` argument, the input is automatically styled 
 </div>
 ```
 
-### After options block
+### `@afterOptionsComponent` block
 
-To consistently style the `@afterOptionsComponent` use the `hds-power-select__after-options` class on the outermost element of the after options component.
+Use the `hds-power-select__after-options` class on the outermost element of the “after-options” component to consistently style `@afterOptionsComponent`.
 
 ```handlebars
 <div class="hds-power-select">
@@ -76,7 +83,7 @@ To consistently style the `@afterOptionsComponent` use the `hds-power-select__af
 </div>
 ```
 
-Where `power-select/after-options.hbs` would look like this:
+`power-select/after-options.hbs` would look like this:
 
 ```handlebars{data-execute=false}
 <div class="hds-power-select__after-options">
@@ -86,7 +93,7 @@ Where `power-select/after-options.hbs` would look like this:
 
 ### Multiple selection
 
-When multiple options are allowed the selected items are automatically styled to resemble the [`Tag`](/components/tag/) component.
+The selected items are automatically styled to resemble the [`Tag`](/components/tag/) component when multiple options are allowed.
 
 ```handlebars
 <div class="hds-power-select">

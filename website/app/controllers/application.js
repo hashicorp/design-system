@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { next, later, cancel } from '@ember/runloop';
+import { defaultValidator } from 'ember-a11y-refocus';
 
 export default class ApplicationController extends Controller {
   @service router;
@@ -64,6 +65,21 @@ export default class ApplicationController extends Controller {
       this.runLater = later(() => {
         document.body.classList.remove('isSidebarInRenderTree');
       }, 250);
+    }
+  }
+
+  transitionValidator(transition) {
+    // Disable transition validation if we're transitioning to the same page
+    // and the page is has a filter functionality based on `queryParams`
+    // namely the Icon library or the Tokens page
+    if (
+      transition.from.params.path === transition.to.params.path &&
+      (transition.from.params.path === 'icons/library' ||
+        transition.from.params.path === 'foundations/tokens')
+    ) {
+      return false;
+    } else {
+      return defaultValidator(transition);
     }
   }
 

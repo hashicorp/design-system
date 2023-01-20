@@ -43,11 +43,7 @@
       </div>
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
         {{#if this.hasTableOfContents}}
-          <Doc::TableOfContents
-            @structuredPageTree={{this.structuredPageTree}}
-            @depth={{1}}
-            @isFiltered={{this.isFiltered}}
-          />
+          <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
         {{else}}
           <p class="doc-text-body-small">No results found</p>
         {{/if}}

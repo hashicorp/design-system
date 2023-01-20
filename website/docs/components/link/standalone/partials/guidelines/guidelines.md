@@ -8,7 +8,7 @@
 ### When not to use
 
 - Within a body of text, use a **Link (Inline)**
-- To trigger an action or event, like a form submission, use a [Button](/components/button/overview)
+- To trigger an action or event, like a form submission, use a [Button](/components/button)
 
 ### Size
 

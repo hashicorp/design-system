@@ -43,30 +43,7 @@ For more information on adoption, visit our getting started guides for [designer
 
 ## When to use Helios
 
-The Design Systems Team has created Helios to be the single source of truth for the design language, components, and patterns used by HashiCorp product teams. As such, Helios is replacing Structure, but until we have full parity with Structure, there may be a period of time where Helios components and Structure components reside together in an application.
-
-!!! Info
-
-**What is structure?**
-
-Structure is the legacy design system used primarily by Cloud UI. It is no longer supported and is being sunset.
-!!!
-
-Use this decision tree to understand which system to use or when to create your own local component or pattern.
-
-![Decision tree flow chart](/assets/about/hds-decision-tree.png =596x*)
-
-1. If the component or pattern exists in Helios, use it. This ensures future versions will be supported and that it shares a common design language with the rest of the products.
-
-2. If the component or pattern doesn’t exist in Helios, but does exist in Structure, use the Structure version. 
-    
-    *Use Structure sparingly and with caution because:
-
-    - Structure is no longer supported and is being sunset.
-    - Some Figma components are not built in code.
-
-3. If the component or pattern doesn’t exist in Helios or in Structure, design and build your own local element using Helios foundations (color, typography, elevation, etc) as a starting point.
-
+The Design Systems Team has created Helios to be the single source of truth for the design language, components, and patterns used by HashiCorp product teams. We are working towards parity with other design systems used internally. Until that time, Helios components may live along side other components but we recommend a Helios-first approach in most cases.
 
 ## Resources
 

@@ -4,7 +4,7 @@
 
 ## When not to use
 
-- In forms. When providing more than 5–7 options in a form, use a [Select](/components/form/select/overview) instead.
+- In forms. When providing more than 5–7 options in a form, use a [Select](/components/form/select) instead.
 - When selecting an option results in immediate navigation or update to the page content, use a Context Switcher _(coming soon)_.
 
 ## ToggleButton Size

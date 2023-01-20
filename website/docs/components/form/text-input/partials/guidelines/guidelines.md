@@ -6,8 +6,8 @@
 
 ### When not to use
 
-- If needing a multi-line text input, use [Textarea](/components/form/textarea/overview)
-- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox/overview), [Radio button](/components/form/radio/overview), or [Select](/components/form/select/overview).
+- If needing a multi-line text input, use [Textarea](/components/form/textarea)
+- If needing to allow the user to make a selection from a predetermined list of options, use [Checkbox](/components/form/checkbox), [Radio button](/components/form/radio), or [Select](/components/form/select).
 
 ### Required and optional
 
