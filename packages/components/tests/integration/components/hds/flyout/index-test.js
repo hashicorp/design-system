@@ -63,7 +63,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   // TITLE (ICON, TAGLINE & DESCRIPTION)
 
-  test('it renders the title without icon and tagline if not provided', async function (assert) {
+  test('it renders the title without icon, tagline, and description', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|>
             <F.Header>Title</F.Header>
@@ -86,7 +86,6 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('.hds-flyout__icon.flight-icon-info').exists();
     assert.dom('.hds-flyout__tagline').exists();
     assert.dom('.hds-flyout__tagline').hasText('Tagline');
-    assert.dom('.hds-flyout__description').doesNotExist();
   });
   test('it renders the description if provided', async function (assert) {
     await render(
