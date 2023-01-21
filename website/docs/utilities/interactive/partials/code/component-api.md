@@ -11,7 +11,7 @@
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
-    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the @route.
+    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
