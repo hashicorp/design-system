@@ -5,7 +5,7 @@ import { tracked } from '@glimmer/tracking';
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
 export default class HdsPaginationNumberedIndexComponent extends Component {
-  @tracked currentItemsPerPage = this.args.itemsPerPage;
+  @tracked currentItemsPerPage = this.args.itemsPerPage ?? this.pageSizes[0];
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
 

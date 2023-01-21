@@ -88,10 +88,11 @@
       <p>Pass the total number of items to be paginated.</p>
       <p>If no value is defined an error will be thrown.</p>
     </dd>
-    <dt>itemsPerPage <code>number</code> <strong class="required">required</strong></dt>
+    <dt>itemsPerPage <code>number</code></dt>
     <dd>
       <p>Pass the maximum number of items to display on each page.</p>
-      <p>If no value is defined an error will be thrown.</p>
+      <p>If no value is defined, the first page size in <code>pageSizes</code> will be used.</p>
+      <p>Default: <span class="default">10</span> (if custom pageSizes are not defined)</p>
     </dd>
     <dt>pageSizes <code>array of integers</code></dt>
     <dd>
@@ -440,15 +441,13 @@
 
   <p class="dummy-paragraph">The basic invocation of the "numbered" pagination requires the
     <code class="dummy-code">@totalItems</code>
-    <code class="dummy-code">@itemsPerPage</code>, and
-    <code class="dummy-code">@pageSizes</code>
-    arguments to be provided (plus the event/routing handlers, see below):</p>
+    argument to be provided (plus the event/routing handlers, see below):</p>
   {{! prettier-ignore-start }}
   {{! template-lint-disable no-unbalanced-curlies }}
   <CodeBlock
     @language="markup"
     @code="
-      <Hds::Pagination::Numbered @totalItems=\{{40}} @itemsPerPage=\{{10}} />
+      <Hds::Pagination::Numbered @totalItems=\{{40}} />
     "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
@@ -469,9 +468,10 @@
     @code="
       <Hds::Pagination::Numbered
         @totalItems=\{{40}}
-        @itemsPerPage=\{{10}}
+        @itemsPerPage=\{{20}}
         @showTotalItems=\{{false}}
         @showSizeSelector=\{{false}}
+        @pageSizes=\{{array 5 20 60}}
       />
     "
   />
@@ -496,14 +496,13 @@
     @code="
       <Hds::Pagination::Numbered
         @totalItems=\{{150}}
-        @itemsPerPage=\{{10}}
       />
     "
   />
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination::Numbered @totalItems={{150}} @itemsPerPage={{10}} />
+  <Hds::Pagination::Numbered @totalItems={{150}} />
   <p class="dummy-paragraph">If necessary, it's possible to disable this functionality using a specific
     <code class="dummy-code">@isTruncated</code>
     argument:</p>
@@ -514,7 +513,6 @@
     @code="
       <Hds::Pagination::Numbered
         @totalItems=\{{150}}
-        @itemsPerPage=\{{10}}
         @isTruncated=\{{false}}
       />
     "
@@ -522,7 +520,7 @@
   {{! template-lint-enable no-unbalanced-curlies }}
   {{! prettier-ignore-end }}
   <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Pagination::Numbered @totalItems={{150}} @itemsPerPage={{10}} @isTruncated={{false}} />
+  <Hds::Pagination::Numbered @totalItems={{150}} @isTruncated={{false}} />
 
   <h5 class="dummy-h5">Events handling</h5>
   <p class="dummy-paragraph">The component exposes two callback functions that can be used to respond to specific
@@ -534,7 +532,6 @@
     @code="
       <Hds::Pagination::Numbered
         @totalItems=\{{40}}
-        @itemsPerPage=\{{10}}
         @onPageChange=\{{this.handlePageChange}}
         @onPageSizeChange=\{{this.handlePageSizeChange}}
       />
@@ -543,7 +540,6 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Pagination::Numbered
     @totalItems={{40}}
-    @itemsPerPage={{10}}
     @onPageChange={{this.handlePageChange}}
     @onPageSizeChange={{this.handlePageSizeChange}}
   />
@@ -643,33 +639,33 @@
   <h4 class="dummy-h4">Pagination::Numbered</h4>
 
   <p class="dummy-text-small">Base (default)</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} />
 
   <p class="dummy-text-small">With showTotalItems=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showTotalItems={{false}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} @showTotalItems={{false}} />
 
   <p class="dummy-text-small">With showSizeSelector=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showSizeSelector={{false}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} @showSizeSelector={{false}} />
 
   <p class="dummy-text-small">With showInfo=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showInfo={{false}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} />
 
   <p class="dummy-text-small">With showInfo=false + showSizeSelector=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showInfo={{false}} @showSizeSelector={{false}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} @showSizeSelector={{false}} />
 
   <p class="dummy-text-small">With @itemsPerPage=30 and @currentPage=2</p>
   <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{30}} @currentPage={{2}} @pageSizes={{array 10 30 50}} />
 
   <p class="dummy-text-small">With @showPageNumbers=false + @showLabels=true</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{10}} @showPageNumbers={{false}} @showLabels={{true}} />
+  <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
 
   <h5 class="dummy-h6">Truncation</h5>
   <p class="dummy-text-small">With large number of pages (truncated by default)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} @pageSizes={{array 10 30 50}} />
+  <Hds::Pagination::Numbered @totalItems={{100}} @pageSizes={{array 10 30 50}} />
   <p class="dummy-text-small">With large number of pages (truncated with initial page equal to <code>4</code>)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} @currentPage={{4}} />
+  <Hds::Pagination::Numbered @totalItems={{100}} @currentPage={{4}} />
   <p class="dummy-text-small">With large number of pages (not truncated)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{10}} @isTruncated={{false}} />
+  <Hds::Pagination::Numbered @totalItems={{100}} @isTruncated={{false}} />
 
   <hr class="dummy-divider" />
 
