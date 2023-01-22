@@ -80,7 +80,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="layout" @type="enum" @values={{array "vertical" "flag" }}>
-    Sets the layout of the component. "Vertical" layout is used for `TextInput`, `Textarea` and `Select` fields. "Flag" layout is used for `Checkbox`, `Radio` and `Toggle` fields.
+    Sets the layout of the component. “Vertical” layout is used for `TextInput`, `Textarea` and `Select` fields. “Flag” layout is used for `Checkbox`, `Radio` and `Toggle` fields.
   </C.Property>
   <C.Property @name="id" @type="string">
     The control’s ID attribute.
@@ -119,16 +119,16 @@ Control, label, helper text and error content are passed to the field as yielded
     The `id` attribute of the element is automatically generated.
   </C.Property>
   <C.Property @name="<[F].Control>" @type="yielded component">
-    It is a very simple container that yields its content. It is used to forward the "base" control inside the "field" control wrapper. The `Control` yielded component exposes two hashed arguments:
+    It is a very simple container that yields its content. It is used to forward the “base” control inside the “field” control wrapper. The `Control` yielded component exposes two hashed arguments:
   </C.Property>
   <C.Property @name="[C].id" @type="string">
-    returns the unique "id" attribute for the control element (generated automatically, unless provided using the `@id` argument described above).
+    Returns the unique `id` attribute for the control element (generated automatically, unless provided using the `@id` argument described above).
   </C.Property>
   <C.Property @name="[C].ariaDescribedBy" @type="string">
-    returns the "aria-describedby" attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).
+    Returns the `aria-describedby` attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    A container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Error` component.
+    A container that yields its content inside the “error” block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Error` component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
   </C.Property>
@@ -161,30 +161,30 @@ Control, label, helper text and error content are passed to the field as yielded
 
 #### Contextual components
 
-Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys. The component also exposes two hashed methods, `id` and `ariaDescribedBy`.
+`Control`, `Label`, `HelperText`, and `Error` content are passed to the field as yielded components. The component also exposes two hashed methods, `id` and `ariaDescribedBy`.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Legend>" @type="yielded component">
     A container that yields its content inside the `<legend>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Legend` component.
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
-    A container that yields its content inside the "helper text" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::HelperText` component.
+    A container that yields its content inside the “helper text” block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::HelperText` component.
     <br/><br/>
     The `id` attribute of the element is automatically generated.
   </C.Property>
   <C.Property @name="<[F].Control>" @type="yielded component">
-    It is a very simple container that yields its content. It is used to forward the "field" control inside the fields’ "group" control wrapper.
+    It is a very simple container that yields its content. It is used to forward the “field” control inside the fields’ "group” control wrapper.
     <br/><br/>
     You can pass all the controls to a single `<Control>` container, or you can have one control per container.
   </C.Property>
   <C.Property @name="[C].id" @type="function">
-    returns the unique "id" attribute for the control element (generated automatically, unless provided using the `@id` argument described above).
+    Returns the unique `id` attribute for the control element (generated automatically, unless provided using the `@id` argument described above).
   </C.Property>
   <C.Property @name="[C].ariaDescribedBy" @type="function">
-    returns the "aria-describedby" attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).
+    Returns the `aria-describedby` attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    A container that yields its content inside the "error" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style).
+    A container that yields its content inside the “error” block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style).
   </C.Property>
   <C.Property @name="<[E].Message>" @type="yielded component">
     If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`. For details about its API check the `Form::Error` component.
