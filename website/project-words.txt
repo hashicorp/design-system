@@ -36,3 +36,13 @@ callout
 callouts
 dismissable
 dismissibility
+
+# Brands
+terraform
+packer
+vault
+boundary
+consul
+nomad
+waypoint
+vagrant
