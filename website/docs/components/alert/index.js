@@ -19,4 +19,9 @@ export default class Index extends Component {
   noop() {
     //
   }
+
+  @action
+  yourOnClickFunction() {
+    console.log('Clicked the button in the "alert"!');
+  }
 }

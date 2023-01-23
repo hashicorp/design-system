@@ -95,7 +95,7 @@ Actions can be passed to the component using one of the suggested `Button` or `L
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
-  <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
+  <A.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
 </Hds::Alert>
 ```
