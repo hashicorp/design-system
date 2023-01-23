@@ -26,7 +26,7 @@ We recommend using a medium size, but use whichever size fits best in the UI. Fo
 
 !!! Info
 
-Take care when needing multiple links on a page; too many primary links can detract from the end goal.
+Take care when needing multiple links on a page; too many primary links can distract from the end goal.
 !!!
 
 We recommend using the `primary` variant as the default and for more important links.
@@ -103,4 +103,4 @@ Standalone Links often appear in [Button Sets](/components/button-set).
 ## Content
 
 - Text should be short and to the point (~25 characters). Text labels should not consist of full sentences but should provide enough context to be useful.
-- Use language consistently within each product (e.g., when using “Edit” on one page, use that same convention throughout the rest of the application, not "Change").
+- Use language consistently within each product (e.g., if “Edit” is used on one page, use that same convention throughout, instead of a similar word such as "Change").
