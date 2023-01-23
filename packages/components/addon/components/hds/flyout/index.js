@@ -33,26 +33,6 @@ export default class HdsFlyoutIndexComponent extends Component {
   }
 
   /**
-   * Sets the visibility of the overlay element
-   * Accepted values: true, false
-   *
-   * @param hasOverlay
-   * @type {boolean}
-   * @default true
-   */
-  get hasOverlay() {
-    let { hasOverlay = DEFAULT_HAS_OVERLAY } = this.args;
-    return hasOverlay;
-  }
-
-  /**
-   * Determines the rendering of the overlay element
-   */
-  get showOverlay() {
-    return this.isOpen && this.hasOverlay;
-  }
-
-  /**
    * Calculates the unique ID to assign to the title
    */
   get id() {

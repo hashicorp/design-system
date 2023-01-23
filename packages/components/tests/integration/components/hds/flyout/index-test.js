@@ -54,13 +54,6 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('.hds-flyout__overlay').isVisible();
   });
 
-  test('it should render the component without an overlay element if @hasOverlay is false', async function (assert) {
-    await render(
-      hbs`<Hds::Flyout id="test-flyout" @hasOverlay={{false}} as |F|><F.Header>Title</F.Header></Hds::Flyout>`
-    );
-    assert.dom('.hds-flyout__overlay').doesNotExist();
-  });
-
   // TITLE (ICON, TAGLINE & DESCRIPTION)
 
   test('it renders the title without icon, tagline, and description', async function (assert) {

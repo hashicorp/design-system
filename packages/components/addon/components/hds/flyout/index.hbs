@@ -9,6 +9,6 @@
   {{yield (hash Description=(component "hds/flyout/description"))}}
   {{yield (hash Body=(component "hds/flyout/body"))}}
 </dialog>
-{{#if this.showOverlay}}
+{{#if this.isOpen}}
   <div class="hds-flyout__overlay"></div>
 {{/if}}
