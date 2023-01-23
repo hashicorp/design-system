@@ -80,4 +80,4 @@ On smaller viewports, the Flyout should occupy 100% of the viewport width minus 
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
 - The Flyout should _not_ be resized manually, rather select the size that best accommodates the content.
 
-![Flyout resizing](/assets/components/flyout/flyout-resizing)
+![Flyout resizing](/assets/components/flyout/flyout-resizing.png =311x*)
