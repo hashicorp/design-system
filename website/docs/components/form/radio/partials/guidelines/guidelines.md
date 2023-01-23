@@ -6,9 +6,9 @@
 
 ### When not to use
 
-- When a user should check and uncheck an option, use a [Checkbox](/components/form/checkbox/overview).
-- When users need to select more than one option from a list, use a [Checkbox](/components/form/checkbox/overview).
-- When the result of checking or unchecking the option is expected to happen immediately, use a [Toggle](/components/form/toggle/overview).
+- When a user should check and uncheck an option, use a [Checkbox](/components/form/checkbox).
+- When users need to select more than one option from a list, use a [Checkbox](/components/form/checkbox).
+- When the result of checking or unchecking the option is expected to happen immediately, use a [Toggle](/components/form/toggle).
 
 ### Layout
 

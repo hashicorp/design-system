@@ -1,8 +1,8 @@
-## How to use
+## How to use tokens
 
-### In styles
+### Use tokens in styles
 
-You can use the design tokens in your style declarations as CSS custom properties.
+Use the design tokens in your style declarations as CSS custom properties.
 
 ```css
 .your-selector {
@@ -15,14 +15,21 @@ You can use the design tokens in your style declarations as CSS custom propertie
 }
 ```
 
-### In components
+### Use tokens in components
 
-If a component accepts a color parameter you can use a design token too.
+1. Ensure you’ve imported the relevant CSS file.
+
+```scss
+// for product applications
+@import "~@hashicorp/design-system-tokens/dist/products/css/tokens.css";
+// for hashicorp developer platform
+@import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
+```
+
+2. If a component accepts a color parameter you can use a design token too.
 
 ```handlebars
 <FlightIcon @name="alert-circle" @color="var(--token-color-foreground-success)" />
 ```
-
-To use the design tokens as CSS variables you have to import the CSS file `[products|devdot]/css/tokens.css` from the `@hashicorp/design-system-tokens` package.
 
 For more details on how the design tokens pipeline is implemented, and how the design tokens are generated and distributed, see the repository [@hashicorp/design-system-tokens](https://github.com/hashicorp/design-system/tree/main/packages/tokens).

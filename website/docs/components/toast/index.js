@@ -21,6 +21,6 @@ export default class Index extends Component {
 
   @action
   yourOnClickFunction() {
-    console.log('Clicked the button in the "tag"!');
+    console.log('Clicked the button in the "toast"!');
   }
 }

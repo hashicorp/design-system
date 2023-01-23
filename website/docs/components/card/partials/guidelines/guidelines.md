@@ -2,46 +2,58 @@
 
 ### When to use
 
-Use a **Card Container** to help design more consistent cards.
+Use a card container to help build more consistently styled cards.
 
-### Types
+## Types
 
-#### Static cards
+### Static cards
 
-A Static Card may have interactive elements within it, but is not itself actionable or interactive.
+Static cards may have interactive elements within them but are not actionable or interactive on their own.
 
-#### Interactive cards
+### Interactive cards
 
-The entirety of an Interactive Card is actionable (i.e., it can be hovered, clicked, focused, etc.)
+Interactive cards are actionable (e.g., it can be hovered, clicked, focused, etc.)
 
-### Levels
+## Levels
 
-
-#### Base
+### Base
 
 Use the `base` level for static cards.
 
-#### Mid
+![example of base card style with borders](/assets/components/card/card-base.png =184x*)
 
-For **static cards** use `mid` as the default level.
-For **interactive cards** use `mid` as the rested state.
+### Mid
 
-#### High
+- For **static cards** use `mid` as the default level.
+- For **interactive cards** use `mid` as the rested state.
 
-For **static cards** use `high` for emphasis, but use sparingly.
-For **interactive cards** use `high` for the raised state.
+![example of base card style with borders](/assets/components/card/card-mid.png =184x*)
 
-### Border
+### High
 
-Border should be set to `true` or `false`.
+- For **static cards** use `high` for emphasis, but use sparingly.
+- For **interactive cards** use `high` for the raised state.
 
-#### Background
+![example of base card style with borders](/assets/components/card/card-high.png =184x*)
+
+## Border
+
+Card containers come with or without borders. 
+
+### Background
 
 There are two backgrounds available: `neutral-0` and `neutral-50`.
 
-#### Spacing
+<Doc::Layout @spacing="16px">
+    ![example of base card style with borders](/assets/components/card/card-base-neutral0.png =184x*)
+    ![example of base card style with borders](/assets/components/card/card-base-neutral50.png =184x*)
+</Doc::Layout>
 
-Spacing options:
+### Recommended spacing
+
+We recommend the following spacing options for cards:
+
+![example of base card style with borders](/assets/components/card/card-spacing.png =800x*)
 
 - 16px all around
 - 24px all around

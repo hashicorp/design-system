@@ -4,6 +4,12 @@
 
 @use "../mixins/focus-ring" as *;
 
+// TODO: Move to pagination.json tokens
+:root {
+  --token-pagination-child-spacing-vertical: 8px;
+  --token-pagination-child-spacing-horizontal: 20px;
+}
+
 
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
@@ -27,18 +33,18 @@
   }
 
   .hds-pagination-nav {
-    display: flex;
     justify-content: center;
     order: -1;
     width: 100%;
-    margin: 0 auto;
   }
 
   .hds-pagination-info,
   .hds-pagination-size-selector {
-    margin-top: 8px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin:
+      var(--token-pagination-child-spacing-vertical)
+      var(--token-pagination-child-spacing-horizontal)
+      0
+      var(--token-pagination-child-spacing-horizontal);
   }
 }
 

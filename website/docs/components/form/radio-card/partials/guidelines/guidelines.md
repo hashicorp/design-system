@@ -8,8 +8,8 @@ Use the radio card group in most cases. Use the card item only in special cases 
 
 ### When not to use
 
-- As a non-selectable card, use a [Card](/components/card/overview)
-- When a user could select multiple options, use a [Checkbox](/components/form/checkbox/overview)
+- As a non-selectable card, use a [Card](/components/card)
+- When a user could select multiple options, use a [Checkbox](/components/form/checkbox)
 
 ### Control position
 

@@ -217,7 +217,7 @@
       <Hds::Toast @color="critical" @onDismiss=\{{...}} as |T|>
         <T.Title>Title here</T.Title>
         <T.Description>Description here</T.Description>
-        <T.Button @text="Your action" @color="secondary" @onClick=\{{ your function here }} />
+        <T.Button @text="Your action" @color="secondary" \{{on "click" this.yourOnClickFunction}} />
         <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="..." @color="secondary" />
       </Hds::Toast>
     '
@@ -228,7 +228,7 @@
   <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>Title here</T.Title>
     <T.Description>Description here</T.Description>
-    <T.Button @text="Your action" @color="secondary" />
+    <T.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
     <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="index" />
   </Hds::Toast>
 

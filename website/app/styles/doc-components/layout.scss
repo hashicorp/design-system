@@ -1,0 +1,24 @@
+.doc-layout {
+  display: flex;
+  flex-flow: wrap;
+  gap: var(--doc-layout-spacing, 0);
+}
+
+// Direction:
+
+.doc-layout--direction-horizontal {
+  flex-direction: row; // this is the browser default
+}
+
+.doc-layout--direction-vertical {
+  // Make "align" values (left, right, center) have a consistent effect (vs. using flex-direction: column;)
+  // (forces each child item to occupy its own row)
+  column-gap: 100%;
+}
+
+// Align:
+
+.doc-layout--align-center { justify-content: center; }
+.doc-layout--align-justify { justify-content: space-between; }
+.doc-layout--align-right { justify-content: flex-end; }
+.doc-layout--align-left { justify-content: flex-start; } // this is the browser default

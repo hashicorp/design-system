@@ -4,6 +4,65 @@ import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
+/**
+ * Elliptize a list of pages
+ *
+ * @param pages - array with all the "pages" (integer numbers)
+ * @param current - "current" page (array's index)
+ * @param limit - number of "page numbers" to be shown at a time (should always be an odd number!)
+ *
+ * @return - array of integers ("pages") + `...` strings ("ellipsis")
+ */
+export const elliptize = ({ pages, current, limit = 7 }) => {
+  const length = pages.length;
+  const ellipsis = '…';
+  let result = [];
+  let start;
+  let end;
+
+  if (length <= limit) {
+    return pages;
+  }
+
+  if (current <= length / 2) {
+    start = Math.ceil(limit / 2);
+    end = limit - start;
+  } else {
+    end = Math.ceil(limit / 2);
+    start = limit - end;
+  }
+
+  const sliceStart = pages.slice(0, start);
+  const sliceEnd = pages.slice(-end);
+
+  if (sliceStart.includes(current) && sliceStart.includes(current + 1)) {
+    // "current" (and its next sibling) is contained within the "sliceStart" block
+    sliceEnd.splice(0, 1, ellipsis);
+    result = [].concat(sliceStart, sliceEnd);
+  } else if (sliceEnd.includes(current - 1) && sliceEnd.includes(current)) {
+    // "current" (and its prev sibling) is contained within the "sliceEnd" block
+    sliceStart.splice(-1, 1, ellipsis);
+    result = [].concat(sliceStart, sliceEnd);
+  } else {
+    // this is a bit more tricky :)
+    // we need to calculate how many items there are before/after the current item
+    // since both the initial and ending blocks are always 2 items long (number + ellipsis)
+    // and there is always the "current" item, we can just subtract 5 from the limit
+    const delta = (limit - 5) / 2; // this is why the limit needs to be an odd number
+    // we slice the array starting at the "current" index, minus the delta, minus one because it's an array (zero-based)
+    const sliceCurr = pages.slice(current - delta - 1, current + delta);
+    result = [].concat(
+      sliceStart.shift(),
+      ellipsis,
+      sliceCurr,
+      ellipsis,
+      sliceEnd.pop()
+    );
+  }
+
+  return result;
+};
+
 export default class HdsPaginationNumberedIndexComponent extends Component {
   @tracked currentItemsPerPage = this.args.itemsPerPage ?? this.pageSizes[0];
   @tracked totalPages = this.calculateTotalPages();
@@ -88,61 +147,10 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     }
 
     if (this.isTruncated) {
-      return this.elliptize({ pages, current: this.currentPage });
+      return elliptize({ pages, current: this.currentPage });
     } else {
       return pages;
     }
-  }
-
-  elliptize({ pages, current }) {
-    const limit = 7; // limit # of page numbers shown at a time (should always be an odd number!)
-    const length = pages.length;
-    const ellipsis = '…';
-    let result = [];
-    let start;
-    let end;
-
-    if (length <= limit) {
-      return pages;
-    }
-
-    if (current <= length / 2) {
-      start = Math.ceil(limit / 2);
-      end = limit - start;
-    } else {
-      end = Math.ceil(limit / 2);
-      start = limit - end;
-    }
-
-    const sliceStart = pages.slice(0, start);
-    const sliceEnd = pages.slice(-end);
-
-    if (sliceStart.includes(current) && sliceStart.includes(current + 1)) {
-      // "current" (and its next sibling) is contained within the "sliceStart" block
-      sliceEnd.splice(0, 1, ellipsis);
-      result = [].concat(sliceStart, sliceEnd);
-    } else if (sliceEnd.includes(current - 1) && sliceEnd.includes(current)) {
-      // "current" (and its prev sibling) is contained within the "sliceEnd" block
-      sliceStart.splice(-1, 1, ellipsis);
-      result = [].concat(sliceStart, sliceEnd);
-    } else {
-      // this is a bit more tricky :)
-      // we need to calculate how many items there are before/after the current item
-      // since both the initial and ending blocks are always 2 items long (number + ellipsis)
-      // and there is always the "current" item, we can just subtract 5 from the limit
-      const delta = (limit - 5) / 2; // this is why the limit needs to be an odd number
-      // we slice the array starting at the "current" index, minus the delta, minus one because it's an array (zero-based)
-      const sliceCurr = pages.slice(current - delta - 1, current + delta);
-      result = [].concat(
-        sliceStart.shift(),
-        ellipsis,
-        sliceCurr,
-        ellipsis,
-        sliceEnd.pop()
-      );
-    }
-
-    return result;
   }
 
   get isDisabledPrev() {

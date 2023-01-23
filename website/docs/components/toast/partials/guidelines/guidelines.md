@@ -12,7 +12,8 @@
 - To display promotional content. Consider using [AlertInline](/components/alert-inline).
 
 ### Color
-<div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 20px;">
+
+<Doc::Layout @spacing="12px" @direction="vertical">
   <Hds::Toast @onDismiss={{this.noop}} as |T|>
     <T.Title>Neutral toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
@@ -31,7 +32,6 @@
     <T.Button @text="Button" @color="secondary" />
     <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
-
   <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
     <T.Title>Warning toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
@@ -44,7 +44,7 @@
     <T.Button @text="Button" @color="secondary" />
     <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
-</div>
+</Doc::Layout>
 
 Use color logically.
 
@@ -60,7 +60,7 @@ Use color logically.
 
 All toasts come with icons by default. They are intentionally tied to the toast type. Icons in Neutral and Highlight alerts can be swapped out with any other icon from Flight, including animated ones. Change them only when the new icon provides the user with extra value; otherwise, leaving the default icon is recommended.
 
-<div style="display: flex; gap: 1rem; flex-direction: column;">
+<Doc::Layout @spacing="12px" @direction="vertical">
   <Hds::Toast @color="neutral" @icon="running" @onDismiss={{this.noop}} as |T|>
     <T.Title>Plan running</T.Title>
     <T.Button @text="Button" @color="secondary" />
@@ -71,7 +71,7 @@ All toasts come with icons by default. They are intentionally tied to the toast 
     <T.Button @text="Button" @color="secondary" />
     <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
-</div>
+</Doc::Layout>
 
 ### Actions
 
@@ -93,14 +93,14 @@ Some common examples are:
 
 #### Button secondary + tertiary
 
-<div style="display: flex; gap: 1rem;">
+<Doc::Layout @spacing="12px">
   <Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
   <Hds::Link::Standalone @color="primary" @iconPosition="leading" @icon="x-circle" @text="Cancel invitation" @href="#" />
-</div>
+</Doc::Layout>
 
 !!! Warning
 
-When using links, avoid using CTA link; it may take user’s attention away from other actions on the page. Use [LinkStandalone](/components/link/link-standalone/overview)
+When using links, avoid using CTA link; it may take user’s attention away from other actions on the page. Use [LinkStandalone](/components/link/link-standalone)
 !!!
 
 ### Composition
@@ -171,11 +171,11 @@ Toast width: The Figma component is 360px, which is the minimum width. You can m
 - Do not end the title with a period.
 - Toast messages should be short bu clear and descriptive enough to explain what’s happening and guide users on how to prevent or fix the issue. We recommend keeping messages under 90 characters.
 - Text formatting capabilities such as inline links, bold, italic, code, and bulleted lists are supported.
-- For actions, refer to [Button](/components/button/overview) and [Link](/components/link/overview) content guidelines.
+- For actions, refer to [Button](/components/button) and [Link](/components/link) content guidelines.
 
 ### Examples
 
-<div style="display: flex; gap: 1rem; flex-direction: column;">
+<Doc::Layout @spacing="12px" @direction="vertical">
   <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
     <T.Title>Cost estimation enabled</T.Title>
     <T.Description>Future runs will now include this step. You can manage this preference in <Hds::Link::Inline @href="#">Organization settings</Hds::Link::Inline>.</T.Description>
@@ -190,5 +190,4 @@ Toast width: The Figma component is 360px, which is the minimum width. You can m
     <T.Button @text="Button" @color="secondary" />
     <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
-</div>
-
+</Doc::Layout>

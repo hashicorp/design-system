@@ -70,7 +70,7 @@ export default class Index extends Component {
     Object.keys(STYLES_COMBINATIONS).forEach((style) => {
       STYLES_COMBINATIONS[style].forEach((weight) => {
         combinations.push({
-          previewText: 'The fox jumped over the lazy dog',
+          previewText: 'The quick brown fox jumps over the lazy dog.',
           previewClass: `hds-typography-${style} hds-font-weight-${weight}`,
           otherText: `${style} (${weight})`,
         });
