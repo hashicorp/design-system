@@ -140,7 +140,7 @@ export default class PaginationController extends Controller {
       );
       return {
         currentPage_demo2: page,
-        currentPageSize_demo2: this.currentPageSize_demo2,
+        currentPageSize_demo2: pageSize,
         currentSortBy_demo2: this.currentSortBy_demo2,
         currentSortOrder_demo2: this.currentSortOrder_demo2,
         demoExtraParam: 'hello',

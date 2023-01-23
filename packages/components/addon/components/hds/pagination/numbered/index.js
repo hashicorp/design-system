@@ -201,15 +201,15 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     return this.router.currentRoute?.queryParams || {};
   }
 
-  buildQueryParamsObject(page) {
+  buildQueryParamsObject(page, pageSize) {
     let { queryParamPage, queryParamPageSize, queryFunction } = this.args;
     if (this.hasRouting) {
       if (queryFunction) {
-        return this.args.queryFunction(page, this.currentPage);
+        return this.args.queryFunction(page, pageSize);
       } else {
         let queryParams = Object.assign({}, this.routeQueryParams);
         queryParams[queryParamPage] = page;
-        queryParams[queryParamPageSize] = this.currentPageSize;
+        queryParams[queryParamPageSize] = pageSize;
         return queryParams;
       }
     } else {
@@ -227,14 +227,24 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     // the "query" is dynamic and needs to be calculated
     if (this.hasRouting) {
-      routing.queryPrev = this.buildQueryParamsObject(this.currentPage - 1);
-      routing.queryNext = this.buildQueryParamsObject(this.currentPage + 1);
+      routing.queryPrev = this.buildQueryParamsObject(
+        this.currentPage - 1,
+        this.currentPageSize
+      );
+      routing.queryNext = this.buildQueryParamsObject(
+        this.currentPage + 1,
+        this.currentPageSize
+      );
       // IMPORTANT: here we neeed to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
       // (the pages are 1-based while the array would be zero-based)
       routing.queryPages = {};
       this.pages.forEach(
-        (page) => (routing.queryPages[page] = this.buildQueryParamsObject(page))
+        (page) =>
+          (routing.queryPages[page] = this.buildQueryParamsObject(
+            page,
+            this.currentPageSize
+          ))
       );
     } else {
       routing.queryPrev = undefined;
@@ -278,16 +288,15 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   @action
   onPageSizeChange(newPageSize) {
-    let { queryParamPage, queryParamPageSize, onPageSizeChange } = this.args;
+    let { onPageSizeChange } = this.args;
 
     // we need to manually update the query parameters in the route (it's not a link!)
     if (this.hasRouting) {
       let queryParams = Object.assign({}, this.routeQueryParams);
       // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-      queryParams[queryParamPage] = 1;
-      queryParams[queryParamPageSize] = newPageSize;
+      queryParams = this.buildQueryParamsObject(1, newPageSize);
       console.log(
-        `About to transition with queryParamPage=${queryParams[queryParamPage]} (where this.currentPage=${this.currentPage}) and queryParamPageSize=${queryParams[queryParamPageSize]} (where this.currentPageSize=${this.currentPageSize})`,
+        `About to transition with newPageSize=${newPageSize}`,
         queryParams
       );
       this.router.transitionTo({ queryParams });
