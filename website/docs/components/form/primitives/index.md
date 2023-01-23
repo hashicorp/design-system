@@ -7,6 +7,7 @@ order: 99
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form
 previewImage: assets/illustrations/components/form/primitives.jpg
+keywords: ['form', 'base controls', 'field', 'label', 'legend', 'fieldset', 'input']
 ---
 
 <section data-tab="Guidelines">
