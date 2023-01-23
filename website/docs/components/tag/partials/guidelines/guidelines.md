@@ -2,54 +2,47 @@
 
 ### When to use
 
-Use tags to indicate an object’s categorization, i.e., for filtering.
+- To indicate an object’s categorization, e.g., for filtering.
 
 ### When not to use
 
-- For static metadata, status, or to display a new feature, use [Badge](/components/badge).
-- For collection enumeration or version number, use [BadgeCount](/components/badge-count).
+- For static metadata, status, or to display a new feature, consider [Badge](/components/badge).
+- For collection enumeration or version number, consider [Badge Count](/components/badge-count).
 
-### Layout
+## Layout
 
-- The tag component can be used in several different layouts, but we commonly see them in a list or a group.
+- The Tag component can be used in several different layouts, but we commonly see them in a list or a group.
 - Tags will fill the parent container and then wrap, as necessary.
 
-#### List
+### List
 
-![Layout list example](/assets/components/tag/tag-layout-list.png)
+![Layout list example](/assets/components/tag/tag-layout-list.png =678x*)
 
-#### Group
+### Group
 
-![Layout group example](/assets/components/tag/tag-layout-group.png)
+![Layout group example](/assets/components/tag/tag-layout-group.png =818x*)
 
----
+## Spacing
 
-### Spacing
+As a best practice, use a vertical spacing of 12px and horizontal spacing of 8px between Tags.
 
-As a best practice, use a vertical spacing of 12px and horizontal spacing of 8px between tags.
+![Spacing between tags](/assets/components/tag/tag-spacing.png =304x*)
 
-![Spacing between tags](/assets/components/tag/tag-spacing.png)
-
----
-
-### Leading vs. Trailing Icon
-
-
-The leading dismiss icon allows mouse users to clear multiple tags quicker because they do not need to move their mouse, especially when tags have a more extended width.
+## Leading vs. trailing icon
 
 !!! Do
 
-![Example of a leading icon in the tag](/assets/components/tag/tag-leading_icon.png)
-
-
-When the dismiss icon is trailing, the mouse user must adjust positioning to clear tags, which results in slower task completion.
+![Example of a leading icon in the tag](/assets/components/tag/tag-leading-icon.png =916x*)
+The leading dismiss icon allows mouse users to clear multiple Tags quickly because they do not need to move their mouse.
 !!!
 
 
 !!! Dont
 
-![Example of a trailing icon in the tag](/assets/components/tag/tag-trailing_icon.png)
+![Example of a trailing icon in the tag](/assets/components/tag/tag-trailing-icon.png =916x*)
+When the dismiss icon is trailing, the mouse user must adjust positioning of their mouse to clear the Tags, which results in slower task completion.
+!!!
 
+## Content
 
 When content within the tag is not user-generated, it should be concise and consistent with the category name.
-!!!
