@@ -1,4 +1,4 @@
-## Semantic Tokens
+## Semantic tokens
 
 ### Foreground
 
@@ -38,7 +38,12 @@ Use for container and component borders. Neutral values can also be used for hor
 
 ### Focus
 
-Use to indicate an element is in a focused state. Critical values for critical actions only, Action values for everything else. _Notice: they’re used internally by the design system to define focus states_.
+Use to indicate an element is in a focused state. Use critical values for critical actions only and action values for everything else. 
+
+!!! Info
+
+These are primarily used internally by the Design Systems Team to define focus states.
+!!!
 
 <div class="dummy-colors-list">
   {{#each this.colors.semantic.focus as |color|}}
@@ -60,7 +65,7 @@ Use for page backgrounds.
   {{/each}}
 </div>
 
-## Branding Colors
+## Brand colors
 
 {{#each-in this.colors.branding as |brand colorsList|}}
     <h3>{{capitalize brand}}</h3>
@@ -73,9 +78,9 @@ Use for page backgrounds.
     <p class="dummy-paragraph">No tokens found for “branding” colors.</p>
 {{/each-in}}
 
-## Core Palette
+## Core palette
 
-Core Palette colors should be used sparingly and only when the correct semantic mapping isn’t available for the use case.
+Core palette colors should be used sparingly and only when the correct semantic mapping isn’t available for the use case.
 
 {{#each-in this.colors.palette as |tone colorsList|}}
     <h3>{{capitalize tone}}</h3>

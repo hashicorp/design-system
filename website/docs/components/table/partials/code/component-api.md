@@ -25,6 +25,9 @@ The `Table` component itself is where most of options will be applied. However, 
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
+  <C.Property @name="onSort" @type="function">
+    Callback function invoked (if provided) when one of the sortable table headers is clicked, and a sorting is triggered. The function receives the values of `sortBy` and `sortOrder` as arguments.
+  </C.Property>
   <C.Property @name="isStriped" @type="boolean" @values={{array "false" "true" }} @default="false">
     Define on the table invocation. If set to `true`, row striping ("zebra striping") will be applied to the table.
   </C.Property>

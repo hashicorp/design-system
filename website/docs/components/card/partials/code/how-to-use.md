@@ -1,9 +1,3 @@
-## Usage
-
-```handlebars
-<Hds::Card::Container @level="mid" @hasBorder={{true}}>[Your content here]</Hds::Card::Container>
-```
-
 !!! Info
 
 **Just a container**
@@ -12,25 +6,30 @@ The layout of the card itself, and its content, is left to the consumer of the c
 
 !!!
 
-In this example we apply custom classes to control the layout of the card and its content:
+## Usage
 
 ```handlebars
-<div class="my-custom-class-to-set-the-card-layout">
-  <Hds::Card::Container @level="mid" @hasBorder={{true}}>
-    <div class="my-custom-class-to-set-the-content-layout">
-      [Your content here]
-    </div>
-  </Hds::Card::Container>
-</div>
+<Hds::Card::Container @level="mid" @hasBorder={{true}}>
+  [Your content here]
+</Hds::Card::Container>
 ```
 
-In this case we’ve added an external element that wraps the card, with a custom class that controls the width of the wrapper itself (but could also be a CSS `flex` or `grid` container, for example) and an internal element that wraps the content and applies padding around it (resulting in visual internal padding for the card) and aligns the text to the center.
+To style the cards, you can add an external element that wraps the card, with a custom class that controls the width of the wrapper itself and an internal element that wraps the content and applies padding around it (resulting in visual internal padding for the card) and aligns the text to the center.
+
+Alternatively, you could use the card containers in a CSS `flex` or `grid` container.
 
 ### Interactive states
 
 At the moment, we do not recommend using the card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a card by changing the elevation style (on `:hover` or `:active`).
 
-As a stopgap measure, we have introduced two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
+As a stopgap, we have introduced two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
+
+<!-- TODO: this example doesn't work. should we update it or leave out for launch?
+
+!!! Warning
+
+This is only an example and not a recommendation. If you have any doubt about which level to use for the different states, please speak with your product designer or contact the Design Systems Team.
+!!!
 
 In the following example, the card transitions between these elevations _mid → high → mid_ depending on these iteration states _rest → hover → active_:
 
@@ -43,5 +42,4 @@ In the following example, the card transitions between these elevations _mid →
   </Hds::Card::Container>
 </div>
 ```
-
-**Important**: this is only an example and not a recommendation: if you have any doubt about which level to use for the different states, please speak with your product designer or the HDS team.
+-->

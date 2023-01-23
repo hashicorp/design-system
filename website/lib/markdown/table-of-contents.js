@@ -29,16 +29,8 @@ const sortPages = (s1, s2) => {
     } else if (s1.pageAttributes.order > s2.pageAttributes.order) {
       return 1;
     } else {
-      // or we fallback to sort alphabethically
-      const p1 = s1.pageName.toLowerCase;
-      const p2 = s2.pageName.toLowerCase;
-      if (p1 < p2) {
-        return 1;
-      } else if (p1 > p2) {
-        return -1;
-      } else {
-        return 0;
-      }
+      // or we fallback to sort alphabetically
+      return s1.pageName.localeCompare(s2.pageName);
     }
   } else {
     // we try to use the top-level category
@@ -108,6 +100,7 @@ class TableOfContents extends Plugin {
           'order',
           'hidden',
           'previewImage',
+          'keywords',
         ]);
       } else {
         console.log('File NOT found!', fullFilePath);

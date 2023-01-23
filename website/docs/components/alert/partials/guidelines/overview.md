@@ -10,7 +10,7 @@ Use page-level alerts on the top of the page, between the navigation and the bre
 
 ### Inline
 
-Use inline alerts when the message is contextual or specific to the section it is placed in.
+Use inline alerts when the message is contextual or specific to the section it’s placed in.
 
 ### Compact
 

@@ -6,8 +6,8 @@
 
 ### When not to use
 
-- When navigating to another destination, use an [Inline](/components/link/inline/overview) or [Standalone](/components/link/standalone/overview) link.
-- To display multiple actions under a single button, use [Dropdown](/components/dropdown/overview).
+- When navigating to another destination, use an [Inline](/components/link/inline) or [Standalone](/components/link/standalone) link.
+- To display multiple actions under a single button, use [Dropdown](/components/dropdown).
 
 ### Sizes
 
@@ -93,7 +93,7 @@ Buttons are provided with flexible icon use; allowing for leading, trailing, or 
 
 **Looking for Dropdowns?**
 
-Buttons used for a dropdown (with the Caret Icon in the Trailing Icon Spot) can be found in [Dropdown](/components/dropdown/overview).
+Buttons used for a dropdown (with the Caret Icon in the Trailing Icon Spot) can be found in [Dropdown](/components/dropdown).
 
 !!!
 

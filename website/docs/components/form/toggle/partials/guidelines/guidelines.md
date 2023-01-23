@@ -6,9 +6,9 @@
 
 ### When not to use
 
-- When a user could check and uncheck an option, use a [Checkbox](/components/form/checkbox/overview).
-- When users need to select more than one option from a list, use a [Checkbox](/components/form/checkbox/overview).
-- When only one choice must be selected, use [Radio](/components/form/radio/overview) buttons.
+- When a user could check and uncheck an option, use a [Checkbox](/components/form/checkbox).
+- When users need to select more than one option from a list, use a [Checkbox](/components/form/checkbox).
+- When only one choice must be selected, use [Radio](/components/form/radio) buttons.
 
 
 ## Validation
@@ -30,7 +30,7 @@ While we provide the structure and visual consistency for validation, the messag
 
 Server side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
 
-When using server side validation, display a Critical [AlertInline](/components/alerts/overview) above the form listing all errors with links to each invalid field.
+When using server side validation, display a Critical [AlertInline](/components/alerts) above the form listing all errors with links to each invalid field.
 
 ![Example of server side validation](/assets/components/general/validation-server_side.png)
 
