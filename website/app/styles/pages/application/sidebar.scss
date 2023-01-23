@@ -54,6 +54,7 @@ body.application.index {
 
 // ERROR PAGE
 // now with extra specificity
+// also if you want to change this, change footer.scss too
 body.application.error {
   .doc-page-wrapper {
     @include breakpoint.with-fixed-sidebar () {
