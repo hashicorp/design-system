@@ -54,15 +54,19 @@ body.application.index {
 
 // ERROR PAGE
 body.application.error {
-  .doc-page-sidebar {
-    display: none;
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-sidebar {
+      display: none;
+    }
   }
 }
 
 // PATTERNS PAGE
 body.application.patterns {
-  .doc-page-sidebar {
-    display: none;
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-sidebar {
+      display: none;
+    }
   }
 }
 
