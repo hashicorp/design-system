@@ -55,7 +55,7 @@ Use color logically.
 
 ## Icons
 
-All Toasts have icons by default that are intentionally tied to the Toast type.
+All Toasts have icons by default that are intentionally tied to the Toast color.
 
 Icons within `neutral` and `highlight` Toasts can be replaced with other Helios icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
@@ -150,7 +150,7 @@ Toasts can be configured in a variety of ways. For example:
 
 ### Title and description only
 
-The title or description should contain the Toast type, e.g., “Success,” if no icon is present.
+The title or description should contain the Toast color type, e.g., “Warning,” if no icon is present.
 
 <Hds::Toast @color="warning" @icon={{false}} @onDismiss={{this.noop}} as |T|>
   <T.Title>Warning: the action could not be completed</T.Title>
