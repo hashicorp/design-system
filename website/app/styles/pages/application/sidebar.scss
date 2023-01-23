@@ -53,10 +53,13 @@ body.application.index {
 }
 
 // ERROR PAGE
+// now with extra specificity
 body.application.error {
-  @include breakpoint.with-fixed-sidebar () {
-    .doc-page-sidebar {
-      display: none;
+  .doc-page-wrapper {
+    @include breakpoint.with-fixed-sidebar () {
+      aside.doc-page-sidebar {
+        display: none;
+      }
     }
   }
 }
