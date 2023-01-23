@@ -1,6 +1,6 @@
 ## How to use this component
 
-The most basic invocation requires both `icon` and `text` to be passed and one of the two `@href` or `@route` arguments.
+The most basic invocation requires both `@icon` and `@text`, and either an `@href` or `@route` argument.
 
 ```handlebars
 <Hds::Link::Standalone @icon="film" @text="Watch tutorial video" @href="..." />
@@ -8,7 +8,7 @@ The most basic invocation requires both `icon` and `text` to be passed and one o
 
 ### Icon position
 
-By default the icon is placed before the text. If you would like to position it after the text, define `@iconPosition`:
+By default the icon is placed before the text. If you would like to position it after the text, set `@iconPosition` to `trailing`.
 
 ```handlebars
 <Hds::Link::Standalone @icon="film" @iconPosition="trailing" @text="Watch tutorial video" @href="..." />
@@ -16,56 +16,52 @@ By default the icon is placed before the text. If you would like to position it 
 
 ### Color
 
-There are two available colors for a Link (Standalone): `primary` and `secondary`. The default is `primary`. To use a different color, declare another value for `@color`:
+There are two available colors for a Standalone Link: `primary` and `secondary`. The default is `primary`. To use the other option, set `@color` to `secondary`.
 
 ```handlebars
-<Hds::Link::Standalone @color="primary" @icon="collections" @text="Read tutorial" @href="..." />
+<Hds::Link::Standalone @color="secondary" @icon="collections" @text="Read tutorial" @href="..." />
 ```  
 
 ### Size
 
-There are three sizes available: `small`, `medium` and `large`. The default is `medium`. To use a different size, declare a value for `@size`:
+There are three sizes available: `small`, `medium`, and `large`. The default is `medium`. To use a different size, set a value for `@size`:
 
 ```handlebars
 <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" @href="..." />
 ```
 
-### URLs and routes handling
+```handlebars
+<Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="large" @href="..." />
+```
 
-You can generate a standalone link passing a `@href` or a `@route` to the component. If none of the two is provided, the component will throw an error.
+### URL and route handling
 
-!!! Info
+To generate an Inline Link, pass an `@href` or `@route` argument to the component. If neither are provided, the component will throw an error.
 
-The `Link::Standalone` component internally uses the generic `Hds::Interactive` component. For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/).
-!!!
+Standalone Links use the generic `Hds::Interactive` component. Learn more about [how the Interactive utility component works](/utilities/interactive/).
 
-#### With @href
+#### With `@href`
 
-If you pass a `@href` argument a `<a>` link will be generated:
+To generate an `<a>` link, pass an `@href` argument with a URL as the value. 
+
+`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument. 
 
 ```handlebars
 <Hds::Link::Standalone @icon="terraform" @text="Request a demo" @href="https://www.hashicorp.com/request-demo/terraform" />
 ```
 
-!!! Info
+#### With `@route`
 
-When using the `@href` argument the component adds by default the attributes `target="_blank"` and `rel="noopener noreferrer"` to the `<a>` element (because this is the most common use case: internal links are generally handled using a `@route` argument). If the `href` points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass `@isHrefExternal={{true}}` to the component and it will not add the `target` and `rel` attributes (but you can pass yours if needed, using the `...attributes` spreading. For more details see the [Hds::Interactive component](/utilities/interactive/).
-!!!
+All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
 
-#### With @route
+##### For `<LinkTo>`
 
-If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>` Ember component:
+To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument. 
 
 ```handlebars
 <Hds::Link::Standalone @icon="collections" @text="Go to the index page" @route="my.page.route" @model="my.page.model" />
 ```
 
-!!! Info 
+##### For `<LinkToExternal>`
 
-If the route is external to your current engine you have to pass also `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a simple `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive/)
-!!!
-
-!!! Info
-
-All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
-!!!
+If the route is external to your current engine, pass `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of `<LinkTo>`.
