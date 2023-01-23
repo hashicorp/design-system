@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { assert } from '@ember/debug';
 
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
@@ -113,9 +114,14 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
    * @default [10, 30, 50]
    */
   get pageSizes() {
-    let { sizes = DEFAULT_PAGE_SIZES } = this.args;
+    let { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
 
-    return sizes;
+    assert(
+      `pageSizes argument must be an array. Received: ${pageSizes}`,
+      Array.isArray(pageSizes) === true
+    );
+
+    return pageSizes;
   }
 
   get itemsRangeStart() {
