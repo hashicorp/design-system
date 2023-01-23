@@ -22,7 +22,7 @@ There are two available colors for a Inline Link: `primary` and `secondary`. The
 
 To add an icon to your inline link, give the `@icon` argument any Helios [icon](/foundations/icons/library) name.
 
-Since `Hds::Link::Inline` doesn’t have an intrinsic size, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text.
+`Hds::Link::Inline` does not have an intrinsic size. Instead, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text.
 
 ```handlebars
 <Hds::Link::Inline @href="..." @icon="external-link">Watch tutorial video</Hds::Link::Inline>
