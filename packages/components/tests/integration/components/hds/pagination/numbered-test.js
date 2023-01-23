@@ -49,7 +49,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it renders custom options for passed in pageSizes and sets itemsPerPage to the first PageSizes item', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Numbered @totalItems={{100}} @sizes={{array 20 40 60}} />
+      <Hds::Pagination::Numbered @totalItems={{100}} @pageSizes={{array 20 40 60}} />
     `);
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–20 of 100');
     assert
@@ -65,7 +65,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it renders the passed in itemsPerPage value', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{40}} @sizes={{array 20 40 60}} />
+      <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{40}} @pageSizes={{array 20 40 60}} />
     `);
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–40 of 100');
   });
