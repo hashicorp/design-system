@@ -9,7 +9,7 @@ dropdowm
 flexbox
 flyouts
 frontmatter
-HCP’s
+hcp’s
 hmac
 letterforms
 preprocess
