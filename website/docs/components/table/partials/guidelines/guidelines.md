@@ -97,7 +97,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Content
 
-While we try not to be prescriptive about what goes into a cell, there are some best practices to consider:
+While we are not prescriptive about what goes into a cell, there are some best practices to consider:
 
 - We recommended keeping data within a column to one data type. Using more than one data type makes sorting almost impossible.
 - While it‘s possible to change the text style/color within a cell, we recommended only using Helios font styles.
