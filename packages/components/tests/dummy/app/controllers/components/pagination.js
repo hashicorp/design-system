@@ -136,7 +136,7 @@ export default class PaginationController extends Controller {
   get consumerQueryFunction_demo2() {
     return (page, pageSize) => {
       console.log(
-        `consumerQueryFunction called / page=${page} / pageSize=${pageSize}`
+        `consumerQueryFunction_demo2 called / page=${page} / pageSize=${pageSize}`
       );
       return {
         currentPage_demo2: page,
@@ -240,6 +240,32 @@ export default class PaginationController extends Controller {
       this.currentPageSize_demo3,
       this.model.records
     );
+  }
+
+  get consumerQueryFunction_demo4() {
+    return (page) => {
+      console.log(`consumerQueryFunction_demo4 called / page=${page}`);
+      return {
+        prevToken_demo4:
+          page === 'prev'
+            ? this.newPrevNextCursors_demo4.newPrevToken
+            : undefined,
+        nextToken_demo4:
+          page === 'next'
+            ? this.newPrevNextCursors_demo4.newNextToken
+            : undefined,
+        demoExtraParam: 'hello',
+        // orgId: this.model.something,
+      };
+    };
+  }
+
+  get isDisabledPrev_demo4() {
+    return this.newPrevNextCursors_demo4.newPrevToken === null;
+  }
+
+  get isDisabledNext_demo4() {
+    return this.newPrevNextCursors_demo4.newNextToken === null;
   }
 
   get paginatedData_demo4() {

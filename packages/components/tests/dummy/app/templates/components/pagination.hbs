@@ -130,7 +130,7 @@
   @onPageChange={{this.onPageChange_demo3}}
 />
 
-<h3>Demo #4 - Compact - With routing</h3>
+<h3>Demo #4A - Compact - With routing (via @queryPrev/queryNext)</h3>
 
 <Hds::Table
   @model={{this.paginatedData_demo4}}
@@ -161,5 +161,38 @@
   @isDisabledPrev={{if this.newPrevNextCursors_demo4.newPrevToken false true}}
   @queryNext={{hash nextToken_demo4=this.newPrevNextCursors_demo4.newNextToken prevToken_demo4=undefined}}
   @isDisabledNext={{if this.newPrevNextCursors_demo4.newNextToken false true}}
+  @onPageChange={{this.genericHandlePageChange}}
+/>
+
+<h3>Demo #4B - Compact - With routing (via @queryFunction)</h3>
+
+<Hds::Table
+  @model={{this.paginatedData_demo4}}
+  @columns={{array
+    (hash key="id" label="ID")
+    (hash key="name" label="Name")
+    (hash key="email" label="Email")
+    (hash key="role" label="Role")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.id}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.role}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+
+<pre>this.newPrevCursor_demo4 = {{this.newPrevCursor_demo4}} ({{this.newPrevCursor_demo4_decoded}})</pre>
+<pre>this.currentCursor_demo4 = {{this.currentCursor_demo4}} ({{this.currentCursor_demo4_decoded}})</pre>
+<pre>this.newNextCursor_demo4 = {{this.newNextCursor_demo4}} ({{this.newNextCursor_demo4_decoded}})</pre>
+
+<Hds::Pagination::Compact
+  @route={{this.consumerRouteName}}
+  @queryFunction={{this.consumerQueryFunction_demo4}}
+  @isDisabledPrev={{this.isDisabledPrev_demo4}}
+  @isDisabledNext={{this.isDisabledNext_demo4}}
   @onPageChange={{this.genericHandlePageChange}}
 />
