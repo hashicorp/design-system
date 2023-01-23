@@ -12,7 +12,7 @@
 
 ### Color
 
-<div style="display: flex; gap: 1rem;">
+<Doc::Layout @spacing="12px">
   <Hds::Alert @type="inline" @color="neutral" as |A|>
     <A.Title>Neutral alert title</A.Title>
     <A.Description>Lorem ipsum dolar sit amet.</A.Description>
@@ -25,8 +25,6 @@
     <A.Title>Success alert title</A.Title>
     <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   </Hds::Alert>
-</div>
-<div style="display: flex; gap: 1rem; margin: 16px 0px;">
   <Hds::Alert @type="inline" @color="warning" as |A|>
     <A.Title>Warning alert title</A.Title>
     <A.Description>Lorem ipsum dolar sit amet.</A.Description>
@@ -35,7 +33,7 @@
     <A.Title>Critical alert title</A.Title>
     <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   </Hds::Alert>
-</div>
+</Doc::Layout>
 
 Use color logically.
 
