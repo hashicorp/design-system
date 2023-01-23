@@ -581,11 +581,70 @@
     elements in the page).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
-  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
-    query parameters) you need to pass the routing parameters to the component:</p>
-  <pre>🚨 TODO </pre>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. updating the query
+    parameters) you need to pass the routing parameters to the component:</p>
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Numbered
+        @totalItems=\{{this.demoTotalItems}}
+        @itemsPerPage=\{{this.demoCurrentPageSize}}
+        @currentPage=\{{this.demoCurrentPage}}
+        @route=\{{this.demoRouteName}}
+        @queryFunction=\{{this.demoQueryFunctionNumbered}}
+      />
+    "
+  />
+  <p class="dummy-paragraph">where the
+    <code class="dummy-code">@queryFunction</code>
+    function will be something like this:</p>
+  <CodeBlock
+    @language="javascript"
+    @code="
+        get demoQueryFunctionNumbered() {
+          return (page, pageSize) => {
+            return {
+              demoCurrentPage: page,
+              demoCurrentPageSize: pageSize,
+              demoExtraParam: 'hello',
+            };
+          };
+        }
+      "
+  />
   <p class="dummy-paragraph">Renders to:</p>
-  <pre>🚨 TODO 🚨</pre>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.demoTotalItems}}
+    @itemsPerPage={{this.demoCurrentPageSize}}
+    @currentPage={{this.demoCurrentPage}}
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionNumbered}}
+  />
+  <p class="dummy-paragraph">When the routing parameters are provided, the "navigation controls" are rendered as links
+    and if the user clicks on one of them the page URL is automatically updated. This means that the component's state
+    is persisted
+    <strong>outside</strong>
+    of the component and so its whole state
+    <strong>must</strong>
+    be "controlled" by the consumer's code (otherwise there would be confliting states).</p>
+  <p class="dummy-paragraph">In this case, the component doesn't update its internal "state" but the value of the state
+    variables (eg.
+    <code class="dummy-code">currentPage/currentPageSize</code>) is
+    <strong>always</strong>
+    determined by the consumer's controller code via the component's arguments (most of the times, they are directly
+    connected to the query parameters in the URL).
+  </p>
+  <p class="dummy-paragraph">The reason for using a consumer-side function to determine the
+    <code class="dummy-code">query</code>
+    argument is because it's dynamic (it depends on the value of the
+    <code class="dummy-code">page</code>
+    variable) and gives consumers the ability to specify their own query parameters (they will likely be different case
+    by case).
+  </p>
+  <p class="dummy-paragraph">Even if the pagination is based on routing, the
+    <code class="dummy-code">onPageChange/onPageSizeChange</code>
+    callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.)
+  </p>
 
   {{! =============================== }}
   {{! ===== PAGINATION::COMPACT ===== }}
@@ -645,12 +704,66 @@
     to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
-  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
-    query parameters), you need to pass the routing parameters to the component:</p>
-  <pre>🚨 TODO </pre>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. updating the query
+    parameters) you need to pass the routing parameters to the component:</p>
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Compact
+        @route=\{{this.demoRouteName}}
+        @queryFunction=\{{this.demoQueryFunctionCompact}}
+        @isDisabledPrev=\{{this.demoIsDisabledPrev}}
+        @isDisabledNext=\{{this.demoIsDisabledNext}}
+      />
+    "
+  />
+  <p class="dummy-paragraph">where the
+    <code class="dummy-code">@queryFunction</code>
+    function will be something like this:</p>
+  <CodeBlock
+    @language="javascript"
+    @code="
+        get demoQueryFunctionCompact() {
+          return (page) => {
+            return {
+              demoCurrentToken: page === 'prev' ? this.getPrevToken : this.getNextToken,
+              demoExtraParam: 'hello',
+            };
+          };
+        }
+      "
+  />
   <p class="dummy-paragraph">Renders to:</p>
-  <pre>🚨 TODO 🚨</pre>
-
+  <Hds::Pagination::Compact
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionCompact}}
+    @isDisabledPrev={{this.demoIsDisabledPrev}}
+    @isDisabledNext={{this.demoIsDisabledNext}}
+  />
+  <p class="dummy-paragraph">When the routing parameters are provided, the "prev/next" controls are rendered as links
+    and if the user clicks on one of them the page URL is automatically updated. This means that the component's state
+    is persisted
+    <strong>outside</strong>
+    of the component and so its whole state
+    <strong>must</strong>
+    be "controlled" by the consumer's code (otherwise there would be confliting states).</p>
+  <p class="dummy-paragraph">In this case, the component doesn't update its internal "state" but the value of the state
+    variables is
+    <strong>always</strong>
+    determined by the consumer's controller code via the component's arguments (most of the times, they are directly
+    connected to the query parameters in the URL).
+  </p>
+  <p class="dummy-paragraph">The reason for using a consumer-side function to determine the
+    <code class="dummy-code">query</code>
+    argument is because it's dynamic (it depends on the value of the
+    <code class="dummy-code">page/cursor</code>
+    variable) and gives consumers the ability to specify their own query parameters (they will likely be different case
+    by case).
+  </p>
+  <p class="dummy-paragraph">Even if the pagination is based on routing, the
+    <code class="dummy-code">onPageChange/onPageSizeChange</code>
+    callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.)
+  </p>
 </section>
 
 <section data-test-percy class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
