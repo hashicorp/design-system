@@ -1,6 +1,6 @@
 ---
 title: Accessibility statement
-order: 104
+order: 105
 ---
 
 We believe accessibility is a core requirement and not an optional feature. Our approach to accessibility closely aligns with our [HashiCorp principles](https://www.hashicorp.com/our-principles), such as our core principle of integrity.
@@ -55,6 +55,6 @@ The Design Systems Team self-assesses the accessibility of Helios by the followi
 We welcome your feedback on the accessibility of Helios. Please let us know if you encounter accessibility barriers in the design system:
 
 - GitHub: file an issue on the [design-systems repository](https://github.com/hashicorp/design-system/issues/new)
-- E-mail: [design-systems@hashicorp.com](mailto:design-systems@hashicorp.com)
+- E-mail: [helios@hashicorp.com](mailto:helios@hashicorp.com)
 
 We are committed to responding to feedback in a timely manner.

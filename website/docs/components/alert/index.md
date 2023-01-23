@@ -7,6 +7,7 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=1377%3A11987
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/alert
 previewImage: assets/illustrations/components/alert.jpg
+keywords: ['alert', 'toast', 'notification', 'banner', 'message']
 ---
 
 <section data-tab="Guidelines">
@@ -26,6 +27,5 @@ previewImage: assets/illustrations/components/alert.jpg
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
-  @include "partials/accessibility/support.md"
 </section>
 

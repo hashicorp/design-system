@@ -1,12 +1,9 @@
 ## Anatomy
 
-![Anatomy of the badge component](/assets/components/badge/badge-anatomy.png)
+![Anatomy of the badge component](/assets/components/badge/badge-anatomy.png =183x*)
 
-| Element | Usage |
-|-------- | ----- |
-| Text | Required |
-| Color | Optional |
-| Icon | Optional, but required on Status badges (Success, Warning, Critical) |
-| isIconOnly | Optional |
-| Size | Optional |
-| Type | Optional |
+| Element    | Usage                                                                        |
+|----------- | ---------------------------------------------------------------------------- |
+| Icon       | Required for status badges (Success, Warning, Critical); optional, otherwise |
+| Text       | Required                                                                     |
+| Container  | Required                                                                     |

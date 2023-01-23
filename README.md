@@ -1,4 +1,12 @@
-# Helios Design System
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/1672302/213473448-ac8cd0f7-cde2-49ef-b8ef-4067677569f2.jpg" role="presentation" alt="">
+</p>
+
+<p align="center">The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.</p>
+
+## Usage
+
+For guidelines on how to use Helios, see our [documentation website](https://helios.hashicorp.design).
 
 ## Packages
 
@@ -7,7 +15,7 @@
 Design System components in Ember.js
 
 - npm package: `@hashicorp/design-system-components`
-- website: [design-system-components-hashicorp.vercel.app](https://design-system-components-hashicorp.vercel.app)
+- website: [https://helios.hashicorp.design/components](https://helios.hashicorp.design/components)
 - more info: see [components/README](packages/components/README.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md).
 
 ### `packages/ember-flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
@@ -15,11 +23,11 @@ Design System components in Ember.js
 Ember.js addon with `<FlightIcon />` component
 
 - npm package: `@hashicorp/ember-flight-icons`
-- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+- website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
 - more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember.js addon.
 
 ### `packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
-- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
+- website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
 
 Flight icons in different formats (SVG/SVG Sprite/React)
 
@@ -31,15 +39,8 @@ Flight icons in different formats (SVG/SVG Sprite/React)
 Design tokens
 
 - npm package: `@hashicorp/design-system-tokens`
-- website: [design-system-components-hashicorp.vercel.app/foundations/tokens](https://design-system-components-hashicorp.vercel.app/foundations/tokens)
+- website: [https://helios.hashicorp.design/foundations/tokens](https://helios.hashicorp.design/foundations/tokens)
 - more info: see [tokens/README](packages/tokens/README.md) and [tokens/CONTRIBUTING](packages/tokens/CONTRIBUTING.md) for details on how to update the design tokens.
-
-### `flight-website`
-
-The dedicated `flight-icons` website (it has its own Yarn workspace).
-
-- website: [flight-hashicorp.vercel.app](https://flight-hashicorp.vercel.app/)
-- more info: see [flight-website/README](flight-website/README.md) for details on how to build and test this Ember.js application
 
 ## Contributing
 

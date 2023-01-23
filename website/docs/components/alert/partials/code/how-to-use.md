@@ -20,6 +20,13 @@ A different type of alert can be invoked using the `type` argument.
 </Hds::Alert>
 ```
 
+```handlebars
+<Hds::Alert @type="compact" as |A|>
+  <A.Title>Title here</A.Title>
+  <A.Description>Description here</A.Description>
+</Hds::Alert>
+```
+
 ### Content
 
 Optionally, you can pass only `title` or only `description`.
@@ -38,7 +45,7 @@ Optionally, you can pass only `title` or only `description`.
 
 ### Color
 
-A different color can be applied to the alert using the `color` argument. This will determine the default icon used in the alert (unless overwritten).
+A different color can be applied to the alert using the `color` argument. This will determine the default icon used in the alert, unless overwritten.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
@@ -49,7 +56,7 @@ A different color can be applied to the alert using the `color` argument. This w
 
 ### Icons
 
-A different icon can be used in the alert using the `icon` argument. This accepts any [icon](/foundations/icons/) name.
+A different icon can be used in the alert using the `icon` argument. This accepts any [Helios icon](/foundations/icons/) name.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
@@ -69,7 +76,7 @@ If you need to hide the icon, pass `false` to the `icon` argument. This is only 
 
 ### Dismissal
 
-To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a "dismiss/close" button to the alert. When that button is clicked, the callback function will be executed. 
+To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a dismiss button to the alert. When that button is clicked, the callback function will be executed. 
 
 Given the variety of use cases and contexts in which alerts are used across products, application teams will need to implement the callback function.
 
@@ -88,7 +95,7 @@ Actions can be passed to the component using one of the suggested `Button` or `L
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
-  <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
+  <A.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
 </Hds::Alert>
 ```
@@ -129,7 +136,7 @@ Use the `Generic` contextual component to insert custom content. Generic content
 
 !!! Warning
 
-Use this method with caution and as an escape hatch. We recommend speaking with a member of the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
+Use this method with caution and as an escape hatch. Contact the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
 !!!
 
 ```handlebars

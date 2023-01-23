@@ -8,7 +8,7 @@ The `Form::TextInput` component has two different variants, with their own APIs:
 ### Form::TextInput::Base
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @type="enum">
+  <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" }} @default="text">
     Sets the native HTML `type` of the `<input>`. This list covers all the official types (see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)).
   </C.Property>
   <C.Property @name="value" @type="string|number|date">
@@ -32,7 +32,7 @@ The `Form::TextInput` component has two different variants, with their own APIs:
 ### Form::TextInput::Field
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @type="enum">
+  <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" }} @default="text">
     Sets the native HTML `type` of the `<input>`. This list covers all the official types (see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)).
   </C.Property>
   <C.Property @name="value" @type="string|number|date">

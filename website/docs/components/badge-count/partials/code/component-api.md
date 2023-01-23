@@ -5,7 +5,7 @@
   <C.Property @name="type" @type="enum" @values={{array "filled" "inverted" "outlined" }} @default="filled"/>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "neutral-dark-mode" }} @default="neutral"/>
   <C.Property @name="text" @type="string">
-    The text value that should go in the badge counter.
+    Text value that renders in the Badge Count.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

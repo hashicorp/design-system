@@ -68,7 +68,7 @@ Actions can optionally be passed into the component using one of the suggested `
 <Hds::Toast @color="critical" @onDismiss={{this.yourOnDismissFunction}} as |T|>
   <T.Title>Title here</T.Title>
   <T.Description>Description here</T.Description>
-  <T.Button @text="Your action" @color="secondary" @onClick={{this.yourOnClickFunction}} />
+  <T.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
   <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="components" @color="secondary" />
 </Hds::Toast>
 ```

@@ -110,6 +110,7 @@ layout:
 order: 101
 hidden: false
 previewImage: assets/illustrations/components/alert.jpg
+keywords: ['alert', 'toast', 'notification', 'banner', 'message']
 ---
 ```
 
@@ -139,7 +140,9 @@ The "frontmatter" attributes that we support are the following:
 *   `hidden`
     Used to hide the page from the sidebar navigation and the lists on the landing pages - default is `false`
 *   `previewImage`
-  An optional full path to an image used when listing the page as "card" (eg. in landing pages). The path refers to the `dist` folder generated at build time, so is relative to the content of the `/website/public` folder.
+    An optional full path to an image used when listing the page as "card" (eg. in landing pages). The path refers to the `dist` folder generated at build time, so is relative to the content of the `/website/public` folder.
+*   `keywords`
+    An optional list of keywords that the page can be found with, when a filter is applied to a list of pages.
 
 
 Only the `title` attribute is technically required, all the others are optional (even though some of them like `description` and `caption` are necessary for component pages).

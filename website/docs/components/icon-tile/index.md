@@ -7,6 +7,7 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2632%3A8072&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/icon-tile
 previewImage: assets/illustrations/components/icon-tile.jpg
+keywords: ['symbol', 'logo']
 ---
 
 <section data-tab="Guidelines">
@@ -26,5 +27,4 @@ previewImage: assets/illustrations/components/icon-tile.jpg
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
-  @include "partials/accessibility/support.md"
 </section>

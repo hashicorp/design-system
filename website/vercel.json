@@ -2,21 +2,23 @@
   "headers": [
     {
       "source": "/(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "X-Robots-Tag",
-          "value" : "all"
+          "key": "X-Robots-Tag",
+          "value": "all"
         }
       ]
     },
     {
       "source": "/testing(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "X-Robots-Tag",
-          "value" : "none"
+          "key": "X-Robots-Tag",
+          "value": "none"
         }
       ]
     }
-  ]
+  ],
+  "framework": "ember",
+  "rewrites": [{ "source": "/(.*)", "destination": "/_empty.html" }]
 }
