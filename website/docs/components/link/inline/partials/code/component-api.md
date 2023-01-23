@@ -18,7 +18,7 @@
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
-    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
+    Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded to the content of the `<a>` HTML element.
