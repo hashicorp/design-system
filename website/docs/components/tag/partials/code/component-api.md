@@ -14,7 +14,7 @@
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
-    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the @route.
+    Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the @route.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary">
     Sets the color of a link when `@route` or `@href` are set.
