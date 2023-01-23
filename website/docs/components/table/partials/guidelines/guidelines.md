@@ -93,7 +93,7 @@ Row placement determines the visual styling based on where the row is placed rel
 - We recommend using `medium` cell density by default.
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
-- While more dense content allows for more rows to be displayed within a single page, it also makes comprehension more difficult and can reduce scannability.
+- While denser content allows for more rows to be displayed within a single page, it also makes comprehension more difficult and can reduce scannability.
 
 ### Content
 
