@@ -20,7 +20,7 @@
     Sets the color of a link when `@route` or `@href` are set.
   </C.Property>
   <C.Property @name="onDismiss" @type="function">
-    This enables the dismiss feature. When a function is passed, the "dismiss" button is displayed.
+    Enables the dismiss feature. When a function is passed, the "dismiss" button is displayed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
