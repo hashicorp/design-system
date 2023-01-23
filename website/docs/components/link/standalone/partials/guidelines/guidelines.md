@@ -12,11 +12,7 @@
 
 ## Size
 
-We recommend using a medium size, but use whichever size fits best in the UI.
-
-For example:
-
-- don’t use large links in tables.
+We recommend using a medium size, but use whichever size fits best in the UI. For example, don’t use large links in tables.
 
 <Doc::Layout @spacing="12px">
   <Hds::Link::Standalone @size="small" @text="Small" @icon="arrow-right" @iconPosition="trailing" @route="components" />
