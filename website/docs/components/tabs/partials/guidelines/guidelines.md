@@ -17,7 +17,7 @@ When the content area consists of a contained component (e.g., table, card, etc)
 - 24px above tabs
 - 0px between the tabs and the content area
 - Top & right border-radius of the content area be set to 0
-- the content area should be flush on the left & right with the tabs
+- The content area should be flush on the left & right with the tabs
 
 ![Tabs contained spacing example](/assets/components/tabs/tabs-spacing-contained.png =587x*)
 
