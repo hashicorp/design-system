@@ -28,7 +28,10 @@ Since columns within the table header can control sorting within the table, the 
 
 If you need a tooltip, there may not be enough contextual information about the table or the label within the header may not be clear enough.
 
+!!! Dont
+
 ![Example of a nested tooltip within a table header](/assets/components/table/table-accessibility-tooltip.png =900x*)
+!!!
 
 ### Interactive rows
 
