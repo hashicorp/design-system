@@ -116,7 +116,7 @@
   <br />
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-tagline-icon" as |F|>
-      <F.Header @tagline="Tagline" @icon="info">Title</F.Header>
+      <F.Header @tagline="Tagline" @icon="info">A very, very long title that spans multiple lines to test this element</F.Header>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
       </F.Body>
@@ -127,7 +127,13 @@
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-description" as |F|>
       <F.Header>Title</F.Header>
-      <F.Description>Description</F.Description>
+      <F.Description>
+        This is a very long
+        <strong>description</strong>
+        to test appropriate text
+        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
+        and formatting on this element
+      </F.Description>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
       </F.Body>
@@ -140,14 +146,10 @@
   <div class="dummy-flyout-sample-item">
     <Hds::Flyout open id="flyout-example-basic-style" as |F|>
       <F.Header @tagline="Tagline" @icon="info">
-        A very, very long title that spans multiple lines to test this element
+        Title
       </F.Header>
       <F.Description>
-        This is a very long
-        <strong>description</strong>
-        to test appropriate text
-        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
-        and formatting on this element
+        Description
       </F.Description>
       <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
