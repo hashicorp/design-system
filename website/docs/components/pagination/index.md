@@ -1,6 +1,6 @@
 ---
 title: Pagination
-hidden: false
+hidden: true
 description: Used to let users navigate through content broken down into pages. Usually paired with tables.
 caption: Used to let users navigate through content broken down into pages.
 status: experimental
