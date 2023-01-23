@@ -16,7 +16,7 @@ By default the icon is placed before the text. If you would like to position it 
 
 ### Color
 
-There are two available colors for a Standalone Link: `primary` and `secondary`. The default is `primary`. To use a different color, set `@color` to `secondary`.
+There are two available colors for a Standalone Link: `primary` and `secondary`. The default is `primary`. To use the other option, set `@color` to `secondary`.
 
 ```handlebars
 <Hds::Link::Standalone @color="secondary" @icon="collections" @text="Read tutorial" @href="..." />
