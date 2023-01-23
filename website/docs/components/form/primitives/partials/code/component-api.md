@@ -173,7 +173,7 @@ Control, label, helper text and error content are passed to the field as yielded
     The `id` attribute of the element is automatically generated.
   </C.Property>
   <C.Property @name="<[F].Control>" @type="yielded component">
-    It is a very simple container that yields its content. It is used to forward the “field” control inside the fields’ "group” control wrapper.
+    It is a very simple container that yields its content. It is used to forward the “field” control inside the fields’ “group” control wrapper.
     <br/><br/>
     You can pass all the controls to a single `<Control>` container, or you can have one control per container.
   </C.Property>
