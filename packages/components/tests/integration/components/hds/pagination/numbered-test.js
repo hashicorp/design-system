@@ -72,7 +72,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it renders the "nav" content', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Numbered @totalItems={{100}} @pageSizes={{array 10 30 50}} />
+      <Hds::Pagination::Numbered @totalItems={{100}} />
     `);
     assert
       .dom('.hds-pagination .hds-pagination-nav__arrow--direction-prev')
