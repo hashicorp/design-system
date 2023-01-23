@@ -68,4 +68,4 @@ To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` ar
 
 ##### For `<LinkToExternal>`
 
-If the route is external to your current engine, pass `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of `<LinkTo>`.
+If the route is external to your current engine, passing `@isRouteExternal={{true}}` to the component will use `<LinkToExternal>` instead of `<LinkTo>`.
