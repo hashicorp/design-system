@@ -10,78 +10,121 @@
 - As a layout mechanism.
 - As a replacement for a spreadsheet or similar application.
 
-### Column placement
-
-<Hds::Table>
-    <:head as |H|>
-        <H.Tr>
-            <H.Th>Start</H.Th>
-            <H.Th>Middle</H.Th>
-            <H.Th>End</H.Th>
-        </H.Tr>
-    </:head>
-</Hds::Table>
-
-Column placement determines the visual styling based on where the column is placed relatively to other columns in a table header.
-
-!!! Info
-
-The column placement property is only relevant within Figma design tooling and doesn’t exist as a property within the production code component.
-
-!!!
-
-### Alignment
-
-<Hds::Table>
-    <:head as |H|>
-        <H.Tr>
-            <H.Th>Start</H.Th>
-            <H.Th>End</H.Th>
-        </H.Tr>
-    </:head>
-</Hds::Table>
-
-#### Alignment Best practices
-
-- Alignment of the header column should remain consistent within the cell (see best practices for alignment within the cell).
-- Columns in the end position frequently use end-alignment when displaying non-string/text content.
+## Columns
 
 ### Sorting
 
-![Header column sorting](/assets/components/table/table-header_column-sorting.png)
+![Header column sorting](/assets/components/table/table-sorting.png =1000x*)
 
-#### Sorting Best practices
-
-- Sorting is not relevant for all content, therefore the default sort variant of the header column is none.
-    - Whether a column is sortable is left up to the consumer building the table and should be addressed on a case-by-case basis.
+- Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
 - Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
-- A table may only be sorted by a single value at a time.
+- A Table may only be sorted by a single value at a time.
 
-### Header column pattern
+### Width
 
-Intentionally not defined as a component with HDS Figma tooling, the header column component is intended to be assembled into a larger table header pattern consisting of multiple columns.
+Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
 
-<Hds::Table>
-    <:head as |H|>
-        <H.Tr>
-            <H.Th>Full name</H.Th>
-            <H.Th>Projects</H.Th>
-            <H.Th>Email address</H.Th>
-            <H.Th>Status</H.Th>
-            <H.Th>Created by</H.Th>
-            <H.Th>Options</H.Th>
-        </H.Tr>
-    </:head>
-</Hds::Table>
+### Alignment
 
-### Column width
+Use consistent alignment throughout the Table. We recommend using end-alignment in the last column when displaying non-text based content. 
 
-Within Figma, column width is determined manually by resizing the header column and cells. As a best practice, column width should be adjusted to fit the longest data type within the cell.
+!!! Do
 
-## Content
+![Table column placement example](/assets/components/table/table-alignment-do.png =500x*)
+!!!
 
-### Label
+!!! Dont
 
-- Labels should be clear, concise, and straightforward.
-- The label should infer clearly what type (string, number, status, etc) of content is contained within the cell.
-- Labels should use sentence-case capitalization, not all-caps.
+![Table column placement example](/assets/components/table/table-alignment-dont.png =500x*)
+!!!
+
+### Placement
+
+!!! Info
+
+The column placement property is only relevant within Figma and doesn’t exist as a property within the code.
+!!!
+
+Column placement determines the visual styling based on where the column is placed relative to other columns in the Table.
+
+![Table column placement example](/assets/components/table/table-col-placement.png =750x*)
+
+## Rows
+
+### Striping
+
+![Table striping examples](/assets/components/table/table-striping.png =810x*)
+
+While striping is not required, we recommend it for the added usability benefits. 
+
+When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
+
+#### Benefits of striping
+- Striping makes data within the Table easier to read by increasing differentiation between rows.
+    - Ensure that nested components within striped rows continue to meet contrast accessibility criteria.
+- Striping increases scannability, especially for large datasets that result in many rows.
+- Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
+
+### Placement
+
+!!! Info
+
+The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
+!!!
+
+Row placement determines the visual styling based on where the row is placed relative to other rows within the Table. Only cells with a column placement that is either `start` or `end` utilize the row placement property; column position `middle` does not utilize this property.
+
+![Table row placement example](/assets/components/table/table-row-placement.png =819x*)
+
+## Headers
+
+### Content
+
+- Headers should be clear, concise, and straightforward.
+- The headers should infer clearly what type (string, number, status, etc) of content is contained within the cell.
+- Headers should use sentence-case capitalization, not all-caps.
+
+## Cells
+
+### Density
+
+![Table cell density](/assets/components/table/table-density.png =798x*)
+
+- We recommend using `medium` cell density by default.
+- If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
+- If content is largely string/text-based, `short` allows for more content to be displayed within the page.
+- While more dense content allows for more rows to be displayed within a single page, it also makes comprehension more difficult and can reduce scannability.
+
+### Content
+
+While we try not to be prescriptive about what goes into a cell, there are some best practices to consider:
+
+- We recommended keeping data within a column to one data type. Using more than one data type makes sorting almost impossible.
+- While it‘s possible to change the text style/color within a cell, we recommended only using Helios font styles.
+
+### Icon usage
+
+Icons nested within cells can help differentiate content, see status, and increase the hierarchy of a piece of data or object. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
+
+Icons should rarely be used without a text label. A label helps reinforce the purpose and communication of the icon and can reduce ambiguity when expressing complex data.
+
+!!! Do
+
+![Example of proper icon usage in tables](/assets/components/table/table-nested-icons-do.png =726x*)
+!!!
+
+#### Leading vs. trailing icons
+
+Both leading and trailing icons increase the visual weight of the content within the cell, so use icons intentionally throughout Tables. Take care not to mix and match different icon positions in the same column. 
+
+In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan. 
+
+!!! Do
+
+![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-do.png =784x*)
+!!!
+
+!!! Dont
+
+![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-dont.png =380x*)
+!!!
