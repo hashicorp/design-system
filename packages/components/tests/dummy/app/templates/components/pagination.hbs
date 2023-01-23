@@ -123,6 +123,23 @@
       <p>Used to control the visibility of the "prev/next" text labels.</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>route/model/models/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Pagination::Arrow</code>/<code class="dummy-code">Hds::Pagination::Number</code>
+        child components, and from them to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
+    </dd>
+    <dt>queryFunction <code>function</code></dt>
+    <dd>
+      <p>A function that returns an object that can be provided as
+        <code class="dummy-code">query</code>
+        argument for the routing, and that is passed down to the to the child components together with the other routing
+        parameters.</p>
+      <p>The function receives the value of the "go to" page and "page size" as arguments (integer numbers).</p>
+    </dd>
     <dt>onPageChange <code>function</code></dt>
     <dd>
       <p>Callback function invoked (if provided) when one of the navigation controls is clicked, and a "page" change is
@@ -146,25 +163,28 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-compact">
-    <dt>route[Prev|Next] <code>string</code></dt>
+    <dt>route/model/models/replace</dt>
     <dd>
-      <p>The
-        <code>@route</code>
-        parameter passed down as arguments to internally render a
-        <code>&lt;LinkTo&gt;</code>
-        Ember component instead of a
-        <code>&lt;button&gt;</code>
-        in the "prev" or "next" control.</p>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Pagination::Arrow</code>
+        child components, and from them to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
     </dd>
-    <dt>query[Prev|Next] <code>object</code></dt>
+    <dt>queryFunction <code>function</code></dt>
     <dd>
-      <p>The
-        <code>@query</code>
-        parameter for the
-        <code>&lt;LinkTo&gt;</code>
-        Ember component in the "prev" or "next" control.</p>
+      <p>A function that returns an object that can be provided as
+        <code class="dummy-code">query</code>
+        argument for the routing, and that is passed down to the to the child components together with the other routing
+        parameters.</p>
+      <p>The function receives as argument one of two possible values:</p>
+      <ol>
+        <li>prev</li>
+        <li>next</li>
+      </ol>
     </dd>
-    <dt>isDisabled[Prev|Next] <code>boolean</code></dt>
+    <dt>isDisabledPrev/isDisabledNext <code>boolean</code></dt>
     <dd>
       <p>Used to disable the "prev" or "next" controls.</p>
       <p>Default: <span class="default">false</span></p>
@@ -235,7 +255,7 @@
         <li>next</li>
       </ol>
     </dd>
-    <dt>href + route/models/model/query/current-when/replace</dt>
+    <dt>route/query/model/models/replace</dt>
     <dd>
       <p>These are the parameters that are passed down as arguments to the
         <code class="dummy-code">Hds::Interactive</code>
@@ -280,6 +300,13 @@
     <dd>
       <p>If the page has a "selected" visual state (usually used to highlight the current page).</p>
       <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>route/query/model/models/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
     </dd>
     <dt>onClick <code>function</code></dt>
     <dd>
