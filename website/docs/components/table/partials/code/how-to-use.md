@@ -76,7 +76,7 @@ For the sortable table, the invocation and use is a little bit different:
 
 1. Shape the data model for use; we’ve placed it in the page‘s route.
 
-    - In this example, we're identifying the column headers (keys) and also capitalizing them. 
+    - In this example, we’re identifying the column headers (keys) and also capitalizing them. 
     - Each column object has two pieces: 
       
         - a `key`\-- used for the model, the `sortingKeys`, and `sortBy`
