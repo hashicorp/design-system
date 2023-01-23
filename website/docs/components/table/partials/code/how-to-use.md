@@ -199,7 +199,7 @@ You can also indicate that a specific column should be pre-sorted in a specific 
 
 #### Complex sortable Table
 
-Here's a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
+Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
