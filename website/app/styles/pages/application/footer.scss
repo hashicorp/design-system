@@ -75,3 +75,22 @@
     height: 100%;
   }
 }
+
+
+// ERROR PAGE
+body.application.error {
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-footer {
+      padding-left: 0;
+    }
+  }
+}
+
+// PATTERNS PAGE
+body.application.patterns {
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-footer {
+      padding-left: 0;
+    }
+  }
+}
