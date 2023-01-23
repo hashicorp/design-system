@@ -86,11 +86,3 @@ body.application.error {
   }
 }
 
-// PATTERNS PAGE
-body.application.patterns {
-  @include breakpoint.with-fixed-sidebar () {
-    .doc-page-footer {
-      padding-left: 0;
-    }
-  }
-}
