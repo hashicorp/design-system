@@ -24,7 +24,7 @@ There are two available colors for a Standalone Link: `primary` and `secondary`.
 
 ### Size
 
-There are three sizes available: `small`, `medium` and `large`. The default is `medium`. To use a different size, set a value for `@size`:
+There are three sizes available: `small`, `medium`, and `large`. The default is `medium`. To use a different size, set a value for `@size`:
 
 ```handlebars
 <Hds::Link::Standalone @icon="collections" @text="Read tutorial" @size="small" @href="..." />
