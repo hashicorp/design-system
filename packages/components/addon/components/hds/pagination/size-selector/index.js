@@ -12,19 +12,19 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
   /**
-   * @param sizes
+   * @param pageSizes
    * @type {array of numbers}
    * @description Set the page sizes users can select from.
    */
-  get sizes() {
-    let { sizes } = this.args;
+  get pageSizes() {
+    let { pageSizes } = this.args;
 
     assert(
-      '@sizes for "Pagination::SizeSelector" must be defined',
-      sizes !== undefined
+      '@pageSizes for "Pagination::SizeSelector" must be defined',
+      pageSizes !== undefined
     );
 
-    return sizes;
+    return pageSizes;
   }
 
   @action

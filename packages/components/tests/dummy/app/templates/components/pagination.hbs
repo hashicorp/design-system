@@ -323,7 +323,7 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-page-size">
-    <dt>sizes <code>array of integers</code> <strong class="required">required</strong></dt>
+    <dt>pageSizes <code>array of integers</code> <strong class="required">required</strong></dt>
     <dd>
       <p>Set the page sizes users can select from. If no value is defined an error will be thrown.</p>
       <p>
@@ -693,10 +693,10 @@
 
   <h5 class="dummy-h5">Pagination::SizeSelector</h5>
   <p class="dummy-text-small">Base (default)</p>
-  <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} />
+  <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
 
   <p class="dummy-text-small">With @itemsPerPage (selected option)</p>
-  <Hds::Pagination::SizeSelector @sizes={{array 10 30 50}} @selectedSize={{30}} />
+  <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{30}} />
 
   <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
   <div class="dummy-pagination-base-sample">
