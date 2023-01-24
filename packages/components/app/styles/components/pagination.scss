@@ -21,30 +21,12 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   margin: 0 auto;
-}
 
-// Responsive layout
-// max-width is based on where component layout potentially breaks down
-@media screen and (max-width: 1000px) {
-  .hds-pagination {
+  // max-width is based on where component layout potentially breaks down
+  @media screen and (max-width: 1000px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  .hds-pagination-nav {
-    justify-content: center;
-    order: -1;
-    width: 100%;
-  }
-
-  .hds-pagination-info,
-  .hds-pagination-size-selector {
-    margin:
-      var(--token-pagination-child-spacing-vertical)
-      var(--token-pagination-child-spacing-horizontal)
-      0
-      var(--token-pagination-child-spacing-horizontal);
   }
 }
 
@@ -56,6 +38,14 @@
   grid-area: info;
   justify-self: flex-start;
   white-space: nowrap;
+
+  @media screen and (max-width: 1000px) {
+    margin:
+      var(--token-pagination-child-spacing-vertical)
+      var(--token-pagination-child-spacing-horizontal)
+      0
+      var(--token-pagination-child-spacing-horizontal);
+  }
 }
 
 
@@ -65,6 +55,12 @@
 .hds-pagination-nav {
   display: flex;
   grid-area: nav;
+
+  @media screen and (max-width: 1000px) {
+    justify-content: center;
+    order: -1;
+    width: 100%;
+  }
 }
 
 .hds-pagination-nav__page-list {
@@ -179,9 +175,15 @@
   align-items: center;
   justify-self: flex-end;
 
-  > label {
-    white-space: nowrap;
+  @media screen and (max-width: 1000px) {
+    margin:
+      var(--token-pagination-child-spacing-vertical)
+      var(--token-pagination-child-spacing-horizontal)
+      0
+      var(--token-pagination-child-spacing-horizontal);
   }
+
+  > label { white-space: nowrap; }
 
   > select {
     height: 28px;
