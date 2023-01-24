@@ -44,9 +44,7 @@ Even though adding a title icon and tagline can help the user better understand 
 
 ## Body
 
-The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported. 
-
-#### With custom content
+The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported.
 
 ## Dismissal
 
@@ -80,4 +78,4 @@ On smaller viewports, the Flyout should occupy 100% of the viewport width minus 
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
 - The Flyout should _not_ be resized manually, rather select the size that best accommodates the content.
 
-![Flyout resizing](/assets/components/flyout/flyout-resizing)
+![Flyout resizing](/assets/components/flyout/flyout-resizing.png)

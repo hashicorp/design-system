@@ -18,9 +18,3 @@ The Flyout component is conformant when used as directed.
 If the Flyout is triggered via the keyboard and there isn’t any content in the body eligible to receive focus, the dismiss button receives focus first.
 
 ![Focus order within a simple Flyout](/assets/components/flyout/flyout-focus-order-simple.png)
-
-### Focus within a complex Flyout
-
-If the Flyout body contains interactive content (like a link), the first interactive element should receive focus first and the dismiss button should receive focus last.
-
-![Focus order with a complex Flyout](/assets/components/flyout/flyout-focus-order-complex.png)
