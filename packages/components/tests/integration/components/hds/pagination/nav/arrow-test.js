@@ -111,4 +111,16 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  test('it should throw an assertion if @direction is not one of the right values', async function (assert) {
+    const errorMessage =
+      '@direction for "Pagination::Nav::Arrow" must be one of the following: prev, next; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Pagination::Nav::Arrow @direction="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
 });

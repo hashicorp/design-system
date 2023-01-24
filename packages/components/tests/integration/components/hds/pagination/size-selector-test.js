@@ -108,5 +108,19 @@ module(
         throw new Error(errorMessage);
       });
     });
+    test('it should throw an assertion if @selectedSize is not one of the @pageSizes items', async function (assert) {
+      const errorMessage =
+        '@selectedSize for "Pagination::SizeSelector" must one of the @pageSizes provided (10,30,50), received 1234';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(
+        hbs`<Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{1234}} />`
+      );
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
   }
 );

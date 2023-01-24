@@ -1,10 +1,20 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, select } from '@ember/test-helpers';
+import {
+  click,
+  select,
+  render,
+  resetOnerror,
+  setupOnerror,
+} from '@ember/test-helpers';
+
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/pagination/numbered', function (hooks) {
   setupRenderingTest(hooks);
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it renders the component', async function (assert) {
     await render(hbs`
@@ -375,5 +385,86 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     );
     await select('.hds-pagination-size-selector select', '30'); // notice: '30' needs to be a string to work
     assert.strictEqual(size, 30); // notice: it's converted to an integer by the callback function
+  });
+
+  // ROUTING
+
+  test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
+    this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
+    await render(
+      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @itemsPerPage={{10}} @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`
+    );
+    assert
+      .dom('.hds-pagination-nav__arrow--direction-prev')
+      .hasAttribute('href', '/components/pagination?page=1&pageSize=10');
+    assert
+      .dom(
+        '.hds-pagination-nav__page-list .hds-pagination-nav__page-item:nth-child(1) a'
+      )
+      .hasAttribute('href', '/components/pagination?page=1&pageSize=10');
+    assert
+      .dom(
+        '.hds-pagination-nav__page-list .hds-pagination-nav__page-item:nth-child(3) a'
+      )
+      .hasAttribute('href', '/components/pagination?page=3&pageSize=10');
+    assert
+      .dom('.hds-pagination-nav__arrow--direction-next')
+      .hasAttribute('href', '/components/pagination?page=3&pageSize=10');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @queryFunction is not a function', async function (assert) {
+    const errorMessage =
+      '@queryFunction for "Hds::Pagination::Numbered" must be a function';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction="foo" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if it has routing but @currentPage and @itemsPerPage are not defined as number', async function (assert) {
+    this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
+    const errorMessage =
+      '@currentPage and @itemsPerPage for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction={{this.myQueryFunction}} />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @totalItems is not defined', async function (assert) {
+    const errorMessage =
+      '@totalItems for "Hds::Pagination::Numbered" must be defined as an integer number';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Pagination::Numbered />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @totalItems is not a number', async function (assert) {
+    const errorMessage =
+      '@totalItems for "Hds::Pagination::Numbered" must be defined as an integer number';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Pagination::Numbered @totalItems="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });

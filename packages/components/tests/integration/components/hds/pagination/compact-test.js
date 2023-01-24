@@ -1,10 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render } from '@ember/test-helpers';
+import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/pagination/compact', function (hooks) {
   setupRenderingTest(hooks);
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it renders the component', async function (assert) {
     await render(hbs`
@@ -87,5 +90,35 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
     assert.strictEqual(direction, 'prev');
     await click('.hds-pagination-nav__arrow--direction-next');
     assert.strictEqual(direction, 'next');
+  });
+
+  // ROUTING
+
+  test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
+    this.set('myQueryFunction', (page) => ({ page }));
+    await render(
+      hbs`<Hds::Pagination::Compact @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`
+    );
+    assert
+      .dom('.hds-pagination-nav__arrow--direction-prev')
+      .hasAttribute('href', '/components/pagination?page=prev');
+    assert
+      .dom('.hds-pagination-nav__arrow--direction-next')
+      .hasAttribute('href', '/components/pagination?page=next');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @queryFunction is not a function', async function (assert) {
+    const errorMessage =
+      '@queryFunction for "Hds::Pagination::Numbered" must be a function';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Pagination::Compact @queryFunction="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
