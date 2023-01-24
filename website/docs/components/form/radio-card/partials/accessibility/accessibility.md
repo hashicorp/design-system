@@ -14,20 +14,27 @@
 
 !!! Info
 
-**Links within labels, help text, or error text**
+**Links within labels, helper text, or error text**
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. We understand avoiding links within help/error text or labels may be impossible, but we recommend using this method sparingly. 
 !!!
 
 ## Keyboard navigation
 
-Move focus to the selected card. If nothing is selected, focus will move to the first radio card.
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
 
-![Keyboard tab focus in a RadioCard group](/assets/components/form/radio-card/radio_card-accessibility-keyboard_tab.png)
+Move focus to the selected card. If nothing is selected, focus will move to the first Radio Card.
 
-Navigate between radio cards. As the card is focused it also becomes selected.
+![Keyboard tab focus in a RadioCard group](/assets/components/form/radio-card/radio-card-accessibility-tab.png =980x*)
 
-![Keyboard arrow key focus in a RadioCard group](/assets/components/form/radio-card/radio_card-accessibility-keyboard_arrows.png)
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-left" /></Doc::Badge>
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-right" /></Doc::Badge>
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-up" /></Doc::Badge>
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-down" /></Doc::Badge>
+
+Navigate between Radio Cards. As the card is focused it also becomes selected.
+
+![Keyboard arrow key focus in a RadioCard group](/assets/components/form/radio-card/radio-card-accessibility-arrows.png =980x*)
 
 ## Applicable WCAG Success Criteria
 

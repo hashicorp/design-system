@@ -6,7 +6,7 @@ When used as recommended, there should not be any accessibility issues with this
 
 ## Best practices
 
-- A screen reader will read the tags from left to right, ie. "dismiss [text]".
+- A screen reader will read dismissible tags from left to right, e.g., “dismiss [text]”.
 - Link tags and dismissible tags must be standalone elements and should not be nested inside other interactive elements because they cannot be properly accessed by a screen reader.
 
 ## Applicable WCAG Success Criteria

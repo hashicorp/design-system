@@ -1,15 +1,15 @@
+<!-- TODO: Add conformance rating -->
 ## Best Practices
 
-### Annotations
+### Annotations in design
 
-Provide annotations alongside each design of the non-visual experience. This could look like:
+Include annotations of the non-visual experience in your handoff notes. For example:
 
-![Annotation of focus order of the link](/assets/components/link/standalone/link_standalone-accessibility-focus_order.png)
+![Annotation of focus order of the link](/assets/components/link/standalone/link-annotation.png =440x*)
 
-!!! Info
+### Interactive transitions
 
 Animations or transitions will not take place if the user has `prefers-reduced-motion` enabled in their browser.
-!!!
 
 ## Applicable WCAG Success Criteria
 

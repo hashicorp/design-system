@@ -7,6 +7,7 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=15313%3A50538&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/stepper
 previewImage: assets/illustrations/components/stepper.jpg
+keywords: ['progress', 'progress bar', 'steps', 'tracker']
 ---
 
 <section data-tab="Guidelines">
@@ -22,6 +23,7 @@ previewImage: assets/illustrations/components/stepper.jpg
 
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
+  @include "partials/specifications/states.md"
 </section>
 
 <section data-tab="Accessibility">

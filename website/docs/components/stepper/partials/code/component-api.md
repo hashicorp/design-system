@@ -1,24 +1,31 @@
-Note: Since the `indicator` components are meant to be assembled into larger stepper item patterns, the component’s interactive states should be tied to the larger pattern. This includes `hover`, `active`, and `focus`.
+## Component API
 
-#### Stepper::Step::Indicator
+We provide two separate but related `Stepper Indicator` components that serve different hierarchical purposes:
 
-Here is the API for the `Step::Indicator` component:
+1.  `Stepper::Step::Indicator`: used for step-based flows containing multiple steps a user must complete sequentially.
+2.  `Stepper::Task::Indicator`: used either on its own to denote smaller task-oriented flows or combined with the `Step` indicator to list multiple tasks within a step.
+
+### Stepper::Step::Indicator
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="status" @type="enum" @values={{array "incomplete" "progress" "processing" "complete" }} @default="incomplete"/>
+  <C.Property @name="status" @type="enum" @values={{array "incomplete" "progress" "processing" "complete" }} @default="incomplete">
+    Sets the status of `Step::Indicator`.
+  </C.Property>
   <C.Property @name="isInteractive" @type="boolean" @values={{array "false" "true" }} @default="false">
-    By default the `Indicator::Step` is not interactive and has no hover state. Usage for this variant is generally recommended for onboarding-type sequences or list-item steps.
+    Sets interactivity of `Step::Indicator`.
   </C.Property>
   <C.Property @name="text" @type="string">
-    Generally corresponds with the numerical value of the index of the item in an array of multiple steps.
+    Corresponds with the numerical value of the item’s index in an array of multiple steps.
   </C.Property>
 </Doc::ComponentApi>
 
-#### Stepper::Task::Indicator
-
-Here is the API for the `Task::Indicator` component:
+### Stepper::Task::Indicator
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="status" @type="enum" @values={{array "incomplete" "progress" "processing" "complete" }} @default="incomplete"/>
-  <C.Property @name="isInteractive" @type="boolean" @values={{array "false" "true" }} @default="false"/>
+  <C.Property @name="status" @type="enum" @values={{array "incomplete" "progress" "processing" "complete" }} @default="incomplete">
+    Sets the status of `Task::Indicator`.
+  </C.Property>
+  <C.Property @name="isInteractive" @type="boolean" @values={{array "false" "true" }} @default="false">
+    Sets interactivity of `Task::Indicator`.
+  </C.Property>
 </Doc::ComponentApi>
