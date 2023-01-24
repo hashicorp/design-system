@@ -44,7 +44,7 @@ The Gutenberg diagram refers to a pattern the eyes follow when moving or scannin
 #### Characteristics
 
 - The users eyes progress through the content on an **axis of orientation** which moves further away from the start edge on each line or break in the content
-- Content that falls into the weak fallow area recieves less attention
+- Content that falls into the weak fallow area receives less attention
 - This pattern indicates that important content and elements should be placed upon the **reading gravity path**
 - This pattern is most prevalent in content with little to no typographic hierarchy (i.e. long-form paragraphs)
 - This pattern is considered "in harmony" with natural reading direction
