@@ -114,12 +114,14 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   setSortBy(column) {
-    if (this.sortBy === column) {
-      //invert the sort order
-      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
-    } else if (this.getSortCriteria) {
+    // check for a custom sort criteria
+    if (this.getSortCriteria) {
       this.sortOrder = this.getSortCriteria;
+    } else if (this.sortBy === column) {
+      // if a custom sort criteria doesn't exist, check to see if the column is already sorted and invert the sort order if so
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
+      // otherwise, set the sort order to ascending
       this.sortBy = column;
       this.sortOrder = 'asc';
     }
