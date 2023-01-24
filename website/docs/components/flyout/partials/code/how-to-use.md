@@ -18,18 +18,27 @@ This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-
 
 ```handlebars
 <Hds::Button
-  @text="Open basic flyout"
+  @text="Open Flyout"
   @color="secondary"
   {{on "click" (fn this.activateFlyout "basicFlyoutActive")}}
 />
 
 {{#if this.basicFlyoutActive}}
-  <Hds::Flyout id="basic-flyout" @onClose={{fn this.deactivateFlyout "basicFlyoutActive"}} as |M|>
-    <M.Header>
-      Flyout title
+  <Hds::Flyout id="basic-flyout"
+    @onClose={{fn this.deactivateFlyout "basicFlyoutActive"}} as |M|>
+    <M.Header @tagline="Main page context" @icon="info">
+      Additional information
     </M.Header>
+    <M.Description>
+      Lorem ipsum dolor sit amet consectetur.
+      Ut ultrices id venenatis in felis auctor ante.
+    </M.Description>
     <M.Body>
-      <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+      <p class="hds-typography-body-300 hds-foreground-primary">
+        Aliquam ac enim iaculis, faucibus enim id, dapibus quam.
+        Nunc nibh mi, vehicula sed enim eget, lacinia venenatis tortor.
+        Quisque vitae accumsan est, eu vehicula arcu.
+      </p>
     </M.Body>
   </Hds::Flyout>
 {{/if}}
