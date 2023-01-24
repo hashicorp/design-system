@@ -7,7 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36435&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/toggle
 previewImage: assets/illustrations/components/form/toggle.jpg
-keywords: ['toggle button', 'switch', 'light switch']
+navigation:
+  keywords: ['toggle button', 'switch', 'light switch']
 ---
 
 <section data-tab="Guidelines">

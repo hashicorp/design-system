@@ -7,7 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2340%3A21001&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/button
 previewImage: assets/illustrations/components/button.jpg
-keywords: ['action', 'link']
+navigation:
+  keywords: ['action', 'link']
 ---
 
 <section data-tab="Guidelines">

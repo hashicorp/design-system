@@ -7,7 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=22928%3A56204&t=pDgL7LJUJXZUN7Xq-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/modal
 previewImage: assets/illustrations/components/modal.jpg
-keywords: ['flyout', 'popover', 'popup', 'dialog']
+navigation:
+  keywords: ['flyout', 'popover', 'popup', 'dialog']
 ---
 
 <section data-tab="Guidelines">
