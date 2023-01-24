@@ -18,7 +18,7 @@ While these guidelines don’t cover every scenario, they are intended to aid in
 
 This differentiation is important because the expectations from the user are different in each context. A constrained component or pattern will often be used in an interstitial or circumstantial experience; i.e. an experience that is triggered by the user or the application illiciting a quick, progressive action.
 
-Unconstrained generally refers to a more "static" experience that isn't triggered by a user action. This is often tied to a page-level function or a navigational element.
+Unconstrained generally refers to a more "static" experience that isn’t triggered by a user action. This is often tied to a page-level function or a navigational element.
 
 <!-- TODO 
 **Insert some supporting images here**
@@ -55,13 +55,13 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
 1. The user’s eyes start in the top left and move horizontally to the right
 2. Upon reaching the end (or terminal) of the line, the eyes move diagonally to the next line
-3. The readers eyes end at the bottom right of the content
+3. The reader’s eyes end at the bottom right of the content
 
 ![Visual example of a Z-shaped pattern](/assets/patterns/button-alignment/z-shaped-pattern.png)
 
 #### Characteristics
 
-- There are _technically_ no fallow areas (areas that recieve less attention or lack comprehension) as in the Gutenberg pattern, though this is not always the case in practice.
+- There are _technically_ no fallow areas (areas that receive less attention or lack comprehension) as in the Gutenberg pattern, though this is not always the case in practice.
 - This type of pattern is most prevalent in task-based functions or sequences of elements; i.e. a form or series of onboarding steps.
 - This pattern assumes that users read through _all_ of the content sequentially.
 
@@ -71,13 +71,13 @@ An F-shaped pattern loosely follows the shape of the letter F, first identified 
 
 ![Visual example of an F-shaped pattern](/assets/patterns/button-alignment/f-shaped-pattern.png)
 
-**We probably can't use this image directly on our webiste :(**
+**We probably can’t use this image directly on our website :(**
 
 ![An example of eye tracking and heatmaps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
 
 #### Characteristics
 
-The F-shaped pattern is a prominent example of how users scan through content and how most users don't read content completely.
+The F-shaped pattern is a prominent example of how users scan through content and how most users don’t read content completely.
 
 - Information at the top will generally have increased comprehension compared to information further down the page.
     - This is anecdotally true for all reading and layout patterns, but is best captured in a heatmap analysis.
@@ -90,7 +90,7 @@ All three of these reading patterns are relevant and useful when observed in iso
 
 ## Key concepts
 
-- No one layout or reading pattern is perfect, users will generally shift between different patterns depending on the content.
+- No particular layout or reading pattern is perfect, users will generally shift between different patterns depending on the content.
 - Adherence to specific reading pattern **is not** an excuse for lack of hierarchy within a layout.
     - Introducing hierarchical focal points using typography and color in tandem with reading patterns is often the most effective method to communicate the purpose and function of a layout, pattern, or component.
 - There is a fair amount of overlap between each pattern.

@@ -17,7 +17,7 @@ When considering internationalization (i18n), **start** and **end** are suitable
 
 In most scenarios, align buttons to the **left side** of a container or page.
 
-- This reinforces nautral reading patterns and a conversational "dialog-like" messaging strategy.
+- This reinforces natural reading patterns and a conversational "dialog-like" messaging strategy.
 - When combined with a consistent ordering method, the primary button is prioritized in the reading direction.
 - When considering different contexts, opting for a single method helps to create consistency between constrained and unconstrained components and patterns.
 !!!

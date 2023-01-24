@@ -4,7 +4,7 @@ When performing an action or function, users generally think from highest to low
 
 !!! Do
 
-Order buttons based on priority starting with the **highest** priority  action(usually by using a primary button) to **lowest** priority (either secondary or tertiary actions).
+Order buttons based on priority starting with the **highest** priority action (usually by using a primary button) to **lowest** priority (either secondary or tertiary actions).
 !!!
 
 ![Ordering from high priority](/assets/patterns/button-alignment/order-high-low-priority.png)
@@ -39,7 +39,7 @@ An often depicted alternative to this scenario is to **end** with the most impor
 - User edits the settings of a cluster
     - "Would you like to learn more about this action?" "No"
     - "Would you like to cancel?" "No"
-    - "Would you like to save the changes to this cluster?" "Yes, finally that's what I was trying to do all along."
+    - "Would you like to save the changes to this cluster?" "Yes, finally, that’s what I was trying to do all along."
 !!!
 
 !!! Do
@@ -53,7 +53,7 @@ An often depicted alternative to this scenario is to **end** with the most impor
 
 #### Exceptions
 
-An possible exception to this ordering method is in multi-step and progressive flows in which buttons fulfill both a functional purpose (create or edit something) as well as a navigational purpose (proceed, go back).
+A possible exception to this ordering method is in multi-step and progressive flows in which buttons fulfill both a functional purpose (create or edit something) as well as a navigational purpose (proceed, go back).
 
 - The **directionality** and positive outcome of the overall flow is reinforced by the button order and grouping
 - In a multi-step flow this type of pattern would persist on the page; the repetitiveness acts a form of consistency scoped to the feature the pattern is used in.
