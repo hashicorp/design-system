@@ -13,8 +13,14 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortOrder = this.args.sortOrder || 'asc';
   @tracked sortedMessageText = '';
 
+  /**
+   * Get a custom sort criteria
+   * @method getSortCriteria
+   * @return {string} The custom sort criteria
+   */
+
   get getSortCriteria() {
-    return `${this.sortBy}:${this.sortOrder}`;
+    return this.args.getSortCriteria ?? `${this.sortBy}:${this.sortOrder}`;
   }
 
   /**
@@ -111,6 +117,8 @@ export default class HdsTableIndexComponent extends Component {
     if (this.sortBy === column) {
       //invert the sort order
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else if (this.getSortCriteria) {
+      this.sortOrder = this.getSortCriteria;
     } else {
       this.sortBy = column;
       this.sortOrder = 'asc';
