@@ -15,10 +15,11 @@
     {{#if @icon}}
       <FlightIcon @name={{@icon}} class="hds-tabs__tab-icon" role="presentation" />
     {{/if}}
-    {{yield}}
-  </button>
 
-  {{#if @count}}
-    <Hds::BadgeCount @text={{@count}} @size="small" class="hds-tabs__tab-count" />
-  {{/if}}
+    {{yield}}
+
+    {{#if @count}}
+      <Hds::BadgeCount @text={{@count}} @size="small" class="hds-tabs__tab-count" role="presentation" />
+    {{/if}}
+  </button>
 </li>
