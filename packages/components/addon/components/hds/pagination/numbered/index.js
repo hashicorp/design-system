@@ -1,6 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { assert } from '@ember/debug';
+
+export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
 /**
  * Elliptize a list of pages
@@ -62,7 +65,7 @@ export const elliptize = ({ pages, current, limit = 7 }) => {
 };
 
 export default class HdsPaginationNumberedIndexComponent extends Component {
-  @tracked currentItemsPerPage = this.args.itemsPerPage;
+  @tracked currentItemsPerPage = this.args.itemsPerPage ?? this.pageSizes[0];
   @tracked totalPages = this.calculateTotalPages();
   @tracked currentPage = this.args.currentPage ?? 1;
 
@@ -102,6 +105,23 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
    */
   get itemsPerPage() {
     return this.currentItemsPerPage;
+  }
+
+  /**
+   * @param pageSizes
+   * @type {array of numbers}
+   * @description Set the page sizes users can select from.
+   * @default [10, 30, 50]
+   */
+  get pageSizes() {
+    let { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
+
+    assert(
+      `pageSizes argument must be an array. Received: ${pageSizes}`,
+      Array.isArray(pageSizes) === true
+    );
+
+    return pageSizes;
   }
 
   get itemsRangeStart() {
