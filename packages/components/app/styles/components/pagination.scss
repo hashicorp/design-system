@@ -59,6 +59,7 @@
   @media screen and (max-width: 1000px) {
     justify-content: center;
     order: -1;
+    // Force nav to occupy a full row so other components will wrap:
     width: 100%;
   }
 }
