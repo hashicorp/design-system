@@ -1,4 +1,37 @@
+## Usage
+
+### When to use
+
+When displaying additional information, context, or details about an object or element present on the main page.
+
+### When not to use
+
+- When requesting the user for information or feedback, use a [Modal](/components/modal).
+- When displaying overly complex information, consider moving the content to its own page.
+
 ## Size
+
+Medium
+
+<Hds::Flyout id="size-medium-flyout" open as |F|>
+  <F.Header>
+    Medium Flyout
+  </F.Header>
+  <F.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+  </F.Body>
+</Hds::Flyout>
+
+Large
+
+<Hds::Flyout @size="large" id="size-large-flyout" open as |F|>
+  <F.Header>
+    Large Flyout
+  </F.Header>
+  <F.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+  </F.Body>
+</Hds::Flyout>
 
 ### Best practices
 
@@ -13,40 +46,56 @@ The Flyout header features several properties to better communicate the purpose 
 
 ### Title icon
 
-- An icon paired with the title can help reinforce the purpose and function of the Flyout while also drawing the eye to the header and title area.
-- The communication of the purpose of the Flyout should not rely solely on an icon, instead the title should be explicit and pragmatic while the icon provides visual support.
+**With title icon**
 
-#### No title icon
+<Hds::Flyout::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
 
-#### Title icon
+**Without title icon**
+
+<Hds::Flyout::Header @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+
+#### Usage
+
+An icon paired with the title can help reinforce the purpose and function of the Flyout while also drawing the eye to the header and title area.
+
+The purpose and function of the Flyout should not rely solely on an icon, instead the title should be explicit and pragmatic while the icon provides visual support.
 
 ### Tagline
 
-- A **tagline** helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
-- A **tagline** should directly reference the page, feature title, or object to reinforce the purpose of the Flyout.
+**With tagline**
 
-#### Tagline
+<Hds::Flyout::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
 
-#### Tagline + icon
+**With tagline and icon**
 
-### Description
+<Hds::Flyout::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
 
-A header **description** provides additional detail information about the Flyout.
+A **tagline** helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
 
-#### With description
-
-#### With description + icon
+The **tagline** should directly reference the page, feature title, or object to reinforce the purpose of the Flyout.
 
 !!! Warning
 
 Even though adding a title icon and tagline can help the user better understand the content, both elements add visual weight which might not be suitable or necessary for all Flyouts.
 !!!
 
-## Body
+### Description
 
-The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported. 
+A **description** provides additional information about the Flyout.
 
-#### With custom content
+**With description**
+
+<Hds::Flyout::Header @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+<Hds::Flyout::Description>Description</Hds::Flyout::Description>
+
+**With description and icon**
+
+<Hds::Flyout::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+<Hds::Flyout::Description>Description</Hds::Flyout::Description>
+
+## Flyout body
+
+The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported.
 
 ## Dismissal
 
