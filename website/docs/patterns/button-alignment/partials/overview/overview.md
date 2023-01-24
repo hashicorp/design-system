@@ -1,11 +1,6 @@
-While the alignment, order, and grouping of buttons and actions might seem trivial, the impact on users is immediate and often occurs in experiences of high important and interruption.
+While the alignment, order, and grouping of buttons might seem trivial, the impact on users is immediate and often occurs in experiences of high important and interruption.
 
-These guidelines don't cover every scenario and are intended to aid in the decision-making process when determining how to organize buttons and actions. Different methods of alignment and ordering will result in different outcomes with pros and cons for each. What is most important is **consistency** across an application in how actions are aligned, ordered and grouped.
-
-!!! Info
-
-Button alignment isn't relevant for every component or pattern, but is rather aimed at functional elements; i.e. modals, forms, and page-level actions.
-!!!
+While these guidelines don’t cover every scenario, they are intended to aid in the decision-making process when determining how to organize buttons and actions. Different methods of alignment and ordering will result in different outcomes with pros and cons for each. What is most important is **consistency** across an application in how actions are aligned, ordered, and grouped.
 
 ## Constrained vs. unconstrained
 
@@ -25,11 +20,14 @@ This differentiation is important because the expectations from the user are dif
 
 Unconstrained generally refers to a more "static" experience that isn't triggered by a user action. This is often tied to a page-level function or a navigational element.
 
+<!-- TODO 
 **Insert some supporting images here**
+-->
+
 
 ## Layout and reading patterns
 
-When users read content, the pattern their eyes follow generally adheres to one or more reading pattern. By identifying and familiarizing ourselves  with these patterns we can better understand how the layout within our application, pattern, or component impacts comprehension and interpretation of the content.
+When users read content, the pattern their eyes follow generally adheres to one or more reading patterns. By identifying and familiarizing ourselves with these patterns we can better understand how the layout within our application, pattern, or component impacts comprehension and interpretation of the content.
 
 The three most common reading patterns are:
 

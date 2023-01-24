@@ -1,7 +1,7 @@
 ---
 title: Button alignment
 description: Guidelines for aligning, ordering, and grouping action buttons.
-status: released
+hidden: true
 ---
 
 <section data-tab="Overview">
