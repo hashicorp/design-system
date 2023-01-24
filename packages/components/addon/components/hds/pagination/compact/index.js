@@ -9,7 +9,7 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   constructor() {
     super(...arguments);
 
-    let { queryPrev, queryNext, queryFunction } = this.args;
+    let { queryFunction } = this.args;
 
     // This component works in two different ways, depending if we need to support
     // routing through links (`LinkTo`) for the "navigation controls", or not.
@@ -19,24 +19,13 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     // then the component behaves as "controlled", where the state is
     // initialized and updated using the arguments passed to it.
 
-    if (
-      queryPrev === undefined &&
-      queryNext === undefined &&
-      queryFunction === undefined
-    ) {
+    if (queryFunction === undefined) {
       this.hasRouting = false;
     } else {
-      if (queryFunction) {
-        assert(
-          '@queryFunction for "Hds::Pagination::Numbered" must be a function',
-          typeof queryFunction === 'function'
-        );
-      } else {
-        assert(
-          '@queryPrev and @queryNext for "Hds::Numbered" must be both or undefined or defined as objects/hashes (you can\'t have only one defined)',
-          typeof queryPrev === 'object' && typeof queryNext === 'object'
-        );
-      }
+      assert(
+        '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+        typeof queryFunction === 'function'
+      );
       this.hasRouting = true;
     }
   }
@@ -58,19 +47,8 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   }
 
   buildQueryParamsObject(page) {
-    let { queryPrev, queryNext, queryFunction } = this.args;
     if (this.hasRouting) {
-      if (queryFunction) {
-        return this.args.queryFunction(page, this.currentPage);
-      } else {
-        let queryParams;
-        if (page === 'prev') {
-          queryParams = Object.assign({}, this.routeQueryParams, queryPrev);
-        } else if (page === 'next') {
-          queryParams = Object.assign({}, this.routeQueryParams, queryNext);
-        }
-        return queryParams;
-      }
+      return this.args.queryFunction(page, this.currentPage);
     } else {
       return {};
     }
