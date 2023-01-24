@@ -938,7 +938,7 @@
   <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
     preserved across page reloads.</p>
 
-  <div class="dummy-pagination-table-demo">
+  <div class="dummy-pagination-table-demo" id="demo1-numbered-with-events">
     <Hds::Table
       @model={{this.paginatedData_demo1}}
       @columns={{array
@@ -974,7 +974,7 @@
   <h5 class="dummy-h5">Numbered - Routing-based pagination</h5>
   <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
     reloads using the query parameters stored in the URL.</p>
-  <div class="dummy-pagination-table-demo">
+  <div class="dummy-pagination-table-demo" id="demo2-numbered-with-routing">
     <Hds::Table
       @model={{this.paginatedData_demo2}}
       @columns={{array
@@ -1017,7 +1017,7 @@
   <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
     preserved across page reloads.</p>
 
-  <div class="dummy-pagination-table-demo">
+  <div class="dummy-pagination-table-demo" id="demo3-compact-with-events">
     <Hds::Table
       @model={{this.paginatedData_demo3}}
       @columns={{array
@@ -1053,7 +1053,7 @@
   <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
     reloads using the query parameters stored in the URL.</p>
 
-  <div class="dummy-pagination-table-demo">
+  <div class="dummy-pagination-table-demo" id="demo4-compact-with-routing">
     <Hds::Table
       @model={{this.paginatedData_demo4}}
       @columns={{array
