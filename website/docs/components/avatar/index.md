@@ -2,7 +2,8 @@
 title: Avatar
 description: An avatar
 caption: An avatar
-hidden: true
+navigation:
+  hidden: true
 previewImage: assets/illustrations/components/avatar.jpg
 ---
 

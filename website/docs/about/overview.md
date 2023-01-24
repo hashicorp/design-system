@@ -2,7 +2,8 @@
 title: Overview
 caption: Get an overview of the design system.
 description: Learn about the Helios Design System, why it exists, and the strategy behind the system.
-order: 101
+navigation:
+  order: 101
 ---
 
 ## What is a design system?

@@ -7,7 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=23645%3A53756&t=FL2rOHuh3Trg6gxA-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/flyout
 previewImage: assets/illustrations/components/flyout.jpg
-keywords: ['drawer', 'panel', 'side', 'modal']
+navigation:
+  keywords: ['drawer', 'panel', 'side', 'modal']
 ---
 
 <section data-tab="Guidelines">

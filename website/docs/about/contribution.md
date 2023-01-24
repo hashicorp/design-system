@@ -1,6 +1,7 @@
 ---
 title: Contribution
-order: 104
+navigation:
+  order: 104
 ---
 
 !!! Info

@@ -1,6 +1,7 @@
 ---
 title: EmptyState
-hidden: true
+navigation:
+  hidden: true
 ---
 
 <section data-tab="Code">
