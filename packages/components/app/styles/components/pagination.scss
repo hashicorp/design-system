@@ -37,14 +37,12 @@
 .hds-pagination-info {
   grid-area: info;
   justify-self: flex-start;
+  margin-right: var(--token-pagination-child-spacing-horizontal);
   white-space: nowrap;
 
   @media screen and (max-width: 1000px) {
-    margin:
-      var(--token-pagination-child-spacing-vertical)
-      var(--token-pagination-child-spacing-horizontal)
-      0
-      var(--token-pagination-child-spacing-horizontal);
+    margin-top: var(--token-pagination-child-spacing-vertical);
+    margin-left: var(--token-pagination-child-spacing-horizontal);
   }
 }
 
@@ -175,13 +173,11 @@
   grid-area: selector;
   align-items: center;
   justify-self: flex-end;
+  margin-left: var(--token-pagination-child-spacing-horizontal);
 
   @media screen and (max-width: 1000px) {
-    margin:
-      var(--token-pagination-child-spacing-vertical)
-      var(--token-pagination-child-spacing-horizontal)
-      0
-      var(--token-pagination-child-spacing-horizontal);
+    margin-top: var(--token-pagination-child-spacing-vertical);
+    margin-right: var(--token-pagination-child-spacing-horizontal);
   }
 
   > label { white-space: nowrap; }
