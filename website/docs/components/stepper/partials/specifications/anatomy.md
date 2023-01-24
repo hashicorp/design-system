@@ -1,4 +1,4 @@
-## Anataomy
+## Anatomy
 
 ![Step Indicator Anatomy](/assets/components/stepper/stepper-anatomy.png)
 

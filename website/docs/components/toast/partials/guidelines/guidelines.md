@@ -48,7 +48,7 @@
 
 Use color logically.
 
-- **Nuetral** to provide general information to the user about an ongoing process.
+- **Neutral** to provide general information to the user about an ongoing process.
 - **Highlight** use interchangeably with neutral when more prominence is needed. Use it sparingly.
 - **Success** to inform users that an action has been completed successfully.
 - **Warning** to indicate that an action was executed successfully but may have triggered a related issue. Provide guidance and actions if possible.

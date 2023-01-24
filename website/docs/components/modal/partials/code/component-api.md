@@ -14,7 +14,7 @@
     Callback function invoked when the modal is closed.
   </C.Property>
   <C.Property @name="isDismissDisabled" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in an unsubmitted form). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
+    Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in a form that hasn't been submitted). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

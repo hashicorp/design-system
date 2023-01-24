@@ -7,5 +7,5 @@
 | Label | Required |
 | Helper text | Optional |
 | Selected value | Options: empty (default), isSelected |
-| Base control | Requried |
+| Base control | Required |
 | Error message | Triggered by system |

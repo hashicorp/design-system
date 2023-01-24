@@ -77,7 +77,7 @@ Label, helper text, and error content are passed to the field as yielded compone
   <C.Property @name="<[F].Label>" @type="yielded component">
     A container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/base-elements/) component.
     <br/><br/>
-    Tthe `for` attribute of the label is automatically generated, using the `controlId` value of the control.
+    The `for` attribute of the label is automatically generated, using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
     A container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/base-elements/) component.

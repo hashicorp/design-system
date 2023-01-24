@@ -19,7 +19,7 @@ We don’t recommend using a nested tab structure, but if you must, don’t go b
 
 !!!
 
-when nesting tabs, regardless of if your content area consists of contained or non-contained components; we recommed:
+when nesting tabs, regardless of if your content area consists of contained or non-contained components; we recommend:
 
 - 24px above each Tabs instance
 - 16px between each Tabs instance and its corresponding content area
@@ -42,7 +42,7 @@ When the content area does not consist of a contained component (ie. text block,
 
 ## Overflow
 
-Tabs will fill 100% of the parent container, unless explicitly set to something else. When there are too many tabs to fit within the TabList, a horizontal scrollbar will help the user navigation hiddne tabs.
+Tabs will fill 100% of the parent container, unless explicitly set to something else. When there are too many tabs to fit within the TabList, a horizontal scrollbar will help the user navigation hidden tabs.
 
 !!! Info
 

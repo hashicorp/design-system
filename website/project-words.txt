@@ -27,9 +27,12 @@ viewports
 wcag
 wireframing
 workramp
+duplicative
+borderless
 
 # Component-specific
 dont
+SELECTEDMULTIPLE
 
 # Debatable
 callout

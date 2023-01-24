@@ -148,7 +148,7 @@ The height of the list container is automatically determined based on the conten
   <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="HMAC Key" @text="91ee1e8ef65b337f0e70d793f456c71d" />
   <Hds::Dropdown::ListItem::Separator />
   <Hds::Dropdown::ListItem::Title @text="Manage" />
-  <Hds::Dropdown::ListItem::Interactive @text="Regenrate HMAC key" @color="action" @icon="reload" />
+  <Hds::Dropdown::ListItem::Interactive @text="Regenerate HMAC key" @color="action" @icon="reload" />
   <Hds::Dropdown::ListItem::Separator />
   <Hds::Dropdown::ListItem::Interactive @text="Integrating with Terraform Cloud" @color="action" @icon="external-link" />
   <Hds::Dropdown::ListItem::Interactive @text="About Terraform Cloud" @color="action" @icon="external-link" />

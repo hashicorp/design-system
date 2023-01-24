@@ -129,5 +129,5 @@ The content will appear at the bottom, after title, description and actions, and
 
 !!! Info
 
-This method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the Design Systems Team to check that the solution is conformant and satifies the accessibility criteria.
+This method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the Design Systems Team to check that the solution is conformant and satisfies the accessibility criteria.
 !!!

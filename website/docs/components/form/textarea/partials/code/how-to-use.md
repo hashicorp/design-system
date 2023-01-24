@@ -172,7 +172,7 @@ By default the textarea control width is set to fill the parent container. It’
 
 ### Form::Textarea::Base
 
-The "base" element is intended **only** for those rare cases where the "field" variant can’t be used, and a custom implementation needs to be done. For this reason we will not go too much in detail on how to use it: most of the explanations for "field" variat apply also to the "base" variant of the component, and for further details refer to the [Component API](#component-api) section on this page, or speak with a member of the Design Systems Team.
+The "base" element is intended **only** for those rare cases where the "field" variant can’t be used, and a custom implementation needs to be done. For this reason we will not go too much in detail on how to use it: most of the explanations for "field" variant apply also to the "base" variant of the component, and for further details refer to the [Component API](#component-api) section on this page, or speak with a member of the Design Systems Team.
 
 Note: when the "base" textarea is used, the developer is completely responsible for the correct implementation of the form control, including its accessibility conformance.
 

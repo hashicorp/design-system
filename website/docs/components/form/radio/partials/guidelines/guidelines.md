@@ -109,11 +109,11 @@ We recommend showing **all** applicable error messages directly under their corr
   </G.Radio::Field>
   <G.Radio::Field as |F|>
     <F.Label>Destroy this version</F.Label>
-    <F.HelperText>Version x is permenantly destroyed and cannot be read or recovered later.</F.HelperText>
+    <F.HelperText>Version x is permanently destroyed and cannot be read or recovered later.</F.HelperText>
   </G.Radio::Field>
   <G.Radio::Field as |F|>
     <F.Label>Destroy all versions</F.Label>
-    <F.HelperText>All versions and metadata are permenantly destroyed and cannot be read or recovered later.</F.HelperText>
+    <F.HelperText>All versions and metadata are permanently destroyed and cannot be read or recovered later.</F.HelperText>
   </G.Radio::Field>
   <G.Error>Select a delete option</G.Error>
 </Hds::Form::Radio::Group>
@@ -143,8 +143,8 @@ Labels are part of the radio’s selectable area, making them interactive elemen
 - Avoid overt politeness; don’t use "please" or "thank you" in your messaging.
 - [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html): If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.
 - [3.3.3 Error Suggestion (AA)](https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion.html): If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.
-- [3.3.4 Error Prevention (Legal, Financial, Data) (AA)](https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data.html): For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-contrallable data in data storage systems, or that submit user test responses, at least one of the following is true: submissions are reversible, data is checked and the user is provided an opportunity to correct them, a mechanism is available for reviewing, confirming, and correcting the information before finalizing the submission.
-- [4.1.3 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html): In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without recieving focus.
+- [3.3.4 Error Prevention (Legal, Financial, Data) (AA)](https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data.html): For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: submissions are reversible, data is checked and the user is provided an opportunity to correct them, a mechanism is available for reviewing, confirming, and correcting the information before finalizing the submission.
+- [4.1.3 Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html): In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
 
 Refer to [HashiCorp’s Style, Language, and Voice Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit?usp=sharing) for more content tips.
 
