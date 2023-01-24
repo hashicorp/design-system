@@ -5,7 +5,7 @@
     Sets the width of the modal.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "warning" "critical" }} @default="neutral">
-    Sets the color scheme for the modal header elements: icon, tagline and title.
+    Sets the color scheme for the modal header elements: icon, tagline, and title.
   </C.Property>
   <C.Property @name="onOpen" @type="function">
     Callback function invoked when the modal is opened.
@@ -45,7 +45,7 @@ It is a container that yields its content as the title of the modal dialog.
 
 The body of the Modal is an unstyled, generic container that yields as the main content of the modal dialog.
 
-When the yielded content exceeds the available space, a srollbar is introduced to the container.
+When the yielded content exceeds the available space, a scrollbar is introduced to the container.
 
 This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
 

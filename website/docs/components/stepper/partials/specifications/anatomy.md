@@ -1,19 +1,19 @@
 ## Anatomy
 
-![Step Indicator Anatomy](/assets/components/stepper/stepper-anatomy.png)
-
 ### Step indicator
+
+![Step Indicator Anatomy](/assets/components/stepper/step-indicator-anatomy.png =212x*)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Text             | Required (indicates the step sequence)                       |
-| Status            | Required |
-| Is Interactive      | Optional (defaults to false)       |
+| Text             | Required (indicates the step sequence)          |
+| Container        | Required                                        |
 
 
 ### Task indicator
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Status            | Required |
-| Is Interactive      | Optional (defaults to false)       |
+![Task Indicator Anatomy](/assets/components/stepper/task-indicator-anatomy.png =226x*)
+
+| Element          | Usage                              |
+|------------------|------------------------------------|
+| Icon indicator   | Required                           |

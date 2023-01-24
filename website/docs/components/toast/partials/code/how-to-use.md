@@ -1,6 +1,8 @@
+While we provide visual styling for this component, the product team must implement other features like placement, transitions, and what happens on dismiss (e.g., with an Ember addon).
+
 ## How to use this component
 
-The most basic invocation requires the `type` arguments to be passed, and an `onDismiss` callback function, along with the `title` and/or `description` content. By default a `neutral` toast is generated (with a neutral color applied and a specific icon visible).
+The basic invocation requires the `type` argument, an `onDismiss` callback function, and the `title` and/or `description` content. By default a `neutral` Toast is generated.
 
 ```handlebars
 <Hds::Toast @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -9,12 +11,9 @@ The most basic invocation requires the `type` arguments to be passed, and an `on
 </Hds::Toast>
 ```
 
-!!! Critical 
+### Content
 
-The actual implementation of what happens to the alert when the `onDismiss` function is invoked is left to the developer.
-!!!
-
-If needed, you can pass only `title` or only `text` as argument.
+Optionally, you can pass only `title` or only `description`.
 
 ```handlebars
 <Hds::Toast @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -30,7 +29,7 @@ If needed, you can pass only `title` or only `text` as argument.
 
 ### Color
 
-A different color can be applied to the toast using the `color` argument. This will also determine the icon default used in the toast unless it is overwritten.
+A different color can be applied to the Toast using the `color` argument. This will determine the default icon used in the Toast, unless overwritten.
 
 ```handlebars
 <Hds::Toast @color="success" @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -41,7 +40,7 @@ A different color can be applied to the toast using the `color` argument. This w
 
 ### Icon
 
-A different icon can be used in the toast using the `icon` argument.
+A different icon can be used in the Toast using the `icon` argument. This accepts any [Helios icon](/foundations/icon/library) name.
 
 ```handlebars
 <Hds::Toast @color="success" @icon="bulb" @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -51,7 +50,7 @@ A different icon can be used in the toast using the `icon` argument.
 
 ```
 
-If instead you want to completely hide the icon you have to pass a `false` value to the `icon` argument.
+If you need to hide the icon, pass `false` to the `icon` argument.
 
 ```handlebars
 <Hds::Toast @color="success" @icon={{false}} @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -62,7 +61,7 @@ If instead you want to completely hide the icon you have to pass a `false` value
 
 ### Actions
 
-Actions can optionally be passed into the component using one of the suggested `Button` or `Link::Standalone` yielded components.
+Actions can be passed to the component using one of the suggested `Button` or `Link::Standalone` contextual components.
 
 ```handlebars
 <Hds::Toast @color="critical" @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -75,7 +74,9 @@ Actions can optionally be passed into the component using one of the suggested `
 
 ### Structured content
 
-When needed the `Description` contextual component can contain logic, rich HTML or structured content.
+When needed, the `Description` contextual component can contain logic, rich HTML, or structured content.
+
+We apply styling for a few simple HTML elements (e.g., `strong`, `em`, `a`, `code/pre`). If using other elements, you’ll need to style them accordingly.
 
 ```handlebars
 <Hds::Toast @color="success" @onDismiss={{this.yourOnDismissFunction}} as |T|>
@@ -93,11 +94,6 @@ When needed the `Description` contextual component can contain logic, rich HTML 
 </Hds::Toast>
 ```
 
-!!! Info
-
-For a few simple HTML elements (like `strong`, `em`, `a`, `code/pre`) we apply styling. If you use other elements you will need to take care of styling them accordingly.
-!!!
-
 You can pass more than one `D.Description` contextual components to have multiple description lines.
 
 ```handlebars
@@ -110,11 +106,11 @@ You can pass more than one `D.Description` contextual components to have multipl
 
 ### Generic content
 
-it’s also possible to insert custom content in the `Generic` contextual component.
+Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Product teams will need to implement spacing, layout, and styling for generic content.
 
-!!! Info
+!!! Warning
 
-The content will appear at the bottom, after title, description and actions, and the developer will need to take care of spacing, layout and styling of the custom content in this case.
+Use this method with caution and as an escape hatch. Contact the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
 !!!
 
 ```handlebars
@@ -126,8 +122,3 @@ The content will appear at the bottom, after title, description and actions, and
   </T.Generic>
 </Hds::Toast>
 ```
-
-!!! Info
-
-This method should be used only in special cases and as an escape hatch. If you find yourself in need to use it, we suggest to speak with the Design Systems Team to check that the solution is conformant and satisfies the accessibility criteria.
-!!!

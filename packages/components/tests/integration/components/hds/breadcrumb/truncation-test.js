@@ -20,6 +20,13 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
     assert.dom('#test-breadcrumb-truncation button').exists();
   });
 
+  test('the toggle button should have an aria-label', async function (assert) {
+    await render(
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
+    );
+    assert.dom('#test-breadcrumb-truncation button').hasAttribute('aria-label');
+  });
+
   // CONTENT
 
   test('it should not render the content', async function (assert) {

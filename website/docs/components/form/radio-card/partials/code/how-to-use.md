@@ -1,17 +1,17 @@
 ## How to use this component
 
-The "group" component creates:
+`Form::RadioCard::Group` creates:
 
 - a `<fieldset>` container
 - a `<legend>` element
 - a list of rendered `<Form::RadioCard>` components (with `aria-describedby` attributes automatically generated).
 
-The `@name` argument offers an easy way to provide the same name for all the radio controls with a single declaration.
-
-!!! Info
+!!! Warning
 
 The `<Hds::Form::RadioCard::Group>` component does not provide the logic for handling the mutually exclusive nature of radio controls (when a radio card is checked, any other radio cards with the same name that were previously checked become unchecked). You can implement this yourself in an `\{{on "change" this.onChange}}` function or manage the `checked` state of radio cards by updating the underlying data.
 !!!
+
+The `@name` argument offers an easy way to provide the same name for all the radio controls with a single declaration.
 
 ```handlebars
 <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
@@ -39,7 +39,11 @@ The `<Hds::Form::RadioCard::Group>` component does not provide the logic for han
 
 ### Custom content
 
-You can define custom content using the `Generic` block and a custom width for the cards using the `maxWidth` argument. It is also possible to use multiple `Badge` component with custom icon or color.
+Customizable options include: 
+
+- Defining custom content using the `Generic` block
+- Defining a custom width using the `maxWidth` argument
+- Adding multiple [`Badge`](/components/badge) components
 
 ```handlebars
 <Hds::Form::RadioCard::Group @name="radio-card-custom-example" as |G|>

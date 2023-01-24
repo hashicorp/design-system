@@ -2,6 +2,7 @@
 title: Flyout
 description: Displays additional details and information about an item or object overlaid on the main page content.
 status: experimental
+previewImage: assets/illustrations/components/flyout.jpg
 hidden: true
 ---
 

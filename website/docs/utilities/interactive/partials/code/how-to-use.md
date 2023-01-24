@@ -53,17 +53,17 @@ All the standard arguments for the `<LinkTo>`/`<LinkToExternal>` components are 
 Provide a `@route` argument to generate a `<LinkTo>` component.
 
 ```handlebars{data-execute=false}
-<Hds::Interactive @route="components" >
+<Hds::Interactive @route="components">
     your content here
 </Hds::Interactive>
 ```
 
 #### For `<LinkToExternal>`
 
-When the `@route` is external to the current engine , provide the `@isRouteExternal` parameter to generate a `<LinkToExternal>` component. Learn more about [LinkToExternal](https://ember-engines.com/docs/link-to-external).
+When the `@route` is external to the current engine, provide the `@isRouteExternal` parameter to generate a `<LinkToExternal>` component. Learn more about [LinkToExternal](https://ember-engines.com/docs/link-to-external).
 
 ```handlebars{data-execute=false}
-<Hds::Interactive @route="components" @isRouteExternal={{true}} >
+<Hds::Interactive @route="components" @isRouteExternal={{true}}>
     your content here
 </Hds::Interactive>
 ```

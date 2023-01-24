@@ -1,8 +1,10 @@
+This component takes advantage of the `sort-by` helper provided in [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers). While some of the examples provided on our documentation use some of the other helpers provided in this addon, they are not required to use Helios. Read the [configuration information](https://github.com/DockYard/ember-composable-helpers#configuration) provided by the addon if you wish to customize which helpers are included in your own app.
+
 ## How to use this component
 
 ### Static Table (non-sortable)
 
-If you have your own content and don’t want to use a model, you can still benefit from the components themselves. Here is an example of such an invocation in a template:
+If you don’t have or want to use a model, a basic invocation could look like:
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -27,7 +29,7 @@ If you have your own content and don’t want to use a model, you can still bene
 
 ### Simple Table with model defined (non-sortable)
 
-In this invocation of the table component, you would define the data model and insert your own content into the `:head` and `:body` blocks. Here is an example of such an invocation in a template:
+To use a table with a model, define the data model and insert your own content into the `:head` and `:body` blocks.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -50,7 +52,7 @@ In this invocation of the table component, you would define the data model and i
 </Hds::Table>
 ```
 
-For documentation purposes, we imitated fetching data from an API and working with that as our data model.
+For documentation purposes, we‘ve imitated fetching data from an API and are working with that as our data model.
 
 ```javascript
 import Route from '@ember/routing/route';
@@ -72,7 +74,13 @@ export default class ComponentsTableRoute extends Route {
 
 For the sortable table, the invocation and use is a little bit different:
 
-1\. Shape the data model for use; in this example we've placed it in the page's route. In this example, we're identifying the column headers (keys) and also capitalizing them. Each column object has two pieces: a `key`\-- used for the model, the `sortingKeys` and `sortBy`; and the `label`\-- used in the table header cells.
+1. Shape the data model for use; we’ve placed it in the page‘s route.
+
+    - In this example, we’re identifying the column headers (keys) and also capitalizing them. 
+    - Each column object has two pieces: 
+      
+        - a `key`\-- used for the model, the `sortingKeys`, and `sortBy`
+        - a `label`\-- used in the table header cells
 
 ```javascript
 // app/routes/components/table.js
@@ -101,7 +109,7 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
-2\. Invoke the Hds::Table component in your template file.
+2. Invoke `Hds::Table` in your template file.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -119,6 +127,8 @@ export default class ComponentsTableRoute extends Route {
   </:body>
 </Hds::Table>
 ```
+
+#### Indicate which columns are sortable
 
 If you want, you can indicate that only specific columns should be sortable.
 
@@ -140,6 +150,8 @@ If you want, you can indicate that only specific columns should be sortable.
 </Hds::Table>
 ```
 
+#### Pre-sorting columns
+
 You can also indicate that a specific column should be pre-sorted.
 
 ```handlebars{data-execute=false}
@@ -160,6 +172,8 @@ You can also indicate that a specific column should be pre-sorted.
   </:body>
 </Hds::Table>
 ```
+
+##### Pre-sorting direction
 
 You can also indicate that a specific column should be pre-sorted in a specific direction.
 
@@ -183,7 +197,9 @@ You can also indicate that a specific column should be pre-sorted in a specific 
 </Hds::Table>
 ```
 
-Here's a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
+#### Complex sortable Table
+
+Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
