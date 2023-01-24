@@ -10,14 +10,14 @@
 
 - When a user action is not immediately required.
 - In place of an alert, instead use a [Toast](/components/toast) or other alert type.
-- For complex editing, long forms, and experiences with a high level of detail. In these cases the task or function should exist at the page level.
+- For complex editing, long forms, and experiences with a high level of detail. In these cases, the task or function should exist at the page level.
 
 ## Size
 
 Small
 
-<Hds::Modal @size="small" id="size-small-Modal" open as |M|>
-  <M.Header as |H|>
+<Hds::Modal @size="small" id="size-small-modal" open as |M|>
+  <M.Header>
     Small Modal
   </M.Header>
   <M.Body>
@@ -33,8 +33,8 @@ Small
 
 Medium
 
-<Hds::Modal @size="medium" id="size-medium-Modal" open as |M|>
-  <M.Header as |H|>
+<Hds::Modal @size="medium" id="size-medium-modal" open as |M|>
+  <M.Header>
     Small Modal
   </M.Header>
   <M.Body>
@@ -50,9 +50,9 @@ Medium
 
 Large
 
-<Hds::Modal @size="large" id="size-small-Modal" open as |M|>
-  <M.Header as |H|>
-    Small Modal
+<Hds::Modal @size="large" id="size-large-modal" open as |M|>
+  <M.Header>
+    Large Modal
   </M.Header>
   <M.Body>
     <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
@@ -75,7 +75,7 @@ Large
 ### Neutral
 
 <Hds::Modal @size="medium" @color="neutral" open as |M|>
-  <M.Header as |H|>
+  <M.Header>
     Neutral Modal
   </M.Header>
   <M.Body>
@@ -98,7 +98,7 @@ Large
 ### Warning
 
 <Hds::Modal @size="medium" @color="warning" open as |M|>
-  <M.Header as |H|>
+  <M.Header>
     Warning Modal
   </M.Header>
   <M.Body>
@@ -123,7 +123,7 @@ This action may impact areas of the application outside of the scope of the curr
 ### Critical
 
 <Hds::Modal @size="medium" @color="critical" open as |M|>
-  <M.Header as |H|>
+  <M.Header>
     Critical Modal
   </M.Header>
   <M.Body>
@@ -161,7 +161,7 @@ This action may impact areas of the application outside of the scope of the curr
 - The only property that should be changed in the actions within the footer is the text property, except in the case of a **critical** or destructive function (in which the button should reflect the destructive action).
 - Action buttons should remain consistent with the variants defined in the number of actions in the footer; **primary**, **secondary**, and **tertiary**, in that order.
 - Action buttons should not use an icon within the context of the Modal. In the context of a Modal the function should be apparent through the use of other elements like **title**, **tagline**, and **icon**.
-- Most Modals should use two inverse actions; or two actions which perform opposite functions (i.e. “ok/cancel”, “yes/no”).
+- Most Modals should use two inverse actions; or two actions that perform opposite functions (i.e. “ok/cancel”, “yes/no”).
 
 #### One action
 
@@ -230,19 +230,19 @@ This action may impact areas of the application outside of the scope of the curr
 
 - Adhering to an inverse action pattern is more pragmatic and straightforward to the user. This pattern clearly communicates the outcome and intended results of whatever action the user chooses.
 - Most Modals should have a low to medium level of complexity and promote interaction with a simple "yes/no" or "ok/cancel".
-- If the complexity of the Modal breaks this pattern, consider moving the function being performed by the Modal to it’s own page.
+- If the complexity of the Modal breaks this pattern, consider moving the function being performed by the Modal to its own page.
 
-## Title
+## Modal header
 
 ### Title icon
 
-**with Title icon**
+**With title icon**
 
 <Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 
-**without Title icon**
+**Without title icon**
 
-<Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+<Hds::Modal::Header @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 
 #### Usage
 
@@ -254,17 +254,17 @@ The purpose and function of the Modal should not rely solely on an icon, instead
 
 ### Tagline
 
-**with Tagline**
+**With tagline**
 
 <Hds::Modal::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 
-**with Tagline + Icon**
+**With tagline and icon**
 
 <Hds::Modal::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 
 #### Usage
 
-A **tagline** helps the user maintain the context of the feature, function, or flow the Modal was triggered by. Since a Modal disables and obscures the main page content, adding a **tagline** can help the user understand the relationship between the Modal and the main page content.
+A **tagline** helps the user maintain the context of the feature, function, or flow the Modal was triggered by. Since a Modal disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Modal and the main page content.
 
 The **tagline** should directly reference the page, function, or feature title to reinforce the relationship of the Modal to the main page content.
 
@@ -297,9 +297,9 @@ The following actions will dismiss or close the Modal except if `isDismissDisabl
 
 ![Dismissal options for the Modal](/assets/components/modal/modal-dismissal-actions.png)
 
-If a user attempts to dismiss a Modal that contains a partially filled form or other interactive element, ensure that the following criteria are met to promote a positive user experience:
+If a user attempts to dismiss a Modal that contains a partially filled form or other interactive elements, ensure that the following criteria are met to promote a positive user experience:
 
-- The default browser notification is being triggered calling attention to a potential mis-step.
+- The default browser notification is being triggered calling attention to a potential misstep.
 - Partially filled form data is persisted within the application to prevent duplicative work.
 
 !!! Info
