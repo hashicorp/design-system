@@ -1,12 +1,10 @@
-## Conformance
+## Conformance rating
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
 `Form::Select` is conformant when used as directed.
 
-## Accessibility
-
-### Mouse
+## Mouse interaction
 
 Hover
 
@@ -24,52 +22,41 @@ Click to select OptionList/Item
 
 ![Image of the selected state of a item in the OptionList](/assets/components/form/select/accessibility/mouse/select-click-to-select.png)
 
-### Keyboard
+## Keyboard interaction
 
-Focus
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
 
-<div>
-  <Hds::Badge @color="neutral" @type="filled" @text="Tab" @size="small" />
-</div>
+Focus on tab
 
 ![Example image of focusing on the select with tab on a keyboard](/assets/components/form/select/accessibility/keyboard/select-focus.png)
 
-Open OptionList
+<Doc::Badge @type="neutral">Spacebar</Doc::Badge>
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-down" /></Doc::Badge>
 
-<div>
-  <Hds::Badge @color="neutral" @type="filled" @text="Spacebar" @size="small" />
-  <Hds::Badge @color="neutral" @type="filled" @text="↓" @size="small" />
-</div>
+Open OptionList
 
 ![Example image of selecting an item in the OptionList with spacebar](/assets/components/form/select/accessibility/keyboard/select-spacebar.png)
 
-Move between items
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-up" /></Doc::Badge>
+<Doc::Badge @type="neutral"><FlightIcon @name="arrow-down" /></Doc::Badge>
 
-<div>
-  <Hds::Badge @color="neutral" @type="filled" @text="↑" @size="small" />
-  <Hds::Badge @color="neutral" @type="filled" @text="↓" @size="small" />
-</div>
+Move between items
 
 ![Example image of moving between items with up and down arrow keys](/assets/components/form/select/accessibility/keyboard/select-arrow-keys.png)
 
-Select OptionList/Item
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
 
-<div>
-  <Hds::Badge @color="neutral" @type="filled" @text="Enter" @size="small" />
-</div>
+Select OptionList/Item
 
 ![Example image of selecting an item in an OptionList with enter](/assets/components/form/select/accessibility/keyboard/select-enter.png)
 
-Close with changing
+<Doc::Badge @type="neutral">Esc</Doc::Badge>
 
-<div>
-  <Hds::Badge @color="neutral" @type="filled" @text="Esc" @size="small" />
-</div>
+Close with changing
 
 ![Example image of closing the select with the escape key](/assets/components/form/select/accessibility/keyboard/select-focus.png)
 
-
-#### Applicable WCAG Success Criteria (Reference)
+## Applicable WCAG Success Criteria
 
 This section is for reference only, some descriptions have been truncated for brevity. The `Form::Select::Base` variation of this component is conditionally conformant; that is, it is not conformant until it has an accessible name. Otherwise, this component intends to conform to the following WCAG Success Criteria:
 
