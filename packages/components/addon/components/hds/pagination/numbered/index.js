@@ -88,7 +88,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   constructor() {
     super(...arguments);
 
-    let { queryParamPage, queryParamPageSize, queryFunction } = this.args;
+    let { queryFunction } = this.args;
 
     // This component works in two different ways, depending if we need to support
     // routing through links (`LinkTo`) for the "navigation controls", or not.
@@ -99,32 +99,19 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     // then the component behaves as "controlled", where the state is
     // initialized and updated using the arguments passed to it.
 
-    if (
-      queryParamPage === undefined &&
-      queryParamPageSize === undefined &&
-      queryFunction === undefined
-    ) {
+    if (queryFunction === undefined) {
       this.hasRouting = false;
     } else {
-      if (queryFunction) {
-        assert(
-          '@queryFunction for "Hds::Pagination::Numbered" must be a function',
-          typeof queryFunction === 'function'
-        );
-      } else {
-        assert(
-          '@queryParamPage and @queryParamPageSize for "Hds::Pagination::Numbered" must be both or undefined or defined as strings (you can\'t have only one defined)',
-          typeof queryParamPage === 'string' &&
-            typeof queryParamPageSize === 'string'
-        );
-      }
-      this.hasRouting = true;
-
+      assert(
+        '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+        typeof queryFunction === 'function'
+      );
       assert(
         '@currentPage and @itemsPerPage for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing',
         typeof this.args.itemsPerPage === 'number' &&
           typeof this.args.currentPage === 'number'
       );
+      this.hasRouting = true;
     }
 
     assert(
@@ -239,16 +226,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   buildQueryParamsObject(page, pageSize) {
-    let { queryParamPage, queryParamPageSize, queryFunction } = this.args;
     if (this.hasRouting) {
-      if (queryFunction) {
-        return this.args.queryFunction(page, pageSize);
-      } else {
-        let queryParams = Object.assign({}, this.routeQueryParams);
-        queryParams[queryParamPage] = page;
-        queryParams[queryParamPageSize] = pageSize;
-        return queryParams;
-      }
+      return this.args.queryFunction(page, pageSize);
     } else {
       return {};
     }
