@@ -74,6 +74,15 @@ body {
       pointer-events: none;
     }
   }
+
+  .hds-flyout[open] {
+    position: relative;
+    z-index: initial;
+    display: flex;
+    height: 40vh;
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
 }
 
 // PERCY

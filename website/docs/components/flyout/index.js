@@ -12,6 +12,11 @@ export default class Index extends Component {
   }
 
   @action
+  noop() {
+    //
+  }
+
+  @action
   activateFlyout(flyout) {
     this[flyout] = true;
     document.body.style.overflow = 'hidden';
