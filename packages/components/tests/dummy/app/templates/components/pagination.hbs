@@ -590,6 +590,7 @@
         @totalItems=\{{this.demoTotalItems}}
         @itemsPerPage=\{{this.demoCurrentPageSize}}
         @currentPage=\{{this.demoCurrentPage}}
+        @pageSizes=\{{this.demoPageSizes}}
         @route=\{{this.demoRouteName}}
         @queryFunction=\{{this.demoQueryFunctionNumbered}}
       />
@@ -617,6 +618,7 @@
     @totalItems={{this.demoTotalItems}}
     @itemsPerPage={{this.demoCurrentPageSize}}
     @currentPage={{this.demoCurrentPage}}
+    @pageSizes={{this.demoPageSizes}}
     @route={{this.demoRouteName}}
     @queryFunction={{this.demoQueryFunctionNumbered}}
   />
@@ -923,4 +925,160 @@
   <h5 class="dummy-h5">Pagination::Nav::Ellipsis</h5>
   <p class="dummy-text-small">Base</p>
   <Hds::Pagination::Nav::Ellipsis />
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Examples of paginated tables</h4>
+
+  {{! ============================================ }}
+  {{! ===== DEMO #1 - NUMBERED - WITH EVENTS ===== }}
+  {{! ============================================ }}
+
+  <h5 class="dummy-h5">Numbered - Events-based pagination</h5>
+  <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
+    preserved across page reloads.</p>
+
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo1}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @density={{if (eq this.currentPageSize_demo1 30) "short" "medium"}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.demoTotalItems}}
+      @itemsPerPage={{this.currentPageSize_demo1}}
+      @pageSizes={{array 5 10 30}}
+      @onPageChange={{this.onPageChange_demo1}}
+      @onPageSizeChange={{this.onPageSizeChange_demo1}}
+    />
+  </div>
+
+  {{! ============================================= }}
+  {{! ===== DEMO #2 - NUMBERED - WITH ROUTING ===== }}
+  {{! ============================================= }}
+
+  <h5 class="dummy-h5">Numbered - Routing-based pagination</h5>
+  <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
+    reloads using the query parameters stored in the URL.</p>
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo2}}
+      @columns={{array
+        (hash key="id" label="ID" isSortable="true")
+        (hash key="name" label="Name" isSortable="true")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @sortBy={{this.currentSortBy_demo2}}
+      @sortOrder={{this.currentSortOrder_demo2}}
+      @onSort={{this.onTableSort_demo2}}
+      @density={{if (eq this.currentPageSize_demo2 30) "short" "medium"}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.demoTotalItems}}
+      @itemsPerPage={{this.currentPageSize_demo2}}
+      @pageSizes={{array 5 10 30}}
+      @currentPage={{this.currentPage_demo2}}
+      @route={{this.demoRouteName}}
+      @queryFunction={{this.consumerQueryFunction_demo2}}
+      @onPageChange={{this.genericHandlePageChange}}
+      @onPageSizeChange={{this.genericHandlePageSizeChange}}
+    />
+  </div>
+
+  {{! =========================================== }}
+  {{! ===== DEMO #3 - COMPACT - WITH EVENTS ===== }}
+  {{! =========================================== }}
+
+  <h5 class="dummy-h5">Compact - Events-based pagination</h5>
+  <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
+    preserved across page reloads.</p>
+
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo3}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Compact
+      @isDisabledPrev={{this.isDisabledPrev_demo3}}
+      @isDisabledNext={{this.isDisabledNext_demo3}}
+      @onPageChange={{this.onPageChange_demo3}}
+    />
+  </div>
+
+  {{! ============================================ }}
+  {{! ===== DEMO #4 - COMPACT - WITH ROUTING ===== }}
+  {{! ============================================ }}
+
+  {{! Notice: this demo emulates the current implementation in Cloud UI }}
+
+  <h5 class="dummy-h5">Compact - Routing-based pagination</h5>
+  <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
+    reloads using the query parameters stored in the URL.</p>
+
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo4}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Compact
+      @route={{this.demoRouteName}}
+      @queryFunction={{this.consumerQueryFunction_demo4}}
+      @isDisabledPrev={{this.isDisabledPrev_demo4}}
+      @isDisabledNext={{this.isDisabledNext_demo4}}
+      @onPageChange={{this.genericHandlePageChange}}
+    />
+  </div>
+
 </section>

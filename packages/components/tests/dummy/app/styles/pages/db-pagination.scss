@@ -58,3 +58,14 @@
     width: fit-content;
   }
 }
+
+// paginated tables demo
+
+.dummy-pagination-table-demo {
+  margin: 18px auto 36px;
+
+  .hds-table + .hds-pagination {
+    margin-top: 12px;
+  }
+}
+

@@ -51,37 +51,42 @@ export default class PaginationController extends Controller {
     'demoCurrentCursor',
     'demoExtraParam',
     // ---------
-    // 'currentPage_demo2',
-    // 'currentPageSize_demo2',
-    // 'currentSortBy_demo2',
-    // 'currentSortOrder_demo2',
-    // 'prevToken_demo4',
-    // 'nextToken_demo4',
+    'currentPage_demo2',
+    'currentPageSize_demo2',
+    'currentSortBy_demo2',
+    'currentSortOrder_demo2',
+    'prevCursor_demo4',
+    'nextCursor_demo4',
   ];
 
   @service router;
 
   @tracked showHighlight = false;
+  // -----
   @tracked demoCurrentPage = 1;
   @tracked demoCurrentPageSize = 5;
   @tracked demoCurrentCursor = btoa(`next__1`);
+  @tracked demoPageSizes = [5, 10, 30];
+  @tracked demoExtraParam = '';
   // -----
-  @tracked currentPage_demo1 = 2;
+  @tracked currentPage_demo1 = 1;
   @tracked currentPageSize_demo1 = 5;
-  @tracked currentPage_demo2 = 2;
-  @tracked currentPageSize_demo2 = 30;
+  // -----
+  @tracked currentPage_demo2 = 1;
+  @tracked currentPageSize_demo2 = 5;
   @tracked currentSortBy_demo2;
   @tracked currentSortOrder_demo2;
-  @tracked demoExtraParam = '';
+  // -----
   @tracked currentCursor_demo3 = btoa(`next__1`);
-  @tracked newPrevCursor_demo3 = null;
-  @tracked newNextCursor_demo3 = btoa(`next__6`);
   @tracked currentPageSize_demo3 = 5;
-  @tracked prevToken_demo4 = null;
-  @tracked nextToken_demo4 = btoa(`next__1`);
-  @tracked newPrevCursor_demo4;
-  @tracked newNextCursor_demo4;
+  // -----
+  @tracked prevCursor_demo4 = null;
+  @tracked nextCursor_demo4 = btoa(`next__1`);
   @tracked currentPageSize_demo4 = 5;
+
+  // =============================
+  // "HOW TO USE" SECTION
+  // =============================
 
   get demoRouteName() {
     // eg. 'components.pagination';
@@ -101,7 +106,7 @@ export default class PaginationController extends Controller {
     };
   }
 
-  get newPrevNextCursors() {
+  get demoNewPrevNextCursors() {
     let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.demoCurrentCursor,
       this.demoCurrentPageSize,
@@ -114,7 +119,7 @@ export default class PaginationController extends Controller {
   }
 
   get demoQueryFunctionCompact() {
-    let { newPrevCursor, newNextCursor } = this.newPrevNextCursors;
+    let { newPrevCursor, newNextCursor } = this.demoNewPrevNextCursors;
     return (page) => {
       return {
         demoCurrentCursor: page === 'prev' ? newPrevCursor : newNextCursor,
@@ -124,14 +129,192 @@ export default class PaginationController extends Controller {
   }
 
   get demoIsDisabledPrev() {
-    let { newPrevCursor } = this.newPrevNextCursors;
+    let { newPrevCursor } = this.demoNewPrevNextCursors;
     return newPrevCursor === null;
   }
 
   get demoIsDisabledNext() {
-    let { newNextCursor } = this.newPrevNextCursors;
+    let { newNextCursor } = this.demoNewPrevNextCursors;
     return newNextCursor === null;
   }
+
+  // =============================
+  // "SHOWCASE" SECTION
+  // =============================
+
+  // DEMO #1
+
+  get paginatedData_demo1() {
+    const start = (this.currentPage_demo1 - 1) * this.currentPageSize_demo1;
+    const end = this.currentPage_demo1 * this.currentPageSize_demo1;
+    return this.model.records.slice(start, end);
+  }
+
+  @action
+  onPageChange_demo1(page, pageSize) {
+    this.currentPage_demo1 = page;
+    this.currentPageSize_demo1 = pageSize;
+  }
+
+  @action
+  onPageSizeChange_demo1(pageSize) {
+    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    this.currentPage_demo1 = 1;
+    this.currentPageSize_demo1 = pageSize;
+  }
+
+  // DEMO #2
+
+  get consumerQueryFunction_demo2() {
+    return (page, pageSize) => {
+      return {
+        currentPage_demo2: page,
+        currentPageSize_demo2: pageSize,
+        currentSortBy_demo2: this.currentSortBy_demo2,
+        currentSortOrder_demo2: this.currentSortOrder_demo2,
+        demoExtraParam: 'hello',
+      };
+    };
+  }
+
+  @action
+  onTableSort_demo2(sortBy, sortOrder) {
+    this.currentSortBy_demo2 = sortBy;
+    this.currentSortOrder_demo2 = sortOrder;
+    // should we reset the selected page?
+    // this.currentPage_demo2 = 1;
+  }
+
+  get paginatedData_demo2() {
+    const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
+    const end = this.currentPage_demo2 * this.currentPageSize_demo2;
+    return this.model.records.slice(start, end);
+  }
+
+  // DEMO #3
+
+  get newPrevNextCursors_demo3() {
+    let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
+      this.currentCursor_demo3,
+      this.currentPageSize_demo3,
+      this.model.records
+    );
+    return {
+      newPrevCursor,
+      newNextCursor,
+    };
+  }
+
+  get isDisabledPrev_demo3() {
+    let { newPrevCursor } = this.newPrevNextCursors_demo3;
+    return newPrevCursor === null;
+  }
+
+  get isDisabledNext_demo3() {
+    let { newNextCursor } = this.newPrevNextCursors_demo3;
+    return newNextCursor === null;
+  }
+
+  @action
+  onPageChange_demo3(page) {
+    // get the next/prev cursors
+    let { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo3;
+    // update the "current" cursor
+    if (page === 'prev') {
+      this.currentCursor_demo3 = newPrevCursor;
+    } else if (page === 'next') {
+      this.currentCursor_demo3 = newNextCursor;
+    }
+  }
+
+  get paginatedData_demo3() {
+    const { direction, cursorIndex } = getCursorParts(
+      this.currentCursor_demo3,
+      this.model.records
+    );
+
+    let start;
+    let end;
+    let pageSize = this.currentPageSize_demo3;
+    if (direction === 'prev') {
+      end = cursorIndex;
+      start = cursorIndex - pageSize;
+    } else {
+      start = cursorIndex;
+      end = cursorIndex + pageSize;
+    }
+    return this.model.records.slice(start, end);
+  }
+
+  // DEMO #4 (this emulates the current implementation in Cloud UI)
+
+  get newPrevNextCursors_demo4() {
+    let cursor;
+    // In cloud UI they use two distinct query params for the cursor depending if it's "prev" or "next"
+    if (this.prevCursor_demo4) {
+      cursor = this.prevCursor_demo4;
+    } else if (this.nextCursor_demo4) {
+      cursor = this.nextCursor_demo4;
+    }
+    return getNewPrevNextCursors(
+      cursor,
+      this.currentPageSize_demo3,
+      this.model.records
+    );
+  }
+
+  get consumerQueryFunction_demo4() {
+    let { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo4;
+    return (page) => {
+      return {
+        prevCursor_demo4: page === 'prev' ? newPrevCursor : undefined,
+        nextCursor_demo4: page === 'next' ? newNextCursor : undefined,
+        demoExtraParam: 'hello',
+      };
+    };
+  }
+
+  get isDisabledPrev_demo4() {
+    let { newPrevCursor } = this.newPrevNextCursors_demo4;
+    return newPrevCursor === null;
+  }
+
+  get isDisabledNext_demo4() {
+    let { newNextCursor } = this.newPrevNextCursors_demo4;
+    return newNextCursor === null;
+  }
+
+  get paginatedData_demo4() {
+    let token;
+    if (this.prevCursor_demo4) {
+      token = this.prevCursor_demo4;
+    } else if (this.nextCursor_demo4) {
+      token = this.nextCursor_demo4;
+    }
+
+    const { direction, cursorIndex } = getCursorParts(
+      token,
+      this.model.records
+    );
+
+    let start;
+    let end;
+    let pageSize = this.currentPageSize_demo4;
+    if (direction === 'prev') {
+      end = cursorIndex;
+      start = cursorIndex - pageSize;
+    } else {
+      start = cursorIndex;
+      end = cursorIndex + pageSize;
+    }
+
+    // return data
+    return this.model.records.slice(start, end);
+  }
+
+  // =============================
+  // GENERIC HANDLERS
+  // =============================
 
   @action
   toggleHighlight() {
