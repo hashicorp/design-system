@@ -44,7 +44,7 @@ The Gutenberg diagram refers to a pattern the eyes follow when moving or scannin
 #### Characteristics
 
 - The users eyes progress through the content on an **axis of orientation** which moves further away from the start edge on each line or break in the content
-- Content that falls into the weak fallow area receives less attention
+- Content falls into strong and weak _fallow areas_ where it receives elss attention and lacks comprehension compared to content along the axis of orientation
 - This pattern indicates that important content and elements should be placed upon the **reading gravity path**
 - This pattern is most prevalent in content with little to no typographic hierarchy (i.e. long-form paragraphs)
 - This pattern is considered "in harmony" with natural reading direction
@@ -61,17 +61,13 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
 #### Characteristics
 
-- There are _technically_ no fallow areas (areas that receive less attention or lack comprehension) as in the Gutenberg pattern, though this is not always the case in practice.
+- There are _technically_ no fallow areas as in the Gutenberg pattern, though this is not always the case in practice.
 - This type of pattern is most prevalent in task-based functions or sequences of elements; i.e. a form or series of onboarding steps.
 - This pattern assumes that users read through _all_ of the content sequentially.
 
 ### F-shaped pattern
 
 An F-shaped pattern loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Neilsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
-
-![Visual example of an F-shaped pattern](/assets/patterns/button-alignment/f-shaped-pattern.png)
-
-**We probably can’t use this image directly on our website :(**
 
 ![An example of eye tracking and heatmaps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
 
