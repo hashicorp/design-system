@@ -60,8 +60,13 @@ While striping is not required, we recommend it for the added usability benefits
 When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
 
 #### Benefits of striping
+
+!!! Info
+
+Striped rows use a subtle background color to differentiate from non-striped rows. Ensure that nested components within striped rows continue to meet contrast accessibility criteria.
+!!!
+
 - Striping makes data within the Table easier to read by increasing differentiation between rows.
-    - Ensure that nested components within striped rows continue to meet contrast accessibility criteria.
 - Striping increases scannability, especially for large datasets that result in many rows.
 - Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
 
