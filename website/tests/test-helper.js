@@ -11,7 +11,6 @@ setApplication(Application.create(config.APP));
 setRunOptions({
   rules: {
     'color-contrast': { enabled: false },
-    list: { enabled: false },
   },
 });
 
