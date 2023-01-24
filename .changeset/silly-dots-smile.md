@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-Moves icon inside of tab for WCAG conformance
+Moves icon and count inside of tab (button element) for WCAG conformance
