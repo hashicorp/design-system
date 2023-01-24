@@ -7,6 +7,7 @@ status: experimental
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18709%3A42011&t=pIE459t8qucXP9uR-1
   github: 
+previewImage: assets/illustrations/components/pagination.jpg
 ---
 
 <section data-tab="Guidelines">
