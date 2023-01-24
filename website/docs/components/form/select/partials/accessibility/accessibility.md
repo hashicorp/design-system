@@ -4,7 +4,7 @@
 
 `Form::Select` is conformant when used as directed.
 
-## Accessibility
+## Accessibility Considerations
 
 ### Mouse
 
@@ -67,7 +67,6 @@ Close with changing
 </div>
 
 ![Example image of closing the select with the escape key](/assets/components/form/select/accessibility/keyboard/select-focus.png)
-
 
 #### Applicable WCAG Success Criteria (Reference)
 
