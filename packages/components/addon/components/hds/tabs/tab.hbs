@@ -1,9 +1,5 @@
 {{! template-lint-disable require-context-role no-invalid-role }}
 <li class={{this.classNames}} ...attributes role="presentation">
-  {{#if @icon}}
-    <FlightIcon @name={{@icon}} class="hds-tabs__tab-icon" />
-  {{/if}}
-
   <button
     class="hds-tabs__tab-button hds-typography-body-200 hds-font-weight-medium"
     role="tab"
@@ -16,6 +12,9 @@
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
   >
+    {{#if @icon}}
+      <FlightIcon @name={{@icon}} class="hds-tabs__tab-icon" role="presentation" />
+    {{/if}}
     {{yield}}
   </button>
 
