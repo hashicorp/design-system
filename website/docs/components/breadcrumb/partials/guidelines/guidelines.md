@@ -28,7 +28,7 @@
 The last item in a the breadcrumb should always be the current page, and it should not be interactive.
 
 <div>
-	<Hds::Breadcrumb>
+	<Hds::Breadcrumb aria-label="breadcrumb with current page">
   	<Hds::Breadcrumb::Item @text="Level 1" />
   	<Hds::Breadcrumb::Item @text="Level 2" />
   	<Hds::Breadcrumb::Item @text="Level 3" />
@@ -39,7 +39,7 @@ The last item in a the breadcrumb should always be the current page, and it shou
 ### With icon
 
 <div>
-	<Hds::Breadcrumb>
+	<Hds::Breadcrumb aria-label="breadcrumb with icon">
   	<Hds::Breadcrumb::Item @text="Level 1" @icon="org" />
   	<Hds::Breadcrumb::Item @text="Level 2" @icon="folder" />
   	<Hds::Breadcrumb::Item @text="Level 3" @icon="user" />
@@ -49,7 +49,7 @@ The last item in a the breadcrumb should always be the current page, and it shou
 ### Truncation
 
 <div>
-	<Hds::Breadcrumb>
+	<Hds::Breadcrumb aria-label="breadcrumb with truncation">
 		<Hds::Breadcrumb::Item @text="Level 1" />
 		<Hds::Breadcrumb::Truncation>
 			<Hds::Breadcrumb::Item @text="Level 2" />
@@ -70,7 +70,7 @@ The truncated menu will include all of the hidden Breadcrumb Items. Clicking on 
 We recommend only adding icons to the **first three items** to avoid unnecessary visual noise. 
 
 !!! Do
-<Hds::Breadcrumb>
+<Hds::Breadcrumb aria-label="breadcrumb recommendations">
   <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
   <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
   <Hds::Breadcrumb::Item @text="Level three" @icon="org" />
@@ -80,7 +80,7 @@ We recommend only adding icons to the **first three items** to avoid unnecessary
 !!!
 
 !!! Dont
-<Hds::Breadcrumb>
+<Hds::Breadcrumb aria-label="breadcrumb example to avoid">
   <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
   <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
   <Hds::Breadcrumb::Item @text="Level three" @icon="server-cluster" />
@@ -93,7 +93,7 @@ We recommend only adding icons to the **first three items** to avoid unnecessary
 Icons shouldn’t be placed randomly within the list. If the preceding item doesn’t include an icon, the next item shouldn’t include an icon either.
 
 !!! Do
-<Hds::Breadcrumb>
+<Hds::Breadcrumb aria-label="breadcrumb icon placement">
   <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
   <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
   <Hds::Breadcrumb::Item @text="Level three" @icon="org" />
@@ -103,7 +103,7 @@ Icons shouldn’t be placed randomly within the list. If the preceding item does
 !!!
 
 !!! Dont
-<Hds::Breadcrumb>
+<Hds::Breadcrumb aria-label="breadcrumb icon placement to avoid">
   <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
   <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
   <Hds::Breadcrumb::Item @text="Level three" />
@@ -120,7 +120,7 @@ We offer various options for truncation due to depth or lack of space.
 
 “Truncate middle” houses any number of Breadcrumb Items under a menu in the middle of the Breadcrumb. The number of items displayed before and after truncation depends on the use case and space available within the application.  We recommend this method if needing to truncate the Breadcrumb.
 
-<Hds::Breadcrumb>
+<Hds::Breadcrumb aria-label="breadcrumb truncation middle example">
   <Hds::Breadcrumb::Item @text="Level one" />
   <Hds::Breadcrumb::Item @text="Level two" />
   <Hds::Breadcrumb::Truncation>
@@ -134,7 +134,7 @@ We offer various options for truncation due to depth or lack of space.
 
 “Truncate squeeze” reduces the persistent Breadcrumb Items to the first and last/current items and hides the other items under a menu. We recommend only using this method when space is limited, such as on mobile viewports.
 
-<Hds::Breadcrumb>
+<Hds::Breadcrumb aria-label="breadcrumb truncation squeeze example">
   <Hds::Breadcrumb::Item @text="Level one" />
   <Hds::Breadcrumb::Truncation>
     <Hds::Breadcrumb::Item @text="Level two"/>
@@ -146,7 +146,7 @@ We offer various options for truncation due to depth or lack of space.
 
 Each text-based item can truncate using a pixel-based max-width. We recommend this option for items with long text strings.
 
-<Hds::Breadcrumb @itemsCanWrap={{false}}>
+<Hds::Breadcrumb @itemsCanWrap={{false}} aria-label="breadcrumb width based">
   <Hds::Breadcrumb::Item @text="Level one" />
   <Hds::Breadcrumb::Item @text="Level two" />
   <Hds::Breadcrumb::Item @text="Level three truncation" @maxWidth="120px" />
