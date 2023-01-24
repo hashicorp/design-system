@@ -42,7 +42,7 @@
 
   {{#if this.showSizeSelector}}
     <Hds::Pagination::SizeSelector
-      @sizes={{@pageSizes}}
+      @pageSizes={{this.pageSizes}}
       @selectedSize={{this.itemsPerPage}}
       @onChange={{this.onPageSizeChange}}
     />
