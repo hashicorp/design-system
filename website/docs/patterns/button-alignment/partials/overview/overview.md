@@ -53,7 +53,7 @@ The Gutenberg diagram refers to a pattern the eyes follow when moving or scannin
 
 A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
-1. The users eyes start in the top left and move horizontally to the right
+1. The user’s eyes start in the top left and move horizontally to the right
 2. Upon reaching the end (or terminal) of the line, the eyes move diagonally to the next line
 3. The readers eyes end at the bottom right of the content
 
