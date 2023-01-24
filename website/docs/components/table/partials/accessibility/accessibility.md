@@ -7,7 +7,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ## Focus in Tables
 
-- Focus will only move through sortable headers and will skip over non-sortable headers as they aren‘t interactive. 
+- Focus will only move through sortable headers and will skip over non-sortable headers as they aren't interactive. 
 - Interactive elements within cells will receive focus, but entire cells and entire rows will not. 
 
 !!! Do

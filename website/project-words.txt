@@ -29,6 +29,7 @@ wireframing
 workramp
 duplicative
 borderless
+datagrid
 
 # Component-specific
 dont
