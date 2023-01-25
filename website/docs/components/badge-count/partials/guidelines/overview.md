@@ -8,7 +8,7 @@ To display version numbers (e.g., “v1.2.0”), collection counts in tabs, or s
 
 ### When not to use
 
-To display non-numeric information, consider [Badge](/components/badge/).
+To display non-numeric information, consider [Badge](/components/badge).
 
 ### Type
 
@@ -35,4 +35,4 @@ There are three sizes: small, medium, and large.
 
 ## Related
 
-- [Badge](/components/badge/)
+- [Badge](/components/badge)
