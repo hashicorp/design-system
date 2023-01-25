@@ -9,7 +9,7 @@ In the first one, the user is presented with a list of navigation controls ("pre
 When pagination is invoked directly using one of these two components, it will **automatically**:
 
 - provide the correct responsive layout for the entire pagination and its sub-parts
-- manage the "current page" status across the different sub-components it's made of (based on the arguments provided to it and its children).
+- manage the "current page" status across the different sub-components it’s made of (based on the arguments provided to it and its children).
 - when one of the "navigation controls" is clicked, a callback function (if provided) is called, and a route (if provided) update is triggered.
 - when the "page size" is changed via the provided selector, it will automatically recalculate the total number of pages to display to the user.
 
@@ -41,11 +41,11 @@ The basic invocation of the "numbered" pagination requires the `@totalItems` arg
 <Hds::Pagination::Numbered @totalItems={{40}} />
 ```
 
-By default the "Info" and "SizeSelector" are displayed, and the component takes care of updating the values and the states of the different elements, according to the user interactions with the component.
+By default the "Info" and "SizeSelector" sub-components are displayed, and the component takes care of updating the values and the states of the different elements, according to the user interactions with the component.
 
 ### Extra arguments
 
-It's possible to customize the "Info", "Controls", and "SizeSelector" providing additional arguments to them. For more details about these parameters, refer to the "Components API" section.
+It’s possible to customize the "Info", "Controls", and "SizeSelector" components by providing additional arguments to them. For more details about these parameters, refer to the "Component API" section.
 
 Below is an example of some of these extra arguments:
 
@@ -61,7 +61,7 @@ Below is an example of some of these extra arguments:
 
 ### Truncation
 
-When there is a large number of items and consequently the number of pages is also large, by default the component automatically "truncates" the number of visible pages (using "ellipsises"):
+When there is a large number of items and consequently the number of pages is also large, by default the component automatically "truncates" the number of visible pages (using "ellipses"):
 
 ```handlebars
 <Hds::Pagination::Numbered
@@ -69,7 +69,7 @@ When there is a large number of items and consequently the number of pages is al
 />
 ```
 
-If necessary, it's possible to disable this functionality using a specific `@isTruncated` argument:
+If necessary, it’s possible to disable this functionality using the `@isTruncated` argument:
 
 ```handlebars
 <Hds::Pagination::Numbered
@@ -123,19 +123,19 @@ get demoQueryFunctionNumbered() {
 }
 ```
 
-When the routing parameters are provided, the "navigation controls" are rendered as links and if the user clicks on one of them the page URL is automatically updated. This means that the component's state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer's code (otherwise there would be confliting states).
+When the routing parameters are provided, the "navigation controls" are rendered as links and if the user clicks on one of them the page URL is automatically updated. This means that the component’s state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer’s code (otherwise there would be conflicting states).
 
-In this case, the component doesn't update its internal "state" but the value of the state variables (eg. `currentPage/currentPageSize`) is **always** determined by the consumer's controller code via the component's arguments (most of the times, they are directly connected to the query parameters in the URL).
+In this case, the component doesn’t update its internal "state" but the value of the state variables (eg. `currentPage/currentPageSize`) is **always** determined by the consumer’s controller code via the component’s arguments (usually, they are directly connected to the query parameters in the URL).
 
-The reason for using a consumer-side function to determine the `query` argument is because it's dynamic (it depends on the value of the `page` variable) and gives consumers the ability to specify their own query parameters (they will likely be different case by case).
+The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).
 
-Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.)
+Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users’ actions (eg. for logging, tracking, etc.)
 
 ## How to use the "Compact" pagination
 
 By default, the basic use of the pagination provides:
 
-The basic invocation of the "compact" pagination doesn't require any arguments (apart from the event/routing handlers, see below):
+The basic invocation of the "compact" pagination doesn’t require any arguments (apart from the event/routing handlers, see below):
 
 ```handlebars
 <Hds::Pagination::Compact />
@@ -143,11 +143,11 @@ The basic invocation of the "compact" pagination doesn't require any arguments (
 
 Renders to:
 
-In this variant only the "prev" and "next" navigation controls are displayed.
+In this variant, only the "prev" and "next" navigation controls are displayed.
 
 ### Extra arguments
 
-If necessary, it's possible to hide the labels in the controls:
+If necessary, it’s possible to hide the control labels:
 
 ```handlebars
 <Hds::Pagination::Compact @showLabels={{false}} />
@@ -191,10 +191,10 @@ get demoQueryFunctionCompact() {
 }
 ```
 
-When the routing parameters are provided, the "prev/next" controls are rendered as links and if the user clicks on one of them the page URL is automatically updated. This means that the component's state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer's code (otherwise there would be confliting states).
+When the routing parameters are provided, the "prev/next" controls are rendered as links and the page URL is automatically updated when the user clicks them. This means that the component’s state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer’s code (otherwise there would be conflicting states).
 
-In this case, the component doesn't update its internal "state" but the value of the state variables is **always** determined by the consumer's controller code via the component's arguments (most of the times, they are directly connected to the query parameters in the URL).
+In this case, the component doesn’t update its internal "state" but the value of the state variables is **always** determined by the consumer’s controller code via the component’s arguments (usually, they are directly connected to the query parameters in the URL).
 
-The reason for using a consumer-side function to determine the `query` argument is because it's dynamic (it depends on the value of the `page/cursor` variable) and gives consumers the ability to specify their own query parameters (they will likely be different case by case).
+The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page/cursor` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).
 
 Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.)

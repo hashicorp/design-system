@@ -61,13 +61,13 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="route/model/models/replace">
-These are the parameters that are passed down as arguments to the `Hds::Pagination::Arrow` child components, and from them to the `Hds::Interactive` component (used internally). For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/).
+These are the parameters that are passed down as arguments to the `Hds::Pagination::Arrow` child components, and from them to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="queryFunction" @type="function">
 A function that returns an object that can be provided as `query` argument for the routing, and that is passed down to the to the child components together with the other routing parameters. The function receives as argument one of two possible values: `prev` / `next`.
 </C.Property>
 <C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @values={{array "true" "false" }} @default="false">
-Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it's always rendered as an HTML `<button>` element.
+Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it’s always rendered as an HTML `<button>` element.
 </C.Property>
 <C.Property @name="showLabels" @type="boolean" @values={{array "true" "false" }} @default="true">
 Used to control the visibility of the "prev/next" text labels.
@@ -92,7 +92,7 @@ The "start" value of the range in the informational text.
 The "end" value of the range in the informational text.
 </C.Property>
 <C.Property @name="totalItems" @required="true" @type="string|number">
-The "out of" total items in the informational text. It's not required if `showTotalItems` is set to `false`.
+The "out of" total items in the informational text. Not required if `showTotalItems` is set to `false`.
 </C.Property>
 <C.Property @name="showTotalItems" @type="boolean" @values={{array "true" "false" }} @default="true">
 Controls the visibility of the total items in the informational text.
@@ -106,7 +106,7 @@ Controls the visibility of the total items in the informational text.
 Sets the "direction" of the icon and label in the control.
 </C.Property>
 <C.Property @name="route/query/model/models/replace">
-These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/).
+These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="disabled" @type="boolean" @values={{array "true" "false" }} @default="false">
 If the control is disabled. Notice: when the control is disabled, it's always rendered as an HTML `Button` element.
@@ -131,7 +131,7 @@ The value that should go in the control as page number.
 If the page has a "selected" visual state (usually used to highlight the current page).
 </C.Property>
 <C.Property @name="route/query/model/models/replace">
-These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/).
+These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="onClick" @type="function">
 Callback function invoked (if provided) when the control is clicked.
