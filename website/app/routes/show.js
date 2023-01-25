@@ -83,10 +83,8 @@ export default class ShowRoute extends Route {
           'status',
           'links',
           'layout',
-          'hidden',
-          'order',
-          'previewImage',
-          'keywords',
+          // 'previewImage', @Brian I think we don't need this in the layout, right? or is it needed somehow the <head> metadata?
+          'navigation',
         ];
         frontmatterAttributes.forEach((attribute) => {
           if (attribute in res.data.attributes) {
