@@ -3,7 +3,7 @@
 The Select component has two different variants with their own APIs:
 
 - `Form::Select::Base` - the base component: just the `<select>` control.
-- `Form::Select::Field` - the field parent component: the `<select>` control, with label, helper text and error messaging (in a wrapping container).
+- `Form::Select::Field` - the field parent component: the `<select>` control, with label, helper text, and error messaging (in a wrapping container).
 
 ### Form::Select::Base
 
