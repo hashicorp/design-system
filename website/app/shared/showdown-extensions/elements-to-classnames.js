@@ -56,6 +56,22 @@ export const elementsToClassNames = Object.keys(mapElementsToClassNames).map(
         }
       }
 
+      if (element === 'a') {
+        const match = attrs.match(/href="(.*)"/);
+        if (window) {
+          window.globalDocListOfLinks = window.globalDocListOfLinks ?? {};
+          const link = match[1];
+          const page = window.document.URL;
+          if (!window.globalDocListOfLinks[link]) {
+            window.globalDocListOfLinks[link] = [];
+          }
+          if (!window.globalDocListOfLinks[link].includes(page)) {
+            window.globalDocListOfLinks[link].push(page);
+          }
+        }
+        console.log(`>>> found ${match[1]}`);
+      }
+
       return `<${element} ${attrs}>`;
     },
   })
