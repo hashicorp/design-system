@@ -2,12 +2,16 @@
 
 !!! Info
 
-Depending on how you’re processing the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, we omit these specific arguments in the examples, for sake of simplicity.
+**Examples have been simplified**
+
+We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
 !!!
 
-There are different possible ways to use the `Form::Radio` component: using the "base" variant (essentially just the control itself), using the "field" variant (the control plus label, helper text and error), or using the "group" variant (a list of fields with legend, helper text and error).
+There are three ways to use the Radio component:
 
-The "group" one is the one that likely you will want to use, because of the nature of the "radio" control (always used in a list of options). The "base" and "field" ones are to be used if and when you need to achieve custom layouts or have special use cases not covered by the other variant.
+- `Form::Radio::Base` - the base component: the `<input>` control
+- `Form::Radio::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::Radio::Group` - the group component: a `<legend>` (optional), a list of fields, and error messaging
 
 {{! ================= }} {{! ===== GROUP ===== }} {{! ================= }}
 
@@ -15,11 +19,11 @@ The "group" one is the one that likely you will want to use, because of the natu
 
 The basic invocation creates:
 
-- a `<fieldset>` container
-- a `<legend>` element
-- a list of rendered `<Form::Radio::Field>` components
+- a `<fieldset>` container.
+- a `<legend>` element.
+- a list of rendered `<Form::Radio::Field>` components.
 
-The `@name` argument offers an easy way to provide the same name for all the radio controls in a single place.
+The `@name` argument offers an easy way to provide the same name for all the Radio controls in a single place.
 
 ```handlebars
 <Hds::Form::Radio::Group @name="datacenter" as |G|>
@@ -41,7 +45,25 @@ The `@name` argument offers an easy way to provide the same name for all the rad
 
 #### Layout
 
-You can choose between two different layout orientations, to better fit your spacing requirements.
+To better fit your spacing requirements, choose between two different layout orientations: `vertical` or `horizontal`.
+
+```handlebars
+<Hds::Form::Radio::Group @name="datacenter-demo2" as |G|>
+  <G.Legend>Choose datacenter</G.Legend>
+  <G.Radio::Field as |F|>
+    <F.Label>NYC1</F.Label>
+  </G.Radio::Field>
+  <G.Radio::Field as |F|>
+    <F.Label>DC1</F.Label>
+  </G.Radio::Field>
+  <G.Radio::Field as |F|>
+    <F.Label>NYC2</F.Label>
+  </G.Radio::Field>
+  <G.Radio::Field as |F|>
+    <F.Label>SF1</F.Label>
+  </G.Radio::Field>
+</Hds::Form::Radio::Group>
+```
 
 ```handlebars
 <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo2" as |G|>
@@ -61,37 +83,16 @@ You can choose between two different layout orientations, to better fit your spa
 </Hds::Form::Radio::Group>
 ```
 
-#### Helper text
-
-You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID` of the helper text element.
-
-```handlebars
-<Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
-  <G.Legend>Choose datacenter</G.Legend>
-  <G.HelperText>Select which datacenter to use for the initial setup.</G.HelperText>
-  <G.Radio::Field as |F|>
-    <F.Label>NYC1</F.Label>
-  </G.Radio::Field>
-  <G.Radio::Field as |F|>
-    <F.Label>DC1</F.Label>
-  </G.Radio::Field>
-  <G.Radio::Field as |F|>
-    <F.Label>NYC2</F.Label>
-  </G.Radio::Field>
-  <G.Radio::Field as |F|>
-    <F.Label>SF1</F.Label>
-  </G.Radio::Field>
-</Hds::Form::Radio::Group>
-```
-
 #### Extra content in legend and helper text
-
-The `Legend` and `HelperText` contextual components used in the "group" yield their content: meaning you can pass not just plain text, but also structured content.
 
 !!! Warning
 
-If a link is used within a legend, helper text, or error text, it will not be presented as a link to a user with a screen reader; only the text content is read out. We recommend not using links, but if you need to do so sparingly and include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
+
+The `Legend` and `HelperText` contextual components used in the Group yield their content. This means you can also pass structured content.
+
+When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
 
 ```handlebars
 <Hds::Form::Radio::Group @layout="horizontal" @name="method-demo1" as |G|>
@@ -109,9 +110,9 @@ If a link is used within a legend, helper text, or error text, it will not be pr
 </Hds::Form::Radio::Group>
 ```
 
-#### Required / Optional
+#### Required vs. optional
 
-Use the `@isRequired` and `@isOptional` arguments to add a visual indication that a choice is "required" or "optional".
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
 <Hds::Form::Radio::Group @isRequired={{true}} @layout="horizontal" @name="method-demo2" as |G|>
@@ -133,7 +134,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Validation
 
-If an input is not valid, provide the user with an error message using the `Error` contextual component.
+To indicate a field is invalid, provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo4" as |G|>
@@ -154,9 +155,9 @@ If an input is not valid, provide the user with an error message using the `Erro
 </Hds::Form::Radio::Group>
 ```
 
-#### "Field" items
+#### Field items
 
-A "group" of radios is made of one or more "field" radio components (`Form::Radio::Field`). So all the arguments, attributes and modifiers that can be passed to the "field" component, can be passed to the same items in the "group" declaration.
+A group of Radios is made of one or more `Form::Radio::Field` components. All the arguments, attributes, and modifiers that can be passed to `Form::Radio::Field` can be passed to the same items in the Group declaration.
 
 ```handlebars
 <Hds::Form::Radio::Group @layout="vertical" @name="datacenter-demo5" as |G|>
@@ -184,17 +185,17 @@ A "group" of radios is made of one or more "field" radio components (`Form::Radi
 
 ### Form::Radio::Field and Form::Radio::Base
 
-The "base" and "field" variants are intended for rare cases where the "group" variant can’t be used and a custom implementation is needed. Most of the details for the "field" variant also apply to the "base" variant, but see the [Component API](#component-api) for more details.
+The Base and Field components are intended for rare cases where the Group component can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
 !!! Warning
 
-`Form::Radio::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
+`Form::Checkbox::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
 !!!
 
-The basic invocation or a "field" component creates:
+The basic invocation for a Field component creates:
 
-- a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute
-- a `<input type="radio">` control with an automatically generated `ID` attribute
+- a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute.
+- a `<input type="radio">` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Radio::Field name="data-center" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
@@ -202,7 +203,7 @@ The basic invocation or a "field" component creates:
 </Hds::Form::Radio::Field>
 ```
 
-The invocation of a "basic" component creates an `<input type="radio">` control with an automatically generated `ID` attribute.
+The basic invocation for a Base component creates an `<input type="radio">` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Radio::Base

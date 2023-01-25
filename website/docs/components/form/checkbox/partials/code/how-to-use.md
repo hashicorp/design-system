@@ -2,26 +2,30 @@
 
 !!! Info
 
-Depending on how you’re processing the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, we omit these specific arguments in the examples, for sake of simplicity.
+**Examples have been simplified**
+
+We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
 !!!
 
-There are different possible ways to use the `Form::Checkbox` component: using the "base" variant (essentially just the control itself), using the "field" variant (the control plus label, helper text and error), or using the "group" variant (a list of fields with legend, helper text and error).
+There are three ways to use the Checkbox component:
 
-The "field" and "group" ones are the one that likely you will want to use, because they provide – for free and out of the box – a lot of accessibility-related functionalities. The "base" one is to be used if and when you need to achieve custom layouts or have special use cases not covered by the other variants.
+- `Form::Checkbox::Base` - the base component: the `<input>` control
+- `Form::Checkbox::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::Checkbox::Group` - the group component: a `<legend>` (optional), a list of fields, and error messaging
 
 {{! ================= }} {{! ===== GROUP ===== }} {{! ================= }}
 
 ### Form::Checkbox::Group
 
-The "group" variant of the checkbox component is to be used when there are multiple related choices to make for the user, or a single one that needs to be presented with an extra "legend". If there is a single choice with no need for an extra "legend", the "field" variant should be used instead.
+Use `Form::Checkbox::Group` when there are multiple related options to choose from, or a single one that needs to be presented with an extra `Legend`. If there’s a single choice and no need for an extra `Legend`, use `Form::Checkbox::Field`.
 
 The basic invocation creates:
 
-- a `<fieldset>` container
-- a `<legend>` element
-- a list of rendered `<Form::Checkbox::Field>` components
+- a `<fieldset>` container.
+- a `<legend>` element.
+- a list of rendered `<Form::Checkbox::Field>` components.
 
-The `@name` argument offers an easy way to provide the same name for all the radio controls in a single place.
+The `@name` argument offers an easy way to provide the same name for all the Checkbox controls in a single place.
 
 ```handlebars
 <Hds::Form::Checkbox::Group @name="datacenter" as |G|>
@@ -43,7 +47,25 @@ The `@name` argument offers an easy way to provide the same name for all the rad
 
 #### Layout
 
-You can choose between two different layout orientations, to better fit your spacing requirements.
+To better fit your spacing requirements, choose between two different layout orientations: `vertical` or `horizontal`.
+
+```handlebars
+<Hds::Form::Checkbox::Group as |G|>
+  <G.Legend>Valid datacenters</G.Legend>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>DC1</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>NYC2</F.Label>
+  </G.Checkbox::Field>
+  <G.Checkbox::Field as |F|>
+    <F.Label>SF1</F.Label>
+  </G.Checkbox::Field>
+</Hds::Form::Checkbox::Group>
+```
 
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
@@ -63,34 +85,16 @@ You can choose between two different layout orientations, to better fit your spa
 </Hds::Form::Checkbox::Group>
 ```
 
-#### Helper text
-
-You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID` of the helper text element.
-
-```handlebars
-<Hds::Form::Checkbox::Group @name="methods-demo1" as |G|>
-  <G.Legend>Methods</G.Legend>
-  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>POST</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>GET</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
-    <F.Label>PUT</F.Label>
-  </G.Checkbox::Field>
-</Hds::Form::Checkbox::Group>
-```
-
 #### Extra content in legend and helper text
-
-The `Legend` and `HelperText` contextual components used in the "group" yield their content: meaning you can pass not just plain text, but also structured content.
 
 !!! Warning
 
-If a link is used within a legend, helper text, or error text, it will not be presented as a link to a user with a screen reader; only the text content is read out. We recommend not using links, but if you need to do so sparingly and include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
+
+The `Legend` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
+
+When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
 
 ```handlebars
 <Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
@@ -108,9 +112,9 @@ If a link is used within a legend, helper text, or error text, it will not be pr
 </Hds::Form::Checkbox::Group>
 ```
 
-#### Required / Optional
+#### Required vs. optional
 
-Use the `@isRequired` and `@isOptional` arguments to add a visual indication that a choice is "required" or "optional".
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
 <Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="methods-demo3" as |G|>
@@ -120,7 +124,9 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
   <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
   <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
 </Hds::Form::Checkbox::Group>
-<br />
+```
+
+```handlebars
 <Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="methods-demo4" as |G|>
   <G.Legend>Methods</G.Legend>
   <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
@@ -132,7 +138,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Validation
 
-If an input is not valid, provide the user with an error message using the `Error` contextual component.
+To indicate a field is invalid, provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
@@ -153,9 +159,9 @@ If an input is not valid, provide the user with an error message using the `Erro
 </Hds::Form::Checkbox::Group>
 ```
 
-#### "Field" items
+#### Field items
 
-A "group" of checkboxes is made of one or more "field" checkbox components (`Form::Checkbox::Field`). So all the arguments, attributes and modifiers that can be passed to the "field" component, can be passed to the same items in the "group" declaration.
+A group of Checkboxes is made of one or more `Form::Checkbox::Field` components. All the arguments, attributes, and modifiers that can be passed to `Form::Checkbox::Field` can be passed to the same items in the Group declaration.
 
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
@@ -179,9 +185,9 @@ A "group" of checkboxes is made of one or more "field" checkbox components (`For
 </Hds::Form::Checkbox::Group>
 ```
 
-#### "Group" with a single choice
+#### Group with a single choice
 
-There may be use cases in which you need to create a checkbox "group" that contains a single "field" element (eg. for design reasons, to show the "legend" in a similar position for other control’s labels). In that case is acceptable to have a group with a single "field" element.
+There may be use cases in which you need to create a Checkbox group that contains a single field element (e.g., to show the `Legend` in a similar position for other control’s labels). 
 
 ```handlebars
 <Hds::Form::Checkbox::Group as |G|>
@@ -197,14 +203,12 @@ There may be use cases in which you need to create a checkbox "group" that conta
 
 ### Form::Checkbox::Field
 
-The "field" variant of the checkbox component is to be used when there’s a single choice to make for the user. If there are multiple related choices, the "group" variant should be used instead.
+The field variant of the Checkbox component is to be used when there’s a single choice to make for the user. If there are multiple related choices, use `Form::Checkbox::Group`.
 
-The basic invocation requires a `Label`.
+The basic invocation requires a `Label`. This creates:
 
-This creates:
-
-- a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute
-- a `<input type="checkbox">` control with an automatically generated `ID` attribute
+- a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute.
+- a `<input type="checkbox">` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Checkbox::Field as |F|>
@@ -232,25 +236,16 @@ Use the standard HTML `checked` attribute to mark the input as checked.
 </Hds::Form::Checkbox::Field>
 ```
 
-#### Helper text
-
-You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
-
-```handlebars
-<Hds::Form::Checkbox::Field as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
-</Hds::Form::Checkbox::Field>
-```
-
-#### Extra content in label and helper text
-
-The `Label` and `HelperText` contextual components used in the "field" yield their content, meaning you can also pass structured content.
+#### Extra content in legend and helper text
 
 !!! Warning
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to a user with a screen reader; only the text content is read out. We recommend not using links, but if you need to do so sparingly and include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
+
+The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
+
+When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
 
 ```handlebars
 <Hds::Form::Checkbox::Field as |F|>
@@ -261,7 +256,7 @@ If a link is used within a label, helper text, or error text, it will not be pre
 
 #### Validation
 
-To indicate a field is invalid provide an error message using the `Error` contextual component.
+To indicate a field is invalid, provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Checkbox::Field as |F|>
@@ -272,7 +267,7 @@ To indicate a field is invalid provide an error message using the `Error` contex
 
 #### Custom control ID
 
-If it’s necessary to have custom ID for the control, instead of the one automatically generated by the component (i.e., because it needs to be referenced in the code for other reasons), pass the `@id` argument to the field.
+If needing a custom ID for the control instead of the one automatically generated by the component, pass the `@id` argument to the field.
 
 !!! Info
 
@@ -299,7 +294,7 @@ Pass an `@extraAriaDescribedBy` argument to the field to connect one or more ext
 
 #### HTML native attributes
 
-`...attributes` spreading is supported in the field. This means you can use all the standard HTML attributes of the `<input>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control).
+This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<input>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control).
 
 ```handlebars
 <Hds::Form::Checkbox::Field name="enable" as |F|>
@@ -309,7 +304,7 @@ Pass an `@extraAriaDescribedBy` argument to the field to connect one or more ext
 
 #### Events handling
 
-Thanks to the `...attributes` spreading over the `<input>` element, you can use all the usual Ember techniques for event handling, validation, etc. You can use different events, depending on your context (eg. `input`, `change`).
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `change`), validation, etc. 
 
 ```handlebars
 <Hds::Form::Checkbox::Field {{on "change" this.yourOnChangeFunction}} as |F|>
@@ -321,7 +316,7 @@ Thanks to the `...attributes` spreading over the `<input>` element, you can use 
 
 ### Form::Checkbox::Base
 
-The "base" element is intended for rare cases where the "field" or "group" variants can’t be used and a custom implementation is needed. Most of the details for the "field" variant also apply to the "base" variant, but see the [Component API](#component-api) for more details.
+The Base element is intended for rare cases where the Field or Group components can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
 !!! Warning
 
