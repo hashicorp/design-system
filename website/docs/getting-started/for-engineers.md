@@ -73,7 +73,7 @@ yarn add @hashicorp/flight-icons
 
 This package can be consumed in React applications via direct import of the SVG file or as a standalone React/SVG icon component.
 
-For more details, examples, and guidelines read [the complete icons documentation](/foundations/icons/).
+For more details, examples, and guidelines read [the complete icons documentation](/icons/library/).
 
 
 ## Tokens

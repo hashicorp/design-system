@@ -31,7 +31,7 @@ It is a container that yields its content as the title of the modal dialog.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
-    [Icon](/foundations/icons) name.
+    [Icon](/icons/library) name.
   </C.Property>
   <C.Property @name="tagline" @type="string">
     A string that helps the user maintain context when a modal dialog is open. _Note: this is NOT the title text, but a small piece of text above the title text._
