@@ -20,6 +20,7 @@ export default class ApplicationController extends Controller {
 
   routeDidChange() {
     scheduleOnce('afterRender', this, this.resetSidebar);
+    scheduleOnce('afterRender', this, this.scrollToId);
   }
 
   willDestroy() {
@@ -42,6 +43,19 @@ export default class ApplicationController extends Controller {
         cancel(this.runLater);
       }
     }
+  }
+
+  scrollToId() {
+    later(
+      this,
+      function () {
+        let id = this.target?.url?.split('#')[1];
+        if (id) {
+          document.getElementById(id)?.scrollIntoView();
+        }
+      },
+      1
+    );
   }
 
   showSidebarOnSmallViewport() {
