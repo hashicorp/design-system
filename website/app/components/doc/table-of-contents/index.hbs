@@ -11,7 +11,11 @@
           @query={{hash tab=null}}
           @current-when={{"show"}}
         >
-          {{item.pageAttributes.title}}
+          {{#if item.pageAttributes.navigation.label}}
+            {{item.pageAttributes.navigation.label}}
+          {{else}}
+            {{item.pageAttributes.title}}
+          {{/if}}
         </LinkTo>
       {{else}}
         {{#if (eq @depth 1)}}
