@@ -23,10 +23,12 @@ const CATEGORIES = [
 const sortPages = (s1, s2) => {
   // if they are siblings...
   if (isEqual(s1.pageParents, s2.pageParents)) {
-    //  we use the order first...
-    if (s1.pageAttributes.order < s2.pageAttributes.order) {
+    // we use the order first... (notice: we know it's _always_ defined in the TOC items)
+    const o1 = s1.pageAttributes.navigation.order;
+    const o2 = s2.pageAttributes.navigation.order;
+    if (o1 < o2) {
       return -1;
-    } else if (s1.pageAttributes.order > s2.pageAttributes.order) {
+    } else if (o1 > o2) {
       return 1;
     } else {
       // or we fallback to sort alphabetically
@@ -97,29 +99,28 @@ class TableOfContents extends Plugin {
         pageAttributes = pick(jsonData.data.attributes, [
           'title',
           'caption',
-          'order',
-          'hidden',
+          'navigation',
           'previewImage',
-          'keywords',
         ]);
       } else {
         console.log('File NOT found!', fullFilePath);
         pageAttributes = {};
       }
 
-      // assign an "order" using the frontmatter value (or a default)
+      // assign a default "order" value if not explicitly set
       // notice: it's used for sorting criteria in the navigation
-      pageAttributes.order = pageAttributes.order ?? 100;
-
-      if (!pageAttributes.hidden) {
-        flatPageList.push({
-          filePath,
-          pageURL,
-          pageName,
-          pageParents,
-          pageAttributes,
-        });
+      if (!pageAttributes?.navigation?.order) {
+        // IMPORTANT: this automatically ensures that `pageAttributes.navigation` is always defined! (no need to check that exists in other parts of the codebase)
+        set(pageAttributes, 'navigation.order', 100);
       }
+
+      flatPageList.push({
+        filePath,
+        pageURL,
+        pageName,
+        pageParents,
+        pageAttributes,
+      });
     });
 
     // notice: we pre-sort the list so we don't need to do it in the structured tree (much harder!)
