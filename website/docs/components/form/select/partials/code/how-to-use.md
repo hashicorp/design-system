@@ -20,7 +20,7 @@ We recommend using the Field component as it provides built-in accessibility fun
 
 The basic invocation requires a `Label`. This creates: 
 
-- a `<label>` element with a `for` attribute automatically associated with the select `ID` attribute
+- a `<label>` element with a `for` attribute automatically associated with the select `ID` attribute.
 - a `<select>` control with an automatically generated `ID` attribute, and the `Options` elements yielded as children.
 
 ```handlebars
