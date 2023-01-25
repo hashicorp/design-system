@@ -12,7 +12,7 @@ There are two ways to use the Select component:
 - `Form::Select::Base` - the base component: just the `<select>` control.
 - `Form::Select::Field` - the field parent component: the `<select>` control, with label, helper text, and error messaging (in a wrapping container).
 
-We recommend using the Field component because it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or have special use cases not covered by the Field component.
+We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or for special use cases not covered by the Field component.
 
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
