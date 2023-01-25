@@ -31,6 +31,18 @@
                     "type": "size"
                 }
             }
+        },
+        "child": {
+            "spacing": {
+                "vertical": {
+                    "value": "8",
+                    "type": "0"
+                },
+                "horizontal": {
+                    "value": "20",
+                    "type": "size"
+                }
+            }
         }
     }
 }
