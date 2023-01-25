@@ -14,7 +14,7 @@ The Flyout header features several properties to better communicate the purpose 
 ### Title icon
 
 - An icon paired with the title can help reinforce the purpose and function of the Flyout while also drawing the eye to the header and title area.
-- The coummunication of the purpose of the Flyout should not rely solely on an icon, instead the title should be explicit and pragmatic while the icon provides visual support.
+- The communication of the purpose of the Flyout should not rely solely on an icon, instead the title should be explicit and pragmatic while the icon provides visual support.
 
 #### No title icon
 

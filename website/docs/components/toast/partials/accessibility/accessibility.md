@@ -6,7 +6,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ## Animation
 
- Animations on Toast will not take place if the user has `prefers-reduced-motion` enabled in their browser or operating system.
+Animations on Toasts will not take place if the user has `prefers-reduced-motion` enabled in their browser or operating system.
 
 ## Applicable WCAG Success Criteria
 

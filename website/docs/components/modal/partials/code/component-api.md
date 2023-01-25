@@ -5,7 +5,7 @@
     Sets the width of the modal.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "warning" "critical" }} @default="neutral">
-    Sets the color scheme for the modal header elements: icon, tagline and title.
+    Sets the color scheme for the modal header elements: icon, tagline, and title.
   </C.Property>
   <C.Property @name="onOpen" @type="function">
     Callback function invoked when the modal is opened.
@@ -14,7 +14,7 @@
     Callback function invoked when the modal is closed.
   </C.Property>
   <C.Property @name="isDismissDisabled" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in an unsubmitted form). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
+    Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in a form that hasn't been submitted). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -45,7 +45,7 @@ It is a container that yields its content as the title of the modal dialog.
 
 The body of the Modal is an unstyled, generic container that yields as the main content of the modal dialog.
 
-When the yielded content exceeds the available space, a srollbar is introduced to the container.
+When the yielded content exceeds the available space, a scrollbar is introduced to the container.
 
 This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
 

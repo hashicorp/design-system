@@ -82,7 +82,7 @@ Read the Ember.js guides for more information: [Patterns for Actions](https://gu
 
 ### Links
 
-You can generate a link with the visual appearence of a button passing a `@href` or a `@route` argument to the component.
+You can generate a link with the visual appearance of a button passing a `@href` or a `@route` argument to the component.
 
 !!! Info
 
