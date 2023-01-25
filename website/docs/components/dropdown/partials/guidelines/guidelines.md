@@ -188,7 +188,7 @@ Ask yourself, “Which icon should I use here?” If the answer isn’t obvious 
 
 ### Critical
 
-While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the right icon provides a stronger/more immediate visual indication that the action is destructive. See the section on [color blind users and critical actions](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=7192%3A13227) (internal link) for more details about making these actions more accessible.
+While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the right icon provides a stronger/more immediate visual indication that the action is destructive. See the section on [color blind users and critical actions](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=6484%3A17367&t=s1vlvHztHFnd5T9i-1) (internal link) for more details about making these actions more accessible.
 
 <Hds::Dropdown::Toggle::Icon @text="Icon" @icon="more-horizontal" @isOpen={{true}} />
 <Doc::ListContainer class="hds-dropdown-list">
