@@ -127,7 +127,7 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 
 #### Links
 
-Use [standalone links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=2522%3A8014) to determine what variant “type” to use.
+Use [standalone links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2522%3A8014&t=s1vlvHztHFnd5T9i-1) to determine what variant “type” to use.
 
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Links in alerts</A.Title>

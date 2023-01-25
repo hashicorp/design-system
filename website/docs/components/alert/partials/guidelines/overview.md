@@ -1,4 +1,4 @@
-Use alerts to display brief but important system-generated messages. They attract the user’s attention without interrupting their task. For messages that are the result of a user’s actions, see [Toast](/components/toast/).
+Use alerts to display brief but important system-generated messages. They attract the user’s attention without interrupting their task. For messages that are the result of a user’s actions, see [Toast](/components/toast).
 
 ## Types of alerts
 
