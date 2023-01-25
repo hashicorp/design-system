@@ -4,12 +4,6 @@
 
 @use "../mixins/focus-ring" as *;
 
-// TODO: Move to pagination.json tokens
-:root {
-  --token-pagination-child-spacing-vertical: 8px;
-  --token-pagination-child-spacing-horizontal: 20px;
-}
-
 
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
