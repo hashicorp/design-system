@@ -46,7 +46,7 @@ The select options are passed to the field as yielded components, using the `Opt
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
-    By default, the `<select>` has an intrinsic width based on its content. If a `@width` parameter is provided, the control will have a fixed width. This width will only be applied to the control, not the other elements of the field.
+    By default, the `<select>` element has an intrinsic width based on its content. If a `@width` parameter is provided, the control will have a fixed width. This width will only be applied to the control, not the other elements of the field.
   </C.Property>
   <C.Property @name="id" @type="string">
     Select control’s ID attribute.
