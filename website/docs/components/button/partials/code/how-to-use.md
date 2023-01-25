@@ -12,7 +12,7 @@ The most basic invocation requires text to be passed:
 
 ### Add an icon
 
-To add an icon to your button, give the `@icon` any [icon](/icons/library/) name:
+To add an icon to your button, give the `@icon` any [icon](/icons/library) name:
 
 ```handlebars
 <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
@@ -88,7 +88,7 @@ You can generate a link with the visual appearance of a button passing a `@href`
 
 **Interaction** 
 
-The `Hds::Button` component internally uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive/).
+The `Hds::Button` component internally uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
 
 !!!
 
@@ -100,7 +100,7 @@ If you pass a `@href` argument a `<a>` link will be generated:
 <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
 ```
 
-**Important**: when using the `@href` argument the component adds by default the attributes `target="_blank"` and `rel="noopener noreferrer"` to the `<a>` element (because this is the most common use case: internal links are generally handled using a `@route` argument). If the `href` points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass `@isHrefExternal={{true}}` to the component and it will not add the `target` and `rel` attributes (but you can pass yours if needed, using the `...attributes` spreading. For more details see the [Hds::Interactive component](/utilities/interactive/).
+**Important**: when using the `@href` argument the component adds by default the attributes `target="_blank"` and `rel="noopener noreferrer"` to the `<a>` element (because this is the most common use case: internal links are generally handled using a `@route` argument). If the `href` points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass `@isHrefExternal={{true}}` to the component and it will not add the `target` and `rel` attributes (but you can pass yours if needed, using the `...attributes` spreading. For more details see the [Hds::Interactive component](/utilities/interactive).
 
 **Important**: if a `href` HTML attribute is used instead of the `@href` Ember argument we apply this visual treatment to alert the developer:
 
@@ -112,7 +112,7 @@ If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>
 <Hds::Button @text="Back to homepage" @icon="arrow-left" @route="index" />
 ```
 
-**Important**: if the route is external to your current engine you have to pass also `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a simple `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive/).
+**Important**: if the route is external to your current engine you have to pass also `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a simple `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive).
 
 !!! Info
 
