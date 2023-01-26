@@ -130,7 +130,7 @@ These errors should be fixed on your local branch prior to merging and can be ac
 
 1. Running the `cspell` script from the `/website` directory with `yarn lint:spell:docs`.
 2. This script will check all markdown files within the `/docs` directory and return any words that it perceives as errors.
-3. If an error is returned for a word that you believe is spelled correctly, or is specific to the website project, considering adding it to the `/project-words.txt' file.
+3. If an error is returned for a word that you believe is spelled correctly, or is specific to the website project, considering adding it to the `/project-words.txt` file.
     - This file acts as a custom dictionary with relevant brand words (Consul, Helios, HashiCorp) and commonly used documentation language.
     - Double check your spelling using a different resource prior to adding a word the custom dictionary. While rare, `cspell` sometimes throws errors for commonly used words that may be more recent additions to a dictionary or slang terms.
 4. Once the errors have been resolved in your local branch add a commit for them and any additions to the custom dictionary and push the changes to your PR.
