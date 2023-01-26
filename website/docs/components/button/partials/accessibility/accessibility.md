@@ -4,23 +4,19 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
-## Accessibility in design
+## Button vs. link
 
-Provide annotations alongside each design of the non-visual experience. This could look like:
+While buttons and links have been used interchangeably across the internet for years, understanding the difference between these two and striving for the semantic use of these elements can help make our products more conformant. 
 
-![Accessibility annotation example](/assets/components/button/button-annotation_example.png)
+### How to know which to use
 
-## Accessibility considerations
+- If it goes to a URL, use a Link. 
+- If it triggers an action (toggles a state, submits a form, etc.), use a Button. 
+- When submitting a form and redirecting the user to a different URL, use a Button.
 
-Years of misuse have muddled the purpose of a button element vs. a link element, so here is a good rule of thumb to follow:
+### Why strive for semantic use
 
-If it _goes to a URL_, use a link. If it does an _action_ (toggles a state, submits a form, etc.), then use a button.
-
-Now, you may be thinking, “What about instances where I submit a form and redirect a user to a different URL?” This is still a button use case.
-
-Buttons and links especially make a difference for keyboard-only users and users with assistive technology (AT). A button element can be activated with the `Enter/Return` key _or_ the `Spacebar`; a link can only be activated with the `Enter/Return` key.
-
-If you are working on a UI that already uses buttons and links interchangeably, this is a great opportunity for a team discussion on which one is appropriate for use in your situation. It’s totally okay for it to be a goal that you work toward; there are always opportunities to care for, and improve, our code.
+Users with assistive technology (AT) or keyboard-only users rely on the semantic use of Buttons and Links to determine how to activate the element. Buttons are activated with the `Enter/Return` key or the `Spacebar` key, while Links can only be activated with the `Enter/Return` key.
 
 ## Applicable WCAG Success Criteria
 
