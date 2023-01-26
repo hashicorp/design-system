@@ -177,7 +177,6 @@ When using the “generic” ListItem, the product team is responsible for imple
 
 `ListItem::Generic` allows you to pass custom elements to the Dropdown.
 
-<!-- TODO: Troubleshoot why this example isn't working correctly -->
 ```handlebars
 <Hds::Dropdown as |dd|>
   <dd.ToggleButton @text="Text Toggle" @color="secondary" />
