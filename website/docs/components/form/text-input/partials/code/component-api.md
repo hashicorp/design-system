@@ -1,6 +1,6 @@
 ## Component API 
 
-The `Form::TextInput` component has two different variants, with their own APIs:
+The Text Input component has two different variants with their own APIs:
 
 - `Form::TextInput::Base` - the base component: the `<input>` control
 - `Form::TextInput::Field` - the field parent component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
@@ -9,23 +9,23 @@ The `Form::TextInput` component has two different variants, with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" }} @default="text">
-    Sets the native HTML `type` of the `<input>`. This list covers all the official types (see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)).
+    Sets the native HTML `type` of the `<input>`. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for a full list of covered types.
   </C.Property>
   <C.Property @name="value" @type="string|number|date">
-    The input control’s value.
+    Input control’s value.
   </C.Property>
   <C.Property @name="isInvalid" @type="boolean" @values={{array "false" "true" }} @default="false">
-    It applies an "invalid" appearance to the control, but doesn’t modify its logical validity.
+    Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
-    By default the `<input>` has a `width` of `100%` applied to it, so it fills the parent container. If a `@width` parameter is provided then the control will have a fixed width.
+    By default, the `<input>` fills the parent container. If a `@width` parameter is provided, the control will have a fixed width.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
     The attributes will be applied to the `<input>` element. This means you can use all the standard HTML attributes of the `<input>` element and all the usual Ember techniques for event handling, validation, etc.
     <br/><br/>
-    Some examples of HTML attributes that you will likely use: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required` ([see whole list here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes)) and some examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
+    Examples of HTML attributes: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -33,13 +33,13 @@ The `Form::TextInput` component has two different variants, with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" }} @default="text">
-    Sets the native HTML `type` of the `<input>`. This list covers all the official types (see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)).
+    Sets the native HTML `type` of the `<input>`. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for a full list of covered types.
   </C.Property>
   <C.Property @name="value" @type="string|number|date">
-    The input control’s value.
+    Input control’s value.
   </C.Property>
   <C.Property @name="isInvalid" @type="boolean" @values={{array "false" "true" }} @default="false">
-    It applies an "invalid" appearance to the control, but doesn’t modify its logical validity.
+    Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
   <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
     Appends a `Required` indicator next to the label text and sets the `required` attribute on the control when user input is required.
@@ -48,44 +48,44 @@ The `Form::TextInput` component has two different variants, with their own APIs:
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
-    By default the `<input>` has a `width` of `100%` applied to it, so it fills the parent container. If a `@width` parameter is provided then the control will have a fixed width. This width will be applied **only** to the control, not the other elements of the field.
+    By default, the `<input>` fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. This width will only be applied to the control, not the other elements of the field.
   </C.Property>
   <C.Property @name="id" @type="string">
-    The input control’s ID attribute.
+    Input control’s ID attribute.
     <br/><br/>
-    By default the ID is automatically generated by the component; use this argument if you need to pass a custom ID for specific reasons you may have.
+    By default, the ID is automatically generated by the component. Use this argument to pass a custom ID.
   </C.Property>
   <C.Property @name="extraAriaDescribedBy" @type="string">
-    An extra ID attribute to be added to the `aria-describedby` HTML attribute.
+    Extra ID attribute to add to the `aria-describedby` HTML attribute.
     <br/><br/>
-    By default the `aria-describedby` attribute is automatically generated by the component, using the IDs of the helper text and errors (if they’re present); use this argument if you need to pass an extra ID for specific reasons you may have.
+    By default, the `aria-describedby` attribute is automatically generated by the component, using the IDs of the helper text and errors (if present). Use this argument to pass an extra ID.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
     The attributes will be applied to the `<input>` element. This means you can use all the standard HTML attributes of the `<input>` element and all the usual Ember techniques for event handling, validation, etc.
     <br/><br/>
-    Some examples of HTML attributes that you will likely use: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required` ([see whole list here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes)) and some examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
+    Examples of HTML attributes: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>
 
 #### Contextual components
 
-Label, helper text, and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Error` keys.
+`Label`, `HelperText`, and `Error` content are passed to the field as yielded components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
-    A container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/primitives) component.
+    Container that yields its content inside the `<label>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Label`](/components/form/primitives) component.
     <br/><br/>
-    The `for` attribute of the label is automatically generated, using the `controlId` value of the control.
+    The `for` attribute of the label is automatically generated using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
-    A container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/primitives) component.
+    Container that yields its content inside the "helper text" block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives) component.
     <br/><br/>
-    The `id` attribute of the element is automatically generated, using the `controlId` value of the control.
+    The `id` attribute of the element is automatically generated using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    A container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/primitives) component.
+    Container that yields its content inside the "error" block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
   </C.Property>
