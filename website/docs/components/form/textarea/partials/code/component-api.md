@@ -5,7 +5,7 @@ The Textarea component is based on the Ember [`Textarea` built-in component](htt
 This component has two different variants with their own APIs:
 
 - `Form::Textarea::Base` - the base component: the `<Textarea>` Ember component.
-- `Form::Textarea::Field` - the field parent component: the `<Textarea>` Ember component, with label, helper text and error messaging (in a wrapping container).
+- `Form::Textarea::Field` - the field parent component: the `<Textarea>` Ember component, with label, helper text, and error messaging (in a wrapping container).
 
 ### Form::Textarea::Base
 
