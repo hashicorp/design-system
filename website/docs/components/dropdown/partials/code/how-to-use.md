@@ -156,7 +156,7 @@ Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your cur
 
 #### With a loading “interactive” item
 
-There may be use cases when it’s necessary to put an item in a "loading" state while the app performs some operations (e.g., asynchronously checking the user’s permissions to execute a certain operation once the Toggle’s been clicked).
+There may be use cases when it’s necessary to put an item in a “loading” state while the app performs some operations (e.g., asynchronously checking the user’s permissions to execute a certain operation once the Toggle’s been clicked).
 
 Pass the argument `@isLoading={{true}}` to the item. This will show a "loading" icon (even if an argument `@icon` is provided) and sets the item as non-interactive until the value of `@isLoading` is set to `false` again.
 
