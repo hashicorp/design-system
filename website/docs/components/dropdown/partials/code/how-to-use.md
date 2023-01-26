@@ -96,7 +96,7 @@ Overflow menus are often found in the last column of a [Tables](/components/tabl
 
 #### ToggleIcon with other icons
 
-Pass any [Helios icon](/foundations/icons/library) name to `@icon` to change the icon used in ToggleIcon. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
+Pass any [Helios icon](/icons/library) name to `@icon` to change the icon used in ToggleIcon. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
