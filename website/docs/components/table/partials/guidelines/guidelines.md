@@ -67,7 +67,7 @@ Striped rows use a subtle background color to differentiate from non-striped row
 !!!
 
 - Striping makes data within the Table easier to read by increasing differentiation between rows.
-- Striping increases scannability, especially for large datasets that result in many rows.
+- Striping increases ability to scan, especially for large datasets that result in many rows.
 - Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
 
 ### Placement
@@ -98,7 +98,7 @@ Row placement determines the visual styling based on where the row is placed rel
 - We recommend using `medium` cell density by default.
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
-- While denser content allows for more rows to be displayed within a single page, it also makes comprehension more difficult and can reduce scannability.
+- While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
 ### Content
 

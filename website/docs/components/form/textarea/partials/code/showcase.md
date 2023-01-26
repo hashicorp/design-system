@@ -65,11 +65,11 @@
       <br />
       <div class="dummy-form-textarea-custom-layout">
         <div class="dummy-form-textarea-custom-layout__heading">
-          <label for="my-custom-textare-example">Custom label</label>
+          <label for="my-custom-textarea-example">Custom label</label>
           <span>Some content</span>
         </div>
         <Hds::Form::Textarea::Base
-          id="my-custom-textare-example"
+          id="my-custom-textarea-example"
           class="dummy-form-textarea-custom-layout__control"
           @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
         />
