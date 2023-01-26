@@ -9,7 +9,6 @@ The Breadcrumb is an application-level UI element, so it’s likely to be implem
 A few parameters were omitted for clarity.
 !!!
 
-
 ```handlebars
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" />
@@ -38,11 +37,11 @@ Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item
 
 ### No wrapping
 
-By default, the Breadcrumb allows items to wrap on multiple lines if the container is too small. Pass `false` to the `@itemsCanWrap` parameter to avoid wrapping. 
+By default, the Breadcrumb allows items to wrap on multiple lines if the container is too small. Pass `false` to the `@itemsCanWrap` parameter to avoid wrapping.
 
 !!! Warning
 
-The text will automatically truncate and be replaced with an ellipsis to fit within the container. However, this may result in the text being unavailable to keyboard-only users and, thus, is not WCAG conformant. 
+The text will automatically truncate and be replaced with an ellipsis to fit within the container. However, this may result in the text being unavailable to keyboard-only users and, thus, is not WCAG-conformant.
 !!!
 
 ```handlebars
@@ -60,9 +59,8 @@ It’s possible to hide part of the Breadcrumb tree under a "truncated" item tha
 
 !!! Warning
 
-The text will automatically truncate and be replaced with an ellipsis to fit within the container. However, this may result in the text being unavailable to keyboard-only users and, thus, is not WCAG conformant. 
+The text will automatically truncate and be replaced with an ellipsis to fit within the container. However, this may result in the text being unavailable to keyboard-only users and, thus, is not WCAG conformant.
 !!!
-
 
 ```handlebars
 <Hds::Breadcrumb>

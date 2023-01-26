@@ -16,7 +16,7 @@ While these guidelines don’t cover every scenario, they are intended to aid in
     - In-page forms
     - The "window" in a general sense
 
-This differentiation is important because the expectations from the user are different in each context. A constrained component or pattern will often be used in an interstitial or circumstantial experience; i.e. an experience that is triggered by the user or the application illiciting a quick, progressive action.
+This differentiation is important because the expectations from the user are different in each context. A constrained component or pattern will often be used in an interstitial or circumstantial experience; i.e. an experience that is triggered by the user or the application and elicits a quick, progressive action.
 
 Unconstrained generally refers to a more "static" experience that isn’t triggered by a user action. This is often tied to a page-level function or a navigational element.
 
@@ -67,9 +67,9 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
 ### F-shaped pattern
 
-An F-shaped pattern loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Neilsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
+An F-shaped pattern loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Nielsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
 
-![An example of eye tracking and heatmaps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
+![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
 
 #### Characteristics
 
@@ -77,7 +77,7 @@ The F-shaped pattern is a prominent example of how users scan through content an
 
 - Information at the top will generally have increased comprehension compared to information further down the page.
     - This is anecdotally true for all reading and layout patterns, but is best captured in a heatmap analysis.
-- Information of lesser importance should be concise, potentially bulletted, and aligned to the left hand side of the page, pattern, or component.
+- Information of lesser importance should be concise, potentially organized in bullet points, and aligned to the left hand side of the page, pattern, or component.
 - This layout assumes users only scan content, rather than reading word-for-word.
 
 ### Reading patterns in practice
