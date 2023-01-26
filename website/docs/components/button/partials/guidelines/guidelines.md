@@ -86,7 +86,7 @@ Buttons used for a Dropdown (with the chevron icon) can be found in [Dropdown](/
 
 ## Button set
 
-ButtonSets are patterns when multiple Buttons need to be displayed in a single row.
+[ButtonSets](/components/button-set) are patterns when multiple Buttons need to be displayed in a single row.
 
 <Hds::ButtonSet>
   <Hds::Button @color="primary" @text="Submit" />
