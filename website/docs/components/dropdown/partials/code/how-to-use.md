@@ -112,7 +112,7 @@ Pass any [Helios icon](/icons/library) name to `@icon` to change the icon used i
 ### ListItem::Interactive
 
 `ListItem::Interactive` renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event (e.g.,
-`\{{on "click" this.myAction}}`). Internally, the component uses the [Hds::Interactive](/utilities/interactive/) utility component.
+`\{{on "click" this.myAction}}`). Internally, the component uses the [Hds::Interactive](/utilities/interactive) utility component.
 
 #### Rendering a button
 
