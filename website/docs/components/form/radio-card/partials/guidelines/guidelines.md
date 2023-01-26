@@ -13,7 +13,7 @@ Use the Radio Card Group in most cases. Use individual Radio Cards only in speci
 
 ## Control position
 
-In most cases, we recommend using the bottom position. Still, we offer Radio Cards in a left position, which is a good option when the content in the cards is minimal. 
+In most cases, we recommend using the bottom position. Still, we offer Radio Cards in a left position, which is a good option when the content in the cards is minimal.
 
 ### Bottom
 
@@ -57,11 +57,7 @@ In most cases, we recommend using the bottom position. Still, we offer Radio Car
 
 ## Legend style
 
-<<<<<<< HEAD
-The legend can receive any of the available text styles. We recommend using the default legend style provided with the component when placed along with other form components or `Display/400/Bold` when your form is broken down into sections.
-=======
 ### Default style
->>>>>>> main
 
 When placed along with other form components, we recommend using the default legend style provided by the component.
 
@@ -69,7 +65,7 @@ When placed along with other form components, we recommend using the default leg
 
 ### Display style
 
-When using the Radio Card Group as its own section, we recommend using `Display/400/Bold` for the legend. 
+When using the Radio Card Group as its own section, we recommend using `Display/400/Bold` for the legend.
 
 ![Display/400/Bold legend style](/assets/components/form/radio-card/radio-card-heading.png =600x*)
 
