@@ -208,7 +208,7 @@ The field variant of the Checkbox component is to be used when there’s a singl
 The basic invocation requires a `Label`. This creates:
 
 - a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute.
-- a `<input type="checkbox">` control with an automatically generated `ID` attribute.
+- an `<input type="checkbox">` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Checkbox::Field as |F|>
