@@ -30,7 +30,7 @@ While we provide the structure and visual consistency for validation, the messag
 
 Server side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
 
-When using server side validation, display a Critical [AlertInline](/components/alerts) above the form listing all errors with links to each invalid field.
+When using server side validation, display a Critical [AlertInline](/components/alert) above the form listing all errors with links to each invalid field.
 
 ![Example of server side validation](/assets/components/general/validation-server_side.png)
 

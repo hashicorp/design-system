@@ -1,1 +1,1 @@
-A textarea input provides all the same features as the [text input](/components/form/text-input/), with the difference that it accepts a multi-line text.
+A textarea input provides all the same features as the [Text Input](/components/form/text-input), with the difference that it accepts a multi-line text.

@@ -81,7 +81,7 @@ Client side validation is an initial check that happens in the browser to ensure
 
 Server side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
 
-When using server side validation, display a Critical [AlertInline](/components/alerts) above the form listing all errors with links to each invalid field.
+When using server side validation, display a Critical [AlertInline](/components/alert#inline) above the form listing all errors with links to each invalid field.
 
 ![Example of server side validation](/assets/components/general/validation-server_side.png)
 

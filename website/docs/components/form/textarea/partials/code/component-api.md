@@ -63,13 +63,13 @@ Label, helper text and error content are passed to the field as yielded componen
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
-    It is a container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/base-elements/) component. The `for` attribute of the label is automatically generated, using the `controlId` value of the control.
+    It is a container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/primitives) component. The `for` attribute of the label is automatically generated, using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
-    It is a container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/base-elements/) component. The `id` attribute of the element is automatically generated, using the `controlId` value of the control.
+    It is a container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/primitives) component. The `id` attribute of the element is automatically generated, using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    It is a container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/base-elements/) component. The `id` attribute of the `Error` element is automatically generated.
+    It is a container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/primitives) component. The `id` attribute of the `Error` element is automatically generated.
   </C.Property>
   <C.Property @name="<[E].Message>" @type="yielded component">
     If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.

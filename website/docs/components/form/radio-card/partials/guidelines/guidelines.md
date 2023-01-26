@@ -57,11 +57,7 @@ In most cases, we recommend using the bottom position. Still, we offer Radio Car
 
 ## Legend style
 
-<<<<<<< HEAD
-The legend can receive any of the available text styles. We recommend using the default legend style provided with the component when placed along with other form components or `Display/400/Bold` when your form is broken down into sections.
-=======
 ### Default style
->>>>>>> main
 
 When placed along with other form components, we recommend using the default legend style provided by the component.
 
