@@ -1,6 +1,6 @@
 ## How to use this component
 
-To make the invocation more intuitive for developers, we’ve provided contextual components for toggles and list items. For example, `<Hds::Dropdown::ListItem::Separator />` is yielded in a hash, using the key `<XX.Separator />` when invoked:
+To make the invocation more intuitive for developers, we’ve provided contextual components for Toggles and ListItems. For example, `<Hds::Dropdown::ListItem::Separator />` is yielded in a hash, using the key `<XX.Separator />` when invoked.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
@@ -15,12 +15,104 @@ To make the invocation more intuitive for developers, we’ve provided contextua
 </Hds::Dropdown>
 ```
 
+### List position
+
+By default, the list is positioned to the right. To position the list on the left, pass `left` to `@listPosition` on the Dropdown component.
+
+```handlebars
+<Hds::Dropdown @listPosition="left" as |dd|>
+  <dd.ToggleButton @text="Text Toggle" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+### ToggleButton
+
+The basic invocation of ToggleButton requires `@text` to be passed. By default, it renders a primary button with a chevron icon. 
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleButton @text="Text Toggle" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+Alternatively, pass `secondary` to `@color` to display a secondary button with a chevron icon. 
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+### ToggleIcon
+
+#### ToggleIcon as overflow menu
+
+Overflow menus are often found in the last column of a [Tables](/components/table). This is the only use case where it is acceptable to use
+`@hasChevron={{false}}`. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+  <dd.Interactive @route="components" @text="Create" />
+  <dd.Interactive @route="components" @text="Read" />
+  <dd.Interactive @route="components" @text="Update" />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+#### ToggleIcon as user menu
+
+`@text` is still required, because it supplies the `aria-label` for ToggleIcon.
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleIcon @icon="user" @text="user menu" />
+  <dd.Title @text="Signed In" />
+  <dd.Description @text="email@domain.com" />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Settings and Preferences" />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+#### ToggleIcon with other icons
+
+Pass any [Helios icon](/foundations/icons/library) name to `@icon` to change the icon used in ToggleIcon. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleIcon @icon="settings" @text="settings menu" />
+  <dd.Title @text="Signed In" />
+  <dd.Description @text="email@domain.com" />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Settings and Preferences" />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
 ### ListItem::Interactive
 
-The `Interactive` list item renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event (i.e.,
-`\{{on "click" this.myAction}}`).
-
-Internally, the component uses the [Hds::Interactive](/utilities/interactive/) utility component.
+`ListItem::Interactive` renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event (e.g.,
+`\{{on "click" this.myAction}}`). Internally, the component uses the [Hds::Interactive](/utilities/interactive/) utility component.
 
 #### Rendering a button
 
@@ -35,6 +127,13 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 
 #### Rendering a link with `@href`
 
+!!! Info
+
+**Internal Link?**
+
+When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added–`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really _does_ point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{false}}` to the component and it will not add any extra HTML attributes.
+!!!
+
 If you pass a `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
@@ -44,17 +143,9 @@ If you pass a `@href` argument, a link (`<a>` element) will be generated:
 </Doc::ListContainer>
 ```
 
-!!! Info
-
-**Internal Link?**
-
-When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added–`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really _does_ point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{false}}` to the component and it will not add any extra HTML attributes.
-
-!!!
-
 #### Rendering a LinkTo (with `@route`)
 
-If you pass a `@route`, Ember’s `<LinkTo>` will be used:
+Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your current engine, pass `@isRouteExternal={{true}}` to use `<LinkToExternal>` instead of `<LinkTo>`. For more details see the [Hds::Interactive component](/utilities/interactive/) documentation. All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (e.g., `models/model/query/current-when/replace`).
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
@@ -63,80 +154,11 @@ If you pass a `@route`, Ember’s `<LinkTo>` will be used:
 </Doc::ListContainer>
 ```
 
-If the route is external to your current engine, you must also pass `@isRouteExternal={{true}}` to the component so that it will use `<LinkToExternal>` instead of a `<LinkTo>`. For more details see the [Hds::Interactive component](/utilities/interactive/) documentation.
+#### With a loading "interactive" item
 
-All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
+There may be use cases when it’s necessary to put an item in a "loading" state while the app performs some operations (e.g., asynchronously checking the user’s permissions to execute a certain operation once the Toggle’s been clicked).
 
-## Examples
-
-### ToggleButton + ListItem, Separator
-
-This example shows a dropdown with a toggle-button, links, a separator and a link (color, critical):
-
-```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleButton @text="Text Toggle" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
-</Hds::Dropdown>
-```
-
-Rendered (positioned to the right):
-
-### ToggleButton + Title, Description, CopyItem, Separator
-
-This example demonstrates the use of a dropdown with a toggle-button (color, secondary), title, description, a generic (which is yielding a Link::Standalone component), copy-item, a separator and a link (color, critical):
-
-To indicate that a secondary button style should be used for the "button" toggle, add `@color="secondary"`. If no `@color` is declared, `primary` will be used by default.
-
-```handlebars
-<Hds::Dropdown as |dd| >
-  <dd.ToggleButton @text="Integrate with Terraform Cloud" @color="secondary" />
-  <dd.Title @text="Integrate with Terraform Cloud" />
-  <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
-  <dd.Generic>
-    <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
-  </dd.Generic>
-  <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
-  <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
-</Hds::Dropdown>
-```
-
-!!! Info
-
-**Generic**
-
-When using the "generic" list item the developer is completely responsible for any element yielded, including the accessibility of that element, as well as the layout of the content (we provide only the horizontal padding for consistency with the other items).
-
-!!!
-
-### ToggleIcon for "overflow" dropdown menus
-
-Example: an "overflow" toggle for use only in a table element (per design). The dropdown has default and destructive (critical) links. This is the only use case where it is acceptable to use
-`@hasChevron={{false}}`.
-
-Note that `toggleText` is still required–it provides the `aria-label` for the toggle button.
-
-```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-  <dd.Interactive @route="components" @text="Create" />
-  <dd.Interactive @route="components" @text="Read" />
-  <dd.Interactive @route="components" @text="Update" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
-</Hds::Dropdown>
-```
-
-### With a loading "interactive" item
-
-There may be use cases when it’s necessary to put an item in a "loading" state while the app performs some operations (e.g., checking asynchronously the user’s permission to execute a certain operation, once the toggle has been clicked).
-
-In that case the argument `@isLoading={{true}}` can be passed to the item: this will show a "loading" icon (even if an argument `@icon` is provided) and set the item as non-interactive until the value of `@isLoading` is set to `false` again.
+Pass the argument `@isLoading={{true}}` to the item. This will show a "loading" icon (even if an argument `@icon` is provided) and sets the item as non-interactive until the value of `@isLoading` is set to `false` again.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
@@ -146,40 +168,25 @@ In that case the argument `@isLoading={{true}}` can be passed to the item: this 
 </Hds::Dropdown>
 ```
 
-### ToggleIcon as user menu
+### ListItem::Generic
 
-In this example, we have a user icon with a title, description, separator, and links.
+!!! Info
 
-Note that `toggleText` is still required, because it supplies the `aria-label` for the toggle button.
+When using the “generic” ListItem, the product team is responsible for implementing the layout and accessibility.
+!!!
 
+`ListItem::Generic` allows you to pass custom elements to the Dropdown.
+
+<!-- TODO: Troubleshoot why this example isn't working correctly -->
 ```handlebars
 <Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="user" @text="user menu" />
-  <dd.Title @text="Signed In" />
-  <dd.Description @text="email@domain.com" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Settings and Preferences" />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
-</Hds::Dropdown>
-```
-
-Rendered as a toggle/icon for a user menu (positioned to the right):
-
-Here is a customized example to demonstrate how that would look like in dark mode (not supported by the design system yet):
-
-#### ToggleIcon with other icons
-
-In this example, we have a settings icon with a title, description, separator, and links.
-
-Note that `toggleText` is still required, because it supplies the `aria-label` for the toggle button.
-
-```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="settings" @text="settings menu" />
-  <dd.Title @text="Signed In" />
-  <dd.Description @text="email@domain.com" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Settings and Preferences" />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+  <dd.Title @text="Integrate with Terraform Cloud" />
+  <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
+  <dd.Generic>
+    <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" href="/" />
+  </dd.Generic>
+  <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
+  <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
 </Hds::Dropdown>
 ```
