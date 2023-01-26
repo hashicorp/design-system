@@ -1,11 +1,12 @@
 ## Anatomy
 
-![Anatomy of the Select component](/assets/components/form/select/select-anatomy.png)
+![Anatomy of the Select component](/assets/components/form/select/select-anatomy.png =593x*)
 
-| Elements | Usage |
-| -------- | ----- |
-| Label | Required |
-| Helper text | Optional |
-| Selected value | Options: empty (default), isSelected |
-| Base control | Required |
-| Error message | Triggered by system |
+| Element           | Usage                                                       |
+|-------------------|-------------------------------------------------------------|
+| Label             | Required                                                    |
+| Indicator         | Optional                                                    |
+| Helper text       | Optional                                                    |
+| Selected option   | Optional                                                    |
+| Control           | Required                                                    |
+| Error message     | Triggered by system                                         |
