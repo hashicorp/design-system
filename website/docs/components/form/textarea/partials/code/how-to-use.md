@@ -85,7 +85,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Validation
 
-To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
+To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Textarea::Field @value="A" @isInvalid={{true}} as |F|>
