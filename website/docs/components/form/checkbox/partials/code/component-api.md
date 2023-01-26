@@ -73,7 +73,7 @@ The Checkbox component has three different variants with their own APIs:
 
 #### Contextual components
 
-`Label`, `HelperText` and `Error` content are passed to the field as yielded components.
+`Label`, `HelperText` and, `Error` content are passed to the field as yielded components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
