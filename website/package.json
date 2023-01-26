@@ -46,6 +46,7 @@
     "broccoli-multifilter": "^2.0.0",
     "cspell": "^6.19.2",
     "ember-a11y-refocus": "^3.0.2",
+    "ember-a11y-testing": "^5.1.0",
     "ember-auto-import": "^2.4.2",
     "ember-body-class": "^3.0.0",
     "ember-cli": "~4.7.0",
