@@ -6,109 +6,94 @@
 
 ### When not to use
 
-- When navigating to another destination, use an [Inline](/components/link/inline) or [Standalone](/components/link/standalone) link.
+- When navigating to another destination, consider [Inline](/components/link/inline) or [Standalone](/components/link/standalone) link.
 - To display multiple actions under a single button, use [Dropdown](/components/dropdown).
 
-### Sizes
+## Sizes
 
-<Hds::Button @size="small" @text="Small" />
-
-<Hds::Button @size="medium" @text="Medium" />
-
-<Hds::Button @size="large" @text="Large" />
-
-<Hds::Button @size="large" @isFullWidth={{true}} @text="Full-width button" />
+Medium is the preferred size, but use a Button size that best fits the UI (e.g., don’t use a `large` button in a table).
 
 !!! Insight
 
-**Migrating Tip** 
+**Migration tip** 
 
 Medium buttons are the same size as default Structure buttons. Small buttons are the same size as compact Structure buttons.
-
 !!!
 
-Medium is the preferred size, but use a button size that best fits the UI (i.e., don’t use a `large` button in a table).
+<Doc::Layout @spacing="16px">
+  <Hds::Button @size="small" @text="Small" />
+  <Hds::Button @size="medium" @text="Medium" />
+  <Hds::Button @size="large" @text="Large" />
+</Doc::Layout>
 
-Buttons are able to be manually stretched to accommodate a need for a full-width button. Full-width buttons should fill 100% of the parent container.
+Full-width buttons fill 100% of the parent container. Use full-width Buttons sparingly.
 
+<Hds::Button @size="large" @isFullWidth={{true}} @text="Full-width button" />
 
+## Types
 
+### Primary
 
-### Types
-
-#### Primary
+Use **Primary** for the most important action on a page, e.g., for submitting a form. Avoid using multiple Primary buttons on a single page.
 
 <Hds::Button @color="primary" @icon="arrow-right" @iconPosition="trailing" @text="Primary" />
 
-Use **Primary** for the most important action on a page. Avoid using multiple Primary buttons on a page.
-
-For example:
-
-- for submitting a form
-
-  <Hds::Button @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Secondary" />
-
-#### Secondary
+### Secondary
 
 Use **Secondary** for less important actions or when multiple actions of the same importance are needed.
 
 For example:
 
-- for `Cancel` next to a `Submit` button
-- when needing to let the user do things like `Download` or `Generate` a report but neither are the primary focus or goal of the page
+- for `Cancel` next to a `Submit` button.
+- when needing to let the user do things like `Download` or `Generate` a report but neither are the primary focus or goal of the page.
 
-  <Hds::Button @color="critical" @icon="arrow-right" @iconPosition="trailing" @text="Critical" />
+<Hds::Button @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Secondary" />
 
-#### Critical
+### Critical
 
-Use **Critical** when users take an action that is potentially dangerous.
+Use **Critical** when users take an action that is potentially dangerous. For example, when deleting a cluster.
 
-For example:
+<Hds::Button @color="critical" @icon="arrow-right" @iconPosition="trailing" @text="Critical" />
 
-- deleting a cluster.
-
-<Hds::Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
-
-#### Tertiary
+### Tertiary
 
 Use **Tertiary** for low-priority actions when lighter visual weight is required.
 
 For example:
 
-- for actions on a page that require even less visual weight or priority than a secondary button (our default for less important actions)
-- for controlling form fields (such as adding an additional form field)
+- for actions on a page that require even less visual weight or priority than a secondary button (our default for less important actions).
+- for controlling form fields (such as adding an additional form field).
 
-### Icon position
+<Hds::Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
 
-  <Hds::ButtonSet>
-    <Hds::Button @color="secondary" @text="No icon" />
-    <Hds::Button @color="secondary" @text="Leading Icon" @icon="plus" @iconPosition="leading" />
-    <Hds::Button @color="secondary" @text="Trailing Icon" @icon="arrow-right" @iconPosition="trailing" />
-    <Hds::Button @color="secondary" @text="No text" @icon="plus" @isIconOnly={{true}} />
-  </Hds::ButtonSet>
+## Icon position
 
 Buttons are provided with flexible icon use; allowing for leading, trailing, or icon only buttons. Use icons intentionally and only when they provide the user with extra value. Do not create buttons with both leading and trailing icons. Tertiary buttons are required to have either a leading or trailing icon layout to be accessible.
 
-!!! Insight
+!!! Info
 
 **Looking for Dropdowns?**
 
-Buttons used for a dropdown (with the Caret Icon in the Trailing Icon Spot) can be found in [Dropdown](/components/dropdown).
-
+Buttons used for a Dropdown (with the chevron icon) can be found in [Dropdown](/components/dropdown).
 !!!
 
-### Button set
+<Hds::ButtonSet>
+  <Hds::Button @color="secondary" @text="No icon" />
+  <Hds::Button @color="secondary" @text="Leading Icon" @icon="plus" @iconPosition="leading" />
+  <Hds::Button @color="secondary" @text="Trailing Icon" @icon="arrow-right" @iconPosition="trailing" />
+  <Hds::Button @color="secondary" @text="No text" @icon="plus" @isIconOnly={{true}} />
+</Hds::ButtonSet>
 
-Button Sets are patterns when multiple buttons need to be displayed in a single row; not to be confused with Button Groups.
+## Button set
 
-  <Hds::ButtonSet>
-    <Hds::Button @color="primary" @text="Submit" />
-    <Hds::Button @color="secondary" @text="Cancel" />
-  </Hds::ButtonSet>
+ButtonSets are patterns when multiple Buttons need to be displayed in a single row.
 
-Primary buttons are displayed on the left, Secondary or Tertiary buttons on the right, with 16px between them.
+<Hds::ButtonSet>
+  <Hds::Button @color="primary" @text="Submit" />
+  <Hds::Button @color="secondary" @text="Cancel" />
+</Hds::ButtonSet>
 
 ## Content
 
-- Text should be short and to the point (~25 characters). They should not consist of full sentences, but should provide enough context to be useful.
-- Language should be used consistently within each product (ie. when using "Edit" on one page, use that same convention throughout the rest of the application, not "Change").
+- Text should be short and to the point (~25 characters). Buttons should not consist of full sentences, but should provide enough context to be useful.
+- Language should be used consistently within each product (e.g., when using "Edit" on one page, use that same convention throughout the rest of the application, not "Change").
