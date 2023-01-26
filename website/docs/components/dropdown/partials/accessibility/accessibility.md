@@ -4,42 +4,30 @@
 
 This component is conditionally conformant.
 
-1. In any instance where data truncation occurs, there is no current method to access that data for the keyboard-only user.
-2. If the chevron icon is removed from the dropdown’s toggle button, the component is no longer conformant.
+1. When truncation occurs, a keyboard-only user cannot access the truncated content.
+2. The component is no longer conformant if the chevron icon is removed from the ToggleButton.
 
-## Best Practices
+## Known issues
 
-Color blind users (specifically those with [Achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia)) may have a hard time perceiving Critical ListItems within our dropdown. To provide a more accessible experience, we recommend:
+### ToggleIcon with no chevron
 
-- Using strong, clear language for the text (e.g., “Delete...”, “Revoke...”, etc.)
-- Adding a relevant icon
-- Moving the Critical ListItem to the bottom of the list or the section
-    - If at the bottom of a list, consider adding a separator above the Critical ListItem to help separate it from other ListItems
-- Adding a second confirmation layer after the user clicks “Delete” (ie. showing a confirmation modal that requires the user to type “Delete” into a field before proceeding)
+Setting `@hasChevron` to `false` on ToggleIcons doesn’t provide enough affordance; it’s not quickly seen as actionable.
 
-<Hds::Dropdown::Toggle::Icon @text="Icon" @icon="more-horizontal" @isOpen={{true}} />
-<Doc::ListContainer class="hds-dropdown-list">
-  <Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
-  <Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
-  <Hds::Dropdown::ListItem::Separator />
-  <Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
-</Doc::ListContainer>
+### Color blind users and critical actions
 
-### Keyboard navigation
+Color blind users, specifically those with [Achromatopsia](https://en.wikipedia.org/wiki/Achromatopsia), may have a hard time perceiving Critical ListItems within our Dropdown component. 
 
-[Many types of users](https://webaim.org/techniques/keyboard/) rely on their keyboard to navigate the web, so it’s important that our designs have annotations for the [focus order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html#:~:text=3%3A%20Focus%20Order-,Success%20Criterion%202.4.,that%20preserves%20meaning%20and%20operability) (how keyboard users navigate the web) to ensure we’re providing them with a natural path and great experience.
+To provide a more accessible experience, we recommend:
 
-!!! Info
+- Using strong, clear language for the text (e.g., “Delete...”, “Revoke...”, etc.).
+- Adding a relevant icon that indicates the action is destructive (e.g., Helios icon `trash`).
+- Moving the Critical ListItem to the bottom of the list or the section.
+    - If at the bottom of a list, consider adding a separator above the Critical ListItem to help separate it from other ListItems.
+- Adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation [Modal](/components/modal) that requires the user to type “Delete” into a field before proceeding).
 
-Focus order annotated with Figma plugin, [A11y Focus Order](https://www.figma.com/community/plugin/731310036968334777/A11y---Focus-Orderer).
+## Keyboard navigation
 
-!!!
-
-![Dropdown focus order](/assets/components/dropdown/dropdown-focus_order-01.png)
-
-![Dropdown focus order](/assets/components/dropdown/dropdown-focus_order-02.png)
-
-![Dropdown focus order](/assets/components/dropdown/dropdown-focus_order-03.png)
+![Example of the focus order for a Dropdown](/assets/components/dropdown/dropdown-focus-order.png =668x*)
 
 ## Applicable WCAG Success Criteria
 

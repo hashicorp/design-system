@@ -30,6 +30,7 @@ workramp
 duplicative
 borderless
 datagrid
+affordance
 
 # Component-specific
 dont
