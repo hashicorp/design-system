@@ -134,7 +134,7 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added—`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really _does_ point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{false}}` to the component and it will not add any extra HTML attributes.
 !!!
 
-If you pass a `@href` argument, a link (`<a>` element) will be generated:
+If you pass an `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
