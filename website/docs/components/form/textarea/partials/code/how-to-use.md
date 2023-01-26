@@ -136,7 +136,7 @@ Pass an `@extraAriaDescribedBy` argument to the field to connect one or more ext
 
 #### HTML native attributes
 
-This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<textarea>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `min` `max` `minlength` `maxlength` `pattern` attributes to it).
+This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<textarea>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `min`, `max`, `minlength`, `maxlength`, or `pattern` attributes to it).
 
 ```handlebars
 <Hds::Form::Textarea::Field name="description" placeholder="Workspace description" minlength="4" maxlength="1024" as |F|>
