@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { inject as service } from '@ember/service';
 
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
@@ -65,9 +66,18 @@ export const elliptize = ({ pages, current, limit = 7 }) => {
 };
 
 export default class HdsPaginationNumberedIndexComponent extends Component {
-  @tracked currentItemsPerPage = this.args.itemsPerPage ?? this.pageSizes[0];
-  @tracked totalPages = this.calculateTotalPages();
-  @tracked currentPage = this.args.currentPage ?? 1;
+  @service router;
+
+  // These two private variables are used to differentiate between
+  // "uncontrolled" component (where the state is handled internally) and
+  // "controlled" component (where the state is handled externally, by the consumer's code).
+  // In the first case, these variables store the internal state of the component at any moment,
+  // and their value is updated internally according to the user's interaction with the component.
+  // In the second case, these variables store *only* the initial state of the component (coming from the arguments)
+  // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
+  // has with the component (the state is controlled externally, eg. via query parameters)
+  @tracked _currentPage = this.args.currentPage ?? 1;
+  @tracked _currentPageSize = this.args.itemsPerPage ?? this.pageSizes[0];
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
   showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
@@ -75,36 +85,84 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
   isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
-  /**
-   * Gets the current page
-   *
-   * @param currentPage
-   * @type {number}
-   */
+  constructor() {
+    super(...arguments);
+
+    let { queryFunction } = this.args;
+
+    // This component works in two different ways, depending if we need to support
+    // routing through links (`LinkTo`) for the "navigation controls", or not.
+    // If there's no routing then the component behaves as "uncontrolled"
+    // (the state updates - eg to the "currentPage" and "currentPageSize"
+    // are handled by its internal logic).
+    // If instead the component needs to update the routing (and we infer this via the "query" arguments)
+    // then the component behaves as "controlled", where the state is
+    // initialized and updated using the arguments passed to it.
+
+    if (queryFunction === undefined) {
+      this.hasRouting = false;
+    } else {
+      assert(
+        '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+        typeof queryFunction === 'function'
+      );
+      assert(
+        '@currentPage and @itemsPerPage for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing',
+        typeof this.args.itemsPerPage === 'number' &&
+          typeof this.args.currentPage === 'number'
+      );
+      this.hasRouting = true;
+    }
+
+    assert(
+      '@totalItems for "Hds::Pagination::Numbered" must be defined as an integer number',
+      typeof this.args.totalItems === 'number'
+    );
+  }
+
+  // This very specific `get/set` pattern is used to handle the two different use cases of the component
+  // being "controlled" (when it has routing, meaning it needs to support links as controls)
+  // vs being "uncontrolled" (see comments above for details).
+  //
+  // If it has routing (and so it's "controlled"), than the value ("state") of the `currentPage/currentPageSize` variables
+  // is *always* determined by the controller via arguments (most of the times, connected to query parameters in the URL).
+  // For this reason the "get" method always returns the value from the `args`,
+  // while the "set" method never updates the private internal state (_variable).
+  //
+  // If instead it doesn't have routing (and so it's "uncontrolled") than the value ("state") of the `currentPage/currentPageSize` variables
+  // is *always* determined by the component's internal logic (and updated according to the user interaction with it).
+  // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
+
   get currentPage() {
-    let { currentPage = 1 } = this.args;
-
-    return currentPage;
+    if (this.hasRouting) {
+      return this.args.currentPage;
+    } else {
+      return this._currentPage;
+    }
   }
 
-  /**
-   * @param totalItems
-   * @type {number}
-   * @description Pass the total number of items to be paginated. If no value is defined an error will be thrown.
-   */
-  get totalItems() {
-    let { totalItems } = this.args;
-
-    return totalItems;
+  set currentPage(value) {
+    if (this.hasRouting) {
+      // noop
+    } else {
+      this._currentPage = value;
+    }
   }
 
-  /**
-   * @param itemsPerPage
-   * @type {number}
-   * @description Pass the maximum number of items to display on each page initially.
-   */
-  get itemsPerPage() {
-    return this.currentItemsPerPage;
+  get currentPageSize() {
+    if (this.hasRouting) {
+      return this.args.itemsPerPage;
+    } else {
+      return this._currentPageSize;
+    }
+  }
+
+  set currentPageSize(value) {
+    if (this.hasRouting) {
+      // noop
+    } else {
+      this._currentPageSize = value;
+    }
   }
 
   /**
@@ -130,18 +188,18 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     //  ( (1 - 1 = 0) * 10 = 0 ) + 1 = 1
     // if current page = 2nd page:
     // ( (2 - 1 = 1) * 10 = 10 ) + 1 = 11
-    return (this.currentPage - 1) * this.itemsPerPage + 1;
+    return (this.currentPage - 1) * this.currentPageSize + 1;
   }
 
   get itemsRangeEnd() {
     // Calculate ending range of items displayed on current page
     // 2 cases: 1) full page of items or 2) last page of items
-    if (this.currentPage * this.itemsPerPage < this.totalItems) {
+    if (this.currentPage * this.currentPageSize < this.args.totalItems) {
       // 1) full page of items (pages 1 to page before last):
-      return this.itemsRangeStart + this.itemsPerPage - 1;
+      return this.itemsRangeStart + this.currentPageSize - 1;
     } else {
       // 2) last page of items:
-      return this.totalItems;
+      return this.args.totalItems;
     }
   }
 
@@ -157,6 +215,60 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     } else {
       return pages;
     }
+  }
+
+  get totalPages() {
+    return Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1);
+  }
+
+  get routeQueryParams() {
+    return this.router.currentRoute?.queryParams || {};
+  }
+
+  buildQueryParamsObject(page, pageSize) {
+    if (this.hasRouting) {
+      return this.args.queryFunction(page, pageSize);
+    } else {
+      return {};
+    }
+  }
+
+  get routing() {
+    let routing = {
+      route: this.args.route ?? undefined,
+      model: this.args.model ?? undefined,
+      models: this.args.models ?? undefined,
+      replace: this.args.replace ?? undefined,
+    };
+
+    // the "query" is dynamic and needs to be calculated
+    if (this.hasRouting) {
+      routing.queryPrev = this.buildQueryParamsObject(
+        this.currentPage - 1,
+        this.currentPageSize
+      );
+      routing.queryNext = this.buildQueryParamsObject(
+        this.currentPage + 1,
+        this.currentPageSize
+      );
+      // IMPORTANT: here we neeed to use an object and not an array
+      // otherwise the {{get object page}} will be shifted by one
+      // (the pages are 1-based while the array would be zero-based)
+      routing.queryPages = {};
+      this.pages.forEach(
+        (page) =>
+          (routing.queryPages[page] = this.buildQueryParamsObject(
+            page,
+            this.currentPageSize
+          ))
+      );
+    } else {
+      routing.queryPrev = undefined;
+      routing.queryNext = undefined;
+      routing.queryByPage = {};
+    }
+
+    return routing;
   }
 
   get isDisabledPrev() {
@@ -185,29 +297,29 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
       let { onPageChange } = this.args;
 
       if (typeof onPageChange === 'function') {
-        onPageChange(this.currentPage, this.currentItemsPerPage);
+        onPageChange(this.currentPage, this.currentPageSize);
       }
     }
   }
 
   @action
   onPageSizeChange(newPageSize) {
-    this.currentItemsPerPage = newPageSize;
-    this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    this.totalPages = this.calculateTotalPages();
-
     let { onPageSizeChange } = this.args;
 
+    // we need to manually update the query parameters in the route (it's not a link!)
+    if (this.hasRouting) {
+      let queryParams = Object.assign({}, this.routeQueryParams);
+      // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+      queryParams = this.buildQueryParamsObject(1, newPageSize);
+      this.router.transitionTo({ queryParams });
+    } else {
+      this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+      this.currentPageSize = newPageSize;
+    }
+
+    // invoke the callback function
     if (typeof onPageSizeChange === 'function') {
       onPageSizeChange(newPageSize);
-    }
-  }
-
-  calculateTotalPages() {
-    if (this.totalItems) {
-      return Math.max(Math.ceil(this.totalItems / this.itemsPerPage), 1);
-    } else {
-      return undefined;
     }
   }
 }

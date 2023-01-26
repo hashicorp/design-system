@@ -27,6 +27,24 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
     return pageSizes;
   }
 
+  /**
+   * @param selectedSize
+   * @type integer
+   * @description The selected ("current") page size
+   */
+  get selectedSize() {
+    let { selectedSize } = this.args;
+
+    assert(
+      `@selectedSize for "Pagination::SizeSelector" must one of the @pageSizes provided (${this.pageSizes.join(
+        ','
+      )}), received ${selectedSize}`,
+      selectedSize === undefined || this.pageSizes.includes(selectedSize)
+    );
+
+    return selectedSize;
+  }
+
   @action
   onChange(e) {
     let { onChange } = this.args;

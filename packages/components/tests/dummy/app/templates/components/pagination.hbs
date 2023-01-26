@@ -123,6 +123,23 @@
       <p>Used to control the visibility of the "prev/next" text labels.</p>
       <p>Default: <span class="default">false</span></p>
     </dd>
+    <dt>route/model/models/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Pagination::Arrow</code>/<code class="dummy-code">Hds::Pagination::Number</code>
+        child components, and from them to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
+    </dd>
+    <dt>queryFunction <code>function</code></dt>
+    <dd>
+      <p>A function that returns an object that can be provided as
+        <code class="dummy-code">query</code>
+        argument for the routing, and that is passed down to the to the child components together with the other routing
+        parameters.</p>
+      <p>The function receives the value of the "go to" page and "page size" as arguments (integer numbers).</p>
+    </dd>
     <dt>onPageChange <code>function</code></dt>
     <dd>
       <p>Callback function invoked (if provided) when one of the navigation controls is clicked, and a "page" change is
@@ -146,25 +163,28 @@
     component:
   </p>
   <dl class="dummy-component-props" aria-labelledby="component-api-pagination-compact">
-    <dt>route[Prev|Next] <code>string</code></dt>
+    <dt>route/model/models/replace</dt>
     <dd>
-      <p>The
-        <code>@route</code>
-        parameter passed down as arguments to internally render a
-        <code>&lt;LinkTo&gt;</code>
-        Ember component instead of a
-        <code>&lt;button&gt;</code>
-        in the "prev" or "next" control.</p>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Pagination::Arrow</code>
+        child components, and from them to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
     </dd>
-    <dt>query[Prev|Next] <code>object</code></dt>
+    <dt>queryFunction <code>function</code></dt>
     <dd>
-      <p>The
-        <code>@query</code>
-        parameter for the
-        <code>&lt;LinkTo&gt;</code>
-        Ember component in the "prev" or "next" control.</p>
+      <p>A function that returns an object that can be provided as
+        <code class="dummy-code">query</code>
+        argument for the routing, and that is passed down to the to the child components together with the other routing
+        parameters.</p>
+      <p>The function receives as argument one of two possible values:</p>
+      <ol>
+        <li>prev</li>
+        <li>next</li>
+      </ol>
     </dd>
-    <dt>isDisabled[Prev|Next] <code>boolean</code></dt>
+    <dt>isDisabledPrev/isDisabledNext <code>boolean</code></dt>
     <dd>
       <p>Used to disable the "prev" or "next" controls.</p>
       <p>Default: <span class="default">false</span></p>
@@ -235,7 +255,7 @@
         <li>next</li>
       </ol>
     </dd>
-    <dt>href + route/models/model/query/current-when/replace</dt>
+    <dt>route/query/model/models/replace</dt>
     <dd>
       <p>These are the parameters that are passed down as arguments to the
         <code class="dummy-code">Hds::Interactive</code>
@@ -280,6 +300,13 @@
     <dd>
       <p>If the page has a "selected" visual state (usually used to highlight the current page).</p>
       <p>Default: <span class="default">false</span></p>
+    </dd>
+    <dt>route/query/model/models/replace</dt>
+    <dd>
+      <p>These are the parameters that are passed down as arguments to the
+        <code class="dummy-code">Hds::Interactive</code>
+        component (used internally). For more details about how this low-level component works please refer to
+        <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</p>
     </dd>
     <dt>onClick <code>function</code></dt>
     <dd>
@@ -554,11 +581,72 @@
     elements in the page).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
-  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
-    query parameters) you need to pass the routing parameters to the component:</p>
-  <pre>🚨 TODO </pre>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. updating the query
+    parameters) you need to pass the routing parameters to the component:</p>
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Numbered
+        @totalItems=\{{this.demoTotalItems}}
+        @itemsPerPage=\{{this.demoCurrentPageSize}}
+        @currentPage=\{{this.demoCurrentPage}}
+        @pageSizes=\{{this.demoPageSizes}}
+        @route=\{{this.demoRouteName}}
+        @queryFunction=\{{this.demoQueryFunctionNumbered}}
+      />
+    "
+  />
+  <p class="dummy-paragraph">where the
+    <code class="dummy-code">@queryFunction</code>
+    function will be something like this:</p>
+  <CodeBlock
+    @language="javascript"
+    @code="
+        get demoQueryFunctionNumbered() {
+          return (page, pageSize) => {
+            return {
+              demoCurrentPage: page,
+              demoCurrentPageSize: pageSize,
+              demoExtraParam: 'hello',
+            };
+          };
+        }
+      "
+  />
   <p class="dummy-paragraph">Renders to:</p>
-  <pre>🚨 TODO 🚨</pre>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.demoTotalItems}}
+    @itemsPerPage={{this.demoCurrentPageSize}}
+    @currentPage={{this.demoCurrentPage}}
+    @pageSizes={{this.demoPageSizes}}
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionNumbered}}
+  />
+  <p class="dummy-paragraph">When the routing parameters are provided, the "navigation controls" are rendered as links
+    and if the user clicks on one of them the page URL is automatically updated. This means that the component's state
+    is persisted
+    <strong>outside</strong>
+    of the component and so its whole state
+    <strong>must</strong>
+    be "controlled" by the consumer's code (otherwise there would be confliting states).</p>
+  <p class="dummy-paragraph">In this case, the component doesn't update its internal "state" but the value of the state
+    variables (eg.
+    <code class="dummy-code">currentPage/currentPageSize</code>) is
+    <strong>always</strong>
+    determined by the consumer's controller code via the component's arguments (most of the times, they are directly
+    connected to the query parameters in the URL).
+  </p>
+  <p class="dummy-paragraph">The reason for using a consumer-side function to determine the
+    <code class="dummy-code">query</code>
+    argument is because it's dynamic (it depends on the value of the
+    <code class="dummy-code">page</code>
+    variable) and gives consumers the ability to specify their own query parameters (they will likely be different case
+    by case).
+  </p>
+  <p class="dummy-paragraph">Even if the pagination is based on routing, the
+    <code class="dummy-code">onPageChange/onPageSizeChange</code>
+    callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.)
+  </p>
 
   {{! =============================== }}
   {{! ===== PAGINATION::COMPACT ===== }}
@@ -618,12 +706,66 @@
     to a "page" change (eg. updating the list of items in the page and/or updating the routing/URL).</p>
 
   <h5 class="dummy-h5">Routing/URL updates</h5>
-  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. adding/removing
-    query parameters), you need to pass the routing parameters to the component:</p>
-  <pre>🚨 TODO </pre>
+  <p class="dummy-paragraph">If you want the pagination to change the URL of the page directly (eg. updating the query
+    parameters) you need to pass the routing parameters to the component:</p>
+  <CodeBlock
+    @language="markup"
+    @code="
+      <Hds::Pagination::Compact
+        @route=\{{this.demoRouteName}}
+        @queryFunction=\{{this.demoQueryFunctionCompact}}
+        @isDisabledPrev=\{{this.demoIsDisabledPrev}}
+        @isDisabledNext=\{{this.demoIsDisabledNext}}
+      />
+    "
+  />
+  <p class="dummy-paragraph">where the
+    <code class="dummy-code">@queryFunction</code>
+    function will be something like this:</p>
+  <CodeBlock
+    @language="javascript"
+    @code="
+        get demoQueryFunctionCompact() {
+          return (page) => {
+            return {
+              demoCurrentToken: page === 'prev' ? this.getPrevToken : this.getNextToken,
+              demoExtraParam: 'hello',
+            };
+          };
+        }
+      "
+  />
   <p class="dummy-paragraph">Renders to:</p>
-  <pre>🚨 TODO 🚨</pre>
-
+  <Hds::Pagination::Compact
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionCompact}}
+    @isDisabledPrev={{this.demoIsDisabledPrev}}
+    @isDisabledNext={{this.demoIsDisabledNext}}
+  />
+  <p class="dummy-paragraph">When the routing parameters are provided, the "prev/next" controls are rendered as links
+    and if the user clicks on one of them the page URL is automatically updated. This means that the component's state
+    is persisted
+    <strong>outside</strong>
+    of the component and so its whole state
+    <strong>must</strong>
+    be "controlled" by the consumer's code (otherwise there would be confliting states).</p>
+  <p class="dummy-paragraph">In this case, the component doesn't update its internal "state" but the value of the state
+    variables is
+    <strong>always</strong>
+    determined by the consumer's controller code via the component's arguments (most of the times, they are directly
+    connected to the query parameters in the URL).
+  </p>
+  <p class="dummy-paragraph">The reason for using a consumer-side function to determine the
+    <code class="dummy-code">query</code>
+    argument is because it's dynamic (it depends on the value of the
+    <code class="dummy-code">page/cursor</code>
+    variable) and gives consumers the ability to specify their own query parameters (they will likely be different case
+    by case).
+  </p>
+  <p class="dummy-paragraph">Even if the pagination is based on routing, the
+    <code class="dummy-code">onPageChange/onPageSizeChange</code>
+    callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.)
+  </p>
 </section>
 
 <section data-test-percy class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
@@ -783,4 +925,160 @@
   <h5 class="dummy-h5">Pagination::Nav::Ellipsis</h5>
   <p class="dummy-text-small">Base</p>
   <Hds::Pagination::Nav::Ellipsis />
+
+  <hr class="dummy-divider" />
+
+  <h4 class="dummy-h4">Examples of paginated tables</h4>
+
+  {{! ============================================ }}
+  {{! ===== DEMO #1 - NUMBERED - WITH EVENTS ===== }}
+  {{! ============================================ }}
+
+  <h5 class="dummy-h5">Numbered - Events-based pagination</h5>
+  <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
+    preserved across page reloads.</p>
+
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo1}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @density={{if (eq this.currentPageSize_demo1 30) "short" "medium"}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.demoTotalItems}}
+      @itemsPerPage={{this.currentPageSize_demo1}}
+      @pageSizes={{array 5 10 30}}
+      @onPageChange={{this.onPageChange_demo1}}
+      @onPageSizeChange={{this.onPageSizeChange_demo1}}
+    />
+  </div>
+
+  {{! ============================================= }}
+  {{! ===== DEMO #2 - NUMBERED - WITH ROUTING ===== }}
+  {{! ============================================= }}
+
+  <h5 class="dummy-h5">Numbered - Routing-based pagination</h5>
+  <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
+    reloads using the query parameters stored in the URL.</p>
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo2}}
+      @columns={{array
+        (hash key="id" label="ID" isSortable="true")
+        (hash key="name" label="Name" isSortable="true")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @sortBy={{this.currentSortBy_demo2}}
+      @sortOrder={{this.currentSortOrder_demo2}}
+      @onSort={{this.onTableSort_demo2}}
+      @density={{if (eq this.currentPageSize_demo2 30) "short" "medium"}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.demoTotalItems}}
+      @itemsPerPage={{this.currentPageSize_demo2}}
+      @pageSizes={{array 5 10 30}}
+      @currentPage={{this.currentPage_demo2}}
+      @route={{this.demoRouteName}}
+      @queryFunction={{this.consumerQueryFunction_demo2}}
+      @onPageChange={{this.genericHandlePageChange}}
+      @onPageSizeChange={{this.genericHandlePageSizeChange}}
+    />
+  </div>
+
+  {{! =========================================== }}
+  {{! ===== DEMO #3 - COMPACT - WITH EVENTS ===== }}
+  {{! =========================================== }}
+
+  <h5 class="dummy-h5">Compact - Events-based pagination</h5>
+  <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
+    preserved across page reloads.</p>
+
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo3}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Compact
+      @isDisabledPrev={{this.isDisabledPrev_demo3}}
+      @isDisabledNext={{this.isDisabledNext_demo3}}
+      @onPageChange={{this.onPageChange_demo3}}
+    />
+  </div>
+
+  {{! ============================================ }}
+  {{! ===== DEMO #4 - COMPACT - WITH ROUTING ===== }}
+  {{! ============================================ }}
+
+  {{! Notice: this demo emulates the current implementation in Cloud UI }}
+
+  <h5 class="dummy-h5">Compact - Routing-based pagination</h5>
+  <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
+    reloads using the query parameters stored in the URL.</p>
+
+  <div class="dummy-pagination-table-demo">
+    <Hds::Table
+      @model={{this.paginatedData_demo4}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Compact
+      @route={{this.demoRouteName}}
+      @queryFunction={{this.consumerQueryFunction_demo4}}
+      @isDisabledPrev={{this.isDisabledPrev_demo4}}
+      @isDisabledNext={{this.isDisabledNext_demo4}}
+      @onPageChange={{this.genericHandlePageChange}}
+    />
+  </div>
+
 </section>
