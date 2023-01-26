@@ -23,7 +23,7 @@ A few parameters were omitted for clarity.
 Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item.
 
 ```handlebars
-<Hds::Breadcrumb aria-label="breadcrumbs with routing params">
+<Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
   <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
   <Hds::Breadcrumb::Item
@@ -45,7 +45,7 @@ The text will automatically truncate and be replaced with an ellipsis to fit wit
 !!!
 
 ```handlebars
-<Hds::Breadcrumb @itemsCanWrap={{false}} aria-label="breadcrumbs no wrapping">
+<Hds::Breadcrumb @itemsCanWrap={{false}}>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" />
   <Hds::Breadcrumb::Item @text="Consul" @icon="consul" />
   <Hds::Breadcrumb::Item @text="my-consul-cluster" />
@@ -63,7 +63,7 @@ The text will automatically truncate and be replaced with an ellipsis to fit wit
 !!!
 
 ```handlebars
-<Hds::Breadcrumb aria-label="breadcrumbs with truncated content">
+<Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
   <Hds::Breadcrumb::Truncation>
     <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
