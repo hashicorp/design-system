@@ -2,18 +2,47 @@
 
 The Toggle component has two different variants with their own APIs:
 
-- `Form::Toggle::Base` - the base component: the `<input>` control
+- `Form::Toggle::Group` - the group component: a `<legend>` (optional), a list of fields, and error messaging
 - `Form::Toggle::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::Toggle::Base` - the base component: the `<input>` control
 
-### Form::Toggle::Base
+### Form::Toggle::Group
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
+    Sets the layout of the group.
+  </C.Property>
+  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
+    Appends a `Required` indicator next to the legend text and sets the `required` attribute on the control when user input is required.
+  </C.Property>
+  <C.Property @name="isOptional" @type="boolean" @values={{array "false" "true" }} @default="false">
+    Appends an `Optional` indicator next to the legend text when user input is optional.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### Contextual components
+
+`Legend`, group of `Form::Toggle::Field` components, and `Error` content are passed to the group as yielded components. The group of elements is automatically wrapped in a `<fieldset>` element.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<[G].Legend>" @type="yielded component">
+    Optional container that yields its content inside the `<legend>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives/) component.
+  </C.Property>
+  <C.Property @name="<[G].HelperText>" @type="yielded component">
+    Container that yields its content inside the "helper text" block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives/) component. 
     <br/><br/>
-    The attributes will be applied to the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element and all the usual Ember techniques for event handling, validation, etc. 
+    The `id` attribute of the element is automatically generated.
+  </C.Property>
+  <C.Property @name="<[G].Toggle::Field>" @type="yielded component">
+    Used to yield one or more fields inside the group. For details about its API, check the `Toggle::Field` component above.
+  </C.Property>
+  <C.Property @name="<[G].Error>" @type="yielded component">
+    Container that yields its content inside the "error" block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives/) component. 
     <br/><br/>
-    Examples of HTML attributes: `id`, `name`, `value`, `checked`, `disabled`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "click" [do something]}}`, `\{{on "change" [do something]}}`.
+    The `id` attribute of the `Error` element is automatically generated.
+  </C.Property>
+  <C.Property @name="<[E].Message>" @type="yielded component">
+    If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -62,42 +91,14 @@ The Toggle component has two different variants with their own APIs:
   </C.Property>
 </Doc::ComponentApi>
 
-### Form::Toggle::Group
+### Form::Toggle::Base
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
-    Sets the layout of the group.
-  </C.Property>
-  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Appends a `Required` indicator next to the legend text and sets the `required` attribute on the control when user input is required.
-  </C.Property>
-  <C.Property @name="isOptional" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Appends an `Optional` indicator next to the legend text when user input is optional.
-  </C.Property>
-</Doc::ComponentApi>
-
-#### Contextual components
-
-`Legend`, group of `Form::Toggle::Field` components, and `Error` content are passed to the group as yielded components. The group of elements is automatically wrapped in a `<fieldset>` element.
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="<[G].Legend>" @type="yielded component">
-    Optional container that yields its content inside the `<legend>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives/) component.
-  </C.Property>
-  <C.Property @name="<[G].HelperText>" @type="yielded component">
-    Container that yields its content inside the "helper text" block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives/) component. 
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
-    The `id` attribute of the element is automatically generated.
-  </C.Property>
-  <C.Property @name="<[G].Toggle::Field>" @type="yielded component">
-    Used to yield one or more fields inside the group. For details about its API, check the `Toggle::Field` component above.
-  </C.Property>
-  <C.Property @name="<[G].Error>" @type="yielded component">
-    Container that yields its content inside the "error" block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives/) component. 
+    The attributes will be applied to the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element and all the usual Ember techniques for event handling, validation, etc. 
     <br/><br/>
-    The `id` attribute of the `Error` element is automatically generated.
-  </C.Property>
-  <C.Property @name="<[E].Message>" @type="yielded component">
-    If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
+    Examples of HTML attributes: `id`, `name`, `value`, `checked`, `disabled`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "click" [do something]}}`, `\{{on "change" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>
