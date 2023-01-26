@@ -154,7 +154,7 @@ Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your cur
 </Doc::ListContainer>
 ```
 
-#### With a loading "interactive" item
+#### With a loading “interactive” item
 
 There may be use cases when it’s necessary to put an item in a "loading" state while the app performs some operations (e.g., asynchronously checking the user’s permissions to execute a certain operation once the Toggle’s been clicked).
 
