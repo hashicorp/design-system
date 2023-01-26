@@ -109,7 +109,7 @@ Sets the "direction" of the icon and label in the control.
 These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="disabled" @type="boolean" @values={{array "true" "false" }} @default="false">
-If the control is disabled. Notice: when the control is disabled, it's always rendered as an HTML `Button` element.
+Sets the control as disabled. Notice: when the control is disabled, it’s always rendered as an HTML `Button` element.
 </C.Property>
 <C.Property @name="showLabel" @type="boolean" @values={{array "true" "false" }} @default="true">
 Used to control the visibility of the text label in the control.
