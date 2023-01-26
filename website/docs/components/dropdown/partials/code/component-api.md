@@ -23,7 +23,7 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="close" @type="function">
     Function to programmatically close the dropdown. 
     <br/><br/>
-    If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component that will require some workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
+    If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
   </C.Property>
   <C.Property @name="onClose" @type="function">
     Callback function invoked when the dropdown is closed, if provided.
