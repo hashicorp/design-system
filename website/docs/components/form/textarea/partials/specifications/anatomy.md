@@ -1,14 +1,13 @@
 
 ## Anatomy
 
-![Textarea anatomy](/assets/components/form/textarea/textarea-anatomy.png)
+![Textarea anatomy](/assets/components/form/textarea/textarea-anatomy.png =593x*)
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Label             | Required                      |
-| Helper text            | Optional |
-| Base text      | Options: empty, placeholder, filled. Shown in _"placeholder"_       |
-| Base control          | Required                                        |
-| Error message   | Triggered by system                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Element           | Usage                                                       |
+|-------------------|-------------------------------------------------------------|
+| Label             | Required                                                    |
+| Indicator         | Optional                                                    |
+| Helper text       | Optional                                                    |
+| Placeholder/Value | Optional                                                    |
+| Control           | Required                                                    |
+| Error message     | Triggered by system                                         |
