@@ -14,7 +14,7 @@
 
 ## Interactions 
 
-![Image of select interactions](/assets/components/form/select/select-interactions.png =1015x*)
+![Mouse and keyboard select interactions](/assets/components/form/select/select-interactions.png =1015x*)
 
 ## Applicable WCAG Success Criteria (Reference)
 
