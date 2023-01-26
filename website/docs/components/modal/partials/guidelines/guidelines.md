@@ -17,7 +17,7 @@
 Small
 
 <Hds::Modal @size="small" id="size-small-modal-first" open as |M|>
-  <M.Header as |H|>
+  <M.Header>
     Small Modal
   </M.Header>
   <M.Body>
