@@ -20,7 +20,7 @@
 
 ## Known issues
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature.
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used if considering this approach.
 
 ## Applicable WCAG Success Criteria
 
