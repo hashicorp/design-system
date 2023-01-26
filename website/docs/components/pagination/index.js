@@ -47,11 +47,39 @@ const getNewPrevNextCursors = (cursor, pageSize, records) => {
 export default class Index extends Component {
   @service router;
 
-  @tracked demoCurrentPage = 1;
-  @tracked demoCurrentPageSize = 5;
-  @tracked demoCurrentCursor = btoa(`next__1`);
   @tracked demoPageSizes = [5, 10, 30];
-  @tracked demoExtraParam = '';
+
+  // ----------------------------
+  // since this is techically a component and not a controller
+  // we can't directly access the query parameters values (and then track them)
+  // using the `queryParams` declaration, so we need to access them directly
+  // via the router, and provide them as getter to the code snippets so they're
+  // kept in sync with the URL whenever the user interacts with the demo component
+
+  get demoCurrentPage() {
+    return parseInt(
+      this.router?.currentRoute?.queryParams?.demoCurrentPage ?? 1
+    );
+  }
+
+  get demoCurrentPageSize() {
+    return parseInt(
+      this.router?.currentRoute?.queryParams?.demoCurrentPageSize ?? 5
+    );
+  }
+
+  get demoExtraParam() {
+    return this.router?.currentRoute?.queryParams?.demoExtraParam ?? '';
+  }
+
+  get demoCurrentCursor() {
+    return (
+      this.router?.currentRoute?.queryParams?.demoCurrentCursor ??
+      btoa(`next__1`)
+    );
+  }
+
+  // ----------------------------
 
   get model() {
     let records = Array.from(Array(39), (x, i) => ({ id: i + 1 }));
