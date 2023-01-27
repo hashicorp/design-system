@@ -251,7 +251,7 @@ Common examples of tertiary actions include:
 ### Action content guidelines
 
 - Modal actions should be concise and not written as sentences. Most of the time, one or two words are adequate for an action. 
-- We generally don't recommend using icons on actions within Modals.
+- We generally don’t recommend using icons on actions within Modals.
 - Buttons in a Modal should follow the same content guidelines as the [Button](/components/button) component.
 
 !!! Do
