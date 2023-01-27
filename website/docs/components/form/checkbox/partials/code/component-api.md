@@ -1,48 +1,46 @@
 ## Component API 
 
-The `Form::Checkbox` component has three different variants, with their own APIs:
+The Checkbox component has three different variants with their own APIs:
 
-- `Form::Checkbox::Group` - the "group" parent component: a `<legend>` (optional), a list of fields, and error messaging
-- `Form::Checkbox::Field` - the "field" parent component: the `<input>` control, with label, helper text and error messaging (in a wrapping container)
-- `Form::Checkbox::Base` - the "basic" component: just the `<input>` control
+- `Form::Checkbox::Group` - the group component: a `<legend>` (optional), a list of fields, and error messaging
+- `Form::Checkbox::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::Checkbox::Base` - the base component: the `<input>` control
 
 ### Form::Checkbox::Group
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="layout" @type="enum" @values={{array "vertical" "horizontal" }} @default="vertical">
-    Sets the layout of group.
+    Sets the layout of the group.
   </C.Property>
   <C.Property @name="name" @type="string">
     Sets the `name` attribute for each form control within the group.
   </C.Property>
   <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Appends a ’Required’ indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
+    Appends a `Required` indicator next to the legend text and sets the `required` attribute on the control when user input is required.
   </C.Property>
   <C.Property @name="isOptional" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Appends an ’Optional’ indicator next to the legend text when user input is optional.
+    Appends an `Optional` indicator next to the legend text when user input is optional.
   </C.Property>
 </Doc::ComponentApi>
 
 #### Contextual components
 
-Legend, groups of fields, and error content are passed to the group as yielded components, using the `Legend`, `Checkbox::Field`, and `Error` keys.
-
-The group of elements is automatically wrapped in a `<fieldset>` element.
+`Legend`, group of `Form::Checkbox::Field` components, and `Error` content are passed to the group as yielded components. The group of elements is automatically wrapped in a `<fieldset>` element.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[G].Legend>" @type="yielded component">
-    An optional container that yields its content inside the `<legend>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Legend`](/components/form/base-elements/) component.
+    Optional container that yields its content inside the `<legend>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives/) component.
   </C.Property>
   <C.Property @name="<[G].HelperText>" @type="yielded component">
-    A container that yields its content inside the "helper text" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/base-elements/) component.
+    Container that yields its content inside the “helper text” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives/) component.
     <br/><br/>
     The `id` attribute of the element is automatically generated.
   </C.Property>
   <C.Property @name="<[G].Checkbox::Field>" @type="yielded component">
-    Used to yield one or more fields inside the group. For details about its API check the `Checkbox::Field` component above.
+    Used to yield one or more fields inside the group. For details about its API, check the `Form::Checkbox::Field` API details.
   </C.Property>
   <C.Property @name="<[G].Error>" @type="yielded component">
-    A container that yields its content inside the "error" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/base-elements/) component.
+    Container that yields its content inside the “error” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API check the [`Form::Error`](/components/form/primitives/) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
   </C.Property>
@@ -55,41 +53,41 @@ The group of elements is automatically wrapped in a `<fieldset>` element.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="id" @type="string">
-    The input control’s ID attribute.
+    Input control’s ID attribute.
     <br/><br/>
-    By default the ID is automatically generated by the component; use this argument if you need to pass a custom ID for specific reasons you may have.
+    By default, the ID is automatically generated by the component. Use this argument to pass a custom ID.
   </C.Property>
   <C.Property @name="extraAriaDescribedBy" @type="string">
-    An extra ID attribute to be added to the `aria-describedby` HTML attribute.
+    Extra ID attribute to add to the `aria-describedby` HTML attribute.
     <br/><br/>
-    By default the `aria-describedby` attribute is automatically generated by the component, using the IDs of the helper text and errors (if they’re present); use this argument if you need to pass an extra ID for specific reasons you may have.
+    By default, the `aria-describedby` attribute is automatically generated by the component, using the IDs of the helper text and errors (if present). Use this argument to pass an extra ID.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
     The attributes will be applied to the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element and all the usual Ember techniques for event handling, validation, etc.
     <br/><br/>
-    Some examples of HTML attributes that you will likely use: `id`, `name`, `value`, `checked`, `disabled` ([see whole list here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes)) and some examples of Ember modifiers: `\{{on "click" [do something]}}`, `\{{on "change" [do something]}}`.
+    Examples of HTML attributes: `id`, `name`, `value`, `checked`, `disabled`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "click" [do something]}}`, `\{{on "change" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>
 
 #### Contextual components
 
-Label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Error` keys.
+`Label`, `HelperText` and, `Error` content are passed to the field as yielded components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
-    A container that yields its content inside the `<label>` element. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Label`](/components/form/base-elements/) component.
+    Container that yields its content inside the `<label>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Label`](/components/form/primitives/) component.
     <br/><br/>
-    The `for` attribute of the label is automatically generated, using the `controlId` value of the control.
+    The `for` attribute of the label is automatically generated using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
-    A container that yields its content inside the "helper text" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::HelperText`](/components/form/base-elements/) component.
+    Container that yields its content inside the “helper text” block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives/) component.
     <br/><br/>
-    The `id` attribute of the element is automatically generated, using the `controlId` value of the control.
+    The `id` attribute of the element is automatically generated using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    A container that yields its content inside the "error" block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/base-elements/) component.
+    Container that yields its content inside the “error” block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives/) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
   </C.Property>
@@ -106,6 +104,6 @@ Label, helper text and error content are passed to the field as yielded componen
     <br/><br/>
     The attributes will be applied to the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element and all the usual Ember techniques for event handling, validation, etc.
     <br/><br/>
-    Some examples of HTML attributes that you will likely use: `id`, `name`, `value`, `checked`, `disabled` ([see whole list here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes)) and some examples of Ember modifiers: `\{{on "click" [do something]}}`, `\{{on "change" [do something]}}`. In addition to the standard HTML attributes, an `indeterminate` attribute can be used to bind a value that will be visually reflected in the state of the checkbox (for example: `indeterminate=\{{true}}`)
+    Examples of HTML attributes: `id`, `name`, `value`, `checked`, `disabled`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). In addition to the standard HTML attributes, an `indeterminate` attribute can be used to bind a value that will be visually reflected in the state of the checkbox. Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>

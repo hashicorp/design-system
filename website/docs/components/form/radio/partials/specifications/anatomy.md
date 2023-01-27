@@ -1,9 +1,8 @@
 ## Anatomy
 
-### Field
+### Form::Radio::Field
 
-
-![Radio Field anatomy](/assets/components/form/radio/radio-anatomy.png)
+![Radio Field anatomy](/assets/components/form/radio/radio-anatomy.png =503x*)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|
@@ -12,9 +11,9 @@
 | Helper text       | Optional                                                    |
 | Error message     | Triggered by system                                         |
 
-### Group
+### Form::Radio::Group
 
-![Radio group anatomy](/assets/components/form/radio/radio-group-anatomy.png)
+![Radio group anatomy](/assets/components/form/radio/radio-group-anatomy.png =483x*)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|

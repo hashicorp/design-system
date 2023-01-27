@@ -1,8 +1,8 @@
 ## Anatomy
 
-### Field
+### Form::Checkbox::Field
 
-![Checkbox field anatomy](/assets/components/form/checkbox/checkbox-anatomy.png)
+![Checkbox field anatomy](/assets/components/form/checkbox/checkbox-anatomy.png =503x*)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|
@@ -11,9 +11,9 @@
 | Helper text       | Optional                                                    |
 | Error message     | Triggered by system                                         |
 
-### Group
+### Form::Checkbox::Group
 
-![Checkbox group anatomy](/assets/components/form/checkbox/checkbox-group-anatomy.png)
+![Checkbox group anatomy](/assets/components/form/checkbox/checkbox-group-anatomy.png =483x*)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|

@@ -2,155 +2,27 @@
 
 !!! Info
 
-Depending on how you’re going to process the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, the examples provided omit these specific arguments for sake of simplicity.
+**Examples have been simplified**
+
+We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
 !!!
 
-There are different possible ways to use the `Form::Toggle` component: using the ”base” variant (essentially just the control itself), using the “field” variant (the control plus label, helper text and error), or using the “group” variant (a list of fields with legend, helper text and error).
+There are two ways to use the Checkbox component:
 
-The "field" and "group" are the most common variants to use because they provide, for free and out of the box, a lot of accessibility-related enhancements. The "base" variant is to be used if and when you need to achieve custom layouts or have special use cases not covered by the other variants.
+- `Form::Toggle::Base` - the base component: the `<input>` control
+- `Form::Toggle::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
 
-### Form::Toggle::Field
-
-The "field" variant should be used when the user has a single choice to make. If there are multiple related choices, the "group" variant should be used instead.
-
-#### Basic use
-
-```handlebars
-<Hds::Form::Toggle::Field as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
-
-This "field" component creates:
-
-*   a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute
-*   a `<input type="checkbox">` control with an automatically generated `ID` attribute
-
-#### Input value
-
-You can provide a value to the input passing to it a `@value` argument:
-
-```handlebars
-<Hds::Form::Toggle::Field @value="enable" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
-
-#### Checked
-
-You can set the toggle to “checked” by passing to it the standard HTML `checked` attribute:
-
-```handlebars
-<Hds::Form::Toggle::Field @value="enable" checked as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
-
-#### Helper text
-
-You can add extra information to the field using `HelperText`:
-
-```handlebars
-<Hds::Form::Toggle::Field as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
-
-When `HelperText` text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
-
-#### Extra content in label and helper text
-
-The `Label` and `HelperText` contextual components used in the "field" are yielding their content: this means you can pass not just plain text, but also structured content. For example:
-
-```handlebars
-<Hds::Form::Toggle::Field as |F|>
-  <F.Label>Enable cost estimation <Hds::Badge @size="small" @text="Beta" @color="highlight" /></F.Label>
-  <F.HelperText>See <Hds::Link::Inline @href="#">our pricing</Hds::Link::Inline> for more information.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
-
-!!! Info
-
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. Interactive elements in text (associated with the input through aria-describedby) will not be read out as interactive elements to users with screen readers; only the text itself will be read. 
-
-It is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required. Additionally, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. 
-
-Please use sparingly until a good known alternative approach is determined.
-!!!
-
-#### Validation
-
-The validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at the UI level. When and how to provide this visual feedback to the user is the responsibility of the developer.
-
-To show the user that their input is not valid, you have to provide an error message (using the `Error` contextual component):
-
-```handlebars
-<Hds::Form::Toggle::Field as |F|>
-  <F.Label>I approve the changes.</F.Label>
-  <F.Error>Error: it is necessary to explicitly approve the changes to continue.</F.Error>
-</Hds::Form::Toggle::Field>
-```
-
-Unlike for the `TextInput/Textarea/Select`, you don’t need to pass a `@isInvalid` argument to the field, because the `toggle` control doesn’t have an "invalid" visual state.
-
-#### Custom control ID
-
-In case it is necessary to have a custom ID for the control, you need to pass a `@id` argument to the field, instead of the ID automatically generated by the component.
-
-```handlebars
-<Hds::Form::Toggle::Field @id="my-control" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
-
-In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated, only they will use the custom ID provided.
-
-#### Extra "aria-describedby"
-
-If you want to connect one or more extra elements describing the field to the control, it’s possible to provide extra ID values to the `aria-describedby` attribute of the control, in addition to the ones automatically generated by the component, passing a `@extraAriaDescribedBy` argument to the "field":
-
-```handlebars
-<Hds::Form::Toggle::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
-</Hds::Form::Toggle::Field>
-```
-
-#### HTML native attributes
-
-As explained in the [Component API](#component-api) section, the input “field” supports the `...attributes` spreading of HTML attributes over the `<input type="checkbox">` element. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element.
-
-```handlebars
-<Hds::Form::Toggle::Field name="enable" as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
-
-This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control)
-
-#### Events handling
-
-Thanks to the `...attributes` spreading over the `<input type="checkbox">` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
-
-```handlebars
-<Hds::Form::Toggle::Field {{on "change" this.yourOnChangeFunction}} as |F|>
-  <F.Label>Enable cost estimation</F.Label>
-</Hds::Form::Toggle::Field>
-```
-
-You can use different events, depending on your context/need (eg. `input`, `change`).
+{{! ================= }} {{! ===== GROUP ===== }} {{! ================= }}
 
 ### Form::Toggle::Group
 
-The "group" variant of the toggle component is to be used when there are multiple related choices to make for the user, or a single one that needs to be presented with an extra "legend". If there is a single choice with no need for an extra "legend", the "field" variant should be used instead.
+Use `Form::Toggle::Group` when there are multiple related options to choose from, or a single one that needs to be presented with an extra `Legend`. If there’s a single choice and no need for an extra `Legend`, use `Form::Toggle::Field`.
 
-It’s unlikely that you will ever need to use a "group" of toggle fields (from a design/UX perspective in this case is better to use a group of checkboxes). For this reason we will not explain in detail how to use the "group" variant (apart from the case of a toggle "group" with single choice). Please refer to the documentation for the [`Form::Toggle::Group`](/components/form/checkbox/) documentation for more details, or speak with the Design Systems Team for guidance on what to do in this specific case.
+It’s unlikely you’ll need to use `Form::Toggle::Group`, instead consider using [`Form::Checkbox::Group`](/components/form/checkbox). 
 
-#### "Group" with single choice
+#### Group with single choice
 
-There may be use cases in which you need to create a toggle "group" that contains a single "field" element (eg. for design reasons, to show the "legend" in a similar position for the labels of other controls). In that case is acceptable to have a group with a single "field" element. For example:
+There may be use cases in which you need to create a Toggle group that contains a single field element (e.g., to show the `Legend` in a similar position for other control’s labels). 
 
 ```handlebars
 <Hds::Form::Toggle::Group as |G|>
@@ -162,13 +34,131 @@ There may be use cases in which you need to create a toggle "group" that contain
 </Hds::Form::Toggle::Group>
 ```
 
+{{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
+
+### Form::Toggle::Field
+
+Use `Form::Toggle::Field` when the user has a single choice to make. If there are multiple related choices, use `Form::Toggle::Group`.
+
+The basic invocation creates:
+
+- a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute.
+- a `<input type="checkbox">` control with an automatically generated `ID` attribute.
+
+```handlebars
+<Hds::Form::Toggle::Field as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+</Hds::Form::Toggle::Field>
+```
+
+#### Input value
+
+Pass a `@value` argument.
+
+```handlebars
+<Hds::Form::Toggle::Field @value="enable" as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+</Hds::Form::Toggle::Field>
+```
+
+#### Checked
+
+Pass the standard HTML `checked` attribute to set the toggle to “checked”.
+
+```handlebars
+<Hds::Form::Toggle::Field @value="enable" checked as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+</Hds::Form::Toggle::Field>
+```
+
+#### Extra content in label and helper text
+
+!!! Warning
+
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
+
+The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
+
+When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
+
+```handlebars
+<Hds::Form::Toggle::Field as |F|>
+  <F.Label>Enable cost estimation <Hds::Badge @size="small" @text="Beta" @color="highlight" /></F.Label>
+  <F.HelperText>See <Hds::Link::Inline @href="#">our pricing</Hds::Link::Inline> for more information.</F.HelperText>
+</Hds::Form::Toggle::Field>
+```
+
+#### Validation
+
+To indicate a field is invalid, provide an error message using the `Error` contextual component.
+
+!!! Info
+
+Unlike the `TextInput/Textarea/Select` components, you don’t need to pass an `@isInvalid` argument, because the Toggle doesn’t have an “invalid” visual state.
+!!!
+
+```handlebars
+<Hds::Form::Toggle::Field as |F|>
+  <F.Label>I approve the changes.</F.Label>
+  <F.Error>Error: it is necessary to explicitly approve the changes to continue.</F.Error>
+</Hds::Form::Toggle::Field>
+```
+
+#### Custom control ID
+
+If needing a custom ID for the control instead of the one automatically generated by the component, pass the `@id` argument to the field.
+
+!!! Info
+
+In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
+!!!
+
+```handlebars
+<Hds::Form::Toggle::Field @id="my-control" as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
+</Hds::Form::Toggle::Field>
+```
+
+#### Additional `aria-describedby`
+
+Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
+
+```handlebars
+<Hds::Form::Toggle::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+  <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
+</Hds::Form::Toggle::Field>
+```
+
+#### HTML native attributes
+
+This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<input type="checkbox">` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control).
+
+```handlebars
+<Hds::Form::Toggle::Field name="enable" as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+</Hds::Form::Toggle::Field>
+```
+
+#### Events handling
+
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `change`), validation, etc. 
+
+```handlebars
+<Hds::Form::Toggle::Field {{on "change" this.yourOnChangeFunction}} as |F|>
+  <F.Label>Enable cost estimation</F.Label>
+</Hds::Form::Toggle::Field>
+```
+
+{{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
+
 ### Form::Toggle::Base
 
-The "base" element is intended **only** for those rare cases where the "field" or "group" variants can’t be used, and a custom implementation is needed.
+The Base element is intended for rare cases where the Field or Group components can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
-When the "base" toggle is used, the developer is completely responsible for the correct implementation of the form control, including its accessibility conformance.
-
-For example, this could be an invocation of the "base" component you would use:
+This Base component creates the `<input type="checkbox">` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Toggle::Base
@@ -178,5 +168,3 @@ For example, this could be an invocation of the "base" component you would use:
   {{on "change" this.yourOnChangeFunction}}
 />
 ```
-
-This "base" component creates the `<input type="checkbox">` control with an automatically generated `ID` attribute.
