@@ -134,36 +134,38 @@ Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` 
 Below you can find an example of an integration between the sortable [`Table`](/components/table) component and the `Pagination::Numbered` component that uses query parameters in the URL to preserve the UI state:
 
 ```handlebars
-<Hds::Table
-  @model={{this.demoPaginatedDataNumbered}}
-  @columns={{array
-    (hash key="id" label="ID" isSortable="true")
-    (hash key="name" label="Name" isSortable="true")
-    (hash key="email" label="Email")
-    (hash key="role" label="Role")
-  }}
-  @sortBy={{this.demoCurrentSortBy}}
-  @sortOrder={{this.demoCurrentSortOrder}}
-  @onSort={{this.demoOnTableSort}}
-  @density={{if (eq this.demoCurrentPageSize 30) "short" "medium"}}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.id}}</B.Td>
-      <B.Td>{{B.data.name}}</B.Td>
-      <B.Td>{{B.data.email}}</B.Td>
-      <B.Td>{{B.data.role}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-<Hds::Pagination::Numbered
-  @totalItems={{this.demoTotalItems}}
-  @itemsPerPage={{this.demoCurrentPageSize}}
-  @currentPage={{this.demoCurrentPage}}
-  @pageSizes={{this.demoPageSizes}}
-  @route={{this.demoRouteName}}
-  @queryFunction={{this.demoQueryFunctionNumbered}}
-/>
+<div class="doc-pagination-table-demo">
+  <Hds::Table
+    @model={{this.demoPaginatedDataNumbered}}
+    @columns={{array
+      (hash key="id" label="ID" isSortable="true")
+      (hash key="name" label="Name" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+    @sortBy={{this.demoCurrentSortBy}}
+    @sortOrder={{this.demoCurrentSortOrder}}
+    @onSort={{this.demoOnTableSort}}
+    @density={{if (eq this.demoCurrentPageSize 30) "short" "medium"}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.demoTotalItems}}
+    @itemsPerPage={{this.demoCurrentPageSize}}
+    @currentPage={{this.demoCurrentPage}}
+    @pageSizes={{this.demoPageSizes}}
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionNumbered}}
+  />
+</div>
 ```
 
 ## How to use the "Compact" pagination
@@ -237,28 +239,30 @@ Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` 
 Below you can find an example of an integration between the [`Table`](/components/table) component and the `Pagination::Compact` component that uses query parameters in the URL to preserve the UI state:
 
 ```handlebars
-<Hds::Table
-  @model={{this.demoPaginatedDataCompact}}
-  @columns={{array
-    (hash key="id" label="ID")
-    (hash key="name" label="Name")
-    (hash key="email" label="Email")
-    (hash key="role" label="Role")
-  }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.id}}</B.Td>
-      <B.Td>{{B.data.name}}</B.Td>
-      <B.Td>{{B.data.email}}</B.Td>
-      <B.Td>{{B.data.role}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-<Hds::Pagination::Compact
-  @route={{this.demoRouteName}}
-  @queryFunction={{this.demoQueryFunctionCompact}}
-  @isDisabledPrev={{this.demoIsDisabledPrev}}
-  @isDisabledNext={{this.demoIsDisabledNext}}
-/>
+<div class="doc-pagination-table-demo">
+  <Hds::Table
+    @model={{this.demoPaginatedDataCompact}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Compact
+    @route={{this.demoRouteName}}
+    @queryFunction={{this.demoQueryFunctionCompact}}
+    @isDisabledPrev={{this.demoIsDisabledPrev}}
+    @isDisabledNext={{this.demoIsDisabledNext}}
+  />
+</div>
 ```
