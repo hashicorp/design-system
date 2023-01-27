@@ -77,7 +77,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
   @tracked _currentPage = this.args.currentPage ?? 1;
-  @tracked _currentPageSize = this.args.itemsPerPage ?? this.pageSizes[0];
+  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
   showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
@@ -107,8 +107,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         typeof queryFunction === 'function'
       );
       assert(
-        '@currentPage and @itemsPerPage for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing',
-        typeof this.args.itemsPerPage === 'number' &&
+        '@currentPage and @currentPageSize for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing',
+        typeof this.args.currentPageSize === 'number' &&
           typeof this.args.currentPage === 'number'
       );
       this.hasRouting = true;
@@ -151,7 +151,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   get currentPageSize() {
     if (this.hasRouting) {
-      return this.args.itemsPerPage;
+      return this.args.currentPageSize;
     } else {
       return this._currentPageSize;
     }

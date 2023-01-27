@@ -88,7 +88,7 @@
       <p>Pass the total number of items to be paginated.</p>
       <p>If no value is defined an error will be thrown.</p>
     </dd>
-    <dt>itemsPerPage <code>number</code></dt>
+    <dt>currentPageSize <code>number</code></dt>
     <dd>
       <p>Pass the maximum number of items to display on each page.</p>
       <p>If no value is defined, the first page size in <code>pageSizes</code> will be used.</p>
@@ -495,7 +495,7 @@
     @code="
       <Hds::Pagination::Numbered
         @totalItems=\{{40}}
-        @itemsPerPage=\{{20}}
+        @currentPageSize=\{{20}}
         @showTotalItems=\{{false}}
         @showSizeSelector=\{{false}}
         @pageSizes=\{{array 5 20 60}}
@@ -507,7 +507,7 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Pagination::Numbered
     @totalItems={{40}}
-    @itemsPerPage={{20}}
+    @currentPageSize={{20}}
     @showTotalItems={{false}}
     @showSizeSelector={{false}}
     @pageSizes={{array 5 20 60}}
@@ -588,7 +588,7 @@
     @code="
       <Hds::Pagination::Numbered
         @totalItems=\{{this.demoTotalItems}}
-        @itemsPerPage=\{{this.demoCurrentPageSize}}
+        @currentPageSize=\{{this.demoCurrentPageSize}}
         @currentPage=\{{this.demoCurrentPage}}
         @pageSizes=\{{this.demoPageSizes}}
         @route=\{{this.demoRouteName}}
@@ -616,7 +616,7 @@
   <p class="dummy-paragraph">Renders to:</p>
   <Hds::Pagination::Numbered
     @totalItems={{this.demoTotalItems}}
-    @itemsPerPage={{this.demoCurrentPageSize}}
+    @currentPageSize={{this.demoCurrentPageSize}}
     @currentPage={{this.demoCurrentPage}}
     @pageSizes={{this.demoPageSizes}}
     @route={{this.demoRouteName}}
@@ -795,8 +795,13 @@
   <p class="dummy-text-small">With showInfo=false + showSizeSelector=false</p>
   <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} @showSizeSelector={{false}} />
 
-  <p class="dummy-text-small">With @itemsPerPage=30 and @currentPage=2</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @itemsPerPage={{30}} @currentPage={{2}} @pageSizes={{array 10 30 50}} />
+  <p class="dummy-text-small">With @currentPageSize=30 and @currentPage=2</p>
+  <Hds::Pagination::Numbered
+    @totalItems={{40}}
+    @currentPageSize={{30}}
+    @currentPage={{2}}
+    @pageSizes={{array 10 30 50}}
+  />
 
   <p class="dummy-text-small">With @showPageNumbers=false + @showLabels=true</p>
   <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
@@ -837,7 +842,7 @@
   <p class="dummy-text-small">Base (default)</p>
   <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
 
-  <p class="dummy-text-small">With @itemsPerPage (selected option)</p>
+  <p class="dummy-text-small">With @currentPageSize (selected option)</p>
   <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{30}} />
 
   <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
@@ -960,7 +965,7 @@
     </Hds::Table>
     <Hds::Pagination::Numbered
       @totalItems={{this.demoTotalItems}}
-      @itemsPerPage={{this.currentPageSize_demo1}}
+      @currentPageSize={{this.currentPageSize_demo1}}
       @pageSizes={{array 5 10 30}}
       @onPageChange={{this.onPageChange_demo1}}
       @onPageSizeChange={{this.onPageSizeChange_demo1}}
@@ -999,7 +1004,7 @@
     </Hds::Table>
     <Hds::Pagination::Numbered
       @totalItems={{this.demoTotalItems}}
-      @itemsPerPage={{this.currentPageSize_demo2}}
+      @currentPageSize={{this.currentPageSize_demo2}}
       @pageSizes={{array 5 10 30}}
       @currentPage={{this.currentPage_demo2}}
       @route={{this.demoRouteName}}
