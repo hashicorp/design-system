@@ -53,7 +53,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 
 A container that yields its content as the footer of the modal dialog.
 
-We recommend using it exclusively for actions using the [ButtonSet](/components/button-set/) component. If a tertiary action is presented, it will always be aligned at the end of the row.
+We recommend using it exclusively for actions using the [ButtonSet](/components/button-set) component. If a tertiary action is presented, it will always be aligned at the end of the row.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="close" @type="function"/>
