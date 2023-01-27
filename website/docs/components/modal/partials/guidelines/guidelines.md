@@ -47,7 +47,7 @@ Common examples include:
 
 - disabling or enabling an application-wide setting or feature.
 - archiving an item that can be recovered.
-- changing a setting that may require the user to re-authenticate or perform an action again.
+- Changing a setting that may require the user to re-authenticate or perform an action again.
 
 <Hds::Modal @size="medium" @color="warning" open as |M|>
   <M.Header>
