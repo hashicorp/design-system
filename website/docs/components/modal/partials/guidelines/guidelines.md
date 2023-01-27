@@ -72,7 +72,7 @@ Common examples include:
 
 - deleting an item or object that cannot be recovered.
 - modifying a setting that cannot be changed or reversed in the future.
-- alerting the user of unsaved changes that will be discarded.
+- Alerting the user of unsaved changes that will be discarded.
 
 <Hds::Modal @size="medium" @color="critical" open as |M|>
   <M.Header>
