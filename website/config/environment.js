@@ -30,7 +30,7 @@ module.exports = function (environment) {
 
     'ember-meta': {
       description:
-        'Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.',
+        'The Helios Design System from HashiCorp provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.',
       siteName: 'Helios Design System',
       title: 'Helios Design System',
       imgSrc: '/assets/logos/share-card.jpg',
