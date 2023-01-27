@@ -14,7 +14,7 @@ As an overlaying component, the `Hds::Modal` requires a high value on the z-axis
 
 This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-focus-trap) to prevent the focus from going outside the Modal and to dismiss the Modal when clicking outside the Modal. This Ember modifier requires at least one interactive element to be present within the Modal, which is by default achieved by the dismiss button in the header.
 
-When a modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the modal, which is the "Dismiss" button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the modal.
+When a modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the modal, which is the “Dismiss” button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the modal.
 
 ## How to use this component
 
