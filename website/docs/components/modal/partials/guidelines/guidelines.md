@@ -156,7 +156,7 @@ Modals should be positioned in the center of the viewport, paired with the overl
 
 !!! Info
 
-Even though adding a title icon and tagline can help the user better understand the function and importance of the task they are performing, both elements add visual weight which might not be suitable or necessary for all Modals.
+Although adding a title icon and tagline can help the user better understand the function and importance of the task they are performing, both elements add visual weight which might not be suitable or necessary for all Modals.
 !!!
 
 ### Title icon
