@@ -90,7 +90,7 @@ ToggleButtons require a visible chevron to indicate interactivity and provide di
 
 We strongly recommend providing visible chevrons on most instances of ToggleIcons to indicate interactivity. That said, it’s common to see ToggleIcons that use the `more-horizontal` icon without chevrons. Their placement, usually in the last column of a [Table](/components/table), is typically indicative of this type of interaction.
 
-![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-icon-chevrons.png =750x\*)
+![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-icon-chevrons.png =750x*)
 
 ## List
 
@@ -98,7 +98,7 @@ We strongly recommend providing visible chevrons on most instances of ToggleIcon
 
 In the event that the Toggle is positioned on the left side of the screen, the list can be aligned to the left side to fit more appropriately within the UI.
 
-![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png =467x\*)
+![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png =467x*)
 
 ### Size
 
@@ -157,7 +157,7 @@ The height of the ListContainer is automatically determined based on the content
 
 ### Types
 
-![Dropdown ListItem types](/assets/components/dropdown/dropdown-listitem-types.png =449x\*)
+![Dropdown ListItem types](/assets/components/dropdown/dropdown-listitem-types.png =449x*)
 
 !!! Info
 
@@ -173,16 +173,18 @@ Icons in ListItems are optional, and we recommend letting the text speak for its
 We don’t recommend mixing and matching icon use; that’s to say, if using an icon in one ListItem, use an icon in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
 
 !!! Do
+
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="About" />
   <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
   <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
   <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
-  </Doc::ListContainer>
-  !!!
+</Doc::ListContainer>
+!!!
 
-  !!! Dont
-  <Doc::ListContainer class="hds-dropdown-list">
+!!! Dont
+
+<Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="About" />
   <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
   <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />

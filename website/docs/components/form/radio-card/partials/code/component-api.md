@@ -47,7 +47,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[R].Icon>">
-    Yields an icon inside the card container. For details about its API check the [icon](/icons/library) component.
+    Yields an icon inside the card container. For details about its API check the [icon](/icons/usage-guidelines?tab=code) component.
   </C.Property>
   <C.Property @name="<[R].Label>" @type="yielded component">
     A container that yields its content emphasized inside the card.
