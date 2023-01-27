@@ -296,7 +296,7 @@ While we typically don’t recommend removing or hiding the dismiss button, it c
 ### Via “cancel” button
 While certain experiences may only call for a single action button, we recommend adding a “cancel” button as a more explicit method to close the Modal.
 
-Depending on the information being requested a secondary action that closes or cancels the model may not perform the same function as dismissing the Modal. For example, responding “no” to a “yes/no” question is not the same as dismissing the Modal, the latter of which does not submit a response.
+Depending on the information being requested, a secondary action that closes or cancels the model may not perform the same function as dismissing the Modal. For example, responding “no” to a “yes/no” question is not the same as dismissing the Modal, the latter of which does not submit a response.
 
 !!! Info
 
