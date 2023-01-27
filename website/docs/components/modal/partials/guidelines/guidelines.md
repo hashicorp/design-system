@@ -206,7 +206,7 @@ Modals can take on many different types of content, from text-based content to s
 
 ## Modal footer
 
-Most Modals should have a low to medium level of complexity and promote interaction with a simple "yes/no" or "ok/cancel". If the complexity of the Modal breaks this pattern, consider moving the function performed by the Modal to the parent page.
+Most Modals should have a low to medium level of complexity and promote interaction with a simple “yes/no” or “ok/cancel”. If the complexity of the Modal breaks this pattern, consider moving the function performed by the Modal to the parent page.
 
 ### Action patterns
 
