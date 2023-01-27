@@ -1,12 +1,12 @@
 ---
 title: Pagination
-hidden: false
 description: Used to let users navigate through content broken down into pages. Usually paired with tables.
 caption: Used to let users navigate through content broken down into pages.
 status: experimental
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18709%3A42011&t=pIE459t8qucXP9uR-1
-  github: 
+  github:
+previewImage: assets/illustrations/components/pagination.jpg
 ---
 
 <section data-tab="Guidelines">
@@ -17,7 +17,7 @@ links:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
-  @include "partials/code/showcase.md"
+  <!-- @include "partials/code/showcase.md" -->
 </section>
 
 <section data-tab="Specifications">
