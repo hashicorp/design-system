@@ -7,7 +7,7 @@
 
 ### When not to use
 
-- In isolation, consider a standard [Helios icon](/icons/library/library).
+- In isolation, consider a standard [Helios icon](/icons/library).
 
 ## Content
 
