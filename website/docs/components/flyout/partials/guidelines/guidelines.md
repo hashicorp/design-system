@@ -14,23 +14,23 @@ When displaying additional information, context, or details about an object or e
 Medium
 
 <Hds::Flyout id="size-medium-flyout" open as |F|>
-  <F.Header>
-    Medium Flyout
-  </F.Header>
-  <F.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-  </F.Body>
+<F.Header>
+Medium Flyout
+</F.Header>
+<F.Body>
+<p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+</F.Body>
 </Hds::Flyout>
 
 Large
 
 <Hds::Flyout @size="large" id="size-large-flyout" open as |F|>
-  <F.Header>
-    Large Flyout
-  </F.Header>
-  <F.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-  </F.Body>
+<F.Header>
+Large Flyout
+</F.Header>
+<F.Body>
+<p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+</F.Body>
 </Hds::Flyout>
 
 ### Best practices
@@ -129,4 +129,9 @@ On smaller viewports, the Flyout should occupy 100% of the viewport width minus 
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
 - The Flyout should _not_ be resized manually, rather select the size that best accommodates the content.
 
-![Flyout resizing](/assets/components/flyout/flyout-resizing.png =311x*)
+<<<<<<< HEAD
+![Flyout resizing](/assets/components/flyout/flyout-resizing.png =311x\*)
+=======
+![Flyout resizing](/assets/components/flyout/flyout-resizing.png)
+
+> > > > > > > jt/update-flyout-anatomy
