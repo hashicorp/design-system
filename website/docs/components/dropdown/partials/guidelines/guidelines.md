@@ -15,20 +15,20 @@
 Toggles come in two variant types: **button** and **icon**.
 
 <Doc::Layout @spacing="48px">
-<Hds::Dropdown as |dd|>
-<dd.ToggleButton @text="Primary" />
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
-<Hds::Dropdown as |dd|>
-<dd.ToggleIcon @icon="user" @text="user menu" />
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
+  <Hds::Dropdown as |dd|>
+    <dd.ToggleButton @text="Primary" />
+    <dd.Interactive @text="Item One" />
+    <dd.Interactive @text="Item Two" />
+    <dd.Interactive @text="Item Three" />
+    <dd.Interactive @text="Item Four" />
+  </Hds::Dropdown>
+  <Hds::Dropdown as |dd|>
+    <dd.ToggleIcon @icon="user" @text="user menu" />
+    <dd.Interactive @text="Item One" />
+    <dd.Interactive @text="Item Two" />
+    <dd.Interactive @text="Item Three" />
+    <dd.Interactive @text="Item Four" />
+  </Hds::Dropdown>
 </Doc::Layout>
 
 ### Size
@@ -36,48 +36,48 @@ Toggles come in two variant types: **button** and **icon**.
 ToggleIcons come in one size: **medium**.
 
 <Hds::Dropdown as |dd|>
-<dd.ToggleIcon @icon="user" @text="user menu" />
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
+  <dd.ToggleIcon @icon="user" @text="user menu" />
+  <dd.Interactive @text="Item One" />
+  <dd.Interactive @text="Item Two" />
+  <dd.Interactive @text="Item Three" />
+  <dd.Interactive @text="Item Four" />
 </Hds::Dropdown>
 
 ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
 
 <Doc::Layout @spacing="24px" @direction="vertical">
-<Hds::ButtonSet>
-<Hds::Dropdown as |dd|>
-<dd.ToggleButton @text="Primary" @size="small"/>
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
-<Hds::Dropdown as |dd|>
-<dd.ToggleButton @text="Secondary" @color="secondary" @size="small" />
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
-</Hds::ButtonSet>
-<Hds::ButtonSet>
-<Hds::Dropdown as |dd|>
-<dd.ToggleButton @text="Primary" />
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
-<Hds::Dropdown as |dd|>
-<dd.ToggleButton @text="Secondary" @color="secondary" />
-<dd.Interactive @text="Item One" />
-<dd.Interactive @text="Item Two" />
-<dd.Interactive @text="Item Three" />
-<dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
-</Hds::ButtonSet>
+  <Hds::ButtonSet>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Primary" @size="small"/>
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Secondary" @color="secondary" @size="small" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+  </Hds::ButtonSet>
+  <Hds::ButtonSet>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Primary" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Secondary" @color="secondary" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+  </Hds::ButtonSet>
 </Doc::Layout>
 
 ### Chevron usage
@@ -107,12 +107,12 @@ In the event that the Toggle is positioned on the left side of the screen, the l
 Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem the List will automatically expand up to 400px to accommodate that content before the content wraps.
 
 <Doc::ListContainer class="hds-dropdown-list">
-<Hds::Dropdown::ListItem::Title @text="Signed in as" />
-<Hds::Dropdown::ListItem::Description @text="name@email.com" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Interactive @text="User settings" />
-<Hds::Dropdown::ListItem::Interactive @text="Admin" />
-<Hds::Dropdown::ListItem::Interactive @text="Sign out" />
+  <Hds::Dropdown::ListItem::Title @text="Signed in as" />
+  <Hds::Dropdown::ListItem::Description @text="name@email.com" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Interactive @text="User settings" />
+  <Hds::Dropdown::ListItem::Interactive @text="Admin" />
+  <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
 </Doc::ListContainer>
 
 #### Fixed width
@@ -120,19 +120,19 @@ Lists have a minimum width of 200px and a maximum width of 400px. This means if 
 If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width. As a best practice, we do not recommend Lists wider than 400px.
 
 <Doc::ListContainer class="hds-dropdown-list">
-<Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Interactive @text="Update Consul version" />
-<Hds::Dropdown::ListItem::Interactive @text="Edit cluster" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Title @text="Import to Terraform" />
-<Hds::Dropdown::ListItem::Description @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider" />
-<Hds::Dropdown::ListItem::Generic>
-<Hds::Link::Standalone @color="primary" @text="Docs: Import usage" @icon="docs-link" @iconPosition="leading" @href="#" />
-</Hds::Dropdown::ListItem::Generic>
-<Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
+  <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" />
+  <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Title @text="Import to Terraform" />
+  <Hds::Dropdown::ListItem::Description @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider" />
+  <Hds::Dropdown::ListItem::Generic>
+    <Hds::Link::Standalone @color="primary" @text="Docs: Import usage" @icon="docs-link" @iconPosition="leading" @href="#" />
+  </Hds::Dropdown::ListItem::Generic>
+  <Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
 </Doc::ListContainer>
 
 #### Height
@@ -140,17 +140,17 @@ If you do not want the width of the List to expand automatically to accommodate 
 The height of the ListContainer is automatically determined based on the contents.
 
 <Doc::ListContainer class="hds-dropdown-list">
-<Hds::Dropdown::ListItem::Title @text="Integrate with Terraform Cloud" />
-<Hds::Dropdown::ListItem::Description @text="Create a new run task in Terraform using the URL and key below." />
-<Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Endpoint URL" @text="https://api.cloud.hashicorp.com/" />
-<Hds::Dropdown::ListItem::CopyItem @copyItemTitle="HMAC Key" @text="91ee1e8ef65b337f0e70d793f456c71d" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Title @text="Manage" />
-<Hds::Dropdown::ListItem::Interactive @text="Regenerate HMAC key" @color="action" @icon="reload" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Interactive @text="Integrating with Terraform Cloud" @color="action" @icon="external-link" />
-<Hds::Dropdown::ListItem::Interactive @text="About Terraform Cloud" @color="action" @icon="external-link" />
-<Hds::Dropdown::ListItem::Interactive @text="About Packer" @color="action" @icon="external-link" />
+  <Hds::Dropdown::ListItem::Title @text="Integrate with Terraform Cloud" />
+  <Hds::Dropdown::ListItem::Description @text="Create a new run task in Terraform using the URL and key below." />
+  <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Endpoint URL" @text="https://api.cloud.hashicorp.com/" />
+  <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="HMAC Key" @text="91ee1e8ef65b337f0e70d793f456c71d" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Title @text="Manage" />
+  <Hds::Dropdown::ListItem::Interactive @text="Regenerate HMAC key" @color="action" @icon="reload" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Interactive @text="Integrating with Terraform Cloud" @color="action" @icon="external-link" />
+  <Hds::Dropdown::ListItem::Interactive @text="About Terraform Cloud" @color="action" @icon="external-link" />
+  <Hds::Dropdown::ListItem::Interactive @text="About Packer" @color="action" @icon="external-link" />
 </Doc::ListContainer>
 
 ## ListItem
@@ -174,19 +174,19 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 
 !!! Do
 <Doc::ListContainer class="hds-dropdown-list">
-<Hds::Dropdown::ListItem::Title @text="About" />
-<Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
-<Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
-<Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
-</Doc::ListContainer>
-!!!
+  <Hds::Dropdown::ListItem::Title @text="About" />
+  <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
+  <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
+  <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
+  </Doc::ListContainer>
+  !!!
 
-!!! Dont
-<Doc::ListContainer class="hds-dropdown-list">
-<Hds::Dropdown::ListItem::Title @text="About" />
-<Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
-<Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
-<Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" />
+  !!! Dont
+  <Doc::ListContainer class="hds-dropdown-list">
+  <Hds::Dropdown::ListItem::Title @text="About" />
+  <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
+  <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
+  <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" />
 </Doc::ListContainer>
 !!!
 
@@ -195,10 +195,10 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the correct icon provides a stronger and more immediate visual indication that the action is destructive. Read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
 
 <Doc::ListContainer class="hds-dropdown-list">
-<Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
-<Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
-<Hds::Dropdown::ListItem::Separator />
-<Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
+  <Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
+  <Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
 </Doc::ListContainer>
 
 ## Content
