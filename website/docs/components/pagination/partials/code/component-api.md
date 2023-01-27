@@ -25,7 +25,7 @@ These pagination sub-elements may be used directly if you need to cover a very s
 <C.Property @name="totalItems" @required="true" @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
 </C.Property>
-<C.Property @name="itemsPerPage" @type="number">
+<C.Property @name="currentPageSize" @type="number">
 Pass the maximum number of items to display on each page. If no value is defined, the first page size in `pageSizes` will be used. Default is `10` if custom `pageSizes` are not defined.
 </C.Property>
 <C.Property @name="pageSizes" @type="array" @values={{array "[10, 30, 50]" "array of integers" }} @default="[10, 30, 50]">

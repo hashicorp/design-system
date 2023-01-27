@@ -52,10 +52,10 @@ Below is an example of some of these extra arguments:
 ```handlebars
 <Hds::Pagination::Numbered
   @totalItems={{40}}
-  @itemsPerPage={{20}}
   @showTotalItems={{false}}
   @showSizeSelector={{false}}
   @pageSizes={{array 5 20 60}}
+  @currentPageSize={{20}}
 />
 ```
 
@@ -101,9 +101,9 @@ If you want the pagination to change the URL of the page directly (eg. updating 
 ```handlebars
 <Hds::Pagination::Numbered
   @totalItems={{this.demoTotalItems}}
-  @itemsPerPage={{this.demoCurrentPageSize}}
   @currentPage={{this.demoCurrentPage}}
   @pageSizes={{this.demoPageSizes}}
+  @currentPageSize={{this.demoCurrentPageSize}}
   @route={{this.demoRouteName}}
   @queryFunction={{this.demoQueryFunctionNumbered}}
 />
@@ -159,9 +159,9 @@ Below you can find an example of an integration between the sortable [`Table`](/
   </Hds::Table>
   <Hds::Pagination::Numbered
     @totalItems={{this.demoTotalItems}}
-    @itemsPerPage={{this.demoCurrentPageSize}}
     @currentPage={{this.demoCurrentPage}}
     @pageSizes={{this.demoPageSizes}}
+    @currentPageSize={{this.demoCurrentPageSize}}
     @route={{this.demoRouteName}}
     @queryFunction={{this.demoQueryFunctionNumbered}}
   />
