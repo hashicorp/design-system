@@ -41,7 +41,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination .hds-pagination-size-selector').exists();
   });
 
-  test('it renders the "info" and "size selector" content with default pageSizes and itemsPerPage values', async function (assert) {
+  test('it renders the "info" and "size selector" content with default pageSizes and currentPageSize values', async function (assert) {
     await render(hbs`
       <Hds::Pagination::Numbered @totalItems={{100}} />
     `);
@@ -57,7 +57,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       .hasText('50');
   });
 
-  test('it renders custom options for passed in pageSizes and sets itemsPerPage to the first PageSizes item', async function (assert) {
+  test('it renders custom options for passed in pageSizes and sets currentPageSize to the first PageSizes item', async function (assert) {
     await render(hbs`
       <Hds::Pagination::Numbered @totalItems={{100}} @pageSizes={{array 20 40 60}} />
     `);
@@ -73,9 +73,9 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       .hasText('60');
   });
 
-  test('it renders the passed in itemsPerPage value', async function (assert) {
+  test('it renders the passed in currentPageSize value', async function (assert) {
     await render(hbs`
-      <Hds::Pagination::Numbered @totalItems={{100}} @itemsPerPage={{40}} @pageSizes={{array 20 40 60}} />
+      <Hds::Pagination::Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />
     `);
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–40 of 100');
   });
@@ -392,7 +392,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
     this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @itemsPerPage={{10}} @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @currentPageSize={{10}} @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`
     );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
@@ -428,10 +428,10 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-  test('it should throw an assertion if it has routing but @currentPage and @itemsPerPage are not defined as number', async function (assert) {
+  test('it should throw an assertion if it has routing but @currentPage and @currentPageSize are not defined as number', async function (assert) {
     this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
     const errorMessage =
-      '@currentPage and @itemsPerPage for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing';
+      '@currentPage and @currentPageSize for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
