@@ -86,7 +86,7 @@ Open Toggles use Helios icon `chevron-up`, while closed Toggles use `chevron-dow
 
 ToggleButtons require a visible chevron to indicate interactivity and provide distinction between Dropdowns and standard Buttons.
 
-![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png =286x\*)
+![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png =286x*)
 
 We strongly recommend providing visible chevrons on most instances of ToggleIcons to indicate interactivity. That said, it’s common to see ToggleIcons that use the `more-horizontal` icon without chevrons. Their placement, usually in the last column of a [Table](/components/table), is typically indicative of this type of interaction.
 
