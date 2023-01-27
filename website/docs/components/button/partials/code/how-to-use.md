@@ -99,7 +99,7 @@ If you’re passing a `@href` or a `@route` argument to the component, this will
 
 !!! Info
 
-The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive/).
+The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
 !!!
 
 #### With @href
@@ -116,7 +116,7 @@ If you pass a `@href` argument a `<a>` link will be generated.
 
 If you pass a `@route` argument a `<a>` link will be generated using a `<LinkTo>` Ember component. All of the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
 
-If the route is external to your current engine you have to pass `@isRouteExternal={{true}}` so it will use `<LinkToExternal>` instead of `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive/).
+If the route is external to your current engine you have to pass `@isRouteExternal={{true}}` so it will use `<LinkToExternal>` instead of `<LinkTo>` for the `@route`. For more details see the [Hds::Interactive component](/utilities/interactive).
 
 ```handlebars
 <Hds::Button @text="Back to homepage" @icon="arrow-left" @route="index" />

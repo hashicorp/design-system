@@ -38,7 +38,7 @@ There are three sizes available: `small`, `medium`, and `large`. The default is 
 
 To generate an Inline Link, pass an `@href` or `@route` argument to the component. If neither are provided, the component will throw an error.
 
-Standalone Links use the generic `Hds::Interactive` component. Learn more about [how the Interactive utility component works](/utilities/interactive/).
+Standalone Links use the generic `Hds::Interactive` component. Learn more about [how the Interactive utility component works](/utilities/interactive).
 
 #### With `@href`
 

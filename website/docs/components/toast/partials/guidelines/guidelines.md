@@ -8,7 +8,7 @@
 ### When not to use
 
 - To display persistent messages or promotional content, consider [Alert](/components/alert).
-- As a dialog to confirm an action, consider [Dialog](/components/dialog).
+- As a dialog to confirm an action, consider [Modal](/components/modal).
 
 ## Color
 
@@ -102,7 +102,7 @@ Avoid using critical Buttons in Toasts. We handle the prominence and importance 
 
 ### Links
 
-Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](/components/link/standalone#type) to determine what variant to use.
+Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](/components/link/standalone#usage) to determine what variant to use.
 
 <Hds::Toast @color="neutral" @onDismiss={{this.noop}} as |T|>
   <T.Title>Links in Toasts</T.Title>

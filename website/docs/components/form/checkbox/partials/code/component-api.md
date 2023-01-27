@@ -29,10 +29,10 @@ The Checkbox component has three different variants with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[G].Legend>" @type="yielded component">
-    Optional container that yields its content inside the `<legend>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives/) component.
+    Optional container that yields its content inside the `<legend>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives) component.
   </C.Property>
   <C.Property @name="<[G].HelperText>" @type="yielded component">
-    Container that yields its content inside the “helper text” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives/) component.
+    Container that yields its content inside the “helper text” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the element is automatically generated.
   </C.Property>
@@ -40,7 +40,7 @@ The Checkbox component has three different variants with their own APIs:
     Used to yield one or more fields inside the group. For details about its API, check the `Form::Checkbox::Field` API details.
   </C.Property>
   <C.Property @name="<[G].Error>" @type="yielded component">
-    Container that yields its content inside the “error” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API check the [`Form::Error`](/components/form/primitives/) component.
+    Container that yields its content inside the “error” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API check the [`Form::Error`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
   </C.Property>
@@ -77,17 +77,17 @@ The Checkbox component has three different variants with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
-    Container that yields its content inside the `<label>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Label`](/components/form/primitives/) component.
+    Container that yields its content inside the `<label>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Label`](/components/form/primitives) component.
     <br/><br/>
     The `for` attribute of the label is automatically generated using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].HelperText>" @type="yielded component">
-    Container that yields its content inside the “helper text” block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives/) component.
+    Container that yields its content inside the “helper text” block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the element is automatically generated using the `controlId` value of the control.
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    Container that yields its content inside the “error” block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives/) component.
+    Container that yields its content inside the “error” block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
   </C.Property>

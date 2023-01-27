@@ -8,7 +8,7 @@
     Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.
   </C.Property>
   <C.Property @name="icon" @type="string | false">
-    Override the default `icon` name, which is determined by the `color` argument.<br/><br/>Accepts any [icon](/foundations/icons) name, or `false`, for no icon.
+    Override the default `icon` name, which is determined by the `color` argument.<br/><br/>Accepts any [icon](/icons/library) name, or `false`, for no icon.
   </C.Property>
   <C.Property @name="onDismiss" @type="function">
     The alert can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
@@ -30,10 +30,10 @@ Title, description, actions, and generic content are passed into the alert as yi
     A container that yields its content inside the `"description"` block. Content inherits its style.<br/><br/>Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Application teams will need to style the rest of the content.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[A].Button>" @type="yielded component">
-    A yielded `HDS::Button` component. It exposes the same API of the [`Button` component](/components/button/), apart from the `@size` argument, which is pre-defined to be `small`, and the `@color` argument that accepts only `secondary` or `tertiary`.
+    A yielded `HDS::Button` component. It exposes the same API of the [`Button` component](/components/button), apart from the `@size` argument, which is pre-defined to be `small`, and the `@color` argument that accepts only `secondary` or `tertiary`.
   </C.Property>
   <C.Property @name="<[A].Link::Standalone>" @type="yielded component">
-    A yielded `HDS::Link::Standalone` component. It exposes the same API of the [`Link::Standalone` component](/components/link/standalone/), apart from the `@size` argument, which is pre-defined to be `small`.
+    A yielded `HDS::Link::Standalone` component. It exposes the same API of the [`Link::Standalone` component](/components/link/standalone), apart from the `@size` argument, which is pre-defined to be `small`.
   </C.Property>
   <C.Property @name="<[A].Generic>" @type="yielded component">
     A component that yields its content.

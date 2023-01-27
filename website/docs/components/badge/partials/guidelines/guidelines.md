@@ -132,4 +132,4 @@ Badges come in a few icon and text combinations; text only, icon only, and icon 
 
 ## Related
 
-- [Badge Count](/components/badge-count/)
+- [Badge Count](/components/badge-count)

@@ -84,7 +84,7 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 Open Toggles use Helios icon `chevron-up`, while closed Toggles use `chevron-down`.
 
-ToggleButtons require a visible chevron to indicate interactivity and provide distinction between Dropdowns and standard Buttons. 
+ToggleButtons require a visible chevron to indicate interactivity and provide distinction between Dropdowns and standard Buttons.
 
 ![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png =286x*)
 
@@ -168,11 +168,12 @@ Users may not understand why something is taking additional time to load. If pos
 
 ### Icon usage
 
-Icons in ListItems are optional, and we recommend letting the text speak for itself unless an icon provides additional value. 
+Icons in ListItems are optional, and we recommend letting the text speak for itself unless an icon provides additional value.
 
 We don’t recommend mixing and matching icon use; that’s to say, if using an icon in one ListItem, use an icon in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
 
 !!! Do
+
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="About" />
   <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
@@ -182,6 +183,7 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 !!!
 
 !!! Dont
+
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="About" />
   <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
@@ -206,4 +208,3 @@ While icons are optional, we recommend using a relevant icon for Critical ListIt
 There is no character limit for interactive ListItems, but we recommend keeping them short and concise (~36 characters).
 
 Take care to use dropdowns correctly. A crowded or overly complex dropdown can lead to a frustrating user experience, especially for assistive technology users. Contact the [Design Systems Team](/about/support) to discuss alternative options if a dropdown feels too complex.
-

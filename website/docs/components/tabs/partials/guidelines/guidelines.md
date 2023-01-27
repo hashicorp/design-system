@@ -6,7 +6,7 @@
 
 ### When not to use
 
-- For navigation, consider navigation, [Standalone Links](/components/links/standalone/), or [Breadcrumb](/components/breadcrumb/).
+- For navigation, consider navigation, [Standalone Links](/components/link/standalone), or [Breadcrumb](/components/breadcrumb).
 
 ## Spacing
 
@@ -85,4 +85,4 @@ Tabs should be short and concise, and a good indication of what content the user
 
 ## Related
 
-- [Breadcrumb](/components/breadcrumb/)
+- [Breadcrumb](/components/breadcrumb)
