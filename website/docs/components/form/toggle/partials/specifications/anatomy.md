@@ -1,24 +1,22 @@
-
 ## Anatomy
 
-### Base
-![Toggle field anatomy](/assets/components/form/toggle/toggle-anatomy.png)
+### Form::Toggle::Field
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Base control     | Required                       |
-| Label            | Required |
-| Helper text      | Optional       |
-| Error message    | Triggered by system                                        |
+![Toggle field anatomy](/assets/components/form/toggle/toggle-anatomy.png =506x*)
 
+| Element          | Usage                |
+|------------------|----------------------|
+| Base control     | Required             |
+| Label            | Required             |
+| Helper text      | Optional             |
+| Error message    | Triggered by system  |
 
-### Group
+### Form::Toggle::Group
 
+![Toggle Group anatomy](/assets/components/form/toggle/toggle-group-anatomy.png =325x*)
 
-![Anatomy of the Toggle Group](/assets/components/form/toggle/toggle-group-anatomy.png)
-
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Legend     | Optional                       |
-| Helper text      | Optional       |
-| Fields    | At least one is required                                        |
+| Element          | Usage                           |
+|------------------|---------------------------------|
+| Legend           | Optional                        |
+| Helper text      | Optional                        |
+| Fields           | At least one is required        |

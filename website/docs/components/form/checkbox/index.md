@@ -7,6 +7,7 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=9120%3A23132&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/checkbox
 previewImage: assets/illustrations/components/form/checkbox.jpg
+keywords: ['option', 'select']
 ---
 
 <section data-tab="Guidelines">
