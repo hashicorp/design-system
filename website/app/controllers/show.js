@@ -30,6 +30,11 @@ export default class ShowController extends Controller {
     },
     'searchQuery',
     'selectedIconSize',
+    // these are used in the "pagination > how to use" demos
+    'demoCurrentPage',
+    'demoCurrentPageSize',
+    'demoCurrentCursor',
+    'demoExtraParam',
   ];
 
   @service fastboot;
