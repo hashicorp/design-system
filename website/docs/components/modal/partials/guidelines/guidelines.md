@@ -45,7 +45,7 @@ Use **Warning** to indicate that the Modal’s action may impact a setting, item
 
 Common examples include:
 
-- disabling or enabling an application-wide setting or feature.
+- Disabling or enabling an application-wide setting or feature.
 - Archiving an item that can be recovered.
 - Changing a setting that may require the user to re-authenticate or perform an action again.
 
