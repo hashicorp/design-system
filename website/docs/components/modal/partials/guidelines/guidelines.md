@@ -22,7 +22,7 @@ Common examples include:
 
 - functions for creating, editing, or updating objects.
 - simple requests of information from the user.
-- quick confirmations of actions taken by the user.
+- Quick confirmations of actions taken by the user.
 
 <Hds::Modal @size="medium" @color="neutral" open as |M|>
   <M.Header>
