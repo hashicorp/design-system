@@ -285,7 +285,7 @@ The following actions will dismiss or close the Modal unless `isDismissDisabled`
 
 ![Dismissal options for the Modal](/assets/components/modal/modal-dismissal-actions.png =798x*)
 
-In addition to having proper ways for the user to dismiss a Modal, ensure the entry point for a Modal should also be straightforward enough that if a user accidentally dismisses it, the Modal can be easily triggered again.
+In addition to having proper ways for the user to dismiss a Modal, ensure the entry point for a Modal is straightforward enough that if a user accidentally dismisses it, the Modal can be easily triggered again.
 
 ### Via dismiss button
 
