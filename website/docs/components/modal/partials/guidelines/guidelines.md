@@ -291,7 +291,7 @@ In addition to having proper ways for the user to dismiss a Modal, ensure the en
 
 The most common dismissal method for a Modal is via the dismiss button in the Modal header. This acts as an escape hatch for the user and helps prevent the user from getting stuck. 
 
-While we typically don't recommend removing or hiding the dismiss button, it can be done to elevate the importance of the Modal and lower the possibility of accidental dismissal, in which case, a “cancel” button could be added as an escape hatch.
+While we typically don’t recommend removing or hiding the dismiss button, it can be done to elevate the importance of the Modal and lower the possibility of accidental dismissal, in which case, a “cancel” button could be added as an escape hatch.
 
 ### Via “cancel” button
 While certain experiences may only call for a single action button, we recommend adding a “cancel” button as a more explicit method to close the Modal.
