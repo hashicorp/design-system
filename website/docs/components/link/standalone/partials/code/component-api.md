@@ -2,7 +2,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @required="true" @type="string">
-    Use this parameter to show an icon. Any Helios [icon name](/icons/library/library) is acceptable. `icon` is required to ensure the component conforms to accessibility best practices.
+    Use this parameter to show an icon. Any Helios [icon name](/icons/library) is acceptable. `icon` is required to ensure the component conforms to accessibility best practices.
   </C.Property>
   <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing" }} @default="leading">
     Positions the icon before or after the text.
