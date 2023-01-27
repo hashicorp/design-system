@@ -112,7 +112,7 @@ When helper text is added, the component automatically adds an `aria-describedby
 
 #### Required vs. optional
 
-Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is “required” or “optional”.
 
 ```handlebars
 <Hds::Form::Radio::Group @isRequired={{true}} @layout="horizontal" @name="method-demo2" as |G|>
