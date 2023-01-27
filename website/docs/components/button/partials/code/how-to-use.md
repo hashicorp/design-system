@@ -107,7 +107,7 @@ If you’re passing a `@href` or a `@route` argument to the component, this will
 
 !!! Info
 
-The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive/).
+The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
 !!!
 
 #### With @href
