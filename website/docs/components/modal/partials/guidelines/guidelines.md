@@ -20,7 +20,7 @@ Use **Neutral** for most Modal instances, such as when the outcome of the Modalâ
 
 Common examples include:
 
-- functions for creating, editing, or updating objects.
+- Functions for creating, editing, or updating objects.
 - simple requests of information from the user.
 - Quick confirmations of actions taken by the user.
 
