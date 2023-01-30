@@ -29,7 +29,7 @@ In this case, you will have to take care of different things **yourself**
 
 As described above, the main `Pagination::Numbered` and `Pagination::Compact` components expose an `onPageChange` callback function, invoked whenever a page change occurs. All the "navigation controls" in this cases are `<button>` elements that fire an `onClick` event that calls the `onPageChange` function.
 
-This means that if you need to update the URL when the user changes the "page" in the Pagination (eg. to add/remove/update some query parameters), you have to do it whithin the `onPageChange` callback you provide to the component.
+This means that if you need to update the URL when the user changes the "page" in the Pagination (eg. to add/remove/update some query parameters), you have to do it within the `onPageChange` callback you provide to the component.
 
 If instead you need to update the URL directly when the user clicks on one of the "navigation control" elements, you have to provide routing parameters (`route/query/model/etc`) to the component; refer to the "Component API" section below for specifications about these parameters (the APIs are slightly different for the two components).
 
