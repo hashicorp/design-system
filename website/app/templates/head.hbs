@@ -38,19 +38,15 @@ We've made some small customizations to simplify this compared to the default te
   <meta property="og:description" content={{this.model.description}} />
 {{/if}}
 
-{{#if this.model.imgSrc}}
-  <meta property="og:image" content={{this.model.imgSrc}} />
-{{/if}}
+<meta property="og:image" content="https://helios.hashicorp.design/assets/logos/share-card.jpg" />
 
 {{! END OPENGRAPH }}
 
 {{! BEGIN TWITTER }}
 
 <meta name="twitter:card" content="summary_large_image" />
-
-{{#if this.model.imgSrc}}
-  <meta name="twitter:image" content={{this.model.imgSrc}} />
-{{/if}}
+<meta name="twitter:site" content="@HashiCorp" />
+<meta name="twitter:image" content="https://helios.hashicorp.design/assets/logos/share-card.jpg" />
 
 {{#if this.model.title}}
   <meta name="twitter:title" content={{this.model.title}} />
@@ -62,10 +58,6 @@ We've made some small customizations to simplify this compared to the default te
 
 {{#if this.model.description}}
   <meta name="twitter:description" content={{this.model.description}} />
-{{/if}}
-
-{{#if this.model.twitterUsername}}
-  <meta name="twitter:site" content={{this.model.twitterUsername}} />
 {{/if}}
 
 {{! END TWITTER }}
