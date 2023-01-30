@@ -34,7 +34,6 @@ module.exports = function (environment) {
       siteName: 'Helios Design System',
       title: 'Helios Design System',
       url: 'https://helios.hashicorp.design',
-      twitterUsername: '@HashiCorp',
     },
   };
 
