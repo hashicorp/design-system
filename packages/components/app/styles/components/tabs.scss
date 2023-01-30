@@ -66,8 +66,9 @@
     $bottom: var(--token-tabs-tab-focus-inset),
     $left: var(--token-tabs-tab-focus-inset),
   );
-
   position: static;
+  display: flex;
+  align-items: center;
   padding: 0;
   color: inherit;
   background-color: transparent;
@@ -76,11 +77,12 @@
   cursor: pointer;
 
   // Expand click target area
-  &::after {
-    position: absolute;
-    content: "";
-    inset: 0;
-  }
+  // I don't think we need this anymore?
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   inset: 0;
+  // }
 }
 
 .hds-tabs__tab-icon {
