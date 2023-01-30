@@ -77,12 +77,11 @@
   cursor: pointer;
 
   // Expand click target area
-  // I don't think we need this anymore?
-  // &::after {
-  //   position: absolute;
-  //   content: "";
-  //   inset: 0;
-  // }
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+  }
 }
 
 .hds-tabs__tab-icon {
