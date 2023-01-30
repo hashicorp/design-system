@@ -148,10 +148,11 @@ export default class ShowController extends Controller {
   @action
   setCurrent(current) {
     // TABS
+    // ?? CAN WE EXPLICITLY SET FOCUS ON THE TAB WHEN IT IS SET TO CURRENT?
     this.tabs.forEach((tab) => {
       set(tab, 'isCurrent', tab.index === current);
     });
-    // SECTIONS
+    // SECTIONS (AKA TABPANELS )
     this.sections.forEach((section, index) => {
       if (index === current) {
         section.removeAttribute('hidden');

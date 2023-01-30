@@ -1,1 +1,1 @@
-Use tags to indicate an object’s categorization, i.e., for filtering. Use a [badge](/components/badge/) instead for static metadata, status, or to indicate a new feature.
+Use Tags to indicate an object’s categorization, e.g., for filtering. For static metadata, status, or to indicate a new feature, use a [Badge](/components/badge).

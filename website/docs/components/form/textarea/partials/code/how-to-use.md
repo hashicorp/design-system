@@ -2,18 +2,27 @@
 
 !!! Info
 
-Depending on how you’re going to process the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, in the examples provided we will omit these specific arguments, for sake of simplicity.
+**Examples have been simplified**
+
+We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
 !!!
 
-There are two possible ways to use the `Form::Textarea` component: using the "base" variant (essentially just the control itself) or using the "field" variant (the control plus label, helper text and error).
+There are two ways to use the Textarea component:
 
-The "field" one is the one that you will likely want to use, because it provides – for free and out of the box – a lot of accessibility-related functionalities. The "base" one is to be used if and when you need to achieve custom layouts or have special use cases not covered by the "field" variant.
+- `Form::Textarea::Base` - the base component: the `<Textarea>` Ember component.
+- `Form::Textarea::Field` - the field parent component: the `<Textarea>` Ember component, with label, helper text and error messaging (in a wrapping container).
+
+We recommend using the Field component because it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or have special use cases not covered by the Field component.
+
 
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
 ### Form::Textarea::Field
 
-#### Basic use
+The basic invocation requires a `Label`. This creates: 
+
+- a `<label>` element with a `for` attribute automatically associated with the textarea `ID` attribute.
+- a `<textarea>` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Textarea::Field as |F|>
@@ -21,14 +30,9 @@ The "field" one is the one that you will likely want to use, because it provides
 </Hds::Form::Textarea::Field>
 ```
 
-This "field" component creates:
-
-*   a `<label>` element with a `for` attribute automatically associated with the textarea `ID` attribute
-*   a `<textarea>` control with an automatically generated `ID` attribute
-
 #### Textarea value
 
-You can pre-populate the textarea passing to it a `@value` argument:
+Pass a `@value` argument to pre-populate the textarea.
 
 ```handlebars
 <Hds::Form::Textarea::Field @value="This is my description" as |F|>
@@ -38,7 +42,7 @@ You can pre-populate the textarea passing to it a `@value` argument:
 
 #### Helper text
 
-You can add extra information to the field using an "helper" text:
+You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the textarea control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
 <Hds::Form::Textarea::Field @value="This is my description" as |F|>
@@ -47,11 +51,14 @@ You can add extra information to the field using an "helper" text:
 </Hds::Form::Textarea::Field>
 ```
 
-When the "helper" text is added, the component automatically adds an `aria-describedby` attribute to the textarea control, associating it with the automatically generated `ID` of the helper text element.
-
 #### Extra content in label and helper text
 
-The `Label` and `HelperText` contextual components used in the "field" are yielding their content: this means you can pass not just plain text, but also structured content. For example:
+!!! Warning
+
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
+
+The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
 
 ```handlebars
 <Hds::Form::Textarea::Field as |F|>
@@ -60,9 +67,9 @@ The `Label` and `HelperText` contextual components used in the "field" are yield
 </Hds::Form::Textarea::Field>
 ```
 
-#### Required / Optional
+#### Required vs. optional
 
-It’s possible to add a visual indication if a field is "required" or is "optional" using the `@isRequired` and `@isOptional` arguments:
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
 <Hds::Form::Textarea::Field @isRequired={{true}} as |F|>
@@ -76,16 +83,9 @@ It’s possible to add a visual indication if a field is "required" or is "optio
 </Hds::Form::Textarea::Field>
 ```
 
-!!! Info
-
-For complex forms we suggest to indicate **required** fields, since this is the most explicit and transparent method and ensures users don’t have to make assumptions. For shorter, simpler forms (ie. login/signup and feedback requests) we suggest to indicate **optional** fields.
-!!!
-
 #### Validation
 
-Note: the validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
-
-To show the user that their input is not valid, you have to do two things: declare that the field is "invalid" (using the `@isInvalid`) argument and provide an error message (using the `Error` contextual component):
+To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Textarea::Field @value="A" @isInvalid={{true}} as |F|>
@@ -94,7 +94,7 @@ To show the user that their input is not valid, you have to do two things: decla
 </Hds::Form::Textarea::Field>
 ```
 
-It’s possible to provide more than one error message using the more specific `Message` contextual component:
+Add more than one error message using the more specific `Message` contextual component.
 
 ```handlebars
 <Hds::Form::Textarea::Field @value="&lt;a&gt;" @isInvalid={{true}} as |F|>
@@ -109,7 +109,12 @@ It’s possible to provide more than one error message using the more specific `
 
 #### Custom control ID
 
-In case it’s necessary to have custom ID for the control, instead of the one automatically generated by the component (eg. because it needs to be referenced in the code for other reasons), you just need to pass a `@id` argument to the "field":
+If needing a custom ID for the control instead of the one automatically generated by the component, pass the `@id` argument to the field.
+
+!!! Info
+
+In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
+!!!
 
 ```handlebars
 <Hds::Form::Textarea::Field @id="my-control" as |F|>
@@ -118,14 +123,9 @@ In case it’s necessary to have custom ID for the control, instead of the one a
 </Hds::Form::Textarea::Field>
 ```
 
-!!! Info
+#### Additional `aria-describedby`
 
-In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated, only they will use the custom ID provided.
-!!!
-
-#### Extra "aria-describedby"
-
-If you want to connect one or more extra elements describing the field to the control, it’s possible to provide extra ID values to the `aria-describedby` attribute of the control, in addition to the ones automatically generated by the component, passing a `@extraAriaDescribedBy` argument to the "field":
+Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
 <Hds::Form::Textarea::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
@@ -136,7 +136,7 @@ If you want to connect one or more extra elements describing the field to the co
 
 #### HTML native attributes
 
-As explained above in the [Component API](#component-api) section, the textarea "field" supports the `...attributes` spreading of HTML attributes over the `<textarea>` element. This means you can use all the standard HTML attributes of the `<textarea>` element.
+This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<textarea>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `min`, `max`, `minlength`, `maxlength`, or `pattern` attributes to it).
 
 ```handlebars
 <Hds::Form::Textarea::Field name="description" placeholder="Workspace description" minlength="4" maxlength="1024" as |F|>
@@ -144,11 +144,9 @@ As explained above in the [Component API](#component-api) section, the textarea 
 </Hds::Form::Textarea::Field>
 ```
 
-This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `min` `max` `minlength` `maxlength` `pattern` attributes to it)
-
 #### Events handling
 
-Thanks to the `...attributes` spreading over the `<textarea>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blue`, `change`), validation, etc.
 
 ```handlebars
 <Hds::Form::Textarea::Field placeholder="Workspace description" {{on "blur" this.yourOnBlurFunction}} as |F|>
@@ -156,11 +154,11 @@ Thanks to the `...attributes` spreading over the `<textarea>` element, you can u
 </Hds::Form::Textarea::Field>
 ```
 
-You can use different events, depending on your context/need (eg. `input`, `blur`, `change`).
-
 #### Custom width
 
-By default the textarea control width is set to fill the parent container. It’s possible to pass a custom width for the control using the `@width` argument:
+By default, the textarea control width is set to fill the parent container. 
+
+Pass a custom width for the control using the `@width` argument.
 
 ```handlebars
 <Hds::Form::Textarea::Field @width="200px" as |F|>
@@ -172,11 +170,14 @@ By default the textarea control width is set to fill the parent container. It’
 
 ### Form::Textarea::Base
 
-The "base" element is intended **only** for those rare cases where the "field" variant can’t be used, and a custom implementation needs to be done. For this reason we will not go too much in detail on how to use it: most of the explanations for "field" variat apply also to the "base" variant of the component, and for further details refer to the [Component API](#component-api) section on this page, or speak with a member of the Design Systems Team.
+The Base component is intended for rare cases where the Field component can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
-Note: when the "base" textarea is used, the developer is completely responsible for the correct implementation of the form control, including its accessibility conformance.
+!!! Warning
 
-To give just an example, this could be an invocation of the "base" component you would use:
+`Form::Textarea::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
+!!!
+
+The Base component creates a `<textarea>` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Textarea::Base
@@ -187,5 +188,3 @@ To give just an example, this could be an invocation of the "base" component you
   {{on "blur" this.yourOnBlurFunction}}
 />
 ```
-
-This "base" component creates just the `<textarea>` control with an automatically generated `ID` attribute.

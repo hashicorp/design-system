@@ -1,10 +1,10 @@
 
 ## Anatomy
 
-![Tag anatomy](/assets/components/tag/tag-anatomy.png)
+![Tag anatomy](/assets/components/tag/tag-anatomy.png =276x*)
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
+| Element          | Usage                          |
+|------------------|------------------------------- |
 | Text             | Required                       |
-| Icon             | Required for isDismissible |
-| Container        | Required                |
+| Dismiss icon     | Required for isDismissible     |
+| Container        | Required                       |

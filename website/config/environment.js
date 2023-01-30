@@ -6,6 +6,11 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'history',
+    historySupportMiddleware: true,
+    routerScroll: {
+      targetElement: '#topofpage',
+      scrollWhenAfterRender: true,
+    },
 
     EmberENV: {
       FEATURES: {
@@ -19,15 +24,13 @@ module.exports = function (environment) {
       // when it is created
     },
 
-    historySupportMiddleware: true,
-
     fastboot: {
       hostWhitelist: [/^localhost:\d+$/],
     },
 
     'ember-meta': {
       description:
-        'Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.',
+        'The Helios Design System from HashiCorp provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.',
       siteName: 'Helios Design System',
       title: 'Helios Design System',
       imgSrc: '/assets/logos/share-card.jpg',

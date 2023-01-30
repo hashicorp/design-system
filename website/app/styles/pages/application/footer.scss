@@ -75,3 +75,25 @@
     height: 100%;
   }
 }
+
+
+// ERROR PAGE
+
+body.application.error {
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-footer {
+      padding-left: 0;
+    }
+  }
+}
+
+// PATTERNS PAGE
+// This is temporary and will be removed as soon as a pattern page is added to the section
+
+body.application.patterns {
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-footer {
+      padding-left: 0;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "./project-words.txt",
+      "addWords": true
+    },
+    {
+      "name": "dictionary-lorem",
+      "path": "./dictionary-lorem.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": [
+    "project-words",
+    "dictionary-lorem"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "project-words.txt",
+    "dictionary-lorem.txt",
+    "docs/testing"
+  ]
+}

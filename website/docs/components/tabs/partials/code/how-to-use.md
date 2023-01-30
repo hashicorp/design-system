@@ -1,7 +1,5 @@
 ## How to use this component
 
-### Basic
-
 ```handlebars
 <Hds::Tabs as |T|>
   <T.Tab>One</T.Tab>
@@ -16,7 +14,7 @@
 
 ### Custom starting tab
 
-Set a custom starting tab to display on page load. (The first tab is selected by default.)
+Customize the starting tab to display on page load. The first tab is selected by default.
 
 ```handlebars
 <Hds::Tabs as |T|>
@@ -30,7 +28,7 @@ Set a custom starting tab to display on page load. (The first tab is selected by
 </Hds::Tabs>
 ```
 
-### Count and Icon
+### Count and icon
 
 ```handlebars
 <Hds::Tabs as |T|>

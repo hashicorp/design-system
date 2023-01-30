@@ -1,15 +1,27 @@
+## How to use this component
+
 !!! Info
 
-Depending on how you’re going to process the user input upon submission (eg. server-side via form `POST` or client-side using JavaScript) you will need to provide a `name` attribute or a custom `ID` attribute to the field. Since the decision on how to process the input data is left to the consumers, in the examples provided we will omit these specific arguments, for sake of simplicity.
+**Examples have been simplified**
+
+We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
 !!!
 
-There are two possible ways to use the `Form::Select` component: using the "base" variant (essentially just the control itself) or using the "field" variant (the control plus label, helper text and error).
+There are two ways to use the Select component:
 
-The "field" variant is used most commonly, because it provides, for free and out of the box, accessibility enhancements. The "base" variant can be used if you need to achieve custom layouts or have special use cases not covered by the "field" variant.
+- `Form::Select::Base` - the base component: just the `<select>` control.
+- `Form::Select::Field` - the field parent component: the `<select>` control, with label, helper text, and error messaging (in a wrapping container).
+
+We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or for special use cases not covered by the Field component.
+
+{{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
 ### Form::Select::Field
 
-#### Basic use
+The basic invocation requires a `Label`. This creates: 
+
+- a `<label>` element with a `for` attribute automatically associated with the select `ID` attribute.
+- a `<select>` control with an automatically generated `ID` attribute, and the `Options` elements yielded as children.
 
 ```handlebars
 <Hds::Form::Select::Field as |F|>
@@ -21,14 +33,9 @@ The "field" variant is used most commonly, because it provides, for free and out
 </Hds::Form::Select::Field>
 ```
 
-This "field" component creates:
-
-- a `<label>` element with a `for` attribute automatically associated with the select `ID` attribute
-- a `<select>` control with an automatically generated `ID` attribute, and the `Options` elements yielded as children.
-
 #### Selected option
 
-You can pre-select one of the options passing to it the native `selected` attribute:
+Pass the native `selected` attribute to pre-select one of the options.
 
 ```handlebars
 <Hds::Form::Select::Field as |F|>
@@ -42,7 +49,7 @@ You can pre-select one of the options passing to it the native `selected` attrib
 
 #### Grouped options
 
-Since the `Options` container yields the content to the `<select>` element, it’s possible to use the `<optgroup>` tag within it, to group similar sets of options:
+To group similar sets of options, use the `<optgroup>` tag within the `Options` container.
 
 ```handlebars
 <Hds::Form::Select::Field as |F|>
@@ -63,7 +70,7 @@ Since the `Options` container yields the content to the `<select>` element, it�
 
 #### Helper text
 
-You can add extra information to the field using an "helper" text:
+You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the select control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
 <Hds::Form::Select::Field @value="036140285924" as |F|>
@@ -76,11 +83,14 @@ You can add extra information to the field using an "helper" text:
 </Hds::Form::Select::Field>
 ```
 
-When the "helper" text is added, the component automatically adds an `aria-describedby` attribute to the select control, associating it with the automatically generated `ID` of the helper text element.
-
 #### Extra content in label and helper text
 
-The `Label` and `HelperText` contextual components used in the "field" yield their content; you can pass not just plain text, but also structured content. 
+!!! Warning
+
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
+
+The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
 
 For example:
 
@@ -95,14 +105,9 @@ For example:
 </Hds::Form::Select::Field>
 ```
 
-!!! Warning
+#### Required vs. optional
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. Interactive elements in text (associated with the select through aria-describedby) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, it is recommended to have a screen reader-only message that informs the user that some help text includes link, and additional keyboard exploration may be required. As such, it is generally preferable to avoid links within help/error text or labels; however, we understand that this may not be avoidable in some cases. Please use sparingly until a good known alternative approach is determined.
-!!!
-
-#### Required / Optional
-
-It’s possible to add a visual indication if a field is "required" or "optional" using the `@isRequired` and `@isOptional` arguments:
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
 <Hds::Form::Select::Field @isRequired={{true}} as |F|>
@@ -126,19 +131,9 @@ It’s possible to add a visual indication if a field is "required" or "optional
 </Hds::Form::Select::Field>
 ```
 
-!!! Info
-
-For complex forms indicate **required** fields, since this is the most explicit and transparent method and ensures users don’t have to make assumptions. For shorter, simpler forms (ie. login/signup and feedback requests) indicate **optional** fields.
-!!!
-
 #### Validation
 
-!!! Info
-
-The validation of the form fields is entirely delegated to the "consumer" of the HDS components. What we provide is the visual representation of an invalid state of the field at UI level. When and how to provide this visual feedback to the user is responsibility left to the developer.
-!!!
-
-To show the user that their input is invalid, declare that the field is "invalid" (using the `@isInvalid`) argument and provide an error message (using the `Error` contextual component):
+To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
@@ -155,7 +150,12 @@ To show the user that their input is invalid, declare that the field is "invalid
 
 #### Custom control ID
 
-In cases where it’s necessary to have custom id attribute for the control, instead of the one automatically generated by the component (e.g., because it needs to be referenced somewhere else in the code), pass a `@id` argument to the "field":
+If needing a custom ID for the control instead of the one automatically generated by the component, pass the `@id` argument to the field.
+
+!!! Info
+
+In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
+!!!
 
 ```handlebars
 <Hds::Form::Select::Field @id="my-control" as |F|>
@@ -168,14 +168,9 @@ In cases where it’s necessary to have custom id attribute for the control, ins
 </Hds::Form::Select::Field>
 ```
 
-!!! Info
+#### Additional `aria-describedby`
 
-In this case all internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated, but will use the custom ID provided.
-!!!
-
-#### Extra "aria-describedby"
-
-If you want to connect one or more extra elements describing the field to the control, it’s possible to provide extra ID values to the `aria-describedby` attribute of the control, in addition to the ones automatically generated by the component, passing a `@extraAriaDescribedBy` argument to the "field":
+Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
 <Hds::Form::Select::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
@@ -190,7 +185,7 @@ If you want to connect one or more extra elements describing the field to the co
 
 #### Native HTML attributes
 
-As explained in the [Component API](#component-api) section, the select "field" supports the `...attributes` spreading of HTML attributes over the `<select>` element. This means you can use all the standard HTML attributes of the `<select>` element.
+This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<select>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `multiple` and `size` attributes to it).
 
 Similarly, you can pass HTML attributes to the `<option/optgroup>` elements.
 
@@ -213,11 +208,9 @@ Similarly, you can pass HTML attributes to the `<option/optgroup>` elements.
 </Hds::Form::Select::Field>
 ```
 
-This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (eg. providing a `name` for the control, or adding `multiple` and `size` attributes to it)
-
 #### Event handling
 
-Thanks to the `...attributes` spreading over the `<select>` element, you can use as well all the usual Ember techniques for event handling, validation, etc.
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `blue`, `change`), validation, etc.
 
 ```handlebars
 <Hds::Form::Select::Field {{on "blur" this.yourOnBlurFunction}} as |F|>
@@ -230,11 +223,11 @@ Thanks to the `...attributes` spreading over the `<select>` element, you can use
 </Hds::Form::Select::Field>
 ```
 
-You can use different events, depending on your context/need (eg. `blur`, `change`).
-
 #### Custom width
 
-By default the select control width is set to fill the parent container. It’s possible to pass a custom width for the control using the `@width` argument:
+By default, the select control width is set to fill the parent container. 
+
+Pass a custom width for the control using the `@width` argument.
 
 ```handlebars
 <Hds::Form::Select::Field @width="200px" as |F|>
@@ -248,14 +241,14 @@ By default the select control width is set to fill the parent container. It’s 
 
 #### Form::Select::Base
 
-The "base" element is intended **only** for those rare cases where the "field" variant can’t be used and a custom implementation is needed. For this reason we will not go into to much detail on how to use it: most of the explanations above apply also to the "base" variant of the component. For further details refer to the [Component API](#component-api) section on this page, or speak with one of the Design Systems Team members.
+The Base component is intended for rare cases where the Field component can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
-!!! Info
+!!! Warning
 
-When the "base" select is used, the developer is responsible for the correct implementation of the form control, including its accessibility conformance.
+`Form::Select::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
 !!!
 
-As an example, this is an invocation of the "base" component you could use:
+The Base component creates a `<select>` control with an automatically generated `ID` attribute.
 
 ```handlebars
 <Hds::Form::Select::Base aria-label="Target infrastructure" @isRequired={{true}} {{on "blur" this.yourOnBlurFunction}} as |S|>
@@ -265,5 +258,3 @@ As an example, this is an invocation of the "base" component you could use:
   </S.Options>
 </Hds::Form::Select::Base>
 ```
-
-This "base" component creates just the `<select>` control with an automatically generated `ID` attribute.

@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { restartableTask, timeout } from 'ember-concurrency';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
 const DEBOUNCE_MS = 250;
 
@@ -79,7 +81,17 @@ const isActiveTree = (subTree, currentURL) => {
 };
 
 export default class DocPageSidebarComponent extends Component {
+  @service router;
+
   @tracked filterQuery = '';
+
+  constructor() {
+    super(...arguments);
+
+    // used to detect changes in top-route navigation
+    this._currentTopRoute = this.args.currentTopRoute;
+    this.router.on('routeDidChange', this.onRouteDidChange);
+  }
 
   get isFiltered() {
     return this.filterQuery !== '';
@@ -134,5 +146,13 @@ export default class DocPageSidebarComponent extends Component {
     yield timeout(DEBOUNCE_MS);
 
     this.filterQuery = filterQuery.trim();
+  }
+
+  @action
+  onRouteDidChange() {
+    if (this._currentTopRoute !== this.args.currentTopRoute) {
+      this.filterQuery = '';
+    }
+    this._currentTopRoute = this.args.currentTopRoute;
   }
 }

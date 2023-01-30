@@ -65,7 +65,7 @@ For example:
 - when listing statuses in a table
 - for successful or passive actions
 
-### Inverted 
+### Inverted
 
 <Hds::Badge @type="inverted" @text="Neutral inverted" />
 <Hds::Badge @type="inverted" @color="highlight" @text="Highlight inverted" />
@@ -130,7 +130,6 @@ Badges come in a few icon and text combinations; text only, icon only, and icon 
 - Use language consistently within each product. For example, when using “In Progress” for one badge, use that same convention throughout the rest of the application.
 - Since Badges are not interactive, they don’t support links. Consider moving the link outside of the Badge instead.
 
-
 ## Related
 
-- [Badge Count](/components/badge-count/)
+- [Badge Count](/components/badge-count)

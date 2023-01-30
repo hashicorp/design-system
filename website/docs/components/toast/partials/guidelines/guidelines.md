@@ -2,18 +2,17 @@
 
 ### When to use
 
-- To display contextual information as a result of a user or system-triggered action.
-- To communicate an ongoing process, e.g. "Creating cluster".
+- To display contextual information resulting from a user’s action.
+- To communicate an ongoing process, e.g., “Creating cluster”.
 
 ### When not to use
 
-- To display persistent messages. Consider using [Alert](/components/alert).
-- As a dialog to confirm an action. Consider using a [Dialog](/components/dialog).
-- To display promotional content. Consider using [AlertInline](/components/alert-inline).
+- To display persistent messages or promotional content, consider [Alert](/components/alert).
+- As a dialog to confirm an action, consider [Modal](/components/modal).
 
-### Color
+## Color
 
-<Doc::Layout @spacing="12px" @direction="vertical">
+<Doc::Layout @spacing="12px">
   <Hds::Toast @onDismiss={{this.noop}} as |T|>
     <T.Title>Neutral toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
@@ -48,17 +47,17 @@
 
 Use color logically.
 
-- **Nuetral** to provide general information to the user about an ongoing process.
-- **Highlight** use interchangeably with neutral when more prominence is needed. Use it sparingly.
-- **Success** to inform users that an action has been completed successfully.
-- **Warning** to indicate that an action was executed successfully but may have triggered a related issue. Provide guidance and actions if possible.
-- **Critical** to indicate error or critical issues as a result of a failed action.
+- **Neutral** to provide general information to the user about an ongoing process.
+- **Highlight** use interchangeably with `neutral` when more prominence is needed. Use it sparingly.
+- **Success** to indicate a successful action was completed.
+- **Warning** to indicate a successful action was completed but may have triggered a related issue. Provide guidance and actions if possible.
+- **Critical** to indicate error or critical issues resulting from a failed action.
 
----
+## Icons
 
-### Icons
+All Toasts have icons by default that are intentionally tied to the Toast color.
 
-All toasts come with icons by default. They are intentionally tied to the toast type. Icons in Neutral and Highlight alerts can be swapped out with any other icon from Flight, including animated ones. Change them only when the new icon provides the user with extra value; otherwise, leaving the default icon is recommended.
+Icons within `neutral` and `highlight` Toasts can be replaced with other Helios icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
 <Doc::Layout @spacing="12px" @direction="vertical">
   <Hds::Toast @color="neutral" @icon="running" @onDismiss={{this.noop}} as |T|>
@@ -73,107 +72,120 @@ All toasts come with icons by default. They are intentionally tied to the toast 
   </Hds::Toast>
 </Doc::Layout>
 
-### Actions
+## Actions
 
-- We recommend using the secondary button variant for primary actions and the tertiary button variant for secondary actions.
-- Use LinkStandalone when an action expects to take the user to a new destination (URL) instead of triggering an action within the same page. Follow LinkStandalone [usage guidelines](/components/link/link-standalone/#usage-guidelines) to determine what variant "type" to use.
-- To keep hierarchy and avoid competing with other actions on the page, using “small” size variants is recommended.
-- Avoid using critical buttons in alerts. If used, consider adding a confirmation modal as an extra step, after the action is triggered.
-  Up to two action should be used.
+Use small Buttons to avoid competing with other actions on the page. Use more than two actions sparingly.
 
-Some common examples are:
+### Buttons
 
-#### Button secondary only
+We recommend using the `secondary` Button variant for primary actions and the `tertiary` Button variant for secondary actions.
 
-<Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
+<Hds::Toast @color="neutral" @onDismiss={{this.noop}} as |T|>
+  <T.Title>Recommended button usage</T.Title>
+  <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+  <T.Button @text="Button" @color="secondary" />
+  <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+</Hds::Toast>
 
-#### Link only
+#### Usage of critical Buttons
 
-<Hds::Link::Standalone @color="primary" @iconPosition="trailing" @icon="arrow-right" @text="View snapshots" @href="#" />
+Avoid using critical Buttons in Toasts. We handle the prominence and importance via the styling of the Toast container itself. If needing to confirm that the user intended to interact with the action, consider displaying a confirmation [Modal](/components/modal). 
 
-#### Button secondary + tertiary
+!!! Dont
 
-<Doc::Layout @spacing="12px">
-  <Hds::Button @color="secondary" @text="Send reminder email" @size="small" />
-  <Hds::Link::Standalone @color="primary" @iconPosition="leading" @icon="x-circle" @text="Cancel invitation" @href="#" />
-</Doc::Layout>
-
-!!! Warning
-
-When using links, avoid using CTA link; it may take user’s attention away from other actions on the page. Use [LinkStandalone](/components/link/link-standalone)
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+  <T.Title>Critical button usage</T.Title>
+  <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+  <T.Button @text="Your action" @color="critical" />
+</Hds::Toast>
 !!!
 
-### Composition
+### Links
 
-Alerts are very flexible and highly configurable except for the AlertCompact, in which all properties are required. Some common use-cases are:
+Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](/components/link/standalone#usage) to determine what variant to use.
 
-#### With icon and title
-
-<Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
-  <T.Title>Success toast title</T.Title>
+<Hds::Toast @color="neutral" @onDismiss={{this.noop}} as |T|>
+  <T.Title>Links in Toasts</T.Title>
+  <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
+  <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
 </Hds::Toast>
 
-#### With icon, title, and description
+## Size
 
-<Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
-  <T.Title>Success toast title</T.Title>
-  <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
-</Hds::Toast>
+Toasts can be sized between 360px and 500px wide. Anything wider than 500px will lead to implementation issues and take up too much of the screen space. 
 
-#### Title and description only
-
-<Hds::Toast @color="success" @icon={{false}} @onDismiss={{this.noop}} as |T|>
-  <T.Title>Success toast title</T.Title>
-  <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
-</Hds::Toast>
+## Placement
 
 !!! Warning 
 
-When `icon=false`, the title or description text should contain the alert type in it, ie. "Success."
+HCP’s notification service doesn’t currently support the recommended placement. Discuss possible solutions and alternatives with your product team before using the Toast.
 !!!
 
-#### With actions
+Toasts should appear in the bottom right corner of the screen with a margin of 32px from the bottom and a 24px from the right side of the viewport. 
+
+![Toast placement example](/assets/components/toast/toast-placement.png =600x*)
+
+### Displaying multiple Toasts
+
+When displaying multiple Toasts, they should stack vertically with a 16px margin between each Toast.
+
+![Multiple toast examples stacked](/assets/components/toast/toast-placement-multiple.png =600x*)
+
+## Composition
+
+Toasts can be configured in a variety of ways. For example:
+
+### With icon and title
+
+<Hds::Toast @icon="info" @onDismiss={{this.noop}} as |T|>
+  <T.Title>With icon and title</T.Title>
+</Hds::Toast>
+
+### With icon, title, and description
+
+<Hds::Toast @icon="info" @onDismiss={{this.noop}} as |T|>
+  <T.Title>With icon, title, and description</T.Title>
+  <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
+</Hds::Toast>
+
+### Title and description only
+
+The title or description should contain the Toast color type, e.g., “Warning,” if no icon is present.
+
+<Hds::Toast @color="warning" @icon={{false}} @onDismiss={{this.noop}} as |T|>
+  <T.Title>Warning: the action could not be completed</T.Title>
+</Hds::Toast>
+
+### With actions
 
 <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
-  <T.Title>Success toast title</T.Title>
+  <T.Title>Toast with actions</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
   <T.Button @text="Button" @color="secondary" />
   <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
 </Hds::Toast>
 
-#### With custom content
+### With generic content
 
-![Toast with custom content](/assets/components/toast/toast-custom-content.png)
-
-#### With custom actions
-
-![Toast with custom actions](/assets/components/toast/toast-custom-actions.png)
-
-### Placement
-
-Toasts should appear in the bottom right corner of the screen. They have a margin of 32px from the bottom and a 24px from the right side of the viewport. They should stack vertically with a 16px margin between each toast when multiple toasts are triggered.
-
-![Toast placement example](/assets/components/toast/toast-placement.png)
-
-!!! Info 
-
-Currently, HCP’s notification service doesn’t support the recommended placement. We recommend reaching out to your engineering partner and discussing it first.
-!!!
-
-!!! Warning
-
-Toast width: The Figma component is 360px, which is the minimum width. You can manually stretch it up to 500px. Wider than this size will lead to issues during implementation.
-!!!
+<Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
+  <T.Title>Toast with extra/custom content</T.Title>
+  <T.Description>
+    In special cases, you can pass extra content to the Toast using the
+    <code>A.Generic</code>
+    contextual component.
+  </T.Description>
+  <T.Generic>
+    <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
+  </T.Generic>
+</Hds::Toast>
 
 ## Content
 
-- Keep the title short, as this will be the most prominent element when users scan the toast.
-- Do not end the title with a period.
-- Toast messages should be short bu clear and descriptive enough to explain what’s happening and guide users on how to prevent or fix the issue. We recommend keeping messages under 90 characters.
-- Text formatting capabilities such as inline links, bold, italic, code, and bulleted lists are supported.
-- For actions, refer to [Button](/components/button) and [Link](/components/link) content guidelines.
-
-### Examples
+- Keep the title short, as this will be the most prominent element when users scan the Toast.
+- Avoid ending the title with a period.
+- Toast descriptions should be short but clear enough to explain what’s happening. We recommend keeping messages under 90 characters.
+- For warning and critical Toasts, guide the users on how to prevent or fix the issue.
+- For content guidelines on actions, refer to [Button](/components/button) and [Link](/components/link/standalone) documentation.
 
 <Doc::Layout @spacing="12px" @direction="vertical">
   <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>

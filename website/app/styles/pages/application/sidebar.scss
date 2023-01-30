@@ -52,7 +52,6 @@ body.application.index {
   }
 }
 
-
 // ALL THE OTHER PAGES
 
 body.application:not(.index) {
@@ -157,6 +156,28 @@ body.application:not(.index) {
     // we also lock the overflow scrolling on the `<body>` element
     &.isSidebarVisibleOnSmallViewport {
       overflow: hidden;
+    }
+  }
+}
+
+// ERROR PAGE
+// also if you want to change this, change footer.scss too
+
+body.application.error {
+  @include breakpoint.with-fixed-sidebar () {
+    .doc-page-sidebar {
+      display: none;
+    }
+  }
+}
+
+// PATTERNS PAGE
+// This is temporary and will be removed as soon as a pattern page is added to the section
+
+body.application.patterns {
+  @include breakpoint.medium-and-above () {
+    .doc-page-sidebar {
+      display: none;
     }
   }
 }

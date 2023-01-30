@@ -73,7 +73,7 @@ yarn add @hashicorp/flight-icons
 
 This package can be consumed in React applications via direct import of the SVG file or as a standalone React/SVG icon component.
 
-For more details, examples, and guidelines read [the complete icons documentation](/foundations/icons/).
+For more details, examples, and guidelines read [the complete icons documentation](/icons/library).
 
 
 ## Tokens
@@ -116,4 +116,4 @@ Import CSS helper classes by adding any of the following lines to the main Sass 
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
 ```
 
-For more examples and guidelines read [the tokens documentation](/foundations/tokens/).
+For more examples and guidelines read [the tokens documentation](/foundations/tokens).
