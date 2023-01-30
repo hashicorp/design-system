@@ -4,6 +4,11 @@
 
 @use "../mixins/focus-ring" as *;
 
+// custom breakpoint for the pagination, swapping between horizontal and stacked layout
+// notice: the value is based on where the component layout potentially breaks down
+
+$pagination-layout-breakpoint: 1000px;
+
 
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
@@ -16,8 +21,7 @@
   align-items: center;
   margin: 0 auto;
 
-  // max-width is based on where component layout potentially breaks down
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: $pagination-layout-breakpoint) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -34,7 +38,7 @@
   margin-right: var(--token-pagination-child-spacing-horizontal);
   white-space: nowrap;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: $pagination-layout-breakpoint) {
     margin-top: var(--token-pagination-child-spacing-vertical);
     margin-left: var(--token-pagination-child-spacing-horizontal);
   }
@@ -48,7 +52,7 @@
   display: flex;
   grid-area: nav;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: $pagination-layout-breakpoint) {
     justify-content: center;
     order: -1;
     // Force nav to occupy a full row so other components will wrap:
@@ -169,13 +173,14 @@
   justify-self: flex-end;
   margin-left: var(--token-pagination-child-spacing-horizontal);
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: $pagination-layout-breakpoint) {
     margin-top: var(--token-pagination-child-spacing-vertical);
     margin-right: var(--token-pagination-child-spacing-horizontal);
   }
 
   > label { white-space: nowrap; }
 
+  // notice: this is an `Form::Select::Base` component, slightly customized
   > select {
     height: 28px;
     margin-left: 12px;
