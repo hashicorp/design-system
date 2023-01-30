@@ -4,6 +4,8 @@ import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { inject as service } from '@ember/service';
 
+// for context about the decision to use these values, see:
+// https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
 /**
@@ -307,13 +309,13 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     let { onPageSizeChange } = this.args;
 
     // we need to manually update the query parameters in the route (it's not a link!)
+    // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     if (this.hasRouting) {
       let queryParams = Object.assign({}, this.routeQueryParams);
-      // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
       queryParams = this.buildQueryParamsObject(1, newPageSize);
       this.router.transitionTo({ queryParams });
     } else {
-      this.currentPage = 1; // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+      this.currentPage = 1;
       this.currentPageSize = newPageSize;
     }
 
