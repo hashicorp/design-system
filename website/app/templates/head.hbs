@@ -16,7 +16,6 @@ We've made some small customizations to simplify this compared to the default te
 
 {{#if this.model.url}}
   <link rel="canonical" href={{this.model.url}} />
-  <meta property="og:url" content={{this.model.url}} />
 {{/if}}
 
 {{! END GENERAL }}
@@ -25,6 +24,10 @@ We've made some small customizations to simplify this compared to the default te
 
 {{#if this.model.siteName}}
   <meta property="og:site_name" content={{this.model.siteName}} />
+{{/if}}
+
+{{#if this.model.url}}
+  <meta property="og:url" content={{this.model.url}} />
 {{/if}}
 
 {{#if this.model.title}}
@@ -37,14 +40,13 @@ We've made some small customizations to simplify this compared to the default te
 
 {{#if this.model.imgSrc}}
   <meta property="og:image" content={{this.model.imgSrc}} />
-  <meta property="og:image:type" content="image/jpg" />
 {{/if}}
 
 {{! END OPENGRAPH }}
 
 {{! BEGIN TWITTER }}
 
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 
 {{#if this.model.imgSrc}}
   <meta name="twitter:image" content={{this.model.imgSrc}} />
@@ -60,6 +62,10 @@ We've made some small customizations to simplify this compared to the default te
 
 {{#if this.model.description}}
   <meta name="twitter:description" content={{this.model.description}} />
+{{/if}}
+
+{{#if this.model.twitterUsername}}
+  <meta name="twitter:site" content={{this.model.twitterUsername}} />
 {{/if}}
 
 {{! END TWITTER }}
