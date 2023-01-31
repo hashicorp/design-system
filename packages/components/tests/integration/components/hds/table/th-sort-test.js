@@ -24,6 +24,15 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     assert.dom('#data-test-table-th-sort').hasClass('hds-table__th-sort');
   });
 
+  test('it should render with the appropriate `@align` CSS class', async function (assert) {
+    await render(
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @align="right">Year</Hds::Table::ThSort>`
+    );
+    assert
+      .dom('#data-test-table-th-sort')
+      .hasClass('hds-table__th-sort--text-right');
+  });
+
   test('it should add inline styles if `@width` is declared', async function (assert) {
     await render(
       hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%" />`
