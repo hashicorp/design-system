@@ -83,23 +83,6 @@ body.dummy-app {
       margin: 0 auto;
       padding: 0.5rem 1rem;
     }
-
-    .dummy-beta-banner {
-      @include dummyFontFamily();
-      display: inline-block;
-      margin: 1.25rem auto;
-      padding: 0.75rem 1.25rem;
-      color: #911ced;
-      font-size: 1rem;
-      line-height: 1.2;
-      background-color: #f9f2ff;
-      // border: 1px solid #ead2fe;
-      border-radius: 0.25rem;
-
-      a {
-        color: inherit;
-      }
-    }
   }
 
   .dummy-aside {
@@ -118,18 +101,6 @@ body.dummy-app {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: space-around;
-}
-
-.dummy-design-guidelines {
-  p {
-    color: #666;
-  }
-
-  img {
-    width: 1280px;
-    max-width: 100%;
-    height: auto;
-  }
 }
 
 .dummy-divider {
@@ -187,15 +158,6 @@ body.dummy-app {
 
 .dummy-link-section {
   text-decoration: none;
-}
-
-.dummy-npm-version {
-  @include dummyFontFamily();
-  display: inline-flex;
-  gap: 1rem;
-  color: #ccc;
-  font-size: 1rem;
-  line-height: 1.2;
 }
 
 // Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
