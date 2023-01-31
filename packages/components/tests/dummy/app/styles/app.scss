@@ -5,45 +5,45 @@
 
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/design-system-power-select-overrides";
-@import "./_layout";
-@import "./_typography";
+@import "./layout";
+@import "./typography";
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
-// START COMPONENT PAGES IMPORTS
-@import "./pages/db-alert";
-@import "./pages/db-avatar";
-@import "./pages/db-badge";
-@import "./pages/db-breadcrumb";
-@import "./pages/db-button";
-@import "./pages/db-card";
-@import "./pages/db-disclosure";
-@import "./pages/db-dismiss-button";
-@import "./pages/db-dropdown";
-@import "./pages/db-elevation";
-@import "./pages/db-flyout";
-@import "./pages/db-focus-ring";
-@import "./pages/db-icon-tile";
-@import "./pages/db-interactive";
-@import "./pages/db-link-inline";
-@import "./pages/db-link-standalone";
-@import "./pages/db-modal";
-@import "./pages/db-pagination";
-@import "./pages/db-power-select";
-@import "./pages/db-tab";
-@import "./pages/db-table";
-@import "./pages/db-tag";
-@import "./pages/db-toast";
-@import "./pages/db-typography";
-@import "./pages/empty-state/db-index";
-@import "./pages/form/db-base-elements";
-@import "./pages/form/db-checkbox";
-@import "./pages/form/db-radio";
-@import "./pages/form/db-radio-card";
-@import "./pages/form/db-select";
-@import "./pages/form/db-text-input";
-@import "./pages/form/db-textarea";
-@import "./pages/form/db-toggle";
-@import "./pages/stepper/db-stepper";
+// START COMPONENTS' SHOWCASE PAGES IMPORTS
+@import "./showcase-pages/alert";
+@import "./showcase-pages/avatar";
+@import "./showcase-pages/badge";
+@import "./showcase-pages/breadcrumb";
+@import "./showcase-pages/button";
+@import "./showcase-pages/card";
+@import "./showcase-pages/disclosure";
+@import "./showcase-pages/dismiss-button";
+@import "./showcase-pages/dropdown";
+@import "./showcase-pages/elevation";
+@import "./showcase-pages/empty-state";
+@import "./showcase-pages/flyout";
+@import "./showcase-pages/focus-ring";
+@import "./showcase-pages/form/base-elements";
+@import "./showcase-pages/form/checkbox";
+@import "./showcase-pages/form/radio";
+@import "./showcase-pages/form/radio-card";
+@import "./showcase-pages/form/select";
+@import "./showcase-pages/form/text-input";
+@import "./showcase-pages/form/textarea";
+@import "./showcase-pages/form/toggle";
+@import "./showcase-pages/icon-tile";
+@import "./showcase-pages/interactive";
+@import "./showcase-pages/link-inline";
+@import "./showcase-pages/link-standalone";
+@import "./showcase-pages/modal";
+@import "./showcase-pages/pagination";
+@import "./showcase-pages/power-select";
+@import "./showcase-pages/stepper";
+@import "./showcase-pages/tab";
+@import "./showcase-pages/table";
+@import "./showcase-pages/tag";
+@import "./showcase-pages/toast";
+@import "./showcase-pages/typography";
 // END COMPONENT PAGES IMPORTS
 
 @import "./components/dummy-placeholder";
