@@ -18,6 +18,11 @@ module('Integration | Component | hds/table/td', function (hooks) {
     assert.dom('#data-test-table-td').hasClass('hds-table__td');
   });
 
+  test('it should render with the appropriate `@align` CSS class', async function (assert) {
+    await render(hbs`<Hds::Table::Td id="data-test-table-td" @align="right"/>`);
+    assert.dom('#data-test-table-td').hasClass('hds-table__td--text-right');
+  });
+
   test('it should support splattributes', async function (assert) {
     await render(hbs`<Hds::Table::Td id="data-test-table-td" lang="es" />`);
     assert.dom('#data-test-table-td').hasAttribute('lang', 'es');

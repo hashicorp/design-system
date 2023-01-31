@@ -31,6 +31,11 @@ module('Integration | Component | hds/table/th', function (hooks) {
     assert.dom('#data-test-table-th').hasClass('hds-table__th');
   });
 
+  test('it should render with the appropriate `@align` CSS class', async function (assert) {
+    await render(hbs`<Hds::Table::Th id="data-test-table-th" @align="right"/>`);
+    assert.dom('#data-test-table-th').hasClass('hds-table__th--text-right');
+  });
+
   test('it should add inline styles if `@width` is declared', async function (assert) {
     await render(hbs`<Hds::Table::Th id="data-test-table-th" @width="10%" />`);
     assert.dom('#data-test-table-th').hasAttribute('style');
