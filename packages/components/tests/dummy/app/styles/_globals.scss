@@ -1,0 +1,116 @@
+@use "./typography" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body.dummy-app {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: #d9d9d9;
+}
+
+.dummy-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+.dummy-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  color: white;
+  text-align: center;
+  background-color: black;
+
+  .dummy-h1 {
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.dummy-aside {
+  padding: 2rem 1rem;
+  background-color: #fff;
+}
+
+.dummy-main {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.dummy-divider {
+  margin: 2rem 0;
+}
+
+.dummy-code {
+  padding: 0 3px;
+  font-family: courier, monospace;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.dummy-back-to-components-list {
+  @include dummyFontFamily();
+  @include dummyFontSize(0.9rem);
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: black;
+  border: 2px solid transparent;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: aliceblue;
+    border-color: blue;
+    border-style: dashed;
+  }
+
+  &:focus {
+    text-decoration: underline;
+    border-color: blue;
+  }
+
+  &:focus-visible {
+    outline-color: blue;
+    outline-offset: 4px;
+  }
+
+  &:active {
+    text-decoration: underline;
+    background-color: aliceblue;
+    border-color: blue;
+  }
+
+  .flight-icon {
+    color: blue;
+  }
+}
+
+
+// Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
+// that we want to exclude from the snapshots using their own "Percy-specific CSS".
+// see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
+// notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
+// so we had to rely on this specific custom media query
+
+@media only percy {
+  header,
+  aside,
+  main section:not([data-test-percy]) {
+    display: none !important;
+  }
+}

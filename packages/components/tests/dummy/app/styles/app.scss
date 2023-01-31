@@ -5,8 +5,17 @@
 
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/design-system-power-select-overrides";
+
+// global declarations
+
+@import "./globals";
 @import "./layout";
 @import "./typography";
+
+// local components
+
+@import "./showcase-components/placeholder";
+
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENTS' SHOWCASE PAGES IMPORTS
@@ -45,100 +54,3 @@
 @import "./showcase-pages/toast";
 @import "./showcase-pages/typography";
 // END COMPONENT PAGES IMPORTS
-
-@import "./components/dummy-placeholder";
-@import "./components/dummy-sidebar";
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-body.dummy-app {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  color: black;
-  background-color: #d9d9d9;
-
-  .dummy-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.75rem;
-    color: white;
-    text-align: center;
-    background-color: black;
-
-    .dummy-h1 {
-      margin: 0 auto;
-      padding: 0.5rem 1rem;
-    }
-  }
-
-  .dummy-aside {
-    padding: 2rem 1rem;
-    background-color: #fff;
-  }
-
-  .dummy-main {
-    padding: 2rem;
-    background-color: #fff;
-  }
-}
-
-.dummy-index {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-around;
-}
-
-.dummy-divider {
-  margin: 2rem 0;
-}
-
-.dummy-demo-border {
-  border: 1px solid red;
-}
-
-.dummy-example {
-  padding: 16px;
-  border: 1px solid pink;
-  border-radius: 4px;
-
-  p {
-    margin: 0;
-  }
-}
-
-.dummy-code {
-  padding: 0 3px;
-  font-family: courier, monospace;
-  background-color: #eee;
-  border-radius: 3px;
-}
-
-.dummy-link-section {
-  text-decoration: none;
-}
-
-// Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
-// that we want to exclude from the snapshots using their own "Percy-specific CSS".
-// see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
-// notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
-// so we had to rely on this specific custom media query
-
-@media only percy {
-  header,
-  aside,
-  footer,
-  main section:not([data-test-percy]) {
-    display: none !important;
-  }
-}
