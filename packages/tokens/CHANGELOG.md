@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.3.1
+
+### Patch Changes
+
+- [#1036](https://github.com/hashicorp/design-system/pull/1036) [`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Update design system name to Helios
+
 ## 1.3.0
 
 ### Minor Changes
