@@ -2902,6 +2902,7 @@ __metadata:
     dialog-polyfill: ^0.5.6
     ember-a11y-testing: ^5.0.0
     ember-auto-import: ^2.4.2
+    ember-body-class: ^3.0.0
     ember-cached-decorator-polyfill: ^0.1.4
     ember-cli: ~4.7.0
     ember-cli-babel: ^7.26.11
