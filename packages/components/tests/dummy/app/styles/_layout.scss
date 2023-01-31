@@ -13,9 +13,9 @@
   @media screen and (min-width: 40em) {
     display: grid;
     grid-template-areas:
-      'header header header header'
-      '. aside main .'
-      'footer footer footer footer';
+      "header header header header"
+      ". aside main ."
+      "footer footer footer footer";
     grid-template-rows: auto 1fr auto;
     grid-template-columns:
       1fr
@@ -28,15 +28,15 @@
 .dummy-header {
   grid-area: header;
 }
+
 .dummy-aside {
   grid-area: aside;
 }
+
 .dummy-main {
   grid-area: aside/aside/main/main;
 }
+
 .dummy-aside + .dummy-main {
   grid-area: main;
-}
-.dummy-footer {
-  grid-area: footer;
 }
