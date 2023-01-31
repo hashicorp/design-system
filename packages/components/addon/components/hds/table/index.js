@@ -11,10 +11,44 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
-  @tracked sortedMessageText = '';
+  @tracked sortedMessageText;
 
+  /**
+   * @param customSortCriteria
+   * @type {*}
+   * @default null
+   * @description Provides a custom sort criteria to be used instead of the default sort criteria.
+   */
+  get customSortCriteria() {
+    return this.args.customSortCriteria ?? null;
+  }
+
+  /**
+   * @param getSortCriteria
+   * @type {string}
+   * @default sortBy:sortOrder
+   * @description Returns the sort criteria in the format of "sortBy:sortOrder".
+   */
   get getSortCriteria() {
-    return `${this.sortBy}:${this.sortOrder}`;
+    // check for custom sort criteria
+    if (this.customSortCriteria) {
+      return this.customSortCriteria;
+    } else {
+      return `${this.sortBy}:${this.sortOrder}`;
+    }
+  }
+
+  /**
+   * @param sortedMessageText
+   * @type {string}
+   * @default 'Sorted by ${sortBy} ${sortOrder}ending'
+   * @description Returns the text to display in the sorted message. If no text is defined, the default text is used.
+   */
+  get sortedMessageText() {
+    return (
+      this.args.sortedMessageText ??
+      `Sorted by ${this.sortBy} ${this.sortOrder}ending`
+    );
   }
 
   /**
@@ -108,14 +142,19 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   setSortBy(column) {
-    if (this.sortBy === column) {
-      //invert the sort order
+    //check for custom sort criteria first
+    if (this.customSortCriteria) {
+      this.sortOrder = this.customSortCriteria;
+    } else if (this.sortBy === column) {
+      // if a custom sort criteria doesn't exist, check to see if the column is already sorted and invert the sort order if so
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
+      // otherwise, set the sort order to ascending
       this.sortBy = column;
       this.sortOrder = 'asc';
     }
     // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
+    // see get sortedMessageText() above...can we use that here?
     this.sortedMessageText = `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
 
     let { onSort } = this.args;
