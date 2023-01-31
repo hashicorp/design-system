@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
-export default class DummyPlaceholderIndexComponent extends Component {
+export default class PlaceholderIndexComponent extends Component {
   /**
    * Sets the width for the placeholder
    *

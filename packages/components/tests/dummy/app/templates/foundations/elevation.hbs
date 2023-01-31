@@ -13,7 +13,7 @@
   <div class="dummy-elevation-sample">
     {{#each @model.ELEVATIONS as |elevation|}}
       <div class="hds-elevation-{{elevation}}">
-        <DummyPlaceholder @text={{elevation}} @width="100" @height="100" @background="transparent" />
+        <Shw::Placeholder @text={{elevation}} @width="100" @height="100" @background="transparent" />
       </div>
     {{/each}}
   </div>
@@ -22,7 +22,7 @@
   <div class="dummy-elevation-sample">
     {{#each @model.SURFACES as |surface|}}
       <div class="hds-surface-{{surface}}">
-        <DummyPlaceholder @text={{surface}} @width="100" @height="100" @background="transparent" />
+        <Shw::Placeholder @text={{surface}} @width="100" @height="100" @background="transparent" />
       </div>
     {{/each}}
   </div>

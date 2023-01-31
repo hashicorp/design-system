@@ -78,7 +78,7 @@
   <h4 class="dummy-h4">Panel</h4>
   <h5 class="dummy-h6">Content</h5>
   <Hds::Tabs::Panel>
-    <DummyPlaceholder @text="Panel with generic content" @height="50" @background="#eee" />
+    <Shw::Placeholder @text="Panel with generic content" @height="50" @background="#eee" />
   </Hds::Tabs::Panel>
 
   <h4 class="dummy-h4">Tabs</h4>
@@ -89,12 +89,12 @@
     <T.Tab>Three</T.Tab>
 
     <T.Panel>
-      <DummyPlaceholder @height="50" @background="#eee">
+      <Shw::Placeholder @height="50" @background="#eee">
         <span>Content one with <a href="#">link to test tabbing</a></span>
-      </DummyPlaceholder>
+      </Shw::Placeholder>
     </T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
   <h5 class="dummy-h6">With optional icon and badge count</h5>
@@ -104,10 +104,10 @@
     <T.Tab>Three</T.Tab>
     <T.Tab @icon="alert-triangle" @count="5">Four</T.Tab>
 
-    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
   <h5 class="dummy-h6">With pre-selected tab</h5>
@@ -116,10 +116,10 @@
     <T.Tab>Two</T.Tab>
     <T.Tab @isSelected={{true}}>Three (selected on page load)</T.Tab>
 
-    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
     <T.Panel>
-      <DummyPlaceholder @text="Content three (displayed on page load)" @height="50" @background="#eee" />
+      <Shw::Placeholder @text="Content three (displayed on page load)" @height="50" @background="#eee" />
     </T.Panel>
   </Hds::Tabs>
 
@@ -136,16 +136,16 @@
     <T.Tab>Nine one-thousand</T.Tab>
     <T.Tab>Ten one-thousand</T.Tab>
 
-    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content five" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content six" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content seven" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content eight" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content nine" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content ten" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content five" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content six" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content seven" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content eight" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content nine" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content ten" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
   <h5 class="dummy-h6">Call a passed function when a tab is clicked</h5>
@@ -156,8 +156,8 @@
     <T.Tab>Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
-    <T.Panel><DummyPlaceholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><DummyPlaceholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 </section>
