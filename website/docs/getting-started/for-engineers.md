@@ -91,10 +91,10 @@ yarn add @hashicorp/design-system-tokens
 Import design tokens as CSS variables by adding one of the following lines to the main Sass file in your application (for example, in `app.scss`):
 
 ```scss
-// for product applications
-@import "~@hashicorp/design-system-tokens/dist/products/css/tokens.css";
+// for product applications (Ember apps)
+@import "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
 
-// for hashicorp developer platform
+// for HashiCorp developer platform
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
 ```
 
@@ -103,13 +103,13 @@ Import design tokens as CSS variables by adding one of the following lines to th
 Import CSS helper classes by adding any of the following lines to the main Sass file in your application (for example, in `app.scss`).
 
 ```scss
-// for product applications
-@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
-@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
-@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
-@import "~@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
+// for product applications (Ember apps)
+@import "@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
+@import "@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
+@import "@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
+@import "@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
 
-// for hashicorp developer platform
+// for HashiCorp developer platform
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/colors.css";
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/typography.css";
