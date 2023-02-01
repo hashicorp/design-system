@@ -10,13 +10,16 @@ export default class HdsTableThSortComponent extends Component {
    * @param ariaSort
    * @type {string}
    * @private
-   * @description Sets the aria-sort attribute based on the sort order defined
+   * @default none
+   * @description Sets the aria-sort attribute based on the sort order defined; acceptable values are ascending, descending, none(default) and other. Authors SHOULD only apply this property to table headers or grid headers. If the property is not provided, there is no defined sort order. For each table or grid, authors SHOULD apply aria-sort to only one header at a time.
    */
   get ariaSort() {
+    // TODO this should account for a custom sort criteria and provide "other" as the value if the custom sort criteria exists.
     if (this.args.isSorted) {
       return this.args.sortOrder === 'asc' ? 'ascending' : 'descending';
     } else {
-      return undefined;
+      // none is the default per the spec.
+      return 'none';
     }
   }
 
@@ -28,6 +31,7 @@ export default class HdsTableThSortComponent extends Component {
    * @description Determines which icon to use based on the sort order defined
    */
   get icon() {
+    // TODO what if there is a custom sort order?
     if (this.args.isSorted && this.args.sortOrder) {
       return this.args.sortOrder === 'asc' ? 'arrow-up' : 'arrow-down';
     } else {
