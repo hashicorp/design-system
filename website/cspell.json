@@ -4,12 +4,12 @@
   "dictionaryDefinitions": [
     {
       "name": "project-words",
-      "path": "./project-words.txt",
+      "path": "./cspell-config/project-words.txt",
       "addWords": true
     },
     {
       "name": "dictionary-lorem",
-      "path": "./dictionary-lorem.txt",
+      "path": "./cspell-config/dictionary-lorem.txt",
       "addWords": true
     }
   ],
