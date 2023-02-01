@@ -51,7 +51,7 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 Medium
 
-<Hds::Flyout id="size-medium-flyout" open as |F|>
+<Hds::Flyout id="size-medium-flyout" class="doc-flyout-demo" open as |F|>
   <F.Header>Medium Flyout</F.Header>
   <F.Body>
     <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
@@ -60,7 +60,7 @@ Medium
 
 Large
 
-<Hds::Flyout @size="large" id="size-large-flyout" open as |F|>
+<Hds::Flyout @size="large" id="size-large-flyout" class="doc-flyout-demo" open as |F|>
   <F.Header>Large Flyout</F.Header>
   <F.Body>
     <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>

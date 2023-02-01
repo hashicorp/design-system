@@ -22,7 +22,9 @@
 @import "pages/home"; // homepage (index)
 @import "pages/about/principles";
 @import "pages/foundations/landing";
+@import "pages/components/flyout";
 @import "pages/components/landing";
+@import "pages/components/modal";
 
 // Third-party declarations
 @import "prism-dracula";
@@ -59,30 +61,6 @@ body {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   clip-path: inset(50%) !important;
-}
-
-// TODO: move these custom styles meant for presentation pursposes
-// to their own section when agreed with the team
-#guidelines {
-  .hds-modal[open] {
-    position: relative;
-    z-index: 0;
-    display: inline-block;
-    margin-bottom: 1rem;
-
-    .hds-modal__dismiss {
-      pointer-events: none;
-    }
-  }
-
-  .hds-flyout[open] {
-    position: relative;
-    z-index: initial;
-    display: flex;
-    height: 40vh;
-    margin-bottom: 1rem;
-    margin-left: 0;
-  }
 }
 
 // PERCY

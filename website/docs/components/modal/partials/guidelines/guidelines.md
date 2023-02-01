@@ -74,7 +74,15 @@ Large
 
 ### Neutral
 
-<Hds::Modal @size="medium" @color="neutral" open as |M|>
+Use **Neutral** for most Modal instances, such as when the outcome of the Modal’s function doesn’t change areas of the application that aren’t directly tied to the user’s current context. 
+
+Common examples include:
+
+- Functions for creating, editing, or updating objects.
+- Simple requests of information from the user.
+- Quick confirmations of actions taken by the user.
+
+<Hds::Modal @size="medium" @color="neutral" class="doc-modal-demo" open as |M|>
   <M.Header>
     Neutral Modal
   </M.Header>
@@ -97,7 +105,15 @@ Large
 
 ### Warning
 
-<Hds::Modal @size="medium" @color="warning" open as |M|>
+Use **Warning** to indicate that the Modal’s action may impact a setting, item, or object. Warning Modals simultaneously alert of the potential impact while confirming the action. 
+
+Common examples include:
+
+- Disabling or enabling an application-wide setting or feature.
+- Archiving an item that can be recovered.
+- Changing a setting that may require the user to re-authenticate or perform an action again.
+
+<Hds::Modal @size="medium" @color="warning" class="doc-modal-demo" open as |M|>
   <M.Header>
     Warning Modal
   </M.Header>
@@ -122,7 +138,15 @@ This action may impact areas of the application outside of the scope of the curr
 
 ### Critical
 
-<Hds::Modal @size="medium" @color="critical" open as |M|>
+Use **Critical** to indicate an irreversible destructive action that will impact other settings, items, or objects within the current feature or in other application areas.
+
+Common examples include:
+
+- Deleting an item or object that cannot be recovered.
+- Modifying a setting that cannot be changed or reversed in the future.
+- Alerting the user of unsaved changes that will be discarded.
+
+<Hds::Modal @size="medium" @color="critical" class="doc-modal-demo" open as |M|>
   <M.Header>
     Critical Modal
   </M.Header>
@@ -139,18 +163,118 @@ This action may impact areas of the application outside of the scope of the curr
 
 **critical** is used to indicate a destructive action that is irreversible and will impact other settings, items, or objects within the current feature or in other areas of the application. Common examples include:
 
-- deleting an item or object that cannot be recovered
-- modifying a setting that cannot be changed or reversed in the future
-- alerting the user of unsaved changes that will be discarded.
+### Width
+
+We recommend using the **medium** size Modal for most scenarios, but use the size that best accounts for the complexity of the content and intended speed of interaction. We do not recommend resizing the Modal manually.
+
+<Hds::Modal @size="small" id="size-small-modal-first" class="doc-modal-demo" open as |M|>
+  <M.Header>
+    Small modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
+
+<Hds::Modal @size="medium" id="size-medium-modal" class="doc-modal-demo" open as |M|>
+  <M.Header>
+    Medium modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
+
+<Hds::Modal @size="large" id="size-large-modal" class="doc-modal-demo" open as |M|>
+  <M.Header>
+    Large modal
+  </M.Header>
+  <M.Body>
+    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
+
+### Height
+
+The Modal should hug the body content and expand to a maximum height of 100% of the viewport height minus 16px from the edge. If the body content exceeds the maximum height of the viewport, scroll will be introduced within the Modal body, while the header and footer remain fixed. 
+
+![Mobile layout of the Modal](/assets/components/modal/modal-mobile-sizes.png =672x*)
+
+## Position
+
+Modals should be positioned in the center of the viewport, paired with the overlay component, and on top of **all** parent page content (including the navigation).
+
+![Modal positioning](/assets/components/modal/modal-positioning.png =798x*)
+
+## Modal header
+
+!!! Info
+
+Although adding a title icon and tagline can help the user better understand the function and importance of the task they are performing, both elements add visual weight which might not be suitable or necessary for all Modals.
+!!!
+
+### Title icon
+
+The purpose and function of the Modal should not rely solely on an icon, instead the title should be explicit and pragmatic while the icon provides visual support.
+
+#### With title icon
+
+An icon paired with the title can help reinforce the purpose and function of the Modal while also drawing the eye to the header and title area. Icons can be used to communicate the severity and importance of interacting with a Modal and are especially useful in a **warning** or **critical** color Modal.
+
+<Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+
+#### Without title icon
+
+<Hds::Modal::Header @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+
+### Tagline
+
+A tagline helps the user maintain the context of the feature, function, or flow the Modal was triggered by. Since a Modal disables and obscures the parent page content, adding a tagline can help the user understand the relationship between the Modal and the parent page content. The tagline should directly reference the page, function, or feature title to reinforce the relationship of the Modal to the parent page content.
+
+#### With tagline
+
+<Hds::Modal::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+
+#### With tagline and icon
+
+<Hds::Modal::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
 
 ## Modal body
 
 ### Body type
 
-![Modal body types](/assets/components/modal/modal-body-type.png)
-
-- The **default** body type is meant for simple text-based content and could be used for a quick confirmation of an action or disclosure of information.
-- The **custom** body type is suitable for the majority of use cases when collecting information or feedback from the user. It can accept any custom component and nested components by swapping out the placeholder instance with a local component or relevant HDS component.
+<Hds::Modal @size="small" @color="neutral" class="doc-modal-demo" open as |M|>
+  <M.Header>
+    Default
+  </M.Header>
+  <M.Body>
+    <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
+  </M.Body>
+  <M.Footer>
+    <Hds::ButtonSet>
+      <Hds::Button type="submit" @text="Confirm" />
+      <Hds::Button type="button" @text="Cancel" @color="secondary" />
+    </Hds::ButtonSet>
+  </M.Footer>
+</Hds::Modal>
 
 ## Modal footer
 
@@ -302,31 +426,5 @@ If a user attempts to dismiss a Modal that contains a partially filled form or o
 - The default browser notification is being triggered calling attention to a potential misstep.
 - Partially filled form data is persisted within the application to prevent duplicative work.
 
-!!! Info
-
-Note: Both of the above steps are recommendations of the HDS team, but are the responsibility of consumers to implement at the application level.
-
-!!!
-
-![Default browser notification](/assets/components/modal/modal-default-browser-notification.png)
-
-## Position and responsive sizing
-
-![Modal positioning](/assets/components/modal/modal-positioning.png)
-
-Modals should be positioned in the center of the viewport, paired with the overlay component, and on top of the main page content.
-
-- This is true regardless of if there is a sidebar or navigational element that persists on the page. The intention of the overlay is to sit on top of _all_ page content, including navigation.
-
-![Mobile layout of the Modal](/assets/components/modal/modal-mobile-sizes.png)
-
-The Modal should hug the height of the body content and expand to a maximum height of 100% of the viewport height minus a 16px margin from the viewport edge.
-
-- If the body content exceeds the maximum height of the viewport, scroll will be introduced within the Modal body.
-- The header and footer are not included in the scrolling section, only the body content. These elements should always be visible for the user to more easily understand the intended function and possible actions.
-
-!!! Info
-
-As a general rule of thumb, the Modal should not be resized manually, rather select the size that best accommodates the content.
-
+![Default browser notification](/assets/components/modal/modal-default-browser-notification.png =271x*)
 !!!
