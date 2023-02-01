@@ -99,12 +99,18 @@ export default class ShowRoute extends Route {
         const hasCover = frontmatter?.layout?.cover ?? true;
         // TODO! probably we should also check if we have TOC data for the sidecar
         const hasSidecar = frontmatter?.layout?.sidecar ?? true;
+        const showContentId = `show-content-${res.data.id
+          .replace(/\/index$/, '')
+          .replace('/', '-')}`;
 
         return {
           // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
           // This ID comes from the markdown-to-json conversion (see `id: relativePath.replace(/\.md$/, '')` in `addons/field-guide/lib/markdown-to-jsonapi.js`)
           id: res.data.id, // eg. 'components/alert/index'
           ...res.data.attributes,
+          // this is used to target in CSS specific content in the `show` pages
+          showContentId, // eg. show-content-components-alert
+          // extra metadata for this page
           frontmatter,
           hasCover,
           hasSidecar,
