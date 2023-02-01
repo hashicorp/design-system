@@ -1,39 +1,9 @@
 <div class={{this.classNames}} ...attributes>
-  <header class="hds-side-nav__header">
-    <div class="hds-side-nav__header-logo">
-      LOGO
-    </div>
-    <div>?</div>
-    <div>O</div>
-  </header>
+  {{yield (hash Header=(component "hds/side-nav/header"))}}
 
-  <nav class="hds-side-nav__body">
-    <div class="hds-side-nav__nav-group">
-      <ul class="hds-side-nav__nav-list">
-        <li class="hds-side-nav__nav-item">Dashboard</li>
-      </ul>
-    </div>
+  {{yield (hash Body=(component "hds/side-nav/body"))}}
 
-    <div class="hds-side-nav__nav-group">
-      <p><strong>Services</strong></p>
-      <ul class="hds-side-nav__nav-list">
-        <li class="hds-side-nav__nav-item">Boundary</li>
-        <li class="hds-side-nav__nav-item">Consul</li>
-      </ul>
-    </div>
-
-    <div class="hds-side-nav__nav-group">
-      <p><strong>Default Org</strong></p>
-      <ul class="hds-side-nav__nav-list">
-        <li class="hds-side-nav__nav-item">HashiCorp Virtual Networks</li>
-        <li class="hds-side-nav__nav-item">Access control (IAM)</li>
-      </ul>
-    </div>
-  </nav>
-
-  <footer class="hds-side-nav__footer">
-    footer
-  </footer>
+  {{yield (hash Footer=(component "hds/side-nav/footer"))}}
 </div>
 
 {{!
