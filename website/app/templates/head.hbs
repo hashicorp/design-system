@@ -38,16 +38,22 @@ We've made some small customizations to simplify this compared to the default te
   <meta property="og:description" content={{this.model.description}} />
 {{/if}}
 
-<meta property="og:image" content="https://helios.hashicorp.design/assets/logos/share-card.jpg" />
+{{#if this.model.imgSrc}}
+  <meta property="og:image" content={{this.model.imgSrc}} />
+{{/if}}
 
 {{! END OPENGRAPH }}
 
 {{! BEGIN TWITTER }}
 
 <meta name="twitter:card" content="summary_large_image" />
+
 {{! template-lint-disable no-forbidden-elements no-potential-path-strings }}
 <meta name="twitter:site" content="@HashiCorp" />
-<meta name="twitter:image" content="https://helios.hashicorp.design/assets/logos/share-card.jpg" />
+
+{{#if this.model.imgSrc}}
+  <meta name="twitter:image" content={{this.model.imgSrc}} />
+{{/if}}
 
 {{#if this.model.title}}
   <meta name="twitter:title" content={{this.model.title}} />
