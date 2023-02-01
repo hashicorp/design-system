@@ -1,0 +1,13 @@
+// COMPONENTS > FLYOUT
+
+#show-content-components-flyout {
+  .doc-flyout-demo[open] {
+    position: relative;
+    z-index: initial;
+    display: flex;
+    max-width: 100%;
+    height: 40vh;
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
+}

@@ -6,7 +6,6 @@ status: experimental
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/flyout
 previewImage: assets/illustrations/components/flyout.jpg
-hidden: false
 ---
 
 <section data-tab="Guidelines">
