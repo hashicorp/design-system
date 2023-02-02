@@ -46,6 +46,6 @@ This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-
 
 !!! Info
 
-When a Flyout is opened with the keyboard, the focus is automatically set to the first focusable element inside the Flyout, which is the "Dismiss" button.
+When a Flyout is opened with the keyboard, the focus is automatically set to the first focusable element inside the Flyout, which is the “Dismiss” button.
 
 !!!

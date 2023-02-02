@@ -22,16 +22,16 @@ Use a Flyout for detail more detailed information about an object on the main pa
 
 !!! Dont
 
-Don't use a flyout for overly complex nested content, like objects within a table or nested routes.
+Don’t use a flyout for overly complex nested content, like objects within a table or nested routes.
 
 ![Flyout with a table](/assets/components/flyout/flyout-with-complex-content.png)
 !!!
 
 #### Functions within a Flyout
 
-Given that a Flyout is intended to provide more detail on a specific item, don't use a Flyout in a functional capacity; e.g., performing a CRUD (create, read, update, delete) function or submitting form data.
+Given that a Flyout is intended to provide more detail on a specific item, don’t use a Flyout in a functional capacity; e.g., performing a CRUD (create, read, update, delete) function or submitting form data.
 
-This type of content is often too complex and is better organized in it's own page.
+This type of content is often too complex and is better organized in its own page.
 
 !!! Dont
 
@@ -133,7 +133,7 @@ The body of the Flyout supports any custom content, local components, or Helios 
 
 ## Dismissal
 
-The primary dismissal method for the Flyout is the dismiss action in the header. The Flyout does not support action buttons to "confirm" or "cancel" the Flyout as the component is not intended to perform functions.
+The primary dismissal method for the Flyout is the dismiss action in the header. The Flyout does not support action buttons to “confirm” or “cancel” the Flyout as the component is not intended to perform functions.
 
 Multiple dismissal options are available that can be customized in production with a callback (on `onClose`, or `onOpen`) function:
 
