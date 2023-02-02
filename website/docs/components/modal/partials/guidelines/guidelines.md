@@ -427,4 +427,3 @@ If a user attempts to dismiss a Modal that contains a partially filled form or o
 - Partially filled form data is persisted within the application to prevent duplicative work.
 
 ![Default browser notification](/assets/components/modal/modal-default-browser-notification.png =271x*)
-!!!
