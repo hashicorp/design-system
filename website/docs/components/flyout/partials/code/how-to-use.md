@@ -14,7 +14,7 @@ As an overlaying component, the `Hds::Flyout` requires a high value on the z-axi
 
 This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-focus-trap) to prevent the focus from going outside the Flyout and to deactivate the Flyout when clicking outside. This Ember modifier requires at least one interactive element to be present within the Flyout, which is by default achieved by the dismiss button in the header.
 
-## Basic use
+## How to use this component
 
 ```handlebars
 <Hds::Button
