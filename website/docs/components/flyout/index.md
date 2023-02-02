@@ -6,6 +6,7 @@ status: experimental
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/flyout
 previewImage: assets/illustrations/components/flyout.jpg
+keywords: ['drawer', 'panel', 'side', 'modal']
 ---
 
 <section data-tab="Guidelines">
