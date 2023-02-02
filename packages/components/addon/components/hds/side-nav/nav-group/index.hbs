@@ -1,0 +1,11 @@
+<div class={{this.classNames}} ...attributes>
+  {{#if @header}}
+    <div class="hds-side-nav__nav-group-header hds-typography-body-100 hds-font-weight-semibold">
+      {{@header}}
+    </div>
+  {{/if}}
+
+  <ul class="hds-side-nav__nav-group-list">
+    {{yield (hash Item=(component "hds/side-nav/nav-group/item"))}}
+  </ul>
+</div>

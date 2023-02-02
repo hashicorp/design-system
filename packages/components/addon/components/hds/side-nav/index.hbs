@@ -1,9 +1,15 @@
 <div class={{this.classNames}} ...attributes>
-  {{yield (hash Header=(component "hds/side-nav/header"))}}
+  <div class="hds-side-nav__header">
+    {{yield to="header"}}
+  </div>
 
-  {{yield (hash Body=(component "hds/side-nav/body"))}}
+  <div class="hds-side-nav__body">
+    {{yield to="body"}}
+  </div>
 
-  {{yield (hash Footer=(component "hds/side-nav/footer"))}}
+  <div class="hds-side-nav__footer">
+    {{yield to="footer"}}
+  </div>
 </div>
 
 {{!
@@ -28,8 +34,6 @@
             - text
             - link (NOTE: Some of the Cloud-Ui ListItems take you to a 2ndary list of links)
             - tag (alpha, beta, etc)
-      - User Button -- not sure if we need to include this? (seeing in local CLoud-ui instance)
     * Footer (yielded wrapper component)
-      - UserButton ? (opens modal)
-      - OrgSelect (Dropdown that opens up)
+      - OrgSelect / ContextSwitcher (Special Dropdown that opens up)
 }}

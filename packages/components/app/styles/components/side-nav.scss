@@ -10,7 +10,6 @@
   // NOTE: Cloud-ui uses grid layout in non-mobile
   position: fixed; // TODO: should apply only to "mobile" view
   top: 0;
-  // bottom: 0;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -20,25 +19,31 @@
   padding: 12px;
   color: #fff;
   background: #000;
-  outline: 1px dotted lime;
+}
+
+// TEMPORARY:
+.hds-side-nav,
+.hds-side-nav__header {
+  &,
+  & > * { outline: 1px dotted; }
 }
 
 
-// Child "wrapper" components:
+// Child "wrapper" blocks & child components:
 
 // * Sub-component: Header
 // ---------------------------------------
 .hds-side-nav__header {
   display: flex;
   gap: 16px;
-  outline: 1px dotted red;
 
   .hds-side-nav__header-logo {
     margin-right: auto;
   }
 
-  > * {
-    outline: 1px dotted;
+  // TEMP HACK ONLY! (TODO: replace)
+  .hds-disclosure__toggle:not(:hover) * {
+    color: inherit !important;
   }
 }
 
@@ -47,7 +52,28 @@
 .hds-side-nav__body {
   flex: 1;
   overflow: auto;
-  outline: 1px dotted skyblue;
+}
+
+.hds-side-nav__nav-group {
+  + .hds-side-nav__nav-group { margin-top: 40px; }
+}
+
+.hds-side-nav__nav-group-header {
+  color: var(--token-color-palette-neutral-400);
+
+  + .hds-side-nav__nav-group-list { margin-top: 18px; }
+}
+
+.hds-side-nav__nav-group-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; // Q: Should ul have role="list" added for accessibility?
+}
+
+.hds-side-nav__nav-group-item {
+  color: var(--token-color-palette-neutral-300);
+
+  + .hds-side-nav__nav-group-item { margin-top: 18px; }
 }
 
 // * Sub-component: Footer
