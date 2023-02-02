@@ -88,6 +88,10 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: space-evenly;
+
+  ol li + li {
+    margin-top: 10px;
+  }
 }
 
 .dummy-code {
