@@ -5,27 +5,16 @@
 
 // BREADCRUMB
 
-.dummy-breadcrumb-max-width-container-small {
-    width: 350px;
-    outline: 1px dotted lightgray;
-
-    & + & {
-        margin-top: 20px;
-    }
-}
-
-.dummy-breadcrumb-max-width-container-large {
+body.components-breadcrumb {
+  .shw-component-breadcrumb-sample-with-max-width {
     max-width: 900px;
     outline: 1px dotted lightgray;
+  }
 
-    & + & {
-        margin-top: 20px;
-    }
-}
-
-.dummy-breadcrumb-sample-with-truncation-dropdown {
-    min-height: 200px;
-    outline: 1px dotted lightgray;
+  .shw-component-breadcrumb-sample-truncation-dropdown {
     width: fit-content;
+    min-height: 200px;
     padding-right: 50px;
+    outline: 1px dotted lightgray;
+  }
 }
