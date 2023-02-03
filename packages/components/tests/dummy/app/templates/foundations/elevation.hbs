@@ -8,22 +8,29 @@
 <h2 class="dummy-h2">Elevation</h2>
 
 <section data-test-percy>
+
   <h4 class="dummy-h4">Elevation:</h4>
-  <p class="dummy-paragraph">Standalone shadow effects</p>
-  <div class="dummy-elevation-sample">
+
+  <Shw::Sample::Flex @title="Base shadow effects" as |SF|>
     {{#each @model.ELEVATIONS as |elevation|}}
-      <div class="hds-elevation-{{elevation}}">
-        <Shw::Placeholder @text={{elevation}} @width="100" @height="100" @background="transparent" />
-      </div>
+      <SF.Item>
+        <div class="hds-elevation-{{elevation}}">
+          <Shw::Placeholder @text={{elevation}} @width="100" @height="100" @background="transparent" />
+        </div>
+      </SF.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Flex>
+
   <h4 class="dummy-h4">Surface:</h4>
-  <p class="dummy-paragraph">Shadow effects combined with an additional edge</p>
-  <div class="dummy-elevation-sample">
+
+  <Shw::Sample::Flex @title="Shadow effects combined with an additional edge" as |SF|>
     {{#each @model.SURFACES as |surface|}}
-      <div class="hds-surface-{{surface}}">
-        <Shw::Placeholder @text={{surface}} @width="100" @height="100" @background="transparent" />
-      </div>
+      <SF.Item>
+        <div class="hds-surface-{{surface}}">
+          <Shw::Placeholder @text={{surface}} @width="100" @height="100" @background="transparent" />
+        </div>
+      </SF.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Flex>
+
 </section>
