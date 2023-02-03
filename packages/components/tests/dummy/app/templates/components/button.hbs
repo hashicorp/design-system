@@ -8,73 +8,82 @@
 <h2 class="dummy-h2">Button component</h2>
 
 <section data-test-percy>
+
   <h4 class="dummy-h4">Generated element</h4>
-  <div class="dummy-button-generated-list">
-    <div>
-      <span class="dummy-text-small">default ⇒ <code class="dummy-code">&lt;button&gt;</code></span>
-      <br />
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Sample::Label>default ⇒ <code>&lt;button&gt;</code></Shw::Sample::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" />
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" disabled />
-    </div>
-    <div>
-      <span class="dummy-text-small">with
-        <code class="dummy-code">@href</code>
-        ⇒
-        <code class="dummy-code">&lt;a&gt;</code></span>
-      <br />
+    </SF.Item>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Sample::Label>with <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Sample::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" disabled />
-    </div>
-    <div>
-      <span class="dummy-text-small">with
-        <code class="dummy-code">@route</code>
+    </SF.Item>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Sample::Label>with<code>@route</code>
         ⇒
-        <code class="dummy-code">&lt;LinkTo&gt;</code>
+        <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code class="dummy-code">&lt;a&gt;</code></span>
-      <br />
+        <code>&lt;a&gt;</code></Shw::Sample::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" disabled />
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-button-base-sample">
-    <Hds::Button @text="Only text" />
-    <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
-    <Hds::Button @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" />
-    <Hds::Button @icon="plus" @isIconOnly={{true}} @text="Icon only" />
-    <div class="dummy-button-max-width-container">
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <Hds::Button @text="Only text" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Button @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Button @icon="plus" @isIconOnly={{true}} @text="Icon only" />
+    </SF.Item>
+    <SF.Item {{style width="200px"}}>
       <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Sizes</h4>
-  <div class="dummy-button-base-sample">
+
+  <Shw::Sample::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
-      <Hds::Button @icon="plus" @text={{capitalize size}} @size={{size}} />
+      <SF.Item>
+        <Hds::Button @icon="plus" @text={{capitalize size}} @size={{size}} />
+      </SF.Item>
     {{/each}}
-    <div class="dummy-button-full-width-container">
+    <SF.Item @outlined={{true}} {{style width="300px"}}>
       <Hds::Button @icon="plus" @text="Full width" @isFullWidth={{true}} />
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Colors</h4>
-  <div class="dummy-button-base-sample">
+
+  <Shw::Sample::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
-      <Hds::Button @icon="plus" @text={{capitalize color}} @color={{color}} />
+      <SF.Item>
+        <Hds::Button @icon="plus" @text={{capitalize color}} @color={{color}} />
+      </SF.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">States (in each size)</h4>
-  <div class="dummy-button-states-grid">
-    {{#each @model.COLORS as |color|}}
-      <h5 class="dummy-h5 dummy-button-states-grid__title">{{capitalize color}}</h5>
+
+  {{#each @model.COLORS as |color|}}
+    <h5 class="dummy-h5">{{capitalize color}}</h5>
+    <Shw::Sample::Grid @columns={{5}} as |SG|>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
-          <div>
-            <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
-            <br />
+          <SG.Item @label="{{capitalize size}}/{{capitalize state}}">
             <Hds::Button
               @icon="plus"
               @text={{capitalize state}}
@@ -82,14 +91,12 @@
               @color={{color}}
               mock-state-value={{state}}
             />
-          </div>
+          </SG.Item>
         {{/each}}
       {{/each}}
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
-          <div>
-            <span class="dummy-text-small">Full width/{{color}}/{{state}}:</span>
-            <br />
+          <SG.Item @label="Full width/{{capitalize state}}">
             <Hds::Button
               @icon="plus"
               @text={{capitalize state}}
@@ -97,43 +104,41 @@
               @isFullWidth={{true}}
               mock-state-value={{state}}
             />
-          </div>
+          </SG.Item>
         {{/each}}
       {{/if}}
-    {{/each}}
-  </div>
+    </Shw::Sample::Grid>
+  {{/each}}
 
   <h4 class="dummy-h4">Containers</h4>
-  <div class="dummy-button-containers-list">
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-block</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__inline-block">
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <Shw::Sample::Label>Parent with <code>display: inline-block</code></Shw::Sample::Label>
+      <div {{style display="inline-block"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-flex</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__inline-flex">
+    </SF.Item>
+    <SF.Item>
+      <Shw::Sample::Label>Parent with <code>display: inline-flex</code></Shw::Sample::Label>
+      <div {{style display="inline-flex"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">flex-grow: 0</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__flex">
-        <div class="dummy-button-containers-list-item__flex-grow-0">
+    </SF.Item>
+    <SF.Item>
+      <Shw::Sample::Label>Parent with <code>flex-grow: 0</code></Shw::Sample::Label>
+      <div {{style display="flex"}}>
+        <div {{style flex-grow="0"}}>
           <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
         </div>
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">max-width: fit-content</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__max-width-fit-content">
+    </SF.Item>
+    <SF.Item>
+      <Shw::Sample::Label>Parent with <code>max-width: fit-content</code></Shw::Sample::Label>
+      <div {{style max-width="fit-content"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
 </section>

@@ -9,8 +9,24 @@
 
 <section data-test-percy>
 
-  <Hds::ButtonSet>
-    <Hds::Button @text="Submit" type="submit" />
-    <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-  </Hds::ButtonSet>
+  <h4 class="dummy-h4">Content</h4>
+
+  <Shw::Sample::Flex @title="Default" as |SF|>
+    <SF.Item>
+      <Hds::ButtonSet>
+        <Hds::Button @text="Submit" type="submit" />
+        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+      </Hds::ButtonSet>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <Shw::Sample::Flex @title="Parent with max-width" as |SF|>
+    <SF.Item @outlined={{true}} {{style width="300px"}}>
+      <Hds::ButtonSet>
+        <Hds::Button @text="This is a very long text" type="submit" />
+        <Hds::Button @text="This is also a very long text" @color="secondary" @href="https://hashicorp.com" />
+      </Hds::ButtonSet>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
 </section>
