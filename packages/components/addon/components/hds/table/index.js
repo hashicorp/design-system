@@ -14,25 +14,16 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortedMessageText;
 
   /**
-   * @param customSortCriteria
-   * @type {*}
-   * @default null
-   * @description Provides a custom sort criteria to be used instead of the default sort criteria.
-   */
-  get customSortCriteria() {
-    return this.args.customSortCriteria ?? null;
-  }
-
-  /**
    * @param getSortCriteria
-   * @type {string}
+   * @type {string | function}
    * @default sortBy:sortOrder
    * @description Returns the sort criteria in the format of "sortBy:sortOrder".
    */
   get getSortCriteria() {
     // check for custom sort criteria
-    if (this.customSortCriteria) {
-      return this.customSortCriteria;
+    if (this.args.customSortCriteria) {
+      // TODO return a function that executes the function providing the current column/direction
+      return this.args.customSortCriteria;
     } else {
       return `${this.sortBy}:${this.sortOrder}`;
     }
@@ -142,11 +133,8 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   setSortBy(column) {
-    //check for custom sort criteria first
-    if (this.customSortCriteria) {
-      this.sortOrder = this.customSortCriteria;
-    } else if (this.sortBy === column) {
-      // if a custom sort criteria doesn't exist, check to see if the column is already sorted and invert the sort order if so
+    if (this.sortBy === column) {
+      // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
       // otherwise, set the sort order to ascending
