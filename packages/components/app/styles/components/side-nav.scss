@@ -26,12 +26,6 @@
   background: #000;
 }
 
-// TEMPORARY:
-// .hds-side-nav {
-//   &,
-//   & > * { outline: 1px dotted; }
-// }
-
 
 // Child "wrapper" blocks & child components:
 
@@ -82,31 +76,28 @@
   overflow: auto;
 }
 
-.hds-side-nav__nav-group {
-  + .hds-side-nav__nav-group { margin-top: 40px; }
-
-  // Q: Would we want to add standard spacing between NavGroups and any generic content following them
-  // (or leave that spacing up to the consumers)?
-  + * { margin-top: 40px; } // just experimenting...
+// Change to "nav-group" to "section"
+.hds-side-nav__section {
+  + .hds-side-nav__section { margin-top: 40px; }
 }
 
-.hds-side-nav__nav-group-header {
+.hds-side-nav__section-header {
   padding: 0 var(--nav-item-padding-horizontal);
   color: var(--token-color-palette-neutral-400);
 
-  + .hds-side-nav__nav-group-list { margin-top: 12px; }
+  + .hds-side-nav__list { margin-top: 12px; }
 }
 
-.hds-side-nav__nav-group-list {
+.hds-side-nav__list {
   margin: 0;
   padding: 0;
 }
 
-.hds-side-nav__nav-group-item {
+.hds-side-nav__list-item {
   color: var(--token-color-palette-neutral-300);
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
-  + .hds-side-nav__nav-group-item { margin-top: 4px; }
+  + .hds-side-nav__list-item { margin-top: 4px; }
 }
 
 .hds-side-nav__link {
@@ -131,7 +122,7 @@
   }
 }
 
-.hds-side-nav__nav-group-icon {
+.hds-side-nav__list-icon {
   width: 1rem;
   min-width: 1rem;
   margin-right: 8px;

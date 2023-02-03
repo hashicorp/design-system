@@ -13,7 +13,7 @@ export default class HdsSideNavNavGroupIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-side-nav__nav-group'];
+    let classes = ['hds-side-nav__section'];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-side-nav-nav-group--[variant]-${this.xxx}`);

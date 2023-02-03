@@ -1,4 +1,4 @@
-<li class="hds-side-nav__nav-group-item hds-typography-body-200 hds-font-weight-medium">
+<li class="hds-side-nav__list-item hds-typography-body-200 hds-font-weight-medium">
   <Hds::Interactive
     @href={{@href}}
     @route={{@route}}
@@ -11,7 +11,7 @@
     ...attributes
   >
     {{#if @icon}}
-      <FlightIcon class="hds-side-nav__nav-group-icon" @name={{@icon}} @stretched={{true}} />
+      <FlightIcon class="hds-side-nav__list-icon" @name={{@icon}} @stretched={{true}} />
     {{/if}}
 
     {{yield}}

@@ -80,20 +80,23 @@
     </:header>
 
     <:body>
-      <Hds::SideNav::NavGroup as |G|>
-        <G.Item>Navgroup item</G.Item>
-      </Hds::SideNav::NavGroup>
+      <Hds::SideNav::Section as |G|>
+        <G.Item>item</G.Item>
+      </Hds::SideNav::Section>
 
-      <Hds::SideNav::NavGroup @header="Navgroup header" as |G|>
+      <Hds::SideNav::Section @header="Section header" as |G|>
+        <G.Item @icon="boundary" @href="#">Boundary</G.Item>
         <G.Item @icon="boundary" @href="#">Boundary</G.Item>
         <G.Item @icon="consul" @href="#">Consul</G.Item>
         <G.Item @icon="packer" @href="#">
           Packer
           <Hds::Badge @text="Alpha" @type="inverted" @size="small" />
         </G.Item>
-      </Hds::SideNav::NavGroup>
+      </Hds::SideNav::Section>
 
-      <p>Generic content example</p>
+      <Hds::SideNav::Section>
+        <p>Generic content example wrapped in a “Section”</p>
+      </Hds::SideNav::Section>
     </:body>
 
     <:footer>
