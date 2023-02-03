@@ -12,7 +12,10 @@
         "icon": "boundary-color",
         "badge-type": "filled",
         "badge-color": "neutral",
-        "month-released": "March"
+        "month-released": { 
+          "name": "March",
+          "key": 3
+        }
       }
     },
     {
@@ -27,7 +30,10 @@
         "icon": "consul-color",
         "badge-type": "outlined",
         "badge-color": "neutral",
-        "month-released": "November"
+        "month-released": { 
+          "name": "November",
+          "key": 11
+        }
       }
     },
     {
@@ -42,7 +48,10 @@
         "icon": "terraform-color",
         "badge-type": "filled",
         "badge-color": "highlight",
-        "month-released": "June"
+        "month-released": { 
+          "name": "June",
+          "key": 6
+        }
       }
     },
     {
@@ -57,7 +66,10 @@
         "icon": "nomad-color",
         "badge-type": "outlined",
         "badge-color": "success",
-        "month-released": "October"
+        "month-released": { 
+          "name": "December",
+          "key": 12
+        }
       }
     },
     {
@@ -72,7 +84,10 @@
         "icon": "waypoint-color",
         "badge-type": "filled",
         "badge-color": "warning",
-        "month-released": "September"
+        "month-released": { 
+          "name": "September",
+          "key": 9
+        }
       }
     },
     {
@@ -87,7 +102,10 @@
         "icon": "vagrant-color",
         "badge-type": "outlined",
         "badge-color": "critical",
-        "month-released": "December"
+        "month-released": { 
+          "name": "August",
+          "key": 8
+        }
       }
     }
   ]
