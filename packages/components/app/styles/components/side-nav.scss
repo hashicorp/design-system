@@ -18,10 +18,8 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 280px;
   height: 100vh;
-  padding: 12px;
   color: #fff;
   background: #000;
 }
@@ -35,7 +33,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  padding: 0 var(--nav-item-padding-horizontal);
+  padding: 12px;
 
   .hds-side-nav__header-logo {
     margin-right: auto;
@@ -73,6 +71,7 @@
 // ---------------------------------------
 .hds-side-nav__body {
   flex: 1;
+  padding: 12px;
   overflow: auto;
 }
 
@@ -135,5 +134,5 @@
 // * Sub-component: Footer
 // ---------------------------------------
 .hds-side-nav__footer {
-  padding: 0 var(--nav-item-padding-horizontal);
+  padding: 12px;
 }
