@@ -21,9 +21,9 @@ export default class HdsTableIndexComponent extends Component {
    */
   get getSortCriteria() {
     // check for custom sort criteria
-    if (this.args.customSortCriteria) {
+    if (this.args.customSort) {
       // TODO return a function that executes the function providing the current column/direction
-      return this.args.customSortCriteria;
+      return this.args.customSort;
     } else {
       return `${this.sortBy}:${this.sortOrder}`;
     }

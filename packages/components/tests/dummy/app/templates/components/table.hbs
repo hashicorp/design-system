@@ -134,15 +134,16 @@
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
-      (hash key="month-released" label="Month" isSortable="true")
+      (hash key="month-released.key" label="Month" isSortable="true")
       (hash key="year" label="Year" isSortable="true")
     }}
+    @customSort={{this.customSort}}
   >
     <:body as |B|>
       <B.Tr>
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.month-released}}</B.Td>
+        <B.Td>{{B.data.month-released.name}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
       </B.Tr>
     </:body>
