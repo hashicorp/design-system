@@ -13,129 +13,130 @@
 
   <h4 class="dummy-h4">Generated element</h4>
 
-  <div class="dummy-link-inline-generated-list">
-    <div>
-      <span class="dummy-text-small">with
-        <code class="dummy-code">@href</code>
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <Shw::Sample::Label>with
+        <code>@href</code>
         ⇒
-        <code class="dummy-code">&lt;a&gt;</code></span>
-      <br />
+        <code>&lt;a&gt;</code></Shw::Sample::Label>
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">with
-        <code class="dummy-code">@route</code>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Sample::Label>with
+        <code>@route</code>
         ⇒
-        <code class="dummy-code">&lt;LinkTo&gt;</code>
+        <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code class="dummy-code">&lt;a&gt;</code></span>
-      <br />
+        <code>&lt;a&gt;</code></Shw::Sample::Label>
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @route="index">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Content</h4>
 
-  <div class="dummy-link-inline-content-list">
-    <div class="hds-typography-body-300">
-      <Hds::Link::Inline @color="primary" @href="#">Only text</Hds::Link::Inline>
-    </div>
-    <div class="hds-typography-body-300">
-      <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">Text + leading icon</Hds::Link::Inline>
-    </div>
-    <div class="hds-typography-body-300">
-      <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Text + trailing
-        icon</Hds::Link::Inline>
-    </div>
-  </div>
-  <br />
-  <div class="hds-typography-body-100">
-    Lorem
-    <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
-    sit amet
-    <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
-      adipiscing</Hds::Link::Inline>
-    elit.
-  </div>
-  <div class="hds-typography-body-200">
-    Lorem
-    <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
-    sit amet
-    <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
-      adipiscing</Hds::Link::Inline>
-    elit.
-  </div>
-  <div class="hds-typography-body-300">
-    Lorem
-    <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
-    sit amet
-    <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
-      adipiscing</Hds::Link::Inline>
-    elit.
-  </div>
-  <br />
-  <div class="dummy-link-inline-content-list">
-    <div class="dummy-link-inline-content-list__item">
-      <span class="dummy-text-small">within text block</span>
-      <br />
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <div class="hds-typography-body-300">
+        <Hds::Link::Inline @color="primary" @href="#">Only text</Hds::Link::Inline>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <div class="hds-typography-body-300">
+        <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">Text + leading icon</Hds::Link::Inline>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <div class="hds-typography-body-300">
+        <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Text +
+          trailing icon</Hds::Link::Inline>
+      </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <div class="hds-typography-body-100">
+        Lorem
+        <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
+        sit amet
+        <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
+          adipiscing</Hds::Link::Inline>
+        elit.
+      </div>
+      <div class="hds-typography-body-200">
+        Lorem
+        <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
+        sit amet
+        <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
+          adipiscing</Hds::Link::Inline>
+        elit.
+      </div>
+      <div class="hds-typography-body-300">
+        Lorem
+        <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">ipsum dolor</Hds::Link::Inline>
+        sit amet
+        <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">consectetur
+          adipiscing</Hds::Link::Inline>
+        elit.
+      </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="within text block">
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor sit amet</Hds::Link::Inline>, consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
       </div>
-    </div>
-    <div class="dummy-link-inline-content-list__item">
-      <span class="dummy-text-small">span two lines</span>
-      <br />
+    </SF.Item>
+    <SF.Item @label="span two lines">
       <div class="hds-typography-body-300">
         Lorem ipsum dolor sit amet,
         <Hds::Link::Inline @color="primary" @href="#">consectetur adipiscing elit</Hds::Link::Inline>, sed do eiusmod
         tempor incididunt ut labore et dolore.
       </div>
-    </div>
-    <div class="dummy-link-inline-content-list__item">
-      <span class="dummy-text-small">span two lines and overlaps</span>
-      <br />
+    </SF.Item>
+    <SF.Item @label="span two lines and overlaps">
       <div class="hds-typography-body-300">
         Lorem ipsum dolor sit amet,
         <Hds::Link::Inline @color="primary" @href="#">consectetur adipiscing elit, sed do eiusmod tempor</Hds::Link::Inline>
         incididunt ut labore et dolore.
       </div>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">
-    States
-  </h4>
-  <div class="dummy-link-inline-states-grid">
-    {{#each @model.COLORS as |color|}}
-      <h5 class="dummy-h5 dummy-link-inline-states-grid__title">{{capitalize color}}</h5>
+  <h4 class="dummy-h4">States</h4>
+
+  {{#each @model.COLORS as |color|}}
+    <h5 class="dummy-h5">{{capitalize color}}</h5>
+    <Shw::Sample::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
       {{#each @model.STATES as |state|}}
-        <div>
+        <SG.Item @label="{{capitalize state}}" class="shw-component-link-inline-state-samples">
           <div class="hds-typography-body-300">This is the
             <Hds::Link::Inline
               @color={{color}}
-              @href="../components/link"
+              @href="/components/link/inline"
               mock-state-value={{state}}
             >{{state}}</Hds::Link::Inline>
             state
           </div>
-          <br />
           <div class="hds-typography-body-300">This is the
             <Hds::Link::Inline
               @color={{color}}
-              @href="../components/link"
+              @href="/components/link/inline"
               @icon="external-link"
               @iconPosition="trailing"
               mock-state-value={{state}}
             >{{state}}</Hds::Link::Inline>
             state
           </div>
-        </div>
+        </SG.Item>
       {{/each}}
-    {{/each}}
-  </div>
+    </Shw::Sample::Grid>
+  {{/each}}
+
 </section>
