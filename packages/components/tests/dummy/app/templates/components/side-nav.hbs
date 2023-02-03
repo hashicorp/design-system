@@ -58,6 +58,7 @@
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
 
+  {{! WIP: New SideNav component }}
   <Hds::SideNav>
     <:header>
       <div class="hds-side-nav__header-logo">
@@ -86,9 +87,15 @@
       </Hds::SideNav::NavGroup>
 
       <Hds::SideNav::NavGroup @header="Navgroup header" as |G|>
-        <G.Item>Navgroup item</G.Item>
-        <G.Item>Navgroup item</G.Item>
+        <G.Item @icon="boundary" @href="#">Boundary</G.Item>
+        <G.Item @icon="consul" @href="#">Consul</G.Item>
+        <G.Item @icon="packer" @href="#">
+          Packer
+          <Hds::Badge @text="Alpha" @type="inverted" @size="small" />
+        </G.Item>
       </Hds::SideNav::NavGroup>
+
+      <p>Generic content example</p>
     </:body>
 
     <:footer>

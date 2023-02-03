@@ -2,6 +2,11 @@
 // SIDE-NAV
 //
 
+// WIP, naming, etc. will be refined...
+:root {
+  --nav-item-padding-horizontal: 12px;
+}
+
 
 // * SideNav Parent (wrapper) component
 // -------------------------------------------------------------------
@@ -22,11 +27,10 @@
 }
 
 // TEMPORARY:
-.hds-side-nav,
-.hds-side-nav__header {
-  &,
-  & > * { outline: 1px dotted; }
-}
+// .hds-side-nav {
+//   &,
+//   & > * { outline: 1px dotted; }
+// }
 
 
 // Child "wrapper" blocks & child components:
@@ -35,7 +39,9 @@
 // ---------------------------------------
 .hds-side-nav__header {
   display: flex;
-  gap: 16px;
+  gap: 8px;
+  align-items: center;
+  padding: 0 var(--nav-item-padding-horizontal);
 
   .hds-side-nav__header-logo {
     margin-right: auto;
@@ -56,28 +62,61 @@
 
 .hds-side-nav__nav-group {
   + .hds-side-nav__nav-group { margin-top: 40px; }
+
+  // Q: Would we want to add standard spacing between NavGroups and any generic content following them
+  // (or leave that spacing up to the consumers)?
+  + * { margin-top: 40px; } // just experimenting...
 }
 
 .hds-side-nav__nav-group-header {
+  padding: 0 var(--nav-item-padding-horizontal);
   color: var(--token-color-palette-neutral-400);
 
-  + .hds-side-nav__nav-group-list { margin-top: 18px; }
+  + .hds-side-nav__nav-group-list { margin-top: 12px; }
 }
 
 .hds-side-nav__nav-group-list {
   margin: 0;
   padding: 0;
-  list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 }
 
 .hds-side-nav__nav-group-item {
   color: var(--token-color-palette-neutral-300);
+  list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
-  + .hds-side-nav__nav-group-item { margin-top: 18px; }
+  + .hds-side-nav__nav-group-item { margin-top: 4px; }
+}
+
+.hds-side-nav__link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.25rem;
+  padding: 0 var(--nav-item-padding-horizontal);
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  background: transparent;
+  border-color: transparent;
+  border-radius: 5px;
+
+  &:hover {
+    background: var(--token-color-palette-neutral-600);
+  }
+
+  .hds-badge {
+    margin-left: 8px;
+  }
+}
+
+.hds-side-nav__nav-group-icon {
+  width: 1rem;
+  min-width: 1rem;
+  margin-right: 8px;
 }
 
 // * Sub-component: Footer
 // ---------------------------------------
 .hds-side-nav__footer {
-  outline: 1px dotted pink;
+  padding: 0 var(--nav-item-padding-horizontal);
 }
