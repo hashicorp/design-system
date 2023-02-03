@@ -152,7 +152,7 @@ A Flyout should slide out from the right side of the viewport on top of the main
 
 !!! Info
 
-We recommend pairing the Flyout with the overlay component which obscures the main page the Flyout sits on top of. However, these components are decoupled, if there’s a benefit to the user having more visibility of the main page while the Flyout is open, not pairing the overlay with the Flyout may be acceptable.
+In Figma, the Flyout should be paired with the [overlay](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=22928%3A55862&t=ZUcWdRNwXAJddKsS-1) component which obscures the main page content the Flyout sits on top of. Using the Flyout without the overlay is currently not supported and helps to communicate visually the `inert` nature of the main page.
 !!!
 
 ![Flyout position](/assets/components/flyout/flyout-position.png)
