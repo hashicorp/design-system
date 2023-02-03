@@ -81,21 +81,40 @@
 
     <:body>
       <Hds::SideNav::Section as |G|>
-        <G.Item>item</G.Item>
+        <G.Item @icon="dashboard">Dashboard</G.Item>
       </Hds::SideNav::Section>
 
-      <Hds::SideNav::Section @header="Section header" as |G|>
-        <G.Item @icon="boundary" @href="#">Boundary</G.Item>
+      <Hds::SideNav::Section @header="Services" as |G|>
         <G.Item @icon="boundary" @href="#">Boundary</G.Item>
         <G.Item @icon="consul" @href="#">Consul</G.Item>
-        <G.Item @icon="packer" @href="#">
-          Packer
+        <G.Item @icon="packer" @href="#">Packer</G.Item>
+        <G.Item @icon="vault" @href="#">Vault</G.Item>
+        <G.Item @icon="lock" @href="#">Vault Secrets</G.Item>
+        <G.Item @icon="terraform" @href="#">Terraform</G.Item>
+        <G.Item @icon="vagrant" @href="#">
+          Vagrant
+          {{! Q: Should badge(s) be part of Item component API instead of adding as yielded content? }}
           <Hds::Badge @text="Alpha" @type="inverted" @size="small" />
+        </G.Item>
+        {{! TODO: Waypoint should have nested links: }}
+        <G.Item @icon="waypoint" @href="#">
+          Waypoint
+          <Hds::Badge @text="Beta" @type="inverted" @size="small" />
         </G.Item>
       </Hds::SideNav::Section>
 
+      <Hds::SideNav::Section @header="Default Org" as |G|>
+        <G.Item @icon="network" @href="#">HashiCorp Virtual Networks</G.Item>
+        {{! TODO: Waypoint should have nested links: }}
+        <G.Item @icon="users" @href="#">Access control (IAM)</G.Item>
+        {{! TODO: Waypoint should have nested links: }}
+        <G.Item @icon="credit-card" @href="#">Billing</G.Item>
+        {{! TODO: Waypoint should have nested links: }}
+        <G.Item @icon="settings" @href="#">Settings</G.Item>
+      </Hds::SideNav::Section>
+
       <Hds::SideNav::Section>
-        <p>Generic content example wrapped in a “Section”</p>
+        <p>Generic content example wrapped in a “Section”. The Section adds standardized vertical margins</p>
       </Hds::SideNav::Section>
     </:body>
 
