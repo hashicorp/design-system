@@ -8,63 +8,57 @@
 <h2 class="dummy-h2">Badge</h2>
 
 <section data-test-percy>
-  <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-badge-base-sample">
-    <Hds::Badge @text="Only text" />
-    <Hds::Badge @icon="activity" @text="Text + icon" />
-    <Hds::Badge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
-    <div class="dummy-badge-max-width-container">
-      <Hds::Badge @icon="activity" @text="This is a very long text that should go on two lines" />
-    </div>
-  </div>
-  <div class="dummy-badge-base-sample">
-    <p>This is a paragraph:
-      <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
-  </div>
 
-  <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-badge-containers">
-    {{#let (array "block" "flex" "grid") as |displays|}}
-      {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-badge-containers__{{display}}">
-            <Hds::Badge @text="Only text" /><Hds::Badge @icon="activity" @text="Text + icon" /><Hds::Badge
-              @icon="activity"
-              @text="Only icon"
-              @isIconOnly={{true}}
-            />
-          </div>
-        </div>
-      {{/each}}
-    {{/let}}
-  </div>
+  <h4 class="dummy-h4">Content</h4>
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <Hds::Badge @text="Only text" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Badge @icon="activity" @text="Text + icon" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Badge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
+    </SF.Item>
+    <SF.Item {{style width="200px"}}>
+      <Hds::Badge @icon="activity" @text="This is a very long text that should go on two lines" />
+    </SF.Item>
+  </Shw::Sample::Flex>
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <p>This is a paragraph:
+        <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Size</h4>
-  <div class="dummy-badge-base-sample">
+
+  <Shw::Sample::Flex as |SF|>
     {{#each @model.BADGE_SIZES as |size|}}
-      <Hds::Badge @icon="activity" @text={{capitalize size}} @size={{size}} />
+      <SF.Item>
+        <Hds::Badge @icon="activity" @text={{capitalize size}} @size={{size}} />
+      </SF.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Type</h4>
-  <div class="dummy-badge-base-sample">
+
+  <Shw::Sample::Flex as |SF|>
     {{#each @model.BADGE_TYPES as |type|}}
-      <Hds::Badge @icon="activity" @text={{capitalize type}} @type={{type}} />
+      <SF.Item>
+        <Hds::Badge @icon="activity" @text={{capitalize type}} @type={{type}} />
+      </SF.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Color:</h4>
+
   {{#each @model.BADGE_COLORS as |color|}}
-    <p class="dummy-h6">{{capitalize color}}</p>
-    <div class="dummy-badge-color-grid">
+    <Shw::Sample::Grid @title={{capitalize color}} @columns={{3}} as |SG|>
       {{#each @model.BADGE_SIZES as |size|}}
         {{#each @model.BADGE_TYPES as |type|}}
-          <div
-            class="dummy-badge-base-sample dummy-badge-base-sample--type-{{type}}
-              dummy-badge-base-sample--color-{{color}}"
-          >
+          <SG.Item class="shw-component-badge-sample-color--{{color}}">
             <Hds::Badge @icon="activity" @text="Lorem ipsum" @size={{size}} @type={{type}} @color={{color}} />
             <Hds::Badge @text="Lorem ipsum" @size={{size}} @type={{type}} @color={{color}} />
             <Hds::Badge
@@ -75,9 +69,29 @@
               @color={{color}}
               @isIconOnly={{true}}
             />
-          </div>
+          </SG.Item>
         {{/each}}
       {{/each}}
-    </div>
+    </Shw::Sample::Grid>
   {{/each}}
+
+  <h4 class="dummy-h4">Containers</h4>
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <SG.Item>
+          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <div class="shw-component-badge-group" {{style display=display}}>
+            <Hds::Badge @text="Only text" /><Hds::Badge @icon="activity" @text="Text + icon" /><Hds::Badge
+              @icon="activity"
+              @text="Only icon"
+              @isIconOnly={{true}}
+            />
+          </div>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Sample::Grid>
+
 </section>
