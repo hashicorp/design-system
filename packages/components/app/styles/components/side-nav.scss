@@ -53,6 +53,28 @@
   }
 }
 
+.hds-side-nav__header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  padding: 4px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  &:hover {
+    background: var(--token-color-palette-neutral-600);
+  }
+
+  .hds-button__icon {
+    width: auto;
+    height: 35px;
+  }
+}
+
 // * Sub-component: Body
 // ---------------------------------------
 .hds-side-nav__body {

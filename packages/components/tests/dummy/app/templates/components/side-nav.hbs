@@ -61,9 +61,7 @@
   {{! WIP: New SideNav component }}
   <Hds::SideNav>
     <:header>
-      <div class="hds-side-nav__header-logo">
-        LOGO
-      </div>
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
 
       <Hds::Dropdown as |dd|>
         <dd.ToggleIcon @icon="help" @text="settings menu" />
