@@ -8,64 +8,80 @@
 <h2 class="dummy-h2">IconTile</h2>
 
 <section data-test-percy>
+
   <h4 class="dummy-h4">Size</h4>
-  <ul class="dummy-icon-tile-side-by-side">
-    <li>
-      <p class="dummy-paragraph">With logo</p>
-      <div class="dummy-icon-tile-base-sample">
+
+  <Shw::Sample::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
+    <SG.Item @label="With logo">
+      <Shw::Sample::Flex as |SF|>
         {{#each @model.SIZES as |size|}}
-          <Hds::IconTile @logo="boundary" @size={{size}} />
+          <SF.Item>
+            <Hds::IconTile @logo="boundary" @size={{size}} />
+          </SF.Item>
         {{/each}}
-      </div>
-    </li>
-    <li>
-      <p class="dummy-paragraph">With icon</p>
-      <div class="dummy-icon-tile-base-sample">
+      </Shw::Sample::Flex>
+    </SG.Item>
+    <SG.Item @label="With icon">
+      <Shw::Sample::Flex as |SF|>
         {{#each @model.SIZES as |size|}}
-          <Hds::IconTile @icon="dashboard" @size={{size}} />
+          <SF.Item>
+            <Hds::IconTile @icon="dashboard" @size={{size}} />
+          </SF.Item>
         {{/each}}
-      </div>
-    </li>
-  </ul>
+      </Shw::Sample::Flex>
+    </SG.Item>
+    <SG.Item @label="With logo + secondary icon">
+      <Shw::Sample::Flex as |SF|>
+        {{#each @model.SIZES as |size|}}
+          <SF.Item>
+            <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
+          </SF.Item>
+        {{/each}}
+      </Shw::Sample::Flex>
+    </SG.Item>
+    <SG.Item @label="With icon + secondary icon">
+      <Shw::Sample::Flex as |SF|>
+        {{#each @model.SIZES as |size|}}
+          <SF.Item>
+            <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
+          </SF.Item>
+        {{/each}}
+      </Shw::Sample::Flex>
+    </SG.Item>
+  </Shw::Sample::Grid>
 
   <h4 class="dummy-h4">Logo</h4>
-  {{#each @model.PRODUCTS as |product|}}
-    <div class="dummy-icon-tile-base-sample">
-      {{#each @model.SIZES as |size|}}
-        <Hds::IconTile @logo={{product}} @size={{size}} />
-      {{/each}}
-    </div>
-  {{/each}}
+
+  <Shw::Sample::Grid @columns={{5}} as |SG|>
+    {{#each @model.PRODUCTS as |product|}}
+      <SG.Item @label={{product}}>
+        <Shw::Sample::Flex as |SF2|>
+          {{#each @model.SIZES as |size|}}
+            <SF2.Item>
+              <Hds::IconTile @logo={{product}} @size={{size}} />
+            </SF2.Item>
+          {{/each}}
+        </Shw::Sample::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Sample::Grid>
 
   <h4 class="dummy-h4">Icon color</h4>
-  {{#each @model.COLORS as |color|}}
-    {{! As agreed with designers, we prefer to hide the option of icon with "hcp" color }}
-    {{#if (not-eq color "hcp")}}
-      <div class="dummy-icon-tile-base-sample">
-        {{#each @model.SIZES as |size|}}
-          <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
-        {{/each}}
-      </div>
-    {{/if}}
-  {{/each}}
 
-  <h4 class="dummy-h4">Secondary icon</h4>
-  <ul class="dummy-icon-tile-side-by-side">
-    <li>
-      <p class="dummy-paragraph">With logo</p>
-      <div class="dummy-icon-tile-base-sample">
-        {{#each @model.SIZES as |size|}}
-          <Hds::IconTile @logo="boundary" @size={{size}} @iconSecondary="plus" />
-        {{/each}}
-      </div>
-    </li>
-    <li>
-      <p class="dummy-paragraph">With icon</p>
-      <div class="dummy-icon-tile-base-sample">
-        {{#each @model.SIZES as |size|}}
-          <Hds::IconTile @icon="dashboard" @size={{size}} @iconSecondary="trash" />
-        {{/each}}
-      </div>
-    </li>
-  </ul>
+  <Shw::Sample::Grid @columns={{5}} as |SG|>
+    {{#each @model.COLORS as |color|}}
+      {{! As agreed with designers, we prefer to hide the option of icon with "hcp" color }}
+      {{#if (not-eq color "hcp")}}
+        <SG.Item @label={{color}}>
+          <Shw::Sample::Flex as |SF|>
+            {{#each @model.SIZES as |size|}}
+              <SF.Item>
+                <Hds::IconTile @icon="dashboard" @size={{size}} @color={{color}} />
+              </SF.Item>
+            {{/each}}
+          </Shw::Sample::Flex>
+        </SG.Item>
+      {{/if}}
+    {{/each}}
+  </Shw::Sample::Grid>
 </section>
