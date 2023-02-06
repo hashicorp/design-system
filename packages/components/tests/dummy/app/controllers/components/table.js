@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 
 export default class ComponentsTableController extends Controller {
-  @tracked
+  @tracked mySortBy;
+  @tracked mySortOrder;
+
   get customSort() {
     let myCustomDataArray = [
       'critical',
