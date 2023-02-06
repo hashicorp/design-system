@@ -3164,7 +3164,6 @@ __metadata:
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
-    ember-a11y-refocus: ^2.1.0
     ember-a11y-testing: ^5.0.0
     ember-auto-import: ^2.4.2
     ember-cached-decorator-polyfill: ^0.1.4
@@ -10606,16 +10605,6 @@ __metadata:
     minimalistic-assert: ^1.0.1
     minimalistic-crypto-utils: ^1.0.1
   checksum: d56d21fd04e97869f7ffcc92e18903b9f67f2d4637a23c860492fbbff5a3155fd9ca0184ce0c865dd6eb2487d234ce9551335c021c376cd2d3b7cb749c7d10f4
-  languageName: node
-  linkType: hard
-
-"ember-a11y-refocus@npm:^2.1.0":
-  version: 2.3.0
-  resolution: "ember-a11y-refocus@npm:2.3.0"
-  dependencies:
-    ember-cli-babel: ^7.26.11
-    ember-cli-htmlbars: ^6.0.1
-  checksum: a90bc2d5a21e1752003b82b5b3f29e53f614b4d1cbdf97f62087079b5fa12d22adb3af97581bd53b9811268d9f8f6bb0100d457215bb6b4782e4dc7f69dfdc35
   languageName: node
   linkType: hard
 
