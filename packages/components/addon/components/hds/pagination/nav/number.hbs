@@ -1,0 +1,12 @@
+<Hds::Interactive
+  class={{this.classNames}}
+  @route={{@route}}
+  @query={{hds-link-to-query @query}}
+  @models={{hds-link-to-models @model @models}}
+  @replace={{@replace}}
+  {{on "click" this.onClick}}
+  ...attributes
+  aria-current={{if @isSelected "page" null}}
+>
+  <span class="sr-only">page </span>{{this.page}}
+</Hds::Interactive>

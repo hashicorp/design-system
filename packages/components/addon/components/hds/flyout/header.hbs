@@ -1,0 +1,14 @@
+<div class="hds-flyout__header" ...attributes>
+  {{#if @icon}}
+    <FlightIcon class="hds-flyout__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
+  {{/if}}
+  <div class="hds-flyout__title hds-typography-display-300 hds-font-weight-semibold" id={{@id}}>
+    {{#if @tagline}}
+      <div class="hds-flyout__tagline hds-typography-body-100 hds-font-weight-regular">
+        {{@tagline}}
+      </div>
+    {{/if}}
+    {{yield}}
+  </div>
+  <Hds::DismissButton class="hds-flyout__dismiss" {{on "click" @onDismiss}} />
+</div>

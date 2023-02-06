@@ -9,7 +9,7 @@
       @extra={{this.extra}}
     />
   {{/if}}
-  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}}>
+  <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} id={{this.model.showContentId}}>
     <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
   </Doc::Page::Content>
   {{#if this.model.hasSidecar}}

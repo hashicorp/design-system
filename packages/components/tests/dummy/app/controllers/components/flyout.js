@@ -1,0 +1,20 @@
+import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+
+export default class FlyoutController extends Controller {
+  @tracked mediumFlyoutActive = false;
+  @tracked largeFlyoutActive = false;
+
+  @action
+  activateFlyout(Flyout) {
+    this[Flyout] = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  @action
+  deactivateFlyout(Flyout) {
+    this[Flyout] = false;
+    document.body.style.overflow = 'auto';
+  }
+}
