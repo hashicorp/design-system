@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 
 export default class ComponentsTableController extends Controller {
-  get customSort() {
+  get customSortMethod() {
     return () => {
       console.log('custom sort');
     };

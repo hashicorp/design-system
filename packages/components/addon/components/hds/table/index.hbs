@@ -31,7 +31,19 @@
     {{/if}}
   </thead>
   <tbody class="hds-table__tbody">
-    {{#if @columns}}
+    {{#if @customSortMethod}}
+      {{#each (sort-by (fn "customSortMethod") @model) as |data|}}
+        {{yield
+          (hash
+            Tr=(component "hds/table/tr")
+            Th=(component "hds/table/th" scope="row")
+            Td=(component "hds/table/td" align=@align)
+            data=data
+          )
+          to="body"
+        }}
+      {{/each}}
+    {{else if @columns}}
       {{#each (sort-by this.getSortCriteria @model) as |data|}}
         {{yield
           (hash
