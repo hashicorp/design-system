@@ -8,80 +8,98 @@
 <h2 class="dummy-h2">Tag</h2>
 
 <section data-test-percy>
+
   <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-tag-base-sample">
-    <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
-    <Hds::Tag @text="My text tag" />
-    <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
-    <Hds::Tag @text="My link tag" @route="components.tag" />
-  </div>
-  <div class="dummy-tag-base-sample">
-    <p>This is a paragraph: <Hds::Tag @text="My text tag" /></p>
-  </div>
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag @text="My text tag" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag @text="My link tag" @route="components.tag" />
+    </SF.Item>
+  </Shw::Sample::Flex>
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <p>This is a paragraph: <Hds::Tag @text="My text tag" /></p>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">States</h4>
-  <div class="dummy-tag-states-grid">
-    {{#each @model.STATES as |state|}}
-      <div>
-        <span class="dummy-text-small">{{capitalize state}}:</span>
-        <br />
-        <div class="dummy-tag-states-subgrid">
-          <Hds::Tag @text="My tag" @onDismiss={{this.noop}} mock-state-value={{state}} mock-state-selector="button" />
-        </div>
-      </div>
-    {{/each}}
 
-    {{#each @model.COLORS as |color|}}
-      <h5 class="dummy-h5 dummy-tag-states-grid__title">{{capitalize color}}</h5>
-      {{#each @model.STATES as |state|}}
-        <div>
-          <span class="dummy-text-small">{{capitalize state}}:</span>
-          <br />
-          <div class="dummy-tag-states-subgrid">
-            <Hds::Tag
-              @color={{color}}
-              @text="My link tag"
-              @onDismiss={{this.noop}}
-              @route="components.tag"
-              mock-state-value={{state}}
-              mock-state-selector="button"
-            />
-            <Hds::Tag
-              @color={{color}}
-              @text="My link tag"
-              @onDismiss={{this.noop}}
-              @route="components.tag"
-              mock-state-value={{state}}
-              mock-state-selector="a"
-            />
-            <Hds::Tag
-              @color={{color}}
-              @text="My link tag"
-              @route="components.tag"
-              mock-state-value={{state}}
-              mock-state-selector="a"
-            />
-          </div>
-        </div>
-      {{/each}}
+  <Shw::Sample::Grid @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{capitalize state}}>
+        <Hds::Tag @text="My tag" @onDismiss={{this.noop}} mock-state-value={{state}} mock-state-selector="button" />
+      </SG.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Grid>
+
+  <h4 class="dummy-h4">Colors</h4>
+
+  {{#each @model.COLORS as |color|}}
+    <Shw::Sample::Grid @columns={{4}} as |SG|>
+      <SG.Title>{{capitalize color}}</SG.Title>
+      {{#each @model.STATES as |state|}}
+        <SG.Item label={{capitalize state}}>
+          <Shw::Sample::Flex @direction="column" as |SF|>
+            <SF.Item>
+              <Hds::Tag
+                @color={{color}}
+                @text="My link tag"
+                @onDismiss={{this.noop}}
+                @route="components.tag"
+                mock-state-value={{state}}
+                mock-state-selector="button"
+              />
+            </SF.Item>
+            <SF.Item>
+              <Hds::Tag
+                @color={{color}}
+                @text="My link tag"
+                @onDismiss={{this.noop}}
+                @route="components.tag"
+                mock-state-value={{state}}
+                mock-state-selector="a"
+              />
+            </SF.Item>
+            <SF.Item>
+              <Hds::Tag
+                @color={{color}}
+                @text="My link tag"
+                @route="components.tag"
+                mock-state-value={{state}}
+                mock-state-selector="a"
+              />
+            </SF.Item>
+          </Shw::Sample::Flex>
+        </SG.Item>
+      {{/each}}
+    </Shw::Sample::Grid>
+  {{/each}}
 
   <h4 class="dummy-h4">Containers</h4>
-  <div class="dummy-tag-containers">
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-tag-containers__{{display}}">
+        <SG.Item>
+          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <div class="shw-component-tag-group" {{style display=display flex-wrap="wrap"}}>
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My slightly longer tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
           </div>
-        </div>
+        </SG.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Grid>
+
 </section>
