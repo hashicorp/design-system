@@ -17,10 +17,10 @@ export default class HdsTableIndexComponent extends Component {
    * @param getSortCriteria
    * @type {string | function}
    * @default sortBy:sortOrder
-   * @description Returns the sort criteria in the format of "sortBy:sortOrder".
+   * @description Returns the sort criteria in the format of "sortBy:sortOrder" unless a customSort function is found.
    */
   get getSortCriteria() {
-    // check for custom sort criteria
+    // check for customSort function (similar to the didInsert function in the breadcrumb component)
     if (this.args.customSort && typeof this.args.customSort === 'function') {
       return this.args.customSort;
     } else {
