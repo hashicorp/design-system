@@ -136,7 +136,6 @@
       (hash key="album" label="Album" isSortable="true")
       (hash key="year" label="Year" isSortable="true")
     }}
-    @customSort={{this.customSort}}
   >
     <:body as |B|>
       <B.Tr>
@@ -166,6 +165,26 @@
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
+    Sortable table (with @customSort defined)
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+    @customSort={{this.customSort}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
     Sortable table where one column is not a regular A-Z sort (month)
   </h4>
   <Hds::Table
@@ -176,7 +195,6 @@
       (hash key="month-released.key" label="Month" isSortable="true")
       (hash key="year" label="Year" isSortable="true")
     }}
-    @customSort={{this.customSort}}
   >
     <:body as |B|>
       <B.Tr>
