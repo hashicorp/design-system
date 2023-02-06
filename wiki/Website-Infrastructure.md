@@ -183,7 +183,7 @@ We did encounter a problem with fingerprinting of a specific image markdown synt
 
 The website uses a combination of [ember-cli-fasboot](https://github.com/ember-fastboot/ember-cli-fastboot) and [prember](https://github.com/ef4/prember) to pre-render static versions of routes at build time. 
 
-Fastboot is meant to allow us to serve the site to users without JavaScript enabled, but in practice this is not a goal we currently support as there are multiple instances of behavior we rely on that doesn't work without JavaScript. We do still attempt to leverage the [fastboot service](https://github.com/ember-fastboot/ember-cli-fastboot#fastboot-service) to place guards around logic we know to only work outside the Fastboot context.
+Fastboot is meant to allow us to serve the site to users without JavaScript enabled. However, using the site without JavaScript enabled is currently unsupported, as there is some functionality in the site that requires JavaScript. We do still attempt to leverage the [fastboot service](https://github.com/ember-fastboot/ember-cli-fastboot#fastboot-service) to place guards around logic we know to only work outside the Fastboot context.
 
 Fastboot is enabled by default for local development, however prember is not. Use the command `yarn start:prember` to temporarily enable pre-rendering, but note that this is much slower and not recommended for normal development.
 
