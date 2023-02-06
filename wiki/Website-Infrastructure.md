@@ -177,4 +177,8 @@ In [the `Media` document](./Website-Media.md) you can find a detailed explanatio
 
 ## Server side rendering and fastboot
 
-🚧 I'll leave this to Brian
+The website uses a combination of [ember-cli-fasboot](https://github.com/ember-fastboot/ember-cli-fastboot) and [prember](https://github.com/ef4/prember) to pre-render static versions of routes at build time. Fastboot is enabled by default for local development, however prember is not. Use the command `yarn start:prember` to temporarily enable pre-rendering, but note that this is much slower and not recommended for normal development.
+
+Our configuration mirrors what is outlined in each project's readme, with the only notable local configuration being done in [website/lib/markdown/index.js](../website/lib/markdown/index.js). This file has a `urlsForPrember()` function which tells prember which routes we want it to pre-render. This logic resides here as this is the point where we know the dynamically generated list of component/foundation URLs.
+
+Additionally, we use [prember-sitemap-generator](https://github.com/shipshapecode/prember-sitemap-generator) to generate a sitemap based on the same prember config we use for pre-rendering static pages. Configuration for this lives in the website's [ember-cli-build.js](../website/ember-cli-build.js)
