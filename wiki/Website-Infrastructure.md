@@ -173,7 +173,11 @@ In [the `Markdown` document](./Website-Markdown.md) you can find a detailed expl
 
 In [the `Media` document](./Website-Media.md) you can find a detailed explanation about how to handle media files for the website.
 
-🚧 Brian to add something about fingerprinting for the files?
+### Fingerprinting
+
+Our fingerprinting strategy largely follows the [default ember-cli setup](https://cli.emberjs.com/release/advanced-use/asset-compilation/#fingerprintingandcdnurls) with the addition of the `'json'` file type added to `extensions` in [ember-cli-build.js](../website/ember-cli-build.js) so that processed markdown files are fingerprinted.
+
+We did encounter a problem with fingerprinting of a specific image markdown syntax for specifying image dimensions (` =112x112`) which was resolved by utiliziting `yarn patch` to adjust the underlying fingerprinting logic. More details can be found in [#826](https://github.com/hashicorp/design-system/pull/826).
 
 ## Server side rendering and fastboot
 
