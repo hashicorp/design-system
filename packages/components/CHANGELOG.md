@@ -1,5 +1,24 @@
 # @hashicorp/design-system-components
 
+## 1.5.2
+
+### Patch Changes
+
+- [#1036](https://github.com/hashicorp/design-system/pull/1036) [`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Update design system name to Helios
+
+* [#971](https://github.com/hashicorp/design-system/pull/971) [`fa819fedf`](https://github.com/hashicorp/design-system/commit/fa819fedf22b2dee45e8ee1119b98099f5402524) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix repetitive required field indicator for screen readers
+
+- [#1130](https://github.com/hashicorp/design-system/pull/1130) [`34fb0fe18`](https://github.com/hashicorp/design-system/commit/34fb0fe18895e59676fb208dc6025d2d15353336) Thanks [@MelSumner](https://github.com/MelSumner)! - Moves icon and count inside of tab (button element) for WCAG conformance
+
+* [#1157](https://github.com/hashicorp/design-system/pull/1157) [`39b645296`](https://github.com/hashicorp/design-system/commit/39b64529645110c0980c253c2e01099e2b585bc0) Thanks [@MelSumner](https://github.com/MelSumner)! - Fixes malformed CSS classes in table component
+
+- [#1080](https://github.com/hashicorp/design-system/pull/1080) [`1dde47948`](https://github.com/hashicorp/design-system/commit/1dde47948ef2aa2400e8f39e49e060d7507db037) Thanks [@didoo](https://github.com/didoo)! - Added `onSort` callback to `Hds::Table` component
+
+* [#1127](https://github.com/hashicorp/design-system/pull/1127) [`4eaf727e7`](https://github.com/hashicorp/design-system/commit/4eaf727e7b9ac732c1cc5a053d9e5a4b636ffc78) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds missing aria-label to breadcrumb truncation toggle for WCAG conformance.
+
+* Updated dependencies [[`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417)]:
+  - @hashicorp/design-system-tokens@1.3.1
+
 ## 1.5.1
 
 ### Patch Changes

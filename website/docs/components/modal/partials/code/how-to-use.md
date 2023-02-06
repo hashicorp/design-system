@@ -1,20 +1,22 @@
 ## Browser support
 
-The `Hds::Modal` component leverages the `<dialog>` element which is currently supported by all major browser vendors. To ensure support on older browser versions (for example, Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
+The Modal component leverages the `<dialog>` element which is currently supported by all major browser vendors. To ensure support on older browser versions (e.g., Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
 
 ## Page scroll
 
-When an `Hds::Modal` component is open, the rest of the page is disabled (via `inert`). However, scrolling at the page level is still available. To make it clear to the user that the underlying elements are not interactive and to avoid confusion, we recommend disabling the page scroll `onOpen` and enabling it back `onClose` (for example, by setting `overflow: hidden;` and `overflow: auto;` respectively) by applying it to the `<body>` element.
+When a Modal is open, the rest of the page is disabled (via `inert`). However, scrolling at the page level is still available. To make it clear to the user that the underlying elements are not interactive and to avoid confusion, we recommend disabling the page scroll `onOpen` and enabling it back `onClose` (for example, by setting `overflow: hidden;` and `overflow: auto;` respectively) by applying it to the `<body>` element.
 
 ## Positioning
 
 As an overlaying component, the `Hds::Modal` requires a high value on the z-axis. We are currently setting `50` as a default value, but we recommend you review the `z-index` values used across your project and either adjust them accordingly or increase this value by defining an override.
 
-## Focus trap
+## Focus and focus trap
 
-This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-focus-trap) to prevent the focus from going outside the Modal and to deactivate the Modal when clicking outside the Modal. This Ember modifier requires at least one interactive element to be present within the Modal, which is by default achieved by the dismiss button in the header.
+This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-focus-trap) to prevent the focus from going outside the Modal and to dismiss the Modal when clicking outside the Modal. This Ember modifier requires at least one interactive element to be present within the Modal, which is by default achieved by the dismiss button in the header.
 
-## Basic use
+When a modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the modal, which is the “Dismiss” button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the modal.
+
+## How to use this component
 
 ```handlebars
 <Hds::Button
@@ -38,13 +40,9 @@ This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-
 {{/if}}
 ```
 
-!!! Info
+### Form within a modal dialog
 
-When a modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the modal, which is the "Dismiss" button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the modal.
-
-!!!
-
-## Form within a modal dialog
+If a modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.
 
 When the modal dialog contains information that might be lost on close, use a confirmation message before discarding it.
 
@@ -89,9 +87,3 @@ When the modal dialog contains information that might be lost on close, use a co
   </Hds::Modal>
 {{/if}}
 ```
-
-!!! Info
-
-If a modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.
-
-!!!

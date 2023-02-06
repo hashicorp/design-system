@@ -18,8 +18,9 @@ export default class CustomHeadDataService extends HeadDataService {
   }
 
   get imgSrc() {
-    return this.currentRouteMeta?.frontmatter?.previewImage
+    const previewImage = this.currentRouteMeta?.frontmatter?.previewImage
       ? this.currentRouteMeta.frontmatter.previewImage
-      : config['ember-meta'].imgSrc;
+      : 'assets/logos/share-card.jpg';
+    return `${config['ember-meta'].url}/${previewImage}`;
   }
 }

@@ -1,1 +1,1 @@
-A Toast is an element intended for messages resulting from a user’s actions. It typically disappears after a set interval or due to a user dismissing it. For system-generated messages, see the [Alert](/components/alert/) component.
+A Toast is an element intended for messages resulting from a user’s actions. It typically disappears after a set interval or due to a user dismissing it. For system-generated messages, see the [Alert](/components/alert) component.

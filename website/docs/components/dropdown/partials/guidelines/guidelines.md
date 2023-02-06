@@ -1,38 +1,20 @@
-## When to use
+## Usage
 
-- To display a list of actions under a single button toggle.
+### When to use
 
-## When not to use
+- To display a list of actions or links under a single button toggle.
 
-- In forms. When providing more than 5–7 options in a form, use a [Select](/components/form/select) instead.
-- When selecting an option results in immediate navigation or update to the page content, use a Context Switcher _(coming soon)_.
+### When not to use
 
-## ToggleButton Size
+- In forms when providing the user with options to choose from, consider [Select](/components/form/select).
 
-ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
+## Toggle
 
-### Small
+### Types
 
-<Hds::ButtonSet>
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleButton @text="Primary" @size="small"/>
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
-  </Hds::Dropdown>
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleButton @text="Secondary" @color="secondary" @size="small" />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
-  </Hds::Dropdown>
-</Hds::ButtonSet>
+Toggles come in two variant types: **button** and **icon**.
 
-### Medium
-
-<Hds::ButtonSet>
+<Doc::Layout @spacing="48px">
   <Hds::Dropdown as |dd|>
     <dd.ToggleButton @text="Primary" />
     <dd.Interactive @text="Item One" />
@@ -41,89 +23,106 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
     <dd.Interactive @text="Item Four" />
   </Hds::Dropdown>
   <Hds::Dropdown as |dd|>
-    <dd.ToggleButton @text="Secondary" @color="secondary" />
+    <dd.ToggleIcon @icon="user" @text="user menu" />
     <dd.Interactive @text="Item One" />
     <dd.Interactive @text="Item Two" />
     <dd.Interactive @text="Item Three" />
     <dd.Interactive @text="Item Four" />
   </Hds::Dropdown>
-</Hds::ButtonSet>
+</Doc::Layout>
 
-## Chevron
+### Size
 
-Open toggles use a chevron pointing up, while closed toggles use a chevron pointing down.
-
-!!! Info
-
-**Figma Tip**
-
-Set `isOpen=true` when displaying the toggle with a menu and `isOpen=false` when displaying the toggle.
-
-!!!
-
-### Open
+ToggleIcons come in one size: **medium**.
 
 <Hds::Dropdown as |dd|>
-  <dd.ToggleButton @text="Manage" @color="secondary" @isOpen={{true}} />
-  <dd.Interactive @text="Rename" />
-  <dd.Interactive @text="Edit" />
-  <dd.Interactive @text="Restore" />
+  <dd.ToggleIcon @icon="user" @text="user menu" />
+  <dd.Interactive @text="Item One" />
+  <dd.Interactive @text="Item Two" />
+  <dd.Interactive @text="Item Three" />
+  <dd.Interactive @text="Item Four" />
 </Hds::Dropdown>
 
-### Closed
+ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
 
-<Hds::Dropdown as |dd|>
-  <dd.ToggleButton @text="Manage" @color="secondary" />
-  <dd.Interactive @text="Rename" />
-  <dd.Interactive @text="Edit" />
-  <dd.Interactive @text="Restore" />
-</Hds::Dropdown>
+<Doc::Layout @spacing="24px" @direction="vertical">
+  <Hds::ButtonSet>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Primary" @size="small"/>
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Secondary" @color="secondary" @size="small" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+  </Hds::ButtonSet>
+  <Hds::ButtonSet>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Primary" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleButton @text="Secondary" @color="secondary" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+  </Hds::ButtonSet>
+</Doc::Layout>
 
-### ToggleIcon
+### Chevron usage
 
-Chevrons indicate that ToggleIcon opens the list, so they’re required for all variations. The only (temporary) exception is the overflow menu, which uses the “more-horizontal” icon.
+Open Toggles use Helios icon `chevron-up`, while closed Toggles use `chevron-down`.
 
-<Hds::Dropdown::Toggle::Icon @text="Icon" @icon="user" />
-<Hds::Dropdown::Toggle::Icon @text="Avatar" @imageSrc="/assets/images/avatar.png" />
+ToggleButtons require a visible chevron to indicate interactivity and provide distinction between Dropdowns and standard Buttons.
+
+![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png =286x*)
+
+We strongly recommend providing visible chevrons on most instances of ToggleIcons to indicate interactivity. That said, it’s common to see ToggleIcons that use the `more-horizontal` icon without chevrons. Their placement, usually in the last column of a [Table](/components/table), is typically indicative of this type of interaction.
+
+![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-icon-chevrons.png =750x*)
 
 ## List
 
 ### Placement
 
-#### Right (default)
+In the event that the Toggle is positioned on the left side of the screen, the list can be aligned to the left side to fit more appropriately within the UI.
 
-![Right placement example](/assets/components/dropdown/dropdown-placement-right_example.png)
+![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png =467x*)
 
-#### Left
+### Size
 
-![Left placement example](/assets/components/dropdown/dropdown-placement-left_example.png)
+#### Default width
 
-## List Size
+Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem the List will automatically expand up to 400px to accommodate that content before the content wraps.
 
-### Default width
-
-The default List has a min-width of 200px and a max-width of 400px.
-
-This means if there’s a list item with a lot of text (i.e., Description), the list will automatically expand up to 400px to accommodate the content of the widest list item.
-
-<Hds::Dropdown::Toggle::Icon @text="Manage" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
-  <Hds::Dropdown::ListItem::Interactive @text="Account settings" />
+  <Hds::Dropdown::ListItem::Title @text="Signed in as" />
+  <Hds::Dropdown::ListItem::Description @text="name@email.com" />
+  <Hds::Dropdown::ListItem::Separator />
+  <Hds::Dropdown::ListItem::Interactive @text="User settings" />
+  <Hds::Dropdown::ListItem::Interactive @text="Admin" />
   <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
 </Doc::ListContainer>
 
-### Fixed width
+#### Fixed width
 
-If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width.
+If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width. As a best practice, we do not recommend Lists wider than 400px.
 
-As a best practice, we do not recommend lists wider than 400px.
-
-<Hds::Dropdown::Toggle::Button @text="Manage" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
   <Hds::Dropdown::ListItem::Separator />
   <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" />
-  <Hds::Dropdown::ListItem::Separator />
   <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" />
   <Hds::Dropdown::ListItem::Separator />
   <Hds::Dropdown::ListItem::Title @text="Import to Terraform" />
@@ -136,11 +135,10 @@ As a best practice, we do not recommend lists wider than 400px.
   <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
 </Doc::ListContainer>
 
-### Height
+#### Height
 
-The height of the list container is automatically determined based on the contents within the list.
+The height of the ListContainer is automatically determined based on the contents.
 
-<Hds::Dropdown::Toggle::Button @text="Integrate with Terraform Cloud" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="Integrate with Terraform Cloud" />
   <Hds::Dropdown::ListItem::Description @text="Create a new run task in Terraform using the URL and key below." />
@@ -155,42 +153,49 @@ The height of the list container is automatically determined based on the conten
   <Hds::Dropdown::ListItem::Interactive @text="About Packer" @color="action" @icon="external-link" />
 </Doc::ListContainer>
 
-## ListItem Types
+## ListItem
 
-![Dropdown ListItem types](/assets/components/dropdown/dropdown-list_item-types.png)
+### Types
+
+![Dropdown ListItem types](/assets/components/dropdown/dropdown-listitem-types.png =449x*)
 
 !!! Info
 
-**A note on loading**
+**A note on Loading**
 
-Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, consider providing a more informative loading message.
-
+Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, provide an informative loading message.
 !!!
 
-## Icons
+### Icon usage
 
-Icons in ListItems are optional.
+Icons in ListItems are optional, and we recommend letting the text speak for itself unless an icon provides additional value.
 
-We recommend letting the text speak for itself unless an icon provides additional value.
+We don’t recommend mixing and matching icon use; that’s to say, if using an icon in one ListItem, use an icon in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
 
-Ask yourself, “Which icon should I use here?” If the answer isn’t obvious within 5 seconds, consider whether the icon is really providing additional value.
+!!! Do
 
-<Hds::Dropdown::Toggle::Button @text="More" @color="secondary" @isOpen={{true}} style="margin-bottom: 4px;" />
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="About" />
   <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
   <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
   <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
-  <Hds::Dropdown::ListItem::Separator />
-  <Hds::Dropdown::ListItem::Title @text="Automate with Terraform" />
-  <Hds::Dropdown::ListItem::Interactive @text="Quick start a development cluster" @color="action" />
 </Doc::ListContainer>
+!!!
 
-### Critical
+!!! Dont
 
-While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the right icon provides a stronger/more immediate visual indication that the action is destructive. See the section on [color blind users and critical actions](https://www.figma.com/file/8I4u10OyhYZIea4MpXwJwm/Design-guidelines-migration?node-id=7192%3A13227) (internal link) for more details about making these actions more accessible.
+<Doc::ListContainer class="hds-dropdown-list">
+  <Hds::Dropdown::ListItem::Title @text="About" />
+  <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
+  <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
+  <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" />
+</Doc::ListContainer>
+!!!
 
-<Hds::Dropdown::Toggle::Icon @text="Icon" @icon="more-horizontal" @isOpen={{true}} />
+#### Icons in Critical ListItems
+
+While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the correct icon provides a stronger and more immediate visual indication that the action is destructive. Read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
+
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
   <Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
@@ -200,12 +205,6 @@ While icons are optional, we recommend using a relevant icon for Critical ListIt
 
 ## Content
 
-### General
-
-We recommend using dropdowns only to display a list of links or actions. A dropdown should **not** be a catch-all used to squeeze a lot of content into a small, contained area. A crowded dropdown is difficult for the user to parse and can result in a poor user experience.
-
-If you find that you need additional custom content in the dropdown, please [reach out to the HDS team](https://hashicorp.slack.com/archives/C7KTUHNUS) (internal link) to discuss alternative options.
-
-### ListItems
-
 There is no character limit for interactive ListItems, but we recommend keeping them short and concise (~36 characters).
+
+Take care to use dropdowns correctly. A crowded or overly complex dropdown can lead to a frustrating user experience, especially for assistive technology users. Contact the [Design Systems Team](/about/support) to discuss alternative options if a dropdown feels too complex.

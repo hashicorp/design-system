@@ -103,6 +103,10 @@ export default class ShowRoute extends Route {
           .replace(/\/index$/, '')
           .replace('/', '-')}`;
 
+        const showContentId = `show-content-${res.data.id
+          .replace(/\/index$/, '')
+          .replace('/', '-')}`;
+
         return {
           // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
           // This ID comes from the markdown-to-json conversion (see `id: relativePath.replace(/\.md$/, '')` in `addons/field-guide/lib/markdown-to-jsonapi.js`)

@@ -9,14 +9,6 @@ While our components are designed and developed with accessibility as a core req
 
 To that end, HashiCorp product teams should consider the following best practices to ensure they’re implementing accessible products.
 
-## Accessible routing
-
-Adding support for accessible routing ensures that route transitions are appropriately announced to users with assistive technology. We recommend [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus), an addon that provides three things:
-
-1. It adds a message to the page to let the screen reader user know that the route has changed and regular page navigation can resume (it’s similar to [a11y-announcer](https://github.com/ember-a11y/a11y-announcer) but doesn’t use `aria-live`).
-2. It moves the focus to that message for the screen reader user, effectively resetting focus in Ember apps (similar to how a native web page works).
-3. It provides an optional bypass mechanism so the user can skip to the page’s primary content (see [Technique G1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)). See the `Options` section in the documentation for available options.
-
 ## Page organization
 
 All content should be contained in elements with [landmark roles](https://www.w3.org/TR/wai-aria/#landmark_roles). Typically this includes the `header`, `main`, and `footer` elements, but depending on your page layout, you might also be using `aside` and `nav` as direct descendants of the `body` element.
@@ -47,6 +39,14 @@ There are some key points to remember about focus management:
 2. Trap the focus! Focus should remain in a modal or other popup when it is open. Try [ember-focus-trap](https://github.com/josemarluedke/ember-focus-trap).
 3. Focus order should match DOM order.
 
+## Accessible routing
+
+Adding support for accessible routing ensures that route transitions are appropriately announced to users with assistive technology. We recommend [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus), an addon that provides three things:
+
+1. It adds a message to the page to let the screen reader user know that the route has changed and regular page navigation can resume (it’s similar to [a11y-announcer](https://github.com/ember-a11y/a11y-announcer) but doesn’t use `aria-live`).
+2. It moves the focus to that message for the screen reader user, effectively resetting focus in Ember apps (similar to how a native web page works).
+3. It provides an optional bypass mechanism so the user can skip to the page’s primary content (see [Technique G1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)). See the `Options` section in the documentation for available options.
+
 ## Automated testing
 
 Use available automated tooling for static and dynamic analysis. Ember apps can use [ember-template-lint](https://github.com/ember-template-lint/ember-template-lint) for static analysis and [ember-a11y-testing](https://github.com/ember-a11y/ember-a11y-testing) for dynamic analysis. Additionally, consider adding HTML validation to your CI.
@@ -67,12 +67,14 @@ Your development environment has a screen reader built in. Become familiar with 
 
 ## Accessibility support
 
-There are many ways to learn about implementing accessible applications within HashiCorp. 
+There are many ways to learn about implementing accessible applications within HashiCorp.
 
 ### Internal training
+
 Training is available for HashiCorp employees within the Accessibility library in Workramp.
 
 ### Accessibility Guild
+
 The Accessibility Guild is a space where HashiCorp employees of all roles can join and learn more about accessibility. We offer multiple meeting days/times to accommodate our globally-distributed workforce and record meetings for those who can’t attend.
 
 Have a question? We’re here to help! Ask in our internal Slack channel [#talk-a11y](https://hashicorp.slack.com/archives/CLYADQNHZ).

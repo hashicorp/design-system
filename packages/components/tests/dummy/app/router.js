@@ -25,6 +25,7 @@ Router.map(function () {
     this.route('card');
     this.route('dropdown');
     this.route('empty-state');
+    this.route('flyout');
     this.route('form', function () {
       this.route('base-elements');
       this.route('checkbox');
@@ -41,12 +42,12 @@ Router.map(function () {
       this.route('standalone');
     });
     this.route('modal');
+    this.route('pagination');
     this.route('stepper');
     this.route('table');
     this.route('tag');
     this.route('toast');
     this.route('tabs');
-    this.route('flyout');
   });
   this.route('content', function () {
     this.route('writing-guidelines');

@@ -66,8 +66,9 @@
     $bottom: var(--token-tabs-tab-focus-inset),
     $left: var(--token-tabs-tab-focus-inset),
   );
-
   position: static;
+  display: flex;
+  align-items: center;
   padding: 0;
   color: inherit;
   background-color: transparent;
