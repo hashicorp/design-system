@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Route from '@ember/routing/route';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';

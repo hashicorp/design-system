@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 // RELEVANT LINKS
 // - https://gist.github.com/machty/0360f5ef2a257dace0ddb5c1d153c963 (inspiration for this approach)
 // - https://github.com/broccolijs/broccoli-multifilter
