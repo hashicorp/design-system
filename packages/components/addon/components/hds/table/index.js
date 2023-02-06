@@ -20,11 +20,13 @@ export default class HdsTableIndexComponent extends Component {
    * @description Returns the sort criteria in the format of "sortBy:sortOrder" unless a customSort function is found.
    */
   get getSortCriteria() {
-    // check for customSort function (similar to the didInsert function in the breadcrumb component)
-    if (this.args.customSort && typeof this.args.customSort === 'function') {
+    // check for customSortMethod
+    if (
+      this.args.customSortMethod &&
+      typeof this.args.customSortMethod === 'function'
+    ) {
       // question: do we need to set the sortBy and sortOrder here?
       // if we don't, how do we get the sort criteria to the table header component?
-      // Docs suggest a method is supported: https://github.com/DockYard/ember-composable-helpers#sort-by
       return this.args.customSort;
     } else {
       return `${this.sortBy}:${this.sortOrder}`;
