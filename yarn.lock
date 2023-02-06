@@ -3187,7 +3187,7 @@ __metadata:
     ember-named-blocks-polyfill: ^0.2.5
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.0
-    ember-prism: ^0.12.0
+    ember-prism: ^0.13.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3
     ember-source: ~4.8.1
@@ -10746,7 +10746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.1.0, ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.1, ember-auto-import@npm:^2.4.2":
+"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.1, ember-auto-import@npm:^2.4.2":
   version: 2.4.2
   resolution: "ember-auto-import@npm:2.4.2"
   dependencies:
@@ -11291,7 +11291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^3.1.3, ember-cli-typescript@npm:^3.1.4":
+"ember-cli-typescript@npm:^3.1.4":
   version: 3.1.4
   resolution: "ember-cli-typescript@npm:3.1.4"
   dependencies:
@@ -11511,7 +11511,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.4, ember-compatibility-helpers@npm:^1.2.5":
+"ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.5":
   version: 1.2.6
   resolution: "ember-compatibility-helpers@npm:1.2.6"
   dependencies:
@@ -11746,21 +11746,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^2.1.1":
-  version: 2.1.2
-  resolution: "ember-modifier@npm:2.1.2"
-  dependencies:
-    ember-cli-babel: ^7.22.1
-    ember-cli-normalize-entity-name: ^1.0.0
-    ember-cli-string-utils: ^1.1.0
-    ember-cli-typescript: ^3.1.3
-    ember-compatibility-helpers: ^1.2.4
-    ember-destroyable-polyfill: ^2.0.2
-    ember-modifier-manager-polyfill: ^1.2.0
-  checksum: ea7fef8c341ed27530348d626eccb28e9ff5709e69cc2501a4d0ab26ba920a622b2c0f1173dcdb9b57f2938aef6745bdade203bc7a7ff5ecdf29863dc8870e37
-  languageName: node
-  linkType: hard
-
 "ember-modifier@npm:^2.1.2 || ^3.1.0, ember-modifier@npm:^3.2.7":
   version: 3.2.7
   resolution: "ember-modifier@npm:3.2.7"
@@ -11813,48 +11798,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-prism@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "ember-prism@npm:0.10.0"
-  dependencies:
-    "@ember/render-modifiers": ^1.0.2
-    ember-auto-import: ^1.11.3
-    ember-cli-babel: ^7.22.1
-    ember-cli-htmlbars: ^5.3.1
-    ember-cli-node-assets: ^0.2.2
-    prismjs: ^1.22.0
-    prismjs-glimmer: ^1.1.1
-  checksum: 73757a48e49ee3d8260881c01ef622ff3f8ab03add9b1456c7da6f484266dee8e0a60585d71e8b54b065870aa3f311f7dc3181a2d03eab89b62cac96726b2afa
-  languageName: node
-  linkType: hard
-
-"ember-prism@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "ember-prism@npm:0.11.0"
-  dependencies:
-    ember-auto-import: ^2.1.0
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
-    ember-cli-node-assets: ^0.2.2
-    ember-ref-bucket: ^3.1.0
-    prismjs: ^1.22.0
-    prismjs-glimmer: ^1.1.1
-  checksum: 155b85f788a90c712acfde5ffcbb6d2940578a20c366317e1b74a308464e16204f50bb00f19741c5c373881b8871fd0c4fe3f64234878b6995000d1cba65b133
-  languageName: node
-  linkType: hard
-
-"ember-prism@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "ember-prism@npm:0.12.0"
+"ember-prism@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "ember-prism@npm:0.13.0"
   dependencies:
     "@ember/render-modifiers": ^2.0.0
-    ember-auto-import: ^2.1.0
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
+    ember-auto-import: ^2.2.4
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.0.1
     ember-cli-node-assets: ^0.2.2
     prismjs: ^1.22.0
     prismjs-glimmer: ^1.1.1
-  checksum: 54fe3021ef1439e2ec22bfef78a05ff5f97af8111ae2df72b3510eb22e3692aa7e59388f466b818c2b1c493ce2185ef36f4e0f0870af0fdb9b6db40e131102e5
+  checksum: a96e106bfc59fc21985ccf1de98eb8bbd1aa124059668225f23a861c524c6ecdbb3b56304b831738c4da23ca737272941853d51d03329813a8446b2f2f83208a
   languageName: node
   linkType: hard
 
@@ -11875,18 +11830,6 @@ __metadata:
     "@ember/test-helpers": ^2.4.0
     qunit: ^2.13.0
   checksum: 54316c00a7a4ab76fbd0d138c069e2275809a6d53e4ad8bd3fb56b2bf132a24f4ce3d66d0bf1963cd371b5583cb5dd7297f05f3e4cb8e0de0f3be638a234e7f8
-  languageName: node
-  linkType: hard
-
-"ember-ref-bucket@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "ember-ref-bucket@npm:3.1.0"
-  dependencies:
-    ember-cli-babel: ^7.22.1
-    ember-cli-htmlbars: ^5.3.1
-    ember-destroyable-polyfill: ^2.0.2
-    ember-modifier: ^2.1.1
-  checksum: f9609eee3931bfe88532ca5cc8a712d95b4ffcf4e10de0b3eea0090d52b00c1ccd1178f21143e032523ea1804be810b46a08b1bcea1bb4be557c5f7bc24af09c
   languageName: node
   linkType: hard
 
@@ -13643,7 +13586,7 @@ __metadata:
     ember-fetch: ^8.1.2
     ember-load-initializers: ^2.1.2
     ember-page-title: ^7.0.0
-    ember-prism: ^0.11.0
+    ember-prism: ^0.13.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3
     ember-source: ~4.8.1
@@ -24162,7 +24105,7 @@ __metadata:
     ember-meta: ^2.0.0
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.0
-    ember-prism: ^0.10.0
+    ember-prism: ^0.13.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3
     ember-router-scroll: ^4.0.2
