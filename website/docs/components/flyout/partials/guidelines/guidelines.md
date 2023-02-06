@@ -141,8 +141,6 @@ Multiple dismissal options are available that can be customized in production wi
 - Clicking with a mouse outside of the Flyout on the main page
 - Hitting the escape (`ESC`) key on a keyboard
 
-![Flyout dismissal options](/assets/components/flyout/flyout-dismissal.png)
-
 ## Positioning and responsive sizing
 
 A Flyout should slide out from the right side of the viewport on top of the main page content and occupy 100% of the viewport height.
@@ -155,12 +153,8 @@ A Flyout should slide out from the right side of the viewport on top of the main
 In Figma, the Flyout should be paired with the [overlay](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=22928%3A55862&t=ZUcWdRNwXAJddKsS-1) component which obscures the main page content the Flyout sits on top of. Using the Flyout without the overlay is currently not supported and helps to communicate visually the `inert` nature of the main page.
 !!!
 
-![Flyout position](/assets/components/flyout/flyout-position.png)
-
 On smaller viewports, the Flyout should occupy 100% of the viewport width minus a 40px margin from the viewport edge.
 
 - If the body content of the Flyout exceeds the maximum height of the viewport, a scroll will be introduced.
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
 - The Flyout should _not_ be resized manually, rather select the size that best accommodates the content.
-
-![Flyout resizing](/assets/components/flyout/flyout-resizing.png =311x*)
