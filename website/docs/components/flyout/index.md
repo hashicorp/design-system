@@ -4,6 +4,7 @@ description: Displays additional details and information about an item or object
 caption: Displays additional details and information about an item or object, overlaid on the main page content.
 status: experimental
 links:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=23645%3A53756&t=FL2rOHuh3Trg6gxA-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/flyout
 previewImage: assets/illustrations/components/flyout.jpg
 keywords: ['drawer', 'panel', 'side', 'modal']
