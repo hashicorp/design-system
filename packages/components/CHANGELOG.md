@@ -1,5 +1,18 @@
 # @hashicorp/design-system-components
 
+## 1.6.0
+
+### Minor Changes
+
+- [#661](https://github.com/hashicorp/design-system/pull/661) [`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new **`Pagination`** component (`Numbered`, `Compact`)
+
+* [#1070](https://github.com/hashicorp/design-system/pull/1070) [`91b004f93`](https://github.com/hashicorp/design-system/commit/91b004f9329034064890f3e7a18e35912312fb5d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Flyout` component
+
+### Patch Changes
+
+- Updated dependencies [[`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37)]:
+  - @hashicorp/design-system-tokens@1.4.0
+
 ## 1.5.2
 
 ### Patch Changes
