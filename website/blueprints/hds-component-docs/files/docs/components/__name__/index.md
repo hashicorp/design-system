@@ -1,12 +1,14 @@
 ---
-title: Template
-hidden: true
+title: <%= columnizedModuleName %>
 description: {Optional long description that appears in the cover}
 caption: {Short description that appears in the cards}
 status: released
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=nsKJzzKtdX5A7zpz-7
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds
+  figma: {link to the "<%= columnizedModuleName %>" page in the components Figma library}
+  github: {link to the "<%= columnizedModuleName %>" component's folder in the GitHub repo}
+hidden: true
+previewImage: assets/illustrations/components/<%= kebabizedModuleName %>.jpg
+keywords: ['add', 'alternate', 'keywords', 'here']
 ---
 
 <section data-tab="Guidelines">
