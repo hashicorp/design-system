@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.4.0
+
+### Minor Changes
+
+- [#661](https://github.com/hashicorp/design-system/pull/661) [`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add design tokens for `Pagination` component
+
 ## 1.3.1
 
 ### Patch Changes
