@@ -35,7 +35,7 @@
     "@hashicorp/ember-flight-icons": "^3.0.2",
     "@hashicorp/flight-icons": "^2.12.0",
     "@percy/cli": "^1.17.0",
-    "@percy/ember": "^4.0.0",
+    "@percy/ember": "^4.1.0",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
     "babel-eslint": "^10.1.0",
