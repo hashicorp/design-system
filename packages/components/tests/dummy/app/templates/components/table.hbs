@@ -8,128 +8,273 @@
 <h2 class="dummy-h2">Table</h2>
 
 <section data-test-percy>
-  <h4 class="dummy-h4">States of the sortable table header (buttons)</h4>
-  <Hds::Table>
-    <:head>
-      <Hds::Table::Tr>
-        {{#each @model.STATES as |state|}}
-          <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
-            {{capitalize state}}
-          </Hds::Table::ThSort>
-        {{/each}}
-      </Hds::Table::Tr>
-    </:head>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with model defined
-  </h4>
-  <Hds::Table
-    @model={{this.model.music}}
-    @columns={{array
-      (hash key="artist" label="Artist")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with density set to "short"
-  </h4>
-  <Hds::Table
-    @model={{this.model.music}}
-    @density="short"
-    @columns={{array
-      (hash key="artist" label="Artist")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with density set to "tall"
-  </h4>
-  <Hds::Table
-    @model={{this.model.music}}
-    @density="tall"
-    @columns={{array
-      (hash key="artist" label="Artist")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with no model defined
-  </h4>
-  <Hds::Table @caption="a custom table with no model defined">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Cell Header</H.Th>
-        <H.Th>Cell Header</H.Th>
-        <H.Th @width="20%">Custom Width</H.Th>
-      </H.Tr>
-    </:head>
-    <:body as |B|>
-      <B.Tr>
-        <B.Th>Scope Row</B.Th>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-      <B.Tr>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-      <B.Tr>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Static table with row striping
-  </h4>
-  <Hds::Table @model={{this.model.music}} @isStriped={{true}} @caption="Static table with row striping">
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Artist</H.Th>
-        <H.Th>Album</H.Th>
-        <H.Th>Release Year</H.Th>
-      </H.Tr>
-    </:head>
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Sortable table (all columns sortable)
-  </h4>
+
+  <h4 class="dummy-h4">Table elements</h4>
+
+  <h5 class="dummy-h5">Head</h5>
+
+  <Shw::Sample::Flex @title="ThSort states" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            {{#each @model.STATES as |state|}}
+              <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
+                {{capitalize state}}
+              </Hds::Table::ThSort>
+            {{/each}}
+          </Hds::Table::Tr>
+        </:head>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <Shw::Sample::Flex @title="Th with custom width" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table @caption="a custom table with no model defined">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Auto</H.Th>
+            <H.Th>Auto</H.Th>
+            <H.Th>Auto</H.Th>
+            <H.Th @width="50px">Custom</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>50px</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <h5 class="dummy-h5">Body</h5>
+
+  <Shw::Sample::Flex @title="Static table with row striping" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table @isStriped={{true}} @caption="Static table with row striping">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+            <H.Th>Sit amet</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <h4 class="dummy-h4">Table</h4>
+
+  <h5 class="dummy-h5">Density</h5>
+
+  <Shw::Sample::Flex @title="Default" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+            <H.Th>Sit amet</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+  <Shw::Sample::Flex @title="Short" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table @density="short">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+            <H.Th>Sit amet</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+  <Shw::Sample::Flex @title="Tall" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table @density="tall">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+            <H.Th>Sit amet</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <h5 class="dummy-h5">Model</h5>
+
+  <Shw::Sample::Flex @title="Table with model" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table
+        @model={{this.model.music}}
+        @columns={{array
+          (hash key="artist" label="Artist")
+          (hash key="album" label="Album")
+          (hash key="year" label="Release Year")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.artist}}</B.Td>
+            <B.Td>{{B.data.album}}</B.Td>
+            <B.Td>{{B.data.year}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+  <Shw::Sample::Flex @title="Table with no model defined" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table @caption="a custom table with no model defined">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Cell Header</H.Th>
+            <H.Th>Cell Header</H.Th>
+            <H.Th @width="20%">Custom Width</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <h5 class="dummy-h5">Sortable table (all columns sortable)</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
@@ -146,9 +291,9 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">
-    Sortable table (only some columns sortable)
-  </h4>
+
+  <h5 class="dummy-h5">Sortable table (only some columns sortable)</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
@@ -165,9 +310,9 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">
-    Sortable table, some columns sortable, artist column pre-sorted.
-  </h4>
+
+  <h5 class="dummy-h5">Sortable table, some columns sortable, artist column pre-sorted.</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
@@ -185,9 +330,9 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">
-    Sortable table, last column not sortable and has custom width.
-  </h4>
+
+  <h5 class="dummy-h5">Sortable table, last column not sortable and has custom width.</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
@@ -216,7 +361,9 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table where last column has right-aligned text</h4>
+
+  <h5 class="dummy-h5">Table where last column has right-aligned text</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
@@ -235,7 +382,9 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with various cell content</h4>
+
+  <h5 class="dummy-h5">Table with various cell content</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
@@ -249,7 +398,7 @@
       <B.Tr>
         <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
         <B.Td>
-          <div class="db-table-cell-content-div">
+          <div class="shw-component-table-cell-content-div">
             <FlightIcon @name={{B.data.icon}} />
             {{B.data.album}}
           </div>
@@ -267,7 +416,9 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-  <h4 class="dummy-h4">Table with multi-line content</h4>
+
+  <h5 class="dummy-h5">Table with multi-line content</h5>
+
   <Hds::Table
     @model={{this.model.music}}
     @caption="table with multi-line content"
@@ -286,9 +437,7 @@
     </:body>
   </Hds::Table>
 
-  <h4 class="dummy-h4">
-    Sortable table with custom sorting done via extra key added to the data model
-  </h4>
+  <h4 class="dummy-h4">Sortable table with custom sorting done via extra key added to the data model</h4>
 
   <Hds::Table
     @model={{this.clustersWithExtraData}}
@@ -334,9 +483,7 @@
     </:body>
   </Hds::Table>
 
-  <h4 class="dummy-h4">
-    Sortable table with custom `sortingFunction` declared in the column hash
-  </h4>
+  <h4 class="dummy-h4">Sortable table with custom `sortingFunction` declared in the column hash</h4>
 
   <Hds::Table
     @model={{this.model.clusters}}
