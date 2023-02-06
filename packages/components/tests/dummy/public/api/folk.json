@@ -11,10 +11,9 @@
         "vinyl-cost": "29.27",
         "icon": "boundary-color",
         "badge-type": "filled",
-        "badge-color": "neutral",
-        "month-released": { 
-          "name": "March",
-          "key": 3
+        "badge-color": { 
+          "name": "neutral",
+          "key": 5
         }
       }
     },
@@ -29,10 +28,9 @@
         "vinyl-cost": "25.99",
         "icon": "consul-color",
         "badge-type": "outlined",
-        "badge-color": "neutral",
-        "month-released": { 
-          "name": "November",
-          "key": 11
+        "badge-color": { 
+          "name": "neutral",
+          "key": 5
         }
       }
     },
@@ -47,10 +45,9 @@
         "vinyl-cost": "46.49",
         "icon": "terraform-color",
         "badge-type": "filled",
-        "badge-color": "highlight",
-        "month-released": { 
-          "name": "June",
-          "key": 6
+        "badge-color": { 
+          "name": "highlight",
+          "key": 4
         }
       }
     },
@@ -65,10 +62,9 @@
         "vinyl-cost": "229.00",
         "icon": "nomad-color",
         "badge-type": "outlined",
-        "badge-color": "success",
-        "month-released": { 
-          "name": "December",
-          "key": 12
+        "badge-color": {
+          "name": "success",
+          "key": 3
         }
       }
     },
@@ -83,10 +79,9 @@
         "vinyl-cost": "16.00",
         "icon": "waypoint-color",
         "badge-type": "filled",
-        "badge-color": "warning",
-        "month-released": { 
-          "name": "September",
-          "key": 9
+        "badge-color": {
+          "name": "warning",
+          "key": 2
         }
       }
     },
@@ -101,10 +96,9 @@
         "vinyl-cost": "20.49",
         "icon": "vagrant-color",
         "badge-type": "outlined",
-        "badge-color": "critical",
-        "month-released": { 
-          "name": "August",
-          "key": 8
+        "badge-color": {
+          "name": "critical",
+          "key": 1
         }
       }
     }

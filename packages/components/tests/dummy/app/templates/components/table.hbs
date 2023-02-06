@@ -14,12 +14,12 @@
   <Hds::Table
     @model={{this.model.data}}
     @columns={{array
-      (hash key="artist" label="Artist")
+      (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album")
       (hash key="year" label="Release Year")
-      (hash key="badge-color" label="Color" isSortable="true")
+      (hash key="badge-color.key" label="Color" isSortable="true")
     }}
-    @customSort={{this.customSort}}
+    @sortBy="badge-color.key"
   >
     <:body as |B|>
       <B.Tr>
@@ -27,10 +27,13 @@
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
         <B.Td>
-          <Hds::Badge @text={{B.data.badge-color}} @type={{B.data.badge-type}} @color={{B.data.badge-color}} />
+          <Hds::Badge
+            @text={{B.data.badge-color.name}}
+            @type={{B.data.badge-type}}
+            @color={{B.data.badge-color.name}}
+          />
         </B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>
-
 </section>
