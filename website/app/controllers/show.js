@@ -169,8 +169,6 @@ export default class ShowController extends Controller {
     if (this.tabs.length > 1 && this.currentActiveTabIndex != 0) {
       // for consistency we always set the query param tab to a lowercase version of the tab label
       set(this, 'selectedTab', this.tabs[current].label.toLowerCase());
-    } else {
-      set(this, 'selectedTab', null);
     }
 
     // leave for debugging
