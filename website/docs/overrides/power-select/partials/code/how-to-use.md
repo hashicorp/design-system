@@ -47,7 +47,7 @@ Invocation of the component with overrides would look like this:
 
 ### Search enabled
 
-When used with the `@searchEnabled` argument, the input is automatically styled to resemble the [`Form::TextInput`](/components/form/text-input/) component.
+When used with the `@searchEnabled` argument, the input is automatically styled to resemble the [`Form::TextInput`](/components/form/text-input) component.
 
 ```handlebars
 <div class="hds-power-select">
@@ -93,7 +93,7 @@ Use the `hds-power-select__after-options` class on the outermost element of the 
 
 ### Multiple selection
 
-The selected items are automatically styled to resemble the [`Tag`](/components/tag/) component when multiple options are allowed.
+The selected items are automatically styled to resemble the [Tag](/components/tag) component when multiple options are allowed.
 
 ```handlebars
 <div class="hds-power-select">

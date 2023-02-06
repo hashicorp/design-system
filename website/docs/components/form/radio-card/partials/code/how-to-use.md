@@ -43,7 +43,7 @@ Customizable options include:
 
 - Defining custom content using the `Generic` block
 - Defining a custom width using the `maxWidth` argument
-- Adding multiple [`Badge`](/components/badge) components
+- Adding multiple [Badge](/components/badge) components
 
 ```handlebars
 <Hds::Form::RadioCard::Group @name="radio-card-custom-example" as |G|>

@@ -121,3 +121,23 @@ When reviewing documentation, we check for:
 - instructional design (content hierarchy, how the content flows, can it be easily scanned)
 
 You can expect a few to a few dozen copy edits to update grammar and spelling. It is completely normal to have dozens of copy edit suggestions. You may also receive instructional design recommendations, such as reordering content or adding additional explanations.
+
+### Automated spell checking
+
+When content is updated or added with a pull request spelling is checked automatically in a CI job. Any words that the automated checker (`cspell`) perceives as mispelled will be returned as errors in the job and merging will be blocked.
+
+These errors should be fixed on your local branch prior to merging and can be accomplished by:
+
+1. Running the `cspell` script from the `/website` directory with `yarn lint:spell:docs`.
+2. This script will check all markdown files within the `/docs` directory and return any words that it perceives as errors.
+3. If an error is returned for a word that you believe is spelled correctly, or is specific to the website project, considering adding it to the `/project-words.txt` file.
+    - This file acts as a custom dictionary with relevant brand words (Consul, Helios, HashiCorp) and commonly used documentation language.
+    - Double check your spelling using a different resource prior to adding a word the custom dictionary. While rare, `cspell` sometimes throws errors for commonly used words that may be more recent additions to a dictionary or slang terms.
+4. Once the errors have been resolved in your local branch add a commit for them and any additions to the custom dictionary and push the changes to your PR.
+
+#### Additional configuration notes
+
+- More documentation on `cspell` can be found [here](https://cspell.org/). This implementation is mostly "out of the box" with very little custom configuration.
+- This script currently only checks **markdown** (`.md` files) using a glob in the `/docs` directory, but can easily be extended to check other areas of the application if necessary. Run `yarn cspell "[custom path here]"` to check a specific file or directory.
+    - For example: `yarn cspell "/app/templates/about.hbs"` will check the about handlebars template.
+- `cspell` configuration can be found in `/cspell.json`

@@ -13,7 +13,7 @@ const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-1-2-1',
-    title: '',
+    title: 'Audio-only and Video-only (Prerecorded) (Level A)',
     number: '1.2.1',
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/audio-only-and-video-only-prerecorded.html',
     level: 'A',
@@ -403,7 +403,7 @@ const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-2-4-1',
-    title: 'Bypass Blocks',
+    title: 'Bypass Blocks (Level A)',
     number: '2.4.1',
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html',
     level: 'A',
@@ -508,7 +508,7 @@ const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-2-5-2',
-    title: 'Pointer Gestures',
+    title: 'Pointer Cancellation (Level A)',
     number: '2.5.2',
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation.html',
     level: 'A',
@@ -518,7 +518,7 @@ const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-2-5-3',
-    title: 'Label in Name',
+    title: 'Label in Name (Level A)',
     number: '2.5.3',
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html',
     level: 'A',
@@ -528,7 +528,7 @@ const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-2-5-4',
-    title: 'Motion Actuation',
+    title: 'Motion Actuation (Level A)',
     number: '2.5.4',
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/motion-actuation.html',
     level: 'A',
@@ -538,7 +538,7 @@ const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-2-5-5',
-    title: 'Target Size',
+    title: 'Target Size (Level AAA)',
     number: '2.5.5',
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/target-size',
     level: 'AAA',

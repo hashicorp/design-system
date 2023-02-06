@@ -32,3 +32,14 @@
     margin: 0 auto 0 0;
   }
 }
+
+// PATTERNS PAGE
+// This is temporary and will be removed as soon as a pattern page is added to the section
+
+body.application.patterns {
+  @include breakpoint.medium-and-above () {
+    .doc-page-stage {
+      padding-left: 0;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+// PAGINATION
+
+.dummy-pagination-layout-highlight {
+  .hds-pagination-info,
+  .hds-pagination-nav,
+  .hds-pagination-nav__control,
+  .hds-pagination-nav__ellipsis,
+  .hds-pagination-size-selector {
+    outline: 1px dashed #78909c;
+  }
+}
+
+.dummy-pagination-base-sample {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  min-width: fit-content;
+  margin: 0;
+}
+
+.dummy-pagination-base-sample-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.dummy-pagination-base-sample-row {
+  display: flex;
+  gap: 8px;
+}
+
+.dummy-pagination-ul-wrapper {
+  display: contents;
+  list-style: none;
+}
+
+.dummy-pagination-sample-status-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 0.25rem 1.5rem;
+  align-items: center;
+  width: fit-content;
+}
+
+.dummy-pagination-sample-fake-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// special overrides
+
+.dummy-pagination-base-sample--nav-button-number {
+  .dummy-pagination-sample-fake-list {
+    width: fit-content;
+  }
+}
+
+// paginated tables demo
+
+.dummy-pagination-table-demo {
+  margin: 18px auto 36px;
+
+  .hds-table + .hds-pagination {
+    margin-top: 12px;
+  }
+}
+

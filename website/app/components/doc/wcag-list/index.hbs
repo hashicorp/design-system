@@ -1,8 +1,8 @@
 <div class={{this.classNames}}>
-  <ul class="doc-wcag-list__list">
+  <ul class="doc-list-generic doc-text-body">
     {{#each this.filteredCriteria as |criterion|}}
-      <li class="doc-wcag-list__listitem">
-        <a href={{criterion.url}} class="doc-wcag-listitem__link doc-link-generic">
+      <li>
+        <a href={{criterion.url}} class="doc-link-generic">
           {{criterion.number}}
           {{criterion.title}}:</a>
         <br />

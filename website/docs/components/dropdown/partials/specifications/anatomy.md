@@ -1,42 +1,34 @@
-## Dropdown Anatomy
+## Anatomy
 
-![Dropdown anatomy](/assets/components/dropdown/dropdown-anatomy.png)
+### Dropdown
+
+![Dropdown anatomy](/assets/components/dropdown/dropdown-anatomy.png =374x*)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Toggle           | Required                                        |
 | List             | Required (only visible when open)               |
 
-## Toggle Anatomy
+### Toggle
 
-### Button
+<Doc::Layout @spacing="48px">
+    ![Toggle button anatomy](/assets/components/dropdown/dropdown-button-anatomy.png =278x*)
+    ![Toggle icon anatomy](/assets/components/dropdown/dropdown-icon-anatomy.png =794x*)
+</Doc::Layout>
 
-![Toggle button anatomy](/assets/components/dropdown/dropdown-button-anatomy.png)
+| Element                   | Usage                                           |
+|---------------------------|-------------------------------------------------|
+| Text, Icon, or Avatar     | One is required                                 |
+| Chevron                   | Required, except on the Overflow toggle         |
+| Container                 | Required                                        |
 
-### Icon
+### ListItem
 
-![Toggle icon anatomy](/assets/components/dropdown/dropdown-icon-anatomy.png)
+![Dropdown ListItem anatomy](/assets/components/dropdown/dropdown-listitem-anatomy.png =820x*)
 
-## ListItem Anatomy
-
-![Dropdown ListItem anatomy](/assets/components/dropdown/dropdown-listitem-anatomy.png)
-
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Text             | Required                                        |
-| Icon             | Required for Critical ListItems, otherwise optional.               |
-| Indicator        | Visible in hover and active state               |
-| Focus ring       | Visible in focus state                          |
-
-## CopyItem Anatomy
-
-<!-- ![Dropdown CopyItem anatomy](/assets/components/dropdown/dropdown-copybutton-anatomy.png) -->
-
-![Dropdown CopyButton anatomy](/assets/components/dropdown/dropdown-copybutton-anatomy.png)
-
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Title            | Optional                                        |
-| Text             | Required                                        |
-| Copy Icon        | Required                                        |
-| Focus ring       | Visible in focus state                          |
+| Element          | Usage                                                    |
+|------------------|----------------------------------------------------------|
+| Text             | Required                                                 |
+| Icon             | Required for Critical ListItems; Optional otherwise      |
+| Indicator        | Visible in hover and active state                        |
+| Focus ring       | Visible in focus state                                   |

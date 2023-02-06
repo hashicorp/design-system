@@ -1,0 +1,28 @@
+{{#if @disabled}}
+  <Hds::Interactive class={{this.classNames}} aria-label={{this.content.ariaLabel}} disabled={{true}} ...attributes>
+    <FlightIcon @name={{this.content.icon}} />
+    {{#if this.showLabel}}
+      <span class="hds-pagination-nav__arrow-label" aria-hidden="true">
+        {{this.content.label}}
+      </span>
+    {{/if}}
+  </Hds::Interactive>
+{{else}}
+  <Hds::Interactive
+    class={{this.classNames}}
+    @route={{@route}}
+    @query={{hds-link-to-query @query}}
+    @models={{hds-link-to-models @model @models}}
+    @replace={{@replace}}
+    {{on "click" this.onClick}}
+    aria-label={{this.content.ariaLabel}}
+    ...attributes
+  >
+    <FlightIcon @name={{this.content.icon}} />
+    {{#if this.showLabel}}
+      <span class="hds-pagination-nav__arrow-label" aria-hidden="true">
+        {{this.content.label}}
+      </span>
+    {{/if}}
+  </Hds::Interactive>
+{{/if}}
