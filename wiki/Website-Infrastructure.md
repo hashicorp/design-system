@@ -181,8 +181,12 @@ We did encounter a problem with fingerprinting of a specific image markdown synt
 
 ## Server side rendering and fastboot
 
-The website uses a combination of [ember-cli-fasboot](https://github.com/ember-fastboot/ember-cli-fastboot) and [prember](https://github.com/ef4/prember) to pre-render static versions of routes at build time. Fastboot is enabled by default for local development, however prember is not. Use the command `yarn start:prember` to temporarily enable pre-rendering, but note that this is much slower and not recommended for normal development.
+The website uses a combination of [ember-cli-fasboot](https://github.com/ember-fastboot/ember-cli-fastboot) and [prember](https://github.com/ef4/prember) to pre-render static versions of routes at build time. 
 
-Our configuration mirrors what is outlined in each project's readme, with the only notable local configuration being done in [website/lib/markdown/index.js](../website/lib/markdown/index.js). This file has a `urlsForPrember()` function which tells prember which routes we want it to pre-render. This logic resides here as this is the point where we know the dynamically generated list of component/foundation URLs.
+Fastboot is meant to allow us to serve the site to users without JavaScript enabled, but in practice this is not a goal we currently support as there are multiple instances of behavior we rely on that doesn't work without JavaScript. We do still attempt to leverage the [fastboot service](https://github.com/ember-fastboot/ember-cli-fastboot#fastboot-service) to place guards around logic we know to only work outside the Fastboot context.
+
+Fastboot is enabled by default for local development, however prember is not. Use the command `yarn start:prember` to temporarily enable pre-rendering, but note that this is much slower and not recommended for normal development.
+
+Our configuration mirrors what is outlined in each project's readme, with the only notable local configuration being done in [website/lib/markdown/index.js](../website/lib/markdown/index.js). This file has a `urlsForPrember()` function which tells prember which routes we want it to pre-render. This logic resides here as this is the point where we know the dynamically generated list of component/foundation URLs
 
 Additionally, we use [prember-sitemap-generator](https://github.com/shipshapecode/prember-sitemap-generator) to generate a sitemap based on the same prember config we use for pre-rendering static pages. Configuration for this lives in the website's [ember-cli-build.js](../website/ember-cli-build.js)
