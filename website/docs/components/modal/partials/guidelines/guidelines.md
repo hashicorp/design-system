@@ -24,7 +24,7 @@ Common examples include:
 - Simple requests of information from the user.
 - Quick confirmations of actions taken by the user.
 
-<Hds::Modal @size="medium" @color="neutral" open as |M|>
+<Hds::Modal @size="medium" @color="neutral" class="doc-modal-demo" open as |M|>
   <M.Header>
     Neutral modal
   </M.Header>
@@ -49,7 +49,7 @@ Common examples include:
 - Archiving an item that can be recovered.
 - Changing a setting that may require the user to re-authenticate or perform an action again.
 
-<Hds::Modal @size="medium" @color="warning" open as |M|>
+<Hds::Modal @size="medium" @color="warning" class="doc-modal-demo" open as |M|>
   <M.Header>
     Warning modal
   </M.Header>
@@ -74,7 +74,7 @@ Common examples include:
 - Modifying a setting that cannot be changed or reversed in the future.
 - Alerting the user of unsaved changes that will be discarded.
 
-<Hds::Modal @size="medium" @color="critical" open as |M|>
+<Hds::Modal @size="medium" @color="critical" class="doc-modal-demo" open as |M|>
   <M.Header>
     Critical Modal
   </M.Header>
@@ -95,7 +95,7 @@ Common examples include:
 
 We recommend using the **medium** size Modal for most scenarios, but use the size that best accounts for the complexity of the content and intended speed of interaction. We do not recommend resizing the Modal manually.
 
-<Hds::Modal @size="small" id="size-small-modal-first" open as |M|>
+<Hds::Modal @size="small" id="size-small-modal-first" class="doc-modal-demo" open as |M|>
   <M.Header>
     Small modal
   </M.Header>
@@ -110,7 +110,7 @@ We recommend using the **medium** size Modal for most scenarios, but use the siz
   </M.Footer>
 </Hds::Modal>
 
-<Hds::Modal @size="medium" id="size-medium-modal" open as |M|>
+<Hds::Modal @size="medium" id="size-medium-modal" class="doc-modal-demo" open as |M|>
   <M.Header>
     Medium modal
   </M.Header>
@@ -125,7 +125,7 @@ We recommend using the **medium** size Modal for most scenarios, but use the siz
   </M.Footer>
 </Hds::Modal>
 
-<Hds::Modal @size="large" id="size-large-modal" open as |M|>
+<Hds::Modal @size="large" id="size-large-modal" class="doc-modal-demo" open as |M|>
   <M.Header>
     Large modal
   </M.Header>
@@ -189,7 +189,7 @@ A tagline helps the user maintain the context of the feature, function, or flow 
 
 Modals can take on many different types of content, from text-based content to simple forms. 
 
-<Hds::Modal @size="small" @color="neutral" open as |M|>
+<Hds::Modal @size="small" @color="neutral" class="doc-modal-demo" open as |M|>
   <M.Header>
     Default
   </M.Header>
@@ -307,5 +307,4 @@ If a user attempts to dismiss a Modal that contains a partially filled form or o
 - The default browser notification is being triggered calling attention to a potential misstep.
 - Partially filled form data is persisted within the application to prevent duplicative work.
 
-![Default browser notification](/assets/components/modal/modal-default-browser-notification.png =542x*)
-!!!
+![Default browser notification](/assets/components/modal/modal-default-browser-notification.png =271x*)

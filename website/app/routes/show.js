@@ -99,7 +99,6 @@ export default class ShowRoute extends Route {
         const hasCover = frontmatter?.layout?.cover ?? true;
         // TODO! probably we should also check if we have TOC data for the sidecar
         const hasSidecar = frontmatter?.layout?.sidecar ?? true;
-
         const showContentId = `show-content-${res.data.id
           .replace(/\/index$/, '')
           .replace('/', '-')}`;

@@ -1,26 +1,24 @@
 ## Conformance
 
-**Note:** Putting this in for now, can adjust when the component is built.
-
 <Doc::Badge @type='success'>Conformant</Doc::Badge>
 
 The Flyout component is conformant when used as directed.
 
 ## Focus
 
-- When a Flyout is triggered, focus is trapped within the component.
-    - If there are no interactive elements within the body of the Flyout, the dismiss button should receive focus as the first interactive element in the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
-    - If there is an interactive element within the body (like a link), that element should receive focus first.
-- Since a Flyout is a complex component that can contain any combination of nested components and content, nested elements must adhere to their individual accessibility criteria.
-
-### Focus within a simple Flyout
-
-If the Flyout is triggered via the keyboard and there isn’t any content in the body eligible to receive focus, the dismiss button receives focus first.
+When a Flyout is triggered, focus is trapped within the component.
+The dismiss button should receive focus as the first interactive element in the [DOM (document object model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 
 ![Focus order within a simple Flyout](/assets/components/flyout/flyout-focus-order-simple.png)
 
-### Focus within a complex Flyout
+### Applicable WCAG Success Criteria
 
-If the Flyout body contains interactive content (like a link), the first interactive element should receive focus first and the dismiss button should receive focus last.
+This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:
 
-![Focus order with a complex Flyout](/assets/components/flyout/flyout-focus-order-complex.png)
+<Doc::WcagList @criteriaList={{array "1.1.1" "1.3.1" "1.3.2" "1.3.3" "1.3.5" "1.4.1" "1.4.3" "1.4.4" "1.4.5" "1.4.10" "1.4.11" "1.4.12" "1.4.13" "2.1.1" "2.1.2" "2.1.4" "2.4.2" "2.4.3" "2.4.6" "2.4.7" "3.2.1" "3.2.2" "3.3.1" "3.3.2" "3.3.3" "3.3.4" "4.1.1" "4.1.2" "4.1.3" }} />
+
+---
+
+## Support
+
+If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).

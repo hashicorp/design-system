@@ -1,9 +1,12 @@
 ---
 title: Flyout
-description: Displays additional details and information about an item or object overlaid on the main page content.
+description: Displays additional details and information about an item or object, overlaid on the main page content.
+caption: Displays additional details and information about an item or object, overlaid on the main page content.
 status: experimental
+links:
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/flyout
 previewImage: assets/illustrations/components/flyout.jpg
-hidden: true
+keywords: ['drawer', 'panel', 'side', 'modal']
 ---
 
 <section data-tab="Guidelines">
