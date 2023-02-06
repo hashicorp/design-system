@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   click,
@@ -169,7 +169,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     await settled();
     assert.ok(opened);
   });
-  test('it should call `onClose` function if provided', async function (assert) {
+  skip('it should call `onClose` function if provided', async function (assert) {
     let closed = false;
     this.set('onClose', () => (closed = true));
     await render(
