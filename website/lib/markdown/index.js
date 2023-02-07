@@ -73,7 +73,10 @@ module.exports = {
       'patterns',
       'error',
     ];
-    const docsURLs = flatPageListJson.flat.map((page) => page.pageURL);
+    const docsURLs = flatPageListJson.flat
+      // since this list will used to generate the sitemap.xml file, we need to hide the `hidden` pages from the output
+      .filter((page) => !page.pageAttributes?.navigation?.hidden)
+      .map((page) => page.pageURL);
 
     return [...staticURLs, ...docsURLs];
   },
