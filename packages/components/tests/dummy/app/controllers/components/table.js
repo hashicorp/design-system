@@ -16,8 +16,8 @@ export default class ComponentsTableController extends Controller {
     ];
 
     return (a, b) => {
-      const aIndex = myCustomDataArray.indexOf(a['badge-color']);
-      const bIndex = myCustomDataArray.indexOf(b['badge-color']);
+      const aIndex = myCustomDataArray.indexOf(a['badge-color.name']);
+      const bIndex = myCustomDataArray.indexOf(b['badge-color.name']);
       if (aIndex < bIndex) {
         return -1;
       } else if (aIndex > bIndex) {
