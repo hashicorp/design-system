@@ -112,3 +112,8 @@
     transition-property: left, width;
   }
 }
+
+// Prevent consumers from accidentally overriding default styling of HTML “hidden” attribute
+.hds-tabs__panel[hidden] {
+  display: none !important;
+}
