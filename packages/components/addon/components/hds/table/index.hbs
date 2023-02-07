@@ -32,7 +32,7 @@
   </thead>
   <tbody class="hds-table__tbody">
     {{#if @columns}}
-      {{#each (sort-by this.getSortCriteria @model) as |data|}}
+      {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |data|}}
         {{yield
           (hash
             Tr=(component "hds/table/tr")

@@ -3,7 +3,8 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class ComponentsTableController extends Controller {
-  // TODO think about query param support
+  // TODO think about query param support;
+  // how do you reset query params??
   queryParams = ['sortBy', 'sortOrder'];
 
   // Will this cause problems if there are other sortable tables?

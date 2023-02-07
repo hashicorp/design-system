@@ -32,6 +32,17 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   /**
+   * @param identityKey
+   * @type {string}
+   * @default '@identity'
+   * @description Returns the key to use for the table rows to provide more granular control. If no identityKey is defined, Ember's default `@identity` is used. See https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each
+   * this would be relevant for any table that would have data that could update or change, i.e., polling.
+   */
+  get identityKey() {
+    return this.args.identityKey ?? '@identity';
+  }
+
+  /**
    * @param sortedMessageText
    * @type {string}
    * @default 'Sorted by ${sortBy} ${sortOrder}ending'
