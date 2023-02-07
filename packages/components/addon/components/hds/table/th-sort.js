@@ -6,6 +6,7 @@ const ALIGNMENTS = ['left', 'center', 'right'];
 const DEFAULT_ALIGN = 'left';
 
 export default class HdsTableThSortComponent extends Component {
+  queryParams = '';
   /**
    * @param ariaSort
    * @type {string}
