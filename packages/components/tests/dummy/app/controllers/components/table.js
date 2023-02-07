@@ -6,12 +6,12 @@ export default class ComponentsTableController extends Controller {
   // TODO think about query param support
   queryParams = ['sortBy', 'sortOrder'];
 
-  // these are already tracked in the component, do they also need to be tracked here? Will that cause problems if there are other sortable tables?
-  // @tracked sortBy = 'color';
-  // @tracked sortOrder = 'asc';
+  // Will this cause problems if there are other sortable tables?
+  @tracked sortBy = 'color';
+  @tracked sortOrder = 'asc';
 
-  @tracked sortBy;
-  @tracked sortOrder;
+  // @tracked sortBy;
+  // @tracked sortOrder;
 
   get customSortMethod() {
     if (this.sortBy === 'color') {
@@ -41,7 +41,7 @@ export default class ComponentsTableController extends Controller {
 
   @action
   customOnSort(sortBy, sortOrder) {
-    console.log('customOnSort', sortBy, sortOrder);
+    // console.log('customOnSort', sortBy, sortOrder);
     this.sortBy = sortBy;
     this.sortOrder = sortOrder;
   }

@@ -2,8 +2,8 @@
 <h2 class="dummy-h2">
   Table
 </h2>
-<section>
-  {{!-- <h3 class="dummy-h3" id="overview">
+{{!-- <section>
+<h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
   </h3>
@@ -613,7 +613,7 @@
       determined; states, properties, and values that can be set by the user can be programmatically set; and
       notification of changes to these items is available to user agents, including assistive technologies</li>
   </ul>
-</section>
+</section> --}}
 <section data-test-percy>
   <h3 class="dummy-h3" id="showcase">
     <a href="#showcase" class="dummy-link-section">§</a>
@@ -866,7 +866,7 @@
           </div>
         </B.Td>
         <B.Td>
-          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color}} />
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
         </B.Td>
         <B.Td>
           <Hds::ButtonSet>
@@ -897,7 +897,7 @@
     </:body>
   </Hds::Table>
   <h4 class="dummy-h4">
-    Sortable table (with non-standard sort)
+    Sortable table (with non-standard sort, "badge-color" shaped with name/key in model)
   </h4>
   <Hds::Table
     @model={{this.model.data}}
@@ -905,7 +905,7 @@
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album")
       (hash key="year" label="Release Year")
-      (hash key="badge-color.key" label="Color" isSortable="true")
+      (hash key="badge-color.key" label="Color as Status" isSortable="true")
     }}
     @sortBy="badge-color.key"
   >
@@ -923,59 +923,59 @@
         </B.Td>
       </B.Tr>
     </:body>
+  </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table with customSortMethod on "Status" column, standard sort on "Artist" column
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+      (hash key="color" label="Status" isSortable="true")
+    }}
+    @customSortMethod={{this.customSortMethod}}
+    @sortBy={{this.sortBy}}
+    @sortOrder={{this.sortOrder}}
+    @onSort={{this.customOnSort}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.color}} @type={{B.data.badge-type}} @color={{B.data.color}} />
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  {{!-- <h4 class="dummy-h4">
+    (Duplicate) Sortable table with customSortMethod
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+      (hash key="color" label="Status" isSortable="true")
+    }}
+    @customSortMethod={{this.customSortMethod}}
+    @sortBy={{this.sortBy}}
+    @sortOrder={{this.sortOrder}}
+    @onSort={{this.customOnSort}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.color}} @type={{B.data.badge-type}} @color={{B.data.color}} />
+        </B.Td>
+      </B.Tr>
+    </:body>
   </Hds::Table> --}}
-  <h4 class="dummy-h4">
-    Sortable table with customSortMethod
-  </h4>
-  <Hds::Table
-    @model={{this.model.data}}
-    @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-      (hash key="color" label="Status" isSortable="true")
-    }}
-    @customSortMethod={{this.customSortMethod}}
-    @sortBy={{this.sortBy}}
-    @sortOrder={{this.sortOrder}}
-    @onSort={{this.customOnSort}}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-        <B.Td>
-          <Hds::Badge @text={{B.data.color}} @type={{B.data.badge-type}} @color={{B.data.color}} />
-        </B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <h4 class="dummy-h4">
-    Sortable table with customSortMethod
-  </h4>
-  <Hds::Table
-    @model={{this.model.data}}
-    @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-      (hash key="color" label="Status" isSortable="true")
-    }}
-    @customSortMethod={{this.customSortMethod}}
-    @sortBy={{this.sortBy}}
-    @sortOrder={{this.sortOrder}}
-    @onSort={{this.customOnSort}}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-        <B.Td>
-          <Hds::Badge @text={{B.data.color}} @type={{B.data.badge-type}} @color={{B.data.color}} />
-        </B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
 </section>
