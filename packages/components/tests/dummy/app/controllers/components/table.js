@@ -3,8 +3,12 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class ComponentsTableController extends Controller {
-  @tracked sortBy = '';
-  @tracked sortOrder = '';
+  // TODO think about query param support
+  // queryParams = ['sortBy', 'sortOrder'];
+
+  // these are already tracked in the component, do they also need to be tracked here? Will that cause problems if there are other sortable tables?
+  // @tracked sortBy = 'color';
+  // @tracked sortOrder = 'asc';
 
   get customSortMethod() {
     let myCustomDataArray = [
@@ -15,9 +19,9 @@ export default class ComponentsTableController extends Controller {
       'neutral',
     ];
 
-    return (a, b) => {
-      const aIndex = myCustomDataArray.indexOf(a['badge-color.name']);
-      const bIndex = myCustomDataArray.indexOf(b['badge-color.name']);
+    const sortFn = (a, b) => {
+      const aIndex = myCustomDataArray.indexOf(a['color']);
+      const bIndex = myCustomDataArray.indexOf(b['color']);
       if (aIndex < bIndex) {
         return -1;
       } else if (aIndex > bIndex) {
@@ -26,6 +30,7 @@ export default class ComponentsTableController extends Controller {
         return 0;
       }
     };
+    return myCustomDataArray.sort(sortFn);
   }
 
   @action
