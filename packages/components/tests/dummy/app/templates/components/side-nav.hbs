@@ -80,37 +80,55 @@
     </:header>
 
     <:body>
-      <Hds::SideNav::Section as |G|>
-        <G.Item @icon="dashboard">Dashboard</G.Item>
+      <Hds::SideNav::Section as |S|>
+        <S.Item @icon="dashboard">Dashboard</S.Item>
       </Hds::SideNav::Section>
 
-      <Hds::SideNav::Section @header="Services" as |G|>
-        <G.Item @icon="boundary" @href="#">Boundary</G.Item>
-        <G.Item @icon="consul" @href="#">Consul</G.Item>
-        <G.Item @icon="packer" @href="#">Packer</G.Item>
-        <G.Item @icon="vault" @href="#">Vault</G.Item>
-        <G.Item @icon="lock" @href="#">Vault Secrets</G.Item>
-        <G.Item @icon="terraform" @href="#">Terraform</G.Item>
-        <G.Item @icon="vagrant" @href="#">
-          Vagrant
-          {{! Q: Should badge(s) be part of Item component API instead of adding as yielded content? }}
-          <Hds::Badge @text="Alpha" @type="inverted" @size="small" />
-        </G.Item>
+      <Hds::SideNav::Section @header="Services" as |S|>
+        <S.Item @label="Boundary" @icon="boundary" @href="#" />
+        <S.Item @label="Consul" @icon="consul" @href="#" />
+        <S.Item @label="Packer" @icon="packer" @href="#" />
+        <S.Item @label="Vault" @icon="vault" @href="#" />
+        <S.Item @label="Vault Secrets" @icon="lock" @href="#" />
+        <S.Item @label="Terraform" @icon="terraform" @href="#" />
+        <S.Item @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+
         {{! TODO: Waypoint should have nested links: }}
-        <G.Item @icon="waypoint" @href="#">
-          Waypoint
-          <Hds::Badge @text="Beta" @type="inverted" @size="small" />
-        </G.Item>
+        <S.Item @label="Waypoint" @icon="waypoint" @badge="Alpha" />
+
+        {{! WIP: Thinking through different possible APIs
+        ONE COMPONENT, 2 "TYPES":
+        <S.Item @label="Terraform" @icon="terraform" @badge="Alpha" @count="3" href="#" />
+
+        <S.Item @label="Waypoint" @icon="waypoint" @badge="Alpha" @count="3" @origin="Dashboard" @href="#">
+          <S.Item @label="Waypoint" @href="#">Terraform</S.Item>
+          <S.Item @label="Projects" @href="#">Terraform</S.Item>
+          <S.Item @label="Runners" @href="#">Terraform</S.Item>
+        </S.Item>
+
+        TWO DIFFERENT COMPONENTS:
+        <S.Item @label="Waypoint" @icon="waypoint" @badge="Beta" @href="#" />
+
+        <S.NestedItems @label="Waypoint" @icon="waypoint" @badge="Alpha" @count="3" @origin="Dashboard" @href="#">
+          <L.Item @label="Waypoint" @href="#" />
+          <L.Item @label="Projects" @href="#" />
+          <L.Item @label="Runners" @href="#" />
+          <L.Item @label="Runners" @href="#" />
+        </S.NestedItems>
+        }}
       </Hds::SideNav::Section>
 
-      <Hds::SideNav::Section @header="Default Org" as |G|>
-        <G.Item @icon="network" @href="#">HashiCorp Virtual Networks</G.Item>
+      <Hds::SideNav::Section @header="Default Org" as |S|>
+        <S.Item @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
+
         {{! TODO: Waypoint should have nested links: }}
-        <G.Item @icon="users" @href="#">Access control (IAM)</G.Item>
+        <S.Item @label="Access control (IAM)" @icon="users" @href="#" />
+
         {{! TODO: Waypoint should have nested links: }}
-        <G.Item @icon="credit-card" @href="#">Billing</G.Item>
+        <S.Item @label="Billing" @icon="credit-card" @href="#" />
+
         {{! TODO: Waypoint should have nested links: }}
-        <G.Item @icon="settings" @href="#">Settings</G.Item>
+        <S.Item @label="Settings" @icon="settings" @href="#" />
       </Hds::SideNav::Section>
 
       <Hds::SideNav::Section>

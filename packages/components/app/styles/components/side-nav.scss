@@ -24,6 +24,9 @@
   background: #000;
 }
 
+// TEMP
+.hds-side-nav { outline: 1px dotted; }
+
 
 // Child "wrapper" blocks & child components:
 
@@ -115,7 +118,8 @@
     background: var(--token-color-palette-neutral-600);
   }
 
-  .hds-badge {
+  .hds-badge,
+  .hds-badge-count {
     margin-left: 8px;
   }
 }

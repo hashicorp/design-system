@@ -14,6 +14,14 @@
       <FlightIcon class="hds-side-nav__list-icon" @name={{@icon}} @stretched={{true}} />
     {{/if}}
 
-    {{yield}}
+    {{@label}}
+
+    {{#if @badge}}
+      <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
+    {{/if}}
+
+    {{#if @count}}
+      <Hds::BadgeCount @text={{@count}} @type="inverted" @size="small" />
+    {{/if}}
   </Hds::Interactive>
 </li>
