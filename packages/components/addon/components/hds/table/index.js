@@ -25,8 +25,6 @@ export default class HdsTableIndexComponent extends Component {
       this.args.customSortMethod &&
       typeof this.args.customSortMethod === 'function'
     ) {
-      // question: do we need to set the sortBy and sortOrder here?
-      // if we don't, how do we get the sort criteria to the table header component?
       return this.args.customSortMethod;
     } else {
       return `${this.sortBy}:${this.sortOrder}`;

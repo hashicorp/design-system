@@ -951,4 +951,31 @@
       </B.Tr>
     </:body>
   </Hds::Table>
+  <h4 class="dummy-h4">
+    Sortable table with customSortMethod
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+      (hash key="color" label="Status" isSortable="true")
+    }}
+    @customSortMethod={{this.customSortMethod}}
+    @sortBy={{this.sortBy}}
+    @sortOrder={{this.sortOrder}}
+    @onSort={{this.customOnSort}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.color}} @type={{B.data.badge-type}} @color={{B.data.color}} />
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
 </section>
