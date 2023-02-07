@@ -33,7 +33,7 @@ The `docs` folder contains a set of folders and subfolders, used to organize the
 
 **IMPORTANT**
 
-The way in which the folders and files are organized (essentially the file system) is **very** important: it represents exactly the routing and URL that this content will be accessible at. For example,
+The way in which the folders and files are organized (essentially the file system) is **very** important: it represents exactly the routing and URL at which this content will be accessible. For example,
 the document `./documents/about/hds-principles.md` will be available at the URL `http://.../about/hds-principles/`, the document `./docs/components/form/checkbox/index.md` will be accessible at the URL `http://.../components/form/checkbox/`, etc.
 
 ---
