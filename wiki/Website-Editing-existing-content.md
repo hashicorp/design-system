@@ -18,7 +18,7 @@
 Below you can find a list of things to do when working on the content of an existing documentation page.
 
 ## Frontmatter
-Check that the correct frontmatter attributes are in place. Technically, only the `title` is required, but depending on the page other attributes may be needed as well. Please refer to [the "Frontmatter" documentation](./Website-Doc-folder.md#frontmatter) for details about what attributes are recognized and how to use them, or check in similar pages what attributes are used.
+Check that the correct frontmatter attributes are in place. Technically, only the `title` is required, but depending on the page other attributes may be needed as well. Please refer to [the "Frontmatter" documentation](./Website-Doc-folder.md#frontmatter) for details about what attributes are recognized and how to use them, or check on similar pages what attributes are used.
 
 ## Sections/tabs
 Ensure consistent tab names and order. For components, we use: **Guidelines**, **Code**, **Specifications**, and **Accessibility**. If needing to add a section that is not listed above, speak with the HDS team. Note that not all sections may be necessary for all components. In that case, remove the section from `index.md`.
@@ -124,15 +124,15 @@ You can expect a few to a few dozen copy edits to update grammar and spelling. I
 
 ### Automated spell checking
 
-When content is updated or added with a pull request spelling is checked automatically in a CI job. Any words that the automated checker (`cspell`) perceives as mispelled will be returned as errors in the job and merging will be blocked.
+When content is updated or added with a pull request spelling is checked automatically in a CI job. Any words that the automated checker (`cspell`) perceives as misspelled will be returned as errors in the job and merging will be blocked.
 
 These errors should be fixed on your local branch prior to merging and can be accomplished by:
 
 1. Running the `cspell` script from the `/website` directory with `yarn lint:spell:docs`.
 2. This script will check all markdown files within the `/docs` directory and return any words that it perceives as errors.
-3. If an error is returned for a word that you believe is spelled correctly, or is specific to the website project, considering adding it to the `/project-words.txt` file.
+3. If an error is returned for a word that you believe is spelled correctly, or is specific to the website project, consider adding it to the `/project-words.txt` file.
     - This file acts as a custom dictionary with relevant brand words (Consul, Helios, HashiCorp) and commonly used documentation language.
-    - Double check your spelling using a different resource prior to adding a word the custom dictionary. While rare, `cspell` sometimes throws errors for commonly used words that may be more recent additions to a dictionary or slang terms.
+    - Double-check your spelling using a different resource prior to adding a word to the custom dictionary. While rare, `cspell` sometimes throws errors for commonly used words that may be more recent additions to a dictionary or slang terms.
 4. Once the errors have been resolved in your local branch add a commit for them and any additions to the custom dictionary and push the changes to your PR.
 
 #### Additional configuration notes
