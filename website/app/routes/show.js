@@ -83,7 +83,7 @@ export default class ShowRoute extends Route {
           'status',
           'links',
           'layout',
-          // 'previewImage', @Brian I think we don't need this in the layout, right? or is it needed somehow the <head> metadata?
+          'previewImage', // this is needed by the `head-data` to generate the `og:image` in the page <head>
           'navigation',
         ];
         frontmatterAttributes.forEach((attribute) => {
