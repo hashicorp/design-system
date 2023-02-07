@@ -3,7 +3,7 @@
   Table
 </h2>
 <section>
-  <h3 class="dummy-h3" id="overview">
+  {{!-- <h3 class="dummy-h3" id="overview">
     <a href="#overview" class="dummy-link-section" aria-labelledby="overview">§</a>
     Overview
   </h3>
@@ -908,6 +908,37 @@
       (hash key="badge-color.key" label="Color" isSortable="true")
     }}
     @sortBy="badge-color.key"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>
+          <Hds::Badge
+            @text={{B.data.badge-color.name}}
+            @type={{B.data.badge-type}}
+            @color={{B.data.badge-color.name}}
+          />
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table> --}}
+  <h4 class="dummy-h4">
+    Sortable table with customSortMethod
+  </h4>
+  <Hds::Table
+    @model={{this.model.data}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+      (hash key="badge-color.key" label="Status" isSortable="true")
+    }}
+    @customSortMethod={{this.customSortMethod}}
+    @sortBy={{this.sortBy}}
+    @sortOrder={{this.sortOrder}}
+    @onSort={{this.customOnSort}}
   >
     <:body as |B|>
       <B.Tr>
