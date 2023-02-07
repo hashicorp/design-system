@@ -3,7 +3,7 @@
 
 - [Website / Analytics](#website--analytics)
   - [Enabling](#enabling)
-  - [Configuration](#configuration-of-analytics--monitoring))
+  - [Configuration](#configuration-of-analytics--monitoring)
   - [Viewing stats](#viewing-stats)
 
 ---
@@ -20,4 +20,4 @@ Access to Fathom’s dashboard can be done with credentials stored in the team�
 
 ## Viewing Stats
 
-Read only analytics can be viewed by accessing credentials in the team’s 1Password vault.
+Read-only analytics can be viewed by accessing credentials in the team’s 1Password vault.

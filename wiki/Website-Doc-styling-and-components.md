@@ -60,7 +60,7 @@ You can find the list of available color tokens here: https://github.com/hashico
 
 We have defined a set of breakpoints for each media query needed for the application (and created Sass mixins for them).
 
-You can find the list of available breakpoinst and associated media-query mixins here: [website/app/styles/breakpoints/index.scss](https://github.com/hashicorp/design-system/blob/main/website/app/styles/breakpoints/index.scss).
+You can find the list of available breakpoints and associated media-query mixins here: [website/app/styles/breakpoints/index.scss](https://github.com/hashicorp/design-system/blob/main/website/app/styles/breakpoints/index.scss).
 
 
 ### Grids (layout)
@@ -73,7 +73,7 @@ The "root" grid is defined in [the "page wrapper" element](https://github.com/ha
 
 ![Representation of the top CSS grid, split in 'header', 'sidebar', 'stage', and 'footer'](images/doc-grid-wrapper.png)
 
-Inside the "stage" main area, we have another grid that is responsible of organizing the "page" content:
+Inside the "stage" main area, we have another grid that is responsible for organizing the "page" content:
 
 ![Representation of the stage CSS grid, split in 'cover', 'content', 'sidecar', and '_extra'](images/doc-grid-stage.png)
 
@@ -103,7 +103,7 @@ You can also look at the underlying code if you want to understand how they work
 - https://github.com/hashicorp/design-system/tree/main/website/app/components/doc/page
 - https://github.com/hashicorp/design-system/tree/main/website/app/styles/pages
 
-If you want to see these elements in action, have a look at the website itself https://hds-website-hashicorp.vercel.app/, inspect the pages using the Developer Tools in your browser, check how the CSS grids are used for laying out thes components, try out their responsiveness at different viewports, etc.
+If you want to see these elements in action, have a look at the website itself https://hds-website-hashicorp.vercel.app/, inspect the pages using the Developer Tools in your browser, check how the CSS grids are used for laying out the components, try out their responsiveness at different viewports, etc.
 
 
 ### Documentation components
@@ -226,4 +226,4 @@ If you want to see the underlying code and use it as reference/inspiration:
 
 ### Other components
 
-There are also other components, used only in very specific context or pages. We can't list them all, so look inside the [`website/app/components/doc`](https://github.com/hashicorp/design-system/tree/main/website/app/components/doc/) folder for more details about their code implementation and their APIs, and search in the actual code of the documentation pages for how they are used.
+There are also other components, used only in very specific contexts or pages. We can't list them all, so look inside the [`website/app/components/doc`](https://github.com/hashicorp/design-system/tree/main/website/app/components/doc/) folder for more details about their code implementation and their APIs, and search in the actual code of the documentation pages for how they are used.
