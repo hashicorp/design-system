@@ -11,25 +11,29 @@ export default class ComponentsTableController extends Controller {
   @tracked sortOrder = 'asc';
 
   get customSortMethod() {
-    let myCustomDataArray = [
-      'critical',
-      'warning',
-      'success',
-      'highlight',
-      'neutral',
-    ];
+    if (this.sortBy === 'color') {
+      let myCustomDataArray = [
+        'critical',
+        'warning',
+        'success',
+        'highlight',
+        'neutral',
+      ];
 
-    return (a, b) => {
-      const aIndex = myCustomDataArray.indexOf(a['color']);
-      const bIndex = myCustomDataArray.indexOf(b['color']);
-      if (aIndex < bIndex) {
-        return this.sortOrder === 'asc' ? -1 : 1;
-      } else if (aIndex > bIndex) {
-        return this.sortOrder === 'asc' ? 1 : -1;
-      } else {
-        return 0;
-      }
-    };
+      return (a, b) => {
+        const aIndex = myCustomDataArray.indexOf(a['color']);
+        const bIndex = myCustomDataArray.indexOf(b['color']);
+        if (aIndex < bIndex) {
+          return this.sortOrder === 'asc' ? -1 : 1;
+        } else if (aIndex > bIndex) {
+          return this.sortOrder === 'asc' ? 1 : -1;
+        } else {
+          return 0;
+        }
+      };
+    } else {
+      return `${this.sortBy}:${this.sortOrder}`;
+    }
   }
 
   @action
