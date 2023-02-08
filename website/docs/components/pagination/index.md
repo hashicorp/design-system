@@ -7,6 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18709%3A42011&t=pIE459t8qucXP9uR-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/pagination
 previewImage: assets/illustrations/components/pagination.jpg
+navigation:
+  hidden: true
 ---
 
 <section data-tab="Guidelines">

@@ -1,6 +1,7 @@
 ---
 title: Basic styling
-order: 99
+navigation:
+  order: 99
 ---
 
 # Header 1

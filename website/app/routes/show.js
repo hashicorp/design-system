@@ -83,10 +83,8 @@ export default class ShowRoute extends Route {
           'status',
           'links',
           'layout',
-          'hidden',
-          'order',
-          'previewImage',
-          'keywords',
+          'previewImage', // this is needed by the `head-data` to generate the `og:image` in the page <head>
+          'navigation',
         ];
         frontmatterAttributes.forEach((attribute) => {
           if (attribute in res.data.attributes) {

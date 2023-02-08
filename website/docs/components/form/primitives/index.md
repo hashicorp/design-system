@@ -3,11 +3,12 @@ title: Primitives
 description: Elements used to compose form fields.
 caption: Elements used to compose form fields.
 status: released
-order: 99
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form
 previewImage: assets/illustrations/components/form/primitives.jpg
-keywords: ['form', 'base controls', 'field', 'label', 'legend', 'fieldset', 'input']
+navigation:
+  order: 99
+  keywords: ['form', 'base controls', 'field', 'label', 'legend', 'fieldset', 'input']
 ---
 
 <section data-tab="Guidelines">

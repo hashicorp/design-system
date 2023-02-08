@@ -107,10 +107,12 @@ links:
 layout:
   cover: false
   sidecar: false
-order: 101
-hidden: false
+navigation:
+  order: 101
+  keywords: ['alert', 'toast', 'notification', 'banner', 'message']
+  label: Alert
+  hidden: false
 previewImage: assets/illustrations/components/alert.jpg
-keywords: ['alert', 'toast', 'notification', 'banner', 'message']
 ---
 ```
 
@@ -135,14 +137,18 @@ The "frontmatter" attributes that we support are the following:
       If the page "cover" is visible - default is `true`
     * `sidecar`
       If the page "sidecar" is visible (if not, the content will fill the entire available space) - default is `true`
-*   `order`
-    Used to control the order of the pages in navigational lists (lower value moves up the page, higher value moves it down) - default is `100`
-*   `hidden`
-    Used to hide the page from the sidebar navigation and the lists on the landing pages - default is `false`
+*   `navigation`
+    Meta-information related to the listing of the page in navigational contexts (eg. sidebar, cards).
+    * `order`
+      Used to control the order of the pages in navigational lists (lower value moves up the page, higher value moves it down) - default is `100`
+    * `keywords`
+      An optional list of keywords that the page can be found with, when a filter is applied to a list of pages.
+    * `label`
+      Alternative text to use in the sidebar navigation, instead of the `title` (which is used by default)
+    * `hidden`
+      Used to hide the page from the sidebar navigation and the lists on the landing pages - default is `false`
 *   `previewImage`
     An optional full path to an image used when listing the page as "card" (eg. in landing pages). The path refers to the `dist` folder generated at build time, so is relative to the content of the `/website/public` folder.
-*   `keywords`
-    An optional list of keywords that the page can be found with, when a filter is applied to a list of pages.
 
 
 Only the `title` attribute is technically required, all the others are optional (even though some of them like `description` and `caption` are necessary for component pages).

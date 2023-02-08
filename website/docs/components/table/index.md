@@ -7,7 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18814%3A54972&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/table
 previewImage: assets/illustrations/components/table.jpg
-keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
+navigation:
+  keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
 ---
 
 <section data-tab="Guidelines">

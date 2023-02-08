@@ -6,9 +6,10 @@ status: released
 links:
   figma: {link to the "<%= columnizedModuleName %>" page in the components Figma library}
   github: {link to the "<%= columnizedModuleName %>" component's folder in the GitHub repo}
-hidden: true
 previewImage: assets/illustrations/components/<%= kebabizedModuleName %>.jpg
-keywords: ['add', 'alternate', 'keywords', 'here']
+navigation:
+  hidden: true
+  keywords: ['add', 'alternate', 'keywords', 'here']
 ---
 
 <section data-tab="Guidelines">

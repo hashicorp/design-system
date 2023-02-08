@@ -1,6 +1,7 @@
 ---
 title: Support
-order: 103
+navigation:
+  order: 103
 ---
 
 !!! Info

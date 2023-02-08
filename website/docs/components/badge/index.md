@@ -7,7 +7,8 @@ links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2337%3A20761&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/badge
 previewImage: assets/illustrations/components/badge.jpg
-keywords: ['chip', 'pill', 'tag', 'label']
+navigation:
+  keywords: ['chip', 'pill', 'tag', 'label']
 ---
 
 <section data-tab="Guidelines">
