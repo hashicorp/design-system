@@ -978,4 +978,39 @@
       </B.Tr>
     </:body>
   </Hds::Table> --}}
+
+  <h4 class="dummy-h4">
+    Custom sortable table without model provided
+  </h4>
+  <Hds::Table>
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort
+          @isSorted={{eq "artist" this.sortBy}}
+          @sortOrder={{this.sortOrder}}
+          @onClick={{(fn this.onClickThCustomSort "artist")}}
+        >Artist</H.ThSort>
+        <H.Th>Album</H.Th>
+        <H.Th>Release Year</H.Th>
+        <H.ThSort
+          @isSorted={{eq "color" this.sortBy}}
+          @sortOrder={{this.sortOrder}}
+          @onClick={{(fn this.onClickThCustomSort "color")}}
+        >Status</H.ThSort>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      {{#each (sort-by this.customSortMethod this.model.data) as |data|}}
+        <B.Tr>
+          <B.Td>{{data.artist}}</B.Td>
+          <B.Td>{{data.album}}</B.Td>
+          <B.Td>{{data.year}}</B.Td>
+          <B.Td>
+            <Hds::Badge @text={{data.color}} @type={{data.badge-type}} @color={{data.color}} />
+          </B.Td>
+        </B.Tr>
+      {{/each}}
+    </:body>
+  </Hds::Table>
+
 </section>
