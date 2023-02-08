@@ -7,14 +7,16 @@
     @icon={{@icon}}
     @isRouteExternal={{@isRouteExternal}}
     @current-when={{@current-when}}
-    class="hds-side-nav__link hds-typography-body-200 hds-font-weight-medium"
+    class="hds-side-nav__link"
     ...attributes
   >
     {{#if @icon}}
       <FlightIcon class="hds-side-nav__list-icon" @name={{@icon}} @stretched={{true}} />
     {{/if}}
 
-    {{@label}}
+    <span class="hds-typography-body-200 hds-font-weight-medium">
+      {{@label}}
+    </span>
 
     {{#if @badge}}
       <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
