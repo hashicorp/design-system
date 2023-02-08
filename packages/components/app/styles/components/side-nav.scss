@@ -63,11 +63,11 @@
   &:hover {
     background: var(--token-color-palette-neutral-600);
   }
+}
 
-  .hds-button__icon {
-    width: auto;
-    height: 35px;
-  }
+.hds-side-nav__header-logo-icon {
+  width: auto;
+  height: 35px;
 }
 
 // * Sub-component: Body
