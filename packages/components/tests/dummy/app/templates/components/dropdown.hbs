@@ -417,4 +417,59 @@
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Text::H3>Radio</Shw::Text::H3>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>{{state}}</Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>{{state}}</Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+            <Shw::Placeholder @text="custom content" @width="150" @height="20" @background="#eee" />
+          </Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+            <Shw::Placeholder @text="custom content" @width="150" @height="20" @background="#eee" />
+          </Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+            {{state}}
+            with a longer text string that may wrap since max-width is defined on the container
+          </Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <Hds::Dropdown @listPosition="left" as |dd|>
+        <dd.ToggleButton @text="Radio" @color="secondary" />
+        <dd.Radio @name="radio-item-dropdown">virtualbox</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown" checked>vmware</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown">docker</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown">hyperv</dd.Radio>
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
 </section>

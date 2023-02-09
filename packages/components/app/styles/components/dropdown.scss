@@ -448,7 +448,8 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-.hds-dropdown-list-item--checkbox {
+.hds-dropdown-list-item--checkbox,
+.hds-dropdown-list-item--radio {
   padding: 8px 16px;
 
   .hds-form-label {
