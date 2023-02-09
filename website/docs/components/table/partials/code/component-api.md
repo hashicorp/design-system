@@ -17,7 +17,7 @@ The Table component itself is where most of the options will be applied. However
     If defined, sets the data source that gets yielded by the `:body` named block.
   </C.Property>
   <C.Property @name="columns" @type="array" @valueNoteList={{array "key (required)" "label (required)" "isSortable" "align" "width" }}>
-  Use an `array` hash to define each column's arguments:
+  Use an `array hash` to define each column’s arguments:
   </C.Property>
   <C.Property @name="sortBy" @type="string">
     If defined, indicates which column should be pre-sorted when the table is rendered.
