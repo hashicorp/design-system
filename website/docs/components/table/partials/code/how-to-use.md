@@ -103,7 +103,7 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 </Hds::Table>
 ```
 
-#### Complex sortable Table
+#### More Examples: internationalized column headers, overflow menu dropdown
 
 Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
