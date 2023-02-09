@@ -26,6 +26,8 @@ export default class HdsTableIndexComponent extends Component {
       typeof this.args.customSortMethod === 'function'
     ) {
       return this.args.customSortMethod;
+    } else if (this?.args?.columns?.[this.sortBy]?.customSortMethod) {
+      return this.args.columns[this.sortBy].customSortMethod;
     } else {
       return `${this.sortBy}:${this.sortOrder}`;
     }
