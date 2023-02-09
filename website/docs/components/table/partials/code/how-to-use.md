@@ -148,3 +148,28 @@ Here’s a table implementation that uses an array hash with localized strings f
   </:body>
 </Hds::Table>
 ```
+
+#### More Examples: replacing components as a pre-adoption step
+
+If you're not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It's a little more typing but it should give you an idea of what will work for you.
+
+```handlebars{data-execute=false}
+<!-- app/templates/components/table.hbs -->
+
+<Hds::Table @model={{this.model}}>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Release Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.artist}}</B.Td>
+      <B.Td>{{B.album}}</B.Td>
+      <B.Td>{{B.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
