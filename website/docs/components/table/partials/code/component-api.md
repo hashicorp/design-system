@@ -32,7 +32,7 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density, or height, of the table’s rows.
   </C.Property>
-  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right"}} @default="left">
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     If set, determines the text alignment for all cell (`td`) content in a table.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
@@ -70,7 +70,7 @@ This component is not eligible to receive interactions (e.g., it cannot have an 
 If a `th` is passed as the first "cell" of a table body row, it has `scope="row"` automatically applied to it for accessibility purposes.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right"}} @default="left">
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     If set, determines the text alignment.
   </C.Property>
   <C.Property @name="...attributes">
@@ -85,9 +85,6 @@ This component is not eligible to receive interactions (e.g., it cannot have an 
 This is the component that supports the column sorting.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="ariaSort" @values={{array "asc "desc"}}>
-   Checks the `isSorted` argument and sets the value of the `aria-sort` attribute accordingly.
-  </C.Property>
   <C.Property @name="onClick" @type="function">
     The action handler; sets the sort by the column key.
   </C.Property>
@@ -101,7 +98,7 @@ This is the component that supports the column sorting.
 This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right"}} @default="left">
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     If set, determines the text alignment.
   </C.Property>
   <C.Property @name="...attributes">
