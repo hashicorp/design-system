@@ -24,7 +24,7 @@
     "lint:js:fix": "eslint . --fix",
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
     "lint:css:fix": "npm-run-all \"lint:css --fix\"",
-    "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context \"docs/**/*.md\"",
+    "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context --no-issues \"docs/**/*.md\"",
     "start": "ember serve",
     "start:prember": "PREMBER=true ember serve",
     "test": "npm-run-all lint test:*",
