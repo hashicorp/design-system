@@ -27,7 +27,7 @@ This component takes advantage of the `sort-by` helper provided in [ember-compos
 
 ### Sortable Table
 
-Add `isSortable=true` to each column’s hash that should be sortable.
+Add `isSortable=true` to the hash for each column that should be sortable.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -52,7 +52,7 @@ Add `isSortable=true` to each column’s hash that should be sortable.
 
 #### Pre-sorting columns
 
-You can also indicate that a specific column should be pre-sorted.
+You can optionally indicate that a specific column should be pre-sorted by adding `@sortBy` where the value is the key of the column.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -78,7 +78,7 @@ You can also indicate that a specific column should be pre-sorted.
 
 ##### Pre-sorting direction
 
-You can also indicate that a specific column should be pre-sorted in a specific direction.
+You can optionally also indicate that the column defined in `@sortBy` should be pre-sorted in a descending order, rather than the default ascending order by passing in `@sortOrder='desc'`.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
