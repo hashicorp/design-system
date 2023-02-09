@@ -17,18 +17,14 @@ export default class HdsTableIndexComponent extends Component {
    * @param getSortCriteria
    * @type {string | function}
    * @default sortBy:sortOrder
-   * @description Returns the sort criteria in the format of "sortBy:sortOrder" unless a customSort function is found.
+   * @description Returns the sort criteria
    */
   get getSortCriteria() {
-    // check for customSortMethod
-    if (
-      this.args.customSortMethod &&
-      typeof this.args.customSortMethod === 'function'
-    ) {
-      return this.args.customSortMethod;
-    } else if (this?.args?.columns?.[this.sortBy]?.customSortMethod) {
-      return this.args.columns[this.sortBy].customSortMethod;
+    // check if there is a custom sorting function associated with the current `sortBy` column
+    if (this?.args?.columns?.[this.sortBy]?.sortingFunction) {
+      return this.args.columns[this.sortBy].sortingFunction;
     } else {
+      // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this.sortBy}:${this.sortOrder}`;
     }
   }
