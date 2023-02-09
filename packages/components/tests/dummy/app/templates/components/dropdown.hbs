@@ -309,7 +309,7 @@
   <Shw::Text::H3>Checkmark</Shw::Text::H3>
   <Shw::Flex as |SF|>
     <SF.Item>
-      <ul class="hds-dropdown-list">
+      <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
             {{state}}
@@ -318,7 +318,7 @@
       </ul>
     </SF.Item>
     <SF.Item>
-      <ul class="hds-dropdown-list">
+      <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
             {{state}}
@@ -327,7 +327,7 @@
       </ul>
     </SF.Item>
     <SF.Item>
-      <ul class="hds-dropdown-list">
+      <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
             <Shw::Placeholder @text="custom content" @width="150" @height="20" @background="#eee" />
@@ -336,7 +336,7 @@
       </ul>
     </SF.Item>
     <SF.Item>
-      <ul class="hds-dropdown-list">
+      <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
             <Shw::Placeholder @text="custom content" @width="150" @height="20" @background="#eee" />
@@ -345,7 +345,7 @@
       </ul>
     </SF.Item>
     <SF.Item>
-      <ul class="hds-dropdown-list">
+      <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
             {{state}} with a longer text string that may wrap since max-width is defined on the container

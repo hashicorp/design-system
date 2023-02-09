@@ -1,3 +1,4 @@
+{{! template-lint-disable require-context-role }}
 <li class={{this.classNames}}>
   <Hds::Interactive
     @current-when={{@current-when}}
@@ -10,6 +11,8 @@
     @isHrefExternal={{@isHrefExternal}}
     class="hds-dropdown-list-item__interactive"
     ...attributes
+    role="option"
+    aria-selected={{if @selected "true" "false"}}
   >
     <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
       {{yield}}

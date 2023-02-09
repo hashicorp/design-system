@@ -12,7 +12,7 @@
     }}
   </:toggle>
   <:content as |c|>
-    <ul class={{this.listClassNames}} {{style width=@width}}>
+    <ul class={{this.listClassNames}} {{style width=@width}} role="listbox">
       {{yield
         (hash
           close=c.close

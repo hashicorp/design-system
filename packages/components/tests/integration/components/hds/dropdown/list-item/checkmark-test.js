@@ -66,5 +66,17 @@ module(
         .dom('.hds-dropdown-list-item')
         .hasClass('hds-dropdown-list-item--checkmark-selected');
     });
+
+    // ACCESSIBILITY
+
+    test('it should present the interactive element as a selectable option', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Checkmark @selected={{true}}>Checkmark item</Hds::Dropdown::ListItem::Checkmark>`
+      );
+      assert
+        .dom('.hds-dropdown-list-item__interactive')
+        .hasAttribute('role', 'option')
+        .hasAttribute('aria-selected', 'true');
+    });
   }
 );
