@@ -2,6 +2,14 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+const customSortingCriteriaArray = [
+  'critical',
+  'warning',
+  'success',
+  'highlight',
+  'neutral',
+];
+
 export default class ComponentsTableController extends Controller {
   queryParams = ['sortBy', 'sortOrder'];
 
@@ -10,17 +18,9 @@ export default class ComponentsTableController extends Controller {
 
   get customSortMethod() {
     if (this.sortBy === 'color') {
-      let myCustomDataArray = [
-        'critical',
-        'warning',
-        'success',
-        'highlight',
-        'neutral',
-      ];
-
       return (a, b) => {
-        const aIndex = myCustomDataArray.indexOf(a['color']);
-        const bIndex = myCustomDataArray.indexOf(b['color']);
+        const aIndex = customSortingCriteriaArray.indexOf(a['color']);
+        const bIndex = customSortingCriteriaArray.indexOf(b['color']);
         if (aIndex < bIndex) {
           return this.sortOrder === 'asc' ? -1 : 1;
         } else if (aIndex > bIndex) {
@@ -30,8 +30,22 @@ export default class ComponentsTableController extends Controller {
         }
       };
     } else {
-      return `${this.sortBy}:${this.sortOrder}`;
+      return () => `${this.sortBy}:${this.sortOrder}`;
     }
+  }
+
+  get customSortMethodInColumnHash() {
+    return (a, b) => {
+      const aIndex = customSortingCriteriaArray.indexOf(a['color']);
+      const bIndex = customSortingCriteriaArray.indexOf(b['color']);
+      if (aIndex < bIndex) {
+        return this.sortOrder === 'asc' ? -1 : 1;
+      } else if (aIndex > bIndex) {
+        return this.sortOrder === 'asc' ? 1 : -1;
+      } else {
+        return 0;
+      }
+    };
   }
 
   @action
