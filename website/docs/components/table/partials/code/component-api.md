@@ -2,9 +2,7 @@
 
 The Table component itself is where most of the options will be applied. However, the child components can also be used if a custom implementation is needed.
 
-- The `Hds::Table::Tr` component is a template-only component. It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) but is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
-- The `Hds::Table::Th` component is a template-only component. It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) and can contain interactive elements but is not eligible to receive interactions itself. It‘s unlikely you‘ll need to add interactive elements, as sorting is already provided.
-- The `Hds::Table::Td` component is a template-only component. It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) and can contain interactive elements (e.g., `<td><a href="user-info.html">User info</a></td>`) but is not eligible to receive interactions itself (e.g., it cannot have an `onClick` event handler attached directly to it).
+### Table
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
@@ -43,7 +41,41 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="...attributes">
     Supported for the `Hds::Table` component.
   </C.Property>
-   <C.Property @name="onSort" @type="function">
+     <C.Property @name="onSort" @type="function">
     Automatically applied to sortable table headers, `onSort` is the callback function that is invoked when one of the sortable table headers is clicked (or has a keyboard interaction performed). The function receives the values of `sortBy` and `sortOrder` as arguments.
   </C.Property>
 </Doc::ComponentApi>
+
+### Table::Tr
+
+The `Hds::Table::Tr` component is a template-only component.
+
+It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) but is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it).
+
+It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
+
+<!-- <Doc::ComponentApi as |C|>
+</Doc::ComponentApi> -->
+
+### Table::Th
+
+The `Hds::Table::Th` supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). While it can **contain** interactive elements, it cannot have actions attached to it.
+
+<!-- <Doc::ComponentApi as |C|>
+</Doc::ComponentApi> -->
+
+### Table::ThSort
+
+The `Hds::Table::ThSort` supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). While it can **contain** interactive elements, it cannot have actions attached to it.
+
+This is the component that supports the column sorting.
+
+<!-- <Doc::ComponentApi as |C|>
+</Doc::ComponentApi> -->
+
+### Table::Td
+
+The `Hds::Table::Td` component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). While it can **contain** interactive elements (e.g., `<td><a href="user-info.html">User info</a></td>`) but is not eligible to receive interactions itself (e.g., it cannot have an `onClick` or other actions attached directly to it).
+
+<!-- <Doc::ComponentApi as |C|>
+</Doc::ComponentApi> -->
