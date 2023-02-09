@@ -1,0 +1,18 @@
+<li class={{this.classNames}}>
+  <Hds::Interactive
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    class="hds-dropdown-list-item__interactive"
+    ...attributes
+  >
+    <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
+      {{yield}}
+    </div>
+  </Hds::Interactive>
+</li>
