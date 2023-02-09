@@ -86,7 +86,7 @@ This is the component that supports the column sorting.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="onClick" @type="function">
-    The action handler; sets the sort by the column key.
+    The action handler; sets the sort to the column key.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports the use of `...attributes`.
