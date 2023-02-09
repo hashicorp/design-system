@@ -11,7 +11,6 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
-  @tracked sortedMessageText;
 
   /**
    * @param getSortCriteria
@@ -49,6 +48,7 @@ export default class HdsTableIndexComponent extends Component {
   get sortedMessageText() {
     return (
       this.args.sortedMessageText ??
+      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
       `Sorted by ${this.sortBy} ${this.sortOrder}ending`
     );
   }
@@ -152,9 +152,6 @@ export default class HdsTableIndexComponent extends Component {
       this.sortBy = column;
       this.sortOrder = 'asc';
     }
-    // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-    // see get sortedMessageText() above...can we use that here?
-    this.sortedMessageText = `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
 
     let { onSort } = this.args;
 
