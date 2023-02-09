@@ -35,6 +35,20 @@
     <dt class="doc-component-api__term doc-component-api__term--description">Description</dt>
     <dd class="doc-component-api__description doc-component-api__description--description">
       {{yield}}
+      {{#if @valueNoteList}}
+        <ul class="doc-list-generic doc-component-api__description" role="list">
+          {{#each @valueNoteList as |valueNoteListItem|}}
+            <li class="doc-component-api__property-value-item">
+              <code class="doc-markdown-code">{{valueNoteListItem.code}}</code>
+              {{#if (eq valueNoteListItem.required "true")}}
+                <Doc::Badge @type="outlined">Required</Doc::Badge>
+              {{/if}}
+              ⁠—
+              {{valueNoteListItem.text}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
     </dd>
   {{/if}}
 </dl>
