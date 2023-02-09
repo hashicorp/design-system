@@ -447,3 +447,11 @@ $hds-dropdown-toggle-border-radius: 5px;
     color: var(--token-color-foreground-action-active);
   }
 }
+
+.hds-dropdown-list-item--checkbox {
+  padding: 8px 16px;
+
+  .hds-form-label {
+    font-weight: normal;
+  }
+}
