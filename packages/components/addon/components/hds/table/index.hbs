@@ -32,13 +32,13 @@
   </thead>
   <tbody class="hds-table__tbody">
     {{#if @columns}}
-      {{#each (sort-by this.getSortCriteria @model) as |data|}}
+      {{#each (sort-by this.getSortCriteria @model) as |record|}}
         {{yield
           (hash
             Tr=(component "hds/table/tr")
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
-            data=data
+            data=record
           )
           to="body"
         }}
