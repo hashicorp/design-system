@@ -1,6 +1,6 @@
 ## Component API
 
-The Table component itself is where most of the options will be applied. However, the child components can also be used if a custom implementation is needed.
+The Table component itself is where most of the options will be applied. However, the API for the child components are also documented here, in case a custom implementation is desired.
 
 ### Table
 
@@ -32,6 +32,9 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density, or height, of the table’s rows.
   </C.Property>
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right"}} @default="left">
+    If set, determines the text alignment for all cell (`td`) content in a table.
+  </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
     If set, determines the vertical alignment for all cell (`td`) content in a table. Does not apply to table headers (`th`).
   </C.Property>
@@ -41,7 +44,7 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="...attributes">
     Supported for the `Hds::Table` component.
   </C.Property>
-     <C.Property @name="onSort" @type="function">
+  <C.Property @name="onSort" @type="function">
     Automatically applied to sortable table headers, `onSort` is the callback function that is invoked when one of the sortable table headers is clicked (or has a keyboard interaction performed). The function receives the values of `sortBy` and `sortOrder` as arguments.
   </C.Property>
 </Doc::ComponentApi>
@@ -50,32 +53,58 @@ The Table component itself is where most of the options will be applied. However
 
 The `Hds::Table::Tr` component is a template-only component.
 
-It supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering) but is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it).
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
 It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
 
-<!-- <Doc::ComponentApi as |C|>
-</Doc::ComponentApi> -->
+<Doc::ComponentApi as |C|>
+    <C.Property @name="...attributes">
+    This component supports the use of `...attributes`.
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Table::Th
 
-The `Hds::Table::Th` supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). While it can **contain** interactive elements, it cannot have actions attached to it.
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
-<!-- <Doc::ComponentApi as |C|>
-</Doc::ComponentApi> -->
+If a `th` is passed as the first "cell" of a table body row, it has `scope="row"` automatically applied to it for accessibility purposes.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right"}} @default="left">
+    If set, determines the text alignment.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports the use of `...attributes`.
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Table::ThSort
 
-The `Hds::Table::ThSort` supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). While it can **contain** interactive elements, it cannot have actions attached to it.
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
 This is the component that supports the column sorting.
 
-<!-- <Doc::ComponentApi as |C|>
-</Doc::ComponentApi> -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="ariaSort" @values={{array "asc "desc"}}>
+   Checks the `isSorted` argument and sets the value of the `aria-sort` attribute accordingly.
+  </C.Property>
+  <C.Property @name="onClick" @type="function">
+    The action handler; sets the sort by the column key.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports the use of `...attributes`.
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Table::Td
 
-The `Hds::Table::Td` component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). While it can **contain** interactive elements (e.g., `<td><a href="user-info.html">User info</a></td>`) but is not eligible to receive interactions itself (e.g., it cannot have an `onClick` or other actions attached directly to it).
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
-<!-- <Doc::ComponentApi as |C|>
-</Doc::ComponentApi> -->
+<Doc::ComponentApi as |C|>
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right"}} @default="left">
+    If set, determines the text alignment.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports the use of `...attributes`.
+  </C.Property>
+</Doc::ComponentApi>
