@@ -16,8 +16,8 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="model" @type="array">
     If defined, sets the data source that gets yielded by the `:body` named block.
   </C.Property>
-  <C.Property @name="columns" @type="array" @valueNoteList={{array "key (required)" "label (required)" "isSortable" "align" "width" }}>
-  Use an `array hash` to define each column’s arguments:
+  <C.Property @name="columns" @type="array" @valueNoteList={{array (hash code="key" required="true" text="the data record’s key") (hash code="label" required="true" text="can be a string or intl object.") (hash code="isSortable" text="should exist and be set to true if you want the column to be sortable") (hash code="align" text="add this option if you need to set the text-alignment for columns that contain numbers (typically currency)") (hash code="width" text="add this option if you need to define a custom width; any valid CSS unit is acceptable (consumers are responsible for the accessibility of this option).") }}>
+  Use a `hash` within the array to define each column:
   </C.Property>
   <C.Property @name="sortBy" @type="string">
     If defined, indicates which column should be pre-sorted when the table is rendered.
