@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
 const customSortingCriteriaArray = [
   'critical',
@@ -11,8 +10,6 @@ const customSortingCriteriaArray = [
 ];
 
 export default class ComponentsTableController extends Controller {
-  queryParams = ['sortBy', 'sortOrder'];
-
   @tracked sortBy;
   @tracked sortOrder;
 
@@ -28,17 +25,5 @@ export default class ComponentsTableController extends Controller {
         return 0;
       }
     };
-  }
-
-  @action
-  customOnSort(sortBy, sortOrder) {
-    this.sortBy = sortBy;
-    this.sortOrder = sortOrder;
-  }
-
-  @action
-  onClickThCustomSort(column) {
-    this.sortBy = column;
-    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
   }
 }
