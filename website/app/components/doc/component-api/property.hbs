@@ -31,6 +31,19 @@
       {{/if}}
     </dd>
   {{/if}}
+  {{#if @valueList}}
+    <dt class="doc-component-api__term doc-component-api__term--description">Description</dt>
+    <dd class="doc-component-api__description doc-component-api__description--description">
+      <ul class="doc-component-api__property-value-items" role="list">
+        {{#each @valueList as |valueItem|}}
+          <li class="doc-component-api__property-value-item">
+            {{valueItem}}
+          </li>
+        {{/each}}
+      </ul>
+      {{yield}}
+    </dd>
+  {{/if}}
   {{#if (has-block)}}
     <dt class="doc-component-api__term doc-component-api__term--description">Description</dt>
     <dd class="doc-component-api__description doc-component-api__description--description">
