@@ -12,7 +12,7 @@
             <Hds::Table::ThSort
               @isSorted={{eq column.key this.sortBy}}
               @sortOrder={{this.sortOrder}}
-              @onClick={{(fn this.setSortBy column.key)}}
+              @onClick={{fn this.setSortBy column.key}}
               @align={{column.align}}
               @width={{column.width}}
             >
