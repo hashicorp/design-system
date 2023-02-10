@@ -22,6 +22,4 @@ When using icon-only Badges, include annotations of the non-visual experience in
 
 ---
 
-## Support
-
-If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
+<Doc::A11ySupport />

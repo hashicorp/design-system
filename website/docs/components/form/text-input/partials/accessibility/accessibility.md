@@ -24,6 +24,4 @@ This section is for reference only, some descriptions have been truncated for br
 
 ---
 
-## Support
-
-If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
+<Doc::A11ySupport />
