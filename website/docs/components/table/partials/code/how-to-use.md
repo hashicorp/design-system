@@ -84,7 +84,7 @@ You can insert your own content into the and `:body` block and the component wil
 
 **Important**
 
-For clarity, there are a couple of important points to notice here:
+For clarity, there are a couple of important points to note here:
 - provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
 - use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 !!!
