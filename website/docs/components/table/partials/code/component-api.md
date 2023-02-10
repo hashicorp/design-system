@@ -45,7 +45,7 @@ The Table component itself is where most of the options will be applied. However
     Supported for the `Hds::Table` component.
   </C.Property>
   <C.Property @name="onSort" @type="function">
-    Automatically applied to sortable table headers, `onSort` is the callback function that is invoked when one of the sortable table headers is clicked (or has a keyboard interaction performed). The function receives the values of `sortBy` and `sortOrder` as arguments.
+    Callback function that is invoked when one of the sortable table headers is clicked (or has a keyboard interaction performed). The function receives the values of `sortBy` and `sortOrder` as arguments.
   </C.Property>
 </Doc::ComponentApi>
 
