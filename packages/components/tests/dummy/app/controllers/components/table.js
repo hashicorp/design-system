@@ -10,17 +10,16 @@ const customSortingCriteriaArray = [
 ];
 
 export default class ComponentsTableController extends Controller {
-  @tracked sortBy;
-  @tracked sortOrder;
+  @tracked customSortOrderForBadges;
 
   get customSortingMethodForBadges() {
     return (a, b) => {
       const aIndex = customSortingCriteriaArray.indexOf(a['color']);
       const bIndex = customSortingCriteriaArray.indexOf(b['color']);
       if (aIndex < bIndex) {
-        return this.sortOrder === 'asc' ? -1 : 1;
+        return this.customSortOrderForBadges === 'asc' ? -1 : 1;
       } else if (aIndex > bIndex) {
-        return this.sortOrder === 'asc' ? 1 : -1;
+        return this.customSortOrderForBadges === 'asc' ? 1 : -1;
       } else {
         return 0;
       }
