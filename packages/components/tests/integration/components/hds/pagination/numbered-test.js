@@ -97,6 +97,13 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       .exists();
   });
 
+  test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Numbered @totalItems={{100}} @sizeSelectorLabel="Custom text" />
+    `);
+    assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
+  });
+
   // SHOW/HIDE ELEMENTS
   test('it hides the total items from the "info" content when @showTotalItems is false', async function (assert) {
     await render(hbs`
