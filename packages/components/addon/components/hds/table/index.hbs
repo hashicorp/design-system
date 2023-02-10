@@ -32,13 +32,18 @@
   </thead>
   <tbody class="hds-table__tbody">
     {{#if @columns}}
-      {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |data|}}
+      {{! ----------------------------------------------------------------------------------------
+        IMPORTANT: we loop on the `model` array and for each record
+        we yield the Tr/Td/Th elements _and_ the record itself as `data`
+        this means the consumer will *have to* use the `data` key to access it in their template
+      -------------------------------------------------------------------------------------------- }}
+      {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
         {{yield
           (hash
             Tr=(component "hds/table/tr")
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
-            data=data
+            data=record
           )
           to="body"
         }}
