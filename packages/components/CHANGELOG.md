@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#1193](https://github.com/hashicorp/design-system/pull/1191) [`0f76e60`](https://github.com/hashicorp/design-system/commit/0f76e60f6eb4293dc5ba1ffb75f72d7f981a8e88) Thanks [@fivetanley](https://github.com/alex-ju)! - Fix `Hds::Table` compile error for Ember 3.28 or lower
+- [#1193](https://github.com/hashicorp/design-system/pull/1191) [`0f76e60`](https://github.com/hashicorp/design-system/commit/0f76e60f6eb4293dc5ba1ffb75f72d7f981a8e88) Thanks [@fivetanley](https://github.com/fivetanley)! - Fix `Hds::Table` compile error for Ember 3.28 or lower
 
 ## 1.6.0
 
