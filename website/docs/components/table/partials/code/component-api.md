@@ -27,7 +27,7 @@ The Table component itself is where most of the options will be applied. However
     Define on the table invocation. If set to `true`, row striping ("zebra striping") will be applied to the table.
   </C.Property>
   <C.Property @name="isFixedLayout" @type="boolean" @values={{array "false" "true" }} @default="false">
-    If set to `true`, the `table-display`(CSS) property will be set to `fixed`, which will automatically distribute columns equally based on the total width of the table.
+    If set to `true`, the `table-display`(CSS) property will be set to `fixed`, automatically distributing columns based on the total width of the table per the browser algorithm.
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density, or height, of the table’s rows.
