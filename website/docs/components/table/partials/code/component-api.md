@@ -15,7 +15,7 @@ The Table component itself is where most of the options will be applied. However
     Indicates the data model to be used by the table.
   </C.Property>
   <C.Property @name="columns" @type="array">
-  Use a `hash` within the array to define each column. `Key` and `label` values are both required. Add `isSortable` if you would like the column to be sortable.
+  Use a `hash` within the array to define each column. `Key` and `label` values are both required in non-static tables. Add `isSortable` if you would like the column to be sortable.
   </C.Property>
   <C.Property @name="sortBy" @type="string">
     If defined, the value should be set to the key of the column that should be pre-sorted when the table is rendered.
@@ -82,11 +82,23 @@ If a `th` is passed as the first "cell" of a table body row, it has `scope="row"
 
 This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
-This is the component that supports the column sorting.
+This is the component that supports the column sorting, and should be used instead of `Hds::Table::Th` if creating a custom implementation.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="onClick" @type="function">
     The action handler; sets the sort to the column key.
+  </C.Property>
+  <C.Property @name="isSorted" @type="boolean">
+    Set to true upon sort.
+  </C.Property>
+  <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
+    Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
+  </C.Property>
+  <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
+    If set, determines the text alignment.
+  </C.Property>
+  <C.Property @name="width" @type="string" @valueNote="Any valid CSS" @default="left">
+    If set, determines the column width.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports the use of `...attributes`.
