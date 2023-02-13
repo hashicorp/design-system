@@ -5,14 +5,16 @@
 
 // FLYOUT
 
-.dummy-flyout-sample-item {
-  margin-bottom: 30px;
+body.components-flyout {
+  .shw-component-flyout-sample-item {
+    margin-bottom: 30px;
 
-  .hds-flyout[open] {
-    position: relative;
-    z-index: initial;
-    display: flex;
-    height: 40vh;
-    margin: 0;
+    .hds-flyout[open] {
+      position: relative;
+      z-index: initial;
+      display: flex;
+      height: 40vh;
+      margin: 0;
+    }
   }
 }

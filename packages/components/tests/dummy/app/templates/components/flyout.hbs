@@ -10,100 +10,96 @@
 <section data-test-percy>
 
   <h4 class="dummy-h4">Size</h4>
-  {{#each @model.SIZES as |size|}}
-    <p class="dummy-paragraph">{{capitalize size}}</p>
-    <br />
-    <div class="dummy-flyout-sample-item">
-      <Hds::Flyout open @size={{size}} id="flyout-example-{{size}}" as |F|>
-        <F.Header>Title</F.Header>
+
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}} class="shw-component-flyout-sample-item">
+        <Hds::Flyout open @size={{size}} id="flyout-example-{{size}}" as |F|>
+          <F.Header>{{capitalize size}}</F.Header>
+          <F.Body>
+            <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+          </F.Body>
+        </Hds::Flyout>
+      </SF.Item>
+    {{/each}}
+  </Shw::Sample::Flex>
+
+  <h4 class="dummy-h4">Header</h4>
+
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="Title with icon" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-icon" as |F|>
+        <F.Header @icon="info">Title</F.Header>
         <F.Body>
           <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
         </F.Body>
       </Hds::Flyout>
-    </div>
-  {{/each}}
-
-  <h4 class="dummy-h4">Header</h4>
-  <p class="dummy-paragraph">Title with icon</p>
-  <br />
-  <div class="dummy-flyout-sample-item">
-    <Hds::Flyout open id="flyout-example-icon" as |F|>
-      <F.Header @icon="info">Title</F.Header>
-      <F.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-      </F.Body>
-    </Hds::Flyout>
-  </div>
-  <p class="dummy-paragraph">Title with tagline</p>
-  <br />
-  <div class="dummy-flyout-sample-item">
-    <Hds::Flyout open id="flyout-example-tagline" as |F|>
-      <F.Header @tagline="Tagline">Title</F.Header>
-      <F.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-      </F.Body>
-    </Hds::Flyout>
-  </div>
-  <p class="dummy-paragraph">Title with tagline and icon</p>
-  <br />
-  <div class="dummy-flyout-sample-item">
-    <Hds::Flyout open id="flyout-example-tagline-icon" as |F|>
-      <F.Header @tagline="Tagline" @icon="info">A very, very long title that spans multiple lines to test this element</F.Header>
-      <F.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-      </F.Body>
-    </Hds::Flyout>
-  </div>
-  <p class="dummy-paragraph">Title with description</p>
-  <br />
-  <div class="dummy-flyout-sample-item">
-    <Hds::Flyout open id="flyout-example-description" as |F|>
-      <F.Header>Title</F.Header>
-      <F.Description>
-        This is a very long
-        <strong>description</strong>
-        to test appropriate text
-        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
-        and formatting on this element
-      </F.Description>
-      <F.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-      </F.Body>
-    </Hds::Flyout>
-  </div>
+    </SF.Item>
+    <SF.Item @label="Title with tagline" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-tagline" as |F|>
+        <F.Header @tagline="Tagline">Title</F.Header>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+      </Hds::Flyout>
+    </SF.Item>
+    <SF.Item @label="Title with tagline and icon" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-tagline-icon" as |F|>
+        <F.Header @tagline="Tagline" @icon="info">A very, very long title that spans multiple lines to test this element</F.Header>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+      </Hds::Flyout>
+    </SF.Item>
+    <SF.Item @label="Title with description" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-description" as |F|>
+        <F.Header>Title</F.Header>
+        <F.Description>
+          This is a very long
+          <strong>description</strong>
+          to test appropriate text
+          <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
+          and formatting on this element
+        </F.Description>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+      </Hds::Flyout>
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h4 class="dummy-h4">Body</h4>
-  <p class="dummy-paragraph">With basic style</p>
-  <br />
-  <div class="dummy-flyout-sample-item">
-    <Hds::Flyout open id="flyout-example-basic-style" as |F|>
-      <F.Header @tagline="Tagline" @icon="info">
-        Title
-      </F.Header>
-      <F.Description>
-        Description
-      </F.Description>
-      <F.Body>
-        <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
-          JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
-          performance of our site. By using our website, you’re agreeing to our Privacy Policy and Cookie Policy.</p>
-        <br />
-        <p class="hds-typography-body-300 hds-foreground-primary">The categories below outline which companies and tools
-          we use for collecting data. To opt out of a category of data collection, set the toggle to “Off” and save your
-          preferences.</p>
-      </F.Body>
-    </Hds::Flyout>
-  </div>
-  <p class="dummy-paragraph">With generic content</p>
-  <br />
-  <div class="dummy-flyout-sample-item">
-    <Hds::Flyout open id="flyout-example-generic-content" as |F|>
-      <F.Header @icon="info">Title</F.Header>
-      <F.Body>
-        <Shw::Placeholder @text="some generic content" @height="50" @background="#eee" />
-      </F.Body>
-    </Hds::Flyout>
-  </div>
+
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="With basic style" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-basic-style" as |F|>
+        <F.Header @tagline="Tagline" @icon="info">
+          Title
+        </F.Header>
+        <F.Description>
+          Description
+        </F.Description>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
+            JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
+            performance of our site. By using our website, you’re agreeing to our Privacy Policy and Cookie Policy.</p>
+          <br />
+          <p class="hds-typography-body-300 hds-foreground-primary">The categories below outline which companies and tools
+            we use for collecting data. To opt out of a category of data collection, set the toggle to “Off” and save your
+            preferences.</p>
+        </F.Body>
+      </Hds::Flyout>
+    </SF.Item>
+    <SF.Item @label="With generic content" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-generic-content" as |F|>
+        <F.Header @icon="info">Title</F.Header>
+        <F.Body>
+          <Shw::Placeholder @text="some generic content" @height="50" @background="#eee" />
+        </F.Body>
+      </Hds::Flyout>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
 </section>
 
 <Shw::Divider />
