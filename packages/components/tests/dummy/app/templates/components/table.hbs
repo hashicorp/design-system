@@ -936,6 +936,7 @@
       (hash key="year" label="Release Year")
       (hash key="color" label="Status" isSortable="true" sortingFunction=this.customSortingMethodForBadges)
     }}
+    @onSort={{this.customOnSort}}
   >
     <:body as |B|>
       <B.Tr>

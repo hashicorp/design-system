@@ -19,9 +19,16 @@ export default class HdsTableIndexComponent extends Component {
    * @description Returns the sort criteria
    */
   get getSortCriteria() {
-    // check if there is a custom sorting function associated with the current `sortBy` column
-    if (this.args?.columns?.[this.sortBy]?.sortingFunction) {
-      return this.args.columns[this.sortBy].sortingFunction;
+    // get the current column
+    const currentColumn = this.args?.columns?.find(
+      (column) => column.key === this.sortBy
+    );
+    if (
+      // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
+      currentColumn?.sortingFunction &&
+      typeof currentColumn.sortingFunction === 'function'
+    ) {
+      return currentColumn.sortingFunction;
     } else {
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this.sortBy}:${this.sortOrder}`;

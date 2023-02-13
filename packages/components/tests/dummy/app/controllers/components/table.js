@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 const customSortingCriteriaArray = [
@@ -10,7 +11,7 @@ const customSortingCriteriaArray = [
 ];
 
 export default class ComponentsTableController extends Controller {
-  @tracked customSortOrderForBadges;
+  @tracked customSortOrderForBadges = 'asc';
 
   get customSortingMethodForBadges() {
     return (a, b) => {
@@ -24,5 +25,10 @@ export default class ComponentsTableController extends Controller {
         return 0;
       }
     };
+  }
+
+  @action
+  customOnSort(_sortBy, sortOrder) {
+    this.customSortOrderForBadges = sortOrder;
   }
 }
