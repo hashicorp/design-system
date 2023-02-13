@@ -5,21 +5,23 @@
 
 // MODAL
 
-.dummy-modal-sample-item {
-  margin-bottom: 30px;
+body.components-modal {
+  .shw-component-modal-sample-item {
+    margin-bottom: 30px;
 
-  .hds-modal[open] {
-    position: relative;
-    display: inline-block;
+    .hds-modal[open] {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hds-modal__dismiss {
+      pointer-events: none;
+    }
   }
 
-  .hds-modal__dismiss {
-    pointer-events: none;
-  }
-}
-
-.hds-modal {
-  .hds-form-field--layout-vertical:first-child {
-    margin-bottom: 20px;
+  .hds-modal {
+    .hds-form-field--layout-vertical:first-child {
+      margin-bottom: 20px;
+    }
   }
 }
