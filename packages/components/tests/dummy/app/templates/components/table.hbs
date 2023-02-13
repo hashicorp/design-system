@@ -284,30 +284,50 @@
       </B.Tr>
     </:body>
   </Hds::Table>
+
   <h4 class="dummy-h4">
-    Sortable table (with non-standard sort, "badge-color" shaped with name/key in model)
+    Sortable table with custom sorting done via extra key added to the data model
   </h4>
+
   <Hds::Table
-    @model={{this.model.music}}
+    @model={{this.clustersWithExtraData}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-      (hash key="badge-color.key" label="Color as Status" isSortable="true")
+      (hash label="Peer name" isSortable="true" key="peer-name")
+      (hash label="Cluster partition")
+      (hash label="Status" isSortable="true" key="status-sort-order")
+      (hash label="Imported services")
+      (hash label="Exported services")
+      (hash label="Actions")
     }}
-    @sortBy="badge-color.key"
+    @sortBy="status-sort-order"
+    @sortOrder="asc"
   >
     <:body as |B|>
       <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>{{B.data.peer-name}}</B.Td>
+        <B.Td>{{B.data.cluster-partition}}</B.Td>
         <B.Td>
-          <Hds::Badge
-            @text={{B.data.badge-color.name}}
-            @type={{B.data.badge-type}}
-            @color={{B.data.badge-color.name}}
-          />
+          {{#if (eq B.data.status "failing")}}
+            <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+          {{else if (eq B.data.status "active")}}
+            <Hds::Badge @text="Active" @color="success" @icon="check" />
+          {{else if (eq B.data.status "pending")}}
+            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+          {{else if (eq B.data.status "establishing")}}
+            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+          {{/if}}
+        </B.Td>
+        <B.Td>{{B.data.services.imported}}</B.Td>
+        <B.Td>{{B.data.services.exported}}</B.Td>
+        <B.Td @align="right">
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+            <dd.Interactive @route="components.table" @text="Create" />
+            <dd.Interactive @route="components.table" @text="Read" />
+            <dd.Interactive @route="components.table" @text="Update" />
+            <dd.Separator />
+            <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
         </B.Td>
       </B.Tr>
     </:body>
@@ -316,23 +336,47 @@
   <h4 class="dummy-h4">
     Sortable table with custom `sortingFunction` declared in the column hash
   </h4>
+
   <Hds::Table
-    @model={{this.model.music}}
+    @model={{this.model.clusters}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album")
-      (hash key="year" label="Release Year")
-      (hash key="color" label="Status" isSortable="true" sortingFunction=this.customSortingMethodForBadges)
+      (hash label="Peer name" isSortable="true" key="peer-name")
+      (hash label="Cluster partition")
+      (hash label="Status" isSortable="true" key="status" sortingFunction=this.customSortingMethodForClusterStatus)
+      (hash label="Imported services")
+      (hash label="Exported services")
+      (hash label="Actions")
     }}
+    @sortBy="status"
+    @sortOrder="asc"
     @onSort={{this.customOnSort}}
   >
     <:body as |B|>
       <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>{{B.data.peer-name}}</B.Td>
+        <B.Td>{{B.data.cluster-partition}}</B.Td>
         <B.Td>
-          <Hds::Badge @text={{B.data.color}} @type={{B.data.badge-type}} @color={{B.data.color}} />
+          {{#if (eq B.data.status "failing")}}
+            <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+          {{else if (eq B.data.status "active")}}
+            <Hds::Badge @text="Active" @color="success" @icon="check" />
+          {{else if (eq B.data.status "pending")}}
+            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+          {{else if (eq B.data.status "establishing")}}
+            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+          {{/if}}
+        </B.Td>
+        <B.Td>{{B.data.services.imported}}</B.Td>
+        <B.Td>{{B.data.services.exported}}</B.Td>
+        <B.Td @align="right">
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+            <dd.Interactive @route="components.table" @text="Create" />
+            <dd.Interactive @route="components.table" @text="Read" />
+            <dd.Interactive @route="components.table" @text="Update" />
+            <dd.Separator />
+            <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
         </B.Td>
       </B.Tr>
     </:body>

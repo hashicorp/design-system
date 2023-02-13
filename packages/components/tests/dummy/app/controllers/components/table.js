@@ -2,25 +2,36 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+// we use an array to declare the custom sorting order for the clusters' status
 const customSortingCriteriaArray = [
-  'critical',
-  'warning',
-  'success',
-  'highlight',
-  'neutral',
+  'failing',
+  'active',
+  'establishing',
+  'pending',
 ];
 
 export default class ComponentsTableController extends Controller {
-  @tracked customSortOrderForBadges = 'asc';
+  @tracked customSortOrderForClusterStatus = 'asc';
 
-  get customSortingMethodForBadges() {
-    return (a, b) => {
-      const aIndex = customSortingCriteriaArray.indexOf(a['color']);
-      const bIndex = customSortingCriteriaArray.indexOf(b['color']);
-      if (aIndex < bIndex) {
-        return this.customSortOrderForBadges === 'asc' ? -1 : 1;
-      } else if (aIndex > bIndex) {
-        return this.customSortOrderForBadges === 'asc' ? 1 : -1;
+  get clustersWithExtraData() {
+    return this.model.clusters.map((record) => {
+      return {
+        ...record,
+        'status-sort-order': customSortingCriteriaArray.indexOf(
+          record['status']
+        ),
+      };
+    });
+  }
+
+  get customSortingMethodForClusterStatus() {
+    return (s1, s2) => {
+      const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+      const index2 = customSortingCriteriaArray.indexOf(s2['status']);
+      if (index1 < index2) {
+        return this.customSortOrderForClusterStatus === 'asc' ? -1 : 1;
+      } else if (index1 > index2) {
+        return this.customSortOrderForClusterStatus === 'asc' ? 1 : -1;
       } else {
         return 0;
       }
@@ -29,6 +40,6 @@ export default class ComponentsTableController extends Controller {
 
   @action
   customOnSort(_sortBy, sortOrder) {
-    this.customSortOrderForBadges = sortOrder;
+    this.customSortOrderForClusterStatus = sortOrder;
   }
 }
