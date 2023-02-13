@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import * as FigmaExport from '@figma-export/types';
 import * as figmaExport from '@figma-export/core';
 import { requirePackages } from '@figma-export/cli/dist/utils';

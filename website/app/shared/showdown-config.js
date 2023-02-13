@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { elementsToClassNames } from './showdown-extensions/elements-to-classnames';
 import { pageSections } from './showdown-extensions/page-sections';
 import { contentBlocks } from './showdown-extensions/content-blocks';

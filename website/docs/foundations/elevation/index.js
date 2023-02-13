@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 
 const ELEVATIONS = ['inset', 'low', 'mid', 'high', 'higher', 'overlay'];

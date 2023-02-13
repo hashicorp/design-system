@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 const mapElementsToClassNames = {
   h1: 'doc-markdown-h1',
   h2: 'doc-markdown-h2',

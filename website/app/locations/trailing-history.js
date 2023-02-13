@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 /* eslint-disable ember/no-classic-classes, prettier/prettier */
 import HistoryLocation from '@ember/routing/history-location';
 

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export function setAriaDescribedBy(element) {
   // append @extraAriaDescribedBy arg, if provided
   if (element.args.extraAriaDescribedBy) {

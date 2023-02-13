@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import dotenv from 'dotenv';
 import fs from 'fs-extra';
 import del from 'del';

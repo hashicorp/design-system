@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import fs from 'fs-extra';
 // @ts-ignore svgr/core doesn't have type definitions available yet - see https://github.com/gregberge/svgr/pull/555
 import svgr from '@svgr/core';
