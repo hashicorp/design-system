@@ -73,6 +73,9 @@ If a `th` is passed as the first "cell" of a table body row, it has `scope="row"
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     If set, determines the text alignment.
   </C.Property>
+  <C.Property @name="width" @type="string" @valueNote="Any valid CSS" @default="left">
+    If set, determines the column width.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports the use of `...attributes`.
   </C.Property>
