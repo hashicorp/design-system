@@ -10,53 +10,59 @@
 <section data-test-percy>
 
   <h4 class="dummy-h4">"Base" control</h4>
+
   <h5 class="dummy-h6">Interaction status</h5>
-  <div class="dummy-form-select-base-sample">
-    <div>
-      <span class="dummy-text-small">Default</span>
-      <br />
+
+  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Default">
       <Hds::Form::Select::Base as |C|>
         <C.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
         </C.Options>
       </Hds::Form::Select::Base>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
   <h5 class="dummy-h6">States</h5>
-  <div class="dummy-form-select-grid-sample">
+
+  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
     {{#let (array "base" "invalid" "disabled") as |variants|}}
-      {{#each variants as |variant|}}
-        {{#each @model.STATES as |state|}}
-          {{! template-lint-disable simple-unless }}
-          {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-            <div>
-              <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
-              <br />
-              <div class="dummy-form-select-sublist" mock-state-value={{state}} mock-state-selector="select">
-                <Hds::Form::Select::Field
-                  disabled={{if (eq variant "disabled") "disabled"}}
-                  @isInvalid={{if (eq variant "invalid") true}}
-                  as |F|
+      {{#each @model.STATES as |state|}}
+        <SF.Item>
+          <Shw::Sample::Flex @direction="column" as |SF|>
+            {{#each variants as |variant|}}
+              {{! template-lint-disable simple-unless }}
+              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+                <SF.Item
+                  @label="{{capitalize variant}} / {{capitalize state}}"
+                  mock-state-value={{state}}
+                  mock-state-selector="select"
                 >
-                  <F.Options>
-                    <option>Lorem ipsum dolor</option>
-                    <option>Sine qua non est</option>
-                  </F.Options>
-                </Hds::Form::Select::Field>
-              </div>
-            </div>
-          {{/unless}}
-        {{/each}}
+                  <Hds::Form::Select::Field
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                    as |F|
+                  >
+                    <F.Options>
+                      <option>Lorem ipsum dolor</option>
+                      <option>Sine qua non est</option>
+                    </F.Options>
+                  </Hds::Form::Select::Field>
+                </SF.Item>
+              {{/unless}}
+            {{/each}}
+          </Shw::Sample::Flex>
+        </SF.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Flex>
+
   <h5 class="dummy-h6">Custom layout</h5>
-  <div class="dummy-form-select-base-sample">
-    <div>
-      <span class="dummy-text-small">With custom layout</span>
-      <br />
-      <div class="dummy-form-select-custom-layout">
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item>
+      <div class="shw-component-form-select-base-custom-layout">
         <label for="my-custom-select-example">Custom label</label>
         <Hds::Form::Select::Base id="my-custom-select-example" as |C|>
           <C.Options>
@@ -66,17 +72,18 @@
         </Hds::Form::Select::Base>
         <button type="button">Apply</button>
       </div>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
   <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-select-containers">
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-form-select-sublist">
-            <div class="dummy-form-select-containers__{{display}}">
+        <SG.Item>
+          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <Shw::Sample::Flex as |SF|>
+            <SF.Item {{style display=display}}>
               <Hds::Form::Select::Base as |C|>
                 <C.Options>
                   <option>Default width</option>
@@ -84,8 +91,8 @@
                   <option>Sine qua non est</option>
                 </C.Options>
               </Hds::Form::Select::Base>
-            </div>
-            <div class="dummy-form-select-containers__{{display}}">
+            </SF.Item>
+            <SF.Item {{style display=display}}>
               <Hds::Form::Select::Base @width="248px" as |C|>
                 <C.Options>
                   <option>Custom width</option>
@@ -93,19 +100,19 @@
                   <option>Sine qua non est</option>
                 </C.Options>
               </Hds::Form::Select::Base>
-            </div>
-          </div>
-        </div>
+            </SF.Item>
+          </Shw::Sample::Flex>
+        </SG.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Grid>
 
   <h4 class="dummy-h4">"Field" control</h4>
+
   <h5 class="dummy-h5">Content</h5>
-  <div class="dummy-form-select-grid-sample">
-    <div>
-      <span class="dummy-text-small">Only label</span>
-      <br />
+
+  <Shw::Sample::Grid @columns="3" as |SG|>
+    <SG.Item @label="Only label">
       <Hds::Form::Select::Field as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.Options>
@@ -113,10 +120,8 @@
           <option>Sine qua non est</option>
         </F.Options>
       </Hds::Form::Select::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Helper text</span>
-      <br />
+    </SG.Item>
+    <SG.Item @label="Label + Helper text">
       <Hds::Form::Select::Field as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
@@ -125,13 +130,10 @@
           <option>Sine qua non est</option>
         </F.Options>
       </Hds::Form::Select::Field>
-    </div>
-  </div>
-  <br />
-  <div class="dummy-form-select-grid-sample">
-    <div>
-      <span class="dummy-text-small">Label + Error</span>
-      <br />
+    </SG.Item>
+    {{! left empty on purpose }}
+    <SG.Item />
+    <SG.Item @label="Label + Error">
       <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.Options>
@@ -140,10 +142,8 @@
         </F.Options>
         <F.Error>This is the error</F.Error>
       </Hds::Form::Select::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Helper text + Error</span>
-      <br />
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Error">
       <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
@@ -153,10 +153,8 @@
         </F.Options>
         <F.Error>This is the error</F.Error>
       </Hds::Form::Select::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Helper text + Errors</span>
-      <br />
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Errors">
       <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
@@ -169,13 +167,13 @@
           <E.Message>Second error message</E.Message>
         </F.Error>
       </Hds::Form::Select::Field>
-    </div>
-  </div>
+    </SG.Item>
+  </Shw::Sample::Grid>
+
   <h5 class="dummy-h5">Required and optional</h5>
-  <div class="dummy-form-select-grid-sample">
-    <div>
-      <span class="dummy-text-small">Label + Required</span>
-      <br />
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="With legend + Required">
       <Hds::Form::Select::Field @isRequired={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.Options>
@@ -183,10 +181,8 @@
           <option>Sine qua non est</option>
         </F.Options>
       </Hds::Form::Select::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Optional</span>
-      <br />
+    </SF.Item>
+    <SF.Item @label="With legend + Optional">
       <Hds::Form::Select::Field @isOptional={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.Options>
@@ -194,16 +190,17 @@
           <option>Sine qua non est</option>
         </F.Options>
       </Hds::Form::Select::Field>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
   <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-select-containers">
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-form-select-containers__{{display}}">
+        <SG.Item>
+          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <div {{style display=display}}>
             <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
@@ -214,9 +211,9 @@
               <F.Error>This is the error</F.Error>
             </Hds::Form::Select::Field>
           </div>
-        </div>
+        </SG.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Grid>
 
 </section>
