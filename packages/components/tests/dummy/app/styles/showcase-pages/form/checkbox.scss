@@ -5,59 +5,11 @@
 
 // FORM > CHECKBOX
 
-.dummy-form-checkbox-base-sample {
-  display: flex;
-  gap: 2rem;
-}
-
-.dummy-form-checkbox-states-grid {
-  display: grid;
-  grid-gap: 1rem 5rem;
-  grid-template-columns: repeat(3, 1fr);
-  width: fit-content;
-}
-
-.dummy-form-checkbox-states-subgrid {
-  display: grid;
-  grid-gap: 0.6rem 1rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: min-content;
-}
-
-.dummy-form-checkbox-grid-sample {
-  display: grid;
-  grid-gap: 1rem 5rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
-}
-
-.dummy-form-checkbox-containers {
-  display: grid;
-  grid-gap: 3rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
-}
-
-.dummy-form-checkbox-containers__block {
-  display: block;
-}
-
-.dummy-form-checkbox-containers__flex {
-  display: flex;
-}
-
-.dummy-form-checkbox-containers__grid {
-  display: grid;
-  justify-items: start;
-}
-
-.dummy-form-checkbox-max-width-container {
-  width: 450px;
-}
-
-.dummy-form-checkbox-custom-layout {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
+body.components-form-checkbox {
+  .shw-component-form-checkbox-base-custom-layout {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+  }
 }
