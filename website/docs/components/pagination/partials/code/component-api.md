@@ -161,11 +161,11 @@ Set the page sizes users can select from. If no value is defined an error will b
 <C.Property @name="selectedSize" @type="integer">
 Used to indicate which of the provided `sizes` options is pre-selected. Normally this value is passed automatically by the Pagination wrapper component but can be provided as argument to the `Pagination::SizeSelector` component itself when used as a stand alone component.
 </C.Property>
-<C.Property @name="onChange" @type="function">
-Callback function invoked (if provided) when the page size selector is changed. The function receives the value of the "page size" as argument (an integer number).
-</C.Property>
 <C.Property @name="label" @type="string" @values={{array "Items per page" "Custom string" }} @default="Items per page">
   Add a custom string for the label text overriding the default value.
+</C.Property>
+<C.Property @name="onChange" @type="function">
+Callback function invoked (if provided) when the page size selector is changed. The function receives the value of the "page size" as argument (an integer number).
 </C.Property>
 <C.Property @name="...attributes">
 This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering). _Notice: it will not be applied to the `<li>` wrapping element but to the nested `<button>/<a>` controls._
