@@ -26,27 +26,55 @@ $pagination-layout-breakpoint: 1000px;
   align-items: center;
   margin: 0 auto;
 
+  &,
+  & > * { outline: 1px dotted blue; }
+
   @media screen and (max-width: $pagination-layout-breakpoint) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  // Apply group layout styles to child components only when used inside pagination wrapper:
+  .hds-pagination-nav {
+    grid-area: nav;
+
+    @media screen and (max-width: $pagination-layout-breakpoint) {
+      justify-content: center;
+      order: -1;
+      // Force nav to occupy a full row so other components will wrap:
+      width: 100%;
+    }
+  }
+
+  .hds-pagination-size-selector {
+    grid-area: selector;
+    justify-self: flex-end;
+    margin-left: var(--token-pagination-child-spacing-horizontal);
+
+    @media screen and (max-width: $pagination-layout-breakpoint) {
+      margin-top: var(--token-pagination-child-spacing-vertical);
+      margin-right: var(--token-pagination-child-spacing-horizontal);
+    }
+  }
+
+  .hds-pagination-info {
+    grid-area: info;
+    justify-self: flex-start;
+    margin-right: var(--token-pagination-child-spacing-horizontal);
+
+    @media screen and (max-width: $pagination-layout-breakpoint) {
+      margin-top: var(--token-pagination-child-spacing-vertical);
+      margin-left: var(--token-pagination-child-spacing-horizontal);
+    }
   }
 }
 
 
 // * Sub-component: Info
 // ---------------------------------------
-
 .hds-pagination-info {
-  grid-area: info;
-  justify-self: flex-start;
-  margin-right: var(--token-pagination-child-spacing-horizontal);
   white-space: nowrap;
-
-  @media screen and (max-width: $pagination-layout-breakpoint) {
-    margin-top: var(--token-pagination-child-spacing-vertical);
-    margin-left: var(--token-pagination-child-spacing-horizontal);
-  }
 }
 
 
@@ -55,14 +83,6 @@ $pagination-layout-breakpoint: 1000px;
 
 .hds-pagination-nav {
   display: flex;
-  grid-area: nav;
-
-  @media screen and (max-width: $pagination-layout-breakpoint) {
-    justify-content: center;
-    order: -1;
-    // Force nav to occupy a full row so other components will wrap:
-    width: 100%;
-  }
 }
 
 .hds-pagination-nav__page-list {
@@ -170,18 +190,9 @@ $pagination-layout-breakpoint: 1000px;
 
 // * Sub-component: SizeSelector
 // -------------------------------------------------------------------
-
 .hds-pagination-size-selector {
   display: flex;
-  grid-area: selector;
   align-items: center;
-  justify-self: flex-end;
-  margin-left: var(--token-pagination-child-spacing-horizontal);
-
-  @media screen and (max-width: $pagination-layout-breakpoint) {
-    margin-top: var(--token-pagination-child-spacing-vertical);
-    margin-right: var(--token-pagination-child-spacing-horizontal);
-  }
 
   > label { white-space: nowrap; }
 
