@@ -2896,7 +2896,7 @@ __metadata:
     "@hashicorp/design-system-tokens": ^1.4.0
     "@hashicorp/ember-flight-icons": ^3.0.2
     "@percy/cli": ^1.18.0
-    "@percy/ember": ^4.1.0
+    "@percy/ember": ^4.2.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
@@ -2994,7 +2994,7 @@ __metadata:
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/flight-icons": ^2.12.0
     "@percy/cli": ^1.18.0
-    "@percy/ember": ^4.1.0
+    "@percy/ember": ^4.2.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.4.2
@@ -3549,13 +3549,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/ember@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@percy/ember@npm:4.1.0"
+"@percy/ember@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@percy/ember@npm:4.2.0"
   dependencies:
-    "@percy/sdk-utils": ^1.6.4
+    "@percy/sdk-utils": ^1.18.0
     ember-cli-babel: ^7.26.11
-  checksum: e641527d2573a76d299c3b7c12ff9a27895b04c1257a97a433140e6e63c00ec01ea715844a440d9716a796dee8c6db3df0fa149ab8c3c9a41913f90046324336
+  checksum: ee10efd48eab5781530aafe963b49ed4a7e08ca26a89f5ee280857c2b277fc2b06fd27f6352428e4216b2adbdee6c58b6be97b72c40b91dc992fb5a1e9159e0c
   languageName: node
   linkType: hard
 
@@ -3573,10 +3573,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/sdk-utils@npm:^1.6.4":
-  version: 1.7.2
-  resolution: "@percy/sdk-utils@npm:1.7.2"
-  checksum: af12d21ca6b34593a223b7d52d248eb83fb1bc628b4961688c1cdd3af10bbcd839521781ce2296ded1d6953f1edfc50116614d6478fb59e47bc1d2885aabd00c
+"@percy/sdk-utils@npm:^1.18.0":
+  version: 1.18.0
+  resolution: "@percy/sdk-utils@npm:1.18.0"
+  checksum: 097697bbf2a24c999f2ee407f55b4103b98d0b0a246edbd9075a38b86250753ab4cd56c9ad45d82bc5cbf5cb4a6701c4f3cc7fe832271f6cbcc6a067e80e151b
   languageName: node
   linkType: hard
 
