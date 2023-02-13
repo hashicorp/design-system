@@ -49,15 +49,18 @@ export default class HdsTableIndexComponent extends Component {
   /**
    * @param sortedMessageText
    * @type {string}
-   * @default 'Sorted by ${sortBy} ${sortOrder}ending'
+   * @default ''
    * @description Returns the text to display in the sorted message. If no text is defined, the default text is used.
    */
   get sortedMessageText() {
-    return (
-      this.args.sortedMessageText ??
+    if (this.args.sortedMessageText) {
+      return this.args.sortedMessageText;
+    } else if (this.sortBy && this.sortOrder) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      `Sorted by ${this.sortBy} ${this.sortOrder}ending`
-    );
+      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+    } else {
+      return '';
+    }
   }
 
   /**

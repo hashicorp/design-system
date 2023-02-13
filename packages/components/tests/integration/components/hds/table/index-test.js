@@ -205,6 +205,10 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it should render a sortable table with an empty caption if no caption is provided and table is unsorted', async function (assert) {
     setSortableTableData(this);
+    // unset the sorting applied in the `setSortableTableData`
+    this.set('sortBy', undefined);
+    this.set('sortOrder', undefined);
+
     await render(hbsSortableTable);
 
     assert
@@ -225,11 +229,18 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it updates the caption correctly after a sort has been performed', async function (assert) {
     setSortableTableData(this);
+    // unset the sorting applied in the `setSortableTableData`
+    this.set('sortBy', undefined);
+    this.set('sortOrder', undefined);
     await render(hbsSortableTable);
 
-    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Nick Drake');
 
-    assert.dom('#data-test-table caption').hasText('');
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+    assert
+      .dom('#data-test-table caption')
+      .hasText('Sorted by artist ascending');
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
