@@ -34,6 +34,9 @@ Set the page sizes users can select from. Example: `@pageSizes=\{{array 5 20 30}
 <C.Property @name="currentPage" @type="integer" @values={{array 1 "integer" }} @default={{1}}>
 Set a custom initial selected page.
 </C.Property>
+<C.Property @name="sizeSelectorLabel" @type="string" @values={{array "Items per page" "Custom string" }} @default="Items per page">
+  Add a custom string for the label text overriding the default value.
+</C.Property>
 <C.Property @name="isTruncated" @type="boolean" @values={{array "true" "false" }} @default="true">
 Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some numbers).
 </C.Property>
@@ -157,6 +160,9 @@ Set the page sizes users can select from. If no value is defined an error will b
 </C.Property>
 <C.Property @name="selectedSize" @type="integer">
 Used to indicate which of the provided `sizes` options is pre-selected. Normally this value is passed automatically by the Pagination wrapper component but can be provided as argument to the `Pagination::SizeSelector` component itself when used as a stand alone component.
+</C.Property>
+<C.Property @name="label" @type="string" @values={{array "Items per page" "Custom string" }} @default="Items per page">
+  Add a custom string for the label text overriding the default value.
 </C.Property>
 <C.Property @name="onChange" @type="function">
 Callback function invoked (if provided) when the page size selector is changed. The function receives the value of the "page size" as argument (an integer number).

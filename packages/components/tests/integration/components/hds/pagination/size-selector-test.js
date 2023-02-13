@@ -72,6 +72,22 @@ module(
         .hasAttribute('for', controlId);
     });
 
+    test('the label text matches the default value if no custom value is set', async function (assert) {
+      await render(hbs`
+        <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
+      `);
+      assert
+        .dom('.hds-pagination-size-selector label')
+        .hasText('Items per page');
+    });
+
+    test('it displays the passed in custom text for the label text', async function (assert) {
+      await render(hbs`
+        <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Custom text" />
+      `);
+      assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
+    });
+
     // ATTRIBUTES
 
     test('it should spread all the attributes passed to the component on the element', async function (assert) {

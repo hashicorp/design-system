@@ -50,6 +50,18 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
     return selectedSize;
   }
 
+  /**
+   * @param label
+   * @type string
+   * @default "Items per page"
+   * @description The label text for the select
+   */
+  get label() {
+    let { label = 'Items per page' } = this.args;
+
+    return label;
+  }
+
   @action
   onChange(e) {
     let { onChange } = this.args;
