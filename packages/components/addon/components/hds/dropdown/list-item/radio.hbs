@@ -2,4 +2,7 @@
   <Hds::Form::Radio::Field @id={{@id}} @name={{@name}} @value={{@value}} ...attributes as |F|>
     <F.Label>{{yield}}</F.Label>
   </Hds::Form::Radio::Field>
+  {{#if @resultCount}}
+    <Hds::BadgeCount class="hds-dropdown-list-item__count" @size="small" @type="filled" @text={{@resultCount}} />
+  {{/if}}
 </li>

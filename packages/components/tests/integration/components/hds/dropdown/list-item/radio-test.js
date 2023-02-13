@@ -54,5 +54,14 @@ module(
       );
       assert.dom('.hds-form-label').hasText('Radio item');
     });
+
+    // RESULT COUNT
+
+    test('it should render with a result count badge', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Radio @resultCount="10">Radio item</Hds::Dropdown::ListItem::Radio>`
+      );
+      assert.dom('.hds-dropdown-list-item__count').hasText('10');
+    });
   }
 );

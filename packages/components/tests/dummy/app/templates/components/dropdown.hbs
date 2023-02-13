@@ -329,6 +329,24 @@
     <SF.Item>
       <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @resultCount="12">
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkmark>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list" role="listbox">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @resultCount="12">
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkmark>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list" role="listbox">
+        {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
             <Shw::Placeholder @text="custom content" @width="150" @height="20" @background="#eee" />
           </Hds::Dropdown::ListItem::Checkmark>
@@ -347,8 +365,30 @@
     <SF.Item>
       <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
+            {{state}}
+            <Hds::Badge @icon="org" @text="Private" @size="small" />
+          </Hds::Dropdown::ListItem::Checkmark>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list" role="listbox">
+        {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
-            {{state}} with a longer text string that may wrap since max-width is defined on the container
+            {{state}}
+            <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+          </Hds::Dropdown::ListItem::Checkmark>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list" role="listbox">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @resultCount="12">
+            {{state}} 
+            with a longer text string that may wrap since max-width is defined on the container
+            <Hds::Badge @text="badge" @size="small" />
           </Hds::Dropdown::ListItem::Checkmark>
         {{/each}}
       </ul>
@@ -356,10 +396,10 @@
     <SF.Item>
       <Hds::Dropdown @listPosition="left" as |dd|>
         <dd.ToggleButton @text="Checkmark" @color="secondary" />
-        <dd.Checkmark>virtualbox</dd.Checkmark>
-        <dd.Checkmark @selected={{true}}>vmware</dd.Checkmark>
-        <dd.Checkmark>docker</dd.Checkmark>
-        <dd.Checkmark>hyperv</dd.Checkmark>
+        <dd.Checkmark @resultCount="11">virtualbox</dd.Checkmark>
+        <dd.Checkmark @resultCount="1" @selected={{true}}>vmware</dd.Checkmark>
+        <dd.Checkmark @resultCount="10">docker</dd.Checkmark>
+        <dd.Checkmark @resultCount="0">hyperv</dd.Checkmark>
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
@@ -377,6 +417,20 @@
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>{{state}}</Hds::Dropdown::ListItem::Checkbox>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @resultCount="12">{{state}}</Hds::Dropdown::ListItem::Checkbox>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked @resultCount="12">{{state}}</Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
       </ul>
     </SF.Item>
@@ -402,7 +456,29 @@
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
-            {{state}} with a longer text string that may wrap since max-width is defined on the container
+            {{state}}
+            <Hds::Badge @icon="org" @text="Private" @size="small" />
+          </Hds::Dropdown::ListItem::Checkbox>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
+            {{state}}
+            <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+          </Hds::Dropdown::ListItem::Checkbox>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @resultCount="12">
+            {{state}} 
+            with a longer text string that may wrap since max-width is defined on the container
+            <Hds::Badge @text="badge" @size="small" />
           </Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
       </ul>
@@ -410,10 +486,10 @@
     <SF.Item>
       <Hds::Dropdown @listPosition="left" as |dd|>
         <dd.ToggleButton @text="Checkbox" @color="secondary" />
-        <dd.Checkbox @name="checkbox-item-dropdown">virtualbox</dd.Checkbox>
-        <dd.Checkbox @name="checkbox-item-dropdown" checked>vmware</dd.Checkbox>
-        <dd.Checkbox @name="checkbox-item-dropdown">docker</dd.Checkbox>
-        <dd.Checkbox @name="checkbox-item-dropdown">hyperv</dd.Checkbox>
+        <dd.Checkbox @name="checkbox-item-dropdown" @resultCount="11">virtualbox</dd.Checkbox>
+        <dd.Checkbox @name="checkbox-item-dropdown" @resultCount="1" checked>vmware</dd.Checkbox>
+        <dd.Checkbox @name="checkbox-item-dropdown" @resultCount="10">docker</dd.Checkbox>
+        <dd.Checkbox @name="checkbox-item-dropdown" @resultCount="0">hyperv</dd.Checkbox>
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
@@ -431,6 +507,20 @@
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>{{state}}</Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @resultCount="12">{{state}}</Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @resultCount="12">{{state}}</Hds::Dropdown::ListItem::Radio>
         {{/each}}
       </ul>
     </SF.Item>
@@ -457,7 +547,28 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
             {{state}}
+            <Hds::Badge @icon="org" @text="Private" @size="small" />
+          </Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+            {{state}}
+            <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+          </Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item>
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @resultCount="12">
+            {{state}}
             with a longer text string that may wrap since max-width is defined on the container
+            <Hds::Badge @text="badge" @size="small" />
           </Hds::Dropdown::ListItem::Radio>
         {{/each}}
       </ul>
@@ -465,10 +576,10 @@
     <SF.Item>
       <Hds::Dropdown @listPosition="left" as |dd|>
         <dd.ToggleButton @text="Radio" @color="secondary" />
-        <dd.Radio @name="radio-item-dropdown">virtualbox</dd.Radio>
-        <dd.Radio @name="radio-item-dropdown" checked>vmware</dd.Radio>
-        <dd.Radio @name="radio-item-dropdown">docker</dd.Radio>
-        <dd.Radio @name="radio-item-dropdown">hyperv</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown" @resultCount="11">virtualbox</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown" @resultCount="1" checked>vmware</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown" @resultCount="10">docker</dd.Radio>
+        <dd.Radio @name="radio-item-dropdown" @resultCount="0">hyperv</dd.Radio>
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>

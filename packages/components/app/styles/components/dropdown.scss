@@ -150,6 +150,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
 
+// HDS::DROPDOWN::LIST-ITEM::COPY-ITEM
 .hds-dropdown-list-item__copy-item-title {
   padding: 2px 0 4px;
   color: var(--token-color-foreground-faint);
@@ -213,16 +214,21 @@ $hds-dropdown-toggle-border-radius: 5px;
   color: var(--token-color-foreground-action);
 }
 
+// HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
+
 .hds-dropdown-list-item--description {
   padding: 2px 16px 4px;
   color: var(--token-color-foreground-faint);
 }
+
+// HDS::DROPDOWN::LIST-ITEM::GENERIC
 
 .hds-dropdown-list-item--generic {
   padding-right: 16px;
   padding-left: 16px;
 }
 
+// HDS::DROPDOWN::LIST-ITEM::INTERACTIVE & HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 .hds-dropdown-list-item--interactive,
 .hds-dropdown-list-item--checkmark {
   position: relative;
@@ -398,6 +404,8 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
+// HDS::DROPDOWN::LIST-ITEM::SEPARATOR
+
 .hds-dropdown-list-item--separator {
   position: relative;
   width: 100%;
@@ -413,15 +421,20 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
+// HDS::DROPDOWN::LIST-ITEM::TITLE
+
 .hds-dropdown-list-item--title {
   padding: 10px 16px 4px;
   color: var(--token-color-foreground-strong);
 }
 
+// HDS::DROPDOWN::LIST-ITEM::CHECKMARK
+
 .hds-dropdown-list-item--checkmark {
   color: var(--token-color-foreground-action-active);
 
-  .hds-dropdown-list-item__interactive {
+  a.hds-dropdown-list-item__interactive,
+  button.hds-dropdown-list-item__interactive {
     // leave room for the checkmark to avoid overlapping with text
     padding-right: 30px;
 
@@ -431,9 +444,13 @@ $hds-dropdown-toggle-border-radius: 5px;
     &.mock-focus,
     &.mock-active {
       &::after {
-        background-color: transparent;
+        background-color: inherit;
       }
     }
+  }
+
+  .hds-dropdown-list-item__interactive-text {
+    flex: 1;
   }
 }
 
@@ -448,11 +465,38 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
+// HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
+
 .hds-dropdown-list-item--checkbox,
 .hds-dropdown-list-item--radio {
+  display: flex;
   padding: 8px 16px;
+
+  .hds-form-field--layout-flag {
+    flex: 1;
+  }
 
   .hds-form-label {
     font-weight: normal;
+
+    .hds-badge {
+      vertical-align: bottom;
+    }
+  }
+}
+
+// RESULT COUNT & BADGE
+
+.hds-dropdown-list-item--checkmark,
+.hds-dropdown-list-item--checkbox,
+.hds-dropdown-list-item--radio {
+  .hds-dropdown-list-item__count {
+    align-self: baseline;
+    background: inherit;
+  }
+
+  // align any `Hds::Badge` within a selectable list item to match baseline
+  .hds-badge {
+    vertical-align: bottom;
   }
 }
