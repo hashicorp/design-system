@@ -23,7 +23,7 @@
     Static table with model defined
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist")
       (hash key="album" label="Album")
@@ -42,7 +42,7 @@
     Static table with density set to "short"
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @density="short"
     @columns={{array
       (hash key="artist" label="Artist")
@@ -62,7 +62,7 @@
     Static table with density set to "tall"
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @density="tall"
     @columns={{array
       (hash key="artist" label="Artist")
@@ -110,7 +110,7 @@
   <h4 class="dummy-h4">
     Static table with row striping
   </h4>
-  <Hds::Table @model={{this.model.data}} @isStriped={{true}} @caption="Static table with row striping">
+  <Hds::Table @model={{this.model.music}} @isStriped={{true}} @caption="Static table with row striping">
     <:head as |H|>
       <H.Tr>
         <H.Th>Artist</H.Th>
@@ -130,7 +130,7 @@
     Sortable table (all columns sortable)
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -149,7 +149,7 @@
     Sortable table (only some columns sortable)
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -168,7 +168,7 @@
     Sortable table, some columns sortable, artist column pre-sorted.
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -188,7 +188,7 @@
     Sortable table, last column not sortable and has custom width.
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -217,7 +217,7 @@
   </Hds::Table>
   <h4 class="dummy-h4">Table where last column has right-aligned text</h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -236,7 +236,7 @@
   </Hds::Table>
   <h4 class="dummy-h4">Table with various cell content</h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
@@ -268,7 +268,7 @@
   </Hds::Table>
   <h4 class="dummy-h4">Table with multi-line content</h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @caption="table with multi-line content"
     @columns={{array
       (hash key="artist" label="Artist")
@@ -288,7 +288,7 @@
     Sortable table (with non-standard sort, "badge-color" shaped with name/key in model)
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album")
@@ -317,7 +317,7 @@
     Sortable table with custom `sortingFunction` declared in the column hash
   </h4>
   <Hds::Table
-    @model={{this.model.data}}
+    @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album")
