@@ -1,0 +1,12 @@
+// SAMPLE > LABEL
+
+@use "../../mixins" as *;
+
+.shw-sample-label {
+  @include shw-style-sample-label();
+  margin: 0;
+
+  code {
+    @include shw-style-code-inline();
+  }
+}

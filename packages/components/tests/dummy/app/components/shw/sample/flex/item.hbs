@@ -1,0 +1,6 @@
+<div class={{this.classNames}} ...attributes>
+  {{#if @label}}
+    <Shw::Sample::Label>{{@label}}</Shw::Sample::Label>
+  {{/if}}
+  {{yield (hash Label=(component "shw/sample/label"))}}
+</div>

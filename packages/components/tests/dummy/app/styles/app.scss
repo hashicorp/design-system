@@ -17,6 +17,7 @@
 // local components
 
 @import "./showcase-components/placeholder";
+@import "./showcase-components/sample";
 
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
@@ -45,7 +46,6 @@
 @import "./showcase-pages/icon-tile";
 @import "./showcase-pages/interactive";
 @import "./showcase-pages/link-inline";
-@import "./showcase-pages/link-standalone";
 @import "./showcase-pages/modal";
 @import "./showcase-pages/pagination";
 @import "./showcase-pages/power-select";

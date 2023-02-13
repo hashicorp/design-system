@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "./mixins" as *;
 
 @mixin dummyFontFamily() {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -82,4 +83,52 @@
 .dummy-table {
   @include dummyFontFamily();
   @include dummyFontSize(1rem);
+}
+
+
+// HEADINGS
+
+// Notice: vertical spacing is declared in `/styles/spacing`
+
+.doc-markdown-h1 {
+  @include doc-font-style-h1 ();
+}
+
+.doc-markdown-h2 {
+  @include doc-font-style-h2 ();
+}
+
+.doc-markdown-h3 {
+  @include doc-font-style-h3 ();
+}
+
+.doc-markdown-h4 {
+  @include doc-font-style-h4 ();
+}
+
+.doc-markdown-h5 {
+  @include doc-font-style-h5 ();
+}
+
+.doc-markdown-h6 {
+  @include doc-font-style-h6 ();
+}
+
+// BODY COPY
+
+// Notice: vertical spacing is declared in `/styles/spacing`
+
+.doc-markdown-p,
+.doc-markdown-ul,
+.doc-markdown-ol {
+  @include doc-font-style-body();
+}
+
+.doc-markdown-code {
+  @include doc-font-family("mono");
+  padding: 0.25em 0.5em;
+  font-weight: inherit;
+  font-size: 0.8em; // no need to set the line-height, it's an inline element!
+  background-color: var(--doc-color-gray-600);
+  border-radius: 0.22em;
 }

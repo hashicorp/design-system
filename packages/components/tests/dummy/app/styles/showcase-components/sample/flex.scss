@@ -1,0 +1,37 @@
+// SAMPLE > FLEX
+
+.shw-sample-flex {
+  & + &,
+  & + .shw-sample-grid {
+    margin-top: var(--shw-sample-gap-base);
+  }
+}
+
+
+.shw-sample-flex__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--shw-sample-gap-base);
+
+  .shw-sample-flex--direction-row > & {
+    flex-direction: row;
+  }
+
+  .shw-sample-flex--direction-column > & {
+    flex-direction: column;
+  }
+}
+
+.shw-sample-flex__item--grow {
+  flex-grow: 1;
+}
+
+
+// DEBUG
+
+// .shw-sample-flex {
+//   outline: 4px dotted magenta;
+// }
+// .shw-sample-flex__item {
+//   outline: 1px solid rebeccapurple;
+// }
