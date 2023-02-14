@@ -108,11 +108,13 @@ The group of elements is automatically wrapped in a `<fieldset>` element.
     Used to yield one or more cards inside the group. For details about its API check the `RadioCard` component above.
   </C.Property>
   <C.Property @name="<[G].Error>" @type="yielded component">
-    A container that yields its content inside the "error" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/primitives) component.
+    Container that yields its content inside the "error" block (at group level). The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
-  </C.Property>
-  <C.Property @name="<[E].Message>" @type="yielded component">
-    If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="<[E].Message>" @type="yielded component">
+        If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
 </Doc::ComponentApi>
