@@ -99,7 +99,7 @@ export default class ShowRoute extends Route {
         const hasSidecar = frontmatter?.layout?.sidecar ?? true;
         const showContentId = `show-content-${res.data.id
           .replace(/\/index$/, '')
-          .replace('/', '-')}`;
+          .replaceAll('/', '-')}`;
 
         return {
           // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"

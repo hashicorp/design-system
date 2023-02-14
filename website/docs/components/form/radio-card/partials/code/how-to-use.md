@@ -48,27 +48,27 @@ Customizable options include:
 ```handlebars
 <Hds::Form::RadioCard::Group @name="radio-card-custom-example" as |G|>
   <G.Legend>Cluster type</G.Legend>
-  <G.RadioCard @maxWidth="33%" @checked={{true}} {{on "change" this.onChange}} as |R|>
+  <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
     <R.Label>HCP-managed Consul</R.Label>
     <R.Badge @text="6 clusters left" />
     <R.Generic>
-      <ul>
-        <li>Connect workloads in your cloud provider network with HCP</li>
-        <li>Offload Consul operations to Hashicorp Experts</li>
+      <ul class="doc-radio-card-list-demo">
+        <li class="hds-typography-display-100">Connect workloads in your cloud provider network with HCP</li>
+        <li class="hds-typography-display-100">Offload Consul operations to Hashicorp Experts</li>
       </ul>
     </R.Generic>
   </G.RadioCard>
-  <G.RadioCard @maxWidth="33%" {{on "change" this.onChange}} as |R|>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
     <R.Label>Self-managed Consul</R.Label>
     <R.Badge @text="5 clusters left" />
     <R.Badge @text="Kubernetes only" @icon="kubernetes" />
     <R.Generic>
-      <ul>
-        <li>Multi-cloud artifact registry</li>
-        <li>Golden images workflow</li>
-        <li>Terraform Cloud integration</li>
-        <li>10 free images/month</li>
-        <li>250 free requests/month</li>
+      <ul class="doc-radio-card-list-demo">
+        <li class="hds-typography-display-100">Multi-cloud artifact registry</li>
+        <li class="hds-typography-display-100">Golden images workflow</li>
+        <li class="hds-typography-display-100">Terraform Cloud integration</li>
+        <li class="hds-typography-display-100">10 free images/month</li>
+        <li class="hds-typography-display-100">250 free requests/month</li>
       </ul>
     </R.Generic>
   </G.RadioCard>
