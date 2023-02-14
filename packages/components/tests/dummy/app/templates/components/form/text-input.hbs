@@ -10,69 +10,69 @@
 <section data-test-percy>
 
   <h4 class="dummy-h4">"Base" control</h4>
+
   <h5 class="dummy-h6">Interaction status</h5>
-  <div class="dummy-form-text-input-base-sample">
-    <div>
-      <span class="dummy-text-small">Default</span>
-      <br />
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="Default">
       <Hds::Form::TextInput::Base />
-    </div>
-    <div>
-      <span class="dummy-text-small">With placeholder</span>
-      <br />
+    </SF.Item>
+    <SF.Item @label="With placeholder">
       <Hds::Form::TextInput::Base placeholder="Lorem ipsum dolor" />
-    </div>
-    <div>
-      <span class="dummy-text-small">With value</span>
-      <br />
+    </SF.Item>
+    <SF.Item @label="With value">
       <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
   <h5 class="dummy-h5">Types (native)</h5>
-  <div class="dummy-form-text-input-types-grid">
+
+  <Shw::Sample::Grid @columns={{5}} as |SG|>
     {{#each @model.TYPES as |type|}}
-      <div>
-        <span class="dummy-text-small">{{capitalize type}}:</span>
-        <br />
+      <SG.Item @label={{capitalize type}}>
         <Hds::Form::TextInput::Base @type={{type}} @value={{type}} />
-      </div>
+      </SG.Item>
     {{/each}}
-  </div>
+  </Shw::Sample::Grid>
+
   <h5 class="dummy-h6">States</h5>
-  <div class="dummy-form-text-input-grid-sample">
-    {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
-      {{#each variants as |variant|}}
+
+  {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
+    {{#each variants as |variant|}}
+      <Shw::Sample::Grid @columns={{3}} as |SG|>
         {{#each @model.STATES as |state|}}
           {{! template-lint-disable simple-unless }}
           {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-            <div>
-              <span class="dummy-text-small">{{capitalize variant}} / {{capitalize state}}:</span>
-              <br />
-              <div class="dummy-form-text-input-sublist" mock-state-value={{state}} mock-state-selector="input">
-                <div>
+            <SG.Item
+              @label="{{capitalize variant}} / {{capitalize state}}"
+              mock-state-value={{state}}
+              mock-state-selector="input"
+            >
+              <Shw::Sample::Flex @direction="column" as |SF|>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-                <div>
+                </SF.Item>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     placeholder="Placeholder"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-                <div>
+                </SF.Item>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-                <div>
+                </SF.Item>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     @type="password"
                     @value="Lorem ipsum dolor"
@@ -80,8 +80,8 @@
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-                <div>
+                </SF.Item>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     @type="search"
                     @value="Lorem ipsum dolor"
@@ -89,8 +89,8 @@
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-                <div>
+                </SF.Item>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     @type="date"
                     @value="Lorem ipsum dolor"
@@ -98,8 +98,8 @@
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-                <div>
+                </SF.Item>
+                <SF.Item>
                   <Hds::Form::TextInput::Base
                     @type="time"
                     @value="Lorem ipsum dolor"
@@ -107,93 +107,86 @@
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
-                </div>
-              </div>
-            </div>
+                </SF.Item>
+              </Shw::Sample::Flex>
+            </SG.Item>
           {{/unless}}
         {{/each}}
-      {{/each}}
-    {{/let}}
-  </div>
+      </Shw::Sample::Grid>
+    {{/each}}
+  {{/let}}
+
   <h5 class="dummy-h6">Custom layout</h5>
-  <div class="dummy-form-text-input-base-sample">
-    <div>
-      <span class="dummy-text-small">With custom layout</span>
-      <br />
-      <div class="dummy-form-text-input-custom-layout">
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="With custom layout">
+      <div class="shw-component-form-textinput-base-custom-layout">
         <label for="my-custom-text-input-example">Custom label</label>
         <Hds::Form::TextInput::Base id="my-custom-text-input-example" @value="Lorem ipsum dolor" />
-        <span class="dummy-form-text-input-custom-layout__append-text">Some content</span>
+        <span class="shw-component-form-textinput-base-custom-layout__append-text">Some content</span>
       </div>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
   <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-text-input-containers">
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-form-text-input-sublist">
-            <div class="dummy-form-text-input-containers__{{display}}">
+        <SG.Item>
+          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          {{! In this specific case we use a 1-column grid instead of a flexbox or otherwise the "time" input appears next to the "date" }}
+          <Shw::Sample::Grid @columns={{1}} as |SG|>
+            <SG.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::TextInput::Base @value="Default width" />
-            </div>
-            <div class="dummy-form-text-input-containers__{{display}}">
+            </SG.Item>
+            <SG.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::TextInput::Base @value="Custom width" @width="248px" />
-            </div>
-            <div class="dummy-form-text-input-containers__{{display}}">
+            </SG.Item>
+            <SG.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::TextInput::Base @type="date" />
-            </div>
-            <div class="dummy-form-text-input-containers__{{display}}">
+            </SG.Item>
+            <SG.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::TextInput::Base @type="time" />
-            </div>
-          </div>
-        </div>
+            </SG.Item>
+          </Shw::Sample::Grid>
+        </SG.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Grid>
 
   <h4 class="dummy-h4">"Field" control</h4>
+
   <h5 class="dummy-h5">Content</h5>
-  <div class="dummy-form-text-input-grid-sample">
-    <div>
-      <span class="dummy-text-small">Only label</span>
-      <br />
+
+  <Shw::Sample::Grid @columns="3" as |SG|>
+    <SG.Item @label="Only label">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Helper text</span>
-      <br />
+    </SG.Item>
+    <SG.Item @label="Label + Helper text">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::TextInput::Field>
-    </div>
-  </div>
-  <br />
-  <div class="dummy-form-text-input-grid-sample">
-    <div>
-      <span class="dummy-text-small">Label + Error</span>
-      <br />
+    </SG.Item>
+    {{! left empty on purpose }}
+    <SG.Item />
+    <SG.Item @label="Label + Error">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.Error>This is the error</F.Error>
       </Hds::Form::TextInput::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Helper text + Error</span>
-      <br />
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Error">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error>This is the error</F.Error>
       </Hds::Form::TextInput::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Helper text + Errors</span>
-      <br />
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Errors">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
@@ -202,52 +195,53 @@
           <E.Message>Second error message</E.Message>
         </F.Error>
       </Hds::Form::TextInput::Field>
-    </div>
-  </div>
+    </SG.Item>
+  </Shw::Sample::Grid>
+
   <h5 class="dummy-h5">Required and optional</h5>
-  <div class="dummy-form-text-input-grid-sample">
-    <div>
-      <span class="dummy-text-small">Label + Required</span>
-      <br />
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Label + Required">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
-    </div>
-    <div>
-      <span class="dummy-text-small">Label + Optional</span>
+    </SG.Item>
+    <SG.Item @label="Label + Optional">
       <br />
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
-    </div>
-  </div>
+    </SG.Item>
+  </Shw::Sample::Grid>
+
   <h5 class="dummy-h5">Containers</h5>
-  <div class="dummy-form-text-input-containers">
+
+  <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <div>
-          <span class="dummy-text-small">Parent with <code class="dummy-code">display: {{display}}</code></span>
-          <br />
-          <div class="dummy-form-text-input-containers__{{display}}">
-            <Hds::Form::TextInput::Field @value="Default width" as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-            </Hds::Form::TextInput::Field>
-          </div>
-          <br />
-          <div class="dummy-form-text-input-containers__{{display}}">
-            <Hds::Form::TextInput::Field @value="Custom width" @width="120px" @isInvalid={{true}} as |F|>
-              <F.Label>This is the label text that should go on multiple lines</F.Label>
-              <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-              <F.Error as |E|>
-                <E.Message>This is the first error text</E.Message>
-                <E.Message>This is the second error text that should go on multiple lines</E.Message>
-              </F.Error>
-            </Hds::Form::TextInput::Field>
-          </div>
-        </div>
+        <SG.Item>
+          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <Shw::Sample::Flex as |SF|>
+            <SF.Item @grow={{true}} {{style display=display}}>
+              <Hds::Form::TextInput::Field @value="Default width" as |F|>
+                <F.Label>This is the label</F.Label>
+                <F.HelperText>This is the helper text</F.HelperText>
+              </Hds::Form::TextInput::Field>
+            </SF.Item>
+            <SF.Item @grow={{true}} {{style display=display}}>
+              <Hds::Form::TextInput::Field @value="Custom width" @width="120px" @isInvalid={{true}} as |F|>
+                <F.Label>This is the label text that should go on multiple lines</F.Label>
+                <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                <F.Error as |E|>
+                  <E.Message>This is the first error text</E.Message>
+                  <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                </F.Error>
+              </Hds::Form::TextInput::Field>
+            </SF.Item>
+          </Shw::Sample::Flex>
+        </SG.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Grid>
 
 </section>
