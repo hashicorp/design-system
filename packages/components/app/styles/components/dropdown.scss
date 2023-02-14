@@ -431,18 +431,18 @@ $hds-dropdown-toggle-border-radius: 5px;
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 
 .hds-dropdown-list-item--checkmark {
-  color: var(--token-color-foreground-action-active);
-
   a.hds-dropdown-list-item__interactive,
   button.hds-dropdown-list-item__interactive {
-    // leave room for the checkmark to avoid overlapping with text
-    padding-right: 30px;
+    // leave room for the checkmark to align the result count on non-selected items
+    padding-right: 25px; // 9px default + 16px for the 'check' FlightIcon
 
     // disable background on focus and active states
     &:focus,
     &:active,
     &.mock-focus,
     &.mock-active {
+      color: var(--token-color-foreground-action-active);
+
       &::after {
         background-color: inherit;
       }
@@ -455,14 +455,16 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item--checkmark-selected {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: top 10px right 10px;
-  background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-
-  .hds-dropdown-list-item__interactive {
-    color: var(--token-color-foreground-action-active);
+  a.hds-dropdown-list-item__interactive,
+  button.hds-dropdown-list-item__interactive {
+    padding-right: 9px; // reset to default
+    color: var(--token-color-foreground-action);
   }
+}
+
+.hds-dropdown-list-item__checkmark {
+  align-self: flex-start;
+  margin-top: 0.125rem;
 }
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
@@ -487,7 +489,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // RESULT COUNT & BADGE
 .hds-dropdown-list-item__count {
-  align-self: baseline;
+  align-self: flex-start;
   padding: 0.125rem 0.5rem;
   color: var(--token-color-foreground-faint);
   line-height: 1.2308; // 16px

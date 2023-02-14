@@ -74,6 +74,7 @@ module(
       assert
         .dom('.hds-dropdown-list-item')
         .hasClass('hds-dropdown-list-item--checkmark-selected');
+      assert.dom('.hds-dropdown-list-item__checkmark').exists();
     });
 
     // ACCESSIBILITY

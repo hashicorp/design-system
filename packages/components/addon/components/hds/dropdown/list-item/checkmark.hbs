@@ -1,4 +1,4 @@
-{{! template-lint-disable require-context-role }}
+{{! template-lint-disable require-context-role require-presentational-children }}
 <li class={{this.classNames}}>
   <Hds::Interactive
     @current-when={{@current-when}}
@@ -19,6 +19,9 @@
     </div>
     {{#if @resultCount}}
       <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
+    {{/if}}
+    {{#if @selected}}
+      <FlightIcon class="hds-dropdown-list-item__checkmark" @name="check" @isInlineBlock={{false}} />
     {{/if}}
   </Hds::Interactive>
 </li>
