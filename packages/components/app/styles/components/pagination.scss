@@ -33,6 +33,17 @@ $pagination-layout-breakpoint: 1000px;
   }
 
   // Apply group layout styles to child components only when used inside pagination wrapper:
+  .hds-pagination-info {
+    grid-area: info;
+    justify-self: flex-start;
+    margin-right: var(--token-pagination-child-spacing-horizontal);
+
+    @media screen and (max-width: $pagination-layout-breakpoint) {
+      margin-top: var(--token-pagination-child-spacing-vertical);
+      margin-left: var(--token-pagination-child-spacing-horizontal);
+    }
+  }
+
   .hds-pagination-nav {
     grid-area: nav;
 
@@ -52,17 +63,6 @@ $pagination-layout-breakpoint: 1000px;
     @media screen and (max-width: $pagination-layout-breakpoint) {
       margin-top: var(--token-pagination-child-spacing-vertical);
       margin-right: var(--token-pagination-child-spacing-horizontal);
-    }
-  }
-
-  .hds-pagination-info {
-    grid-area: info;
-    justify-self: flex-start;
-    margin-right: var(--token-pagination-child-spacing-horizontal);
-
-    @media screen and (max-width: $pagination-layout-breakpoint) {
-      margin-top: var(--token-pagination-child-spacing-vertical);
-      margin-left: var(--token-pagination-child-spacing-horizontal);
     }
   }
 }
