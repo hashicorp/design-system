@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 25 Jan 2023 00:09:59 GMT
+ * Generated on Tue, 14 Feb 2023 00:14:16 GMT
  */
 
 :root {
@@ -250,7 +250,7 @@
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
-  --token-pagination-child-spacing-vertical: 8;
+  --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-tabs-tab-height: 36px;
   --token-tabs-tab-padding-horizontal: 12px;
