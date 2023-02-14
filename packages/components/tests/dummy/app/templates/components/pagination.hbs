@@ -7,7 +7,8 @@
 
 <h2 class="dummy-h2">Pagination</h2>
 
-<section data-test-percy class="{{if this.showHighlight 'dummy-pagination-layout-highlight'}}">
+<section data-test-percy class="{{if this.showHighlight 'shw-component-pagination-layout-highlight'}}">
+
   <button id="dummy-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide" "Show"}}
     layout highlight
@@ -15,159 +16,226 @@
 
   <h4 class="dummy-h4">Pagination::Numbered</h4>
 
-  <p class="dummy-text-small">Base (default)</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} />
-
-  <p class="dummy-text-small">With showTotalItems=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @showTotalItems={{false}} />
-
-  <p class="dummy-text-small">With showSizeSelector=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @showSizeSelector={{false}} />
-
-  <p class="dummy-text-small">With showInfo=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} />
-
-  <p class="dummy-text-small">With showInfo=false + showSizeSelector=false</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} @showSizeSelector={{false}} />
-
-  <p class="dummy-text-small">With @currentPageSize=30 and @currentPage=2</p>
-  <Hds::Pagination::Numbered
-    @totalItems={{40}}
-    @currentPageSize={{30}}
-    @currentPage={{2}}
-    @pageSizes={{array 10 30 50}}
-  />
-
-  <p class="dummy-text-small">With @showPageNumbers=false + @showLabels=true</p>
-  <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="Base (default)">
+      <Hds::Pagination::Numbered @totalItems={{40}} />
+    </SF.Item>
+    <SF.Item @label="With showTotalItems=false">
+      <Hds::Pagination::Numbered @totalItems={{40}} @showTotalItems={{false}} />
+    </SF.Item>
+    <SF.Item @label="With showSizeSelector=false">
+      <Hds::Pagination::Numbered @totalItems={{40}} @showSizeSelector={{false}} />
+    </SF.Item>
+    <SF.Item @label="With showInfo=false">
+      <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} />
+    </SF.Item>
+    <SF.Item @label="With showInfo=false + showSizeSelector=false">
+      <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} @showSizeSelector={{false}} />
+    </SF.Item>
+    <SF.Item @label="With @currentPageSize=30 and @currentPage=2">
+      <Hds::Pagination::Numbered
+        @totalItems={{40}}
+        @currentPageSize={{30}}
+        @currentPage={{2}}
+        @pageSizes={{array 10 30 50}}
+      />
+    </SF.Item>
+    <SF.Item @label="With @showPageNumbers=false + @showLabels=true">
+      <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h5 class="dummy-h6">Truncation</h5>
-  <p class="dummy-text-small">With large number of pages (truncated by default)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} />
-  <p class="dummy-text-small">With large number of pages (truncated with initial page equal to <code>4</code>)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} @currentPage={{4}} />
-  <p class="dummy-text-small">With large number of pages (not truncated)</p>
-  <Hds::Pagination::Numbered @totalItems={{100}} @isTruncated={{false}} />
+
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="With large number of pages (truncated by default)">
+      <Hds::Pagination::Numbered @totalItems={{100}} />
+    </SF.Item>
+    <SF.Item @label="With large number of pages (truncated with initial page equal to 4)">
+      <Hds::Pagination::Numbered @totalItems={{100}} @currentPage={{4}} />
+    </SF.Item>
+    <SF.Item @label="With large number of pages (not truncated)">
+      <Hds::Pagination::Numbered @totalItems={{100}} @isTruncated={{false}} />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <Shw::Divider />
 
   <h4 class="dummy-h4">Pagination::Compact</h4>
 
-  <p class="dummy-text-small">Base (default)</p>
-  <Hds::Pagination::Compact />
-
-  <p class="dummy-text-small">With "prev" disabled</p>
-  <Hds::Pagination::Compact @isDisabledPrev={{true}} />
-
-  <p class="dummy-text-small">With @showLabels=false</p>
-  <Hds::Pagination::Compact @showLabels={{false}} />
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="Base (default)">
+      <Hds::Pagination::Compact />
+    </SF.Item>
+    <SF.Item @label="With 'prev disabled">
+      <Hds::Pagination::Compact @isDisabledPrev={{true}} />
+    </SF.Item>
+    <SF.Item @label="With @showLabels=false">
+      <Hds::Pagination::Compact @showLabels={{false}} />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <Shw::Divider />
 
   <h4 class="dummy-h4">Base elements</h4>
 
   <h5 class="dummy-h5">Pagination::Info</h5>
-  <p class="dummy-text-small">Base (default)</p>
-  <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
 
-  <p class="dummy-text-small">With @showTotalItems=false</p>
-  <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} @showTotalItems={{false}} />
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="Base (default)">
+      <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
+    </SF.Item>
+    <SF.Item @label="With @showTotalItems=false">
+      <Hds::Pagination::Info
+        @itemsRangeStart={{1}}
+        @itemsRangeEnd={{10}}
+        @totalItems={{103}}
+        @showTotalItems={{false}}
+      />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h5 class="dummy-h5">Pagination::SizeSelector</h5>
-  <p class="dummy-text-small">Base (default)</p>
-  <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
 
-  <p class="dummy-text-small">With @currentPageSize (selected option)</p>
-  <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{30}} />
-
-  <p class="dummy-text-small">With @label to add custom label text</p>
-  <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Items" />
+  <Shw::Sample::Flex @direction="column" as |SF|>
+    <SF.Item @label="Base (default)">
+      <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
+    </SF.Item>
+    <SF.Item @label="With @currentPageSize (selected option)">
+      <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{30}} />
+    </SF.Item>
+    <SF.Item @label="With @label to add custom label text">
+      <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Items" />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
-  <div class="dummy-pagination-base-sample">
-    <div>
-      <p class="dummy-text-small">With text label (default)</p>
-      <div class="dummy-pagination-base-sample-row">
-        <Hds::Pagination::Nav::Arrow @direction="prev" />
-        <Hds::Pagination::Nav::Arrow @direction="next" />
-      </div>
-    </div>
-    <div>
-      <p class="dummy-text-small">With @showLabel=false</p>
-      <div class="dummy-pagination-base-sample-row">
-        <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
-        <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
-      </div>
-    </div>
-  </div>
-  <p class="dummy-text-small">States (With / Without labels)</p>
-  <div class="dummy-pagination-sample-status-grid">
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="With text label (default)">
+      <Shw::Sample::Grid @columns={{2}} as |SG|>
+        <SG.Item>
+          <Hds::Pagination::Nav::Arrow @direction="prev" />
+        </SG.Item>
+        <SG.Item>
+          <Hds::Pagination::Nav::Arrow @direction="next" />
+        </SG.Item>
+      </Shw::Sample::Grid>
+    </SF.Item>
+    <SF.Item @label="With @showLabel=false">
+      <Shw::Sample::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
+        <SG.Item>
+          <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
+        </SG.Item>
+        <SG.Item>
+          <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
+        </SG.Item>
+      </Shw::Sample::Grid>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <h6 class="dummy-h6">States</h6>
+
+  <Shw::Sample::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
-        <span class="dummy-text-small">{{capitalize state}}</span>
-        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
-          <Hds::Pagination::Nav::Arrow @direction="prev" />
-          <Hds::Pagination::Nav::Arrow @direction="next" />
-        </div>
-        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
-          <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
-          <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
-        </div>
+        <SF.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="button,a">
+          <Shw::Sample::Flex as |SF|>
+            <SF.Item>
+              <Hds::Pagination::Nav::Arrow @direction="prev" />
+            </SF.Item>
+            <SF.Item>
+              <Hds::Pagination::Nav::Arrow @direction="next" />
+            </SF.Item>
+            <SF.Item>
+              <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
+            </SF.Item>
+            <SF.Item>
+              <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
+            </SF.Item>
+          </Shw::Sample::Flex>
+        </SF.Item>
       {{/each}}
-      <span class="dummy-text-small">Disabled</span>
-      <div class="dummy-pagination-base-sample-row">
-        <Hds::Pagination::Nav::Arrow @direction="prev" @disabled={{true}} />
-        <Hds::Pagination::Nav::Arrow @direction="next" @disabled={{true}} />
-      </div>
-      <div class="dummy-pagination-base-sample-row">
-        <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} @disabled={{true}} />
-        <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} @disabled={{true}} />
-      </div>
+      <SF.Item @label="Disabled">
+        <Shw::Sample::Flex as |SF|>
+          <SF.Item>
+            <Hds::Pagination::Nav::Arrow @direction="prev" @disabled={{true}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Pagination::Nav::Arrow @direction="next" @disabled={{true}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} @disabled={{true}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} @disabled={{true}} />
+          </SF.Item>
+        </Shw::Sample::Flex>
+      </SF.Item>
     {{/let}}
-  </div>
+  </Shw::Sample::Flex>
 
   <h5 class="dummy-h5">Pagination::Nav::Number</h5>
-  <div class="dummy-pagination-base-sample dummy-pagination-base-sample--nav-button-number">
-    <div>
-      <p class="dummy-text-small">Generic (default)</p>
-      <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="1" /></ul>
-    </div>
-    <div>
-      <p class="dummy-text-small">Current (with @isSelected=true)</p>
-      <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="1" @isSelected={{true}} /></ul>
-    </div>
-  </div>
-  <p class="dummy-text-small">States (Generic / Current - With different text lengths)</p>
-  <div class="dummy-pagination-sample-status-grid">
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="Generic (default)">
+      <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
+    </SF.Item>
+    <SF.Item @label="Current (with @isSelected=true)">
+      <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
+          @page="1"
+          @isSelected={{true}}
+        /></ul>
+    </SF.Item>
+  </Shw::Sample::Flex>
+
+  <h6 class="dummy-h6">States (Generic / Current - With different text lengths)</h6>
+
+  <Shw::Sample::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
-        <span class="dummy-text-small">{{capitalize state}}</span>
-        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
-          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="1" /></ul>
-          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="12" /></ul>
-          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number @page="123" /></ul>
-        </div>
-        <div class="dummy-pagination-base-sample-row" mock-state-value={{state}} mock-state-selector="button,a">
-          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number
-              @page="1"
-              @isSelected={{true}}
-            /></ul>
-          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number
-              @page="12"
-              @isSelected={{true}}
-            /></ul>
-          <ul class="dummy-pagination-sample-fake-list"><Hds::Pagination::Nav::Number
-              @page="123"
-              @isSelected={{true}}
-            /></ul>
-        </div>
+        <SF.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="button,a">
+          <Shw::Sample::Flex as |SF|>
+            <SF.Item>
+              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="12" /></ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="123" /></ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
+                  @page="1"
+                  @isSelected={{true}}
+                /></ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
+                  @page="12"
+                  @isSelected={{true}}
+                /></ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
+                  @page="123"
+                  @isSelected={{true}}
+                /></ul>
+            </SF.Item>
+          </Shw::Sample::Flex>
+        </SF.Item>
       {{/each}}
     {{/let}}
-  </div>
+  </Shw::Sample::Flex>
 
   <h5 class="dummy-h5">Pagination::Nav::Ellipsis</h5>
-  <p class="dummy-text-small">Base</p>
-  <Hds::Pagination::Nav::Ellipsis />
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="Base">
+      <Hds::Pagination::Nav::Ellipsis />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
   <Shw::Divider />
 
@@ -178,10 +246,11 @@
   {{! ============================================ }}
 
   <h5 class="dummy-h5">Numbered - Events-based pagination</h5>
+
   <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
     preserved across page reloads.</p>
 
-  <div class="dummy-pagination-table-demo" id="demo1-numbered-with-events">
+  <div class="shw-component-pagination-table-demo" id="demo1-numbered-with-events">
     <Hds::Table
       @model={{this.paginatedData_demo1}}
       @columns={{array
@@ -215,9 +284,11 @@
   {{! ============================================= }}
 
   <h5 class="dummy-h5">Numbered - Routing-based pagination</h5>
+
   <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
     reloads using the query parameters stored in the URL.</p>
-  <div class="dummy-pagination-table-demo" id="demo2-numbered-with-routing">
+
+  <div class="shw-component-pagination-table-demo" id="demo2-numbered-with-routing">
     <Hds::Table
       @model={{this.paginatedData_demo2}}
       @columns={{array
@@ -257,10 +328,11 @@
   {{! =========================================== }}
 
   <h5 class="dummy-h5">Compact - Events-based pagination</h5>
+
   <p class="dummy-paragraph">When using an "events-based" strategy, the status of the UI is transient, and it's not
     preserved across page reloads.</p>
 
-  <div class="dummy-pagination-table-demo" id="demo3-compact-with-events">
+  <div class="shw-component-pagination-table-demo" id="demo3-compact-with-events">
     <Hds::Table
       @model={{this.paginatedData_demo3}}
       @columns={{array
@@ -293,10 +365,11 @@
   {{! Notice: this demo emulates the current implementation in Cloud UI }}
 
   <h5 class="dummy-h5">Compact - Routing-based pagination</h5>
+
   <p class="dummy-paragraph">When using a "routing-based" strategy, the status of the UI is preserved across page
     reloads using the query parameters stored in the URL.</p>
 
-  <div class="dummy-pagination-table-demo" id="demo4-compact-with-routing">
+  <div class="shw-component-pagination-table-demo" id="demo4-compact-with-routing">
     <Hds::Table
       @model={{this.paginatedData_demo4}}
       @columns={{array
