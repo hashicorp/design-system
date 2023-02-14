@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 
 import { COLORS } from '@hashicorp/design-system-components/components/hds/link/inline';

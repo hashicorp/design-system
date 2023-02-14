@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 'use strict';
 
 const flightIconSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-module');

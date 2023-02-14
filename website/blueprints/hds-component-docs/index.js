@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 /* eslint-disable ember/no-string-prototype-extensions */
 /* eslint-disable node/no-extraneous-require */
 'use strict';

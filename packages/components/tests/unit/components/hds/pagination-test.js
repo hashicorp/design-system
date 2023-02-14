@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 // prettier-ignore
 import { module, test } from 'qunit';
 import { elliptize } from '@hashicorp/design-system-components/components/hds/pagination/numbered';

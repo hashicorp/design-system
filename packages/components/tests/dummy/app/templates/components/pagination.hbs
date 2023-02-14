@@ -1,3 +1,8 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
 {{page-title "Pagination Component"}}
 
 <h2 class="dummy-h2">Pagination</h2>
@@ -844,6 +849,9 @@
 
   <p class="dummy-text-small">With @currentPageSize (selected option)</p>
   <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{30}} />
+
+  <p class="dummy-text-small">With @label to add custom label text</p>
+  <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Items" />
 
   <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
   <div class="dummy-pagination-base-sample">

@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import HeadDataService from 'ember-meta/services/head-data';
 import config from 'ember-get-config';
 

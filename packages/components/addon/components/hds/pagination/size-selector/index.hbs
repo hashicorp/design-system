@@ -1,5 +1,11 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
 <div class="hds-pagination-size-selector" ...attributes>
-  <label class="hds-typography-body-100 hds-font-weight-medium" for={{this.SizeSelectorId}}>Items per page</label>
+  <label class="hds-typography-body-100 hds-font-weight-medium" for={{this.SizeSelectorId}}>
+    {{this.label}}
+  </label>
   <Hds::Form::Select::Base id={{this.SizeSelectorId}} {{on "change" this.onChange}} as |S|>
     <S.Options>
       {{#each this.pageSizes as |size|}}

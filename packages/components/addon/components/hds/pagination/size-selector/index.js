@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
@@ -43,6 +48,18 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
     );
 
     return selectedSize;
+  }
+
+  /**
+   * @param label
+   * @type string
+   * @default "Items per page"
+   * @description The label text for the select
+   */
+  get label() {
+    let { label = 'Items per page' } = this.args;
+
+    return label;
   }
 
   @action

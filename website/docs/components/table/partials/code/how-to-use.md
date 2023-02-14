@@ -2,34 +2,33 @@ This component takes advantage of the `sort-by` helper provided in [ember-compos
 
 ## How to use this component
 
-### Static Table (non-sortable)
+### Non-sortable table
 
 If you don’t have or want to use a model, a basic invocation could look like:
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
-
-<Hds::Table>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
-    </H.Tr>
-  </:head>
+<Hds::Table 
+  @model={{this.model.data}}
+  @columns={{array
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album")
+    (hash key="year" label="Release Year")
+  }}
+  >
   <:body as |B|>
     <B.Tr>
-      <B.Td>Custom Cell Content</B.Td>
-      <B.Td>{{t 'translated-cell-content-string'}}</B.Td>
-      <B.Td>Some other custom cell content</B.Td>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>
 ```
 
-### Simple Table with model defined (non-sortable)
+### Non-sortable table with model defined
 
-To use a table with a model, first of all you need to define the data model (usually in your route):
+To use a table with a model, first of all you need to define the data model (in your route or model):
 
 ```javascript
 // app/routes/components/table.js
@@ -60,7 +59,7 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
-For documentation purposes, we‘re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the templating code.
+For documentation purposes, we‘re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
 You can insert your own content into the and `:body` block and the component will take care of looping over the `@model` provided:
 
@@ -85,81 +84,24 @@ You can insert your own content into the and `:body` block and the component wil
 
 **Important**
 
-To be able to use this `Table` variant, you need to:
+For clarity, there are a couple of important points to note here:
 - provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
-- use the `.data` key to access the `@model` record content (it's yielded as `data`)
+- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 !!!
-
 
 ### Sortable Table
 
-For the sortable table, the invocation and use is a little bit different:
-
-1. Shape the data model for use; we’ve placed it in the page‘s route.
-
-    - In this example, we’re identifying the column headers (keys) and also capitalizing them.
-    - Each column object has two pieces:
-
-        - a `key`\-- used for the model, the `sortingKeys`, and `sortBy`
-        - a `label`\-- used in the table header cells
-
-```javascript
-// app/routes/components/table.js
-
-import Route from '@ember/routing/route';
-import { capitalize } from '@ember/string';
-
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    let response = await fetch('/api/folk.json');
-    let { data } = await response.json();
-
-    // make sure the variable is declared outside of the loop
-    // so we can return it in the model response
-    let columns;
-    let dataResponse = data.map((model) => {
-      let { id, attributes } = model;
-      columns = Object.keys(attributes);
-      return { id, ...attributes };
-    });
-    columns = columns.map((column) => {
-      return { key: column, label: capitalize(column) };
-    });
-    return { data: dataResponse, columns };
-  }
-}
-```
-
-2. Invoke `Hds::Table` in your template file.
+Add `isSortable=true` to the hash for each column that should be sortable.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
-
 <Hds::Table
   @model={{this.model.data}}
-  @columns={{this.model.columns}}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
-
-#### Indicate which columns are sortable
-
-If you want, you can indicate that only specific columns should be sortable.
-
-```handlebars{data-execute=false}
-<!-- app/templates/components/table.hbs -->
-
-<Hds::Table
-  @model={{this.model.data}}
-  @columns={{this.model.columns}}
-  @sortingKeys={{array 'artist' 'album'}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable="true")
+    (hash key="album" label="Album" isSortable="true")
+    (hash key="year" label="Release Year")
+  }}
 >
   <:body as |B|>
     <B.Tr>
@@ -173,15 +115,17 @@ If you want, you can indicate that only specific columns should be sortable.
 
 #### Pre-sorting columns
 
-You can also indicate that a specific column should be pre-sorted.
+You can optionally indicate that a specific column should be pre-sorted by adding `@sortBy` where the value is the key of the column.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
-
 <Hds::Table
   @model={{this.model.data}}
-  @columns={{this.model.columns}}
-  @sortingKeys={{array 'artist' 'album'}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable="true")
+    (hash key="album" label="Album" isSortable="true")
+    (hash key="year" label="Release Year")
+  }}
   @sortBy='artist'
 >
   <:body as |B|>
@@ -196,15 +140,17 @@ You can also indicate that a specific column should be pre-sorted.
 
 ##### Pre-sorting direction
 
-You can also indicate that a specific column should be pre-sorted in a specific direction.
+You can optionally also indicate that the column defined in `@sortBy` should be pre-sorted in a descending order, rather than the default ascending order by passing in `@sortOrder='desc'`.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
-
 <Hds::Table
   @model={{this.model.data}}
-  @columns={{this.model.columns}}
-  @sortingKeys={{array 'artist' 'album'}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable="true")
+    (hash key="album" label="Album" isSortable="true")
+    (hash key="year" label="Release Year")
+  }}
   @sortBy='artist'
   @sortOrder='desc'
 >
@@ -218,7 +164,7 @@ You can also indicate that a specific column should be pre-sorted in a specific 
 </Hds::Table>
 ```
 
-#### Complex sortable Table
+#### More Examples: internationalized column headers, overflow menu dropdown
 
 Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
@@ -228,12 +174,11 @@ Here’s a table implementation that uses an array hash with localized strings f
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-      (hash key='artist' label=(t 'components.table.headers.artist'))
-      (hash key='album' label=(t 'components.table.headers.album'))
-      (hash key='year' label=(t 'components.table.headers.year'))
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable="true")
+      (hash key='album' label=(t 'components.table.headers.album') isSortable="true")
+      (hash key='year' label=(t 'components.table.headers.year') isSortable="true")
       (hash key='other' label=(t 'global.titles.other'))
     }}
-  @sortingKeys={{array 'artist' 'album' 'year'}}
 >
   <:body as |B|>
     <B.Tr>
@@ -260,6 +205,30 @@ Here’s a table implementation that uses an array hash with localized strings f
             />
           </Hds::Dropdown>
         </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
+#### More Examples: replacing components as a pre-adoption step
+
+If you're not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It's a little more typing but it should give you an idea of what will work for you.
+
+```handlebars{data-execute=false}
+<!-- app/templates/components/table.hbs -->
+<Hds::Table @model={{this.model}}>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Release Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.artist}}</B.Td>
+      <B.Td>{{B.album}}</B.Td>
+      <B.Td>{{B.year}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>

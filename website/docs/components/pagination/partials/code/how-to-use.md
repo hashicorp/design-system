@@ -59,6 +59,15 @@ Below is an example of some of these extra arguments:
 />
 ```
 
+Example of custom label text for `Pagination::SizeSelector`
+
+```handlebars
+<Hds::Pagination::Numbered
+  @totalItems={{40}}
+  @sizeSelectorLabel="Per page"
+/>
+```
+
 ### Truncation
 
 When there is a large number of items and consequently the number of pages is also large, by default the component automatically "truncates" the number of visible pages (using "ellipses"):

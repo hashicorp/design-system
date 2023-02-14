@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
@@ -95,6 +100,13 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert
       .dom('.hds-pagination .hds-pagination-nav__arrow--direction-next')
       .exists();
+  });
+
+  test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Numbered @totalItems={{100}} @sizeSelectorLabel="Custom text" />
+    `);
+    assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
   });
 
   // SHOW/HIDE ELEMENTS

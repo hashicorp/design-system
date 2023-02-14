@@ -141,12 +141,18 @@ Multiple dismissal options are available that can be customized in production wi
 - Clicking with a mouse outside of the Flyout on the main page
 - Hitting the escape (`ESC`) key on a keyboard
 
+![Flyout dismissal actions](/assets/components/flyout/flyout-dismissal.png)
+
 ## Positioning and responsive sizing
 
 A Flyout should slide out from the right side of the viewport on top of the main page content and occupy 100% of the viewport height.
 
 - This is true regardless of whether there is a sidebar or navigational element that persists on the page.
 - A Flyout should overlay all content and block/disable interaction on the main page.
+
+![Flyout in a desktop viewport](/assets/components/flyout/flyout-sizing.png)
+
+<!-- ![Flyout in a mobile viewport](/assets/components/flyout/flyout-sizing-mobile.png =300x*) -->
 
 !!! Info
 
