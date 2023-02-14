@@ -57,21 +57,54 @@
 }
 
 .doc-page-heading-link {
+  $box-size: 24px;
+  $icon-size: 16px;
+  $gap: 8px;
   display: inline-block;
-  width: 24px;
-  height: 1em;
-  margin-top: 0.15em;
-  margin-left: -24px;
+  width: $box-size;
+  height: $box-size;
+  margin-right: $gap;
+  margin-left: -($box-size + $gap);
   vertical-align: text-top;
-  // background-color: red;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%232264D6'%3E%3Cpath d='M11.141 1a3.893 3.893 0 00-2.738 1.093L7.314 3.175A.75.75 0 008.372 4.24l1.077-1.07a2.393 2.393 0 013.384 3.382l-1.881 1.88a2.393 2.393 0 01-3.608-.258.75.75 0 00-1.202.899 3.893 3.893 0 005.87.42l1.886-1.886.01-.009A3.893 3.893 0 0011.14 1z'/%3E%3Cpath d='M7.019 5.365a3.893 3.893 0 00-3.032 1.13L2.102 8.382l-.01.01a3.893 3.893 0 005.505 5.504l1.084-1.084a.75.75 0 00-1.06-1.06l-1.07 1.07a2.393 2.393 0 01-3.384-3.384l1.881-1.88a2.393 2.393 0 013.609.258.75.75 0 101.2-.899A3.893 3.893 0 007.02 5.365z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 16px 16px;
+  background-size: $icon-size $icon-size;
+  border-radius: 3px;
   opacity: 0;
 
-  :hover > &,
+  h2 > & {
+    margin-top: 0.16em;
+  }
+
+  h3 > & {
+    margin-top: 0.09em;
+  }
+
+  h4 > & {
+    margin-top: -0.08em;
+  }
+
+  h5 > & {
+    margin-top: -0.12em;
+  }
+
+  :hover > & {
+    border: 1px solid var(--doc-color-gray-300);
+    opacity: 1;
+  }
+
   &:focus-visible {
     opacity: 1;
+  }
+
+  @include breakpoint.small () {
+    display: none;
+    margin-left: 0;
+    opacity: 1;
+
+    :hover > & {
+      display: inline-block;
+    }
   }
 }
