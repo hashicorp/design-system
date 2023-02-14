@@ -18,10 +18,23 @@ export default class HdsTableIndexComponent extends Component {
    * @default sortBy:sortOrder
    * @description Returns the sort criteria
    */
+  /**
+   * @param getSortCriteria
+   * @type {string | function}
+   * @default sortBy:sortOrder
+   * @description Returns the sort criteria
+   */
   get getSortCriteria() {
-    // check if there is a custom sorting function associated with the current `sortBy` column
-    if (this?.args?.columns?.[this.sortBy]?.sortingFunction) {
-      return this.args.columns[this.sortBy].sortingFunction;
+    // get the current column
+    const currentColumn = this.args?.columns?.find(
+      (column) => column.key === this.sortBy
+    );
+    if (
+      // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
+      currentColumn?.sortingFunction &&
+      typeof currentColumn.sortingFunction === 'function'
+    ) {
+      return currentColumn.sortingFunction;
     } else {
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this.sortBy}:${this.sortOrder}`;
@@ -42,15 +55,18 @@ export default class HdsTableIndexComponent extends Component {
   /**
    * @param sortedMessageText
    * @type {string}
-   * @default 'Sorted by ${sortBy} ${sortOrder}ending'
+   * @default ''
    * @description Returns the text to display in the sorted message. If no text is defined, the default text is used.
    */
   get sortedMessageText() {
-    return (
-      this.args.sortedMessageText ??
+    if (this.args.sortedMessageText) {
+      return this.args.sortedMessageText;
+    } else if (this.sortBy && this.sortOrder) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      `Sorted by ${this.sortBy} ${this.sortOrder}ending`
-    );
+      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+    } else {
+      return '';
+    }
   }
 
   /**
@@ -146,8 +162,10 @@ export default class HdsTableIndexComponent extends Component {
   setSortBy(column) {
     if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
+      // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
+      // otherwise, set the sort order to ascending
       // otherwise, set the sort order to ascending
       this.sortBy = column;
       this.sortOrder = 'asc';

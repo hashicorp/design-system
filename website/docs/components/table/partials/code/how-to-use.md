@@ -29,46 +29,67 @@ If you don’t have or want to use a model, a basic invocation could look like:
 
 ### Simple Table with model defined (non-sortable)
 
-To use a table with a model, define the data model and insert your own content into the `:head` and `:body` blocks.
+To use a table with a model, first of all you need to define the data model (usually in your route):
+
+```javascript
+// app/routes/components/table.js
+
+import Route from '@ember/routing/route';
+
+export default class ComponentsTableRoute extends Route {
+  async model() {
+    // example of data retrieved:
+    // [
+    //   {
+    //     "id": 1,
+    //     "name": "Burnaby Kuscha",
+    //     "email": "1_bkuscha0@tiny.cc",
+    //     "role": "Owner"
+    //   },
+    //   {
+    //     "id": 2,
+    //     "name": "Barton Penley",
+    //     "email": "2_bpenley1@miibeian.gov.cn",
+    //     "role": "Admin"
+    //   },
+    //   ...
+    let response = await fetch('/api/demo.json');
+    let { data } = await response.json();
+    return { myDemoData: data };
+  }
+}
+```
+
+For documentation purposes, we‘re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the templating code.
+
+You can insert your own content into the and `:body` block and the component will take care of looping over the `@model` provided:
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 
-<Hds::Table @model={{this.model}}>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
-    </H.Tr>
-  </:head>
+<Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array (hash label="Name") (hash label="Email") (hash label="Role")}}
+>
   <:body as |B|>
     <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.role}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>
 ```
 
-For documentation purposes, we‘ve imitated fetching data from an API and are working with that as our data model.
+!!! Info
 
-```javascript
-import Route from '@ember/routing/route';
+**Important**
 
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    let response = await fetch('/api/folk.json');
-    let { data } = await response.json();
+To be able to use this `Table` variant, you need to:
+- provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
+- use the `.data` key to access the `@model` record content (it's yielded as `data`)
+!!!
 
-    return data.map((model) => {
-      let { attributes } = model;
-      return { ...attributes };
-    });
-  }
-}
-```
 
 ### Sortable Table
 
@@ -76,9 +97,9 @@ For the sortable table, the invocation and use is a little bit different:
 
 1. Shape the data model for use; we’ve placed it in the page‘s route.
 
-    - In this example, we’re identifying the column headers (keys) and also capitalizing them. 
-    - Each column object has two pieces: 
-      
+    - In this example, we’re identifying the column headers (keys) and also capitalizing them.
+    - Each column object has two pieces:
+
         - a `key`\-- used for the model, the `sortingKeys`, and `sortBy`
         - a `label`\-- used in the table header cells
 

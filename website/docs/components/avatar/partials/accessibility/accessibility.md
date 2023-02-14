@@ -6,6 +6,4 @@ The avatar is hidden from assistive technology with `aria-hidden="true"`. The ac
 
 ---
 
-## Support
-
-If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
+<Doc::A11ySupport />

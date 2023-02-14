@@ -6,6 +6,4 @@ When used as recommended, there should not be any accessibility issues with this
 
 ---
 
-## Support
-
-If any accessibility issues have been found within this component, let us know by [submitting an issue](https://github.com/hashicorp/design-system/issues/new/choose).
+<Doc::A11ySupport />

@@ -1,8 +1,9 @@
 ---
 title: Adoption
 description: This is the (missing) long description of the component, that will come from the frontmatter attributes
-order: 103
-hidden: true
+navigation:
+  order: 103
+  hidden: true
 ---
 
 ## Lorem ipsum dolor

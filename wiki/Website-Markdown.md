@@ -30,7 +30,7 @@
 
 ## Supported markdown syntax
 
-We use Markdown for the large part of the documentation on the website. To convert Markdown to HTML and render it in a browser we use a specific JavaScript library called [Showdown](https://showdownjs.com/). This library understands mostly all of the common Markdown flavours, but can also be extended with your own custom syntax.
+We use Markdown for a large part of the documentation on the website. To convert Markdown to HTML and render it in a browser we use a specific JavaScript library called [Showdown](https://showdownjs.com/). This library understands mostly all of the common Markdown flavors, but can also be extended with your own custom syntax.
 
 ### Common syntax
 
@@ -85,13 +85,13 @@ Both bold and italic can use either a `*` or an `_` around the text for styling.
 
 #### Strikethrough
 
-You can apply a strikethrough line to a word or groups of words by adding two tilde (`~~`) characters around them (same syntax as GitHub).
+You can apply a strikethrough line to a word or groups of words by adding two tildes (`~~`) characters around them (same syntax as GitHub).
 
 #### Lists
 
-We supports both unordered (bulleted) and ordered (numbered) lists using the standard markdown syntax:
+We support both unordered (bulleted) and ordered (numbered) lists using the standard markdown syntax:
 - prefix **unordered** list items with either `*`, `-`, or `+` (we suggest to use `-`).
-- prefix **ordered** list items with a number and a dot (we suggest to use consecutive numbers).
+- prefix **ordered** list items with a number and a dot (we suggest using consecutive numbers).
 
 ```md
 - Unordered item 1
@@ -105,7 +105,7 @@ We supports both unordered (bulleted) and ordered (numbered) lists using the sta
 
 Note: we don't support GFM-styled takslists (`- [ ] unchecked list item`).
 
-Even if not technically strictly require, for consistency list markers should always start at the left margin, and be followed by one or more spaces (of course, lists can be indented, in which case the list indicator will be indented too).
+Even if not technically strictly required, for consistency list markers should always start at the left margin, and be followed by one or more spaces (of course, lists can be indented, in which case the list indicator will be indented too).
 
 If the list item contains a very long text, to make the code more readable you can wrap items with so-called "hanging indents":
 
@@ -223,14 +223,14 @@ This is rendered as a simple "code block":
 
 ![A block of code rendered as a syntax highligthed code block](images/doc-code-block-simple.png)
 
-Using different language syntax identifiers, it's possible to have specific syntax highlithing for the code block. The most frequently used are
+Using different language syntax identifiers, it's possible to have specific syntax highlighting for the code block. The most frequently used are
 - ```` ```md ```` → markdown
 - ```` ```js ```` → JavaScript
 - ```` ```css ```` → CSS/Sass
 - ```` ```markup ```` → HTML-like code
 - ```` ```handlebars ```` → Handlebars code
 
-The last one, `handlebars`, is a special one for our application: it's used to identify code blocks that need to are executed and rendered at run time, with a preview of the executed code and the code block below.
+The last one, `handlebars`, is a special one for our application: it's used to identify code blocks that need to be executed and rendered at run time, with a preview of the executed code and the code block below.
 
 This code snippet:
 
@@ -277,7 +277,7 @@ Notice: similar to images, HTML `<table>` elements can be used in Markdown. This
 
 #### HTML in markdown
 
-As mentioned above, it's possible to add HTML element to markdown. Showdown generally leaves HTML tags untouched in the output document, but this can't always be assured (eg. the content of `<code>` and `<pre><code>` tags is always escaped) so we suggest to limit the use of HTML in mardown to only those cases where it's absolutely necessary.
+As mentioned above, it's possible to add HTML element to markdown. Showdown generally leaves HTML tags untouched in the output document, but this can't always be assured (eg. the content of `<code>` and `<pre><code>` tags is always escaped) so we suggest to limit the use of HTML in markdown to only those cases where it's absolutely necessary.
 
 If you need to structure the content in a specific layout, before starting to use tables or `<div>` elements with inline styles, consider if there are alternative ways to present and organize the same content, following the markdown intrinsic nature (content flows vertically) or reach out to the HDS team to see what options you may have.
 
@@ -345,7 +345,7 @@ For more details about how the markdown files are organized and structured under
 
 #### `Banner`
 
-To allow editors to add informational banners in the content, without the need to use a custom Ember component (and to know its custom syntax) we have introduced a special syntax based on a custom delimiter made of threee exclamation marks:
+To allow editors to add informational banners in the content, without the need to use a custom Ember component (and to know its custom syntax) we have introduced a special syntax based on a custom delimiter made of three exclamation marks:
 
 ```md
 !!! Info
@@ -370,11 +370,11 @@ The text after the opening `!!!` delimiter defines the visual styling of the ban
 
 To see how the different variants are rendered [refer to this page](https://hds-website-hashicorp.vercel.app/testing/components/banner/).
 
-Notice: the text is not case sensitive, so you can use both `Info` and `info` but we suggest to use the capitalized version, for consistency.
+Notice: the text is not case-sensitive, so you can use both `Info` and `info` but we suggest using the capitalized version, for consistency.
 
 The isolated **`**strong**`** element is, by convention, considered the "title" of the banner and styled accordingly. It's optional, so if you want to have just plain text it can be omitted.
 
-The content of the banner can be almost anything (just try and see if it works, if needed) but we suggest to keep thing simple,so use only paragraph, lists, links, etc.
+The content of the banner can be almost anything (just try and see if it works, if needed) but we suggest keeping thing simple, so use only paragraph, lists, links, etc.
 
 
 #### `Do/Dont`

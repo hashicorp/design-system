@@ -8,14 +8,18 @@ export default class FoundationsController extends Controller {
     const cards = {};
     sections.forEach((section) => {
       cards[section] = tocTree
-        .filter((page) => page.pageParents[0] === section)
+        .filter(
+          (page) =>
+            page.pageParents[0] === section &&
+            !page.pageAttributes?.navigation?.hidden
+        )
         .map((page) => {
           return {
             image: page.pageAttributes.previewImage,
-            title: page.pageAttributes.title,
-            caption:
-              page.pageAttributes.caption ||
-              'Don\'t forget to add the "caption" to the frontmatter for this page',
+            title:
+              page.pageAttributes?.navigation?.label ||
+              page.pageAttributes.title,
+            caption: page.pageAttributes.caption,
             route: 'show',
             model: page.pageURL,
           };

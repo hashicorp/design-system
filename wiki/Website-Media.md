@@ -38,6 +38,6 @@ Regarding the format and settings of the "Export" panel in Figma, please follow 
     - ![The "Fill" panel in Figma with the "Show in exports" option selected](images/doc-figma-show-in-exports.png)
 - consider the frame size in relation to what is the real use case
   - is it a fixed size in the page? use the exact same size (and export at `@2x`)
-  - is it an image that resize when the viewport changes? speak with the developer and decide what is the right size to use
+  - is it an image that resizes when the viewport changes? speak with the developer and decide what is the right size to use
 
 If you have any doubts or problems exporting the files, speak with one of the designers of the HDS team.

@@ -33,20 +33,20 @@ The `docs` folder contains a set of folders and subfolders, used to organize the
 
 **IMPORTANT**
 
-The way in which the folders and files are organized (essentially the file-system) is **very** important: it represents exactly the routing and URL that this content will be accesible at. For example,
-the document `./documents/about/hds-principles.md`. will be available at the URL `http://.../about/hds-principles/`, the document `./docs/components/form/checkbox/index.md` will be accessible at the URL `http://.../components/form/checkbox/`, etc.
+The way in which the folders and files are organized (essentially the file system) is **very** important: it represents exactly the routing and URL at which this content will be accessible. For example,
+the document `./documents/about/hds-principles.md` will be available at the URL `http://.../about/hds-principles/`, the document `./docs/components/form/checkbox/index.md` will be accessible at the URL `http://.../components/form/checkbox/`, etc.
 
 ---
 
 ![The "docs" folder structure as seen in a filesystem](images/doc-folder-structure.png)
 
-The direct sub-folders of `doc` represent the main sections of content, and are grouped (in code) under the different top-level categories ("About", "Components", "Foundations", "Patterns", etc.).
+The direct sub-folders of `doc` represent the main sections of content and are grouped (in code) under the different top-level categories ("About", "Components", "Foundations", "Patterns", etc.).
 
-Each one of these folders is organized internally in a different ways (based on the information architecture for that section): some of them contain direcly simple markdown files, others contain sub-folders and multiple markdown files (or single files or index + partial files).
+Each one of these folders is organized internally in different ways (based on the information architecture for that section): some of them contain directly simple markdown files, others contain sub-folders and multiple markdown files (or single files or index + partial files).
 
 ### Markdown files
 
-The entry point for the each "standard" documentation page is a markdown file stored in the `docs` folder. Depending on the complexity of the content, it can be a single file, or an "index" file with "partial" sub-files.
+The entry point for each "standard" documentation page is a markdown file stored in the `docs` folder. Depending on the complexity of the content, it can be a single file, or an "index" file with "partial" sub-files.
 
 #### Simple files
 
@@ -54,7 +54,7 @@ If the content of a page is relatively simple, it can all be saved in a single m
 
 This file will need a frontmatter block (see ["frontmatter"](#frontmatter) section below).
 
-If needed, the content can be split in sections/tabs (see [Sections and tabs](#sections-and-tabs) below).
+If needed, the content can be split into sections/tabs (see [Sections and tabs](#sections-and-tabs) below).
 
 If needed, eg. to provide data or functions/callbacks to the content, you can add a JavaScript file (see [Backing class JavaScript files](#backing-class-javascript-files)) with the same exact name as the markdown file (extension excluded): in this way it will be automatically associated to the markdown file as "backing class".
 
@@ -62,20 +62,20 @@ _For more details about the how this automatic mechanism works, look at the [spe
 
 #### Index files
 
-If a documentation page contains a lot of content, it's better to split it down in "partials", and include then via the `@include` syntax ([see details here](./Website-Markdown.md#import)) in a "index" file that will act as a container.
+If a documentation page contains a lot of content, it's better to split it down into "partials", and include then via the `@include` syntax ([see details here](./Website-Markdown.md#import)) in a "index" file that will act as a container.
 
 The index file will need a frontmatter block (see ["frontmatter"](#frontmatter) section below), but not its partial files.
 
-The content should be split in sections/tabs (see [Sections and tabs](#sections-and-tabs) below).
+The content should be split into sections/tabs (see [Sections and tabs](#sections-and-tabs) below).
 
 If needed, eg. to provide data or functions/callbacks to the content, you can add a JavaScript file (see [Backing class JavaScript files](#backing-class-javascript-files)) with the same exact name as the markdown file (extension excluded): in this way it will be automatically associated to the markdown file as "backing class".
 
-_For more details about the how this automatic mechanism works, look at the [specific documentation about the website infrastructure](./Website-Infrastructure.md)._
+_For more details about how this automatic mechanism works, look at the [specific documentation about the website infrastructure](./Website-Infrastructure.md)._
 
 
 #### Partial files
 
-If a documentation page contains a lot of content, it's better to split it down in "partials", and include then via the `@include` syntax ([see details here](./Website-Markdown.md#import)) in a "index" file that will act as a container.
+If a documentation page contains a lot of content, it's better to split it down into "partials", and include them via the `@include` syntax ([see details here](./Website-Markdown.md#import)) in an "index" file that will act as a container.
 
 Don't add a frontmatter block, and don't add sections to it (if needed, use the parent file to add the sections).
 
@@ -83,7 +83,7 @@ If the code in the "partial" file needs data or functions/callbacks to the conte
 
 #### Content
 
-Markdown files can contain a "frontmatter" block, markdown content (of course!), possibly split in "sections".
+Markdown files can contain a "frontmatter" block, markdown content (of course!), possibly split into "sections".
 
 ##### Frontmatter
 
@@ -107,10 +107,12 @@ links:
 layout:
   cover: false
   sidecar: false
-order: 101
-hidden: false
+navigation:
+  order: 101
+  keywords: ['alert', 'toast', 'notification', 'banner', 'message']
+  label: Alert
+  hidden: false
 previewImage: assets/illustrations/components/alert.jpg
-keywords: ['alert', 'toast', 'notification', 'banner', 'message']
 ---
 ```
 
@@ -135,14 +137,18 @@ The "frontmatter" attributes that we support are the following:
       If the page "cover" is visible - default is `true`
     * `sidecar`
       If the page "sidecar" is visible (if not, the content will fill the entire available space) - default is `true`
-*   `order`
-    Used to control the order of the pages in navigational lists (lower value moves up the page, higher value moves it down) - default is `100`
-*   `hidden`
-    Used to hide the page from the sidebar navigation and the lists on the landing pages - default is `false`
+*   `navigation`
+    Meta-information related to the listing of the page in navigational contexts (eg. sidebar, cards).
+    * `order`
+      Used to control the order of the pages in navigational lists (lower value moves up the page, higher value moves it down) - default is `100`
+    * `keywords`
+      An optional list of keywords that the page can be found with, when a filter is applied to a list of pages.
+    * `label`
+      Alternative text to use in the sidebar navigation, instead of the `title` (which is used by default)
+    * `hidden`
+      Used to hide the page from the sidebar navigation and the lists on the landing pages - default is `false`
 *   `previewImage`
     An optional full path to an image used when listing the page as "card" (eg. in landing pages). The path refers to the `dist` folder generated at build time, so is relative to the content of the `/website/public` folder.
-*   `keywords`
-    An optional list of keywords that the page can be found with, when a filter is applied to a list of pages.
 
 
 Only the `title` attribute is technically required, all the others are optional (even though some of them like `description` and `caption` are necessary for component pages).
@@ -185,7 +191,7 @@ These tabs are then used to control the visibility of the different sections dep
 
 The value of the `data-tab` attribute will be used as label for the tab.
 
-__Important: we are not enforcing in any way what these labels should and shouln't be: we leave it to the editors to keep the tabs consistent across pages.__
+__Important: we are not enforcing in any way what these labels should and shouldn't be: we leave it to the editors to keep the tabs consistent across pages.__
 
 ##### Markdown
 
@@ -197,11 +203,11 @@ For details about the supported markdown syntax that you can use, refer to [the 
 
 Whenever the content of a markdown page (simple, index or sub-page) contains Ember or Handlebars code that needs data or event handlers, it's possible to provide a "backing class" to it in the form of a JavaScript file.
 
-The file name **must** have the exact same name of the markdown file (extensions excluded, of course) and have the structure of an [Ember "Component" class](https://api.emberjs.com/ember/release/classes/Component).
+The file name **must** have the exact same name as the markdown file (extensions excluded, of course) and have the structure of an [Ember "Component" class](https://api.emberjs.com/ember/release/classes/Component).
 
 To understand how this "magic" works, you have essentially to consider the markdown file as a component's "template" and the JS file as its "backing class", with the application creating an Ember component out of it on-the-fly at runtime.
 
-__For more details about the how this automatic mechanism works, look at the [specific documentation about the website infrastructure](./Website-Infrastructure.md#dynamictemplate-component)).__
+__For more details about how this automatic mechanism works, look at the [specific documentation about the website infrastructure](./Website-Infrastructure.md#dynamictemplate-component)).__
 
 It's impossible to cover all use cases in this guide, but we provide a sample of code for reference:
 
@@ -260,5 +266,5 @@ export default class Index extends Component {
 }
 ```
 
-As you can see, the code is identical to the code you would find in a standard Ember component, so just apply your knowledge to it (is you don't know how to write an Ember backing class, speak with the engineers in the HDS team and they surely can help).
+As you can see, the code is identical to the code you would find in a standard Ember component, so just apply your knowledge to it (if you don't know how to write an Ember backing class, speak with the engineers in the HDS team and they surely can help).
 

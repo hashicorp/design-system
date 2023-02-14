@@ -38,21 +38,26 @@ const getSidebarStructuredTree = (subTree, filterQuery, currentURL) => {
   Object.keys(subTree).forEach((key) => {
     const item = subTree[key];
     if (item.pageURL) {
-      const fq = filterQuery.toLowerCase();
-      if (isFiltered) {
-        const titleMatch =
-          item.pageAttributes.title &&
-          item.pageAttributes.title.toLowerCase().includes(fq);
-        const keywordsMatch =
-          item.pageAttributes.keywords &&
-          item.pageAttributes.keywords.some((k) =>
-            k.toLowerCase().includes(fq)
-          );
-        if (titleMatch || keywordsMatch) {
+      if (!item.pageAttributes?.navigation?.hidden) {
+        const fq = filterQuery.toLowerCase();
+        if (isFiltered) {
+          const labelMatch =
+            item.pageAttributes.navigation.label &&
+            item.pageAttributes.navigation.label.toLowerCase().includes(fq);
+          const titleMatch =
+            item.pageAttributes.title &&
+            item.pageAttributes.title.toLowerCase().includes(fq);
+          const keywordsMatch =
+            item.pageAttributes.navigation.keywords &&
+            item.pageAttributes.navigation.keywords.some((k) =>
+              k.toLowerCase().includes(fq)
+            );
+          if (labelMatch || titleMatch || keywordsMatch) {
+            sidebarStructuredTree[key] = item;
+          }
+        } else {
           sidebarStructuredTree[key] = item;
         }
-      } else {
-        sidebarStructuredTree[key] = item;
       }
     } else {
       const subSubTree = getSidebarStructuredTree(item, filterQuery);
