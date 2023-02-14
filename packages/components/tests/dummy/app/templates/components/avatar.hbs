@@ -6,10 +6,16 @@
 {{page-title "Avatar Component"}}
 
 <h2 class="dummy-h2">Avatar</h2>
+
 <section data-test-percy>
-  <h4 class="dummy-h4">Default:</h4>
-  <Hds::Avatar />
-  <h4 class="dummy-h4">With image src defined:</h4>
-  <Hds::Avatar @src="/assets/images/avatar.png" />
+
+  <Shw::Sample::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::Avatar />
+    </SF.Item>
+    <SF.Item @label="With image src defined">
+      <Hds::Avatar @src="/assets/images/avatar.png" />
+    </SF.Item>
+  </Shw::Sample::Flex>
 
 </section>
