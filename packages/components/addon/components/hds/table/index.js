@@ -23,12 +23,6 @@ export default class HdsTableIndexComponent extends Component {
    * @default sortBy:sortOrder
    * @description Returns the sort criteria
    */
-  /**
-   * @param getSortCriteria
-   * @type {string | function}
-   * @default sortBy:sortOrder
-   * @description Returns the sort criteria
-   */
   get getSortCriteria() {
     // get the current column
     const currentColumn = this.args?.columns?.find(
@@ -167,10 +161,8 @@ export default class HdsTableIndexComponent extends Component {
   setSortBy(column) {
     if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
-      // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
-      // otherwise, set the sort order to ascending
       // otherwise, set the sort order to ascending
       this.sortBy = column;
       this.sortOrder = 'asc';
