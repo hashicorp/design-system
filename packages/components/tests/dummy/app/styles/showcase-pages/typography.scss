@@ -5,17 +5,13 @@
 
 // TYPOGRAPHY
 
-.dummy-typography-sample {
-    .dummy-h5 {
-        color: #999;
-        margin-top: 1rem;
-    }
-}
+body.foundations-typography {
+  .shw-sample-label {
+    color: #999;
+  }
 
-.dummy-typography-sample--family,
-.dummy-typography-sample--weight {
-    p {
-        margin: 0;
-        padding: 0;
-    }
+  p[class^="hds-"] {
+    margin: 0;
+    padding: 0;
+  }
 }
