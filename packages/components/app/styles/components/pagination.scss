@@ -26,9 +26,6 @@ $pagination-layout-breakpoint: 1000px;
   align-items: center;
   margin: 0 auto;
 
-  &,
-  & > * { outline: 1px dotted blue; }
-
   @media screen and (max-width: $pagination-layout-breakpoint) {
     display: flex;
     flex-wrap: wrap;
