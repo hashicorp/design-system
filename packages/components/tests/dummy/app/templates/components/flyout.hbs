@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Size</h4>
+  <Shw::Text::H2>Size</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#each @model.SIZES as |size|}}
@@ -24,7 +24,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Header</h4>
+  <Shw::Text::H2>Header</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="Title with icon" class="shw-component-flyout-sample-item">
@@ -68,7 +68,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Body</h4>
+  <Shw::Text::H2>Body</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="With basic style" class="shw-component-flyout-sample-item">
@@ -105,7 +105,7 @@
 <Shw::Divider />
 
 <section>
-  <h4 class="dummy-h4">Demo</h4>
+  <Shw::Text::H2>Demo</Shw::Text::H2>
 
   <button type="button" {{on "click" (fn this.activateFlyout "mediumFlyoutActive")}}>Open medium flyout</button>
   <button type="button" {{on "click" (fn this.activateFlyout "largeFlyoutActive")}}>Open large flyout</button>

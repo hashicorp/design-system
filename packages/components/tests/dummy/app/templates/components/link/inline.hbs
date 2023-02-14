@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Generated element</h4>
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -34,7 +34,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Content</h4>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -107,10 +107,10 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">States</h4>
+  <Shw::Text::H2>States</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
-    <h5 class="dummy-h5">{{capitalize color}}</h5>
+    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
     <Shw::Sample::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize state}}" class="shw-component-link-inline-state-samples">

@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Size</h4>
+  <Shw::Text::H2>Size</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#each @model.SIZES as |size|}}
@@ -32,7 +32,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Color</h4>
+  <Shw::Text::H2>Color</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#each @model.COLORS as |color|}}
@@ -57,7 +57,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Title</h4>
+  <Shw::Text::H2>Title</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="With icon" class="shw-component-modal-sample-item">
@@ -110,7 +110,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Content</h4>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="With basic style" class="shw-component-modal-sample-item">
@@ -153,7 +153,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Actions</h4>
+  <Shw::Text::H2>Actions</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="One action" class="shw-component-modal-sample-item">
@@ -211,7 +211,7 @@
 <Shw::Divider />
 
 <section>
-  <h4 class="dummy-h4">Demo</h4>
+  <Shw::Text::H2>Demo</Shw::Text::H2>
 
   <button type="button" {{on "click" (fn this.activateModal "basicModalActive")}}>Open basic modal</button>
 

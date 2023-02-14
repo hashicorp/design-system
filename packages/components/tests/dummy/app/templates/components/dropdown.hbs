@@ -9,9 +9,9 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Toggles</h4>
+  <Shw::Text::H2>Toggles</Shw::Text::H2>
 
-  <h5 class="dummy-h5">Toggle::Button</h5>
+  <Shw::Text::H3>Toggle::Button</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="primary">
@@ -30,7 +30,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Toggle::Icon</h5>
+  <Shw::Text::H3>Toggle::Icon</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="with icon + chevron">
@@ -44,7 +44,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">States</h5>
+  <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Sample::Grid @columns="5" as |SG|>
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
@@ -98,9 +98,9 @@
 
   <Shw::Divider />
 
-  <h4 class="dummy-h4">List Items</h4>
+  <Shw::Text::H2>List Items</Shw::Text::H2>
 
-  <h5 class="dummy-h5">Title / Description / Separator</h5>
+  <Shw::Text::H3>Title / Description / Separator</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="default (min width)">
@@ -145,9 +145,9 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Interactive</h5>
+  <Shw::Text::H3>Interactive</Shw::Text::H3>
 
-  <h6 class="dummy-h6">Generated element</h6>
+  <Shw::Text::H4>Generated element</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -178,7 +178,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h6 class="dummy-h6">Colors</h6>
+  <Shw::Text::H4>Colors</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="action (default)">
@@ -193,7 +193,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h6 class="dummy-h6">States (in each color)</h6>
+  <Shw::Text::H4>States (in each color)</Shw::Text::H4>
 
   {{#each @model.ITEM_INTERACTIVE_COLORS as |color|}}
     <Shw::Sample::Flex @direction="column" as |SF|>
@@ -244,7 +244,7 @@
     </Shw::Sample::Flex>
   {{/each}}
 
-  <h5 class="dummy-h5">Generic</h5>
+  <Shw::Text::H3>Generic</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -256,9 +256,9 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">CopyItem</h5>
+  <Shw::Text::H3>CopyItem</Shw::Text::H3>
 
-  <h6 class="dummy-h6">Content</h6>
+  <Shw::Text::H4>Content</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="base">
@@ -281,7 +281,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h6 class="dummy-h6">States</h6>
+  <Shw::Text::H4>States</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>

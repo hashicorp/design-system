@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Generated element</h4>
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
@@ -33,7 +33,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Content</h4>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -53,7 +53,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Sizes</h4>
+  <Shw::Text::H2>Sizes</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
@@ -66,7 +66,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Colors</h4>
+  <Shw::Text::H2>Colors</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
@@ -76,10 +76,10 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">States (in each size)</h4>
+  <Shw::Text::H2>States (in each size)</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
-    <h5 class="dummy-h5">{{capitalize color}}</h5>
+    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
     <Shw::Sample::Grid @columns={{5}} as |SG|>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
@@ -110,7 +110,7 @@
     </Shw::Sample::Grid>
   {{/each}}
 
-  <h4 class="dummy-h4">Containers</h4>
+  <Shw::Text::H2>Containers</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>

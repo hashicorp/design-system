@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Content</h4>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -31,7 +31,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">States</h4>
+  <Shw::Text::H2>States</Shw::Text::H2>
 
   <Shw::Sample::Grid @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
@@ -41,7 +41,7 @@
     {{/each}}
   </Shw::Sample::Grid>
 
-  <h4 class="dummy-h4">Colors</h4>
+  <Shw::Text::H2>Colors</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Sample::Grid @columns={{4}} as |SG|>
@@ -84,7 +84,7 @@
     </Shw::Sample::Grid>
   {{/each}}
 
-  <h4 class="dummy-h4">Containers</h4>
+  <Shw::Text::H2>Containers</Shw::Text::H2>
 
   <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}

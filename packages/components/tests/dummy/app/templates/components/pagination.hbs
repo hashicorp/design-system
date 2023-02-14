@@ -14,7 +14,7 @@
     layout highlight
   </button>
 
-  <h4 class="dummy-h4">Pagination::Numbered</h4>
+  <Shw::Text::H2>Pagination::Numbered</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
@@ -45,7 +45,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h6">Truncation</h5>
+  <Shw::Text::H4>Truncation</Shw::Text::H4>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="With large number of pages (truncated by default)">
@@ -61,7 +61,7 @@
 
   <Shw::Divider />
 
-  <h4 class="dummy-h4">Pagination::Compact</h4>
+  <Shw::Text::H2>Pagination::Compact</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
@@ -77,9 +77,9 @@
 
   <Shw::Divider />
 
-  <h4 class="dummy-h4">Base elements</h4>
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
 
-  <h5 class="dummy-h5">Pagination::Info</h5>
+  <Shw::Text::H3>Pagination::Info</Shw::Text::H3>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
@@ -95,7 +95,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Pagination::SizeSelector</h5>
+  <Shw::Text::H3>Pagination::SizeSelector</Shw::Text::H3>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
@@ -109,7 +109,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Pagination::Nav::Arrow</h5>
+  <Shw::Text::H3>Pagination::Nav::Arrow</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="With text label (default)">
@@ -134,7 +134,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h6 class="dummy-h6">States</h6>
+  <Shw::Text::H4>States</Shw::Text::H4>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
@@ -175,7 +175,7 @@
     {{/let}}
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Pagination::Nav::Number</h5>
+  <Shw::Text::H3>Pagination::Nav::Number</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="Generic (default)">
@@ -189,7 +189,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h6 class="dummy-h6">States (Generic / Current - With different text lengths)</h6>
+  <Shw::Text::H4>States (Generic / Current - With different text lengths)</Shw::Text::H4>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
@@ -229,7 +229,7 @@
     {{/let}}
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Pagination::Nav::Ellipsis</h5>
+  <Shw::Text::H3>Pagination::Nav::Ellipsis</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="Base">
@@ -239,13 +239,13 @@
 
   <Shw::Divider />
 
-  <h4 class="dummy-h4">Examples of paginated tables</h4>
+  <Shw::Text::H2>Examples of paginated tables</Shw::Text::H2>
 
   {{! ============================================ }}
   {{! ===== DEMO #1 - NUMBERED - WITH EVENTS ===== }}
   {{! ============================================ }}
 
-  <h5 class="dummy-h5">Numbered - Events-based pagination</h5>
+  <Shw::Text::H3>Numbered - Events-based pagination</Shw::Text::H3>
 
   <Shw::Text::Body>When using an "events-based" strategy, the status of the UI is transient, and it's not
     preserved across page reloads.</Shw::Text::Body>
@@ -283,7 +283,7 @@
   {{! ===== DEMO #2 - NUMBERED - WITH ROUTING ===== }}
   {{! ============================================= }}
 
-  <h5 class="dummy-h5">Numbered - Routing-based pagination</h5>
+  <Shw::Text::H3>Numbered - Routing-based pagination</Shw::Text::H3>
 
   <Shw::Text::Body>When using a "routing-based" strategy, the status of the UI is preserved across page
     reloads using the query parameters stored in the URL.</Shw::Text::Body>
@@ -327,7 +327,7 @@
   {{! ===== DEMO #3 - COMPACT - WITH EVENTS ===== }}
   {{! =========================================== }}
 
-  <h5 class="dummy-h5">Compact - Events-based pagination</h5>
+  <Shw::Text::H3>Compact - Events-based pagination</Shw::Text::H3>
 
   <Shw::Text::Body>When using an "events-based" strategy, the status of the UI is transient, and it's not
     preserved across page reloads.</Shw::Text::Body>
@@ -364,7 +364,7 @@
 
   {{! Notice: this demo emulates the current implementation in Cloud UI }}
 
-  <h5 class="dummy-h5">Compact - Routing-based pagination</h5>
+  <Shw::Text::H3>Compact - Routing-based pagination</Shw::Text::H3>
 
   <Shw::Text::Body>When using a "routing-based" strategy, the status of the UI is preserved across page
     reloads using the query parameters stored in the URL.</Shw::Text::Body>

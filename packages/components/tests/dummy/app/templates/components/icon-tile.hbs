@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Size</h4>
+  <Shw::Text::H2>Size</Shw::Text::H2>
 
   <Shw::Sample::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
     <SG.Item @label="With logo">
@@ -50,7 +50,7 @@
     </SG.Item>
   </Shw::Sample::Grid>
 
-  <h4 class="dummy-h4">Logo</h4>
+  <Shw::Text::H2>Logo</Shw::Text::H2>
 
   <Shw::Sample::Grid @columns={{5}} as |SG|>
     {{#each @model.PRODUCTS as |product|}}
@@ -66,7 +66,7 @@
     {{/each}}
   </Shw::Sample::Grid>
 
-  <h4 class="dummy-h4">Icon color</h4>
+  <Shw::Text::H2>Icon color</Shw::Text::H2>
 
   <Shw::Sample::Grid @columns={{5}} as |SG|>
     {{#each @model.COLORS as |color|}}

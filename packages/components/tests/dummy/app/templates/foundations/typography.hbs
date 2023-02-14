@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Families</h4>
+  <Shw::Text::H2>Families</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#each this.families as |family|}}
@@ -19,7 +19,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Weights</h4>
+  <Shw::Text::H2>Weights</Shw::Text::H2>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#each this.weights as |weight|}}
@@ -29,7 +29,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Styles</h4>
+  <Shw::Text::H2>Styles</Shw::Text::H2>
   <Shw::Text::Body><em>Notice: we are showing only the combinations of
       <code>font-size</code>
       ("style") and

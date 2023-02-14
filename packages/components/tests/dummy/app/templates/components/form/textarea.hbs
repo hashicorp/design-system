@@ -9,9 +9,9 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">"Base" control</h4>
+  <Shw::Text::H2>"Base" control</Shw::Text::H2>
 
-  <h5 class="dummy-h6">Interaction status</h5>
+  <Shw::Text::H4>Interaction status</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="Default">
@@ -25,7 +25,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h6">States</h5>
+  <Shw::Text::H4>States</Shw::Text::H4>
 
   {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
     {{#each variants as |variant|}}
@@ -70,7 +70,7 @@
     {{/each}}
   {{/let}}
 
-  <h5 class="dummy-h6">Custom layout</h5>
+  <Shw::Text::H4>Custom layout</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="With custom layout">
@@ -88,7 +88,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h5 class="dummy-h5">Containers</h5>
+  <Shw::Text::H3>Containers</Shw::Text::H3>
 
   <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
@@ -108,9 +108,9 @@
     {{/let}}
   </Shw::Sample::Grid>
 
-  <h4 class="dummy-h4">"Field" control</h4>
+  <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
-  <h5 class="dummy-h5">Content</h5>
+  <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Sample::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
@@ -159,7 +159,7 @@
     </SG.Item>
   </Shw::Sample::Grid>
 
-  <h5 class="dummy-h5">Required and optional</h5>
+  <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Sample::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Required">
@@ -182,7 +182,7 @@
     </SG.Item>
   </Shw::Sample::Grid>
 
-  <h5 class="dummy-h5">Containers</h5>
+  <Shw::Text::H3>Containers</Shw::Text::H3>
 
   <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}

@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <h4 class="dummy-h4">Content</h4>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
@@ -32,7 +32,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Size</h4>
+  <Shw::Text::H2>Size</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.BADGE_SIZES as |size|}}
@@ -42,7 +42,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Type</h4>
+  <Shw::Text::H2>Type</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.BADGE_TYPES as |type|}}
@@ -52,7 +52,7 @@
     {{/each}}
   </Shw::Sample::Flex>
 
-  <h4 class="dummy-h4">Color:</h4>
+  <Shw::Text::H2>Color:</Shw::Text::H2>
 
   {{#each @model.BADGE_COLORS as |color|}}
     <Shw::Sample::Grid @title={{capitalize color}} @columns={{3}} as |SG|>
@@ -75,7 +75,7 @@
     </Shw::Sample::Grid>
   {{/each}}
 
-  <h4 class="dummy-h4">Containers</h4>
+  <Shw::Text::H2>Containers</Shw::Text::H2>
 
   <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
