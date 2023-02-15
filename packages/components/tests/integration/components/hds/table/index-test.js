@@ -8,10 +8,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-function mySortingFunction(key) {
-  return key.substr(0, 2).toLowerCase;
-}
-
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
