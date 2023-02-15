@@ -89,8 +89,10 @@ The select options are passed to the field as yielded components, using the `Opt
     Container that yields its content inside the "error" block. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives) component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
-  </C.Property>
-  <C.Property @name="<[E].Message>" @type="yielded component">
-    If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="<[E].Message>" @type="yielded component">
+        If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
 </Doc::ComponentApi>
