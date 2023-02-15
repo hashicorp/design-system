@@ -49,6 +49,7 @@ const hbsSortableTable = hbs`
   @sortOrder={{this.sortOrder}}
   @onSort={{this.onSort}}
   @columns={{this.columns}}
+  @sortedMessageText={{this.sortedMessageText}}
   id="data-test-table"
 >
   <:body as |B|>
@@ -252,6 +253,18 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert
       .dom('#data-test-table caption')
       .hasText('Sorted by artist descending');
+  });
+
+  test('it renders a custom sortedMessageText if supplied', async function (assert) {
+    setSortableTableData(this);
+    this.set('sortedMessageText', 'Melanie will sort it');
+
+    await render(hbsSortableTable);
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.dom('#data-test-table caption').hasText('Melanie will sort it');
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.dom('#data-test-table caption').hasText('Melanie will sort it');
   });
 
   test('it updates the `aria-sort` attribute value when a sort is performed', async function (assert) {
