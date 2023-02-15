@@ -10,7 +10,7 @@ html {
   box-sizing: border-box;
 }
 
-body.dummy-app {
+body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -18,14 +18,7 @@ body.dummy-app {
   background-color: #d9d9d9;
 }
 
-.dummy-index {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-around;
-}
-
-.dummy-header {
+.shw-page-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,34 +33,24 @@ body.dummy-app {
   }
 }
 
-.dummy-aside {
+.shw-page-aside {
   padding: 2rem 1rem;
   background-color: #fff;
 }
 
-.dummy-main {
+.shw-page-main {
   padding: 2rem;
   background-color: #fff;
 }
 
-.dummy-divider {
-  margin: 2rem 0;
-}
-
-.dummy-code {
-  padding: 0 3px;
-  font-family: courier, monospace;
-  background-color: #eee;
-  border-radius: 3px;
-}
-
-.dummy-back-to-components-list {
+.shw-back-to-components-list {
   @include dummyFontFamily();
   @include dummyFontSize(0.9rem);
   display: flex;
   flex-direction: row;
   gap: 5px;
   align-items: center;
+  width: fit-content;
   padding: 0.5rem 1rem;
   color: black;
   border: 2px solid transparent;
@@ -98,6 +81,20 @@ body.dummy-app {
   .flight-icon {
     color: blue;
   }
+}
+
+.shw-landing-lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.dummy-code {
+  padding: 0 3px;
+  font-family: courier, monospace;
+  background-color: #eee;
+  border-radius: 3px;
 }
 
 

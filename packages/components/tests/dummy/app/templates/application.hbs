@@ -5,12 +5,15 @@
 
 {{page-title "HDS Design System"}}
 
-<header class="dummy-header">
-  <h1 class="dummy-h1">
-    Helios Design System (HDS)
-    <br />
-    Components internal showcase
-  </h1>
+<header class="shw-page-header">
+  <h1 class="dummy-h1">HDS components showcase</h1>
 </header>
 
-{{outlet}}
+<aside class="shw-page-aside">
+  <LinkTo class="shw-back-to-components-list" @route="index"><FlightIcon @name="arrow-left" @isInlineBlock={{false}} />
+    Component list</LinkTo>
+</aside>
+
+<main id="main" class="shw-page-main">
+  {{outlet}}
+</main>
