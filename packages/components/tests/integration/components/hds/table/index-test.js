@@ -277,9 +277,17 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it uses a custom sort function if one is supplied', async function (assert) {
     // contrived example; we don’t care _what_ the custom sorting function does, just that it’s used instead of the default.
-    const mySortingFunction = (key) => {
-      return key.substr(0, 2).toLowerCase;
+    // sort based on the second letter of the album name
+    const mySortingFunction = (a, b) => {
+      if (a.album.charAt(1) < b.album.charAt(1)) {
+        return -1;
+      } else if (a.album.charAt(1) > b.album.charAt(1)) {
+        return 1;
+      } else {
+        return 0;
+      }
     };
+
     this.set('mySortingFunction', mySortingFunction);
 
     this.set('model', [
@@ -293,11 +301,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
       @model={{this.model}}
       @columns={{array 
         (hash key="artist" label="Artist" isSortable="true")
-        (hash key="album" label="Album" isSortable="true" sortFunction=this.mySortingFunction)
+        (hash key="album" label="Album" isSortable="true" sortingFunction=this.mySortingFunction)
       }}
-      @sortBy='artist'
-      @sortOrder='desc'
-      @onSort={{this.onSort}}
       id="data-test-table"
     >
       <:body as |B|>
@@ -308,16 +313,13 @@ module('Integration | Component | hds/table/index', function (hooks) {
       </:body>
     </Hds::Table>
     `);
-    // let’s just check that the table is pre-sorted the way we expect (artist, descending)
-    assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
+    // let’s just check that the table is pre-sorted the way we expect
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Nick Drake');
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
-    // in our fake sorting function, we've said to return the first three letters of the album name, so we should see the first row as 'abb' (Abbey Road)
     assert
-      .dom(
-        '#data-test-table .hds-table__tbody tr:nth-of-type(1) td:nth-of-type(2)'
-      )
-      .hasText('abb');
+      .dom('#data-test-table tbody td:nth-of-type(2)')
+      .hasText('Candles in the Rain');
   });
 
   test('it updates the `aria-sort` attribute value when a sort is performed', async function (assert) {
