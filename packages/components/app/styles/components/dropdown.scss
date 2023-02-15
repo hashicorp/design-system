@@ -486,15 +486,16 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 // RESULT COUNT & BADGE
+.hds-dropdown-list-item__count {
+  align-self: baseline;
+  padding: 0.125rem 0.5rem;
+  color: var(--token-color-foreground-faint);
+  line-height: 1.2308; // 16px
+}
 
 .hds-dropdown-list-item--checkmark,
 .hds-dropdown-list-item--checkbox,
 .hds-dropdown-list-item--radio {
-  .hds-dropdown-list-item__count {
-    align-self: baseline;
-    background: inherit;
-  }
-
   // align any `Hds::Badge` within a selectable list item to match baseline
   .hds-badge {
     vertical-align: bottom;

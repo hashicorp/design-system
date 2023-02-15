@@ -3,6 +3,6 @@
     <F.Label>{{yield}}</F.Label>
   </Hds::Form::Radio::Field>
   {{#if @resultCount}}
-    <Hds::BadgeCount class="hds-dropdown-list-item__count" @size="small" @type="filled" @text={{@resultCount}} />
+    <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
   {{/if}}
 </li>

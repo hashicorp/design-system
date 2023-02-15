@@ -1,4 +1,4 @@
-{{! template-lint-disable require-context-role require-presentational-children }}
+{{! template-lint-disable require-context-role }}
 <li class={{this.classNames}}>
   <Hds::Interactive
     @current-when={{@current-when}}
@@ -18,7 +18,7 @@
       {{yield}}
     </div>
     {{#if @resultCount}}
-      <Hds::BadgeCount class="hds-dropdown-list-item__count" @size="small" @type="filled" @text={{@resultCount}} />
+      <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
     {{/if}}
   </Hds::Interactive>
 </li>
