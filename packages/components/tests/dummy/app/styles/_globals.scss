@@ -1,5 +1,3 @@
-@use "./typography" as *;
-
 *,
 *::before,
 *::after {
@@ -39,8 +37,7 @@ body {
 }
 
 .shw-back-to-components-list {
-  @include dummyFontFamily();
-  @include dummyFontSize(0.9rem);
+  @include shw-font-family("gilmer");
   display: flex;
   flex-direction: row;
   gap: 5px;
@@ -48,6 +45,7 @@ body {
   width: fit-content;
   padding: 0.5rem 1rem;
   color: black;
+  font-size: 0.9rem;
   border: 2px solid transparent;
   border-radius: 5px;
 
