@@ -311,6 +311,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
+    // in our fake sorting function, we've said to return the first three letters of the album name, so we should see the first row as 'abb' (Abbey Road)
     assert
       .dom(
         '#data-test-table .hds-table__tbody tr:nth-of-type(1) td:nth-of-type(2)'
