@@ -54,7 +54,7 @@
 
   <Shw::Sample::Grid @columns={{5}} as |SG|>
     {{#each @model.PRODUCTS as |product|}}
-      <SG.Item @label={{product}}>
+      <SG.Item @label={{capitalize product}}>
         <Shw::Sample::Flex as |SF2|>
           {{#each @model.SIZES as |size|}}
             <SF2.Item>
@@ -72,7 +72,7 @@
     {{#each @model.COLORS as |color|}}
       {{! As agreed with designers, we prefer to hide the option of icon with "hcp" color }}
       {{#if (not-eq color "hcp")}}
-        <SG.Item @label={{color}}>
+        <SG.Item @label={{capitalize color}}>
           <Shw::Sample::Flex as |SF|>
             {{#each @model.SIZES as |size|}}
               <SF.Item>

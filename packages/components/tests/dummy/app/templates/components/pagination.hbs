@@ -45,7 +45,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <Shw::Text::H4>Truncation</Shw::Text::H4>
+  <Shw::Text::H3>Truncation</Shw::Text::H3>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     <SF.Item @label="With large number of pages (truncated by default)">
@@ -95,6 +95,8 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Pagination::SizeSelector</Shw::Text::H3>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
@@ -108,6 +110,8 @@
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Items" />
     </SF.Item>
   </Shw::Sample::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Pagination::Nav::Arrow</Shw::Text::H3>
 
@@ -175,6 +179,8 @@
     {{/let}}
   </Shw::Sample::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Pagination::Nav::Number</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
@@ -189,7 +195,8 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <Shw::Text::H4>States (Generic / Current - With different text lengths)</Shw::Text::H4>
+  <Shw::Text::H4>States</Shw::Text::H4>
+  <Shw::Text::Body>Generic / Current - With different text lengths</Shw::Text::Body>
 
   <Shw::Sample::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
@@ -228,6 +235,8 @@
       {{/each}}
     {{/let}}
   </Shw::Sample::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Pagination::Nav::Ellipsis</Shw::Text::H3>
 

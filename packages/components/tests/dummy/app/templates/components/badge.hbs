@@ -36,8 +36,8 @@
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.BADGE_SIZES as |size|}}
-      <SF.Item>
-        <Hds::Badge @icon="activity" @text={{capitalize size}} @size={{size}} />
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Badge @icon="activity" @text="Lorem ipsum" @size={{size}} />
       </SF.Item>
     {{/each}}
   </Shw::Sample::Flex>
@@ -46,8 +46,8 @@
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.BADGE_TYPES as |type|}}
-      <SF.Item>
-        <Hds::Badge @icon="activity" @text={{capitalize type}} @type={{type}} />
+      <SF.Item @label={{capitalize type}}>
+        <Hds::Badge @icon="activity" @text="Lorem ipsum" @type={{type}} />
       </SF.Item>
     {{/each}}
   </Shw::Sample::Flex>
@@ -55,7 +55,7 @@
   <Shw::Text::H2>Color:</Shw::Text::H2>
 
   {{#each @model.BADGE_COLORS as |color|}}
-    <Shw::Sample::Grid @title={{capitalize color}} @columns={{3}} as |SG|>
+    <Shw::Sample::Grid @label={{capitalize color}} @columns={{3}} as |SG|>
       {{#each @model.BADGE_SIZES as |size|}}
         {{#each @model.BADGE_TYPES as |type|}}
           <SG.Item class="shw-component-badge-sample-color--{{color}}">

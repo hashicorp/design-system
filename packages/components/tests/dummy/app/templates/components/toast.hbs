@@ -13,9 +13,9 @@
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
-      <SF.Item>
+      <SF.Item @label={{capitalize color}}>
         <Hds::Toast @color={{color}} @onDismiss={{this.noop}} as |T|>
-          <T.Title>{{capitalize color}}</T.Title>
+          <T.Title>Lorem ipsum dolor</T.Title>
           <T.Description>This is the toast with <em>{{color}}</em> color.</T.Description>
         </Hds::Toast>
       </SF.Item>

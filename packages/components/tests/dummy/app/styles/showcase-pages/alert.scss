@@ -12,10 +12,10 @@ body.components-alert {
   }
 
   .shw-component-alert-sample-custom-content-after-actions {
-    @include dummyFontFamily();
-    @include dummyFontSize(0.8rem);
+    @include shw-font-family("system sans");
     display: block;
     margin-top: 1rem;
+    font-size: 0.8rem;
     font-style: italic;
   }
 }

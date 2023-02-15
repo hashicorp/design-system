@@ -12,14 +12,14 @@
   <Shw::Text::H2>Generated elements</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Title><code>&lt;button&gt;</code> (with no @route or @href provided / default)</SF.Title>
+    <SF.Label><code>&lt;button&gt;</code> (with no @route or @href provided / default)</SF.Label>
     <SF.Item>
       <Hds::Interactive>This is a button (default)</Hds::Interactive>
     </SF.Item>
   </Shw::Sample::Flex>
 
   <Shw::Sample::Flex id="local-anchor" as |SF|>
-    <SF.Title><code>&lt;a&gt;</code> (with @href argument)</SF.Title>
+    <SF.Label><code>&lt;a&gt;</code> (with @href argument)</SF.Label>
     <SF.Item>
       <Hds::Interactive @href="http://google.com">This is an external
         <code>&lt;a&gt;</code>
@@ -32,14 +32,14 @@
   </Shw::Sample::Flex>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Title><code>&lt;LinkTo&gt;</code> (with @route argument but no @isRouteExternal)</SF.Title>
+    <SF.Label><code>&lt;LinkTo&gt;</code> (with @route argument but no @isRouteExternal)</SF.Label>
     <SF.Item>
       <Hds::Interactive @route="index">This is a <code>&lt;LinkTo&gt;</code> link</Hds::Interactive>
     </SF.Item>
   </Shw::Sample::Flex>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Title><code>&lt;LinkToExternal&gt;</code> (with @route argument and @isRouteExternal set to true)</SF.Title>
+    <SF.Label><code>&lt;LinkToExternal&gt;</code> (with @route argument and @isRouteExternal set to true)</SF.Label>
     <SF.Item>
       {{!-- <Hds::Interactive @route="index" @isRouteExternal={{true}}>This is a <code>&lt;LinkToExternal&gt;</code> link</Hds::Interactive> --}}
       <pre>⚠️ We can't render this component in this application (it will work only on Ember engines).</pre>

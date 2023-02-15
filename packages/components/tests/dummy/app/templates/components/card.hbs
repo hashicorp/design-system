@@ -9,10 +9,11 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Elevation:</Shw::Text::H2>
+  <Shw::Text::H2>Elevation</Shw::Text::H2>
 
   <div class="shw-component-card-wrapper">
-    <Shw::Sample::Grid @title="level" @columns={{3}} {{style width="fit-content"}} as |SG|>
+    {{! template-lint-disable no-potential-path-strings }}
+    <Shw::Sample::Grid @label="@level" @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_LEVELS as |level|}}
         <SG.Item>
           <Hds::Card::Container @level={{level}}>
@@ -21,27 +22,28 @@
         </SG.Item>
       {{/each}}
     </Shw::Sample::Grid>
-    <Shw::Sample::Grid @title="levelHover" @columns={{3}} {{style width="fit-content"}} as |SG|>
+    <Shw::Sample::Grid @label="@levelHover" @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_LEVELS as |level|}}
         <SG.Item>
           <Hds::Card::Container @levelHover={{level}} mock-state-value="hover">
-            <Shw::Placeholder @text={{level}} @width="200" @height="60" @background="transparent" />
+            <Shw::Placeholder @text={{level}} @width="200" @height="200" @background="transparent" />
           </Hds::Card::Container>
         </SG.Item>
       {{/each}}
     </Shw::Sample::Grid>
-    <Shw::Sample::Grid @title="levelActive" @columns={{3}} {{style width="fit-content"}} as |SG|>
+    <Shw::Sample::Grid @label="@levelActive" @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_LEVELS as |level|}}
         <SG.Item>
           <Hds::Card::Container @levelActive={{level}} mock-state-value="active">
-            <Shw::Placeholder @text={{level}} @width="200" @height="60" @background="transparent" />
+            <Shw::Placeholder @text={{level}} @width="200" @height="200" @background="transparent" />
           </Hds::Card::Container>
         </SG.Item>
       {{/each}}
     </Shw::Sample::Grid>
+    {{! template-lint-enable no-potential-path-strings }}
   </div>
 
-  <Shw::Text::H2>Border:</Shw::Text::H2>
+  <Shw::Text::H2>Border</Shw::Text::H2>
 
   <div class="shw-component-card-wrapper">
     <Shw::Sample::Grid @columns={{3}} {{style width="fit-content"}} as |SG|>
@@ -54,7 +56,7 @@
       {{/each}}
     </Shw::Sample::Grid>
   </div>
-  <Shw::Text::H2>Background:</Shw::Text::H2>
+  <Shw::Text::H2>Background</Shw::Text::H2>
 
   <div class="shw-component-card-wrapper">
     <Shw::Sample::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
@@ -68,7 +70,7 @@
     </Shw::Sample::Grid>
   </div>
 
-  <Shw::Text::H2>Overflow:</Shw::Text::H2>
+  <Shw::Text::H2>Overflow</Shw::Text::H2>
   <div class="shw-component-card-wrapper">
     <Shw::Sample::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
       <SG.Item>

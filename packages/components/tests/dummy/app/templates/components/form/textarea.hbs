@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>"Base" control</Shw::Text::H2>
 
-  <Shw::Text::H4>Interaction status</Shw::Text::H4>
+  <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="Default">
@@ -25,7 +25,7 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <Shw::Text::H4>States</Shw::Text::H4>
+  <Shw::Text::H3>States</Shw::Text::H3>
 
   {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
     {{#each variants as |variant|}}
@@ -70,7 +70,7 @@
     {{/each}}
   {{/let}}
 
-  <Shw::Text::H4>Custom layout</Shw::Text::H4>
+  <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item @label="With custom layout">

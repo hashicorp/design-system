@@ -9,9 +9,9 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Focus ring</Shw::Text::H2>
+  <Shw::Text::Body>Base "focus ring" effect</Shw::Text::Body>
 
-  <Shw::Sample::Flex @title="Base 'focus ring' effect" as |SF|>
+  <Shw::Sample::Flex as |SF|>
     <SF.Item>
       <div class="hds-focus-ring-action-box-shadow">
         <Shw::Placeholder @text="no radius" @width="100" @height="100" @background="transparent" />
@@ -24,7 +24,9 @@
     </SF.Item>
   </Shw::Sample::Flex>
 
-  <Shw::Sample::Flex @title="Color variants" as |SF|>
+  <Shw::Text::Body>Color variants</Shw::Text::Body>
+
+  <Shw::Sample::Flex as |SF|>
     <SF.Item @label="action">
       <div class="hds-focus-ring-action-box-shadow">
         <Shw::Placeholder @text="with border radius" @width="100" @height="100" @background="transparent" />

@@ -14,18 +14,18 @@
   <Shw::Text::H3>Toggle::Button</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Item @label="primary">
+    <SF.Item @label="Primary">
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" />
     </SF.Item>
-    <SF.Item @label="secondary">
+    <SF.Item @label="Secondary">
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color="secondary" />
     </SF.Item>
   </Shw::Sample::Flex>
   <Shw::Sample::Flex as |SF|>
-    <SF.Item @label="primary small">
+    <SF.Item @label="Primary small">
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" />
     </SF.Item>
-    <SF.Item @label="secondary small">
+    <SF.Item @label="Secondary small">
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" @color="secondary" />
     </SF.Item>
   </Shw::Sample::Flex>
@@ -33,13 +33,13 @@
   <Shw::Text::H3>Toggle::Icon</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Item @label="with icon + chevron">
+    <SF.Item @label="With icon + chevron">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" />
     </SF.Item>
-    <SF.Item @label="icon only">
+    <SF.Item @label="Icon only">
       <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
     </SF.Item>
-    <SF.Item @label="with image (avatar)">
+    <SF.Item @label="With image (avatar)">
       <Hds::Dropdown::Toggle::Icon @imageSrc="/assets/images/avatar.png" @text="user menu" />
     </SF.Item>
   </Shw::Sample::Flex>
@@ -49,8 +49,8 @@
   <Shw::Sample::Grid @columns="5" as |SG|>
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{color}}/{{state}}">
-          <Hds::Dropdown::Toggle::Button @text={{capitalize state}} @color={{color}} mock-state-value={{state}} />
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
         </SG.Item>
       {{/each}}
       <SG.Item @label="{{color}}/open">
@@ -59,7 +59,7 @@
     {{/each}}
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="icon/{{state}}">
+      <SG.Item @label="Icon / {{capitalize state}}">
         <Hds::Dropdown::Toggle::Icon
           @icon="more-horizontal"
           @text="overflow menu"
@@ -68,7 +68,7 @@
         />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="icon/open">
+    <SG.Item @label="Icon/open">
       <Hds::Dropdown::Toggle::Icon
         @icon="more-horizontal"
         @text="overflow menu"
@@ -78,20 +78,20 @@
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="icon+chevron/{{state}}">
+      <SG.Item @label="Icon+chevron / {{capitalize state}}">
         <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="icon+chevron/open">
+    <SG.Item @label="Icon+chevron/open">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="avatar+chevron/{{state}}">
+      <SG.Item @label="Avatar+chevron / {{capitalize state}}">
         <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="avatar+chevron/open">
+    <SG.Item @label="Avatar+chevron/open">
       <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
     </SG.Item>
   </Shw::Sample::Grid>
@@ -103,7 +103,7 @@
   <Shw::Text::H3>Title / Description / Separator</Shw::Text::H3>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Item @label="default (min width)">
+    <SF.Item @label="Default (min width)">
       <ul class="hds-dropdown-list">
         <Hds::Dropdown::ListItem::Title @text="A simple title" />
         <Hds::Dropdown::ListItem::Description @text="A description." />
@@ -111,7 +111,7 @@
         <Hds::Dropdown::ListItem::Interactive @route="index" @text="Item" />
       </ul>
     </SF.Item>
-    <SF.Item @label="default (max width)">
+    <SF.Item @label="Default (max width)">
       <ul class="hds-dropdown-list">
         <Hds::Dropdown::ListItem::Title
           @text="A longer title that could span multiple lines if the characters surpass a certain length"
@@ -126,7 +126,7 @@
         />
       </ul>
     </SF.Item>
-    <SF.Item @label="fixed width">
+    <SF.Item @label="Fixed width">
       {{! template-lint-disable no-inline-styles }}
       <ul class="hds-dropdown-list" style="width: 250px">
         <Hds::Dropdown::ListItem::Title
@@ -151,13 +151,13 @@
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
-      <Shw::Sample::Label>default ⇒ <code>&lt;button&gt;</code></Shw::Sample::Label>
+      <Shw::Sample::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Sample::Label>
       <ul class="hds-dropdown-list">
         <Hds::Dropdown::ListItem::Interactive @text="Lorem ipsum dolor" />
       </ul>
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>with
+      <Shw::Sample::Label>With
         <code>@href</code>
         ⇒
         <code>&lt;a&gt;</code></Shw::Sample::Label>
@@ -166,7 +166,7 @@
       </ul>
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>with
+      <Shw::Sample::Label>With
         <code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
@@ -181,12 +181,12 @@
   <Shw::Text::H4>Colors</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Item @label="action (default)">
+    <SF.Item @label="Action (default)">
       <ul class="hds-dropdown-list">
         <Hds::Dropdown::ListItem::Interactive @icon="settings" @text="Lorem ipsum dolor" @color="action" />
       </ul>
     </SF.Item>
-    <SF.Item @label="critical">
+    <SF.Item @label="Critical">
       <ul class="hds-dropdown-list">
         <Hds::Dropdown::ListItem::Interactive @icon="trash" @text="Lorem ipsum dolor" @color="critical" />
       </ul>
@@ -261,7 +261,7 @@
   <Shw::Text::H4>Content</Shw::Text::H4>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Item @label="base">
+    <SF.Item @label="Base">
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
       <ul class="hds-dropdown-list" style="width: 250px">
@@ -269,7 +269,7 @@
       </ul>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="with copyItemTitle">
+    <SF.Item @label="With 'copyItemTitle'">
       {{! template-lint-disable no-inline-styles }}
       <ul class="hds-dropdown-list" style="width: 250px">
         <Hds::Dropdown::ListItem::CopyItem

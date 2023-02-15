@@ -9,16 +9,17 @@
 
 <section data-test-percy>
 
-  <Shw::Text::Body>👀 Note: the compact alert is borderless, but shown with a dotted border throughout the
-    "Showcase" for clarity.</Shw::Text::Body>
+  <Shw::Text::Body>👀 Note: the compact alert is borderless, but shown with a dotted border throughout the "Showcase"
+    for clarity.</Shw::Text::Body>
 
   <Shw::Text::H2>Type</Shw::Text::H2>
 
   {{#each @model.TYPES as |type|}}
-    <Shw::Sample::Flex @title={{capitalize type}} as |SF|>
+    <Shw::Text::Body>{{capitalize type}}</Shw::Text::Body>
+    <Shw::Sample::Flex as |SF|>
       <SF.Item @grow={{true}}>
         <Hds::Alert @type={{type}} as |A|>
-          <A.Title>{{capitalize type}}</A.Title>
+          <A.Title>Lorem ipsum</A.Title>
           <A.Description>Lorem ipsum dolor sit amet.</A.Description>
         </Hds::Alert>
       </SF.Item>
@@ -30,9 +31,9 @@
   <Shw::Sample::Grid @columns={{3}} as |SG|>
     {{#each @model.COLORS as |color|}}
       {{#each @model.TYPES as |type|}}
-        <SG.Item @label="{{color}} / {{type}}">
+        <SG.Item @label="{{capitalize color}} / {{capitalize type}}">
           <Hds::Alert @type={{type}} @color={{color}} as |A|>
-            <A.Title>{{capitalize type}} title</A.Title>
+            <A.Title>Lorem ipsum dolor</A.Title>
             <A.Description>This is the <em>{{type}}</em> alert with <em>{{color}}</em> color.</A.Description>
           </Hds::Alert>
         </SG.Item>

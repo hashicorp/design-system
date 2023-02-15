@@ -13,14 +13,14 @@
 
   <Shw::Sample::Flex as |SF|>
     <SF.Item>
-      <Shw::Sample::Label>with
+      <Shw::Sample::Label>With
         <code>@href</code>
         ⇒
         <code>&lt;a&gt;</code></Shw::Sample::Label>
       <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>with
+      <Shw::Sample::Label>With
         <code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
@@ -33,23 +33,25 @@
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Sample::Flex as |SF|>
-    <SF.Item>
-      <Hds::Link::Standalone @icon="plus" @text="Text & leading icon" @href="../components/link" />
+    <SF.Item @label="Text & leading icon">
+      <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum" @href="../components/link" />
     </SF.Item>
-    <SF.Item>
+    <SF.Item @label="Text & trailing icon">
       <Hds::Link::Standalone
         @icon="arrow-right"
-        @text="Text & trailing icon"
+        @text="Lorem ipsum"
         @href="../components/link"
         @iconPosition="trailing"
       />
     </SF.Item>
-    <SF.Item {{style width="200px"}}>
-      <Hds::Link::Standalone
-        @icon="plus"
-        @text="Very long text that might wrap for multiple lines"
-        @href="../components/link"
-      />
+    <SF.Item @label="With long text">
+      <div {{style width="200px"}}>
+        <Hds::Link::Standalone
+          @icon="plus"
+          @text="Very long text that should wrap for multiple lines"
+          @href="../components/link"
+        />
+      </div>
     </SF.Item>
   </Shw::Sample::Flex>
 
@@ -57,8 +59,8 @@
 
   <Shw::Sample::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
-      <SF.Item>
-        <Hds::Link::Standalone @icon="plus" @text={{capitalize size}} @size={{size}} @route="components.link" />
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum" @size={{size}} @route="components.link" />
       </SF.Item>
     {{/each}}
   </Shw::Sample::Flex>
@@ -73,7 +75,7 @@
           <SG.Item @label="{{capitalize size}}/{{capitalize state}}">
             <Hds::Link::Standalone
               @icon="plus"
-              @text={{capitalize state}}
+              @text="Lorem ipsum"
               @size={{size}}
               @color={{color}}
               @href="../components/link"

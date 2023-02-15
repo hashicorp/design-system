@@ -33,7 +33,7 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{4}} as |SG|>
+  <Shw::Sample::Grid @columns={{4}} {{style width="max-content"}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
         <Hds::Tag @text="My tag" @onDismiss={{this.noop}} mock-state-value={{state}} mock-state-selector="button" />
@@ -44,10 +44,10 @@
   <Shw::Text::H2>Colors</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
-    <Shw::Sample::Grid @columns={{4}} as |SG|>
-      <SG.Title>{{capitalize color}}</SG.Title>
+    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
+    <Shw::Sample::Grid @columns={{4}} {{style width="max-content"}} as |SG|>
       {{#each @model.STATES as |state|}}
-        <SG.Item label={{capitalize state}}>
+        <SG.Item @label={{capitalize state}}>
           <Shw::Sample::Flex @direction="column" as |SF|>
             <SF.Item>
               <Hds::Tag
