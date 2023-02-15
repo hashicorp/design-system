@@ -117,14 +117,28 @@ body {
   gap: 2rem;
   justify-content: space-evenly;
 
+  .shw-text-h2:first-child {
+    margin-top: 0;
+  }
+
   ol {
     li {
-      padding-left: 10px;
+      padding-left: 5px;
 
       &::marker {
         color: var(--doc-color-gray-300);
       }
 
+      a {
+        padding: 4px 6px;
+        color: black;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: aliceblue;
+          outline: 2px dashed blue;
+        }
+      }
 
       & + li {
         margin-top: 10px;

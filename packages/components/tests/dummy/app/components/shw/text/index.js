@@ -10,44 +10,13 @@ export const AVAILABLE_TAGS = [
   'h6',
   'p',
   'span',
-  'code',
-  'pre',
   'div',
-];
-
-export const AVAILABLE_COLORS = [
-  'white',
-  'gray-600',
-  'gray-500',
-  'gray-400',
-  'gray-300',
-  'gray-200',
-  'gray-100',
-  'black',
-  'link-on-black',
-  'link-on-white',
-  'feedback-information-100',
-  'feedback-information-200',
-  'feedback-information-300',
-  'feedback-information-400',
-  'feedback-success-100',
-  'feedback-success-200',
-  'feedback-success-300',
-  'feedback-success-400',
-  'feedback-warning-100',
-  'feedback-warning-200',
-  'feedback-warning-300',
-  'feedback-warning-400',
-  'feedback-critical-100',
-  'feedback-critical-200',
-  'feedback-critical-300',
-  'feedback-critical-400',
 ];
 
 export const AVAILABLE_ALIGNS = ['left', 'center', 'right'];
 export const AVAILABLE_WEIGHTS = ['inherit', 'regular', 'bold'];
 
-export const MAPPING_STYLE_TO_TAG = {
+export const MAPPING_VARIANT_TO_TAG = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -55,20 +24,6 @@ export const MAPPING_STYLE_TO_TAG = {
   h5: 'h5',
   h6: 'h5',
   body: 'p',
-  'body-small': 'p',
-  code: 'code',
-};
-
-export const MAPPING_TAG_TO_STYLE = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  h5: 'h5',
-  h6: 'h6',
-  p: 'body',
-  code: 'code',
-  pre: 'pre',
 };
 
 export default class ShwTextIndexComponent extends Component {
@@ -90,7 +45,7 @@ export default class ShwTextIndexComponent extends Component {
       );
     }
 
-    return this.args.tag || MAPPING_STYLE_TO_TAG[this.variant];
+    return this.args.tag || MAPPING_VARIANT_TO_TAG[this.variant];
   }
 
   /**
@@ -102,23 +57,12 @@ export default class ShwTextIndexComponent extends Component {
    * @param variant
    */
   get variant() {
-    let { tag, variant } = this.args;
+    let { variant } = this.args;
 
     if (variant) {
       variant = variant.toLowerCase();
-    } else if (tag) {
-      tag = tag.toLowerCase();
-      if (Object.keys(MAPPING_TAG_TO_STYLE).includes(tag)) {
-        variant = MAPPING_TAG_TO_STYLE[tag];
-      } else {
-        // assert(
-        //   `You need to provide a @variant value for "Shw::Text" with @tag="${tag}"`
-        // );
-      }
     } else {
-      // assert(
-      //   `You need to provide at least one of the @tag or @variant arguments to "Shw::Text"`
-      // );
+      assert(`You need to provide a @variant arguments to "Shw::Text"`);
     }
 
     return variant;
@@ -157,39 +101,6 @@ export default class ShwTextIndexComponent extends Component {
     let { weight = 'inherit' } = this.args;
 
     return weight;
-  }
-
-  /**
-   * Sets the color of the text as pre-defined value
-   * Accepted values: see AVAILABLE_COLORS
-   *
-   * @param color
-   * @type {string}
-   */
-  get predefinedColor() {
-    let { color } = this.args;
-
-    if (AVAILABLE_COLORS.includes(color)) {
-      return color;
-    } else {
-      return undefined;
-    }
-  }
-
-  /**
-   * Sets the color of the text as custom value (via inline style)
-   *
-   * @param color
-   * @type {string}
-   */
-  get customColor() {
-    let { color } = this.args;
-
-    if (!AVAILABLE_COLORS.includes(color)) {
-      return color;
-    } else {
-      return undefined;
-    }
   }
 
   /**
