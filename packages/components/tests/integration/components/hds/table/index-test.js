@@ -297,6 +297,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
       }}
       @sortBy='artist'
       @sortOrder='desc'
+      @onSort={{this.onSort}}
       id="data-test-table"
     >
       <:body as |B|>
@@ -307,7 +308,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
       </:body>
     </Hds::Table>
     `);
-    // let’s just check that the table is sorted the way we expect (artist, descending)
+    // let’s just check that the table is pre-sorted the way we expect (artist, descending)
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
