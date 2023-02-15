@@ -35,7 +35,12 @@ const setSortableTableData = (context) => {
   ]);
   context.set('columns', [
     { key: 'artist', label: 'Artist', isSortable: true },
-    { key: 'album', label: 'Album', isSortable: true },
+    {
+      key: 'album',
+      label: 'Album',
+      isSortable: true,
+      sortingFunction: 'mySortingFunction',
+    },
     { key: 'year', label: 'Year' },
   ]);
   context.set('sortBy', 'artist');
@@ -283,6 +288,37 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert
       .dom('#data-test-table caption')
       .hasText('A custom caption. Melanie will sort it!');
+  });
+
+  test('it uses a custom sort function if one is supplied', async function (assert) {
+    const mySortingFunction = (a, b) => {
+      if (a.album < b.album) {
+        return -1;
+      } else if (a.album > b.album) {
+        return 1;
+      } else {
+        return 0;
+      }
+    };
+    this.set('sortFunction', mySortingFunction);
+    setSortableTableData(this);
+
+    await render(hbsSortableTable);
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
+    assert
+      .dom('#data-test-table .hds-table__tbody tr td:nth-of-type(2)')
+      .hasText('Abbey Road');
+    assert
+      .dom(
+        '#data-test-table .hds-table__tbody tr:nth-of-type(2) td:nth-of-type(2)'
+      )
+      .hasText('Candles in the Rain');
+    assert
+      .dom('#data-test-table tr:nth-of-type(3) td:nth-of-type(2)')
+      .hasText('Pink Moon');
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
+    assert.dom('#data-test-table td:nth-of-type(2)').hasText('Pink Moon');
   });
 
   test('it updates the `aria-sort` attribute value when a sort is performed', async function (assert) {
