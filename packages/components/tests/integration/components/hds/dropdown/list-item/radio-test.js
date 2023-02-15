@@ -27,22 +27,20 @@ module(
 
     // ELEMENTS
 
-    test('it should render the "list-item" with a radio field', async function (assert) {
+    test('it should render the "list-item" with a radio control', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio>`
       );
-      assert.dom('.hds-form-label').exists();
       assert.dom('.hds-form-radio').exists();
     });
 
-    // ARGUMENT FORWARDING: ID, NAME, VALUE
+    // ARGUMENT FORWARDING: ID, VALUE
 
-    test('it should forward the `id`, `name` and `value` arguments to the input control', async function (assert) {
+    test('it should forward the `id` and `value` arguments to the input control', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio @id="id" @name="name" @value="value">Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<Hds::Dropdown::ListItem::Radio @id="id" @value="value">Radio item</Hds::Dropdown::ListItem::Radio>`
       );
       assert.dom('.hds-form-radio').hasAttribute('id', 'id');
-      assert.dom('.hds-form-radio').hasAttribute('name', 'name');
       assert.dom('.hds-form-radio').hasValue('value');
     });
 
@@ -52,7 +50,8 @@ module(
       await render(
         hbs`<Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio>`
       );
-      assert.dom('.hds-form-label').hasText('Radio item');
+      assert.dom('.hds-dropdown-list-item__control').exists();
+      assert.dom('.hds-dropdown-list-item__label').hasText('Radio item');
     });
 
     // RESULT COUNT

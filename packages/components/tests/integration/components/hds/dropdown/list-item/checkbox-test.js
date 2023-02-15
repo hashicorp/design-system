@@ -27,22 +27,20 @@ module(
 
     // ELEMENTS
 
-    test('it should render the "list-item" with a checkbox field', async function (assert) {
+    test('it should render the "list-item" with a checkbox control', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Checkbox>Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
       );
-      assert.dom('.hds-form-label').exists();
       assert.dom('.hds-form-checkbox').exists();
     });
 
-    // ARGUMENT FORWARDING: ID, NAME, VALUE
+    // ARGUMENT FORWARDING: ID, VALUE
 
-    test('it should forward the `id`, `name` and `value` arguments to the input control', async function (assert) {
+    test('it should forward the `id` and `value` arguments to the input control', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Checkbox @id="id" @name="name" @value="value">Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
+        hbs`<Hds::Dropdown::ListItem::Checkbox @id="id" @value="value">Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
       );
       assert.dom('.hds-form-checkbox').hasAttribute('id', 'id');
-      assert.dom('.hds-form-checkbox').hasAttribute('name', 'name');
       assert.dom('.hds-form-checkbox').hasValue('value');
     });
 
@@ -52,7 +50,8 @@ module(
       await render(
         hbs`<Hds::Dropdown::ListItem::Checkbox>Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
       );
-      assert.dom('.hds-form-label').hasText('Checkbox item');
+      assert.dom('.hds-dropdown-list-item__control').exists();
+      assert.dom('.hds-dropdown-list-item__label').hasText('Checkbox item');
     });
 
     // RESULT COUNT
