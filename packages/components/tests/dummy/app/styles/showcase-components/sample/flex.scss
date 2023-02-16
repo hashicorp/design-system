@@ -10,11 +10,11 @@
 
 .shw-sample-flex__items {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--shw-sample-gap-base);
 
   .shw-sample-flex--direction-row > & {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .shw-sample-flex--direction-column > & {

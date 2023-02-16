@@ -135,21 +135,20 @@
       {{#each displays as |display|}}
         <SG.Item>
           <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
-          {{! In this specific case we use a 1-column grid instead of a flexbox or otherwise the "time" input appears next to the "date" }}
-          <Shw::Sample::Grid @columns={{1}} as |SG|>
-            <SG.Item @grow={{true}} {{style display=display}}>
+          <Shw::Sample::Flex @direction="column" as |SF|>
+            <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @value="Default width" />
-            </SG.Item>
-            <SG.Item @grow={{true}} {{style display=display}}>
+            </SF.Item>
+            <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @value="Custom width" @width="248px" />
-            </SG.Item>
-            <SG.Item @grow={{true}} {{style display=display}}>
+            </SF.Item>
+            <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @type="date" />
-            </SG.Item>
-            <SG.Item @grow={{true}} {{style display=display}}>
+            </SF.Item>
+            <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @type="time" />
-            </SG.Item>
-          </Shw::Sample::Grid>
+            </SF.Item>
+          </Shw::Sample::Flex>
         </SG.Item>
       {{/each}}
     {{/let}}
