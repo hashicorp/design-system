@@ -287,34 +287,21 @@ module('Integration | Component | hds/table/index', function (hooks) {
         return 0;
       }
     };
-
-    this.set('mySortingFunction', mySortingFunction);
-
-    this.set('model', [
-      { id: '1', artist: 'Nick Drake', album: 'Pink Moon' },
-      { id: '2', artist: 'The Beatles', album: 'Abbey Road' },
-      { id: '3', artist: 'Melanie', album: 'Candles in the Rain' },
+    setSortableTableData(this);
+    this.set('columns', [
+      { key: 'artist', label: 'Artist', isSortable: true },
+      {
+        key: 'album',
+        label: 'Album',
+        isSortable: true,
+        sortingFunction: mySortingFunction,
+      },
+      { key: 'year', label: 'Year' },
     ]);
 
-    await render(hbs`
-    <Hds::Table
-      @model={{this.model}}
-      @columns={{array 
-        (hash key="artist" label="Artist" isSortable="true")
-        (hash key="album" label="Album" isSortable="true" sortingFunction=this.mySortingFunction)
-      }}
-      id="data-test-table"
-    >
-      <:body as |B|>
-        <B.Tr>
-          <B.Td>{{B.data.artist}}</B.Td>
-          <B.Td>{{B.data.album}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::Table>
-    `);
-    // let’s just check that the table is pre-sorted the way we expect
-    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Nick Drake');
+    await render(hbsSortableTable);
+    // let’s just check that the table is pre-sorted the way we expect (artist, ascending)
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
     assert
