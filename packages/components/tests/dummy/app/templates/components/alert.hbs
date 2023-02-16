@@ -16,19 +16,19 @@
 
   {{#each @model.TYPES as |type|}}
     <Shw::Text::Body>{{capitalize type}}</Shw::Text::Body>
-    <Shw::Sample::Flex as |SF|>
+    <Shw::Flex as |SF|>
       <SF.Item @grow={{true}}>
         <Hds::Alert @type={{type}} as |A|>
           <A.Title>Lorem ipsum</A.Title>
           <A.Description>Lorem ipsum dolor sit amet.</A.Description>
         </Hds::Alert>
       </SF.Item>
-    </Shw::Sample::Flex>
+    </Shw::Flex>
   {{/each}}
 
   <Shw::Text::H2>Color</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#each @model.COLORS as |color|}}
       {{#each @model.TYPES as |type|}}
         <SG.Item @label="{{capitalize color}} / {{capitalize type}}">
@@ -39,11 +39,11 @@
         </SG.Item>
       {{/each}}
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Icon</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item>
       <Hds::Alert @type="inline" @color="highlight" as |A|>
         <A.Title>Default icon</A.Title>
@@ -68,13 +68,13 @@
         <A.Description>Lorem ipsum dolor sit amet.</A.Description>
       </Hds::Alert>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item>
-      <Shw::Sample::Flex @direction="column" as |SF|>
+      <Shw::Flex @direction="column" as |SF|>
         <SF.Item>
           <Hds::Alert @type="inline" @color="success" as |A|>
             <A.Title>A simple title</A.Title>
@@ -98,10 +98,10 @@
               magna eget, porttitor lobortis nulla.</A.Description>
           </Hds::Alert>
         </SF.Item>
-      </Shw::Sample::Flex>
+      </Shw::Flex>
     </SG.Item>
     <SG.Item>
-      <Shw::Sample::Flex @direction="column" as |SF|>
+      <Shw::Flex @direction="column" as |SF|>
         <SF.Item>
           <Hds::Alert @type="inline" @color="success" as |A|>
             <A.Title>An alert with a rich description (HTML)</A.Title>
@@ -140,13 +140,13 @@
             </A.Generic>
           </Hds::Alert>
         </SF.Item>
-      </Shw::Sample::Flex>
+      </Shw::Flex>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Actions</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item>
       <Hds::Alert @type="inline" @color="warning" as |A|>
         <A.Title>Action passed as yielded component</A.Title>
@@ -176,11 +176,11 @@
         </A.Generic>
       </Hds::Alert>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Dismiss</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item>
       <Hds::Alert @type="inline" @color="neutral" as |A|>
         <A.Title>Without the dismiss button (default)</A.Title>
@@ -210,6 +210,6 @@
         <A.Description>With the dismiss button and no title</A.Description>
       </Hds::Alert>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
 </section>

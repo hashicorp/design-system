@@ -13,21 +13,21 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Unchecked">
       <Hds::Form::Toggle::Base aria-label="Unchecked toggle" />
     </SF.Item>
     <SF.Item @label="Checked">
       <Hds::Form::Toggle::Base checked="checked" aria-label="Checked toggle" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>States (Base / Disabled)</Shw::Text::H3>
 
-  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{capitalize state}}>
-        <Shw::Sample::Grid @columns={{2}} mock-state-value={{state}} mock-state-selector="input" as |SG|>
+        <Shw::Grid @columns={{2}} mock-state-value={{state}} mock-state-selector="input" as |SG|>
           <SG.Item>
             <Hds::Form::Toggle::Base aria-label="Toggle" />
           </SG.Item>
@@ -43,14 +43,14 @@
               <Hds::Form::Toggle::Base checked="checked" disabled="disabled" aria-label="Checked, disabled toggle" />
             </SG.Item>
           {{/unless}}
-        </Shw::Sample::Grid>
+        </Shw::Grid>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <div class="shw-component-form-toggle-base-custom-layout">
         <label for="my-custom-toggle-example">Custom label</label>
@@ -58,13 +58,13 @@
         <span>Some extra content</span>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Toggle::Field as |F|>
         <F.Label>This is the label text</F.Label>
@@ -101,13 +101,13 @@
         </F.Error>
       </Hds::Form::Toggle::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>"Group" of controls</Shw::Text::H2>
 
   <Shw::Text::H3>Vertical layout / Single field</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -143,11 +143,11 @@
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Toggle::Group>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Vertical layout / Multiple fields</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -238,11 +238,11 @@
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Toggle::Group>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Horizontal layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With legend">
       <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -323,11 +323,11 @@
         </G.Toggle::Field>
       </Hds::Form::Toggle::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With legend + Required">
       <Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -356,6 +356,6 @@
         </G.Toggle::Field>
       </Hds::Form::Toggle::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

@@ -11,31 +11,31 @@
 
   <Shw::Text::H2>Generated element</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
-      <Shw::Sample::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Sample::Label>
+      <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" />
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" disabled />
     </SF.Item>
     <SF.Item class="shw-component-button-generated">
-      <Shw::Sample::Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Sample::Label>
+      <Shw::Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" disabled />
     </SF.Item>
     <SF.Item class="shw-component-button-generated">
-      <Shw::Sample::Label>With<code>@route</code>
+      <Shw::Label>With<code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Sample::Label>
+        <code>&lt;a&gt;</code></Shw::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
       <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" disabled />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Only text">
       <Hds::Button @text="Lorem ipsum" />
     </SF.Item>
@@ -51,11 +51,11 @@
     <SF.Item {{style width="200px"}} @label="Icon + Long text">
       <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Sizes</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
         <Hds::Button @icon="plus" @text="Lorem ipsum" @size={{size}} />
@@ -66,23 +66,23 @@
         <Hds::Button @icon="plus" @text="Lorem ipsum" @isFullWidth={{true}} />
       </Shw::Outliner>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Colors</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
       <SF.Item @label={{capitalize color}}>
         <Hds::Button @icon="plus" @text="Lorem ipsum" @color={{color}} />
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>States (in each size)</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
-    <Shw::Sample::Grid @columns={{5}} as |SG|>
+    <Shw::Grid @columns={{5}} as |SG|>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
@@ -109,26 +109,26 @@
           </SG.Item>
         {{/each}}
       {{/if}}
-    </Shw::Sample::Grid>
+    </Shw::Grid>
   {{/each}}
 
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Sample::Label>Parent with <code>display: inline-block</code></Shw::Sample::Label>
+      <Shw::Label>Parent with <code>display: inline-block</code></Shw::Label>
       <div {{style display="inline-block"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>Parent with <code>display: inline-flex</code></Shw::Sample::Label>
+      <Shw::Label>Parent with <code>display: inline-flex</code></Shw::Label>
       <div {{style display="inline-flex"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>Parent with <code>flex-grow: 0</code></Shw::Sample::Label>
+      <Shw::Label>Parent with <code>flex-grow: 0</code></Shw::Label>
       <div {{style display="flex"}}>
         <div {{style flex-grow="0"}}>
           <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
@@ -136,11 +136,11 @@
       </div>
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>Parent with <code>max-width: fit-content</code></Shw::Sample::Label>
+      <Shw::Label>Parent with <code>max-width: fit-content</code></Shw::Label>
       <div {{style max-width="fit-content"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

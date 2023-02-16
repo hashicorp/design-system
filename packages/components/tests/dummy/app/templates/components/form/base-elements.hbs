@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Label</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With simple text">
       <Hds::Form::Label>This is a simple label</Hds::Form::Label>
     </SF.Item>
@@ -82,7 +82,7 @@
         </Hds::Form::Label>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   {{! ###################### }}
 
@@ -90,7 +90,7 @@
 
   <Shw::Text::H2>Helper text</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With simple text">
       <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
     </SF.Item>
@@ -115,7 +115,7 @@
     <SF.Item {{style max-width="250px"}} @label="With text that spans multiple lines">
       <Hds::Form::HelperText>This is a very long helper text that should go on multiple lines</Hds::Form::HelperText>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   {{! ###################### }}
 
@@ -123,7 +123,7 @@
 
   <Shw::Text::H2>Indicator</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="isRequired">
       <Hds::Form::Indicator @isRequired={{true}} />
     </SF.Item>
@@ -133,7 +133,7 @@
     <SF.Item @label="No arguments">
       <Hds::Form::Indicator />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   {{! ###################### }}
 
@@ -141,7 +141,7 @@
 
   <Shw::Text::H2>Error</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With simple text">
       <Hds::Form::Error>This is a simple error message</Hds::Form::Error>
     </SF.Item>
@@ -157,7 +157,7 @@
         {{/each}}
       </Hds::Form::Error>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   {{! ###################### }}
 
@@ -165,7 +165,7 @@
 
   <Shw::Text::H2>Legend</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With simple text">
       <Hds::Form::Legend>This is a simple legend</Hds::Form::Legend>
     </SF.Item>
@@ -251,7 +251,7 @@
         </Hds::Form::Legend>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   {{! ###################### }}
 
@@ -270,7 +270,7 @@
 
     <Shw::Text::H3>Layout</Shw::Text::H3>
 
-    <Shw::Sample::Grid @columns={{3}} as |SG|>
+    <Shw::Grid @columns={{3}} as |SG|>
       {{#let (array "vertical" "flag") as |layouts|}}
         {{#each layouts as |layout|}}
           <SG.Item @label={{capitalize layout}}>
@@ -302,14 +302,14 @@
           </SG.Item>
         {{/each}}
       {{/let}}
-    </Shw::Sample::Grid>
+    </Shw::Grid>
 
     <br />
 
     {{#let (array "vertical" "flag") as |layouts|}}
       {{#each layouts as |layout|}}
         <Shw::Text::H3>Content / "{{layout}}" layout</Shw::Text::H3>
-        <Shw::Sample::Grid @columns={{3}} as |SG|>
+        <Shw::Grid @columns={{3}} as |SG|>
 
           <SG.Item @label="Only label">
             <Hds::Form::Field @layout={{layout}} as |F|>
@@ -388,11 +388,11 @@
               </F.Control>
             </Hds::Form::Field>
           </SG.Item>
-        </Shw::Sample::Grid>
+        </Shw::Grid>
 
         <br />
 
-        <Shw::Sample::Grid @columns={{3}} as |SG|>
+        <Shw::Grid @columns={{3}} as |SG|>
           <SG.Item @albel="Label + Error">
             <Hds::Form::Field @layout={{layout}} as |F|>
               <F.Label>This is the label</F.Label>
@@ -476,18 +476,18 @@
               </F.Error>
             </Hds::Form::Field>
           </SG.Item>
-        </Shw::Sample::Grid>
+        </Shw::Grid>
       {{/each}}
     {{/let}}
 
     {{#let (array "vertical" "flag") as |layouts|}}
       {{#each layouts as |layout|}}
         <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
-        <Shw::Sample::Grid @columns={{3}} as |SG|>
+        <Shw::Grid @columns={{3}} as |SG|>
           {{#let (array "block" "flex" "grid") as |displays|}}
             {{#each displays as |display|}}
               <SG.Item>
-                <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+                <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
                 <div {{style display=display}}>
                   <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Label>This is the label</F.Label>
@@ -549,7 +549,7 @@
               </SG.Item>
             {{/each}}
           {{/let}}
-        </Shw::Sample::Grid>
+        </Shw::Grid>
       {{/each}}
     {{/let}}
   </div>
@@ -570,7 +570,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-base-elements-layout-highlight'}}">
 
     <Shw::Text::H3>Layout</Shw::Text::H3>
-    <Shw::Sample::Flex {{style gap="48px"}} as |SF|>
+    <Shw::Flex {{style gap="48px"}} as |SF|>
       {{#let (array "vertical" "horizontal") as |layouts|}}
         {{#each layouts as |layout|}}
           <SF.Item @label={{capitalize layout}}>
@@ -609,15 +609,15 @@
           </SF.Item>
         {{/each}}
       {{/let}}
-    </Shw::Sample::Flex>
+    </Shw::Flex>
     {{#let (array "vertical" "horizontal") as |layouts|}}
       {{#each layouts as |layout|}}
         <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
-        <Shw::Sample::Grid @columns={{3}} as |SG|>
+        <Shw::Grid @columns={{3}} as |SG|>
           {{#let (array "block" "flex" "grid") as |displays|}}
             {{#each displays as |display|}}
               <SG.Item>
-                <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+                <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
                 <div {{style display=display}}>
                   <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Legend>This is the legend</F.Legend>
@@ -675,7 +675,7 @@
               </SG.Item>
             {{/each}}
           {{/let}}
-        </Shw::Sample::Grid>
+        </Shw::Grid>
       {{/each}}
     {{/let}}
   </div>

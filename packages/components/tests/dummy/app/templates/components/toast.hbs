@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Color</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
       <SF.Item @label={{capitalize color}}>
         <Hds::Toast @color={{color}} @onDismiss={{this.noop}} as |T|>
@@ -20,11 +20,11 @@
         </Hds::Toast>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Icon</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <Hds::Toast @color="highlight" @onDismiss={{this.noop}} as |T|>
         <T.Title>Default icon</T.Title>
@@ -49,13 +49,13 @@
         <T.Description>Lorem ipsum dolor sit amet.</T.Description>
       </Hds::Toast>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item>
-      <Shw::Sample::Flex @direction="column" as |SF|>
+      <Shw::Flex @direction="column" as |SF|>
         <SF.Item>
           <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
             <T.Title>A simple title</T.Title>
@@ -79,10 +79,10 @@
               magna eget, porttitor lobortis nulla.</T.Description>
           </Hds::Toast>
         </SF.Item>
-      </Shw::Sample::Flex>
+      </Shw::Flex>
     </SG.Item>
     <SG.Item>
-      <Shw::Sample::Flex @direction="column" as |SF|>
+      <Shw::Flex @direction="column" as |SF|>
         <SF.Item>
 
           <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
@@ -122,13 +122,13 @@
             </T.Generic>
           </Hds::Toast>
         </SF.Item>
-      </Shw::Sample::Flex>
+      </Shw::Flex>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Actions</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
         <T.Title>Action passed as yielded component</T.Title>
@@ -145,5 +145,5 @@
         <T.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
       </Hds::Toast>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 </section>

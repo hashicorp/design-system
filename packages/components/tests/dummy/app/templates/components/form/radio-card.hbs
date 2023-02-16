@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{4}} as |SG|>
+  <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="label">
         <Hds::Form::RadioCard {{on "change" this.onChange}} @disabled={{eq state "disabled"}} as |R|>
@@ -30,11 +30,11 @@
         </Hds::Form::RadioCard>
       </SG.Item>
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Card content</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With standard content">
       <Hds::Form::RadioCard::Group @name="radio-card-default" as |G|>
         <G.Legend>Group legend</G.Legend>
@@ -84,11 +84,11 @@
         </G.RadioCard>
       </Hds::Form::RadioCard::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Control position</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Bottom">
       <Hds::Form::RadioCard::Group @name="radio-card-position-bottom" @controlPosition="bottom" as |G|>
         <G.Legend>Group legend</G.Legend>
@@ -115,11 +115,11 @@
         {{/each}}
       </Hds::Form::RadioCard::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Card alignment</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Left">
       <Hds::Form::RadioCard::Group @name="radio-card-align-left" @alignment="left" as |G|>
         <G.Legend>Group legend</G.Legend>
@@ -146,11 +146,11 @@
         {{/each}}
       </Hds::Form::RadioCard::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Group layout</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Fluid">
       <Hds::Form::RadioCard::Group @name="radio-card-layout-fluid" @layout="fluid" as |G|>
         <G.Legend>Group legend</G.Legend>
@@ -196,11 +196,11 @@
         </G.RadioCard>
       </Hds::Form::RadioCard::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Group content</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With legend">
       <Hds::Form::RadioCard::Group @name="radio-card-legend" as |G|>
         <G.Legend>Group legend</G.Legend>
@@ -251,6 +251,6 @@
         {{/each}}
       </Hds::Form::RadioCard::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

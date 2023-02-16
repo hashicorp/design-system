@@ -16,7 +16,7 @@
 
   <Shw::Text::H2>Pagination::Numbered</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
       <Hds::Pagination::Numbered @totalItems={{40}} />
     </SF.Item>
@@ -43,11 +43,11 @@
     <SF.Item @label="With @showPageNumbers=false + @showLabels=true">
       <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Truncation</Shw::Text::H3>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With large number of pages (truncated by default)">
       <Hds::Pagination::Numbered @totalItems={{100}} />
     </SF.Item>
@@ -57,13 +57,13 @@
     <SF.Item @label="With large number of pages (not truncated)">
       <Hds::Pagination::Numbered @totalItems={{100}} @isTruncated={{false}} />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider />
 
   <Shw::Text::H2>Pagination::Compact</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
       <Hds::Pagination::Compact />
     </SF.Item>
@@ -73,7 +73,7 @@
     <SF.Item @label="With @showLabels=false">
       <Hds::Pagination::Compact @showLabels={{false}} />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider />
 
@@ -81,7 +81,7 @@
 
   <Shw::Text::H3>Pagination::Info</Shw::Text::H3>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
       <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
     </SF.Item>
@@ -93,13 +93,13 @@
         @showTotalItems={{false}}
       />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Pagination::SizeSelector</Shw::Text::H3>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Base (default)">
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
     </SF.Item>
@@ -109,42 +109,42 @@
     <SF.Item @label="With @label to add custom label text">
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Items" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Pagination::Nav::Arrow</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With text label (default)">
-      <Shw::Sample::Grid @columns={{2}} as |SG|>
+      <Shw::Grid @columns={{2}} as |SG|>
         <SG.Item>
           <Hds::Pagination::Nav::Arrow @direction="prev" />
         </SG.Item>
         <SG.Item>
           <Hds::Pagination::Nav::Arrow @direction="next" />
         </SG.Item>
-      </Shw::Sample::Grid>
+      </Shw::Grid>
     </SF.Item>
     <SF.Item @label="With @showLabel=false">
-      <Shw::Sample::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
+      <Shw::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
         <SG.Item>
           <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
         </SG.Item>
         <SG.Item>
           <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
         </SG.Item>
-      </Shw::Sample::Grid>
+      </Shw::Grid>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="button,a">
-          <Shw::Sample::Flex as |SF|>
+          <Shw::Flex as |SF|>
             <SF.Item>
               <Hds::Pagination::Nav::Arrow @direction="prev" />
             </SF.Item>
@@ -157,11 +157,11 @@
             <SF.Item>
               <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} />
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SF.Item>
       {{/each}}
       <SF.Item @label="Disabled">
-        <Shw::Sample::Flex as |SF|>
+        <Shw::Flex as |SF|>
           <SF.Item>
             <Hds::Pagination::Nav::Arrow @direction="prev" @disabled={{true}} />
           </SF.Item>
@@ -174,16 +174,16 @@
           <SF.Item>
             <Hds::Pagination::Nav::Arrow @direction="next" @showLabel={{false}} @disabled={{true}} />
           </SF.Item>
-        </Shw::Sample::Flex>
+        </Shw::Flex>
       </SF.Item>
     {{/let}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Pagination::Nav::Number</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Generic (default)">
       <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
     </SF.Item>
@@ -193,16 +193,16 @@
           @isSelected={{true}}
         /></ul>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H4>States</Shw::Text::H4>
   <Shw::Text::Body>Generic / Current - With different text lengths</Shw::Text::Body>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="button,a">
-          <Shw::Sample::Flex as |SF|>
+          <Shw::Flex as |SF|>
             <SF.Item>
               <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
             </SF.Item>
@@ -230,21 +230,21 @@
                   @isSelected={{true}}
                 /></ul>
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SF.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Pagination::Nav::Ellipsis</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Base">
       <Hds::Pagination::Nav::Ellipsis />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Divider />
 

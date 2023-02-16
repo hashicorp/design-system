@@ -13,17 +13,17 @@
 
   <Shw::Text::H3>Default</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{6}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STEP_STATUSES as |status|}}
       <SG.Item @label={{capitalize status}}>
         <Hds::Stepper::Step::Indicator @status={{status}} @text="1" />
       </SG.Item>
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Interactive</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{6}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STEP_STATUSES as |status|}}
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize status}}/{{state}}">
@@ -39,23 +39,23 @@
       <SG.Item />
       <SG.Item />
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Task</Shw::Text::H2>
 
   <Shw::Text::H3>Default</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{6}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.TASK_STATUSES as |status|}}
       <SG.Item @label={{capitalize status}}>
         <Hds::Stepper::Task::Indicator @status={{status}} @text="1" />
       </SG.Item>
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Interactive</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{6}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.TASK_STATUSES as |status|}}
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize status}}/{{state}}">
@@ -66,5 +66,5 @@
       <SG.Item />
       <SG.Item />
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 </section>

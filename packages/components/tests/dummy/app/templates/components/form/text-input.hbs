@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Default">
       <Hds::Form::TextInput::Base />
     </SF.Item>
@@ -23,23 +23,23 @@
     <SF.Item @label="With value">
       <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Types (native)</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{5}} as |SG|>
+  <Shw::Grid @columns={{5}} as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label={{capitalize type}}>
         <Hds::Form::TextInput::Base @type={{type}} @value={{type}} />
       </SG.Item>
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
   {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
     {{#each variants as |variant|}}
-      <Shw::Sample::Grid @columns={{3}} as |SG|>
+      <Shw::Grid @columns={{3}} as |SG|>
         {{#each @model.STATES as |state|}}
           {{! template-lint-disable simple-unless }}
           {{#unless (and (eq variant "disabled") (eq state "focus"))}}
@@ -48,7 +48,7 @@
               mock-state-value={{state}}
               mock-state-selector="input"
             >
-              <Shw::Sample::Flex @direction="column" as |SF|>
+              <Shw::Flex @direction="column" as |SF|>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -108,17 +108,17 @@
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
                 </SF.Item>
-              </Shw::Sample::Flex>
+              </Shw::Flex>
             </SG.Item>
           {{/unless}}
         {{/each}}
-      </Shw::Sample::Grid>
+      </Shw::Grid>
     {{/each}}
   {{/let}}
 
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With custom layout">
       <div class="shw-component-form-textinput-base-custom-layout">
         <label for="my-custom-text-input-example">Custom label</label>
@@ -126,16 +126,16 @@
         <span class="shw-component-form-textinput-base-custom-layout__append-text">Some content</span>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
-          <Shw::Sample::Flex @direction="column" as |SF|>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+          <Shw::Flex @direction="column" as |SF|>
             <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @value="Default width" />
             </SF.Item>
@@ -148,17 +148,17 @@
             <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @type="time" />
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -195,11 +195,11 @@
         </F.Error>
       </Hds::Form::TextInput::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Required">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
@@ -211,16 +211,16 @@
         <F.Label>This is the label text</F.Label>
       </Hds::Form::TextInput::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
-          <Shw::Sample::Flex as |SF|>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+          <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::TextInput::Field @value="Default width" as |F|>
                 <F.Label>This is the label</F.Label>
@@ -237,10 +237,10 @@
                 </F.Error>
               </Hds::Form::TextInput::Field>
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
 </section>

@@ -11,32 +11,32 @@
 
   <Shw::Text::H2>Generated element</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Sample::Label>With
+      <Shw::Label>With
         <code>@href</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Sample::Label>
+        <code>&lt;a&gt;</code></Shw::Label>
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>With
+      <Shw::Label>With
         <code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Sample::Label>
+        <code>&lt;a&gt;</code></Shw::Label>
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @route="index">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Only text">
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum</Hds::Link::Inline>
@@ -52,9 +52,9 @@
         <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Lorem ipsum</Hds::Link::Inline>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With different text sizes">
       <div class="hds-typography-body-100">
         Lorem
@@ -81,9 +81,9 @@
         elit.
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Within text block">
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor sit amet</Hds::Link::Inline>, consectetur
@@ -104,13 +104,13 @@
         incididunt ut labore et dolore.
       </div>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
-    <Shw::Sample::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
+    <Shw::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize state}}" class="shw-component-link-inline-state-samples">
           <div class="hds-typography-body-300">Lorem
@@ -133,7 +133,7 @@
           </div>
         </SG.Item>
       {{/each}}
-    </Shw::Sample::Grid>
+    </Shw::Grid>
   {{/each}}
 
 </section>

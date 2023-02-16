@@ -1,9 +1,0 @@
-<div class={{this.classNames}}>
-  {{#if @label}}
-    <Shw::Sample::Label>{{@label}}</Shw::Sample::Label>
-  {{/if}}
-  {{yield (hash Label=(component "shw/sample/label"))}}
-  <div class="shw-sample-grid__items" ...attributes>
-    {{yield (hash Item=(component "shw/sample/grid/item"))}}
-  </div>
-</div>

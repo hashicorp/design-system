@@ -12,7 +12,7 @@
   <Shw::Text::H2>Elevation</Shw::Text::H2>
   <Shw::Text::Body>Standalone shadow effects</Shw::Text::Body>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.ELEVATIONS as |elevation|}}
       <SF.Item>
         <div class="hds-elevation-{{elevation}}">
@@ -20,12 +20,12 @@
         </div>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Surface</Shw::Text::H2>
   <Shw::Text::Body>Shadow effects combined with an additional edge</Shw::Text::Body>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.SURFACES as |surface|}}
       <SF.Item>
         <div class="hds-surface-{{surface}}">
@@ -33,6 +33,6 @@
         </div>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

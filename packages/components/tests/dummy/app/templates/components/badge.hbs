@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <Hds::Badge @text="Only text" />
     </SF.Item>
@@ -24,38 +24,38 @@
     <SF.Item {{style width="200px"}}>
       <Hds::Badge @icon="activity" @text="This is a very long text that should go on two lines" />
     </SF.Item>
-  </Shw::Sample::Flex>
-  <Shw::Sample::Flex as |SF|>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <p>This is a paragraph:
         <Hds::Badge @icon="activity" @text="Lorem ipsum" /></p>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Size</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.BADGE_SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
         <Hds::Badge @icon="activity" @text="Lorem ipsum" @size={{size}} />
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Type</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.BADGE_TYPES as |type|}}
       <SF.Item @label={{capitalize type}}>
         <Hds::Badge @icon="activity" @text="Lorem ipsum" @type={{type}} />
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Color:</Shw::Text::H2>
 
   {{#each @model.BADGE_COLORS as |color|}}
-    <Shw::Sample::Grid @label={{capitalize color}} @columns={{3}} as |SG|>
+    <Shw::Grid @label={{capitalize color}} @columns={{3}} as |SG|>
       {{#each @model.BADGE_SIZES as |size|}}
         {{#each @model.BADGE_TYPES as |type|}}
           <SG.Item class="shw-component-badge-sample-color--{{color}}">
@@ -72,16 +72,16 @@
           </SG.Item>
         {{/each}}
       {{/each}}
-    </Shw::Sample::Grid>
+    </Shw::Grid>
   {{/each}}
 
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <div class="shw-component-badge-group" {{style display=display}}>
             <Hds::Badge @text="Only text" /><Hds::Badge @icon="activity" @text="Text + icon" /><Hds::Badge
               @icon="activity"
@@ -92,6 +92,6 @@
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
 </section>

@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Default">
       <Hds::Form::Textarea::Base />
     </SF.Item>
@@ -23,13 +23,13 @@
     <SF.Item @label="With value">
       <Hds::Form::Textarea::Base @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
   {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
     {{#each variants as |variant|}}
-      <Shw::Sample::Grid @columns={{3}} as |SG|>
+      <Shw::Grid @columns={{3}} as |SG|>
         {{#each @model.STATES as |state|}}
           {{! template-lint-disable simple-unless }}
           {{#unless (and (eq variant "disabled") (eq state "focus"))}}
@@ -38,7 +38,7 @@
               mock-state-value={{state}}
               mock-state-selector="textarea"
             >
-              <Shw::Sample::Flex @direction="column" as |SF|>
+              <Shw::Flex @direction="column" as |SF|>
                 <SF.Item>
                   <Hds::Form::Textarea::Base
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -62,17 +62,17 @@
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
                 </SF.Item>
-              </Shw::Sample::Flex>
+              </Shw::Flex>
             </SG.Item>
           {{/unless}}
         {{/each}}
-      </Shw::Sample::Grid>
+      </Shw::Grid>
     {{/each}}
   {{/let}}
 
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With custom layout">
       <div class="shw-component-form-textarea-base-custom-layout">
         <div class="shw-component-form-textarea-base-custom-layout__heading">
@@ -86,33 +86,33 @@
         />
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
-          <Shw::Sample::Flex as |SF|>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+          <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::Textarea::Base @value="Default width" />
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::Textarea::Base @value="Custom width" @width="248px" />
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -157,11 +157,11 @@
         </F.Error>
       </Hds::Form::Textarea::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Required">
       <Hds::Form::Textarea::Field
         @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
@@ -180,16 +180,16 @@
         <F.Label>This is the label text</F.Label>
       </Hds::Form::Textarea::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
-          <Shw::Sample::Flex as |SF|>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+          <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::Textarea::Field @value="Default width" @isInvalid={{true}} as |F|>
                 <F.Label>This is the label</F.Label>
@@ -204,10 +204,10 @@
                 <F.Error>This is the error</F.Error>
               </Hds::Form::Textarea::Field>
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
 </section>

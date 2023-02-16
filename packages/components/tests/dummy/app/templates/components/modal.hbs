@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Size</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}} class="shw-component-modal-sample-item">
         <Hds::Modal open @size={{size}} id="modal-example-{{size}}" as |M|>
@@ -30,11 +30,11 @@
         </Hds::Modal>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Color</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each @model.COLORS as |color|}}
       <SF.Item @label={{capitalize color}} class="shw-component-modal-sample-item">
         <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
@@ -55,11 +55,11 @@
         </Hds::Modal>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Title</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With icon" class="shw-component-modal-sample-item">
       <Hds::Modal open id="modal-example-icon" as |M|>
         <M.Header @icon="info">
@@ -108,11 +108,11 @@
         </M.Footer>
       </Hds::Modal>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With basic style" class="shw-component-modal-sample-item">
       <Hds::Modal open id="modal-example-basic-content" as |M|>
         <M.Header @tagline="Tagline" @icon="info">
@@ -151,11 +151,11 @@
         </M.Footer>
       </Hds::Modal>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Actions</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="One action" class="shw-component-modal-sample-item">
       <Hds::Modal open id="modal-example-one-action" as |M|>
         <M.Header>
@@ -204,7 +204,7 @@
         </M.Footer>
       </Hds::Modal>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>
 

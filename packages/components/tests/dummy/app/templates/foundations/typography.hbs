@@ -11,23 +11,23 @@
 
   <Shw::Text::H2>Families</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each this.families as |family|}}
       <SF.Item @label="{{family}}">
         <p class="hds-font-family-{{family}}">The fox jumped over the lazy dog</p>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Weights</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each this.weights as |weight|}}
       <SF.Item @label="{{weight}}">
         <p class="hds-font-family-sans-text hds-font-weight-{{weight}}">The fox jumped over the lazy dog</p>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Styles</Shw::Text::H2>
   <Shw::Text::Body><em>Notice: we are showing only the combinations of
@@ -38,7 +38,7 @@
       <strong>suggests</strong>
       to use.</em></Shw::Text::Body>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each-in this.stylesCombinations as |style weights|}}
       <SF.Item @label="{{style}}">
         {{#each weights as |weight|}}
@@ -46,6 +46,6 @@
         {{/each}}
       </SF.Item>
     {{/each-in}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

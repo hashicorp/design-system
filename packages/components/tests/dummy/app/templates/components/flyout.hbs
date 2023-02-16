@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Size</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}} class="shw-component-flyout-sample-item">
         <Hds::Flyout open @size={{size}} id="flyout-example-{{size}}" as |F|>
@@ -22,11 +22,11 @@
         </Hds::Flyout>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Header</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Title with icon" class="shw-component-flyout-sample-item">
       <Hds::Flyout open id="flyout-example-icon" as |F|>
         <F.Header @icon="info">Title</F.Header>
@@ -66,11 +66,11 @@
         </F.Body>
       </Hds::Flyout>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Body</Shw::Text::H2>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With basic style" class="shw-component-flyout-sample-item">
       <Hds::Flyout open id="flyout-example-basic-style" as |F|>
         <F.Header @tagline="Tagline" @icon="info">
@@ -98,7 +98,7 @@
         </F.Body>
       </Hds::Flyout>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>
 

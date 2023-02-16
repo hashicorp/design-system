@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Head</Shw::Text::H3>
 
-  <Shw::Sample::Flex @title="ThSort states" as |SF|>
+  <Shw::Flex @title="ThSort states" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table>
         <:head>
@@ -27,9 +27,9 @@
         </:head>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @title="Th with custom width" as |SF|>
+  <Shw::Flex @title="Th with custom width" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table @caption="a custom table with no model defined">
         <:head as |H|>
@@ -50,11 +50,11 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Body</Shw::Text::H3>
 
-  <Shw::Sample::Flex @title="Static table with row striping" as |SF|>
+  <Shw::Flex @title="Static table with row striping" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table @isStriped={{true}} @caption="Static table with row striping">
         <:head as |H|>
@@ -93,13 +93,13 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Table</Shw::Text::H2>
 
   <Shw::Text::H3>Density</Shw::Text::H3>
 
-  <Shw::Sample::Flex @title="Default" as |SF|>
+  <Shw::Flex @title="Default" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table>
         <:head as |H|>
@@ -138,8 +138,8 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
-  <Shw::Sample::Flex @title="Short" as |SF|>
+  </Shw::Flex>
+  <Shw::Flex @title="Short" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table @density="short">
         <:head as |H|>
@@ -178,8 +178,8 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
-  <Shw::Sample::Flex @title="Tall" as |SF|>
+  </Shw::Flex>
+  <Shw::Flex @title="Tall" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table @density="tall">
         <:head as |H|>
@@ -218,11 +218,11 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Model</Shw::Text::H3>
 
-  <Shw::Sample::Flex @title="Table with model" as |SF|>
+  <Shw::Flex @title="Table with model" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table
         @model={{this.model.music}}
@@ -241,8 +241,8 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
-  <Shw::Sample::Flex @title="Table with no model defined" as |SF|>
+  </Shw::Flex>
+  <Shw::Flex @title="Table with no model defined" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table @caption="a custom table with no model defined">
         <:head as |H|>
@@ -271,7 +271,7 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Sortable table (all columns sortable)</Shw::Text::H3>
 

@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Default">
       <Hds::Form::Select::Base as |C|>
         <C.Options>
@@ -22,15 +22,15 @@
         </C.Options>
       </Hds::Form::Select::Base>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     {{#let (array "base" "invalid" "disabled") as |variants|}}
       {{#each @model.STATES as |state|}}
         <SF.Item>
-          <Shw::Sample::Flex @direction="column" as |SF|>
+          <Shw::Flex @direction="column" as |SF|>
             {{#each variants as |variant|}}
               {{! template-lint-disable simple-unless }}
               {{#unless (and (eq variant "disabled") (eq state "focus"))}}
@@ -52,15 +52,15 @@
                 </SF.Item>
               {{/unless}}
             {{/each}}
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SF.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <div class="shw-component-form-select-base-custom-layout">
         <label for="my-custom-select-example">Custom label</label>
@@ -73,16 +73,16 @@
         <button type="button">Apply</button>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
-          <Shw::Sample::Flex as |SF|>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+          <Shw::Flex as |SF|>
             <SF.Item {{style display=display}}>
               <Hds::Form::Select::Base as |C|>
                 <C.Options>
@@ -101,17 +101,17 @@
                 </C.Options>
               </Hds::Form::Select::Base>
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Select::Field as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
@@ -168,11 +168,11 @@
         </F.Error>
       </Hds::Form::Select::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With legend + Required">
       <Hds::Form::Select::Field @isRequired={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
@@ -191,15 +191,15 @@
         </F.Options>
       </Hds::Form::Select::Field>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <div {{style display=display}}>
             <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
               <F.Label>This is the label</F.Label>
@@ -214,6 +214,6 @@
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
 </section>

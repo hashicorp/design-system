@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
     </SF.Item>
@@ -24,31 +24,31 @@
     <SF.Item>
       <Hds::Tag @text="My link tag" @route="components.tag" />
     </SF.Item>
-  </Shw::Sample::Flex>
-  <Shw::Sample::Flex as |SF|>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <p>This is a paragraph: <Hds::Tag @text="My text tag" /></p>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{4}} {{style width="max-content"}} as |SG|>
+  <Shw::Grid @columns={{4}} {{style width="max-content"}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
         <Hds::Tag @text="My tag" @onDismiss={{this.noop}} mock-state-value={{state}} mock-state-selector="button" />
       </SG.Item>
     {{/each}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>Colors</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
-    <Shw::Sample::Grid @columns={{4}} {{style width="max-content"}} as |SG|>
+    <Shw::Grid @columns={{4}} {{style width="max-content"}} as |SG|>
       {{#each @model.STATES as |state|}}
         <SG.Item @label={{capitalize state}}>
-          <Shw::Sample::Flex @direction="column" as |SF|>
+          <Shw::Flex @direction="column" as |SF|>
             <SF.Item>
               <Hds::Tag
                 @color={{color}}
@@ -78,19 +78,19 @@
                 mock-state-selector="a"
               />
             </SF.Item>
-          </Shw::Sample::Flex>
+          </Shw::Flex>
         </SG.Item>
       {{/each}}
-    </Shw::Sample::Grid>
+    </Shw::Grid>
   {{/each}}
 
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
-  <Shw::Sample::Grid @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
         <SG.Item>
-          <Shw::Sample::Label>Parent with <code>display: {{display}}</code></Shw::Sample::Label>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <div class="shw-component-tag-group" {{style display=display flex-wrap="wrap"}}>
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
@@ -100,6 +100,6 @@
         </SG.Item>
       {{/each}}
     {{/let}}
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
 </section>

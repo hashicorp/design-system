@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Variants</Shw::Text::H2>
 
-  <Shw::Sample::Flex @label="Text only" as |SF|>
+  <Shw::Flex @label="Text only" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" />
@@ -22,9 +22,9 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="With icons" as |SF|>
+  <Shw::Flex @label="With icons" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
@@ -35,9 +35,9 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="With truncation" as |SF|>
+  <Shw::Flex @label="With truncation" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" />
@@ -53,11 +53,11 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Sample::Flex @label="Default" as |SF|>
+  <Shw::Flex @label="Default" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
@@ -73,9 +73,9 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="Hover" as |SF|>
+  <Shw::Flex @label="Hover" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="hover" mock-state-selector="a" />
@@ -91,9 +91,9 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="hover" mock-state-selector="a" />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="Active" as |SF|>
+  <Shw::Flex @label="Active" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="active" mock-state-selector="a" />
@@ -109,9 +109,9 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="active" mock-state-selector="a" />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="Focus" as |SF|>
+  <Shw::Flex @label="Focus" as |SF|>
     <SF.Item>
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="focus" mock-state-selector="a" />
@@ -127,11 +127,11 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} mock-state-value="focus" mock-state-selector="a" />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Truncation options</Shw::Text::H2>
 
-  <Shw::Sample::Flex @label="With long strings / items can wrap (default)" as |SF|>
+  <Shw::Flex @label="With long strings / items can wrap (default)" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
@@ -142,9 +142,9 @@
         <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="With long strings / items can't wrap (text is elliptized)" as |SF|>
+  <Shw::Flex @label="With long strings / items can't wrap (text is elliptized)" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
       <Hds::Breadcrumb @itemsCanWrap={{false}}>
         <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
@@ -155,9 +155,9 @@
         <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="With max-width on single item" as |SF|>
+  <Shw::Flex @label="With max-width on single item" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
       <Hds::Breadcrumb @itemsCanWrap={{false}}>
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
@@ -168,9 +168,9 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
-  <Shw::Sample::Flex @label="With 'truncation' element" as |SF|>
+  <Shw::Flex @label="With 'truncation' element" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-truncation-dropdown">
       <Hds::Breadcrumb>
         <Hds::Breadcrumb::Item @text="Level one" />
@@ -186,6 +186,6 @@
         <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
       </Hds::Breadcrumb>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

@@ -154,7 +154,7 @@ $show-font-family-mono: ui-monospace, menlo, consolas, monospace;
 .shw-text-h3,
 .shw-text-h4,
 .shw-text-body,
-.shw-sample-label {
+.shw-label {
   code {
     @include shw-font-family("system mono");
     padding: 0.15em 0.25em;

@@ -13,21 +13,21 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Unchecked">
       <Hds::Form::Radio::Base aria-label="Unchecked radio" />
     </SF.Item>
     <SF.Item @label="Checked">
       <Hds::Form::Radio::Base checked="checked" aria-label="Checked radio" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>States (Base / Disabled)</Shw::Text::H3>
 
-  <Shw::Sample::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{capitalize state}}>
-        <Shw::Sample::Grid @columns={{2}} mock-state-value={{state}} mock-state-selector="input" as |SG|>
+        <Shw::Grid @columns={{2}} mock-state-value={{state}} mock-state-selector="input" as |SG|>
           <SG.Item>
             <Hds::Form::Radio::Base aria-label="Radio" />
           </SG.Item>
@@ -43,14 +43,14 @@
               <Hds::Form::Radio::Base checked="checked" disabled="disabled" aria-label="Checked, disabled radio" />
             </SG.Item>
           {{/unless}}
-        </Shw::Sample::Grid>
+        </Shw::Grid>
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
       <div class="shw-component-form-radio-base-custom-layout">
         <label>
@@ -62,13 +62,13 @@
         </label>
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Radio::Field as |F|>
         <F.Label>This is the label text</F.Label>
@@ -105,13 +105,13 @@
         </F.Error>
       </Hds::Form::Radio::Field>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H2>"Group" of controls</Shw::Text::H2>
 
   <Shw::Text::H3>Vertical layout</Shw::Text::H3>
 
-  <Shw::Sample::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Radio::Group @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -202,11 +202,11 @@
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Radio::Group>
     </SG.Item>
-  </Shw::Sample::Grid>
+  </Shw::Grid>
 
   <Shw::Text::H3>Horizontal layout</Shw::Text::H3>
 
-  <Shw::Sample::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With legend">
       <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -287,11 +287,11 @@
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="With legend + Required">
       <Hds::Form::Radio::Group @isRequired={{true}} @name="control-required" as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -320,6 +320,6 @@
         </G.Radio::Field>
       </Hds::Form::Radio::Group>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
 </section>

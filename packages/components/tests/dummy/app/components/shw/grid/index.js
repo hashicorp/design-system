@@ -1,12 +1,12 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export default class SampleGridIndexComponent extends Component {
+export default class GridIndexComponent extends Component {
   get columns() {
     let { columns } = this.args;
 
     assert(
-      '@columns for "Shw::Sample::Grid" must be defined',
+      '@columns for "Shw::Grid" must be defined',
       columns !== undefined
     );
 
@@ -14,10 +14,10 @@ export default class SampleGridIndexComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['shw-sample-grid'];
+    let classes = ['shw-grid'];
 
     // add a class based on the @columns argument
-    classes.push(`shw-sample-grid--cols-${this.columns}`);
+    classes.push(`shw-grid--cols-${this.columns}`);
 
     return classes.join(' ');
   }

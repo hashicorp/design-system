@@ -11,28 +11,28 @@
 
   <Shw::Text::H2>Generated element</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Sample::Label>With
+      <Shw::Label>With
         <code>@href</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Sample::Label>
+        <code>&lt;a&gt;</code></Shw::Label>
       <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
     </SF.Item>
     <SF.Item>
-      <Shw::Sample::Label>With
+      <Shw::Label>With
         <code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Sample::Label>
+        <code>&lt;a&gt;</code></Shw::Label>
       <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     <SF.Item @label="Text & leading icon">
       <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum" @href="../components/link" />
     </SF.Item>
@@ -53,23 +53,23 @@
         />
       </div>
     </SF.Item>
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>Sizes</Shw::Text::H2>
 
-  <Shw::Sample::Flex as |SF|>
+  <Shw::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
         <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum" @size={{size}} @route="components.link" />
       </SF.Item>
     {{/each}}
-  </Shw::Sample::Flex>
+  </Shw::Flex>
 
   <Shw::Text::H2>States (in each size)</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
-    <Shw::Sample::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
+    <Shw::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}}/{{capitalize state}}">
@@ -84,6 +84,6 @@
           </SG.Item>
         {{/each}}
       {{/each}}
-    </Shw::Sample::Grid>
+    </Shw::Grid>
   {{/each}}
 </section>
