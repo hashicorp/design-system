@@ -93,13 +93,7 @@
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Button
-              @icon="plus"
-              @text="Lorem"
-              @color={{color}}
-              @isFullWidth={{true}}
-              mock-state-value={{state}}
-            />
+            <Hds::Button @icon="plus" @text="Lorem" @color={{color}} @isFullWidth={{true}} mock-state-value={{state}} />
           </SG.Item>
         {{/each}}
       {{/if}}

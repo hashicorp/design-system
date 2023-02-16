@@ -5,10 +5,7 @@ export default class GridIndexComponent extends Component {
   get columns() {
     let { columns } = this.args;
 
-    assert(
-      '@columns for "Shw::Grid" must be defined',
-      columns !== undefined
-    );
+    assert('@columns for "Shw::Grid" must be defined', columns !== undefined);
 
     return columns;
   }

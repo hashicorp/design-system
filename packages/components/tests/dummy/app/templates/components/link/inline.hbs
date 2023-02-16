@@ -114,11 +114,7 @@
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize state}}" class="shw-component-link-inline-state-samples">
           <div class="hds-typography-body-300">Lorem
-            <Hds::Link::Inline
-              @color={{color}}
-              @href="/components/link/inline"
-              mock-state-value={{state}}
-            >ipsum dolor</Hds::Link::Inline>
+            <Hds::Link::Inline @color={{color}} @href="/components/link/inline" mock-state-value={{state}}>ipsum dolor</Hds::Link::Inline>
             sit amet
           </div>
           <div class="hds-typography-body-300">Lorem
