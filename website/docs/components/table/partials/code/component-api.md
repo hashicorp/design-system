@@ -51,9 +51,9 @@ The Table component itself is where most of the options will be applied. However
 
 ### Table::Tr
 
-This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th`, `ThSort`, or `Td` elements.
 
-It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
+It can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Table::Td` components.
 
 <Doc::ComponentApi as |C|>
     <C.Property @name="...attributes">
@@ -63,9 +63,9 @@ It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
 
 ### Table::Th
 
-This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th` element.
 
-If a `th` is passed as the first "cell" of a table body row, it has `scope="row"` automatically applied to it for accessibility purposes.
+If the `Th` component is passed as the first "cell" of a table body row, it has `scope="row"` automatically applied to it for accessibility purposes.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
@@ -81,14 +81,11 @@ If a `th` is passed as the first "cell" of a table body row, it has `scope="row"
 
 ### Table::ThSort
 
-This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `ThSort` element.
 
 This is the component that supports the column sorting, and should be used instead of `Hds::Table::Th` if creating a custom implementation.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="onClick" @type="function">
-    The action handler; sets the sort to the column key.
-  </C.Property>
   <C.Property @name="isSorted" @type="boolean">
     Set to true upon sort.
   </C.Property>
@@ -101,6 +98,9 @@ This is the component that supports the column sorting, and should be used inste
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS" @default="left">
     If set, determines the column width.
   </C.Property>
+  <C.Property @name="onClick" @type="function">
+    The action handler; sets the sort to the column key.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports the use of `...attributes`.
   </C.Property>
@@ -108,7 +108,7 @@ This is the component that supports the column sorting, and should be used inste
 
 ### Table::Td
 
-This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
+This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Td` element.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
