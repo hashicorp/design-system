@@ -48,11 +48,15 @@ $hds-table-cell-padding-tall: 20px 16px;
       }
     }
   }
+
+  .hds-table__th,
+  .hds-table__th-sort {
+    height: $hds-table-header-height;
+  }
 }
 
 .hds-table__th,
 .hds-table__th-sort {
-  height: $hds-table-header-height;
   text-align: left;
   border-top: none;
   border-right: none;
@@ -119,25 +123,33 @@ $hds-table-cell-padding-tall: 20px 16px;
 }
 
 // TABLE DENSITY (TBODY ROW HEIGHT)
-.hds-table--density-short .hds-table__tbody td {
-  padding: $hds-table-cell-padding-short;
-}
 
-.hds-table--density-medium .hds-table__tbody td {
-  padding: $hds-table-cell-padding-medium;
-}
+.hds-table__tbody th,
+.hds-table__tbody td {
+  .hds-table--density-short & {
+    padding: $hds-table-cell-padding-short;
+  }
 
-.hds-table--density-tall .hds-table__tbody td {
-  padding: $hds-table-cell-padding-tall;
+  .hds-table--density-medium & {
+    padding: $hds-table-cell-padding-medium;
+  }
+
+  .hds-table--density-tall & {
+    padding: $hds-table-cell-padding-tall;
+  }
 }
 
 // TABLE CELL VERTICAL ALIGNMENT
-.hds-table--valign-top .hds-table__tbody td {
-  vertical-align: top;
-}
 
-.hds-table--valign-middle .hds-table__tbody td {
-  vertical-align: middle;
+.hds-table__tbody th,
+.hds-table__tbody td {
+  .hds-table--valign-top & {
+    vertical-align: top;
+  }
+
+  .hds-table--valign-middle & {
+    vertical-align: middle;
+  }
 }
 
 // TABLE CELL TEXT ALIGNMENT (LEFT IS DEFAULT)
@@ -159,6 +171,7 @@ $hds-table-cell-padding-tall: 20px 16px;
     color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-primary);
 
+    th,
     td {
       border-top: none;
       border-right: none;
@@ -166,16 +179,19 @@ $hds-table-cell-padding-tall: 20px 16px;
       border-left: none;
     }
 
-    // BORDER RADIUS: TARGET FIRST AND LAST TD ELEMENTS IN THE LAST ROW
+    // BORDER RADIUS: TARGET FIRST TH (SCOPE OF ROW) AND TD, AND LAST TD ELEMENTS IN THE LAST ROW
     &:last-of-type {
+      th,
       td {
         border-bottom: none;
       }
 
+      th:first-child,
       td:first-child {
         border-bottom-left-radius: $hds-table-inner-border-radius;
       }
 
+      // A TH WILL NEVER BE LAST CHILD, ONLY FIRST CHILD
       td:last-child {
         border-bottom-right-radius: $hds-table-inner-border-radius;
       }
