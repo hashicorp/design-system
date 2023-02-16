@@ -10,7 +10,7 @@
 }
 
 .showcase-app {
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 1000px) {
     display: grid;
     grid-template-areas:
       "header header header header"

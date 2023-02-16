@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  color: black;
+  background: var(--doc-color-white);
 }
 
 .shw-page-header {
@@ -25,7 +25,6 @@ body {
   height: 68px;
   padding: 0 24px;
   color: var(--doc-color-black);
-  background: var(--doc-color-white);
   border-bottom: 1px solid #eaeaea;
 }
 
@@ -46,6 +45,13 @@ body {
     width: auto;
     height: 100%;
   }
+
+  // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
+  .shw-logo-hds__design-system {
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
 }
 
 .shw-page-header__title {
@@ -56,13 +62,21 @@ body {
 }
 
 .shw-page-aside {
-  padding: 4rem 1rem;
-  background-color: #fff;
+  padding: 1rem;
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .shw-page-main {
-  padding: 4rem 2rem;
-  background-color: #fff;
+  padding: 1rem 2rem;
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
   > :first-child {
     margin-top: 0;
@@ -79,7 +93,7 @@ body {
   align-items: center;
   width: fit-content;
   padding: 0.5rem 1rem;
-  color: black;
+  color: var(--doc-color-black);
   font-size: 0.9rem;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -112,10 +126,12 @@ body {
 }
 
 .shw-landing-lists {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-evenly;
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+  }
 
   .shw-text-h2:first-child {
     margin-top: 0;
@@ -131,7 +147,7 @@ body {
 
       a {
         padding: 4px 6px;
-        color: black;
+        color: var(--doc-color-black);
         border-radius: 4px;
 
         &:hover {
