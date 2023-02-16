@@ -13,6 +13,11 @@ import { reject } from 'rsvp';
 
 export default class ShowRoute extends Route {
   @service router;
+  queryParams = {
+    selectedTab: {
+      refreshModel: true,
+    },
+  };
 
   model(params) {
     // remove trailing slash
