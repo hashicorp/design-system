@@ -51,8 +51,6 @@ The Table component itself is where most of the options will be applied. However
 
 ### Table::Tr
 
-The `Hds::Table::Tr` component is a template-only component.
-
 This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of a `th` or `td` element.
 
 It can contain `Hds::Table::Th` or `Hds::Table::Td` components.
