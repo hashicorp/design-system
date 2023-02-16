@@ -49,6 +49,8 @@ const hbsSortableTable = hbs`
   @sortOrder={{this.sortOrder}}
   @onSort={{this.onSort}}
   @columns={{this.columns}}
+  @sortedMessageText={{this.sortedMessageText}}
+  @caption={{this.caption}}
   id="data-test-table"
 >
   <:body as |B|>
@@ -210,6 +212,10 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it should render a sortable table with an empty caption if no caption is provided and table is unsorted', async function (assert) {
     setSortableTableData(this);
+    // unset the sorting applied in the `setSortableTableData`
+    this.set('sortBy', undefined);
+    this.set('sortOrder', undefined);
+
     await render(hbsSortableTable);
 
     assert
@@ -230,17 +236,77 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it updates the caption correctly after a sort has been performed', async function (assert) {
     setSortableTableData(this);
+    // unset the sorting applied in the `setSortableTableData`
+    this.set('sortBy', undefined);
+    this.set('sortOrder', undefined);
     await render(hbsSortableTable);
 
-    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Nick Drake');
 
-    assert.dom('#data-test-table caption').hasText('');
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+    assert
+      .dom('#data-test-table caption')
+      .hasText('Sorted by artist ascending');
 
     await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
     assert
       .dom('#data-test-table caption')
       .hasText('Sorted by artist descending');
+  });
+
+  test('it renders a custom sortedMessageText if supplied', async function (assert) {
+    setSortableTableData(this);
+    this.set('sortedMessageText', 'Melanie will sort it');
+
+    await render(hbsSortableTable);
+    assert.dom('#data-test-table caption').hasText('Melanie will sort it');
+  });
+
+  test('it renders both a custom caption and a custom sortedMessageText if supplied', async function (assert) {
+    setSortableTableData(this);
+    this.set('caption', 'A custom caption.');
+    this.set('sortedMessageText', 'Melanie will sort it!');
+
+    await render(hbsSortableTable);
+    assert
+      .dom('#data-test-table caption')
+      .hasText('A custom caption. Melanie will sort it!');
+  });
+
+  test('it uses a custom sort function if one is supplied', async function (assert) {
+    // contrived example; we don’t care _what_ the custom sorting function does, just that it’s used instead of the default.
+    // sort based on the second letter of the album name
+    const mySortingFunction = (a, b) => {
+      if (a.album.charAt(1) < b.album.charAt(1)) {
+        return -1;
+      } else if (a.album.charAt(1) > b.album.charAt(1)) {
+        return 1;
+      } else {
+        return 0;
+      }
+    };
+    setSortableTableData(this);
+    this.set('columns', [
+      { key: 'artist', label: 'Artist', isSortable: true },
+      {
+        key: 'album',
+        label: 'Album',
+        isSortable: true,
+        sortingFunction: mySortingFunction,
+      },
+      { key: 'year', label: 'Year' },
+    ]);
+
+    await render(hbsSortableTable);
+    // let’s just check that the table is pre-sorted the way we expect (artist, ascending)
+    assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
+
+    await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
+    assert
+      .dom('#data-test-table tbody td:nth-of-type(2)')
+      .hasText('Candles in the Rain');
   });
 
   test('it updates the `aria-sort` attribute value when a sort is performed', async function (assert) {
@@ -250,11 +316,11 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
     assert
       .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
-      .hasAttribute('aria-sort', 'descending');
+      .hasAria('sort', 'descending');
     await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
     assert
       .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
-      .hasAttribute('aria-sort', 'ascending');
+      .hasAria('sort', 'ascending');
   });
 
   test('it invokes the `onSort` callback when a sort is performed', async function (assert) {

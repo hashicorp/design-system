@@ -16,10 +16,56 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
-  @tracked sortedMessageText = '';
 
+  /**
+   * @param getSortCriteria
+   * @type {string | function}
+   * @default sortBy:sortOrder
+   * @description Returns the sort criteria
+   */
   get getSortCriteria() {
-    return `${this.sortBy}:${this.sortOrder}`;
+    // get the current column
+    const currentColumn = this.args?.columns?.find(
+      (column) => column.key === this.sortBy
+    );
+    if (
+      // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
+      currentColumn?.sortingFunction &&
+      typeof currentColumn.sortingFunction === 'function'
+    ) {
+      return currentColumn.sortingFunction;
+    } else {
+      // otherwise fallback to the default format "sortBy:sortOrder"
+      return `${this.sortBy}:${this.sortOrder}`;
+    }
+  }
+
+  /**
+   * @param identityKey
+   * @type {string}
+   * @default '@identity'
+   * @description Returns the key to use for the table rows to provide more granular control. If no identityKey is defined, Ember's default `@identity` is used. See https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each
+   * this would be relevant for any table that would have data that could update or change, i.e., polling.
+   */
+  get identityKey() {
+    return this.args.identityKey ?? '@identity';
+  }
+
+  /**
+   * @param sortedMessageText
+   * @type {string}
+   * @default ''
+   * @description Returns the text to display in the sorted message. If no text is defined, the default text is used.
+   */
+  get sortedMessageText() {
+    if (this.args.sortedMessageText) {
+      return this.args.sortedMessageText;
+    } else if (this.sortBy && this.sortOrder) {
+      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
+      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+    } else {
+      return '';
+    }
   }
 
   /**
@@ -114,14 +160,13 @@ export default class HdsTableIndexComponent extends Component {
   @action
   setSortBy(column) {
     if (this.sortBy === column) {
-      //invert the sort order
+      // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
+      // otherwise, set the sort order to ascending
       this.sortBy = column;
       this.sortOrder = 'asc';
     }
-    // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-    this.sortedMessageText = `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
 
     let { onSort } = this.args;
 

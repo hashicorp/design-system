@@ -11,7 +11,11 @@
         "vinyl-cost": "29.27",
         "icon": "boundary-color",
         "badge-type": "filled",
-        "badge-color": "neutral"
+        "badge-color": { 
+          "name": "neutral",
+          "key": 5
+        },
+        "color": "neutral"
       }
     },
     {
@@ -25,7 +29,11 @@
         "vinyl-cost": "25.99",
         "icon": "consul-color",
         "badge-type": "outlined",
-        "badge-color": "neutral"
+        "badge-color": { 
+          "name": "neutral",
+          "key": 5
+        },
+        "color": "neutral"
       }
     },
     {
@@ -39,7 +47,11 @@
         "vinyl-cost": "46.49",
         "icon": "terraform-color",
         "badge-type": "filled",
-        "badge-color": "highlight"
+        "badge-color": { 
+          "name": "highlight",
+          "key": 4
+        },
+        "color": "highlight"
       }
     },
     {
@@ -53,7 +65,11 @@
         "vinyl-cost": "229.00",
         "icon": "nomad-color",
         "badge-type": "outlined",
-        "badge-color": "success"
+        "badge-color": {
+          "name": "success",
+          "key": 3
+        },
+        "color": "success"
       }
     },
     {
@@ -67,7 +83,11 @@
         "vinyl-cost": "16.00",
         "icon": "waypoint-color",
         "badge-type": "filled",
-        "badge-color": "warning"
+        "badge-color": {
+          "name": "warning",
+          "key": 2
+        },
+        "color": "warning"
       }
     },
     {
@@ -81,7 +101,11 @@
         "vinyl-cost": "20.49",
         "icon": "vagrant-color",
         "badge-type": "outlined",
-        "badge-color": "critical"
+        "badge-color": {
+          "name": "critical",
+          "key": 1
+        },
+        "color": "critical"
       }
     }
   ]
