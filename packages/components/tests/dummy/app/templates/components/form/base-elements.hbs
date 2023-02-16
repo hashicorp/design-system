@@ -48,26 +48,26 @@
         layout and a
         <code>&lt;Badge&gt;</code>) and optional indicator</SF.Label>
       <Hds::Form::Label @isOptional={{true}}>
-        <div class="shw-component-form-base-elements-container-with-badge">
+        <Shw::Outliner class="shw-component-form-base-elements-container-with-badge">
           This is the label
           <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
-        </div>
+        </Shw::Outliner>
       </Hds::Form::Label>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines">
-      <div {{style max-width="250px"}}>
+      <Shw::Outliner {{style max-width="250px"}}>
         <Hds::Form::Label>This is a very long label text that should go on multiple lines</Hds::Form::Label>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines and required indicator">
-      <div {{style max-width="250px"}}>
+      <Shw::Outliner {{style max-width="250px"}}>
         <Hds::Form::Label @isRequired={{true}}>This is a very long label text that should go on multiple lines</Hds::Form::Label>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines and optional indicator">
-      <div {{style max-width="250px"}}>
+      <Shw::Outliner {{style max-width="250px"}}>
         <Hds::Form::Label @isOptional={{true}}>This is a very long label text that should go on multiple lines</Hds::Form::Label>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With text that spans multiple lines, structured content (eg. a
@@ -75,12 +75,12 @@
         layout and a
         <code>&lt;Badge&gt;</code>) and required indicator
       </SFI.Label>
-      <div {{style max-width="250px"}}>
+      <Shw::Outliner {{style max-width="250px"}}>
         <Hds::Form::Label @isRequired={{true}}>
           This is a very long label text that should go on multiple lines
           <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
         </Hds::Form::Label>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
 
@@ -112,8 +112,10 @@
         <strong>&lt;strong&gt;</strong>.
       </Hds::Form::HelperText>
     </SF.Item>
-    <SF.Item {{style max-width="250px"}} @label="With text that spans multiple lines">
-      <Hds::Form::HelperText>This is a very long helper text that should go on multiple lines</Hds::Form::HelperText>
+    <SF.Item @label="With text that spans multiple lines">
+      <Shw::Outliner {{style max-width="250px"}}>
+        <Hds::Form::HelperText>This is a very long helper text that should go on multiple lines</Hds::Form::HelperText>
+      </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
 
@@ -146,9 +148,9 @@
       <Hds::Form::Error>This is a simple error message</Hds::Form::Error>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines">
-      <div class="shw-component-form-base-elements-container-with-badge">
+      <Shw::Outliner class="shw-component-form-base-elements-container-with-badge">
         <Hds::Form::Error>This is a very long error message that should span on multiple lines</Hds::Form::Error>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="With multiple error messages">
       <Hds::Form::Error as |Error|>
@@ -224,19 +226,19 @@
       </div>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines">
-      <div class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
+      <Shw::Outliner class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
         <Hds::Form::Legend>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines and required indicator">
-      <div class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
+      <Shw::Outliner class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
         <Hds::Form::Legend @isRequired={{true}}>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines and optional indicator">
-      <div class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
+      <Shw::Outliner class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
         <Hds::Form::Legend @isOptional={{true}}>This is a very long legend text that should go on multiple lines</Hds::Form::Legend>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With text that spans multiple lines, structured content (eg. a
@@ -244,12 +246,12 @@
         layout and a
         <code>&lt;Badge&gt;</code>) and required indicator
       </SFI.Label>
-      <div class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
+      <Shw::Outliner class="shw-component-form-base-elements-container-with-badge" {{style max-width="250px"}}>
         <Hds::Form::Legend @isRequired={{true}}>
           This is a very long legend text that should go on multiple lines
           <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
         </Hds::Form::Legend>
-      </div>
+      </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
 

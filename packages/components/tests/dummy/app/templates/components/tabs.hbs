@@ -7,80 +7,14 @@
 
 <Shw::Text::H1>Tabs</Shw::Text::H1>
 
-<section data-test-percy>
-
-  <Shw::Text::H2>Tab</Shw::Text::H2>
+<section data-test-percy class="{{if this.showHighlight 'shw-component-tabs-layout-highlight'}}">
 
   <button id="shw-component-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide" "Show"}}
     layout highlight
   </button>
 
-  <div class="{{if this.showHighlight 'shw-component-tabs-layout-highlight'}}">
-
-    <Shw::Text::H3>Content</Shw::Text::H3>
-
-    <Shw::Flex as |SF|>
-      <SF.Item @label="Text only">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-      <SF.Item @label="Icon + Text">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-      <SF.Item @label="Text + Counter">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-      <SF.Item @label="Icon + Text + Counter">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-    </Shw::Flex>
-
-    <Shw::Text::H3>States</Shw::Text::H3>
-
-    <Shw::Flex as |SF|>
-      <SF.Item @label="Default">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-      <SF.Item @label="Hover">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-      <SF.Item @label="Focus">
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-        <ul class="shw-component-tabs-sample-ul-wrapper">
-          <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
-        </ul>
-      </SF.Item>
-    </Shw::Flex>
-
-  </div>
-
-  <Shw::Text::H2>Panel</Shw::Text::H2>
-
-  <Hds::Tabs::Panel>
-    <Shw::Placeholder @text="Panel with generic content" @height="50" @background="#eee" />
-  </Hds::Tabs::Panel>
-
-  <Shw::Text::H2>Tabs</Shw::Text::H2>
+  <Shw::Text::H2>Variants</Shw::Text::H2>
 
   <Shw::Text::Body>Basic usage</Shw::Text::Body>
 
@@ -163,5 +97,71 @@
     <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
     <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>Tabs::Tab</Shw::Text::H3>
+
+  <Shw::Text::H4>Content</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Text only">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon + Text">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Text + Counter">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon + Text + Counter">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Hover">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Focus">
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+      <ul class="shw-component-tabs-sample-ul-wrapper">
+        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+      </ul>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Tabs::Panel</Shw::Text::H3>
+
+  <Hds::Tabs::Panel>
+    <Shw::Placeholder @text="Panel with generic content" @height="50" @background="#eee" />
+  </Hds::Tabs::Panel>
 
 </section>

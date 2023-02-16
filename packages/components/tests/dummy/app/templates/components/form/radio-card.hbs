@@ -9,7 +9,9 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>States</Shw::Text::H2>
+  <Shw::Text::H2>"Base" control</Shw::Text::H2>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
@@ -32,7 +34,11 @@
     {{/each}}
   </Shw::Grid>
 
-  <Shw::Text::H2>Card content</Shw::Text::H2>
+  <Shw::Divider />
+
+  <Shw::Text::H2>"Group" of controls</Shw::Text::H2>
+
+  <Shw::Text::H3>Card content</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With standard content">
@@ -86,7 +92,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Control position</Shw::Text::H2>
+  <Shw::Text::H3>Control position</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Bottom">
@@ -117,7 +123,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Card alignment</Shw::Text::H2>
+  <Shw::Text::H3>Card alignment</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Left">
@@ -148,7 +154,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Group layout</Shw::Text::H2>
+  <Shw::Text::H3>Group layout</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Fluid">
@@ -198,7 +204,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Group content</Shw::Text::H2>
+  <Shw::Text::H3>Group content</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With legend">

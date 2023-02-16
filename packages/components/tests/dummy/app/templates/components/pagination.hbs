@@ -17,22 +17,34 @@
   <Shw::Text::H2>Pagination::Numbered</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Base (default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>Base (default)</SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} />
     </SF.Item>
-    <SF.Item @label="With showTotalItems=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@showTotalItems=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} @showTotalItems={{false}} />
     </SF.Item>
-    <SF.Item @label="With showSizeSelector=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@showSizeSelector=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} @showSizeSelector={{false}} />
     </SF.Item>
-    <SF.Item @label="With showInfo=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@showInfo=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} />
     </SF.Item>
-    <SF.Item @label="With showInfo=false + showSizeSelector=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With
+        <code>@showInfo=&lcub;&lcub;false&rcub;&rcub;</code>
+        +
+        <code>@showSizeSelector=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} @showInfo={{false}} @showSizeSelector={{false}} />
     </SF.Item>
-    <SF.Item @label="With @currentPageSize=30 and @currentPage=2">
+    <SF.Item as |SFI|>
+      <SFI.Label>With
+        <code>@currentPageSize=&lcub;&lcub;30&rcub;&rcub;</code>
+        and
+        <code>@currentPage=&lcub;&lcub;2&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered
         @totalItems={{40}}
         @currentPageSize={{30}}
@@ -40,7 +52,11 @@
         @pageSizes={{array 10 30 50}}
       />
     </SF.Item>
-    <SF.Item @label="With @showPageNumbers=false + @showLabels=true">
+    <SF.Item as |SFI|>
+      <SFI.Label>With
+        <code>@showPageNumbers=&lcub;&lcub;false&rcub;&rcub;</code>
+        +
+        <code>@showLabels=&lcub;&lcub;true&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
     </SF.Item>
   </Shw::Flex>
@@ -48,13 +64,17 @@
   <Shw::Text::H3>Truncation</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="With large number of pages (truncated by default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>With large number of pages (truncated by default)</SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{100}} />
     </SF.Item>
-    <SF.Item @label="With large number of pages (truncated with initial page equal to 4)">
+    <SF.Item as |SFI|>
+      <SFI.Label>With large number of pages (truncated with
+        <code>@currentPage=&lcub;&lcub;4&rcub;&rcub;</code>)</SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{100}} @currentPage={{4}} />
     </SF.Item>
-    <SF.Item @label="With large number of pages (not truncated)">
+    <SF.Item as |SFI|>
+      <SFI.Label>With large number of pages (not truncated)</SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{100}} @isTruncated={{false}} />
     </SF.Item>
   </Shw::Flex>
@@ -64,13 +84,16 @@
   <Shw::Text::H2>Pagination::Compact</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Base (default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>Base (default)</SFI.Label>
       <Hds::Pagination::Compact />
     </SF.Item>
-    <SF.Item @label="With 'prev disabled">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>prev</code> disabled</SFI.Label>
       <Hds::Pagination::Compact @isDisabledPrev={{true}} />
     </SF.Item>
-    <SF.Item @label="With @showLabels=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@showLabels=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Compact @showLabels={{false}} />
     </SF.Item>
   </Shw::Flex>
@@ -82,10 +105,12 @@
   <Shw::Text::H3>Pagination::Info</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Base (default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>Base (default)</SFI.Label>
       <Hds::Pagination::Info @itemsRangeStart={{1}} @itemsRangeEnd={{10}} @totalItems={{103}} />
     </SF.Item>
-    <SF.Item @label="With @showTotalItems=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@showTotalItems=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Info
         @itemsRangeStart={{1}}
         @itemsRangeEnd={{10}}
@@ -100,13 +125,16 @@
   <Shw::Text::H3>Pagination::SizeSelector</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Base (default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>Base (default)</SFI.Label>
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
     </SF.Item>
-    <SF.Item @label="With @currentPageSize (selected option)">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@currentPageSize</code> (selected option)</SFI.Label>
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{30}} />
     </SF.Item>
-    <SF.Item @label="With @label to add custom label text">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@label</code> to add custom label text</SFI.Label>
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @label="Items" />
     </SF.Item>
   </Shw::Flex>
@@ -116,7 +144,8 @@
   <Shw::Text::H3>Pagination::Nav::Arrow</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="With text label (default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>With text label (default)</SFI.Label>
       <Shw::Grid @columns={{2}} as |SG|>
         <SG.Item>
           <Hds::Pagination::Nav::Arrow @direction="prev" />
@@ -126,7 +155,8 @@
         </SG.Item>
       </Shw::Grid>
     </SF.Item>
-    <SF.Item @label="With @showLabel=false">
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>@showLabel=&lcub;&lcub;false&rcub;&rcub;</code></SFI.Label>
       <Shw::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
         <SG.Item>
           <Hds::Pagination::Nav::Arrow @direction="prev" @showLabel={{false}} />
@@ -184,10 +214,12 @@
   <Shw::Text::H3>Pagination::Nav::Number</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Generic (default)">
+    <SF.Item as |SFI|>
+      <SFI.Label>Generic (default)</SFI.Label>
       <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
     </SF.Item>
-    <SF.Item @label="Current (with @isSelected=true)">
+    <SF.Item as |SFI|>
+      <SFI.Label>Current (with <code>@isSelected=&lcub;&lcub;true&rcub;&rcub;</code>)</SFI.Label>
       <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
           @page="1"
           @isSelected={{true}}
@@ -256,8 +288,8 @@
 
   <Shw::Text::H3>Numbered - Events-based pagination</Shw::Text::H3>
 
-  <Shw::Text::Body>When using an "events-based" strategy, the status of the UI is transient, and it's not
-    preserved across page reloads.</Shw::Text::Body>
+  <Shw::Text::Body>When using an "events-based" strategy, the status of the UI is transient, and it's not preserved
+    across page reloads.</Shw::Text::Body>
 
   <div class="shw-component-pagination-table-demo" id="demo1-numbered-with-events">
     <Hds::Table
@@ -294,8 +326,8 @@
 
   <Shw::Text::H3>Numbered - Routing-based pagination</Shw::Text::H3>
 
-  <Shw::Text::Body>When using a "routing-based" strategy, the status of the UI is preserved across page
-    reloads using the query parameters stored in the URL.</Shw::Text::Body>
+  <Shw::Text::Body>When using a "routing-based" strategy, the status of the UI is preserved across page reloads using
+    the query parameters stored in the URL.</Shw::Text::Body>
 
   <div class="shw-component-pagination-table-demo" id="demo2-numbered-with-routing">
     <Hds::Table
@@ -338,8 +370,8 @@
 
   <Shw::Text::H3>Compact - Events-based pagination</Shw::Text::H3>
 
-  <Shw::Text::Body>When using an "events-based" strategy, the status of the UI is transient, and it's not
-    preserved across page reloads.</Shw::Text::Body>
+  <Shw::Text::Body>When using an "events-based" strategy, the status of the UI is transient, and it's not preserved
+    across page reloads.</Shw::Text::Body>
 
   <div class="shw-component-pagination-table-demo" id="demo3-compact-with-events">
     <Hds::Table
@@ -375,8 +407,8 @@
 
   <Shw::Text::H3>Compact - Routing-based pagination</Shw::Text::H3>
 
-  <Shw::Text::Body>When using a "routing-based" strategy, the status of the UI is preserved across page
-    reloads using the query parameters stored in the URL.</Shw::Text::Body>
+  <Shw::Text::Body>When using a "routing-based" strategy, the status of the UI is preserved across page reloads using
+    the query parameters stored in the URL.</Shw::Text::Body>
 
   <div class="shw-component-pagination-table-demo" id="demo4-compact-with-routing">
     <Hds::Table

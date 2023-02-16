@@ -14,13 +14,13 @@
   <Shw::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" disabled />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" disabled />
     </SF.Item>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Label>
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" disabled />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" disabled />
     </SF.Item>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>With<code>@route</code>
@@ -28,8 +28,8 @@
         <code>&lt;LinkTo&gt;</code>
         ⇒
         <code>&lt;a&gt;</code></Shw::Label>
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" disabled />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" disabled />
     </SF.Item>
   </Shw::Flex>
 
@@ -78,7 +78,7 @@
     {{/each}}
   </Shw::Flex>
 
-  <Shw::Text::H2>States (in each size)</Shw::Text::H2>
+  <Shw::Text::H2>States</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
@@ -86,13 +86,7 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Button
-              @icon="plus"
-              @text={{capitalize state}}
-              @size={{size}}
-              @color={{color}}
-              mock-state-value={{state}}
-            />
+            <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
           </SG.Item>
         {{/each}}
       {{/each}}
@@ -101,7 +95,7 @@
           <SG.Item @label="Full width / {{capitalize state}}">
             <Hds::Button
               @icon="plus"
-              @text={{capitalize state}}
+              @text="Lorem"
               @color={{color}}
               @isFullWidth={{true}}
               mock-state-value={{state}}
@@ -118,27 +112,27 @@
     <SF.Item>
       <Shw::Label>Parent with <code>display: inline-block</code></Shw::Label>
       <div {{style display="inline-block"}}>
-        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
     </SF.Item>
     <SF.Item>
       <Shw::Label>Parent with <code>display: inline-flex</code></Shw::Label>
       <div {{style display="inline-flex"}}>
-        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
     </SF.Item>
     <SF.Item>
       <Shw::Label>Parent with <code>flex-grow: 0</code></Shw::Label>
       <div {{style display="flex"}}>
         <div {{style flex-grow="0"}}>
-          <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+          <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
         </div>
       </div>
     </SF.Item>
     <SF.Item>
       <Shw::Label>Parent with <code>max-width: fit-content</code></Shw::Label>
       <div {{style max-width="fit-content"}}>
-        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
     </SF.Item>
   </Shw::Flex>
