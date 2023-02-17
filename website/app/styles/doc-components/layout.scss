@@ -7,6 +7,7 @@
   display: flex;
   flex-flow: wrap;
   gap: var(--doc-layout-spacing, 0);
+  align-items: start;
 }
 
 // Direction:
