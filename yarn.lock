@@ -2915,7 +2915,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
     ember-a11y-testing: ^5.2.0
-    ember-auto-import: ^2.4.2
+    ember-auto-import: ^2.6.0
     ember-body-class: ^3.0.0
     ember-cached-decorator-polyfill: ^0.1.4
     ember-cli: ~4.7.0
@@ -3011,7 +3011,7 @@ __metadata:
     "@percy/ember": ^4.2.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
-    ember-auto-import: ^2.4.2
+    ember-auto-import: ^2.6.0
     ember-cli: ~4.7.0
     ember-cli-babel: ^7.26.11
     ember-cli-dependency-checker: ^3.3.1
@@ -9553,7 +9553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.4.3":
+"ember-auto-import@npm:^2.4.3, ember-auto-import@npm:^2.6.0":
   version: 2.6.0
   resolution: "ember-auto-import@npm:2.6.0"
   dependencies:
@@ -21462,7 +21462,7 @@ __metadata:
     cspell: ^6.19.2
     ember-a11y-refocus: ^3.0.2
     ember-a11y-testing: ^5.2.0
-    ember-auto-import: ^2.4.2
+    ember-auto-import: ^2.6.0
     ember-body-class: ^3.0.0
     ember-cli: ~4.7.0
     ember-cli-app-version: ^5.0.0
