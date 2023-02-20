@@ -2823,6 +2823,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@glimmer/interfaces@npm:0.84.2":
+  version: 0.84.2
+  resolution: "@glimmer/interfaces@npm:0.84.2"
+  dependencies:
+    "@simple-dom/interface": ^1.4.0
+  checksum: bcf1881314ce74b1cb494c77a93cdca7e75f34c615e42ba62bf8e1fd3deff239aba01f72749832f7ae3d82b004024a3d11cee673a1a847a495c24cacd6ab68fc
+  languageName: node
+  linkType: hard
+
 "@glimmer/reference@npm:^0.83.1":
   version: 0.83.1
   resolution: "@glimmer/reference@npm:0.83.1"
@@ -2848,6 +2857,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@glimmer/syntax@npm:^0.84.2":
+  version: 0.84.2
+  resolution: "@glimmer/syntax@npm:0.84.2"
+  dependencies:
+    "@glimmer/interfaces": 0.84.2
+    "@glimmer/util": 0.84.2
+    "@handlebars/parser": ~2.0.0
+    simple-html-tokenizer: ^0.5.11
+  checksum: cba53d097a9732af95d75a5891429c264ad789c05cc59c3b64961bcb8682af9c34ddf36a75075a9236e7c99008134d192d5c3365017587e4b722fbf9d9075a05
+  languageName: node
+  linkType: hard
+
 "@glimmer/tracking@npm:^1.0.4, @glimmer/tracking@npm:^1.1.2":
   version: 1.1.2
   resolution: "@glimmer/tracking@npm:1.1.2"
@@ -2866,6 +2887,17 @@ __metadata:
     "@glimmer/interfaces": 0.83.1
     "@simple-dom/interface": ^1.4.0
   checksum: 2a0cc0b9c3e41098fd353692d823ae058cdf5cff7b8b0edff230fb9fa2437347bf195246985165e8bdcba9bda2066e78aeef9649c8c5427755f68c1fc957b8f1
+  languageName: node
+  linkType: hard
+
+"@glimmer/util@npm:0.84.2":
+  version: 0.84.2
+  resolution: "@glimmer/util@npm:0.84.2"
+  dependencies:
+    "@glimmer/env": 0.1.7
+    "@glimmer/interfaces": 0.84.2
+    "@simple-dom/interface": ^1.4.0
+  checksum: 0f87eb76229a6b0f7e3e18a452596ad25432f19fc6b4defae8a970f9468dd3c9c4a41684b276d3fb75ef29583668f2618d085555c751d7f51c34a93f51b07c33
   languageName: node
   linkType: hard
 
@@ -2959,11 +2991,11 @@ __metadata:
     ember-truth-helpers: ^3.1.1
     ember-try: ^2.0.0
     eslint: ^7.32.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-ember: ^11.0.6
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-ember: ^11.4.6
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^7.3.1
+    eslint-plugin-qunit: ^7.3.4
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.7.1
@@ -3041,11 +3073,11 @@ __metadata:
     ember-template-lint-plugin-prettier: ^4.1.0
     ember-try: ^2.0.0
     eslint: ^7.32.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-ember: ^11.0.6
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-ember: ^11.4.6
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^7.3.1
+    eslint-plugin-qunit: ^7.3.4
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.7.1
@@ -3178,6 +3210,13 @@ __metadata:
   version: 1.4.13
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.13"
   checksum: f14449096f60a5f921262322fef65ce0bbbfb778080b3b20212080bcefdeba621c43a58c27065bd536ecb4cc767b18eb9c45f15b6b98a4970139572b60603a1c
+  languageName: node
+  linkType: hard
+
+"@jridgewell/sourcemap-codec@npm:^1.4.13":
+  version: 1.4.14
+  resolution: "@jridgewell/sourcemap-codec@npm:1.4.14"
+  checksum: 61100637b6d173d3ba786a5dff019e1a74b1f394f323c1fee337ff390239f053b87266c7a948777f4b1ee68c01a8ad0ab61e5ff4abb5a012a0b091bec391ab97
   languageName: node
   linkType: hard
 
@@ -10783,7 +10822,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-imports@npm:^3.4.0":
+"ember-template-imports@npm:^3.4.0, ember-template-imports@npm:^3.4.1":
   version: 3.4.1
   resolution: "ember-template-imports@npm:3.4.1"
   dependencies:
@@ -11216,32 +11255,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0":
-  version: 8.5.0
-  resolution: "eslint-config-prettier@npm:8.5.0"
+"eslint-config-prettier@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "eslint-config-prettier@npm:8.6.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 0d0f5c32e7a0ad91249467ce71ca92394ccd343178277d318baf32063b79ea90216f4c81d1065d60f96366fdc60f151d4d68ae7811a58bd37228b84c2083f893
+  checksum: ff0d0dfc839a556355422293428637e8d35693de58dabf8638bf0b6529131a109d0b2ade77521aa6e54573bb842d7d9d322e465dd73dd61c7590fa3834c3fa81
   languageName: node
   linkType: hard
 
-"eslint-plugin-ember@npm:^11.0.6":
-  version: 11.0.6
-  resolution: "eslint-plugin-ember@npm:11.0.6"
+"eslint-plugin-ember@npm:^11.4.6":
+  version: 11.4.6
+  resolution: "eslint-plugin-ember@npm:11.4.6"
   dependencies:
     "@ember-data/rfc395-data": ^0.0.4
+    "@glimmer/syntax": ^0.84.2
     css-tree: ^2.0.4
     ember-rfc176-data: ^0.3.15
+    ember-template-imports: ^3.4.1
     eslint-utils: ^3.0.0
     estraverse: ^5.2.0
+    lodash.camelcase: ^4.1.1
     lodash.kebabcase: ^4.1.1
+    magic-string: ^0.27.0
     requireindex: ^1.2.0
     snake-case: ^3.0.3
   peerDependencies:
     eslint: ">= 7"
-  checksum: 7843e7244be98c6cac308c4e42531e2247bcb7aa891a04ffe6b222cdf65c0346d1dc8f807e10f65b4158cf35d29f1d00953286cf13128abf574b7a68d6b52834
+  checksum: 9645631012b22ba40cf7c310ac31287bfefec061bc848e3591015ed3ca26c00176eea01d67336d53bc464a6316b50bfc4dc30167c14fbcabbc0a25b819e6da7e
   languageName: node
   linkType: hard
 
@@ -11288,13 +11331,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^7.3.1":
-  version: 7.3.1
-  resolution: "eslint-plugin-qunit@npm:7.3.1"
+"eslint-plugin-qunit@npm:^7.3.4":
+  version: 7.3.4
+  resolution: "eslint-plugin-qunit@npm:7.3.4"
   dependencies:
     eslint-utils: ^3.0.0
     requireindex: ^1.2.0
-  checksum: 3c223751b62c365d8a4ceb57986731da2e0e5149b721efe0591a580ba3cd495bc3c42c5951c5b294fdf0cfbbdb03c2f8afd43c42d4c14c3f7e74d30fc280af09
+  checksum: 078dae3d93b7e395c3409cf5855281cca994cbeaacd3e956697cf0ca14c4b45275e20d846173fe76d77655e5e7382b2287a5a324c190a425e4631b745312d5b7
   languageName: node
   linkType: hard
 
@@ -14988,6 +15031,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.camelcase@npm:^4.1.1":
+  version: 4.3.0
+  resolution: "lodash.camelcase@npm:4.3.0"
+  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
+  languageName: node
+  linkType: hard
+
 "lodash.castarray@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.castarray@npm:4.4.0"
@@ -15325,6 +15375,15 @@ __metadata:
   dependencies:
     sourcemap-codec: ^1.4.8
   checksum: b4db4e2b370ac8d9ffc6443a2b591b75364bf1fc9121b5a4068d5b89804abff6709d1fa4a0e0c2d54f2e61e0e44db83efdfe219a5ab0ba6d25ee1f2b51fbed55
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.27.0":
+  version: 0.27.0
+  resolution: "magic-string@npm:0.27.0"
+  dependencies:
+    "@jridgewell/sourcemap-codec": ^1.4.13
+  checksum: 273faaa50baadb7a2df6e442eac34ad611304fc08fe16e24fe2e472fd944bfcb73ffb50d2dc972dc04e92784222002af46868cb9698b1be181c81830fd95a13e
   languageName: node
   linkType: hard
 
@@ -21525,11 +21584,11 @@ __metadata:
     ember-test-selectors: ^6.0.0
     ember-truth-helpers: ^3.1.1
     eslint: ^7.32.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-ember: ^11.0.6
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-ember: ^11.4.6
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^7.3.1
+    eslint-plugin-qunit: ^7.3.4
     jsdom: ^20.0.3
     jsonapi-serializer: ^3.6.7
     loader.js: ^4.7.0
