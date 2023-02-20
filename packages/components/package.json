@@ -96,7 +96,7 @@
     "prettier": "^2.8.4",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
-    "stylelint": "^14.11.0",
+    "stylelint": "^14.16.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
     "webpack": "^5.74.0"
