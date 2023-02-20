@@ -80,7 +80,7 @@
     "ember-power-select": "^6.0.0",
     "ember-qunit": "^6.1.1",
     "ember-resolver": "^8.1.0",
-    "ember-source": "~4.8.1",
+    "ember-source": "~4.8.4",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^4.14.0",
     "ember-template-lint-plugin-prettier": "^4.0.0",
