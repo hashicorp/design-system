@@ -10708,7 +10708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-router-scroll@npm:^4.0.2":
+"ember-router-scroll@npm:^4.1.2":
   version: 4.1.2
   resolution: "ember-router-scroll@npm:4.1.2"
   dependencies:
@@ -21514,7 +21514,7 @@ __metadata:
     ember-prism: ^0.13.0
     ember-qunit: ^6.1.1
     ember-resolver: ^8.1.0
-    ember-router-scroll: ^4.0.2
+    ember-router-scroll: ^4.1.2
     ember-source: ~4.8.1
     ember-template-lint: ^4.14.0
     ember-test-selectors: ^6.0.0
