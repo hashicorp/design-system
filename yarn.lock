@@ -2954,8 +2954,8 @@ __metadata:
     ember-source: ~4.8.4
     ember-source-channel-url: ^3.0.0
     ember-style-modifier: ^0.8.0
-    ember-template-lint: ^4.14.0
-    ember-template-lint-plugin-prettier: ^4.0.0
+    ember-template-lint: ^4.18.2
+    ember-template-lint-plugin-prettier: ^4.1.0
     ember-truth-helpers: ^3.0.0
     ember-try: ^2.0.0
     eslint: ^7.32.0
@@ -3037,8 +3037,8 @@ __metadata:
     ember-resolver: ^8.1.0
     ember-source: ~4.8.4
     ember-source-channel-url: ^3.0.0
-    ember-template-lint: ^4.14.0
-    ember-template-lint-plugin-prettier: ^4.0.0
+    ember-template-lint: ^4.18.2
+    ember-template-lint-plugin-prettier: ^4.1.0
     ember-try: ^2.0.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.5.0
@@ -7899,10 +7899,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ci-info@npm:^3.3.1, ci-info@npm:^3.3.2":
+"ci-info@npm:^3.3.1":
   version: 3.4.0
   resolution: "ci-info@npm:3.4.0"
   checksum: 7f660730170a6ce248e173b670587a0c583e31526d21afcd21f77c811c1aaeb8926999081542d1f30e12cce1df582d4c88709fa45f44c00498b46bdf21d4d21a
+  languageName: node
+  linkType: hard
+
+"ci-info@npm:^3.4.0":
+  version: 3.8.0
+  resolution: "ci-info@npm:3.8.0"
+  checksum: d0a4d3160497cae54294974a7246202244fff031b0a6ea20dd57b10ec510aa17399c41a1b0982142c105f3255aff2173e5c0dd7302ee1b2f28ba3debda375098
   languageName: node
   linkType: hard
 
@@ -10776,9 +10783,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-imports@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "ember-template-imports@npm:3.1.1"
+"ember-template-imports@npm:^3.4.0":
+  version: 3.4.1
+  resolution: "ember-template-imports@npm:3.4.1"
   dependencies:
     babel-import-util: ^0.2.0
     broccoli-stew: ^3.0.0
@@ -10789,34 +10796,32 @@ __metadata:
     parse-static-imports: ^1.1.0
     string.prototype.matchall: ^4.0.6
     validate-peer-dependencies: ^1.1.0
-  peerDependencies:
-    ember-cli-htmlbars: ^6.0.0
-  checksum: ae27dac57aa0926ae9ca659b1cff0690b2ed4b0e79d63aaa32aecd932ffeccaf871cf3467b6e3018b50d889529eb4cb4a22632a041d145b65b7bd682aa9cac40
+  checksum: 02c2a9c95e092b034411fea9329df410e8565c5c6707a1e14513a97a21367844a25fb357cdb222f14de1c8b59f1e0edef7ed55b82371c91edbe8a9a402509e69
   languageName: node
   linkType: hard
 
-"ember-template-lint-plugin-prettier@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "ember-template-lint-plugin-prettier@npm:4.0.0"
+"ember-template-lint-plugin-prettier@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "ember-template-lint-plugin-prettier@npm:4.1.0"
   dependencies:
     prettier-linter-helpers: ^1.0.0
   peerDependencies:
-    ember-template-lint: ^4.0.0
-    prettier: ">=1.18.1"
-  checksum: 1b6d94803a51991f952a7a426578a677cbd04402c8236073b6b4bc0fd27871b07088463566e77ddd2ed381b4368dd8a1258af8d17f2cf4102e429d946448e3c1
+    ember-template-lint: ">= 4.0.0"
+    prettier: ">= 1.18.1"
+  checksum: 507a2895fa01e50ba92f704a01ffaf7b9972fb8a1cb00e48a3950a0f468d59daecf41f251613829ad14070f0ad1a542d0878b062c907149f38c15b77d6de6c45
   languageName: node
   linkType: hard
 
-"ember-template-lint@npm:^4.14.0":
-  version: 4.14.0
-  resolution: "ember-template-lint@npm:4.14.0"
+"ember-template-lint@npm:^4.18.2":
+  version: 4.18.2
+  resolution: "ember-template-lint@npm:4.18.2"
   dependencies:
     "@lint-todo/utils": ^13.0.3
     aria-query: ^5.0.2
     chalk: ^4.1.2
-    ci-info: ^3.3.2
+    ci-info: ^3.4.0
     date-fns: ^2.29.2
-    ember-template-imports: ^3.1.1
+    ember-template-imports: ^3.4.0
     ember-template-recast: ^6.1.3
     find-up: ^6.3.0
     fuse.js: ^6.5.3
@@ -10830,7 +10835,7 @@ __metadata:
     yargs: ^17.5.1
   bin:
     ember-template-lint: bin/ember-template-lint.js
-  checksum: c93905906911dc1e39e8f590f61e1f4c3c874d3a014ab626bee54c6a72a8e62db6fa3dd4230d32c1f152fe0eec6d8c6c2f9e9055e5896046585229351334f1f6
+  checksum: 2bf18d457ff67803d60361dddf0c9bbe25a1beaee1d968edaf4e1d48190c6520cb2ba50026c8ca67dac81a0b5b5cae5c5e45fe128ec50b2ec1372ce913c2a621
   languageName: node
   linkType: hard
 
@@ -21516,7 +21521,7 @@ __metadata:
     ember-resolver: ^8.1.0
     ember-router-scroll: ^4.1.2
     ember-source: ~4.8.4
-    ember-template-lint: ^4.14.0
+    ember-template-lint: ^4.18.2
     ember-test-selectors: ^6.0.0
     ember-truth-helpers: ^3.1.1
     eslint: ^7.32.0
