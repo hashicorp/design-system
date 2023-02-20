@@ -90,7 +90,7 @@
     "prember": "^1.1.1",
     "prember-middleware": "^0.1.0",
     "prember-sitemap-generator": "git+https://github.com/shipshapecode/prember-sitemap-generator.git#c95f47042d86c4fa7b8b631f271da090672e13df",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.4",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
     "resolve": "^1.17.0",

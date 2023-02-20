@@ -93,7 +93,7 @@
     "eslint-plugin-qunit": "^7.3.4",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.4",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
     "stylelint": "^14.11.0",
