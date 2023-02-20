@@ -2539,6 +2539,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.4":
+  version: 1.8.4
+  resolution: "@embroider/addon-shim@npm:1.8.4"
+  dependencies:
+    "@embroider/shared-internals": ^2.0.0
+    broccoli-funnel: ^3.0.8
+    semver: ^7.3.8
+  checksum: 107220e97bbd46ead81dfbbfc6cf7daa61731096a6e81b989659a9a0b29b48b3c97ebdd446b6dc0636c4be369f3744e514b7f5e5c0fdc54c1c0e026f54404cc2
+  languageName: node
+  linkType: hard
+
 "@embroider/macros@npm:1.8.3, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.2.0":
   version: 1.8.3
   resolution: "@embroider/macros@npm:1.8.3"
@@ -2933,7 +2944,7 @@ __metadata:
     ember-concurrency: ^2.3.7
     ember-disable-prototype-extensions: ^1.1.3
     ember-focus-trap: ^1.0.1
-    ember-keyboard: ^8.1.0
+    ember-keyboard: ^8.2.0
     ember-load-initializers: ^2.1.2
     ember-named-blocks-polyfill: ^0.2.5
     ember-page-title: ^7.0.0
@@ -10489,20 +10500,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-keyboard@npm:^8.1.0":
-  version: 8.1.1
-  resolution: "ember-keyboard@npm:8.1.1"
+"ember-keyboard@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "ember-keyboard@npm:8.2.0"
   dependencies:
     "@embroider/addon-shim": ^1.5.0
     ember-destroyable-polyfill: ^2.0.3
-    ember-modifier: ^2.1.2 || ^3.1.0
+    ember-modifier: ^2.1.2 || ^3.1.0 || ^4.0.0
     ember-modifier-manager-polyfill: ^1.2.0
   peerDependencies:
     "@ember/test-helpers": ^2.6.0
   peerDependenciesMeta:
     "@ember/test-helpers":
       optional: true
-  checksum: 559d23d39e6de4f46226203ef9d5d347c7cee7f1a2d1394d5164af9ef1025aaeb15fa0f7f44834805c16c5e38821ea924d2f3ca017284e7d420384854cdd4393
+  checksum: d8e9c8d78175b411c40b88288ef91902278011d242ed0775e64df492089210e0b3dfc0eee7de4fe11a33d918d40639fc5aee7ba26ba9695b507cabb5e52fa844
   languageName: node
   linkType: hard
 
@@ -10562,7 +10573,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^2.1.2 || ^3.1.0, ember-modifier@npm:^3.2.7":
+"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0":
+  version: 4.0.0
+  resolution: "ember-modifier@npm:4.0.0"
+  dependencies:
+    "@embroider/addon-shim": ^1.8.4
+    ember-cli-normalize-entity-name: ^1.0.0
+    ember-cli-string-utils: ^1.1.0
+  peerDependencies:
+    ember-source: "*"
+  peerDependenciesMeta:
+    ember-source:
+      optional: true
+  checksum: 8970eee22666426abed22414fc12f1547b4c02618297648ace0c22ec3db5299afe522ac2130148e6daeded0c70ad7005418c21888b8e4198e0c6b04c5f751312
+  languageName: node
+  linkType: hard
+
+"ember-modifier@npm:^3.2.7":
   version: 3.2.7
   resolution: "ember-modifier@npm:3.2.7"
   dependencies:
