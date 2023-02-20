@@ -2692,7 +2692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/cli@npm:^3.4.0":
+"@figma-export/cli@npm:^3.5.0":
   version: 3.5.0
   resolution: "@figma-export/cli@npm:3.5.0"
   dependencies:
@@ -2709,7 +2709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/core@npm:^3.4.0, @figma-export/core@npm:^3.5.0":
+"@figma-export/core@npm:^3.5.0":
   version: 3.5.0
   resolution: "@figma-export/core@npm:3.5.0"
   dependencies:
@@ -2721,7 +2721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/output-components-as-svg@npm:^3.4.0":
+"@figma-export/output-components-as-svg@npm:^3.5.0":
   version: 3.5.0
   resolution: "@figma-export/output-components-as-svg@npm:3.5.0"
   dependencies:
@@ -2731,7 +2731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/transform-svg-with-svgo@npm:^3.4.0":
+"@figma-export/transform-svg-with-svgo@npm:^3.5.0":
   version: 3.5.0
   resolution: "@figma-export/transform-svg-with-svgo@npm:3.5.0"
   dependencies:
@@ -2742,7 +2742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/types@npm:^3.4.0, @figma-export/types@npm:^3.5.0":
+"@figma-export/types@npm:^3.5.0":
   version: 3.5.0
   resolution: "@figma-export/types@npm:3.5.0"
   dependencies:
@@ -3048,11 +3048,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
-    "@figma-export/cli": ^3.4.0
-    "@figma-export/core": ^3.4.0
-    "@figma-export/output-components-as-svg": ^3.4.0
-    "@figma-export/transform-svg-with-svgo": ^3.4.0
-    "@figma-export/types": ^3.4.0
+    "@figma-export/cli": ^3.5.0
+    "@figma-export/core": ^3.5.0
+    "@figma-export/output-components-as-svg": ^3.5.0
+    "@figma-export/transform-svg-with-svgo": ^3.5.0
+    "@figma-export/types": ^3.5.0
     "@svgr/core": ^5.5.0
     "@svgr/plugin-jsx": ^5.5.0
     "@types/archiver": ^5.1.1
