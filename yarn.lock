@@ -2930,7 +2930,7 @@ __metadata:
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
     ember-composable-helpers: ^4.5.0
-    ember-concurrency: ^2.2.0
+    ember-concurrency: ^2.3.7
     ember-disable-prototype-extensions: ^1.1.3
     ember-focus-trap: ^1.0.1
     ember-keyboard: ^8.1.0
@@ -10364,7 +10364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-concurrency@npm:>=1.0.0 <3, ember-concurrency@npm:^2.2.0":
+"ember-concurrency@npm:>=1.0.0 <3":
   version: 2.2.1
   resolution: "ember-concurrency@npm:2.2.1"
   dependencies:
