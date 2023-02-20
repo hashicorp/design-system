@@ -44,7 +44,7 @@
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-multifilter": "^2.0.0",
-    "cspell": "^6.19.2",
+    "cspell": "^6.26.3",
     "ember-a11y-refocus": "^3.0.2",
     "ember-a11y-testing": "^5.2.0",
     "ember-auto-import": "^2.6.0",
