@@ -21610,7 +21610,7 @@ __metadata:
     "@hashicorp/flight-icons": "workspace:^"
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
-    broccoli-funnel: ^3.0.3
+    broccoli-funnel: ^3.0.8
     broccoli-merge-trees: ^4.2.0
     broccoli-multifilter: ^2.0.0
     cspell: ^6.19.2
