@@ -3001,7 +3001,7 @@ __metadata:
     prettier: ^2.8.4
     qunit: ^2.19.4
     qunit-dom: ^2.0.0
-    sass: ^1.43.4
+    sass: ^1.58.3
     stylelint: ^14.11.0
     stylelint-config-rational-order: ^0.1.2
     stylelint-config-standard-scss: ^5.0.0
@@ -18805,16 +18805,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.43.4":
-  version: 1.52.3
-  resolution: "sass@npm:1.52.3"
+"sass@npm:^1.58.3":
+  version: 1.58.3
+  resolution: "sass@npm:1.58.3"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 175a073c0e7b67d1baff6d3969431228002ece681886cebc2a354c241134ff120fda5c12a0465989966dacfb1ca518d85507304f4d4cd03d4a91d71dbc77d978
+  checksum: 35a2b98c037ef80fdc93c9b0be846e6ccc7d75596351a37ee79c397e66666d0a754c52c4696e746c0aff32327471e185343ca349e998a58340411adc9d0489a5
   languageName: node
   linkType: hard
 
