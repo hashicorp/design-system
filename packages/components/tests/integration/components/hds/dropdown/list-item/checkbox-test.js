@@ -44,6 +44,20 @@ module(
       assert.dom('.hds-form-checkbox').hasValue('value');
     });
 
+    // CONTROL-LABEL ASSOCIATION
+    test('it automatically creates the control-label relationship via generated id', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Checkbox @value="value">Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
+      );
+      let control = this.element.querySelector(
+        '.hds-dropdown-list-item__control'
+      );
+      let controlId = control.id;
+      assert
+        .dom('.hds-dropdown-list-item__label')
+        .hasAttribute('for', controlId);
+    });
+
     // CONTENT
 
     test('it should render the content passed as block in a form label', async function (assert) {
@@ -61,6 +75,15 @@ module(
         hbs`<Hds::Dropdown::ListItem::Checkbox @resultCount="10">Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
       );
       assert.dom('.hds-dropdown-list-item__count').hasText('10');
+    });
+
+    // SELECTED
+
+    test('it should render as checked if `checked` is true', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Checkbox checked={{true}}>Checkbox</Hds::Dropdown::ListItem::Checkbox>`
+      );
+      assert.dom('.hds-form-checkbox').isChecked();
     });
   }
 );
