@@ -20,8 +20,10 @@
     {{#if @resultCount}}
       <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
     {{/if}}
-    {{#if @selected}}
-      <FlightIcon class="hds-dropdown-list-item__checkmark" @name="check" @isInlineBlock={{false}} />
-    {{/if}}
+    <span class="hds-dropdown-list-item__checkmark">
+      {{#if @selected}}
+        <FlightIcon class="hds-dropdown-list-item__checkmark-icon" @name="check" @isInlineBlock={{false}} />
+      {{/if}}
+    </span>
   </Hds::Interactive>
 </li>

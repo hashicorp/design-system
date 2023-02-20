@@ -433,9 +433,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 .hds-dropdown-list-item--checkmark {
   a.hds-dropdown-list-item__interactive,
   button.hds-dropdown-list-item__interactive {
-    // leave room for the checkmark to align the result count on non-selected items
-    padding-right: 25px; // 9px default + 16px for the 'check' FlightIcon
-
     // disable background on focus and active states
     &:focus,
     &:active,
@@ -464,7 +461,12 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-list-item__checkmark {
   align-self: flex-start;
-  margin-top: 0.125rem;
+  width: 20px;
+  height: 20px;
+}
+
+.hds-dropdown-list-item__checkmark-icon {
+  height: inherit;
 }
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
