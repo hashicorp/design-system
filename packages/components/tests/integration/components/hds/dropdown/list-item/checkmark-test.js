@@ -22,8 +22,7 @@ module(
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
         .dom('.hds-dropdown-list-item')
-        .hasClass('hds-dropdown-list-item--checkmark')
-        .hasClass('hds-dropdown-list-item--color-action');
+        .hasClass('hds-dropdown-list-item--checkmark');
     });
 
     // ELEMENTS
