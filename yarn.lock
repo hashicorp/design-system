@@ -2950,7 +2950,7 @@ __metadata:
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.0
     ember-qunit: ^6.1.1
-    ember-resolver: ^8.0.3
+    ember-resolver: ^8.1.0
     ember-source: ~4.8.1
     ember-source-channel-url: ^3.0.0
     ember-style-modifier: ^0.8.0
@@ -3034,7 +3034,7 @@ __metadata:
     ember-load-initializers: ^2.1.2
     ember-page-title: ^7.0.0
     ember-qunit: ^6.1.1
-    ember-resolver: ^8.0.3
+    ember-resolver: ^8.1.0
     ember-source: ~4.8.1
     ember-source-channel-url: ^3.0.0
     ember-template-lint: ^4.14.0
@@ -10676,9 +10676,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-resolver@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "ember-resolver@npm:8.0.3"
+"ember-resolver@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "ember-resolver@npm:8.1.0"
   dependencies:
     babel-plugin-debug-macros: ^0.3.4
     broccoli-funnel: ^3.0.8
@@ -10686,7 +10686,7 @@ __metadata:
     ember-cli-babel: ^7.26.6
     ember-cli-version-checker: ^5.1.2
     resolve: ^1.20.0
-  checksum: 510c48a3318b5b2884bfc4322767dfe66980ffd50f4e44e90d4228e91bd34a04876367c78dc987857d645eec6252e86c91e1050237c112ed27a3a4914e452fd2
+  checksum: 8ec5845d721c52666be4f0ab3685ada5a89c964815e0fa211e0213ed7eef71f93658b0c089b00478bc658436692d064a27db2ecfc463e682b6aaf5093ba68dc0
   languageName: node
   linkType: hard
 
@@ -21513,7 +21513,7 @@ __metadata:
     ember-power-select: ^6.0.0
     ember-prism: ^0.13.0
     ember-qunit: ^6.1.1
-    ember-resolver: ^8.0.3
+    ember-resolver: ^8.1.0
     ember-router-scroll: ^4.0.2
     ember-source: ~4.8.1
     ember-template-lint: ^4.14.0
