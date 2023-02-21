@@ -122,7 +122,7 @@ You can optionally indicate that a specific column should be pre-sorted by addin
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
+    (hash key="artist" label="Artist" isSortable="true" @sortingFunction=)
     (hash key="album" label="Album" isSortable="true")
     (hash key="year" label="Release Year")
   }}
@@ -164,7 +164,33 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 </Hds::Table>
 ```
 
-#### More Examples: internationalized column headers, overflow menu dropdown
+#### Custom sort callback
+
+If you’d like to implement a custom sort callback on one of your columns, you can add it as the value for `sortingFunction` in the column hash, and include a custom `onSort` action in your table invocation. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status (sample code truncated for clarity):
+
+```handlebars{data-execute=false}
+<!-- app/templates/components/table.hbs -->
+<Hds::Table
+  @model={{this.model.data}}
+  @columns={{array
+      (hash 
+        key='status'
+        label='Status'
+        isSortable="true"
+        sortingFunction=this.myCustomSortingFunction
+      )
+      (hash key='album' label='Album')
+      (hash key='year' label='Year')
+    }}
+  @onSort={{this.myCustomOnSort}}
+>
+  <!-- <:body> here -->
+</Hds::Table>
+```
+
+### More Examples
+
+#### Internationalized column headers, overflow menu dropdown
 
 Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
@@ -210,7 +236,7 @@ Here’s a table implementation that uses an array hash with localized strings f
 </Hds::Table>
 ```
 
-#### More Examples: replacing components as a pre-adoption step
+#### Replacing components as a pre-adoption step
 
 If you're not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It's a little more typing but it should give you an idea of what will work for you.
 
