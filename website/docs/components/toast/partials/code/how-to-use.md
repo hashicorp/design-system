@@ -40,7 +40,7 @@ A different color can be applied to the Toast using the `color` argument. This w
 
 ### Icon
 
-A different icon can be used in the Toast using the `icon` argument. This accepts any [Helios icon](/foundations/icon/library) name.
+A different icon can be used in the Toast using the `icon` argument. This accepts any [icon](/icons/library) name.
 
 ```handlebars
 <Hds::Toast @color="success" @icon="bulb" @onDismiss={{this.yourOnDismissFunction}} as |T|>
