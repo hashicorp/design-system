@@ -38,7 +38,17 @@ sassOptions: {
 },
 ```
 
-4. Add the following line to the main Sass file in your application (for example, in `app.scss`):
+4. We also **strongly** suggest to add also this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
+
+```js
+minifyCSS: {
+  options: {
+    advanced: false,
+  },
+},
+```
+
+5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
 
 ```scss
 @import "@hashicorp/design-system-components";
