@@ -15,7 +15,21 @@ The Table component itself is where most of the options will be applied. However
     Indicates the data model to be used by the table.
   </C.Property>
   <C.Property @name="columns" @type="array">
-  Use a `hash` within the array to define each column. `Key` and `label` values are both required in non-static tables. Add `isSortable` if you would like the column to be sortable.
+  Use a `hash` within the array to define each column.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="key" @type="string">
+      The column’s key
+      </C.Property>
+      <C.Property @name="label" @type="string">
+      The column’s label; supports internationalization.
+      </C.Property>
+      <C.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
+      If set to `true`, indicates that a column should be sortable.
+      </C.Property>
+      <C.Property @name="sortingFunction" @type="function">
+      Callback function to provide support for a custom callback.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
     If defined, the value should be set to the key of the column that should be pre-sorted when the table is rendered.
@@ -33,7 +47,7 @@ The Table component itself is where most of the options will be applied. However
     If set, determines the density, or height, of the table’s rows.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the text alignment for all cell (`td`) content in a table.
+    If set, determines the text alignment for all cell content in the table component.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
     If set, determines the vertical alignment for all cell (`td`) content in a table. Does not apply to table headers (`th`).
