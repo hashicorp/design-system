@@ -18,9 +18,9 @@ The Table component itself is where most of the options will be applied. However
   Use a `hash` within the array to define each column.
     <Doc::ComponentApi as |C|>
       <C.Property @name="key" @type="string">
-      The column’s key
+      The column’s key; required if the column is sortable.
       </C.Property>
-      <C.Property @name="label" @type="string">
+      <C.Property @name="label" @type="string" @required="true">
       The column’s label; supports internationalization.
       </C.Property>
       <C.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
