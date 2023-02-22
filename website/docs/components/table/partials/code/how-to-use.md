@@ -166,7 +166,7 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 
 #### Custom sort callback
 
-If you’d like to implement a custom sort callback on one of your columns, you can add it as the value for `sortingFunction` in the column hash, and include a custom `onSort` action in your table invocation. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status (sample code truncated for clarity):
+To implement a custom sort callback on one of your columns, add your custom function as the value for `sortingFunction` in the column hash, and include a custom `onSort` action in your table invocation. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status (sample code truncated for clarity):
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
