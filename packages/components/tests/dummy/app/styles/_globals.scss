@@ -1,0 +1,185 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--doc-color-white);
+}
+
+.shw-page-header {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 68px;
+  padding: 0 24px;
+  color: var(--doc-color-black);
+  border-bottom: 1px solid #eaeaea;
+}
+
+.shw-page-header__logo {
+  display: block;
+  flex: none;
+  height: 28px;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: inherit;
+  }
+
+  svg {
+    width: auto;
+    height: 100%;
+  }
+
+  // we add a bit of "responsiveness" to the logo too, to gain some extra space :)
+  .shw-logo-hds__design-system {
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+
+.shw-page-header__title {
+  @include shw-font-family("gilmer");
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.shw-page-aside {
+  padding: 1rem;
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.shw-page-main {
+  padding: 1rem 2rem;
+
+  @media screen and (min-width: 1000px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+}
+
+.shw-back-to-components-list {
+  @include shw-font-family("gilmer");
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  color: var(--doc-color-black);
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: aliceblue;
+    border-color: blue;
+    border-style: dashed;
+  }
+
+  &:focus {
+    text-decoration: underline;
+    border-color: blue;
+  }
+
+  &:focus-visible {
+    outline-color: blue;
+    outline-offset: 4px;
+  }
+
+  &:active {
+    text-decoration: underline;
+    background-color: aliceblue;
+    border-color: blue;
+  }
+
+  .flight-icon {
+    color: blue;
+  }
+}
+
+.shw-landing-lists {
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+  }
+
+  .shw-text-h2:first-child {
+    margin-top: 0;
+  }
+
+  ol {
+    li {
+      padding-left: 5px;
+
+      &::marker {
+        color: var(--doc-color-gray-300);
+      }
+
+      a {
+        padding: 4px 6px;
+        color: var(--doc-color-black);
+        border-radius: 4px;
+
+        &:hover {
+          background-color: aliceblue;
+          outline: 2px dashed blue;
+        }
+      }
+
+      & + li {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.dummy-code {
+  padding: 0 3px;
+  font-family: courier, monospace;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+// Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
+// that we want to exclude from the snapshots using their own "Percy-specific CSS".
+// see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
+// notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
+// so we had to rely on this specific custom media query
+
+@media only percy {
+  header,
+  aside,
+  main section:not([data-test-percy]) {
+    display: none !important;
+  }
+}

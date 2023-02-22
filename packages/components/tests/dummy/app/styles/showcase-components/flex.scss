@@ -1,0 +1,37 @@
+// FLEX
+
+.shw-flex {
+  & + &,
+  & + .shw-grid {
+    margin-top: var(--shw-layout-gap-base);
+  }
+}
+
+
+.shw-flex__items {
+  display: flex;
+  gap: var(--shw-layout-gap-base);
+
+  .shw-flex--direction-row > & {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shw-flex--direction-column > & {
+    flex-direction: column;
+  }
+}
+
+.shw-flex__item--grow {
+  flex-grow: 1;
+}
+
+
+// DEBUG
+
+// .shw-flex {
+//   outline: 4px dotted magenta;
+// }
+// .shw-flex__item {
+//   outline: 1px solid rebeccapurple;
+// }

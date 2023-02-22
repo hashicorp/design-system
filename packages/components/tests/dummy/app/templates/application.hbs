@@ -4,23 +4,19 @@
 }}
 
 {{page-title "HDS Design System"}}
-<header class="dummy-header">
-  <h1 class="dummy-h1">
-    HashiCorp Design System (HDS)
-  </h1>
-  <DummyNpmVersion />
-  <div class="dummy-beta-banner">
-    <strong>Notice:</strong>
-    there is a new "beta" version of this website:
-    <a href="https://hds-website-hashicorp.vercel.app/" target="_blank" rel="noopener noreferrer">do you want to try it?</a>
-    → Share your feedback in
-    <a
-      href="https://hashicorp.slack.com/archives/C04F7TH6A8P "
-      target="_blank"
-      rel="noopener noreferrer"
-    >#proj-ds-launch-feedback</a></div>
+
+<header class="shw-page-header">
+  <LinkTo @route="index" class="shw-page-header__logo" aria-label="home page">
+    <Shw::Logo::DesignSystem />
+  </LinkTo>
+  <div class="shw-page-header__title">Components showcase</div>
 </header>
 
-{{outlet}}
+<aside class="shw-page-aside">
+  <LinkTo class="shw-back-to-components-list" @route="index"><FlightIcon @name="arrow-left" @isInlineBlock={{false}} />
+    Component list</LinkTo>
+</aside>
 
-<DummyFooter />
+<main id="main" class="shw-page-main">
+  {{outlet}}
+</main>

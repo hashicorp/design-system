@@ -82,7 +82,7 @@ const updateDummyAppIndexHBS = (options) => {
   let newListItemHTML = '';
   newListItemHTML += '<!-- MOVE THIS HTML BLOCK IN THE RIGHT POSITION -->\n';
   newListItemHTML += '<!-- (adjust component name & route if necessary) -->\n';
-  newListItemHTML += '<li class="dummy-paragraph">\n';
+  newListItemHTML += '<li>\n';
   newListItemHTML += `  <LinkTo @route="components.${getRoutedModuleName(
     name
   )}">\n`;

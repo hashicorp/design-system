@@ -20,14 +20,7 @@ module.exports = function (defaults) {
     'ember-power-select': {
       theme: false,
     },
-    'ember-prism': {
-      components: ['markup', 'bash', 'markup-templating', 'handlebars'], //needs to be an array, or undefined.
-      plugins: ['line-numbers', 'toolbar', 'copy-to-clipboard', 'autoloader'],
-      theme: 'none',
-    },
   });
-
-  app.import('app/styles/prism-dracula.css');
 
   /*
     This build file specifies the options for the dummy test app of this

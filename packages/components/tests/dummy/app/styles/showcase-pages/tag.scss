@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// TAG
+
+body.components-tag {
+  .shw-component-tag-group {
+    margin-bottom: -0.5rem;
+
+    .hds-tag {
+      margin: 0 0.5rem 0.5rem 0;
+    }
+  }
+}

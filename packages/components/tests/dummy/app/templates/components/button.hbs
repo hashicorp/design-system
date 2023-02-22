@@ -5,692 +5,130 @@
 
 {{page-title "Button component"}}
 
-<h2 class="dummy-h2">Button component</h2>
-
-<DummyLinkCtaButtonBanner />
-
-<section>
-  <h3 class="dummy-h3" id="component-api"><a href="#component-api" class="dummy-link-section">§</a> Component API</h3>
-  <p class="dummy-paragraph" id="component-api-button">Here is the API for the component:</p>
-  <dl class="dummy-component-props" aria-labelledby="component-api-button">
-    <dt>size <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li>small</li>
-        <li class="default">medium</li>
-        <li>large</li>
-      </ol>
-    </dd>
-    <dt>color <code>enum</code></dt>
-    <dd>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">primary</li>
-        <li>secondary</li>
-        <li>tertiary</li>
-        <li>critical</li>
-      </ol>
-    </dd>
-    <dt>
-      text
-      <code>string</code>
-      <strong class="required">required</strong>
-    </dt>
-    <dd>
-      <p>The text of the button or value of
-        <code>aria-label</code>
-        if
-        <code>isIconOnly</code>
-        is set to
-        <code>true</code>.</p>
-      <p><em>If no text value is defined an error will be thrown.</em></p>
-    </dd>
-    <dt>icon <code>string</code></dt>
-    <dd>
-      <p>Use this parameter to show an icon. Acceptable value: any Flight icon name.</p>
-      <p><strong>Important</strong>:
-        <code class="dummy-code">tertiary</code>
-        buttons have transparent backgrounds, and interactive elements must communicate interactivity with more than
-        just color. Therefore, a leading or trailing icon is required when using the
-        <code class="dummy-code">tertiary</code>
-        color.
-        <a
-          href="https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=141#use-of-color"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WCAG 2.1 Criterion 1.4.1: Use of Color (Level A)
-        </a>
-      </p>
-    </dd>
-    <dt>iconPosition <code>enum</code></dt>
-    <dd>
-      <p>Positions the icon before or after the text.</p>
-      <p>Acceptable values:</p>
-      <ol>
-        <li class="default">leading</li>
-        <li>trailing</li>
-      </ol>
-    </dd>
-    <dt>isIconOnly <code>boolean</code></dt>
-    <dd>
-      <p>Default: <span class="default">false</span></p>
-      <p>This indicates if the button will only contain an icon.</p>
-      <p><em>Notice: an internal check is in place to ensure that accessible text is still applied to the component.</em></p>
-    </dd>
-    <dt>isFullWidth <code>boolean</code></dt>
-    <dd>
-      <p>Default: <span class="default">false</span></p>
-      <p>This indicates that a button should take up the full width of the parent container.</p>
-    </dd>
-    <dt>href</dt>
-    <dd>
-      <p>This is the URL parameter that is passed down to the
-        <code>&lt;a&gt;</code>
-        element.</p>
-    </dd>
-    <dt>isHrefExternal <code>boolean</code></dt>
-    <dd>
-      <p>Default: <span class="default">true</span></p>
-      <p>This controls if the
-        <code>&lt;a&gt;</code>
-        link is external and so for security reasons we need to add the
-        <code>target="_blank"</code>
-        and
-        <code>rel="noopener noreferrer"</code>
-        attributes to it.</p>
-    </dd>
-    <dt>route/models/model/query/current-when/replace</dt>
-    <dd>
-      <p>These are the parameters that are passed down as arguments to the
-        <code>&lt;LinkTo/LinkToExternal&gt;</code>
-        component.</p>
-    </dd>
-    <dt>isRouteExternal <code>boolean</code></dt>
-    <dd>
-      <p>Default: <span class="default">false</span></p>
-      <p>This controls if the "LinkTo" is external to the Ember engine (<a
-          href="https://ember-engines.com/docs/link-to-external"
-          target="_blank"
-          rel="noopener noreferrer"
-        >more details here</a>) in which case it will use a
-        <code>&lt;LinkToExternal&gt;</code>
-        instead of a simple
-        <code>&lt;LinkTo&gt;</code>
-        for the @route.</p>
-    </dd>
-    <dt>...attributes</dt>
-    <dd>
-      <p><code class="dummy-code">...attributes</code> spreading is supported on this component.</p>
-    </dd>
-  </dl>
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="how-to-use"><a href="#how-to-use" class="dummy-link-section">§</a> How to use</h3>
-  <p class="dummy-paragraph">
-    The button component is used to trigger an action or event. For accessibility, buttons should not be used to route
-    to a URL.</p>
-
-  <h4 class="dummy-h4">Basic use</h4>
-  <p class="dummy-paragraph">The most basic invocation requires text to be passed:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" />
-
-  <h4 class="dummy-h4">Add an icon</h4>
-  <p class="dummy-paragraph">To add an icon to your button, give the
-    <code class="dummy-code">@icon</code>
-    a
-    <a href="https://flight-hashicorp.vercel.app/">Flight icon</a>
-    name:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
-
-  <h4 class="dummy-h4">Icon position</h4>
-  <p class="dummy-paragraph">By default, if you define an icon, it is placed before the text. If you would like to
-    position the icon after the text, define
-    <code class="dummy-code">@iconPosition</code>:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
-
-  <h4 class="dummy-h4">Icon-only button</h4>
-  <p class="dummy-paragraph">If you would like to create an icon-only button, set
-    <code class="dummy-code">@isIconOnly</code>
-    to
-    <code class="dummy-code">true</code>. Note that you still have to define the
-    <code class="dummy-code">@text</code>
-    value; it will be used as the
-    <code class="dummy-code">aria-label</code>
-    attribute value on the
-    <code class="dummy-code">button</code>
-    element.
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @isIconOnly=\{{true}} />
-    '
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />
-  <p class="dummy-banner dummy-banner--info dummy-paragraph"><FlightIcon @name="info" />
-    Note: If you need to add a tooltip to an icon-only button, here is an example of how to do it in an accessible way:
-    <a href="https://codepen.io/melsumner/pen/bGGdmMV" target="_blank" rel="noopener noreferrer">Accessible Button
-      Tooltip Pattern</a>.</p>
-
-  <h4 class="dummy-h4">Color</h4>
-  <p class="dummy-paragraph">
-    There are four available colors for a button:
-    <code class="dummy-code">primary</code>,
-    <code class="dummy-code">secondary</code>,
-    <code class="dummy-code">tertiary</code>, and
-    <code class="dummy-code">critical</code>. The default is
-    <code class="dummy-code">primary</code>. To use a different color, declare another value for
-    <code class="dummy-code">@color</code>:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Critical" @color="critical" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @icon="plus" @text="Primary action" />
-  <br />
-  <Hds::Button @icon="plus" @text="Secondary action" @color="secondary" />
-  <br />
-  <Hds::Button @icon="plus" @text="Tertiary action" @color="tertiary" />
-  <br />
-  <Hds::Button @icon="plus" @text="Critical action" @color="critical" />
-
-  <h4 class="dummy-h4">Size</h4>
-  <p class="dummy-paragraph">
-    There are three sizes available for buttons:
-    <code class="dummy-code">small</code>,
-    <code class="dummy-code">medium</code>
-    and
-    <code class="dummy-code">large</code>. The default is
-    <code class="dummy-code">medium</code>. To use a different size, declare a value for
-    <code class="dummy-code">@size</code>:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Large button" @size="large" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to (with icons):</p>
-  <Hds::Button @text="Small button" @size="small" @icon="clipboard-copy" />
-  <br />
-  <Hds::Button @text="Medium button" @icon="clipboard-copy" />
-  <br />
-  <Hds::Button @text="Large button" @size="large" @icon="clipboard-copy" />
-
-  <h4 class="dummy-h4">Full-width</h4>
-  <p class="dummy-paragraph">
-    This allows indication that a button should take up the full-width of the parent container. It is set to
-    <code class="dummy-code">false</code>
-    by default.
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" @isFullWidth=\{{true}} />
-    '
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
-
-  <h4 class="dummy-h4">Type</h4>
-  <p class="dummy-paragraph">This is the native button attribute,
-    <code class="dummy-code">type</code>. There are three possible values:
-    <code class="dummy-code">button</code>,
-    <code class="dummy-code">submit</code>, and
-    <code class="dummy-code">reset</code>. The default
-    <code class="dummy-code">type</code>
-    for the button is
-    <code class="dummy-code">submit</code>. To prevent a button from submitting a form, set
-    <code class="dummy-code">type</code>
-    to
-    <code class="dummy-code">button</code>.
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Submit" type="submit" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph"><em>Notice: if you're passing a
-      <code class="dummy-code">@href</code>
-      or a
-      <code class="dummy-code">@route</code>
-      argument to the component, this will generate a
-      <code class="dummy-code">&lt;a&gt;</code>
-      link, not a
-      <code class="dummy-code">&lt;button&gt;</code>
-      (see below). In this case no
-      <code class="dummy-code">type</code>
-      is needed.</em></p>
-
-  <h4 class="dummy-h4">Actions</h4>
-  <p class="dummy-paragraph">
-    Define the action in your route or controller, and add it to the component invocation in your template:
-  </p>
-  {{! prettier-ignore-start }}
-  {{! template-lint-disable no-unbalanced-curlies }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" \{{on "click" this.copyToClipboard}} />
-    '
-  />
-  {{! template-lint-enable no-unbalanced-curlies }}
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Read the Ember.js guides for more information:
-    <a
-      href="https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Patterns for Actions
-    </a>.
-  </p>
-
-  <h4 class="dummy-h4">Links</h4>
-  <p class="dummy-paragraph">You can generate a link with the visual appearence of a button passing a
-    <code class="dummy-code">@href</code>
-    or a
-    <code class="dummy-code">@route</code>
-    argument to the component.</p>
-  <p class="dummy-paragraph"><em>Notice: the
-      <code class="dummy-code">Hds::Button</code>
-      component internally uses the generic
-      <code class="dummy-code">Hds::Interactive</code>
-      component. For more details about how this low-level component works please refer to
-      <LinkTo @route="utilities.interactive">its documentation page</LinkTo>.</em></p>
-
-  <h5 class="dummy-h5">With @href</h5>
-  <p class="dummy-paragraph">If you pass a
-    <code class="dummy-code">@href</code>
-    argument a
-    <code class="dummy-code">&lt;a&gt;</code>
-    link will be generated:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
-  <p class="dummy-paragraph">
-    <strong>Important</strong>: when using the
-    <code class="dummy-code">@href</code>
-    argument the component adds by default the attributes
-    <code class="dummy-code">target="_blank"</code>
-    and
-    <code class="dummy-code">rel="noopener noreferrer"</code>
-    to the
-    <code class="dummy-code">&lt;a&gt;</code>
-    element (because this is the most common use case: internal links are generally handled using a
-    <code class="dummy-code">@route</code>
-    argument). If the
-    <code class="dummy-code">href</code>
-    points to an internal link, or uses a different protocol (eg. "mailto" of "ftp") you can pass
-    <code class="dummy-code">@isHrefExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
-    to the component and it will not add the
-    <code class="dummy-code">target</code>
-    and
-    <code class="dummy-code">rel</code>
-    attributes (but you can pass yours if needed, using the
-    <code class="dummy-code">...attributes</code>
-    spreading. For more details see the
-    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
-
-  <p class="dummy-paragraph">
-    <strong>Important</strong>: if a
-    <code class="dummy-code">href</code>
-    HTML attribute is used instead of the
-    <code class="dummy-code">@href</code>
-    Ember argument we apply this visual treatment to alert the developer:</p>
-  <Hds::Button @text="Copy to clipboard" href="#" />
-
-  <h5 class="dummy-h5">With @route</h5>
-  <p class="dummy-paragraph">If you pass a
-    <code class="dummy-code">@route</code>
-    argument a
-    <code class="dummy-code">&lt;a&gt;</code>
-    link will be generated using a
-    <code class="dummy-code">&lt;LinkTo&gt;</code>
-    Ember component:</p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Back to homepage" @icon="arrow-left" @route="index" />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Back to homepage" @icon="arrow-left" @route="index" />
-  <p class="dummy-paragraph">
-    <strong>Important</strong>: if the route is external to your current engine you have to pass also
-    <code class="dummy-code">@isRouteExternal=&lbrace;&lbrace;true&rbrace;&rbrace;</code>
-    to the component so that it will use
-    <code class="dummy-code">&lt;LinkToExternal&gt;</code>
-    instead of a simple
-    <code class="dummy-code">&lt;LinkTo&gt;</code>
-    for the
-    <code class="dummy-code">@route</code>. For more details see the
-    <LinkTo @route="utilities.interactive">Hds::Interactive component</LinkTo>.</p>
-  <p class="dummy-paragraph"><em>Notice: all the standard arguments for the
-      <code class="dummy-code">&lt;LinkTo/LinkToExternal&gt;</code>
-      components are supported (eg.
-      <code class="dummy-code">models/model/query/current-when/replace</code>).</em></p>
-
-  <h4 class="dummy-h4">Disabled buttons</h4>
-  <p class="dummy-paragraph">To disable a button, manually add the native
-    <code class="dummy-code">disabled</code>
-    attribute:
-  </p>
-  {{! prettier-ignore-start }}
-  <CodeBlock
-    @language="markup"
-    @code='
-      <Hds::Button @text="Copy to clipboard" disabled />
-    '
-  />
-  {{! prettier-ignore-end }}
-  <p class="dummy-paragraph">Renders to:</p>
-  <Hds::Button @text="Copy to clipboard" disabled />
-  <p class="dummy-paragraph"><em>Notice: since a
-      <code class="dummy-code">&lt;a&gt;</code>
-      link can't be disabled, if you're passing a
-      <code class="dummy-code">@href</code>
-      or a
-      <code class="dummy-code">@route</code>
-      argument to the component you will need to take care of intercepting the events in case you want to disable it.
-    </em></p>
-
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="design-guidelines"><a href="#design-guidelines" class="dummy-link-section">§</a>
-    Design guidelines</h3>
-
-  <div class="dummy-design-guidelines">
-    <p class="dummy-paragraph"><a
-        href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/?node-id=2%3A9"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Figma UI Kit</a></p>
-    <br />
-    <img class="dummy-figma-docs" src="/assets/images/button-design-usage.png" alt="" role="none" />
-  </div>
-</section>
-
-<section>
-  <h3 class="dummy-h3" id="accessibility"><a href="#accessibility" class="dummy-link-section">§</a> Accessibility</h3>
-  <p class="dummy-paragraph">This component has been designed and implemented with accessibility in mind. When used as
-    recommended, there should not be any WCAG conformance issues with this component.
-  </p>
-  <h4 class="dummy-h4">
-    Applicable WCAG Success Criteria (Reference)
-  </h4>
-  <p class="dummy-paragraph">
-    This section is for reference only. This component intends to conform to the following WCAG success criteria:
-  </p>
-  <ul class="dummy-list">
-    <li>
-      1.4.1:
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html" rel="noopener noreferrer" target="_blank">
-        Use of Color
-      </a>
-    </li>
-    <li>
-      1.4.3:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Contrast (Minimum)
-      </a>
-    </li>
-    <li>
-      1.4.4:
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html" rel="noopener noreferrer" target_="_blank">
-        Resize Text
-      </a>
-    </li>
-    <li>
-      1.4.10:
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" rel="noopener noreferrer" target="_blank">
-        Reflow
-      </a>
-    </li>
-    <li>
-      1.4.11:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Non-Text Contrast
-      </a>
-    </li>
-    <li>
-      1.4.12:
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing.html" rel="noopener noreferrer" target="_blank">
-        Text Spacing
-      </a>
-    </li>
-    <li>
-      2.1.1:
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html" rel="noopener noreferrer" target="_blank">
-        Keyboard
-      </a>
-    </li>
-    <li>
-      2.4.7:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Focus Visible
-      </a>
-    </li>
-    <li>
-      4.1.1:
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html" rel="noopener noreferrer" target="_blank">
-        Parsing
-      </a>
-    </li>
-    <li>
-      4.1.2:
-      <a
-        href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Name, Role, Value
-      </a>
-    </li>
-  </ul>
-</section>
+<Shw::Text::H1>Button component</Shw::Text::H1>
 
 <section data-test-percy>
-  <h3 class="dummy-h3" id="showcase"><a href="#showcase" class="dummy-link-section">§</a> Showcase</h3>
-  <h4 class="dummy-h4">Generated element</h4>
-  <div class="dummy-button-generated-list">
-    <div>
-      <span class="dummy-text-small">default ⇒ <code class="dummy-code">&lt;button&gt;</code></span>
-      <br />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" disabled />
-    </div>
-    <div>
-      <span class="dummy-text-small">with
-        <code class="dummy-code">@href</code>
-        ⇒
-        <code class="dummy-code">&lt;a&gt;</code></span>
-      <br />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" disabled />
-    </div>
-    <div>
-      <span class="dummy-text-small">with
-        <code class="dummy-code">@route</code>
-        ⇒
-        <code class="dummy-code">&lt;LinkTo&gt;</code>
-        ⇒
-        <code class="dummy-code">&lt;a&gt;</code></span>
-      <br />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" disabled />
-    </div>
-  </div>
 
-  <h4 class="dummy-h4">Content</h4>
-  <div class="dummy-button-base-sample">
-    <Hds::Button @text="Only text" />
-    <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
-    <Hds::Button @icon="arrow-right" @iconPosition="trailing" @text="Text + trailing icon" />
-    <Hds::Button @icon="plus" @isIconOnly={{true}} @text="Icon only" />
-    <div class="dummy-button-max-width-container">
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" disabled />
+    </SF.Item>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Label>
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" disabled />
+    </SF.Item>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>With<code>@route</code>
+        ⇒
+        <code>&lt;LinkTo&gt;</code>
+        ⇒
+        <code>&lt;a&gt;</code></Shw::Label>
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" />
+      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" disabled />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Only text">
+      <Hds::Button @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Text + leading icon">
+      <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Text + trailing icon">
+      <Hds::Button @icon="arrow-right" @iconPosition="trailing" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Icon only">
+      <Hds::Button @icon="plus" @isIconOnly={{true}} @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item {{style width="200px"}} @label="Icon + Long text">
       <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Flex>
 
-  <h4 class="dummy-h4">Sizes</h4>
-  <div class="dummy-button-base-sample">
+  <Shw::Text::H2>Sizes</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
-      <Hds::Button @icon="plus" @text={{capitalize size}} @size={{size}} />
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Button @icon="plus" @text="Lorem ipsum" @size={{size}} />
+      </SF.Item>
     {{/each}}
-    <div class="dummy-button-full-width-container">
-      <Hds::Button @icon="plus" @text="Full width" @isFullWidth={{true}} />
-    </div>
-  </div>
+    <SF.Item @label="Full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Button @icon="plus" @text="Lorem ipsum" @isFullWidth={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 
-  <h4 class="dummy-h4">Colors</h4>
-  <div class="dummy-button-base-sample">
+  <Shw::Text::H2>Colors</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
-      <Hds::Button @icon="plus" @text={{capitalize color}} @color={{color}} />
+      <SF.Item @label={{capitalize color}}>
+        <Hds::Button @icon="plus" @text="Lorem ipsum" @color={{color}} />
+      </SF.Item>
     {{/each}}
-  </div>
+  </Shw::Flex>
 
-  <h4 class="dummy-h4">States (in each size)</h4>
-  <div class="dummy-button-states-grid">
-    {{#each @model.COLORS as |color|}}
-      <h5 class="dummy-h5 dummy-button-states-grid__title">{{capitalize color}}</h5>
+  <Shw::Text::H2>States</Shw::Text::H2>
+
+  {{#each @model.COLORS as |color|}}
+    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
+    <Shw::Grid @columns={{5}} as |SG|>
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
-          <div>
-            <span class="dummy-text-small">{{capitalize size}}/{{state}}:</span>
-            <br />
-            <Hds::Button
-              @icon="plus"
-              @text={{capitalize state}}
-              @size={{size}}
-              @color={{color}}
-              mock-state-value={{state}}
-            />
-          </div>
+          <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
+            <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+          </SG.Item>
         {{/each}}
       {{/each}}
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
-          <div>
-            <span class="dummy-text-small">Full width/{{color}}/{{state}}:</span>
-            <br />
-            <Hds::Button
-              @icon="plus"
-              @text={{capitalize state}}
-              @color={{color}}
-              @isFullWidth={{true}}
-              mock-state-value={{state}}
-            />
-          </div>
+          <SG.Item @label="Full width / {{capitalize state}}">
+            <Hds::Button @icon="plus" @text="Lorem" @color={{color}} @isFullWidth={{true}} mock-state-value={{state}} />
+          </SG.Item>
         {{/each}}
       {{/if}}
-    {{/each}}
-  </div>
+    </Shw::Grid>
+  {{/each}}
 
-  <h4 class="dummy-h4">Containers</h4>
-  <div class="dummy-button-containers-list">
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-block</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__inline-block">
-        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+  <Shw::Text::H2>Containers</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Parent with <code>display: inline-block</code></Shw::Label>
+      <div {{style display="inline-block"}}>
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">display: inline-flex</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__inline-flex">
-        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Parent with <code>display: inline-flex</code></Shw::Label>
+      <div {{style display="inline-flex"}}>
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">flex-grow: 0</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__flex">
-        <div class="dummy-button-containers-list-item__flex-grow-0">
-          <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Parent with <code>flex-grow: 0</code></Shw::Label>
+      <div {{style display="flex"}}>
+        <div {{style flex-grow="0"}}>
+          <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
         </div>
       </div>
-    </div>
-    <div>
-      <span class="dummy-text-small">Parent with <code class="dummy-code">max-width: fit-content</code></span>
-      <br />
-      <div class="dummy-button-containers-list-item__max-width-fit-content">
-        <Hds::Button @icon="plus" @iconPosition="leading" @text="Text + leading icon" />
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Parent with <code>max-width: fit-content</code></Shw::Label>
+      <div {{style max-width="fit-content"}}>
+        <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
-    </div>
-  </div>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
