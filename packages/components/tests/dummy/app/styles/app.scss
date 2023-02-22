@@ -1,52 +1,211 @@
-/**
- * Copyright (c) HashiCorp, Inc.
- * SPDX-License-Identifier: MPL-2.0
- */
-
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/design-system-power-select-overrides";
-
-// global declarations
-
-@import "./tokens";
-@import "./layout";
-@import "./typography";
-@import "./colors";
-@import "./globals";
-
-// local components
-
-@import "./showcase-components/divider";
-@import "./showcase-components/flex";
-@import "./showcase-components/grid";
-@import "./showcase-components/label";
-@import "./showcase-components/outliner";
-@import "./showcase-components/placeholder";
-
+@import "./_layout";
+@import "./_typography";
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
-@import "./showcase-pages/alert";
-@import "./showcase-pages/badge";
-@import "./showcase-pages/breadcrumb";
-@import "./showcase-pages/button";
-@import "./showcase-pages/card";
-@import "./showcase-pages/disclosure";
-@import "./showcase-pages/dismiss-button";
-@import "./showcase-pages/flyout";
-@import "./showcase-pages/form/base-elements";
-@import "./showcase-pages/form/checkbox";
-@import "./showcase-pages/form/radio";
-@import "./showcase-pages/form/select";
-@import "./showcase-pages/form/text-input";
-@import "./showcase-pages/form/textarea";
-@import "./showcase-pages/form/toggle";
-@import "./showcase-pages/link-inline";
-@import "./showcase-pages/modal";
-@import "./showcase-pages/pagination";
-@import "./showcase-pages/power-select";
-@import "./showcase-pages/tabs";
-@import "./showcase-pages/table";
-@import "./showcase-pages/tag";
-@import "./showcase-pages/typography";
+@import "./pages/db-alert";
+@import "./pages/db-avatar";
+@import "./pages/db-badge";
+@import "./pages/db-breadcrumb";
+@import "./pages/db-button";
+@import "./pages/db-card";
+@import "./pages/db-colors";
+@import "./pages/db-disclosure";
+@import "./pages/db-dismiss-button";
+@import "./pages/db-dropdown";
+@import "./pages/db-elevation";
+@import "./pages/db-focus-ring";
+@import "./pages/db-icon-tile";
+@import "./pages/db-interactive";
+@import "./pages/db-link-inline";
+@import "./pages/db-link-standalone";
+@import "./pages/db-modal";
+@import "./pages/db-power-select";
+@import "./pages/db-side-nav";
+@import "./pages/db-tab";
+@import "./pages/db-table";
+@import "./pages/db-tag";
+@import "./pages/db-toast";
+@import "./pages/db-tokens";
+@import "./pages/db-typography";
+@import "./pages/empty-state/db-index";
+@import "./pages/form/db-base-elements";
+@import "./pages/form/db-checkbox";
+@import "./pages/form/db-radio";
+@import "./pages/form/db-radio-card";
+@import "./pages/form/db-select";
+@import "./pages/form/db-text-input";
+@import "./pages/form/db-textarea";
+@import "./pages/form/db-toggle";
+@import "./pages/stepper/db-stepper";
 // END COMPONENT PAGES IMPORTS
+
+@import "./components/dummy-component-props";
+@import "./components/dummy-footer";
+@import "./components/dummy-link-cta-button-banner";
+@import "./components/dummy-placeholder";
+@import "./components/dummy-sidebar";
+@import "./components/dummy-stepper-indicator-banner";
+@import "./components/dummy-vars-list";
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body.dummy-app {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: #d9d9d9;
+
+  .dummy-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    color: white;
+    text-align: center;
+    background-color: black;
+
+    .dummy-h1 {
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+    }
+
+    .dummy-beta-banner {
+      @include dummyFontFamily();
+      display: inline-block;
+      margin: 1.25rem auto;
+      padding: 0.75rem 1.25rem;
+      color: #911ced;
+      font-size: 1rem;
+      line-height: 1.2;
+      background-color: #f9f2ff;
+      // border: 1px solid #ead2fe;
+      border-radius: 0.25rem;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  .dummy-aside {
+    padding: 2rem 1rem;
+    background-color: #fff;
+  }
+
+  .dummy-main {
+    padding: 2rem;
+    background-color: #fff;
+  }
+}
+
+.dummy-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+.dummy-design-guidelines {
+  p {
+    color: #666;
+  }
+
+  img {
+    width: 1280px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.dummy-divider {
+  margin: 2rem 0;
+}
+
+.dummy-demo-border {
+  border: 1px solid red;
+}
+
+.dummy-example {
+  padding: 16px;
+  border: 1px solid pink;
+  border-radius: 4px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.dummy-code {
+  padding: 0 3px;
+  font-family: courier, monospace;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.dummy-banner {
+  margin: 1rem auto;
+  padding: 0.75rem 1.25rem;
+  background-color: #e2e3e5;
+  border: 1px solid #d6d8db;
+  border-radius: 0.25rem;
+
+  :first-child {
+    margin-top: 0;
+  }
+}
+
+.dummy-banner--info {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+
+  .flight-icon {
+    margin-right: 6px;
+  }
+}
+
+.dummy-banner--alert {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.dummy-link-section {
+  text-decoration: none;
+}
+
+.dummy-npm-version {
+  @include dummyFontFamily();
+  display: inline-flex;
+  gap: 1rem;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+// Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
+// that we want to exclude from the snapshots using their own "Percy-specific CSS".
+// see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
+// notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
+// so we had to rely on this specific custom media query
+
+@media only percy {
+  header,
+  aside,
+  footer,
+  main section:not([data-test-percy]) {
+    display: none !important;
+  }
+}

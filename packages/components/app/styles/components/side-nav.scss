@@ -1,0 +1,57 @@
+//
+// SIDE-NAV
+//
+
+
+// * SideNav Parent (wrapper) component
+// -------------------------------------------------------------------
+
+.hds-side-nav {
+  // NOTE: Cloud-ui uses grid layout in non-mobile
+  position: fixed; // TODO: should apply only to "mobile" view
+  top: 0;
+  // bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 280px;
+  height: 100vh;
+  padding: 12px;
+  color: #fff;
+  background: #000;
+  outline: 1px dotted lime;
+}
+
+
+// Child "wrapper" components:
+
+// * Sub-component: Header
+// ---------------------------------------
+.hds-side-nav__header {
+  display: flex;
+  gap: 16px;
+  outline: 1px dotted red;
+
+  .hds-side-nav__header-logo {
+    margin-right: auto;
+  }
+
+  > * {
+    outline: 1px dotted;
+  }
+}
+
+// * Sub-component: Body
+// ---------------------------------------
+.hds-side-nav__body {
+  flex: 1;
+  overflow: auto;
+  outline: 1px dotted skyblue;
+}
+
+// * Sub-component: Footer
+// ---------------------------------------
+.hds-side-nav__footer {
+  outline: 1px dotted pink;
+}
