@@ -176,7 +176,7 @@ To implement a custom sort callback on one of your columns, add your custom func
       (hash 
         key='status'
         label='Status'
-        isSortable="true"
+        isSortable=true
         sortingFunction=this.myCustomSortingFunction
       )
       (hash key='album' label='Album')
