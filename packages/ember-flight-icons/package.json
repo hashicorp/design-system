@@ -31,8 +31,7 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test"
+    "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
     "@hashicorp/flight-icons": "^2.12.0",
