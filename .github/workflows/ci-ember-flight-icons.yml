@@ -32,11 +32,8 @@ jobs:
         run: yarn run lint
         working-directory: packages/ember-flight-icons
       - name: Run Tests
-        run: yarn run test:ember:percy
+        run: yarn run test:ember
         working-directory: packages/ember-flight-icons
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
-
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
