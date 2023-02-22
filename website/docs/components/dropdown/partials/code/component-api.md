@@ -53,7 +53,7 @@ The Dropdown component is composed of different child components each with their
     Value of `aria-label` for the ToggleIcon. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="icon" @type="string">
-    Acceptable value: any [Helios icon](/icons/library) name.
+    Acceptable value: any [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="hasChevron" @type="boolean" @values={{array "false" "true" }} @default="true">
     Per design, `false` is only currently allowed when the "more-horizontal" icon is used; it is set to `true` by default.
@@ -74,7 +74,7 @@ The Dropdown component is composed of different child components each with their
     Acceptable values: “action” or “critical”.
   </C.Property>
   <C.Property @name="icon" @type="string">
-    Acceptable value: any [Helios icon](/foundations/icons/library) name.
+    Acceptable value: any [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="isLoading" @type="boolean" @values={{array "false" "true" }} @default="false">
     Controls if the item is in “loading” state. When in this state, the item is not actually interactive, but you can pass the other expected arguments for the item (they’re simply ignored).

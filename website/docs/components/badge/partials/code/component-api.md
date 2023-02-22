@@ -8,7 +8,7 @@
     The text of the badge or value of the screen-reader only element if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="icon" @type="string">
-    Use this parameter to show an icon. Any Helios [icon name](/icons/library) is acceptable.
+    Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
   <C.Property @name="isIconOnly" @type="boolean" @values={{array "false" "true" }} @default="false">
     This indicates if the button will only contain an icon. An internal check is in place to ensure that accessible text is still applied to the component.

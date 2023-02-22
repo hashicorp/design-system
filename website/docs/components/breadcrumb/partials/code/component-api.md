@@ -28,7 +28,7 @@ The Breadcrumb component is composed of three different parts, each with their o
     The text displayed within the item.
   </C.Property>
   <C.Property @name="icon" @type="string">
-    Use to show an icon. Any Helios [icon name](/icons/library) is acceptable.
+    Use to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
   <C.Property @name="route/models/model/query">
     These parameters are passed down as arguments to the `<LinkTo>` component.

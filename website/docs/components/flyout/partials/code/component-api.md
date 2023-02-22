@@ -25,7 +25,7 @@ It is a container that yields its content as the title of the Flyout.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
-    [Icon](/foundations/icons) name.
+    [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="tagline" @type="string">
     A string that helps the user maintain context when a Flyout is open. _Note: this is NOT the title text, but a small piece of text above the title text._
