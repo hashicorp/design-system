@@ -2,23 +2,23 @@ This component takes advantage of the `sort-by` helper provided in [ember-compos
 
 ## How to use this component
 
-### Non-sortable table
+### Non-sortable table with no model defined, caption defined
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
-<Hds::Table 
-  @model={{this.model.data}}
-  @columns={{array
-    (hash key="artist" label="Artist")
-    (hash key="album" label="Album")
-    (hash key="year" label="Release Year")
-  }}
-  >
+<Hds::Table @caption="your custom, meaningful caption goes here">
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Column Header</H.Th>
+      <H.Th>Column Header</H.Th>
+      <H.Th>Column Header</H.Th>
+    </H.Tr>
+  </:head>
   <:body as |B|>
     <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>
