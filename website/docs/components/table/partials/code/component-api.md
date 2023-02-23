@@ -29,6 +29,9 @@ The Table component itself is where most of the options will be applied. However
       <C.Property @name="sortingFunction" @type="function">
       Callback function to provide support for a custom callback.
       </C.Property>
+      <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
+        If set, determines the text alignment for the column.
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
