@@ -1,0 +1,29 @@
+// TODO: Will replace before release...
+
+body.components-side-nav {
+  .shw-side-nav-table-layout {
+    width: calc(100% - 280px);
+    border: 1px solid;
+    border-spacing: 1em;
+
+    + * { margin-top: 1em; }
+
+    th[scope="row"] {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    td { width: 100%; }
+
+    caption {
+      font-weight: bold;
+      font-size: larger;
+      text-align: left;
+    }
+  }
+
+  .shw-side-nav-box {
+    background: #000;
+    border-radius: 5px;
+  }
+}

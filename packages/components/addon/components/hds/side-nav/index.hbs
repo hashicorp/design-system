@@ -1,7 +1,5 @@
-<div class={{this.classNames}} ...attributes>
-  <div class="hds-side-nav__header">
-    {{yield to="header"}}
-  </div>
+<div class="hds-side-nav" ...attributes>
+  {{yield to="header"}}
 
   <div class="hds-side-nav__body">
     {{yield to="body"}}
@@ -11,36 +9,3 @@
     {{yield to="footer"}}
   </div>
 </div>
-
-{{!
-  ROUGH PLANNING NOTES (these will be deleted, for WIP planning ONLY)
-
-  Component Structure:
-  ----------------------------
-  * SideNav (parent wrapper component)
-    * Header (yielded wrapper component)
-      - Logo / Home Button (child) -- we should probably provide
-      - Help Dropdown (child) -- should we provide? Perhaps allow users just to add custom links?
-      - User Dropdown (child) -- should we provide? Seems like we should
-
-      - Hamburger Button / Close Button -- Need to know more about our planned design
-    * Body (yielded wrapper component)
-      - Section (1 or more, wrapper/parent component)
-        - Section::Header (optional)
-        - Section::List
-          - Section::Item (1 or more)
-            - Icon
-            - text
-            - link (NOTE: Some of the Cloud-Ui ListItems take you to a 2ndary list of links)
-            - tag (alpha, beta, etc)
-    * Footer (yielded wrapper component)
-      - OrgSelect / ContextSwitcher (Special Dropdown that opens up)
-
-  General Child Components List:
-  ---------------------------
-  * HomeLink (NEW: icon w/ link in SideNav Header)
-  * Dropdown (in SideNav Header)
-  * ListItem (NEW)
-  * Badge and BadgeCount (In ListItem)
-  * ContextSwitcher (NEW: specialized Dropdown in SideNav Footer, Alex is working on something related)
-}}

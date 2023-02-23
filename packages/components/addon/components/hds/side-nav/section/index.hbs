@@ -1,11 +1,11 @@
-<nav class={{this.classNames}} ...attributes>
-  {{#if @header}}
-    <div class="hds-side-nav__section-header hds-typography-body-100 hds-font-weight-semibold">
-      {{@header}}
-    </div>
-  {{/if}}
+<nav class="hds-side-nav__section" ...attributes>
+  {{yield (hash Title=(component "hds/side-nav/section/title"))}}
 
+  {{! TODO: If there are no links or items, ul should not be rendered (should consumer add it themselves as a component?) }}
   <ul class="hds-side-nav__list">
+    {{yield (hash Link=(component "hds/side-nav/section/link"))}}
     {{yield (hash Item=(component "hds/side-nav/section/item"))}}
   </ul>
+
+  {{yield (hash Generic=(component "hds/yield"))}}
 </nav>

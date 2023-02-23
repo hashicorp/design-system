@@ -2,9 +2,11 @@
 // SIDE-NAV
 //
 
-// WIP, naming, etc. will be refined...
+@use "../mixins/focus-ring" as *;
+
+// WIP, naming, etc. will be refined... TODO: Add JSON for color tokens, etc.
 :root {
-  --nav-item-padding-horizontal: 12px;
+  --token-side-nav-item-padding-horizontal: 12px;
 }
 
 
@@ -12,10 +14,6 @@
 // -------------------------------------------------------------------
 
 .hds-side-nav {
-  // NOTE: Cloud-ui uses grid layout in non-mobile
-  // position: fixed; // TODO: should apply only to "mobile" view
-  // top: 0;
-  // left: 0;
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -24,17 +22,13 @@
   background: #000;
 }
 
-// TEMP
-.hds-side-nav { outline: 1px dotted; }
-
-
 // Child "wrapper" blocks & child components:
 
 // * Sub-component: Header
 // ---------------------------------------
 .hds-side-nav__header {
   display: flex;
-  gap: 8px;
+  gap: 8px; // TODO: replace with margins
   align-items: center;
   padding: 12px;
 
@@ -60,8 +54,18 @@
   border: 1px solid transparent;
   border-radius: 5px;
 
-  &:hover {
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element();
+  }
+}
+
+// Some styles in cloud-ui, interfere so adding additional selector to increase specificity
+body .hds-side-nav__header-logo {
+  &:hover,
+  &.hover {
     background: var(--token-color-palette-neutral-600);
+    border-color: transparent;
   }
 }
 
@@ -78,13 +82,12 @@
   overflow: auto;
 }
 
-// Change to "nav-group" to "section"
 .hds-side-nav__section {
   + .hds-side-nav__section { margin-top: 28px; }
 }
 
 .hds-side-nav__section-header {
-  padding: 0 var(--nav-item-padding-horizontal);
+  padding: 0 var(--token-side-nav-item-padding-horizontal);
   color: var(--token-color-palette-neutral-400);
 
   + .hds-side-nav__list { margin-top: 12px; }
@@ -101,22 +104,23 @@
   + .hds-side-nav__list-item { margin-top: 4px; }
 }
 
-.hds-side-nav__link {
+// non-interactive item
+.hds-side-nav__item {
   display: flex;
   align-items: center;
   width: 100%;
   min-height: 2.25rem;
-  padding: 0 var(--nav-item-padding-horizontal);
+  padding: 0 var(--token-side-nav-item-padding-horizontal);
   color: var(--token-color-palette-neutral-300);
+}
+
+// interactive "link"
+.hds-side-nav__item--link {
   text-decoration: none;
   overflow-wrap: break-word;
   background: transparent;
   border-color: transparent;
   border-radius: 5px;
-
-  &:hover {
-    background: var(--token-color-palette-neutral-600);
-  }
 
   .hds-badge,
   .hds-badge-count {
@@ -124,10 +128,40 @@
   }
 }
 
-// WIP...
-.hds-side-nav__list-item--is-current {
-  background: var(--token-color-palette-neutral-500);
+// Some styles in cloud-ui, interfere so adding additional selector to increase specificity
+body .hds-side-nav__item--link:hover,
+body .hds-side-nav__item--link.hover {
+  background: var(--token-color-palette-neutral-600);
+  border-color: transparent;
+
+  .hds-side-nav-label,
+  .hds-side-nav__list-icon {
+    color: var(--token-color-foreground-high-contrast);
+  }
 }
+
+body .hds-side-nav__item--link:active,
+body .hds-side-nav__item--link.active {
+  background: var(--token-color-palette-neutral-500);
+
+  .hds-side-nav-label,
+  .hds-side-nav__list-icon {
+    color: var(--token-color-foreground-high-contrast);
+  }
+
+  .hds-badge,
+  .hds-badge-count {
+    color: var(--token-color-foreground-primary);
+    background: var(--token-color-surface-strong);
+  }
+}
+
+body .hds-side-nav__item--link:focus,
+body .hds-side-nav__item--link.mock-focus {
+  @include hds-focus-ring-with-pseudo-element();
+}
+
+.hds-side-nav-label { color: var(--token-color-palette-neutral-300); }
 
 .hds-side-nav__list-icon {
   width: 1rem;
