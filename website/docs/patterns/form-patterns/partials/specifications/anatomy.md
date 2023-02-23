@@ -10,7 +10,7 @@ Elements and content within a form is variable, but can be broken down into sect
 
 **Actions:** responsible for submitting the form or giving the user an escape hatch to cancel, clear the form, or "go back."
 
-### Sections _something else here_
+### Sections
 
 | Type    | Description                                                             |
 | ------- | ----------------------------------------------------------------------- |
