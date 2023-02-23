@@ -16,22 +16,22 @@ The Table component itself is where most of the options will be applied. However
   </C.Property>
   <C.Property @name="columns" @type="array">
   Use a `hash` within the array to define each column.
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="key" @type="string">
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="key" @type="string">
       The column’s key; required if the column is sortable.
-      </C.Property>
-      <C.Property @name="label" @type="string" @required="true">
+      </D.Property>
+      <D.Property @name="label" @type="string" @required="true">
       The column’s label; supports internationalization.
-      </C.Property>
-      <C.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
+      </D.Property>
+      <D.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
       If set to `true`, indicates that a column should be sortable.
-      </C.Property>
-      <C.Property @name="sortingFunction" @type="function">
+      </D.Property>
+      <D.Property @name="sortingFunction" @type="function">
       Callback function to provide support for a custom callback.
-      </C.Property>
-      <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
+      </D.Property>
+      <D.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
         If set, determines the text alignment for the column.
-      </C.Property>
+      </D.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
@@ -85,8 +85,11 @@ If the `Th` component is passed as the first "cell" of a table body row, it has 
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     If set, determines the text alignment.
   </C.Property>
+  <C.Property @name="scope" @type="string" @values={{array "col" "row" }} @default="col">
+    If used as the first item in a table body's row, `scope` should be set to `row` for accessibility purposes. Note: you only need to manually set this if you're creating a custom table using the child components, instead of the standard invocation.
+  </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS" @default="left">
-    If set, determines the column width.
+    If set, determines the column’s width.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports the use of `...attributes`.
