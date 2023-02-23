@@ -107,10 +107,10 @@ This is the component that supports the column sorting, and should be used inste
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the text alignment.
+    If set, determines the column’s text alignment.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS" @default="left">
-    If set, determines the column width.
+    If set, determines the column’s width.
   </C.Property>
   <C.Property @name="onClick" @type="function">
     The action handler; sets the sort to the column key.
