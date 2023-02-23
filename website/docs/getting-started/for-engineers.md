@@ -38,7 +38,7 @@ sassOptions: {
 },
 ```
 
-4. We also **strongly** suggest to add also this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
+4. We also suggest adding this configuration in `ember-cli-build.js` to prevent `ember-cli` from trying to over-optimize the generated CSS by changing the order of the CSS declarations ([reference](https://github.com/hashicorp/cloud-ui/pull/3112)):
 
 ```js
 minifyCSS: {
