@@ -2,7 +2,7 @@ This component takes advantage of the `sort-by` helper provided in [ember-compos
 
 ## How to use this component
 
-### Non-sortable table with no model defined, caption defined
+### Table with no model defined
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -164,7 +164,7 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 
 #### Custom sort callback
 
-To implement a custom sort callback on a columns, (1) add a custom function as the value for `sortingFunction` in the column hash, and (2) include a custom `onSort` action in your table invocation. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status, and you’re otherwise unable to influence the shape of the data in the model. Here is an example, code truncated for clarity:
+To implement a custom sort callback on a columns, (1) add a custom function as the value for `sortingFunction` in the column hash, and (2) include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status, and you’re otherwise unable to influence the shape of the data in the model. Here is an example, code truncated for clarity:
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -189,11 +189,7 @@ To implement a custom sort callback on a columns, (1) add a custom function as t
 Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes its order based on the position in the array:
 
 ```javascript
-import Controller from '@ember/controller';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-
-// we use an array to declare the custom sorting order for the clusters' status
+// we use an array to declare the custom sorting order for the "status" column
 const customSortingCriteriaArray = [
   'failing',
   'active',
@@ -201,38 +197,29 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
-export default class ComponentsTableController extends Controller {
-  @tracked customSortOrderForClusterStatus = 'asc';
+// we track the sorting order, so it can be used in the custom sorting function
+@tracked customSortOrderForStatus = 'asc';
 
-  get clustersWithExtraData() {
-    return this.model.clusters.map((record) => {
-      return {
-        ...record,
-        'status-sort-order': customSortingCriteriaArray.indexOf(
-          record['status']
-        ),
-      };
-    });
-  }
 
-  get customSortingMethodForClusterStatus() {
-    return (s1, s2) => {
-      const index1 = customSortingCriteriaArray.indexOf(s1['status']);
-      const index2 = customSortingCriteriaArray.indexOf(s2['status']);
-      if (index1 < index2) {
-        return this.customSortOrderForClusterStatus === 'asc' ? -1 : 1;
-      } else if (index1 > index2) {
-        return this.customSortOrderForClusterStatus === 'asc' ? 1 : -1;
-      } else {
-        return 0;
-      }
-    };
-  }
+// we define a "getter" that returns a custom sorting function ("s1" and "s2" are data records)
+get customSortingMethodForStatus() {
+  return (s1, s2) => {
+    const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+    const index2 = customSortingCriteriaArray.indexOf(s2['status']);
+    if (index1 < index2) {
+      return this.customSortOrderForStatus === 'asc' ? -1 : 1;
+    } else if (index1 > index2) {
+      return this.customSortOrderForStatus === 'asc' ? 1 : -1;
+    } else {
+      return 0;
+    }
+  };
+}
 
-  @action
-  customOnSort(_sortBy, sortOrder) {
-    this.customSortOrderForClusterStatus = sortOrder;
-  }
+// we define a callback function that listens to the `onSort` event in the table, and updates the tracked sort order values accordingly
+@action
+customOnSort(_sortBy, sortOrder) {
+  this.customSortOrderForStatus = sortOrder;
 }
 ```
 
@@ -286,7 +273,7 @@ Here’s a table implementation that uses an array hash with localized strings f
 
 #### Replacing components as a pre-adoption step
 
-If you're not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It's a little more typing but it should give you an idea of what will work for you.
+If you’re not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It’s a little more typing but it should give you an idea of what will work for you.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
