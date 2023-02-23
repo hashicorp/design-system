@@ -5,8 +5,8 @@
 
 // FOOTER
 
-@use '../../breakpoints' as breakpoint;
-@use '../../typography/mixins' as *;
+@use "../../breakpoints" as breakpoint;
+@use "../../typography/mixins" as *;
 
 .doc-page-footer {
   // z-index: var(--doc-z-index-footer);
@@ -14,9 +14,8 @@
 
   body.application:not(.index) & {
     @include breakpoint.with-fixed-sidebar() {
-      padding-left: var(
-        --doc-page-sidebar-width
-      ); // we need to compensate for the fixed position of the sidebar
+      padding-left:
+ var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
     }
   }
 }
