@@ -4,8 +4,6 @@ This component takes advantage of the `sort-by` helper provided in [ember-compos
 
 ### Non-sortable table
 
-If you don’t have or want to use a model, a basic invocation could look like:
-
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
 <Hds::Table 
@@ -59,7 +57,7 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
-For documentation purposes, we‘re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
+For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
 You can insert your own content into the and `:body` block and the component will take care of looping over the `@model` provided:
 
@@ -98,8 +96,8 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
-    (hash key="album" label="Album" isSortable="true")
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
 >
@@ -122,8 +120,8 @@ You can optionally indicate that a specific column should be pre-sorted by addin
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
-    (hash key="album" label="Album" isSortable="true")
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
   @sortBy='artist'
@@ -147,8 +145,8 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
-    (hash key="album" label="Album" isSortable="true")
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
   @sortBy='artist'
@@ -166,7 +164,7 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 
 #### Custom sort callback
 
-To implement a custom sort callback on one of your columns, add your custom function as the value for `sortingFunction` in the column hash, and include a custom `onSort` action in your table invocation. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status (sample code truncated for clarity):
+To implement a custom sort callback on a columns, (1) add a custom function as the value for `sortingFunction` in the column hash, and (2) include a custom `onSort` action in your table invocation. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status, and you’re otherwise unable to influence the shape of the data in the model. Here is an example, code truncated for clarity:
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
@@ -200,9 +198,9 @@ Here’s a table implementation that uses an array hash with localized strings f
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-      (hash key='artist' label=(t 'components.table.headers.artist') isSortable="true")
-      (hash key='album' label=(t 'components.table.headers.album') isSortable="true")
-      (hash key='year' label=(t 'components.table.headers.year') isSortable="true")
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable=true)
+      (hash key='album' label=(t 'components.table.headers.album') isSortable=true)
+      (hash key='year' label=(t 'components.table.headers.year') isSortable=true)
       (hash key='other' label=(t 'global.titles.other'))
     }}
 >
