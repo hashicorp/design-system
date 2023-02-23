@@ -186,7 +186,7 @@ To implement a custom sort callback on a columns, (1) add a custom function as t
 </Hds::Table>
 ```
 
-Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes it’s order based on the position in the array:
+Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes its order based on the position in the array:
 
 ```javascript
 import Controller from '@ember/controller';
