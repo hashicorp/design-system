@@ -15,7 +15,24 @@ The Table component itself is where most of the options will be applied. However
     Indicates the data model to be used by the table.
   </C.Property>
   <C.Property @name="columns" @type="array">
-  Use a `hash` within the array to define each column. `Key` and `label` values are both required in non-static tables. Add `isSortable` if you would like the column to be sortable. Use `align` to indicate text alignment (default is `left`).
+  Use a `hash` within the array to define each column.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="key" @type="string">
+      The column’s key; required if the column is sortable.
+      </C.Property>
+      <C.Property @name="label" @type="string" @required="true">
+      The column’s label; supports internationalization.
+      </C.Property>
+      <C.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
+      If set to `true`, indicates that a column should be sortable.
+      </C.Property>
+      <C.Property @name="sortingFunction" @type="function">
+      Callback function to provide support for a custom callback.
+      </C.Property>
+      <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
+        If set, determines the text alignment for the column.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
     If defined, the value should be set to the key of the column that should be pre-sorted when the table is rendered.
@@ -90,10 +107,10 @@ This is the component that supports the column sorting, and should be used inste
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the text alignment.
+    If set, determines the column’s text alignment.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS" @default="left">
-    If set, determines the column width.
+    If set, determines the column’s width.
   </C.Property>
   <C.Property @name="onClick" @type="function">
     The action handler; sets the sort to the column key.
