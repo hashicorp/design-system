@@ -14,8 +14,7 @@
 
   body.application:not(.index) & {
     @include breakpoint.with-fixed-sidebar() {
-      padding-left:
- var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
+      padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
     }
   }
 }
