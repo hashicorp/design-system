@@ -122,7 +122,7 @@ You can optionally indicate that a specific column should be pre-sorted by addin
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
+    (hash key="artist" label="Artist" isSortable="true" @sortingFunction=)
     (hash key="album" label="Album" isSortable="true")
     (hash key="year" label="Release Year")
   }}
