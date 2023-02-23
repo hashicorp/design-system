@@ -186,6 +186,56 @@ To implement a custom sort callback on a columns, (1) add a custom function as t
 </Hds::Table>
 ```
 
+Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes it’s order based on the position in the array:
+
+```javascript
+import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+
+// we use an array to declare the custom sorting order for the clusters' status
+const customSortingCriteriaArray = [
+  'failing',
+  'active',
+  'establishing',
+  'pending',
+];
+
+export default class ComponentsTableController extends Controller {
+  @tracked customSortOrderForClusterStatus = 'asc';
+
+  get clustersWithExtraData() {
+    return this.model.clusters.map((record) => {
+      return {
+        ...record,
+        'status-sort-order': customSortingCriteriaArray.indexOf(
+          record['status']
+        ),
+      };
+    });
+  }
+
+  get customSortingMethodForClusterStatus() {
+    return (s1, s2) => {
+      const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+      const index2 = customSortingCriteriaArray.indexOf(s2['status']);
+      if (index1 < index2) {
+        return this.customSortOrderForClusterStatus === 'asc' ? -1 : 1;
+      } else if (index1 > index2) {
+        return this.customSortOrderForClusterStatus === 'asc' ? 1 : -1;
+      } else {
+        return 0;
+      }
+    };
+  }
+
+  @action
+  customOnSort(_sortBy, sortOrder) {
+    this.customSortOrderForClusterStatus = sortOrder;
+  }
+}
+```
+
 ### More Examples
 
 #### Internationalized column headers, overflow menu dropdown
