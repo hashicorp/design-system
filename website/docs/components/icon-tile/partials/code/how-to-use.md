@@ -32,7 +32,7 @@ A different size Icon Tile can be invoked using the `@size` argument.
 
 ### Secondary icon
 
-To add a secondary icon, use the `@iconSecondary` argument with any Helios icon as the value.
+To add a secondary icon, use the `@iconSecondary` argument with any icon as the value.
 
 ```handlebars
 <Hds::IconTile @icon="user" @iconSecondary="plus" />

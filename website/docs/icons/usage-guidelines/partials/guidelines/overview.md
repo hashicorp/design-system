@@ -64,7 +64,7 @@ If an object can have multiple states, use a Contained icon for the overall pare
 
 ## Sizes
 
-Helios icons are optimized for two icon sizes: `16px` and `24px`. 
+icons are optimized for two icon sizes: `16px` and `24px`. 
 
 Use `16px` icons by default in product interfaces and `24px` icons for empty states.
 
@@ -125,7 +125,7 @@ When migrating icons from Structure, reference our [mapping of icon names betwee
 | <= 20px               | 16px                     |
 | >= 21px               | 24px*                    |
 
-*If 24px seems too large, consider using the 16px Helios icon and reworking the interface for a better fit.
+*If 24px seems too large, consider using the 16px icon and reworking the interface for a better fit.
 
 ## Resources
 

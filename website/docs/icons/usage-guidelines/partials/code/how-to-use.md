@@ -1,6 +1,6 @@
 ## How to use icons
 
-Helios icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
+icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
 
 ### Using icons in Ember apps
 

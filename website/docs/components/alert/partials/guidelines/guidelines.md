@@ -55,7 +55,7 @@ Use `neutral` or `highlight` (depending on the level of prominence needed) in pl
 
 All alerts have icons by default that are intentionally tied to the alert type.
 
-Icons within the `neutral` and `highlight` alerts can be replaced with other Helios icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
+Icons within the `neutral` and `highlight` alerts can be replaced with other icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
 <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
   <A.Title>New features available</A.Title>
