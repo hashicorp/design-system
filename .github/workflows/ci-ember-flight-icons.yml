@@ -14,8 +14,8 @@ concurrency:
    cancel-in-progress: true
 
 jobs:
-  test:
-    name: "Tests"
+  lint:
+    name: "Lint"
     runs-on: ubuntu-latest
 
     steps:
