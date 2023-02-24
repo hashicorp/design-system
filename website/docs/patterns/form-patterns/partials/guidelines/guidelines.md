@@ -129,10 +129,7 @@ Breaking up a form into multiple sections based on the relationship of the field
 
 #### Multiple steps or pages
 
-For exceedingly long, complex forms (e.g., creating a cluster), consider breaking the form into multiple steps or pages.
-
--
-- A [Stepper](/components/stepper-indicator) can be used to annotate status and location in a multi-step form.
+For exceedingly long, complex forms (e.g., creating a cluster), consider breaking the form into multiple steps or pages. A [Stepper](/components/stepper-indicator) can be used to annotate status and location in a multi-step form.
 
 !!! Info
 
@@ -145,23 +142,67 @@ As a general note, special care should be taken to _reduce_ the number of fields
 
 #### Using dividers
 
-### Width
+Dividers can help introduce more visual hierarchy and differentiation in a long, complex forms.
+
+Only use dividers between sections of a form, not between fields or other smaller elements within a section. A divider should be used to break up different types of content and categories within a form.
+
+When using a divider, increase the spacing between sections to 48px from 32px (24px on the top and bottom of the divider). This helps to separate the divider from surrounding form elements, otherwise it can appear "attached" to a specific section or field.
+
+_Insert image here_
+
+!!! Dont
+
+Dividers should not be used trailing the last section of a form between the fields and the button set or actions. Instead, the section spacing of 32px should be used.
+!!!
+
+## Width
+
+The width of a form and the fields it contains is largely dependent on the context the form is in, but adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX.
+
+#### Form width
+
+The width of a form should hug the content and fields it contains, the form width should not determine the width of the fields contained within.
+
+_Insert supporting image_
+
+#### Field width
+
+The width of a field within a form should be wide enough to account for the estimated width of the content it accepts. This gives the user an accurate sense of the length and type of the content they should be inputting into the field and is important in setting expectations of the user.
+
+_Insert supporting image_
+
+#### Single column layout
+
+If a form uses a single-column layout, consider setting a maximum width on the form; this can generally be best achieved by using a size or unit that is **relative** the page, viewport, or container size. This can commonly be achieved by using a viewport width unit (`vw`), percentage width (e.g., `50%`), or a character unit (`ch`).
+
+!!! Info
+
+The web is a fluid medium; a relative width will adjust based on the viewport and container width. Designing and building a form with a recommended maximum and minimum width will help to conceptualize the graceful expansion and contraction of the viewport
+!!!
 
 ### Responsive properties
 
-### Progressive disclosure
+As the viewport shrinks, the width of the form should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontally grouped fields that result in a multi-column layout should stack vertically as the viewport shrinks.
 
-### Required vs. optional fields
+## Progressive disclosure
 
-## Interactivity
+Users want power, but also want simplicity. Progressive disclosure refers only displaying the most important information (or elements of a form) and conditionally showing additional fields depending on:
 
-## Layout
+1. the input state of other fields
+2. if more complex settings are requested by the user.
 
-## Submission
+_Insert supporting image_
 
-## Error handling and validation
+## Required vs. optional fields
 
-### Interaction
+Displaying to the user what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
+
+- For shorter forms fields should be interpreted as required by default. Fields that are not required should be marked as optional.
+- Don't mix required and optional labels, stick to one or the other. Using one method will imply that fields without a label are the inverse of whatever method you choose.
+
+When determining whether to mark fields as optional or required, consider which method occurs the least. This can help reduce visual weight since unmarked fields are implied as the inverse of marked fields.
+
+![Comparison of forms using optional vs required](/assets/patterns/form-patterns/required-optional-comparison.png)
 
 ### Client-side validation
 
