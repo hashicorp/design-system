@@ -18,10 +18,10 @@ The Table component itself is where most of the options will be applied. However
   Use a `hash` within the array to define each column.
     <Doc::ComponentApi as |D|>
       <D.Property @name="key" @type="string">
-      The column’s key; required if the column is sortable.
+      The column’s key (one of the keys in the model's records); required if the column is sortable.
       </D.Property>
       <D.Property @name="label" @type="string" @required="true">
-      The column’s label; supports internationalization.
+      The column’s label.
       </D.Property>
       <D.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
       If set to `true`, indicates that a column should be sortable.
