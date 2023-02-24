@@ -35,8 +35,6 @@
 .hds-side-nav__wrapper {
   display: flex;
   flex-direction: column;
-  width: 280px;
-  height: 100vh;
   color: var(--token-side-nav-foreground-primary); // Default color
   background: var(--token-side-nav-surface);
 }
@@ -135,7 +133,7 @@ body .hds-side-nav__home-link {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 2.25rem;
+  min-height: 36px;
   padding: 0 var(--token-side-nav-item-padding-horizontal);
   color: var(--token-side-nav-foreground-primary);
   background: var(--token-side-nav-surface);

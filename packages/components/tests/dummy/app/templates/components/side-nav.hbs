@@ -12,16 +12,18 @@
 
   <Shw::Text::Body>Contains named blocks for :header, :body, and :footer</Shw::Text::Body>
 
-  <Hds::SideNav>
-    <:header>
-    </:header>
+  <div class="shw-component-side-nav-wrapper">
+    <Hds::SideNav>
+      <:header>
+      </:header>
 
-    <:body>
-    </:body>
+      <:body>
+      </:body>
 
-    <:footer>
-    </:footer>
-  </Hds::SideNav>
+      <:footer>
+      </:footer>
+    </Hds::SideNav>
+  </div>
 </section>
 
 <Shw::Divider />
@@ -224,70 +226,72 @@
 <section data-test-percy>
   <Shw::Text::H2>All together</Shw::Text::H2>
 
-  <Hds::SideNav>
-    <:header>
-      <Hds::SideNav::Header>
-        <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+  <div class="shw-component-side-nav-wrapper">
+    <Hds::SideNav>
+      <:header>
+        <Hds::SideNav::Header>
+          <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
 
-        <Hds::Dropdown as |dd|>
-          <dd.ToggleIcon @icon="help" @text="settings menu" />
-          <dd.Title @text="Signed In" />
-          <dd.Description @text="email@domain.com" />
-          <dd.Separator />
-          <dd.Interactive @href="#" @text="Settings and Preferences" />
-        </Hds::Dropdown>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="help" @text="settings menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Separator />
+            <dd.Interactive @href="#" @text="Settings and Preferences" />
+          </Hds::Dropdown>
 
-        <Hds::Dropdown as |dd|>
-          <dd.ToggleIcon @icon="user" @text="user menu" />
-          <dd.Title @text="Signed In" />
-          <dd.Description @text="email@domain.com" />
-          <dd.Interactive @href="#" @text="Account Settings" />
-        </Hds::Dropdown>
-      </Hds::SideNav::Header>
-    </:header>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </Hds::SideNav::Header>
+      </:header>
 
-    <:body>
-      <Hds::SideNav::Section as |S|>
-        <S.Link @icon="dashboard" @label="Dashboard" />
-      </Hds::SideNav::Section>
+      <:body>
+        <Hds::SideNav::Section as |S|>
+          <S.Link @icon="dashboard" @label="Dashboard" />
+        </Hds::SideNav::Section>
 
-      <Hds::SideNav::Section as |S|>
-        <S.Title>Services</S.Title>
+        <Hds::SideNav::Section as |S|>
+          <S.Title>Services</S.Title>
 
-        <S.Link @label="Boundary" @icon="boundary" @href="#" />
-        <S.Link @label="Consul" @icon="consul" @href="#" />
-        <S.Link @label="Packer" @icon="packer" @href="#" />
-        <S.Link @label="Vault" @icon="vault" @href="#" />
-        <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
-        <S.Link @label="Terraform" @icon="terraform" @href="#" />
-        <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-        {{! should have nested links: }}
-        <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" />
-      </Hds::SideNav::Section>
+          <S.Link @label="Boundary" @icon="boundary" @href="#" />
+          <S.Link @label="Consul" @icon="consul" @href="#" />
+          <S.Link @label="Packer" @icon="packer" @href="#" />
+          <S.Link @label="Vault" @icon="vault" @href="#" />
+          <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
+          <S.Link @label="Terraform" @icon="terraform" @href="#" />
+          <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          {{! should have nested links: }}
+          <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" />
+        </Hds::SideNav::Section>
 
-      <Hds::SideNav::Section as |S|>
-        <S.Title>Default Org</S.Title>
+        <Hds::SideNav::Section as |S|>
+          <S.Title>Default Org</S.Title>
 
-        <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
-        {{! should have nested links: }}
-        <S.Link @label="Access control (IAM)" @icon="users" @href="#" />
-        {{! should have nested links: }}
-        <S.Link @label="Billing" @icon="credit-card" @href="#" />
-        {{! should have nested links: }}
-        <S.Link @label="Settings" @icon="settings" @href="#" />
-      </Hds::SideNav::Section>
+          <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          {{! should have nested links: }}
+          <S.Link @label="Access control (IAM)" @icon="users" @href="#" />
+          {{! should have nested links: }}
+          <S.Link @label="Billing" @icon="credit-card" @href="#" />
+          {{! should have nested links: }}
+          <S.Link @label="Settings" @icon="settings" @href="#" />
+        </Hds::SideNav::Section>
 
-      <Hds::SideNav::Section as |S|>
-        <S.Generic>
-          <p>
-            Generic content in a “Section” which adds standardized vertical margins
-          </p>
-        </S.Generic>
-      </Hds::SideNav::Section>
-    </:body>
+        <Hds::SideNav::Section as |S|>
+          <S.Generic>
+            <p>
+              Generic content in a “Section” which adds standardized vertical margins
+            </p>
+          </S.Generic>
+        </Hds::SideNav::Section>
+      </:body>
 
-    <:footer>
-      OrgSelect / ContextSwitcher
-    </:footer>
-  </Hds::SideNav>
+      <:footer>
+        OrgSelect / ContextSwitcher
+      </:footer>
+    </Hds::SideNav>
+  </div>
 </section>
