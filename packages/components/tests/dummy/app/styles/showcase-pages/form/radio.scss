@@ -1,0 +1,28 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > RADIO
+
+body.components-form-radio {
+  .shw-component-form-radio-base-custom-layout {
+    border: 1px solid #999;
+
+    strong,
+    span {
+      display: block;
+      margin: 10px 0;
+      padding: 0 10px;
+      font-family: Tahoma, Verdana, Segoe, sans-serif;
+    }
+
+    .shw-component-form-radio-base-custom-layout__control-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      background-color: #e4e4e4;
+      border-top: 1px solid #999;
+    }
+  }
+}

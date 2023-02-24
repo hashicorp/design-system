@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// BUTTON
+
+body.components-button {
+  .shw-component-button-generated {
+    > .hds-button + .hds-button {
+      margin-top: 8px;
+    }
+  }
+}

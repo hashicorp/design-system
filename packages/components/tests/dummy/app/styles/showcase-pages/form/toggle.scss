@@ -1,0 +1,15 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > TOGGLE
+
+body.components-form-toggle {
+  .shw-component-form-toggle-base-custom-layout {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+  }
+}

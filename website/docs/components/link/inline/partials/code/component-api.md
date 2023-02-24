@@ -3,7 +3,7 @@
 <Doc::ComponentApi as |C|>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
   <C.Property @name="icon" @type="string">
-    Use this parameter to show an icon. Any [icon name](/icons/library) is acceptable.
+    Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
   <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing" }} @default="trailing">
     Positions the icon before or after the text.

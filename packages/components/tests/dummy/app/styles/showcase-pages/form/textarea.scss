@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > TEXTAREA
+
+body.components-form-textarea {
+  .shw-component-form-textarea-base-custom-layout {
+    width: 500px;
+    font-size: 0.8em;
+    font-family: Verdana, sans-serif;
+
+    .shw-component-form-textarea-base-custom-layout__heading {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #e4e4e4;
+      border: 1px solid #999;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .shw-component-form-textarea-base-custom-layout__control {
+      width: 100%;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}

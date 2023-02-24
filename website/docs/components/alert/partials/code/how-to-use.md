@@ -56,7 +56,7 @@ A different color can be applied to the alert using the `color` argument. This w
 
 ### Icons
 
-A different icon can be used in the alert using the `icon` argument. This accepts any [Helios icon](/icons/library) name.
+A different icon can be used in the alert using the `icon` argument. This accepts any [icon](/icons/library) name.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>

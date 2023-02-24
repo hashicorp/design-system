@@ -31,7 +31,7 @@ A container that yields its content as the title of the Modal.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
-    Accepts any Helios [icon](/icons/library) name.
+    Accepts any [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="tagline" @type="string">
     String that helps the user maintain context when a modal dialog is open.

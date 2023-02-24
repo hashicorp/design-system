@@ -10,7 +10,7 @@ The basic invocation requires text to be passed:
 
 ### Add an icon
 
-To add an icon to your button, give the `@icon` any [Helios icon](/icons/library) name:
+To add an icon to your button, give the `@icon` accepts any [icon](/icons/library) name:
 
 ```handlebars
 <Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />

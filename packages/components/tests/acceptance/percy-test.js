@@ -19,11 +19,11 @@ module('Acceptance | Percy test', function (hooks) {
   }
 
   test('Take percy snapshots', async function (assert) {
-    await visit('/foundations/colors');
-    await percySnapshot('Colors');
-
     await visit('/foundations/typography');
     await percySnapshot('Typography');
+
+    await visit('/foundations/icon');
+    await percySnapshot('Icon');
 
     await visit('/foundations/elevation');
     await percySnapshot('Elevation');

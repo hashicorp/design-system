@@ -1,0 +1,24 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > SELECT
+
+body.components-form-select {
+  .shw-component-form-select-base-custom-layout {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.8em;
+    font-family: Verdana, sans-serif;
+
+    select {
+      flex: 1 1 0; // is a direct child of a flexbox and has a width of 100% so it blows up
+    }
+
+    button {
+      align-self: stretch;
+    }
+  }
+}
