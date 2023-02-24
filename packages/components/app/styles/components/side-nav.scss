@@ -49,7 +49,7 @@
   padding: 12px;
   background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
 
-  .hds-side-nav__header-logo {
+  .hds-side-nav__home-link {
     margin-right: auto; // Q: Make more generic?
   }
 
@@ -59,7 +59,7 @@
   }
 }
 
-.hds-side-nav__header-logo {
+.hds-side-nav__home-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +78,7 @@
 }
 
 // Some styles in cloud-ui, interfere so adding additional selector to increase specificity
-body .hds-side-nav__header-logo {
+body .hds-side-nav__home-link {
   &:hover,
   &.hover {
     background: var(--token-side-nav-surface-hover);
@@ -86,7 +86,7 @@ body .hds-side-nav__header-logo {
   }
 }
 
-body .hds-side-nav__header-logo {
+body .hds-side-nav__home-link {
   &:active,
   &.active {
     background: var(--token-side-nav-surface-active);
@@ -94,7 +94,7 @@ body .hds-side-nav__header-logo {
   }
 }
 
-.hds-side-nav__header-logo-icon {
+.hds-side-nav__home-link-icon {
   width: auto;
   height: 35px;
 }
@@ -163,8 +163,8 @@ body .hds-side-nav__item--link.hover {
   background: var(--token-side-nav-surface-hover);
   border-color: transparent;
 
-  .hds-side-nav-label,
-  .hds-side-nav__list-icon {
+  .hds-side-nav__list-item-label,
+  .hds-side-nav__list-item-icon {
     color: var(--token-color-foreground-high-contrast);
   }
 }
@@ -173,8 +173,8 @@ body .hds-side-nav__item--link:active,
 body .hds-side-nav__item--link.active {
   background: var(--token-side-nav-surface-active);
 
-  .hds-side-nav-label,
-  .hds-side-nav__list-icon {
+  .hds-side-nav__list-item-label,
+  .hds-side-nav__list-item-icon {
     color: var(--token-color-foreground-high-contrast);
   }
 
@@ -190,9 +190,9 @@ body .hds-side-nav__item--link.mock-focus {
   @include hds-focus-ring-with-pseudo-element();
 }
 
-.hds-side-nav-label { color: var(--token-side-nav-foreground-primary); }
+.hds-side-nav__list-item-label { color: var(--token-side-nav-foreground-primary); }
 
-.hds-side-nav__list-icon {
+.hds-side-nav__list-item-icon {
   width: 1rem;
   min-width: 1rem;
   margin-right: 8px;
