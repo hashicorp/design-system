@@ -75,18 +75,13 @@
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element();
   }
-}
 
-// Some styles in cloud-ui, interfere so adding additional selector to increase specificity
-body .hds-side-nav__home-link {
   &:hover,
   &.hover {
     background: var(--token-side-nav-interactive-surface-hover);
     border-color: transparent;
   }
-}
 
-body .hds-side-nav__home-link {
   &:active,
   &.active {
     background: var(--token-side-nav-interactive-surface-active);
@@ -149,39 +144,38 @@ body .hds-side-nav__home-link {
   .hds-badge-count {
     margin-left: 8px;
   }
-}
 
-// Some styles in cloud-ui, interfere so adding additional selector to increase specificity
-body .hds-side-nav__item--link:hover,
-body .hds-side-nav__item--link.hover {
-  background: var(--token-side-nav-interactive-surface-hover);
-  border-color: transparent;
-
-  .hds-side-nav__list-item-label,
-  .hds-side-nav__list-item-icon {
-    color: var(--token-color-foreground-high-contrast);
-  }
-}
-
-body .hds-side-nav__item--link:active,
-body .hds-side-nav__item--link.active {
-  background: var(--token-side-nav-interactive-surface-active);
-
-  .hds-side-nav__list-item-label,
-  .hds-side-nav__list-item-icon {
-    color: var(--token-color-foreground-high-contrast);
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element();
   }
 
-  .hds-badge,
-  .hds-badge-count {
-    color: var(--token-color-foreground-primary);
-    background: var(--token-color-surface-strong);
-  }
-}
+  &:hover,
+  &.hover {
+    background: var(--token-side-nav-interactive-surface-hover);
+    border-color: transparent;
 
-body .hds-side-nav__item--link:focus,
-body .hds-side-nav__item--link.mock-focus {
-  @include hds-focus-ring-with-pseudo-element();
+    .hds-side-nav__list-item-label,
+    .hds-side-nav__list-item-icon {
+      color: var(--token-color-foreground-high-contrast);
+    }
+  }
+
+  &:active,
+  &.active {
+    background: var(--token-side-nav-interactive-surface-active);
+
+    .hds-side-nav__list-item-label,
+    .hds-side-nav__list-item-icon {
+      color: var(--token-color-foreground-high-contrast);
+    }
+
+    .hds-badge,
+    .hds-badge-count {
+      color: var(--token-color-foreground-primary);
+      background: var(--token-color-surface-strong);
+    }
+  }
 }
 
 .hds-side-nav__list-item-label { color: var(--token-side-nav-foreground-primary); }
