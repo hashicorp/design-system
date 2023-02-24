@@ -2,7 +2,7 @@
 title: Button alignment
 description: Guidelines for aligning, ordering, and grouping action buttons.
 navigation:
-  hidden: true
+  hidden: false
 ---
 
 <section data-tab="Overview">
@@ -14,9 +14,4 @@ navigation:
   @include "partials/specifications/alignment.md"
   @include "partials/specifications/order.md"
   @include "partials/specifications/grouping.md"
-  @include "partials/specifications/exceptions.md"
-</section>
-
-<section data-tab="Accessibility">
-  @include "partials/accessibility/accessibility.md"
 </section>
