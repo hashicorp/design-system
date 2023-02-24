@@ -300,7 +300,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
       &::after {
         left: 4px;
-        background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
       }
     }
@@ -317,7 +316,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
       &::after {
         left: 4px;
-        background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
       }
     }
@@ -339,10 +337,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
       &::before {
         background-color: currentColor;
-      }
-
-      &::after {
-        background-color: var(--current-background-color);
       }
     }
   }
@@ -368,7 +362,6 @@ $hds-dropdown-toggle-border-radius: 5px;
     --current-color-active: var(--token-color-foreground-action-active);
 
     &::after {
-      --current-background-color: var(--token-color-surface-action);
       --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
@@ -431,26 +424,8 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 
-.hds-dropdown-list-item--checkmark {
-  a.hds-dropdown-list-item__interactive,
-  button.hds-dropdown-list-item__interactive {
-    // disable background on focus and active states
-    &:focus,
-    &:active,
-    &.mock-focus,
-    &.mock-active {
-      color: var(--token-color-foreground-action-active);
-
-      &::after {
-        background-color: inherit;
-      }
-    }
-  }
-}
-
 .hds-dropdown-list-item--checkmark-selected {
-  a.hds-dropdown-list-item__interactive,
-  button.hds-dropdown-list-item__interactive {
+  .hds-dropdown-list-item__interactive {
     color: var(--token-color-foreground-action);
   }
 }
