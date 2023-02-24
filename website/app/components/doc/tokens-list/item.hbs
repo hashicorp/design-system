@@ -45,6 +45,9 @@
       {{#if this.isAlias}}
         <Doc::MetaRow @label="Alias of" @valueToShow={{this.token.original_value}} />
       {{/if}}
+      {{#if this.token.aliases}}
+        <Doc::MetaRow @label="Aliased as" @multipleValuesToShow={{this.token.aliases}} />
+      {{/if}}
       {{#if this.token.comment}}
         <Doc::MetaRow @label="Comment" @valueToShow={{this.token.comment}} />
       {{/if}}
