@@ -2,227 +2,220 @@
 
 <Shw::Text::H1>SideNav</Shw::Text::H1>
 
+<Shw::Text::Body><strong>Note:</strong>
+  This is a WIP. Content, components, & naming will be refined before release.</Shw::Text::Body>
+
+<Shw::Text::H2>Standalone components:</Shw::Text::H2>
+
 <section data-test-percy>
-  <Shw::Text::H2>Standalone cases:</Shw::Text::H2>
+  <Shw::Text::H3>Hds::SideNav / Wrapper:</Shw::Text::H3>
 
-  <table class="shw-side-nav-table-layout">
-    <tbody>
-      <tr>
-        <th scope="row">
-          with just text
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @label="Boundary" @href="#" />
-          </div>
-        </td>
-      </tr>
+  <Shw::Text::Body>Contains named blocks for :header, :body, and :footer</Shw::Text::Body>
 
-      <tr>
-        <th scope="row">
-          with icon + text
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @href="#" />
-          </div>
-        </td>
-      </tr>
+  <Hds::SideNav>
+    <:header>
+    </:header>
 
-      <tr>
-        <th scope="row">
-          with icon + text + badge
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @badge="Alpha" />
-          </div>
-        </td>
-      </tr>
+    <:body>
+    </:body>
 
-      <tr>
-        <th scope="row">
-          with icon + text + badgecount
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" />
-          </div>
-        </td>
-      </tr>
+    <:footer>
+    </:footer>
+  </Hds::SideNav>
+</section>
 
-      <tr>
-        <th scope="row">
-          with icon + text + badge + badgecount
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" />
-          </div>
-        </td>
-      </tr>
+<Shw::Divider />
 
-      <tr>
-        <th scope="row">
-          with icon + long text (eg. 2 lines)
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link
-              @icon="boundary"
-              @label="Boundary Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-            />
-          </div>
-        </td>
-      </tr>
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Header</Shw::Text::H3>
 
-      <tr>
-        <th scope="row">
-          with icon + long text (eg. 2 lines) + badge + badgecount
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link
-              @icon="boundary"
-              @label="Boundary Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-              @count="3"
-              @badge="Alpha"
-            />
-          </div>
-        </td>
-      </tr>
+  <Shw::Text::Body>Layout wrapper used within the :header named block. Provides layout for the Logo and other header
+    content such as dropdowns.</Shw::Text::Body>
 
-      <tr>
-        <th scope="row">
-          with icon + custom passed in badge + badgecount
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary">
-              <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
-              <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
-            </Hds::SideNav::Section::Link>
-          </div>
-        </td>
-      </tr>
+  <div class="shw-side-nav-box">
+    <Hds::SideNav::Header>
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
 
-      <tr>
-        <th scope="row">
-          with just text
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Item>Non-interactive content</Hds::SideNav::Section::Item>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <Hds::Dropdown as |dd|>
+        <dd.ToggleIcon @icon="help" @text="settings menu" />
+        <dd.Title @text="Signed In" />
+        <dd.Description @text="email@domain.com" />
+        <dd.Separator />
+        <dd.Interactive @href="#" @text="Settings and Preferences" />
+      </Hds::Dropdown>
+
+      <Hds::Dropdown as |dd|>
+        <dd.ToggleIcon @icon="user" @text="user menu" />
+        <dd.Title @text="Signed In" />
+        <dd.Description @text="email@domain.com" />
+        <dd.Interactive @href="#" @text="Account Settings" />
+      </Hds::Dropdown>
+    </Hds::SideNav::Header>
+  </div>
 </section>
 
 <section data-test-percy>
-  <Shw::Text::H2>Standalone states:</Shw::Text::H2>
+  <Shw::Text::H3>Hds::SideNav::HomeLink / Hds::SideNav::Header::Logo</Shw::Text::H3>
+  <Shw::Text::Body>
+    Logo / HomeLink used as the first child of the Hds::SideNav::Header layout component which goes in the :header named
+    block.
+  </Shw::Text::Body>
 
-  <table class="shw-side-nav-table-layout">
-    <tbody>
-      <tr>
-        <th scope="row">
-          default
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link @label="Boundary" @icon="boundary" @badge="Alpha" @count="3" @href="#" />
-          </div>
-        </td>
-      </tr>
+  <Shw::Grid @columns={{4}} @label="States" as |SG|>
+    <SG.Item @label="default:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+    </SG.Item>
 
-      <tr>
-        <th scope="row">
-          hover
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link
-              @label="Boundary"
-              @icon="boundary"
-              @badge="Alpha"
-              @count="3"
-              @href="#"
-              class="hover"
-            />
-          </div>
-        </td>
-      </tr>
+    <SG.Item @label="hover:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="hover" />
+    </SG.Item>
 
-      <tr>
-        <th scope="row">
-          active
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link
-              @label="Boundary"
-              @icon="boundary"
-              @badge="Alpha"
-              @count="3"
-              @href="#"
-              class="active"
-            />
-          </div>
-        </td>
-      </tr>
+    <SG.Item @label="active:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="active" />
+    </SG.Item>
 
-      <tr>
-        <th scope="row">
-          focused
-        </th>
-        <td>
-          <div class="shw-side-nav-box">
-            <Hds::SideNav::Section::Link
-              @label="Boundary"
-              @icon="boundary"
-              @badge="Alpha"
-              @count="3"
-              @href="#"
-              class="mock-focus"
-            />
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <SG.Item @label="focused:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="mock-focus" />
+    </SG.Item>
+  </Shw::Grid>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Section / Group</Shw::Text::H3>
+  <Shw::Text::Body>Container used within :body named block for groups of "Links" / "Items", BackButtons, or Generic
+    items. Adds standardized margins inbetween other section groups.</Shw::Text::Body>
+
+  <Hds::SideNav::Section as |S|>
+    <S.Generic>
+      Example 1: Add Title, Link / Item, or Generic content
+    </S.Generic>
+  </Hds::SideNav::Section>
+  <Hds::SideNav::Section as |S|>
+    <S.Generic>
+      Example 2: Add Title, Link / Item, or Generic content
+    </S.Generic>
+  </Hds::SideNav::Section>
+
+  <Shw::Text::Body>
+    Containing a Link with no title:
+  </Shw::Text::Body>
+
+  <Hds::SideNav::Section as |S|>
+    <S.Link @label="Dashboard" @icon="dashboard" @href="#" />
+  </Hds::SideNav::Section>
+
+  <Shw::Text::Body>
+    Containing a title and multiple Links:
+  </Shw::Text::Body>
+
+  <Hds::SideNav::Section as |S|>
+    <S.Title>Services</S.Title>
+
+    <S.Link @label="Boundary" @icon="boundary" @href="#" />
+    <S.Link @label="Consul" @icon="consul" @href="#" />
+    <S.Link @label="Packer" @icon="packer" @href="#" />
+    <S.Link @label="Vault" @icon="vault" @href="#" />
+    <S.Link @label="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
+    <S.Link @label="Terraform" @icon="terraform" @href="#" />
+    <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+    <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @href="#" />
+  </Hds::SideNav::Section>
 </section>
 
 <section data-test-percy>
-  <Shw::Text::H2>Standalone SideNav::Section</Shw::Text::H2>
+  <Shw::Text::H3>Hds::SideNav::BackButton</Shw::Text::H3>
+  <Shw::Text::Body>TODO: Create component</Shw::Text::Body>
+</section>
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Section::Title</Shw::Text::H3>
+  <Shw::Text::Body>The header for a Section group of "Links" / "Items"</Shw::Text::Body>
+
+  <Hds::SideNav::Section::Title>Group title</Hds::SideNav::Section::Title>
+</section>
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Section::List::Item</Shw::Text::H3>
+
+  <Hds::SideNav::Section::Item>Item with non-interactive content</Hds::SideNav::Section::Item>
+</section>
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Section::List::Generic</Shw::Text::H3>
 
   <Shw::Text::Body>
-    No title:
+    Generic content which goes inside a Hds::SideNav::Section but is not part of a list of links/items
   </Shw::Text::Body>
 
-  <div class="shw-side-nav-box">
-    <Hds::SideNav::Section as |S|>
-      <S.Link @label="Dashboard" @icon="dashboard" @href="#" />
-    </Hds::SideNav::Section>
-  </div>
+  <Hds::SideNav::Section as |S|>
+    <S.Generic>
+      Generic section group content
+    </S.Generic>
+  </Hds::SideNav::Section>
+</section>
 
-  <Shw::Text::Body>
-    With title and multiple Items:
-  </Shw::Text::Body>
-  <div class="shw-side-nav-box">
-    <Hds::SideNav::Section as |S|>
-      <S.Title>Services</S.Title>
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Section::Link cases:</Shw::Text::H3>
 
-      <S.Link @label="Boundary" @icon="boundary" @href="#" />
-      <S.Link @label="Consul" @icon="consul" @href="#" />
-      <S.Link @label="Packer" @icon="packer" @href="#" />
-      <S.Link @label="Vault" @icon="vault" @href="#" />
-      <S.Link @label="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
-      <S.Link @label="Terraform" @icon="terraform" @href="#" />
-      <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-      <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @href="#" />
-    </Hds::SideNav::Section>
-  </div>
+  <Shw::Text::Body>with just text:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @label="Boundary" @href="#" />
+
+  <Shw::Text::Body>with icon + text:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @href="#" />
+
+  <Shw::Text::Body>with icon + text + badge:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @badge="Alpha" />
+
+  <Shw::Text::Body>with icon + text + badgecount:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" />
+
+  <Shw::Text::Body>with icon + text + badge + badgecount:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" />
+
+  <Shw::Text::Body>with icon + long text (eg. 2 lines):</Shw::Text::Body>
+  <Hds::SideNav::Section::Link
+    @icon="boundary"
+    @label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  />
+
+  <Shw::Text::Body>with icon + long text (eg. 2 lines) + badge + badgecount:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link
+    @icon="boundary"
+    @label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    @count="3"
+    @badge="Alpha"
+  />
+
+  <Shw::Text::Body>with icon + custom passed in badge + badgecount:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary">
+    <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
+    <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+  </Hds::SideNav::Section::Link>
+</section>
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Section::Link states:</Shw::Text::H3>
+
+  <Shw::Text::Body>default:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @label="Boundary" @icon="boundary" @badge="Alpha" @count="3" @href="#" />
+
+  <Shw::Text::Body>hover:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @label="Boundary" @icon="boundary" @badge="Alpha" @count="3" @href="#" class="hover" />
+
+  <Shw::Text::Body>active:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link @label="Boundary" @icon="boundary" @badge="Alpha" @count="3" @href="#" class="active" />
+
+  <Shw::Text::Body>focused:</Shw::Text::Body>
+  <Hds::SideNav::Section::Link
+    @label="Boundary"
+    @icon="boundary"
+    @badge="Alpha"
+    @count="3"
+    @href="#"
+    class="mock-focus"
+  />
 </section>
 
 <section data-test-percy>

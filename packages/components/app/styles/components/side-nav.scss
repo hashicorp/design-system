@@ -6,7 +6,23 @@
 
 // WIP, naming, etc. will be refined... TODO: Add JSON for color tokens, etc.
 :root {
+  /* Sizes: */
   --token-side-nav-item-padding-horizontal: 12px;
+
+  /* Colors (WIP): */
+  --token-side-nav-foreground-primary: #dedfe3;
+  --token-side-nav-foreground-primary-strong: #fff;
+  --token-side-nav-foreground-faint: #8c909c;
+
+  // Non-active "Links"
+  --token-side-nav-surface-default: #0c0c0e;
+  --token-side-nav-surface-hover: #3b3d45;
+  --token-side-nav-surface-active: #656a76;
+
+  // "Active" "Links"
+  --token-side-nav-selected-surface-default: #656a76;
+  --token-side-nav-selected-surface-hover: #3b3d45;
+  --token-side-nav-selected-surface-active: #656a76;
 }
 
 
@@ -18,8 +34,8 @@
   flex-direction: column;
   width: 280px;
   height: 100vh;
-  color: #fff;
-  background: #000;
+  color: var(--token-side-nav-foreground-primary); // Delete?
+  background: var(--token-side-nav-surface-default);
 }
 
 // Child "wrapper" blocks & child components:
@@ -31,26 +47,27 @@
   gap: 8px; // TODO: replace with margins
   align-items: center;
   padding: 12px;
+  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
 
   .hds-side-nav__header-logo {
-    margin-right: auto;
+    margin-right: auto; // Q: Make more generic?
   }
 
   // TEMP HACK ONLY! (TODO: replace)
   .hds-disclosure__toggle:not(:hover) * {
-    color: inherit !important;
+    color: var(--token-side-nav-foreground-primary) !important;
   }
 }
 
 .hds-side-nav__header-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 48px;
   height: 48px;
   padding: 4px;
-  color: inherit;
-  background: transparent;
+  color: var(--token-side-nav-foreground-primary);
+  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
   border: 1px solid transparent;
   border-radius: 5px;
 
@@ -64,7 +81,15 @@
 body .hds-side-nav__header-logo {
   &:hover,
   &.hover {
-    background: var(--token-color-palette-neutral-600);
+    background: var(--token-side-nav-surface-hover);
+    border-color: transparent;
+  }
+}
+
+body .hds-side-nav__header-logo {
+  &:active,
+  &.active {
+    background: var(--token-side-nav-surface-active);
     border-color: transparent;
   }
 }
@@ -83,12 +108,16 @@ body .hds-side-nav__header-logo {
 }
 
 .hds-side-nav__section {
+  color: var(--token-side-nav-foreground-primary); // Delete?
+  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
+
   + .hds-side-nav__section { margin-top: 28px; }
 }
 
-.hds-side-nav__section-header {
+.hds-side-nav__section-title {
   padding: 0 var(--token-side-nav-item-padding-horizontal);
-  color: var(--token-color-palette-neutral-400);
+  color: var(--token-side-nav-foreground-faint);
+  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
 
   + .hds-side-nav__list { margin-top: 12px; }
 }
@@ -104,21 +133,21 @@ body .hds-side-nav__header-logo {
   + .hds-side-nav__list-item { margin-top: 4px; }
 }
 
-// non-interactive item
+// generic item
 .hds-side-nav__item {
   display: flex;
   align-items: center;
   width: 100%;
   min-height: 2.25rem;
   padding: 0 var(--token-side-nav-item-padding-horizontal);
-  color: var(--token-color-palette-neutral-300);
+  color: var(--token-side-nav-foreground-primary);
+  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
 }
 
-// interactive "link"
+// interactive "link" item
 .hds-side-nav__item--link {
   text-decoration: none;
   overflow-wrap: break-word;
-  background: transparent;
   border-color: transparent;
   border-radius: 5px;
 
@@ -131,7 +160,7 @@ body .hds-side-nav__header-logo {
 // Some styles in cloud-ui, interfere so adding additional selector to increase specificity
 body .hds-side-nav__item--link:hover,
 body .hds-side-nav__item--link.hover {
-  background: var(--token-color-palette-neutral-600);
+  background: var(--token-side-nav-surface-hover);
   border-color: transparent;
 
   .hds-side-nav-label,
@@ -142,7 +171,7 @@ body .hds-side-nav__item--link.hover {
 
 body .hds-side-nav__item--link:active,
 body .hds-side-nav__item--link.active {
-  background: var(--token-color-palette-neutral-500);
+  background: var(--token-side-nav-surface-active);
 
   .hds-side-nav-label,
   .hds-side-nav__list-icon {
@@ -161,7 +190,7 @@ body .hds-side-nav__item--link.mock-focus {
   @include hds-focus-ring-with-pseudo-element();
 }
 
-.hds-side-nav-label { color: var(--token-color-palette-neutral-300); }
+.hds-side-nav-label { color: var(--token-side-nav-foreground-primary); }
 
 .hds-side-nav__list-icon {
   width: 1rem;
