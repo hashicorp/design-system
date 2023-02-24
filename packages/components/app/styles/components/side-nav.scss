@@ -9,20 +9,23 @@
   /* Sizes: */
   --token-side-nav-item-padding-horizontal: 12px;
 
-  /* Colors (WIP): */
+  /* Colors: */
+
+  /* SideNav container: */
   --token-side-nav-foreground-primary: #dedfe3;
   --token-side-nav-foreground-primary-strong: #fff;
   --token-side-nav-foreground-faint: #8c909c;
+  --token-side-nav-surface: #0c0c0e;
 
-  // Non-active "Links"
-  --token-side-nav-surface-default: #0c0c0e;
-  --token-side-nav-surface-hover: #3b3d45;
-  --token-side-nav-surface-active: #656a76;
+  // Interactive elements:
+  // base:
+  --token-side-nav-interactive-surface-hover: #3b3d45;
+  --token-side-nav-interactive-surface-active: #656a76;
 
-  // "Active" "Links"
-  --token-side-nav-selected-surface-default: #656a76;
-  --token-side-nav-selected-surface-hover: #3b3d45;
-  --token-side-nav-selected-surface-active: #656a76;
+  // selected:
+  --token-side-nav-interactive-selected-surface-default: #656a76;
+  --token-side-nav-interactive-selected-surface-hover: #3b3d45;
+  --token-side-nav-interactive-selected-surface-active: #656a76;
 }
 
 
@@ -35,7 +38,7 @@
   width: 280px;
   height: 100vh;
   color: var(--token-side-nav-foreground-primary); // Default color
-  background: var(--token-side-nav-surface-default);
+  background: var(--token-side-nav-surface);
 }
 
 // Child "wrapper" blocks & child components:
@@ -66,7 +69,7 @@
   height: 48px;
   padding: 4px;
   color: var(--token-side-nav-foreground-primary);
-  background: var(--token-side-nav-surface-default);
+  background: var(--token-side-nav-surface);
   border: 1px solid transparent;
   border-radius: 5px;
 
@@ -80,7 +83,7 @@
 body .hds-side-nav__home-link {
   &:hover,
   &.hover {
-    background: var(--token-side-nav-surface-hover);
+    background: var(--token-side-nav-interactive-surface-hover);
     border-color: transparent;
   }
 }
@@ -88,7 +91,7 @@ body .hds-side-nav__home-link {
 body .hds-side-nav__home-link {
   &:active,
   &.active {
-    background: var(--token-side-nav-surface-active);
+    background: var(--token-side-nav-interactive-surface-active);
     border-color: transparent;
   }
 }
@@ -135,7 +138,7 @@ body .hds-side-nav__home-link {
   min-height: 2.25rem;
   padding: 0 var(--token-side-nav-item-padding-horizontal);
   color: var(--token-side-nav-foreground-primary);
-  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
+  background: var(--token-side-nav-surface);
 }
 
 // interactive "link" item
@@ -153,7 +156,7 @@ body .hds-side-nav__home-link {
 // Some styles in cloud-ui, interfere so adding additional selector to increase specificity
 body .hds-side-nav__item--link:hover,
 body .hds-side-nav__item--link.hover {
-  background: var(--token-side-nav-surface-hover);
+  background: var(--token-side-nav-interactive-surface-hover);
   border-color: transparent;
 
   .hds-side-nav__list-item-label,
@@ -164,7 +167,7 @@ body .hds-side-nav__item--link.hover {
 
 body .hds-side-nav__item--link:active,
 body .hds-side-nav__item--link.active {
-  background: var(--token-side-nav-surface-active);
+  background: var(--token-side-nav-interactive-surface-active);
 
   .hds-side-nav__list-item-label,
   .hds-side-nav__list-item-icon {
