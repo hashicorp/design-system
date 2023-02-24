@@ -121,6 +121,28 @@ Once a logical organization or grouping has been established, categorize element
 
 ### Length
 
+The length of a form, determined by the number of fields their complexity, can have a significant impact on whether a user successfully completes a form or abandons the task altogether. If a feature or flow relies on a large number of fields, consider breaking up the form using these strategies:
+
+#### Multiple sections
+
+Breaking up a form into multiple sections based on the relationship of the fields or the category the information corresponds with can make a long form seem less complex. Introducing typographic elements and dividers can further aid the hierarchy of the form and differentiate sections from one-another.
+
+#### Multiple steps or pages
+
+For exceedingly long, complex forms (e.g., creating a cluster), consider breaking the form into multiple steps or pages.
+
+-
+- A [Stepper](/components/stepper-indicator) can be used to annotate status and location in a multi-step form.
+
+!!! Info
+
+As a general note, special care should be taken to _reduce_ the number of fields whenever possible.
+
+- Long forms are more challenging for the user which can result in a lower completion rate.
+- If a field is optional, consider whether it should be included in the form at all. If the information isn't crucial to the experience or feature, why is it being collected at all?
+
+!!!
+
 #### Using dividers
 
 ### Width
