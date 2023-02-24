@@ -32,7 +32,7 @@
   <Shw::Text::Body>Layout wrapper used within the :header named block. Provides layout for the HomeLink and other header
     content such as dropdowns.</Shw::Text::Body>
 
-  <div class="shw-side-nav-box">
+  <div class="shw-component-side-nav-box">
     <Hds::SideNav::Header>
       <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
 
@@ -132,7 +132,9 @@
   <Shw::Text::H3>Hds::SideNav::Section::Title</Shw::Text::H3>
   <Shw::Text::Body>The header for a Section group of "Links" / "Items"</Shw::Text::Body>
 
-  <Hds::SideNav::Section::Title>Group title</Hds::SideNav::Section::Title>
+  <div class="shw-component-side-nav-box">
+    <Hds::SideNav::Section::Title>Group title</Hds::SideNav::Section::Title>
+  </div>
 </section>
 
 <section data-test-percy>
@@ -148,11 +150,13 @@
     Generic content which goes inside a Hds::SideNav::Section but is not part of a list of links/items
   </Shw::Text::Body>
 
-  <Hds::SideNav::Section as |S|>
-    <S.Generic>
-      Generic section group content
-    </S.Generic>
-  </Hds::SideNav::Section>
+  <div class="shw-component-side-nav-box">
+    <Hds::SideNav::Section as |S|>
+      <S.Generic>
+        Generic section group content
+      </S.Generic>
+    </Hds::SideNav::Section>
+  </div>
 </section>
 
 <section data-test-percy>

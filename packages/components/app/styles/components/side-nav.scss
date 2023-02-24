@@ -29,12 +29,12 @@
 // * SideNav Parent (wrapper) component
 // -------------------------------------------------------------------
 
-.hds-side-nav {
+.hds-side-nav__wrapper {
   display: flex;
   flex-direction: column;
   width: 280px;
   height: 100vh;
-  color: var(--token-side-nav-foreground-primary); // Delete?
+  color: var(--token-side-nav-foreground-primary); // Default color
   background: var(--token-side-nav-surface-default);
 }
 
@@ -47,7 +47,6 @@
   gap: 8px; // TODO: replace with margins
   align-items: center;
   padding: 12px;
-  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
 
   .hds-side-nav__home-link {
     margin-right: auto; // Q: Make more generic?
@@ -67,7 +66,7 @@
   height: 48px;
   padding: 4px;
   color: var(--token-side-nav-foreground-primary);
-  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
+  background: var(--token-side-nav-surface-default);
   border: 1px solid transparent;
   border-radius: 5px;
 
@@ -96,7 +95,7 @@ body .hds-side-nav__home-link {
 
 .hds-side-nav__home-link-icon {
   width: auto;
-  height: 35px;
+  height: 40px;
 }
 
 // * Sub-component: Body
@@ -104,22 +103,17 @@ body .hds-side-nav__home-link {
 .hds-side-nav__body {
   flex: 1;
   padding: 12px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .hds-side-nav__section {
-  color: var(--token-side-nav-foreground-primary); // Delete?
-  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
-
   & + & { margin-top: 28px; }
 }
 
 .hds-side-nav__section-title {
+  margin-bottom: 12px;
   padding: 0 var(--token-side-nav-item-padding-horizontal);
   color: var(--token-side-nav-foreground-faint);
-  background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
-
-  + .hds-side-nav__list { margin-top: 12px; }
 }
 
 .hds-side-nav__list {
@@ -147,7 +141,6 @@ body .hds-side-nav__home-link {
 // interactive "link" item
 .hds-side-nav__item--link {
   text-decoration: none;
-  overflow-wrap: break-word;
   border-color: transparent;
   border-radius: 5px;
 
@@ -193,8 +186,6 @@ body .hds-side-nav__item--link.mock-focus {
 .hds-side-nav__list-item-label { color: var(--token-side-nav-foreground-primary); }
 
 .hds-side-nav__list-item-icon {
-  width: 1rem;
-  min-width: 1rem;
   margin-right: 8px;
 }
 

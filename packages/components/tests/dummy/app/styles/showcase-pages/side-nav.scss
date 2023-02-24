@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// SIDE-NAV
+
+body.components-side-nav {
+  .shw-component-side-nav-box {
+    color: var(--token-side-nav-foreground-primary);
+    background: #0c0c0e;
+    border-radius: 5px;
+  }
+}
