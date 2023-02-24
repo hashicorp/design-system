@@ -1,11 +1,13 @@
 <Hds::Interactive
-  @href={{@href}}
-  @route={{@route}}
+  class="hds-side-nav__home-link"
+  @current-when={{@current-when}}
   @models={{hds-link-to-models @model @models}}
   @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
   @isRouteExternal={{@isRouteExternal}}
-  @current-when={{@current-when}}
-  class="hds-side-nav__home-link"
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
   ...attributes
 >
   <FlightIcon
