@@ -72,7 +72,7 @@ module('Integration | Component | flight-icon', function (hooks) {
   });
   test('the color property should accept :root variable values', async function (assert) {
     await render(
-      hbs`<FlightIcon @name="alert-circle" @color="var(--danger-d1)" />`
+      hbs`<FlightIcon @name="alert-circle" @color="var(--doc-color-feedback-critical-100)" />`
     );
     assert.dom(`svg.flight-icon`).hasStyle({
       fill: 'rgb(186, 34, 38)',
