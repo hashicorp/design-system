@@ -12,9 +12,44 @@
 
   <Shw::Text::Body>Contains named blocks for :header, :body, and :footer</Shw::Text::Body>
 
+  <Shw::Text::Body>No content:</Shw::Text::Body>
   <div class="shw-component-side-nav-wrapper">
     <Hds::SideNav>
       <:header>
+      </:header>
+
+      <:body>
+      </:body>
+
+      <:footer>
+      </:footer>
+    </Hds::SideNav>
+  </div>
+
+  <Shw::Text::Body>With extra content in :header block:</Shw::Text::Body>
+  <div class="shw-component-side-nav-wrapper">
+    <Hds::SideNav>
+      <:header>
+        <Hds::SideNav::Header>
+          <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="settings menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Separator />
+            <dd.Interactive @href="#" @text="Settings and Preferences" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </Hds::SideNav::Header>
+
+        Extra generic content in header
       </:header>
 
       <:body>
@@ -38,7 +73,7 @@
     <Hds::SideNav::Header>
       <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
 
-      <Hds::Dropdown as |dd|>
+      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
         <dd.ToggleIcon @icon="help" @text="settings menu" />
         <dd.Title @text="Signed In" />
         <dd.Description @text="email@domain.com" />
@@ -46,7 +81,7 @@
         <dd.Interactive @href="#" @text="Settings and Preferences" />
       </Hds::Dropdown>
 
-      <Hds::Dropdown as |dd|>
+      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
         <dd.ToggleIcon @icon="user" @text="user menu" />
         <dd.Title @text="Signed In" />
         <dd.Description @text="email@domain.com" />
@@ -232,7 +267,7 @@
         <Hds::SideNav::Header>
           <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
 
-          <Hds::Dropdown as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
@@ -240,7 +275,7 @@
             <dd.Interactive @href="#" @text="Settings and Preferences" />
           </Hds::Dropdown>
 
-          <Hds::Dropdown as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />

@@ -22,7 +22,7 @@
   --token-side-nav-interactive-surface-hover: #3b3d45;
   --token-side-nav-interactive-surface-active: #656a76;
 
-  // selected:
+  // selected / current:
   --token-side-nav-interactive-selected-surface-default: #656a76;
   --token-side-nav-interactive-selected-surface-hover: #3b3d45;
   --token-side-nav-interactive-selected-surface-active: #656a76;
@@ -51,11 +51,6 @@
 
   .hds-side-nav__home-link {
     margin-right: auto; // Q: Make more generic?
-  }
-
-  // TEMP HACK ONLY! (TODO: replace)
-  .hds-disclosure__toggle:not(:hover) * {
-    color: var(--token-side-nav-foreground-primary) !important;
   }
 }
 
@@ -92,6 +87,21 @@
 .hds-side-nav__home-link-icon {
   width: auto;
   height: 40px;
+}
+
+// class name only, no component:
+.hds-side-nav__dropdown {
+  .hds-dropdown-toggle-icon {
+    color: var(--token-side-nav-foreground-primary);
+
+    &:hover {
+      background: var(--token-side-nav-interactive-surface-hover);
+    }
+
+    &:active {
+      background: var(--token-side-nav-interactive-surface-active);
+    }
+  }
 }
 
 // * Sub-component: Body
