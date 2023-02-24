@@ -353,6 +353,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item__interactive-text {
+  flex: 1;
   text-align: left; // the button element was centering text
 }
 
@@ -445,28 +446,24 @@ $hds-dropdown-toggle-border-radius: 5px;
       }
     }
   }
-
-  .hds-dropdown-list-item__interactive-text {
-    flex: 1;
-  }
 }
 
 .hds-dropdown-list-item--checkmark-selected {
   a.hds-dropdown-list-item__interactive,
   button.hds-dropdown-list-item__interactive {
-    padding-right: 9px; // reset to default
     color: var(--token-color-foreground-action);
   }
 }
 
 .hds-dropdown-list-item__checkmark {
+  display: flex;
   align-self: flex-start;
   width: 20px;
   height: 20px; // replicating the resulted height of the list item
 }
 
 .hds-dropdown-list-item__checkmark-icon {
-  height: inherit;
+  align-self: center;
 }
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
@@ -484,7 +481,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
   .hds-dropdown-list-item__label {
     flex-grow: 1;
-    width: fit-content;
     color: var(--token-color-foreground-primary);
   }
 }
