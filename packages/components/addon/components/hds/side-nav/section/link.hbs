@@ -4,17 +4,16 @@
     @route={{@route}}
     @models={{hds-link-to-models @model @models}}
     @query={{hds-link-to-query @query}}
-    @icon={{@icon}}
     @isRouteExternal={{@isRouteExternal}}
     @current-when={{@current-when}}
     class="hds-side-nav__item hds-side-nav__item--link"
     ...attributes
   >
     {{#if @icon}}
-      <FlightIcon class="hds-side-nav__list-icon" @name={{@icon}} @stretched={{true}} />
+      <FlightIcon class="hds-side-nav__list-item-icon" @name={{@icon}} @stretched={{true}} />
     {{/if}}
 
-    <span class="hds-side-nav-label hds-typography-body-200 hds-font-weight-medium">
+    <span class="hds-side-nav__list-item-label hds-typography-body-200 hds-font-weight-medium">
       {{@label}}
     </span>
 

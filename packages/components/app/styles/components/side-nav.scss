@@ -111,7 +111,7 @@ body .hds-side-nav__header-logo {
   color: var(--token-side-nav-foreground-primary); // Delete?
   background: var(--token-side-nav-surface-default); // Q: Should this be added here or should it just be transparent?
 
-  + .hds-side-nav__section { margin-top: 28px; }
+  & + & { margin-top: 28px; }
 }
 
 .hds-side-nav__section-title {
@@ -130,7 +130,7 @@ body .hds-side-nav__header-logo {
 .hds-side-nav__list-item {
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
-  + .hds-side-nav__list-item { margin-top: 4px; }
+  & + & { margin-top: 4px; }
 }
 
 // generic item
