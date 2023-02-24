@@ -31,8 +31,7 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test"
+    "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
     "@hashicorp/flight-icons": "^2.12.0",
@@ -46,8 +45,6 @@
     "@embroider/test-setup": "^1.8.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@percy/cli": "^1.19.2",
-    "@percy/ember": "^4.2.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~4.7.0",
