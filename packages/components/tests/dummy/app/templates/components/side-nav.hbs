@@ -2,15 +2,15 @@
 
 <Shw::Text::H1>SideNav</Shw::Text::H1>
 
-<Shw::Text::Body><strong>Note:</strong>
-  This is a WIP. Content, components, & naming will be refined before release.</Shw::Text::Body>
-
 <Shw::Text::H2>Standalone components:</Shw::Text::H2>
 
 <section data-test-percy>
   <Shw::Text::H3>Hds::SideNav / Wrapper:</Shw::Text::H3>
 
-  <Shw::Text::Body>Contains named blocks for :header, :body, and :footer</Shw::Text::Body>
+  <Shw::Text::Body>Contains named blocks for
+    <code>:header</code>,
+    <code>:body</code>, and
+    <code>:footer</code></Shw::Text::Body>
 
   <Shw::Text::Body>No content:</Shw::Text::Body>
   <div class="shw-component-side-nav-wrapper">
@@ -25,8 +25,70 @@
       </:footer>
     </Hds::SideNav>
   </div>
+</section>
 
-  <Shw::Text::Body>With extra content in :header block:</Shw::Text::Body>
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::Header</Shw::Text::H3>
+
+  <Shw::Text::Body>Layout wrapper used within the
+    <code>:header</code>
+    named block. Provides layout for the HomeLink and other header content such as dropdowns.</Shw::Text::Body>
+
+  <div class="shw-component-side-nav-box">
+    <Hds::SideNav::Header>
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+
+      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+        <dd.ToggleIcon @icon="help" @text="settings menu" />
+        <dd.Title @text="Signed In" />
+        <dd.Description @text="email@domain.com" />
+        <dd.Separator />
+        <dd.Interactive @href="#" @text="Settings and Preferences" />
+      </Hds::Dropdown>
+
+      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+        <dd.ToggleIcon @icon="user" @text="user menu" />
+        <dd.Title @text="Signed In" />
+        <dd.Description @text="email@domain.com" />
+        <dd.Interactive @href="#" @text="Account Settings" />
+      </Hds::Dropdown>
+    </Hds::SideNav::Header>
+  </div>
+</section>
+
+<section data-test-percy>
+  <Shw::Text::H3>Hds::SideNav::HomeLink</Shw::Text::H3>
+  <Shw::Text::Body>
+    Used as the first child of the
+    <code>Hds::SideNav::Header</code>
+    layout component within the
+    <code>:header</code>
+    named block.
+  </Shw::Text::Body>
+
+  <Shw::Grid @columns={{4}} @label="States" as |SG|>
+    <SG.Item @label="default:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+    </SG.Item>
+
+    <SG.Item @label="hover:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="hover" />
+    </SG.Item>
+
+    <SG.Item @label="active:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="active" />
+    </SG.Item>
+
+    <SG.Item @label="focused:">
+      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="mock-focus" />
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::Body>Hds::SideNav / Wrapper: with both "standard" content and extra generic content in the
+    <code>:header</code>
+    block.</Shw::Text::Body>
   <div class="shw-component-side-nav-wrapper">
     <Hds::SideNav>
       <:header>
@@ -64,78 +126,27 @@
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav::Header</Shw::Text::H3>
-
-  <Shw::Text::Body>Layout wrapper used within the :header named block. Provides layout for the HomeLink and other header
-    content such as dropdowns.</Shw::Text::Body>
+  <Shw::Text::H3>Hds::SideNav::Section</Shw::Text::H3>
+  <Shw::Text::Body>Used within the
+    <code>:body</code>
+    named block to contain a list of Items, or other generic content. Adds standardized margins between other Sections.</Shw::Text::Body>
 
   <div class="shw-component-side-nav-box">
-    <Hds::SideNav::Header>
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+    <Hds::SideNav::Section as |S|>
+      <S.Generic>
+        Example 1: Add Title, Link / Item, or Generic content
+      </S.Generic>
+    </Hds::SideNav::Section>
 
-      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-        <dd.ToggleIcon @icon="help" @text="settings menu" />
-        <dd.Title @text="Signed In" />
-        <dd.Description @text="email@domain.com" />
-        <dd.Separator />
-        <dd.Interactive @href="#" @text="Settings and Preferences" />
-      </Hds::Dropdown>
-
-      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-        <dd.ToggleIcon @icon="user" @text="user menu" />
-        <dd.Title @text="Signed In" />
-        <dd.Description @text="email@domain.com" />
-        <dd.Interactive @href="#" @text="Account Settings" />
-      </Hds::Dropdown>
-    </Hds::SideNav::Header>
+    <Hds::SideNav::Section as |S|>
+      <S.Generic>
+        Example 2: Add Title, Link / Item, or Generic content
+      </S.Generic>
+    </Hds::SideNav::Section>
   </div>
-</section>
-
-<section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav::HomeLink</Shw::Text::H3>
-  <Shw::Text::Body>
-    HomeLink used as the first child of the Hds::SideNav::Header layout component which goes in the :header named block.
-  </Shw::Text::Body>
-
-  <Shw::Grid @columns={{4}} @label="States" as |SG|>
-    <SG.Item @label="default:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
-    </SG.Item>
-
-    <SG.Item @label="hover:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="hover" />
-    </SG.Item>
-
-    <SG.Item @label="active:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="active" />
-    </SG.Item>
-
-    <SG.Item @label="focused:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="mock-focus" />
-    </SG.Item>
-  </Shw::Grid>
-</section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav::Section / Group</Shw::Text::H3>
-  <Shw::Text::Body>Container used within :body named block for groups of "Links" / "Items", BackButtons, or Generic
-    items. Adds standardized margins inbetween other section groups.</Shw::Text::Body>
-
-  <Hds::SideNav::Section as |S|>
-    <S.Generic>
-      Example 1: Add Title, Link / Item, or Generic content
-    </S.Generic>
-  </Hds::SideNav::Section>
-  <Hds::SideNav::Section as |S|>
-    <S.Generic>
-      Example 2: Add Title, Link / Item, or Generic content
-    </S.Generic>
-  </Hds::SideNav::Section>
 
   <Shw::Text::Body>
-    Containing a Link with no title:
+    Containing a single Item with a nested Link:
   </Shw::Text::Body>
 
   <Hds::SideNav::Section as |S|>
@@ -143,21 +154,23 @@
   </Hds::SideNav::Section>
 
   <Shw::Text::Body>
-    Containing a title and multiple Links:
+    Containing a Title and multiple Items with nested Links:
   </Shw::Text::Body>
 
-  <Hds::SideNav::Section as |S|>
-    <S.Title>Services</S.Title>
+  <div class="shw-component-side-nav-box">
+    <Hds::SideNav::Section as |S|>
+      <S.Title>Services</S.Title>
 
-    <S.Link @label="Boundary" @icon="boundary" @href="#" />
-    <S.Link @label="Consul" @icon="consul" @href="#" />
-    <S.Link @label="Packer" @icon="packer" @href="#" />
-    <S.Link @label="Vault" @icon="vault" @href="#" />
-    <S.Link @label="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
-    <S.Link @label="Terraform" @icon="terraform" @href="#" />
-    <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-    <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @href="#" />
-  </Hds::SideNav::Section>
+      <S.Link @label="Boundary" @icon="boundary" @href="#" />
+      <S.Link @label="Consul" @icon="consul" @href="#" />
+      <S.Link @label="Packer" @icon="packer" @href="#" />
+      <S.Link @label="Vault" @icon="vault" @href="#" />
+      <S.Link @label="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
+      <S.Link @label="Terraform" @icon="terraform" @href="#" />
+      <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+      <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @href="#" />
+    </Hds::SideNav::Section>
+  </div>
 </section>
 
 <section data-test-percy>
@@ -167,7 +180,7 @@
 
 <section data-test-percy>
   <Shw::Text::H3>Hds::SideNav::Section::Title</Shw::Text::H3>
-  <Shw::Text::Body>The header for a Section group of "Links" / "Items"</Shw::Text::Body>
+  <Shw::Text::Body>The header for a list of Items within a Section</Shw::Text::Body>
 
   <div class="shw-component-side-nav-box">
     <Hds::SideNav::Section::Title>Group title</Hds::SideNav::Section::Title>
@@ -184,13 +197,13 @@
   <Shw::Text::H3>Hds::SideNav::Section::List::Generic</Shw::Text::H3>
 
   <Shw::Text::Body>
-    Generic content which goes inside a Hds::SideNav::Section but is not part of a list of links/items
+    Generic content inside a Hds::SideNav::Section which is not part of a list of Items
   </Shw::Text::Body>
 
   <div class="shw-component-side-nav-box">
     <Hds::SideNav::Section as |S|>
       <S.Generic>
-        Generic section group content
+        Generic section content
       </S.Generic>
     </Hds::SideNav::Section>
   </div>
@@ -259,7 +272,7 @@
 </section>
 
 <section data-test-percy>
-  <Shw::Text::H2>All together</Shw::Text::H2>
+  <Shw::Text::H2>All together:</Shw::Text::H2>
 
   <div class="shw-component-side-nav-wrapper">
     <Hds::SideNav>
